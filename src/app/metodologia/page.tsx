@@ -33,19 +33,25 @@ export default function MetodologiaPage() {
       <section className="card space-y-2 p-4">
         <h2 className="font-semibold">Cálculo da média</h2>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-          Para cada disputa e cenário (conjunto de candidatos testado), a média é a média simples
-          das pesquisas com trabalho de campo encerrado nos últimos 30 dias contados da pesquisa
-          mais recente — nunca do dia de hoje, para que disputas com dados antigos apareçam
-          claramente datadas. Se houver menos de 3 pesquisas na janela, usam-se as 3 mais
-          recentes. Cada instituto entra no máximo uma vez por janela (a pesquisa mais nova),
-          para que institutos que publicam com mais frequência não dominem a média.
+          Para cada disputa, a média é a média simples das <strong>10 pesquisas mais recentes</strong>{" "}
+          daquela disputa, ordenadas pela data de encerramento do trabalho de campo. É um número
+          fixo de pesquisas — não uma janela de dias —, de modo que todas as disputas usam a mesma
+          base, das mais pesquisadas às menos pesquisadas. Disputas com menos de 10 pesquisas usam
+          todas as que existem, e a quantidade efetivamente usada aparece sempre ao lado dos
+          números, junto com a data da pesquisa mais recente.
         </p>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-          No 1º turno, a média de cada candidato usa as pesquisas que testaram aquele candidato
-          (o nº de pesquisas aparece por candidato). Confrontos de 2º turno nunca são misturados:
-          cada par de candidatos tem sua própria média. Nomes são unificados entre fontes
-          (&ldquo;Lula&rdquo; e &ldquo;Luiz Inácio Lula da Silva&rdquo; são a mesma série). A linha
-          do tempo aplica a mesma janela móvel de 30 dias em cada ponto da série.
+          Consequência a conhecer: como não há limite por instituto, um instituto que publique com
+          muita frequência pode ocupar várias das 10 vagas de uma disputa. A tabela completa abaixo
+          de cada média mostra exatamente quais pesquisas entraram.
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          No 1º turno, a média de cada candidato usa, dentre essas 10, as pesquisas que testaram
+          aquele candidato. Confrontos de 2º turno nunca são misturados: cada par de candidatos é
+          uma disputa própria, com suas 10 pesquisas mais recentes. Nomes são unificados entre
+          fontes (&ldquo;Lula&rdquo; e &ldquo;Luiz Inácio Lula da Silva&rdquo; são a mesma série).
+          A linha do tempo aplica a mesma regra retroativamente: cada ponto é a média das 10
+          pesquisas divulgadas até aquela data — ou seja, o que a média do site mostraria naquele dia.
         </p>
       </section>
 

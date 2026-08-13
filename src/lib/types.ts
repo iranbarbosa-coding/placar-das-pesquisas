@@ -77,7 +77,9 @@ export interface RaceAverage {
   scenario: string; // scenario group this average was computed over
   candidates: CandidateAverage[]; // sorted desc by avg
   spread: number; // leader minus runner-up
-  windowDays: number;
+  /** Max polls the average may include (the "latest N" rule). */
+  windowSize: number;
+  /** Polls actually averaged — ≤ windowSize when the seat has fewer. */
   pollCount: number;
   lastPollDate: string | null;
 }

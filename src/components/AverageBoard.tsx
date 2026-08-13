@@ -15,7 +15,8 @@ export default function AverageBoard({ avg, title }: { avg: RaceAverage; title?:
     <div className="card p-4">
       {title && <h3 className="mb-1 text-sm font-semibold">{title}</h3>}
       <p className="mb-3 text-xs" style={{ color: "var(--text-muted)" }}>
-        Média de {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} · última em {fmtDate(avg.lastPollDate)}
+        Média das {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} mais recentes · última em{" "}
+        {fmtDate(avg.lastPollDate)}
         {runnerUp && (
           <>
             {" · "}
@@ -33,6 +34,14 @@ export default function AverageBoard({ avg, title }: { avg: RaceAverage; title?:
               {c.party && (
                 <span className="ml-1 text-xs" style={{ color: "var(--text-muted)" }}>
                   ({c.party})
+                </span>
+              )}
+              {/* A candidate tested in only some of the window's polls is
+                  averaged over those — say so, rather than showing a number
+                  that looks equally well-based as the leaders'. */}
+              {c.nPolls < avg.pollCount && (
+                <span className="ml-1 text-xs" style={{ color: "var(--text-muted)" }}>
+                  · {c.nPolls} de {avg.pollCount}
                 </span>
               )}
             </span>

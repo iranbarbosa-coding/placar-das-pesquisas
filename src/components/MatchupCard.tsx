@@ -66,7 +66,8 @@ export default function MatchupCard({
         <div className="ml-auto" style={{ width: `${(b.avg / total) * 100}%`, background: "var(--series-2)" }} />
       </div>
       <div className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-        {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} na média · última em {fmtDate(avg.lastPollDate)}
+        {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} mais recente{avg.pollCount === 1 ? "" : "s"} · última em{" "}
+        {fmtDate(avg.lastPollDate)}
       </div>
     </Link>
   );

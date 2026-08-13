@@ -5,21 +5,13 @@ import type {
   RaceKey,
 } from "./types";
 
-// RCP-style average: mean of each candidate's numbers over the most recent
-// polls in a trailing window. Rules, in order:
-//   1. Window = polls with fieldwork_end within WINDOW_DAYS of the most
-//      recent poll in the scenario group (not of "today" — a race whose last
-//      poll is 3 months old still shows an average, clearly dated).
-//   2. If the window holds fewer than MIN_POLLS, extend to the last
-//      MIN_POLLS polls regardless of date.
-//   3. One poll per pollster per window (the most recent) — prevents a
-//      pollster that publishes weekly from dominating the average.
-const WINDOW_DAYS = 30;
-const MIN_POLLS = 3;
-
-function daysBetween(a: string, b: string): number {
-  return Math.abs(+new Date(a) - +new Date(b)) / 86_400_000;
-}
+// RCP-style average: for each contest (seat + scenario), the mean of each
+// candidate's numbers across the LATEST_N most recent polls of that contest.
+// A fixed poll count — not a date window — so every seat shows an average on
+// the same basis regardless of how densely it is polled; a seat with fewer
+// than LATEST_N polls averages all it has, and the poll count is always shown
+// beside the numbers.
+const LATEST_N = 10;
 
 function pollDate(p: Poll): string | null {
   return p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? null;
@@ -34,26 +26,9 @@ export function sortPollsDesc(polls: Poll[]): Poll[] {
   });
 }
 
-/** Latest poll per pollster within a list (assumes newest-first input). */
-function dedupePollster(polls: Poll[]): Poll[] {
-  const seen = new Set<string>();
-  return polls.filter((p) => {
-    const k = p.pollster.toLowerCase();
-    if (seen.has(k)) return false;
-    seen.add(k);
-    return true;
-  });
-}
-
+/** The polls that make up the average: the LATEST_N newest (newest-first in). */
 function selectWindow(sorted: Poll[]): Poll[] {
-  const anchor = sorted.length ? pollDate(sorted[0]) : null;
-  if (!anchor) return sorted.slice(0, MIN_POLLS);
-  const inWindow = sorted.filter((p) => {
-    const d = pollDate(p);
-    return d !== null && daysBetween(d, anchor) <= WINDOW_DAYS;
-  });
-  const base = inWindow.length >= MIN_POLLS ? inWindow : sorted.slice(0, MIN_POLLS);
-  return dedupePollster(base);
+  return sorted.slice(0, LATEST_N);
 }
 
 function mean(xs: number[]): number {
@@ -70,10 +45,10 @@ export function candKey(name: string): string {
 }
 
 /**
- * Daily rolling-average series for the trendline chart: for each day between
- * first and last poll, average of polls in the trailing WINDOW_DAYS
- * (pollster-deduped), per candidate. Sampled every `stepDays` to keep the
- * series small.
+ * Trendline series: the same LATEST_N rule applied backwards through time —
+ * at each sampled day, the average of the LATEST_N polls published up to that
+ * day. The line therefore shows what the site's headline average would have
+ * read on that date. Sampled every `stepDays` to keep the series small.
  */
 function buildTrends(
   sorted: Poll[],
@@ -87,22 +62,29 @@ function buildTrends(
   const first = new Date(pollDate(dated[dated.length - 1])!);
   const last = new Date(pollDate(dated[0])!);
 
+  // Sampled days, always ending exactly on the last poll's date so the line's
+  // final point equals the headline average (a 3-day step would otherwise
+  // stop short and print a different number beside the same chart).
+  const days: string[] = [];
   for (let t = +first; t <= +last; t += stepDays * 86_400_000) {
-    const day = new Date(t).toISOString().slice(0, 10);
-    const upTo = dated.filter((p) => pollDate(p)! <= day);
-    const inWindow = dedupePollster(
-      upTo.filter((p) => daysBetween(pollDate(p)!, day) <= WINDOW_DAYS),
-    );
-    if (!inWindow.length) continue;
-    for (const [key, meta] of candidates) {
-      const vals = inWindow
+    days.push(new Date(t).toISOString().slice(0, 10));
+  }
+  const lastDay = pollDate(dated[0])!;
+  if (days[days.length - 1] !== lastDay) days.push(lastDay);
+
+  for (const day of days) {
+    // `dated` is newest-first, so the first LATEST_N entries at or before
+    // `day` are exactly that day's window.
+    const window = dated.filter((p) => pollDate(p)! <= day).slice(0, LATEST_N);
+    if (!window.length) continue;
+    for (const key of candidates.keys()) {
+      const vals = window
         .map((p) => p.results.find((r) => candKey(r.candidate) === key)?.pct)
         .filter((v): v is number => v !== undefined);
       if (!vals.length) continue;
       if (!trends.has(key)) trends.set(key, []);
       trends.get(key)!.push({ date: day, avg: round1(mean(vals)) });
     }
-    void candidates.get; // keep meta referenced for clarity
   }
   return trends;
 }
@@ -161,7 +143,7 @@ export function computeAverage(
     spread: round1(
       candidates.length > 1 ? candidates[0].avg - candidates[1].avg : candidates[0].avg,
     ),
-    windowDays: WINDOW_DAYS,
+    windowSize: LATEST_N,
     pollCount: window.length,
     lastPollDate: pollDate(sorted[0]),
   };
