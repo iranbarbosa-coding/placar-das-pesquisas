@@ -56,15 +56,33 @@ function pollsterTokens(name) {
   );
 }
 
+// Institutes whose brandings share no token — undiscoverable by clustering.
+// Found by receipt-check (identical registered polls under both names).
+const POLLSTER_ALIASES = new Map([
+  ["indexa", "Data Index"],
+  ["atlasinstel", "AtlasIntel"], // recurring typo in wiki tables
+  ["cnt", "MDA"], // CNT is MDA's contractor; wiki sometimes credits CNT alone
+]);
+
 /** Remove wikitext leakage, regional qualifiers and noise from an institute name. */
 export function sanitizePollsterName(name) {
-  return name
+  const clean = name
     .split("{{")[0] // citation-template leakage from wiki cells
     .replace(/\s*\([^)]*\)\s*/g, " ") // "(Belém)", "(Baixo Amazonas)" regional editions
     .replace(/\s+/g, " ")
     .replace(/[\s/|,;–-]+$/g, "")
     .trim()
     .slice(0, 60);
+  const aliased = POLLSTER_ALIASES.get(pollsterKeyOf(clean));
+  return aliased ?? clean;
+}
+
+function pollsterKeyOf(name) {
+  return name
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
 }
 
 export function canonicalizePollsters(polls) {
@@ -80,17 +98,21 @@ export function canonicalizePollsters(polls) {
   const canonicalOf = new Map();
   for (const name of names) {
     const tk = pollsterTokens(name);
+    // The segment after the last "/" is the institute; a match there beats
+    // a match on the partner/contractor prefix ("100%Cidades/Futura" must
+    // join "Futura", not a "100% Cidades" cluster).
+    const finalTk = pollsterTokens(name.split("/").pop() ?? name);
     let best = null;
-    let bestOverlap = 0;
+    let bestScore = 0;
     for (const c of clusters) {
-      let overlap = 0;
-      for (const t of tk) if (c.seedTokens.has(t)) overlap++;
-      if (overlap > bestOverlap) {
-        bestOverlap = overlap;
+      let score = 0;
+      for (const t of tk) if (c.seedTokens.has(t)) score += finalTk.has(t) ? 3 : 1;
+      if (score > bestScore) {
+        bestScore = score;
         best = c;
       }
     }
-    if (best && bestOverlap >= 1) best.members.push(name);
+    if (best && bestScore >= 1) best.members.push(name);
     else clusters.push({ seed: name, seedTokens: tk, members: [name] });
   }
   for (const c of clusters) {

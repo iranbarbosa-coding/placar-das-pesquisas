@@ -115,6 +115,60 @@ function keepFullestRound1(polls) {
   return [...rest, ...best.values()];
 }
 
+/**
+ * Backstop against institute aliases no clustering can discover ("Data Index"
+ * ≡ "Indexa"): two polls in the same contest, ≤3 days apart, whose rosters
+ * match with IDENTICAL percentages (and compatible sample sizes) are the same
+ * poll published under two brandings. Keep the higher-priority source's copy.
+ */
+function dropExactDuplicates(polls) {
+  const groups = new Map();
+  for (const p of polls) {
+    const k = `${p.race}:${p.state ?? "BR"}:${p.round}`;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(p);
+  }
+  const dropped = new Set();
+  for (const group of groups.values()) {
+    group.sort((a, b) => (pollDate(a) ?? "").localeCompare(pollDate(b) ?? ""));
+    for (let i = 0; i < group.length; i++) {
+      if (dropped.has(group[i])) continue;
+      for (let j = i + 1; j < group.length; j++) {
+        const a = group[i];
+        const b = group[j];
+        if (dropped.has(b)) continue;
+        const da = pollDate(a);
+        const db = pollDate(b);
+        if (da && db && +new Date(db) - +new Date(da) > 3 * 86_400_000) break;
+        if (a.pollster === b.pollster) continue; // same institute handled upstream
+        if (a.sample_size && b.sample_size && a.sample_size !== b.sample_size) continue;
+        const small = a.results.length <= b.results.length ? a : b;
+        const large = small === a ? b : a;
+        let matched = 0;
+        let identical = 0;
+        for (const r of small.results) {
+          const s = large.results.find((x) => sameCandidate(r.candidate, x.candidate));
+          if (s) {
+            matched++;
+            if (Math.abs(s.pct - r.pct) <= 0.05) identical++;
+          }
+        }
+        // With only 2 matched candidates (runoff toplines) two institutes can
+        // coincide legitimately — demand exact same date AND same sample size.
+        const strongEnough =
+          matched >= 3 ||
+          (matched === 2 && da && da === db && a.sample_size && a.sample_size === b.sample_size);
+        if (matched / small.results.length >= 0.9 && identical === matched && strongEnough) {
+          const loser = (SOURCE_PRIORITY[a.source] ?? 1) >= (SOURCE_PRIORITY[b.source] ?? 1) ? b : a;
+          dropped.add(loser);
+          console.warn(`duplicata entre marcas: ${a.pollster} ≡ ${b.pollster} (${a.race}/${a.state ?? "BR"} ${da ?? "?"}) — mantida a de maior prioridade`);
+        }
+      }
+    }
+  }
+  return polls.filter((p) => !dropped.has(p));
+}
+
 async function runSource(name, fn, previous) {
   try {
     const r = await fn();
@@ -160,15 +214,30 @@ async function main() {
   //  - drop rows that are parties, not people ("Partido Comunista Brasileiro",
   //    "Unidade Popular"), and table artifacts ("Cen.")
   const JUNK = /^(partido\b|unidade popular\b|federa[çc][ãa]o\b|cen\.?$|outros?\b|nenhum\b)/i;
+  // Party-preference tables on state pages leak rows where the "candidate" is
+  // a party. Full party names + bare acronyms are not people.
+  const PARTY_NAMES = new Set([
+    "movimento democratico brasileiro", "uniao brasil", "republicanos",
+    "progressistas", "partido liberal", "partido dos trabalhadores",
+    "partido verde", "rede sustentabilidade", "cidadania", "podemos",
+    "avante", "solidariedade", "novo", "missao", "mobiliza", "agir",
+    "democracia crista", "partido social democratico",
+  ]);
+  const normName = (s) =>
+    s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+  const isPartyRow = (r) =>
+    PARTY_NAMES.has(normName(r.candidate)) ||
+    /^[A-Z]{2,6}(?: ?d[oa][BC])?$/.test(r.candidate.trim()); // PT, PL, PSOL, PCdoB…
   for (const p of polls) {
     p.results = p.results
       .map((r) => ({ ...r, candidate: r.candidate.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim() }))
-      .filter((r) => r.candidate && !JUNK.test(r.candidate));
+      .filter((r) => r.candidate && !JUNK.test(r.candidate) && !isPartyRow(r));
   }
   polls = polls.filter((p) => p.results.length > 0);
 
   polls = keepFullestRound1(polls);
   polls = canonicalizeCandidates(polls);
+  polls = dropExactDuplicates(polls);
 
   // Null future dates (upstream typos like "2026-08-29" published on Aug 12):
   // a future anchor would corrupt every rolling-average window.

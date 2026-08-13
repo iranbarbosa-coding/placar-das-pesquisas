@@ -25,7 +25,7 @@ const UF_IDS = {
 };
 const CARGO = { governador: 1, presidente: 3, senador: 4 };
 
-const UNDECIDED_RE = /não sabe|nao sabe|não respond|nao respond|indecis|ningu[eé]m/i;
+const UNDECIDED_RE = /não sabe|nao sabe|não respond|nao respond|indecis|ningu[eé]m|não vota|nao vota/i;
 const BLANK_RE = /branco|nulo|nenhum/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
