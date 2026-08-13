@@ -1,0 +1,46 @@
+name: Atualizar pesquisas
+
+on:
+  schedule:
+    # 2x daily (UTC): 12:15 (after TSE's ~08:47 UTC regeneration; morning BRT)
+    # and 22:15 (evening BRT, catching afternoon poll releases). Kept to two
+    # runs to stay polite with Poder360's undocumented API (~170 calls/run).
+    - cron: "15 12,22 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-polls
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Coletar e normalizar pesquisas
+        run: node scripts/scrape.mjs
+
+      - name: Validar banco de dados
+        run: node scripts/validate-data.mjs data/polls.json
+
+      - name: Commit se houver mudanças
+        run: |
+          git config user.name "placar-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet data/; then
+            echo "Sem pesquisas novas."
+          else
+            git add data/
+            git commit -m "dados: atualização automática $(date -u +%F' '%H:%M) UTC"
+            git push
+          fi
+      # O push em data/ dispara o rebuild automático no Vercel (site é 100% estático).
