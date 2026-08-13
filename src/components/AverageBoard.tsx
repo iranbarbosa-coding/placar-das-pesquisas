@@ -15,7 +15,8 @@ export default function AverageBoard({ avg, title }: { avg: RaceAverage; title?:
     <div className="card p-4">
       {title && <h3 className="mb-1 text-sm font-semibold">{title}</h3>}
       <p className="mb-3 text-xs" style={{ color: "var(--text-muted)" }}>
-        Média das {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} mais recentes · última em{" "}
+        Média das {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} mais recentes
+        {avg.capRelaxed ? "" : ` (máx. ${avg.maxPerPollster} por instituto)`} · última em{" "}
         {fmtDate(avg.lastPollDate)}
         {runnerUp && (
           <>
@@ -26,6 +27,12 @@ export default function AverageBoard({ avg, title }: { avg: RaceAverage; title?:
           </>
         )}
       </p>
+      {avg.capRelaxed && (
+        <p className="mb-3 text-xs" style={{ color: "var(--text-muted)" }}>
+          Base mínima: há poucas pesquisas nesta disputa, por isso o limite de{" "}
+          {avg.maxPerPollster} pesquisas por instituto foi flexibilizado.
+        </p>
+      )}
       <ul className="space-y-2">
         {avg.candidates.slice(0, 8).map((c, i) => (
           <li key={c.candidate} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-0.5">

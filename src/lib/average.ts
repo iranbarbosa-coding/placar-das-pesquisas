@@ -6,12 +6,18 @@ import type {
 } from "./types";
 
 // RCP-style average: for each contest (seat + scenario), the mean of each
-// candidate's numbers across the LATEST_N most recent polls of that contest.
-// A fixed poll count — not a date window — so every seat shows an average on
-// the same basis regardless of how densely it is polled; a seat with fewer
-// than LATEST_N polls averages all it has, and the poll count is always shown
-// beside the numbers.
+// candidate's numbers across the LATEST_N most recent polls of that contest,
+// with at most MAX_PER_POLLSTER polls from any one institute so a house that
+// publishes weekly cannot carry the average on its own house effect.
+//
+// A fixed poll count — not a date window — so every seat is on the same basis
+// regardless of how densely it is polled. MIN_POLLS is a floor that outranks
+// the cap: in a thinly polled seat (e.g. four polls, all from one institute)
+// the cap would leave a two-poll average or less, so it yields and the board
+// says so rather than silently showing a capped-but-tiny base.
 const LATEST_N = 10;
+const MAX_PER_POLLSTER = 2;
+const MIN_POLLS = 3;
 
 function pollDate(p: Poll): string | null {
   return p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? null;
@@ -26,9 +32,42 @@ export function sortPollsDesc(polls: Poll[]): Poll[] {
   });
 }
 
-/** The polls that make up the average: the LATEST_N newest (newest-first in). */
-function selectWindow(sorted: Poll[]): Poll[] {
-  return sorted.slice(0, LATEST_N);
+function pollsterKey(p: Poll): string {
+  return p.pollster.toLowerCase().trim();
+}
+
+/**
+ * The polls that make up the average (input must be newest-first): walk from
+ * the newest, taking a poll unless its institute already holds
+ * MAX_PER_POLLSTER slots, until LATEST_N are held. If the cap leaves fewer
+ * than MIN_POLLS, backfill the skipped polls (newest first) up to that floor
+ * and report it via `capRelaxed`.
+ */
+function selectWindow(sorted: Poll[]): { window: Poll[]; capRelaxed: boolean } {
+  const picked: Poll[] = [];
+  const skipped: Poll[] = [];
+  const held = new Map<string, number>();
+
+  for (const p of sorted) {
+    if (picked.length >= LATEST_N) break;
+    const k = pollsterKey(p);
+    const n = held.get(k) ?? 0;
+    if (n >= MAX_PER_POLLSTER) {
+      skipped.push(p);
+      continue;
+    }
+    held.set(k, n + 1);
+    picked.push(p);
+  }
+
+  let capRelaxed = false;
+  for (const p of skipped) {
+    if (picked.length >= MIN_POLLS) break;
+    picked.push(p);
+    capRelaxed = true;
+  }
+
+  return { window: sortPollsDesc(picked), capRelaxed };
 }
 
 function mean(xs: number[]): number {
@@ -73,9 +112,9 @@ function buildTrends(
   if (days[days.length - 1] !== lastDay) days.push(lastDay);
 
   for (const day of days) {
-    // `dated` is newest-first, so the first LATEST_N entries at or before
-    // `day` are exactly that day's window.
-    const window = dated.filter((p) => pollDate(p)! <= day).slice(0, LATEST_N);
+    // Same selection rule as the headline average, applied to the polls
+    // published up to `day` (`dated` is newest-first).
+    const { window } = selectWindow(dated.filter((p) => pollDate(p)! <= day));
     if (!window.length) continue;
     for (const key of candidates.keys()) {
       const vals = window
@@ -101,7 +140,7 @@ export function computeAverage(
 ): RaceAverage | null {
   if (!polls.length) return null;
   const sorted = sortPollsDesc(polls);
-  const window = selectWindow(sorted);
+  const { window, capRelaxed } = selectWindow(sorted);
 
   // Candidate roster = anyone appearing in the window polls.
   const roster = new Map<string, { candidate: string; party: string | null }>();
@@ -144,6 +183,8 @@ export function computeAverage(
       candidates.length > 1 ? candidates[0].avg - candidates[1].avg : candidates[0].avg,
     ),
     windowSize: LATEST_N,
+    maxPerPollster: MAX_PER_POLLSTER,
+    capRelaxed,
     pollCount: window.length,
     lastPollDate: pollDate(sorted[0]),
   };

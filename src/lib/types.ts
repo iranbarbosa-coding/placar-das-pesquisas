@@ -79,6 +79,10 @@ export interface RaceAverage {
   spread: number; // leader minus runner-up
   /** Max polls the average may include (the "latest N" rule). */
   windowSize: number;
+  /** Max polls one institute may contribute. */
+  maxPerPollster: number;
+  /** True when a thin seat forced the per-institute cap to yield to the floor. */
+  capRelaxed: boolean;
   /** Polls actually averaged — ≤ windowSize when the seat has fewer. */
   pollCount: number;
   lastPollDate: string | null;

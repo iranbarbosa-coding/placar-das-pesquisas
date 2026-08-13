@@ -34,16 +34,20 @@ export default function MetodologiaPage() {
         <h2 className="font-semibold">Cálculo da média</h2>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
           Para cada disputa, a média é a média simples das <strong>10 pesquisas mais recentes</strong>{" "}
-          daquela disputa, ordenadas pela data de encerramento do trabalho de campo. É um número
-          fixo de pesquisas — não uma janela de dias —, de modo que todas as disputas usam a mesma
-          base, das mais pesquisadas às menos pesquisadas. Disputas com menos de 10 pesquisas usam
-          todas as que existem, e a quantidade efetivamente usada aparece sempre ao lado dos
-          números, junto com a data da pesquisa mais recente.
+          daquela disputa, ordenadas pela data de encerramento do trabalho de campo, com{" "}
+          <strong>no máximo 2 pesquisas por instituto</strong>. É um número fixo de pesquisas — não
+          uma janela de dias —, de modo que todas as disputas usam a mesma base, das mais
+          pesquisadas às menos pesquisadas. O limite por instituto impede que uma casa que publica
+          semanalmente carregue a média sozinha, com seu próprio viés metodológico. Disputas com
+          menos de 10 pesquisas usam todas as que existem (respeitado o limite), e a quantidade
+          efetivamente usada aparece sempre ao lado dos números.
         </p>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-          Consequência a conhecer: como não há limite por instituto, um instituto que publique com
-          muita frequência pode ocupar várias das 10 vagas de uma disputa. A tabela completa abaixo
-          de cada média mostra exatamente quais pesquisas entraram.
+          <strong>Base mínima de 3 pesquisas.</strong> Em disputas pouco pesquisadas, o limite de 2
+          por instituto poderia reduzir a média a uma ou duas pesquisas — pior do que o problema que
+          ele resolve. Nesses casos o limite cede até completar 3 pesquisas, e a média exibe o aviso
+          de base mínima. A tabela completa abaixo de cada média mostra todas as pesquisas da
+          disputa, inclusive as que ficaram de fora da janela.
         </p>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
           No 1º turno, a média de cada candidato usa, dentre essas 10, as pesquisas que testaram
