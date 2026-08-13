@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE, changeFrequency: "daily", priority: 1 },
     { url: `${BASE}/presidente`, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE}/segundo-turno`, changeFrequency: "daily", priority: 0.9 },
     { url: `${BASE}/estados`, changeFrequency: "daily", priority: 0.8 },
     ...UFS.map((uf) => ({
       url: `${BASE}/estados/${uf.toLowerCase()}`,

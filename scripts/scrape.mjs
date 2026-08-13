@@ -213,7 +213,8 @@ async function main() {
   //  - strip Wikipedia disambiguators: "Vera Lúcia (política)" → "Vera Lúcia"
   //  - drop rows that are parties, not people ("Partido Comunista Brasileiro",
   //    "Unidade Popular"), and table artifacts ("Cen.")
-  const JUNK = /^(partido\b|unidade popular\b|federa[çc][ãa]o\b|cen\.?$|outros?\b|nenhum\b)/i;
+  // No real candidate's name starts with "não" — those are abstention rows.
+  const JUNK = /^(partido\b|unidade popular\b|federa[çc][ãa]o\b|cen\.?$|outros?\b|nenhum\b|n[ãa]o\b)/i;
   // Party-preference tables on state pages leak rows where the "candidate" is
   // a party. Full party names + bare acronyms are not people.
   const PARTY_NAMES = new Set([

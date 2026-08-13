@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 const NAV = [
   { href: "/presidente", label: "Presidente" },
+  { href: "/segundo-turno", label: "2º turno" },
   { href: "/estados", label: "Estados" },
   { href: "/institutos", label: "Institutos" },
   { href: "/metodologia", label: "Metodologia" },

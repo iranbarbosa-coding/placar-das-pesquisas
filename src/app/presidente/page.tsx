@@ -18,9 +18,26 @@ export default function PresidentePage() {
         <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
           Médias e todas as pesquisas publicadas, por cenário testado pelos institutos.
         </p>
+        <TurnoTabs />
       </div>
-      <RaceSection groups={r1} heading="1º turno" />
-      <RaceSection groups={r2} heading="2º turno — confrontos diretos" />
+      <div id="turno1" className="scroll-mt-20">
+        <RaceSection groups={r1} heading="1º turno" />
+      </div>
+      <div id="turno2" className="scroll-mt-20">
+        <RaceSection groups={r2} heading="2º turno — confrontos diretos" />
+      </div>
     </div>
+  );
+}
+
+function TurnoTabs() {
+  return (
+    <nav className="mt-4 inline-flex gap-1 rounded-lg border p-1 text-sm font-medium" style={{ borderColor: "var(--ring)", background: "var(--surface-1)" }}>
+      <a href="#turno1" className="rounded-md px-3 py-1 hover:underline">1º turno</a>
+      <a href="#turno2" className="rounded-md px-3 py-1 hover:underline">2º turno</a>
+      <a href="/segundo-turno" className="rounded-md px-3 py-1 hover:underline" style={{ color: "var(--accent)" }}>
+        Todos os confrontos →
+      </a>
+    </nav>
   );
 }

@@ -25,7 +25,8 @@ const UF_IDS = {
 };
 const CARGO = { governador: 1, presidente: 3, senador: 4 };
 
-const UNDECIDED_RE = /não sabe|nao sabe|não respond|nao respond|indecis|ningu[eé]m|não vota|nao vota/i;
+// "não sabe", "não respondeu", "não vota", "não iria votar", "não votaria"…
+const UNDECIDED_RE = /n[ãa]o sabe|n[ãa]o respond|indecis|ningu[eé]m|n[ãa]o (iria |vai )?vota/i;
 const BLANK_RE = /branco|nulo|nenhum/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -117,6 +118,14 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
         tse_registration: m.registro ?? null,
       };
       if (!poll.pollster) continue;
+      // Poder360 occasionally files a poll under the wrong UF (seen live: a
+      // Veritá Paraná poll returned by the Pará query). The TSE registration
+      // prefix ("PR-03910/2026") is authoritative — correct the state to it.
+      const regUf = poll.tse_registration?.match(/^([A-Z]{2})-/)?.[1];
+      if (regUf && regUf !== "BR" && UF_IDS[regUf] && poll.state && regUf !== poll.state) {
+        console.warn(`poder360: UF corrigida via registro TSE — ${poll.pollster} ${poll.race} ${poll.state}→${regUf} (${poll.tse_registration})`);
+        poll.state = regUf;
+      }
       // Poder360 poll id + scenario index guarantee uniqueness within the
       // source; the content hash alone collides when an institute publishes
       // two same-day scenarios with identical labels.

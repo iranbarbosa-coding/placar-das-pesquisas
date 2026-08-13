@@ -29,10 +29,30 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
 
   return (
     <div className="space-y-12">
-      <h1 className="text-2xl font-bold">{UF_NAMES[UFU]} · Eleições 2026</h1>
-      <RaceSection groups={gov1} heading="Governador — 1º turno" />
-      {gov2.length > 0 && <RaceSection groups={gov2} heading="Governador — 2º turno" />}
-      <RaceSection groups={sen} heading="Senado" />
+      <div>
+        <h1 className="text-2xl font-bold">{UF_NAMES[UFU]} · Eleições 2026</h1>
+        <nav className="mt-4 inline-flex flex-wrap gap-1 rounded-lg border p-1 text-sm font-medium" style={{ borderColor: "var(--ring)", background: "var(--surface-1)" }}>
+          <a href="#turno1" className="rounded-md px-3 py-1 hover:underline">Governador · 1º turno</a>
+          {gov2.length > 0 && <a href="#turno2" className="rounded-md px-3 py-1 hover:underline">2º turno</a>}
+          <a href="#senado" className="rounded-md px-3 py-1 hover:underline">Senado</a>
+          {gov2.length > 0 && (
+            <a href="/segundo-turno" className="rounded-md px-3 py-1 hover:underline" style={{ color: "var(--accent)" }}>
+              Todos os confrontos →
+            </a>
+          )}
+        </nav>
+      </div>
+      <div id="turno1" className="scroll-mt-20">
+        <RaceSection groups={gov1} heading="Governador — 1º turno" />
+      </div>
+      {gov2.length > 0 && (
+        <div id="turno2" className="scroll-mt-20">
+          <RaceSection groups={gov2} heading="Governador — 2º turno" />
+        </div>
+      )}
+      <div id="senado" className="scroll-mt-20">
+        <RaceSection groups={sen} heading="Senado" />
+      </div>
     </div>
   );
 }
