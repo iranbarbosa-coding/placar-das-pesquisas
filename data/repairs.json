@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "note": "Correções curadas, verificadas contra a fonte primária (relatório do próprio instituto ou publicação oficial). Aplicadas em TODA execução do coletor, depois da fusão das fontes e antes do cálculo das médias — de modo que uma reconstrução do banco nunca as perde. Nenhum número aqui é inferido: cada reparo cita a página/trecho que o comprova.",
+  "repairs": [
+    {
+      "match": { "tse_registration": "BR-01084/2026", "race": "presidente", "round": 1 },
+      "defect": "O endpoint v2/cenarios do Poder360 descarta silenciosamente linhas de candidato cujo campo 'nome' está vazio. Chegaram 8 candidatos somando 54,9%; faltavam 5, somando 33,2%.",
+      "source": "https://static.poder360.com.br/uploads/2026/07/RELATORIO-VOX-BRASIL-NACIONAL-5-31-07-2026.pdf",
+      "evidence": "p.10, 'INTENÇÃO DE VOTO PRESIDENTE DA REPÚBLICA - EVOLUÇÃO', coluna '31 JULHO 2026'. Confere com a linha sem nome de 31,2% presente no endpoint v1 do Poder360.",
+      "verified_at": "2026-08-14",
+      "add_results": [
+        { "candidate": "Flávio Bolsonaro", "party": "PL", "pct": 31.2 },
+        { "candidate": "Clariana Barão", "party": "DC", "pct": 0.7 },
+        { "candidate": "Edmilson Costa", "party": "PCB", "pct": 0.6 },
+        { "candidate": "Leonardo Avalanche", "party": "PRTB", "pct": 0.5 },
+        { "candidate": "Samara Martins", "party": "UP", "pct": 0.2 }
+      ],
+      "set": { "blank_null_pct": 2.3, "undecided_pct": 9.6 },
+      "expect_sum": 100.0
+    }
+  ]
+}

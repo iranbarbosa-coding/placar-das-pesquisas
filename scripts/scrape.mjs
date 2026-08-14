@@ -7,6 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
+import { applyRepairs } from "./lib/repairs.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
 import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
@@ -208,6 +209,12 @@ async function main() {
     allRaw.filter((p) => p.source === "poder360"),
     allRaw.filter((p) => p.source !== "poder360"),
   ]);
+
+  // Curated repairs from primary sources, replayed every run (data/repairs.json).
+  const rep = applyRepairs(polls);
+  console.log(`✓ reparos curados aplicados: ${rep.applied}`);
+  for (const u of rep.unmatched) console.warn(`AVISO: reparo sem pesquisa correspondente — ${u}`);
+  for (const w of rep.warnings) console.warn(`AVISO: ${w}`);
 
   // Candidate-name hygiene (before entity resolution):
   //  - strip Wikipedia disambiguators: "Vera Lúcia (política)" → "Vera Lúcia"
