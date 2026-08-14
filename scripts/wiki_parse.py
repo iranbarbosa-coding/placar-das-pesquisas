@@ -96,6 +96,13 @@ def parse_table(lines):
             i += 1; continue
         if s.startswith('|}'):
             break
+        # A multi-line {{citar web|…}} inside <ref> wraps onto lines starting
+        # with "|". Those are continuations of the current cell, not new cells:
+        # treating them as cells shifts every column of the row by one.
+        if cur and (cur[-1]['raw'].count('{{') > cur[-1]['raw'].count('}}')
+                    or cur[-1]['raw'].count('<ref') > cur[-1]['raw'].count('</ref>') + cur[-1]['raw'].count('/>')):
+            cur[-1]['raw'] += '\n' + ln
+            i += 1; continue
         if s.startswith('|-'):
             flush(); i += 1; continue
         if s.startswith('!') or (s.startswith('|') and not s.startswith('|}')):
@@ -149,30 +156,60 @@ def expand_grid(rows):
     return grid
 
 def cand_from_header(raw):
-    """Extract (candidate_fullname, party) from a header cell like [[Full|Short]]<br>{{small|[[P|ABBR]]}}."""
+    """Extract (candidate_fullname, party) from a header cell.
+
+    Two layouts exist and the difference matters:
+      presidential pages: [[Full|Short]]<br>{{small|[[Party|ABBR]]}}
+      state pages:        [[Full]]<br><small>([[Party|ABBR]])</small>
+    On state pages the only PIPED link in the cell is the party's, so a regex
+    that grabs the first piped link labels every column with a party name.
+    Anchor on the <small>/{{small}} boundary instead: the party is inside it,
+    the candidate is what precedes it.
+    """
     t = strip_refs(raw)
-    party = None
-    m = re.search(r'\{\{\s*small\s*\|(.*?)\}\}', t, flags=re.S)
-    if m:
-        inner = m.group(1)
-        lm = re.search(r'\[\[([^|\]]*)\|([^\]]*)\]\]', inner) or re.search(r'\[\[([^\]]*)\]\]', inner)
+    # the party is sometimes only recoverable from a photo's link= target
+    lk = re.search(r'\[\[(?:File|Ficheiro|Image|Imagem):[^\]]*\blink=([^|\]]+)', t, flags=re.I)
+    file_party = lk.group(1).strip() if lk else None
+    t = re.sub(r'\[\[(?:File|Ficheiro|Image|Imagem):[^\[\]]*(?:\[\[[^\]]*\]\][^\[\]]*)*\]\]', '', t, flags=re.I)
+    if not t.strip():
+        return None, None
+
+    m = (re.search(r'<small>(.*?)</small>', t, flags=re.S | re.I)
+         or re.search(r'\{\{\s*small\s*\|(.*?)\}\}', t, flags=re.S))
+    if m is None:
+        # some tables put the party on the NEXT line in bare parens and no
+        # <small>: "!Sabará\n([[Partido Novo|NOVO]])". Without this the party
+        # link becomes the candidate whenever the name itself is unlinked.
+        m = re.search(r'\(\s*(\[\[[^\]]*\]\][^()]*)\)\s*$', t.strip())
+    party_raw = m.group(1) if m else None
+    name_raw = re.split(r'<br\s*/?>', t[:m.start()] if m else t, flags=re.I)[0]
+
+    def link_display(s):
+        lm = re.search(r'\[\[([^|\]]*)\|([^\]]*)\]\]', s)
         if lm:
-            party = lm.group(2).strip() if lm.lastindex == 2 else lm.group(1).strip()
-        else:
-            party = clean_cell(inner) or None
-        t = t[:m.start()] + t[m.end():]
-    if party is None:
-        lk = re.search(r'\[\[(?:File|Ficheiro|Image|Imagem):[^\]]*\blink=([^|\]]+)', t, flags=re.I)
-        if lk:
-            party = lk.group(1).strip()
-    t2 = re.sub(r'\[\[(?:File|Ficheiro|Image|Imagem):[^\]]*\]\]', '', t, flags=re.I)
-    lm = re.search(r'\[\[([^|\]]*)\|([^\]]*)\]\]', t2)
-    if lm:
-        name = lm.group(1).strip()
+            return lm.group(2).strip()
+        lm = re.search(r'\[\[([^\]]*)\]\]', s)
+        return lm.group(1).strip() if lm else None
+
+    if party_raw is not None:
+        party = (link_display(party_raw) or clean_cell(party_raw) or '').strip('() ') or None
     else:
-        lm2 = re.search(r'\[\[([^\]]*)\]\]', t2)
-        name = lm2.group(1).strip() if lm2 else clean_cell(t2)
+        party = file_party
+
+    lm = re.search(r'\[\[([^|\]]*)\|([^\]]*)\]\]', name_raw)
+    if lm:
+        name = lm.group(1).strip()          # link target carries the full name
+    else:
+        lm2 = re.search(r'\[\[([^\]]*)\]\]', name_raw)
+        name = lm2.group(1).strip() if lm2 else clean_cell(name_raw)
     name = re.sub(r'\s+', ' ', name).strip()
+    # not candidates: the {{Tooltip|Cen.|Cenários}} scenario-counter column,
+    # bare numbers, and leftover file refs
+    low = name.lower().strip('. ')
+    if re.match(r'^cen(\.|arios?|ários?)?$', low) or re.match(r'^[\d\s.,%/-]+$', name):
+        return None, None
+    if low.startswith(('ficheiro:', 'file:', 'imagem:', 'image:')):
+        return None, None
     return (name or None), party
 
 def classify_columns(grid, n_header_rows):
@@ -203,7 +240,7 @@ def classify_columns(grid, n_header_rows):
             kind = 'others'
         elif 'indecis' in low or 'undec' in low or 'branco' in low or 'blank' in low or 'nulo' in low or 'absten' in low or 'absent' in low:
             kind = 'undecided'
-        elif 'vantagem' in low or 'lead' in low:
+        elif re.search(r'\bvanta', low) or 'lead' in low:  # 'Vantagem', and TO's 'Vantangem' typo
             kind = 'lead'
         elif 'link' in low or low == '' :
             kind = 'skip'
@@ -245,9 +282,15 @@ def parse_dates(text, year_hint):
     t = text.strip().replace('–', '-').replace('—', '-').replace('a ', '- ') if False else text.strip()
     t = t.replace('–', '-').replace('—', '-')
     t = re.sub(r'\s+', ' ', t)
+    # PT normalisations: "1º/1°" ordinals, and "a" used as the range separator
+    # ("11 a 12 de maio", "29 de novembro a 1º de dezembro"). Doing this here
+    # lets the existing day/month patterns below cover the Portuguese forms.
+    t = re.sub(r'(\d)\s*\.?\s*[º°ᵒ]', r'\1', t)  # "1º", "1°", "1.º"
+    t = re.sub(r'\s+a\s+', ' - ', t, flags=re.I)
     ym = re.search(r'(20\d\d)', t)
     year = int(ym.group(1)) if ym else year_hint
     t2 = re.sub(r'20\d\d', '', t).strip().strip(',').strip()
+    t2 = re.sub(r'\s*\bde\s*$', '', t2, flags=re.I).strip()  # leftover "de" after year removal
     t2 = re.sub(r'^(\d{1,2})\s*([A-Za-zçã]+)\s*-\s*(\d{1,2})\s*-\s*([A-Za-zçã]+)$', r'\1 \2 - \3 \4', t2)  # typo "10 Set - 14 - Set"
     # forms: "D Mon - D Mon" | "D-D Mon" | "D Mon" | "Mon D - Mon D"
     mm = re.match(r'^(\d{1,2})\s*(?:de\s+)?([A-Za-zçã]+)\.?\s*-\s*(\d{1,2})\s*(?:de\s+)?([A-Za-zçã]+)\.?$', t2)
@@ -263,6 +306,22 @@ def parse_dates(text, year_hint):
         mo = MONTHS.get(m1.lower()[:3])
         if mo and year:
             return f"{year:04d}-{mo:02d}-{int(d1):02d}", f"{year:04d}-{mo:02d}-{int(d2):02d}", True
+    # PT state pages: "28 e 31 de julho" — two field days in the same month
+    mm = re.match(r'^(\d{1,2})\s*e\s*(\d{1,2})\s*(?:de\s+)?([A-Za-zçã]+)\.?$', t2, flags=re.I)
+    if mm:
+        d1, d2, m1 = mm.groups()
+        mo = MONTHS.get(m1.lower()[:3])
+        if mo and year:
+            a, b = sorted((int(d1), int(d2)))
+            return f"{year:04d}-{mo:02d}-{a:02d}", f"{year:04d}-{mo:02d}-{b:02d}", True
+    # PT: "28 de julho a 2 de agosto" / "28 de julho e 2 de agosto" — crosses months
+    mm = re.match(r'^(\d{1,2})\s*(?:de\s+)?([A-Za-zçã]+)\.?\s*(?:a|e|至)\s*(\d{1,2})\s*(?:de\s+)?([A-Za-zçã]+)\.?$', t2, flags=re.I)
+    if mm:
+        d1, m1, d2, m2 = mm.groups()
+        mo1, mo2 = MONTHS.get(m1.lower()[:3]), MONTHS.get(m2.lower()[:3])
+        if mo1 and mo2 and year:
+            y1 = year - 1 if mo1 > mo2 else year
+            return f"{y1:04d}-{mo1:02d}-{int(d1):02d}", f"{year:04d}-{mo2:02d}-{int(d2):02d}", True
     mm = re.match(r'^(\d{1,2})\s*(?:de\s+)?([A-Za-zçã]+)\.?$', t2)
     if mm:
         d1, m1 = mm.groups()
@@ -283,16 +342,16 @@ def parse_dates(text, year_hint):
         if mo and year:
             d = f"{year:04d}-{mo:02d}-{int(d1):02d}"
             return d, d, True
-    # month-only e.g. "Ago" / "Agosto"
-    mo = MONTHS.get(re.sub(r'[^a-zçãé]', '', t2.lower())[:3]) if t2 else None
-    if mo and year:
-        return f"{year:04d}-{mo:02d}-01", f"{year:04d}-{mo:02d}-28", False
+    # Month-only cells ("novembro") carry no day. Previously this invented a
+    # 1st–28th range, which reads as precise fieldwork dates downstream. An
+    # unknown date must stay unknown.
     return None, None, False
 
 def extract(text, source_url, lang, race='presidente', state=None):
     lines = text.split('\n')
     polls = []
     h2 = h3 = h4 = hidden = None
+    last_year = None   # running year context in document order
     i = 0
     n = len(lines)
     while i < n:
@@ -304,6 +363,8 @@ def extract(text, source_url, lang, race='presidente', state=None):
             if lvl == 2: h2, h3, h4, hidden = title, None, None, None
             elif lvl == 3: h3, h4 = title, None
             elif lvl == 4: h4 = title
+            ym0 = re.search(r'(20\d\d)', title)
+            if ym0: last_year = int(ym0.group(1))
             i += 1; continue
         if s.startswith('{{hidden begin'):
             hidden = None
@@ -330,17 +391,34 @@ def extract(text, source_url, lang, race='presidente', state=None):
                     depth -= 1
                     if depth == 0: break
                 i += 1
-            polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state))
+            polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state, last_year))
         i += 1
     return polls
 
-def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None):
+def _is_event_banner(row):
+    """A row of <=3 wide cells whose text reads as a date/news marker."""
+    cells = []
+    for c in row:
+        if not cells or cells[-1] is not c:
+            cells.append(c)
+    if len(cells) > 3 or max((c['colspan'] for c in cells), default=1) < 4:
+        return False
+    txt = ' '.join(clean_cell(c.get('text', c['raw'])) for c in cells).lower()
+    txt = ''.join(ch for ch in unicodedata.normalize('NFD', txt) if not unicodedata.combining(ch))
+    return bool(re.search(r'\b(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)', txt))
+
+def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None, year_ctx=None):
     rows = parse_table(tbl_lines)
     if not rows: return []
     grid = expand_grid(rows)
     # header rows: leading rows where every cell is header-marked or cleans to empty
     n_header = 0
     for row in grid:
+        # A timeline banner ("! colspan=5 |17 de julho" + "! colspan=9 |…") is
+        # header-marked but is NOT a header row. Counted as one, its date text
+        # stacks onto a column and becomes a phantom candidate.
+        if _is_event_banner(row):
+            break
         if all(c['header'] or clean_cell(c['raw']) == '' for c in row):
             n_header += 1
         else:
@@ -366,6 +444,12 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
         if part:
             m = re.search(r'(20\d\d)', part)
             if m: ym = int(m.group(1)); break
+    # Some pages put the year and the month at the SAME heading level
+    # ("=== 2026 ===" then "=== Abril - Julho ==="), so the month overwrites the
+    # year; runoff subsections are titled by candidate pair and carry none at
+    # all. Fall back to the last year seen earlier in the document.
+    if ym is None:
+        ym = year_ctx
     # month hint from h4 like "Agosto" or "Setembro - Outubro"
     scenario_base = hidden or (h3 if (rnd == 2 and h3 and not re.match(r'^20\d\d$', h3 or '')) else None)
 
@@ -412,6 +496,9 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
                     poll['pollster'] = re.sub(r'\s+', ' ', txt).strip() or None
                 elif kind == 'dates':
                     st, en, ok = parse_dates(txt, ym)
+                    if st and en and st > en:   # source typos like "22 a 18 de julho"
+                        warnings.append(f"inverted date range '{txt}' - start dropped")
+                        st = None
                     poll['fieldwork_start'], poll['fieldwork_end'] = st, en
                     if not st:
                         warnings.append(f"unparsed dates: '{txt}'")

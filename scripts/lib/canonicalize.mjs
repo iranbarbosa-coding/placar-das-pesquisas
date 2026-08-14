@@ -60,7 +60,8 @@ function pollsterTokens(name) {
 // Found by receipt-check (identical registered polls under both names).
 const POLLSTER_ALIASES = new Map([
   ["indexa", "Data Index"],
-  ["atlasinstel", "AtlasIntel"], // recurring typo in wiki tables
+  ["atlasinstel", "AtlasIntel"], // recurring typos in wiki tables
+  ["altasintel", "AtlasIntel"],
   ["cnt", "MDA"], // CNT is MDA's contractor; wiki sometimes credits CNT alone
 ]);
 

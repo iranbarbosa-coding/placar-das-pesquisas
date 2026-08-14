@@ -252,6 +252,16 @@ async function main() {
     }
   }
 
+  // A start after the end is either a source typo ("22 a 18 de julho") or a
+  // bad merge of one source's start with another's end. The end date is what
+  // every average uses, so keep it and drop the start.
+  for (const p of polls) {
+    if (p.fieldwork_start && p.fieldwork_end && p.fieldwork_start > p.fieldwork_end) {
+      console.warn(`início posterior ao fim: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_start}>${p.fieldwork_end} — início descartado`);
+      p.fieldwork_start = null;
+    }
+  }
+
   // Drop individually broken polls (over-cap sums, malformed results) with a
   // log line instead of failing the whole run; the strict validator remains
   // the final gate on what's left.
