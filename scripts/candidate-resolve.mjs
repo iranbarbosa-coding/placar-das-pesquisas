@@ -19,6 +19,24 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { build } from "./candidate-review.mjs";
+import { readStore, DATA_DIR } from "./lib/store.mjs";
+import { projectPolls } from "./lib/project.mjs";
+
+// Onde cada nome aparece, em todas as disputas.
+let NAME_CONTESTS = null;
+function contestsOf(name) {
+  if (!NAME_CONTESTS) {
+    NAME_CONTESTS = new Map();
+    for (const p of projectPolls(readStore({ dir: DATA_DIR }))) {
+      for (const r of p.results) {
+        const k = norm(r.candidate);
+        if (!NAME_CONTESTS.has(k)) NAME_CONTESTS.set(k, new Set());
+        NAME_CONTESTS.get(k).add(`${p.race}:${p.state ?? "BR"}`);
+      }
+    }
+  }
+  return NAME_CONTESTS.get(norm(name)) ?? new Set();
+}
 
 function levenshtein(a, b) {
   const m = a.length, n = b.length;
@@ -155,9 +173,32 @@ async function main() {
     }
   }
 
+  // Creator rulings outrank everything below. They exist because article
+  // identity is necessary but NOT sufficient: it answers "are these two
+  // articles the same person?" and never asks "is that person even running in
+  // THIS contest?". A real "Professor Alcides" (Alcides Ribeiro Filho, PSDB)
+  // is a federal deputy for GOIÁS — so the automation correctly saw two
+  // articles and wrongly concluded the CEARÁ senate row was a second person.
+  const rulings = new Map();
+  const gf = path.join(ROOT, "data/candidate-rulings.json");
+  if (fs.existsSync(gf)) {
+    for (const r of JSON.parse(fs.readFileSync(gf, "utf-8")).rulings ?? []) {
+      for (const a of r.names) for (const b of r.names) {
+        if (a !== b) rulings.set(`${r.contest}|${[a, b].sort().join("|")}`, r);
+      }
+    }
+  }
+
   const verdicts = pairs.map((p) => {
     const ra = resolved.get(p.A), rb = resolved.get(p.B);
     const cite = (r) => (r ? `${r.title} (${url(r.title)})` : null);
+
+    const ruled = rulings.get(`${p.contest.replace("|", ":")}|${[p.A, p.B].sort().join("|")}`);
+    if (ruled) {
+      return { ...v(p), verdict: ruled.verdict, why: `decisão do criador — ${ruled.evidence}`,
+               a: ruled.sources?.[0] ?? null, b: ruled.sources?.[1] ?? null,
+               canonical: ruled.canonical, confidence: "criador", via: "decisão do criador" };
+    }
 
     // TYPOGRAPHIC RULE, and it is deliberately ranked BELOW article evidence.
     //
@@ -226,10 +267,106 @@ async function main() {
     console.log("");
   }
 
+  // ---- groups: connected components + the name the site should DISPLAY ----
+  //
+  // "same person" is transitive, so pairs must be collapsed into components
+  // before anything is applied: Jeferson / Jefferson / Jefferson Bezzerra is
+  // one person in three spellings, reached through two separate pairs.
+  //
+  // The display name is NOT the Wikipedia title. That title is evidence of
+  // identity, not of usage — it would put "Zucco" on the site where every
+  // institute writes "Luciano Zucco". The name polls actually use wins, by
+  // frequency, so applying the table changes who is counted without changing
+  // how the site reads.
+  const occ = new Map();
+  for (const p of pairs) {
+    occ.set(`${p.contest}\u0000${p.A}`, p.a.n);
+    occ.set(`${p.contest}\u0000${p.B}`, p.b.n);
+  }
+  const parent = new Map();
+  const find = (x) => { while (parent.get(x) !== x) { parent.set(x, parent.get(parent.get(x))); x = parent.get(x); } return x; };
+  const add = (x) => { if (!parent.has(x)) parent.set(x, x); };
+  for (const x of verdicts.filter((v) => v.verdict === "MESMA")) {
+    const ka = `${x.contest}\u0000${x.A}`, kb = `${x.contest}\u0000${x.B}`;
+    add(ka); add(kb);
+    parent.set(find(ka), find(kb));
+  }
+  const comps = new Map();
+  for (const k of parent.keys()) {
+    const root = find(k);
+    if (!comps.has(root)) comps.set(root, []);
+    comps.get(root).push(k);
+  }
+  // Which member becomes the display name.
+  //
+  // Frequency alone ("what do institutes write most?") picked `Professor
+  // Tonny` over `Tonny Kerley` and `Cadu de Lula` over `Cadu Xavier` — it
+  // cannot tell a person's name from the honorific or the allegiance tag
+  // wrapped around it. So when the evidence named the person, and one of the
+  // poll spellings matches that name (exactly, or as its leading part —
+  // "Tonny Kerley" inside "Tonny Kerley de Alencar Rodrigues"), that spelling
+  // wins. Frequency decides only when the evidence offers no such match, which
+  // is the typo pairs, where no member is more "correct" than the other.
+  const canonOf = new Map();
+  for (const x of verdicts) {
+    if (x.verdict !== "MESMA" || !x.canonical) continue;
+    for (const n of [x.A, x.B]) canonOf.set(`${x.contest}\u0000${n}`, x.canonical);
+  }
+  const groups = [...comps.values()].map((keys) => {
+    const contest = keys[0].split("\u0000")[0];
+    const members = keys.map((k) => k.split("\u0000")[1]);
+    const byFreq = members.slice().sort((a, b) =>
+      (occ.get(`${contest}\u0000${b}`) ?? 0) - (occ.get(`${contest}\u0000${a}`) ?? 0) || b.length - a.length);
+    const canons = [...new Set(members.map((m) => canonOf.get(`${contest}\u0000${m}`)).filter(Boolean))].map(norm);
+    const evidenced = byFreq.find((m) => canons.some((c) => c === norm(m) || c.startsWith(norm(m) + " ")));
+    const display = evidenced ?? byFreq[0];
+    return { contest: contest.replace("|", ":"), display, members: members.sort(),
+             display_from: evidenced ? "nome apurado na evidência" : "grafia mais frequente",
+             counts: Object.fromEntries(members.map((m) => [m, occ.get(`${contest}\u0000${m}`) ?? 0])) };
+  }).sort((a, b) => a.contest.localeCompare(b.contest) || a.display.localeCompare(b.display));
+
+  // A decision is about a PERSON, but the pair scan only ever compares names
+  // inside one contest — so a state politician polled for BOTH governor and
+  // senate gets decided in one race and left untouched in the other. "Capitão
+  // Derrite" survived in governador:SP because "Guilherme Derrite" never
+  // appears there, so no pair could form.
+  //
+  // Carried to sibling contests of the SAME STATE only. Not nationally: a
+  // ballot name in another state can be a different person entirely — a real
+  // "Professor Alcides" is a federal deputy for Goiás while the Ceará row of
+  // that name is the pastor, which is exactly how the automation was fooled
+  // once already.
+  const extra = [];
+  for (const g of groups) {
+    const uf = g.contest.split(":")[1];
+    if (!uf || uf === "BR") continue;
+    for (const m of g.members) {
+      for (const other of contestsOf(m)) {
+        if (other === g.contest || other.split(":")[1] !== uf) continue;
+        if (m === g.display) continue; // já é o nome de exibição: nada a reescrever
+        if (groups.some((x) => x.contest === other && x.members.includes(m))) continue;
+        extra.push({ contest: other, display: g.display, members: [m],
+                     display_from: `estendido de ${g.contest} (mesma UF, outro cargo)`,
+                     counts: {} });
+      }
+    }
+  }
+  if (extra.length) {
+    console.log(`estendidos para disputa irmã da mesma UF: ${extra.length}`);
+    for (const e of extra) console.log(`   ${e.contest}: ${e.members[0]} → ${e.display}`);
+    groups.push(...extra);
+  }
+
+  console.log(`grupos: ${groups.length} (${groups.reduce((s, g) => s + g.members.length, 0)} nomes)`);
+  for (const g of groups.filter((x) => x.members.length > 2)) {
+    console.log(`   ${g.contest} → ${g.display}  ⊃ ${g.members.join(", ")}`);
+  }
+
   const outArg = process.argv.find((a) => a.startsWith("--out="))?.split("=")[1];
   const out = path.join(ROOT, outArg ?? "data/candidate-aliases.json");
   fs.writeFileSync(out, JSON.stringify({
     version: 1,
+    groups,
     note: "Identidade de candidatos decidida contra o registro público (pt.wikipedia), não por heurística de string. " +
           "Gerado por scripts/candidate-resolve.mjs. Cada entrada cita o artigo que a sustenta; qualquer uma é falsificável abrindo a URL.",
     generated_by: "scripts/candidate-resolve.mjs",

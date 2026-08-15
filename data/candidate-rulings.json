@@ -1,0 +1,43 @@
+{
+ "version": 1,
+ "note": "Decisões do criador sobre identidade de candidato. PRECEDÊNCIA MÁXIMA: ficam acima da pesquisa em fontes e da resolução por artigo, porque quem decide o que o banco afirma é o criador. Cada uma registra o raciocínio e, quando existe, o que a automação tinha concluído e por que errou.",
+ "rulings": [
+  {
+   "contest": "senador:CE",
+   "verdict": "MESMA",
+   "canonical": "Alcides Fernandes",
+   "names": ["Alcides Fernandes", "Pastor Alcides", "Professor Alcides"],
+   "stated_by": "criador",
+   "stated_at": "2026-08-15",
+   "evidence": "Pastor Alcides Fernandes é deputado estadual do PL no Ceará. 'Professor Alcides' nas pesquisas ao Senado pelo CE corresponde a ele.",
+   "overrides": "A resolução automática deu DIFERENTES para 'Alcides Fernandes × Professor Alcides', com confiança alta, e estava errada por um motivo que vale guardar: existe um 'Professor Alcides' REAL — Alcides Ribeiro Filho (PSDB), deputado federal por GOIÁS. Os dois artigos são de fato pessoas distintas, mas a linha da pesquisa é do Senado no CEARÁ, onde o goiano não disputa. Identidade de artigo é condição necessária, não suficiente: falta perguntar se aquela pessoa concorre NESTA disputa. Homônimo de outro estado é o furo.",
+   "sources": [
+    "https://www.al.ce.gov.br/deputados/alcides-fernandes",
+    "https://pt.wikipedia.org/wiki/Alcides_Fernandes",
+    "https://pt.wikipedia.org/wiki/Professor_Alcides"
+   ]
+  },
+  {
+   "contest": "senador:GO",
+   "verdict": "MESMA",
+   "canonical": "Vanderlan Cardoso",
+   "names": ["Vanderlan Cardoso", "Vanderlan Gomes"],
+   "stated_by": "criador",
+   "stated_at": "2026-08-15",
+   "evidence": "Vanderlan Cardoso é senador por Goiás. O único Vanderlan das pesquisas ao Senado em GO é ele; 'Vanderlan Gomes' é rótulo errado do agregador sobre o mesmo candidato.",
+   "overrides": "A pesquisa automática ficou INCERTA: o nome civil do senador é Vanderlan Vieira Cardoso (sem 'Gomes'), e o único 'Vanderlan Gomes' documentado é um apresentador de TV de Araguaína, no TOCANTINS. Mesmo furo do caso Alcides — homônimo de outro estado, que não disputa esta eleição.",
+   "sources": ["https://www25.senado.leg.br/web/senadores/senador/-/perfil/5899"]
+  },
+  {
+   "contest": "senador:SP",
+   "verdict": "MESMA",
+   "canonical": "Alexandre Luiz Giordano",
+   "names": ["Alexandre Luiz Giordano", "Guilherme Giordano"],
+   "stated_by": "criador",
+   "stated_at": "2026-08-15",
+   "evidence": "'Guilherme Giordano' é, na verdade, Alexandre Giordano — senador por SP, no MDB. Guilherme Derrite é outra pessoa: deputado federal por SP, pré-candidato ao Senado.",
+   "overrides": "A pesquisa automática ficou INCERTA por não achar nenhum 'Guilherme Giordano' em fonte alguma — o que estava certo, mas parou antes da conclusão. É o mesmo furo do caso Alcides com uma variação: ali o rótulo pegou uma pessoa real de OUTRO estado; aqui pegou o PRENOME errado sobre o sobrenome certo, na disputa certa. Os pares 'Guilherme Derrite × Guilherme Giordano' e 'Guilherme Boulos × Guilherme Giordano' seguem DIFERENTES, agora por consequência: o rótulo é o Giordano, não os Guilhermes.",
+   "sources": ["https://pt.wikipedia.org/wiki/Alexandre_Luiz_Giordano", "https://pt.wikipedia.org/wiki/Guilherme_Derrite"]
+  }
+ ]
+}

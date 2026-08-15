@@ -23,6 +23,7 @@ import {
 } from "./lib/store.mjs";
 import { mintSurveyId, mintQuestionId, normalizeRegistration, contestKey } from "./lib/ids.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
+import { canonicalCandidate } from "./lib/candidates.mjs";
 import { partyOverride } from "./lib/repairs.mjs";
 import { validateStore } from "./validate-store.mjs";
 
@@ -160,7 +161,9 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
         // A curated repair outranks normalisation: it cites the institute's own report.
         const ov = partyOverride(p, r.candidate);
         const party = ov.has ? ov.party : canonicalPartyAt(r.party, p.fieldwork_end ?? p.published_date ?? null);
-        const c = resolveCandidate(store, r.candidate, contest, party, { fuzzy: false });
+        // Identidade decidida na tabela curada; name_raw guarda o que a fonte disse.
+        const nome = canonicalCandidate(r.candidate, contest);
+        const c = resolveCandidate(store, nome, contest, party, { fuzzy: false });
         return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party, pct: r.pct };
       });
       const qseed = `question|${survey.survey_id}|${p.id}`;

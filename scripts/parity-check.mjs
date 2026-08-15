@@ -20,6 +20,7 @@ import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
 import { projectPolls } from "./lib/project.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
+import { canonicalCandidate } from "./lib/candidates.mjs";
 import { partyOverride } from "./lib/repairs.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -112,7 +113,13 @@ function main() {
       if (fieldDiffs < 15) E(`(b) ${id}.${f}: legado ${JSON.stringify(lp[f])} ≠ projetado ${JSON.stringify(pp[f])}`);
       fieldDiffs++;
     }
-    const lr = [...(lp.results ?? [])].sort((a, b) => a.candidate.localeCompare(b.candidate));
+    // Both sides are sorted by the CANONICAL name. Sorting the legacy side by
+    // its raw name would misalign every row the alias table renames — the two
+    // lists would be compared position by position while ordered differently,
+    // and the mismatch would read as a data error rather than a sort bug.
+    const contestOfPoll = `${lp.race}:${lp.state ?? "BR"}`;
+    const lr = [...(lp.results ?? [])].sort((a, b) =>
+      canonicalCandidate(a.candidate, contestOfPoll).localeCompare(canonicalCandidate(b.candidate, contestOfPoll)));
     const pr = [...(pp.results ?? [])].sort((a, b) => a.candidate.localeCompare(b.candidate));
     resultRows += lr.length;
     if (lr.length !== pr.length) {
@@ -121,7 +128,8 @@ function main() {
       continue;
     }
     for (let i = 0; i < lr.length; i++) {
-      if (lr[i].candidate !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
+      const contestOf = `${lp.race}:${lp.state ?? "BR"}`;
+      if (canonicalCandidate(lr[i].candidate, contestOf) !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
         if (fieldDiffs < 15) E(`(b) ${id}: ${lr[i].candidate} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
         fieldDiffs++;
       }

@@ -48,9 +48,15 @@ function levenshtein(a, b) {
 const DAY = 86_400_000;
 const RACE_LABEL = { presidente: "Presidente", governador: "Governador", senador: "Senado" };
 
+// LÊ data/polls.json — os nomes CRUS, como as fontes entregam.
+//
+// Ler o store seria um laço que se come: o store já tem a tabela de apelidos
+// aplicada, então a varredura não acharia par nenhum e reescreveria a tabela
+// vazia, desfazendo todas as fusões na migração seguinte. A entrada da decisão
+// tem de ser sempre o dado bruto.
 export function build() {
   const store = readStore({ dir: DATA_DIR });
-  const polls = projectPolls(store);
+  const polls = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "polls.json"), "utf-8")).polls;
   const surveyOfPoll = new Map();
   for (const q of store.questions) surveyOfPoll.set(q.legacy_id ?? q.question_id, q.survey_id);
 

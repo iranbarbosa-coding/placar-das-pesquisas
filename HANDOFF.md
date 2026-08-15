@@ -387,7 +387,21 @@ I was confident about.
    URL. Pairs Wikipedia could not reach were settled by research against TSE, assembly
    pages and local press, committed with citations in `data/candidate-verdicts-researched.json`.
    `REVISAO_CANDIDATOS.md` (from `candidate-review.mjs`) remains the evidence dossier.
-   **Nothing is applied yet** — merging changes averages.
+   **APPLIED.** `scripts/lib/candidates.mjs` is consulted by the migration, the parity gate
+   and the upsert path; 740 → 703 candidates, 184 questions renamed, **24 contests' averages
+   changed**, 17 pages. Acre: Bocalom was 18,4% (base 9/10) plus a phantom 14,0% (base 1/10),
+   now 18,0% at 10/10. `name_raw` keeps what each source said.
+   Two traps found while applying:
+   · **The scan must read `data/polls.json`, never the store.** Reading the store is a loop
+     that eats itself: the store already has the table applied, so the scan finds no pairs
+     and rewrites the table EMPTY, silently undoing every merge on the next migration. It
+     happened once; the input to a decision has to be the raw data.
+   · **A decision is about a person; the scan only compares within one contest.** A state
+     politician polled for BOTH governor and senate gets decided in one race and left alone
+     in the other — `Capitão Derrite` survived in `governador:SP` because `Guilherme Derrite`
+     never appears there. Groups now extend to sibling contests **of the same UF only** (4
+     cases). Never nationally: a real `Professor Alcides` is a federal deputy for Goiás while
+     the Ceará row of that name is the pastor.
    Three rules earned their place the hard way:
    · **Different articles ⇒ different people, no softening.** A "but does one article
      mention the other name?" tiebreak declared *Flávio Bolsonaro and Jair Bolsonaro the

@@ -1,5 +1,502 @@
 {
  "version": 1,
+ "groups": [
+  {
+   "contest": "governador:AC",
+   "display": "Tião Bocalom",
+   "members": [
+    "Sebastião Bocalom",
+    "Tião Bocalom"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Sebastião Bocalom": 2,
+    "Tião Bocalom": 26
+   }
+  },
+  {
+   "contest": "governador:CE",
+   "display": "Jair Pereira",
+   "members": [
+    "Jair Pereira",
+    "Jarir Pereira"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Jair Pereira": 1,
+    "Jarir Pereira": 18
+   }
+  },
+  {
+   "contest": "governador:GO",
+   "display": "Luis Cesar Bueno",
+   "members": [
+    "Luis Cesar Bueno",
+    "Luiz César Bueno"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Luis Cesar Bueno": 10,
+    "Luiz César Bueno": 2
+   }
+  },
+  {
+   "contest": "governador:MG",
+   "display": "Mateus Simões",
+   "members": [
+    "Mateus Simões",
+    "Matheus Simões"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Mateus Simões": 9,
+    "Matheus Simões": 10
+   }
+  },
+  {
+   "contest": "governador:MS",
+   "display": "Jefferson Bezerra",
+   "members": [
+    "Jeferson Bezerra",
+    "Jefferson Bezerra",
+    "Jefferson Bezzerra"
+   ],
+   "display_from": "grafia mais frequente",
+   "counts": {
+    "Jeferson Bezerra": 3,
+    "Jefferson Bezerra": 9,
+    "Jefferson Bezzerra": 2
+   }
+  },
+  {
+   "contest": "governador:PA",
+   "display": "Daniel Santos",
+   "members": [
+    "Daniel Santos",
+    "Dr Daniel"
+   ],
+   "display_from": "grafia mais frequente",
+   "counts": {
+    "Daniel Santos": 42,
+    "Dr Daniel": 9
+   }
+  },
+  {
+   "contest": "governador:PI",
+   "display": "Tonny Kerley",
+   "members": [
+    "Professor Tonny",
+    "Tonny Kerley"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Professor Tonny": 1,
+    "Tonny Kerley": 1
+   }
+  },
+  {
+   "contest": "governador:RJ",
+   "display": "Wiliam Siri",
+   "members": [
+    "Wiliam Siri",
+    "William Siri"
+   ],
+   "display_from": "grafia mais frequente",
+   "counts": {
+    "Wiliam Siri": 5,
+    "William Siri": 4
+   }
+  },
+  {
+   "contest": "governador:RN",
+   "display": "Cadu Xavier",
+   "members": [
+    "Cadu Xavier",
+    "Cadu de Lula"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Cadu Xavier": 17,
+    "Cadu de Lula": 47
+   }
+  },
+  {
+   "contest": "governador:RN",
+   "display": "Rodrigo Bolsonaro",
+   "members": [
+    "Rodrigo Bolsonaro",
+    "Rodrigo Vieira"
+   ],
+   "display_from": "grafia mais frequente",
+   "counts": {
+    "Rodrigo Bolsonaro": 17,
+    "Rodrigo Vieira": 2
+   }
+  },
+  {
+   "contest": "governador:RS",
+   "display": "Luciano Zucco",
+   "members": [
+    "Coronel Zucco",
+    "Luciano Zucco"
+   ],
+   "display_from": "grafia mais frequente",
+   "counts": {
+    "Coronel Zucco": 10,
+    "Luciano Zucco": 20
+   }
+  },
+  {
+   "contest": "governador:SE",
+   "display": "Emanuel Cacho",
+   "members": [
+    "Emanoel Cacho",
+    "Emanuel Cacho"
+   ],
+   "display_from": "grafia mais frequente",
+   "counts": {
+    "Emanoel Cacho": 1,
+    "Emanuel Cacho": 14
+   }
+  },
+  {
+   "contest": "governador:TO",
+   "display": "Dorinha Rezende",
+   "members": [
+    "Dorinha Rezende",
+    "Professora Dorinha"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Dorinha Rezende": 14,
+    "Professora Dorinha": 9
+   }
+  },
+  {
+   "contest": "senador:AL",
+   "display": "José Wanderley Neto",
+   "members": [
+    "Dr. Wanderley",
+    "José Wanderley Neto"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Dr. Wanderley": 3,
+    "José Wanderley Neto": 8
+   }
+  },
+  {
+   "contest": "senador:BA",
+   "display": "Jaques Wagner",
+   "members": [
+    "Jacques Wagner",
+    "Jaques Wagner"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Jacques Wagner": 2,
+    "Jaques Wagner": 17
+   }
+  },
+  {
+   "contest": "senador:CE",
+   "display": "Alcides Fernandes",
+   "members": [
+    "Alcides Fernandes",
+    "Pastor Alcides",
+    "Professor Alcides"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Alcides Fernandes": 16,
+    "Pastor Alcides": 2,
+    "Professor Alcides": 1
+   }
+  },
+  {
+   "contest": "senador:CE",
+   "display": "José Guimarães",
+   "members": [
+    "Guimarães do PT",
+    "José Guimarães"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Guimarães do PT": 2,
+    "José Guimarães": 5
+   }
+  },
+  {
+   "contest": "senador:DF",
+   "display": "Érika Kokay",
+   "members": [
+    "Érica kokay",
+    "Érika Kokay"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Érica kokay": 2,
+    "Érika Kokay": 8
+   }
+  },
+  {
+   "contest": "senador:DF",
+   "display": "Leila Barros",
+   "members": [
+    "Leila Barros",
+    "Leila do Vôlei"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Leila Barros": 8,
+    "Leila do Vôlei": 3
+   }
+  },
+  {
+   "contest": "senador:DF",
+   "display": "Paulo Octávio",
+   "members": [
+    "Paulo Octávio",
+    "Paulo Otávio"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Paulo Octávio": 2,
+    "Paulo Otávio": 1
+   }
+  },
+  {
+   "contest": "senador:GO",
+   "display": "Alexandre Baldy",
+   "members": [
+    "Alexandre Bady",
+    "Alexandre Baldy"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Alexandre Bady": 8,
+    "Alexandre Baldy": 18
+   }
+  },
+  {
+   "contest": "senador:GO",
+   "display": "Gustavo Mendanha",
+   "members": [
+    "Gustavo Medanha",
+    "Gustavo Mendanha"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Gustavo Medanha": 8,
+    "Gustavo Mendanha": 13
+   }
+  },
+  {
+   "contest": "senador:GO",
+   "display": "Vanderlan Cardoso",
+   "members": [
+    "Vanderlan Cardoso",
+    "Vanderlan Gomes"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Vanderlan Cardoso": 31,
+    "Vanderlan Gomes": 2
+   }
+  },
+  {
+   "contest": "senador:GO",
+   "display": "Zacharias Calil",
+   "members": [
+    "Zacarias Calil",
+    "Zacharias Calil"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Zacarias Calil": 14,
+    "Zacharias Calil": 20
+   }
+  },
+  {
+   "contest": "senador:MG",
+   "display": "Euclydes Pettersen",
+   "members": [
+    "Euclydes Pettersen",
+    "Euclydes Petterson"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Euclydes Pettersen": 3,
+    "Euclydes Petterson": 5
+   }
+  },
+  {
+   "contest": "senador:MS",
+   "display": "Gianni Nogueira",
+   "members": [
+    "Gianni Nogueira",
+    "Gianni do Bolsonaro"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Gianni Nogueira": 2,
+    "Gianni do Bolsonaro": 1
+   }
+  },
+  {
+   "contest": "senador:MS",
+   "display": "Renan Contar",
+   "members": [
+    "Capitão Contar",
+    "Renan Contar"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Capitão Contar": 5,
+    "Renan Contar": 15
+   }
+  },
+  {
+   "contest": "senador:RN",
+   "display": "Sandro Pimentel",
+   "members": [
+    "Sandro Pimental",
+    "Sandro Pimentel"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Sandro Pimental": 1,
+    "Sandro Pimentel": 32
+   }
+  },
+  {
+   "contest": "senador:RO",
+   "display": "Rodrigo Camargo",
+   "members": [
+    "Delegado Camargo",
+    "Rodrigo Camargo"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Delegado Camargo": 1,
+    "Rodrigo Camargo": 2
+   }
+  },
+  {
+   "contest": "senador:RS",
+   "display": "Marcel van Hattem",
+   "members": [
+    "Marcel van Hattem",
+    "Marcel van Hatten"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Marcel van Hattem": 12,
+    "Marcel van Hatten": 5
+   }
+  },
+  {
+   "contest": "senador:SE",
+   "display": "Alessandro Vieira",
+   "members": [
+    "Alessandro Vieira",
+    "Delegado Alessandro"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Alessandro Vieira": 17,
+    "Delegado Alessandro": 1
+   }
+  },
+  {
+   "contest": "senador:SP",
+   "display": "Alexandre Luiz Giordano",
+   "members": [
+    "Alexandre Luiz Giordano",
+    "Guilherme Giordano"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Alexandre Luiz Giordano": 1,
+    "Guilherme Giordano": 1
+   }
+  },
+  {
+   "contest": "senador:SP",
+   "display": "Guilherme Derrite",
+   "members": [
+    "Capitão Derrite",
+    "Guilherme Derrite"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Capitão Derrite": 9,
+    "Guilherme Derrite": 15
+   }
+  },
+  {
+   "contest": "senador:SP",
+   "display": "Ricardo Mello Araújo",
+   "members": [
+    "Coronel Mello Araújo",
+    "Ricardo Mello Araújo"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Coronel Mello Araújo": 1,
+    "Ricardo Mello Araújo": 5
+   }
+  },
+  {
+   "contest": "senador:TO",
+   "display": "Carlos Gaguim",
+   "members": [
+    "Carlos Caguin",
+    "Carlos Gaguim"
+   ],
+   "display_from": "nome apurado na evidência",
+   "counts": {
+    "Carlos Caguin": 1,
+    "Carlos Gaguim": 13
+   }
+  },
+  {
+   "contest": "governador:GO",
+   "display": "Alexandre Baldy",
+   "members": [
+    "Alexandre Bady"
+   ],
+   "display_from": "estendido de senador:GO (mesma UF, outro cargo)",
+   "counts": {}
+  },
+  {
+   "contest": "governador:GO",
+   "display": "Gustavo Mendanha",
+   "members": [
+    "Gustavo Medanha"
+   ],
+   "display_from": "estendido de senador:GO (mesma UF, outro cargo)",
+   "counts": {}
+  },
+  {
+   "contest": "governador:MS",
+   "display": "Renan Contar",
+   "members": [
+    "Capitão Contar"
+   ],
+   "display_from": "estendido de senador:MS (mesma UF, outro cargo)",
+   "counts": {}
+  },
+  {
+   "contest": "governador:SP",
+   "display": "Guilherme Derrite",
+   "members": [
+    "Capitão Derrite"
+   ],
+   "display_from": "estendido de senador:SP (mesma UF, outro cargo)",
+   "counts": {}
+  }
+ ],
  "note": "Identidade de candidatos decidida contra o registro público (pt.wikipedia), não por heurística de string. Gerado por scripts/candidate-resolve.mjs. Cada entrada cita o artigo que a sustenta; qualquer uma é falsificável abrindo a URL.",
  "generated_by": "scripts/candidate-resolve.mjs",
  "aliases": [
@@ -82,6 +579,19 @@
    }
   },
   {
+   "contest": "governador:MS",
+   "canonical": null,
+   "names": [
+    "Jeferson Bezerra",
+    "Jefferson Bezerra"
+   ],
+   "evidence": {
+    "a": null,
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
+   }
+  },
+  {
    "contest": "senador:MG",
    "canonical": "Euclydes Pettersen",
    "names": [
@@ -98,13 +608,26 @@
    "contest": "governador:MS",
    "canonical": null,
    "names": [
-    "Jeferson Bezerra",
-    "Jefferson Bezerra"
+    "Jefferson Bezerra",
+    "Jefferson Bezzerra"
    ],
    "evidence": {
     "a": null,
     "b": null,
     "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
+   }
+  },
+  {
+   "contest": "senador:BA",
+   "canonical": "Jaques Wagner",
+   "names": [
+    "Jacques Wagner",
+    "Jaques Wagner"
+   ],
+   "evidence": {
+    "a": "Jaques Wagner (https://pt.wikipedia.org/wiki/Jaques_Wagner)",
+    "b": "Jaques Wagner (https://pt.wikipedia.org/wiki/Jaques_Wagner)",
+    "why": "ambos resolvem para o mesmo artigo"
    }
   },
   {
@@ -129,45 +652,6 @@
    ],
    "evidence": {
     "a": "Luis Cesar Bueno (https://pt.wikipedia.org/wiki/Luis_Cesar_Bueno)",
-    "b": null,
-    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
-   }
-  },
-  {
-   "contest": "senador:BA",
-   "canonical": "Jaques Wagner",
-   "names": [
-    "Jacques Wagner",
-    "Jaques Wagner"
-   ],
-   "evidence": {
-    "a": "Jaques Wagner (https://pt.wikipedia.org/wiki/Jaques_Wagner)",
-    "b": "Jaques Wagner (https://pt.wikipedia.org/wiki/Jaques_Wagner)",
-    "why": "ambos resolvem para o mesmo artigo"
-   }
-  },
-  {
-   "contest": "governador:MS",
-   "canonical": null,
-   "names": [
-    "Jefferson Bezerra",
-    "Jefferson Bezzerra"
-   ],
-   "evidence": {
-    "a": null,
-    "b": null,
-    "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
-   }
-  },
-  {
-   "contest": "senador:DF",
-   "canonical": "Paulo Octávio",
-   "names": [
-    "Paulo Octávio",
-    "Paulo Otávio"
-   ],
-   "evidence": {
-    "a": "Paulo Octávio (https://pt.wikipedia.org/wiki/Paulo_Oct%C3%A1vio)",
     "b": null,
     "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
    }
@@ -199,16 +683,16 @@
    }
   },
   {
-   "contest": "senador:TO",
-   "canonical": "Carlos Gaguim",
+   "contest": "senador:DF",
+   "canonical": "Paulo Octávio",
    "names": [
-    "Carlos Caguin",
-    "Carlos Gaguim"
+    "Paulo Octávio",
+    "Paulo Otávio"
    ],
    "evidence": {
-    "a": null,
-    "b": "Carlos Gaguim (https://pt.wikipedia.org/wiki/Carlos_Gaguim)",
-    "why": "grafias a 2 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+    "a": "Paulo Octávio (https://pt.wikipedia.org/wiki/Paulo_Oct%C3%A1vio)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
    }
   },
   {
@@ -225,6 +709,19 @@
    }
   },
   {
+   "contest": "senador:TO",
+   "canonical": "Carlos Gaguim",
+   "names": [
+    "Carlos Caguin",
+    "Carlos Gaguim"
+   ],
+   "evidence": {
+    "a": null,
+    "b": "Carlos Gaguim (https://pt.wikipedia.org/wiki/Carlos_Gaguim)",
+    "why": "grafias a 2 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
    "contest": "governador:RS",
    "canonical": "Zucco",
    "names": [
@@ -234,6 +731,19 @@
    "evidence": {
     "a": "Zucco (https://pt.wikipedia.org/wiki/Zucco)",
     "b": "Zucco (https://pt.wikipedia.org/wiki/Zucco)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:SP",
+   "canonical": "Guilherme Derrite",
+   "names": [
+    "Capitão Derrite",
+    "Guilherme Derrite"
+   ],
+   "evidence": {
+    "a": "Guilherme Derrite (https://pt.wikipedia.org/wiki/Guilherme_Derrite)",
+    "b": "Guilherme Derrite (https://pt.wikipedia.org/wiki/Guilherme_Derrite)",
     "why": "ambos resolvem para o mesmo artigo"
    }
   },
@@ -248,19 +758,6 @@
     "a": "https://pt.wikipedia.org/wiki/Daniel_Santos_(pol%C3%ADtico)",
     "b": "https://dol.com.br/noticias/politica/eleicoes-2026/958921/podemos-oficializa-daniel-santos-como-candidato-ao-governo-do-para",
     "why": "Daniel Barbosa Santos, médico e ex-prefeito de Ananindeua, oficializado pelo Podemos ao Governo do Pará; imprensa o trata como 'Daniel Santos' e 'Dr. Daniel'."
-   }
-  },
-  {
-   "contest": "senador:SP",
-   "canonical": "Guilherme Derrite",
-   "names": [
-    "Capitão Derrite",
-    "Guilherme Derrite"
-   ],
-   "evidence": {
-    "a": "Guilherme Derrite (https://pt.wikipedia.org/wiki/Guilherme_Derrite)",
-    "b": "Guilherme Derrite (https://pt.wikipedia.org/wiki/Guilherme_Derrite)",
-    "why": "ambos resolvem para o mesmo artigo"
    }
   },
   {
@@ -291,15 +788,15 @@
   },
   {
    "contest": "senador:CE",
-   "canonical": "Alcides Fernandes da Silva",
+   "canonical": "Alcides Fernandes",
    "names": [
     "Alcides Fernandes",
     "Pastor Alcides"
    ],
    "evidence": {
     "a": "https://www.al.ce.gov.br/deputados/alcides-fernandes",
-    "b": "https://radioasabranca.com.br/politica-pl-oficializa-alcides-fernandes-como-candidato-ao-senado-no-ceara/",
-    "why": "Alcides Fernandes da Silva (PL), deputado estadual do CE e pastor da Assembleia de Deus; único Alcides na disputa ao Senado pelo CE."
+    "b": "https://pt.wikipedia.org/wiki/Alcides_Fernandes",
+    "why": "decisão do criador — Pastor Alcides Fernandes é deputado estadual do PL no Ceará. 'Professor Alcides' nas pesquisas ao Senado pelo CE corresponde a ele."
    }
   },
   {
@@ -329,29 +826,29 @@
    }
   },
   {
-   "contest": "senador:RO",
-   "canonical": "Rodrigo Camargo Ribeiro Pinho",
+   "contest": "senador:CE",
+   "canonical": "Alcides Fernandes",
    "names": [
-    "Delegado Camargo",
-    "Rodrigo Camargo"
+    "Alcides Fernandes",
+    "Professor Alcides"
    ],
    "evidence": {
-    "a": "https://www.al.ro.leg.br/deputados/perfil/delegado-camargo",
-    "b": "https://republicanos10.org.br/quem_e_quem/rodrigo-camargo-2/",
-    "why": "Delegado da Polícia Civil de RO e deputado estadual; nome de urna 'Delegado Camargo'."
+    "a": "https://www.al.ce.gov.br/deputados/alcides-fernandes",
+    "b": "https://pt.wikipedia.org/wiki/Alcides_Fernandes",
+    "why": "decisão do criador — Pastor Alcides Fernandes é deputado estadual do PL no Ceará. 'Professor Alcides' nas pesquisas ao Senado pelo CE corresponde a ele."
    }
   },
   {
-   "contest": "governador:PI",
-   "canonical": "Tonny Kerley de Alencar Rodrigues",
+   "contest": "senador:CE",
+   "canonical": "Alcides Fernandes",
    "names": [
-    "Professor Tonny",
-    "Tonny Kerley"
+    "Pastor Alcides",
+    "Professor Alcides"
    ],
    "evidence": {
-    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
-    "b": "https://www.oitomeia.com.br/noticias/2023/10/17/saiba-quem-e-tonny-kerley-empresario-e-professor-de-34-anos-que-disputara-a-prefeitura-de-teresina/",
-    "why": "Tonny Kerley (Novo), economista e professor universitário; pesquisas do PI o listam ora como 'Tonny Kerley (Novo)', ora 'Professor Tonny (Novo)'."
+    "a": "https://www.al.ce.gov.br/deputados/alcides-fernandes",
+    "b": "https://pt.wikipedia.org/wiki/Alcides_Fernandes",
+    "why": "decisão do criador — Pastor Alcides Fernandes é deputado estadual do PL no Ceará. 'Professor Alcides' nas pesquisas ao Senado pelo CE corresponde a ele."
    }
   },
   {
@@ -368,6 +865,19 @@
    }
   },
   {
+   "contest": "governador:PI",
+   "canonical": "Tonny Kerley de Alencar Rodrigues",
+   "names": [
+    "Professor Tonny",
+    "Tonny Kerley"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+    "b": "https://www.oitomeia.com.br/noticias/2023/10/17/saiba-quem-e-tonny-kerley-empresario-e-professor-de-34-anos-que-disputara-a-prefeitura-de-teresina/",
+    "why": "Tonny Kerley (Novo), economista e professor universitário; pesquisas do PI o listam ora como 'Tonny Kerley (Novo)', ora 'Professor Tonny (Novo)'."
+   }
+  },
+  {
    "contest": "senador:SE",
    "canonical": "Alessandro Vieira",
    "names": [
@@ -378,6 +888,19 @@
     "a": "Alessandro Vieira (https://pt.wikipedia.org/wiki/Alessandro_Vieira)",
     "b": "Alessandro Vieira (https://pt.wikipedia.org/wiki/Alessandro_Vieira)",
     "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:RO",
+   "canonical": "Rodrigo Camargo Ribeiro Pinho",
+   "names": [
+    "Delegado Camargo",
+    "Rodrigo Camargo"
+   ],
+   "evidence": {
+    "a": "https://www.al.ro.leg.br/deputados/perfil/delegado-camargo",
+    "b": "https://republicanos10.org.br/quem_e_quem/rodrigo-camargo-2/",
+    "why": "Delegado da Polícia Civil de RO e deputado estadual; nome de urna 'Delegado Camargo'."
    }
   },
   {
@@ -420,6 +943,19 @@
    }
   },
   {
+   "contest": "senador:GO",
+   "canonical": "Vanderlan Cardoso",
+   "names": [
+    "Vanderlan Cardoso",
+    "Vanderlan Gomes"
+   ],
+   "evidence": {
+    "a": "https://www25.senado.leg.br/web/senadores/senador/-/perfil/5899",
+    "b": null,
+    "why": "decisão do criador — Vanderlan Cardoso é senador por Goiás. O único Vanderlan das pesquisas ao Senado em GO é ele; 'Vanderlan Gomes' é rótulo errado do agregador sobre o mesmo candidato."
+   }
+  },
+  {
    "contest": "senador:MS",
    "canonical": "Gianni Nogueira",
    "names": [
@@ -444,6 +980,19 @@
     "b": "José Wanderley Neto (https://pt.wikipedia.org/wiki/Jos%C3%A9_Wanderley_Neto)",
     "why": "ambos resolvem para o mesmo artigo"
    }
+  },
+  {
+   "contest": "senador:SP",
+   "canonical": "Alexandre Luiz Giordano",
+   "names": [
+    "Alexandre Luiz Giordano",
+    "Guilherme Giordano"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Alexandre_Luiz_Giordano",
+    "b": "https://pt.wikipedia.org/wiki/Guilherme_Derrite",
+    "why": "decisão do criador — 'Guilherme Giordano' é, na verdade, Alexandre Giordano — senador por SP, no MDB. Guilherme Derrite é outra pessoa: deputado federal por SP, pré-candidato ao Senado."
+   }
   }
  ],
  "distinct": [
@@ -456,18 +1005,6 @@
    "evidence": {
     "a": "Marcelo Queiroga (https://pt.wikipedia.org/wiki/Marcelo_Queiroga)",
     "b": "Marcelo Queiroz (https://pt.wikipedia.org/wiki/Marcelo_Queiroz)"
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "senador:CE",
-   "names": [
-    "Alcides Fernandes",
-    "Professor Alcides"
-   ],
-   "evidence": {
-    "a": "Alcides Fernandes (https://pt.wikipedia.org/wiki/Alcides_Fernandes)",
-    "b": "Professor Alcides (https://pt.wikipedia.org/wiki/Professor_Alcides)"
    },
    "confidence": "alta"
   },
@@ -520,6 +1057,18 @@
    "confidence": "alta"
   },
   {
+   "contest": "governador:PR",
+   "names": [
+    "Paulo Eduardo",
+    "Paulo Martins"
+   ],
+   "evidence": {
+    "a": "Paulo Eduardo (https://pt.wikipedia.org/wiki/Paulo_Eduardo)",
+    "b": "Paulo Martins (https://pt.wikipedia.org/wiki/Paulo_Martins)"
+   },
+   "confidence": "alta"
+  },
+  {
    "contest": "governador:BA",
    "names": [
     "José Aleluia",
@@ -527,78 +1076,6 @@
    ],
    "evidence": {
     "a": "https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%B5es_estaduais_na_Bahia_em_2026",
-    "b": null
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "senador:RJ",
-   "names": [
-    "Carlos Jordy",
-    "Carlos Portinho"
-   ],
-   "evidence": {
-    "a": "Carlos Jordy (https://pt.wikipedia.org/wiki/Carlos_Jordy)",
-    "b": "Carlos Portinho (https://pt.wikipedia.org/wiki/Carlos_Portinho)"
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "governador:RJ",
-   "names": [
-    "André Ceciliano",
-    "André Marinho"
-   ],
-   "evidence": {
-    "a": "André Ceciliano (https://pt.wikipedia.org/wiki/Andr%C3%A9_Ceciliano)",
-    "b": "André Marinho (https://pt.wikipedia.org/wiki/Andr%C3%A9_Marinho)"
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "governador:RJ",
-   "names": [
-    "Rodrigo Barcellar",
-    "Rodrigo Pimentel"
-   ],
-   "evidence": {
-    "a": "https://diariodorio.com/rodrigo-bacellar-anuncia-pre-candidatura-ao-governo-do-rio-em-2026",
-    "b": null
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "governador:GO",
-   "names": [
-    "Gustavo Gayer",
-    "Gustavo Medanha"
-   ],
-   "evidence": {
-    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-    "b": null
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "governador:MG",
-   "names": [
-    "Alexandre Kalil",
-    "Alexandre Silveira"
-   ],
-   "evidence": {
-    "a": "Alexandre Kalil (https://pt.wikipedia.org/wiki/Alexandre_Kalil)",
-    "b": "Alexandre Silveira (https://pt.wikipedia.org/wiki/Alexandre_Silveira)"
-   },
-   "confidence": "alta"
-  },
-  {
-   "contest": "senador:TO",
-   "names": [
-    "Carlos Caguin",
-    "Carlos Velozo"
-   ],
-   "evidence": {
-    "a": "https://www.jornaldotocantins.com.br/politica/eleicoes/pastor-carlos-velozo-anuncia-pre-candidatura-ao-senado-pelo-tocantins-1.3390418",
     "b": null
    },
    "confidence": "alta"
@@ -652,14 +1129,74 @@
    "confidence": "media"
   },
   {
-   "contest": "governador:PR",
+   "contest": "governador:GO",
    "names": [
-    "Paulo Eduardo",
-    "Paulo Martins"
+    "Gustavo Gayer",
+    "Gustavo Medanha"
    ],
    "evidence": {
-    "a": "Paulo Eduardo (https://pt.wikipedia.org/wiki/Paulo_Eduardo)",
-    "b": "Paulo Martins (https://pt.wikipedia.org/wiki/Paulo_Martins)"
+    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:TO",
+   "names": [
+    "Carlos Caguin",
+    "Carlos Velozo"
+   ],
+   "evidence": {
+    "a": "https://www.jornaldotocantins.com.br/politica/eleicoes/pastor-carlos-velozo-anuncia-pre-candidatura-ao-senado-pelo-tocantins-1.3390418",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:RJ",
+   "names": [
+    "André Ceciliano",
+    "André Marinho"
+   ],
+   "evidence": {
+    "a": "André Ceciliano (https://pt.wikipedia.org/wiki/Andr%C3%A9_Ceciliano)",
+    "b": "André Marinho (https://pt.wikipedia.org/wiki/Andr%C3%A9_Marinho)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:RJ",
+   "names": [
+    "Rodrigo Barcellar",
+    "Rodrigo Pimentel"
+   ],
+   "evidence": {
+    "a": "https://diariodorio.com/rodrigo-bacellar-anuncia-pre-candidatura-ao-governo-do-rio-em-2026",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:RJ",
+   "names": [
+    "Carlos Jordy",
+    "Carlos Portinho"
+   ],
+   "evidence": {
+    "a": "Carlos Jordy (https://pt.wikipedia.org/wiki/Carlos_Jordy)",
+    "b": "Carlos Portinho (https://pt.wikipedia.org/wiki/Carlos_Portinho)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:MG",
+   "names": [
+    "Alexandre Kalil",
+    "Alexandre Silveira"
+   ],
+   "evidence": {
+    "a": "Alexandre Kalil (https://pt.wikipedia.org/wiki/Alexandre_Kalil)",
+    "b": "Alexandre Silveira (https://pt.wikipedia.org/wiki/Alexandre_Silveira)"
    },
    "confidence": "alta"
   },
@@ -724,18 +1261,6 @@
    "confidence": "alta"
   },
   {
-   "contest": "senador:RJ",
-   "names": [
-    "Flávio Bolsonaro",
-    "Rogéria Bolsonaro"
-   ],
-   "evidence": {
-    "a": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)",
-    "b": "Rogéria Bolsonaro (https://pt.wikipedia.org/wiki/Rog%C3%A9ria_Bolsonaro)"
-   },
-   "confidence": "alta"
-  },
-  {
    "contest": "senador:RN",
    "names": [
     "Rivaldo Fernandes",
@@ -758,32 +1283,19 @@
     "b": "Ronaldo Caiado (https://pt.wikipedia.org/wiki/Ronaldo_Caiado)"
    },
    "confidence": "alta"
+  },
+  {
+   "contest": "senador:RJ",
+   "names": [
+    "Flávio Bolsonaro",
+    "Rogéria Bolsonaro"
+   ],
+   "evidence": {
+    "a": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)",
+    "b": "Rogéria Bolsonaro (https://pt.wikipedia.org/wiki/Rog%C3%A9ria_Bolsonaro)"
+   },
+   "confidence": "alta"
   }
  ],
- "unresolved": [
-  {
-   "contest": "senador:CE",
-   "names": [
-    "Pastor Alcides",
-    "Professor Alcides"
-   ],
-   "why": "Nenhuma fonte registra 'Professor Alcides' no CE em 2026; único Alcides é o pastor Alcides Fernandes (PL). Pode ser erro de grafia, mas sem evidência positiva — não fundir."
-  },
-  {
-   "contest": "senador:GO",
-   "names": [
-    "Vanderlan Cardoso",
-    "Vanderlan Gomes"
-   ],
-   "why": "Senador goiano é Vanderlan Vieira Cardoso — sem 'Gomes'. Único 'Vanderlan Gomes' documentado é apresentador de TV em Araguaína (TO), sem ligação com GO."
-  },
-  {
-   "contest": "senador:SP",
-   "names": [
-    "Alexandre Luiz Giordano",
-    "Guilherme Giordano"
-   ],
-   "why": "Senador é Alexandre Luiz Giordano (Podemos). Nenhuma fonte pública sobre 'Guilherme Giordano' — nem TSE, nem imprensa. Sem evidência de existência; manter separado."
-  }
- ]
+ "unresolved": []
 }

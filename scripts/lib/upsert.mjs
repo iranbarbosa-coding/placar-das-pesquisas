@@ -21,6 +21,7 @@ import {
 } from "./store.mjs";
 import { contestKey } from "./ids.mjs";
 import { canonicalPartyAt } from "./parties.mjs";
+import { canonicalCandidate } from "./candidates.mjs";
 
 const SURVEY_FIELDS = [
   "contractor_raw", "fieldwork_start", "fieldwork_end", "published_date",
@@ -75,7 +76,8 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
   const contest = contestKey(poll.race, poll.state);
   const results = (poll.results ?? []).map((r) => {
     const party = canonicalPartyAt(r.party, date);
-    const c = resolveCandidate(store, r.candidate, contest, party, { fuzzy: fuzzyCandidates });
+    const nome = canonicalCandidate(r.candidate, contest);
+    const c = resolveCandidate(store, nome, contest, party, { fuzzy: fuzzyCandidates });
     return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party, pct: r.pct };
   });
 
