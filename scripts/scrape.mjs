@@ -75,16 +75,32 @@ function mergePolls(pollLists) {
       if (existing) {
         const oldPri = SOURCE_PRIORITY[existing.source] ?? 1;
         const newPri = SOURCE_PRIORITY[p.source] ?? 1;
+        const META = ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start"];
+        // SOURCE PRIORITY DECIDES METADATA — NEVER THE RESULT TABLE.
+        //
+        // The winning source used to replace the record wholesale, results
+        // included. An Acre senate poll reached us twice: Wikipedia with all 6
+        // candidates (sum 200) and Poder360 with 3 (sum 21). Poder360 outranks
+        // Wikipedia, so the 3-row fragment overwrote the complete table and the
+        // poll then failed the sum guard and vanished from the averages
+        // entirely. Priority settles who is authoritative about the sample size
+        // or the registration; it says nothing about who published more rows.
+        const richer = (a, b) => {
+          const na = (a.results ?? []).length, nb = (b.results ?? []).length;
+          if (na !== nb) return na > nb;
+          const sum = (x) => (x.results ?? []).reduce((t, r) => t + r.pct, 0) +
+            (x.others_pct ?? 0) + (x.blank_null_pct ?? 0) + (x.undecided_pct ?? 0);
+          return sum(a) > sum(b);
+        };
+        const RESULTS = ["results", "others_pct", "blank_null_pct", "undecided_pct"];
         if (newPri > oldPri) {
           const keep = { ...p };
-          for (const f of ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start"]) {
-            if (keep[f] == null && existing[f] != null) keep[f] = existing[f];
-          }
+          for (const f of META) if (keep[f] == null && existing[f] != null) keep[f] = existing[f];
+          if (richer(existing, p)) for (const f of RESULTS) keep[f] = existing[f];
           Object.assign(existing, keep);
         } else {
-          for (const f of ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start"]) {
-            if (existing[f] == null && p[f] != null) existing[f] = p[f];
-          }
+          for (const f of META) if (existing[f] == null && p[f] != null) existing[f] = p[f];
+          if (richer(p, existing)) for (const f of RESULTS) existing[f] = p[f];
         }
       } else {
         const copy = { ...p };

@@ -66,6 +66,13 @@ const POLLSTER_ALIASES = new Map([
   ["atlasinstel", "AtlasIntel"], // recurring typos in wiki tables
   ["altasintel", "AtlasIntel"],
   ["cnt", "MDA"], // CNT is MDA's contractor; wiki sometimes credits CNT alone
+  // Acre's institute is Travessia; Poder360 files it as "Instituto Travessia"
+  // and Wikipedia as "Travessia Diagnóstico". Pinned because the shared token
+  // "diagnóstico" otherwise drags it into "Diagnóstico/Acieg" — a GOIÁS
+  // outfit (Acieg is the state's commercial association). That merge was live
+  // and wrong before any of this: "Diagnóstico/Acieg" was labelling 2 Acre
+  // polls alongside 3 Goiás ones, i.e. one name for two unrelated institutes.
+  ["travessiadiagnostico", "Instituto Travessia"],
 ]);
 
 /** Remove wikitext leakage, regional qualifiers and noise from an institute name. */
@@ -94,10 +101,22 @@ export function canonicalizePollsters(polls) {
 
   const freq = new Map();
   for (const p of polls) freq.set(p.pollster, (freq.get(p.pollster) ?? 0) + 1);
-  // Most frequent names become cluster SEEDS. A name only joins a cluster by
-  // sharing a distinctive token with the SEED (never with later members) —
-  // transitive chains ("Doxa (RMB)" → "Destak (RMB)" → …) cannot form.
-  const names = [...freq.entries()].sort((a, b) => b[1] - a[1]).map(([n]) => n);
+  // SEED ORDER IS DETERMINISTIC, NOT FREQUENCY-BASED.
+  //
+  // Seeds used to be the most-frequent names, which made an institute's name
+  // depend on how much OTHER data happened to be present. Collecting 365
+  // state-level presidential polls shifted the counts, one Acre institute
+  // split in two ("Instituto Travessia" from Poder360, "Travessia
+  // Diagnóstico" from Wikipedia and "Diagnóstico/Acieg" each share a token
+  // with the next), the cross-source merge that depended on the shared name
+  // stopped happening, and an Acre SENATE poll fell out of the averages — a
+  // race with no presidential polls in it at all.
+  //
+  // Shortest-then-alphabetical instead: it depends only on the SET of names,
+  // never on their counts, and it prefers the plain form ("Quaest" seeds the
+  // cluster "Genial/Quaest" joins). A name still only joins by sharing a
+  // distinctive token with the SEED, so transitive chains cannot form.
+  const names = [...freq.keys()].sort((a, b) => a.length - b.length || a.localeCompare(b, "pt-BR"));
   const clusters = []; // {seed, seedTokens, members: []}
   const canonicalOf = new Map();
   for (const name of names) {
@@ -120,9 +139,24 @@ export function canonicalizePollsters(polls) {
     else clusters.push({ seed: name, seedTokens: tk, members: [name] });
   }
   for (const c of clusters) {
+    // The DISPLAY name keeps using attestation, deliberately.
+    //
+    // I tried removing frequency here too, for symmetry with the seeding fix
+    // above, and it was a bad trade: "shortest member" published "Real Time Big
+    // Data" as "Real Time", and "longest non-pairing member" renamed 32
+    // institutes into their verbose legal forms — "Futura" became "Futura
+    // Inteligência", "Ranking" became "Instituto Ranking Brasil Inteligência",
+    // "TN/Consult" became the lowercase "consult pesquisas".
+    //
+    // Attestation is what actually encodes "the name this institute is known
+    // by": the short well-known form is used repeatedly, a truncation or a
+    // legal name appears once. And the risk here is bounded in a way the
+    // seeding risk was not — cluster MEMBERSHIP is now frequency-free, so a
+    // shifting count can only relabel a cluster, never change which polls merge
+    // or which get dropped. That was the whole damage in the Acre case.
     const attested = c.members.filter((n) => (freq.get(n) ?? 0) >= 2);
     const pool = attested.length ? attested : c.members;
-    const canonical = pool.sort((a, b) => a.length - b.length)[0];
+    const canonical = [...pool].sort((a, b) => a.length - b.length || a.localeCompare(b, "pt-BR"))[0];
     for (const n of c.members) canonicalOf.set(n, canonical);
   }
   for (const p of polls) p.pollster = canonicalOf.get(p.pollster) ?? p.pollster;
