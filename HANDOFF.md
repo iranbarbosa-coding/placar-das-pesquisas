@@ -313,6 +313,7 @@ node scripts/validate-store.mjs --self-test   # 20 guards, each proven to fire
 node scripts/validate-store.mjs               # validate the real store
 node scripts/parity-check.mjs                 # store must reproduce polls.json
 node scripts/projection-twin-check.mjs        # project.mjs ≡ src/lib/store.ts
+node scripts/upsert-harness.mjs               # o caminho de ESCRITA (base da Fase 3)
 node scripts/idempotence-check.mjs            # rebuild on 2 dates ⇒ tabelas idênticas
 node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
 node scripts/validate-data.mjs --self-test    # legacy validator

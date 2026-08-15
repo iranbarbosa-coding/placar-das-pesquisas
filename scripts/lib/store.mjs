@@ -260,9 +260,15 @@ export function resolveSurvey(store, incoming) {
     for (const s of store.surveys) {
       if (s.institute_id !== incoming.institute_id) continue;
       if ((s.universe?.uf ?? null) !== (incoming.universe?.uf ?? null)) continue;
+      // Two DIFFERENT registrations are two different registered surveys, full
+      // stop — the fuzzy rung must never override the exact one. Without this
+      // the natural key absorbed a poll registered as MG-02222 into the survey
+      // registered as MG-01234, then logged the registration disagreement as
+      // if a source had erred.
+      if (reg && s.tse_registration && s.tse_registration !== reg) continue;
       const sd = s.fieldwork_end ?? s.published_date;
       if (!sd || Math.abs(+new Date(sd) - +new Date(date)) > 3 * DAY) continue;
-      if (!rosterOverlaps(idx.rosters.get(s.survey_id), incoming.roster)) continue;
+      if (!rosterOverlaps(storedRoster(store, s.survey_id), incoming.roster)) continue;
       store._report.matched.natural++;
       return { survey: s, matched_by: "natural" };
     }
@@ -296,6 +302,28 @@ export function resolveSurvey(store, incoming) {
   if (reg) idx.byReg.set(reg, survey);
   store._report.minted.surveys++;
   return { survey, matched_by: "minted" };
+}
+
+/**
+ * The stored roster, read LIVE from the survey's questions.
+ *
+ * It used to come from an index built once at readStore, which meant a survey
+ * created earlier in the SAME run had no roster — so `rosterOverlaps` hit its
+ * "nothing to judge on" branch and returned true for everything. The 60% guard
+ * therefore never fired during a scrape, only across runs. Deriving it from
+ * `questionsBySurvey` (which resolveQuestion keeps current) removes the class
+ * of bug rather than adding a second thing to remember to update.
+ */
+function storedRoster(store, survey_id) {
+  const names = new Set();
+  for (const q of store._indexes.questionsBySurvey.get(survey_id) ?? []) {
+    for (const r of q.results ?? []) {
+      const n = r.name_raw ?? r.candidate;
+      if (n) names.add(n);
+    }
+  }
+  if (names.size) return names;
+  return store._indexes.rosters.get(survey_id) ?? names;
 }
 
 function rosterOverlaps(stored, incoming) {
@@ -391,6 +419,16 @@ export function logConflict(store, c) {
   return rec;
 }
 
+/**
+ * Record a source's native id on a survey, and INDEX IT.
+ *
+ * The indexing is the point. `byRef` was built once at readStore and never
+ * updated, so a survey minted during a run could not be found by the very key
+ * the ladder trusts most — its source's own id. Rung 1 therefore never fired
+ * within a scrape: resolution silently fell through to registration, or to the
+ * fuzzy natural key, or minted a duplicate. It looked correct because the only
+ * caller was a test that re-read the store between runs.
+ */
 export function addSourceRef(store, survey, ref) {
   survey.source_refs ??= [];
   const k = `${ref.source}:${ref.native_id}`;
@@ -398,6 +436,7 @@ export function addSourceRef(store, survey, ref) {
     const first_seen = ref.first_seen ?? firstSeenFor(store, "sourceRefs", `${survey.survey_id}|${k}`);
     survey.source_refs.push({ ...ref, first_seen });
   }
+  if (ref.native_id != null) store._indexes.byRef.set(k, survey);
 }
 
 /**
