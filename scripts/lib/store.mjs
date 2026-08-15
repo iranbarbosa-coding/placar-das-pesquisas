@@ -274,9 +274,20 @@ export function resolveSurvey(store, incoming) {
     }
   }
 
+  // The seed was `mint_seed ?? \`survey|${reg ?? ""}|${refs}\` ?? \`survey|natural…\``.
+  // The middle expression is ALWAYS a string, so `??` never reached the third:
+  // a poll with neither registration nor native id seeded on `survey||` — the
+  // same value for every such poll — and they all minted the SAME survey_id.
+  // Wikipedia rows carry neither, so the whole source collapsed onto one
+  // record: 2.581 polls became 1.520, and unrelated institutes were merged.
+  // Each branch is now chosen explicitly, in the ladder's own order.
+  const refKey = (incoming.source_refs ?? [])
+    .filter((r) => r.native_id != null)
+    .map((r) => `${r.source}:${r.native_id}`).sort().join(",");
   const seed = incoming.mint_seed
-    ?? `survey|${reg ?? ""}|${(incoming.source_refs ?? []).map((r) => `${r.source}:${r.native_id}`).sort().join(",")}`
-    ?? `survey|${incoming.institute_id}|${incoming.universe?.uf ?? "BR"}|${date}|${incoming.sample_size}`;
+    ?? (refKey ? `survey|ref|${refKey}`
+      : reg ? `survey|reg|${reg}`
+      : `survey|nat|${incoming.institute_id}|${incoming.universe?.uf ?? "BR"}|${date ?? "-"}|${incoming.sample_size ?? "-"}|${(incoming.roster ?? []).slice().sort().join(",")}`);
   const survey_id = mintSurveyId(seed);
   const survey = {
     survey_id,

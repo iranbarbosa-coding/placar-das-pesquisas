@@ -123,6 +123,19 @@ check("recusa: elenco diferente não une (guarda de 60%)", (store, assert) => {
   assert(b.matched_by === "minted", `casou por "${b.matched_by}" — elenco disjunto deveria cunhar`);
 });
 
+check("cunhagem sem registro E sem id nativo gera ids DISTINTOS", (store, assert) => {
+  // The shape every Wikipedia row has. The mint seed used to fall back to the
+  // constant string `survey||` for these, so they all minted the SAME id and
+  // the entire source collapsed into one survey — 2.581 polls became 1.520,
+  // with unrelated institutes merged into each other.
+  const a = upsertPoll(store, poll({ tse_registration: null, pollster: "Instituto A", state: "BA" }), { source: "wikipedia", nativeId: null });
+  const b = upsertPoll(store, poll({ tse_registration: null, pollster: "Instituto B", state: "PE" }), { source: "wikipedia", nativeId: null });
+  const c = upsertPoll(store, poll({ tse_registration: null, pollster: "Instituto C", state: "CE" }), { source: "wikipedia", nativeId: null });
+  const ids = new Set([a.survey.survey_id, b.survey.survey_id, c.survey.survey_id]);
+  assert(ids.size === 3, `3 pesquisas distintas geraram ${ids.size} id(s) — colisão de semente`);
+  assert(store.surveys.length === 3, `${store.surveys.length} levantamentos, esperado 3`);
+});
+
 check("recusa: UF diferente não une", (store, assert) => {
   upsertPoll(store, poll({ tse_registration: null }), { source: "poder360", nativeId: 1 });
   const b = upsertPoll(store, poll({ tse_registration: null, state: "SP" }), { source: "wikipedia", nativeId: null });
