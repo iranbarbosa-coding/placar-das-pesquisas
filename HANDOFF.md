@@ -181,6 +181,10 @@ add `scripts/sources/eleicaoemdados.mjs` (+72 registry-valid polls;
 base `https://api-core-4p7x5p4kza-rj.a.run.app/api/v1`, `/polls?per_page=100&page=N`,
 `/polls/{id}/scenarios`). **Ingestion order must stay poder360 → eleicaoemdados →
 wikipedia**, because "first writer wins" is what implements source priority.
+Note two signatures changed under it: `readStore` takes `{ runDate, prior }`, and
+`addSourceRef(store, survey, ref)` now takes the store first (it needs the run's clock).
+Pass a single `runDate` for the whole run — a scrape that stamps two dates because it
+crossed midnight is the same churn defect in a smaller costume.
 
 **Phase 4** — (a) registry reconciliation + `publication_status`; (b) crosstab extraction.
 
@@ -257,17 +261,32 @@ node scripts/validate-store.mjs --self-test   # 20 guards, each proven to fire
 node scripts/validate-store.mjs               # validate the real store
 node scripts/parity-check.mjs                 # store must reproduce polls.json
 node scripts/projection-twin-check.mjs        # project.mjs ≡ src/lib/store.ts
+node scripts/idempotence-check.mjs            # rebuild on 2 dates ⇒ tabelas idênticas
+node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
 node scripts/validate-data.mjs --self-test    # legacy validator
-node scripts/migrate-to-store.mjs             # see the idempotence caveat below
+node scripts/migrate-to-store.mjs             # idempotent; only meta.migrated_at moves
 npm run scrape                                # full re-ingest (~10 min, be patient)
 npx next build                                # must produce 38 pages
 ```
 
-**`migrate-to-store.mjs` is idempotent only within a single day.** It rebuilds the store
-from scratch and stamps `today()` into `first_seen` and `provenance.created_at/updated_at`,
-so a re-run on a later date rewrites all 4.613 records — every line of every table, with
-nothing but the date changed. Re-running it is not a free operation; `git checkout -- data/`
-afterwards if you only meant to check.
+**The clock is injected, not read at the point of use.** `readStore({ runDate })` carries
+the run's date on the store, and every stamp comes from there — `today()` survives only as
+the default. `migrate-to-store.mjs` reads whatever store already exists and carries its
+`first_seen` / `created_at` / `updated_at` forward (`priorStamps`), which is safe because
+ids are minted once from a recorded seed and never recomputed. `--run-date=` and `--dir=`
+exist so the guard can rebuild twice into scratch directories.
+
+This was a live defect: every date was read from the wall clock, so a rebuild on a later
+day rewrote all 4.613 records with nothing but the stamps changed. Nothing failed — the
+store stayed valid, parity stayed green — you just lost the three-line reviewable diff
+NDJSON exists to give you. Re-running the migration on `data/` now produces a **one-line**
+diff (`meta.migrated_at`, the single field still allowed a wall-clock reading).
+
+`scripts/idempotence-check.mjs` guards both halves, because either alone passes while
+broken: **injection** (a fresh build stamps the date it was given, never today's) and
+**preservation** (a rebuild re-dates nothing it already had). Both were proven to fire —
+injection by leaking one `today()` back in, preservation via `--self-test`, which wipes the
+store between runs to recreate the old behaviour exactly.
 
 The parity check used to compare neither `scenario`, `source_url`, `contractor` nor the
 per-result `party`, two of which are rendered. All four are compared now, and each new
@@ -283,7 +302,31 @@ I was confident about.
 ## 6. Open items
 
 1. ~~Phase 2 of the database plan~~ — **done**; the site reads the store. Phase 3 is next.
-2. Fix the "Ciro Nogueira" candidate merge before Phase 3.
+2. Candidate identity, before Phase 3. `sameCandidate()` merges "Ciro Nogueira" into
+   "Ciro" (different politicians); the mirror failure is live in the data — **"Tião
+   Bocalom" and "Sebastião Bocalom" are one person**, splitting Acre's average into
+   18,4% (base 9/10) plus a phantom 14,0% (base 1/10); unified it is 18,0% at 10/10.
+   *Verified internally, not from the web:* Delta's 04–09/08/2026 fieldwork reached us
+   twice — Poder360 (`s_572c48c5dc3f`, TSE AC-06787/2026) with a 1º-turno field of
+   {Alan Rick, Mailza Assis, **Sebastião** Bocalom}, and Wikipédia (`s_aaf3bc7b7171`,
+   same window, same 1.006 sample) with a runoff Alan Rick vs **Tião** Bocalom. A runoff
+   is drawn from the round-1 field, so Tião is not in it unless Tião *is* Sebastião. Both
+   spellings also carry the same party trajectory (PL until Feb/26, PSDB after) and never
+   once co-occur in 28 rows. (pt.wikipedia confirms: "Sebastião Bocalom Rodrigues … mais
+   conhecido como Tião Bocalom" — a lead, not the basis.)
+   **Do not fix by widening the fuzzy match.** A scan for the general pattern (same
+   contest, shared name token, never co-occurring) returns **63 pairs**: many are one
+   person (`Zacharias/Zacarias Calil`, `Mateus/Matheus Simões`, `Mendanha/Medanha`,
+   `Baldy/Bady`, `van Hattem/Hatten`, `Capitão Derrite/Guilherme Derrite`), but the same
+   list contains Jair, Flávio, Michelle and Eduardo Bolsonaro, who must never merge. No
+   fuzzy rule separates those. Build a **curated alias table** reviewed by the creator,
+   as `data/repairs.json` already does for values — `candidates.ndjson` has `aliases`
+   already; give it the `merged_into` that institutes have. Then delete the fuzzy path
+   rather than tuning it. Worth adding as a hard validator guard: two aliases of one
+   candidate appearing in the same question is proof of a bad merge.
+   Also spotted there: those two Delta records are the *same fieldwork* stored as two
+   surveys (the Wikipédia one lost the TSE registration) — related to the shared-
+   registration worklist, but a distinct duplicate-survey case.
 3. Implement the presentation spec in §3A — none of it exists yet.
 4. Decide how incomplete polls are handled under válidos.
 5. Narrow `tse.mjs` to `BRASIL.csv`.

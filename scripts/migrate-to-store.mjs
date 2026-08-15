@@ -19,7 +19,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   readStore, writeStore, resolveInstitute, resolveCandidate,
-  markHeadlines, today, DATA_DIR,
+  markHeadlines, priorStamps, firstSeenFor, provenanceFor, today, DATA_DIR,
 } from "./lib/store.mjs";
 import { mintSurveyId, mintQuestionId, normalizeRegistration, contestKey } from "./lib/ids.mjs";
 import { validateStore } from "./validate-store.mjs";
@@ -61,13 +61,20 @@ function surveyGroupKey(p) {
   ].join("|");
 }
 
-function main() {
+function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
+  const log = quiet ? () => {} : console.log;
   const legacy = JSON.parse(fs.readFileSync(LEGACY, "utf-8"));
   const polls = legacy.polls;
-  console.log(`lendo ${polls.length} linhas de data/polls.json`);
+  log(`lendo ${polls.length} linhas de data/polls.json`);
+
+  // Whatever we already hold. This rebuild replaces the CONTENT of every table,
+  // but a record's "first seen" date is not content — re-deriving it from the
+  // wall clock turned "when we first saw this" into "when the script last ran",
+  // and rewrote all 4.613 rows on any run after the first day.
+  const prior = priorStamps(readStore({ dir }));
 
   // Start from an empty store so the migration is a pure function of the input.
-  const store = readStore({ dir: DATA_DIR, tables: [] });
+  const store = readStore({ dir, tables: [], runDate, prior });
   for (const t of ["surveys", "questions", "crosstabs", "institutes", "candidates", "registry", "searches", "conflicts"]) {
     store[t] = [];
   }
@@ -83,7 +90,7 @@ function main() {
     if (!groups.has(k)) groups.set(k, []);
     groups.get(k).push(p);
   }
-  console.log(`agrupadas em ${groups.size} levantamentos`);
+  log(`agrupadas em ${groups.size} levantamentos`);
 
   // Hoisting a field to survey level must never silently discard a competing
   // value: if rows of one group disagree, that is a grouping bug and is logged.
@@ -99,8 +106,9 @@ function main() {
     const inst = resolveInstitute(store, first.pollster);
     const reg = normalizeRegistration(pick(rows, "tse_registration", key));
     const seed = `survey|${key}`;
+    const survey_id = mintSurveyId(seed);
     const survey = {
-      survey_id: mintSurveyId(seed),
+      survey_id,
       mint_seed: seed,
       legacy_ids: rows.map((r) => r.id),
       tse_registration: reg,
@@ -120,12 +128,17 @@ function main() {
       pre_electoral: ((pick(rows, "fieldwork_end", key) ?? pick(rows, "published_date", key) ?? "") < "2026-01-01"),
       source_refs: [...new Set(rows.map((r) => r.source))].map((s) => {
         const m = /^p360-(\d+)-/.exec(rows.find((r) => r.source === s)?.id ?? "");
-        return { source: s, native_id: m ? m[1] : null, url: rows.find((r) => r.source === s)?.source_url ?? null, first_seen: today() };
+        const native_id = m ? m[1] : null;
+        return {
+          source: s, native_id,
+          url: rows.find((r) => r.source === s)?.source_url ?? null,
+          first_seen: firstSeenFor(store, "sourceRefs", `${survey_id}|${s}:${native_id}`),
+        };
       }),
       integra_url: null, article_url: pick(rows, "source_url", key) ?? null,
       crosstabs_status: "pending", crosstabs_unavailable_reason: null,
       retracted: null,
-      provenance: { created_at: today(), updated_at: today(), field_sources: {} },
+      provenance: provenanceFor(store, "surveys", survey_id),
     };
     store.surveys.push(survey);
     if (reg) store._indexes.byReg.set(reg, survey);
@@ -143,8 +156,9 @@ function main() {
         return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party: r.party ?? null, pct: r.pct };
       });
       const qseed = `question|${survey.survey_id}|${p.id}`;
+      const question_id = mintQuestionId(qseed);
       store.questions.push({
-        question_id: mintQuestionId(qseed), mint_seed: qseed,
+        question_id, mint_seed: qseed,
         survey_id: survey.survey_id, legacy_id: p.id,
         race: p.race, round: p.round, uf: p.state ?? null,
         scenario_ordinal: i, scenario_label_raw: p.scenario ?? null,
@@ -156,12 +170,12 @@ function main() {
         basis: "total",
         parse_warnings: p.parse_warnings ? [p.parse_warnings] : [],
         repaired: p.repaired ?? null, retracted: null,
-        provenance: { created_at: today(), updated_at: today(), field_sources: {} },
+        provenance: provenanceFor(store, "questions", question_id),
       });
     });
   }
 
-  if (disagreements.length) {
+  if (disagreements.length && !quiet) {
     console.warn(`\nAVISO: ${disagreements.length} desacordo(s) de campo dentro de um mesmo grupo — chave de agrupamento grosseira demais:`);
     for (const d of disagreements.slice(0, 8)) console.warn(`  ${d.groupKey} · ${d.field}: ${JSON.stringify(d.values)}`);
   }
@@ -180,16 +194,20 @@ function main() {
   for (const [reg, ids] of byReg) {
     if (ids.length < 2) continue;
     shared++;
+    const conflict_id = `k_reg_${reg.replace(/[^A-Z0-9]/g, "")}`;
     store.conflicts.push({
-      conflict_id: `k_reg_${reg.replace(/[^A-Z0-9]/g, "")}`,
-      at: new Date().toISOString(), run_id: "migration", type: "registration_shared_by_surveys",
+      conflict_id,
+      at: firstSeenFor(store, "conflicts", conflict_id), run_id: "migration", type: "registration_shared_by_surveys",
       table: "surveys", record_id: ids[0], field: "tse_registration",
       stored: reg, incoming: ids, source: "migration", severity: "review",
       note: "um registro TSE cobre vários levantamentos nativos da fonte; consolidar é mudança de comportamento, a fazer em separado",
     });
   }
-  console.log(`registros TSE compartilhados por >1 levantamento: ${shared} (anotados em conflicts.ndjson)`);
+  log(`registros TSE compartilhados por >1 levantamento: ${shared} (anotados em conflicts.ndjson)`);
 
+  // `migrated_at` is the ONE field allowed to carry a wall-clock reading: it
+  // records when the rebuild ran, which is exactly what it should mean, and it
+  // is a single line in meta.json rather than a stamp on 4.613 records.
   store.meta = {
     generated_at: legacy.generated_at ?? new Date().toISOString(),
     schema_version: 1,
@@ -199,18 +217,27 @@ function main() {
   };
 
   const { errors, warn } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
-  for (const w of warn.slice(0, 10)) console.warn(`AVISO: ${w}`);
+  if (!quiet) for (const w of warn.slice(0, 10)) console.warn(`AVISO: ${w}`);
   if (errors.length) {
     for (const e of errors) console.error(`ERRO: ${e}`);
     console.error(`\nmigração abortada: ${errors.length} erro(s) de validação — nada foi gravado`);
     process.exit(1);
   }
 
-  const counts = writeStore(store, { dir: DATA_DIR });
-  console.log(`\ngravado: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
+  const counts = writeStore(store, { dir });
+  log(`\ngravado: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
     `${counts.institutes} institutos · ${counts.candidates} candidatos`);
   const headline = store.questions.filter((q) => q.is_headline).length;
-  console.log(`perguntas headline: ${headline} (linhas originais: ${polls.length})`);
+  log(`perguntas headline: ${headline} (linhas originais: ${polls.length})`);
+  return store;
 }
 
-main();
+export { main as migrate };
+
+// `--run-date=YYYY-MM-DD` injects the clock; `--dir=` writes elsewhere. Both
+// exist so the idempotence guard can rebuild twice, on two different dates,
+// into scratch directories without touching data/.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const arg = (name) => process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=").slice(1).join("=");
+  main({ runDate: arg("run-date") ?? today(), dir: arg("dir") ?? DATA_DIR });
+}

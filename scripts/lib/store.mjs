@@ -39,14 +39,69 @@ const TABLES = {
   searches: "search", conflicts: "conflict",
 };
 
-export function readStore({ dir = DATA_DIR, tables = Object.keys(TABLES) } = {}) {
-  const store = { dir, meta: {}, _indexes: null, _report: newReport() };
+/**
+ * `runDate` is the run's clock, injected rather than read from the wall.
+ *
+ * Every date this module stamps comes from here. Calling `new Date()` at the
+ * point of use made the store's output a function of WHEN it ran as well as of
+ * what it read: a rebuild on a later day rewrote all 4.613 records with nothing
+ * but the stamps changed. That destroys the property NDJSON was chosen for — a
+ * bot commit you can read in three lines — and it makes "re-run and diff" a
+ * useless check, because real change is indistinguishable from date churn.
+ * It also makes the two-date test in `--idempotence` writable at all.
+ *
+ * `prior` carries the stamps a previous store already recorded (see
+ * `priorStamps`), so a rebuild re-dates nothing it already had.
+ */
+export function readStore({ dir = DATA_DIR, tables = Object.keys(TABLES), runDate = today(), prior = null } = {}) {
+  const store = { dir, meta: {}, runDate, _prior: prior, _indexes: null, _report: newReport() };
   for (const t of tables) store[t] = readNdjson(path.join(dir, `${t}.ndjson`));
   for (const t of Object.keys(TABLES)) store[t] ??= [];
   const metaFile = path.join(dir, "meta.json");
   store.meta = fs.existsSync(metaFile) ? JSON.parse(fs.readFileSync(metaFile, "utf-8")) : {};
   buildIndexes(store);
   return store;
+}
+
+/**
+ * Snapshot the stamps an existing store already holds, keyed by id.
+ *
+ * Safe precisely because ids are minted once from a recorded seed and never
+ * recomputed: the same input always resolves to the same id, so carrying a
+ * record's original dates forward across a rebuild restores what the field
+ * actually means — "when we first saw this" — instead of "when we last ran the
+ * script". Note this preserves; it does NOT derive dates from the data (say,
+ * from the earliest fieldwork), which would change the field's meaning and
+ * silently rewrite history every time a source is added.
+ */
+export function priorStamps(store) {
+  const refs = new Map();
+  for (const s of store.surveys ?? []) {
+    for (const r of s.source_refs ?? []) refs.set(`${s.survey_id}|${r.source}:${r.native_id}`, r.first_seen);
+  }
+  return {
+    institutes: new Map((store.institutes ?? []).map((i) => [i.institute_id, i.first_seen])),
+    candidates: new Map((store.candidates ?? []).map((c) => [c.candidate_id, c.first_seen])),
+    surveys: new Map((store.surveys ?? []).map((s) => [s.survey_id, s.provenance])),
+    questions: new Map((store.questions ?? []).map((q) => [q.question_id, q.provenance])),
+    conflicts: new Map((store.conflicts ?? []).map((c) => [c.conflict_id, c.at])),
+    sourceRefs: refs,
+  };
+}
+
+/** A record's original date if we already had it, else this run's date. */
+export function firstSeenFor(store, kind, id) {
+  return store._prior?.[kind]?.get(id) ?? store.runDate;
+}
+
+/** Provenance for a record, preserving a prior one's dates when it existed. */
+export function provenanceFor(store, kind, id) {
+  const p = store._prior?.[kind]?.get(id);
+  return {
+    created_at: p?.created_at ?? store.runDate,
+    updated_at: p?.updated_at ?? store.runDate,
+    field_sources: {},
+  };
 }
 
 function newReport() {
@@ -118,11 +173,12 @@ export function resolveInstitute(store, rawName, { mint = true } = {}) {
   if (!mint) return null;
   // An unknown institute must MINT, never fail a run — a new pollster
   // appearing mid-campaign is normal, not an error.
+  const institute_id = mintInstituteId(`institute|${key}`);
   const rec = {
-    institute_id: mintInstituteId(`institute|${key}`),
+    institute_id,
     canonical: String(rawName).trim(),
     aliases: [String(rawName).trim()],
-    cnpj: null, merged_into: null, first_seen: today(),
+    cnpj: null, merged_into: null, first_seen: firstSeenFor(store, "institutes", institute_id),
   };
   store.institutes.push(rec);
   store._indexes.instituteByAlias.set(key, rec);
@@ -153,10 +209,12 @@ export function resolveCandidate(store, rawName, contest, party, { mint = true, 
     }
   }
   if (!mint) return null;
+  const candidate_id = mintCandidateId(`candidate|${key}`);
   const rec = {
-    candidate_id: mintCandidateId(`candidate|${key}`),
+    candidate_id,
     contest, canonical: String(rawName).trim(),
-    aliases: [String(rawName).trim()], party: party ?? null, first_seen: today(),
+    aliases: [String(rawName).trim()], party: party ?? null,
+    first_seen: firstSeenFor(store, "candidates", candidate_id),
   };
   store.candidates.push(rec);
   store._indexes.candidateByAlias.set(key, rec);
@@ -213,8 +271,9 @@ export function resolveSurvey(store, incoming) {
   const seed = incoming.mint_seed
     ?? `survey|${reg ?? ""}|${(incoming.source_refs ?? []).map((r) => `${r.source}:${r.native_id}`).sort().join(",")}`
     ?? `survey|${incoming.institute_id}|${incoming.universe?.uf ?? "BR"}|${date}|${incoming.sample_size}`;
+  const survey_id = mintSurveyId(seed);
   const survey = {
-    survey_id: mintSurveyId(seed),
+    survey_id,
     mint_seed: seed,
     legacy_ids: [],
     tse_registration: reg,
@@ -230,7 +289,7 @@ export function resolveSurvey(store, incoming) {
     source_refs: [], integra_url: null, article_url: null,
     crosstabs_status: "pending", crosstabs_unavailable_reason: null,
     retracted: null,
-    provenance: { created_at: today(), updated_at: today(), field_sources: {} },
+    provenance: provenanceFor(store, "surveys", survey_id),
   };
   store.surveys.push(survey);
   idx.surveyById.set(survey.survey_id, survey);
@@ -267,8 +326,9 @@ export function resolveQuestion(store, survey, incoming) {
   }
   const seed = incoming.mint_seed
     ?? `question|${survey.survey_id}|${incoming.race}|${incoming.round}|${incoming.scenario_ordinal ?? 0}|${roster.slice().sort().join(",")}`;
+  const question_id = mintQuestionId(seed);
   const question = {
-    question_id: mintQuestionId(seed), mint_seed: seed,
+    question_id, mint_seed: seed,
     survey_id: survey.survey_id, legacy_id: incoming.legacy_id ?? null,
     race: incoming.race, round: incoming.round, uf: incoming.uf ?? null,
     scenario_ordinal: incoming.scenario_ordinal ?? 0,
@@ -278,7 +338,7 @@ export function resolveQuestion(store, survey, incoming) {
     results: [], others_pct: null, undecided_pct: null, blank_null_pct: null,
     basis: "total", parse_warnings: incoming.parse_warnings ?? [],
     repaired: null, retracted: null,
-    provenance: { created_at: today(), updated_at: today(), field_sources: {} },
+    provenance: provenanceFor(store, "questions", question_id),
   };
   store.questions.push(question);
   store._indexes.questionById.set(question.question_id, question);
@@ -301,7 +361,7 @@ export function fillFields(store, record, incoming, { source, runId, table, fiel
     if (EMPTY(cur)) {
       record[f] = inc;
       record.provenance.field_sources[f] = source;
-      record.provenance.updated_at = today();
+      record.provenance.updated_at = store.runDate;
       store._report.filled++;
       continue;
     }
@@ -317,21 +377,26 @@ export function fillFields(store, record, incoming, { source, runId, table, fiel
   }
 }
 
+/**
+ * The id was `k_<n>_<Date.now()>`, which made every conflict row unrepeatable:
+ * the same disagreement logged twice produced two different ids, so a rebuild
+ * could never match a conflict it had already recorded. It is now a function of
+ * the run's own content.
+ */
 export function logConflict(store, c) {
-  const rec = {
-    conflict_id: `k_${store.conflicts.length + 1}_${Date.now().toString(36)}`,
-    at: new Date().toISOString(), ...c,
-  };
+  const conflict_id = `k_${String(store.conflicts.length + 1).padStart(5, "0")}_${store.runDate}`;
+  const rec = { conflict_id, at: firstSeenFor(store, "conflicts", conflict_id), ...c };
   store.conflicts.push(rec);
   store._report.conflicts++;
   return rec;
 }
 
-export function addSourceRef(survey, ref) {
+export function addSourceRef(store, survey, ref) {
   survey.source_refs ??= [];
   const k = `${ref.source}:${ref.native_id}`;
   if (!survey.source_refs.some((r) => `${r.source}:${r.native_id}` === k)) {
-    survey.source_refs.push({ ...ref, first_seen: ref.first_seen ?? today() });
+    const first_seen = ref.first_seen ?? firstSeenFor(store, "sourceRefs", `${survey.survey_id}|${k}`);
+    survey.source_refs.push({ ...ref, first_seen });
   }
 }
 
