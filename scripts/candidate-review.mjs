@@ -48,7 +48,7 @@ function levenshtein(a, b) {
 const DAY = 86_400_000;
 const RACE_LABEL = { presidente: "Presidente", governador: "Governador", senador: "Senado" };
 
-function build() {
+export function build() {
   const store = readStore({ dir: DATA_DIR });
   const polls = projectPolls(store);
   const surveyOfPoll = new Map();
@@ -360,6 +360,9 @@ function render(pairs) {
   return L.join("\n") + "\n";
 }
 
+if (import.meta.url === `file://${process.argv[1]}`) main();
+
+function main() {
 const outArg = process.argv.find((a) => a.startsWith("--out="))?.split("=")[1];
 const out = path.join(ROOT, outArg ?? "REVISAO_CANDIDATOS.md");
 const pairs = build();
@@ -368,4 +371,5 @@ console.log(`${pairs.length} pares · ${pairs.filter((p) => p.twins.length).leng
 for (const k of ORDER) {
   const n = pairs.filter((p) => p.suggestion === k).length;
   if (n) console.log(`  ${String(n).padStart(3)}  ${LABEL[k]}`);
+}
 }

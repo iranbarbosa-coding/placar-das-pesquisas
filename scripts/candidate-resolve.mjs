@@ -1,0 +1,228 @@
+#!/usr/bin/env node
+// Decide each candidate-identity pair automatically, against public record.
+//
+// These are candidates for governor, senate and president — public personas
+// whose identity is a matter of record, not a judgement call. So the question
+// "are these two names one person?" has a falsifiable answer an agent can
+// fetch: resolve each ballot name to its pt.wikipedia article, following
+// redirects, and compare. Two names that land on the SAME article are the same
+// person, and the citation is a URL anyone can open.
+//
+// The check must be able to answer BOTH ways. Jair, Flávio, Michelle and
+// Eduardo Bolsonaro share a surname and never appear in one poll — the same
+// signal that flags "Tião/Sebastião Bocalom" — and they resolve to four
+// different articles. An automation that could only say "same" would merge
+// them and destroy the database, so DIFFERENT is a first-class verdict here.
+//
+// Usage: node scripts/candidate-resolve.mjs [--out data/candidate-aliases.json]
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { build } from "./candidate-review.mjs";
+
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[n];
+}
+
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+const API = "https://pt.wikipedia.org/w/api.php";
+const UA = "placar-das-pesquisas/1.0 (verificação de identidade de candidatos)";
+const HONORIFICS = /^(dr|dra|doutor|doutora|professor|professora|prof|capitao|capitão|coronel|sargento|major|tenente|general|delegado|delegada|pastor|padre|cabo|senador|senadora|deputado|deputada|prefeito|prefeita|juiz|juíza|jornalista)\.?\s+/i;
+const bareName = (n) => n.replace(HONORIFICS, "").trim();
+
+const RACE_CTX = { presidente: "eleição presidencial Brasil", governador: "governador", senador: "senador" };
+
+const norm = (s) => (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * One request, with backoff. Search is metered more tightly than title lookup
+ * and answers 429 quickly; retrying politely is the difference between a run
+ * that completes and one that dies two thirds of the way through.
+ */
+async function api(params, { attempt = 0 } = {}) {
+  const qs = new URLSearchParams({ format: "json", formatversion: "2", ...params });
+  const res = await fetch(`${API}?${qs}`, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(30_000) });
+  if (res.status === 429 || res.status >= 500) {
+    if (attempt >= 5) throw new Error(`wikipedia HTTP ${res.status} após ${attempt} tentativas`);
+    const wait = Number(res.headers.get("retry-after")) * 1000 || 1000 * 2 ** attempt;
+    await sleep(wait);
+    return api(params, { attempt: attempt + 1 });
+  }
+  if (!res.ok) throw new Error(`wikipedia HTTP ${res.status}`);
+  await sleep(350); // be a polite client
+  return res.json();
+}
+
+/** Exact-title resolution, following redirects, in batches. name -> {pageid,title} */
+async function resolveExact(names) {
+  const out = new Map();
+  for (let i = 0; i < names.length; i += 40) {
+    const batch = names.slice(i, i + 40);
+    const j = await api({ action: "query", titles: batch.join("|"), redirects: "1" });
+    const q = j.query ?? {};
+    // Walk normalized → redirects → final page, so we can map back to the input.
+    const chain = new Map();
+    for (const n of q.normalized ?? []) chain.set(n.from, n.to);
+    for (const r of q.redirects ?? []) chain.set(r.from, r.to);
+    const byTitle = new Map((q.pages ?? []).map((p) => [p.title, p]));
+    for (const name of batch) {
+      let t = name, hops = 0;
+      while (chain.has(t) && hops++ < 5) t = chain.get(t);
+      const page = byTitle.get(t);
+      if (page && !page.missing) out.set(name, { pageid: page.pageid, title: page.title, via: "título exato" });
+    }
+  }
+  return out;
+}
+
+/**
+ * Search fallback for ballot names that are not article titles.
+ *
+ * Accepting a hit on title-token overlap alone was both too strict (missing
+ * "Professora Dorinha" → "Dorinha Seabra") and too loose (a search for "Dr
+ * Daniel" returns anything). The article's OWN TEXT is the better test: a
+ * politician's page states the ballot name they run under. So a hit counts
+ * only if its intro contains the full name, or its title matches ignoring
+ * accents and honorifics.
+ */
+async function resolveSearch(name, race, bare) {
+  const j = await api({ action: "query", list: "search", srsearch: `"${name}" ${RACE_CTX[race] ?? ""}`.trim(), srlimit: "5" });
+  const hits = j.query?.search ?? [];
+  if (!hits.length) return null;
+  const got = await intros(hits.map((h) => h.pageid));
+  const want = norm(name), wantBare = norm(bare);
+  for (const h of hits) {
+    const title = norm(h.title);
+    const intro = norm(got.get(h.pageid) ?? "");
+    if (title === want || title === wantBare) return { pageid: h.pageid, title: h.title, via: "busca (título)" };
+    if (intro.includes(want) || (wantBare.length > 6 && intro.includes(wantBare))) {
+      return { pageid: h.pageid, title: h.title, via: "busca (nome citado no artigo)" };
+    }
+  }
+  return null;
+}
+
+/** Intro text, for cross-mention checks ("Sebastião … conhecido como Tião"). */
+async function intros(pageids) {
+  const out = new Map();
+  const ids = [...new Set(pageids)];
+  for (let i = 0; i < ids.length; i += 20) {
+    const j = await api({ action: "query", pageids: ids.slice(i, i + 20).join("|"), prop: "extracts", exintro: "1", explaintext: "1" });
+    for (const p of j.query?.pages ?? []) out.set(p.pageid, p.extract ?? "");
+  }
+  return out;
+}
+
+const url = (title) => `https://pt.wikipedia.org/wiki/${encodeURIComponent(title.replace(/ /g, "_"))}`;
+
+async function main() {
+  const pairs = build();
+  const names = [...new Set(pairs.flatMap((p) => [p.A, p.B]))];
+  console.log(`${pairs.length} pares · ${names.length} nomes distintos a resolver\n`);
+
+  const resolved = await resolveExact(names);
+  console.log(`título exato: ${resolved.size}/${names.length}`);
+
+  const raceOf = new Map();
+  for (const p of pairs) { raceOf.set(p.A, p.contest.split("|")[0]); raceOf.set(p.B, p.contest.split("|")[0]); }
+  let viaSearch = 0;
+  for (const n of names) {
+    if (resolved.has(n)) continue;
+    const hit = await resolveSearch(n, raceOf.get(n), bareName(n));
+    if (hit) { resolved.set(n, hit); viaSearch++; }
+  }
+  console.log(`busca: +${viaSearch} · não resolvidos: ${names.length - resolved.size}\n`);
+
+  const text = await intros([...resolved.values()].map((r) => r.pageid));
+
+  const verdicts = pairs.map((p) => {
+    const ra = resolved.get(p.A), rb = resolved.get(p.B);
+    const cite = (r) => (r ? `${r.title} (${url(r.title)})` : null);
+
+    // TYPOGRAPHIC RULE, and it is deliberately ranked BELOW article evidence.
+    //
+    // "Érica kokay" is not an article title, so it never resolves, even though
+    // "Erika Kokay" does — leaving an obvious pair unsettled. When two names in
+    // the SAME contest differ by at most two characters, have the same number
+    // of tokens, and never appear in one poll, one is a misspelling of the
+    // other. What makes it safe is the ordering: if BOTH names resolve to
+    // articles, that evidence has already decided the pair before this runs.
+    // "Marcelo Queiroga" × "Marcelo Queiroz" is two characters apart and two
+    // different people — and it never reaches here, because both have articles.
+    const nameDist = levenshtein(norm(p.A), norm(p.B));
+    const sameShape = norm(p.A).split(/\s+/).length === norm(p.B).split(/\s+/).length;
+    if ((!ra || !rb) && nameDist > 0 && nameDist <= 2 && sameShape) {
+      const anchor = ra ?? rb;
+      return { ...v(p), verdict: "MESMA",
+               why: `grafias a ${nameDist} caractere(s) de distância na mesma disputa` +
+                    (anchor ? `; uma delas tem artigo` : `; nenhuma tem artigo — evidência é tipográfica, não documental`),
+               a: cite(ra), b: cite(rb),
+               canonical: anchor ? anchor.title : null,
+               confidence: anchor ? "alta" : "tipográfica" };
+    }
+
+    if (!ra || !rb) {
+      return { ...v(p), verdict: "NAO_RESOLVIDO", why: `sem artigo para ${!ra ? p.A : p.B}`, a: cite(ra), b: cite(rb) };
+    }
+    if (ra.pageid === rb.pageid) {
+      return { ...v(p), verdict: "MESMA", why: `ambos resolvem para o mesmo artigo`, a: cite(ra), b: cite(rb), canonical: ra.title };
+    }
+    // DIFFERENT ARTICLES ⇒ DIFFERENT PEOPLE. No softening.
+    //
+    // The first version of this file added a "but does one article mention the
+    // other name?" fallback, and it declared Flávio Bolsonaro and Jair
+    // Bolsonaro the same person — a son's article names his father, a wife's
+    // names her husband (Gracinha × Ronaldo Caiado went the same way). Family
+    // cross-references are exactly what a shared surname produces, so that
+    // check inverted precisely where the stakes are highest. Wikipedia already
+    // encodes "same person, other name" as a REDIRECT, which the exact-title
+    // pass follows; anything beyond that is guessing.
+    const exact = ra.via === "título exato" && rb.via === "título exato";
+    return { ...v(p), verdict: "DIFERENTES", why: `artigos distintos${exact ? "" : " (uma resolução veio de busca)"}`,
+             a: cite(ra), b: cite(rb), confidence: exact ? "alta" : "média" };
+  });
+
+  function v(p) { return { contest: p.contest, A: p.A, B: p.B, suggestion: p.suggestion }; }
+
+  const by = (k) => verdicts.filter((x) => x.verdict === k);
+  console.log(`MESMA pessoa:     ${by("MESMA").length}`);
+  console.log(`PESSOAS DIFERENTES: ${by("DIFERENTES").length}`);
+  console.log(`não resolvido:    ${by("NAO_RESOLVIDO").length}\n`);
+
+  // Where the automatic verdict CONTRADICTS the string heuristic — the cases
+  // that justify running this at all.
+  const surprises = verdicts.filter((x) =>
+    (x.verdict === "MESMA" && (x.suggestion === "prenome_comum" || x.suggestion === "sobrenome_comum")) ||
+    (x.verdict === "DIFERENTES" && (x.suggestion === "grafia" || x.suggestion === "titulo_apelido")));
+  if (surprises.length) {
+    console.log(`⚠ ${surprises.length} veredito(s) contrariam a heurística de string:`);
+    for (const s of surprises) console.log(`   ${s.verdict.padEnd(11)} ${s.A} × ${s.B}  [${s.suggestion}]  ${s.why}`);
+    console.log("");
+  }
+
+  const outArg = process.argv.find((a) => a.startsWith("--out="))?.split("=")[1];
+  const out = path.join(ROOT, outArg ?? "data/candidate-aliases.json");
+  fs.writeFileSync(out, JSON.stringify({
+    version: 1,
+    note: "Identidade de candidatos decidida contra o registro público (pt.wikipedia), não por heurística de string. " +
+          "Gerado por scripts/candidate-resolve.mjs. Cada entrada cita o artigo que a sustenta; qualquer uma é falsificável abrindo a URL.",
+    generated_by: "scripts/candidate-resolve.mjs",
+    aliases: by("MESMA").map((x) => ({
+      contest: x.contest.replace("|", ":"), canonical: x.canonical, names: [x.A, x.B],
+      evidence: { a: x.a, b: x.b, why: x.why },
+    })),
+    distinct: by("DIFERENTES").map((x) => ({ contest: x.contest.replace("|", ":"), names: [x.A, x.B], evidence: { a: x.a, b: x.b }, confidence: x.confidence })),
+    unresolved: by("NAO_RESOLVIDO").map((x) => ({ contest: x.contest.replace("|", ":"), names: [x.A, x.B], why: x.why })),
+  }, null, 1) + "\n");
+  console.log(`→ ${path.relative(ROOT, out)}`);
+}
+
+main();

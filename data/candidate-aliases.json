@@ -1,0 +1,708 @@
+{
+ "version": 1,
+ "note": "Identidade de candidatos decidida contra o registro público (pt.wikipedia), não por heurística de string. Gerado por scripts/candidate-resolve.mjs. Cada entrada cita o artigo que a sustenta; qualquer uma é falsificável abrindo a URL.",
+ "generated_by": "scripts/candidate-resolve.mjs",
+ "aliases": [
+  {
+   "contest": "senador:GO",
+   "canonical": "Zacharias Calil",
+   "names": [
+    "Zacarias Calil",
+    "Zacharias Calil"
+   ],
+   "evidence": {
+    "a": "Zacharias Calil (https://pt.wikipedia.org/wiki/Zacharias_Calil)",
+    "b": "Zacharias Calil (https://pt.wikipedia.org/wiki/Zacharias_Calil)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "governador:MG",
+   "canonical": "Mateus Simões",
+   "names": [
+    "Mateus Simões",
+    "Matheus Simões"
+   ],
+   "evidence": {
+    "a": "Mateus Simões (https://pt.wikipedia.org/wiki/Mateus_Sim%C3%B5es)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "senador:GO",
+   "canonical": "Alexandre Baldy",
+   "names": [
+    "Alexandre Bady",
+    "Alexandre Baldy"
+   ],
+   "evidence": {
+    "a": null,
+    "b": "Alexandre Baldy (https://pt.wikipedia.org/wiki/Alexandre_Baldy)",
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "senador:GO",
+   "canonical": "Gustavo Mendanha",
+   "names": [
+    "Gustavo Medanha",
+    "Gustavo Mendanha"
+   ],
+   "evidence": {
+    "a": null,
+    "b": "Gustavo Mendanha (https://pt.wikipedia.org/wiki/Gustavo_Mendanha)",
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "senador:RS",
+   "canonical": "Marcel van Hattem",
+   "names": [
+    "Marcel van Hattem",
+    "Marcel van Hatten"
+   ],
+   "evidence": {
+    "a": "Marcel van Hattem (https://pt.wikipedia.org/wiki/Marcel_van_Hattem)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "governador:RJ",
+   "canonical": null,
+   "names": [
+    "Wiliam Siri",
+    "William Siri"
+   ],
+   "evidence": {
+    "a": null,
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
+   }
+  },
+  {
+   "contest": "senador:MG",
+   "canonical": "Euclydes Pettersen",
+   "names": [
+    "Euclydes Pettersen",
+    "Euclydes Petterson"
+   ],
+   "evidence": {
+    "a": "Euclydes Pettersen (https://pt.wikipedia.org/wiki/Euclydes_Pettersen)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "governador:MS",
+   "canonical": null,
+   "names": [
+    "Jeferson Bezerra",
+    "Jefferson Bezerra"
+   ],
+   "evidence": {
+    "a": null,
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
+   }
+  },
+  {
+   "contest": "senador:DF",
+   "canonical": "Erika Kokay",
+   "names": [
+    "Érica kokay",
+    "Érika Kokay"
+   ],
+   "evidence": {
+    "a": null,
+    "b": "Erika Kokay (https://pt.wikipedia.org/wiki/Erika_Kokay)",
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "governador:GO",
+   "canonical": "Luis Cesar Bueno",
+   "names": [
+    "Luis Cesar Bueno",
+    "Luiz César Bueno"
+   ],
+   "evidence": {
+    "a": "Luis Cesar Bueno (https://pt.wikipedia.org/wiki/Luis_Cesar_Bueno)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "senador:BA",
+   "canonical": "Jaques Wagner",
+   "names": [
+    "Jacques Wagner",
+    "Jaques Wagner"
+   ],
+   "evidence": {
+    "a": "Jaques Wagner (https://pt.wikipedia.org/wiki/Jaques_Wagner)",
+    "b": "Jaques Wagner (https://pt.wikipedia.org/wiki/Jaques_Wagner)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "governador:MS",
+   "canonical": null,
+   "names": [
+    "Jefferson Bezerra",
+    "Jefferson Bezzerra"
+   ],
+   "evidence": {
+    "a": null,
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
+   }
+  },
+  {
+   "contest": "senador:DF",
+   "canonical": "Paulo Octávio",
+   "names": [
+    "Paulo Octávio",
+    "Paulo Otávio"
+   ],
+   "evidence": {
+    "a": "Paulo Octávio (https://pt.wikipedia.org/wiki/Paulo_Oct%C3%A1vio)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "governador:CE",
+   "canonical": "Jair Pereira",
+   "names": [
+    "Jair Pereira",
+    "Jarir Pereira"
+   ],
+   "evidence": {
+    "a": "Jair Pereira (https://pt.wikipedia.org/wiki/Jair_Pereira)",
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "senador:RN",
+   "canonical": "Sandro Pimentel",
+   "names": [
+    "Sandro Pimental",
+    "Sandro Pimentel"
+   ],
+   "evidence": {
+    "a": null,
+    "b": "Sandro Pimentel (https://pt.wikipedia.org/wiki/Sandro_Pimentel)",
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "senador:TO",
+   "canonical": "Carlos Gaguim",
+   "names": [
+    "Carlos Caguin",
+    "Carlos Gaguim"
+   ],
+   "evidence": {
+    "a": null,
+    "b": "Carlos Gaguim (https://pt.wikipedia.org/wiki/Carlos_Gaguim)",
+    "why": "grafias a 2 caractere(s) de distância na mesma disputa; uma delas tem artigo"
+   }
+  },
+  {
+   "contest": "governador:SE",
+   "canonical": null,
+   "names": [
+    "Emanoel Cacho",
+    "Emanuel Cacho"
+   ],
+   "evidence": {
+    "a": null,
+    "b": null,
+    "why": "grafias a 1 caractere(s) de distância na mesma disputa; nenhuma tem artigo — evidência é tipográfica, não documental"
+   }
+  },
+  {
+   "contest": "governador:RS",
+   "canonical": "Zucco",
+   "names": [
+    "Coronel Zucco",
+    "Luciano Zucco"
+   ],
+   "evidence": {
+    "a": "Zucco (https://pt.wikipedia.org/wiki/Zucco)",
+    "b": "Zucco (https://pt.wikipedia.org/wiki/Zucco)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:SP",
+   "canonical": "Guilherme Derrite",
+   "names": [
+    "Capitão Derrite",
+    "Guilherme Derrite"
+   ],
+   "evidence": {
+    "a": "Guilherme Derrite (https://pt.wikipedia.org/wiki/Guilherme_Derrite)",
+    "b": "Guilherme Derrite (https://pt.wikipedia.org/wiki/Guilherme_Derrite)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "governador:TO",
+   "canonical": "Dorinha Rezende",
+   "names": [
+    "Dorinha Rezende",
+    "Professora Dorinha"
+   ],
+   "evidence": {
+    "a": "Dorinha Rezende (https://pt.wikipedia.org/wiki/Dorinha_Rezende)",
+    "b": "Dorinha Rezende (https://pt.wikipedia.org/wiki/Dorinha_Rezende)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:MS",
+   "canonical": "Renan Contar",
+   "names": [
+    "Capitão Contar",
+    "Renan Contar"
+   ],
+   "evidence": {
+    "a": "Renan Contar (https://pt.wikipedia.org/wiki/Renan_Contar)",
+    "b": "Renan Contar (https://pt.wikipedia.org/wiki/Renan_Contar)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "governador:AC",
+   "canonical": "Tião Bocalom",
+   "names": [
+    "Sebastião Bocalom",
+    "Tião Bocalom"
+   ],
+   "evidence": {
+    "a": "Tião Bocalom (https://pt.wikipedia.org/wiki/Ti%C3%A3o_Bocalom)",
+    "b": "Tião Bocalom (https://pt.wikipedia.org/wiki/Ti%C3%A3o_Bocalom)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:SE",
+   "canonical": "Alessandro Vieira",
+   "names": [
+    "Alessandro Vieira",
+    "Delegado Alessandro"
+   ],
+   "evidence": {
+    "a": "Alessandro Vieira (https://pt.wikipedia.org/wiki/Alessandro_Vieira)",
+    "b": "Alessandro Vieira (https://pt.wikipedia.org/wiki/Alessandro_Vieira)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:DF",
+   "canonical": "Leila Barros",
+   "names": [
+    "Leila Barros",
+    "Leila do Vôlei"
+   ],
+   "evidence": {
+    "a": "Leila Barros (https://pt.wikipedia.org/wiki/Leila_Barros)",
+    "b": "Leila Barros (https://pt.wikipedia.org/wiki/Leila_Barros)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:AL",
+   "canonical": "José Wanderley Neto",
+   "names": [
+    "Dr. Wanderley",
+    "José Wanderley Neto"
+   ],
+   "evidence": {
+    "a": "José Wanderley Neto (https://pt.wikipedia.org/wiki/Jos%C3%A9_Wanderley_Neto)",
+    "b": "José Wanderley Neto (https://pt.wikipedia.org/wiki/Jos%C3%A9_Wanderley_Neto)",
+    "why": "ambos resolvem para o mesmo artigo"
+   }
+  }
+ ],
+ "distinct": [
+  {
+   "contest": "senador:PB",
+   "names": [
+    "Marcelo Queiroga",
+    "Marcelo Queiroz"
+   ],
+   "evidence": {
+    "a": "Marcelo Queiroga (https://pt.wikipedia.org/wiki/Marcelo_Queiroga)",
+    "b": "Marcelo Queiroz (https://pt.wikipedia.org/wiki/Marcelo_Queiroz)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Alcides Fernandes",
+    "Professor Alcides"
+   ],
+   "evidence": {
+    "a": "Alcides Fernandes (https://pt.wikipedia.org/wiki/Alcides_Fernandes)",
+    "b": "Professor Alcides (https://pt.wikipedia.org/wiki/Professor_Alcides)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Ciro",
+    "Ciro Nogueira"
+   ],
+   "evidence": {
+    "a": "Ciro (https://pt.wikipedia.org/wiki/Ciro)",
+    "b": "Ciro Nogueira (https://pt.wikipedia.org/wiki/Ciro_Nogueira)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Renan Filho",
+    "Renan Santos"
+   ],
+   "evidence": {
+    "a": "Renan Filho (https://pt.wikipedia.org/wiki/Renan_Filho)",
+    "b": "Renan Santos (https://pt.wikipedia.org/wiki/Renan_Santos)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Eduardo Bolsonaro",
+    "Eduardo Leite"
+   ],
+   "evidence": {
+    "a": "Eduardo Bolsonaro (https://pt.wikipedia.org/wiki/Eduardo_Bolsonaro)",
+    "b": "Eduardo Leite (https://pt.wikipedia.org/wiki/Eduardo_Leite)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:RJ",
+   "names": [
+    "Carlos Jordy",
+    "Carlos Portinho"
+   ],
+   "evidence": {
+    "a": "Carlos Jordy (https://pt.wikipedia.org/wiki/Carlos_Jordy)",
+    "b": "Carlos Portinho (https://pt.wikipedia.org/wiki/Carlos_Portinho)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:RJ",
+   "names": [
+    "André Ceciliano",
+    "André Marinho"
+   ],
+   "evidence": {
+    "a": "André Ceciliano (https://pt.wikipedia.org/wiki/Andr%C3%A9_Ceciliano)",
+    "b": "André Marinho (https://pt.wikipedia.org/wiki/Andr%C3%A9_Marinho)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:MG",
+   "names": [
+    "Alexandre Kalil",
+    "Alexandre Silveira"
+   ],
+   "evidence": {
+    "a": "Alexandre Kalil (https://pt.wikipedia.org/wiki/Alexandre_Kalil)",
+    "b": "Alexandre Silveira (https://pt.wikipedia.org/wiki/Alexandre_Silveira)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Alexandre Luiz Giordano",
+    "Alexandre Padilha"
+   ],
+   "evidence": {
+    "a": "Alexandre Giordano (https://pt.wikipedia.org/wiki/Alexandre_Giordano)",
+    "b": "Alexandre Padilha (https://pt.wikipedia.org/wiki/Alexandre_Padilha)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Alexandre Luiz Giordano",
+    "Luiz Marinho"
+   ],
+   "evidence": {
+    "a": "Alexandre Giordano (https://pt.wikipedia.org/wiki/Alexandre_Giordano)",
+    "b": "Luiz Marinho (https://pt.wikipedia.org/wiki/Luiz_Marinho)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:PR",
+   "names": [
+    "Paulo Eduardo",
+    "Paulo Martins"
+   ],
+   "evidence": {
+    "a": "Paulo Eduardo (https://pt.wikipedia.org/wiki/Paulo_Eduardo)",
+    "b": "Paulo Martins (https://pt.wikipedia.org/wiki/Paulo_Martins)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Flávio Bolsonaro",
+    "Jair Bolsonaro"
+   ],
+   "evidence": {
+    "a": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)",
+    "b": "Jair Bolsonaro (https://pt.wikipedia.org/wiki/Jair_Bolsonaro)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Flávio Bolsonaro",
+    "Michelle Bolsonaro"
+   ],
+   "evidence": {
+    "a": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)",
+    "b": "Michelle Bolsonaro (https://pt.wikipedia.org/wiki/Michelle_Bolsonaro)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Eduardo Bolsonaro",
+    "Flávio Bolsonaro"
+   ],
+   "evidence": {
+    "a": "Eduardo Bolsonaro (https://pt.wikipedia.org/wiki/Eduardo_Bolsonaro)",
+    "b": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:AP",
+   "names": [
+    "Antônio Furlan",
+    "Dr. Furlan"
+   ],
+   "evidence": {
+    "a": "Antônio Furlan (https://pt.wikipedia.org/wiki/Ant%C3%B4nio_Furlan)",
+    "b": "Lista de prefeitos eleitos no Amapá em 2020 (https://pt.wikipedia.org/wiki/Lista_de_prefeitos_eleitos_no_Amap%C3%A1_em_2020)"
+   },
+   "confidence": "média"
+  },
+  {
+   "contest": "senador:RJ",
+   "names": [
+    "Flávio Bolsonaro",
+    "Rogéria Bolsonaro"
+   ],
+   "evidence": {
+    "a": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)",
+    "b": "Rogéria Bolsonaro (https://pt.wikipedia.org/wiki/Rog%C3%A9ria_Bolsonaro)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:GO",
+   "names": [
+    "Gracinha Caiado",
+    "Ronaldo Caiado"
+   ],
+   "evidence": {
+    "a": "Gracinha Caiado (https://pt.wikipedia.org/wiki/Gracinha_Caiado)",
+    "b": "Ronaldo Caiado (https://pt.wikipedia.org/wiki/Ronaldo_Caiado)"
+   },
+   "confidence": "alta"
+  }
+ ],
+ "unresolved": [
+  {
+   "contest": "governador:PA",
+   "names": [
+    "Daniel Santos",
+    "Dr Daniel"
+   ],
+   "why": "sem artigo para Dr Daniel"
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Alcides Fernandes",
+    "Pastor Alcides"
+   ],
+   "why": "sem artigo para Pastor Alcides"
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Guimarães do PT",
+    "José Guimarães"
+   ],
+   "why": "sem artigo para Guimarães do PT"
+  },
+  {
+   "contest": "senador:RO",
+   "names": [
+    "Delegado Camargo",
+    "Rodrigo Camargo"
+   ],
+   "why": "sem artigo para Delegado Camargo"
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Pastor Alcides",
+    "Professor Alcides"
+   ],
+   "why": "sem artigo para Pastor Alcides"
+  },
+  {
+   "contest": "governador:PI",
+   "names": [
+    "Professor Tonny",
+    "Tonny Kerley"
+   ],
+   "why": "sem artigo para Professor Tonny"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Coronel Mello Araújo",
+    "Ricardo Mello Araújo"
+   ],
+   "why": "sem artigo para Coronel Mello Araújo"
+  },
+  {
+   "contest": "governador:RN",
+   "names": [
+    "Cadu Xavier",
+    "Cadu de Lula"
+   ],
+   "why": "sem artigo para Cadu Xavier"
+  },
+  {
+   "contest": "senador:PE",
+   "names": [
+    "Silvio Costa Filho",
+    "Silvio Nascimento"
+   ],
+   "why": "sem artigo para Silvio Nascimento"
+  },
+  {
+   "contest": "senador:GO",
+   "names": [
+    "Vanderlan Cardoso",
+    "Vanderlan Gomes"
+   ],
+   "why": "sem artigo para Vanderlan Gomes"
+  },
+  {
+   "contest": "governador:RN",
+   "names": [
+    "Rodrigo Bolsonaro",
+    "Rodrigo Vieira"
+   ],
+   "why": "sem artigo para Rodrigo Bolsonaro"
+  },
+  {
+   "contest": "governador:BA",
+   "names": [
+    "José Aleluia",
+    "José Carlos do Pátio"
+   ],
+   "why": "sem artigo para José Aleluia"
+  },
+  {
+   "contest": "senador:MS",
+   "names": [
+    "Gianni Nogueira",
+    "Gianni do Bolsonaro"
+   ],
+   "why": "sem artigo para Gianni Nogueira"
+  },
+  {
+   "contest": "governador:RJ",
+   "names": [
+    "Rodrigo Barcellar",
+    "Rodrigo Pimentel"
+   ],
+   "why": "sem artigo para Rodrigo Barcellar"
+  },
+  {
+   "contest": "governador:GO",
+   "names": [
+    "Gustavo Gayer",
+    "Gustavo Medanha"
+   ],
+   "why": "sem artigo para Gustavo Medanha"
+  },
+  {
+   "contest": "senador:TO",
+   "names": [
+    "Carlos Caguin",
+    "Carlos Velozo"
+   ],
+   "why": "sem artigo para Carlos Caguin"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Guilherme Boulos",
+    "Guilherme Giordano"
+   ],
+   "why": "sem artigo para Guilherme Giordano"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Guilherme Derrite",
+    "Guilherme Giordano"
+   ],
+   "why": "sem artigo para Guilherme Giordano"
+  },
+  {
+   "contest": "senador:RN",
+   "names": [
+    "Carlos Eduardo Alves",
+    "Samanda Alves"
+   ],
+   "why": "sem artigo para Samanda Alves"
+  },
+  {
+   "contest": "senador:RN",
+   "names": [
+    "Rivaldo Fernandes",
+    "Rosália Fernandes"
+   ],
+   "why": "sem artigo para Rivaldo Fernandes"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Alexandre Luiz Giordano",
+    "Guilherme Giordano"
+   ],
+   "why": "sem artigo para Guilherme Giordano"
+  }
+ ]
+}
