@@ -15,7 +15,7 @@
 import path from "node:path";
 import { readStore, DATA_DIR, headlineGroupKey } from "./lib/store.mjs";
 import { serializeRecord, FIELD_ORDER, SORT } from "./lib/ndjson.mjs";
-import { selfTest as partySelfTest } from "./lib/parties.mjs";
+import { selfTest as partySelfTest, partyExistedAt } from "./lib/parties.mjs";
 
 const RACES = new Set(["presidente", "governador", "senador"]);
 const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
@@ -187,6 +187,38 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
           warn.push(`${at}: "not_located" vencido (busca mais recente em ${newest.slice(0, 10)})`);
         }
       }
+    }
+  }
+
+  // ---- a poll cannot name a party that did not exist on its date ----------
+  //
+  // The database is historical and each record stands at its own date — but a
+  // party that had already been renamed, absorbed or never existed is the
+  // SOURCE being wrong, not history worth keeping. Creator's ruling
+  // (2026-08-15): fix those as repairs and normalise.
+  //
+  // A warning, not an error: the fix requires primary-source evidence per
+  // record, so the pipeline must keep running while the worklist is worked
+  // through. What it must not do is go quiet.
+  {
+    const surveyById = new Map((store.surveys ?? []).map((s) => [s.survey_id, s]));
+    const offenders = new Map();
+    for (const q of store.questions ?? []) {
+      const s = surveyById.get(q.survey_id);
+      const date = s?.fieldwork_end ?? s?.published_date ?? null;
+      for (const r of q.results ?? []) {
+        const v = partyExistedAt(r.party, date);
+        if (v.ok) continue;
+        const k = `${r.party}|${v.reason}|${v.became ?? ""}`;
+        if (!offenders.has(k)) offenders.set(k, { party: r.party, v, n: 0, sample: `${r.name_raw ?? r.candidate} · ${date}` });
+        offenders.get(k).n++;
+      }
+    }
+    for (const { party, v, n, sample } of offenders.values()) {
+      const fix = v.became
+        ? `renomeado para ${v.became} em ${v.until} — reparo determinado pela própria renomeação`
+        : `sem sucessor automático (${v.kind}) — exige fonte primária por registro`;
+      warn.push(`partido inexistente na data: "${party}" em ${n} resultado(s) (ex.: ${sample}) — ${fix}`);
     }
   }
 

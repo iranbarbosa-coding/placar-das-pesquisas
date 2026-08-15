@@ -229,13 +229,22 @@ crossed midnight is the same churn defect in a smaller costume.
   appearing mid-campaign must never be dropped, and that is the assertion the self-test
   cares most about. Applied in the scraper (`canonicalizeParties`, before candidate
   clustering, which propagates parties between rows) and in the migration.
-  **`NOT_MERGED` = `PMDB`, `PSDC`, `DEM`, `Pros`, `Democrata`.** Renamed or absorbed
-  (PMDB→MDB and PSDC→DC in 2017, DEM into União Brasil in 2022, Pros into Solidariedade in
-  2023); `Democrata` is ambiguous. One thing to know if this is ever revisited: all 14 rows
-  carrying these labels are **2025–2026 polls**, years after the renames — so for PMDB and
-  PSDC specifically the label is a stale *source*, not preserved history. Whether the source
-  is wrong is a different question from whether we may rewrite the past, and it is the
-  creator's call. Do not settle it by quietly adding an alias.
+- **A party that did not exist on the poll's date is the source being wrong** (creator,
+  2026-08-15) — fix it, don't preserve it. The **date** reconciles this with the rule above:
+  `canonicalPartyAt(label, date)` leaves a 2016 poll saying `PMDB` alone, and rewrites a
+  2026 one to `MDB`. `DEFUNCT` in `parties.mjs` holds the windows, each citing its source.
+  **Only renames are auto-applied** — same legal entity, one successor, the fix follows from
+  the rename (`PMDB`→`MDB` 2017, `PSDC`→`DC` 2018, `PMB`→`Democrata` dez/2025). An
+  **incorporation never is**: DEM's members could go to União Brasil or anywhere else, so
+  `became` is null and picking one would invent a fact about a person.
+  `validate-store` warns on every offender, splitting "fix determined by the rename" from
+  "needs primary source". **Open worklist: `DEM` ×2 (Ravenna Castro, PI) and `Pros` ×1
+  (Telemaco Brandão, GO)** — each needs that poll's own document, per record, into
+  `data/repairs.json`. **Blocked**: their institute PDFs are image-only, no text layer, and
+  no OCR is installed here.
+  ⚠ **`Democrata` was flagged as bogus and was not.** It is a real party — ex-`PMB`, renamed
+  December 2025 — and all 9 rows are 2026 polls, so the label was right the whole time. An
+  unfamiliar party name is a prompt to look it up, not evidence the source erred.
 - **Senate elects 2 per state** → candidate percentages sum to ~200%. Validator cap is
   260 for `senador`, 130 otherwise. Senate is excluded from válidos.
 - `average.ts` does **not** implement votos válidos. Any válidos figure you've seen was

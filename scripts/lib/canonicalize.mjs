@@ -5,7 +5,7 @@
 // full names, refuses "Flávio Bolsonaro" vs "Michelle Bolsonaro". A name that
 // subset-matches MORE THAN ONE cluster is ambiguous and stays unmerged.
 
-import { canonicalParty } from "./parties.mjs";
+import { canonicalPartyAt } from "./parties.mjs";
 
 const STOP = new Set(["da", "de", "do", "das", "dos", "e"]);
 
@@ -142,7 +142,8 @@ export function canonicalizePollsters(polls) {
  */
 export function canonicalizeParties(polls) {
   for (const p of polls) {
-    for (const r of p.results ?? []) r.party = canonicalParty(r.party);
+    const date = p.fieldwork_end ?? p.published_date ?? null;
+    for (const r of p.results ?? []) r.party = canonicalPartyAt(r.party, date);
   }
   return polls;
 }

@@ -50,23 +50,79 @@ const ALIASES = {
 };
 
 /**
- * Deliberately NOT normalised. Each would move a poll onto a party from a
- * different moment, which the governing rule forbids:
- *   PMDB        renamed MDB in 2017.
- *   PSDC        renamed DC in 2017.
- *   DEM         extinct 2022, absorbed into União Brasil.
- *   Pros        merged into Solidariedade in 2023.
- *   Democrata   ambiguous — possibly DC, possibly a mistranslation. No basis
- *               to choose, so it stands.
+ * Defunct labels this module will NEVER rewrite on its own, whatever the date.
  *
- * WORTH KNOWING, since it cuts against leaving PMDB and PSDC alone: every row
- * carrying them is a 2026 poll, years after both renames — so in THIS dataset
- * they are a stale source label rather than a preserved historical one. That is
- * a separate question (is the source wrong?) from the one this rule answers (may
- * we rewrite the past?), and it is the creator's to decide. Do not settle it
- * here by adding an alias.
+ * A rename has one successor and the fix follows from it, so `canonicalPartyAt`
+ * applies it. An INCORPORATION does not: DEM's members could go to União Brasil
+ * or anywhere else, and PROS's likewise. Picking one would be inventing a fact
+ * about a person. These stay as found, the validator keeps flagging them, and
+ * each is fixed one record at a time in `data/repairs.json` against that poll's
+ * own document.
  */
-export const NOT_MERGED = ["PMDB", "PSDC", "DEM", "Pros", "Democrata"];
+export const NOT_MERGED = ["DEM", "Pros"];
+
+/**
+ * Party names that had ceased to exist by the time our data starts.
+ *
+ * A poll keeps the party it was taken with — but a poll cannot have been taken
+ * with a party that did not exist on its date. That is not history to preserve,
+ * it is the SOURCE being wrong, and the creator's ruling (2026-08-15) is that
+ * those are fixed as repairs and normalised.
+ *
+ * `became` is filled ONLY for a rename — the same legal entity under a new
+ * name, where the correct label follows from the rename itself. Where a party
+ * was absorbed or merged, `became` is deliberately null: its members scattered,
+ * and which party a given candidate joined does not follow from the merger. Do
+ * not fill those in from a neighbouring poll; `data/repairs.json` forbids it.
+ *
+ * Dates checked against the pt.wikipedia article for each party (cited below)
+ * and deliberately taken at the LATER of "party decided" and "TSE approved",
+ * so the window never closes earlier than the record supports. ⚠ Still worth
+ * the creator's ratification against the TSE registry itself, since two of
+ * these drive an automatic rewrite.
+ */
+export const DEFUNCT = {
+  PMDB: { until: "2017-12-31", kind: "renomeação", became: "MDB",
+          note: "Funcionou como PMDB até 2017, quando retomou o nome de origem; mesma pessoa jurídica.",
+          source: "https://pt.wikipedia.org/wiki/Movimento_Democrático_Brasileiro_(1980)" },
+  PSDC: { until: "2018-05-31", kind: "renomeação", became: "DC",
+          note: "Mudou para Democracia Cristã em agosto/2017, oficializado pelo TSE em maio/2018 — usamos a data mais tardia.",
+          source: "https://pt.wikipedia.org/wiki/Democracia_Cristã_(Brasil)" },
+  DEM:  { until: "2022-02-08", kind: "incorporação", became: null,
+          note: "Fundiu-se ao PSL formando o União Brasil; convenção em 06/10/2021, aprovado pelo TSE em 08/02/2022. O filiado pode ter ido para outro partido.",
+          source: "https://pt.wikipedia.org/wiki/Democratas_(Brasil)" },
+  Pros: { until: "2023-02-14", kind: "incorporação", became: null,
+          note: "Incorporado pelo Solidariedade, homologado pelo TSE em 14/02/2023. Idem: o destino do filiado não decorre da incorporação.",
+          source: "https://pt.wikipedia.org/wiki/Partido_Republicano_da_Ordem_Social" },
+  PMB:  { until: "2025-12-01", kind: "renomeação", became: "Democrata",
+          note: "Partido da Mulher Brasileira passou a chamar-se Democrata, vigente desde dezembro/2025. Sem linhas na base hoje; registrado para quando aparecer.",
+          source: "https://pt.wikipedia.org/wiki/Democrata_(Brasil)" },
+};
+
+/**
+ * Labels matching no registered party — flagged, never guessed. Empty today.
+ *
+ * "Democrata" sat here and was WRONG: it is a real party (ex-PMB, renamed
+ * December 2025), and every row carrying it is a 2026 poll, so the label was
+ * correct all along. The lesson is the cheap one — an unfamiliar party name is
+ * a prompt to look it up, not evidence that the source erred.
+ */
+export const UNRECOGNISED = {};
+
+/**
+ * Could a poll dated `date` have been taken with party `label`?
+ * @returns {{ok: boolean, reason?: string, until?: string, became?: string|null, kind?: string}}
+ */
+export function partyExistedAt(label, date) {
+  const canonical = canonicalParty(label);
+  if (canonical === null) return { ok: true };
+  if (UNRECOGNISED[canonical]) return { ok: false, reason: "não reconhecido", became: null, kind: "desconhecido" };
+  const d = DEFUNCT[canonical];
+  if (!d) return { ok: true };
+  if (!date) return { ok: true }; // undated poll — nothing to compare against
+  if (date <= d.until) return { ok: true };
+  return { ok: false, reason: "extinto na data da pesquisa", until: d.until, became: d.became, kind: d.kind };
+}
 
 /** Values that mean "no party was recorded". */
 const EMPTY = new Set(["", "na", "n/a", "-", "--", "?", "null", "nenhum", "semlegenda"]);
@@ -86,6 +142,28 @@ export function canonicalParty(raw) {
   const k = key(trimmed);
   if (!k || EMPTY.has(k) || EMPTY.has(trimmed.toLowerCase())) return null;
   return LOOKUP.get(k) ?? trimmed;
+}
+
+/**
+ * Canonical label for a party AS NAMED ON A GIVEN DATE.
+ *
+ * This is where the two rules meet, and the date is what reconciles them:
+ *   · a poll keeps the party it was taken with → a 2016 poll saying PMDB keeps
+ *     PMDB, because in 2016 that is what the party was called;
+ *   · a poll cannot name a party that did not exist on its date → a 2026 poll
+ *     saying PMDB is the source being stale, and is normalised to MDB.
+ *
+ * Applied ONLY to renames, where the successor follows from the rename itself
+ * and the legal entity never changed. A party that was absorbed or merged has
+ * `became: null` and is left exactly as found for per-record repair: which
+ * party that candidate actually joined is not a fact this function knows.
+ */
+export function canonicalPartyAt(raw, date) {
+  const label = canonicalParty(raw);
+  if (label === null || !date) return label;
+  const d = DEFUNCT[label];
+  if (!d || !d.became || date <= d.until) return label;
+  return d.became;
 }
 
 /** Spellings present in the data that this module does not recognise. */
@@ -124,6 +202,35 @@ export function selfTest() {
 
   // The political mergers stay untouched.
   for (const p of NOT_MERGED) eq(canonicalParty(p), p, `não fundido ${p}`);
+
+  // Existence window. A live party always passes; a defunct one passes BEFORE
+  // its end date and fails after it — testing only the failure would let a
+  // guard that rejects everything look correct.
+  eq(partyExistedAt("PT", "2026-08-01").ok, true, "partido vivo passa");
+  eq(partyExistedAt("PMDB", "2015-06-01").ok, true, "PMDB antes da renomeação passa");
+  eq(partyExistedAt("PMDB", "2026-02-03").ok, false, "PMDB depois da renomeação reprova");
+  eq(partyExistedAt("PMDB", "2026-02-03").became, "MDB", "renomeação aponta o sucessor");
+  eq(partyExistedAt("DEM", "2026-05-18").ok, false, "DEM depois da incorporação reprova");
+  eq(partyExistedAt("DEM", "2026-05-18").became, null, "incorporação NÃO aponta sucessor");
+  // Democrata é partido real (ex-PMB, renomeado em dez/2025): 2026 é válido,
+  // 2025-06 não. Este caso já foi classificado errado uma vez.
+  eq(partyExistedAt("Democrata", "2026-03-06").ok, true, "Democrata em 2026 é válido");
+  eq(partyExistedAt("PMB", "2026-03-06").ok, false, "PMB depois de dez/2025 reprova");
+  eq(canonicalPartyAt("PMB", "2026-03-06"), "Democrata", "PMB em 2026 vira Democrata");
+  eq(canonicalPartyAt("PMB", "2024-01-01"), "PMB", "PMB antes da renomeação permanece PMB");
+  eq(partyExistedAt("PT", null).ok, true, "pesquisa sem data não é julgada");
+  eq(partyExistedAt(null, "2026-01-01").ok, true, "sem partido não é julgado");
+
+  // Date-aware normalisation — the whole point is that it cuts BOTH ways.
+  eq(canonicalPartyAt("PMDB", "2016-05-01"), "PMDB", "PMDB em 2016 permanece PMDB");
+  eq(canonicalPartyAt("PMDB", "2026-02-03"), "MDB", "PMDB em 2026 vira MDB");
+  eq(canonicalPartyAt("PSDC", "2026-04-28"), "DC", "PSDC em 2026 vira DC");
+  eq(canonicalPartyAt("PSDC", "2016-01-01"), "PSDC", "PSDC em 2016 permanece PSDC");
+  eq(canonicalPartyAt("DEM", "2026-05-18"), "DEM", "incorporação NÃO é normalizada — exige reparo");
+  eq(canonicalPartyAt("Pros", "2025-12-05"), "Pros", "incorporação NÃO é normalizada — exige reparo");
+  eq(canonicalPartyAt("Democrata", "2026-03-06"), "Democrata", "partido válido não é tocado");
+  eq(canonicalPartyAt("PMDB", null), "PMDB", "sem data, não se decide nada");
+  eq(canonicalPartyAt("Psol", "2026-01-01"), "PSOL", "grafia continua unificada com data");
 
   return errors;
 }
