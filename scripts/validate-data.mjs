@@ -27,7 +27,11 @@ export function validate(ds, { minPolls = 50 } = {}) {
     else if (ids.has(p.id)) errors.push(`${at}: duplicate id ${p.id}`);
     else ids.add(p.id);
     if (!RACES.has(p.race)) errors.push(`${at}: bad race ${p.race}`);
-    if (p.race === "presidente" ? p.state !== null : !UFS.has(p.state)) errors.push(`${at}: bad state ${p.state} for ${p.race}`);
+    // Presidential polls may be national (state null) OR state-scoped: state
+    // institutes ask the presidential question to their own sample. Both are
+    // valid; the site separates them by matching `state` exactly.
+    if (p.state !== null && !UFS.has(p.state)) errors.push(`${at}: bad state ${p.state}`);
+    if (p.race !== "presidente" && p.state === null) errors.push(`${at}: ${p.race} requires a state`);
     if (p.round !== 1 && p.round !== 2) errors.push(`${at}: bad round ${p.round}`);
     if (!p.pollster) errors.push(`${at}: missing pollster`);
     if (!p.source_url) errors.push(`${at}: missing source_url`);

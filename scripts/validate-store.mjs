@@ -99,7 +99,13 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
     if (!surveyById.has(q.survey_id)) E(`${at}: survey_id ${q.survey_id} inexistente`);
     if (!RACES.has(q.race)) E(`${at}: race inválida ${q.race}`);
     if (q.round !== 1 && q.round !== 2) E(`${at}: round inválido ${q.round}`);
-    if (q.race === "presidente" ? q.uf != null : !UFS.has(q.uf)) E(`${at}: uf ${q.uf} incompatível com ${q.race}`);
+    // A presidential question may be NATIONAL (uf null) or STATE-SCOPED: state
+    // pollsters routinely ask the presidential question to their state sample
+    // to see who leads there. Those are real polls of a different population,
+    // not national ones — the site must keep them out of the national average,
+    // which `pollsFor("presidente", null)` does by matching uf exactly.
+    if (q.uf != null && !UFS.has(q.uf)) E(`${at}: uf ${q.uf} inválida`);
+    if (q.race !== "presidente" && q.uf == null) E(`${at}: ${q.race} exige uf`);
     if (!Array.isArray(q.results) || !q.results.length) E(`${at}: sem resultados`);
     else {
       let sum = 0;

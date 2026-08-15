@@ -259,6 +259,13 @@ export function resolveSurvey(store, incoming) {
   const reg = normalizeRegistration(incoming.tse_registration);
   if (reg && idx.byReg.has(reg)) {
     const held = idx.byReg.get(reg);
+    // Same registration, DIFFERENT universe is not one survey. A presidential
+    // poll fielded in Minas carries a BR- registration just like a national
+    // one; they poll different populations and must never merge. (Romeu Zema
+    // reads 12% in MG and 2,8% nationally — merging would blend the two.)
+    if ((held.universe?.uf ?? null) !== (incoming.universe?.uf ?? null)) {
+      // fall through to the natural key / mint
+    } else {
     const incomingDate = incoming.fieldwork_end ?? incoming.published_date;
     const heldDate = held.fieldwork_end ?? held.published_date;
     const contradictory = incomingDate && heldDate &&
@@ -273,6 +280,7 @@ export function resolveSurvey(store, incoming) {
       stored: heldDate, incoming: incomingDate, source: "resolveSurvey", severity: "review",
       note: "mesmo registro TSE com datas de campo incompatíveis — não unificado, revisar a fonte",
     });
+    }
   }
 
   const date = incoming.fieldwork_end ?? incoming.published_date;
@@ -479,14 +487,18 @@ export function addSourceRef(store, survey, ref) {
  * `retracted` rather than by deletion.
  */
 export function headlineGroupKey(q) {
-  if (q.round !== 2) return `${q.survey_id}|${q.race}|${q.round}`;
+  // The UF belongs in the key. Once presidential polling is collected per
+  // state, ONE survey can hold a national presidential question and a
+  // state-scoped one; without the UF they collide in the same headline group
+  // and one of them silently stops being published.
+  if (q.round !== 2) return `${q.survey_id}|${q.race}|${q.uf ?? "BR"}|${q.round}`;
   const pair = [...(q.results ?? [])]
     .sort((a, b) => b.pct - a.pct)
     .slice(0, 2)
     .map((r) => r.candidate_id)
     .sort()
     .join("+");
-  return `${q.survey_id}|${q.race}|2|${pair}`;
+  return `${q.survey_id}|${q.race}|${q.uf ?? "BR"}|2|${pair}`;
 }
 
 /**

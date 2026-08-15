@@ -10,6 +10,24 @@
 // alternate line-ups outright.
 import { normalizeRegistration } from "./ids.mjs";
 
+
+/**
+ * Share of the sample the published numbers account for, and whether that
+ * falls short enough to keep the poll out of the averages.
+ *
+ * Votos válidos divide by the sum of what is present, so a poll missing 40
+ * points inflates everyone left in it — a flag on the row would not save the
+ * number. Senate is exempt: two votes per voter make the table sum to ~200%,
+ * where this arithmetic means nothing. Threshold and the measured distribution
+ * live in scripts/lib/completeness.mjs.
+ */
+function incompleteFlag(q) {
+  if (q.race === "senador") return false;
+  const sum = (q.results ?? []).reduce((a, r) => a + (r.pct ?? 0), 0) +
+    (q.others_pct ?? 0) + (q.blank_null_pct ?? 0) + (q.undecided_pct ?? 0);
+  return Math.round(sum * 10) / 10 < 90;
+}
+
 export function projectPolls(store) {
   const surveyById = new Map(store.surveys.map((s) => [s.survey_id, s]));
   const instById = new Map(store.institutes.map((i) => [i.institute_id, i]));
@@ -34,6 +52,7 @@ export function projectPolls(store) {
       id: q.legacy_id ?? q.question_id,
       source: s.source_refs?.[0]?.source ?? null,
       source_url: s.article_url ?? s.integra_url ?? null,
+      integra_url: s.integra_url ?? null,
       race: q.race,
       state: q.uf ?? null,
       round: q.round,
@@ -54,6 +73,7 @@ export function projectPolls(store) {
       undecided_pct: q.undecided_pct ?? null,
       blank_null_pct: q.blank_null_pct ?? null,
       tse_registration: normalizeRegistration(s.tse_registration),
+      ...(incompleteFlag(q) ? { incomplete: true } : {}),
       ...(q.parse_warnings?.length ? { parse_warnings: q.parse_warnings.join("; ") } : {}),
       ...(q.repaired ? { repaired: q.repaired } : {}),
     });

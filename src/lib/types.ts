@@ -31,6 +31,8 @@ export interface Poll {
   id: string;
   source: string; // "wikipedia" | "tse" | "poder360" | pollster domain…
   source_url: string;
+  /** The institute's own report (PDF), when the aggregator links one. */
+  integra_url?: string | null;
   race: RaceKind;
   state: UF | null; // null for presidente
   round: 1 | 2;
@@ -49,6 +51,8 @@ export interface Poll {
   blank_null_pct?: number | null; // branco/nulo
   tse_registration?: string | null; // e.g. BR-01234/2026
   parse_warnings?: string;
+  /** Published numbers account for <90% of the sample — kept out of averages. */
+  incomplete?: boolean;
 }
 
 export interface PollDataset {

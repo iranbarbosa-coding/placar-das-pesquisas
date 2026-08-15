@@ -100,6 +100,11 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
         id: "",
         source: "poder360",
         source_url: m.noticias || m.integra || "https://www.poder360.com.br/agregador-de-pesquisas/",
+        // The institute's OWN report, kept separately from the news article.
+        // `source_url` collapses the two, so the PDF was being lost whenever a
+        // news link existed — and the PDF is what an editorial decision about
+        // an incomplete poll has to be made against.
+        integra_url: m.integra || null,
         race,
         state: uf,
         round,
@@ -145,6 +150,13 @@ export async function fetchPoder360() {
     jobs.push({ cargoId: CARGO.governador, ufId, uf, race: "governador", round: 1, cidade: "" });
     jobs.push({ cargoId: CARGO.governador, ufId, uf, race: "governador", round: 2, cidade: "" });
     jobs.push({ cargoId: CARGO.senador, ufId, uf, race: "senador", round: 1, cidade: "" });
+    // The presidential question asked to a STATE sample. Institutes polling a
+    // state routinely include it to see who leads there, and those numbers are
+    // a different population from the national poll — Romeu Zema reads 12% in
+    // Minas against 2,8% nationally. Collected with `state` set, which is what
+    // keeps them out of the national average (`pollsFor("presidente", null)`).
+    jobs.push({ cargoId: CARGO.presidente, ufId, uf, race: "presidente", round: 1, cidade: "" });
+    jobs.push({ cargoId: CARGO.presidente, ufId, uf, race: "presidente", round: 2, cidade: "" });
   }
 
   const polls = [];

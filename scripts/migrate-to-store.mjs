@@ -174,7 +174,8 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
           first_seen: firstSeenFor(store, "sourceRefs", `${survey_id}|${s}:${native_id}`),
         };
       }),
-      integra_url: null, article_url: pick(rows, "source_url", key) ?? null,
+      integra_url: pick(rows, "integra_url", key) ?? null,
+      article_url: pick(rows, "source_url", key) ?? null,
       crosstabs_status: "pending", crosstabs_unavailable_reason: null,
       retracted: null,
       provenance: provenanceFor(store, "surveys", survey_id),

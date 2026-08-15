@@ -148,7 +148,14 @@ export function computeAverage(
   polls: Poll[],
 ): RaceAverage | null {
   if (!polls.length) return null;
-  const sorted = sortPollsDesc(polls);
+  // Polls incomplete AT SOURCE are gated out. Their published rows do not
+  // account for the sample, and votos válidos divides by what is present, so
+  // including one inflates every candidate still in it. They remain in the
+  // database and in the table — see PESQUISAS_INCOMPLETAS.md, which lists each
+  // with its source document for an editorial call.
+  const usable = polls.filter((p) => !p.incomplete);
+  if (!usable.length) return null;
+  const sorted = sortPollsDesc(usable);
   const { window, capRelaxed } = selectWindow(sorted);
 
   // Candidate roster = anyone appearing in the window polls.
