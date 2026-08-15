@@ -1,18 +1,21 @@
-import fs from "node:fs";
-import path from "node:path";
 import { candKey, computeAverage, sortPollsDesc } from "./average";
+import { loadStoreDataset } from "./store";
 import type { Poll, PollDataset, RaceAverage, RaceKey, RaceKind, UF } from "./types";
 
-// The entire site is statically generated from this one file. The daily
-// scraper rewrites it and the resulting commit triggers a Vercel rebuild.
-const DATA_PATH = path.join(process.cwd(), "data", "polls.json");
+// The entire site is statically generated from the NDJSON store under `data/`.
+// The daily scraper rewrites it and the resulting commit triggers a Vercel
+// rebuild.
+//
+// This is the ONLY function that knows where the data physically lives. The
+// eight exports below it, and every page, see the same flat `Poll[]` they
+// always did — which is what made moving off `data/polls.json` a one-function
+// change rather than a site-wide one.
 
 let cache: PollDataset | null = null;
 
 export function loadDataset(): PollDataset {
   if (cache) return cache;
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  cache = JSON.parse(raw) as PollDataset;
+  cache = loadStoreDataset();
   return cache;
 }
 
@@ -70,11 +73,16 @@ export function scenarioGroups(race: RaceKind, state: UF | null, round: 1 | 2): 
     const scenario = `2º turno: ${top.map((r) => r.candidate).join(" vs ")}`;
     return { scenario, polls: sorted, average: computeAverage(key, scenario, sorted) };
   });
+  // Most-polled first, then most-recent. Both can tie — Acre's two leading
+  // pairings sit at 10 polls apiece with the same last fieldwork date — so the
+  // scenario label is the final, deterministic tiebreak. Without it the
+  // matchup a state page leads with is decided by the order the polls happen
+  // to be stored in, and a rescrape can flip it with no data change at all.
   groups.sort((a, b) => {
     if (b.polls.length !== a.polls.length) return b.polls.length - a.polls.length;
     const da = a.average?.lastPollDate ?? "0000";
     const db = b.average?.lastPollDate ?? "0000";
-    return db.localeCompare(da);
+    return db.localeCompare(da) || a.scenario.localeCompare(b.scenario, "pt-BR");
   });
   return groups;
 }
@@ -96,7 +104,7 @@ export function statesWithPolls(): { uf: UF; count: number; latest: string | nul
         latest: sorted[0]?.fieldwork_end ?? sorted[0]?.published_date ?? null,
       };
     })
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => b.count - a.count || a.uf.localeCompare(b.uf));
 }
 
 export function pollsters(): { name: string; count: number; races: number; latest: string | null }[] {
@@ -117,7 +125,7 @@ export function pollsters(): { name: string; count: number; races: number; lates
         latest: sorted[0]?.fieldwork_end ?? sorted[0]?.published_date ?? null,
       };
     })
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "pt-BR"));
 }
 
 export function latestPolls(limit = 25): Poll[] {

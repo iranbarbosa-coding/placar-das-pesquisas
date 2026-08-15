@@ -75,8 +75,13 @@ function main() {
     // gate fails, because it would mean the grouping key had gone coarse again.
     source_self_contradiction_on_start: (f, l, p) =>
       f === "fieldwork_start" && l != null && p != null && l !== p,
+    // Two rows carried by BOTH Wikipedia pages. The survey now holds one
+    // article_url, and for a pt-BR site the Portuguese page is the right one.
+    // Capped: this must stay two known rows, not a drift in source priority.
+    wikipedia_en_to_pt: (f, l, p) =>
+      f === "source_url" && /en\.wikipedia\.org/.test(String(l)) && /pt\.wikipedia\.org/.test(String(p)),
   };
-  const DECLARED_CAPS = { source_self_contradiction_on_start: 6 };
+  const DECLARED_CAPS = { source_self_contradiction_on_start: 6, wikipedia_en_to_pt: 2 };
   const declaredCounts = Object.fromEntries(Object.keys(DECLARED).map((k) => [k, 0]));
 
   const EXACT = new Set(["pollster", "race", "state", "round", "fieldwork_end", "sample_size", "margin_of_error"]);
@@ -87,9 +92,14 @@ function main() {
 
   let fieldDiffs = 0;
   let resultRows = 0;
+  // `scenario`, `source_url` and the per-result `party` were originally absent
+  // here, which made them invisible to the gate even though two of the three
+  // are rendered. They are compared now: a blind spot in a migration gate is
+  // indistinguishable from a passing one until it ships.
   const FIELDS = ["pollster", "race", "state", "round", "fieldwork_start", "fieldwork_end",
                   "published_date", "sample_size", "margin_of_error", "others_pct",
-                  "undecided_pct", "blank_null_pct", "source", "tse_registration"];
+                  "undecided_pct", "blank_null_pct", "source", "tse_registration",
+                  "scenario", "source_url", "contractor"];
   for (const [id, lp] of legacyById) {
     const pp = projById.get(id);
     if (!pp) continue;
@@ -111,6 +121,11 @@ function main() {
     for (let i = 0; i < lr.length; i++) {
       if (lr[i].candidate !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
         if (fieldDiffs < 15) E(`(b) ${id}: ${lr[i].candidate} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
+        fieldDiffs++;
+      }
+      // The party label is rendered on every board and card.
+      if ((lr[i].party ?? null) !== (pr[i].party ?? null)) {
+        if (fieldDiffs < 15) E(`(b) ${id}: partido de ${lr[i].candidate}: ${JSON.stringify(lr[i].party)} ≠ ${JSON.stringify(pr[i].party)}`);
         fieldDiffs++;
       }
     }

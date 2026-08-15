@@ -23,12 +23,21 @@ function pollDate(p: Poll): string | null {
   return p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? null;
 }
 
-/** Sort polls newest-first by best-available date. */
+/**
+ * Sort polls newest-first by best-available date, breaking ties on the poll id.
+ *
+ * The id tiebreak is not cosmetic. Same-date polls are common (institutes
+ * cluster their fieldwork), and without a total order `sort` falls back to
+ * input order — so which poll heads a table, which one supplies `latestPct`,
+ * and which of two tied runoff pairings a state page leads with would all be
+ * decided by the order records happen to sit in on disk. The scraper rewrites
+ * that file twice a day. Ordering must depend on the data, not on its storage.
+ */
 export function sortPollsDesc(polls: Poll[]): Poll[] {
   return [...polls].sort((x, y) => {
     const dx = pollDate(x) ?? "0000";
     const dy = pollDate(y) ?? "0000";
-    return dy.localeCompare(dx);
+    return dy.localeCompare(dx) || x.id.localeCompare(y.id);
   });
 }
 

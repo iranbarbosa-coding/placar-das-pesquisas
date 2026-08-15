@@ -143,10 +143,37 @@ Central decision: **ids are minted once from a recorded seed and never recompute
 the resolution ladder uses only raw source data (native ref → TSE registration → natural
 key → mint), so improving canonicalisation can never move an id.
 
-**Phase 2 (next)** — `src/lib/store.ts` + rewrite `loadDataset()` in `src/lib/data.ts` to
-project `question ⨝ survey` into today's flat `Poll[]`. The other 8 exports and every page
-stay unchanged. **Gate: `next build` before/after must produce byte-identical `out/`.**
-`scripts/lib/project.mjs` is the Node twin of that projection — keep them identical.
+**Phase 2 (DONE)** — `src/lib/store.ts` reads the NDJSON tables and projects
+`question ⨝ survey` into the flat `Poll[]`; `loadDataset()` in `src/lib/data.ts` is now a
+three-line call into it. The other 8 exports and every page are untouched. `next build`
+still produces 38 pages. `data/polls.json` is no longer read by the site at all.
+
+*On the gate.* It was written as "byte-identical `out/`". Two things about it:
+- There is no `out/` — `next.config.ts` sets `output: undefined`, so pages are prerendered
+  into `.next/server/app`. Compare there, and normalise three per-build randoms first: the
+  `BUILD_ID`, webpack chunk hashes (16+ hex — poll ids are 12 and survive), and the nonce
+  Next emits in the comment after `<!DOCTYPE>`. Miss any one and all 38 pages "differ".
+- **Byte-identity was never achievable, by design.** The store's survey layer backfills
+  fieldwork dates that `polls.json` lacked — the same 149 fields the parity check already
+  declares. Measured effect on the rendered site, with everything else held equal:
+  **149 start dates appear** (2 of them corrections, the documented Poder360
+  self-contradiction), and **2 Wikipedia links move EN → PT**. Zero changes to any
+  percentage, average, poll count, institute, sample size or ordering. Suppressing those
+  backfills to win a byte-comparison would mean deleting correct data to satisfy a check.
+
+**Ordering was load-bearing and is now fixed.** The first Phase-2 build changed the runoff
+matchup shown on Acre and Amazonas. Not a migration bug: AC's two leading pairings tie at
+10 polls *and* on last fieldwork date, so `scenarioGroups`' sort fell through to `Map`
+insertion order — i.e. the order records sit in on disk. The scraper rewrites that file
+twice a day, so the headline matchup could flip with no data change at all. `sortPollsDesc`
+now breaks date ties on `poll.id`, group ordering breaks on the scenario label, and
+`pollsters()`/`statesWithPolls()` break count ties on name/UF. Proof: reversing the entire
+poll array now produces byte-identical output.
+
+`scripts/lib/project.mjs` is the Node twin of the site's projection and **`scripts/projection-twin-check.mjs`
+now enforces that** — it runs both and compares all 2.585 records. Nothing but a comment
+held them together before, which meant the parity gate could pass while the site rendered
+something else.
 
 **Phase 3** — rewrite `scrape.mjs` as sources → normalise → resolve → upsert → repairs →
 validate → write, dual-writing `polls.json` for 1–2 weeks so rollback is one revert. Then
@@ -229,11 +256,22 @@ cd ~/Projects/pesquisas-2026
 node scripts/validate-store.mjs --self-test   # 20 guards, each proven to fire
 node scripts/validate-store.mjs               # validate the real store
 node scripts/parity-check.mjs                 # store must reproduce polls.json
+node scripts/projection-twin-check.mjs        # project.mjs ≡ src/lib/store.ts
 node scripts/validate-data.mjs --self-test    # legacy validator
-node scripts/migrate-to-store.mjs             # idempotent: byte-identical on re-run
+node scripts/migrate-to-store.mjs             # see the idempotence caveat below
 npm run scrape                                # full re-ingest (~10 min, be patient)
 npx next build                                # must produce 38 pages
 ```
+
+**`migrate-to-store.mjs` is idempotent only within a single day.** It rebuilds the store
+from scratch and stamps `today()` into `first_seen` and `provenance.created_at/updated_at`,
+so a re-run on a later date rewrites all 4.613 records — every line of every table, with
+nothing but the date changed. Re-running it is not a free operation; `git checkout -- data/`
+afterwards if you only meant to check.
+
+The parity check used to compare neither `scenario`, `source_url`, `contractor` nor the
+per-result `party`, two of which are rendered. All four are compared now, and each new
+guard was proven to fire before being trusted.
 
 Working practice that has caught every significant defect: **a producer never certifies
 its own output.** After any data change, have an independent agent re-check a sample
@@ -244,11 +282,12 @@ I was confident about.
 
 ## 6. Open items
 
-1. Phase 2 of the database plan (site reads the store).
+1. ~~Phase 2 of the database plan~~ — **done**; the site reads the store. Phase 3 is next.
 2. Fix the "Ciro Nogueira" candidate merge before Phase 3.
 3. Implement the presentation spec in §3A — none of it exists yet.
 4. Decide how incomplete polls are handled under válidos.
 5. Narrow `tse.mjs` to `BRASIL.csv`.
 6. Deploy: `gh repo create placar-das-pesquisas --public --source=. --push`, then import on Vercel.
 7. Homepage visual design — parked behind the phrase "Let's go back to design."
-8. `data/polls.json` is still the site's source of truth; the store shadows it until Phase 2.
+8. `data/polls.json` no longer feeds the site — the store does. It is still written by the
+   scraper and is still what `parity-check.mjs` compares against, so it stays until Phase 5.
