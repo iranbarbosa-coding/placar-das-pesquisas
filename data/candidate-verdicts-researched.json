@@ -1,0 +1,306 @@
+{
+ "version": 1,
+ "note": "Vereditos de identidade obtidos por pesquisa em fontes públicas (TSE, imprensa, assembleias, Wikipédia) para os pares que a resolução automática por artigo não decidiu. Cada um cita a fonte; qualquer um é falsificável abrindo a URL. INCERTO significa que não se achou evidência — nunca fundir sob INCERTO.",
+ "verdicts": [
+  {
+   "contest": "governador:PA",
+   "names": [
+    "Daniel Santos",
+    "Dr Daniel"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Daniel Barbosa Santos",
+   "confidence": "alta",
+   "evidence": "Daniel Barbosa Santos, médico e ex-prefeito de Ananindeua, oficializado pelo Podemos ao Governo do Pará; imprensa o trata como 'Daniel Santos' e 'Dr. Daniel'.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Daniel_Santos_(pol%C3%ADtico)",
+    "https://dol.com.br/noticias/politica/eleicoes-2026/958921/podemos-oficializa-daniel-santos-como-candidato-ao-governo-do-para"
+   ]
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Alcides Fernandes",
+    "Pastor Alcides"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Alcides Fernandes da Silva",
+   "confidence": "alta",
+   "evidence": "Alcides Fernandes da Silva (PL), deputado estadual do CE e pastor da Assembleia de Deus; único Alcides na disputa ao Senado pelo CE.",
+   "sources": [
+    "https://www.al.ce.gov.br/deputados/alcides-fernandes",
+    "https://radioasabranca.com.br/politica-pl-oficializa-alcides-fernandes-como-candidato-ao-senado-no-ceara/"
+   ]
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Guimarães do PT",
+    "José Guimarães"
+   ],
+   "verdict": "MESMA",
+   "canonical": "José Guimarães",
+   "confidence": "alta",
+   "evidence": "José Guimarães (PT), deputado federal, único 'Guimarães' testado nas pesquisas ao Senado pelo CE em 2026.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+    "https://pt.org.br/jose-guimaraes/"
+   ]
+  },
+  {
+   "contest": "senador:RO",
+   "names": [
+    "Delegado Camargo",
+    "Rodrigo Camargo"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Rodrigo Camargo Ribeiro Pinho",
+   "confidence": "alta",
+   "evidence": "Delegado da Polícia Civil de RO e deputado estadual; nome de urna 'Delegado Camargo'.",
+   "sources": [
+    "https://www.al.ro.leg.br/deputados/perfil/delegado-camargo",
+    "https://republicanos10.org.br/quem_e_quem/rodrigo-camargo-2/"
+   ]
+  },
+  {
+   "contest": "senador:CE",
+   "names": [
+    "Pastor Alcides",
+    "Professor Alcides"
+   ],
+   "verdict": "INCERTO",
+   "canonical": null,
+   "confidence": "baixa",
+   "evidence": "Nenhuma fonte registra 'Professor Alcides' no CE em 2026; único Alcides é o pastor Alcides Fernandes (PL). Pode ser erro de grafia, mas sem evidência positiva — não fundir.",
+   "sources": [
+    "https://www.opovo.com.br/noticias/politica/eleicoes/2026/08/03/quem-sao-os-candidatos-ao-senado-no-ceara-nas-eleicoes-2026.html"
+   ]
+  },
+  {
+   "contest": "governador:PI",
+   "names": [
+    "Professor Tonny",
+    "Tonny Kerley"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Tonny Kerley de Alencar Rodrigues",
+   "confidence": "alta",
+   "evidence": "Tonny Kerley (Novo), economista e professor universitário; pesquisas do PI o listam ora como 'Tonny Kerley (Novo)', ora 'Professor Tonny (Novo)'.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+    "https://www.oitomeia.com.br/noticias/2023/10/17/saiba-quem-e-tonny-kerley-empresario-e-professor-de-34-anos-que-disputara-a-prefeitura-de-teresina/"
+   ]
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Coronel Mello Araújo",
+    "Ricardo Mello Araújo"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Ricardo Mello Araújo",
+   "confidence": "alta",
+   "evidence": "Coronel da reserva da PM, ex-comandante da Rota, vice-prefeito de SP; imprensa o trata como 'Coronel Mello Araújo'.",
+   "sources": [
+    "https://www.cartacapital.com.br/politica/o-historico-de-ricardo-mello-araujo-o-ex-rota-que-sera-vice-em-sao-paulo/"
+   ]
+  },
+  {
+   "contest": "governador:RN",
+   "names": [
+    "Cadu Xavier",
+    "Cadu de Lula"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Cadu Xavier",
+   "confidence": "alta",
+   "evidence": "Cadu Xavier (PT), ex-secretário da Fazenda do RN, adotou o nome de urna 'Cadu de Lula'; MP Eleitoral deu parecer contrário ao nome de urna.",
+   "sources": [
+    "https://www.blogdeassis.com.br/2026/08/13/mp-eleitoral-manifesta-parecer-contrario-a-nomes-cadu-de-lula-e-rodrigo-bolsonaro-nas-urnas-no-rn/475764/"
+   ]
+  },
+  {
+   "contest": "senador:PE",
+   "names": [
+    "Silvio Costa Filho",
+    "Silvio Nascimento"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "Silvio Costa Filho: ministro de Portos e Aeroportos (Republicanos). Silvio Nascimento: jornalista e vereador de Caruaru (PL). Biografias e partidos distintos.",
+   "sources": [
+    "https://jamildo.com/politica/silvio-costa-filho-revela-condicao-para-desistir-do-senado-na-eleicao-de-2026.html"
+   ]
+  },
+  {
+   "contest": "senador:GO",
+   "names": [
+    "Vanderlan Cardoso",
+    "Vanderlan Gomes"
+   ],
+   "verdict": "INCERTO",
+   "canonical": null,
+   "confidence": "baixa",
+   "evidence": "Senador goiano é Vanderlan Vieira Cardoso — sem 'Gomes'. Único 'Vanderlan Gomes' documentado é apresentador de TV em Araguaína (TO), sem ligação com GO.",
+   "sources": [
+    "https://www25.senado.leg.br/web/senadores/senador/-/perfil/5899"
+   ]
+  },
+  {
+   "contest": "governador:RN",
+   "names": [
+    "Rodrigo Bolsonaro",
+    "Rodrigo Vieira"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Karlo Rodrigo Lúcio Vieira",
+   "confidence": "media",
+   "evidence": "Candidato do Agir ao governo do RN é Karlo Rodrigo Lúcio Vieira, que pediu o nome de urna 'Rodrigo Bolsonaro' (contestado pelo MP Eleitoral). O Agir tem só um candidato a governador no RN.",
+   "sources": [
+    "https://tribunadonorte.com.br/tn-nas-eleicoes-2026/rodrigo-bolsonaro-tambem-e-questionado/",
+    "https://agorarn.com.br/ultimas/agir-lanca-rodrigo-bolsonaro-no-rn/"
+   ]
+  },
+  {
+   "contest": "governador:BA",
+   "names": [
+    "José Aleluia",
+    "José Carlos do Pátio"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "José Carlos Aleluia: ex-deputado federal baiano (Novo). José Carlos do Pátio: ex-prefeito de Rondonópolis (MT). Pessoas e estados distintos.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%B5es_estaduais_na_Bahia_em_2026"
+   ]
+  },
+  {
+   "contest": "senador:MS",
+   "names": [
+    "Gianni Nogueira",
+    "Gianni do Bolsonaro"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Gianni Nogueira",
+   "confidence": "media",
+   "evidence": "Gianni Nogueira (PL), vice-prefeita de Dourados, aposta de Bolsonaro ao Senado por MS e única 'Gianni' nas pesquisas do estado. Sem registro de nome de urna no TSE — daí confiança média.",
+   "sources": [
+    "https://www.agazetadedourados.com.br/noticias/estado/gianni-nogueira-consolida-pre-candidatura-como-nome-de-bolsonaro-apos-gesto-de-uniao-pelo-pl/10/07/2026/"
+   ]
+  },
+  {
+   "contest": "governador:RJ",
+   "names": [
+    "Rodrigo Barcellar",
+    "Rodrigo Pimentel"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "Rodrigo Bacellar (União Brasil), presidente da Alerj. Rodrigo Pimentel, ex-capitão do Bope e comentarista. Biografias e partidos distintos.",
+   "sources": [
+    "https://diariodorio.com/rodrigo-bacellar-anuncia-pre-candidatura-ao-governo-do-rio-em-2026"
+   ]
+  },
+  {
+   "contest": "governador:GO",
+   "names": [
+    "Gustavo Gayer",
+    "Gustavo Medanha"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "Gustavo Gayer: deputado federal (PL-GO). Gustavo Mendanha ('Medanha' na pesquisa): ex-prefeito de Aparecida de Goiânia. Aparecem simultaneamente nas mesmas tabelas.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s"
+   ]
+  },
+  {
+   "contest": "senador:TO",
+   "names": [
+    "Carlos Caguin",
+    "Carlos Velozo"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "Carlos Gaguim ('Caguin'): ex-governador do TO (União Brasil). Carlos Velozo: pastor e vice-prefeito de Palmas (Podemos). Pessoas distintas.",
+   "sources": [
+    "https://www.jornaldotocantins.com.br/politica/eleicoes/pastor-carlos-velozo-anuncia-pre-candidatura-ao-senado-pelo-tocantins-1.3390418"
+   ]
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Guilherme Boulos",
+    "Guilherme Giordano"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "media",
+   "evidence": "Boulos é Guilherme Castro Boulos (PSOL). Nenhum político 'Guilherme Giordano' localizado em SP. Jamais fundir.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Guilherme_Boulos"
+   ]
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Guilherme Derrite",
+    "Guilherme Giordano"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "media",
+   "evidence": "Derrite é Guilherme Muraro Derrite (PP); nunca usou 'Giordano'. Único Giordano paulista é o senador Alexandre Luiz Giordano.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Guilherme_Derrite"
+   ]
+  },
+  {
+   "contest": "senador:RN",
+   "names": [
+    "Carlos Eduardo Alves",
+    "Samanda Alves"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "Carlos Eduardo Alves: ex-prefeito de Natal. Samanda Alves: vereadora de Natal e deputada (PT). Nomes separados nas mesmas tabelas.",
+   "sources": [
+    "https://tribunadonorte.com.br/politica/ub-retira-apoio-e-carlos-eduardo-e-forcado-a-desistir-do-senado/"
+   ]
+  },
+  {
+   "contest": "senador:RN",
+   "names": [
+    "Rivaldo Fernandes",
+    "Rosália Fernandes"
+   ],
+   "verdict": "DIFERENTES",
+   "canonical": null,
+   "confidence": "alta",
+   "evidence": "'Rivaldo Fernandes (PV)' e 'Rosália Fernandes (PSTU)' listados como nomes distintos; prenomes, sexo e partidos diferentes.",
+   "sources": [
+    "https://agorarn.com.br/politica/candidatos-senado-rn-eleicoes-2026/"
+   ]
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Alexandre Luiz Giordano",
+    "Guilherme Giordano"
+   ],
+   "verdict": "INCERTO",
+   "canonical": null,
+   "confidence": "baixa",
+   "evidence": "Senador é Alexandre Luiz Giordano (Podemos). Nenhuma fonte pública sobre 'Guilherme Giordano' — nem TSE, nem imprensa. Sem evidência de existência; manter separado.",
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Alexandre_Luiz_Giordano"
+   ]
+  }
+ ]
+}

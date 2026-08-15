@@ -143,6 +143,18 @@ async function main() {
 
   const text = await intros([...resolved.values()].map((r) => r.pageid));
 
+  // Pairs settled by research against sources Wikipedia alone cannot reach —
+  // state politicians without an article, whose identity lives in TSE records,
+  // assembly pages and local press. Committed as data with citations, so a
+  // re-run keeps them instead of re-litigating.
+  const researched = new Map();
+  const rf = path.join(ROOT, "data/candidate-verdicts-researched.json");
+  if (fs.existsSync(rf)) {
+    for (const r of JSON.parse(fs.readFileSync(rf, "utf-8")).verdicts ?? []) {
+      researched.set(`${r.contest}|${r.names.slice().sort().join("|")}`, r);
+    }
+  }
+
   const verdicts = pairs.map((p) => {
     const ra = resolved.get(p.A), rb = resolved.get(p.B);
     const cite = (r) => (r ? `${r.title} (${url(r.title)})` : null);
@@ -170,6 +182,12 @@ async function main() {
     }
 
     if (!ra || !rb) {
+      const r = researched.get(`${p.contest.replace("|", ":")}|${[p.A, p.B].sort().join("|")}`);
+      if (r) {
+        return { ...v(p), verdict: r.verdict === "INCERTO" ? "NAO_RESOLVIDO" : r.verdict,
+                 why: r.evidence, a: r.sources?.[0] ?? null, b: r.sources?.[1] ?? null,
+                 canonical: r.canonical, confidence: r.confidence, via: "pesquisa em fontes públicas" };
+      }
       return { ...v(p), verdict: "NAO_RESOLVIDO", why: `sem artigo para ${!ra ? p.A : p.B}`, a: cite(ra), b: cite(rb) };
     }
     if (ra.pageid === rb.pageid) {

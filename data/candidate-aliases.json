@@ -238,6 +238,19 @@
    }
   },
   {
+   "contest": "governador:PA",
+   "canonical": "Daniel Barbosa Santos",
+   "names": [
+    "Daniel Santos",
+    "Dr Daniel"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Daniel_Santos_(pol%C3%ADtico)",
+    "b": "https://dol.com.br/noticias/politica/eleicoes-2026/958921/podemos-oficializa-daniel-santos-como-candidato-ao-governo-do-para",
+    "why": "Daniel Barbosa Santos, médico e ex-prefeito de Ananindeua, oficializado pelo Podemos ao Governo do Pará; imprensa o trata como 'Daniel Santos' e 'Dr. Daniel'."
+   }
+  },
+  {
    "contest": "senador:SP",
    "canonical": "Guilherme Derrite",
    "names": [
@@ -277,6 +290,32 @@
    }
   },
   {
+   "contest": "senador:CE",
+   "canonical": "Alcides Fernandes da Silva",
+   "names": [
+    "Alcides Fernandes",
+    "Pastor Alcides"
+   ],
+   "evidence": {
+    "a": "https://www.al.ce.gov.br/deputados/alcides-fernandes",
+    "b": "https://radioasabranca.com.br/politica-pl-oficializa-alcides-fernandes-como-candidato-ao-senado-no-ceara/",
+    "why": "Alcides Fernandes da Silva (PL), deputado estadual do CE e pastor da Assembleia de Deus; único Alcides na disputa ao Senado pelo CE."
+   }
+  },
+  {
+   "contest": "senador:CE",
+   "canonical": "José Guimarães",
+   "names": [
+    "Guimarães do PT",
+    "José Guimarães"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+    "b": "https://pt.org.br/jose-guimaraes/",
+    "why": "José Guimarães (PT), deputado federal, único 'Guimarães' testado nas pesquisas ao Senado pelo CE em 2026."
+   }
+  },
+  {
    "contest": "governador:AC",
    "canonical": "Tião Bocalom",
    "names": [
@@ -287,6 +326,45 @@
     "a": "Tião Bocalom (https://pt.wikipedia.org/wiki/Ti%C3%A3o_Bocalom)",
     "b": "Tião Bocalom (https://pt.wikipedia.org/wiki/Ti%C3%A3o_Bocalom)",
     "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "senador:RO",
+   "canonical": "Rodrigo Camargo Ribeiro Pinho",
+   "names": [
+    "Delegado Camargo",
+    "Rodrigo Camargo"
+   ],
+   "evidence": {
+    "a": "https://www.al.ro.leg.br/deputados/perfil/delegado-camargo",
+    "b": "https://republicanos10.org.br/quem_e_quem/rodrigo-camargo-2/",
+    "why": "Delegado da Polícia Civil de RO e deputado estadual; nome de urna 'Delegado Camargo'."
+   }
+  },
+  {
+   "contest": "governador:PI",
+   "canonical": "Tonny Kerley de Alencar Rodrigues",
+   "names": [
+    "Professor Tonny",
+    "Tonny Kerley"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+    "b": "https://www.oitomeia.com.br/noticias/2023/10/17/saiba-quem-e-tonny-kerley-empresario-e-professor-de-34-anos-que-disputara-a-prefeitura-de-teresina/",
+    "why": "Tonny Kerley (Novo), economista e professor universitário; pesquisas do PI o listam ora como 'Tonny Kerley (Novo)', ora 'Professor Tonny (Novo)'."
+   }
+  },
+  {
+   "contest": "senador:SP",
+   "canonical": "Ricardo Mello Araújo",
+   "names": [
+    "Coronel Mello Araújo",
+    "Ricardo Mello Araújo"
+   ],
+   "evidence": {
+    "a": "https://www.cartacapital.com.br/politica/o-historico-de-ricardo-mello-araujo-o-ex-rota-que-sera-vice-em-sao-paulo/",
+    "b": null,
+    "why": "Coronel da reserva da PM, ex-comandante da Rota, vice-prefeito de SP; imprensa o trata como 'Coronel Mello Araújo'."
    }
   },
   {
@@ -303,6 +381,19 @@
    }
   },
   {
+   "contest": "governador:RN",
+   "canonical": "Cadu Xavier",
+   "names": [
+    "Cadu Xavier",
+    "Cadu de Lula"
+   ],
+   "evidence": {
+    "a": "https://www.blogdeassis.com.br/2026/08/13/mp-eleitoral-manifesta-parecer-contrario-a-nomes-cadu-de-lula-e-rodrigo-bolsonaro-nas-urnas-no-rn/475764/",
+    "b": null,
+    "why": "Cadu Xavier (PT), ex-secretário da Fazenda do RN, adotou o nome de urna 'Cadu de Lula'; MP Eleitoral deu parecer contrário ao nome de urna."
+   }
+  },
+  {
    "contest": "senador:DF",
    "canonical": "Leila Barros",
    "names": [
@@ -313,6 +404,32 @@
     "a": "Leila Barros (https://pt.wikipedia.org/wiki/Leila_Barros)",
     "b": "Leila Barros (https://pt.wikipedia.org/wiki/Leila_Barros)",
     "why": "ambos resolvem para o mesmo artigo"
+   }
+  },
+  {
+   "contest": "governador:RN",
+   "canonical": "Karlo Rodrigo Lúcio Vieira",
+   "names": [
+    "Rodrigo Bolsonaro",
+    "Rodrigo Vieira"
+   ],
+   "evidence": {
+    "a": "https://tribunadonorte.com.br/tn-nas-eleicoes-2026/rodrigo-bolsonaro-tambem-e-questionado/",
+    "b": "https://agorarn.com.br/ultimas/agir-lanca-rodrigo-bolsonaro-no-rn/",
+    "why": "Candidato do Agir ao governo do RN é Karlo Rodrigo Lúcio Vieira, que pediu o nome de urna 'Rodrigo Bolsonaro' (contestado pelo MP Eleitoral). O Agir tem só um candidato a governador no RN."
+   }
+  },
+  {
+   "contest": "senador:MS",
+   "canonical": "Gianni Nogueira",
+   "names": [
+    "Gianni Nogueira",
+    "Gianni do Bolsonaro"
+   ],
+   "evidence": {
+    "a": "https://www.agazetadedourados.com.br/noticias/estado/gianni-nogueira-consolida-pre-candidatura-como-nome-de-bolsonaro-apos-gesto-de-uniao-pelo-pl/10/07/2026/",
+    "b": null,
+    "why": "Gianni Nogueira (PL), vice-prefeita de Dourados, aposta de Bolsonaro ao Senado por MS e única 'Gianni' nas pesquisas do estado. Sem registro de nome de urna no TSE — daí confiança média."
    }
   },
   {
@@ -391,6 +508,30 @@
    "confidence": "alta"
   },
   {
+   "contest": "senador:PE",
+   "names": [
+    "Silvio Costa Filho",
+    "Silvio Nascimento"
+   ],
+   "evidence": {
+    "a": "https://jamildo.com/politica/silvio-costa-filho-revela-condicao-para-desistir-do-senado-na-eleicao-de-2026.html",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:BA",
+   "names": [
+    "José Aleluia",
+    "José Carlos do Pátio"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%B5es_estaduais_na_Bahia_em_2026",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
    "contest": "senador:RJ",
    "names": [
     "Carlos Jordy",
@@ -415,6 +556,30 @@
    "confidence": "alta"
   },
   {
+   "contest": "governador:RJ",
+   "names": [
+    "Rodrigo Barcellar",
+    "Rodrigo Pimentel"
+   ],
+   "evidence": {
+    "a": "https://diariodorio.com/rodrigo-bacellar-anuncia-pre-candidatura-ao-governo-do-rio-em-2026",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "governador:GO",
+   "names": [
+    "Gustavo Gayer",
+    "Gustavo Medanha"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
    "contest": "governador:MG",
    "names": [
     "Alexandre Kalil",
@@ -423,6 +588,18 @@
    "evidence": {
     "a": "Alexandre Kalil (https://pt.wikipedia.org/wiki/Alexandre_Kalil)",
     "b": "Alexandre Silveira (https://pt.wikipedia.org/wiki/Alexandre_Silveira)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:TO",
+   "names": [
+    "Carlos Caguin",
+    "Carlos Velozo"
+   ],
+   "evidence": {
+    "a": "https://www.jornaldotocantins.com.br/politica/eleicoes/pastor-carlos-velozo-anuncia-pre-candidatura-ao-senado-pelo-tocantins-1.3390418",
+    "b": null
    },
    "confidence": "alta"
   },
@@ -449,6 +626,30 @@
     "b": "Luiz Marinho (https://pt.wikipedia.org/wiki/Luiz_Marinho)"
    },
    "confidence": "alta"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Guilherme Boulos",
+    "Guilherme Giordano"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Guilherme_Boulos",
+    "b": null
+   },
+   "confidence": "media"
+  },
+  {
+   "contest": "senador:SP",
+   "names": [
+    "Guilherme Derrite",
+    "Guilherme Giordano"
+   ],
+   "evidence": {
+    "a": "https://pt.wikipedia.org/wiki/Guilherme_Derrite",
+    "b": null
+   },
+   "confidence": "media"
   },
   {
    "contest": "governador:PR",
@@ -511,6 +712,18 @@
    "confidence": "média"
   },
   {
+   "contest": "senador:RN",
+   "names": [
+    "Carlos Eduardo Alves",
+    "Samanda Alves"
+   ],
+   "evidence": {
+    "a": "https://tribunadonorte.com.br/politica/ub-retira-apoio-e-carlos-eduardo-e-forcado-a-desistir-do-senado/",
+    "b": null
+   },
+   "confidence": "alta"
+  },
+  {
    "contest": "senador:RJ",
    "names": [
     "Flávio Bolsonaro",
@@ -519,6 +732,18 @@
    "evidence": {
     "a": "Flávio Bolsonaro (https://pt.wikipedia.org/wiki/Fl%C3%A1vio_Bolsonaro)",
     "b": "Rogéria Bolsonaro (https://pt.wikipedia.org/wiki/Rog%C3%A9ria_Bolsonaro)"
+   },
+   "confidence": "alta"
+  },
+  {
+   "contest": "senador:RN",
+   "names": [
+    "Rivaldo Fernandes",
+    "Rosália Fernandes"
+   ],
+   "evidence": {
+    "a": "https://agorarn.com.br/politica/candidatos-senado-rn-eleicoes-2026/",
+    "b": null
    },
    "confidence": "alta"
   },
@@ -537,76 +762,12 @@
  ],
  "unresolved": [
   {
-   "contest": "governador:PA",
-   "names": [
-    "Daniel Santos",
-    "Dr Daniel"
-   ],
-   "why": "sem artigo para Dr Daniel"
-  },
-  {
-   "contest": "senador:CE",
-   "names": [
-    "Alcides Fernandes",
-    "Pastor Alcides"
-   ],
-   "why": "sem artigo para Pastor Alcides"
-  },
-  {
-   "contest": "senador:CE",
-   "names": [
-    "Guimarães do PT",
-    "José Guimarães"
-   ],
-   "why": "sem artigo para Guimarães do PT"
-  },
-  {
-   "contest": "senador:RO",
-   "names": [
-    "Delegado Camargo",
-    "Rodrigo Camargo"
-   ],
-   "why": "sem artigo para Delegado Camargo"
-  },
-  {
    "contest": "senador:CE",
    "names": [
     "Pastor Alcides",
     "Professor Alcides"
    ],
-   "why": "sem artigo para Pastor Alcides"
-  },
-  {
-   "contest": "governador:PI",
-   "names": [
-    "Professor Tonny",
-    "Tonny Kerley"
-   ],
-   "why": "sem artigo para Professor Tonny"
-  },
-  {
-   "contest": "senador:SP",
-   "names": [
-    "Coronel Mello Araújo",
-    "Ricardo Mello Araújo"
-   ],
-   "why": "sem artigo para Coronel Mello Araújo"
-  },
-  {
-   "contest": "governador:RN",
-   "names": [
-    "Cadu Xavier",
-    "Cadu de Lula"
-   ],
-   "why": "sem artigo para Cadu Xavier"
-  },
-  {
-   "contest": "senador:PE",
-   "names": [
-    "Silvio Costa Filho",
-    "Silvio Nascimento"
-   ],
-   "why": "sem artigo para Silvio Nascimento"
+   "why": "Nenhuma fonte registra 'Professor Alcides' no CE em 2026; único Alcides é o pastor Alcides Fernandes (PL). Pode ser erro de grafia, mas sem evidência positiva — não fundir."
   },
   {
    "contest": "senador:GO",
@@ -614,87 +775,7 @@
     "Vanderlan Cardoso",
     "Vanderlan Gomes"
    ],
-   "why": "sem artigo para Vanderlan Gomes"
-  },
-  {
-   "contest": "governador:RN",
-   "names": [
-    "Rodrigo Bolsonaro",
-    "Rodrigo Vieira"
-   ],
-   "why": "sem artigo para Rodrigo Bolsonaro"
-  },
-  {
-   "contest": "governador:BA",
-   "names": [
-    "José Aleluia",
-    "José Carlos do Pátio"
-   ],
-   "why": "sem artigo para José Aleluia"
-  },
-  {
-   "contest": "senador:MS",
-   "names": [
-    "Gianni Nogueira",
-    "Gianni do Bolsonaro"
-   ],
-   "why": "sem artigo para Gianni Nogueira"
-  },
-  {
-   "contest": "governador:RJ",
-   "names": [
-    "Rodrigo Barcellar",
-    "Rodrigo Pimentel"
-   ],
-   "why": "sem artigo para Rodrigo Barcellar"
-  },
-  {
-   "contest": "governador:GO",
-   "names": [
-    "Gustavo Gayer",
-    "Gustavo Medanha"
-   ],
-   "why": "sem artigo para Gustavo Medanha"
-  },
-  {
-   "contest": "senador:TO",
-   "names": [
-    "Carlos Caguin",
-    "Carlos Velozo"
-   ],
-   "why": "sem artigo para Carlos Caguin"
-  },
-  {
-   "contest": "senador:SP",
-   "names": [
-    "Guilherme Boulos",
-    "Guilherme Giordano"
-   ],
-   "why": "sem artigo para Guilherme Giordano"
-  },
-  {
-   "contest": "senador:SP",
-   "names": [
-    "Guilherme Derrite",
-    "Guilherme Giordano"
-   ],
-   "why": "sem artigo para Guilherme Giordano"
-  },
-  {
-   "contest": "senador:RN",
-   "names": [
-    "Carlos Eduardo Alves",
-    "Samanda Alves"
-   ],
-   "why": "sem artigo para Samanda Alves"
-  },
-  {
-   "contest": "senador:RN",
-   "names": [
-    "Rivaldo Fernandes",
-    "Rosália Fernandes"
-   ],
-   "why": "sem artigo para Rivaldo Fernandes"
+   "why": "Senador goiano é Vanderlan Vieira Cardoso — sem 'Gomes'. Único 'Vanderlan Gomes' documentado é apresentador de TV em Araguaína (TO), sem ligação com GO."
   },
   {
    "contest": "senador:SP",
@@ -702,7 +783,7 @@
     "Alexandre Luiz Giordano",
     "Guilherme Giordano"
    ],
-   "why": "sem artigo para Guilherme Giordano"
+   "why": "Senador é Alexandre Luiz Giordano (Podemos). Nenhuma fonte pública sobre 'Guilherme Giordano' — nem TSE, nem imprensa. Sem evidência de existência; manter separado."
   }
  ]
 }
