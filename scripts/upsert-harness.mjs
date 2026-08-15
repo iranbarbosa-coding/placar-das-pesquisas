@@ -136,6 +136,31 @@ check("cunhagem sem registro E sem id nativo gera ids DISTINTOS", (store, assert
   assert(store.surveys.length === 3, `${store.surveys.length} levantamentos, esperado 3`);
 });
 
+check("recusa: mesmo registro TSE com datas contraditórias NÃO une", (store, assert) => {
+  // Uma operação de campo cobrindo governador e senado no mesmo dia é UM
+  // levantamento. Um registro cobrindo datas com meses de distância é defeito
+  // da fonte — unificar inventaria um levantamento que nunca existiu e lhe
+  // daria uma data fabricada. Na base real são 3 casos, todos erro de dígito
+  // (365, 120 e 31 dias de distância).
+  upsertPoll(store, poll(), { source: "poder360", nativeId: 1 });
+  const b = upsertPoll(store, poll({ fieldwork_end: "2026-09-05", fieldwork_start: "2026-09-01", published_date: null }),
+    { source: "poder360", nativeId: 2 });
+  assert(b.matched_by === "minted", `casou por "${b.matched_by}" — datas a 4 meses deveriam impedir a união`);
+  assert(store.surveys.length === 2, `${store.surveys.length} levantamentos, esperado 2`);
+  assert(store.conflicts.some((c) => c.type === "registration_dates_contradict"),
+    "a divergência de datas não foi registrada como conflito");
+});
+
+check("mesmo registro TSE, mesmo dia, cargos diferentes → UM levantamento", (store, assert) => {
+  const a = upsertPoll(store, poll({ race: "governador" }), { source: "poder360", nativeId: 1 });
+  const b = upsertPoll(store, poll({ race: "senador",
+    results: [{ candidate: "Ana Lima", party: "PT", pct: 40 }, { candidate: "Dora Pi", party: "PSD", pct: 20 }] }),
+    { source: "poder360", nativeId: 2 });
+  assert(a.survey.survey_id === b.survey.survey_id, "não unificou governador e senado do mesmo registro");
+  assert(store.surveys.length === 1, `${store.surveys.length} levantamentos, esperado 1`);
+  assert(store.questions.length === 2, `${store.questions.length} perguntas, esperado 2`);
+});
+
 check("recusa: UF diferente não une", (store, assert) => {
   upsertPoll(store, poll({ tse_registration: null }), { source: "poder360", nativeId: 1 });
   const b = upsertPoll(store, poll({ tse_registration: null, state: "SP" }), { source: "wikipedia", nativeId: null });

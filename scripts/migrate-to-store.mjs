@@ -31,26 +31,36 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const LEGACY = path.join(ROOT, "data", "polls.json");
 
 /**
- * Grouping key, finest source truth first.
+ * Grouping key: ONE REGISTRATION = ONE SURVEY (creator, 2026-08-15).
  *
- * A TSE registration is NOT a unique survey key: 133 registrations cover more
- * than one Poder360 record, because one registration legitimately covers a
- * single fieldwork operation across several offices, and Poder360 files each
- * as its own record. Grouping by registration would therefore merge two
- * round-1 governor questions into one survey, where only one can be headline —
- * silently dropping a poll from the averages relative to polls.json.
+ * A TSE registration identifies a fieldwork operation, and 137 of them cover
+ * more than one Poder360 record — because one operation legitimately polls
+ * several offices (governor and senate on the same day, same sample) and
+ * Poder360 files each office as its own record. Those are not two surveys;
+ * they are one survey with several questions, which is what the schema is for.
  *
- * Merging those siblings may well be the better model, but it is a BEHAVIOUR
- * change and must not ride along with a structural migration: it would be
- * indistinguishable from a migration bug. So the source's own record boundary
- * wins here, the shared registration is recorded, and consolidating siblings
- * becomes a later, deliberate change with its own before/after diff.
+ * This was deliberately NOT done during the structural migration, so that a
+ * behaviour change could not hide inside it. It is that deliberate change,
+ * made on its own, with its own before/after diff — and it aligns the
+ * migration with the upsert ladder, which puts registration above the natural
+ * key. `scripts/upsert-vs-migration.mjs` holds the two to the same answer.
+ *
+ * The registration now outranks the source's record boundary. Where rows of
+ * one registration disagree on a hoisted field, `pick()` logs it rather than
+ * silently choosing — that log is how the 7 registrations with contradictory
+ * fieldwork dates surface.
  */
-function surveyGroupKey(p) {
+function surveyGroupKey(p, regCohort) {
+  const reg = normalizeRegistration(p.tse_registration);
+  // One registration is one survey — UNLESS the rows filed under it contradict
+  // each other on when the fieldwork happened. A registration covering
+  // governor and senate on the same day is one operation; one covering dates
+  // four months apart is a source defect, and merging it would invent a survey
+  // that never took place and hand it a single fabricated date. Those rows stay
+  // separate and are logged for review.
+  if (reg && regCohort.get(reg) !== "contraditorio") return `reg:${reg}`;
   const m = /^p360-(\d+)-/.exec(p.id ?? "");
   if (m) return `p360:${m[1]}`;
-  const reg = normalizeRegistration(p.tse_registration);
-  if (reg) return `reg:${reg}`;
   // No source-native id: the key must contain EVERY field the resulting survey
   // will share, or hoisting silently discards whichever value loses. A coarser
   // key (pollster|state|date|sample) merged distinct Wikipedia polls that
@@ -87,9 +97,35 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
     instituteByAlias: new Map(), candidateByAlias: new Map(),
   };
 
+  // Which registrations hold rows that contradict each other on fieldwork end.
+  // ±3 days of slack, because sources round the last day of a window.
+  const DAY = 86_400_000;
+  const datesByReg = new Map();
+  for (const p of polls) {
+    const reg = normalizeRegistration(p.tse_registration);
+    const d = p.fieldwork_end ?? p.published_date;
+    if (!reg || !d) continue;
+    if (!datesByReg.has(reg)) datesByReg.set(reg, new Set());
+    datesByReg.get(reg).add(d);
+  }
+  const regCohort = new Map();
+  const contraditorios = [];
+  for (const [reg, ds] of datesByReg) {
+    const sorted = [...ds].sort();
+    const spread = +new Date(sorted[sorted.length - 1]) - +new Date(sorted[0]);
+    if (spread > 3 * DAY) {
+      regCohort.set(reg, "contraditorio");
+      contraditorios.push({ reg, datas: sorted, dias: Math.round(spread / DAY) });
+    }
+  }
+  if (contraditorios.length) {
+    console.warn(`\nAVISO: ${contraditorios.length} registro(s) TSE com datas de campo contraditórias — NÃO unificados, ficam para revisão:`);
+    for (const c of contraditorios) console.warn(`  ${c.reg}: ${c.datas.join(" × ")} (${c.dias} dias)`);
+  }
+
   const groups = new Map();
   for (const p of polls) {
-    const k = surveyGroupKey(p);
+    const k = surveyGroupKey(p, regCohort);
     if (!groups.has(k)) groups.set(k, []);
     groups.get(k).push(p);
   }

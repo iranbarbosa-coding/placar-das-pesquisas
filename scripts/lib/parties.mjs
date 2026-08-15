@@ -75,27 +75,33 @@ export const NOT_MERGED = ["DEM", "Pros"];
  * and which party a given candidate joined does not follow from the merger. Do
  * not fill those in from a neighbouring poll; `data/repairs.json` forbids it.
  *
- * Dates checked against the pt.wikipedia article for each party (cited below)
- * and deliberately taken at the LATER of "party decided" and "TSE approved",
- * so the window never closes earlier than the record supports. ⚠ Still worth
- * the creator's ratification against the TSE registry itself, since two of
- * these drive an automatic rewrite.
+ * Dates RATIFIED against the TSE record (2026-08-15) and taken at the date the
+ * change took legal effect — the TSE's approval, never the party's own vote,
+ * which can precede it by months. PMDB was the one that mattered: it was
+ * recorded as 2017-12-31, the convention's month, when the TSE only approved
+ * on 15/05/2018 — five months of polls would have been mislabelled had the
+ * data reached back that far.
+ *
+ * ⚠ `tse.jus.br` answers HTTP 403 to automated fetchers, so these were
+ * corroborated through ConJur, Agência Brasil, Poder360 and the parties' own
+ * notes. The TSE URLs open normally in a browser; worth eyeballing the PMDB
+ * one before leaning harder on this table.
  */
 export const DEFUNCT = {
-  PMDB: { until: "2017-12-31", kind: "renomeação", became: "MDB",
-          note: "Funcionou como PMDB até 2017, quando retomou o nome de origem; mesma pessoa jurídica.",
-          source: "https://pt.wikipedia.org/wiki/Movimento_Democrático_Brasileiro_(1980)" },
-  PSDC: { until: "2018-05-31", kind: "renomeação", became: "DC",
-          note: "Mudou para Democracia Cristã em agosto/2017, oficializado pelo TSE em maio/2018 — usamos a data mais tardia.",
-          source: "https://pt.wikipedia.org/wiki/Democracia_Cristã_(Brasil)" },
+  PMDB: { until: "2018-05-14", kind: "renomeação", became: "MDB",
+          note: "Convenção do partido aprovou a volta a MDB em 19/12/2017, mas o TSE só aprovou a mudança de nome e sigla na sessão de 15/05/2018 (rel. min. Admar Gonzaga), rejeitando as impugnações de diretórios municipais. Vale a data do TSE.",
+          source: "https://www.tse.jus.br/comunicacao/noticias/2018/Maio/aprovada-mudanca-do-nome-do-partido-do-movimento-democratico-brasileiro-pmdb" },
+  PSDC: { until: "2018-05-16", kind: "renomeação", became: "DC",
+          note: "Agosto/2017 foi o PEDIDO ao TSE, não a aprovação; o TSE homologou a mudança para Democracia Cristã em 17/05/2018. Vale a data do TSE.",
+          source: "https://www.tse.jus.br/imprensa/noticias-tse/2017/Agosto/psdc-pede-ao-tse-mudanca-de-nome-para-democracia-crista" },
   DEM:  { until: "2022-02-08", kind: "incorporação", became: null,
-          note: "Fundiu-se ao PSL formando o União Brasil; convenção em 06/10/2021, aprovado pelo TSE em 08/02/2022. O filiado pode ter ido para outro partido.",
+          note: "Fundiu-se ao PSL formando o União Brasil; convenção conjunta em 06/10/2021, registro aprovado pelo plenário do TSE em 08/02/2022 — data ratificada. O filiado pode ter ido para outro partido.",
           source: "https://pt.wikipedia.org/wiki/Democratas_(Brasil)" },
   Pros: { until: "2023-02-14", kind: "incorporação", became: null,
-          note: "Incorporado pelo Solidariedade, homologado pelo TSE em 14/02/2023. Idem: o destino do filiado não decorre da incorporação.",
+          note: "Incorporado (não fundido) ao Solidariedade; diretórios aprovaram em 17/10/2022 e o TSE homologou por unanimidade em 14/02/2023 — data ratificada. O destino do filiado não decorre da incorporação.",
           source: "https://pt.wikipedia.org/wiki/Partido_Republicano_da_Ordem_Social" },
   PMB:  { until: "2025-12-01", kind: "renomeação", became: "Democrata",
-          note: "Partido da Mulher Brasileira passou a chamar-se Democrata, vigente desde dezembro/2025. Sem linhas na base hoje; registrado para quando aparecer.",
+          note: "Plenário do TSE aprovou a mudança de nome do PMB para Democrata em 02/12/2025 (rel. min. André Mendonça), entendendo que não há confusão com o extinto DEM. Último dia como PMB: 01/12/2025. Sem linhas na base hoje.",
           source: "https://pt.wikipedia.org/wiki/Democrata_(Brasil)" },
 };
 

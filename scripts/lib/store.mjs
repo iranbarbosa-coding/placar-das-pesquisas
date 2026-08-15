@@ -249,10 +249,30 @@ export function resolveSurvey(store, incoming) {
     }
   }
 
+  // 2. TSE registration — one registration is one survey (creator, 2026-08-15),
+  //    BUT only when the two records agree on when the fieldwork happened. A
+  //    registration covering governor and senate on the same day is one
+  //    operation; one covering dates months apart is a source defect (a year
+  //    typo, a month typo), and merging it would invent a survey that never
+  //    took place and give it a single fabricated date. Those stay separate and
+  //    the disagreement is logged.
   const reg = normalizeRegistration(incoming.tse_registration);
   if (reg && idx.byReg.has(reg)) {
-    store._report.matched.registration++;
-    return { survey: idx.byReg.get(reg), matched_by: "registration" };
+    const held = idx.byReg.get(reg);
+    const incomingDate = incoming.fieldwork_end ?? incoming.published_date;
+    const heldDate = held.fieldwork_end ?? held.published_date;
+    const contradictory = incomingDate && heldDate &&
+      Math.abs(+new Date(heldDate) - +new Date(incomingDate)) > 3 * DAY;
+    if (!contradictory) {
+      store._report.matched.registration++;
+      return { survey: held, matched_by: "registration" };
+    }
+    logConflict(store, {
+      run_id: "resolve", type: "registration_dates_contradict", table: "surveys",
+      record_id: held.survey_id, field: "fieldwork_end",
+      stored: heldDate, incoming: incomingDate, source: "resolveSurvey", severity: "review",
+      note: "mesmo registro TSE com datas de campo incompatíveis — não unificado, revisar a fonte",
+    });
   }
 
   const date = incoming.fieldwork_end ?? incoming.published_date;
