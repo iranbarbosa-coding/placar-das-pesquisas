@@ -20,6 +20,7 @@ import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
 import { projectPolls } from "./lib/project.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
+import { partyOverride } from "./lib/repairs.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -125,11 +126,18 @@ function main() {
         fieldDiffs++;
       }
       // The party label is rendered on every board and card. Compared THROUGH
-      // `canonicalParty` rather than exempted: the store is allowed to differ
-      // from the legacy file exactly by that function and by nothing else, so
-      // a wrong party still fails here.
-      if ((pr[i].party ?? null) !== canonicalPartyAt(lr[i].party, lp.fieldwork_end ?? lp.published_date ?? null)) {
-        if (fieldDiffs < 15) E(`(b) ${id}: partido de ${lr[i].candidate}: legado ${JSON.stringify(lr[i].party)} → canônico ${JSON.stringify(canonicalPartyAt(lr[i].party, lp.fieldwork_end ?? lp.published_date ?? null))} ≠ projetado ${JSON.stringify(pr[i].party)}`);
+      // the same two functions the store is built with — a curated repair
+      // first, then date-aware normalisation — rather than exempted. The store
+      // may differ from the legacy file by exactly those and by nothing else,
+      // so a wrong party still fails here.
+      const ovp = partyOverride(lp, lr[i].candidate);
+      const expectedParty = ovp.has
+        ? ovp.party
+        : canonicalPartyAt(lr[i].party, lp.fieldwork_end ?? lp.published_date ?? null);
+      if ((pr[i].party ?? null) !== expectedParty) {
+        if (fieldDiffs < 15) {
+          E(`(b) ${id}: partido de ${lr[i].candidate}: legado ${JSON.stringify(lr[i].party)} → esperado ${JSON.stringify(expectedParty)}${ovp.has ? " (reparo curado)" : ""} ≠ projetado ${JSON.stringify(pr[i].party)}`);
+        }
         fieldDiffs++;
       }
     }

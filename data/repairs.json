@@ -17,6 +17,30 @@
       ],
       "set": { "blank_null_pct": 2.3, "undecided_pct": 9.6 },
       "expect_sum": 100.0
+    },
+    {
+      "match": { "tse_registration": "PI-05475/2026", "race": "governador", "round": 1 },
+      "defect": "O agregador do Poder360 entrega 'DEM' para Ravenna Castro. O DEM foi incorporado ao União Brasil em 08/02/2022, quatro anos antes deste campo — não existia na data. O relatório do próprio instituto diz 'Democrata', que é o partido atual (ex-PMB, renomeado em dezembro de 2025). O agregador confundiu o Democrata novo com os Democratas extintos.",
+      "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Piaui-2026-260519.pdf",
+      "evidence": "Relatório AtlasIntel, blocos de intenção de voto para governador: a linha aparece como 'Ravenna Castro (Democrata)' (duas ocorrências, ao lado de 'Gisvaldo Oliveira (PSOL)'). PDF sem camada de texto; lido por OCR (Vision, pt-BR).",
+      "verified_at": "2026-08-15",
+      "set_party": [{ "candidate": "Ravenna Castro", "party": "Democrata" }]
+    },
+    {
+      "match": { "tse_registration": "PI-06473/2026", "race": "senador", "round": 1 },
+      "defect": "Mesmo defeito do agregador: 'DEM' para Ravenna Castro num campo de julho/2026.",
+      "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtime-governo-piaui-14jul26.pdf",
+      "evidence": "Relatório Real Time Big Data, lista de candidatos ao Senado: 'Ravenna Castro (Democratas)' (três ocorrências, entre 'Jorge Lopes (PSDB)' e 'Antonio José Lira (Avante)'). O instituto escreve no plural; o partido registrado é Democrata. PDF sem camada de texto; lido por OCR.",
+      "verified_at": "2026-08-15",
+      "set_party": [{ "candidate": "Ravenna Castro", "party": "Democrata" }]
+    },
+    {
+      "match": { "pollster": "Paraná Pesquisas", "race": "governador", "state": "GO", "fieldwork_end": "2025-12-05" },
+      "defect": "O agregador atribui 'Pros' a Telêmaco Brandão. O PROS foi incorporado ao Solidariedade em 14/02/2023, quase três anos antes deste campo. O relatório do instituto NÃO publica partido para nenhum candidato, então não há fonte primária para partido algum aqui — a única afirmação disponível era a de um partido extinto.",
+      "source": "https://static.poder360.com.br/2025/12/pesquisa-paranapesquisas-goias-governador-5.dez2025.pdf",
+      "evidence": "Relatório Paraná Pesquisas (Goiás, dezembro/2025), lido por OCR: 'Telêmaco Brandão | 1,1%' na estimulada cenário 1, sem sigla partidária. Nenhuma sigla de partido aparece em nenhuma página do relatório, para nenhum candidato. Sem fonte primária, o partido fica nulo em vez de afirmar um extinto.",
+      "verified_at": "2026-08-15",
+      "set_party": [{ "candidate": "Telemaco Brandão", "party": null }]
     }
   ]
 }

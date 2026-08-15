@@ -238,10 +238,8 @@ crossed midnight is the same churn defect in a smaller costume.
   **incorporation never is**: DEM's members could go to União Brasil or anywhere else, so
   `became` is null and picking one would invent a fact about a person.
   `validate-store` warns on every offender, splitting "fix determined by the rename" from
-  "needs primary source". **Open worklist: `DEM` ×2 (Ravenna Castro, PI) and `Pros` ×1
-  (Telemaco Brandão, GO)** — each needs that poll's own document, per record, into
-  `data/repairs.json`. **Blocked**: their institute PDFs are image-only, no text layer, and
-  no OCR is installed here.
+  "needs primary source". **The worklist is currently empty** — the three incorporation
+  cases were repaired against the institutes' own reports (see below).
   ⚠ **`Democrata` was flagged as bogus and was not.** It is a real party — ex-`PMB`, renamed
   December 2025 — and all 9 rows are 2026 polls, so the label was right the whole time. An
   unfamiliar party name is a prompt to look it up, not evidence the source erred.
@@ -279,7 +277,31 @@ crossed midnight is the same churn defect in a smaller costume.
 - **Trap**: "Perfil da Amostra" blocks use identical band labels but are sample
   composition, not voting intention. Reject any block whose columns don't map to ≥2
   candidates in the parent question's roster.
-- `pypdf` works; **`pdftotext`, `pdftoppm` and OCR are NOT installed** — don't assume them.
+- `pdftotext` and `pdftoppm` are not installed, and **`pypdf` is not either** (the earlier
+  note claiming it works is wrong — no interpreter on this machine has it).
+- **OCR exists: `scripts/ocr/`.** Apple's Vision framework via a small Swift binary — ships
+  with macOS, runs offline, reads pt-BR, nothing leaves the machine.
+  `swiftc -O -o scripts/ocr/ocr scripts/ocr/ocr.swift`, then `scripts/ocr/ocr file.pdf [p1 p2]`.
+  **This retires the "unreachable ~25%" ceiling above**: the AtlasIntel-style slide images
+  *are* readable. It proved itself immediately — the three party repairs below were
+  confirmed from PDFs that had defeated every text extractor.
+  Caveats in `scripts/ocr/README.md`: renders at 300 dpi (72 loses table type), language
+  correction OFF (it mangles party acronyms), and small rotated text still garbles — read
+  several occurrences before concluding.
+- **Party repairs, all three from the institutes' own reports** (`data/repairs.json`):
+  Poder360's aggregator serves **`DEM`** for Ravenna Castro (PI), but AtlasIntel's report
+  says `Ravenna Castro (Democrata)` and Real Time Big Data's says `(Democratas)` — the
+  aggregator **conflated the new Democrata (ex-PMB, dez/2025) with the extinct Democratas**
+  absorbed into União Brasil in 2022. Repaired to `Democrata` ×2.
+  For **`Pros`** (Telêmaco Brandão, GO), Paraná Pesquisas' report publishes **no party for
+  any candidate** — so there is no primary source for any party, and the label is set to
+  **null** rather than asserting a defunct one. That restraint mattered: other institutes
+  give the same candidate `Novo` *and* `PL`, so inferring from neighbouring polls — which
+  `repairs.json` forbids — would have meant choosing between two contradictory guesses.
+  `party_raw` still holds `DEM`/`Pros`, so nothing was destroyed.
+  Repairs now support **`set_party`**, and `partyOverride()` is exported so the migration
+  and the parity gate consult the same curated answer the scraper does, instead of each
+  re-implementing the lookup.
 
 ---
 

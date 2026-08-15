@@ -57,6 +57,11 @@ export function applyRepairs(polls) {
         if (poll.results.some((r) => sameCandidate(r.candidate, add.candidate))) continue;
         poll.results.push({ candidate: add.candidate, party: add.party ?? null, pct: add.pct });
       }
+      for (const sp of rep.set_party ?? []) {
+        for (const r of poll.results) {
+          if (sameCandidate(r.candidate, sp.candidate)) r.party = sp.party ?? null;
+        }
+      }
       for (const [k, v] of Object.entries(rep.set ?? {})) poll[k] = v;
       poll.repaired = { source: rep.source, evidence: rep.evidence, verified_at: rep.verified_at };
       applied++;
@@ -74,4 +79,35 @@ export function applyRepairs(polls) {
     }
   }
   return { applied, unmatched, warnings };
+}
+
+let cachedSpec;
+function spec() {
+  if (!cachedSpec) {
+    try { cachedSpec = JSON.parse(fs.readFileSync(FILE, "utf-8")); }
+    catch { cachedSpec = { repairs: [] }; }
+  }
+  return cachedSpec;
+}
+
+/**
+ * The curated party for one result, if a repair covers it.
+ *
+ * `applyRepairs` mutates the poll list during a scrape, but the store is built
+ * from `data/polls.json` — a file written by the LAST scrape, which predates
+ * these repairs. Without this accessor the migration and the parity gate would
+ * each have to re-implement the lookup, and the three would drift. Same reason
+ * `project.mjs` and `store.ts` are held together by a twin check.
+ *
+ * @returns {{has: boolean, party?: string|null}}
+ */
+export function partyOverride(poll, candidate) {
+  for (const rep of spec().repairs ?? []) {
+    if (!(rep.set_party ?? []).length) continue;
+    if (!matches(poll, rep.match)) continue;
+    for (const sp of rep.set_party) {
+      if (sameCandidate(candidate, sp.candidate)) return { has: true, party: sp.party ?? null };
+    }
+  }
+  return { has: false };
 }

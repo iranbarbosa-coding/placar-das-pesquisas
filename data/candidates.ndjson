@@ -159,7 +159,7 @@
 {"candidate_id":"c_3746e09ae9fc","contest":"governador:PI","canonical":"Lourdes Melo","aliases":["Lourdes Melo"],"party":"PCO","first_seen":"2026-08-14"}
 {"candidate_id":"c_3f4518fd2b32","contest":"governador:PI","canonical":"Elizeu Aguiar","aliases":["Elizeu Aguiar"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_428d0f8d82ec","contest":"governador:PI","canonical":"Dra. Lúcia Santos","aliases":["Dra. Lúcia Santos"],"party":"PSDB","first_seen":"2026-08-14"}
-{"candidate_id":"c_6579386f3dd3","contest":"governador:PI","canonical":"Ravenna Castro","aliases":["Ravenna Castro"],"party":"DEM","first_seen":"2026-08-14"}
+{"candidate_id":"c_6579386f3dd3","contest":"governador:PI","canonical":"Ravenna Castro","aliases":["Ravenna Castro"],"party":"Democrata","first_seen":"2026-08-14"}
 {"candidate_id":"c_685b94837653","contest":"governador:PI","canonical":"Tonny Kerley","aliases":["Tonny Kerley"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_760ca0eb4a33","contest":"governador:PI","canonical":"Toni Rodrigues","aliases":["Toni Rodrigues"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_77eaff0079bc","contest":"governador:PI","canonical":"Gustavo Henrique","aliases":["Gustavo Henrique"],"party":"Avante","first_seen":"2026-08-14"}
@@ -566,7 +566,7 @@
 {"candidate_id":"c_5b30a646220f","contest":"senador:PI","canonical":"Francinaldo Leão","aliases":["Francinaldo Leão"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_850acc595a0e","contest":"senador:PI","canonical":"Jorge Lopes","aliases":["Jorge Lopes"],"party":"PSDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_bf7ded9e5a43","contest":"senador:PI","canonical":"Marcelo Castro","aliases":["Marcelo Castro"],"party":"MDB","first_seen":"2026-08-14"}
-{"candidate_id":"c_bfdf6d780215","contest":"senador:PI","canonical":"Ravenna Castro","aliases":["Ravenna Castro"],"party":"DEM","first_seen":"2026-08-14"}
+{"candidate_id":"c_bfdf6d780215","contest":"senador:PI","canonical":"Ravenna Castro","aliases":["Ravenna Castro"],"party":"Democrata","first_seen":"2026-08-14"}
 {"candidate_id":"c_ca7d2fc0efd2","contest":"senador:PI","canonical":"Toim do Frango","aliases":["Toim do Frango"],"party":"Mobiliza","first_seen":"2026-08-14"}
 {"candidate_id":"c_d3c44120608c","contest":"senador:PI","canonical":"Ciro Nogueira","aliases":["Ciro Nogueira"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_fb1e85307edb","contest":"senador:PI","canonical":"Joel Rodrigues","aliases":["Joel Rodrigues"],"party":"PP","first_seen":"2026-08-14"}
