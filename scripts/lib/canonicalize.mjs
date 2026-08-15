@@ -6,6 +6,7 @@
 // subset-matches MORE THAN ONE cluster is ambiguous and stays unmerged.
 
 import { canonicalPartyAt } from "./parties.mjs";
+import { canonicalCandidate, areDistinct } from "./candidates.mjs";
 
 const STOP = new Set(["da", "de", "do", "das", "dos", "e"]);
 
@@ -156,7 +157,22 @@ export function canonicalizeCandidates(polls) {
     contests.get(k).push(p);
   }
 
-  for (const contestPolls of contests.values()) {
+  // THE CURATED TABLE OUTRANKS THE GUESS, in both directions.
+  //
+  // Left to itself the token-subset matcher merges "Ciro Nogueira" into "Ciro"
+  // — two different politicians — while failing to merge "Tião Bocalom" with
+  // "Sebastião Bocalom", who are one person. It is the wrong instrument, so it
+  // is no longer allowed the final word: names decided in
+  // `data/candidate-aliases.json` are folded first, and any pair recorded there
+  // as DIFFERENT people can never be clustered together, however similar the
+  // strings look.
+  for (const [contest, contestPolls] of contests) {
+    for (const p of contestPolls) {
+      for (const r of p.results ?? []) r.candidate = canonicalCandidate(r.candidate, contest);
+    }
+  }
+
+  for (const [contest, contestPolls] of contests) {
     const freq = new Map(); // display name -> {n, party}
     for (const p of contestPolls) {
       for (const r of p.results) {
@@ -173,18 +189,20 @@ export function canonicalizeCandidates(polls) {
     for (const [name, meta] of names) {
       const tk = nameTokens(name);
       const matches = clusters.filter(
-        (c) => isSubset(tk, c.tokens) || isSubset(c.tokens, tk),
+        (c) => (isSubset(tk, c.tokens) || isSubset(c.tokens, tk)) &&
+               !c.names.some((n) => areDistinct(n, name, contest)),
       );
       if (matches.length === 1) {
         const c = matches[0];
         mapping.set(name, c);
+        c.names.push(name);
         if (!c.party && meta.party) c.party = meta.party;
         // Grow the cluster token set to the LONGER name so future short
         // aliases still match.
         if (tk.size > c.tokens.size) c.tokens = tk;
       } else {
         // 0 matches → new cluster; >1 matches → ambiguous, own cluster.
-        const c = { canonical: name, tokens: tk, party: meta.party };
+        const c = { canonical: name, tokens: tk, party: meta.party, names: [name] };
         clusters.push(c);
         mapping.set(name, c);
       }

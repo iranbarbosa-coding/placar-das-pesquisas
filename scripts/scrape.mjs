@@ -333,4 +333,7 @@ async function main() {
   console.log(`OK: ${polls.length} pesquisas gravadas em data/polls.json`);
 }
 
-main();
+// Só executa quando chamado como programa. Importar este módulo NÃO pode
+// disparar uma coleta: um teste que faça `import` dele começava a buscar a
+// Wikipédia na hora, e a Fase 3 vai querer importar partes daqui.
+if (import.meta.url === `file://${process.argv[1]}`) main();
