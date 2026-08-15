@@ -7,11 +7,16 @@
 // trajectory?", and three spellings of one party make a single person look like
 // two.
 //
-// THE RULE HERE: this module unifies LABELS for what is unambiguously the same
-// party today. It does NOT merge parties that merged, dissolved, or absorbed
-// each other in the real world — that is a political judgement about a
-// historical poll, not a normalisation, and it is left to the creator. See
-// NOT_MERGED at the bottom.
+// THE GOVERNING RULE (creator, 2026-08-15): **a poll keeps the party it was
+// taken with.** The database is historical; each record stands at its own date.
+// This module may only unify SPELLINGS of one party as it was named at that
+// moment — case, accents, abbreviation-versus-name, source encoding bugs.
+//
+// It must never map a party onto a later one. Renames, mergers, absorptions and
+// dissolutions are all changes to the political record, not to spelling: a poll
+// that named PMDB named PMDB, and rewriting it as MDB would put a word in the
+// respondent's mouth. Every such case belongs in NOT_MERGED at the bottom, with
+// its reason, and stays there unless the creator says otherwise.
 //
 // An unrecognised party passes through unchanged (trimmed). A new party
 // appearing mid-campaign is normal, not an error, and must never be dropped.
@@ -42,25 +47,26 @@ const ALIASES = {
   // — wikitext the parser failed to unwrap ------------------------------
   //   "[[Partido Social Democrático (2011)|PSD]]" arrived with its brackets.
   PSD: ["PSD", "[Partido Social Democrático (2011)|PSD]]"],
-
-  // — pure renames of the same legal party ------------------------------
-  //   PMDB → MDB (2017), PSDC → DC (2017). The entity did not change.
-  MDB: ["MDB", "PMDB"],
-  DC: ["DC", "PSDC"],
 };
 
 /**
- * Deliberately NOT normalised — each would be a claim about political history,
- * not about spelling, and would rewrite what a poll actually asked:
- *   DEM         extinct 2022, absorbed into União Brasil. A 2023 poll naming
- *               DEM was naming DEM.
+ * Deliberately NOT normalised. Each would move a poll onto a party from a
+ * different moment, which the governing rule forbids:
+ *   PMDB        renamed MDB in 2017.
+ *   PSDC        renamed DC in 2017.
+ *   DEM         extinct 2022, absorbed into União Brasil.
  *   Pros        merged into Solidariedade in 2023.
  *   Democrata   ambiguous — possibly DC, possibly a mistranslation. No basis
  *               to choose, so it stands.
- * If you decide any of these, add it above with a note; do not decide it here
- * by accident.
+ *
+ * WORTH KNOWING, since it cuts against leaving PMDB and PSDC alone: every row
+ * carrying them is a 2026 poll, years after both renames — so in THIS dataset
+ * they are a stale source label rather than a preserved historical one. That is
+ * a separate question (is the source wrong?) from the one this rule answers (may
+ * we rewrite the past?), and it is the creator's to decide. Do not settle it
+ * here by adding an alias.
  */
-export const NOT_MERGED = ["DEM", "Pros", "Democrata"];
+export const NOT_MERGED = ["PMDB", "PSDC", "DEM", "Pros", "Democrata"];
 
 /** Values that mean "no party was recorded". */
 const EMPTY = new Set(["", "na", "n/a", "-", "--", "?", "null", "nenhum", "semlegenda"]);

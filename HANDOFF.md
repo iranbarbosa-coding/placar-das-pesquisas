@@ -215,19 +215,27 @@ crossed midnight is the same churn defect in a smaller costume.
 - A bare month (`novembro`) was inflated into a fabricated 01–28 range.
 
 **Data facts**
-- **Party labels are canonicalised in `scripts/lib/parties.mjs`.** 54 spellings collapsed
-  to 34 labels: case/accent (`PSOL`/`Psol`/`psol`, `NOVO`/`Novo`), abbreviation vs name
-  (`UNIÃO`/`União`/`União Brasil`, `PODE`/`Podemos`, `REP`/`Republicanos`), English-page
-  leaks (`Mission`, `Workers' Party (Brazil)`, `Republicans (Brazil)`), unparsed wikitext
-  (`[Partido Social Democrático (2011)|PSD]]`), pure renames (`PMDB`→`MDB`, `PSDC`→`DC`),
+- **A poll keeps the party it was taken with** (creator, 2026-08-15). The database is
+  historical; each record stands at its own date. `scripts/lib/parties.mjs` may unify only
+  SPELLINGS of one party as it was named at that moment — never map a party onto a later
+  one. Renames, mergers and dissolutions are changes to the political record, not to
+  spelling: a poll that named PMDB named PMDB.
+  What it does (54 spellings → 36 labels): case/accent (`PSOL`/`Psol`/`psol`, `NOVO`/`Novo`),
+  abbreviation vs name (`UNIÃO`/`União`/`União Brasil`, `PODE`/`Podemos`, `REP`/`Republicanos`,
+  `Progressistas`/`PP`), English-page leaks (`Mission`, `Workers' Party (Brazil)`,
+  `Republicans (Brazil)`), unparsed wikitext (`[Partido Social Democrático (2011)|PSD]]`),
   and `N/A` → null. **`party_raw` on every result keeps exactly what the source said**, so
-  this is never lossy. An unrecognised party passes through untouched — a new party
+  none of this is lossy. An unrecognised party passes through untouched — a new party
   appearing mid-campaign must never be dropped, and that is the assertion the self-test
   cares most about. Applied in the scraper (`canonicalizeParties`, before candidate
   clustering, which propagates parties between rows) and in the migration.
-  **`NOT_MERGED` — `DEM`, `Pros`, `Democrata` — is left for the creator**: DEM was absorbed
-  into União Brasil in 2022 and Pros into Solidariedade in 2023, so merging them would be a
-  claim about political history, not spelling. `Democrata` (9 rows) is simply ambiguous.
+  **`NOT_MERGED` = `PMDB`, `PSDC`, `DEM`, `Pros`, `Democrata`.** Renamed or absorbed
+  (PMDB→MDB and PSDC→DC in 2017, DEM into União Brasil in 2022, Pros into Solidariedade in
+  2023); `Democrata` is ambiguous. One thing to know if this is ever revisited: all 14 rows
+  carrying these labels are **2025–2026 polls**, years after the renames — so for PMDB and
+  PSDC specifically the label is a stale *source*, not preserved history. Whether the source
+  is wrong is a different question from whether we may rewrite the past, and it is the
+  creator's call. Do not settle it by quietly adding an alias.
 - **Senate elects 2 per state** → candidate percentages sum to ~200%. Validator cap is
   260 for `senador`, 130 otherwise. Senate is excluded from válidos.
 - `average.ts` does **not** implement votos válidos. Any válidos figure you've seen was
