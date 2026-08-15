@@ -103,13 +103,13 @@
 {"candidate_id":"c_5fc69f30ed15","contest":"governador:MS","canonical":"Renato Gomes","aliases":["Renato Gomes"],"party":"DC","first_seen":"2026-08-14"}
 {"candidate_id":"c_610b565ceb42","contest":"governador:MS","canonical":"João Henrique Catan","aliases":["João Henrique Catan"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_7cb995c729e5","contest":"governador:MS","canonical":"Fábio Trad","aliases":["Fábio Trad"],"party":"PT","first_seen":"2026-08-14"}
-{"candidate_id":"c_81fbe519a9ac","contest":"governador:MS","canonical":"Jefferson Bezerra","aliases":["Jefferson Bezerra"],"party":"Agir","first_seen":"2026-08-14"}
 {"candidate_id":"c_9df3defb5f93","contest":"governador:MS","canonical":"Eduardo Riedel","aliases":["Eduardo Riedel"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_b34120092743","contest":"governador:MS","canonical":"Lucien Rezende","aliases":["Lucien Rezende"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_cc1b7e5ff16c","contest":"governador:MS","canonical":"Jaime Valler","aliases":["Jaime Valler"],"party":"Sem partido","first_seen":"2026-08-14"}
 {"candidate_id":"c_d1c3945cd0cd","contest":"governador:MS","canonical":"Renan Contar","aliases":["Renan Contar"],"party":"PRTB","first_seen":"2026-08-15"}
 {"candidate_id":"c_da8e380a6e71","contest":"governador:MS","canonical":"Delcídio do Amaral","aliases":["Delcídio do Amaral"],"party":"PRD","first_seen":"2026-08-14"}
 {"candidate_id":"c_ed2dbc7a8d54","contest":"governador:MS","canonical":"Marcos Pollon","aliases":["Marcos Pollon"],"party":"PL","first_seen":"2026-08-14"}
+{"candidate_id":"c_f719bdc59f25","contest":"governador:MS","canonical":"Jeferson Bezerra","aliases":["Jeferson Bezerra"],"party":"Agir","first_seen":"2026-08-15"}
 {"candidate_id":"c_114c9f0879dd","contest":"governador:MT","canonical":"Carlos Fávaro","aliases":["Carlos Fávaro"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_2502a0dfd143","contest":"governador:MT","canonical":"Wellington Fagundes","aliases":["Wellington Fagundes"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_2fb844d14240","contest":"governador:MT","canonical":"Odílio Balbinotti","aliases":["Odílio Balbinotti"],"party":"MDB","first_seen":"2026-08-14"}
@@ -181,7 +181,6 @@
 {"candidate_id":"c_e9468410c858","contest":"governador:PR","canonical":"Enio Verri","aliases":["Enio Verri"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_e97cb892a68f","contest":"governador:PR","canonical":"Guto Silva","aliases":["Guto Silva"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_f81cc7ac18e4","contest":"governador:PR","canonical":"Adriano Teixeira","aliases":["Adriano Teixeira"],"party":"PCO","first_seen":"2026-08-14"}
-{"candidate_id":"c_02f2651182de","contest":"governador:RJ","canonical":"Wiliam Siri","aliases":["Wiliam Siri"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_20dd9b3d2e88","contest":"governador:RJ","canonical":"Monica Benicio","aliases":["Monica Benicio"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_3ffdd4275164","contest":"governador:RJ","canonical":"André Marinho","aliases":["André Marinho"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_502e0459c327","contest":"governador:RJ","canonical":"Rodrigo Pimentel","aliases":["Rodrigo Pimentel"],"party":"Novo","first_seen":"2026-08-14"}
@@ -189,6 +188,7 @@
 {"candidate_id":"c_5cefc02b3d81","contest":"governador:RJ","canonical":"Douglas Ruas","aliases":["Douglas Ruas"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_5d9a2df25374","contest":"governador:RJ","canonical":"Ítalo Marsili","aliases":["Ítalo Marsili"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_6a96aaf2fa3e","contest":"governador:RJ","canonical":"Cyro Garcia","aliases":["Cyro Garcia"],"party":"PSTU","first_seen":"2026-08-14"}
+{"candidate_id":"c_77b40487967b","contest":"governador:RJ","canonical":"William Siri","aliases":["William Siri"],"party":"PSOL","first_seen":"2026-08-15"}
 {"candidate_id":"c_8d56b24b7cfe","contest":"governador:RJ","canonical":"Wilson Witzel","aliases":["Wilson Witzel"],"party":"Democrata","first_seen":"2026-08-14"}
 {"candidate_id":"c_a6683a3dc5ea","contest":"governador:RJ","canonical":"Eduardo Paes","aliases":["Eduardo Paes"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_a6eb94a8853a","contest":"governador:RJ","canonical":"Rodrigo Barcellar","aliases":["Rodrigo Barcellar"],"party":"União Brasil","first_seen":"2026-08-14"}

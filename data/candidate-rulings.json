@@ -6,7 +6,11 @@
    "contest": "senador:CE",
    "verdict": "MESMA",
    "canonical": "Alcides Fernandes",
-   "names": ["Alcides Fernandes", "Pastor Alcides", "Professor Alcides"],
+   "names": [
+    "Alcides Fernandes",
+    "Pastor Alcides",
+    "Professor Alcides"
+   ],
    "stated_by": "criador",
    "stated_at": "2026-08-15",
    "evidence": "Pastor Alcides Fernandes é deputado estadual do PL no Ceará. 'Professor Alcides' nas pesquisas ao Senado pelo CE corresponde a ele.",
@@ -21,23 +25,69 @@
    "contest": "senador:GO",
    "verdict": "MESMA",
    "canonical": "Vanderlan Cardoso",
-   "names": ["Vanderlan Cardoso", "Vanderlan Gomes"],
+   "names": [
+    "Vanderlan Cardoso",
+    "Vanderlan Gomes"
+   ],
    "stated_by": "criador",
    "stated_at": "2026-08-15",
    "evidence": "Vanderlan Cardoso é senador por Goiás. O único Vanderlan das pesquisas ao Senado em GO é ele; 'Vanderlan Gomes' é rótulo errado do agregador sobre o mesmo candidato.",
    "overrides": "A pesquisa automática ficou INCERTA: o nome civil do senador é Vanderlan Vieira Cardoso (sem 'Gomes'), e o único 'Vanderlan Gomes' documentado é um apresentador de TV de Araguaína, no TOCANTINS. Mesmo furo do caso Alcides — homônimo de outro estado, que não disputa esta eleição.",
-   "sources": ["https://www25.senado.leg.br/web/senadores/senador/-/perfil/5899"]
+   "sources": [
+    "https://www25.senado.leg.br/web/senadores/senador/-/perfil/5899"
+   ]
   },
   {
    "contest": "senador:SP",
    "verdict": "MESMA",
    "canonical": "Alexandre Luiz Giordano",
-   "names": ["Alexandre Luiz Giordano", "Guilherme Giordano"],
+   "names": [
+    "Alexandre Luiz Giordano",
+    "Guilherme Giordano"
+   ],
    "stated_by": "criador",
    "stated_at": "2026-08-15",
    "evidence": "'Guilherme Giordano' é, na verdade, Alexandre Giordano — senador por SP, no MDB. Guilherme Derrite é outra pessoa: deputado federal por SP, pré-candidato ao Senado.",
    "overrides": "A pesquisa automática ficou INCERTA por não achar nenhum 'Guilherme Giordano' em fonte alguma — o que estava certo, mas parou antes da conclusão. É o mesmo furo do caso Alcides com uma variação: ali o rótulo pegou uma pessoa real de OUTRO estado; aqui pegou o PRENOME errado sobre o sobrenome certo, na disputa certa. Os pares 'Guilherme Derrite × Guilherme Giordano' e 'Guilherme Boulos × Guilherme Giordano' seguem DIFERENTES, agora por consequência: o rótulo é o Giordano, não os Guilhermes.",
-   "sources": ["https://pt.wikipedia.org/wiki/Alexandre_Luiz_Giordano", "https://pt.wikipedia.org/wiki/Guilherme_Derrite"]
+   "sources": [
+    "https://pt.wikipedia.org/wiki/Alexandre_Luiz_Giordano",
+    "https://pt.wikipedia.org/wiki/Guilherme_Derrite"
+   ]
+  },
+  {
+   "contest": "governador:RJ",
+   "verdict": "MESMA",
+   "canonical": "William Siri",
+   "names": [
+    "Wiliam Siri",
+    "William Siri"
+   ],
+   "stated_by": "pesquisa em fontes públicas",
+   "stated_at": "2026-08-15",
+   "evidence": "CNN Brasil, Itatiaia, A Tribuna RJ e a Câmara Municipal do Rio grafam 'William Siri' (nome civil William Carlos Brum Bispo). 'Wiliam' aparece essencialmente num blog regional.",
+   "overrides": "A escolha por frequência tinha dado 'Wiliam Siri' num 5×4 — praticamente cara ou coroa, e caiu na grafia errada.",
+   "sources": [
+    "https://www.cnnbrasil.com.br/eleicoes/psol-rede-oficializa-william-siri-ao-governo-do-rj/",
+    "https://www.camara.rio/vereadores/william-siri"
+   ]
+  },
+  {
+   "contest": "governador:MS",
+   "verdict": "MESMA",
+   "canonical": "Jeferson Bezerra",
+   "names": [
+    "Jeferson Bezerra",
+    "Jefferson Bezerra",
+    "Jefferson Bezzerra"
+   ],
+   "stated_by": "pesquisa em fontes públicas",
+   "stated_at": "2026-08-15",
+   "evidence": "Capital News descreve o ato de registro: 'Jeferson Bezerra teve o nome registrado pelo partido Agir no sistema DivulgaCandContas'. Campo Grande News e Itatiaia usam a mesma grafia, com um F só.",
+   "overrides": "A frequência tinha dado 'Jefferson Bezerra' (9 contra 3 e 2) — a grafia mais comum na imprensa menor, não a do registro.",
+   "sources": [
+    "https://www.capitalnews.com.br/politica-e-poder/politica/agir-registra-jeferson-bezerra-e-valdenir-duarte-na-disputa-pelo-governo-de-mato-grosso-do-sul/445343",
+    "https://www.campograndenews.com.br/politica/plano-de-jeferson-bezerra-ao-governo-chega-ao-tse-com-metas-ainda-a-definir"
+   ]
   }
  ]
 }

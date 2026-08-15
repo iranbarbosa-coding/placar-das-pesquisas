@@ -364,6 +364,26 @@ async function main() {
 
   const outArg = process.argv.find((a) => a.startsWith("--out="))?.split("=")[1];
   const out = path.join(ROOT, outArg ?? "data/candidate-aliases.json");
+
+  // NEVER SHRINK THE TABLE WITHOUT BEING TOLD TO.
+  //
+  // This generator discovers pairs by scanning the data — and once a merge is
+  // applied, the variants stop appearing there, so a re-run finds nothing and
+  // would write an EMPTY table, silently undoing every decision on the next
+  // migration. That happened twice: first when the scan read the store, then
+  // again when polls.json became derived from the store. The scan is a
+  // discovery tool, not the source of truth; the decisions are.
+  if (fs.existsSync(out) && !process.argv.includes("--force-shrink")) {
+    const prev = JSON.parse(fs.readFileSync(out, "utf-8"));
+    const before = (prev.groups ?? []).length;
+    if (before > groups.length) {
+      console.error(`\nRECUSADO: a tabela tem ${before} grupos e esta execução produziu ${groups.length}.`);
+      console.error("Uma varredura que encolhe a tabela quase sempre significa que ela está lendo dados");
+      console.error("aos quais as decisões JÁ foram aplicadas — não que as decisões deixaram de valer.");
+      console.error("Se o encolhimento for mesmo intencional, rode com --force-shrink.");
+      process.exit(1);
+    }
+  }
   fs.writeFileSync(out, JSON.stringify({
     version: 1,
     groups,

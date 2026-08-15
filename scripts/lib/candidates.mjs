@@ -16,6 +16,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-aliases.json");
+const RULINGS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-rulings.json");
 
 const norm = (s) => (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 
@@ -29,6 +30,18 @@ function table() {
   for (const g of spec.groups ?? []) {
     for (const m of g.members ?? []) display.set(`${g.contest}|${norm(m)}`, g.display);
   }
+  // Rulings are applied HERE, at consume time, not only when the table is
+  // regenerated. The generator discovers pairs by scanning the data — and once
+  // a merge is applied the variants stop appearing in it, so the scan can no
+  // longer rediscover a decision already made. The decision is the durable
+  // artifact; the generated table is a materialisation of it.
+  try {
+    const ruled = JSON.parse(fs.readFileSync(RULINGS, "utf-8"));
+    for (const r of ruled.rulings ?? []) {
+      if (r.verdict !== "MESMA" || !r.canonical) continue;
+      for (const n of r.names ?? []) display.set(`${r.contest}|${norm(n)}`, r.canonical);
+    }
+  } catch { /* rulings are optional */ }
   for (const d of spec.distinct ?? []) {
     const [a, b] = (d.names ?? []).map(norm).sort();
     if (a && b) distinct.add(`${d.contest}|${a}|${b}`);
