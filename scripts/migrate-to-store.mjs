@@ -22,6 +22,7 @@ import {
   markHeadlines, priorStamps, firstSeenFor, provenanceFor, today, DATA_DIR,
 } from "./lib/store.mjs";
 import { mintSurveyId, mintQuestionId, normalizeRegistration, contestKey } from "./lib/ids.mjs";
+import { canonicalParty } from "./lib/parties.mjs";
 import { validateStore } from "./validate-store.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -152,8 +153,12 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
       const results = (p.results ?? []).map((r) => {
         // fuzzy: false — polls.json names are already canonical; re-running
         // entity resolution here would silently re-cluster them.
-        const c = resolveCandidate(store, r.candidate, contest, r.party, { fuzzy: false });
-        return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party: r.party ?? null, pct: r.pct };
+        // The party LABEL is unified here (PSOL/Psol/psol, UNIÃO/União Brasil,
+        // Missão/Mission); `party_raw` keeps exactly what the source said, so
+        // normalising is never lossy and can be revisited.
+        const party = canonicalParty(r.party);
+        const c = resolveCandidate(store, r.candidate, contest, party, { fuzzy: false });
+        return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party, pct: r.pct };
       });
       const qseed = `question|${survey.survey_id}|${p.id}`;
       const question_id = mintQuestionId(qseed);

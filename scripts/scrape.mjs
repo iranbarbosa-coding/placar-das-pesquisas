@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
-import { canonicalizeCandidates, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
+import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
 import { fetchWikipedia } from "./sources/wikipedia.mjs";
@@ -244,6 +244,7 @@ async function main() {
   polls = polls.filter((p) => p.results.length > 0);
 
   polls = keepFullestRound1(polls);
+  polls = canonicalizeParties(polls);
   polls = canonicalizeCandidates(polls);
   polls = dropExactDuplicates(polls);
 

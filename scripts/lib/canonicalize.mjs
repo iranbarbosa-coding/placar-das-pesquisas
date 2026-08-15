@@ -5,6 +5,8 @@
 // full names, refuses "Flávio Bolsonaro" vs "Michelle Bolsonaro". A name that
 // subset-matches MORE THAN ONE cluster is ambiguous and stays unmerged.
 
+import { canonicalParty } from "./parties.mjs";
+
 const STOP = new Set(["da", "de", "do", "das", "dos", "e"]);
 
 export function nameTokens(name) {
@@ -131,6 +133,20 @@ export function canonicalizePollsters(polls) {
  * poll result to the cluster's canonical display name (the most frequent one).
  * Party is filled from the cluster when a result lacks it.
  */
+/**
+ * Unify party LABELS across every result row.
+ *
+ * Runs before the candidate clustering below, which propagates a party from
+ * one row to another (`if (!r.party && c.party)`) — propagating a raw spelling
+ * would spread it, so it is normalised first.
+ */
+export function canonicalizeParties(polls) {
+  for (const p of polls) {
+    for (const r of p.results ?? []) r.party = canonicalParty(r.party);
+  }
+  return polls;
+}
+
 export function canonicalizeCandidates(polls) {
   const contests = new Map();
   for (const p of polls) {

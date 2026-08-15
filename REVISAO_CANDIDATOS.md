@@ -126,7 +126,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 | pesquisas | 8 | 18 |
 | período | 2026-01-01 → 2026-02-21 | 2025-12-05 → 2026-06-30 |
 | média % | 3.4 | 7.0 |
-| partidos | PP 2026-01-01→2026-02-21 · DC 2026-02-03→2026-02-11 | PP 2025-12-05→2026-06-30 · Progressistas 2026-04-13→2026-04-13 |
+| partidos | PP 2026-01-01→2026-02-21 · DC 2026-02-03→2026-02-11 | PP 2025-12-05→2026-06-30 |
 | institutos | Direct Pesquisas (5), Portal Goiás (3) | Paraná Pesquisas (3), Directa (3), Real Time Big Data (2), Papo Aberto/DataRD (1), +9 |
 | fontes | poder360 | poder360, wikipedia |
 
@@ -168,7 +168,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Portal Goiás.
 | pesquisas | 12 | 5 |
 | período | 2025-10-31 → 2026-07-28 | 2025-11-24 → 2026-07-19 |
 | média % | 32.8 | 20.3 |
-| partidos | NOVO 2025-10-31→2026-07-28 | Novo 2025-11-24→2026-07-19 |
+| partidos | Novo 2025-10-31→2026-07-28 | Novo 2025-11-24→2026-07-19 |
 | institutos | Brasmarket (4), Veritá (3), Futura (2), Neokemp (1), +2 | Real Time Big Data (2), 100% Cidades Participações (1), Paraná Pesquisas (1), Quaest (1) |
 | fontes | wikipedia | poder360 |
 
@@ -189,7 +189,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 | pesquisas | 5 | 4 |
 | período | 2026-02-13 → 2026-07-30 | 2026-04-04 → 2026-07-25 |
 | média % | 1.4 | 4.7 |
-| partidos | Psol 2026-02-13→2026-07-30 | PSOL 2026-04-04→2026-07-25 |
+| partidos | PSOL 2026-02-13→2026-07-30 | PSOL 2026-04-04→2026-07-25 |
 | institutos | Prefab (2), Paraná Pesquisas (2), Quaest (1) | Veritá (2), Paraná Pesquisas (1), Quaest (1) |
 | fontes | poder360 | wikipedia |
 
@@ -378,7 +378,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 | pesquisas | 1 | 18 |
 | período | 2026-02-03 → 2026-02-03 | 2026-01-21 → 2026-07-28 |
 | média % | 1.0 | 1.1 |
-| partidos | Psol 2026-02-03→2026-02-03 | Psol 2026-01-21→2026-07-28 · PSOL 2026-03-24→2026-07-18 |
+| partidos | PSOL 2026-02-03→2026-02-03 | PSOL 2026-01-21→2026-07-28 |
 | institutos | Real Time Big Data (1) | Real Time Big Data (3), Ipec (3), Paraná Pesquisas (3), Veritá (3), +4 |
 | fontes | poder360 | poder360, wikipedia |
 
@@ -399,7 +399,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 | pesquisas | 1 | 32 |
 | período | 2026-07-22 → 2026-07-22 | 2026-03-18 → 2026-08-12 |
 | média % | 0.4 | 2.4 |
-| partidos | Psol 2026-07-22→2026-07-22 | PSOL 2026-03-18→2026-08-12 · Psol 2026-05-27→2026-08-10 |
+| partidos | PSOL 2026-07-22→2026-07-22 | PSOL 2026-03-18→2026-08-12 |
 | institutos | Item (1) | Seta (5), Data Census (3), TN/Consult (3), Exatus (3), +12 |
 | fontes | poder360 | poder360, wikipedia |
 
@@ -420,7 +420,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Item.
 | pesquisas | 1 | 13 |
 | período | 2025-04-08 → 2025-04-08 | 2025-08-03 → 2026-07-31 |
 | média % | 11.6 | 16.8 |
-| partidos | União Brasil 2025-04-08→2025-04-08 | União Brasil 2025-08-03→2026-07-24 · UNIÃO 2026-01-30→2026-07-31 |
+| partidos | União Brasil 2025-04-08→2025-04-08 | União Brasil 2025-08-03→2026-07-31 |
 | institutos | Paraná Pesquisas (1) | Real Time Big Data (3), Paraná Pesquisas (2), Lucro Ativo (2), Vox (1), +5 |
 | fontes | poder360 | poder360, wikipedia |
 
@@ -487,11 +487,11 @@ Institutos que usam **os dois** nomes (em datas distantes): Quaest, Real Time Bi
 | pesquisas | 42 | 9 |
 | período | 2024-02-04 → 2026-07-10 | 2025-06-24 → 2026-06-14 |
 | média % | 32.5 | 30.1 |
-| partidos | PODE 2024-02-04→2026-07-10 · PSB 2025-02-11→2025-12-23 | PSB 2025-06-24→2026-02-04 · Podemos 2026-03-21→2026-06-14 |
+| partidos | Podemos 2024-02-04→2026-07-10 · PSB 2025-02-11→2025-12-23 | PSB 2025-06-24→2026-02-04 · Podemos 2026-03-21→2026-06-14 |
 | institutos | Doxa (11), Real Time Big Data (7), Ampla (5), Paraná Pesquisas (4), +7 | Paraná Pesquisas (3), Real Time Big Data (2), AtlasIntel (2), Doxa (2) |
 | fontes | wikipedia | poder360 |
 
-Partidos: **coincidem (PSB)** · diferença entre as médias: 2.4 p.p.
+Partidos: **coincidem (PODEMOS, PSB)** · diferença entre as médias: 2.4 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Doxa, Real Time Big Data, Paraná Pesquisas, AtlasIntel.
 
@@ -508,7 +508,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Doxa, Real Time Big 
 | pesquisas | 9 | 15 |
 | período | 2025-08-24 → 2026-07-03 | 2025-09-03 → 2026-08-08 |
 | média % | 21.2 | 20.7 |
-| partidos | Progressistas 2025-08-24→2026-04-14 · PP 2026-01-23→2026-07-03 · PL 2026-02-09→2026-02-10 | PP 2025-09-03→2026-08-08 |
+| partidos | PP 2025-08-24→2026-07-03 · PL 2026-02-09→2026-02-10 | PP 2025-09-03→2026-08-08 |
 | institutos | Paraná Pesquisas (4), Real Time Big Data (1), Futura (1), Datafolha (1), +2 | Veritá (3), AtlasIntel (2), Vox (2), Paraná Pesquisas (2), +6 |
 | fontes | poder360 | wikipedia |
 
@@ -529,11 +529,11 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, R
 | pesquisas | 14 | 9 |
 | período | 2025-10-15 → 2026-07-31 | 2025-04-08 → 2026-08-03 |
 | média % | 36.3 | 37.5 |
-| partidos | UNIÃO 2025-10-15→2026-07-31 | União Brasil 2025-04-08→2026-08-03 |
+| partidos | União Brasil 2025-10-15→2026-07-31 | União Brasil 2025-04-08→2026-08-03 |
 | institutos | Real Time Big Data (6), Paraná Pesquisas (3), Vox (1), VÓPE/Primeira Página (1), +3 | Paraná Pesquisas (3), Real Time Big Data (3), Voz e Pesquisa (1), Brasmarket (1), +1 |
 | fontes | wikipedia | poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 1.3 p.p.
+Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 1.3 p.p.
 
 **Campo gêmeo — 6 ocorrência(s).** Paraná Pesquisas: `2026-07-24` cita *Dorinha Rezende* (42.2%, 2º turno) e `2026-07-24` cita *Professora Dorinha* (34.4%, 1º turno).
 
@@ -785,7 +785,7 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 13.5 p.p.
 | pesquisas | 1 | 157 |
 | período | 2025-08-21 → 2025-08-21 | 2025-05-27 → 2026-08-13 |
 | média % | 0.7 | 12.7 |
-| partidos | MDB 2025-08-21→2025-08-21 | MISSÃO 2025-05-27→2026-08-13 · Missão 2025-11-09→2026-08-12 · Mission 2026-05-05→2026-08-03 |
+| partidos | MDB 2025-08-21→2025-08-21 | Missão 2025-05-27→2026-08-13 |
 | institutos | Paraná Pesquisas (1) | Quaest (18), Ideia (17), Nexus (15), AtlasIntel (14), +18 |
 | fontes | poder360 | poder360, wikipedia |
 
@@ -941,7 +941,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Item.
 | pesquisas | 7 | 1 |
 | período | 2025-08-17 → 2026-04-27 | 2026-02-21 → 2026-02-21 |
 | média % | 1.5 | 1.0 |
-| partidos | Novo 2025-08-17→2025-11-25 · NOVO 2025-09-19→2026-04-27 | União Brasil 2026-02-21→2026-02-21 |
+| partidos | Novo 2025-08-17→2026-04-27 | União Brasil 2026-02-21→2026-02-21 |
 | institutos | Real Time Big Data (3), Veritá (2), Bahia Notícia/Séculus (1), Quaest (1) | Instituto TML (1) |
 | fontes | poder360, wikipedia | poder360 |
 
@@ -1004,7 +1004,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 | pesquisas | 1 | 3 |
 | período | 2026-03-10 → 2026-03-10 | 2026-07-01 → 2026-07-25 |
 | média % | 9.0 | 2.3 |
-| partidos | PT 2026-03-10→2026-03-10 | NOVO 2026-07-01→2026-07-25 |
+| partidos | PT 2026-03-10→2026-03-10 | Novo 2026-07-01→2026-07-25 |
 | institutos | Real Time Big Data (1) | Paraná Pesquisas (1), Gerp (1), Quaest (1) |
 | fontes | poder360 | wikipedia |
 
@@ -1025,7 +1025,7 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 | pesquisas | 3 | 1 |
 | período | 2025-05-23 → 2025-08-29 | 2026-02-13 → 2026-02-13 |
 | média % | 10.6 | 9.1 |
-| partidos | N/A 2025-05-23→2025-05-23 · PL 2025-08-17→2025-08-17 · União Brasil 2025-08-29→2025-08-29 | Novo 2026-02-13→2026-02-13 |
+| partidos | PL 2025-08-17→2025-08-17 · União Brasil 2025-08-29→2025-08-29 | Novo 2026-02-13→2026-02-13 |
 | institutos | AtlasIntel (1), Quaest (1), Paraná Pesquisas (1) | Prefab (1) |
 | fontes | poder360 | poder360 |
 
@@ -1067,7 +1067,7 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 | pesquisas | 25 | 1 |
 | período | 2025-08-17 → 2026-07-29 | 2025-08-25 → 2025-08-25 |
 | média % | 21.3 | 26.0 |
-| partidos | N/A 2025-08-17→2025-08-25 · PDT 2025-10-05→2026-07-29 | PSD 2025-08-25→2025-08-25 |
+| partidos | PDT 2025-10-05→2026-07-29 | PSD 2025-08-25→2025-08-25 |
 | institutos | Real Time Big Data (6), Quaest (6), AtlasIntel (4), Doxa (2), +5 | AtlasIntel (1) |
 | fontes | poder360, wikipedia | poder360 |
 
@@ -1221,7 +1221,7 @@ prova em contrário.
 | pesquisas | 229 | 107 |
 | período | 2025-06-11 → 2026-08-13 | 2023-07-17 → 2026-07-27 |
 | média % | 38.4 | 40.6 |
-| partidos | PL 2025-06-11→2026-08-13 | PL 2023-07-17→2026-07-27 · N/A 2025-03-24→2025-05-23 |
+| partidos | PL 2025-06-11→2026-08-13 | PL 2023-07-17→2026-07-27 |
 | institutos | Futura (27), Gerp (23), Quaest (22), AtlasIntel (21), +19 | Paraná Pesquisas (29), AtlasIntel (20), Quaest (14), MDA (11), +7 |
 | fontes | poder360, wikipedia | poder360, wikipedia |
 

@@ -19,6 +19,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
 import { projectPolls } from "./lib/project.mjs";
+import { canonicalParty } from "./lib/parties.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -123,9 +124,12 @@ function main() {
         if (fieldDiffs < 15) E(`(b) ${id}: ${lr[i].candidate} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
         fieldDiffs++;
       }
-      // The party label is rendered on every board and card.
-      if ((lr[i].party ?? null) !== (pr[i].party ?? null)) {
-        if (fieldDiffs < 15) E(`(b) ${id}: partido de ${lr[i].candidate}: ${JSON.stringify(lr[i].party)} ≠ ${JSON.stringify(pr[i].party)}`);
+      // The party label is rendered on every board and card. Compared THROUGH
+      // `canonicalParty` rather than exempted: the store is allowed to differ
+      // from the legacy file exactly by that function and by nothing else, so
+      // a wrong party still fails here.
+      if ((pr[i].party ?? null) !== canonicalParty(lr[i].party)) {
+        if (fieldDiffs < 15) E(`(b) ${id}: partido de ${lr[i].candidate}: legado ${JSON.stringify(lr[i].party)} → canônico ${JSON.stringify(canonicalParty(lr[i].party))} ≠ projetado ${JSON.stringify(pr[i].party)}`);
         fieldDiffs++;
       }
     }

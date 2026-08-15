@@ -15,6 +15,7 @@
 import path from "node:path";
 import { readStore, DATA_DIR, headlineGroupKey } from "./lib/store.mjs";
 import { serializeRecord, FIELD_ORDER, SORT } from "./lib/ndjson.mjs";
+import { selfTest as partySelfTest } from "./lib/parties.mjs";
 
 const RACES = new Set(["presidente", "governador", "senador"]);
 const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
@@ -308,6 +309,14 @@ function selfTest() {
     console.log(`${ok ? "✓" : "✗ FALHA DO AUTOTESTE"}: ${name} (${errors.length} erro(s))`);
     if (!ok && errors.length) console.log(`     primeiro erro: ${errors[0]}`);
   }
+  // Party-label canonicalisation carries its own assertions — including the one
+  // that matters most, that an UNKNOWN party survives untouched. A new party
+  // appearing mid-campaign must never be dropped or coerced by the table.
+  const partyErrors = partySelfTest();
+  for (const e of partyErrors) console.log(`✗ FALHA DO AUTOTESTE: partidos · ${e}`);
+  if (partyErrors.length) failed += partyErrors.length;
+  else console.log(`✓: rótulos de partido (aliases, idempotência, vazios, desconhecido preservado)`);
+
   if (failed) {
     console.error(`\n${failed} caso(s) de autoteste não se comportaram como esperado`);
     process.exit(1);
