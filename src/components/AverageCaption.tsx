@@ -21,6 +21,20 @@ function fmtDate(iso: string | null): string {
 export function AverageCaption({
   average,
   /**
+   * How many candidates the chart actually draws, so the caption talks about
+   * the same people the reader can see.
+   *
+   * `Base parcial` used to name every partial-base candidate in the average.
+   * With a cap of 8 lines that meant the Rio senate caption listed ten names
+   * nobody could find on screen — and it is not an edge case: all 44 races with
+   * more than 8 candidates do it. The fact still has to survive, so the ones
+   * off-chart are counted rather than dropped.
+   *
+   * Must match the chart's own cap. Both default to 8; the number is passed
+   * rather than assumed so a change in one is visible at the other.
+   */
+  maxSeries = 8,
+  /**
    * Set-aside figures for a hovered date, when the chart is being scrubbed.
    *
    * The branco/nulo and NS/NR shares are a property of the polls in the window,
@@ -31,10 +45,16 @@ export function AverageCaption({
   atHover,
 }: {
   average: RaceAverage;
+  maxSeries?: number;
   atHover?: { date: string; setAside: RaceAverage["setAside"] };
 }) {
   const setAside = atHover?.setAside ?? average.setAside;
-  const partial = average.candidates.filter((c) => c.nPolls < average.pollCount);
+  // Split at the chart's cap: the drawn candidates get named, the rest counted.
+  const drawn = average.candidates.slice(0, maxSeries);
+  const partial = drawn.filter((c) => c.nPolls < average.pollCount);
+  const partialHidden = average.candidates
+    .slice(maxSeries)
+    .filter((c) => c.nPolls < average.pollCount).length;
 
   return (
     <figcaption className="mt-3 space-y-1 text-xs leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -63,12 +83,16 @@ export function AverageCaption({
 
       {/* A candidate tested by 1 of the 10 polls has an "average" of one number.
           Naming them is the difference between an average and a rumour. */}
-      {partial.length ? (
+      {partial.length || partialHidden ? (
         <p>
           Base parcial:{" "}
           {partial
             .map((c) => `${c.candidate} (${c.nPolls} de ${average.pollCount})`)
             .join(" · ")}
+          {partial.length && partialHidden ? " · " : null}
+          {partialHidden
+            ? `mais ${partialHidden} ${partialHidden === 1 ? "candidato" : "candidatos"} fora do gráfico, na tabela abaixo`
+            : null}
         </p>
       ) : null}
 
