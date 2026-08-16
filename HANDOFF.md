@@ -205,13 +205,40 @@ Pimenta, presidente, × Rui Costa, senador:BA). `Lula` também é recusado, porq
 "lula" é token de `Cadu de Lula` e `Samanda de Lula` — inofensivo, já que o nome
 já é "Lula", mas é a maior parte das 31.
 
-⚠ **NEM COMMITADO, NEM RODADO NO BANCO.** O passo entre disputas existe **só na
-árvore de trabalho** (`scripts/match-ballot-names.mjs` modificado, não
-commitado) — o que está no repositório e o que a Action roda continuam sendo a
-versão POR DISPUTA. O ensaio dos 297 foi gravado num arquivo temporário e
-apagado; `data/` está intacto no commit `982eca7`. A rodada completa vai trocar
-muito mais ids do que as 27 acima: ver o aviso de id logo acima **antes** de
-rodar.
+⚠ **COMMITADO (`f61a0e4`), NÃO RODADO.** Este arquivo chegou a dizer "nem
+commitado" — errado, era nota escrita antes do commit e não atualizada depois.
+`data/ballot-names.json` no disco ainda é a saída POR DISPUTA; **a próxima
+rodada da Action executa o passo entre disputas contra o banco vivo.**
+
+⚠ **A PRIMEIRA VERSÃO DO PASSO ERA INSEGURA — dois erros confirmados, 39 linhas.**
+`contido(pesquisado, registrado)` deixava um nome pesquisado de 2 tokens caber
+dentro de um nome civil de 4+, e o registro tem 519 candidaturas: quase todo
+nome curto acha alguma casa. Recusar por multiplicidade não protege, só sorteia.
+- `Toni Rodrigues` (governador:PI, PL) absorvido por **Carol de Toni**
+  (senador:SC, PL — civil *Caroline Rodrigues de Toni*), 15 linhas. Mesmo
+  partido, então nenhuma checagem de partido pegaria. O aviso estava nos dados:
+  a MESMA disputa publica `Jornalista Toni Rodrigues`, grafia mais longa do
+  mesmo piauiense, e essa não casava com nada. **O nome curto era absorvido e o
+  longo ficava salvo — a guarda estava invertida.**
+- `Álvaro Dias` (senador:PR, MDB) absorvido por **Álvaro Costa Dias**
+  (governador:RN, PL), 24 linhas. Nomes de urna IDÊNTICOS; só o partido separa.
+  **Ainda não consertado** — ver a lista de decisões.
+
+⚠ **E o primeiro conserto PIOROU as coisas.** A guarda inicial também aceitava
+"último token em comum". Isso filtrou UM dos dois registrados que deixavam
+`José Guimarães` ambíguo, e um deputado do PT no Ceará deixou de ser recusado
+para ser publicado como **Alexandre Guimarães**, senador do MDB no Tocantins.
+Uma recusa por sorte virou resposta errada com confiança. A cláusula de
+sobrenome foi removida: `Carlos Brandão → Orleans Brandão` (mesma pessoa) e
+`José Guimarães → Alexandre Guimarães` (pessoas diferentes) têm **forma de token
+idêntica e verdade oposta** — não dá para afinar a regra até acertar, só dá para
+tirá-la. Casos como o do Brandão são reais e pertencem a
+`data/candidate-rulings.json`, com fonte citada.
+
+Hoje a regra exige **contenção mútua com o NOME DE URNA**
+(`contido(pt,bt) || contido(bt,pt)`): 294 resoluções entre disputas, 30 recusas.
+Mantém Tarcísio, Zema, Ciro Gomes; bloqueia os dois erros; perde
+`Carlos Brandão` (5 linhas), que agora precisa de ruling.
 
 ⚠ **Pegadinha do TSE:** o nome de urna aparece repetido para a MESMA pessoa
 (Piauí tem dois casos: mesmo número, mesmo partido, mesmo nome civil, dois

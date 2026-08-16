@@ -205,12 +205,61 @@ function main() {
         // than one PERSON anywhere in the register it is left alone. That is why
         // a bare "Ciro" does not resolve here — it fits Ciro Ferreira Gomes and
         // Ciro Nogueira Lima Filho — and why naming him took a ruling instead.
-        const pt = new Set(tokens(nome));
+        const ptArr = tokens(nome);
+        const pt = new Set(ptArr);
         const pessoas = new Map();
         if (pt.size) {
           for (const c of todos) {
-            const cabe = contido(pt, tokens(c.nome_urna_raw)) || contido(pt, tokens(c.nome_completo));
+            const bt = new Set(tokens(c.nome_urna_raw));
+            const cabe = contido(pt, bt) || contido(pt, tokens(c.nome_completo));
             if (!cabe) continue;
+
+            // THE CIVIL NAME MAY SAY WHICH PERSON; THE BALLOT NAME MUST AGREE
+            // ABOUT WHICH NAME.
+            //
+            // Containment into the CIVIL name alone is far too weak against 519
+            // candidacies. Brazilian civil names run to four tokens and more, so
+            // almost any two-token polled name finds some home in one of them,
+            // and refusing only on multiplicity is then a coin toss rather than
+            // a guard. It landed wrong on "Toni Rodrigues": a Piauí governor
+            // pre-candidate, absorbed into CAROL DE TONI — civil name Caroline
+            // Rodrigues de Toni, running for the SENATE IN SANTA CATARINA —
+            // because {toni,rodrigues} ⊆ {caroline,rodrigues,toni}. Same party,
+            // so no party check would have saved it. 15 poll rows.
+            //
+            // The tell was already in the data: the SAME contest also publishes
+            // "Jornalista Toni Rodrigues", the longer spelling of the same man,
+            // and that one matched nothing and was correctly left alone. The
+            // short name is absorbed while the long one is safe — the guard was
+            // inverted.
+            //
+            // So the registrant's BALLOT name has to corroborate: the polled
+            // name and the ballot name must CONTAIN ONE ANOTHER. "Toni
+            // Rodrigues" against ballot {carol,toni} fails; "Romeu Zema" against
+            // {zema} passes; "Tarcísio de Freitas" against {tarcisio} passes.
+            //
+            // A SURNAME ALONE IS NOT ENOUGH, AND THAT IS NOT A JUDGEMENT CALL —
+            // IT IS UNDECIDABLE FROM THE TOKENS. The first version of this guard
+            // also accepted a shared last token, and it made things worse rather
+            // than better: it filtered ONE of the two registrants that had been
+            // making "José Guimarães" ambiguous, so a Ceará PT deputy stopped
+            // being refused and started being published as "Alexandre
+            // Guimarães", an MDB senator in Tocantins. A lucky refusal became a
+            // confident wrong answer — the guard converted a near miss into a
+            // hit, which is the worst thing a guard can do.
+            //
+            // Compare the two, which are token-identical and opposite in truth:
+            //   Carlos Brandão → Orleans Brandão  — SAME man (the incumbent)
+            //   José Guimarães → Alexandre Guimarães — DIFFERENT men
+            // Both share only the surname. Nothing in the strings separates
+            // them, so the surname clause cannot be tuned into correctness; it
+            // can only be removed. Cases like Brandão are real and are worth
+            // having — they belong in `data/candidate-rulings.json`, where a
+            // human states the identity and cites why, which is exactly what
+            // CONVENTIONS §4 means by refusing ambiguity instead of resolving it.
+            const confirmaUrna = contido(pt, bt) || contido(bt, pt);
+            if (!confirmaUrna) continue;
+
             const pessoa = norm(c.nome_completo) || `sq:${c.sq_candidato}`;
             if (!pessoas.has(pessoa)) pessoas.set(pessoa, c);
           }
