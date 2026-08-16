@@ -7,7 +7,7 @@ Everything a new session needs to continue this project. Read this first, then
 Brazilian 2026 elections (president, 27 governors, senate), in pt-BR.
 **Stack**: Next.js 15 App Router, fully static (SSG, 38 pages), Tailwind 4, Node scrapers
 + one Python wikitext parser.
-**Today's date in this project's world**: 2026-08-14. Election is October 2026.
+**Today's date in this project's world**: 2026-08-16. Election is October 2026.
 
 ---
 
@@ -15,26 +15,57 @@ Brazilian 2026 elections (president, 27 governors, senate), in pt-BR.
 
 | | |
 |---|---|
-| Database | 2.585 polls · 27 states · 133 institutes · fieldwork 2023-07 → 2026-08 |
-| Site | builds clean, 38 pages, light+dark, pt-BR |
-| Deployed | **NO** — never pushed. Needs `gh repo create` + Vercel import (see README) |
-| GitHub account on this machine | `iranbarbosa-coding` (gh CLI authenticated, repo+workflow scopes) |
-| Auto-update | `.github/workflows/update-polls.yml`, 2×/day cron, commits `data/` → would trigger Vercel |
+| Database | **2.958 polls** · 1.163 surveys · 27 states · 137 institutes · 1.061 candidates |
+| Store | `data/*.ndjson` is THE DATABASE. `data/polls.json` is DERIVED from it |
+| Site | builds clean, 38 pages, light+dark, pt-BR. Reads the store |
+| Deployed | **repo pushed** → https://github.com/iranbarbosa-coding/placar-das-pesquisas (public). **Vercel import still pending — needs Iran's login** |
+| Auto-update | `.github/workflows/update-polls.yml`, 2×/day, runs the FULL store pipeline + 8 gates |
 
 Recent commits (newest first):
 
 ```
-c595d7e  Fase 1: store NDJSON consolidado + portão de paridade
-5f0fa6e  Reparos curados de fonte primária, reaplicados a cada coleta
-56a6438  Reparo do parser da Wikipédia: dados estaduais recuperados
-5780b4d  Teto de 2 pesquisas por instituto na média, com base mínima de 3
-9e06040  Média passa a usar as 10 pesquisas mais recentes de cada disputa
-d79b951  Aba '2º turno': placar de projeções dos confrontos
-eba62f9  Correções pós-verificação independente
-f8c8e7e  Placar das Pesquisas 2026 — commit inicial
+8ba943e  A Action passa a rodar o pipeline do store
+bc18b57  Agrupamento de institutos estável; coleta com presidencial estadual
+e78b945  Pesquisas incompletas na fonte: fora da média, e listadas para decisão
+56c43cb  Nomes de urna corrigidos; decisões passam a valer no consumo
+bb2ee45  Os 63 pares decididos: 34 mesma pessoa · 26 diferentes · 3 em aberto
+5d86195  Colisão de semente na cunhagem de levantamento — e o portão que a achou
+d15cc91  Um registro = um levantamento; datas de partido ratificadas no TSE
+aafeb3c  Harness do caminho de escrita — e três defeitos que ele achou
+8d7e0e8  Bloqueador da Fase 3 fechado
+35a6758  Fase 2: o site passa a ler o store
 ```
 
----
+## 0. If you read nothing else
+
+**The store is the database.** `polls.json` is a projection of it, written by
+`scripts/derive-polls.mjs`, and it marks itself `derived_from_store: true`.
+`migrate-to-store.mjs` REFUSES to read a file with that marker — migrating from
+the projection silently drops non-headline questions and erases `name_raw` /
+`party_raw`, eroding a little more each run. The legitimate input to the
+migration is always a fresh scrape.
+
+**The pipeline, in order** — this is what the Action runs and what you should
+run after any change:
+
+```bash
+node scripts/scrape.mjs           # sources → normalise → repairs → hygiene → polls.json
+node scripts/migrate-to-store.mjs # polls.json → the store
+node scripts/derive-polls.mjs     # store → polls.json (now a projection)
+```
+
+**Decisions Iran made on 2026-08-15, all applied and all recorded in code:**
+1. **One TSE registration = one survey** — unless the rows contradict each other
+   on the fieldwork date (4 such registrations, all digit typos, left unmerged).
+2. **State-level presidential polling is collected** — 377 polls, 24 UFs. Kept
+   OUT of the national average by `pollsFor` matching `state` exactly.
+3. **Ballot names**: official TSE name → press usage (bigger outlets win) →
+   Wikipedia → else editorial. Applied via `data/candidate-rulings.json`.
+4. **Party rename dates ratified against the TSE.**
+5. **Polls incomplete at source are gated out of averages**, and listed with
+   their source PDF in `PESQUISAS_INCOMPLETAS.md` for an editorial call.
+6. **A poll keeps the party it was taken with** — but a party that did not exist
+   on the poll's date is a source defect, fixed and normalised.
 
 ## 2. How it works today
 
@@ -49,10 +80,29 @@ f8c8e7e  Placar das Pesquisas 2026 — commit inicial
 
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across
 sources → apply `data/repairs.json` → candidate-name hygiene → keep fullest round-1 →
-canonicalise candidates → drop cross-brand duplicates → date guards → validate → write.
+canonicalise parties → canonicalise candidates → drop cross-brand duplicates →
+date guards → validate → write `polls.json`. Then `migrate-to-store.mjs` folds that
+into the store and `derive-polls.mjs` rewrites `polls.json` from it. `scrape.mjs`
+only runs when invoked as a program (importing it used to launch a live scrape).
+
+**Two rules inside the merge, both learned the hard way.** Source priority
+(poder360 → eleicaoemdados → wikipedia) decides METADATA only — sample size,
+registration, dates. It must never decide the RESULT TABLE: an Acre senate poll
+arrived from Wikipedia with 6 candidates and from Poder360 with 3, the higher-
+priority fragment overwrote the complete table, and the poll then failed the sum
+guard and vanished from the averages. The fuller table wins on results.
+And institute clustering seeds are **deterministic, never frequency-ordered** —
+seeding by count made an institute's name depend on how much unrelated data was
+present, which is how collecting presidential polls renamed an Acre institute
+and dropped a senate poll from a race with no presidential polls in it.
 
 **Averaging** (`src/lib/average.ts`) — **the rule that is actually implemented**:
-per contest, the **10 most recent polls, max 2 per institute, floor of 3**.
+per contest, the **10 most recent polls, max 2 per institute, floor of 3**,
+**excluding polls flagged `incomplete`** (published numbers accounting for <90%
+of the sample — see `scripts/lib/completeness.mjs`). Ordering breaks date ties on
+`poll.id`, and runoff groups break ties on the scenario label: without those the
+displayed matchup depended on the order records sat in on disk, and the scraper
+rewrites that file twice a day.
 Plain arithmetic mean of published percentages. Trendline applies the same rule
 backwards through time and always ends on the last poll's date.
 
@@ -116,14 +166,17 @@ date · *base mínima* warning · *base parcial: Samara Martins (1 de 10)…*
 - 2º turno: **"Lula | +3,3"** — lead over the other candidate; present in both cuts.
 - No badge on Senate. In 1º turno bruto there is deliberately no summary number.
 
-**Still open**: how to handle polls that are genuinely incomplete at source (not
-recoverable) under válidos — gate them out of the average, or keep with a flag.
+**DECIDED (Iran, 2026-08-15)**: polls genuinely incomplete at source are **gated
+out of the average**, not flagged — votos válidos divides by the sum of what is
+present, so a poll missing 40 points inflates everyone left in it and a label
+would not save the number. Already implemented; the 68 affected polls are listed
+with their source PDFs in `PESQUISAS_INCOMPLETAS.md` for a per-poll call.
 
 **Homepage visual design is parked.** The trigger phrase is **"Let's go back to design."**
 See the memory file `placar-design-conversation-pending.md`; the RealClearPolling
 element breakdown and four open questions are recorded there.
 
-### B. Database restructure — PHASE 1 DONE
+### B. Database restructure — PHASES 1–2 DONE, 3 HALF DONE
 
 Approved plan: `~/.claude/plans/new-direction-i-want-dapper-oasis.md`. Read it — it has
 the full schema and rationale.
@@ -175,16 +228,35 @@ now enforces that** — it runs both and compares all 2.585 records. Nothing but
 held them together before, which meant the parity gate could pass while the site rendered
 something else.
 
-**Phase 3** — rewrite `scrape.mjs` as sources → normalise → resolve → upsert → repairs →
-validate → write, dual-writing `polls.json` for 1–2 weeks so rollback is one revert. Then
-add `scripts/sources/eleicaoemdados.mjs` (+72 registry-valid polls;
-base `https://api-core-4p7x5p4kza-rj.a.run.app/api/v1`, `/polls?per_page=100&page=N`,
-`/polls/{id}/scenarios`). **Ingestion order must stay poder360 → eleicaoemdados →
-wikipedia**, because "first writer wins" is what implements source priority.
-Note two signatures changed under it: `readStore` takes `{ runDate, prior }`, and
-`addSourceRef(store, survey, ref)` now takes the store first (it needs the run's clock).
-Pass a single `runDate` for the whole run — a scrape that stamps two dates because it
-crossed midnight is the same churn defect in a smaller costume.
+**Phase 3 — HALF DONE.** The plan was: rewrite `scrape.mjs` as sources →
+normalise → resolve → upsert → repairs → validate → write, dual-writing
+`polls.json`. What exists:
+
+- ✅ **`polls.json` is derived from the store** (`scripts/derive-polls.mjs`), and
+  the Action runs the whole pipeline with 8 gates.
+- ✅ **`scripts/lib/upsert.mjs`** — the single write path, driving the resolution
+  ladder. It exists because that ladder (`resolveSurvey`, `resolveQuestion`,
+  `fillFields`, `addSourceRef`, `logConflict`) had **no caller anywhere in the
+  repo**: ~150 unexecuted lines the whole phase rests on.
+- ✅ **`scripts/upsert-harness.mjs`** — 20 cases. Every case asserting a MERGE is
+  paired with one asserting a REFUSAL; a ladder that unified everything would
+  pass a suite of only the former and destroy the database.
+- ❌ **The scraper does NOT yet write through the upsert path.** It still writes
+  the flat file, and the migration rebuilds the store from it.
+
+**The gate that decides when to switch over: `scripts/upsert-vs-migration.mjs`.**
+It feeds `polls.json` through the upsert path in source-priority order and
+compares against the store the migration built. **It does not pass yet.** Last
+run: identity and results agree on every poll (0 divergences), but the upsert
+path produces **1.471 surveys against the migration's ~1.021**, and 9 polls do
+not survive its question-level roster rule. The difference is the survey
+GROUPING: the migration groups Wikipedia rows by a natural composite key, the
+ladder mints per row unless the ±3-day/60%-roster rule matches. Close that gap,
+then switch the scraper over.
+
+⚠️ **Do not "fix" the gate by widening its tolerances.** It already declares one
+bounded exception (tie-breaks on hoisted fields where both sources reported a
+value, capped at 25). Anything else it reports is a real difference.
 
 **Phase 4** — (a) registry reconciliation + `publication_status`; (b) crosstab extraction.
 
@@ -250,13 +322,35 @@ crossed midnight is the same churn defect in a smaller costume.
 - `scripts/sources/tse.mjs` **reads every CSV in the TSE zip**, but `BRASIL.csv` is the
   complete superset (1.522 registrations) and the 27 per-UF files are duplicates. Known
   bug; fix in Phase 4.
-- **Candidate merge bug, still live for the scraper**: `sameCandidate()` in
-  `canonicalize.mjs` merges "Ciro Nogueira" into "Ciro" — different politicians. Disabled
-  for the migration (`resolveCandidate(..., {fuzzy:false})`); must be fixed before Phase 3
-  ingests raw names.
-- **137 TSE registrations cover more than one survey** in the store (one fieldwork
-  operation, several offices filed separately by Poder360). Recorded in
-  `conflicts.ndjson` as a worklist; consolidating them changes averages.
+- **Candidate identity: 63 flagged pairs, ALL DECIDED and APPLIED** — 34 same
+  person, 26 different, 3 settled by Iran's ruling. 740 → 703 candidates, 24
+  contests' averages changed. `sameCandidate()`'s token matcher still exists (it
+  is what makes "Luiz Inácio Lula da Silva" and "Lula" one series) but **no
+  longer has the last word**: `scripts/lib/candidates.mjs` folds decided names
+  first and forbids clustering any pair recorded as DIFFERENT people. Verified on
+  the real contest: `Ciro Nogueira` stays separate, `Lula` still merges.
+  · Decisions live in **`data/candidate-rulings.json`** (Iran's, top precedence),
+    **`data/candidate-verdicts-researched.json`** (sourced research), and the
+    generated **`data/candidate-aliases.json`**. Rulings are applied at CONSUME
+    time, not only when the table is regenerated.
+  · **The generator can only DISCOVER pairs, never re-derive decisions.** Once a
+    merge is applied the variants stop appearing in the data, so a re-run finds
+    nothing. It wrote the table EMPTY twice before this was understood — once
+    reading the store, once after `polls.json` became derived. It now refuses to
+    write a smaller table than exists (`--force-shrink` to override).
+  · **Article identity is necessary, not sufficient.** Two names on the same
+    pt.wikipedia article are one person — but you must also ask whether that
+    person runs in THIS contest. A real "Professor Alcides" is a federal deputy
+    for GOIÁS while the Ceará senate row of that name is the pastor. Same trap
+    caught `Vanderlan Gomes` (a Tocantins TV host) and `Guilherme Giordano`.
+  · **Family cross-references are the opposite trap.** A "does one article
+    mention the other name?" tiebreak declared Flávio and Jair Bolsonaro the same
+    person — a son's article names his father. Different articles ⇒ different
+    people, no softening.
+- **137 TSE registrations covered more than one survey — NOW MERGED** (Iran,
+  2026-08-15): one registration = one survey, 1.155 → ~1.021 surveys. Except 4
+  whose rows contradict each other on the fieldwork date; those stay separate and
+  are logged every run.
 
 **Coverage reality** (measured, don't over-claim)
 - The 2026 registry holds **1.522 distinct registrations**. We hold hard-matched results
@@ -277,8 +371,8 @@ crossed midnight is the same churn defect in a smaller costume.
 - **Trap**: "Perfil da Amostra" blocks use identical band labels but are sample
   composition, not voting intention. Reject any block whose columns don't map to ≥2
   candidates in the parent question's roster.
-- `pdftotext` and `pdftoppm` are not installed, and **`pypdf` is not either** (the earlier
-  note claiming it works is wrong — no interpreter on this machine has it).
+- `pdftotext`, `pdftoppm` and `pypdf` are NOT installed — no interpreter on this
+  machine has any of them. Use `scripts/ocr/` instead (below).
 - **OCR exists: `scripts/ocr/`.** Apple's Vision framework via a small Swift binary — ships
   with macOS, runs offline, reads pt-BR, nothing leaves the machine.
   `swiftc -O -o scripts/ocr/ocr scripts/ocr/ocr.swift`, then `scripts/ocr/ocr file.pdf [p1 p2]`.
@@ -309,126 +403,77 @@ crossed midnight is the same churn defect in a smaller costume.
 
 ```bash
 cd ~/Projects/pesquisas-2026
-node scripts/validate-store.mjs --self-test   # 20 guards, each proven to fire
-node scripts/validate-store.mjs               # validate the real store
-node scripts/parity-check.mjs                 # store must reproduce polls.json
-node scripts/projection-twin-check.mjs        # project.mjs ≡ src/lib/store.ts
-node scripts/upsert-harness.mjs               # o caminho de ESCRITA (base da Fase 3)
-node scripts/idempotence-check.mjs            # rebuild on 2 dates ⇒ tabelas idênticas
+node scripts/validate-store.mjs --self-test    # 20+ guards, each proven to fire
+node scripts/validate-store.mjs                # validate the real store
+node scripts/parity-check.mjs                  # store ⇄ polls.json, three levels
+node scripts/projection-twin-check.mjs         # project.mjs ≡ src/lib/store.ts
+node scripts/upsert-harness.mjs                # the WRITE path (20 cases)
+node scripts/idempotence-check.mjs             # rebuild on 2 dates ⇒ identical
 node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
-node scripts/validate-data.mjs --self-test    # legacy validator
-node scripts/migrate-to-store.mjs             # idempotent; only meta.migrated_at moves
-npm run scrape                                # full re-ingest (~10 min, be patient)
-npx next build                                # must produce 38 pages
+node scripts/pollster-clustering-check.mjs     # institute names ignore unrelated data
+node scripts/validate-data.mjs data/polls.json # legacy validator
+node scripts/upsert-vs-migration.mjs           # Phase 3 gate — DOES NOT PASS YET
+npx tsc --noEmit && npx next build             # 38 pages
 ```
 
-**The clock is injected, not read at the point of use.** `readStore({ runDate })` carries
-the run's date on the store, and every stamp comes from there — `today()` survives only as
-the default. `migrate-to-store.mjs` reads whatever store already exists and carries its
-`first_seen` / `created_at` / `updated_at` forward (`priorStamps`), which is safe because
-ids are minted once from a recorded seed and never recomputed. `--run-date=` and `--dir=`
-exist so the guard can rebuild twice into scratch directories.
+Regenerators (write files, run when the data changes):
 
-This was a live defect: every date was read from the wall clock, so a rebuild on a later
-day rewrote all 4.613 records with nothing but the stamps changed. Nothing failed — the
-store stayed valid, parity stayed green — you just lost the three-line reviewable diff
-NDJSON exists to give you. Re-running the migration on `data/` now produces a **one-line**
-diff (`meta.migrated_at`, the single field still allowed a wall-clock reading).
+```bash
+node scripts/incomplete-polls.mjs   # → PESQUISAS_INCOMPLETAS.md
+node scripts/candidate-review.mjs   # → REVISAO_CANDIDATOS.md (evidence dossier)
+node scripts/candidate-resolve.mjs  # → data/candidate-aliases.json (network; refuses to shrink)
+```
 
-`scripts/idempotence-check.mjs` guards both halves, because either alone passes while
-broken: **injection** (a fresh build stamps the date it was given, never today's) and
-**preservation** (a rebuild re-dates nothing it already had). Both were proven to fire —
-injection by leaking one `today()` back in, preservation via `--self-test`, which wipes the
-store between runs to recreate the old behaviour exactly.
+**Comparing two builds.** `next.config.ts` sets `output: undefined`, so there is
+no `out/` — pages are prerendered into `.next/server/app`. To diff two builds you
+must normalise three per-build randoms first: the `BUILD_ID`, webpack chunk
+hashes (16+ hex; poll ids are 12 and survive), and the nonce Next emits in the
+comment after `<!DOCTYPE>`. Miss any one and all 38 pages "differ".
 
-The parity check used to compare neither `scenario`, `source_url`, `contractor` nor the
-per-result `party`, two of which are rendered. All four are compared now, and each new
-guard was proven to fire before being trusted.
-
-Working practice that has caught every significant defect: **a producer never certifies
-its own output.** After any data change, have an independent agent re-check a sample
-against the original sources. It has found real bugs every single time — including ones
-I was confident about.
-
----
+Working practice that has caught every significant defect: **a producer never
+certifies its own output.** And prove a guard FIRES before believing its zero —
+every validator here has a `--self-test` for that reason.
 
 ## 6. Open items
 
-1. ~~Phase 2 of the database plan~~ — **done**; the site reads the store. Phase 3 is next.
-2. Candidate identity, before Phase 3. `sameCandidate()` merges "Ciro Nogueira" into
-   "Ciro" (different politicians); the mirror failure is live in the data — **"Tião
-   Bocalom" and "Sebastião Bocalom" are one person**, splitting Acre's average into
-   18,4% (base 9/10) plus a phantom 14,0% (base 1/10); unified it is 18,0% at 10/10.
-   *Verified internally, not from the web:* Delta's 04–09/08/2026 fieldwork reached us
-   twice — Poder360 (`s_572c48c5dc3f`, TSE AC-06787/2026) with a 1º-turno field of
-   {Alan Rick, Mailza Assis, **Sebastião** Bocalom}, and Wikipédia (`s_aaf3bc7b7171`,
-   same window, same 1.006 sample) with a runoff Alan Rick vs **Tião** Bocalom. A runoff
-   is drawn from the round-1 field, so Tião is not in it unless Tião *is* Sebastião. Both
-   spellings also carry the same party trajectory (PL until Feb/26, PSDB after) and never
-   once co-occur in 28 rows. (pt.wikipedia confirms: "Sebastião Bocalom Rodrigues … mais
-   conhecido como Tião Bocalom" — a lead, not the basis.)
-   **Do not fix by widening the fuzzy match.** A scan for the general pattern (same
-   contest, shared name token, never co-occurring) returns **63 pairs**: many are one
-   person (`Zacharias/Zacarias Calil`, `Mateus/Matheus Simões`, `Mendanha/Medanha`,
-   `Baldy/Bady`, `van Hattem/Hatten`, `Capitão Derrite/Guilherme Derrite`), but the same
-   list contains Jair, Flávio, Michelle and Eduardo Bolsonaro, who must never merge. No
-   fuzzy rule separates those. Build a **curated alias table** reviewed by the creator,
-   as `data/repairs.json` already does for values — `candidates.ndjson` has `aliases`
-   already; give it the `merged_into` that institutes have. Then delete the fuzzy path
-   rather than tuning it. Worth adding as a hard validator guard: two aliases of one
-   candidate appearing in the same question is proof of a bad merge.
-   Also spotted there: those two Delta records are the *same fieldwork* stored as two
-   surveys (the Wikipédia one lost the TSE registration) — related to the shared-
-   registration worklist, but a distinct duplicate-survey case.
-   **All 63 pairs are now DECIDED — 34 same · 26 different · 3 open** (`data/candidate-aliases.json`,
-   `node scripts/candidate-resolve.mjs`). No human tick was needed: these are public personas,
-   so identity is public record. Each ballot name resolves to its pt.wikipedia article
-   (following redirects) and two names on the SAME article are one person, with a citable
-   URL. Pairs Wikipedia could not reach were settled by research against TSE, assembly
-   pages and local press, committed with citations in `data/candidate-verdicts-researched.json`.
-   `REVISAO_CANDIDATOS.md` (from `candidate-review.mjs`) remains the evidence dossier.
-   **APPLIED.** `scripts/lib/candidates.mjs` is consulted by the migration, the parity gate
-   and the upsert path; 740 → 703 candidates, 184 questions renamed, **24 contests' averages
-   changed**, 17 pages. Acre: Bocalom was 18,4% (base 9/10) plus a phantom 14,0% (base 1/10),
-   now 18,0% at 10/10. `name_raw` keeps what each source said.
-   Two traps found while applying:
-   · **The scan must read `data/polls.json`, never the store.** Reading the store is a loop
-     that eats itself: the store already has the table applied, so the scan finds no pairs
-     and rewrites the table EMPTY, silently undoing every merge on the next migration. It
-     happened once; the input to a decision has to be the raw data.
-   · **A decision is about a person; the scan only compares within one contest.** A state
-     politician polled for BOTH governor and senate gets decided in one race and left alone
-     in the other — `Capitão Derrite` survived in `governador:SP` because `Guilherme Derrite`
-     never appears there. Groups now extend to sibling contests **of the same UF only** (4
-     cases). Never nationally: a real `Professor Alcides` is a federal deputy for Goiás while
-     the Ceará row of that name is the pastor.
-   Three rules earned their place the hard way:
-   · **Different articles ⇒ different people, no softening.** A "but does one article
-     mention the other name?" tiebreak declared *Flávio Bolsonaro and Jair Bolsonaro the
-     same person* — a son's article names his father, a wife's names her husband (Gracinha ×
-     Ronaldo Caiado fell identically). Family cross-reference is exactly what a shared
-     surname produces. Wikipedia already encodes "same person, other name" as a redirect.
-   · **The typographic rule ranks BELOW documentary evidence.** Same contest, same token
-     count, ≤2 characters apart ⇒ same person — which settles `Érica kokay × Érika Kokay`.
-     Safe only because `Marcelo Queiroga × Marcelo Queiroz` is also 2 apart and is two
-     people; both have articles, so it never reaches the typo rule.
-   · **Ballot-name allegiance is real.** `Cadu Xavier` = `Cadu de Lula`, `Rodrigo Vieira` =
-     `Rodrigo Bolsonaro`, `Gianni Nogueira` = `Gianni do Bolsonaro` — all confirmed same
-     person, all of which the string heuristic had filed under "probably different".
-   **Still open (never merge without evidence): `Professor Alcides` (CE), `Vanderlan Gomes`
-   (GO), `Guilherme Giordano` (SP).** No public source records any of them. All three come
-   from **poder360**, not the wiki parser, each in 1–2 polls from a single institute — so
-   they look like aggregator transcription errors of a real candidate, but nothing confirms
-   which one, and guessing would invent a candidacy. Two things it teaches that the pairs alone don't: the "twin fieldwork" signal
-   **produces false positives** (`Ciro × Ciro Nogueira` has one and they are different
-   people — party trajectories contradict, averages 13,5 p.p. apart, versus Bocalom where
-   the trajectories match and the gap is 5,0), and the pairs are **not independent** —
-   `Alcides Fernandes / Pastor Alcides / Professor Alcides` and a seven-name São Paulo
-   cluster have to be decided together or you assert B = C without ever looking at it.
-3. Implement the presentation spec in §3A — none of it exists yet.
-4. Decide how incomplete polls are handled under válidos.
-5. Narrow `tse.mjs` to `BRASIL.csv`.
-6. Deploy: `gh repo create placar-das-pesquisas --public --source=. --push`, then import on Vercel.
-7. Homepage visual design — parked behind the phrase "Let's go back to design."
-8. `data/polls.json` no longer feeds the site — the store does. It is still written by the
-   scraper and is still what `parity-check.mjs` compares against, so it stays until Phase 5.
+**Blocked on you (Iran)**
+
+1. **Vercel import.** The repo is public and pushed; only the Vercel side is
+   missing, and it needs your login. Nothing else blocks the site going live.
+2. **`PESQUISAS_INCOMPLETAS.md`** — 68 polls gated out of the averages, 55 with
+   the institute's own PDF linked. Three tickboxes each: repair (the report
+   shows the missing candidates → `data/repairs.json`, poll returns to the
+   average), keep out, discard.
+3. **4 TSE registrations with contradictory fieldwork dates** — `TO-01056`
+   (365 days apart), `SP-08639` (120), `GO-04010` (31), `BR-04215` (11). All
+   look like digit typos at source. Left unmerged and logged every run.
+
+**Next work, in the order I would do it**
+
+4. **Close the `upsert-vs-migration` gap** (see Phase 3 above), then point the
+   scraper at `upsertPoll` and delete the migration's grouping key.
+5. **Implement the presentation spec in §3A** — none of it exists. Blocked on
+   nothing now that the completeness question (§3A "still open") is decided:
+   incomplete polls are gated, not flagged.
+6. **The per-state presidential map** Iran wants. The data is already collected
+   (377 polls, 24 UFs, `race: "presidente"` with a `state`). Nothing renders it
+   yet; `/estados/[uf]` shows only governor and senate.
+7. **Narrow `tse.mjs` to `BRASIL.csv`** — it reads all 28 CSVs in the zip and the
+   27 per-UF files are duplicates of the national one.
+8. **Crosstabs (Phase 4).** The old "~25% unreachable" ceiling is GONE — see the
+   OCR note in §4. Those image-only reports are readable now.
+9. **Homepage visual design** — parked behind the phrase "Let's go back to design."
+
+**A pattern worth naming.** Three times in one session, a guard I added *silently
+disabled something* instead of failing loudly: the resolver rewrote the alias
+table empty (twice, from two different causes), and the derived-file guard
+switched off `idempotence-check`. Each was caught by running the thing
+afterwards, never by the guard itself. When you add a check here, ask what it
+does when its own assumptions break — and prove it fails, not just that it
+passes. `--self-test` exists on the validators for exactly this reason.
+
+**The other pattern.** Almost every real defect this session was *output
+depending on something that isn't the data*: ordering by array position,
+institute names by global frequency, timestamps by wall clock, seed collisions
+from a dead `??` branch. When a number moves and the data didn't, look there
+first.
