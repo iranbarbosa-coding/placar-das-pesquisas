@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **68 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **69 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -34,7 +34,6 @@ Soma **30.5%** · faltam **69.5 pontos** · 5 candidato(s) na tabela · amostra 
 | Cabo Daciolo | 0.8 |
 | *não sabe/não respondeu* | 8.3 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Relatorio_MG_Julho_2026_Poder-360%C2%B0.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-rejeicao-de-486-ante-442-de-flavio-em-mg/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -51,7 +50,6 @@ Soma **33.2%** · faltam **66.8 pontos** · 1 candidato(s) na tabela · amostra 
 | *branco/nulo* | 1.95 |
 | *não sabe/não respondeu* | 18.94 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -67,7 +65,6 @@ Soma **41.9%** · faltam **58.1 pontos** · 1 candidato(s) na tabela · amostra 
 | Renan Santos | 12.5 |
 | *não sabe/não respondeu* | 29.4 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -81,7 +78,6 @@ Soma **42.6%** · faltam **57.4 pontos** · 1 candidato(s) na tabela · amostra 
 | Romeu Zema | 16 |
 | *não sabe/não respondeu* | 26.6 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -102,7 +98,6 @@ Soma **42.7%** · faltam **57.3 pontos** · 6 candidato(s) na tabela · amostra 
 | Cabo Daciolo | 0.5 |
 | *não sabe/não respondeu* | 22.9 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/igape-presidente-df-21jul2026.png
 - Publicação: https://static.poder360.com.br/uploads/2026/07/igape-presidente-df-21jul2026.png
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -119,7 +114,6 @@ Soma **43%** · faltam **57 pontos** · 1 candidato(s) na tabela · amostra 1200
 | *branco/nulo* | 5.5 |
 | *não sabe/não respondeu* | 14 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/03/regiao-metropolitana-de-maceio-1pdf.pdf
 - Publicação: https://static.poder360.com.br/2026/03/regiao-metropolitana-de-maceio-1pdf.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -139,7 +133,6 @@ Soma **43.7%** · faltam **56.3 pontos** · 4 candidato(s) na tabela · amostra 
 | *branco/nulo* | 7.6 |
 | *não sabe/não respondeu* | 12.9 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-datacontrol-acre-governador-8.fev_.2026pdf.pdf
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-datacontrol-acre-governador-8.fev_.2026pdf.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -156,7 +149,6 @@ Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 
 | *branco/nulo* | 7 |
 | *não sabe/não respondeu* | 7 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -177,7 +169,6 @@ Soma **45.6%** · faltam **54.4 pontos** · 5 candidato(s) na tabela · amostra 
 | *branco/nulo* | 5.17 |
 | *não sabe/não respondeu* | 3.52 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -194,7 +185,6 @@ Soma **45.7%** · faltam **54.3 pontos** · 1 candidato(s) na tabela · amostra 
 | *branco/nulo* | 0.67 |
 | *não sabe/não respondeu* | 35 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/intencao-pesquisa-vilanovapiaui-PI-22-24jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/intencao-pesquisa-vilanovapiaui-PI-22-24jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -210,7 +200,6 @@ Soma **47.6%** · faltam **52.4 pontos** · 2 candidato(s) na tabela · amostra 
 | Orleans Brandão | 47.5 |
 | Saulo Arcangeli | 0.1 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-governador-maranhao-13ago2026.png
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-governador-maranhao-13ago2026.png
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -227,7 +216,6 @@ Soma **48%** · faltam **52 pontos** · 1 candidato(s) na tabela · amostra 1200
 | *branco/nulo* | 7 |
 | *não sabe/não respondeu* | 4 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/06/pesquisa-tdl-alagados-26jun2026.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/jhc-tem-52-das-intencoes-de-voto-e-renan-filho-37-em-al/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -244,7 +232,6 @@ Soma **49%** · faltam **51 pontos** · 1 candidato(s) na tabela · amostra 1200
 | *branco/nulo* | 5 |
 | *não sabe/não respondeu* | 8 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -261,7 +248,6 @@ Soma **49.1%** · faltam **50.9 pontos** · 2 candidato(s) na tabela · amostra 
 | Ivan Moraes | 0.33 |
 | *não sabe/não respondeu* | 0.75 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-PE-revista-total-9ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-PE-revista-total-9ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -298,7 +284,6 @@ Soma **52.5%** · faltam **47.5 pontos** · 1 candidato(s) na tabela · amostra 
 | *branco/nulo* | 6.1 |
 | *não sabe/não respondeu* | 4.4 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/AL_Jul26-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/jhc-tem-475-e-renan-filho-42-em-eventual-2o-turno-em-al-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -314,7 +299,6 @@ Soma **53%** · faltam **47 pontos** · 1 candidato(s) na tabela · amostra 1600
 | Flávio Bolsonaro | 50 |
 | *não sabe/não respondeu* | 3 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-acre-27jul26.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-57-contra-34-de-lula-no-2o-turno-no-acre-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -332,7 +316,6 @@ Soma **54.2%** · faltam **45.8 pontos** · 2 candidato(s) na tabela · amostra 
 | *branco/nulo* | 5.4 |
 | *não sabe/não respondeu* | 6.4 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/AL_Jul26-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/jhc-tem-475-e-renan-filho-42-em-eventual-2o-turno-em-al-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -347,7 +330,6 @@ Soma **55%** · faltam **45 pontos** · 1 candidato(s) na tabela · amostra 1200
 | *branco/nulo* | 4 |
 | *não sabe/não respondeu* | 3 |
 
-- PDF do instituto: https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-alagoas-24nov2025.pdf
 - Publicação: https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-alagoas-24nov2025.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -365,7 +347,6 @@ Soma **58.4%** · faltam **41.6 pontos** · 2 candidato(s) na tabela · amostra 
 | *branco/nulo* | 6.6 |
 | *não sabe/não respondeu* | 16.2 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -387,7 +368,6 @@ Soma **59%** · faltam **41 pontos** · 6 candidato(s) na tabela · amostra 1400
 | *branco/nulo* | 7 |
 | *não sabe/não respondeu* | 4.9 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/04/PA_Mar26-presidente.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes/flavio-lidera-disputa-pelo-planalto-no-pa-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -409,7 +389,6 @@ Soma **60%** · faltam **40 pontos** · 6 candidato(s) na tabela · amostra 2050
 | *branco/nulo* | 5 |
 | *não sabe/não respondeu* | 4 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-data-capital-senador-rn-5ago2026-1.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-data-capital-senador-rn-5ago2026-1.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -426,7 +405,6 @@ Soma **60.9%** · faltam **39.1 pontos** · 1 candidato(s) na tabela · amostra 
 | *branco/nulo* | 7 |
 | *não sabe/não respondeu* | 9.3 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -443,7 +421,6 @@ Soma **61%** · faltam **39 pontos** · 1 candidato(s) na tabela · amostra 1200
 | *branco/nulo* | 9 |
 | *não sabe/não respondeu* | 22 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/01/pesquisa-tdl-alagoas-presidente-29.jan_.2026.pdf
 - Publicação: https://static.poder360.com.br/2026/01/pesquisa-tdl-alagoas-presidente-29.jan_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -459,7 +436,6 @@ Soma **61%** · faltam **39 pontos** · 2 candidato(s) na tabela · amostra 1000
 | Lula | 58 |
 | Ronaldo Caiado | 3 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -482,8 +458,7 @@ Soma **62.8%** · faltam **37.2 pontos** · 7 candidato(s) na tabela · amostra 
 | *branco/nulo* | 7.3 |
 | *não sabe/não respondeu* | 9.8 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-governador-6.fev_.2026.pdf
-- Publicação: https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-governador-6.fev_.2026.pdf
+- Publicação: https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-presidente-6.fev_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -504,7 +479,6 @@ Soma **63%** · faltam **37 pontos** · 6 candidato(s) na tabela · amostra 1600
 | *branco/nulo* | 9 |
 | *não sabe/não respondeu* | 5 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/realtime-amapa-nacional-24jul.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-aprovado-por-50-e-desaprovado-por-48-no-ap-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -521,7 +495,6 @@ Soma **63.4%** · faltam **36.6 pontos** · 2 candidato(s) na tabela · amostra 
 | Cadu Xavier | 13.2 |
 | *não sabe/não respondeu* | 11.4 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -543,7 +516,6 @@ Soma **64%** · faltam **36 pontos** · 6 candidato(s) na tabela · amostra 1000
 | *branco/nulo* | 14 |
 | *não sabe/não respondeu* | 13 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/ranking-ms-gov-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/ranking-ms-gov-7ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -565,8 +537,7 @@ Soma **65%** · faltam **35 pontos** · 6 candidato(s) na tabela · amostra 1600
 | *branco/nulo* | 8 |
 | *não sabe/não respondeu* | 5 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/espirito-santo-presidenciavel-22jul2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/espirito-santo-presidenciavel-22jul2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes/flavio-tem-49-e-lula-43-no-2o-turno-no-es-diz-pesquisa
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -585,7 +556,6 @@ Soma **65.9%** · faltam **34.1 pontos** · 4 candidato(s) na tabela · amostra 
 | *branco/nulo* | 2.1 |
 | *não sabe/não respondeu* | 16.9 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/direct-pesquisa-goais-presidente-12.fev_.2026.pdf
 - Publicação: https://static.poder360.com.br/2026/02/direct-pesquisa-goais-presidente-12.fev_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -607,7 +577,6 @@ Soma **66.6%** · faltam **33.4 pontos** · 6 candidato(s) na tabela · amostra 
 | *branco/nulo* | 10.24 |
 | *não sabe/não respondeu* | 9.12 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-presidente-rn-14ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-presidente-rn-14ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -626,7 +595,6 @@ Soma **66.7%** · faltam **33.3 pontos** · 3 candidato(s) na tabela · amostra 
 | *branco/nulo* | 8 |
 | *não sabe/não respondeu* | 8.2 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Governador.-GO.DataRDjpeg.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Governador.-GO.DataRDjpeg.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -644,7 +612,6 @@ Soma **69%** · faltam **31 pontos** · 3 candidato(s) na tabela · amostra 1509
 | Renan Santos | 2.4 |
 | *não sabe/não respondeu* | 2.2 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -663,7 +630,6 @@ Soma **71%** · faltam **29 pontos** · 4 candidato(s) na tabela · amostra 500 
 | Telemaco Brandão | 1 |
 | *não sabe/não respondeu* | 28.8 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente-10.fev_.2026.pdf
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente-10.fev_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -682,7 +648,6 @@ Soma **71.1%** · faltam **28.9 pontos** · 4 candidato(s) na tabela · amostra 
 | Renan Santos | 1.3 |
 | *não sabe/não respondeu* | 13.8 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -701,10 +666,27 @@ Soma **71.4%** · faltam **28.6 pontos** · 4 candidato(s) na tabela · amostra 
 | Telemaco Brandão | 1.6 |
 | *não sabe/não respondeu* | 31.4 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente.10.fev_.2026pdf.pdf
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente.10.fev_.2026pdf.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Sergipe
+
+### IFP — 2026-08-12
+
+Soma **72%** · faltam **28 pontos** · 3 candidato(s) na tabela · amostra 2400
+
+| candidato | % |
+|---|---|
+| Fábio Mitidieri | 38.94 |
+| Valmir de Francisquinho | 28.76 |
+| Ricardo Marques | 4.28 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Goiás
 
 ### Instituto Gazeta de Pesquisas — 2026-07-27
 
@@ -716,7 +698,6 @@ Soma **73.2%** · faltam **26.8 pontos** · 2 candidato(s) na tabela · amostra 
 | Luis Cesar Bueno | 3.8 |
 | *não sabe/não respondeu* | 47.7 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/igape-goiais-luziana-estadual-24-27jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/igape-goiais-luziana-estadual-24-27jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -733,7 +714,6 @@ Soma **73.9%** · faltam **26.1 pontos** · 2 candidato(s) na tabela · amostra 
 | Ronaldo Caiado | 16.2 |
 | *não sabe/não respondeu* | 27.2 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -754,7 +734,6 @@ Soma **74.6%** · faltam **25.4 pontos** · 5 candidato(s) na tabela · amostra 
 | *branco/nulo* | 2.9 |
 | *não sabe/não respondeu* | 4.1 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Correio-do-Povo-Presidente-SC-Julho.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/07/Correio-do-Povo-Presidente-SC-Julho.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -773,27 +752,11 @@ Soma **75%** · faltam **25 pontos** · 4 candidato(s) na tabela · amostra 1104
 | Rejane de Oliveira | 1 |
 | *não sabe/não respondeu* | 43 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/pesquisa-mostra-empate-entre-5-candidatos-ao-senado-no-rs/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
 ## Governador · Paraíba
-
-### DataTrends — 2026-07-29
-
-Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 1200 · registro PB-09547/2026
-
-| candidato | % |
-|---|---|
-| Lucas Ribeiro | 34 |
-| Cícero Lucena | 27 |
-| Efraim Filho | 15 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
 ### Índice — 2026-05-29
 
@@ -806,6 +769,20 @@ Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 2000
 | Efraim Filho | 15.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+### DataTrends — 2026-07-29
+
+Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 1200 · registro PB-09547/2026
+
+| candidato | % |
+|---|---|
+| Lucas Ribeiro | 34 |
+| Cícero Lucena | 27 |
+| Efraim Filho | 15 |
+
+- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -839,7 +816,6 @@ Soma **77%** · faltam **23 pontos** · 2 candidato(s) na tabela · amostra 1200
 | *branco/nulo* | 14 |
 | *não sabe/não respondeu* | 12 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/Pesquisa-Institutomultipla-pernambuco-presidente-12.fev_.2026.pdf
 - Publicação: https://static.poder360.com.br/2026/02/Pesquisa-Institutomultipla-pernambuco-presidente-12.fev_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -889,7 +865,6 @@ Soma **78%** · faltam **22 pontos** · 2 candidato(s) na tabela · amostra 1208
 | Rafael Fonteles | 63 |
 | Mainha | 15 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/03/Pesquisa-AtlasIntel-Eleicoes-Piaui-2026-260317-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/fonteles-e-aprovado-por-61-e-desaprovado-por-34-no-piaui/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -910,7 +885,6 @@ Soma **80.6%** · faltam **19.4 pontos** · 5 candidato(s) na tabela · amostra 
 | *branco/nulo* | 10.2 |
 | *não sabe/não respondeu* | 11.7 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/datatrends-gov-pb-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/datatrends-gov-pb-7ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -919,7 +893,7 @@ Soma **80.6%** · faltam **19.4 pontos** · 5 candidato(s) na tabela · amostra 
 
 ### Exatus — 2026-07-10
 
-Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 1500
+Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 1500 · registro BR-07763/2026
 
 | candidato | % |
 |---|---|
@@ -929,7 +903,7 @@ Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 
 | Dário Barbosa | 0.49 |
 | Robério Paulino | 0.26 |
 
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte
+- Publicação: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -948,7 +922,6 @@ Soma **83.6%** · faltam **16.4 pontos** · 4 candidato(s) na tabela · amostra 
 | *branco/nulo* | 7.1 |
 | *não sabe/não respondeu* | 3.8 |
 
-- PDF do instituto: https://static.poder360.com.br/2025/09/Atlas-RJ-pesquisa-ago2025-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/paes-tem-439-das-intencoes-de-voto-ao-governo-do-rj-diz-atlasintel/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -982,7 +955,6 @@ Soma **83.7%** · faltam **16.3 pontos** · 2 candidato(s) na tabela · amostra 
 | Celina Leão | 43.6 |
 | José Roberto Arruda | 40.1 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -995,10 +967,9 @@ Soma **84%** · faltam **16 pontos** · 2 candidato(s) na tabela · amostra 1208
 
 | candidato | % |
 |---|---|
-| Rafael Fonteles | 62 |
-| Toni Rodrigues | 22 |
+| Rafael Fonteles | 60 |
+| Margarete Coelho | 24 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/03/Pesquisa-AtlasIntel-Eleicoes-Piaui-2026-260317-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/fonteles-e-aprovado-por-61-e-desaprovado-por-34-no-piaui/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1009,10 +980,9 @@ Soma **84%** · faltam **16 pontos** · 2 candidato(s) na tabela · amostra 1208
 
 | candidato | % |
 |---|---|
-| Rafael Fonteles | 60 |
-| Margarete Coelho | 24 |
+| Rafael Fonteles | 62 |
+| Toni Rodrigues | 22 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/03/Pesquisa-AtlasIntel-Eleicoes-Piaui-2026-260317-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/fonteles-e-aprovado-por-61-e-desaprovado-por-34-no-piaui/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1029,7 +999,6 @@ Soma **85%** · faltam **15 pontos** · 2 candidato(s) na tabela · amostra 1600
 | Renato Gomes | 17 |
 | *branco/nulo* | 13 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/05/Mato-Grosso-do-Sul-MS-064122026-MAI26.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/eduardo-riedel-lidera-disputa-pelo-governo-de-ms-diz-real-time/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1048,7 +1017,6 @@ Soma **85.2%** · faltam **14.8 pontos** · 4 candidato(s) na tabela · amostra 
 | Telemaco Brandão | 1 |
 | *não sabe/não respondeu* | 74.2 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/igape-goias-estadual-ago-2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/igape-goias-estadual-ago-2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1073,7 +1041,7 @@ Soma **85.3%** · faltam **14.7 pontos** · 3 candidato(s) na tabela · amostra 
 
 ### Phoenix — 2026-01-20
 
-Soma **86%** · faltam **14 pontos** · 6 candidato(s) na tabela · amostra 801 · registro RO-00828/2026
+Soma **86%** · faltam **14 pontos** · 6 candidato(s) na tabela · amostra 1603 · registro RO-00828/2026
 
 | candidato | % |
 |---|---|
@@ -1086,7 +1054,6 @@ Soma **86%** · faltam **14 pontos** · 6 candidato(s) na tabela · amostra 801 
 | *branco/nulo* | 0 |
 | *não sabe/não respondeu* | 0 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/01/pesquisa-institutophoenix-rondonia-20.jan_.2026presidente-.pdf
 - Publicação: https://static.poder360.com.br/2026/01/pesquisa-institutophoenix-rondonia-20.jan_.2026presidente-.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1123,7 +1090,6 @@ Soma **86.7%** · faltam **13.3 pontos** · 7 candidato(s) na tabela · amostra 
 | Renan Santos | 0.9 |
 | Aldo Rebelo | 0.3 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/03/paranapesquisas-ceara-3mar2026.pdf
 - Publicação: https://www.poder360.com.br/poder-governo/lula-e-aprovado-por-57-e-desaprovado-por-40-no-ceara/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1159,7 +1125,6 @@ Soma **87.4%** · faltam **12.6 pontos** · 4 candidato(s) na tabela · amostra 
 | *branco/nulo* | 12.8 |
 | *não sabe/não respondeu* | 20.5 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/04/Anova_Pesquisa_MAR2026.pdf
 - Publicação: https://static.poder360.com.br/2026/04/Anova_Pesquisa_MAR2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
@@ -1197,8 +1162,7 @@ Soma **88%** · faltam **12 pontos** · 6 candidato(s) na tabela · amostra 600 
 | Romeu Zema | 1.3 |
 | Renan Santos | 0.3 |
 
-- PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-governador-24.fev_.2026-1.pdf
-- Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-governador-24.fev_.2026-1.pdf
+- Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente-24.fev_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1232,7 +1196,6 @@ Soma **89%** · faltam **11 pontos** · 2 candidato(s) na tabela · amostra 1000
 | Lula | 44.9 |
 | Flávio Bolsonaro | 44.1 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-futura-riodejaneiro-jul2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-em-2o-turno-no-rj-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar

@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-08-16T12:20:11.082Z",
+ "generated_at": "2026-08-16T12:59:18.291Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-16T12:20:11.082Z"
+   "last_ok": "2026-08-16T12:59:18.291Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-16T12:20:11.082Z"
+   "last_ok": "2026-08-16T12:59:18.291Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-16T12:20:11.082Z"
+   "last_ok": "2026-08-16T12:59:18.291Z"
   }
  ],
  "polls": [
