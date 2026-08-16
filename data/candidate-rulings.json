@@ -104,6 +104,56 @@
    "sources": [
     "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip (consulta_cand_2026_RN.csv)"
    ]
+  },
+  {
+   "contest": "presidente:BR",
+   "names": [
+    "Ciro",
+    "Ciro Gomes"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Ciro Gomes",
+   "stated_by": "criador",
+   "stated_at": "2026-08-16",
+   "evidence": "Ciro Ferreira Gomes é citado como \"Ciro Gomes\" nas pesquisas nacionais e estaduais (decisão do criador, 16/08/2026). O registro do TSE traz UMA candidatura para ele em 2026 — governador:CE, nome de urna CIRO GOMES, PSDB, nº 45, sq_candidato 60002531351 — e NENHUMA candidatura presidencial: as 13 linhas de presidente do registro não trazem nenhum Ciro. Como o nome de urna é normalizado POR DISPUTA, as disputas presidenciais não têm registro a que se ancorar, e sem esta decisão o nome exibido cai numa heurística de frequência que escolhia o primeiro nome sozinho.",
+   "overrides": "A heurística de nome de exibição em canonicalize.mjs preferia a grafia MAIS CURTA vista ao menos duas vezes — regra certa para \"Lula\" contra \"Luiz Inácio Lula da Silva\", e errada aqui: publicava \"Ciro\" em 81 linhas da corrida presidencial. Um primeiro nome sozinho é a forma menos identificadora possível, e é exatamente a string que CONVENTIONS §4 cita como a ambiguidade que já custou uma sessão de reparo a este projeto (\"Ciro\" colado em \"Ciro Nogueira\"). Esta ruling também remove esse risco na raiz: sem o \"Ciro\" pelado, não há mais nome que seja subconjunto de tokens de \"Ciro Nogueira\".",
+   "sources": [
+    "https://dadosabertos.tse.jus.br/dataset/candidatos-2026",
+    "data/candidaturas.ndjson (sq_candidato 60002531351)"
+   ]
+  },
+  {
+   "contest": "presidente:RO",
+   "names": [
+    "Ciro"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Ciro Gomes",
+   "stated_by": "criador",
+   "stated_at": "2026-08-16",
+   "evidence": "Ciro Ferreira Gomes é citado como \"Ciro Gomes\" nas pesquisas nacionais e estaduais (decisão do criador, 16/08/2026). O registro do TSE traz UMA candidatura para ele em 2026 — governador:CE, nome de urna CIRO GOMES, PSDB, nº 45, sq_candidato 60002531351 — e NENHUMA candidatura presidencial: as 13 linhas de presidente do registro não trazem nenhum Ciro. Como o nome de urna é normalizado POR DISPUTA, as disputas presidenciais não têm registro a que se ancorar, e sem esta decisão o nome exibido cai numa heurística de frequência que escolhia o primeiro nome sozinho.",
+   "overrides": "A heurística de nome de exibição em canonicalize.mjs preferia a grafia MAIS CURTA vista ao menos duas vezes — regra certa para \"Lula\" contra \"Luiz Inácio Lula da Silva\", e errada aqui: publicava \"Ciro\" em 81 linhas da corrida presidencial. Um primeiro nome sozinho é a forma menos identificadora possível, e é exatamente a string que CONVENTIONS §4 cita como a ambiguidade que já custou uma sessão de reparo a este projeto (\"Ciro\" colado em \"Ciro Nogueira\"). Esta ruling também remove esse risco na raiz: sem o \"Ciro\" pelado, não há mais nome que seja subconjunto de tokens de \"Ciro Nogueira\".",
+   "sources": [
+    "https://dadosabertos.tse.jus.br/dataset/candidatos-2026",
+    "data/candidaturas.ndjson (sq_candidato 60002531351)"
+   ]
+  },
+  {
+   "contest": "presidente:TO",
+   "names": [
+    "Ciro",
+    "Ciro Gomes"
+   ],
+   "verdict": "MESMA",
+   "canonical": "Ciro Gomes",
+   "stated_by": "criador",
+   "stated_at": "2026-08-16",
+   "evidence": "Ciro Ferreira Gomes é citado como \"Ciro Gomes\" nas pesquisas nacionais e estaduais (decisão do criador, 16/08/2026). O registro do TSE traz UMA candidatura para ele em 2026 — governador:CE, nome de urna CIRO GOMES, PSDB, nº 45, sq_candidato 60002531351 — e NENHUMA candidatura presidencial: as 13 linhas de presidente do registro não trazem nenhum Ciro. Como o nome de urna é normalizado POR DISPUTA, as disputas presidenciais não têm registro a que se ancorar, e sem esta decisão o nome exibido cai numa heurística de frequência que escolhia o primeiro nome sozinho.",
+   "overrides": "A heurística de nome de exibição em canonicalize.mjs preferia a grafia MAIS CURTA vista ao menos duas vezes — regra certa para \"Lula\" contra \"Luiz Inácio Lula da Silva\", e errada aqui: publicava \"Ciro\" em 81 linhas da corrida presidencial. Um primeiro nome sozinho é a forma menos identificadora possível, e é exatamente a string que CONVENTIONS §4 cita como a ambiguidade que já custou uma sessão de reparo a este projeto (\"Ciro\" colado em \"Ciro Nogueira\"). Esta ruling também remove esse risco na raiz: sem o \"Ciro\" pelado, não há mais nome que seja subconjunto de tokens de \"Ciro Nogueira\".",
+   "sources": [
+    "https://dadosabertos.tse.jus.br/dataset/candidatos-2026",
+    "data/candidaturas.ndjson (sq_candidato 60002531351)"
+   ]
   }
  ]
 }

@@ -161,23 +161,57 @@ linhas de um, 1 do outro), contrariando o nome de urna nos dois.
 
 Hoje a regra tem uma implementação só: `scripts/lib/nomes.mjs`. CONVENTIONS §5.
 
-### De onde sai o `canonical` de um candidato — e por que duas disputas discordam
+### De onde sai o `canonical` de um candidato (corrigido — a versão anterior aqui estava ERRADA)
 
-`resolveCandidate` cunha o `canonical` a partir da **PRIMEIRA grafia que vê
-naquela disputa**, e os registros de candidato são por disputa. Foi só isso que
-fez `presidente:BR` guardar `Flavio Bolsonaro` enquanto `presidente:AC`,
-`governador:SP` e outras guardavam `Flávio Bolsonaro`: a nacional viu a grafia
-sem acento primeiro. O `name_raw` de cada linha preserva a grafia da própria
-pesquisa, e é por isso que os dois convivem dentro de um arquivo só.
+Este arquivo já afirmou que `resolveCandidate` cunha o `canonical` a partir da
+primeira grafia vista na disputa. **Isso existe, mas NÃO é o caminho que decide
+o nome exibido.** Quem decide é `canonicalizeCandidates`, em
+`scripts/lib/canonicalize.mjs`, e a regra é: **a grafia MAIS CURTA vista ao
+menos duas vezes no cluster**, com o nome-semente (mais frequente) como
+fallback. É deliberado, e é o que faz "Lula" ganhar de "Luiz Inácio Lula da
+Silva" — os institutos escrevem o nome de urna, não o nome civil.
 
-⚠ **Consequência que ainda está aberta:** quando os institutos publicam
-`Ciro`, `Ciro Gomes` e `Ciro Nogueira` na mesma disputa, o agrupamento continua
-certo (Nogueira segue separado), mas o nome exibido é o primeiro visto — e em
-16/08 isso rebaixou **`Ciro Gomes` para `Ciro` na corrida presidencial**, a
-página mais visível do site. Ele não tem candidatura presidencial (é
-`governador:CE`), então o casador corretamente não o toca. **Escolher o
-canonical pela grafia mais completa, e não pela primeira vista, é conserto de
-determinismo (§8), não decisão editorial** — mas não foi feito.
+⚠ **O `candidate_id` ACOMPANHA O NOME EXIBIDO — e isto contradiz o que este
+arquivo promete em outro lugar.** `mintCandidateId` recebe
+`candidate|${contest}|${nameKey(nome)}`, e esse nome é o **pós-canonicalização**.
+Logo **todo rename cunha um id novo e órfã o antigo**. Medido em 16/08: uma
+mudança na regra de exibição trocou **27 de 1.078 ids** sem que os dados de
+origem mudassem (o `nomes-crus.json` mexeu em UMA entrada na mesma rodada).
+A promessa "ids são cunhados uma vez e nunca recomputados" vale para a ESCADA de
+resolução, não para o nome. **Quem for mexer em nome exibido tem de decidir isto
+antes de rodar, não depois.**
+
+### Nome de urna vale POR PESSOA, não por disputa (decisão do criador, 16/08/2026)
+
+O escopo por disputa publicava a mesma pessoa sob dois nomes: `Zema` é
+registrado para presidente, então as linhas presidenciais diziam "Zema" e as de
+governador em MG diziam "Romeu Zema" (153 linhas); `Tarcísio` é registrado para
+governador em SP, então as presidenciais diziam "Tarcísio de Freitas" (165
+linhas). **Decisão: o nome de urna é fato sobre a PESSOA e vale em toda disputa
+em que ela é pesquisada.**
+
+Implementado em `match-ballot-names.mjs` como um passo de FALLBACK, só quando
+nenhuma candidatura da própria disputa casa. O casamento é **direcional** — todo
+token do nome PESQUISADO tem de estar no nome do registrado, nunca o contrário —
+porque contra o registro inteiro (519 candidaturas) a contenção nos dois sentidos
+deixaria qualquer token compartilhado casar. Ambiguidade continua **recusada**:
+se o nome cabe em mais de uma PESSOA, fica como está.
+
+Ensaio de 16/08 (sem gravar): **297 resoluções entre disputas, 31 recusas.**
+`Romeu Zema → Zema`, `Tarcísio de Freitas → Tarcísio`, `Ciro Gomes` em toda
+parte. Recusas corretas: `Ciro` pelado (cabe em Ciro Ferreira Gomes e em Ciro
+Nogueira Lima Filho — por isso os três rulings), e `Rui Costa` (Rui Costa
+Pimenta, presidente, × Rui Costa, senador:BA). `Lula` também é recusado, porque
+"lula" é token de `Cadu de Lula` e `Samanda de Lula` — inofensivo, já que o nome
+já é "Lula", mas é a maior parte das 31.
+
+⚠ **NEM COMMITADO, NEM RODADO NO BANCO.** O passo entre disputas existe **só na
+árvore de trabalho** (`scripts/match-ballot-names.mjs` modificado, não
+commitado) — o que está no repositório e o que a Action roda continuam sendo a
+versão POR DISPUTA. O ensaio dos 297 foi gravado num arquivo temporário e
+apagado; `data/` está intacto no commit `982eca7`. A rodada completa vai trocar
+muito mais ids do que as 27 acima: ver o aviso de id logo acima **antes** de
+rodar.
 
 ⚠ **Pegadinha do TSE:** o nome de urna aparece repetido para a MESMA pessoa
 (Piauí tem dois casos: mesmo número, mesmo partido, mesmo nome civil, dois
@@ -730,9 +764,22 @@ every validator here has a `--self-test` for that reason.
    `Natasha Slhessarenko → Doutora Natasha`. O censo não mexeu (14 itens, 0
    pesquisas contadas em dobro).
 
-1. ⚠ **DECIDIR O CANONICAL DE `Ciro`** — ver o aviso em §1b. A presidencial
-   passou a exibir `Ciro` no lugar de `Ciro Gomes` (81 linhas). Agrupamento
-   correto, nome exibido pior.
+1. ⚠ **RODAR O NOME DE URNA ENTRE DISPUTAS — código pronto, banco NÃO rodado.**
+   Decidido pelo criador em 16/08 (§1b): o nome de urna vale por PESSOA.
+   `match-ballot-names.mjs` já implementa o passo, ensaiado em 297 resoluções /
+   31 recusas, mas **a mudança está só na árvore de trabalho, não commitada**, e
+   `data/` está no estado do commit `982eca7` — o ensaio foi gravado num arquivo
+   temporário, não no banco. Se a árvore for perdida, o passo entre disputas
+   some junto; o que sobrevive é esta decisão e os rulings.
+   **ANTES de rodar, resolver a questão do `candidate_id`** (§1b): o id
+   acompanha o nome exibido, então estas 297 renomeações vão cunhar ids novos e
+   orfanar os antigos. Uma troca de regra bem menor já trocou 27 de 1.078.
+   `Ciro` pelado já está resolvido por ruling em `presidente:BR/RO/TO`
+   (`data/candidate-rulings.json`, 6 → 9 rulings, não commitado).
+   A heurística de "grafia mais completa" em `canonicalize.mjs` foi **testada e
+   descartada pelo criador** — não reintroduzir: ela renomeava 32 candidatos que
+   ninguém pediu (`José Aleluia → José Carlos Aleluia`, `Kassab → Gilberto
+   Kassab`) e chegou a rebaixar `Covatti Filho` para `Covatti filho`.
 
 2. ✅ **`norm()` UNIFICADO E RODADO** (§1b). `parity-check` foi de **275 → 29 →
    0** e sai com 0. `senador:AL` virou **um** candidato (`Dr. Wanderley`, o nome
