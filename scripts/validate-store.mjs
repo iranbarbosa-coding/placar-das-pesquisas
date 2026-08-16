@@ -151,6 +151,37 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
       sum += (q.others_pct ?? 0) + (q.undecided_pct ?? 0) + (q.blank_null_pct ?? 0);
       const cap = q.race === "senador" ? 260 : 130;
       if (sum > cap) E(`${at}: soma ${sum.toFixed(1)} > ${cap}`);
+
+      // CANDIDATE ROWS ALONE, in a race with ONE winner, cannot exceed 100:
+      // each respondent has one vote. The 130 cap above never saw this — a
+      // Ceará poll carrying the response option "poderia votar em todos" as a
+      // candidate summed 110,4 and passed clean for months.
+      //
+      // The tolerance is derived, not picked. A source that publishes whole
+      // numbers can be off by up to 0,5 per figure; one that publishes tenths,
+      // by 0,05. So the slack a poll has earned is a function of how ITS OWN
+      // figures are written — which is why Real Time Big Data's PE poll
+      // (58+33+8+2 = 101, four integers, 2,0 of slack) passes, while the same
+      // excess on tenths would not.
+      //
+      // The extra point on top is a judgement and is worth naming as one: it
+      // separates "the source rounded" from "a row is here that should not
+      // be". Everything observed from double-rounding sits within 0,25 of the
+      // slack; everything from a stray row is a whole candidate's share. The
+      // two polls in between (AtlasIntel CE 100,9 · Veritá AP 100,2) are real
+      // enough to look at but not impossible, so they belong on the census
+      // worklist rather than red-lighting every run — `scripts/census.mjs`
+      // lists them at the tighter 100 + slack line. Senate is excluded: two
+      // votes per voter, totals legitimately near 200.
+      if (q.race !== "senador" && (q.results ?? []).length) {
+        const vals = q.results.map((r) => r.pct).filter((v) => typeof v === "number");
+        const rows = vals.reduce((a, v) => a + v, 0);
+        const slack = vals.reduce((a, v) => a + (Number.isInteger(v) ? 0.5 : 0.05), 0);
+        if (rows > 100 + slack + 1) {
+          E(`${at}: candidatos somam ${rows.toFixed(1)} numa disputa de vaga única ` +
+            `(máximo 100 + ${slack.toFixed(2)} de arredondamento) — linha a mais no elenco?`);
+        }
+      }
     }
     if (q.is_headline && !q.retracted) {
       const k = headlineGroupKey(q);
@@ -328,6 +359,22 @@ function selfTest() {
     ["amostra não-inteira é rejeitada", (() => { const s = clone(baseStore()); s.surveys[0].sample_size = 2.004; return s; })(), false],
     // The integer form of the same source defect: 1.000 respondents arriving as 1.
     ["amostra implausivelmente pequena é rejeitada", (() => { const s = clone(baseStore()); s.surveys[0].sample_size = 2; return s; })(), false],
+    // The junk-row shape: an extra row pushes a single-winner roster past 100.
+    ["elenco de vaga única acima de 100 é rejeitado", (() => {
+      const s = clone(baseStore());
+      const q = s.questions.find((x) => x.race !== "senador" && (x.results ?? []).length);
+      q.results = q.results.map((r, i) => ({ ...r, pct: i === 0 ? 95.5 : 12.3 }));
+      return s;
+    })(), false],
+    // …and the other half of the same guard: ROUNDING must still pass, or the
+    // check would red-light every source that publishes whole numbers.
+    ["elenco de vaga única dentro do arredondamento é aceito", (() => {
+      const s = clone(baseStore());
+      const q = s.questions.find((x) => x.race !== "senador" && (x.results ?? []).length >= 2);
+      q.results = q.results.map((r, i) => ({ ...r, pct: i === 0 ? 58 : 43 })); // 101, dois inteiros ⇒ folga 1,0
+      q.others_pct = null; q.undecided_pct = null; q.blank_null_pct = null;
+      return s;
+    })(), true],
     ["ciclo de merged_into é rejeitado", (() => {
       const s = clone(baseStore());
       s.institutes.push({ institute_id: "i_2", canonical: "Genial/Quaest", aliases: [], merged_into: "i_1" });
