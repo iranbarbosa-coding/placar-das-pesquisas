@@ -158,7 +158,32 @@ function main() {
   const ambiguos = [];
 
   for (const [contest, nomes] of polled) {
-    const lista = byContest.get(contest) ?? [];
+    // A PRESIDENTIAL CANDIDACY IS NATIONAL, SO EVERY PRESIDENTIAL CONTEST SHARES
+    // ONE ROSTER.
+    //
+    // The register files all 13 presidential candidacies with `uf` null, i.e.
+    // `presidente:BR`. But we also collect presidential polling as STATE
+    // SUBSAMPLES — `presidente:MG` is the presidential race asked of Minas
+    // voters, deliberately kept out of the national average because it polls a
+    // different population. Those 25 contests had no roster at all, so every
+    // name in them missed the per-contest pass and fell through to the
+    // whole-register fallback, which then weighed it against all 519
+    // candidacies.
+    //
+    // The damage was not a wrong answer but a flood of false ones: "Lula" in a
+    // state presidential row collided with CADU DE LULA (governador:RN) and
+    // SAMANDA DE LULA (senador:RN) and was refused as ambiguous — 354 result
+    // rows, 26 of the 30 reported ambiguities, all phantom. Every one of them is
+    // answered by the office alone: a presidential vote-intention row cannot be
+    // an RN governor candidate.
+    //
+    // Pointing these contests at the presidential roster fixes it in the RIGHT
+    // direction — it moves the work back into the tight per-contest pass, where
+    // the comparison is against 13 candidacies instead of 519, so it is also the
+    // safer of the two paths. The contest key itself is untouched: the poll
+    // stays `presidente:MG` and stays out of the national average.
+    const lista = byContest.get(contest)
+      ?? (contest.startsWith("presidente:") ? byContest.get("presidente:BR") ?? [] : []);
     for (const nome of nomes) {
       const exato = lista.filter((c) => norm(c.nome_urna_raw) === norm(nome));
       if (exato.length === 1) {
