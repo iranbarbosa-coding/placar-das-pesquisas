@@ -77,6 +77,34 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
     if (s.sample_size != null && (!Number.isFinite(s.sample_size) || s.sample_size <= 0)) {
       E(`${at}: amostra inválida ${s.sample_size}`);
     }
+    // A NON-INTEGER sample size is impossible — nobody interviews 2,004 tenths
+    // of a person — so it is an error, not a warning.
+    //
+    // It is here because Poder360 SERVES the mangled value: `entrevistas`
+    // arrives as the JSON number 2.004 for Quaest's 2.004 respondents and 1.2
+    // for Real Time Big Data's 1.200, the Brazilian thousands separator having
+    // already collapsed into a decimal point upstream. Confirmed against the
+    // API directly, so there is nothing to fix in our parse. Eleven rows sat in
+    // data/polls.json passing every check, because a finite positive number is
+    // exactly what they are.
+    //
+    // Deliberately NOT auto-corrected by multiplying by 1000: that reconstruction
+    // assumes one decimal place means one dropped digit, which is an inference,
+    // and inferences do not belong upstream of an average. The repair is
+    // per-poll in data/repairs.json against the institute's own report — the
+    // integra_url is captured and scripts/ocr/ reads the image-only PDFs.
+    if (s.sample_size != null && Number.isFinite(s.sample_size) && !Number.isInteger(s.sample_size)) {
+      E(`${at}: amostra não-inteira ${s.sample_size} — separador de milhar virou decimal na fonte; reparar em data/repairs.json`);
+    }
+    // The INTEGER form of the same defect, which the rule above cannot see:
+    // `1.000` and `2.000` respondents collapse to the JSON numbers 1 and 2 —
+    // finite, positive and integer, so they pass everything. A floor closes the
+    // class instead of the instance. 100 is below any real electoral sample
+    // here (the current minimum across 1.163 surveys is 300) and far above the
+    // 1–27 range this defect produces.
+    if (s.sample_size != null && Number.isFinite(s.sample_size) && s.sample_size > 0 && s.sample_size < 100) {
+      E(`${at}: amostra implausível ${s.sample_size} — provável milhar colapsado na fonte; reparar em data/repairs.json`);
+    }
   }
 
   // merged_into chains terminate and are acyclic
@@ -295,6 +323,11 @@ function selfTest() {
     ["id duplicado entre tabelas é rejeitado", (() => { const s = clone(baseStore()); s.institutes[0].institute_id = "s_1"; s.surveys[0].institute_id = "s_1"; return s; })(), false],
     ["início posterior ao fim é rejeitado", (() => { const s = clone(baseStore()); s.surveys[0].fieldwork_start = "2026-08-09"; return s; })(), false],
     ["data não-ISO é rejeitada", (() => { const s = clone(baseStore()); s.surveys[0].fieldwork_end = "03/08/2026"; return s; })(), false],
+    // The exact shape Poder360 serves: a finite, positive, plausible-looking
+    // number that passed every guard for eleven rows.
+    ["amostra não-inteira é rejeitada", (() => { const s = clone(baseStore()); s.surveys[0].sample_size = 2.004; return s; })(), false],
+    // The integer form of the same source defect: 1.000 respondents arriving as 1.
+    ["amostra implausivelmente pequena é rejeitada", (() => { const s = clone(baseStore()); s.surveys[0].sample_size = 2; return s; })(), false],
     ["ciclo de merged_into é rejeitado", (() => {
       const s = clone(baseStore());
       s.institutes.push({ institute_id: "i_2", canonical: "Genial/Quaest", aliases: [], merged_into: "i_1" });

@@ -39,33 +39,73 @@ export function applyRepairs(polls) {
   try {
     spec = JSON.parse(fs.readFileSync(FILE, "utf-8"));
   } catch {
-    return { applied: 0, unmatched: [], warnings: ["data/repairs.json ausente ou ilegível"] };
+    // Same shape on every path, `noop` included: a caller that has to guard
+    // one branch's missing field is a caller that will forget to.
+    return { applied: 0, unmatched: [], noop: [], warnings: ["data/repairs.json ausente ou ilegível"] };
   }
 
   let applied = 0;
   const unmatched = [];
+  // MATCHED, BUT WITH NOTHING LEFT TO CORRECT — a third state, and the one that
+  // hides. `unmatched` only fires when the match clause finds no poll at all, so
+  // a repair whose target still exists but whose correction is now a no-op used
+  // to be invisible: it incremented `applied` and wrote a stamp, and looked like
+  // work. Once the stamp became conditional on real change it emitted NOTHING —
+  // no count, no warning — which is worse, and flatly contradicts this module's
+  // own promise that a repair which silently stops applying is itself surfaced.
+  //
+  // It is not hypothetical. The PI-06473 senate repair corrects a candidate who
+  // is not in that poll's roster and never was, so it has corrected nothing for
+  // its whole life; nobody noticed because the stamp it wrote looked like proof
+  // that it had. A repair that has become a no-op is either stale or the source
+  // has healed, and both are things a run should say out loud.
+  const noop = [];
   const warnings = [];
 
   for (const rep of spec.repairs ?? []) {
     const targets = polls.filter((p) => matches(p, rep.match));
+    const label = rep.match.tse_registration ?? JSON.stringify(rep.match);
     if (!targets.length) {
-      unmatched.push(rep.match.tse_registration ?? JSON.stringify(rep.match));
+      unmatched.push(label);
       continue;
     }
+    let touched = 0;
     for (const poll of targets) {
+      // `changed` exists because the stamp is a CLAIM about this record: that it
+      // carried a defect and that the cited page proves the correction. Stamping
+      // unconditionally made that claim about records the repair did not touch —
+      // a Wikipedia row of the Quaest round already held the right sample size,
+      // matched the repair, changed nothing, and still came out carrying an
+      // evidence paragraph describing a defect it never had. The provenance has
+      // to mean something narrower than "a repair's match clause covered you".
+      let changed = false;
       for (const add of rep.add_results ?? []) {
         if (poll.results.some((r) => sameCandidate(r.candidate, add.candidate))) continue;
         poll.results.push({ candidate: add.candidate, party: add.party ?? null, pct: add.pct });
+        changed = true;
       }
       for (const sp of rep.set_party ?? []) {
         for (const r of poll.results) {
-          if (sameCandidate(r.candidate, sp.candidate)) r.party = sp.party ?? null;
+          if (!sameCandidate(r.candidate, sp.candidate)) continue;
+          const party = sp.party ?? null;
+          if (r.party !== party) changed = true;
+          r.party = party;
         }
       }
-      for (const [k, v] of Object.entries(rep.set ?? {})) poll[k] = v;
-      poll.repaired = { source: rep.source, evidence: rep.evidence, verified_at: rep.verified_at };
-      applied++;
+      for (const [k, v] of Object.entries(rep.set ?? {})) {
+        if (poll[k] !== v) changed = true;
+        poll[k] = v;
+      }
+      if (changed) {
+        poll.repaired = { source: rep.source, evidence: rep.evidence, verified_at: rep.verified_at };
+        applied++;
+        touched++;
+      }
 
+      // The sum check runs even on a no-op match, deliberately: a repair whose
+      // corrections are already present is exactly when you want to know its
+      // expected total still holds. Gating this on `changed` would switch off a
+      // check precisely as the repair goes stale.
       if (rep.expect_sum != null) {
         const sum =
           poll.results.reduce((a, r) => a + r.pct, 0) +
@@ -77,8 +117,9 @@ export function applyRepairs(polls) {
         }
       }
     }
+    if (!touched) noop.push(`${label} (${targets.length} pesquisa(s) casada(s), nada a corrigir)`);
   }
-  return { applied, unmatched, warnings };
+  return { applied, unmatched, noop, warnings };
 }
 
 let cachedSpec;

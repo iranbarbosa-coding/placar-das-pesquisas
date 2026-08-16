@@ -244,19 +244,84 @@ normalise → resolve → upsert → repairs → validate → write, dual-writin
 - ❌ **The scraper does NOT yet write through the upsert path.** It still writes
   the flat file, and the migration rebuilds the store from it.
 
-**The gate that decides when to switch over: `scripts/upsert-vs-migration.mjs`.**
-It feeds `polls.json` through the upsert path in source-priority order and
-compares against the store the migration built. **It does not pass yet.** Last
-run: identity and results agree on every poll (0 divergences), but the upsert
-path produces **1.471 surveys against the migration's ~1.021**, and 9 polls do
-not survive its question-level roster rule. The difference is the survey
-GROUPING: the migration groups Wikipedia rows by a natural composite key, the
-ladder mints per row unless the ±3-day/60%-roster rule matches. Close that gap,
-then switch the scraper over.
+**The gate that decides when to switch over: `scripts/upsert-vs-migration.mjs`.
+As of 2026-08-16 checks A–D are CLEAN and check E FAILS** — E is the store
+validator, and it fails on the 11 decimal-mangled sample sizes described in §4,
+which are pre-existing bad source data unrelated to the upsert path. So the
+Phase-3 question is answered (the two paths are reconciled); the gate goes green
+the moment those rows are settled. Do not read the red as a Phase-3 regression,
+and do not silence E to get the green. `--self-test` proves the checks fire.
+Getting
+there was not a matter of reconciling two grouping keys, which is what this
+section used to say; it was three defects in the ladder, none of which had ever
+executed before the harness existed.
 
-⚠️ **Do not "fix" the gate by widening its tolerances.** It already declares one
-bounded exception (tie-breaks on hoisted fields where both sources reported a
-value, capped at 25). Anything else it reports is a real difference.
+**1. Rung 3's roster test was directional — and it decided how many surveys
+exist.** `rosterOverlaps` divided hits by `incoming.length`. A runoff arriving
+after its first round scored 2/2 and merged; the same pair in the other order
+scored 2/10 and minted. **322 migration surveys came out fragmented into 807**,
+and which ones depended on the order records sat in on disk. The roster now only
+CONTRADICTS, is scoped to the same race and round, exempts round 2 (pairings
+differ by design), and divides by the smaller side. Splits: 322 → **0**.
+
+**2. `byReg` was updated only at mint** — the same hole `addSourceRef` documents
+for `byRef`, second instance. A registration ARRIVING on a survey already
+matched by another rung was stored and yet invisible to rung 2, so a Wikipedia
+row carrying that registration and spelling the institute differently minted a
+second survey. `fillFields` now normalises and indexes it on write.
+
+**3. `resolveQuestion` let the token matcher overrule the curated table.**
+"Jair Bolsonaro" is a token subset of "Michelle Bolsonaro, com apoio do
+ex-presidente Jair Bolsonaro", so Paraná Pesquisas' Lula × Michelle (43,4) was
+absorbed into Lula × Jair (32,2) and one of the two runoffs stopped existing. It
+now compares by decided `candidate_id`. That was 1 of the 9 lost polls.
+
+**4. And one the fix to (1) exposed: rung 3 fused polls with different sample
+sizes.** Ideia 27.600 with 1.500 on the same day, AtlasIntel 4.399 with 5.419,
+Paraná Pesquisas 1.400 with 2.400 — **20 surveys, each two distinct polls
+collapsed into one**, the second dropped from the averages. The sample size is a
+fact OF the operation, so rung 3 now refuses when both sides report one and they
+differ, **with no tolerance**: any window wide enough to absorb source rounding
+is wide enough to absorb real differences, and under-merging keeps both records
+while over-merging deletes a poll. 20 → **0**.
+
+**The contract changed, and this is the part to read before touching the gate.**
+It used to demand the two paths produce the same store, with one capped
+tie-break exception. That contract cannot be met and should not be: the
+migration's own `surveyGroupKey` comment says cross-source unification is
+DEFERRED to the ladder, so chasing equality means crippling the ladder to match
+a baseline Phase 5 deletes. The gate now asks **"is every difference one we can
+name AND check, case by case?"** — A: no survey fragmented (exact); B: no poll
+lost unless it is the same question by decided identity, with any numeric
+disagreement in `conflicts.ndjson`; C: every merge one institute, one UF, ±3
+days, at most one registration — checked on every multi-row survey, not only
+where the paths differ; D: results identical, and every differing hoisted scalar
+ATTESTED against the input rows; E: validator clean.
+
+⚠️ **Do not "fix" the gate by widening a tolerance — there is no longer a
+tolerance to widen.** Raising a cap was the move this rewrite removed. Each
+difference is verified individually, and `--self-test` proves A, B, C and the
+results half of D fail when they should. **One branch is NOT proven**: D's
+attestation (a value hoisted from ANOTHER survey) cannot be induced by mutating
+the input, because the attestation set is rebuilt from that same input. It is
+carried by review, and it is written down here rather than left implied by a
+green tick.
+
+**Where it stands now: 980 surveys against the migration's 1.163 — FEWER, the
+opposite direction from what this section used to predict.** 0 splits, 0 result
+divergences, 6 polls absorbed as verified cross-source duplicates, 154 merge
+groups, 67 hoisted margin-of-error roundings and 1 backfilled sample size.
+
+**`migrate-to-store.mjs` and `idempotence-check.mjs` are also red for the same
+reason** — both abort on validator errors. Everything else in §5 passes:
+harness (20/20), parity, projection twin, institute clustering, `tsc`, and
+`next build` (38 pages).
+
+**The remaining half of the task: point the scraper at `upsertPoll` and delete
+the migration's grouping key.** That changes published numbers, so it is a
+deliberate step, not a cleanup: the 6 absorbed duplicates come out of two
+contests (**TO governador 2º turno** and **RN governador 2º turno**), and 68
+metadata cells change in the table columns.
 
 **Phase 4** — (a) registry reconciliation + `publication_status`; (b) crosstab extraction.
 
@@ -274,6 +339,36 @@ value, capped at 25). Anything else it reports is a real difference.
 - `v1`'s `apuracoes` **flattens all scenarios into one list** — never parse results from it.
 - Poder360 sometimes files a poll under the **wrong UF** (a Veritá Paraná poll appeared
   under Pará). The TSE registration prefix is authoritative; the scraper auto-corrects.
+- **`entrevistas` sometimes arrives as a decimal-mangled thousands value** — the JSON
+  number `2.004` for Quaest's 2.004 respondents, `1.2` for Real Time Big Data's 1.200.
+  The Brazilian thousands separator has already collapsed into a decimal point upstream;
+  confirmed against the API directly, so **there is nothing to fix in our parse**
+  (`poder360.mjs` ingests `m.entrevistas` verbatim, correctly). Eleven rows sat in
+  `polls.json` passing every check, because a finite positive number is exactly what
+  they are. **Both validators now reject a non-integer sample size as a hard error**
+  (with a self-test), which is why a run fails until the rows are repaired.
+  ⚠ **Do not repair by multiplying by 1000.** That assumes one decimal place means one
+  dropped digit — an inference, and inferences do not belong upstream of an average.
+  **Both are now repaired in `data/repairs.json` from the institutes' own reports**
+  (its generic `set` takes `sample_size`), read with `scripts/ocr/`:
+  Quaest 2025-11-09 → **2004** ("2.004 ENTREVISTAS", p.2, and the report's 06–09/11 field
+  dates and 2-point margin both match what we already held); Real Time Big Data RO
+  2025-12-10 → **1200** ("1.200 ENTREVISTAS", p.2, field 09–10/12, margin 3.0, all three
+  matching). **The repairs only take effect on a full pipeline run** — `applyRepairs`
+  runs inside `scrape.mjs`, so the store keeps the bad values until the next
+  scrape → migrate → derive.
+  Two things worth keeping from how this was settled. **The corroboration came from
+  ANOTHER SOURCE, not from the aggregator**: of the 11 rows of the Quaest round, Poder360
+  serves `2.004` on all ten of its own, and the one carrying the correct `2004` is the
+  Wikipedia row. (An earlier draft of this note and of the repair's `evidence` claimed
+  Poder360 itself served the right value on one row — wrong, and caught only because a
+  second pair of eyes checked the `source` field instead of the count. Reading a value
+  out of `polls.json` tells you nothing about which source supplied it.) And the RTBD
+  row looked unsourceable because its `source_url` is just the aggregator page with no
+  `integra_url` — **the report was on the sibling native record** (p360-13114, the senate
+  question of the same fieldwork), and the file covers the governor race too. When a row
+  has no PDF, check the other native records of the same operation before calling it an
+  editorial call.
 
 **Wikipedia state pages** (all fixed in `scripts/wiki_parse.py`, don't regress):
 - Party links were being read as candidate names (state pages use
@@ -382,6 +477,37 @@ value, capped at 25). Anything else it reports is a real difference.
   Caveats in `scripts/ocr/README.md`: renders at 300 dpi (72 loses table type), language
   correction OFF (it mangles party acronyms), and small rotated text still garbles — read
   several occurrences before concluding.
+- **★ RESTORING DROPPED ROWS HAS A SECOND HALF: CLEAR `others_pct`.** When the v2
+  endpoint drops candidate rows, the aggregator still serves an `outros` figure. Restore
+  the candidates without zeroing it and those points are counted TWICE. Both repairs that
+  do this were wrong in the same way and both are now fixed:
+  **BR-01084 (Vox, presidencial)** summed to **101,2%** in the shipped dataset — its own
+  `expect_sum` had been printing `soma 101,2 ≠ esperada 100` on every single run, and
+  nobody read it. The institute's report has **no `outros` row at all**: 13 candidates
+  (88,1) + `NENHUM/BRANCO/NULO` 2,3 + `NÃO SABE/NÃO OPINOU` 9,6 = 100,0 exactly.
+  **PI-06473 (Real Time Big Data, senado)** was the same shape, and there the arithmetic
+  is even tighter: the five restored rows sum to exactly the `others_pct: 6` they replace,
+  and the old `undecided 13` splits exactly into `blank 6 + NS/NR 7`.
+  **Check any future add_results repair against this**: if the source published no
+  `outros`, set it null in the same repair.
+- **A repair that matches a poll and corrects NOTHING now says so** — `applyRepairs`
+  returns a `noop` bucket and `scrape.mjs` prints `AVISO: reparo sem efeito`. Added
+  because PI-06473 spent its whole life correcting a candidate who was not in the poll,
+  while the stamp it wrote made it look like it had worked. `unmatched` never caught it:
+  the match clause DID find the poll. Two lessons worth keeping: the provenance stamp is a
+  claim about a record, so it is written only when a value actually moved; and `expect_sum`
+  deliberately still runs on a no-op match, which is exactly how the Vox 101,2% surfaced.
+- **Poder360 drops rows without any threshold.** In the PI senate poll it dropped FIVE of
+  eleven — and dropped Antonio Barros at 2% while keeping Jorge Lopes at 1%. That is
+  positive evidence for the empty-name-field defect rather than an editorial cutoff, and
+  it means you cannot assume the dropped rows are the small ones.
+- **⚠ Two provenance gaps recorded rather than papered over.** The Vox report **prints no
+  party for any candidate**, so the party labels in that repair's `add_results`
+  (`PL`, `DC`, `PCB`, `PRTB`, `UP`) are NOT sourced from the cited PDF and still have no
+  primary source named. And its ficha técnica gives a margin of **±2,15 p.p.** where we
+  store **2** — left alone on purpose: there are 67 identical margin roundings in the
+  database, and repairing one of them would give a false impression of curation. That is a
+  decision about the class, not a per-poll repair.
 - **Party repairs, all three from the institutes' own reports** (`data/repairs.json`):
   Poder360's aggregator serves **`DEM`** for Ravenna Castro (PI), but AtlasIntel's report
   says `Ravenna Castro (Democrata)` and Real Time Big Data's says `(Democratas)` — the
@@ -412,9 +538,20 @@ node scripts/idempotence-check.mjs             # rebuild on 2 dates ⇒ identica
 node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
 node scripts/pollster-clustering-check.mjs     # institute names ignore unrelated data
 node scripts/validate-data.mjs data/polls.json # legacy validator
-node scripts/upsert-vs-migration.mjs           # Phase 3 gate — DOES NOT PASS YET
+node scripts/upsert-vs-migration.mjs           # Phase 3 gate — A–D clean, E red on §4's 11 rows
+node scripts/upsert-vs-migration.mjs --self-test # …and proves its checks can fail
 npx tsc --noEmit && npx next build             # 38 pages
 ```
+
+All of the above pass as of 2026-08-16, after the repairs landed. The
+sample-size guards that red-lighted the pipeline are green because the data was
+fixed, not because the guards were softened — both still fire in `--self-test`
+(non-integer, and the `< 100` floor).
+
+⚠️ `node scripts/$var` **does not work in zsh** — unquoted variables are not
+word-split, so `scripts/validate-store.mjs --self-test` is read as one filename
+and you get `MODULE_NOT_FOUND` from a script that is perfectly fine. Loop over
+the list with the flag quoted, or run them one by one.
 
 Regenerators (write files, run when the data changes):
 
@@ -447,22 +584,109 @@ every validator here has a `--self-test` for that reason.
 3. **4 TSE registrations with contradictory fieldwork dates** — `TO-01056`
    (365 days apart), `SP-08639` (120), `GO-04010` (31), `BR-04215` (11). All
    look like digit typos at source. Left unmerged and logged every run.
+4. *(landed 2026-08-16 — the two sample-size repairs, the PI-06473 senate
+   restoration and the Vox `others_pct` fix are all in the store, independently
+   certified. Kept here only so the numbering below stays stable.)*
+5. *(FIXED 2026-08-16.)* **A survey RESPONSE OPTION was stored as a candidate** —
+   `"poderia votar em todos"`, contest `governador:CE`, sitting as a **13,3%
+   "candidate"** in `p360-13141-1-3-02c8ed9cc170` (Paraná Pesquisas CE) and
+   pushing that roster to **110,4%**. The junk filter at `scripts/scrape.mjs` is
+   `^`-anchored, so it only catches response options that LEAD with the giveaway
+   word; this phrase leads with none of them. Fixed by adding an unanchored
+   `JUNK_PHRASE` beside it (votar/voto/todos/qualquer/indecis/indiferen/abstenç/
+   branco/nulo) — a ballot name is a person's name and contains no conjugated
+   verb or quantifier. **Checked against the whole candidate table before
+   applying: it drops that one row and matches no real candidate of the 1.065.**
+   A sweep of the same table for other non-person shapes (digits, bare acronyms,
+   party names, sub-3-character names) returned **zero**, so the class is closed,
+   not merely this instance.
+   ⚠ **The first draft of that filter was itself a worse bug**, and it is worth
+   knowing why. It matched `branco` and `nulo` unanchored — which would have
+   silently deleted **Castelo Branco**, a real surname and a Piauí political
+   family, in a state this dataset covers heavily. Caught by review before it
+   ever ran. **A row-removing filter must be provably NARROWER than its target**:
+   the shipped version matches only conjugated forms of *votar* and indecision
+   words, never a word that can be a surname, and the bucket labels stay with the
+   anchored `JUNK` rule. Deletion failures are the worst kind here — nothing
+   errors, the candidate simply never appears, and the only symptom is a roster
+   that quietly sums low.
+6. **Nothing guards impossible sums for single-winner races.**
+   `scripts/validate-store.mjs:152` caps non-senate totals at **130**, so a
+   governor poll at 119,1 passes clean. The Vox 101,2% was found ONLY because a
+   repair happened to carry `expect_sum` — there is no systematic check. A rule
+   that candidate rows alone must not exceed ~100,5 for `presidente`/`governador`
+   would have caught every case below and costs nothing. **On today's data it
+   produces exactly 3 errors, all genuine**: the CE poll above (110,4), Real Time
+   Big Data PE gov 101,0, AtlasIntel CE gov 100,9. The last two are near enough
+   to rounding that the threshold is a judgement call — which is why this is
+   listed rather than done. (For scale: 125 non-senate polls sit above 100,5, but
+   65 of those are two-row runoffs where only `undecided_pct` pushes the total
+   over — candidate figures on a valid-votes base, undecideds on the total. That
+   is a different normalisation, not double-counted mass. Only the 3 above have
+   candidate rows alone exceeding 100,5.)
+7. **The repairs file contradicts itself on unsourced parties.**
+   `data/repairs.json:11-17` (Vox) asserts five party labels — `PL`, `DC`, `PCB`,
+   `PRTB`, `UP` — that **the cited PDF does not contain**; that report prints no
+   party for any candidate. Meanwhile line 53 (Paraná Pesquisas GO) faced exactly
+   the same situation and resolved it the opposite way: *"Sem fonte primária, o
+   partido fica nulo em vez de afirmar um extinto."* One doctrine applied two ways
+   means nobody downstream can tell which rule a `party` field follows — and
+   unsourced-but-plausible party labels are precisely what created three of the
+   six repairs in the first place (`DEM`, `Pros`). The ressalva is now recorded in
+   the repair's own evidence, but recording is not resolving. **Likely cheap fix**:
+   the five rows were dropped from v2, not invented, so their parties probably came
+   from Poder360's v1 endpoint or the aggregator page — naming that endpoint as the
+   source closes the gap with no information lost and no nulling.
+8. **AtlasIntel RN, fieldwork 2026-07-21: the two runoff scenarios are CROSSED
+   between sources.** Poder360 has Cadu × Allyson 39,4/34,2 and Cadu × Álvaro
+   45,7/35,5; Wikipedia has exactly those numbers on the opposite pairings. The
+   same institute/UF on 2026-05-27 has the two sources agreeing, so it looks
+   like a 21/07 defect rather than a systematic one. Poder360 currently wins (it
+   is first in `SOURCE_ORDER`) and the disagreement is in `conflicts.ndjson`.
+   Settling it needs AtlasIntel's own report; worth first checking whether the
+   Wikipedia row for 21/07 cites a different article than the 27/05 one, since a
+   single bad edit is likelier than an institute swapping its own scenarios.
 
 **Next work, in the order I would do it**
 
-4. **Close the `upsert-vs-migration` gap** (see Phase 3 above), then point the
-   scraper at `upsertPoll` and delete the migration's grouping key.
-5. **Implement the presentation spec in §3A** — none of it exists. Blocked on
+9. **Point the scraper at `upsertPoll`** and delete the migration's grouping
+   key. The gate that gates this now PASSES (see Phase 3). This step CHANGES
+   PUBLISHED NUMBERS: 6 cross-source duplicates leave two contests (**TO
+   governador 2º turno**, **RN governador 2º turno**) and 68 metadata cells
+   change in the table columns. Deliberate step, not a cleanup.
+10. **Implement the presentation spec in §3A** — none of it exists. Blocked on
    nothing now that the completeness question (§3A "still open") is decided:
    incomplete polls are gated, not flagged.
-6. **The per-state presidential map** Iran wants. The data is already collected
+11. **The per-state presidential map** Iran wants. The data is already collected
    (377 polls, 24 UFs, `race: "presidente"` with a `state`). Nothing renders it
    yet; `/estados/[uf]` shows only governor and senate.
-7. **Narrow `tse.mjs` to `BRASIL.csv`** — it reads all 28 CSVs in the zip and the
+12. **Narrow `tse.mjs` to `BRASIL.csv`** — it reads all 28 CSVs in the zip and the
    27 per-UF files are duplicates of the national one.
-8. **Crosstabs (Phase 4).** The old "~25% unreachable" ceiling is GONE — see the
+13. **Crosstabs (Phase 4).** The old "~25% unreachable" ceiling is GONE — see the
    OCR note in §4. Those image-only reports are readable now.
-9. **Homepage visual design** — parked behind the phrase "Let's go back to design."
+14. **Homepage visual design** — parked behind the phrase "Let's go back to design."
+
+**The pattern that produced most of 2026-08-16's findings: a producer certifying
+its own output.** Every defect below was caught by a DIFFERENT agent than the one
+that made the artifact, and none would have been caught otherwise —
+- a repair `evidence` paragraph asserting that Poder360 itself served the correct
+  sample size on one row. It did not; that row was Wikipedia's. Written by reading
+  a value out of `polls.json` and never checking the `source` field beside it, in a
+  file whose own header says nothing may be inferred;
+- a stamp claiming provenance on records the repair never touched;
+- a guard that caught `2.004` but would have waved through `1` for 1.000
+  respondents;
+- a fix for that stamp which created a new silent state — matched, corrected
+  nothing, reported nothing;
+- a repair inert since the day it was written, hidden by the very stamp it wrote;
+- and, through that, a presidential poll that had been summing to 101,2% in the
+  shipped dataset while its own check printed the discrepancy every run.
+Each was a green result with nobody independently behind it. **Set the seam up
+before you need it**: producer runs the pipeline and is forbidden from running the
+validators; a separate agent certifies and is forbidden from fixing. Where a number
+has to be read out of a source document, have TWO agents read it blind and compare
+— that is how the Piauí senate table and the Vox table were settled, and each pair
+agreed on every row, which is what makes the numbers usable.
 
 **A pattern worth naming.** Three times in one session, a guard I added *silently
 disabled something* instead of failing loudly: the resolver rewrote the alias
@@ -476,4 +700,18 @@ passes. `--self-test` exists on the validators for exactly this reason.
 depending on something that isn't the data*: ordering by array position,
 institute names by global frequency, timestamps by wall clock, seed collisions
 from a dead `??` branch. When a number moves and the data didn't, look there
-first.
+first. The 2026-08-16 round added the cleanest example yet — a roster overlap
+divided by the incoming side alone, so **how many surveys exist** depended on
+which record the file happened to list first.
+
+**A third, and it is a class, not two bullets: an index built once and never
+updated on write.** `byRef` was built at `readStore` and only ever read, so rung
+1 could not see a survey minted earlier in the same run. That was found, fixed
+in `addSourceRef` — and the identical hole in `byReg` was left standing, because
+nobody asked what ELSE was indexed once and never maintained. It was: a
+registration arriving on an already-matched survey was stored and invisible to
+the rung that exists to use it. **When you fix one of these, enumerate the other
+indexes in the same breath.** `store._indexes` currently holds `byReg`, `byRef`,
+`rosters`, `surveyById`, `questionById`, `questionsBySurvey`, `instituteByAlias`
+and `candidateByAlias`; each one needs an answer to "what updates this during a
+run?"

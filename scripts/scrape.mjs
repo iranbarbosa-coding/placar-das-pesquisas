@@ -230,6 +230,10 @@ async function main() {
   const rep = applyRepairs(polls);
   console.log(`✓ reparos curados aplicados: ${rep.applied}`);
   for (const u of rep.unmatched) console.warn(`AVISO: reparo sem pesquisa correspondente — ${u}`);
+  // A repair that matches a poll and then corrects nothing is either stale or
+  // its source has healed. Both are worth a line: without one, the only trace
+  // of a dead repair is the absence of a number nobody counts.
+  for (const n of rep.noop ?? []) console.warn(`AVISO: reparo sem efeito — ${n}`);
   for (const w of rep.warnings) console.warn(`AVISO: ${w}`);
 
   // Candidate-name hygiene (before entity resolution):
@@ -238,6 +242,22 @@ async function main() {
   //    "Unidade Popular"), and table artifacts ("Cen.")
   // No real candidate's name starts with "não" — those are abstention rows.
   const JUNK = /^(partido\b|unidade popular\b|federa[çc][ãa]o\b|cen\.?$|outros?\b|nenhum\b|n[ãa]o\b)/i;
+  // ANCHORED PATTERNS ONLY CATCH RESPONSE OPTIONS THAT LEAD WITH THE GIVEAWAY
+  // WORD. "Poderia votar em todos" leads with none of the above, so it entered
+  // the database as a candidate in the Ceará governor race, at 13,3%, pushing
+  // that poll's roster to 110,4%. Hence a second, unanchored pattern — the tell
+  // can sit anywhere in the phrase.
+  //
+  // IT MATCHES ONLY ON WORDS A PERSON'S NAME CANNOT CONTAIN: a conjugated form
+  // of "votar", or an indecision word. It deliberately does NOT match `branco`
+  // or `nulo`. The first draft did, unanchored, and would have silently deleted
+  // **Castelo Branco** — a real surname, and a Piauí political family, in a
+  // state this dataset covers heavily. That failure mode is worse than the bug
+  // it fixes: no error fires, the candidate simply never appears, and the only
+  // symptom is a roster that quietly sums low. A filter that removes rows must
+  // be provably narrower than the thing it targets, so the bucket words that
+  // double as surnames are left to the anchored `JUNK` rule above.
+  const JUNK_PHRASE = /\b(votar|votaria|votariam|votarem|voto|votos)\b|indecis|indiferen|absten[çc]|abstenc/i;
   // Party-preference tables on state pages leak rows where the "candidate" is
   // a party. Full party names + bare acronyms are not people.
   const PARTY_NAMES = new Set([
@@ -255,7 +275,7 @@ async function main() {
   for (const p of polls) {
     p.results = p.results
       .map((r) => ({ ...r, candidate: r.candidate.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim() }))
-      .filter((r) => r.candidate && !JUNK.test(r.candidate) && !isPartyRow(r));
+      .filter((r) => r.candidate && !JUNK.test(r.candidate) && !JUNK_PHRASE.test(r.candidate) && !isPartyRow(r));
   }
   polls = polls.filter((p) => p.results.length > 0);
 

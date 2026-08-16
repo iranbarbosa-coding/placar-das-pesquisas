@@ -56,6 +56,18 @@ export function validate(ds, { minPolls = 50 } = {}) {
       else if (d < "2023-01-01" || d > "2027-01-01") errors.push(`${at}: implausible date ${d}`);
     }
     if (!p.fieldwork_end && !p.published_date) warn.push(`${at}: no usable date`);
+    // Nobody interviews 2,004 tenths of a person. Poder360 serves `entrevistas`
+    // with the Brazilian thousands separator already collapsed into a decimal
+    // point — 2.004 for 2.004 respondents, 1.2 for 1.200 — and eleven rows sat
+    // here passing every check, because a finite positive number is what they
+    // are. Verified against the API: it is the source, not our parse. Repair
+    // per-poll in data/repairs.json, never by multiplying by 1000.
+    if (p.sample_size != null && (typeof p.sample_size !== "number" || !Number.isInteger(p.sample_size) || p.sample_size <= 0)) {
+      errors.push(`${at}: non-integer sample_size ${p.sample_size} — thousands separator became a decimal at source`);
+    } else if (p.sample_size != null && p.sample_size < 100) {
+      // The integer form of the same defect: 1.000 respondents arrive as 1.
+      errors.push(`${at}: implausible sample_size ${p.sample_size} — likely a collapsed thousands separator`);
+    }
   });
   return { errors: errors.slice(0, 40), warn: warn.slice(0, 20), total: ds.polls.length };
 }

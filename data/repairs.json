@@ -4,10 +4,10 @@
   "repairs": [
     {
       "match": { "tse_registration": "BR-01084/2026", "race": "presidente", "round": 1 },
-      "defect": "O endpoint v2/cenarios do Poder360 descarta silenciosamente linhas de candidato cujo campo 'nome' está vazio. Chegaram 8 candidatos somando 54,9%; faltavam 5, somando 33,2%.",
+      "defect": "O endpoint v2/cenarios do Poder360 descarta silenciosamente linhas de candidato cujo campo 'nome' está vazio. Chegaram 8 candidatos somando 54,9%; faltavam 5, somando 33,2%. SEGUNDA METADE DO DEFEITO, achada em 16/08/2026: restaurar os candidatos sem zerar o 'outros_pct' da fonte contava 1,2 ponto duas vezes — a pesquisa somava 101,2%, e o próprio 'expect_sum' deste reparo vinha dizendo isso em toda execução. O relatório do instituto NÃO TEM linha de 'outros': o resto não-candidato é inteiro de duas linhas, 'NENHUM/BRANCO/NULO' e 'NÃO SABE/NÃO OPINOU'. Mesma classe do reparo PI-06473.",
       "source": "https://static.poder360.com.br/uploads/2026/07/RELATORIO-VOX-BRASIL-NACIONAL-5-31-07-2026.pdf",
-      "evidence": "p.10, 'INTENÇÃO DE VOTO PRESIDENTE DA REPÚBLICA - EVOLUÇÃO', coluna '31 JULHO 2026'. Confere com a linha sem nome de 31,2% presente no endpoint v1 do Poder360.",
-      "verified_at": "2026-08-14",
+      "evidence": "p.10, 'INTENÇÃO DE VOTO PRESIDENTE DA REPÚBLICA - EVOLUÇÃO', coluna '31 JULHO 2026'. Confere com a linha sem nome de 31,2% presente no endpoint v1 do Poder360. Para o 'outros_pct' nulo (16/08/2026), p.7, '1º TURNO - INTENÇÃO DE VOTO PRESIDENTE DA REPÚBLICA / RESULTADO GERAL - 31/07/2026 / Respostas estimuladas': 13 candidatos somando 88,1, mais 'NENHUM/BRANCO/NULO' 2,3 e 'NÃO SABE/NÃO OPINOU' 9,6 — fecha em 100,0 exatos SEM nenhuma linha de outros, e qualquer valor positivo de outros passaria de 100. A palavra 'OUTROS' não aparece em nenhuma das 35 páginas (o único parecido é 'OUTRAS 15,5%', a religião no perfil da amostra, p.4 — armadilha conhecida). LIDO DUAS VEZES, ÀS CEGAS, POR EXTRATORES INDEPENDENTES, em paralelo: as duas leituras batem nas 15 linhas, nas especificações e na ausência do 'outros'. Conferências: a tabela fecha em 100,0 só com as DUAS linhas-balde e sem uma terceira; os crosstabs de p.8 fecham em 100,0 por coluna com o mesmo inventário de linhas; e a geometria das barras liga cada percentual à sua própria linha. RESSALVA DE PROCEDÊNCIA: este relatório NÃO IMPRIME PARTIDO para candidato algum — as siglas em 'add_results' abaixo não vêm deste PDF e continuam sem fonte primária citada aqui. Ressalva 2: a ficha técnica (p.2) dá margem de +/- 2,15 p.p. e nós guardamos 2; não corrigido de propósito, porque há 67 arredondamentos de margem iguais a esse no banco e consertar um só por reparo daria falsa impressão de curadoria — é decisão de classe, não reparo pontual.",
+      "verified_at": "2026-08-16",
       "add_results": [
         { "candidate": "Flávio Bolsonaro", "party": "PL", "pct": 31.2 },
         { "candidate": "Clariana Barão", "party": "DC", "pct": 0.7 },
@@ -15,7 +15,7 @@
         { "candidate": "Leonardo Avalanche", "party": "PRTB", "pct": 0.5 },
         { "candidate": "Samara Martins", "party": "UP", "pct": 0.2 }
       ],
-      "set": { "blank_null_pct": 2.3, "undecided_pct": 9.6 },
+      "set": { "others_pct": null, "blank_null_pct": 2.3, "undecided_pct": 9.6 },
       "expect_sum": 100.0
     },
     {
@@ -28,11 +28,21 @@
     },
     {
       "match": { "tse_registration": "PI-06473/2026", "race": "senador", "round": 1 },
-      "defect": "Mesmo defeito do agregador: 'DEM' para Ravenna Castro num campo de julho/2026.",
+      "defect": "O v2/cenarios do Poder360 descartou CINCO das onze linhas de candidato ao Senado, não uma. Chegam 6 candidatos somando 81%; o relatório do instituto publica 11 somando 87%. Faltam Antonio Barros (Novo) 2%, Dionísio Piauí (DC) 1%, Ravenna Castro (Democratas) 1%, Antonio José Lira (Avante) 1% e Major Paulo Roberto (Mobiliza) 1%. Os descartes NÃO seguem um piso de percentual — Antonio Barros com 2% saiu e Jorge Lopes com 1% ficou —, o que é evidência positiva do defeito conhecido de linha com campo 'nome' vazio, e não de um corte editorial da fonte. Este reparo antes só tentava corrigir o PARTIDO de Ravenna Castro, uma candidata que não estava na pesquisa: corrigia nada, e corrigiu nada desde que foi escrito.",
       "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtime-governo-piaui-14jul26.pdf",
-      "evidence": "Relatório Real Time Big Data, lista de candidatos ao Senado: 'Ravenna Castro (Democratas)' (três ocorrências, entre 'Jorge Lopes (PSDB)' e 'Antonio José Lira (Avante)'). O instituto escreve no plural; o partido registrado é Democrata. PDF sem camada de texto; lido por OCR.",
-      "verified_at": "2026-08-15",
-      "set_party": [{ "candidate": "Ravenna Castro", "party": "Democrata" }]
+      "evidence": "Relatório Real Time Big Data (Piauí), p.31, 'CENARIO 01 - CONSOLIDADOS PRIMEIRO E SEGUNDO VOTOS E REDUZIDOS PARA 100%' — a única vista do Senado que fecha em 100% e a mesma base das 6 linhas que já temos (28/21/21/7/3/1): Marcelo Castro (MDB) 28, Ciro Nogueira (PP) 21, Júlio Cesar (PSD) 21, Tiago Junqueira (PL) 7, Francinaldo Leão (Psol) 3, Antonio Barros (Novo) 2, Dionísio Piauí (DC) 1, Jorge Lopes (PSDB) 1, Ravenna Castro (Democratas) 1, Antonio José Lira (Avante) 1, Major Paulo Roberto (Mobiliza) 1, Nulo/Branco 6, NS/NR 7. Especificações (p.2): 1.600 entrevistas, margem +/- 2.0 p.p., campo 11 a 13 de julho de 2026; registro PI-06473/2026 na capa — todos conferem com o que já temos. O Senado elege 2 por estado, mas ESTE relatório normaliza para 100% (o próprio título diz 'reduzidos para 100%'), então não há tabela de ~200% aqui. PDF sem camada de texto; lido por OCR (Vision, pt-BR). LIDO DUAS VEZES, ÀS CEGAS, POR EXTRATORES INDEPENDENTES: as duas leituras batem em todas as 13 linhas. Confirmações aritméticas: as três vistas do Senado fecham em 100; a consolidada é a média das vistas de 1º e 2º voto em todas as 13 linhas (desvio <= 0,5 p.p., arredondando nos dois sentidos); e a geometria das barras (escala linear de 1,868 unidades por ponto, zero em x=29,14) confirma que os 6% e 7% soltos pertencem a Nulo/Branco e NS/NR, não a candidato algum. Rótulo do partido impresso como 'Democratas' (plural): mantida a normalização já decidida para 'Democrata', o partido real ex-PMB renomeado em dez/2025 — ver os reparos PI-05475 e §4 do HANDOFF.",
+      "verified_at": "2026-08-16",
+      "add_results": [
+        { "candidate": "Antonio Barros", "party": "Novo", "pct": 2 },
+        { "candidate": "Dionísio Piauí", "party": "DC", "pct": 1 },
+        { "candidate": "Ravenna Castro", "party": "Democrata", "pct": 1 },
+        { "candidate": "Antonio José Lira", "party": "Avante", "pct": 1 },
+        { "candidate": "Major Paulo Roberto", "party": "Mobiliza", "pct": 1 }
+      ],
+      "set_party": [{ "candidate": "Ravenna Castro", "party": "Democrata" }],
+      "_nota_set_party": "Redundante hoje — 'add_results' já insere Ravenna Castro com 'Democrata'. Mantido de propósito como rede: no dia em que o Poder360 voltar a servir a linha dela, 'add_results' será ignorado (sameCandidate acha a existente) e só o 'set_party' impede que o rótulo errado 'DEM' volte. É fallback, não sobra.",
+      "set": { "others_pct": null, "blank_null_pct": 6, "undecided_pct": 7 },
+      "expect_sum": 100.0
     },
     {
       "match": { "pollster": "Paraná Pesquisas", "race": "governador", "state": "GO", "fieldwork_end": "2025-12-05" },
@@ -41,6 +51,22 @@
       "evidence": "Relatório Paraná Pesquisas (Goiás, dezembro/2025), lido por OCR: 'Telêmaco Brandão | 1,1%' na estimulada cenário 1, sem sigla partidária. Nenhuma sigla de partido aparece em nenhuma página do relatório, para nenhum candidato. Sem fonte primária, o partido fica nulo em vez de afirmar um extinto.",
       "verified_at": "2026-08-15",
       "set_party": [{ "candidate": "Telemaco Brandão", "party": null }]
+    },
+    {
+      "match": { "pollster": "Quaest", "race": "presidente", "state": null, "fieldwork_end": "2025-11-09" },
+      "defect": "O Poder360 serve 'entrevistas' com o separador de milhar já colapsado em ponto decimal: chega o número JSON 2.004 para 2.004 entrevistados. Não é falha do nosso parse — a API entrega assim (verificado direto no endpoint v1). O valor passava por todos os guardas, porque 2.004 é um número finito e positivo, e o site publicava 'amostra 2,004'. Atinge as 10 linhas deste levantamento (1º e 2º turnos).",
+      "source": "https://static.poder360.com.br/2025/12/pesquisa-quaest-nacional-presidente-9.dez_.2025.pdf",
+      "evidence": "Relatório Genial/Quaest, 19ª rodada, p.2 'ESPECIFICAÇÕES TÉCNICAS': '2.004 ENTREVISTAS E MARGEM DE ERRO ESTIMADA DE 2 PONTOS PERCENTUAIS'. A mesma página dá 'DATA DE COLETA 06 A 09/NOVEMBRO', que confere com o campo 2025-11-06→2025-11-09 que já temos, e a margem de 2 pontos confere com margin_of_error=2 — três coincidências que confirmam ser este o relatório desta rodada. PDF sem camada de texto; lido por OCR (Vision, pt-BR). NÃO é 2.004×1000 inferido: é o número impresso pelo instituto. Confirmação independente: a linha da WIKIPÉDIA deste mesmo campo (bcd47ae05745) já trazia 2004. O Poder360 serve 2.004 em TODAS as suas dez linhas deste levantamento — o defeito atinge a fonte inteira aqui, e a confirmação vem de outra fonte, não do agregador.",
+      "verified_at": "2026-08-16",
+      "set": { "sample_size": 2004 }
+    },
+    {
+      "match": { "pollster": "Real Time Big Data", "race": "governador", "state": "RO", "fieldwork_end": "2025-12-10" },
+      "defect": "Mesmo defeito de separador de milhar do Poder360: chega o número JSON 1.2 para 1.200 entrevistados. Esta linha parecia não ter fonte primária — o Poder360 aponta só a página do agregador em source_url, sem integra. Mas o registro nativo IRMÃO (p360-13114, senado, mesmo instituto, mesma UF, mesmo campo de 09→10/12, mesma margem de 3) carrega o relatório do instituto, e o arquivo cobre também o governo. A fonte existia; estava no outro registro do mesmo levantamento.",
+      "source": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-rondonia-governador-10.dez_.2025.pdf",
+      "evidence": "Relatório Real Time Big Data (Rondônia), p.2: '1.200 ENTREVISTAS', 'MARGEM DE ERRO: +/- 3.0 P.P.', 'DATA DE CAMPO: 09 E 10 DE DEZEMBRO DE 2025'. As três informações conferem com o que já temos (fieldwork 2025-12-09→2025-12-10, margin_of_error 3). PDF lido por OCR (Vision, pt-BR). Corroborado pela própria fonte: a linha de senado do mesmo campo já vinha com 1200.",
+      "verified_at": "2026-08-16",
+      "set": { "sample_size": 1200 }
     }
   ]
 }

@@ -33,7 +33,6 @@
 {"candidate_id":"c_878a72b27297","contest":"governador:CE","canonical":"Camilo Santana","aliases":["Camilo Santana"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_93e8d25fd58b","contest":"governador:CE","canonical":"Roberto Cláudio","aliases":["Roberto Cláudio"],"party":"União Brasil","first_seen":"2026-08-14"}
 {"candidate_id":"c_94ff1a7b1341","contest":"governador:CE","canonical":"Elmano Freitas","aliases":["Elmano Freitas"],"party":"PT","first_seen":"2026-08-14"}
-{"candidate_id":"c_c703d80d8f03","contest":"governador:CE","canonical":"poderia votar em todos","aliases":["poderia votar em todos"],"party":null,"first_seen":"2026-08-14"}
 {"candidate_id":"c_ccdd10a0ee1c","contest":"governador:CE","canonical":"Professor Jarir Pereira","aliases":["Professor Jarir Pereira"],"party":"PSOL","first_seen":"2026-08-15"}
 {"candidate_id":"c_2f7efad4dcd0","contest":"governador:DF","canonical":"Celina Leão","aliases":["Celina Leão"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_65c5e1c6f35f","contest":"governador:DF","canonical":"José Roberto Arruda","aliases":["José Roberto Arruda"],"party":"PSD","first_seen":"2026-08-14"}
@@ -893,11 +892,15 @@
 {"candidate_id":"c_e50b26475092","contest":"senador:PE","canonical":"Mendonça Filho","aliases":["Mendonça Filho"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_0fdb571aeed6","contest":"senador:PI","canonical":"Antônio José Lira","aliases":["Antônio José Lira"],"party":"Avante","first_seen":"2026-08-14"}
 {"candidate_id":"c_122c57852d93","contest":"senador:PI","canonical":"Júlio César","aliases":["Júlio César"],"party":"PSD","first_seen":"2026-08-14"}
+{"candidate_id":"c_235d4f6fded8","contest":"senador:PI","canonical":"Dionísio Piauí","aliases":["Dionísio Piauí"],"party":"DC","first_seen":"2026-08-16"}
 {"candidate_id":"c_239fa1c9666f","contest":"senador:PI","canonical":"Pedro Laurentino","aliases":["Pedro Laurentino"],"party":"UP","first_seen":"2026-08-14"}
 {"candidate_id":"c_28ab33749561","contest":"senador:PI","canonical":"Tiago Junqueira","aliases":["Tiago Junqueira"],"party":"PL","first_seen":"2026-08-14"}
+{"candidate_id":"c_3d43ed919ee6","contest":"senador:PI","canonical":"Major Paulo Roberto","aliases":["Major Paulo Roberto"],"party":"Mobiliza","first_seen":"2026-08-16"}
 {"candidate_id":"c_5b30a646220f","contest":"senador:PI","canonical":"Francinaldo Leão","aliases":["Francinaldo Leão"],"party":"PSOL","first_seen":"2026-08-14"}
+{"candidate_id":"c_6c27cd7bac0a","contest":"senador:PI","canonical":"Antonio Barros","aliases":["Antonio Barros"],"party":"Novo","first_seen":"2026-08-16"}
 {"candidate_id":"c_850acc595a0e","contest":"senador:PI","canonical":"Jorge Lopes","aliases":["Jorge Lopes"],"party":"PSDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_bf7ded9e5a43","contest":"senador:PI","canonical":"Marcelo Castro","aliases":["Marcelo Castro"],"party":"MDB","first_seen":"2026-08-14"}
+{"candidate_id":"c_bfdf6d780215","contest":"senador:PI","canonical":"Ravenna Castro","aliases":["Ravenna Castro"],"party":"Democrata","first_seen":"2026-08-16"}
 {"candidate_id":"c_ca7d2fc0efd2","contest":"senador:PI","canonical":"Toim do Frango","aliases":["Toim do Frango"],"party":"Mobiliza","first_seen":"2026-08-14"}
 {"candidate_id":"c_d3c44120608c","contest":"senador:PI","canonical":"Ciro Nogueira","aliases":["Ciro Nogueira"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_fb1e85307edb","contest":"senador:PI","canonical":"Joel Rodrigues","aliases":["Joel Rodrigues"],"party":"PP","first_seen":"2026-08-14"}
