@@ -295,15 +295,43 @@ async function main() {
   // the moment it has been renamed to "Zema" — and any accent restored on the
   // first pass is lost on the second. Same defect `candidate-resolve.mjs`
   // records hitting twice: a generator that reads its own output.
+  // THE PARTY TRAVELS WITH THE NAME (criador, 2026-08-16).
+  //
+  // The name alone could not separate two real people. `Álvaro Dias` polled for
+  // the SENATE IN PARANÁ as MDB was folded into `Álvaro Costa Dias`, the PL
+  // candidate for GOVERNOR OF RIO GRANDE DO NORTE — identical ballot names, so
+  // no token rule can reach it, and 24 poll rows took the wrong registration.
+  // The party says MDB × PL and settles it in one comparison.
+  //
+  // The state comes free from the contest key (`race:UF`) and is the other half:
+  // it is what tells `senador:PR` from `governador:RN`, and equally what
+  // CONFIRMS `Carlos Brandão` — polled for the senate in Maranhão, registered
+  // for governor of Maranhão, the incumbent moving between offices in his own
+  // state.
+  //
+  // Stored as an object per name rather than a bare string. `match-ballot-names`
+  // still accepts the old string form, because this file is build output that a
+  // clone will not have until the first scrape.
   const crus = {};
   for (const p of polls) {
     const k = `${p.race}:${p.state ?? "BR"}`;
-    (crus[k] ??= []).push(...p.results.map((r) => r.candidate));
+    const porNome = (crus[k] ??= new Map());
+    for (const r of p.results) {
+      if (!porNome.has(r.candidate)) porNome.set(r.candidate, new Set());
+      // `party_raw` is what the source said; the canonical label is derived and
+      // would hide a genuine disagreement between two institutes.
+      if (r.party_raw ?? r.party) porNome.get(r.candidate).add(r.party_raw ?? r.party);
+    }
   }
   fs.writeFileSync(
     path.join(ROOT, "data", "nomes-crus.json"),
     JSON.stringify(
-      Object.fromEntries(Object.entries(crus).map(([k, v]) => [k, [...new Set(v)].sort()])),
+      Object.fromEntries(Object.entries(crus).map(([k, m]) => [
+        k,
+        [...m.entries()]
+          .sort((a, b) => a[0].localeCompare(b[0], "pt-BR"))
+          .map(([nome, partidos]) => ({ nome, partidos: [...partidos].sort() })),
+      ])),
       null, 1) + "\n",
   );
 

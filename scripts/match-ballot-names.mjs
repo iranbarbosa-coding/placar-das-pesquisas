@@ -148,14 +148,19 @@ function main() {
   // The names exactly as the institutes published them, dumped by `scrape.mjs`
   // before it canonicalises anything. Reading the canonicalised output instead
   // makes this script eat its own tail — see the note at that dump site.
+  // `nomes-crus.json` carries `{nome, partidos}` per name since 16/08. The bare
+  // string form is still accepted: the file is build output, so a clone has the
+  // old shape until its first scrape, and a matcher that threw on it would fail
+  // for a reason that has nothing to do with names.
   const polled = new Map();
   for (const [contest, nomes] of Object.entries(JSON.parse(fs.readFileSync(CRUS, "utf-8")))) {
-    polled.set(contest, new Set(nomes));
+    polled.set(contest, nomes.map((n) => (typeof n === "string" ? { nome: n, partidos: [] } : n)));
   }
 
   const mapping = {};
   const stats = { exato: 0, contencao: 0, outra_disputa: 0, ambiguo: 0, sem: 0 };
   const ambiguos = [];
+  const conflitosPartido = [];
 
   for (const [contest, nomes] of polled) {
     // A PRESIDENTIAL CANDIDACY IS NATIONAL, SO EVERY PRESIDENTIAL CONTEST SHARES
@@ -184,7 +189,8 @@ function main() {
     // stays `presidente:MG` and stays out of the national average.
     const lista = byContest.get(contest)
       ?? (contest.startsWith("presidente:") ? byContest.get("presidente:BR") ?? [] : []);
-    for (const nome of nomes) {
+    const ufPesquisa = contest.split(":")[1] ?? "BR";
+    for (const { nome, partidos } of nomes) {
       const exato = lista.filter((c) => norm(c.nome_urna_raw) === norm(nome));
       if (exato.length === 1) {
         add(mapping, contest, nome, exato[0], "exato");
@@ -282,16 +288,70 @@ function main() {
             // having — they belong in `data/candidate-rulings.json`, where a
             // human states the identity and cites why, which is exactly what
             // CONVENTIONS §4 means by refusing ambiguity instead of resolving it.
-            const confirmaUrna = contido(pt, bt) || contido(bt, pt);
+            // A SHARED SURNAME COUNTS ONLY INSIDE ONE STATE.
+            //
+            // On tokens alone the surname clause was undecidable, and removing
+            // it was right at the time: `Carlos Brandão → Orleans Brandão` (the
+            // same man) and `José Guimarães → Alexandre Guimarães` (two men) are
+            // token-identical and opposite in truth. Nothing in the strings
+            // separates them.
+            //
+            // The state does. Brandão is MA → MA: the incumbent governor polled
+            // for the senate in his own state. Guimarães is CE → TO: a Ceará PT
+            // deputy against an MDB senator in Tocantins. So the clause comes
+            // back, admitted ONLY when both sides are state-level and agree —
+            // which is the evidence the tokens never had, not a threshold tuned
+            // until the answer looked right.
+            const mesmoEstado = ufPesquisa !== "BR" && c.uf === ufPesquisa;
+            const confirmaUrna = contido(pt, bt) || contido(bt, pt)
+              || (mesmoEstado && bt.has(ptArr[ptArr.length - 1]));
             if (!confirmaUrna) continue;
+
+            // A STATE CANDIDACY CANNOT BE A DIFFERENT STATE'S (criador, 16/08).
+            //
+            // This is what the tokens could never reach: `Álvaro Dias` polled
+            // for the SENATE IN PARANÁ and `ÁLVARO DIAS` registered for GOVERNOR
+            // OF RIO GRANDE DO NORTE have IDENTICAL ballot names, so mutual
+            // containment passes and both misfire guards above wave it through.
+            // The states differ and that ends it — 24 poll rows that were
+            // carrying the wrong `sq_candidato`, `partido` and `numero`.
+            //
+            // It also CONFIRMS rather than merely blocks: `Carlos Brandão`,
+            // polled for the senate in Maranhão and registered for governor of
+            // Maranhão, is the incumbent moving between offices in his own
+            // state. He was lost when the surname clause came out; the state
+            // agreement is the positive evidence that brings him back.
+            //
+            // National candidacies are exempt at BOTH ends, and must be: the
+            // register files presidential rows with `uf` null, and presidential
+            // polling also exists as `presidente:BR`. Requiring a state match
+            // there would refuse Tarcísio (`presidente:BR` → `governador:SP`),
+            // which is the case this whole fallback was built for.
+            if (ufPesquisa !== "BR" && c.uf && c.uf !== ufPesquisa) continue;
 
             const pessoa = norm(c.nome_completo) || `sq:${c.sq_candidato}`;
             if (!pessoas.has(pessoa)) pessoas.set(pessoa, c);
           }
         }
         if (pessoas.size === 1) {
-          add(mapping, contest, nome, [...pessoas.values()][0], "outra-disputa");
+          const alvo = [...pessoas.values()][0];
+          add(mapping, contest, nome, alvo, "outra-disputa");
           stats.outra_disputa++;
+          // PARTY IS REPORTED, NOT ENFORCED — and that is a measured choice.
+          //
+          // Refusing on a party mismatch would block `Álvaro Dias`, but the
+          // state rule above already does, and party would ALSO kill six real
+          // party SWITCHES: Simone Tebet (MDB→PSB), Sergio Moro (União→PL),
+          // Fernando Máximo, Vicentinho Júnior, Cristina Graeml, and it misreads
+          // "Sem partido" as a conflict. A poll keeps the party it was taken
+          // with, and people change parties between a poll and a registration —
+          // so a mismatch is evidence, not a verdict. It is surfaced for a
+          // ruling instead of silently deciding.
+          const pp = (partidos ?? []).map(norm).filter(Boolean);
+          const rp = norm(alvo.partido ?? "");
+          if (pp.length && rp && !pp.includes(rp)) {
+            conflitosPartido.push({ contest, nome, urna: alvo.nome_urna, pesquisa: partidos, registro: alvo.partido });
+          }
         } else if (pessoas.size > 1) {
           stats.ambiguo++;
           ambiguos.push({
@@ -350,6 +410,7 @@ function main() {
     gerado_de: "consulta_cand_2026 (TSE Dados Abertos)",
     stats,
     ambiguos,
+    conflitos_partido: conflitosPartido,
     mapping,
   };
   fs.writeFileSync(out, JSON.stringify(payload, null, 1) + "\n");
@@ -357,6 +418,13 @@ function main() {
   console.log(`nomes de urna mapeados → ${path.relative(ROOT, out)}`);
   console.log(`  exatos: ${stats.exato} · por contenção: ${stats.contencao} · ` +
     `AMBÍGUOS (não mapeados): ${stats.ambiguo} · sem candidatura (mantidos): ${stats.sem}`);
+  if (conflitosPartido.length) {
+    console.log(`  AVISO: ${conflitosPartido.length} resolução(ões) entre disputas com partido divergente ` +
+      `(reportadas, não recusadas — pode ser troca de partido ou pessoa errada):`);
+    for (const c of conflitosPartido.slice(0, 12)) {
+      console.log(`   partido — ${c.contest} "${c.nome}" pesquisa=${c.pesquisa.join("/")} × registro=${c.registro} → ${c.urna}`);
+    }
+  }
   for (const a of ambiguos.slice(0, 10)) {
     console.log(`   ambíguo — ${a.contest} "${a.nome}" ~ ${a.candidatos.join(" / ")} (${a.motivo})`);
   }
