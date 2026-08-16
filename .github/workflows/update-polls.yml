@@ -50,8 +50,23 @@ jobs:
       # "one fieldwork operation = one survey" decision actually applied.
       # `scripts/upsert-vs-migration.mjs` is the gate that held the two paths
       # to each other before the switch and still runs below.
+
+      # O registro de candidaturas ANTES da coleta: o nome de urna é o que o
+      # site normaliza, então ele tem de estar atualizado quando o coletor
+      # canonicaliza os nomes. Substituições e indeferimentos correm até
+      # setembro, então isto não é uma carga única.
+      - name: Atualizar o registro de candidaturas do TSE
+        run: node scripts/fetch-candidaturas.mjs
+
       - name: Coletar, normalizar e gravar o store
         run: node scripts/scrape.mjs
+
+      # DEPOIS da coleta, não antes: o casador lê `data/nomes-crus.json`, que o
+      # coletor grava com os nomes como o instituto publicou, antes de
+      # canonicalizar. Lendo a saída canonicalizada ele encolheria a própria
+      # tabela a cada rodada. O mapa gerado aqui vale para a rodada seguinte.
+      - name: Casar nomes de urna com os nomes das pesquisas
+        run: node scripts/match-ballot-names.mjs
 
       - name: Derivar data/polls.json do store
         run: node scripts/derive-polls.mjs
@@ -102,10 +117,10 @@ jobs:
         run: |
           git config user.name "placar-bot"
           git config user.email "actions@github.com"
-          if git diff --quiet data/ PESQUISAS_INCOMPLETAS.md; then
+          if git diff --quiet data/ PESQUISAS_INCOMPLETAS.md CENSO_BANCO.md; then
             echo "Sem pesquisas novas."
           else
-            git add data/ PESQUISAS_INCOMPLETAS.md
+            git add data/ PESQUISAS_INCOMPLETAS.md CENSO_BANCO.md
             git commit -m "dados: atualização automática $(date -u +%F' '%H:%M) UTC"
             git push
           fi

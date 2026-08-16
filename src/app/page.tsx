@@ -1,102 +1,58 @@
-import Link from "next/link";
-import AverageChart from "@/components/AverageChart";
-import { AverageCaption } from "@/components/AverageCaption";
-import { toBasis } from "@/lib/validos";
-import { latestPolls, scenarioGroups, statesWithPolls, fmtDate } from "@/lib/data";
-import { UF_NAMES } from "@/lib/types";
+import Hero from "@/components/Hero";
+import RunoffCarousel from "@/components/RunoffCarousel";
+import StateRail from "@/components/StateRail";
+import MatchupRows from "@/components/MatchupRows";
+import LatestPollsTable from "@/components/LatestPollsTable";
+import { heroRace, runoffCards, stateRail, matchupRows, latestForTable } from "@/lib/home";
 
+/**
+ * The front page, in six bands.
+ *
+ * The shape is RealClearPolitics': masthead, a hero that takes most of the first
+ * screen, a card carousel, then a two-column body with the state rail on the
+ * right, matchup bars and the dense latest-polls table.
+ *
+ * ONE RACE GETS THE FRONT PAGE. That is the deliberate cost of the hero — the
+ * presidential first round occupies the fold, and everything else earns its way
+ * below it. The alternative, a grid of equal cards, tells a reader nothing about
+ * what matters today.
+ *
+ * Every number here is on votos válidos and there is no basis toggle: the toggle
+ * lives on the race pages where there is room to explain what the other cut
+ * means. Senate figures pass through unconverted and say so.
+ */
 export default function Home() {
-  const pres = scenarioGroups("presidente", null, 1);
-  const main = pres[0];
-  const avg = main?.average ?? null;
-  const recent = latestPolls(15);
-  const states = statesWithPolls().slice(0, 9);
+  const hero = heroRace();
+  const cards = runoffCards(5);
+  const rail = stateRail();
+  const matchups = matchupRows();
+  const latest = latestForTable(40);
 
   return (
-    <div className="space-y-10">
-      <section>
-        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-          <h1 className="text-2xl font-bold">Corrida presidencial</h1>
-          <Link href="/presidente" className="text-sm font-medium hover:underline" style={{ color: "var(--accent)" }}>
-            Ver todos os cenários e o 2º turno →
-          </Link>
-        </div>
-        {avg ? (
-          /* Válidos, and NO toggle here. The toggle belongs on the race page,
-             where there is room to explain what the other cut means; a control
-             on the front page would invite a switch whose consequences are
-             off-screen. The basis is stated in the caption instead. */
-          <figure className="card m-0 p-3">
-            <AverageChart average={avg} title={`Média nacional · ${main.scenario}`} />
-            <AverageCaption average={avg} />
-          </figure>
-        ) : (
-          <p className="card p-4 text-sm" style={{ color: "var(--text-secondary)" }}>
-            Sem pesquisas presidenciais carregadas ainda.
-          </p>
-        )}
-      </section>
+    <>
+      {/* Full-bleed, so it must sit outside the page container. */}
+      <Hero
+        average={hero?.average ?? null}
+        headline={hero?.headline ?? null}
+        scenario={hero?.scenario}
+      />
 
-      <section>
-        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="text-xl font-bold">Últimas pesquisas publicadas</h2>
-          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-            em votos válidos · Senado em números brutos
-          </span>
-        </div>
-        <div className="card overflow-x-auto">
-          <table className="w-full min-w-[560px] text-sm">
-            <tbody>
-              {recent.map((raw) => {
-                // Converted individually, exactly as the averages are — the
-                // front page must not show a poll on a different basis from the
-                // race page it links to. `toBasis` leaves senate polls alone.
-                const p = toBasis(raw, "validos");
-                return (
-                <tr key={p.id} className="border-b last:border-0" style={{ borderColor: "var(--grid)" }}>
-                  <td className="whitespace-nowrap px-3 py-2 text-xs" style={{ color: "var(--text-muted)" }}>
-                    {fmtDate(p.fieldwork_end ?? p.published_date)}
-                  </td>
-                  <td className="px-3 py-2 font-medium">{p.pollster}</td>
-                  <td className="px-3 py-2 text-xs" style={{ color: "var(--text-secondary)" }}>
-                    {p.race === "presidente"
-                      ? `Presidente · ${p.round}º turno`
-                      : `${p.race === "governador" ? "Governador" : "Senado"} · ${p.state}`}
-                  </td>
-                  <td className="px-3 py-2 text-xs" style={{ color: "var(--text-secondary)" }}>
-                    {p.results
-                      .slice(0, 3)
-                      .map((r) => `${r.candidate.split(" ")[0]} ${r.pct.toFixed(0)}%`)
-                      .join(" · ")}
-                  </td>
-                </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <div className="space-y-12">
+        {cards.length ? (
+          <RunoffCarousel cards={cards} title="Confrontos de 2º turno" />
+        ) : null}
 
-      <section>
-        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="text-xl font-bold">Estados com mais pesquisas</h2>
-          <Link href="/estados" className="text-sm font-medium hover:underline" style={{ color: "var(--accent)" }}>
-            Todos os 27 →
-          </Link>
+        {/* Two columns below the hero: the body, then the state rail. On phones
+            the rail stacks under the content rather than ahead of it — a reader
+            arriving on a phone wants the race before the index. */}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="space-y-12">
+            <MatchupRows rows={matchups} />
+            <LatestPollsTable rows={latest} />
+          </div>
+          <StateRail items={rail} />
         </div>
-        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {states.map((s) => (
-            <li key={s.uf}>
-              <Link href={`/estados/${s.uf.toLowerCase()}`} className="card block p-3 transition-opacity hover:opacity-80">
-                <span className="text-sm font-semibold">{UF_NAMES[s.uf]}</span>
-                <span className="mt-0.5 block text-xs" style={{ color: "var(--text-muted)" }}>
-                  {s.count} pesquisa{s.count === 1 ? "" : "s"} · última {fmtDate(s.latest)}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
+      </div>
+    </>
   );
 }

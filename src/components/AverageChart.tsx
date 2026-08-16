@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { colorMap, PALETTE } from "@/lib/colors";
 import { candKey } from "@/lib/average";
 import type { RaceAverage } from "@/lib/types";
 import type { Basis } from "@/lib/validos";
@@ -103,39 +104,10 @@ function clamp(v: number, lo: number, hi: number): number {
 }
 
 // ── deterministic colour ──────────────────────────────────────────────────
-const PALETTE = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => `var(--series-${i})`);
-
-/** FNV-1a over the normalized name. Stable across renders, builds and machines. */
-function hashName(key: string): number {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < key.length; i++) {
-    h ^= key.charCodeAt(i);
-    h = Math.imul(h, 0x01000193) >>> 0;
-  }
-  return h >>> 0;
-}
-
-/**
- * Name → palette slot. Each name picks its own slot by hash; a slot already
- * taken is resolved by probing forward. Assignment runs in name order (never
- * average order) so the same set of candidates always yields the same map no
- * matter how the averages have moved since the last build.
- */
-function assignColors(keys: string[]): Map<string, string> {
-  const taken = new Array<boolean>(PALETTE.length).fill(false);
-  const out = new Map<string, string>();
-  const order = [...keys].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
-  for (const k of order) {
-    if (out.has(k)) continue;
-    let slot = hashName(k) % PALETTE.length;
-    for (let step = 0; step < PALETTE.length && taken[slot]; step++) {
-      slot = (slot + 1) % PALETTE.length;
-    }
-    taken[slot] = true;
-    out.set(k, PALETTE[slot]);
-  }
-  return out;
-}
+// Palette, hash and slot assignment live in `@/lib/colors` — see the note
+// there on why probing makes the KEY SET part of the answer, and why three
+// private copies of this could give one candidate two colours on one page.
+const assignColors = (keys: string[]) => colorMap(keys);
 
 // ── label placement ───────────────────────────────────────────────────────
 /**

@@ -17,6 +17,7 @@ import { fileURLToPath } from "node:url";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-aliases.json");
 const RULINGS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-rulings.json");
+const BALLOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "ballot-names.json");
 
 const norm = (s) => (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 
@@ -42,6 +43,37 @@ function table() {
       for (const n of r.names ?? []) display.set(`${r.contest}|${norm(n)}`, r.canonical);
     }
   } catch { /* rulings are optional */ }
+  // THE OFFICIAL BALLOT NAME, applied under the creator's own rulings.
+  //
+  // (Iran, 2026-08-16) The nome de urna is what the site normalises on: it is
+  // the string on the voting machine, not a judgement about what to call
+  // someone. `data/ballot-names.json` holds only the unambiguous matches —
+  // exact, or containment onto exactly one candidacy — and everything else
+  // keeps whatever name it has today.
+  //
+  // ORDER MATTERS, and this sits BELOW the rulings written after it. A ruling
+  // is a decision about WHO SOMEONE IS ("these two names are one person",
+  // "these two are not"), which no register can overrule; the ballot name only
+  // decides WHAT TO CALL a person already identified. Putting the register on
+  // top would let a name match quietly undo a hand-decided identity.
+  try {
+    const ballot = JSON.parse(fs.readFileSync(BALLOT, "utf-8"));
+    for (const [contest, nomes] of Object.entries(ballot.mapping ?? {})) {
+      for (const [key, info] of Object.entries(nomes)) {
+        if (info?.nome_urna) display.set(`${contest}|${key}`, info.nome_urna);
+      }
+    }
+  } catch { /* the register is optional; the site predates it */ }
+
+  // Rulings again, LAST, so a creator decision outranks the register.
+  try {
+    const ruled = JSON.parse(fs.readFileSync(RULINGS, "utf-8"));
+    for (const r of ruled.rulings ?? []) {
+      if (r.verdict !== "MESMA" || !r.canonical) continue;
+      for (const n of r.names ?? []) display.set(`${r.contest}|${norm(n)}`, r.canonical);
+    }
+  } catch { /* rulings are optional */ }
+
   for (const d of spec.distinct ?? []) {
     const [a, b] = (d.names ?? []).map(norm).sort();
     if (a && b) distinct.add(`${d.contest}|${a}|${b}`);

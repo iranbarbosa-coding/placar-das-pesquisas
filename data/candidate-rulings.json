@@ -88,6 +88,22 @@
     "https://www.capitalnews.com.br/politica-e-poder/politica/agir-registra-jeferson-bezerra-e-valdenir-duarte-na-disputa-pelo-governo-de-mato-grosso-do-sul/445343",
     "https://www.campograndenews.com.br/politica/plano-de-jeferson-bezerra-ao-governo-chega-ao-tse-com-metas-ainda-a-definir"
    ]
+  },
+  {
+   "contest": "governador:RN",
+   "verdict": "MESMA",
+   "canonical": "Cadu de Lula",
+   "names": [
+    "Cadu Xavier",
+    "Cadu de Lula"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-16",
+   "evidence": "As pesquisas testam 'Cadu Xavier'; o registro do TSE traz o mesmo homem como 'CADU DE LULA' (PT, nº 13, SQ_CANDIDATO 200002534001), com nome civil 'Carlos Eduardo Xavier'. 'Cadu' é a abreviação corrente de Carlos Eduardo no Brasil, e o sobrenome Xavier fecha a identificação: é o único candidato a governador do RN com esse nome civil. Não largou a disputa — mudou o nome de urna.",
+   "overrides": "O casamento automático NÃO alcança este caso, e não deveria: 'Cadu Xavier' e 'Carlos Eduardo Xavier' não partilham nenhum token, porque 'Cadu' é apelido e não abreviatura de string. Nenhum limiar de similaridade chega lá sem também juntar gente que não deve ser juntada — foi assim que 'Ciro' virou 'Ciro Nogueira' e um Bolsonaro virou outro. Os dois irmãos deste caso no RN ('Samanda Alves' → 'Samanda de Lula', 'Luciana Lima' → 'Luciana Mandu') o casador resolveu sozinho, porque ali o nome civil contém o sobrenome que a pesquisa usa. Este exigia uma pessoa.",
+   "sources": [
+    "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip (consulta_cand_2026_RN.csv)"
+   ]
   }
  ]
 }

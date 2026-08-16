@@ -284,6 +284,29 @@ async function main() {
 
   polls = keepFullestRound1(polls);
   polls = canonicalizeParties(polls);
+
+  // THE RAW NAMES, SAVED BEFORE WE TOUCH THEM.
+  //
+  // `match-ballot-names.mjs` has to compare what the institute published against
+  // the TSE register, and after this next line that string no longer exists
+  // anywhere: `polls.json` holds the canonical name and even the store's
+  // `name_raw` is written post-canonicalisation. Re-running the matcher without
+  // this therefore SHRINKS its own table — "Romeu Zema" stops being in the input
+  // the moment it has been renamed to "Zema" — and any accent restored on the
+  // first pass is lost on the second. Same defect `candidate-resolve.mjs`
+  // records hitting twice: a generator that reads its own output.
+  const crus = {};
+  for (const p of polls) {
+    const k = `${p.race}:${p.state ?? "BR"}`;
+    (crus[k] ??= []).push(...p.results.map((r) => r.candidate));
+  }
+  fs.writeFileSync(
+    path.join(ROOT, "data", "nomes-crus.json"),
+    JSON.stringify(
+      Object.fromEntries(Object.entries(crus).map(([k, v]) => [k, [...new Set(v)].sort()])),
+      null, 1) + "\n",
+  );
+
   polls = canonicalizeCandidates(polls);
   polls = dropExactDuplicates(polls);
 
