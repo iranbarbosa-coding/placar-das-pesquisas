@@ -615,6 +615,27 @@ every validator here has a `--self-test` for that reason.
 
 1. **Vercel import.** The repo is public and pushed; only the Vercel side is
    missing, and it needs your login. Nothing else blocks the site going live.
+   **Readiness was verified end-to-end on 2026-08-16** against a fresh clone of
+   what is actually on GitHub — which is what Vercel builds, and the only way to
+   catch something accidentally gitignored: `npm install && next build` gives
+   **38 pages**, all nine `data/*.ndjson` files are tracked, `.next` is not
+   committed, and no build-time secret is needed. `vercel.json` already sets
+   `framework: nextjs`, `github.silent`, and the `ignoreCommand`;
+   `scripts/vercel-ignore.sh` was tested at clone depth 2 (exit 1 → builds) and
+   at depth 1 where `HEAD^` does not exist (exit 128 → still builds). It fails
+   OPEN, which is the safe direction — a broken hook over-builds rather than
+   silently skipping a data update.
+   ⚠ **NAME THE VERCEL PROJECT `placar-das-pesquisas`.** `src/app/sitemap.ts:4`
+   and `src/app/robots.ts:3` fall back to
+   `https://placar-das-pesquisas.vercel.app` when `NEXT_PUBLIC_SITE_URL` is
+   unset. A project named anything else ships a sitemap and robots.txt pointing
+   at a domain that is not the site — wrong in a way nothing in the build fails
+   on, and that search engines act on. If the name has to differ, or a custom
+   domain is attached, set `NEXT_PUBLIC_SITE_URL` in the Vercel project's
+   environment variables and redeploy.
+   Note the update mechanism after import: the Action commits twice a day, each
+   commit triggers a build through the ignore hook, and that build is how new
+   polls reach the site.
 2. **`PESQUISAS_INCOMPLETAS.md`** — 68 polls gated out of the averages, 55 with
    the institute's own PDF linked. Three tickboxes each: repair (the report
    shows the missing candidates → `data/repairs.json`, poll returns to the
