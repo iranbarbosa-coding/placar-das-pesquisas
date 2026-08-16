@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-08-16T20:07:52.838Z",
+ "generated_at": "2026-08-16T22:35:36.254Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-16T20:07:52.838Z"
+   "last_ok": "2026-08-16T22:35:36.254Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-16T20:07:52.838Z"
+   "last_ok": "2026-08-16T22:35:36.254Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-16T20:07:52.838Z"
+   "last_ok": "2026-08-16T22:35:36.254Z"
   }
  ],
  "polls": [
@@ -42354,39 +42354,6 @@
    "tse_registration": null
   },
   {
-   "id": "1e503fa0ba84",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Cadu de Lula",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 54
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 14.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "2737e2b2a7ac",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -42536,35 +42503,35 @@
    "tse_registration": null
   },
   {
-   "id": "48257799fe92",
+   "id": "43cca2861181",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Álvaro Dias",
-   "pollster": "Veritá",
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Agorasei",
    "contractor": null,
-   "fieldwork_start": "2026-05-27",
+   "fieldwork_start": "2026-05-28",
    "fieldwork_end": "2026-05-31",
    "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Allyson",
      "party": "União Brasil",
-     "pct": 36.3
+     "pct": 54
     },
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 38.2
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 14.9
     }
    ],
    "others_pct": null,
-   "undecided_pct": 24.5,
+   "undecided_pct": 31.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -42603,39 +42570,6 @@
    ],
    "others_pct": 1.9,
    "undecided_pct": 14.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "654afb7a6910",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Álvaro Dias",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 48.1
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 25.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -42842,39 +42776,6 @@
    "tse_registration": null
   },
   {
-   "id": "851c2f691a11",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Cadu de Lula",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-05-27",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 37.8
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 28.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "95251978adc0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -43024,6 +42925,39 @@
    "tse_registration": null
   },
   {
+   "id": "b5ed0c8c9b33",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 37.8
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 28.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "bccebe5915d7",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -43058,6 +42992,72 @@
    ],
    "others_pct": 10.1,
    "undecided_pct": 37.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c27e0ec1e793",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 36.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 38.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "da87dc73c89a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "Agorasei",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 48.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 25.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -93252,39 +93252,6 @@
    "tse_registration": null
   },
   {
-   "id": "01b5b60f0e87",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Cadu de Lula",
-   "pollster": "TCM/TSDois",
-   "contractor": null,
-   "fieldwork_start": "2025-12-09",
-   "fieldwork_end": "2025-12-13",
-   "published_date": null,
-   "sample_size": 1870,
-   "margin_of_error": 2.3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 41.9
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 11.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 44.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "38be15ed1d5b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -93318,14 +93285,47 @@
    "tse_registration": null
   },
   {
-   "id": "3ff7dbfd76ef",
+   "id": "77af21a1ab22",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Álvaro Dias",
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "TCM/TSDois",
+   "contractor": null,
+   "fieldwork_start": "2025-12-09",
+   "fieldwork_end": "2025-12-13",
+   "published_date": null,
+   "sample_size": 1870,
+   "margin_of_error": 2.3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 11.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 44.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "92f97690f506",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
    "pollster": "TCM/TSDois",
    "contractor": null,
    "fieldwork_start": "2025-12-09",
@@ -103326,39 +103326,6 @@
    "tse_registration": null
   },
   {
-   "id": "221854938c8d",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson Bezerra e Cadu de Lula",
-   "pollster": "Paraná Pesquisas",
-   "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2025-09-06",
-   "fieldwork_end": "2025-09-10",
-   "published_date": "2025-09-10",
-   "sample_size": 1505,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 57.2
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 16.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "278779f0b50e",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
@@ -103431,6 +103398,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 32.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f6b9ab65eb5c",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": "2025-09-06",
+   "fieldwork_end": "2025-09-10",
+   "published_date": "2025-09-10",
+   "sample_size": 1505,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 57.2
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 16.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26.5,
    "blank_null_pct": null,
    "tse_registration": null
   },

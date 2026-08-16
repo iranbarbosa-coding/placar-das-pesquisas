@@ -263,7 +263,7 @@ Soma **51.1%** · faltam **48.9 pontos** · 5 candidato(s) na tabela · amostra 
 | Dorinha Rezende | 12.38 |
 | Vicentinho Júnior | 7.79 |
 | Laurez Moreira | 6 |
-| Ataídes Oliveira | 1 |
+| Ataides de Oliveira | 1 |
 | Amélio Cayres | 0.63 |
 | *outros* | 6.28 |
 | *não sabe/não respondeu* | 17 |
@@ -342,8 +342,8 @@ Soma **58.4%** · faltam **41.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Allyson Bezerra | 21.2 |
-| Cadu Xavier | 14.4 |
+| Allyson | 21.2 |
+| Cadu de Lula | 14.4 |
 | *branco/nulo* | 6.6 |
 | *não sabe/não respondeu* | 16.2 |
 
@@ -491,8 +491,8 @@ Soma **63.4%** · faltam **36.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Allyson Bezerra | 38.8 |
-| Cadu Xavier | 13.2 |
+| Allyson | 38.8 |
+| Cadu de Lula | 13.2 |
 | *não sabe/não respondeu* | 11.4 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
@@ -508,9 +508,9 @@ Soma **64%** · faltam **36 pontos** · 6 candidato(s) na tabela · amostra 1000
 | candidato | % |
 |---|---|
 | Fábio Trad | 18 |
-| Delcídio do Amaral | 7 |
+| Delcidio Amaral | 7 |
 | João Henrique Catan | 5.6 |
-| Renato Gomes | 5 |
+| Economista Renato Gomes | 5 |
 | Jeferson Bezerra | 0.8 |
 | Lucien Rezende | 0.6 |
 | *branco/nulo* | 14 |
@@ -678,7 +678,7 @@ Soma **72%** · faltam **28 pontos** · 3 candidato(s) na tabela · amostra 2400
 
 | candidato | % |
 |---|---|
-| Fábio Mitidieri | 38.94 |
+| Fábio | 38.94 |
 | Valmir de Francisquinho | 28.76 |
 | Ricardo Marques | 4.28 |
 
@@ -758,20 +758,6 @@ Soma **75%** · faltam **25 pontos** · 4 candidato(s) na tabela · amostra 1104
 
 ## Governador · Paraíba
 
-### Índice — 2026-05-29
-
-Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 2000
-
-| candidato | % |
-|---|---|
-| Cícero Lucena | 34.3 |
-| Lucas Ribeiro | 26.6 |
-| Efraim Filho | 15.1 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ### DataTrends — 2026-07-29
 
 Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 1200 · registro PB-09547/2026
@@ -786,6 +772,20 @@ Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 1200
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+### Índice — 2026-05-29
+
+Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 2000
+
+| candidato | % |
+|---|---|
+| Cícero Lucena | 34.3 |
+| Lucas Ribeiro | 26.6 |
+| Efraim Filho | 15.1 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Santa Catarina
 
 ### Mapa/Jovem Pan — 2026-06-11
@@ -796,7 +796,7 @@ Soma **76.7%** · faltam **23.3 pontos** · 3 candidato(s) na tabela · amostra 
 |---|---|
 | Jorginho Mello | 54.9 |
 | João Rodrigues | 15.3 |
-| Gelson Merisio | 5.1 |
+| Gelson Merísio | 5.1 |
 | *outros* | 1.4 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina
@@ -844,7 +844,7 @@ Soma **77.6%** · faltam **22.4 pontos** · 4 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Fábio Mitidieri | 40.8 |
+| Fábio | 40.8 |
 | Valmir de Francisquinho | 30.3 |
 | Ricardo Marques | 5.3 |
 | Emanuel Cacho | 0.8 |
@@ -897,11 +897,11 @@ Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Allyson Bezerra | 41.78 |
+| Allyson | 41.78 |
 | Álvaro Dias | 26.05 |
-| Cadu Xavier | 13.74 |
+| Cadu de Lula | 13.74 |
 | Dário Barbosa | 0.49 |
-| Robério Paulino | 0.26 |
+| Professor Roberio Paulino | 0.26 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 
@@ -934,7 +934,7 @@ Soma **83.7%** · faltam **16.3 pontos** · 4 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Fábio Mitidieri | 45.4 |
+| Fábio | 45.4 |
 | Valmir de Francisquinho | 32.2 |
 | Ricardo Marques | 4.5 |
 | Emanuel Cacho | 1 |
@@ -953,7 +953,7 @@ Soma **83.7%** · faltam **16.3 pontos** · 2 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Celina Leão | 43.6 |
-| José Roberto Arruda | 40.1 |
+| Arruda | 40.1 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
 
@@ -996,7 +996,7 @@ Soma **85%** · faltam **15 pontos** · 2 candidato(s) na tabela · amostra 1600
 | candidato | % |
 |---|---|
 | Eduardo Riedel | 55 |
-| Renato Gomes | 17 |
+| Economista Renato Gomes | 17 |
 | *branco/nulo* | 13 |
 
 - Publicação: https://www.poder360.com.br/poder-pesquisas/eduardo-riedel-lidera-disputa-pelo-governo-de-ms-diz-real-time/
@@ -1029,7 +1029,7 @@ Soma **85.3%** · faltam **14.7 pontos** · 3 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Fábio Mitidieri | 46.2 |
+| Fábio | 46.2 |
 | Valmir de Francisquinho | 34 |
 | Ricardo Marques | 5.1 |
 
@@ -1103,7 +1103,7 @@ Soma **87.3%** · faltam **12.7 pontos** · 3 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Valmir de Francisquinho | 44.59 |
-| Fábio Mitidieri | 37.27 |
+| Fábio | 37.27 |
 | Ricardo Marques | 5.41 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
@@ -1138,7 +1138,7 @@ Soma **87.7%** · faltam **12.3 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Valmir de Francisquinho | 39.9 |
-| Fábio Mitidieri | 35.3 |
+| Fábio | 35.3 |
 | Ricardo Marques | 9.8 |
 | Emanuel Cacho | 0.7 |
 | *outros* | 2 |
@@ -1174,11 +1174,11 @@ Soma **88%** · faltam **12 pontos** · 5 candidato(s) na tabela · amostra 1200
 
 | candidato | % |
 |---|---|
-| Daniel Santos | 28 |
+| Dr. Daniel | 28 |
 | Hana Ghassan | 24 |
 | Mário Couto | 8 |
-| Cleber Rabelo | 4 |
-| Araceli Lemos | 2 |
+| Cléber Rabelo | 4 |
+| Araceli | 2 |
 | *não sabe/não respondeu* | 22 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1

@@ -2,8 +2,8 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 278,
-  "contencao": 107,
+  "exato": 279,
+  "contencao": 106,
   "ambiguo": 0,
   "sem": 843
  },
@@ -2265,12 +2265,12 @@
     "numero": "166",
     "origem": "exato"
    },
-   "samanda alves": {
+   "samanda de lula": {
     "nome_urna": "Samanda de Lula",
     "sq_candidato": "200002533841",
     "partido": "PT",
     "numero": "131",
-    "origem": "contencao"
+    "origem": "exato"
    },
    "sandro pimentel": {
     "nome_urna": "Sandro Pimentel",
