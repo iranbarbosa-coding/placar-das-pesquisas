@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { RaceAverage } from "@/lib/types";
-import { fmtDate } from "@/lib/data";
+import { fmtDate } from "@/lib/format";
 
 function pct(v: number): string {
   return `${v.toFixed(1).replace(".", ",")}%`;
@@ -68,6 +68,20 @@ export default function MatchupCard({
       <div className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
         {avg.pollCount} pesquisa{avg.pollCount === 1 ? "" : "s"} mais recente{avg.pollCount === 1 ? "" : "s"} · última em{" "}
         {fmtDate(avg.lastPollDate)}
+        {/* The basis is labelled on EVERY card, not once per page. These cards
+            travel — the homepage shows them, the runoff index shows them, and a
+            reader landing on either has no toggle here to tell them which cut
+            they are looking at. An unlabelled 45,7 is a different claim from a
+            labelled one, and the gap between the bruto and válidos readings of
+            the same poll is several points. */}
+        {avg.basis === "validos" ? (
+          <>
+            {" · "}
+            <span title="Cada candidato sobre o total de votos em candidatos, excluindo branco, nulo e quem não respondeu.">
+              votos válidos
+            </span>
+          </>
+        ) : null}
       </div>
     </Link>
   );

@@ -89,5 +89,24 @@ export interface RaceAverage {
   capRelaxed: boolean;
   /** Polls actually averaged — ≤ windowSize when the seat has fewer. */
   pollCount: number;
+  /**
+   * The ids of exactly those polls, so consumers never re-derive the selection.
+   *
+   * The table needs to know which polls are in the average and which are "fora
+   * da média". Without this it has to mirror `selectWindow` — the per-institute
+   * cap, the backfill to the floor — which is a second copy of a rule that
+   * lives in `average.ts` and drifts the day someone edits the real one. This
+   * repo already keeps `projection-twin-check.mjs` around because exactly that
+   * happened once.
+   */
+  windowPollIds: string[];
   lastPollDate: string | null;
+  /** Which cut these numbers are on. Senate is always "bruto". */
+  basis: import("./validos").Basis;
+  /**
+   * What the valid-vote conversion set aside, averaged over the window: split
+   * into branco/nulo and NS/NR when every poll splits it, combined otherwise.
+   * Reported even on the bruto cut, because it is the same fact either way.
+   */
+  setAside: { blankNull: number | null; undecided: number | null; combined: number | null };
 }

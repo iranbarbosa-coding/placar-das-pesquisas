@@ -4,6 +4,8 @@ import type {
   RaceAverage,
   RaceKey,
 } from "./types";
+import { type Basis, setAside, toBasis } from "./validos";
+import { averageable } from "./senado";
 
 // RCP-style average: for each contest (seat + scenario), the mean of each
 // candidate's numbers across the LATEST_N most recent polls of that contest,
@@ -146,6 +148,7 @@ export function computeAverage(
   key: RaceKey,
   scenario: string,
   polls: Poll[],
+  basis: Basis = "validos",
 ): RaceAverage | null {
   if (!polls.length) return null;
   // Polls incomplete AT SOURCE are gated out. Their published rows do not
@@ -153,9 +156,21 @@ export function computeAverage(
   // including one inflates every candidate still in it. They remain in the
   // database and in the table — see PESQUISAS_INCOMPLETAS.md, which lists each
   // with its source document for an editorial call.
-  const usable = polls.filter((p) => !p.incomplete);
+  // Two gates, both keeping a poll in the DATABASE and out of the AVERAGE:
+  //   `incomplete` — the published rows do not account for the sample, so a
+  //     valid-vote conversion would divide by a hole and inflate everyone left.
+  //   `averageable` — for the Senate, the poll must have asked for BOTH votes.
+  //     A one-vote question is a null statistic in a two-seat contest (Iran,
+  //     2026-08-16); mixing the two conventions made 24 of 27 senate averages
+  //     meaningless. Both kinds still appear in the table, marked, below the
+  //     average.
+  const usable = polls.filter((p) => !p.incomplete && averageable(p));
   if (!usable.length) return null;
-  const sorted = sortPollsDesc(usable);
+  // CONVERT EACH POLL, THEN AVERAGE — never the reverse. Done here, once, so
+  // every number downstream (window, trendline, spread, badge) is on one basis
+  // and no caller can mix cuts. `toBasis` returns senate polls untouched.
+  const converted = usable.map((p) => toBasis(p, basis));
+  const sorted = sortPollsDesc(converted);
   const { window, capRelaxed } = selectWindow(sorted);
 
   // Candidate roster = anyone appearing in the window polls.
@@ -202,6 +217,9 @@ export function computeAverage(
     maxPerPollster: MAX_PER_POLLSTER,
     capRelaxed,
     pollCount: window.length,
+    windowPollIds: window.map((p) => p.id),
     lastPollDate: pollDate(sorted[0]),
+    basis: key.race === "senador" ? "bruto" : basis,
+    setAside: setAside(window),
   };
 }

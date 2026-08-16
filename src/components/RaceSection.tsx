@@ -1,12 +1,17 @@
-import AverageBoard from "./AverageBoard";
-import PollTable from "./PollTable";
-import TrendChart from "./TrendChart";
+import RaceView from "./RaceView";
 import type { ScenarioGroup } from "@/lib/data";
 
 /**
- * One full race view: for each scenario (candidate line-up), the average
- * board, the trendline (when there's enough history), and the complete poll
- * table. The first scenario is the currently most-polled one.
+ * One full race: each scenario rendered as chart → caption → table.
+ *
+ * The old layout was a separate "Média atual" board beside a trendline, with
+ * the poll table underneath. The board is gone: the average now appears twice,
+ * as the end of every line in the chart's right panel and as the first row of
+ * the table, which is where a reader looking at the polls actually wants it.
+ * One number in two places it belongs beats a third copy in a box of its own.
+ *
+ * The first group is the most-polled scenario. For round 2 each head-to-head
+ * pairing is its own group; for the Senate each is a candidate line-up.
  */
 export default function RaceSection({ groups, heading }: { groups: ScenarioGroup[]; heading: string }) {
   if (!groups.length) {
@@ -20,40 +25,19 @@ export default function RaceSection({ groups, heading }: { groups: ScenarioGroup
       </section>
     );
   }
+
   return (
-    <section className="space-y-8">
+    <section className="space-y-10">
       <h2 className="text-xl font-bold">{heading}</h2>
-      {groups.map((g) => {
-        const avg = g.average;
-        const trendSeries =
-          avg?.candidates
-            .filter((c) => c.trend.length >= 2)
-            .slice(0, 8)
-            .map((c) => ({ name: c.candidate, points: c.trend })) ?? [];
-        return (
-          <div key={g.scenario} className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-              {g.scenario.toLowerCase() === heading.toLowerCase().slice(0, g.scenario.length).trim() || heading.toLowerCase().startsWith(g.scenario.toLowerCase())
-                ? `${g.polls.length} pesquisa${g.polls.length === 1 ? "" : "s"}`
-                : `${g.scenario} · ${g.polls.length} pesquisa${g.polls.length === 1 ? "" : "s"}`}
-            </h3>
-            <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-              {avg && <AverageBoard avg={avg} title="Média atual" />}
-              {trendSeries.length >= 1 ? (
-                <div className="card p-4">
-                  <h4 className="mb-2 text-sm font-semibold">Evolução da média</h4>
-                  <TrendChart series={trendSeries} />
-                </div>
-              ) : (
-                <div className="card flex items-center justify-center p-4 text-sm" style={{ color: "var(--text-muted)" }}>
-                  Séries insuficientes para a linha do tempo — necessárias pesquisas em mais datas.
-                </div>
-              )}
-            </div>
-            <PollTable polls={g.polls} />
-          </div>
-        );
-      })}
+      {groups.map((g) => (
+        <RaceView
+          key={g.scenario}
+          polls={g.polls}
+          average={g.average}
+          averageBruto={g.averageBruto}
+          title={`${g.scenario} · ${g.polls.length} pesquisa${g.polls.length === 1 ? "" : "s"}`}
+        />
+      ))}
     </section>
   );
 }

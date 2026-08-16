@@ -1,4 +1,7 @@
 import { candKey, computeAverage, sortPollsDesc } from "./average";
+// Re-exported so existing server-side callers keep working; the implementation
+// lives in a Node-free module so client components can use it too.
+export { fmtDate } from "./format";
 import { loadStoreDataset } from "./store";
 import type { Poll, PollDataset, RaceAverage, RaceKey, RaceKind, UF } from "./types";
 
@@ -38,7 +41,22 @@ export function pollsFor(race: RaceKind, state: UF | null, round?: 1 | 2): Poll[
 export interface ScenarioGroup {
   scenario: string;
   polls: Poll[]; // newest first
+  /** The válidos cut — the site default. Null when nothing is averageable. */
   average: RaceAverage | null;
+  /**
+   * The same race on the bruto cut, precomputed at BUILD time.
+   *
+   * The site is fully static and the basis toggle is a client-side control, so
+   * the alternative had to be either shipped alongside or recomputed in the
+   * browser. Recomputing means a second implementation of the averaging rule
+   * living in client code, drifting from `average.ts` — this repo already keeps
+   * `projection-twin-check.mjs` around because exactly that happened once. Two
+   * precomputed objects cost a few KB and keep the maths in one place.
+   *
+   * Senate has no second cut: `toBasis` refuses to convert it, so this is the
+   * same numbers under a different label and the toggle is not offered.
+   */
+  averageBruto: RaceAverage | null;
 }
 
 function pairingKey(p: Poll): string {
@@ -57,7 +75,12 @@ export function scenarioGroups(race: RaceKind, state: UF | null, round: 1 | 2): 
 
   if (round === 1) {
     const sorted = sortPollsDesc(polls);
-    return [{ scenario: "1º turno", polls: sorted, average: computeAverage(key, "1º turno", sorted) }];
+    return [{
+      scenario: "1º turno",
+      polls: sorted,
+      average: computeAverage(key, "1º turno", sorted, "validos"),
+      averageBruto: computeAverage(key, "1º turno", sorted, "bruto"),
+    }];
   }
 
   const byPairing = new Map<string, Poll[]>();
@@ -71,7 +94,12 @@ export function scenarioGroups(race: RaceKind, state: UF | null, round: 1 | 2): 
     const sorted = sortPollsDesc(ps);
     const top = [...sorted[0].results].sort((a, b) => b.pct - a.pct).slice(0, 2);
     const scenario = `2º turno: ${top.map((r) => r.candidate).join(" vs ")}`;
-    return { scenario, polls: sorted, average: computeAverage(key, scenario, sorted) };
+    return {
+      scenario,
+      polls: sorted,
+      average: computeAverage(key, scenario, sorted, "validos"),
+      averageBruto: computeAverage(key, scenario, sorted, "bruto"),
+    };
   });
   // Most-polled first, then most-recent. Both can tie — Acre's two leading
   // pairings sit at 10 polls apiece with the same last fieldwork date — so the
@@ -132,8 +160,3 @@ export function latestPolls(limit = 25): Poll[] {
   return sortPollsDesc(loadDataset().polls).slice(0, limit);
 }
 
-export function fmtDate(iso: string | null | undefined): string {
-  if (!iso) return "—";
-  const [y, m, d] = iso.split("-");
-  return d && m ? `${d}/${m}/${y}` : iso;
-}
