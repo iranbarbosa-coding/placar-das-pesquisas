@@ -110,7 +110,7 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false, allowDerived =
     store[t] = [];
   }
   store._indexes = {
-    byReg: new Map(), byRef: new Map(), rosters: new Map(), surveyById: new Map(),
+    byReg: new Map(), byRef: new Map(), surveyById: new Map(),
     questionById: new Map(), questionsBySurvey: new Map(),
     instituteByAlias: new Map(), candidateByAlias: new Map(),
   };

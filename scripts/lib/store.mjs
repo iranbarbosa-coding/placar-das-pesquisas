@@ -110,20 +110,35 @@ function newReport() {
            filled: 0, conflicts: 0, retracted: 0 };
 }
 
+/**
+ * EVERY index here needs an answer to "what keeps this current DURING a run?",
+ * not only "what fills it at load". Two separate defects came from indexes that
+ * were built once and only read: `byRef` (fixed in `addSourceRef`) and then
+ * `byReg` (fixed in `fillFields`), the second surviving the first because
+ * nobody enumerated the rest while they were in there.
+ *   byReg             ← addSourceRef's sibling in fillFields, and at mint
+ *   byRef             ← addSourceRef
+ *   surveyById        ← at mint
+ *   questionById      ← at mint
+ *   questionsBySurvey ← at mint (and it is what the roster tests read)
+ *   instituteByAlias  ← resolveInstitute
+ *   candidateByAlias  ← resolveCandidate
+ *
+ * There was an eighth, `rosters`: a per-survey union of every question's names,
+ * built at load and never updated. Its only reader took the whole-survey union
+ * as the identity test, which is what fragmented 322 surveys; the roster tests
+ * now read `questionsBySurvey` live and per race+round, so the index is gone
+ * rather than left sitting there looking maintained.
+ */
 function buildIndexes(store) {
   const byReg = new Map();
   const byRef = new Map();
-  const rosters = new Map();
   for (const s of store.surveys) {
     if (s.tse_registration) byReg.set(normalizeRegistration(s.tse_registration), s);
     for (const r of s.source_refs ?? []) byRef.set(`${r.source}:${r.native_id}`, s);
   }
-  for (const q of store.questions) {
-    if (!rosters.has(q.survey_id)) rosters.set(q.survey_id, new Set());
-    for (const r of q.results ?? []) rosters.get(q.survey_id).add(r.name_raw ?? r.candidate);
-  }
   store._indexes = {
-    byReg, byRef, rosters,
+    byReg, byRef,
     surveyById: new Map(store.surveys.map((s) => [s.survey_id, s])),
     questionById: new Map(store.questions.map((q) => [q.question_id, q])),
     questionsBySurvey: groupBy(store.questions, (q) => q.survey_id),
@@ -234,7 +249,8 @@ const DAY = 86_400_000;
  *      registration is not a unique survey key.
  *   2. TSE registration  — the cross-source anchor; a Wikipedia row carries no
  *      native Poder360 id, so this is what unites them
- *   3. natural key       — institute + universe + ±3 days + roster ≥60%
+ *   3. natural key       — institute + universe + ±3 days, with the roster used
+ *      only to CONTRADICT, and only within the same race and round
  *   4. mint
  */
 export function resolveSurvey(store, incoming) {
@@ -296,7 +312,24 @@ export function resolveSurvey(store, incoming) {
       if (reg && s.tse_registration && s.tse_registration !== reg) continue;
       const sd = s.fieldwork_end ?? s.published_date;
       if (!sd || Math.abs(+new Date(sd) - +new Date(date)) > 3 * DAY) continue;
-      if (!rosterOverlaps(storedRoster(store, s.survey_id), incoming.roster)) continue;
+      // The sample size is a fact OF the field operation, so two rows that
+      // report different ones are not it. Without this the rung fused an Ideia
+      // poll of 27.600 with one of 1.500 taken the same day, an AtlasIntel
+      // 4.399 with a 5.419, and a Paraná Pesquisas 1.400 with a 2.400 — 20
+      // surveys in all, each one two distinct polls collapsed into one, with
+      // whichever arrived second dropped from the averages.
+      //
+      // No tolerance, deliberately. Sources do round (1.006 against 1.000), and
+      // a window wide enough to absorb rounding is also wide enough to absorb
+      // real differences; picking its width would be picking how much
+      // over-merging to allow. Refusing outright errs toward two surveys where
+      // there is one, which keeps both records and loses no poll — the failure
+      // that can be seen and repaired, rather than the one that silently
+      // deletes a poll from an average. Rung 2 is unaffected: a shared TSE
+      // registration is a stronger claim than a sample size, and it still
+      // merges (and logs the disagreement).
+      if (incoming.sample_size != null && s.sample_size != null && incoming.sample_size !== s.sample_size) continue;
+      if (rosterContradicts(store, s, incoming)) continue;
       store._report.matched.natural++;
       return { survey: s, matched_by: "natural" };
     }
@@ -344,27 +377,65 @@ export function resolveSurvey(store, incoming) {
 }
 
 /**
- * The stored roster, read LIVE from the survey's questions.
+ * The rosters of a survey's questions for ONE race and round, read LIVE.
  *
- * It used to come from an index built once at readStore, which meant a survey
- * created earlier in the SAME run had no roster — so `rosterOverlaps` hit its
- * "nothing to judge on" branch and returned true for everything. The 60% guard
- * therefore never fired during a scrape, only across runs. Deriving it from
- * `questionsBySurvey` (which resolveQuestion keeps current) removes the class
- * of bug rather than adding a second thing to remember to update.
+ * Live because an index built once at readStore leaves a survey created earlier
+ * in the SAME run with no roster — so the overlap test hit its "nothing to judge
+ * on" branch and waved everything through. The guard then never fired during a
+ * scrape, only across runs. `questionsBySurvey` is kept current by
+ * resolveQuestion, so reading from it removes the class of bug rather than
+ * adding a second thing to remember to update.
  */
-function storedRoster(store, survey_id) {
-  const names = new Set();
+function peerRosters(store, survey_id, race, round) {
+  const out = [];
   for (const q of store._indexes.questionsBySurvey.get(survey_id) ?? []) {
+    if (q.race !== race || q.round !== round) continue;
+    const names = new Set();
     for (const r of q.results ?? []) {
       const n = r.name_raw ?? r.candidate;
       if (n) names.add(n);
     }
+    if (names.size) out.push(names);
   }
-  if (names.size) return names;
-  return store._indexes.rosters.get(survey_id) ?? names;
+  return out;
 }
 
+/**
+ * Does the roster say "this is a DIFFERENT field operation"?
+ *
+ * The roster is evidence of difference only when there is something comparable
+ * to differ from — the same race, in the same round. One fieldwork operation
+ * routinely asks several questions with legitimately different rosters: the
+ * governor and the senate on the same sample, a first round of ten names and a
+ * runoff of two. Judged against the survey's WHOLE roster, those look like
+ * disagreements and split one survey into several.
+ *
+ * That is how the ladder minted 485 surveys that do not exist — and WHICH ones
+ * depended on arrival order, because the test divided the hits by the incoming
+ * roster alone. A runoff arriving after its first round scored 2/2 and merged;
+ * the same pair in the other order scored 2/10 and minted. The gate ingests in
+ * source-priority order, the scraper will too, and within one source the order
+ * is whatever the file happens to hold. Output that moves with record order and
+ * not with the data is the defect this project keeps finding; here it decided
+ * how many surveys exist.
+ *
+ * Round 2 is exempt from the test entirely: each head-to-head pairing is its own
+ * question, so "Lula × Tarcísio" and "Lula × Zema" share exactly one name by
+ * design. Distinguishing those is resolveQuestion's job, not the survey key's.
+ */
+function rosterContradicts(store, survey, incoming) {
+  if (incoming.round === 2) return false;
+  if (!incoming.roster?.length) return false;
+  const peers = peerRosters(store, survey.survey_id, incoming.race, incoming.round);
+  if (!peers.length) return false; // nothing comparable ⇒ no evidence either way
+  return !peers.some((stored) => rosterOverlaps(stored, incoming.roster));
+}
+
+/**
+ * Symmetric by construction: the SMALLER roster is the one that has to be
+ * covered. Dividing by the incoming side alone made the answer depend on which
+ * record arrived first (see rosterContradicts).
+ */
 function rosterOverlaps(stored, incoming) {
   if (!stored?.size || !incoming?.length) return true; // no roster to judge on
   let hits = 0;
@@ -373,7 +444,41 @@ function rosterOverlaps(stored, incoming) {
       if (sameCandidate(s, name)) { hits++; break; }
     }
   }
-  return hits / incoming.length >= 0.6;
+  return hits / Math.min(stored.size, incoming.length) >= 0.6;
+}
+
+/**
+ * Are these two rosters the same QUESTION — the same matchup put to the same
+ * sample?
+ *
+ * Compared by DECIDED identity (`candidate_id`) whenever both sides carry it.
+ * Identity has already been settled upstream by the curated table
+ * (`canonicalCandidate` → `resolveCandidate`); re-deciding it here by token
+ * subset lets the matcher overrule that decision, which is precisely what the
+ * candidate work removed its last word for.
+ *
+ * It bit: `sameCandidate` reads "Jair Bolsonaro" as a subset of "Michelle
+ * Bolsonaro, com apoio do ex-presidente Jair Bolsonaro", so Paraná Pesquisas'
+ * Lula × Michelle (43,4) was absorbed into Lula × Jair (32,2) and one of the
+ * two runoffs stopped existing. Two rosters the curated table calls different
+ * people are different questions, however alike the strings look.
+ *
+ * The name path remains for rosters that carry no ids (a store read from disk
+ * before ids were assigned), and is the ONLY place the token matcher still
+ * decides anything here.
+ */
+function questionRostersMatch(storedResults, incomingResults, incomingNames) {
+  const ids = (rs) => (rs ?? []).map((r) => r.candidate_id).filter(Boolean);
+  const a = ids(storedResults), b = ids(incomingResults);
+  if (a.length === (storedResults ?? []).length && b.length === (incomingResults ?? []).length && a.length && b.length) {
+    const set = new Set(a);
+    return b.filter((id) => set.has(id)).length / b.length >= 0.8;
+  }
+  const stored = new Set((storedResults ?? []).map((r) => r.name_raw ?? r.candidate));
+  if (!incomingNames.length) return false;
+  let hits = 0;
+  for (const n of incomingNames) { for (const s of stored) { if (sameCandidate(s, n)) { hits++; break; } } }
+  return hits / incomingNames.length >= 0.8;
 }
 
 export function resolveQuestion(store, survey, incoming) {
@@ -386,10 +491,9 @@ export function resolveQuestion(store, survey, incoming) {
   const roster = (incoming.results ?? []).map((r) => r.name_raw ?? r.candidate);
   for (const q of existing) {
     if (q.race !== incoming.race || q.round !== incoming.round) continue;
-    const stored = new Set((q.results ?? []).map((r) => r.name_raw ?? r.candidate));
-    let hits = 0;
-    for (const n of roster) { for (const s of stored) { if (sameCandidate(s, n)) { hits++; break; } } }
-    if (roster.length && hits / roster.length >= 0.8) return { question: q, matched_by: "roster" };
+    if (questionRostersMatch(q.results, incoming.results, roster)) {
+      return { question: q, matched_by: "roster" };
+    }
   }
   const seed = incoming.mint_seed
     ?? `question|${survey.survey_id}|${incoming.race}|${incoming.round}|${incoming.scenario_ordinal ?? 0}|${roster.slice().sort().join(",")}`;
@@ -422,11 +526,25 @@ const EMPTY = (v) => v === null || v === undefined || v === "" || (Array.isArray
 /** Fill empty fields; never overwrite; log every disagreement. */
 export function fillFields(store, record, incoming, { source, runId, table, fields }) {
   for (const f of fields) {
-    const inc = incoming[f];
+    let inc = incoming[f];
     if (EMPTY(inc)) continue;
+    // The registration is an INDEXED KEY, not merely a value, so it is
+    // normalised and indexed here rather than by the caller. `byReg` was built
+    // at load and updated only at mint, so a registration that ARRIVED on a
+    // survey already matched by another rung was stored and yet invisible to
+    // the rung whose whole purpose is to use it — the same hole `addSourceRef`
+    // documents for `byRef`. Demonstrated: a Poder360 record filed without its
+    // registration, the registration arriving on a later pass, and then a
+    // Wikipedia row carrying that registration and spelling the institute
+    // differently — the one case rung 2 exists for — minted a second survey.
+    if (table === "surveys" && f === "tse_registration") inc = normalizeRegistration(inc);
     const cur = record[f];
     if (EMPTY(cur)) {
       record[f] = inc;
+      if (table === "surveys" && f === "tse_registration") {
+        store._indexes.byReg.set(inc, record);
+        if (record.tse_registration_status === "none") record.tse_registration_status = "claimed_unverified";
+      }
       record.provenance.field_sources[f] = source;
       record.provenance.updated_at = store.runDate;
       store._report.filled++;

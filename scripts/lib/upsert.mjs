@@ -51,7 +51,10 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     fieldwork_end: poll.fieldwork_end ?? null,
     published_date: poll.published_date ?? null,
     sample_size: poll.sample_size ?? null,
-    roster,
+    // race/round scope the roster test: one field operation asks several
+    // questions with legitimately different rosters, so only the same race in
+    // the same round is comparable. See rosterContradicts in store.mjs.
+    race: poll.race, round: poll.round, roster,
     electoral_cycle: 2026,
     pre_electoral: (date ?? "") < "2026-01-01",
   });
