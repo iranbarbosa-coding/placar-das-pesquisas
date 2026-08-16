@@ -4,7 +4,8 @@ on:
   schedule:
     # 2x daily (UTC): 12:15 (after TSE's ~08:47 UTC regeneration; morning BRT)
     # and 22:15 (evening BRT, catching afternoon poll releases). Kept to two
-    # runs to stay polite with Poder360's undocumented API (~170 calls/run).
+    # runs to stay polite with Poder360's undocumented API (~280 calls/run
+    # since state-level presidential combos were added).
     - cron: "15 12,22 * * *"
   workflow_dispatch: {}
 
@@ -18,28 +19,79 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # The scrape alone is ~15 min now (81 Poder360 combos + 29 Wikipedia pages
+    # + the TSE zip). The store rebuild and the gates add a few more.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # 24, not 22: `projection-twin-check.mjs` imports `src/lib/store.ts`
+          # directly and relies on Node stripping the types. On 22 that needs a
+          # flag and the check fails — which would block every run.
+          node-version: 24
 
+      # ── the pipeline ────────────────────────────────────────────────────
+      # THE STORE IS THE DATABASE; polls.json is derived from it.
+      #
+      # This job used to run the scraper alone, which wrote polls.json and
+      # nothing else — so every bot commit left the NDJSON store untouched and
+      # the two drifted apart a little more twice a day. The scrape still
+      # produces the flat rows (sources → normalise → repairs → hygiene), the
+      # migration folds them into the store, and polls.json is then rewritten
+      # FROM the store so the file and the database cannot disagree.
       - name: Coletar e normalizar pesquisas
         run: node scripts/scrape.mjs
 
-      - name: Validar banco de dados
+      - name: Reconstruir o store a partir da coleta
+        run: node scripts/migrate-to-store.mjs
+
+      - name: Derivar data/polls.json do store
+        run: node scripts/derive-polls.mjs
+
+      # ── the gates ───────────────────────────────────────────────────────
+      # Every one of these has to pass before anything is committed. A bad
+      # scrape that reaches data/ is a bad scrape that reaches the live site:
+      # a push to data/ triggers the Vercel rebuild.
+      - name: Guardas do validador disparam
+        run: node scripts/validate-store.mjs --self-test
+
+      - name: Validar o store
+        run: node scripts/validate-store.mjs
+
+      - name: Paridade store ↔ polls.json
+        run: node scripts/parity-check.mjs
+
+      - name: Gêmeos da projeção (project.mjs ≡ store.ts)
+        run: node scripts/projection-twin-check.mjs
+
+      - name: Agrupamento de institutos estável
+        run: node scripts/pollster-clustering-check.mjs
+
+      - name: Caminho de escrita (escada de resolução)
+        run: node scripts/upsert-harness.mjs
+
+      # Roda 2x/dia: se a reconstrução re-datar registros, cada rodada comita
+      # 4.613 linhas de carimbo e o diff deixa de ser legível.
+      - name: Reconstrução não redata o que já existia
+        run: node scripts/idempotence-check.mjs
+
+      - name: Validador legado
         run: node scripts/validate-data.mjs data/polls.json
+
+      # ── surfaces for review, regenerated with the data ──────────────────
+      - name: Regenerar a lista de pesquisas incompletas
+        run: node scripts/incomplete-polls.mjs
 
       - name: Commit se houver mudanças
         run: |
           git config user.name "placar-bot"
           git config user.email "actions@github.com"
-          if git diff --quiet data/; then
+          if git diff --quiet data/ PESQUISAS_INCOMPLETAS.md; then
             echo "Sem pesquisas novas."
           else
-            git add data/
+            git add data/ PESQUISAS_INCOMPLETAS.md
             git commit -m "dados: atualização automática $(date -u +%F' '%H:%M) UTC"
             git push
           fi

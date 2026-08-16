@@ -61,7 +61,7 @@ function run({ selfTest = false } = {}) {
   const errors = [];
   try {
     // ---- run 1: a fresh build on DATE_A -----------------------------------
-    migrate({ runDate: DATE_A, dir, quiet: true });
+    migrate({ runDate: DATE_A, dir, quiet: true, allowDerived: true });
     const first = snapshot(dir);
     const stampsA = stampsIn(dir);
 
@@ -77,7 +77,7 @@ function run({ selfTest = false } = {}) {
     }
 
     // ---- run 2: rebuild on DATE_B ------------------------------------------
-    migrate({ runDate: DATE_B, dir, quiet: true });
+    migrate({ runDate: DATE_B, dir, quiet: true, allowDerived: true });
     const second = snapshot(dir);
 
     // (2) preservation: byte-identical tables despite the different date.

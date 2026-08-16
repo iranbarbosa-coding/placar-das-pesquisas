@@ -74,9 +74,27 @@ function surveyGroupKey(p, regCohort) {
   ].join("|");
 }
 
-function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
+function main({ runDate = today(), dir = DATA_DIR, quiet = false, allowDerived = false } = {}) {
   const log = quiet ? () => {} : console.log;
   const legacy = JSON.parse(fs.readFileSync(LEGACY, "utf-8"));
+  // MIGRAR A PARTIR DO ARQUIVO DERIVADO PERDE DADOS, EM SILÊNCIO.
+  //
+  // `derive-polls.mjs` escreve uma PROJEÇÃO: só as perguntas headline, e sem
+  // os campos crus (`name_raw`, `party_raw`). Remigrar a partir dela descarta
+  // as perguntas alternativas e apaga o que a fonte tinha dito — cada rodada
+  // erodindo um pouco mais. A entrada legítima é sempre a saída fresca do
+  // coletor.
+  // `allowDerived` exists for `idempotence-check.mjs`, which runs this twice
+  // into scratch directories and compares the two outputs. Feeding it a
+  // projection loses nothing there — both runs get the same input and the real
+  // store is never touched — and refusing would silently disable the check,
+  // which is what happened the first time this guard went in.
+  if (legacy.derived_from_store && !allowDerived) {
+    console.error("RECUSADO: data/polls.json é a projeção do store, não a saída do coletor.");
+    console.error("Migrar a partir dela perde as perguntas não-headline e os campos crus.");
+    console.error("Rode `node scripts/scrape.mjs` antes, ou use o store que já existe.");
+    process.exit(1);
+  }
   const polls = legacy.polls;
   log(`lendo ${polls.length} linhas de data/polls.json`);
 
@@ -149,7 +167,10 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false } = {}) {
     const survey = {
       survey_id,
       mint_seed: seed,
-      legacy_ids: rows.map((r) => r.id),
+      // Ordenados: a ordem vinha da posição no arquivo, e o coletor ordena por
+      // data sem desempate total — então empates saíam trocados entre execuções
+      // e 504 levantamentos apareciam no diff a cada rodada, sem nada ter mudado.
+      legacy_ids: rows.map((r) => r.id).sort(),
       tse_registration: reg,
       tse_registration_status: reg ? "claimed_unverified" : "none",
       institute_id: inst.institute_id,

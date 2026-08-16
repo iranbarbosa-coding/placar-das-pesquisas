@@ -32,6 +32,10 @@ polls.sort((a, b) =>
 
 const dataset = {
   generated_at: store.meta.generated_at ?? new Date().toISOString(),
+  // Marca o arquivo como projeção. `migrate-to-store.mjs` recusa lê-lo: ele
+  // só traz as perguntas headline e não traz os campos crus, então remigrar a
+  // partir daqui apagaria dados a cada rodada.
+  derived_from_store: true,
   sources: store.meta.sources ?? [],
   polls,
 };
