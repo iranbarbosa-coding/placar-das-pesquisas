@@ -46,7 +46,18 @@ export default function Home() {
             the rail stacks under the content rather than ahead of it — a reader
             arriving on a phone wants the race before the index. */}
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-12">
+          {/* `min-w-0` is load-bearing on phones, and its absence was invisible
+              on desktop. Above `lg` the `minmax(0,…)` above already floors the
+              track at 0. BELOW `lg` there is no `grid-cols-*` at all, so these
+              land in a single IMPLICIT track sized `auto` — i.e. min-content —
+              and a grid item defaults to `min-width: auto`. That let the latest-
+              polls table's `min-w-[640px]` propagate out of its own
+              `overflow-x-auto` card and force the track to 642px: the card was
+              handed the full 640 it asked for, so it had nothing left to scroll
+              and the PAGE took the overflow instead. At 375px that put 283px of
+              content — the whole DIFERENÇA column and every rail badge — off an
+              edge the browser will not scroll to. */}
+          <div className="min-w-0 space-y-12">
             <MatchupRows rows={matchups} />
             <LatestPollsTable rows={latest} />
           </div>

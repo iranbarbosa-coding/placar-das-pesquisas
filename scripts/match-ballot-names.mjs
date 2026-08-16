@@ -26,14 +26,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { normNome } from "./lib/nomes.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CANDIDATURAS = path.join(ROOT, "data", "candidaturas.ndjson");
 const CRUS = path.join(ROOT, "data", "nomes-crus.json");
 
-const norm = (s) =>
-  (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
-    .replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+// Shared with `lib/candidates.mjs`, which READS the keys this file WRITES.
+// They used to hold a copy each and disagreed on punctuation. See `lib/nomes.mjs`.
+const norm = normNome;
 
 /**
  * Tokens worth matching on. Short words are dropped because "de", "da" and "do"
@@ -61,8 +62,63 @@ function subset(a, b) {
 
 const contestOf = (cargo, uf) => `${cargo}:${uf ?? "BR"}`;
 
+/**
+ * `SQ_CANDIDATO` ordered as a number, not as text.
+ *
+ * It is the only ordering the register carries — there is no date on a
+ * candidacy row — so "the most recent registration" can only mean the highest
+ * sequential id. The ids are 11 digits today and a plain `>` on the strings
+ * agrees with that, but only while every id has the same length: the day one
+ * arrives with 12, lexicographic order silently puts "9…" above "10…" and the
+ * collapse below starts keeping the WRONG row. Padding costs nothing and
+ * removes the trap.
+ */
+const maisRecente = (a, b) =>
+  a.sq_candidato.padStart(20, "0") > b.sq_candidato.padStart(20, "0") ? a : b;
+
+/**
+ * The register indexed by contest, with the TSE's re-registrations collapsed.
+ *
+ * THE SAME PERSON APPEARS TWICE. Piauí has two cases of one candidacy filed
+ * again — same ballot name, same number, same party, same civil name, two
+ * `SQ_CANDIDATO`. Left alone, both rows land in the same contest, the exact
+ * match finds TWO candidacies for one polled name, and the name is refused as
+ * ambiguous. That is a namesake rule firing on a person who has no namesake:
+ * the whole contest loses a mapping to a filing artefact.
+ *
+ * So rows identical on contest + ballot name + number + party are ONE
+ * candidacy, and the newest registration wins. Rows that differ in number or
+ * in party are NOT collapsed — those are two real people, or one person whose
+ * filing genuinely changed, and either way the ambiguity is real and stays
+ * refused. Collapsing on the name alone is what would re-introduce the
+ * coin-toss this script exists to refuse.
+ */
+function agruparPorDisputa(cands) {
+  const unicos = new Map();
+  for (const c of cands) {
+    const chave = `${contestOf(c.cargo, c.uf)}|${norm(c.nome_urna_raw)}|${c.numero}|${c.partido}`;
+    const anterior = unicos.get(chave);
+    unicos.set(chave, anterior ? maisRecente(anterior, c) : c);
+  }
+
+  const byContest = new Map();
+  for (const c of unicos.values()) {
+    const contest = contestOf(c.cargo, c.uf);
+    if (!byContest.has(contest)) byContest.set(contest, []);
+    byContest.get(contest).push(c);
+  }
+  // Stable order so `ambiguos` reports the same list every run: the report is
+  // read by a human deciding cases, and a list that reshuffles between runs
+  // looks like the data moved when nothing did.
+  for (const lista of byContest.values()) {
+    lista.sort((a, b) => a.sq_candidato.padStart(20, "0").localeCompare(b.sq_candidato.padStart(20, "0")));
+  }
+  return byContest;
+}
+
 function main() {
   const cands = fs.readFileSync(CANDIDATURAS, "utf-8").trim().split("\n").map((l) => JSON.parse(l));
+  const byContest = agruparPorDisputa(cands);
   // The names exactly as the institutes published them, dumped by `scrape.mjs`
   // before it canonicalises anything. Reading the canonicalised output instead
   // makes this script eat its own tail — see the note at that dump site.
@@ -106,6 +162,39 @@ function main() {
 
   const outArg = process.argv.find((a) => a.startsWith("--out="))?.split("=")[1];
   const out = path.join(ROOT, outArg ?? "data/ballot-names.json");
+
+  // A GENERATOR THAT QUIETLY WRITES LESS THAN IT FOUND LAST TIME IS THE DEFECT
+  // THIS REPOSITORY KEEPS REDISCOVERING.
+  //
+  // `candidate-resolve.mjs` wrote its table EMPTY twice before it grew the same
+  // refusal. The hole here is wider, because it needs no bug at all: an empty
+  // `nomes-crus.json` makes the loop body never run, and every branch below
+  // still succeeds — a well-formed file, `stats` all zero, exit 0, and on the
+  // next consume every candidate on the site silently reverts to its
+  // pre-register name. Nothing downstream would notice: `candidates.mjs` loads
+  // this file inside a `catch {}` that treats the register as optional.
+  //
+  // So the floor is compared against the file being replaced, not against a
+  // constant — a constant would need editing every time the register grows and
+  // would be tuned down the first time it was inconvenient.
+  // COUNT WHAT IS WRITTEN, NOT WHAT WAS MATCHED. `stats.exato + stats.contencao`
+  // counts DECISIONS (385); the file holds KEYS (370), because raw spellings that
+  // fold together share one. A guard reading the larger number would sit still
+  // while the artifact lost entries to collisions — measuring the intent instead
+  // of the output is how a guard ends up protecting nothing.
+  const contar = (m) => Object.values(m ?? {}).reduce((n, c) => n + Object.keys(c).length, 0);
+  const mapeados = contar(mapping);
+  const anterior = fs.existsSync(out) ? JSON.parse(fs.readFileSync(out, "utf-8")) : null;
+  const antes = contar(anterior?.mapping);
+  if (antes && mapeados < antes * 0.8 && !process.argv.includes("--force-shrink")) {
+    console.error(
+      `RECUSADO: o mapa encolheu de ${antes} para ${mapeados} nomes (${Math.round((1 - mapeados / antes) * 100)}% a menos).\n` +
+      `Isto costuma significar que a entrada veio vazia ou canonicalizada, não que o registro mudou.\n` +
+      `Se a queda for real e esperada, repita com --force-shrink.`,
+    );
+    process.exit(1);
+  }
+
   const payload = {
     note:
       "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. " +
@@ -152,13 +241,33 @@ function melhorGrafia(nomePesquisa, nomeUrna) {
 
 function add(mapping, contest, nome, cand, how) {
   mapping[contest] ??= {};
-  mapping[contest][norm(nome)] = {
+  const chave = norm(nome);
+  const novo = {
     nome_urna: melhorGrafia(nome, cand.nome_urna),
     sq_candidato: cand.sq_candidato,
     partido: cand.partido,
     numero: cand.numero,
     origem: how,
   };
+
+  // TWO RAW NAMES CAN FOLD TO ONE KEY, AND THEY MUST NOT BE SETTLED BY ORDER.
+  //
+  // The institutes publish "Alvaro Dias" and "Álvaro Dias", "Dr Daniel" and
+  // "Dr. Daniel" — distinct strings in `nomes-crus.json` that normalise to the
+  // same lookup key. Both reach the same candidacy, but `melhorGrafia` is fed a
+  // DIFFERENT polled spelling each time, so the two calls can disagree on how
+  // many accents the answer carries. A plain assignment lets whichever name the
+  // array happened to list last decide the published spelling.
+  //
+  // It happened to be safe — the arrays are code-unit sorted and unaccented
+  // ASCII sorts before accented, so the better spelling was written second — but
+  // that is a dependency on sort order nobody stated, and CONVENTIONS §8 exists
+  // because exactly this kind of accident is how output starts tracking
+  // something that is not the data. Resolve it on CONTENT: more diacritics wins,
+  // and a tie keeps what is already there.
+  const atual = mapping[contest][chave];
+  if (atual && acentos(atual.nome_urna) >= acentos(novo.nome_urna)) return;
+  mapping[contest][chave] = novo;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) main();

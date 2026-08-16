@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1001 levantamentos · 2960 perguntas · 137 institutos · 1064 candidatos**.
+Banco: **1002 levantamentos · 2964 perguntas · 137 institutos · 1078 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -25,10 +25,10 @@ mais recentes, então um defeito num levantamento de 2023 não aparece em lugar 
 
 Cada eleitor tem um voto: as linhas de candidato não podem passar de 100. A folga é derivada das próprias casas decimais da fonte (0,5 por inteiro, 0,05 por décimo). O que aparecer aqui é arredondamento da fonte ou linha a mais no elenco — o segundo caso é defeito nosso.
 
-- **[2026]** 100.2 (folga 0.10) · Veritá · AP governador/t1 · 2026-05-31 · 72d253a0383b
-  Antônio Furlan 70.7 · Clécio Luís 29.5
 - **[2026]** 100.9 (folga 0.65) · AtlasIntel · CE governador/t1 · 2026-03-30 · f74bd7fb7526
   Ciro Gomes 46 · Camilo Santana 48.8 · Eduardo Girão 5.4 · Jair Pereira 0.7
+- **[2026]** 100.2 (folga 0.10) · Veritá · AP governador/t1 · 2026-05-31 · 72d253a0383b
+  Dr. Furlan 70.7 · Clécio 29.5
 
 ## PESSOA — Candidatos que podem não ser pessoas (0)
 
@@ -47,7 +47,7 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
 - s_4b18e5197551 · Opinar · PI · registro PI-02052/2026
-- s_65b317a1d7d7 · Correio/Opinião · DF · registro —
+- s_7ae12148d318 · Correio/Opinião · DF · registro —
 
 ## DUPLICATA — Mesmo campo mantido como dois levantamentos (7)
 
@@ -59,7 +59,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
 - **[2026]** cenários separados — Ideia · BR presidente/t2 · 2026-07-06 — 2 levantamentos
   s_2df164010e26: Lula 45 · Flávio Bolsonaro 40
   s_2df164010e26: Lula 45 · Michelle Bolsonaro 36
-  s_58c4cfe5786e: Lula 45 · Romeu Zema 37
+  s_58c4cfe5786e: Lula 45 · Zema 37
   s_58c4cfe5786e: Lula 45 · Renan Santos 33
   s_58c4cfe5786e: Lula 45 · Joaquim Barbosa 23
   s_58c4cfe5786e: Lula 45 · Ronaldo Caiado 37.6
@@ -73,16 +73,16 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
 - **[2026]** cenários separados — Nexus · BR presidente/t2 · 2026-08-09 — 2 levantamentos
   s_5153741c3e49: Lula 46 · Ronaldo Caiado 42
   s_5153741c3e49: Lula 47 · Flávio Bolsonaro 44
-  s_790f404deb66: Lula 46 · Renan Santos 37
-  s_790f404deb66: Lula 47 · Romeu Zema 40
+  s_d5d78bf1e2cb: Lula 47 · Zema 40
+  s_d5d78bf1e2cb: Lula 46 · Renan Santos 37
 - **[2026]** cenários separados — Ideia · BR presidente/t2 · 2026-08-03 — 2 levantamentos
   s_6b1c1c12ed87: Lula 48 · Renan Santos 34.7
   s_6b1c1c12ed87: Lula 48.5 · Flávio Bolsonaro 43
-  s_6b1c1c12ed87: Lula 48.5 · Romeu Zema 37
+  s_6b1c1c12ed87: Lula 48.5 · Zema 37
   s_c094e9fa2c40: Lula 48.5 · Ronaldo Caiado 40
 - **[2026]** cenários separados — Percent Brasil · MT governador/t2 · 2026-07-27 — 2 levantamentos
   s_7fe69b9b02c7: Wellington Fagundes 36.3 · Jayme Campos 22
-  s_7fe69b9b02c7: Wellington Fagundes 40.8 · Natasha Slhessarenko 12.3
+  s_7fe69b9b02c7: Wellington Fagundes 40.8 · Doutora Natasha 12.3
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - cenários separados — Futura · BR presidente/t2 · 2025-03-22 — 2 levantamentos
   s_93d336f9d7a6: Tarcísio de Freitas 42.3 · Lula 37.6

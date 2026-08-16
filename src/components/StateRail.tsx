@@ -33,8 +33,13 @@ export default function StateRail({
   title?: string;
   className?: string;
 }) {
+  // `self-start` because a grid item stretches to the row's height by default,
+  // and this row's other column is the full latest-polls table. Stretched, the
+  // rail's box ran 3.791px while its content ended at 1.744 — 2.048px of empty
+  // gutter, about two and a third screens of blank space beside the table. The
+  // rail is an index, not a panel: it should end where its list ends.
   return (
-    <aside aria-labelledby="state-rail-title" className={`w-full ${className}`}>
+    <aside aria-labelledby="state-rail-title" className={`w-full self-start ${className}`}>
       <h2
         id="state-rail-title"
         className="border-b pb-2 text-xs font-bold uppercase tracking-widest"

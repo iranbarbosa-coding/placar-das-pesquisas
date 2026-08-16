@@ -129,6 +129,56 @@ decide COMO CHAMAR quem já foi identificado.
   `Samanda de Lula`, `Luciana Lima` → `Luciana Mandu`) o casador resolveu
   sozinho, porque ali o nome civil contém o sobrenome da pesquisa.
 
+### O casador estava QUEBRADO e nunca tinha rodado (achado 16/08/2026, tarde)
+
+`match-ballot-names.mjs` usava `byContest` na linha 79 **sem nunca defini-lo** —
+`ReferenceError` em tempo de execução, `node --check` passa. Ou seja:
+`melhorGrafia()` **nunca executou uma vez sequer**, e o `data/ballot-names.json`
+commitado era resto da versão anterior, a que lia `polls.json` (o defeito que
+CONVENTIONS §6 descreve). O arquivo tinha 321 exatos / 12 contenções; com o
+casador funcionando são **278 exatos / 107 contenções**.
+
+Como isso passou: o conserto de "ler `nomes-crus.json` em vez de `polls.json`"
+perdeu a construção do índice no caminho, e o `ballot-names.json` gerado pela
+versão boa **anterior** foi commitado junto — artefato bom, código quebrado, e
+nada compara os dois. **Um gerador cujo produto já está no disco não prova nada
+sobre o gerador.**
+
+### `norm()` existia DUAS VEZES e as duas discordavam (mesmo dia)
+
+O casador **escreve** as chaves de `ballot-names.json`; `lib/candidates.mjs`
+**lê** essas chaves. Cada um tinha sua cópia de `norm()` e elas divergiam em
+pontuação: o casador dobrava `Dr. Wanderley` para `dr wanderley`, o consumidor
+para `dr. wanderley`. Resultado: **toda chave com ponto, vírgula ou apóstrofo
+era inalcançável** — 9 de 370 entradas, mortas em silêncio, porque o lado que lê
+carrega o arquivo dentro de um `catch {}` que trata o registro como opcional.
+
+O estrago não era só um rename perdido. Em `senador:AL` as duas grafias da MESMA
+pessoa viraram dois `candidate_id` **cruzados**: as linhas publicadas como
+"Dr. Wanderley" ficaram na entidade canonicalizada como "José Wanderley Neto" e
+vice-versa. O site publicava **um homem sob dois nomes na mesma disputa** (10
+linhas de um, 1 do outro), contrariando o nome de urna nos dois.
+
+Hoje a regra tem uma implementação só: `scripts/lib/nomes.mjs`. CONVENTIONS §5.
+
+### De onde sai o `canonical` de um candidato — e por que duas disputas discordam
+
+`resolveCandidate` cunha o `canonical` a partir da **PRIMEIRA grafia que vê
+naquela disputa**, e os registros de candidato são por disputa. Foi só isso que
+fez `presidente:BR` guardar `Flavio Bolsonaro` enquanto `presidente:AC`,
+`governador:SP` e outras guardavam `Flávio Bolsonaro`: a nacional viu a grafia
+sem acento primeiro. O `name_raw` de cada linha preserva a grafia da própria
+pesquisa, e é por isso que os dois convivem dentro de um arquivo só.
+
+⚠ **Consequência que ainda está aberta:** quando os institutos publicam
+`Ciro`, `Ciro Gomes` e `Ciro Nogueira` na mesma disputa, o agrupamento continua
+certo (Nogueira segue separado), mas o nome exibido é o primeiro visto — e em
+16/08 isso rebaixou **`Ciro Gomes` para `Ciro` na corrida presidencial**, a
+página mais visível do site. Ele não tem candidatura presidencial (é
+`governador:CE`), então o casador corretamente não o toca. **Escolher o
+canonical pela grafia mais completa, e não pela primeira vista, é conserto de
+determinismo (§8), não decisão editorial** — mas não foi feito.
+
 ⚠ **Pegadinha do TSE:** o nome de urna aparece repetido para a MESMA pessoa
 (Piauí tem dois casos: mesmo número, mesmo partido, mesmo nome civil, dois
 `SQ_CANDIDATO`) — é re-registro, não homônimo. Colapsado por
@@ -593,6 +643,28 @@ node scripts/upsert-vs-migration.mjs --self-test # …and proves its checks can 
 npx tsc --noEmit && npx next build             # 38 pages
 ```
 
+⚠️ **`parity-check.mjs` IMPRIME UM TETO, NÃO UMA CONTAGEM.** A linha
+`if (fieldDiffs < 15) E(...)` limita a LISTA de erros a 15, e a mensagem final
+imprime `errors.length` — que satura em 15. Duas rodadas com números
+completamente diferentes imprimem "15 divergência(s)" e parecem idênticas. A
+contagem real está nas linhas `(b)`. Medido em 16/08: **275 divergências antes
+da rodada da tarde, 29 depois** — uma queda de ~90% que eu li como "não mudou
+nada". **Nunca compare duas rodadas por esse número.**
+
+E as 29 que sobraram não eram divergência de dados: `parity-check` compara
+**por posição**, ordenando o lado legado por `canonicalCandidate(nome)` e o
+projetado pelo nome já canônico. Chaves de ordenação diferentes desalinham as
+listas, e o desalinhamento aparece como "candidato X ≠ candidato Y" e como
+partido trocado. Como `polls.json` hoje é projeção do store, o que esse portão
+de fato exercita é a **idempotência de `canonicalCandidate`** — e ela tinha um
+ciclo de 2 (`Dr. Wanderley` → `José Wanderley Neto` → `Dr. Wanderley`), causado
+pelo `norm()` duplicado descrito em §1b.
+
+⚠️ **`upsert-vs-migration.mjs` hoje RECUSA rodar** (`meta.written_by =
+"scrape.mjs/upsert"`) e sai com 0. Ele compararia o caminho consigo mesmo. O
+`--self-test` recusa junto, de propósito. Quem guarda agrupamento agora é
+`census.mjs` (classe DUPLICATA) + `idempotence-check` + `parity-check`.
+
 All of the above pass as of 2026-08-16, after the repairs landed. The
 sample-size guards that red-lighted the pipeline are green because the data was
 fixed, not because the guards were softened — both still fire in `--self-test`
@@ -646,7 +718,43 @@ every validator here has a `--self-test` for that reason.
 
 **A FAZER PRIMEIRO na próxima sessão**
 
-1. ⚠ **RODAR O PIPELINE E CONFERIR OS ACENTOS.** A rodada de 16/08 gravou
+0. ✅ **ACENTOS: FEITO** (16/08, tarde). `melhorGrafia()` sobrepôs o registro em
+   **17 entradas** — `Flavio Bolsonaro → Flávio Bolsonaro`,
+   `Clariana Barao → Clariana Barão` e mais 15. Zero grafias sem acento sobram
+   em qualquer artefato publicado (`candidaturas.ndjson` ainda tem as duas sem
+   acento, e deve ter mesmo: é o registro do TSE, não saída nossa).
+   Mas o item 1 abaixo **não era o que estava escrito aqui**: o casador estava
+   quebrado e nunca tinha rodado (§1b), então esta passada aplicou o **ruling de
+   nome de urna inteiro pela primeira vez**, não só os acentos —
+   `Antônio Furlan → Dr. Furlan`, `Romeu Zema → Zema`,
+   `Natasha Slhessarenko → Doutora Natasha`. O censo não mexeu (14 itens, 0
+   pesquisas contadas em dobro).
+
+1. ⚠ **DECIDIR O CANONICAL DE `Ciro`** — ver o aviso em §1b. A presidencial
+   passou a exibir `Ciro` no lugar de `Ciro Gomes` (81 linhas). Agrupamento
+   correto, nome exibido pior.
+
+2. ✅ **`norm()` UNIFICADO E RODADO** (§1b). `parity-check` foi de **275 → 29 →
+   0** e sai com 0. `senador:AL` virou **um** candidato (`Dr. Wanderley`, o nome
+   de urna); as duas entidades cruzadas sumiram. 1.079 → 1.078 candidatos.
+
+3. ✅ **HOME VISTA MONTADA, PELA PRIMEIRA VEZ** — em build de produção, claro e
+   escuro, 1280 e 375. As seis faixas conferem com a especificação do criador.
+   Dois defeitos achados e consertados:
+   · **A página estourava na horizontal em TODO telefone.** Abaixo de `lg` não
+     há `grid-cols-*`, então as colunas caem numa faixa implícita `auto`, e o
+     item da esquerda com `min-width: auto` deixava o `min-w-[640px]` da tabela
+     escapar do próprio `overflow-x-auto`. A 375px sobravam 283px fora da tela
+     **e o navegador não rolava até lá**: a coluna DIFERENÇA inteira e todos os
+     selos da barra lateral eram inalcançáveis. Um `min-w-0` em `page.tsx`
+     resolve, e a rolagem volta para dentro do cartão.
+   · **A barra lateral esticava até o fim da tabela** — caixa de 3.791px para
+     1.744px de conteúdo, 2.048px de vão. `self-start` em `StateRail.tsx`.
+   Sobra para decisão: as cores do carrossel não são estáveis dentro da própria
+   fileira (Lula sai laranja em quatro cartões e verde no terceiro, e o verde do
+   cartão 2 é o Zema), e três das cinco roscas são laranja-contra-vermelho.
+
+3. (histórico) A rodada de 16/08 de manhã gravou
    `Flavio Bolsonaro` e `Clariana Barao` **sem acento**, porque o registro do
    TSE às vezes não os traz (29 de 521 candidaturas). A correção já está no
    código — `melhorGrafia()` em `match-ballot-names.mjs` mantém a grafia

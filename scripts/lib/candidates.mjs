@@ -14,12 +14,16 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { normNome } from "./nomes.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-aliases.json");
 const RULINGS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-rulings.json");
 const BALLOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "ballot-names.json");
 
-const norm = (s) => (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+// Shared with `match-ballot-names.mjs`, which WRITES the keys this file READS.
+// When the two had a copy each they disagreed on punctuation and every ballot
+// name containing a dot resolved to nothing. See `lib/nomes.mjs`.
+const norm = normNome;
 
 let TABLE = null;
 function table() {
