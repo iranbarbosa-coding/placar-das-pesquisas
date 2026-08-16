@@ -21,7 +21,19 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { migrate } from "./migrate-to-store.mjs";
+import { fileURLToPath } from "node:url";
+import { writeStoreFromPolls } from "./lib/build-store.mjs";
+
+// Drives the SAME builder the scraper does. It used to drive
+// `migrate-to-store.mjs`; once the scraper switched to the resolution ladder
+// (2026-08-16) that would have left this guard proving a property of code the
+// pipeline no longer runs — a green check for a dead path.
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+const LEGACY = path.join(ROOT, "data", "polls.json");
+const build = (runDate, dir) =>
+  writeStoreFromPolls(JSON.parse(fs.readFileSync(LEGACY, "utf-8")).polls, {
+    runDate, dir, meta: { built_by: "idempotence-check" },
+  });
 
 const TABLES = ["surveys", "questions", "crosstabs", "institutes", "candidates", "registry", "searches", "conflicts"];
 const DATE_A = "2026-01-02";
@@ -61,7 +73,7 @@ function run({ selfTest = false } = {}) {
   const errors = [];
   try {
     // ---- run 1: a fresh build on DATE_A -----------------------------------
-    migrate({ runDate: DATE_A, dir, quiet: true, allowDerived: true });
+    build(DATE_A, dir);
     const first = snapshot(dir);
     const stampsA = stampsIn(dir);
 
@@ -77,7 +89,7 @@ function run({ selfTest = false } = {}) {
     }
 
     // ---- run 2: rebuild on DATE_B ------------------------------------------
-    migrate({ runDate: DATE_B, dir, quiet: true, allowDerived: true });
+    build(DATE_B, dir);
     const second = snapshot(dir);
 
     // (2) preservation: byte-identical tables despite the different date.

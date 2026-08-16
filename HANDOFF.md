@@ -15,11 +15,21 @@ Brazilian 2026 elections (president, 27 governors, senate), in pt-BR.
 
 | | |
 |---|---|
-| Database | **2.958 polls** · 1.163 surveys · 27 states · 137 institutes · 1.061 candidates |
-| Store | `data/*.ndjson` is THE DATABASE. `data/polls.json` is DERIVED from it |
+| Database | **~2.959 polls** · ~1.001 surveys · 27 states · 137 institutes · ~1.064 candidates |
+| Store | `data/*.ndjson` is THE DATABASE, written by the scraper through the ladder. `data/polls.json` is DERIVED from it |
+| Normalised? | `CENSO_BANCO.md`, regenerated every run — **14 items, 0 double-counted polls**. That file is the operational definition; see §6 |
 | Site | builds clean, 38 pages, light+dark, pt-BR. Reads the store |
-| Deployed | **repo pushed** → https://github.com/iranbarbosa-coding/placar-das-pesquisas (public). **Vercel import still pending — needs Iran's login** |
-| Auto-update | `.github/workflows/update-polls.yml`, 2×/day, runs the FULL store pipeline + 8 gates |
+| Deployed | **repo pushed** → https://github.com/iranbarbosa-coding/placar-das-pesquisas (public). **Vercel import still pending — needs Iran's login.** Nothing else blocks the site going live, and until it does, none of the data work is visible to anyone |
+| Auto-update | `.github/workflows/update-polls.yml`, 2×/day, runs the pipeline + gates |
+
+⚠ **Survey and question ids all changed on 2026-08-16.** Switching the minting
+path re-seeded them: **0 of 1.164 survey ids and 0 of 2.961 question ids
+survive**. Candidate and institute ids are stable. Two consequences worth
+knowing: any external reference to a survey or question id is dead, and because
+`priorStamps` matches on id, the "first seen" dates it carries forward had
+nothing to match — `provenance.created_at` is 2026-08-16 for every survey and
+question, losing the earlier history. One-time cost of the switch, not a
+recurring one; the idempotence guard covers the recurring case.
 
 Recent commits (newest first):
 
@@ -40,19 +50,35 @@ aafeb3c  Harness do caminho de escrita — e três defeitos que ele achou
 
 **The store is the database.** `polls.json` is a projection of it, written by
 `scripts/derive-polls.mjs`, and it marks itself `derived_from_store: true`.
-`migrate-to-store.mjs` REFUSES to read a file with that marker — migrating from
-the projection silently drops non-headline questions and erases `name_raw` /
-`party_raw`, eroding a little more each run. The legitimate input to the
-migration is always a fresh scrape.
 
-**The pipeline, in order** — this is what the Action runs and what you should
-run after any change:
+**The pipeline is TWO steps as of 2026-08-16** — this is what the Action runs
+and what you should run after any change:
 
 ```bash
-node scripts/scrape.mjs           # sources → normalise → repairs → hygiene → polls.json
-node scripts/migrate-to-store.mjs # polls.json → the store
-node scripts/derive-polls.mjs     # store → polls.json (now a projection)
+node scripts/scrape.mjs        # sources → normalise → repairs → hygiene → store (via upsertPoll)
+node scripts/derive-polls.mjs  # store → polls.json (a projection)
 ```
+
+**`migrate-to-store.mjs` is no longer in the pipeline.** The scraper writes the
+store itself, through the resolution ladder, via `scripts/lib/build-store.mjs`.
+The migration grouped by a key that could not unite what the source splits —
+Poder360 files each office of one fieldwork as its own native record, and the
+same poll arriving via Wikipédia became a second survey. The ladder decides
+identity from the data (native id → TSE registration → institute + UF + ±3
+days), which is "one fieldwork operation = one survey" actually applied:
+**1.164 surveys became 1.001, and 6 double-counted polls disappeared.**
+Phase 5 deletes `migrate-to-store.mjs` and `upsert-vs-migration.mjs`; until
+then the gate REFUSES to run, because with the store written by the upsert path
+it would be comparing that path against itself.
+
+⚠ **Anything the retired path did on the way in, this one must do too — and
+twice it did not.** `partyOverride` (a curated party correction silently
+reverted) and `poll.repaired` (every repair citation erased, 15 → 0) were both
+carried by `migrate-to-store.mjs` and both missing from `upsertPoll`. Neither
+had a guard: parity cannot see the second, because `polls.json` is projected
+from the same store, so both sides lose it identically. **Before trusting the
+write path, diff it field-by-field against `migrate-to-store.mjs` while that
+file still exists.**
 
 **Decisions Iran made on 2026-08-15, all applied and all recorded in code:**
 1. **One TSE registration = one survey** — unless the rows contradict each other
@@ -81,9 +107,21 @@ node scripts/derive-polls.mjs     # store → polls.json (now a projection)
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across
 sources → apply `data/repairs.json` → candidate-name hygiene → keep fullest round-1 →
 canonicalise parties → canonicalise candidates → drop cross-brand duplicates →
-date guards → validate → write `polls.json`. Then `migrate-to-store.mjs` folds that
-into the store and `derive-polls.mjs` rewrites `polls.json` from it. `scrape.mjs`
-only runs when invoked as a program (importing it used to launch a live scrape).
+date guards → validate → write `polls.json` → **build the store through the
+resolution ladder** (`lib/build-store.mjs` → `upsertPoll`) → validate the store →
+write it. Then `derive-polls.mjs` rewrites `polls.json` from the store, so the
+file and the database cannot disagree. `scrape.mjs` only runs when invoked as a
+program (importing it used to launch a live scrape).
+
+**The store is rebuilt from scratch every run, never accumulated** — that is what
+keeps it a pure function of the scrape: a record that leaves the sources leaves
+the store, and re-running over the same input gives the same file byte for byte.
+Only two things are carried across: the "first seen" dates (`priorStamps`) and
+`provenance.updated_at`, which is refreshed **only for records whose content
+actually changed** (`settleProvenance`). Without that second rule a rebuild on a
+new day re-dated 2.954 questions with nothing but the stamp differing, which is
+exactly the churn NDJSON was chosen to avoid. `idempotence-check.mjs` drives this
+same builder — repointed off the migration so it cannot certify a dead path.
 
 **Two rules inside the merge, both learned the hard way.** Source priority
 (poder360 → eleicaoemdados → wikipedia) decides METADATA only — sample size,
@@ -624,7 +662,22 @@ every validator here has a `--self-test` for that reason.
    over — candidate figures on a valid-votes base, undecideds on the total. That
    is a different normalisation, not double-counted mass. Only the 3 above have
    candidate rows alone exceeding 100,5.)
-7. **The repairs file contradicts itself on unsourced parties.**
+7. **`candidate.party` is decided by ARRIVAL ORDER, and no conflict is logged.**
+   `resolveCandidate` sets `party` only when it mints the record, so the label
+   is whatever the first row to reach it happened to say — and later rows that
+   disagree change nothing and record nothing. The switchover flipped **47**
+   candidate labels, several onto the MINORITY value: Maria da Consolação reads
+   `PL` on rows of PSOL×2/PL×1; Dr. Daniel reads `Podemos` on PSB×4/Podemos×1;
+   Tadeu de Souza reads `Avante` on PP×4/Avante×1. `data/conflicts.ndjson` has
+   no `party` entry at all, so a genuine source disagreement is resolved in
+   silence — the thing this repo has repeatedly chosen to log instead.
+   **Impact is bounded and worth stating**: the authoritative party is the one
+   on each RESULT row (a poll keeps the party it was taken with), and those are
+   untouched — exactly one result row changed party in the whole switchover, the
+   intentional Avalanche one. This field is a convenience label. Fix by logging
+   the disagreement, or by deriving the label by majority instead of arrival —
+   but note that majority changes what the field MEANS, so it is a decision.
+8. **The repairs file contradicts itself on unsourced parties.**
    `data/repairs.json:11-17` (Vox) asserts five party labels — `PL`, `DC`, `PCB`,
    `PRTB`, `UP` — that **the cited PDF does not contain**; that report prints no
    party for any candidate. Meanwhile line 53 (Paraná Pesquisas GO) faced exactly
@@ -637,7 +690,7 @@ every validator here has a `--self-test` for that reason.
    the five rows were dropped from v2, not invented, so their parties probably came
    from Poder360's v1 endpoint or the aggregator page — naming that endpoint as the
    source closes the gap with no information lost and no nulling.
-8. **AtlasIntel RN, fieldwork 2026-07-21: the two runoff scenarios are CROSSED
+9. **AtlasIntel RN, fieldwork 2026-07-21: the two runoff scenarios are CROSSED
    between sources.** Poder360 has Cadu × Allyson 39,4/34,2 and Cadu × Álvaro
    45,7/35,5; Wikipedia has exactly those numbers on the opposite pairings. The
    same institute/UF on 2026-05-27 has the two sources agreeing, so it looks
@@ -649,22 +702,22 @@ every validator here has a `--self-test` for that reason.
 
 **Next work, in the order I would do it**
 
-9. **Point the scraper at `upsertPoll`** and delete the migration's grouping
+10. **Point the scraper at `upsertPoll`** and delete the migration's grouping
    key. The gate that gates this now PASSES (see Phase 3). This step CHANGES
    PUBLISHED NUMBERS: 6 cross-source duplicates leave two contests (**TO
    governador 2º turno**, **RN governador 2º turno**) and 68 metadata cells
    change in the table columns. Deliberate step, not a cleanup.
-10. **Implement the presentation spec in §3A** — none of it exists. Blocked on
+11. **Implement the presentation spec in §3A** — none of it exists. Blocked on
    nothing now that the completeness question (§3A "still open") is decided:
    incomplete polls are gated, not flagged.
-11. **The per-state presidential map** Iran wants. The data is already collected
+12. **The per-state presidential map** Iran wants. The data is already collected
    (377 polls, 24 UFs, `race: "presidente"` with a `state`). Nothing renders it
    yet; `/estados/[uf]` shows only governor and senate.
-12. **Narrow `tse.mjs` to `BRASIL.csv`** — it reads all 28 CSVs in the zip and the
+13. **Narrow `tse.mjs` to `BRASIL.csv`** — it reads all 28 CSVs in the zip and the
    27 per-UF files are duplicates of the national one.
-13. **Crosstabs (Phase 4).** The old "~25% unreachable" ceiling is GONE — see the
+14. **Crosstabs (Phase 4).** The old "~25% unreachable" ceiling is GONE — see the
    OCR note in §4. Those image-only reports are readable now.
-14. **Homepage visual design** — parked behind the phrase "Let's go back to design."
+15. **Homepage visual design** — parked behind the phrase "Let's go back to design."
 
 **The pattern that produced most of 2026-08-16's findings: a producer certifying
 its own output.** Every defect below was caught by a DIFFERENT agent than the one

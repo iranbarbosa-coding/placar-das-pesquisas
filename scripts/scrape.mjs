@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
+import { today, writeStore, DATA_DIR } from "./lib/store.mjs";
+import { buildStoreFromPolls } from "./lib/build-store.mjs";
+import { validateStore } from "./validate-store.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
 import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
@@ -367,6 +370,64 @@ async function main() {
   fs.writeFileSync(tmp, JSON.stringify(dataset, null, 1));
   fs.renameSync(tmp, DATA);
   console.log(`OK: ${polls.length} pesquisas gravadas em data/polls.json`);
+
+  persistStore(polls, dataset);
+}
+
+/**
+ * FASE 3: o coletor passa a escrever o store pela ESCADA DE RESOLUÇÃO.
+ *
+ * Antes, `migrate-to-store.mjs` reconstruía o store a partir de polls.json
+ * agrupando por uma chave (`reg:` → `p360:` → composto natural). Aquela chave
+ * não conseguia unir o que a fonte separa: o Poder360 arquiva cada cargo de uma
+ * mesma operação de campo como um registro nativo diferente, e a mesma pesquisa
+ * chegando pela Wikipédia virava um segundo levantamento. `upsertPoll` decide
+ * isso pelo que os dados dizem — id nativo, registro TSE, e então instituto +
+ * UF + janela de ±3 dias — que é a decisão "uma operação de campo = um
+ * levantamento" aplicada de fato.
+ *
+ * O STORE É RECONSTRUÍDO DO ZERO A CADA EXECUÇÃO, não acumulado. É o que
+ * mantém a saída uma função pura da coleta: um registro que sumiu da fonte
+ * some daqui, e reexecutar sobre a mesma entrada dá o mesmo arquivo byte a
+ * byte. `priorStamps` preserva as datas de "primeira vez que vimos isto", que
+ * são a única coisa que não pode ser rederivada da entrada.
+ *
+ * ORDEM IMPORTA: upsert é primeiro-escritor-vence, então a ingestão segue a
+ * prioridade de fontes (poder360 → eleicaoemdados → wikipedia). Paralelizar
+ * isso troca silenciosamente qual fonte ganha. Foi exatamente isso que manteve
+ * corretos os números do 2º turno do RN: as linhas da AtlasIntel chegam
+ * cruzadas pela Wikipédia e certas pelo Poder360, e é a ordem que descarta as
+ * cruzadas — registrando a divergência em conflicts.ndjson em vez de escolher
+ * em silêncio.
+ */
+function persistStore(polls, dataset) {
+  const runDate = today();
+  const { store, report } = buildStoreFromPolls(polls, {
+    runDate,
+    dir: DATA_DIR,
+    meta: {
+      generated_at: dataset.generated_at,
+      sources: dataset.sources,
+      written_by: "scrape.mjs/upsert",
+      written_at: new Date().toISOString(),
+    },
+  });
+
+  // O store só é gravado se passar no validador. Um coletor que grava primeiro
+  // e valida depois deixa o banco quebrado no disco esperando alguém reparar.
+  const { errors, warn } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
+  for (const w of warn.slice(0, 10)) console.warn(`AVISO: ${w}`);
+  if (errors.length) {
+    for (const e of errors.slice(0, 20)) console.error(`ERRO: ${e}`);
+    console.error(`\nstore NÃO gravado: ${errors.length} erro(s) de validação. data/polls.json já foi atualizado;`);
+    console.error("rode o coletor de novo depois de corrigir, ou reconstrua o store a partir dele.");
+    process.exit(1);
+  }
+
+  const counts = writeStore(store, { dir: DATA_DIR });
+  console.log(`store gravado pela escada: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
+    `${counts.institutes} institutos · ${counts.candidates} candidatos · ${counts.conflicts} conflitos`);
+  console.log(`  resolução: ${JSON.stringify(report)}`);
 }
 
 // Só executa quando chamado como programa. Importar este módulo NÃO pode

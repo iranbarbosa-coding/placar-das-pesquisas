@@ -37,15 +37,21 @@ jobs:
       #
       # This job used to run the scraper alone, which wrote polls.json and
       # nothing else — so every bot commit left the NDJSON store untouched and
-      # the two drifted apart a little more twice a day. The scrape still
-      # produces the flat rows (sources → normalise → repairs → hygiene), the
-      # migration folds them into the store, and polls.json is then rewritten
-      # FROM the store so the file and the database cannot disagree.
-      - name: Coletar e normalizar pesquisas
+      # the two drifted apart a little more twice a day. Then the scrape wrote
+      # the flat rows and `migrate-to-store.mjs` folded them in.
+      #
+      # As of 2026-08-16 the scraper writes the store ITSELF, through the
+      # resolution ladder (`upsertPoll`), and the migration step is gone. The
+      # migration grouped by a key that could not unite what the source splits:
+      # Poder360 files each office of one fieldwork operation as its own native
+      # record, and the same poll arriving via Wikipédia became a second
+      # survey. The ladder decides identity from the data — native id, TSE
+      # registration, then institute + UF + a ±3-day window — which is the
+      # "one fieldwork operation = one survey" decision actually applied.
+      # `scripts/upsert-vs-migration.mjs` is the gate that held the two paths
+      # to each other before the switch and still runs below.
+      - name: Coletar, normalizar e gravar o store
         run: node scripts/scrape.mjs
-
-      - name: Reconstruir o store a partir da coleta
-        run: node scripts/migrate-to-store.mjs
 
       - name: Derivar data/polls.json do store
         run: node scripts/derive-polls.mjs
@@ -83,6 +89,14 @@ jobs:
       # ── surfaces for review, regenerated with the data ──────────────────
       - name: Regenerar a lista de pesquisas incompletas
         run: node scripts/incomplete-polls.mjs
+
+      # The census is the operational definition of "banco normalizado": fixed
+      # classes, counted every run, so the state of the database is a number in
+      # a committed file rather than an opinion formed by whoever last audited
+      # it. It reports and never fails the build — `validate-store.mjs` owns the
+      # line between impossible and merely suspect.
+      - name: Regenerar o censo do banco
+        run: node scripts/census.mjs
 
       - name: Commit se houver mudanças
         run: |

@@ -11,10 +11,10 @@
 {"candidate_id":"c_2a99722e31cf","contest":"governador:AM","canonical":"Maria do Carmo","aliases":["Maria do Carmo"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_9fd609aec3a2","contest":"governador:AM","canonical":"Omar Aziz","aliases":["Omar Aziz"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_e2c9cedf560f","contest":"governador:AM","canonical":"Roberto Cidade","aliases":["Roberto Cidade"],"party":"União Brasil","first_seen":"2026-08-14"}
-{"candidate_id":"c_fd061b0ceedc","contest":"governador:AM","canonical":"Tadeu de Souza","aliases":["Tadeu de Souza"],"party":"PP","first_seen":"2026-08-14"}
+{"candidate_id":"c_fd061b0ceedc","contest":"governador:AM","canonical":"Tadeu de Souza","aliases":["Tadeu de Souza"],"party":"Avante","first_seen":"2026-08-14"}
 {"candidate_id":"c_67dc1366e43a","contest":"governador:AP","canonical":"Antônio Furlan","aliases":["Antônio Furlan"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_709d6a6b9fe5","contest":"governador:AP","canonical":"Clécio Luís","aliases":["Clécio Luís"],"party":"União Brasil","first_seen":"2026-08-14"}
-{"candidate_id":"c_eb9bf161e451","contest":"governador:AP","canonical":"Dr. Furlan","aliases":["Dr. Furlan"],"party":"MDB","first_seen":"2026-08-14"}
+{"candidate_id":"c_eb9bf161e451","contest":"governador:AP","canonical":"Dr. Furlan","aliases":["Dr. Furlan"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_14a4d89edff2","contest":"governador:BA","canonical":"Jerônimo Rodrigues","aliases":["Jerônimo Rodrigues"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_236685941092","contest":"governador:BA","canonical":"José Aleluia","aliases":["José Aleluia"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_3d58c3922ea0","contest":"governador:BA","canonical":"Aroldo Félix","aliases":["Aroldo Félix"],"party":"UP","first_seen":"2026-08-15"}
@@ -85,7 +85,7 @@
 {"candidate_id":"c_49d384ea5a68","contest":"governador:MG","canonical":"Ben Mendes","aliases":["Ben Mendes"],"party":"Missão","first_seen":"2026-08-14"}
 {"candidate_id":"c_4a7e06603832","contest":"governador:MG","canonical":"Marcelo Aro","aliases":["Marcelo Aro"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_5f850f4dfa65","contest":"governador:MG","canonical":"Indira Xavier","aliases":["Indira Xavier"],"party":"PSOL","first_seen":"2026-08-14"}
-{"candidate_id":"c_6779cdb05542","contest":"governador:MG","canonical":"Maria da Consolação","aliases":["Maria da Consolação"],"party":"PSOL","first_seen":"2026-08-14"}
+{"candidate_id":"c_6779cdb05542","contest":"governador:MG","canonical":"Maria da Consolação","aliases":["Maria da Consolação"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_72bf9d51f01c","contest":"governador:MG","canonical":"Alexandre Kalil","aliases":["Alexandre Kalil"],"party":"PDT","first_seen":"2026-08-14"}
 {"candidate_id":"c_9f63a96e309d","contest":"governador:MG","canonical":"Vittorio Medioli","aliases":["Vittorio Medioli"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_a849639ac705","contest":"governador:MG","canonical":"Gabriel Azevedo","aliases":["Gabriel Azevedo"],"party":"MDB","first_seen":"2026-08-14"}
@@ -115,7 +115,7 @@
 {"candidate_id":"c_3abc5c6aedb6","contest":"governador:MT","canonical":"Marcelo Maluf","aliases":["Marcelo Maluf"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_54ae3e064656","contest":"governador:MT","canonical":"Sargento Laudicério","aliases":["Sargento Laudicério"],"party":"Agir","first_seen":"2026-08-14"}
 {"candidate_id":"c_66120b6b655d","contest":"governador:MT","canonical":"Natasha Slhessarenko","aliases":["Natasha Slhessarenko"],"party":"PSD","first_seen":"2026-08-14"}
-{"candidate_id":"c_6f733ad681e0","contest":"governador:MT","canonical":"José Carlos do Pátio","aliases":["José Carlos do Pátio"],"party":"Solidariedade","first_seen":"2026-08-14"}
+{"candidate_id":"c_6f733ad681e0","contest":"governador:MT","canonical":"José Carlos do Pátio","aliases":["José Carlos do Pátio"],"party":"PSB","first_seen":"2026-08-14"}
 {"candidate_id":"c_9cbcd7ef7dcf","contest":"governador:MT","canonical":"Max Russi","aliases":["Max Russi"],"party":"PSB","first_seen":"2026-08-14"}
 {"candidate_id":"c_c0e068f6d4f1","contest":"governador:MT","canonical":"Rafaell Milas","aliases":["Rafaell Milas"],"party":"Missão","first_seen":"2026-08-14"}
 {"candidate_id":"c_db235a3215c1","contest":"governador:MT","canonical":"Janaína Riva","aliases":["Janaína Riva"],"party":"MDB","first_seen":"2026-08-14"}
@@ -123,7 +123,7 @@
 {"candidate_id":"c_1104800f739b","contest":"governador:PA","canonical":"Hana Ghassan","aliases":["Hana Ghassan"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_13b57961e096","contest":"governador:PA","canonical":"Araceli Lemos","aliases":["Araceli Lemos"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_3c93568c9a65","contest":"governador:PA","canonical":"Raquel Brício","aliases":["Raquel Brício"],"party":"UP","first_seen":"2026-08-14"}
-{"candidate_id":"c_49f20c74174c","contest":"governador:PA","canonical":"Dr. Daniel","aliases":["Dr. Daniel"],"party":"PSB","first_seen":"2026-08-15"}
+{"candidate_id":"c_49f20c74174c","contest":"governador:PA","canonical":"Dr. Daniel","aliases":["Dr. Daniel"],"party":"Podemos","first_seen":"2026-08-15"}
 {"candidate_id":"c_5726d2d923c7","contest":"governador:PA","canonical":"Marinor Brito","aliases":["Marinor Brito"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_5eb8a658f3ba","contest":"governador:PA","canonical":"Joaquim Passarinho","aliases":["Joaquim Passarinho"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_6a11b2c92255","contest":"governador:PA","canonical":"Mário Couto","aliases":["Mário Couto"],"party":"DC","first_seen":"2026-08-14"}
@@ -141,7 +141,7 @@
 {"candidate_id":"c_6b068e828ec1","contest":"governador:PB","canonical":"Cícero Lucena","aliases":["Cícero Lucena"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_8a563cb09f99","contest":"governador:PB","canonical":"Lucas Ribeiro","aliases":["Lucas Ribeiro"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_c2b26a831835","contest":"governador:PB","canonical":"Efraim Filho","aliases":["Efraim Filho"],"party":"PL","first_seen":"2026-08-14"}
-{"candidate_id":"c_ed658481f54f","contest":"governador:PB","canonical":"Lúcio Flávio","aliases":["Lúcio Flávio"],"party":"PSOL","first_seen":"2026-08-14"}
+{"candidate_id":"c_ed658481f54f","contest":"governador:PB","canonical":"Lúcio Flávio","aliases":["Lúcio Flávio"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_1517b6544f32","contest":"governador:PE","canonical":"Gilson Machado","aliases":["Gilson Machado"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_15886a00835c","contest":"governador:PE","canonical":"Raquel Lyra","aliases":["Raquel Lyra"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_546b471adf84","contest":"governador:PE","canonical":"Anderson Ferreira","aliases":["Anderson Ferreira"],"party":"PL","first_seen":"2026-08-14"}
@@ -177,7 +177,7 @@
 {"candidate_id":"c_d07a250e0ef8","contest":"governador:PR","canonical":"Samuel de Mattos","aliases":["Samuel de Mattos"],"party":"PSTU","first_seen":"2026-08-14"}
 {"candidate_id":"c_d3b88d863873","contest":"governador:PR","canonical":"Requião Filho","aliases":["Requião Filho"],"party":"PDT","first_seen":"2026-08-14"}
 {"candidate_id":"c_d4dd857a2778","contest":"governador:PR","canonical":"Fernando Giacobo","aliases":["Fernando Giacobo"],"party":"PSD","first_seen":"2026-08-14"}
-{"candidate_id":"c_d9a96e7e3657","contest":"governador:PR","canonical":"Alexandre Curi","aliases":["Alexandre Curi"],"party":"Republicanos","first_seen":"2026-08-14"}
+{"candidate_id":"c_d9a96e7e3657","contest":"governador:PR","canonical":"Alexandre Curi","aliases":["Alexandre Curi"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_e661159a76c7","contest":"governador:PR","canonical":"Rafael Greca","aliases":["Rafael Greca"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_e9468410c858","contest":"governador:PR","canonical":"Enio Verri","aliases":["Enio Verri"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_e97cb892a68f","contest":"governador:PR","canonical":"Guto Silva","aliases":["Guto Silva"],"party":"PSD","first_seen":"2026-08-14"}
@@ -195,7 +195,7 @@
 {"candidate_id":"c_a6eb94a8853a","contest":"governador:RJ","canonical":"Rodrigo Barcellar","aliases":["Rodrigo Barcellar"],"party":"União Brasil","first_seen":"2026-08-14"}
 {"candidate_id":"c_adee266ba41c","contest":"governador:RJ","canonical":"Garotinho","aliases":["Garotinho"],"party":"Republicanos","first_seen":"2026-08-14"}
 {"candidate_id":"c_b76c743ddf33","contest":"governador:RJ","canonical":"Glauber Braga","aliases":["Glauber Braga"],"party":"PSOL","first_seen":"2026-08-14"}
-{"candidate_id":"c_be7d42894762","contest":"governador:RJ","canonical":"Bombeiro Rafa Luz","aliases":["Bombeiro Rafa Luz"],"party":"Missão","first_seen":"2026-08-14"}
+{"candidate_id":"c_be7d42894762","contest":"governador:RJ","canonical":"Bombeiro Rafa Luz","aliases":["Bombeiro Rafa Luz"],"party":"Republicanos","first_seen":"2026-08-14"}
 {"candidate_id":"c_bee4bbd151f8","contest":"governador:RJ","canonical":"Washington Reis","aliases":["Washington Reis"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_bfa7a5807142","contest":"governador:RJ","canonical":"Tarcísio Motta","aliases":["Tarcísio Motta"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_fac33af7d12f","contest":"governador:RJ","canonical":"Felipe Curi","aliases":["Felipe Curi"],"party":"Sem partido","first_seen":"2026-08-14"}
@@ -267,7 +267,7 @@
 {"candidate_id":"c_9410f247f26f","contest":"governador:SP","canonical":"Kim Kataguiri","aliases":["Kim Kataguiri"],"party":"Missão","first_seen":"2026-08-14"}
 {"candidate_id":"c_9554fbf2d7e8","contest":"governador:SP","canonical":"Pablo Marçal","aliases":["Pablo Marçal"],"party":"PRTB","first_seen":"2026-08-14"}
 {"candidate_id":"c_9882f1f20ee9","contest":"governador:SP","canonical":"Felipe d'Avila","aliases":["Felipe d'Avila"],"party":"Novo","first_seen":"2026-08-14"}
-{"candidate_id":"c_9df3e2766e52","contest":"governador:SP","canonical":"Guilherme Derrite","aliases":["Guilherme Derrite"],"party":"PL","first_seen":"2026-08-15"}
+{"candidate_id":"c_9df3e2766e52","contest":"governador:SP","canonical":"Guilherme Derrite","aliases":["Guilherme Derrite"],"party":"PP","first_seen":"2026-08-15"}
 {"candidate_id":"c_abb4523ee5f4","contest":"governador:SP","canonical":"Erika Hilton","aliases":["Erika Hilton"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_b097570fbdf3","contest":"governador:SP","canonical":"André do Prado","aliases":["André do Prado"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_bec2382d79c4","contest":"governador:SP","canonical":"Geraldo Alckmin","aliases":["Geraldo Alckmin"],"party":"PSB","first_seen":"2026-08-14"}
@@ -277,7 +277,7 @@
 {"candidate_id":"c_e58c4abbc00e","contest":"governador:SP","canonical":"Ricardo Nunes","aliases":["Ricardo Nunes"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_f3d1723dccd0","contest":"governador:SP","canonical":"Rodrigo Manga","aliases":["Rodrigo Manga"],"party":"Republicanos","first_seen":"2026-08-14"}
 {"candidate_id":"c_f8adec1738b1","contest":"governador:SP","canonical":"Paulo Serra","aliases":["Paulo Serra"],"party":"PSDB","first_seen":"2026-08-14"}
-{"candidate_id":"c_f9ae52a9ada6","contest":"governador:SP","canonical":"Sabará","aliases":["Sabará"],"party":"Novo","first_seen":"2026-08-15"}
+{"candidate_id":"c_f9ae52a9ada6","contest":"governador:SP","canonical":"Sabará","aliases":["Sabará"],"party":"Sem partido","first_seen":"2026-08-15"}
 {"candidate_id":"c_07d606ff9a9e","contest":"governador:TO","canonical":"Paulo Mourão","aliases":["Paulo Mourão"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_0ee70ac139db","contest":"governador:TO","canonical":"Kátia Abreu","aliases":["Kátia Abreu"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_36a210dd4a1b","contest":"governador:TO","canonical":"Dorinha Rezende","aliases":["Dorinha Rezende"],"party":"União Brasil","first_seen":"2026-08-14"}
@@ -299,7 +299,7 @@
 {"candidate_id":"c_899ac7cff4a7","contest":"presidente:AC","canonical":"Átila Maia","aliases":["Átila Maia"],"party":"Agir","first_seen":"2026-08-15"}
 {"candidate_id":"c_90ca3a1ea89a","contest":"presidente:AC","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_98fd2c47adce","contest":"presidente:AC","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
-{"candidate_id":"c_9ef68a29609c","contest":"presidente:AC","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_9ef68a29609c","contest":"presidente:AC","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_ac172528d144","contest":"presidente:AC","canonical":"Tarcísio de Freitas","aliases":["Tarcísio de Freitas"],"party":"Republicanos","first_seen":"2026-08-15"}
 {"candidate_id":"c_b2d0a2024ce4","contest":"presidente:AC","canonical":"Michelle Bolsonaro","aliases":["Michelle Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_e27d6ed50e65","contest":"presidente:AC","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
@@ -333,10 +333,10 @@
 {"candidate_id":"c_bef85ff6b924","contest":"presidente:BA","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_c32c9f5ddd5c","contest":"presidente:BA","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_d0b2a4ad62ae","contest":"presidente:BA","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
-{"candidate_id":"c_dcb648e4e8d3","contest":"presidente:BA","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_dcb648e4e8d3","contest":"presidente:BA","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_ef8d2038cc53","contest":"presidente:BA","canonical":"Tarcísio de Freitas","aliases":["Tarcísio de Freitas"],"party":"Republicanos","first_seen":"2026-08-15"}
 {"candidate_id":"c_038aaccbdf39","contest":"presidente:BR","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-14"}
-{"candidate_id":"c_085a211df68b","contest":"presidente:BR","canonical":"Leonardo Avalanche","aliases":["Leonardo Avalanche"],"party":"PRTB","first_seen":"2026-08-14"}
+{"candidate_id":"c_085a211df68b","contest":"presidente:BR","canonical":"Leonardo Avalanche","aliases":["Leonardo Avalanche"],"party":null,"first_seen":"2026-08-14"}
 {"candidate_id":"c_16e8a50b4c8e","contest":"presidente:BR","canonical":"Clariana Barão","aliases":["Clariana Barão"],"party":"DC","first_seen":"2026-08-14"}
 {"candidate_id":"c_1ec11b6a04c2","contest":"presidente:BR","canonical":"Simone Tebet","aliases":["Simone Tebet"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_2a5d67539abc","contest":"presidente:BR","canonical":"Ciro","aliases":["Ciro"],"party":"PSDB","first_seen":"2026-08-14"}
@@ -380,14 +380,14 @@
 {"candidate_id":"c_f6980e814777","contest":"presidente:BR","canonical":"Grassi","aliases":["Grassi"],"party":"Democrata","first_seen":"2026-08-15"}
 {"candidate_id":"c_16e5e9e6d198","contest":"presidente:CE","canonical":"Rui Costa Pimenta","aliases":["Rui Costa Pimenta"],"party":"PCO","first_seen":"2026-08-15"}
 {"candidate_id":"c_1ea93e9abd94","contest":"presidente:CE","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
-{"candidate_id":"c_23449f2e8236","contest":"presidente:CE","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
+{"candidate_id":"c_23449f2e8236","contest":"presidente:CE","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PSDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_3103b95d1ebc","contest":"presidente:CE","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_410bc621ed4a","contest":"presidente:CE","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
-{"candidate_id":"c_43beb8a9d45a","contest":"presidente:CE","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Avante","first_seen":"2026-08-15"}
+{"candidate_id":"c_43beb8a9d45a","contest":"presidente:CE","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Novo","first_seen":"2026-08-15"}
 {"candidate_id":"c_4f24c25863cb","contest":"presidente:CE","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_5b89a2caa187","contest":"presidente:CE","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
 {"candidate_id":"c_a948e5d9b1b0","contest":"presidente:CE","canonical":"Tereza Cristina","aliases":["Tereza Cristina"],"party":"PP","first_seen":"2026-08-15"}
-{"candidate_id":"c_b84f01f2fa64","contest":"presidente:CE","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_b84f01f2fa64","contest":"presidente:CE","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_bdd6d9358cac","contest":"presidente:CE","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_d8a1b29b284d","contest":"presidente:CE","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_e484efc3336c","contest":"presidente:CE","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
@@ -404,7 +404,7 @@
 {"candidate_id":"c_54b4388e5678","contest":"presidente:DF","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_569db057b97c","contest":"presidente:DF","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_670d998e635a","contest":"presidente:DF","canonical":"Aécio Neves","aliases":["Aécio Neves"],"party":"PSDB","first_seen":"2026-08-15"}
-{"candidate_id":"c_7a65941f1912","contest":"presidente:DF","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_7a65941f1912","contest":"presidente:DF","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_9c39cdc9d042","contest":"presidente:DF","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
 {"candidate_id":"c_c9d49c44a048","contest":"presidente:DF","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
 {"candidate_id":"c_eed5e58ecb7b","contest":"presidente:DF","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
@@ -420,7 +420,7 @@
 {"candidate_id":"c_9927de5793e3","contest":"presidente:ES","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_99c7b9b87dc4","contest":"presidente:ES","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_9bc633489c9a","contest":"presidente:ES","canonical":"Renan Filho","aliases":["Renan Filho"],"party":"MDB","first_seen":"2026-08-15"}
-{"candidate_id":"c_9dd5b419d28f","contest":"presidente:ES","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_9dd5b419d28f","contest":"presidente:ES","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_ac7733b56c52","contest":"presidente:ES","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_aea9d7cefdfd","contest":"presidente:ES","canonical":"Hertz Dias","aliases":["Hertz Dias"],"party":"PSTU","first_seen":"2026-08-15"}
 {"candidate_id":"c_b5cd90c1f0a4","contest":"presidente:ES","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
@@ -438,7 +438,7 @@
 {"candidate_id":"c_be2c6aa0af88","contest":"presidente:GO","canonical":"Joaquim Barbosa","aliases":["Joaquim Barbosa"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_c1da87a643a0","contest":"presidente:GO","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_c44669219274","contest":"presidente:GO","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
-{"candidate_id":"c_dd242a714e71","contest":"presidente:GO","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_dd242a714e71","contest":"presidente:GO","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_f0a3c77c8efb","contest":"presidente:GO","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
 {"candidate_id":"c_f545bda49448","contest":"presidente:GO","canonical":"Gusttavo Lima","aliases":["Gusttavo Lima"],"party":null,"first_seen":"2026-08-15"}
 {"candidate_id":"c_11fddd4900b0","contest":"presidente:MA","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
@@ -464,22 +464,22 @@
 {"candidate_id":"c_b62c2c87ab16","contest":"presidente:MG","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_d458e0bb7669","contest":"presidente:MG","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_d6aa6c1a4df4","contest":"presidente:MG","canonical":"Pablo Marçal","aliases":["Pablo Marçal"],"party":"PRTB","first_seen":"2026-08-15"}
-{"candidate_id":"c_ddf357eb7dad","contest":"presidente:MG","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSDB","first_seen":"2026-08-15"}
+{"candidate_id":"c_ddf357eb7dad","contest":"presidente:MG","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_ec6a3047fbba","contest":"presidente:MG","canonical":"Tarcísio de Freitas","aliases":["Tarcísio de Freitas"],"party":"Republicanos","first_seen":"2026-08-15"}
 {"candidate_id":"c_f19af058da7e","contest":"presidente:MG","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
 {"candidate_id":"c_f3b7c3a9c4a8","contest":"presidente:MG","canonical":"Gusttavo Lima","aliases":["Gusttavo Lima"],"party":null,"first_seen":"2026-08-15"}
-{"candidate_id":"c_fec130902002","contest":"presidente:MG","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_fec130902002","contest":"presidente:MG","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_0cae9f5d7db8","contest":"presidente:MS","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Novo","first_seen":"2026-08-15"}
 {"candidate_id":"c_17bc18c3f479","contest":"presidente:MS","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_266cfa320f13","contest":"presidente:MS","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_268aaf4b175a","contest":"presidente:MS","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
-{"candidate_id":"c_3fa31e633616","contest":"presidente:MS","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
+{"candidate_id":"c_3fa31e633616","contest":"presidente:MS","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PSDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_6534cd9a998b","contest":"presidente:MS","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_ad162cc8cbd6","contest":"presidente:MS","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
 {"candidate_id":"c_b322ef009e57","contest":"presidente:MS","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_c0eb54d7b5f7","contest":"presidente:MS","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
 {"candidate_id":"c_ed4ddba6bfd3","contest":"presidente:MS","canonical":"Rui Costa Pimenta","aliases":["Rui Costa Pimenta"],"party":"PCO","first_seen":"2026-08-15"}
-{"candidate_id":"c_efc612b1700c","contest":"presidente:MS","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_efc612b1700c","contest":"presidente:MS","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_f901e046d2a5","contest":"presidente:MS","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_0a51d89dc21b","contest":"presidente:MT","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_2cb98d597f95","contest":"presidente:MT","canonical":"Ratinho Jr.","aliases":["Ratinho Jr."],"party":"PSD","first_seen":"2026-08-15"}
@@ -504,7 +504,7 @@
 {"candidate_id":"c_c91155762896","contest":"presidente:PA","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
 {"candidate_id":"c_d89bbde7c020","contest":"presidente:PA","canonical":"Michelle Bolsonaro","aliases":["Michelle Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_dcd7e7aa3e6a","contest":"presidente:PA","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
-{"candidate_id":"c_ebf453df46d2","contest":"presidente:PA","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_ebf453df46d2","contest":"presidente:PA","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_3faa32bd4214","contest":"presidente:PB","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Novo","first_seen":"2026-08-15"}
 {"candidate_id":"c_66dff50ba1a8","contest":"presidente:PB","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_9f3341cdb00f","contest":"presidente:PB","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
@@ -517,10 +517,10 @@
 {"candidate_id":"c_e7e53595bca4","contest":"presidente:PB","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_ef20656edf5e","contest":"presidente:PB","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_014fedfb956c","contest":"presidente:PE","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
-{"candidate_id":"c_03ee505d056f","contest":"presidente:PE","canonical":"Pablo Marçal","aliases":["Pablo Marçal"],"party":"PRTB","first_seen":"2026-08-15"}
+{"candidate_id":"c_03ee505d056f","contest":"presidente:PE","canonical":"Pablo Marçal","aliases":["Pablo Marçal"],"party":"União Brasil","first_seen":"2026-08-15"}
 {"candidate_id":"c_12a84df301dd","contest":"presidente:PE","canonical":"Gusttavo Lima","aliases":["Gusttavo Lima"],"party":null,"first_seen":"2026-08-15"}
 {"candidate_id":"c_12ed5ebe4b12","contest":"presidente:PE","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Novo","first_seen":"2026-08-15"}
-{"candidate_id":"c_1510a2ef4e51","contest":"presidente:PE","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSDB","first_seen":"2026-08-15"}
+{"candidate_id":"c_1510a2ef4e51","contest":"presidente:PE","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_389f76bd70b9","contest":"presidente:PE","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_40e246f85169","contest":"presidente:PE","canonical":"Tarcísio de Freitas","aliases":["Tarcísio de Freitas"],"party":"Republicanos","first_seen":"2026-08-15"}
 {"candidate_id":"c_492d4587cfcc","contest":"presidente:PE","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
@@ -530,8 +530,8 @@
 {"candidate_id":"c_6675e2e78345","contest":"presidente:PE","canonical":"Rui Costa Pimenta","aliases":["Rui Costa Pimenta"],"party":"PCO","first_seen":"2026-08-15"}
 {"candidate_id":"c_688bd4069d89","contest":"presidente:PE","canonical":"Joaquim Barbosa","aliases":["Joaquim Barbosa"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_77ff8f679a50","contest":"presidente:PE","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
-{"candidate_id":"c_7f5bde0192cb","contest":"presidente:PE","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
-{"candidate_id":"c_89515673cd95","contest":"presidente:PE","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
+{"candidate_id":"c_7f5bde0192cb","contest":"presidente:PE","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
+{"candidate_id":"c_89515673cd95","contest":"presidente:PE","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PSDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_a0a5f73ccdb8","contest":"presidente:PE","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
 {"candidate_id":"c_b2097baf5a51","contest":"presidente:PE","canonical":"Aécio Neves","aliases":["Aécio Neves"],"party":"PSDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_c7898a3b0de7","contest":"presidente:PE","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
@@ -550,7 +550,7 @@
 {"candidate_id":"c_f8e518dc588d","contest":"presidente:PI","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
 {"candidate_id":"c_204ba5975b64","contest":"presidente:PR","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_24d9263c1026","contest":"presidente:PR","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
-{"candidate_id":"c_2fd97370a7ab","contest":"presidente:PR","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
+{"candidate_id":"c_2fd97370a7ab","contest":"presidente:PR","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PSDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_3a290312d26a","contest":"presidente:PR","canonical":"Michelle Bolsonaro","aliases":["Michelle Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_49f1fbf06ea2","contest":"presidente:PR","canonical":"Pablo Marçal","aliases":["Pablo Marçal"],"party":"PRTB","first_seen":"2026-08-15"}
 {"candidate_id":"c_5b62b7ba7347","contest":"presidente:PR","canonical":"Gusttavo Lima","aliases":["Gusttavo Lima"],"party":null,"first_seen":"2026-08-15"}
@@ -558,7 +558,7 @@
 {"candidate_id":"c_68ce6468abbf","contest":"presidente:PR","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Novo","first_seen":"2026-08-15"}
 {"candidate_id":"c_6ca5ae51aa28","contest":"presidente:PR","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_6ec88ca670a2","contest":"presidente:PR","canonical":"Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro","aliases":["Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro"],"party":"PP","first_seen":"2026-08-15"}
-{"candidate_id":"c_804e9614b631","contest":"presidente:PR","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_804e9614b631","contest":"presidente:PR","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_81d97122b24b","contest":"presidente:PR","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
 {"candidate_id":"c_9abfd7fe2972","contest":"presidente:PR","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
 {"candidate_id":"c_9bbe303539a9","contest":"presidente:PR","canonical":"Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro","aliases":["Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro"],"party":"Republicanos","first_seen":"2026-08-15"}
@@ -577,7 +577,7 @@
 {"candidate_id":"c_12558ce37b19","contest":"presidente:RJ","canonical":"Rui Costa Pimenta","aliases":["Rui Costa Pimenta"],"party":"PCO","first_seen":"2026-08-15"}
 {"candidate_id":"c_12c863590ebf","contest":"presidente:RJ","canonical":"Hertz Dias","aliases":["Hertz Dias"],"party":"PSTU","first_seen":"2026-08-15"}
 {"candidate_id":"c_40376766687a","contest":"presidente:RJ","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
-{"candidate_id":"c_42b48f7255fb","contest":"presidente:RJ","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSDB","first_seen":"2026-08-15"}
+{"candidate_id":"c_42b48f7255fb","contest":"presidente:RJ","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_5f14b1c222af","contest":"presidente:RJ","canonical":"Romeu Zema","aliases":["Romeu Zema"],"party":"Novo","first_seen":"2026-08-15"}
 {"candidate_id":"c_65a52d925e5d","contest":"presidente:RJ","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_810b9189c233","contest":"presidente:RJ","canonical":"Tarcísio de Freitas","aliases":["Tarcísio de Freitas"],"party":"Republicanos","first_seen":"2026-08-15"}
@@ -589,14 +589,14 @@
 {"candidate_id":"c_bf92d9df2908","contest":"presidente:RJ","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_d209a10ff54c","contest":"presidente:RJ","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_d3f69799e88a","contest":"presidente:RJ","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
-{"candidate_id":"c_ef2c86b79fd9","contest":"presidente:RJ","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_ef2c86b79fd9","contest":"presidente:RJ","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_fd2f28b11d00","contest":"presidente:RJ","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_016d9ca78a85","contest":"presidente:RN","canonical":"Joaquim Barbosa","aliases":["Joaquim Barbosa"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_06d6c0a8aeb9","contest":"presidente:RN","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_1109d21f1c39","contest":"presidente:RN","canonical":"Augusto Cury","aliases":["Augusto Cury"],"party":"Avante","first_seen":"2026-08-15"}
 {"candidate_id":"c_1f3e7f19eb4a","contest":"presidente:RN","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
-{"candidate_id":"c_3a912594bf51","contest":"presidente:RN","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
-{"candidate_id":"c_5dd516393e30","contest":"presidente:RN","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_3a912594bf51","contest":"presidente:RN","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PSDB","first_seen":"2026-08-15"}
+{"candidate_id":"c_5dd516393e30","contest":"presidente:RN","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_77e11ba3f408","contest":"presidente:RN","canonical":"Renan Filho","aliases":["Renan Filho"],"party":"MDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_8ccca6786869","contest":"presidente:RN","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_b4769fe239ed","contest":"presidente:RN","canonical":"Ratinho Jr","aliases":["Ratinho Jr"],"party":"PSD","first_seen":"2026-08-15"}
@@ -620,7 +620,7 @@
 {"candidate_id":"c_134ffb34bfb6","contest":"presidente:RS","canonical":"Flávio Bolsonaro","aliases":["Flávio Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_1393ef0184ec","contest":"presidente:RS","canonical":"Jair Bolsonaro","aliases":["Jair Bolsonaro"],"party":"PL","first_seen":"2026-08-15"}
 {"candidate_id":"c_152246a7b511","contest":"presidente:RS","canonical":"Hertz Dias","aliases":["Hertz Dias"],"party":"PSTU","first_seen":"2026-08-15"}
-{"candidate_id":"c_4af74bb1e2d8","contest":"presidente:RS","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_4af74bb1e2d8","contest":"presidente:RS","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_6e05a8b12ff9","contest":"presidente:RS","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_71ecb167413b","contest":"presidente:RS","canonical":"Cabo Daciolo","aliases":["Cabo Daciolo"],"party":"Mobiliza","first_seen":"2026-08-15"}
 {"candidate_id":"c_90527bf91fe0","contest":"presidente:RS","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSDB","first_seen":"2026-08-15"}
@@ -666,7 +666,7 @@
 {"candidate_id":"c_868927ac6ae3","contest":"presidente:SP","canonical":"Ciro Gomes","aliases":["Ciro Gomes"],"party":"PDT","first_seen":"2026-08-15"}
 {"candidate_id":"c_8b3eb9550eea","contest":"presidente:SP","canonical":"Eduardo Leite","aliases":["Eduardo Leite"],"party":"PSDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_98bc24ae73f4","contest":"presidente:SP","canonical":"Tereza Cristina","aliases":["Tereza Cristina"],"party":"PP","first_seen":"2026-08-15"}
-{"candidate_id":"c_9f9e7ee66084","contest":"presidente:SP","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_9f9e7ee66084","contest":"presidente:SP","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_a4c43f3efcad","contest":"presidente:SP","canonical":"Tarcísio de Freitas","aliases":["Tarcísio de Freitas"],"party":"Republicanos","first_seen":"2026-08-15"}
 {"candidate_id":"c_a9a974d503e3","contest":"presidente:SP","canonical":"Rui Costa Pimenta","aliases":["Rui Costa Pimenta"],"party":"PCO","first_seen":"2026-08-15"}
 {"candidate_id":"c_aa0b15a22414","contest":"presidente:SP","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
@@ -690,7 +690,7 @@
 {"candidate_id":"c_7a6fbc2c57cd","contest":"presidente:TO","canonical":"Renan Filho","aliases":["Renan Filho"],"party":"MDB","first_seen":"2026-08-15"}
 {"candidate_id":"c_86669df340be","contest":"presidente:TO","canonical":"Lula","aliases":["Lula"],"party":"PT","first_seen":"2026-08-15"}
 {"candidate_id":"c_939f02642108","contest":"presidente:TO","canonical":"Helder Barbalho","aliases":["Helder Barbalho"],"party":"MDB","first_seen":"2026-08-15"}
-{"candidate_id":"c_9eaa931fcb43","contest":"presidente:TO","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"União Brasil","first_seen":"2026-08-15"}
+{"candidate_id":"c_9eaa931fcb43","contest":"presidente:TO","canonical":"Ronaldo Caiado","aliases":["Ronaldo Caiado"],"party":"PSD","first_seen":"2026-08-15"}
 {"candidate_id":"c_b7eea7844ace","contest":"presidente:TO","canonical":"Ciro","aliases":["Ciro"],"party":"PDT","first_seen":"2026-08-15"}
 {"candidate_id":"c_df6b5606b318","contest":"presidente:TO","canonical":"Aldo Rebelo","aliases":["Aldo Rebelo"],"party":"DC","first_seen":"2026-08-15"}
 {"candidate_id":"c_e5306d824f45","contest":"presidente:TO","canonical":"Renan Santos","aliases":["Renan Santos"],"party":"Missão","first_seen":"2026-08-15"}
@@ -710,7 +710,7 @@
 {"candidate_id":"c_3905bcafc975","contest":"senador:AL","canonical":"Marina JHC","aliases":["Marina JHC"],"party":"Sem partido","first_seen":"2026-08-14"}
 {"candidate_id":"c_4349b4ae5eaa","contest":"senador:AL","canonical":"Alfredo Gaspar","aliases":["Alfredo Gaspar"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_6aa25f3d57e5","contest":"senador:AL","canonical":"José Wanderley Neto","aliases":["José Wanderley Neto"],"party":"MDB","first_seen":"2026-08-14"}
-{"candidate_id":"c_76ad61c93fd3","contest":"senador:AL","canonical":"Davi Davino Filho","aliases":["Davi Davino Filho"],"party":"Republicanos","first_seen":"2026-08-15"}
+{"candidate_id":"c_76ad61c93fd3","contest":"senador:AL","canonical":"Davi Davino Filho","aliases":["Davi Davino Filho"],"party":"PP","first_seen":"2026-08-15"}
 {"candidate_id":"c_7767d7eae5fc","contest":"senador:AL","canonical":"Arthur Lira","aliases":["Arthur Lira"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_8c3eb7f687f2","contest":"senador:AL","canonical":"Ronaldo Lessa","aliases":["Ronaldo Lessa"],"party":"PDT","first_seen":"2026-08-14"}
 {"candidate_id":"c_9e77b387204a","contest":"senador:AL","canonical":"Eudócia Caldas","aliases":["Eudócia Caldas"],"party":"PSDB","first_seen":"2026-08-14"}
@@ -730,7 +730,7 @@
 {"candidate_id":"c_d73f8fe85393","contest":"senador:AP","canonical":"João Capiberibe","aliases":["João Capiberibe"],"party":"PSB","first_seen":"2026-08-14"}
 {"candidate_id":"c_e2996a300c7a","contest":"senador:AP","canonical":"Randolfe Rodrigues","aliases":["Randolfe Rodrigues"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_123f37a5b05b","contest":"senador:BA","canonical":"Aroldo Cedraz","aliases":["Aroldo Cedraz"],"party":"Sem partido","first_seen":"2026-08-14"}
-{"candidate_id":"c_1715505e976e","contest":"senador:BA","canonical":"Angelo Coronel","aliases":["Angelo Coronel"],"party":"Republicanos","first_seen":"2026-08-14"}
+{"candidate_id":"c_1715505e976e","contest":"senador:BA","canonical":"Angelo Coronel","aliases":["Angelo Coronel"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_2d8026141912","contest":"senador:BA","canonical":"Adolfo Viana","aliases":["Adolfo Viana"],"party":"PSDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_39114b08b22a","contest":"senador:BA","canonical":"João Roma","aliases":["João Roma"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_4e8d902d6669","contest":"senador:BA","canonical":"Márcio Marinho","aliases":["Márcio Marinho"],"party":"Republicanos","first_seen":"2026-08-14"}
@@ -799,7 +799,7 @@
 {"candidate_id":"c_e921bf3a2e1e","contest":"senador:GO","canonical":"Ricardo Dias","aliases":["Ricardo Dias"],"party":"PV","first_seen":"2026-08-14"}
 {"candidate_id":"c_023c51179fb8","contest":"senador:MA","canonical":"Pedro Lucas","aliases":["Pedro Lucas"],"party":"União Brasil","first_seen":"2026-08-14"}
 {"candidate_id":"c_21e3605d1d7d","contest":"senador:MA","canonical":"Doutor Yglésio","aliases":["Doutor Yglésio"],"party":"PRTB","first_seen":"2026-08-14"}
-{"candidate_id":"c_2a4797722ccc","contest":"senador:MA","canonical":"Roberto Rocha","aliases":["Roberto Rocha"],"party":"PRTB","first_seen":"2026-08-14"}
+{"candidate_id":"c_2a4797722ccc","contest":"senador:MA","canonical":"Roberto Rocha","aliases":["Roberto Rocha"],"party":"Novo","first_seen":"2026-08-14"}
 {"candidate_id":"c_3a6e45457511","contest":"senador:MA","canonical":"Weverton Rocha","aliases":["Weverton Rocha"],"party":"PDT","first_seen":"2026-08-14"}
 {"candidate_id":"c_51c54c5ca189","contest":"senador:MA","canonical":"César Pires","aliases":["César Pires"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_5c8da4c62006","contest":"senador:MA","canonical":"Carlos Brandão","aliases":["Carlos Brandão"],"party":"Sem partido","first_seen":"2026-08-14"}
@@ -837,7 +837,7 @@
 {"candidate_id":"c_8e90027d06f0","contest":"senador:MS","canonical":"Rose Modesto","aliases":["Rose Modesto"],"party":"União Brasil","first_seen":"2026-08-14"}
 {"candidate_id":"c_9c1ea0e1ea54","contest":"senador:MS","canonical":"Gerson Claro","aliases":["Gerson Claro"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_ab4b93ad8db4","contest":"senador:MS","canonical":"Soraya Thronicke","aliases":["Soraya Thronicke"],"party":"PSB","first_seen":"2026-08-14"}
-{"candidate_id":"c_c1718d4e2c59","contest":"senador:MS","canonical":"Oswaldo Meza","aliases":["Oswaldo Meza"],"party":"Sem partido","first_seen":"2026-08-14"}
+{"candidate_id":"c_c1718d4e2c59","contest":"senador:MS","canonical":"Oswaldo Meza","aliases":["Oswaldo Meza"],"party":"Avante","first_seen":"2026-08-14"}
 {"candidate_id":"c_c20021675a4d","contest":"senador:MS","canonical":"Vander Loubet","aliases":["Vander Loubet"],"party":"PT","first_seen":"2026-08-14"}
 {"candidate_id":"c_c5df20ff8b94","contest":"senador:MS","canonical":"Gianni Nogueira","aliases":["Gianni Nogueira"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_c75f4411bd53","contest":"senador:MS","canonical":"Simone Tebet","aliases":["Simone Tebet"],"party":"MDB","first_seen":"2026-08-14"}
@@ -886,9 +886,9 @@
 {"candidate_id":"c_32a3e426c3d6","contest":"senador:PE","canonical":"Armando Monteiro Neto","aliases":["Armando Monteiro Neto"],"party":"Podemos","first_seen":"2026-08-14"}
 {"candidate_id":"c_35a3d4491100","contest":"senador:PE","canonical":"Miguel Coelho","aliases":["Miguel Coelho"],"party":"União Brasil","first_seen":"2026-08-14"}
 {"candidate_id":"c_42ecae477b38","contest":"senador:PE","canonical":"Silvio Nascimento","aliases":["Silvio Nascimento"],"party":"PL","first_seen":"2026-08-14"}
-{"candidate_id":"c_811b141a00e3","contest":"senador:PE","canonical":"Fernando Dueire","aliases":["Fernando Dueire"],"party":"MDB","first_seen":"2026-08-14"}
+{"candidate_id":"c_811b141a00e3","contest":"senador:PE","canonical":"Fernando Dueire","aliases":["Fernando Dueire"],"party":"PSD","first_seen":"2026-08-14"}
 {"candidate_id":"c_8cb2dfd9d668","contest":"senador:PE","canonical":"Marília Arraes","aliases":["Marília Arraes"],"party":"PDT","first_seen":"2026-08-14"}
-{"candidate_id":"c_d3a07f5c87cb","contest":"senador:PE","canonical":"Gilson Machado","aliases":["Gilson Machado"],"party":"Podemos","first_seen":"2026-08-14"}
+{"candidate_id":"c_d3a07f5c87cb","contest":"senador:PE","canonical":"Gilson Machado","aliases":["Gilson Machado"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_e50b26475092","contest":"senador:PE","canonical":"Mendonça Filho","aliases":["Mendonça Filho"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_0fdb571aeed6","contest":"senador:PI","canonical":"Antônio José Lira","aliases":["Antônio José Lira"],"party":"Avante","first_seen":"2026-08-14"}
 {"candidate_id":"c_122c57852d93","contest":"senador:PI","canonical":"Júlio César","aliases":["Júlio César"],"party":"PSD","first_seen":"2026-08-14"}
@@ -939,7 +939,7 @@
 {"candidate_id":"c_a7d8833eac30","contest":"senador:RJ","canonical":"Hélio Secco","aliases":["Hélio Secco"],"party":"Missão","first_seen":"2026-08-14"}
 {"candidate_id":"c_aba64ddd3451","contest":"senador:RJ","canonical":"Alessandro Molon","aliases":["Alessandro Molon"],"party":"PSB","first_seen":"2026-08-14"}
 {"candidate_id":"c_bd4b1961490f","contest":"senador:RJ","canonical":"Marcos Dias","aliases":["Marcos Dias"],"party":"Podemos","first_seen":"2026-08-14"}
-{"candidate_id":"c_d8cadb84030e","contest":"senador:RJ","canonical":"Otoni de Paula","aliases":["Otoni de Paula"],"party":"PRTB","first_seen":"2026-08-14"}
+{"candidate_id":"c_d8cadb84030e","contest":"senador:RJ","canonical":"Otoni de Paula","aliases":["Otoni de Paula"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_dbb3676da6f0","contest":"senador:RJ","canonical":"Luciana Boiteux","aliases":["Luciana Boiteux"],"party":"PSOL","first_seen":"2026-08-14"}
 {"candidate_id":"c_dc4a329fd54d","contest":"senador:RJ","canonical":"Washington Reis","aliases":["Washington Reis"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_dcd2f7073d34","contest":"senador:RJ","canonical":"Fabiano Horta","aliases":["Fabiano Horta"],"party":"PT","first_seen":"2026-08-14"}
@@ -956,13 +956,13 @@
 {"candidate_id":"c_ab24651b0164","contest":"senador:RN","canonical":"Luizinho Cavalcante","aliases":["Luizinho Cavalcante"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_b1829c21b0a5","contest":"senador:RN","canonical":"Luciana Lima","aliases":["Luciana Lima"],"party":"PSTU","first_seen":"2026-08-14"}
 {"candidate_id":"c_bb4e857b1284","contest":"senador:RN","canonical":"Babá Pereira","aliases":["Babá Pereira"],"party":"PL","first_seen":"2026-08-14"}
-{"candidate_id":"c_bcf4ca775552","contest":"senador:RN","canonical":"Álvaro Dias","aliases":["Álvaro Dias"],"party":"Republicanos","first_seen":"2026-08-14"}
+{"candidate_id":"c_bcf4ca775552","contest":"senador:RN","canonical":"Álvaro Dias","aliases":["Álvaro Dias"],"party":"MDB","first_seen":"2026-08-14"}
 {"candidate_id":"c_c74fbe7abe2d","contest":"senador:RN","canonical":"Rivaldo Fernandes","aliases":["Rivaldo Fernandes"],"party":"PV","first_seen":"2026-08-14"}
 {"candidate_id":"c_c7a341585442","contest":"senador:RN","canonical":"Coronel Hélio","aliases":["Coronel Hélio"],"party":"PL","first_seen":"2026-08-14"}
 {"candidate_id":"c_ca220012a578","contest":"senador:RN","canonical":"Samanda Alves","aliases":["Samanda Alves"],"party":"PT","first_seen":"2026-08-14"}
-{"candidate_id":"c_d575a6f62651","contest":"senador:RN","canonical":"Carlos Eduardo Alves","aliases":["Carlos Eduardo Alves"],"party":"PSD","first_seen":"2026-08-14"}
+{"candidate_id":"c_d575a6f62651","contest":"senador:RN","canonical":"Carlos Eduardo Alves","aliases":["Carlos Eduardo Alves"],"party":"PDT","first_seen":"2026-08-14"}
 {"candidate_id":"c_daf4aa090297","contest":"senador:RN","canonical":"Jean Paul Prates","aliases":["Jean Paul Prates"],"party":"PDT","first_seen":"2026-08-14"}
-{"candidate_id":"c_0cb2c4cfbbde","contest":"senador:RO","canonical":"Rodrigo Camargo","aliases":["Rodrigo Camargo"],"party":"Republicanos","first_seen":"2026-08-14"}
+{"candidate_id":"c_0cb2c4cfbbde","contest":"senador:RO","canonical":"Rodrigo Camargo","aliases":["Rodrigo Camargo"],"party":"Podemos","first_seen":"2026-08-14"}
 {"candidate_id":"c_174931fd9998","contest":"senador:RO","canonical":"Sílvia Cristina","aliases":["Sílvia Cristina"],"party":"PP","first_seen":"2026-08-14"}
 {"candidate_id":"c_1f3c0af51977","contest":"senador:RO","canonical":"Coronel Marcos Rocha","aliases":["Coronel Marcos Rocha"],"party":"União Brasil","first_seen":"2026-08-14"}
 {"candidate_id":"c_2d498074138a","contest":"senador:RO","canonical":"Bruno Bolsonaro Scheid","aliases":["Bruno Bolsonaro Scheid"],"party":"PL","first_seen":"2026-08-14"}

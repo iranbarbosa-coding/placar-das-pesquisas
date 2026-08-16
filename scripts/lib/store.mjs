@@ -23,7 +23,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readNdjson, writeNdjson, SORT } from "./ndjson.mjs";
 import {
-  mintSurveyId, mintQuestionId, mintInstituteId, mintCandidateId,
+  mintSurveyId, mintQuestionId, mintInstituteId, mintCandidateId, mintConflictId,
   normalizeRegistration, nameKey, contestKey,
 } from "./ids.mjs";
 import { sameCandidate } from "./canonicalize.mjs";
@@ -85,6 +85,11 @@ export function priorStamps(store) {
     surveys: new Map((store.surveys ?? []).map((s) => [s.survey_id, s.provenance])),
     questions: new Map((store.questions ?? []).map((q) => [q.question_id, q.provenance])),
     conflicts: new Map((store.conflicts ?? []).map((c) => [c.conflict_id, c.at])),
+    // `run_id` travels with `at`: both mean "the run that FIRST recorded this
+    // disagreement". Left to the current run's value it re-dated all 330
+    // conflict rows on any rebuild that fell on a new day — the same churn the
+    // conflict_id was just fixed for, one field over.
+    conflictRuns: new Map((store.conflicts ?? []).map((c) => [c.conflict_id, c.run_id])),
     sourceRefs: refs,
   };
 }
@@ -563,14 +568,31 @@ export function fillFields(store, record, incoming, { source, runId, table, fiel
 }
 
 /**
- * The id was `k_<n>_<Date.now()>`, which made every conflict row unrepeatable:
- * the same disagreement logged twice produced two different ids, so a rebuild
- * could never match a conflict it had already recorded. It is now a function of
- * the run's own content.
+ * The id was `k_<n>_<Date.now()>`, then `k_<n>_<runDate>`. Both made a conflict
+ * row unrepeatable: the same disagreement logged on two different days produced
+ * two different ids, so a rebuild could never match a conflict it had already
+ * recorded — and once the scraper began writing through the ladder, that was
+ * ~333 rows rewritten on every run that happened to fall on a new date.
+ *
+ * It is now a function of WHAT THE CONFLICT SAYS. The occurrence counter is
+ * kept only to separate genuinely identical disagreements logged more than once
+ * in one run, and it is derived from how many of that exact conflict already
+ * exist — not from the row's position in the table, which would shift whenever
+ * an unrelated conflict appeared earlier.
  */
 export function logConflict(store, c) {
-  const conflict_id = `k_${String(store.conflicts.length + 1).padStart(5, "0")}_${store.runDate}`;
-  const rec = { conflict_id, at: firstSeenFor(store, "conflicts", conflict_id), ...c };
+  const seed = [c.type, c.table, c.record_id, c.field,
+    JSON.stringify(c.stored ?? null), JSON.stringify(c.incoming ?? null), c.source].join("|");
+  store._conflictSeen ??= new Map();
+  const n = (store._conflictSeen.get(seed) ?? 0) + 1;
+  store._conflictSeen.set(seed, n);
+  const conflict_id = mintConflictId(n === 1 ? seed : `${seed}|${n}`);
+  const rec = {
+    conflict_id,
+    at: firstSeenFor(store, "conflicts", conflict_id),
+    ...c,
+    run_id: store._prior?.conflictRuns?.get(conflict_id) ?? c.run_id,
+  };
   store.conflicts.push(rec);
   store._report.conflicts++;
   return rec;

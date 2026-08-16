@@ -21,6 +21,7 @@ import {
 } from "./store.mjs";
 import { contestKey } from "./ids.mjs";
 import { canonicalPartyAt } from "./parties.mjs";
+import { partyOverride } from "./repairs.mjs";
 import { canonicalCandidate } from "./candidates.mjs";
 
 const SURVEY_FIELDS = [
@@ -78,7 +79,17 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
   // Bocalom" (one person). See REVISAO_CANDIDATOS.md.
   const contest = contestKey(poll.race, poll.state);
   const results = (poll.results ?? []).map((r) => {
-    const party = canonicalPartyAt(r.party, date);
+    // A CURATED REPAIR OUTRANKS NORMALISATION, on every write path.
+    //
+    // `migrate-to-store.mjs` consulted `partyOverride` here and this path did
+    // not, so the moment the scraper switched to the ladder a curated answer
+    // stopped reaching the store: Telêmaco Brandão came back as "Novo" where
+    // the institute's own report publishes no party at all. The parity gate
+    // caught it on the first run — which is the argument for `partyOverride`
+    // being exported rather than each path re-implementing the lookup, and the
+    // argument for keeping a gate that compares the two.
+    const ov = partyOverride(poll, r.candidate);
+    const party = ov.has ? ov.party : canonicalPartyAt(r.party, date);
     const nome = canonicalCandidate(r.candidate, contest);
     const c = resolveCandidate(store, nome, contest, party, { fuzzy: fuzzyCandidates });
     return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party, pct: r.pct };
@@ -99,6 +110,31 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     undecided_pct: poll.undecided_pct ?? null,
     blank_null_pct: poll.blank_null_pct ?? null,
   }, { source, runId, table: "questions", fields: QUESTION_FIELDS });
+
+  // A CURATED REPAIR'S CITATION ALWAYS REACHES THE STORE.
+  //
+  // Set outright, not through `fillFields`: fill-empty-never-overwrite is
+  // first-writer-wins, and the repaired row is not necessarily the first writer
+  // — a poll arriving earlier from another source would keep the slot and the
+  // citation would be dropped on the floor.
+  //
+  // It was dropped on the floor. `migrate-to-store.mjs` carried
+  // `repaired: p.repaired ?? null` and this path carried nothing, so the
+  // switchover took the store from 15 stamped questions to ZERO: every
+  // correction survived, and every record of WHY it holds was erased. Nothing
+  // caught it — parity could not, because polls.json is projected from this
+  // same store, so both sides lost it identically. Second member of the class
+  // that `partyOverride` was the first of: things the retired path did on the
+  // way in that this one silently did not.
+  if (poll.repaired) question.repaired = poll.repaired;
+
+  // The survey's lineage back to the source rows. The migration built this from
+  // its grouping key (`legacy_ids: rows.map(r => r.id).sort()`); without it a
+  // survey cannot be traced to what produced it. Sorted so the field does not
+  // depend on ingestion order.
+  if (poll.id != null && !survey.legacy_ids.includes(poll.id)) {
+    survey.legacy_ids = [...survey.legacy_ids, poll.id].sort();
+  }
 
   return { survey, question, matched_by, question_matched_by };
 }

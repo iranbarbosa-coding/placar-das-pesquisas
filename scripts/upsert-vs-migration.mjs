@@ -367,6 +367,42 @@ function selfTest(polls) {
 }
 
 // ---------------------------------------------------------------------- main
+//
+// THIS GATE HAS DONE ITS JOB, AND SAYS SO RATHER THAN GOING GREEN.
+//
+// It existed to answer one question — is the upsert path safe to point the
+// scraper at? — by holding it against the store the migration built. On
+// 2026-08-16 the answer was yes and the scraper switched over. From that moment
+// the store on disk IS the upsert path's output, so running this compares the
+// path to itself: checks A–E pass by construction and the `--self-test` case
+// for A cannot fire, because no mutation of the input can make a path disagree
+// with itself.
+//
+// A tautology that prints PORTÃO OK is worse than no gate. So it refuses.
+// What guards survey grouping now: `census.mjs` (the DUPLICATA class counts
+// exactly what this gate's check A watched), `idempotence-check.mjs` (which
+// drives the real builder), `parity-check.mjs`, `validate-store.mjs` and
+// `upsert-harness.mjs`. To run this for real you need a migration-built store —
+// `node scripts/migrate-to-store.mjs --dir=/some/scratch` — which Phase 5
+// deletes along with this file.
+// `--self-test` is refused too, and for the same reason rather than by
+// oversight. It mutates the INPUT, but every check it exercises still compares
+// against the baseline read from `data/` — so with data/ written by the upsert
+// path, check A is comparing that path to itself and cannot be made to fail by
+// any mutation. A self-test that cannot fail is the exact thing this file's own
+// doctrine says not to trust. Giving it a real baseline means building one:
+// `node scripts/migrate-to-store.mjs --dir=/some/scratch` and pointing `gate`
+// at that directory. Phase 5 deletes this file instead.
+const meta = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "meta.json"), "utf-8"));
+if (String(meta.written_by ?? "").includes("upsert")) {
+  console.error("RECUSADO: data/ foi escrito pelo próprio caminho de upsert " +
+    `(meta.written_by = ${JSON.stringify(meta.written_by)}).`);
+  console.error("Este portão compararia o caminho consigo mesmo e passaria por construção.");
+  console.error("Ele decidiu a virada da Fase 3 em 2026-08-16 e não tem mais o que decidir;");
+  console.error("quem guarda agrupamento agora é census.mjs (classe DUPLICATA) + idempotence-check + parity-check.");
+  process.exit(1);
+}
+
 const legacy = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "polls.json"), "utf-8"));
 
 if (SELF_TEST) {

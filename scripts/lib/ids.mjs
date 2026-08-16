@@ -31,6 +31,20 @@ export function mintInstituteId(seed) {
 export function mintCandidateId(seed) {
   return `c_${hash12(seed)}`;
 }
+/**
+ * A conflict's id is a function of WHAT IT SAYS, never of when it was logged.
+ *
+ * It was `k_<n>_<runDate>` — an index plus the run's date. Under the migration
+ * that was harmless, because the migration logged almost nothing. Once the
+ * scraper started writing through the ladder, every run produced ~333
+ * conflicts whose ids changed with the calendar, so rebuilding on a different
+ * day rewrote the whole table with nothing but the ids differing. Same class as
+ * the `Date.now()` it originally replaced: an id you cannot match against the
+ * one you already recorded is not an id.
+ */
+export function mintConflictId(seed) {
+  return `k_${hash12(seed)}`;
+}
 
 /** "BR -07845/2026" and "br-07845/2026" are the same registration. */
 export function normalizeRegistration(reg) {
