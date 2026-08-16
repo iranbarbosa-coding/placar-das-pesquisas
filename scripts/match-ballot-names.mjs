@@ -8,9 +8,13 @@
 // against instead of a precedence ladder applied by hand.
 //
 // WHAT IS AND IS NOT MAPPED (Iran, 2026-08-16):
-//   · matched EXACTLY, or by containment onto exactly ONE candidacy → renamed
+//   · matched EXACTLY, or by containment onto exactly ONE candidacy in the same
+//     contest → renamed
+//   · no candidacy in that contest, but the polled name sits inside exactly ONE
+//     person's registration ANYWHERE in the register → renamed to that person's
+//     ballot name (Iran, 2026-08-16: the ballot name belongs to the PERSON, not
+//     to one race)
 //   · everything else → LEFT AS IT IS TODAY. Not guessed, not dropped.
-// Roughly 311 of 714 polled names are renamed and 403 keep their current form.
 //
 // AMBIGUITY IS REFUSED, NEVER RESOLVED. If a polled name is compatible with two
 // candidacies in the same contest, it is skipped and reported. This is the rule
@@ -57,6 +61,24 @@ function subset(a, b) {
   if (!A.size || !B.size) return false;
   const [small, large] = A.size <= B.size ? [A, B] : [B, A];
   for (const t of small) if (!large.has(t)) return false;
+  return true;
+}
+
+/**
+ * Is every token of `pequeno` present in `grande`? DIRECTIONAL, unlike
+ * `subset` above, which accepts containment either way.
+ *
+ * The cross-contest pass needs the one-way test. Within a contest the roster is
+ * a handful of people and either direction is safe; against the whole register
+ * it is 519 candidacies, and two-way containment would let any single shared
+ * token match — a polled "Romeu Zema" would find every registered "Romeu" as
+ * well as Zema himself, and the name would be refused as ambiguous when it is
+ * not. Requiring the POLLED name to sit inside the REGISTERED one keeps the
+ * fragment from doing the matching.
+ */
+function contido(pequeno, grande) {
+  const G = new Set(grande);
+  for (const t of pequeno) if (!G.has(t)) return false;
   return true;
 }
 
@@ -119,6 +141,10 @@ function agruparPorDisputa(cands) {
 function main() {
   const cands = fs.readFileSync(CANDIDATURAS, "utf-8").trim().split("\n").map((l) => JSON.parse(l));
   const byContest = agruparPorDisputa(cands);
+  // The same collapsed candidacies, flat — the cross-contest fallback searches
+  // the whole register, so it must see the SAME rows the per-contest pass sees
+  // (re-registrations already merged), not the raw file.
+  const todos = [...byContest.values()].flat();
   // The names exactly as the institutes published them, dumped by `scrape.mjs`
   // before it canonicalises anything. Reading the canonicalised output instead
   // makes this script eat its own tail — see the note at that dump site.
@@ -128,7 +154,7 @@ function main() {
   }
 
   const mapping = {};
-  const stats = { exato: 0, contencao: 0, ambiguo: 0, sem: 0 };
+  const stats = { exato: 0, contencao: 0, outra_disputa: 0, ambiguo: 0, sem: 0 };
   const ambiguos = [];
 
   for (const [contest, nomes] of polled) {
@@ -155,7 +181,53 @@ function main() {
         stats.ambiguo++;
         ambiguos.push({ contest, nome, candidatos: compat.map((c) => c.nome_urna_raw), motivo: "compatível com mais de uma candidatura" });
       } else {
-        stats.sem++;
+        // NOBODY REGISTERED UNDER THIS NAME IN THIS CONTEST — SO LOOK AT THE
+        // WHOLE REGISTER (Iran, 2026-08-16).
+        //
+        // A person's ballot name is a fact about the PERSON, not about one
+        // race. Scoping the match to the contest meant the site published the
+        // same man under two names depending on which race the poll was for:
+        // Zema is registered for president, so presidential rows said "Zema"
+        // while Minas governor rows said "Romeu Zema"; Tarcísio is registered
+        // for governor of SP, so those rows said "Tarcísio" while presidential
+        // rows said "Tarcísio de Freitas". 153 and 165 rows respectively, one
+        // person, two names, and no rule anywhere said which was right.
+        //
+        // THE MATCH IS DIRECTIONAL, and that is the whole safety of it. Every
+        // token of the POLLED name must appear in the registered person's ballot
+        // name or civil name — never the reverse. Containment the other way
+        // would let a short registration swallow a longer polled name belonging
+        // to someone else entirely ("Zema" capturing a "Romeu" of no relation),
+        // which is the homonym trap that already cost this project the
+        // Professor Alcides and Vanderlan Gomes cases.
+        //
+        // And ambiguity is still REFUSED, never resolved: if the name fits more
+        // than one PERSON anywhere in the register it is left alone. That is why
+        // a bare "Ciro" does not resolve here — it fits Ciro Ferreira Gomes and
+        // Ciro Nogueira Lima Filho — and why naming him took a ruling instead.
+        const pt = new Set(tokens(nome));
+        const pessoas = new Map();
+        if (pt.size) {
+          for (const c of todos) {
+            const cabe = contido(pt, tokens(c.nome_urna_raw)) || contido(pt, tokens(c.nome_completo));
+            if (!cabe) continue;
+            const pessoa = norm(c.nome_completo) || `sq:${c.sq_candidato}`;
+            if (!pessoas.has(pessoa)) pessoas.set(pessoa, c);
+          }
+        }
+        if (pessoas.size === 1) {
+          add(mapping, contest, nome, [...pessoas.values()][0], "outra-disputa");
+          stats.outra_disputa++;
+        } else if (pessoas.size > 1) {
+          stats.ambiguo++;
+          ambiguos.push({
+            contest, nome,
+            candidatos: [...pessoas.values()].map((c) => `${c.nome_urna_raw} (${c.cargo}:${c.uf ?? "BR"})`),
+            motivo: "compatível com mais de uma pessoa no registro inteiro",
+          });
+        } else {
+          stats.sem++;
+        }
       }
     }
   }
