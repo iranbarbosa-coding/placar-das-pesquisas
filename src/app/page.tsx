@@ -1,6 +1,7 @@
 import Link from "next/link";
-import AverageBoard from "@/components/AverageBoard";
-import TrendChart from "@/components/TrendChart";
+import AverageChart from "@/components/AverageChart";
+import { AverageCaption } from "@/components/AverageCaption";
+import { toBasis } from "@/lib/validos";
 import { latestPolls, scenarioGroups, statesWithPolls, fmtDate } from "@/lib/data";
 import { UF_NAMES } from "@/lib/types";
 
@@ -8,11 +9,6 @@ export default function Home() {
   const pres = scenarioGroups("presidente", null, 1);
   const main = pres[0];
   const avg = main?.average ?? null;
-  const trendSeries =
-    avg?.candidates
-      .filter((c) => c.trend.length >= 2)
-      .slice(0, 8)
-      .map((c) => ({ name: c.candidate, points: c.trend })) ?? [];
   const recent = latestPolls(15);
   const states = statesWithPolls().slice(0, 9);
 
@@ -26,15 +22,14 @@ export default function Home() {
           </Link>
         </div>
         {avg ? (
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-            <AverageBoard avg={avg} title={`Média nacional · ${main.scenario}`} />
-            {trendSeries.length >= 1 ? (
-              <div className="card p-4">
-                <h3 className="mb-2 text-sm font-semibold">Evolução da média</h3>
-                <TrendChart series={trendSeries} />
-              </div>
-            ) : null}
-          </div>
+          /* Válidos, and NO toggle here. The toggle belongs on the race page,
+             where there is room to explain what the other cut means; a control
+             on the front page would invite a switch whose consequences are
+             off-screen. The basis is stated in the caption instead. */
+          <figure className="card m-0 p-3">
+            <AverageChart average={avg} title={`Média nacional · ${main.scenario}`} />
+            <AverageCaption average={avg} />
+          </figure>
         ) : (
           <p className="card p-4 text-sm" style={{ color: "var(--text-secondary)" }}>
             Sem pesquisas presidenciais carregadas ainda.
@@ -45,11 +40,19 @@ export default function Home() {
       <section>
         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="text-xl font-bold">Últimas pesquisas publicadas</h2>
+          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+            em votos válidos · Senado em números brutos
+          </span>
         </div>
         <div className="card overflow-x-auto">
           <table className="w-full min-w-[560px] text-sm">
             <tbody>
-              {recent.map((p) => (
+              {recent.map((raw) => {
+                // Converted individually, exactly as the averages are — the
+                // front page must not show a poll on a different basis from the
+                // race page it links to. `toBasis` leaves senate polls alone.
+                const p = toBasis(raw, "validos");
+                return (
                 <tr key={p.id} className="border-b last:border-0" style={{ borderColor: "var(--grid)" }}>
                   <td className="whitespace-nowrap px-3 py-2 text-xs" style={{ color: "var(--text-muted)" }}>
                     {fmtDate(p.fieldwork_end ?? p.published_date)}
@@ -67,7 +70,8 @@ export default function Home() {
                       .join(" · ")}
                   </td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>

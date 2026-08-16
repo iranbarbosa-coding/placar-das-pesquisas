@@ -40,7 +40,7 @@ function signed(v: number | null | undefined): string {
   return "0,0";
 }
 
-/** House style short name (AverageBoard/PollTable both use the first token). */
+/** House style short name: the first token, as the runoff cards also do. */
 function shortName(name: string): string {
   return name.split(" ")[0];
 }
