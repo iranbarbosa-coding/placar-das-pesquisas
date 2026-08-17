@@ -21,7 +21,7 @@ import { candKey } from "./average";
  * else keeps the old deterministic hash over the remaining slots.
  *
  * IT LIVES HERE BECAUSE IT WAS WRITTEN THREE TIMES. `AverageChart`,
- * `HeroChart` and `RunoffCarousel` each grew their own copy — every one a
+ * `HeroChart` and the old runoff carousel each grew their own copy — every one a
  * client component that cannot import from `lib/home` (which reaches `node:fs`
  * through `lib/data`), and none able to add a shared module at the time.
  * `lib/average` is Node-free, so this one can sit beside it and be imported

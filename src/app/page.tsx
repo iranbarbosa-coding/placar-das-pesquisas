@@ -1,5 +1,5 @@
 import HeroBasisSwitch from "@/components/HeroBasisSwitch";
-import RunoffCarousel from "@/components/RunoffCarousel";
+import RunoffBars from "@/components/RunoffBars";
 import StateRail from "@/components/StateRail";
 import MatchupRows from "@/components/MatchupRows";
 import LatestPollsTable from "@/components/LatestPollsTable";
@@ -53,7 +53,7 @@ export default function Home() {
 
       <div className="space-y-12">
         {cards.length ? (
-          <RunoffCarousel cards={cards} title="Confrontos de 2º turno" />
+          <RunoffBars cards={cards} title="Confrontos de 2º turno" />
         ) : null}
 
         {/* Two columns below the hero: the body, then the state rail. On phones
