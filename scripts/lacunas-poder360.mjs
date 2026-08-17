@@ -618,14 +618,26 @@ const disputa = (r) => `${RACE_NOME[r.race] ?? r.race} · ${r.uf ?? "Brasil"}${r
 const num = (n) => (n == null ? "—" : String(n).replace(".", ","));
 const lista = (a) => (a.length ? a.map(num).join(" · ") : "—");
 
-// Ordenação de IMPACTO, declarada: quanto do que está escondido é grande, depois
-// se a disputa é nacional, depois o peso da UF (nº de pesquisas que o banco
-// guarda dela — derivado do banco, não de uma tabela de eleitorado escrita à
-// mão), depois a data mais recente e por fim o id. Determinístico (§8).
+// Ordenação de IMPACTO, declarada: ESCOPO primeiro — disputa nacional, depois o
+// peso da UF (nº de pesquisas que o banco guarda dela — derivado do banco, não
+// de uma tabela de eleitorado escrita à mão) —, e só então quanto do que está
+// escondido é grande, os pontos ocultos, a data mais recente e por fim o id.
+// Determinístico (§8).
+//
+// POR QUE o escopo vem antes do percentual (decisão do criador, 17/08/2026).
+// A versão anterior ordenava por `maiorOculta` primeiro, e o efeito medido foi
+// enterrar a primeira página: das 100 AUSENTE apenas 1 é disputa nacional e ela
+// caía na posição 37; das 224 CURTA, 21 são nacionais e caíam espalhadas entre
+// a 52ª e a 169ª. Elas caíam para o fim justamente por serem pequenas em pontos
+// — quase todas são "falta 1 linha" —, mas num 2º turno uma linha faltando é
+// METADE DO PAR, que é a classe de defeito que shipou o Vox a 101,2% e que fez
+// a Michelle ser absorvida pelo Jair. Percentual oculto mede o tamanho do buraco
+// na pesquisa; escopo mede quanta gente vê o buraco. Ordenar por tamanho é
+// ordenar pela métrica errada quando o consumo é a home.
 const porImpacto = (a, b) =>
-  b.maiorOculta - a.maiorOculta ||
   (a.uf === null ? 0 : 1) - (b.uf === null ? 0 : 1) ||
   b.pesoUf - a.pesoUf ||
+  b.maiorOculta - a.maiorOculta ||
   b.pontosOcultos - a.pontosOcultos ||
   String(b.data ?? "").localeCompare(String(a.data ?? "")) ||
   a.id - b.id;
@@ -677,9 +689,12 @@ function relatorio(res, ctx) {
 
   L.push("## AUSENTE — precisam de `add_poll` curado");
   L.push("");
-  L.push("Ordenadas por impacto: maior percentual escondido, depois disputa nacional, depois peso da");
-  L.push("UF (nº de pesquisas que o banco guarda dela — **derivado do banco**, não de uma tabela de");
-  L.push("eleitorado escrita à mão), depois pontos ocultos, data e id.");
+  L.push("Ordenadas por impacto, **escopo primeiro** (decisão do criador, 17/08/2026): disputa");
+  L.push("nacional, depois peso da UF (nº de pesquisas que o banco guarda dela — **derivado do");
+  L.push("banco**, não de uma tabela de eleitorado escrita à mão), e só então maior percentual");
+  L.push("escondido, pontos ocultos, data e id. O percentual oculto mede o tamanho do buraco na");
+  L.push("pesquisa; o escopo mede quanta gente vê o buraco — e uma linha faltando num 2º turno");
+  L.push("nacional é metade do par, por pequena que seja em pontos.");
   L.push("");
   L.push("| # | id | instituto | disputa | campo | registro TSE | cenários v2 | linhas v1 | apagadas | % apagados | líder | integra | reparo já escrito |");
   L.push("|---|---|---|---|---|---|---|---|---|---|---|---|---|");
