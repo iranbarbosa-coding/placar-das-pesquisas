@@ -1013,7 +1013,24 @@ Tudo abaixo de 16/08 está RODADO E PUBLICADO em `04eb80a`, exceto o item 1.
    **`MAIOR_ELEITORADO`** em `src/lib/home.ts` é a ordem de 2022, não conferida.
    **Vercel** segue pendente de login do criador — até lá nada disso é visível.
 
-**Duas armadilhas que custaram esta sessão, e vão voltar**
+**Três armadilhas que custaram esta sessão, e vão voltar**
+
+⚠ **A SEGUNDA COLETA TEM A PRIMEIRA COMO ANTERIOR, NÃO O STORE COMMITADO.** O
+pipeline roda `scrape → match-ballot-names → scrape`, e `priorStamps` lê o store
+que está NO DISCO. Então a coleta 2 herda a saída da coleta 1, não o estado
+commitado. Se a fonte devolver menos numa das duas — e devolve: em 17/08 a
+coleta 1 veio com 1.000 levantamentos e a 2 com 1.002 — tudo o que faltou na
+coleta 1 **perde a história**, porque não existe anterior de onde traduzir.
+Aconteceu com 10 linhas de `presidente:DF`, que voltaram com `first_seen` da
+rodada em vez de 15/08. Restauradas à mão do estado pré-merge, com o id antigo
+gravado em `legacy_ids`.
+Pior: os conflitos de órfão que a coleta 1 registrou foram **apagados** pela
+coleta 2, porque o store é reconstruído do zero e `conflicts.ndjson` é reescrito.
+A evidência da perda some junto com a perda. **Quem for mexer no pipeline: ou a
+tradução passa a ler o último store COMMITADO, ou as duas coletas não podem ser
+duas reconstruções.**
+
+
 
 ⚠ **`parity-check.mjs` IMPRIME UM TETO DE 15, NÃO UMA CONTAGEM.** Duas rodadas
 com números completamente diferentes imprimem "15 divergência(s)". A contagem

@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-08-17T01:23:39.052Z",
+ "generated_at": "2026-08-17T02:55:23.443Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-17T01:23:39.052Z"
+   "last_ok": "2026-08-17T02:55:23.443Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-17T01:23:39.052Z"
+   "last_ok": "2026-08-17T02:55:23.443Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-17T01:23:39.052Z"
+   "last_ok": "2026-08-17T02:55:23.443Z"
   }
  ],
  "polls": [
@@ -19476,12 +19476,12 @@
      "pct": 1.5
     },
     {
-     "candidate": "Escritor Augusto Cury",
+     "candidate": "Augusto Cury",
      "party": "Avante",
      "pct": 1.4
     },
     {
-     "candidate": "Zema",
+     "candidate": "Romeu Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -31277,7 +31277,7 @@
      "pct": 3.13
     },
     {
-     "candidate": "Zema",
+     "candidate": "Romeu Zema",
      "party": "Novo",
      "pct": 1.34
     },
@@ -31287,7 +31287,7 @@
      "pct": 1.19
     },
     {
-     "candidate": "Escritor Augusto Cury",
+     "candidate": "Augusto Cury",
      "party": "Avante",
      "pct": 0.9
     },
@@ -53286,7 +53286,7 @@
      "pct": 6.4
     },
     {
-     "candidate": "Zema",
+     "candidate": "Romeu Zema",
      "party": "Novo",
      "pct": 4.1
     },
@@ -113804,7 +113804,7 @@
      "pct": 2.4
     },
     {
-     "candidate": "Helder",
+     "candidate": "Helder Barbalho",
      "party": "MDB",
      "pct": 0.5
     }
@@ -117819,7 +117819,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Helder",
+     "candidate": "Helder Barbalho",
      "party": "MDB",
      "pct": 0.4
     }
