@@ -1,12 +1,30 @@
 name: Atualizar pesquisas
 
 on:
-  schedule:
-    # 2x daily (UTC): 12:15 (after TSE's ~08:47 UTC regeneration; morning BRT)
-    # and 22:15 (evening BRT, catching afternoon poll releases). Kept to two
-    # runs to stay polite with Poder360's undocumented API (~280 calls/run
-    # since state-level presidential combos were added).
-    - cron: "15 12,22 * * *"
+  # ⚠ AGENDAMENTO SUSPENSO EM 17/08/2026 — E ISTO NÃO É CAUTELA GENÉRICA.
+  #
+  # O `v2/cenarios` do Poder360 apaga linhas de candidato cujo campo `nome` vem
+  # vazio, e o que ele apaga MUDA COM O TEMPO. Medido em 17/08: a pesquisa
+  # `p360-13816` (Futura, BR-08109/2026, presidencial NACIONAL, campo 03–07/08)
+  # está no banco com os dez candidatos, e a API hoje devolve, para os dois
+  # cenários dela, só `Rui Costa Pimenta 0,8` e `Lula 36,3` — estável em três
+  # buscas seguidas. Uma coleta hoje TROCARIA O LÍDER E O VICE DE UMA
+  # PRESIDENCIAL NACIONAL POR NADA.
+  #
+  # Nenhum validador reprova isso: uma lista curta de candidatos é uma lista bem
+  # formada — não soma demais, não tem órfão, não repete. E o agregador ainda
+  # serve os buckets, que absorvem a massa que sumiu (foi assim que `others_pct: 6`
+  # cobriu exatamente as cinco linhas perdidas do PI-06473).
+  #
+  # Escala medida: 423 ids do Poder360 em que o `v2` hoje descarta ao menos uma
+  # linha; 68 registros nossos comprovadamente curtos; 41 disputas ausentes.
+  #
+  # ⚠ NÃO RELIGAR sem uma guarda de encolhimento de elenco. Rodar sem ela é
+  # apostar o banco a cada 12 horas. `workflow_dispatch` continua ligado para
+  # rodada manual e supervisionada.
+  #
+  # schedule:
+  #   - cron: "15 12,22 * * *"
   workflow_dispatch: {}
 
 permissions:
