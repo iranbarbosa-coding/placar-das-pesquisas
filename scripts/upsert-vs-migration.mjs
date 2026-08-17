@@ -52,7 +52,7 @@ import { fileURLToPath } from "node:url";
 import { readStore, markHeadlines, DATA_DIR, SOURCE_ORDER } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
 import { projectPolls } from "./lib/project.mjs";
-import { validateStore } from "./validate-store.mjs";
+import { validateStore, contagem } from "./validate-store.mjs";
 import { normalizeRegistration } from "./lib/ids.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -256,10 +256,11 @@ function gate(polls, { quiet = false } = {}) {
   for (const e of hoistedEx) log(`      ${e}`);
 
   // ------------------------------------------------------------- E. validator
-  const { errors } = validateStore(store, { minSurveys: 100, minQuestions: 500 });
-  log(`\nE. validador sobre o store do upsert: ${errors.length} erro(s)`);
+  // O TOTAL, não `errors.length`, que satura no teto de 60 do validador.
+  const { errors, errorsTotal } = validateStore(store, { minSurveys: 100, minQuestions: 500 });
+  log(`\nE. validador sobre o store do upsert: ${contagem(errorsTotal, Math.min(errors.length, 8))}`);
   for (const e of errors.slice(0, 8)) log(`   ${e}`);
-  if (errors.length) fail("E", `${errors.length} erro(s) de validação`);
+  if (errorsTotal) fail("E", `${contagem(errorsTotal, Math.min(errors.length, 8))} de validação`);
 
   return { problems, store, absorbed, merges, hoisted, backfilled };
 }

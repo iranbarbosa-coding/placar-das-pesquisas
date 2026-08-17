@@ -32,6 +32,7 @@ import {
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
 import { nameKey } from "./ids.mjs";
+import { normNome } from "./nomes.mjs";
 
 // A lista mora em `store.mjs`. Ela existia copiada aqui, em
 // `migrate-to-store.mjs` e em `idempotence-check.mjs` — e o defeito recorrente
@@ -71,13 +72,25 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
     report[matched_by] = (report[matched_by] ?? 0) + 1;
   }
   markHeadlines(store);
+  // A PESSOA PRIMEIRO, a linha que a cita depois. As duas traduções são
+  // independentes (cada uma casa a sua tabela contra a anterior), mas a ordem
+  // que se lê é a da identidade → a linha, e é assim que ela fica escrita.
+  translatePersonStamps(store, previous, runDate);
   translateCandidateStamps(store, previous, runDate);
   settleProvenance(store, previous, runDate);
   // A VERSÃO É A PROMESSA QUE O VALIDADOR COBRA. Este caminho cunha pessoas,
   // então o store que sai daqui DECLARA a camada — e `validate-store.mjs`
   // reprova um store que a declare e venha com `people` vazio, em vez de
   // desculpá-lo por a tabela ainda não existir. Ver PEOPLE_SCHEMA_VERSION.
-  store.meta = { schema_version: PEOPLE_SCHEMA_VERSION, ...meta };
+  //
+  // ⚠ A DECLARAÇÃO VEM DEPOIS DO ESPALHAMENTO, e já veio antes. Com
+  // `{ schema_version: …, ...meta }` um chamador que passasse `schema_version`
+  // em `meta` sobrescrevia em silêncio a própria promessa deste caminho — e
+  // `schema_version` é o que LIGA as onze checagens de identidade do validador.
+  // Um `meta` inocente desligaria o guarda sem uma linha de aviso. A precedência
+  // agora é a que a frase acima descreve: quem cunha pessoas declara a camada, e
+  // nenhum chamador rebaixa isso.
+  store.meta = { ...meta, schema_version: PEOPLE_SCHEMA_VERSION };
   return { store, report };
 }
 
@@ -92,8 +105,8 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
  * pessoa), ela pagaria o preço inteiro de novo.
  *
  * Então a tradução é feita aqui, com o store anterior na mão: cada linha antiga
- * cujo id sumiu é procurada entre as novas da MESMA disputa por qualquer grafia
- * que as duas compartilhem. Casando exatamente uma, a data antiga volta e o id
+ * cujo id sumiu é procurada entre as novas por qualquer CHAVE DE REENCONTRO que
+ * as duas compartilhem. Casando exatamente uma, a data antiga volta e o id
  * antigo fica gravado em `legacy_ids` — do jeito que levantamento já faz — para
  * que a linhagem não dependa de alguém lembrar desta rodada.
  *
@@ -101,15 +114,25 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
  * pessoa que saiu dos dados (legítimo) ou uma tradução que falhou (defeito), e
  * as duas merecem ser vistas — foi a ausência exata desta linha de log que fez
  * a perda de 16/08 passar despercebida.
+ *
+ * ⚠ UMA REGRA, UMA IMPLEMENTAÇÃO (CONVENTIONS §5). Esta função era só de
+ * candidato, e `people` — a tabela que o `candidate_id` passou a CITAR — não
+ * tinha nenhuma das três proteções. A verificação independente achou: um
+ * `person_id` que se movesse levava o `first_seen` junto sem log nenhum. Duplicar
+ * o corpo para a segunda tabela era garantir que as duas divergissem na primeira
+ * correção feita só de um lado, então o que varia entre elas é PARÂMETRO — a
+ * chave de reencontro — e o resto é o mesmo código. Ver `translatePersonStamps`.
  */
-function translateCandidateStamps(store, previous, runDate) {
+function traduzirCarimbos(store, previous, runDate, {
+  tabela, idField, chavesDe, tipoConflito, contador, orfaos, descrever,
+}) {
   // ---- O `legacy_ids` DA RODADA ANTERIOR VOLTA ANTES DE QUALQUER TRADUÇÃO ----
   //
   // A linhagem EVAPORAVA na rodada seguinte, e o efeito era um diff de tabela
-  // inteira a cada duas rodadas: a rodada N traduzia 1.078 ids e gravava
-  // `legacy_ids` nas 1.078 linhas; na rodada N+1 nenhum id sumia, a tradução
+  // inteira a cada duas rodadas: a rodada N traduzia 1.080 ids e gravava
+  // `legacy_ids` nas 1.080 linhas; na rodada N+1 nenhum id sumia, a tradução
   // abaixo não rodava, e como o store é RECONSTRUÍDO DO ZERO cada linha nascia
-  // com `legacy_ids: []` — 1.078 linhas mudando de novo, agora perdendo a
+  // com `legacy_ids: []` — 1.080 linhas mudando de novo, agora perdendo a
   // linhagem em silêncio.
   //
   // `merged_into` (em `ensurePerson`) já é carregado do estado anterior pelo
@@ -122,55 +145,108 @@ function translateCandidateStamps(store, previous, runDate) {
   // A união é com o que a tradução desta rodada acrescentar, nunca a
   // substituição: um id pode ser recunhado mais de uma vez ao longo da vida e
   // cada salto pertence à linhagem.
-  const anteriores = new Map((previous.candidates ?? []).map((c) => [c.candidate_id, c.legacy_ids ?? []]));
-  for (const c of store.candidates ?? []) {
-    const herdados = anteriores.get(c.candidate_id);
-    if (herdados?.length) c.legacy_ids = [...new Set([...(c.legacy_ids ?? []), ...herdados])].sort();
+  const anteriores = new Map((previous[tabela] ?? []).map((r) => [r[idField], r.legacy_ids ?? []]));
+  for (const r of store[tabela] ?? []) {
+    const herdados = anteriores.get(r[idField]);
+    if (herdados?.length) r.legacy_ids = [...new Set([...(r.legacy_ids ?? []), ...herdados])].sort();
   }
 
-  const novos = new Set((store.candidates ?? []).map((c) => c.candidate_id));
-  const antigos = (previous.candidates ?? []).filter((c) => !novos.has(c.candidate_id));
+  const novos = new Set((store[tabela] ?? []).map((r) => r[idField]));
+  const antigos = (previous[tabela] ?? []).filter((r) => !novos.has(r[idField]));
   if (!antigos.length) return;
 
-  // Grafia → linhas novas, por disputa. Uma grafia que aponte para mais de uma
+  // Chave de reencontro → linhas novas. Uma chave que aponte para mais de uma
   // linha nova é ambígua e NÃO decide nada: escolher uma seria inventar uma
   // procedência, que é o oposto do que CONVENTIONS §4 manda fazer.
-  const porGrafia = new Map();
-  for (const c of store.candidates ?? []) {
-    for (const n of new Set([c.canonical, ...(c.aliases ?? [])])) {
-      const k = `${c.contest}|${nameKey(n)}`;
-      if (!porGrafia.has(k)) porGrafia.set(k, new Set());
-      porGrafia.get(k).add(c);
+  const porChave = new Map();
+  for (const r of store[tabela] ?? []) {
+    for (const k of chavesDe(r)) {
+      if (!porChave.has(k)) porChave.set(k, new Set());
+      porChave.get(k).add(r);
     }
   }
 
   // Ordem estável: a tradução escreve `legacy_ids`, que vai para o disco.
-  for (const velho of [...antigos].sort((a, b) => (a.candidate_id < b.candidate_id ? -1 : 1))) {
+  for (const velho of [...antigos].sort((a, b) => (a[idField] < b[idField] ? -1 : 1))) {
     const alvos = new Set();
-    for (const n of new Set([velho.canonical, ...(velho.aliases ?? [])])) {
-      for (const c of porGrafia.get(`${velho.contest}|${nameKey(n)}`) ?? []) alvos.add(c);
-    }
+    for (const k of chavesDe(velho)) for (const r of porChave.get(k) ?? []) alvos.add(r);
     if (alvos.size === 1) {
       const novo = [...alvos][0];
       if (velho.first_seen) novo.first_seen = velho.first_seen;
       // A linhagem do id antigo viaja JUNTO com ele. Sem `...velho.legacy_ids` a
       // segunda recunhagem apagaria a primeira: A→B grava [A] em B, B→C gravaria
       // só [B] em C e A sumiria da história sem que nada reclamasse.
-      novo.legacy_ids = [...new Set([...(novo.legacy_ids ?? []), ...(velho.legacy_ids ?? []), velho.candidate_id])].sort();
-      store._report.translated.candidates++;
+      novo.legacy_ids = [...new Set([...(novo.legacy_ids ?? []), ...(velho.legacy_ids ?? []), velho[idField]])].sort();
+      store._report.translated[contador]++;
       continue;
     }
-    store._report.translated.orphaned++;
+    store._report.translated[orfaos]++;
     logConflict(store, {
-      run_id: runDate, type: "candidate_id_orphaned", table: "candidates",
-      record_id: velho.candidate_id, field: "candidate_id",
-      stored: velho.candidate_id, incoming: alvos.size ? [...alvos].map((c) => c.candidate_id).sort() : null,
+      run_id: runDate, type: tipoConflito, table: tabela,
+      record_id: velho[idField], field: idField,
+      stored: velho[idField], incoming: alvos.size ? [...alvos].map((r) => r[idField]).sort() : null,
       source: "build-store", severity: "review",
       note: alvos.size
-        ? `id antigo compatível com ${alvos.size} linhas novas em ${velho.contest} — ambíguo, first_seen NÃO traduzido`
-        : `id antigo sem linha nova correspondente em ${velho.contest} ("${velho.canonical}") — first_seen perdido se isto não for uma saída legítima dos dados`,
+        ? `id antigo compatível com ${alvos.size} linhas novas (${descrever(velho)}) — ambíguo, first_seen NÃO traduzido`
+        : `id antigo sem linha nova correspondente (${descrever(velho)}) — first_seen perdido se isto não for uma saída legítima dos dados`,
     });
   }
+}
+
+/** A tradução aplicada à linha de candidato: reencontro por disputa + grafia. */
+function translateCandidateStamps(store, previous, runDate) {
+  traduzirCarimbos(store, previous, runDate, {
+    tabela: "candidates", idField: "candidate_id",
+    chavesDe: (c) => [...new Set([c.canonical, ...(c.aliases ?? [])])]
+      .filter(Boolean).map((n) => `${c.contest}|${nameKey(n)}`),
+    tipoConflito: "candidate_id_orphaned", contador: "candidates", orfaos: "orphanedCandidates",
+    descrever: (c) => `${c.contest} — "${c.canonical}"`,
+  });
+}
+
+/**
+ * A MESMA TRADUÇÃO PARA A PESSOA — e ela faltava, uma tabela acima.
+ *
+ * `translateCandidateStamps` protegia só `candidates`. `people` não tinha
+ * `legacy_ids`, não tinha tradução de `first_seen` e não logava NADA quando um
+ * `person_id` se movia: a pessoa movida simplesmente nascia com
+ * `first_seen = runDate`, que é exatamente a perda silenciosa de data que esta
+ * camada inteira existe para acabar — só que um nível acima de onde ela foi
+ * consertada.
+ *
+ * E a pessoa AINDA PODE se mover. Caso reproduzido em 16/08/2026 contra o banco
+ * vivo, reconstruído em diretório temporário: uma pesquisa nova do Poder360 em
+ * `governador:GO` escrevendo `Gustavo Mendanha Silva` (nome exibido inalterado)
+ * moveu `p_6a008686f578 → p_b1007931a4c8`, com o `first_seen` da pessoa saltando
+ * de 16/08 para a data da rodada. É dependente da ORDEM DE CHEGADA:
+ * `buildStoreFromPolls` ordena por prioridade de fonte e depois por
+ * `fieldwork_end` DESC, então uma pesquisa fresca da fonte primária é ingerida
+ * PRIMEIRO, os três degraus anteriores de `resolvePerson` erram todos, e a
+ * semente sai da grafia nova. A mesma pesquisa datada de 2020, ou vinda da
+ * Wikipédia, seria ingerida por último e o id NÃO se moveria. Quem se registrou
+ * é imune: o índice de `nome_urna` alcança a pessoa pelo `sq_candidato`.
+ *
+ * Esta função NÃO elimina o movimento — ele é da escada, não do carimbo. Ela
+ * faz o que o candidato já tinha: a data ATRAVESSA o salto, o id antigo fica em
+ * `legacy_ids`, e o que não casa vira linha em `conflicts.ndjson` em vez de
+ * silêncio.
+ *
+ * AS CHAVES DE REENCONTRO são as MESMAS por onde a identidade é alcançada em
+ * `resolvePerson`, e não podiam ser outras: quem se registrou é alcançada pelo
+ * `sq_candidato` (nunca por grafia — ver `resolvePerson`), e quem não se
+ * registrou pela grafia dentro do seu `obs_scope` (opção C). Casar pessoa
+ * registrada por grafia reencontraria o "Alvaro Dias" do PR no ÁLVARO DIAS do
+ * RN, que é o par que a opção C existe para separar.
+ */
+function translatePersonStamps(store, previous, runDate) {
+  traduzirCarimbos(store, previous, runDate, {
+    tabela: "people", idField: "person_id",
+    chavesDe: (p) => (p.registered === true
+      ? (p.sq_candidato ?? []).map((sq) => `sq|${sq}`)
+      : (p.obs_scope ? (p.polled_names ?? []).map((n) => `obs|${p.obs_scope}|${normNome(n)}`) : [])),
+    tipoConflito: "person_id_orphaned", contador: "people", orfaos: "orphanedPeople",
+    descrever: (p) => `${p.obs_scope ?? "registrada"} — "${p.display ?? p.nome_urna ?? "?"}"`,
+  });
 }
 
 /**

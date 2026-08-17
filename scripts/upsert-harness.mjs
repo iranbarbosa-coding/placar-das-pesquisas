@@ -18,11 +18,12 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {
-  readStore, writeStore, markHeadlines, resolveCandidate,
+  readStore, writeStore, markHeadlines, resolveCandidate, resolvePerson,
   priorStamps, emptyIndexes, TABLE_NAMES,
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
 import { mintCandidateId, nameKey } from "./lib/ids.mjs";
+import { normNome } from "./lib/nomes.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
 import { ballotCandidacy } from "./lib/candidates.mjs";
 
@@ -363,9 +364,9 @@ check("O PONTO INTEIRO: o candidate_id NÃO se move quando o nome exibido muda",
   }
 });
 
-check("A OUTRA METADE: o id NÃO se move quando uma pesquisa NOVA escreve o nome de outro jeito", (store, assert) => {
+check("A OUTRA METADE, e SÓ PARA QUEM SE REGISTROU: o id não se move quando uma pesquisa nova escreve o nome de outro jeito", (store, assert) => {
   // O defeito que a metade "nome exibido" não cobria, e que a verificação
-  // independente mediu em 814 das 1.078 linhas: a semente saía da grafia da
+  // independente mediu em 814 das 1.078 linhas de então: a semente saía da grafia da
   // PRIMEIRA pesquisa, então uma pesquisa nova publicando "Tarcísio de Freitas"
   // onde as anteriores publicavam "Tarcísio" cunhava outra pessoa e outro id.
   // Não é rename nenhum — é CHEGADA DE DADO, e nenhum dado antigo mudou.
@@ -376,6 +377,25 @@ check("A OUTRA METADE: o id NÃO se move quando uma pesquisa NOVA escreve o nome
   // Sem essa segunda chave, "Jhc" — que é o nome que o site EXIBE em
   // `governador:AL` — não achava a candidatura de "João Henrique Caldas" e a
   // linha caía numa pessoa sem registro ao lado da registrada idêntica.
+  //
+  // ⚠ E O TÍTULO DESTE CASO JÁ FOI GERAL DEMAIS — dizia "o id NÃO se move", sem
+  // o "para quem se registrou", e isso é FALSO para quem NÃO se registrou. O
+  // gatilho exato, reproduzido em 16/08/2026 contra o banco vivo reconstruído em
+  // diretório temporário: uma pesquisa NOVA da FONTE DE TOPO (poder360)
+  // escrevendo de outro jeito o nome de uma pessoa SEM REGISTRO re-cunha a
+  // pessoa E a linha de candidato — `Gustavo Mendanha Silva` em `governador:GO`
+  // moveu `p_6a008686f578 → p_b1007931a4c8` e `c_e920793fae2d → c_dbe6ddc2e667`.
+  // É dependente de ORDEM DE CHEGADA: `build-store.mjs` ordena por prioridade de
+  // fonte e depois por `fieldwork_end` DESC, então a pesquisa fresca da fonte
+  // primária é ingerida PRIMEIRO, os três degraus anteriores de `resolvePerson`
+  // erram todos e a semente sai da grafia nova. A MESMA pesquisa datada de 2020,
+  // ou vinda da Wikipédia, é ingerida por último e o id NÃO se move.
+  //
+  // O movimento não foi eliminado — é da escada, não do carimbo, e eliminá-lo é
+  // decisão de escopo do criador. O que existe hoje é `translatePersonStamps`
+  // (em `lib/build-store.mjs`): o `first_seen` ATRAVESSA o salto, o id antigo
+  // fica em `legacy_ids` e o que não casa vai para `conflicts.ndjson`. A perda
+  // deixou de ser silenciosa; a limitação continua e está escrita.
   const contest = "governador:AL";
   const A = storeVazio();
   const B = storeVazio();
@@ -591,6 +611,76 @@ check("opção C ATRAVESSA a rodada: a pessoa da rodada anterior é reencontrada
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+// ==========================================================================
+// 6. Os dois lugares onde o escopo da opção C é ESCRITO no índice
+// ==========================================================================
+//
+// ⚠ POR QUE ESTES DOIS CASOS EXISTEM. A verificação independente mediu, em
+// 16/08/2026, que `personPolledIndex` e `notePolledName` podiam ser REVERTIDOS
+// — o primeiro para a regex antiga sobre a semente
+// (`/^person\|obs\|([^|]+)\|/`, que devolve `senador` para
+// `person|obs|senador|PR|…`), o segundo para `raceOf(contest)` — com esta
+// bateria ainda 29/29 e o store real saindo BYTE-IDÊNTICO. A correção estava
+// protegida por construção, não por teste, e CONVENTIONS §2 diz exatamente o
+// que isso vale: um verde que ninguém testou não é evidência.
+//
+// Nenhum dos dois aparece num diff de tabela porque o defeito não muda o que se
+// GRAVA — muda o que se ENCONTRA na rodada seguinte, e o sintoma é o id se
+// mover em silêncio.
+
+check("personPolledIndex: o store CARREGADO reencontra a pessoa pelo escopo, não pela race", (_store, assert) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-polled-"));
+  try {
+    const antes = readStore({ dir, tables: [], runDate: RUN_DATE });
+    const grafia = "Sicrano Improvável de Tal";
+    const pr = resolveCandidate(antes, "Sicrano Improvável", "senador:PR", "PT", { fuzzy: false, raw: grafia });
+    writeStore(antes, { dir });
+
+    // Recarregado do disco: quem povoa `personByPolled` aqui é
+    // `personPolledIndex` e mais ninguém — é este o caminho sob teste.
+    const recarregado = readStore({ dir });
+    assert(recarregado._indexes.personByPolled.get(`senador|PR|${normNome(grafia)}`)?.person_id === pr.person_id,
+      "a chave do índice não é `<obs_scope>|<grafia>` — a pessoa gravada não é alcançável pelo escopo que a cunhou");
+    // E a chave da regex antiga TEM de estar ausente, senão o caso não
+    // distingue a versão certa da errada.
+    assert(!recarregado._indexes.personByPolled.has(`senador|${normNome(grafia)}`),
+      "o índice carrega a chave derivada só da RACE — é a regex sobre a semente, que refunde UFs em silêncio");
+
+    // O efeito, não só a chave: a escada tem de devolver a MESMA pessoa. O nome
+    // exibido é outro de propósito, para o degrau do cluster não mascarar o do
+    // índice de grafias.
+    const mesma = resolvePerson(recarregado, { raw: grafia, display: "Rótulo Diferente", contest: "senador:PR" });
+    assert(mesma.person_id === pr.person_id,
+      `a pessoa da rodada anterior não foi reencontrada: ${mesma.person_id} × ${pr.person_id}`);
+    // …e a MESMA grafia em OUTRA UF não pode cair nela (a metade que uma chave
+    // por race atenderia fundindo).
+    const outra = resolvePerson(recarregado, { raw: grafia, display: "Rótulo Diferente", contest: "senador:RS" });
+    assert(outra.person_id !== pr.person_id,
+      "a grafia do PR alcançou a pessoa no RS — o índice está chaveado pela race");
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("notePolledName: a grafia do caminho rápido entra no índice pelo obs_scope", (store, assert) => {
+  const grafiaA = "Beltrano Improvável de Tal";
+  const grafiaB = "B. Improvável de Tal";
+  // A 1ª grafia cunha a pessoa e a linha. A 2ª cai no CAMINHO RÁPIDO (o índice
+  // de apelidos já tem o nome exibido) e nunca passa por `resolvePerson`: quem
+  // registra a grafia na pessoa e a indexa é `notePolledName`.
+  const a = resolveCandidate(store, "Beltrano Improvável", "senador:PR", "PT", { fuzzy: false, raw: grafiaA });
+  const b = resolveCandidate(store, "Beltrano Improvável", "senador:PR", "PT", { fuzzy: false, raw: grafiaB });
+  assert(a.candidate_id === b.candidate_id, "as duas grafias do mesmo nome exibido caíram em linhas diferentes");
+  const pessoa = store.people.find((p) => p.person_id === a.person_id);
+  assert(pessoa?.polled_names.includes(grafiaB), `a 2ª grafia não foi registrada: ${JSON.stringify(pessoa?.polled_names)}`);
+
+  assert(!store._indexes.personByPolled.has(`senador|${normNome(grafiaB)}`),
+    "a grafia foi indexada por `raceOf(contest)` — chave que nenhum leitor consulta");
+  const mesma = resolvePerson(store, { raw: grafiaB, display: "Rótulo Diferente", contest: "senador:PR" });
+  assert(mesma.person_id === a.person_id,
+    `a grafia registrada por notePolledName não é alcançável pela escada: ${mesma.person_id} × ${a.person_id}`);
 });
 
 check("toda linha de candidato carrega person_id e mint_seed", (store, assert) => {

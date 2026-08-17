@@ -200,8 +200,9 @@ guarda por onde o cruzamento de `senador:AL` passou.
   `Rui Costa` (senador:BA) com `Rui Costa Pimenta` (presidente) e `Ciro` com
   `Ciro Nogueira`; `race:UF` em tudo estilhaçaria o presidencial, porque
   `presidente:MG` é a corrida NACIONAL perguntada a mineiros (Ratinho Jr aparece
-  em 19 disputas presidenciais e continua UMA pessoa). Custo medido do corte por
-  race: **49 humanos partidos entre races**.
+  em **21** disputas presidenciais e continua UMA pessoa — contadas em
+  `data/polls.json` em 16/08/2026; este número já esteve escrito aqui como 19).
+  Custo medido do corte por race: **49 humanos partidos entre races**.
 - ✅ **As fusões entre UFs da MESMA race ACABARAM.** Eram `Álvaro Dias`
   (senador:PR + senador:RN), `Ratinho Jr` e `Zeca Dirceu` (senador:PR +
   senador:RS), `José Carlos do Pátio` (governador:BA + governador:MT) — vinham da
@@ -217,6 +218,21 @@ guarda por onde o cruzamento de `senador:AL` passou.
   no índice exatamente o que a semente separa. Sem sintoma: nenhum erro, só o id
   deixando de ser reencontrado entre rodadas. `validate-store` reprova um
   `obs_scope` que não seja o escopo da própria semente.
+  ⚠ **E os DOIS sítios que escrevem essa chave estavam protegidos só por
+  construção** (`personPolledIndex` e `notePolledName`): revertendo cada um para
+  a versão antiga — a regex sobre a semente e `raceOf(contest)` — a bateria
+  seguia **29/29** e o store real saía **byte-idêntico**, porque o defeito não
+  muda o que se GRAVA, muda o que se ENCONTRA na rodada seguinte.
+  `upsert-harness.mjs` tem hoje **um caso para cada um** (31 casos), e cada
+  reversão derruba exatamente o seu caso.
+  ⚠ **Os três guardas de pessoa no autoteste do validador passavam pelo motivo
+  errado.** Faltava `{ sqsConhecidos: SQ_FICTICIO }` em três casos, então o
+  fixture vazava um erro alheio (`sq_candidato … não existe no registro do TSE`)
+  e o caso "reprovava" por ele. Provado por mutação: **apagando o guarda de
+  `obs_scope` divergente, o de `obs_scope` ausente ou o de `mint_seed`, o
+  autoteste seguia verde**. Corrigido, e os dois guardas de `obs_scope` foram
+  **desencadeados** (eram `if/else if`; apagar o primeiro promovia o segundo, que
+  cobria o caso e deixava a mutação permanentemente verde).
 - **`display_from` grava POR QUE o nome é o que é** (`ruling` › `nome_urna` ›
   `grupo curado` › `mais curta observada`). Essa precedência sempre existiu como
   ordem de escritas dentro de `lib/candidates.mjs` e não existia nos dados.
@@ -227,21 +243,50 @@ guarda por onde o cruzamento de `senador:AL` passou.
 **A re-cunhagem de 16/08 não se repete de graça.** `build-store.mjs` traduz o
 `first_seen` do id antigo para o novo casando a disputa e as grafias, grava o id
 antigo em `legacy_ids` (como levantamento já faz) e **loga em
-`conflicts.ndjson`** todo id antigo que não casou — ensaio contra o banco vivo:
-**1.078 ids re-cunhados, 1.078 `first_seen` preservados, 0 órfãos, 0 linhas com
-a data da rodada.**
+`conflicts.ndjson`** todo id antigo que não casou — ensaio contra o banco vivo
+(refeito em 16/08/2026, diretório temporário semeado do `data/` real):
+**1.080 ids re-cunhados, 1.080 `first_seen` preservados, 0 órfãos, 0 linhas com
+a data da rodada.** (Este bloco já disse **1.078**; a contagem foi refeita e a
+tabela tem 1.080 linhas.)
 
 ⚠ **E `legacy_ids` EVAPORAVA na rodada seguinte.** A tradução só dispara quando
 um id SOME; na rodada N+1 nenhum some, e como o store é reconstruído do zero
 cada linha renascia com `legacy_ids: []` — **um segundo diff de tabela inteira,
-1.078 linhas, perdendo a linhagem em silêncio**. Hoje o campo é carregado do
+1.080 linhas, perdendo a linhagem em silêncio**. Hoje o campo é carregado do
 estado anterior e unido ao que a tradução acrescentar, como `merged_into` já era.
 **E o guarda era estruturalmente cego**: `idempotence-check.mjs` construía as
 duas rodadas num diretório VAZIO, onde nenhum id some e a tradução nunca roda.
 Ele agora **planta um estado anterior** com ids alheios ao espaço atual, confere
 que a tradução de fato escreveu linhagem, e tem autoteste próprio para ela.
-Provado por mutação: **removido o carregamento, o guarda reprova em 1.078
+Provado por mutação: **removido o carregamento, o guarda reprova em 1.080
 linhas; na versão antiga, de diretório vazio, o mesmo defeito imprimia OK.**
+
+⚠ **A MESMA PROTEÇÃO FALTAVA UMA TABELA ACIMA — `people` (corrigido, 16/08/2026).**
+`translateCandidateStamps` traduzia SÓ `candidates`. A pessoa não tinha
+`legacy_ids`, não tinha tradução de `first_seen` e **não logava nada** quando um
+`person_id` se movia: ela simplesmente renascia com `first_seen = runDate`, que é
+a perda silenciosa de data que esta camada inteira existe para acabar.
+**E a pessoa AINDA PODE se mover** — ver o gatilho exato no item a seguir. Hoje
+`translatePersonStamps` faz pelas pessoas o que a outra fazia pelos candidatos, e
+as duas são a **mesma implementação parametrizada** (`traduzirCarimbos`), não uma
+cópia: o que varia entre elas é a CHAVE DE REENCONTRO — `sq_candidato` para quem
+se registrou, `obs_scope|grafia` para quem não — e nada mais. CONVENTIONS §5.
+
+⚠ **LIMITAÇÃO RESIDUAL, ESCRITA PORQUE ELA EXISTE: o id de quem NÃO se
+registrou ainda se move.** Gatilho exato, reproduzido contra o banco vivo:
+**uma pesquisa NOVA da fonte de topo (poder360) escrevendo de outro jeito o nome
+de uma pessoa SEM REGISTRO re-cunha a pessoa E a sua linha de candidato.**
+`Gustavo Mendanha Silva` em `governador:GO` moveu `p_6a008686f578 →
+p_b1007931a4c8` e `c_e920793fae2d → c_dbe6ddc2e667`. É **dependente da ordem de
+chegada**: `build-store.mjs` ordena por prioridade de fonte e depois por
+`fieldwork_end` DESC, então a pesquisa fresca da fonte primária é ingerida
+PRIMEIRO, os três degraus anteriores de `resolvePerson` erram todos e a semente
+sai da grafia nova; a MESMA pesquisa datada de 2020, ou vinda da Wikipédia,
+entra por último e o id NÃO se move. **Quem se registrou é imune** (o índice de
+`nome_urna` alcança a pessoa pelo `sq_candidato`). O movimento **não** foi
+eliminado — é da escada, não do carimbo, e eliminá-lo é decisão de escopo do
+criador. O que mudou é que ele **não é mais silencioso**: a data atravessa, o id
+antigo fica em `legacy_ids` e o que não casa vai para `conflicts.ndjson`.
 
 ### Nome de urna vale POR PESSOA, não por disputa (decisão do criador, 16/08/2026)
 
@@ -309,8 +354,13 @@ tirá-la. Casos como o do Brandão são reais e pertencem a
 
 Hoje a regra exige **contenção mútua com o NOME DE URNA**
 (`contido(pt,bt) || contido(bt,pt)`): 294 resoluções entre disputas, 30 recusas.
-Mantém Tarcísio, Zema, Ciro Gomes; bloqueia os dois erros; perde
-`Carlos Brandão` (5 linhas), que agora precisa de ruling.
+Mantém Tarcísio, Zema, Ciro Gomes; bloqueia os dois erros.
+
+⚠ **Esta linha dizia que `Carlos Brandão` (5 linhas) se perdia e "agora precisa
+de ruling". ESTÁ VELHA.** Conferido em 16/08/2026:
+`ballotCandidacy("Carlos Brandão", "senador:MA")` resolve para **Orleans
+Brandão** (`sq_candidato` 100002543869, MDB, nº 15), pela via `outra-disputa` —
+a contenção mútua com o nome de urna alcança o caso. Nenhuma ruling é necessária.
 
 ⚠ **Pegadinha do TSE:** o nome de urna aparece repetido para a MESMA pessoa
 (Piauí tem dois casos: mesmo número, mesmo partido, mesmo nome civil, dois
@@ -802,6 +852,16 @@ de fato exercita é a **idempotência de `canonicalCandidate`** — e ela tinha 
 ciclo de 2 (`Dr. Wanderley` → `José Wanderley Neto` → `Dr. Wanderley`), causado
 pelo `norm()` duplicado descrito em §1b.
 
+⚠️ **`validate-store.mjs` TAMBÉM CORTA A LISTA — em 60 — e isso já mentiu.**
+`validateStore()` devolve `errors.slice(0, 60)`, e os cinco chamadores
+imprimiam `errors.length`, que satura no teto exatamente como o 15 do
+`parity-check`. O caso concreto: o store que declara a camada de pessoas e vem
+com `people.ndjson` vazio produz **1.081** erros e a mensagem dizia "60".
+Consertado em 16/08/2026 — o retorno passou a carregar `errorsTotal`/`warnTotal`
+e a frase sai de `contagem()`, uma implementação só para os cinco chamadores:
+`validação falhou (1.081 erro(s) — listados os primeiros 60)`. **Quando um
+número pode saturar, ele tem de anunciar que saturou.**
+
 ⚠️ **`upsert-vs-migration.mjs` hoje RECUSA rodar** (`meta.written_by =
 "scrape.mjs/upsert"`) e sai com 0. Ele compararia o caminho consigo mesmo. O
 `--self-test` recusa junto, de propósito. Quem guarda agrupamento agora é
@@ -879,16 +939,51 @@ Tudo abaixo de 16/08 está RODADO E PUBLICADO em `04eb80a`, exceto o item 1.
      "governador:AL")` devolvia `null` para o único nome que o site exibe.
      Indexado também pelo `nome_urna` (nunca sobrescrevendo grafia publicada, e
      recusando nome de urna ambíguo). **Efeito medido: as linhas em pessoa
-     REGISTRADA passam de 484 para 630, e o resultado deixa de depender da grafia
-     — com e sem `candidate_raw` o store sai idêntico.** É o que fecha "uma
-     pesquisa nova escrevendo o nome de outro jeito move o id".
+     REGISTRADA passam de 484 para 630.**
+
+     ⚠ **ESTE ITEM AFIRMAVA DUAS COISAS FALSAS. Corrigidas em 16/08/2026, com
+     as medições refeitas.**
+
+     1. Dizia "com e sem `candidate_raw` o store sai idêntico". **Não sai.**
+        Construindo o store das duas maneiras a partir do mesmo `polls.json`:
+        **17 `person_id` e 17 `candidate_id` diferem**, e comparando linha a
+        linha **759 das 862 linhas de `people.ndjson` e 321 das 1.080 de
+        `candidates.ndjson`** são diferentes (a maioria por deslocamento de
+        ordenação, já que as duas tabelas ordenam por id). O que É independente
+        da grafia são os **agregados**: **862 pessoas** e **630 linhas em pessoa
+        registrada** nos dois casos. É isso que a frase deveria ter dito.
+     2. Dizia fechar "uma pesquisa nova escrevendo o nome de outro jeito move o
+        id". **Fecha só para quem SE REGISTROU.** A limitação residual e o seu
+        gatilho exato estão em §1b — em resumo: *uma pesquisa nova da fonte de
+        prioridade máxima escrevendo de outro jeito o nome de uma pessoa SEM
+        REGISTRO re-cunha essa pessoa e a sua linha de candidato.* Hoje isso é
+        registrado (`legacy_ids` + `conflicts.ndjson`) e a data atravessa, mas
+        continua acontecendo.
    · `legacy_ids` e a cegueira do `idempotence-check`: ver §1b acima.
    · **As guardas de pessoa agora dependem do que o store DECLARA**
      (`meta.schema_version >= 2`), não de a tabela estar cheia. Antes, todas
      percorriam `people`, e com `people.ndjson` inexistente o validador saía com
      0 tendo conferido NADA — inclusive na primeira rodada que cunhasse pessoas.
-   **Números da simulação offline: 862 pessoas (519 do registro + 343
-   observadas), 1.080 linhas de candidato, 0 erros e 0 avisos de validação.**
+     ⚠ **E a declaração tinha dois furos, os dois corrigidos em 16/08/2026.**
+     (i) `migrate-to-store.mjs` gravava `schema_version: 1` fixo **enquanto
+     cunhava pessoas** (via `resolveCandidate` → `resolvePerson`) — dois
+     gravadores da mesma tabela declarando camadas diferentes, e o migrado saía
+     com pessoas e com as onze checagens desligadas. Passou a usar
+     `PEOPLE_SCHEMA_VERSION`. (ii) `build-store.mjs` fazia
+     `{ schema_version: 2, ...meta }`, com o espalhamento DEPOIS: qualquer
+     chamador que passasse `schema_version` em `meta` rebaixava a declaração em
+     silêncio e desligava o guarda. A ordem foi invertida.
+   · **`people` ganhou a proteção que `candidates` já tinha** — `legacy_ids`,
+     tradução de `first_seen` e log em `conflicts.ndjson`. Ver §1b, inclusive a
+     limitação residual que sobra.
+   **Números da simulação da PRIMEIRA ESCRITA VIVA** (diretório temporário
+   semeado a partir do `data/` real, que ainda não tem `people.ndjson`, refeita
+   em 16/08/2026): **862 pessoas (519 do registro + 343 observadas), 1.080 linhas
+   de candidato, 1.080 ids re-cunhados com os 1.080 `first_seen` resgatados do id
+   antigo e gravados em `legacy_ids`, 0 órfãos, 0 erros e 0 avisos de validação,
+   e a segunda reconstrução (noutra data) byte-idêntica.** As 862 pessoas saem
+   com a data da rodada porque é a primeira vez que a tabela é escrita — não há
+   estado anterior de onde resgatar.
 
 2. ⚠ **`p360-13089-1-0-b383e9bf0a8c` está arquivada na disputa errada.** Consta
    `senador:RS` e o próprio `source_url` é

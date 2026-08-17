@@ -10,7 +10,7 @@ import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sam
 import { applyRepairs } from "./lib/repairs.mjs";
 import { today, writeStore, DATA_DIR } from "./lib/store.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
-import { validateStore } from "./validate-store.mjs";
+import { validateStore, contagem } from "./validate-store.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
 import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
@@ -485,11 +485,12 @@ function persistStore(polls, dataset) {
 
   // O store só é gravado se passar no validador. Um coletor que grava primeiro
   // e valida depois deixa o banco quebrado no disco esperando alguém reparar.
-  const { errors, warn } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
+  const { errors, warn, errorsTotal } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
   for (const w of warn.slice(0, 10)) console.warn(`AVISO: ${w}`);
-  if (errors.length) {
+  if (errorsTotal) {
     for (const e of errors.slice(0, 20)) console.error(`ERRO: ${e}`);
-    console.error(`\nstore NÃO gravado: ${errors.length} erro(s) de validação. data/polls.json já foi atualizado;`);
+    // O TOTAL, não `errors.length`, que satura no teto de 60 do validador.
+    console.error(`\nstore NÃO gravado: ${contagem(errorsTotal, Math.min(errors.length, 20))} de validação. data/polls.json já foi atualizado;`);
     console.error("rode o coletor de novo depois de corrigir, ou reconstrua o store a partir dele.");
     process.exit(1);
   }
@@ -504,10 +505,16 @@ function persistStore(polls, dataset) {
   // candidato mudaram de valor e o `first_seen` foi resgatado do id antigo —
   // que é o passo que NÃO foi dado em 16/08/2026, quando 1.164 levantamentos e
   // 2.961 perguntas perderam `created_at` sem uma linha de log dizendo nada.
+  //
+  // A PESSOA APARECE JUNTO. Ela podia se mover e não era contada nem traduzida:
+  // uma pesquisa nova da fonte de topo escrevendo de outro jeito o nome de quem
+  // não se registrou recunhava a pessoa, e o `first_seen` dela virava a data da
+  // rodada sem uma linha de log — a mesma perda de 16/08, uma tabela acima.
   const t = store._report.translated;
-  if (t.candidates || t.orphaned) {
-    console.log(`  RE-CUNHAGEM: ${t.candidates} candidato(s) com first_seen traduzido do id antigo ` +
-      `(gravado em legacy_ids) · ${t.orphaned} sem tradução, registrados em conflicts.ndjson`);
+  if (t.candidates || t.orphanedCandidates || t.people || t.orphanedPeople) {
+    console.log(`  RE-CUNHAGEM: ${t.people} pessoa(s) e ${t.candidates} candidato(s) com first_seen ` +
+      `traduzido do id antigo (gravado em legacy_ids) · ${t.orphanedPeople + t.orphanedCandidates} ` +
+      `sem tradução, registrados em conflicts.ndjson`);
   }
   console.log(`  resolução: ${JSON.stringify(report)}`);
 }

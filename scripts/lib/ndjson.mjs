@@ -50,8 +50,12 @@ export const FIELD_ORDER = {
   // registro, e o campo é lido por dois índices — deixá-lo escorregar para o
   // rabo do JSON esconde de quem revisa o diff justamente o campo que decide
   // quem é quem.
+  // `legacy_ids` fica logo depois do id, como em `survey` e em `candidate`, e
+  // pelo mesmo motivo: é a linhagem do próprio id, e quem revisa o diff precisa
+  // vê-la ao lado dele. Sem o campo, um `person_id` recunhado desaparecia sem
+  // rastro — ver `translatePersonStamps` em `lib/build-store.mjs`.
   person: [
-    "person_id", "mint_seed", "obs_scope", "registered", "sq_candidato",
+    "person_id", "legacy_ids", "mint_seed", "obs_scope", "registered", "sq_candidato",
     "nome_completo", "nome_urna", "display", "display_from",
     "polled_names", "candidacies", "merged_into", "first_seen",
   ],

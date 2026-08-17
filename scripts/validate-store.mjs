@@ -171,11 +171,18 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConh
     // fecha essa porta enquanto os dois concordarem: um `obs_scope` que
     // discorde da semente é o mesmo defeito com outro nome, e não dá sintoma
     // nenhum — o id simplesmente para de ser reencontrado entre rodadas.
-    if (p.registered === false) {
-      if (!p.obs_scope) E(`${at}: sem registro e sem obs_scope — o escopo de identidade (opção C) não pode ficar implícito na semente`);
-      else if (!String(p.mint_seed ?? "").startsWith(`person|obs|${p.obs_scope}|`)) {
-        E(`${at}: obs_scope "${p.obs_scope}" não é o escopo da semente "${p.mint_seed}"`);
-      }
+    // OS DOIS SÃO INDEPENDENTES DE PROPÓSITO, e já foram um `if/else if`.
+    // Encadeados, apagar o primeiro promovia o segundo — que dispara sempre que
+    // `obs_scope` é falso, porque nenhuma semente começa por
+    // `person|obs|undefined|`. O caso do autoteste continuava reprovando, agora
+    // pelo guarda errado, e o teste de mutação do primeiro guarda ficava
+    // permanentemente verde. Um guarda coberto por outro não é um guarda provado
+    // (CONVENTIONS §2).
+    if (p.registered === false && !p.obs_scope) {
+      E(`${at}: sem registro e sem obs_scope — o escopo de identidade (opção C) não pode ficar implícito na semente`);
+    }
+    if (p.registered === false && p.obs_scope && !String(p.mint_seed ?? "").startsWith(`person|obs|${p.obs_scope}|`)) {
+      E(`${at}: obs_scope "${p.obs_scope}" não é o escopo da semente "${p.mint_seed}"`);
     }
     if (p.registered === true && p.obs_scope) {
       E(`${at}: registrada carregando obs_scope "${p.obs_scope}" — quem se registrou é alcançada pelo sq_candidato, nunca por escopo de grafia`);
@@ -426,10 +433,36 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConh
     if (new Set(FIELD_ORDER[kind]).size !== FIELD_ORDER[kind].length) E(`FIELD_ORDER.${kind} tem chaves repetidas`);
   }
 
+  // ⚠ O QUE VOLTA É UMA AMOSTRA, E O TOTAL VIAJA JUNTO.
+  //
+  // `errors` sai cortado em 60 para a saída não virar um despejo, mas todo
+  // chamador imprimia `errors.length` — que SATURA em 60 e é um TETO, não uma
+  // contagem. O caso real: o store que declara a camada de pessoas e vem com a
+  // tabela vazia produz 1.081 erros e a mensagem dizia "60".
+  //
+  // Este repositório já pagou exatamente por isso em `parity-check.mjs`, cujo
+  // teto de 15 fez duas rodadas com 275 e com 29 divergências imprimirem o
+  // mesmo número e serem lidas como "não mudou nada" (HANDOFF §5). Um número
+  // truncado que não se anuncia truncado é pior do que número nenhum.
   return { errors: errors.slice(0, 60), warn: warn.slice(0, 30),
+           errorsTotal: errors.length, warnTotal: warn.length,
            counts: { surveys: surveys.length, questions: questions.length, crosstabs: crosstabs.length,
                      institutes: institutes.length, people: people.length, candidates: candidates.length,
                      registry: registry.length, searches: searches.length } };
+}
+
+/**
+ * O número de erros dito por inteiro, anunciando o corte quando há corte.
+ *
+ * Uma implementação só porque são CINCO chamadores (`validate-store` CLI e
+ * autoteste, `scrape.mjs`, `migrate-to-store.mjs`, `upsert-vs-migration.mjs`) e
+ * os cinco imprimiam `errors.length`, que satura no teto. Cada um com a sua
+ * frase é a receita para quatro deles continuarem mentindo depois que o quinto
+ * for consertado (CONVENTIONS §5).
+ */
+export function contagem(total, listados) {
+  const n = Number(total).toLocaleString("pt-BR");
+  return listados < total ? `${n} erro(s) — listados os primeiros ${listados}` : `${n} erro(s)`;
 }
 
 // ---------------------------------------------------------------- self-test
@@ -612,17 +645,32 @@ function selfTest() {
       s.people[1].person_id = "i_1";
       s.candidates[1].person_id = "i_1";
       return s; })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    // ⚠ ESTES TRÊS PASSAVAM PELO MOTIVO ERRADO. Faltava `{ sqsConhecidos:
+    // SQ_FICTICIO }`, então o fixture vazava um erro que não tem nada a ver com
+    // o caso — `sq_candidato 10000000001 não existe no registro do TSE`, porque
+    // sem a injeção a checagem consulta o registro real. O caso "reprova", o
+    // autoteste fica verde, e o guarda que ele deveria proteger não é exercido:
+    // provado por mutação em 16/08/2026 — APAGANDO o guarda de obs_scope
+    // divergente E o de obs_scope ausente, o autoteste seguia imprimindo
+    // "todos os guardas disparam corretamente". Um caso que reprova por qualquer
+    // erro não prova nada sobre O erro (CONVENTIONS §2).
+    //
+    // A semente é apagada da pessoa REGISTRADA, não da observada: na observada
+    // o guarda de `obs_scope` também dispara (semente vazia não começa por
+    // `person|obs|<escopo>|`) e o caso passaria mesmo sem o guarda de
+    // `mint_seed`. Provado por mutação: com a pessoa observada, apagar o guarda
+    // de `mint_seed` deixava o autoteste verde.
     ["pessoa sem mint_seed é rejeitada", (() => {
-      const s = pessoasStore(); delete s.people[1].mint_seed; return s;
-    })(), false],
+      const s = pessoasStore(); delete s.people[0].mint_seed; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
     // A armadilha da opção C: o campo e a semente discordando. Sem sintoma
     // visível — o id apenas para de ser reencontrado entre rodadas.
     ["obs_scope que não é o escopo da semente é rejeitado", (() => {
       const s = pessoasStore(); s.people[1].obs_scope = "governador|SP"; return s;
-    })(), false],
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
     ["pessoa sem registro e sem obs_scope é rejeitada", (() => {
       const s = pessoasStore(); delete s.people[1].obs_scope; return s;
-    })(), false],
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
     ["pessoa REGISTRADA carregando obs_scope é rejeitada", (() => {
       const s = pessoasStore(); s.people[0].obs_scope = "presidente"; return s;
     })(), false, { sqsConhecidos: SQ_FICTICIO }],
@@ -633,11 +681,13 @@ function selfTest() {
 
   let failed = 0;
   for (const [name, store, shouldPass, opts] of cases) {
-    const { errors } = validateStore(store, opts ?? {});
-    const passed = errors.length === 0;
+    // O TOTAL, não o teto de 60 — o caso da tabela de pessoas vazia produz 1.081
+    // erros e imprimia "60", que é o mesmo número que 60 erros exatos.
+    const { errors, errorsTotal } = validateStore(store, opts ?? {});
+    const passed = errorsTotal === 0;
     const ok = passed === shouldPass;
     if (!ok) failed++;
-    console.log(`${ok ? "✓" : "✗ FALHA DO AUTOTESTE"}: ${name} (${errors.length} erro(s))`);
+    console.log(`${ok ? "✓" : "✗ FALHA DO AUTOTESTE"}: ${name} (${contagem(errorsTotal, errors.length)})`);
     if (!ok && errors.length) console.log(`     primeiro erro: ${errors[0]}`);
   }
   // Party-label canonicalisation carries its own assertions — including the one
@@ -661,11 +711,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   } else {
     const dir = process.argv[2] ?? DATA_DIR;
     const store = readStore({ dir });
-    const { errors, warn, counts } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
+    const { errors, warn, errorsTotal, warnTotal, counts } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
     for (const w of warn) console.warn(`AVISO: ${w}`);
-    if (errors.length) {
+    if (warnTotal > warn.length) console.warn(`AVISO: … e mais ${warnTotal - warn.length} aviso(s) não listado(s)`);
+    if (errorsTotal) {
       for (const e of errors) console.error(`ERRO: ${e}`);
-      console.error(`\nvalidação falhou (${errors.length} erro(s))`);
+      console.error(`\nvalidação falhou (${contagem(errorsTotal, errors.length)})`);
       process.exit(1);
     }
     console.log(`OK: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +

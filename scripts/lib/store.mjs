@@ -169,11 +169,15 @@ export function provenanceFor(store, kind, id) {
 function newReport() {
   return { minted: { surveys: 0, questions: 0, institutes: 0, people: 0, candidates: 0 },
            matched: { registration: 0, source_ref: 0, natural: 0 },
-           // Quantos `candidate_id` mudaram de valor nesta rodada e tiveram o
-           // `first_seen` resgatado do id antigo. Numa rodada normal é ZERO; um
-           // número diferente de zero é a re-cunhagem acontecendo, e é a única
-           // coisa que a torna visível sem ler o diff inteiro.
-           translated: { candidates: 0, orphaned: 0 },
+           // Quantos ids mudaram de valor nesta rodada e tiveram o `first_seen`
+           // resgatado do id antigo. Numa rodada normal é ZERO; um número
+           // diferente de zero é a re-cunhagem acontecendo, e é a única coisa
+           // que a torna visível sem ler o diff inteiro.
+           //
+           // AS DUAS TABELAS CONTAM SEPARADO de propósito: enquanto havia um
+           // `orphaned` só, `people` sequer era traduzida — um contador comum
+           // teria escondido isso mostrando o zero legítimo do candidato.
+           translated: { candidates: 0, orphanedCandidates: 0, people: 0, orphanedPeople: 0 },
            filled: 0, conflicts: 0, retracted: 0 };
 }
 
@@ -396,6 +400,12 @@ function ensurePerson(store, modelo) {
   if (p) return p;
   const rec = {
     person_id: modelo.person_id,
+    // A LINHAGEM DA PESSOA, como a do candidato e a do levantamento. Faltava
+    // aqui: um `person_id` que se movesse (uma pesquisa nova da fonte de topo
+    // escrevendo de outro jeito o nome de quem NÃO se registrou) sumia sem
+    // deixar rastro, levando o `first_seen` junto. Quem preenche é
+    // `translatePersonStamps`, em `build-store.mjs`.
+    legacy_ids: [],
     mint_seed: modelo.mint_seed,
     // Escopo de identidade de quem não se registrou (opção C). NULO para quem
     // se registrou: lá a identidade é o `sq_candidato` e não depende de escopo

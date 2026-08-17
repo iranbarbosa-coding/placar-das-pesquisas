@@ -20,13 +20,13 @@ import { fileURLToPath } from "node:url";
 import {
   readStore, writeStore, resolveInstitute, resolveCandidate,
   markHeadlines, priorStamps, firstSeenFor, provenanceFor, today, DATA_DIR,
-  emptyIndexes, TABLE_NAMES,
+  emptyIndexes, TABLE_NAMES, PEOPLE_SCHEMA_VERSION,
 } from "./lib/store.mjs";
 import { mintSurveyId, mintQuestionId, normalizeRegistration, contestKey } from "./lib/ids.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
 import { canonicalCandidate } from "./lib/candidates.mjs";
 import { partyOverride } from "./lib/repairs.mjs";
-import { validateStore } from "./validate-store.mjs";
+import { validateStore, contagem } from "./validate-store.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const LEGACY = path.join(ROOT, "data", "polls.json");
@@ -277,17 +277,28 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false, allowDerived =
   // is a single line in meta.json rather than a stamp on 4.613 records.
   store.meta = {
     generated_at: legacy.generated_at ?? new Date().toISOString(),
-    schema_version: 1,
+    // ⚠ AQUI ESTAVA `1` FIXO — e este caminho CUNHA PESSOAS.
+    //
+    // `resolveCandidate` chama `resolvePerson`, então o store que sai daqui tem
+    // `people.ndjson` povoado; declarar 1 era um dos DOIS gravadores da mesma
+    // tabela afirmando uma camada diferente da que o outro afirma
+    // (`build-store.mjs` declara PEOPLE_SCHEMA_VERSION). E a declaração não é
+    // decorativa: é ela que liga as onze checagens de identidade em
+    // `validate-store.mjs`. Um store migrado saía com pessoas e com o guarda
+    // desligado — exatamente o padrão "o guarda se desliga sozinho no momento
+    // em que começa a servir para algo". CONVENTIONS §5.
+    schema_version: PEOPLE_SCHEMA_VERSION,
     sources: legacy.sources ?? [],
     migrated_from: "data/polls.json",
     migrated_at: new Date().toISOString(),
   };
 
-  const { errors, warn } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
+  const { errors, warn, errorsTotal } = validateStore(store, { minSurveys: 500, minQuestions: 2000 });
   if (!quiet) for (const w of warn.slice(0, 10)) console.warn(`AVISO: ${w}`);
-  if (errors.length) {
+  if (errorsTotal) {
     for (const e of errors) console.error(`ERRO: ${e}`);
-    console.error(`\nmigração abortada: ${errors.length} erro(s) de validação — nada foi gravado`);
+    // O TOTAL, não `errors.length`, que satura no teto de 60 do validador.
+    console.error(`\nmigração abortada: ${contagem(errorsTotal, errors.length)} de validação — nada foi gravado`);
     process.exit(1);
   }
 
