@@ -30,7 +30,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normNome, acentos, melhorGrafia } from "./lib/nomes.mjs";
+import { normNome, acentos, melhorGrafia, ufDaCandidatura, chaveDeDisputa } from "./lib/nomes.mjs";
 // O agrupamento do registro mora em `lib/candidaturas.mjs` desde que
 // `lib/people.mjs` passou a precisar do MESMO colapso de re-registros para
 // contar pessoas. Uma regra, uma implementação (CONVENTIONS §5).
@@ -133,8 +133,13 @@ function main() {
     // the comparison is against 13 candidacies instead of 519, so it is also the
     // safer of the two paths. The contest key itself is untouched: the poll
     // stays `presidente:MG` and stays out of the national average.
-    const lista = byContest.get(contest)
-      ?? (contest.startsWith("presidente:") ? byContest.get("presidente:BR") ?? [] : []);
+    // A reserva é `chaveDeDisputa`, e não uma terceira cópia de
+    // `startsWith("presidente:")`: é a mesma pergunta ("sob que chave vive a
+    // candidatura desta disputa?") que a linha de `ufPesquisa` abaixo e as
+    // consultas de `lib/candidates.mjs` fazem. Três cópias da mesma regra foi
+    // como o guarda de identidade ficou desligado em 17 disputas (§5).
+    const nacional = chaveDeDisputa(contest);
+    const lista = byContest.get(contest) ?? (nacional === contest ? [] : byContest.get(nacional) ?? []);
     // UMA SUBAMOSTRA ESTADUAL DA PRESIDENCIAL É NACIONAL, e a regra de estado
     // tem de saber disso.
     //
@@ -146,7 +151,12 @@ function main() {
     // por coincidência do estado — virava "Tarcísio". O mesmo homem com dois
     // nomes conforme a subamostra, que é exatamente o defeito que o nome de urna
     // por pessoa existe para acabar.
-    const ufPesquisa = contest.startsWith("presidente:") ? "BR" : (contest.split(":")[1] ?? "BR");
+    //
+    // A regra saiu daqui para `lib/nomes.mjs` quando o lado do CONSUMO precisou
+    // dela: as decisões de identidade são gravadas em `presidente:BR` e
+    // consultadas em `presidente:<UF>`, e a cópia que faltava lá deixou o guarda
+    // de `areDistinct` desligado em 18 disputas (CONVENTIONS §5).
+    const ufPesquisa = ufDaCandidatura(...contest.split(":"));
     for (const { nome, partidos } of nomes) {
       const exato = lista.filter((c) => norm(c.nome_urna_raw) === norm(nome));
       if (exato.length === 1) {

@@ -25,7 +25,11 @@ import { upsertPoll } from "./lib/upsert.mjs";
 import { mintCandidateId, nameKey } from "./lib/ids.mjs";
 import { normNome } from "./lib/nomes.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
-import { ballotCandidacy } from "./lib/candidates.mjs";
+import {
+  ballotCandidacy, areDistinct, canonicalCandidate, displayOrigin, usarTabelaDeApelidos,
+} from "./lib/candidates.mjs";
+import { chaveDeDisputa, ufDaCandidatura } from "./lib/nomes.mjs";
+import { build as revisao } from "./candidate-review.mjs";
 
 const VERBOSE = process.argv.includes("--verbose");
 const RUN_DATE = "2026-08-15";
@@ -681,6 +685,196 @@ check("notePolledName: a grafia do caminho rápido entra no índice pelo obs_sco
   const mesma = resolvePerson(store, { raw: grafiaB, display: "Rótulo Diferente", contest: "senador:PR" });
   assert(mesma.person_id === a.person_id,
     `a grafia registrada por notePolledName não é alcançável pela escada: ${mesma.person_id} × ${a.person_id}`);
+});
+
+// ==========================================================================
+// 9. AS DECISÕES DE IDENTIDADE TÊM DE SER ALCANÇÁVEIS PELA CHAVE QUE A
+//    VARREDURA EMITE
+// ==========================================================================
+//
+// ⚠ POR QUE ESTA SEÇÃO EXISTE, e por que ela não aparece num diff de tabela.
+//
+// `areDistinct` é consultada num lugar só — a cláusula de `canonicalizeCandidates`
+// que PROÍBE o agrupador por subconjunto de tokens de fundir duas pessoas já
+// conferidas. Um `false` ali não grava nada de errado: ele apenas desliga o
+// guarda, e o estrago só aparece na rodada em que a coleta trouxer as duas
+// grafias na mesma disputa. Por isso o store sai byte-idêntico com o defeito
+// dentro, e por isso a prova tem de ser feita CONTRA A TABELA REAL, aqui, e não
+// esperando um número mudar.
+//
+// As duas metades são independentes e cada uma matava um conjunto próprio de
+// decisões:
+//   (a) a chave da DISPUTA — gravada em `presidente:BR`, consultada em
+//       `presidente:<UF>`;
+//   (b) a chave do NOME — gravada na grafia PESQUISADA, consultada no nome que
+//       a escada de exibição publica.
+check("(a) a decisão nacional vale na subamostra estadual da presidencial", (store, assert) => {
+  // A disputa é a mesma corrida: `presidente:PR` é a presidencial perguntada ao
+  // eleitor do Paraná. Medido em 17/08/2026: 5 pares curados × 18 disputas = 28
+  // ocorrências com o guarda DESLIGADO, entre elas todos os Bolsonaro entre si.
+  const pares = [
+    ["Flávio Bolsonaro", "Jair Bolsonaro"],
+    ["Flávio Bolsonaro", "Michelle Bolsonaro"],
+    ["Eduardo Bolsonaro", "Flávio Bolsonaro"],
+    ["Renan Filho", "Renan Santos"],
+    ["Eduardo Bolsonaro", "Eduardo Leite"],
+  ];
+  for (const [a, b] of pares) {
+    assert(areDistinct(a, b, "presidente:BR"), `${a} × ${b}: a decisão nem na chave nacional resolve — a tabela mudou?`);
+    for (const uf of ["PR", "SP", "AC", "TO"]) {
+      assert(areDistinct(a, b, `presidente:${uf}`),
+        `presidente:${uf}: "${a}" × "${b}" foram conferidos e são pessoas diferentes, e o guarda respondeu false`);
+    }
+  }
+});
+
+check("(a) a dobra é SÓ da presidencial — a regra, e não um efeito dela", (store, assert) => {
+  // ⚠ ESTE CASO JÁ FOI FRACO E DEIXOU DUAS MUTAÇÕES PASSAREM. Ele afirmava
+  // `!areDistinct(…, "senador:SP")` e concluía daí que a dobra não era do
+  // cargo. Não conclui nada: uma dobra que mandasse TODA disputa para `<race>:BR`
+  // levaria `senador:SP` a `senador:BR`, uma terceira chave que não guarda
+  // decisão nenhuma — a asserção passa verde justamente porque o destino está
+  // vazio. Era um teste que media o acaso do arquivo, não a regra.
+  //
+  // A regra, afirmada diretamente. É barato e é o único jeito de a asserção
+  // falhar quando o escopo da dobra muda, em vez de quando os dados mudam.
+  assert(chaveDeDisputa("presidente:PR") === "presidente:BR", `presidente:PR dobrou para ${chaveDeDisputa("presidente:PR")}`);
+  assert(chaveDeDisputa("presidente:BR") === "presidente:BR", "presidente:BR não é ponto fixo");
+  for (const c of ["senador:SP", "senador:RJ", "governador:PR", "governador:GO"]) {
+    assert(chaveDeDisputa(c) === c,
+      `${c} dobrou para ${chaveDeDisputa(c)} — a dobra é da CANDIDATURA presidencial, que é nacional; num cargo estadual ela funde estados`);
+  }
+  assert(ufDaCandidatura("presidente", "PR") === "BR", "a candidatura presidencial deixou de ser nacional");
+  for (const [race, uf] of [["senador", "SP"], ["governador", "PR"]]) {
+    assert(ufDaCandidatura(race, uf) === uf,
+      `${race}:${uf} → ${ufDaCandidatura(race, uf)} — no casador de urna isso deixa uma disputa estadual casar candidatura de QUALQUER estado`);
+  }
+
+  // E o efeito, mantido: nenhuma decisão vaza para onde não foi gravada.
+  assert(areDistinct("Flávio Bolsonaro", "Rogéria Bolsonaro", "senador:RJ"),
+    "a decisão de senador:RJ deixou de resolver na própria chave");
+  assert(!areDistinct("Flávio Bolsonaro", "Rogéria Bolsonaro", "senador:SP"),
+    "uma decisão de senador:RJ vazou para senador:SP");
+  assert(!areDistinct("Flávio Bolsonaro", "Jair Bolsonaro", "governador:PR"),
+    "uma decisão de presidente:BR vazou para governador:PR");
+  assert(!areDistinct("Lula", "Jair Bolsonaro", "presidente:PR"),
+    "um par NUNCA conferido voltou true — a dobra está inventando decisão");
+});
+
+check("(a) a chave EXATA manda; a nacional é a SEGUNDA tentativa", (store, assert) => {
+  // Existe ruling deliberadamente estadual numa disputa nacional. A de
+  // `presidente:PR` é a que tirou os 32,2 de Tereza Cristina de cima de Jair
+  // Bolsonaro; dobrar a chave ANTES de tentar a exata a apagaria e publicaria o
+  // número errado de novo.
+  assert(canonicalCandidate("Tereza Cristina, ex-presidente Jair Bolsonaro", "presidente:PR") === "Tereza Cristina",
+    "a ruling estadual de presidente:PR ficou inalcançável — a dobra substituiu a chave em vez de completá-la");
+
+  // ⚠ E O MESMO PARA `areDistinct`, que o arquivo real NÃO CONSEGUE exercitar:
+  // as 25 decisões de `.distinct` estão em `presidente:BR` ou em disputas
+  // estaduais, nenhuma em `presidente:<UF>`. Sem esta tabela injetada, trocar o
+  // `||` por substituição passa verde — e passou, na primeira rodada de mutação
+  // deste reparo. A tabela abaixo tem UMA decisão gravada na chave estadual de
+  // uma disputa nacional, que é exatamente o caso que a substituição apaga.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-apelidos-"));
+  const arquivo = path.join(dir, "candidate-aliases.json");
+  fs.writeFileSync(arquivo, JSON.stringify({
+    version: 1, groups: [],
+    distinct: [
+      { contest: "presidente:PR", names: ["Fulano Estadual", "Fulano Nacional"] },
+      { contest: "presidente:BR", names: ["Beltrano Nacional", "Beltrano Outro"] },
+    ],
+  }));
+  try {
+    usarTabelaDeApelidos(arquivo);
+    assert(areDistinct("Fulano Estadual", "Fulano Nacional", "presidente:PR"),
+      "a decisão gravada em presidente:PR ficou inalcançável — a consulta SUBSTITUI a chave em vez de tentar as duas");
+    assert(areDistinct("Beltrano Nacional", "Beltrano Outro", "presidente:SP"),
+      "a decisão gravada em presidente:BR não alcançou presidente:SP");
+    assert(!areDistinct("Fulano Estadual", "Fulano Nacional", "presidente:SP"),
+      "a decisão de presidente:PR vazou para presidente:SP — a dobra só sobe para a nacional, nunca desce dela");
+  } finally {
+    usarTabelaDeApelidos();
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("(a) a decisão nacional alcança a linha estadual pelo NOME EXIBIDO e pela ORIGEM", (store, assert) => {
+  // A outra metade da dobra, e a que nenhuma asserção cobria: não é só
+  // `areDistinct` que consulta a tabela por disputa. A ruling `presidente:BR`
+  // "Ciro" → "Ciro Gomes" tem de alcançar as subamostras estaduais, ou toda
+  // decisão que o dossiê novo produzir (ele emite `presidente|BR`) nasce morta
+  // nas 25 amostras da mesma corrida.
+  for (const uf of ["AC", "SP", "PR", "BA"]) {
+    assert(canonicalCandidate("Ciro", `presidente:${uf}`) === "Ciro Gomes",
+      `presidente:${uf}: a ruling nacional não alcança a linha estadual (exibe "${canonicalCandidate("Ciro", `presidente:${uf}`)}")`);
+    // ⚠ E A ORIGEM TEM DE ACOMPANHAR. Enquanto `canonicalCandidate` dobrava e
+    // `displayOrigin` não, estas duas discordavam em 22 disputas: o nome vinha
+    // de uma ruling do criador e a origem dizia `null`, que `lib/store.mjs`
+    // grava na pessoa e o consumo lê como "grafia mais curta observada".
+    assert(displayOrigin("Ciro", `presidente:${uf}`) === "ruling",
+      `presidente:${uf}: nome decidido por ruling com origem "${displayOrigin("Ciro", `presidente:${uf}`)}" — a tabela mente sobre quem decidiu`);
+  }
+  // O par indissociável, afirmado como invariante: as duas respondem sobre a
+  // MESMA entrada da tabela, ou sobre nenhuma.
+  for (const c of ["presidente:BR", "presidente:RO", "presidente:TO", "presidente:AC", "governador:GO", "senador:PB"]) {
+    for (const n of ["Ciro", "Gustavo Medanha", "Marcelo Queiroga", "Nome Que Ninguém Decidiu"]) {
+      const decidiu = canonicalCandidate(n, c) !== n;
+      const origem = displayOrigin(n, c);
+      assert(decidiu === (origem !== null),
+        `${c} "${n}": exibido ${decidiu ? "" : "não "}decidido, mas origem ${JSON.stringify(origem)}`);
+    }
+  }
+});
+
+check("(b) a decisão resolve pelo nome que a escada de exibição publica", (store, assert) => {
+  // Uma decisão é gravada contra a grafia PESQUISADA, e é o nome EXIBIDO que
+  // chega a `areDistinct` (o agrupador compara nomes de cluster, já
+  // canonicalizados). Os dois casos reais, medidos em 17/08/2026:
+  const casos = [
+    // grupo curado: "Gustavo Medanha" (pesquisado) → "Gustavo Mendanha" (exibido)
+    ["governador:GO", "Gustavo Gayer", "Gustavo Medanha", "Gustavo Mendanha"],
+    // nome de urna: "Marcelo Queiroga" (pesquisado) → "Dr. Marcelo Queiroga"
+    // ⚠ o perigoso: Queiroga e Queiroz são DOIS homens do mesmo partido (PL) a
+    // dois caracteres de distância. É o par que `candidate-resolve.mjs` cita
+    // como o que a regra tipográfica fundiria se a evidência documental não o
+    // tivesse decidido antes — e a decisão estava morta.
+    ["senador:PB", "Marcelo Queiroz", "Marcelo Queiroga", "Dr. Marcelo Queiroga"],
+  ];
+  for (const [contest, outro, cru, exibido] of casos) {
+    assert(canonicalCandidate(cru, contest) === exibido,
+      `${contest}: a escada não exibe mais "${exibido}" para "${cru}" (exibe "${canonicalCandidate(cru, contest)}") — o caso mudou de forma`);
+    assert(areDistinct(outro, cru, contest),
+      `${contest}: a chave CRUA parou de resolver — as duas têm de resolver, nunca só a nova`);
+    assert(areDistinct(outro, exibido, contest),
+      `${contest}: "${outro}" × "${exibido}" é a decisão gravada, e o guarda respondeu false pelo nome que o site publica`);
+  }
+});
+
+check("(c) a varredura EMITE a chave que a consulta procura", (store, assert) => {
+  // O outro lado da mesma moeda. `candidate-resolve.mjs` grava
+  // `x.contest.replace("|", ":")` em `data/candidate-aliases.json`, então a
+  // chave que `candidate-review.mjs` monta É a chave sob a qual a decisão vai
+  // ser gravada. Emitindo `presidente|PR`, uma decisão sobre a corrida
+  // presidencial nasceria valendo em 1 das 26 amostras dela — e a metade (a)
+  // acima teria de existir para sempre para tapar o buraco em vez de fechá-lo.
+  const pares = revisao();
+  const chaves = [...new Set(pares.map((p) => p.contest))];
+  const estaduais = chaves.filter((c) => c.startsWith("presidente|") && c !== "presidente|BR");
+  assert(estaduais.length === 0,
+    `a varredura emitiu disputa presidencial com UF de amostra: ${estaduais.join(", ")}`);
+  // ⚠ E A METADE OPOSTA, sem a qual uma dobra que colapsasse TODO cargo em
+  // `<race>|BR` passaria verde aqui: as disputas estaduais têm de continuar
+  // separadas por UF. Fundir `senador|SP` com `senador|RJ` compararia dois
+  // homens diferentes que só dividem o nome, que é como a automação já foi
+  // enganada uma vez (Professor Alcides, GO × CE).
+  for (const race of ["senador", "governador"]) {
+    assert(!chaves.includes(`${race}|BR`),
+      `a varredura emitiu ${race}|BR — um cargo estadual não tem disputa nacional, a dobra vazou de cargo`);
+    assert(chaves.filter((c) => c.startsWith(`${race}|`)).length > 1,
+      `${race} caiu para uma chave só — as UFs foram fundidas`);
+  }
+  assert(pares.some((p) => p.contest === "presidente|BR"),
+    "nenhum par presidencial na varredura — a bateria não está exercitando nada");
 });
 
 check("toda linha de candidato carrega person_id e mint_seed", (store, assert) => {

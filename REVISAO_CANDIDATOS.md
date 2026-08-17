@@ -39,12 +39,12 @@ concorrentes; `disjunto` pode ser troca de nome **ou** substituição de candida
 |---|---|
 | Variação de grafia — provável MESMA pessoa | 17 |
 | Título ou apelido — provável MESMA pessoa | 90 |
-| Indefinido — precisa de fonte primária | 42 |
-| Só o primeiro nome em comum — provável PESSOAS DIFERENTES | 35 |
-| Sobrenome em comum — provável PESSOAS DIFERENTES | 84 |
-| **Total** | **268** |
+| Indefinido — precisa de fonte primária | 28 |
+| Só o primeiro nome em comum — provável PESSOAS DIFERENTES | 38 |
+| Sobrenome em comum — provável PESSOAS DIFERENTES | 65 |
+| **Total** | **238** |
 
-Com campo gêmeo (evidência mais forte): **66** par(es).
+Com campo gêmeo (evidência mais forte): **79** par(es).
 
 ## Como aplicar as decisões
 
@@ -61,18 +61,16 @@ mesma pergunta é prova de fusão errada** — é o teste que teria pego o caso 
 Estes nomes formam grupos ligados — decidir par a par pode fazer você fundir A com B
 e C com A, afirmando que B = C sem nunca ter olhado esse par.
 
-- `Presidente · PR` — **Ciro Gomes** · **Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro** · **Eduardo Bolsonaro** · **Eduardo Leite** · **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** · **Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro** · **Ratinho Jr** · **Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro** · **Romeu Zema** · **Romeu Zema, com apoio do ex-presidente Jair Bolsonaro** · **Ronaldo Caiado** · **Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro** · **Tarcísio de Freitas** · **Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro** · **Tereza Cristina, ex-presidente Jair Bolsonaro** (61 pares abaixo)
+- `Presidente` — **Ciro** · **Ciro Gomes** · **Ciro Nogueira** · **Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro** · **Eduardo Bolsonaro** · **Flávio Bolsonaro** · **Jair Bolsonaro** · **Jair Messias Bolsonaro** · **Michelle Bolsonaro** · **Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro** · **Ratinho Jr** · **Ratinho Jr.** · **Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro** · **Ratinho Júnior** · **Romeu Zema** · **Romeu Zema, com apoio do ex-presidente Jair Bolsonaro** · **Ronaldo Caiado** · **Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro** · **Tallis Gomes** · **Tarcísio de Freitas** · **Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro** · **Tereza Cristina** · **Tereza Cristina, ex-presidente Jair Bolsonaro** (79 pares abaixo)
 - `Senado · SP` — **Alexandre Luiz Giordano** · **Alexandre Padilha** · **Capitão Derrite** · **Guilherme Boulos** · **Guilherme Derrite** · **Guilherme Giordano** · **Luiz Marinho** (6 pares abaixo)
 - `Senado · TO` — **Carlos Caguin** · **Carlos Eduardo Torres Gomes** · **Carlos Gaguim** · **Carlos Velozo** · **Eduardo Gomes** (4 pares abaixo)
-- `Presidente` — **Eduardo Bolsonaro** · **Flávio Bolsonaro** · **Jair Bolsonaro** · **Jair Messias Bolsonaro** · **Michelle Bolsonaro** (7 pares abaixo)
 - `Governador · PI` — **Jesus Rodrigues** · **Joel Rodrigues** · **Joel Rodrigues da Silva** · **Jornalista Toni Rodrigues** · **Toni Rodrigues** (6 pares abaixo)
-- `Presidente` — **Ciro** · **Ciro Gomes** · **Ciro Nogueira** · **Tallis Gomes** (3 pares abaixo)
 - `Senado · GO` — **Delegado Humberto** · **Delegado Humberto Teófilo** · **Humberto Chaves** (3 pares abaixo)
 - `Senado · BA` — **Delliana Ribeiro** · **Delliana Ricelli** · **Professora Delliana** (3 pares abaixo)
 - `Senado · BA` — **Marcelo Carvalho** · **Marcelo Nilo** · **Marcelo Santtana** (2 pares abaixo)
 - `Governador · MS` — **Jeferson Bezerra** · **Jefferson Bezerra** · **Jefferson Bezzerra** (2 pares abaixo)
 - `Governador · CE` — **Jair Pereira** · **Jarir Pereira** · **Professor Jarir Pereira** (3 pares abaixo)
-- `Presidente` — **Ratinho Jr** · **Ratinho Jr.** · **Ratinho Júnior** (3 pares abaixo)
+- `Presidente` — **Luiz Felipe d'Avila** · **Luiz Inácio Lula da Silva** · **Lula** (2 pares abaixo)
 - `Governador · TO` — **Carlos Amastha** · **Carlos Eduardo Torres Gomes** · **Eduardo Gomes** (2 pares abaixo)
 - `Governador · RN` — **Alvaro Dias** · **Álvaro Costa Dias** · **Álvaro Dias** (3 pares abaixo)
 - `Governador · SP` — **Flávio Bolsonaro** · **Tarcísio de Freitas** · **Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro** (2 pares abaixo)
@@ -83,8 +81,6 @@ e C com A, afirmando que B = C sem nunca ter olhado esse par.
 - `Governador · BA` — **José Aleluia** · **José Carlos Aleluia** · **José Carlos do Pátio** (3 pares abaixo)
 - `Senado · RO` — **Delegado Camargo** · **Rodrigo Camargo** · **Rodrigo Camargo Ribeiro Pinho** (3 pares abaixo)
 - `Senado · PI` — **Antonio Barros** · **Antonio José Lira** · **Antônio José Lira** (2 pares abaixo)
-- `Presidente · SP` — **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** (3 pares abaixo)
-- `Presidente · AC` — **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** (3 pares abaixo)
 
 ---
 
@@ -461,16 +457,16 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
 | | Ratinho Jr | Ratinho Júnior |
 |---|---|---|
-| pesquisas | 51 | 69 |
+| pesquisas | 102 | 69 |
 | período | 2025-01-01 → 2026-03-11 | 2023-10-03 → 2026-03-11 |
-| média % | 23.9 | 19.9 |
+| média % | 18.3 | 19.9 |
 | partidos | PSD 2025-01-01→2026-03-11 · PL 2025-09-14→2025-09-14 | PSD 2023-10-03→2026-03-11 |
-| institutos | Futura (12), Quaest (11), AtlasIntel (7), MDA (4), +10 | AtlasIntel (15), Gerp (13), Paraná Pesquisas (11), Futura (9), +9 |
+| institutos | Paraná Pesquisas (24), Futura (18), Quaest (11), AtlasIntel (9), +21 | AtlasIntel (15), Gerp (13), Paraná Pesquisas (11), Futura (9), +9 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (PSD)** · diferença entre as médias: 4.0 p.p.
+Partidos: **coincidem (PSD)** · diferença entre as médias: 1.6 p.p.
 
-**Campo gêmeo — 17 ocorrência(s).** AtlasIntel: `2025-09-14` cita *Ratinho Jr* (34.9%, 2º turno) e `2025-09-14` cita *Ratinho Júnior* (2.6%, 1º turno).
+**Campo gêmeo — 19 ocorrência(s).** AtlasIntel: `2025-09-14` cita *Ratinho Jr* (34.9%, 2º turno) e `2025-09-14` cita *Ratinho Júnior* (2.6%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -482,16 +478,16 @@ Partidos: **coincidem (PSD)** · diferença entre as médias: 4.0 p.p.
 
 | | Jair Bolsonaro | Jair Messias Bolsonaro |
 |---|---|---|
-| pesquisas | 51 | 45 |
-| período | 2025-01-01 → 2026-06-30 | 2023-07-17 → 2026-07-27 |
-| média % | 40.3 | 42.0 |
-| partidos | PL 2025-01-01→2026-06-30 | PL 2023-07-17→2026-07-27 |
-| institutos | AtlasIntel (13), Quaest (10), Paraná Pesquisas (8), MDA (7), +5 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
+| pesquisas | 90 | 45 |
+| período | 2024-03-22 → 2026-06-30 | 2023-07-17 → 2026-07-27 |
+| média % | 40.1 | 42.0 |
+| partidos | PL 2024-03-22→2026-06-30 | PL 2023-07-17→2026-07-27 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 1.7 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.9 p.p.
 
-**Campo gêmeo — 11 ocorrência(s).** Datafolha: `2025-06-11` cita *Jair Bolsonaro* (35%, 1º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
+**Campo gêmeo — 12 ocorrência(s).** Datafolha: `2025-06-11` cita *Jair Bolsonaro* (35%, 1º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1463,6 +1459,174 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 42 · período: sobreposto
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 90 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2026-06-30 |
+| média % | 29.1 | 40.1 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2026-06-30 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 11.0 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 47 · período: contido
+
+| | Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 90 | 1 |
+| período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
+| média % | 40.1 | 43.4 |
+| partidos | PL 2024-03-22→2026-06-30 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 40 · período: contido
+
+| | Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 90 | 1 |
+| período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
+| média % | 40.1 | 35.3 |
+| partidos | PL 2024-03-22→2026-06-30 | PSD 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 4.8 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 39 · período: contido
+
+| | Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 90 | 1 |
+| período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
+| média % | 40.1 | 34.6 |
+| partidos | PL 2024-03-22→2026-06-30 | Novo 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 43 · período: contido
+
+| | Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 90 | 1 |
+| período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
+| média % | 40.1 | 32.6 |
+| partidos | PL 2024-03-22→2026-06-30 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 7.5 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 48 · período: contido
+
+| | Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 90 | 1 |
+| período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
+| média % | 40.1 | 40.8 |
+| partidos | PL 2024-03-22→2026-06-30 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 31 · período: contido
+
+| | Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 90 | 1 |
+| período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
+| média % | 40.1 | 32.2 |
+| partidos | PL 2024-03-22→2026-06-30 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 7.9 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `michelle, bolsonaro` · distância de edição: 43 · período: contido
+
+| | Michelle Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 83 | 1 |
+| período | 2024-01-28 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 40.3 | 43.4 |
+| partidos | PL 2024-01-28→2026-07-27 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.1 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
 ### Sergio Moro × Sérgio Moro
 
 `Presidente` · token em comum: `sergio, moro` · distância de edição: 0 · período: contido
@@ -2093,174 +2257,6 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 42 · período: sobreposto
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 5 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2025-07-06 |
-| média % | 29.1 | 46.1 |
-| partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2025-07-06 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (4), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 17.0 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 47 · período: contido
-
-| | Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 46.1 | 43.4 |
-| partidos | PL 2024-03-22→2025-07-06 | PL 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.7 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 40 · período: contido
-
-| | Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 46.1 | 35.3 |
-| partidos | PL 2024-03-22→2025-07-06 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 10.8 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 39 · período: contido
-
-| | Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 46.1 | 34.6 |
-| partidos | PL 2024-03-22→2025-07-06 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 11.5 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 43 · período: contido
-
-| | Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 46.1 | 32.6 |
-| partidos | PL 2024-03-22→2025-07-06 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 13.5 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 48 · período: contido
-
-| | Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 46.1 | 40.8 |
-| partidos | PL 2024-03-22→2025-07-06 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 5.3 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 31 · período: contido
-
-| | Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 46.1 | 32.2 |
-| partidos | PL 2024-03-22→2025-07-06 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 13.9 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `michelle, bolsonaro` · distância de edição: 43 · período: contido
-
-| | Michelle Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 55.7 | 43.4 |
-| partidos | PL 2025-07-06→2025-07-06 | PL 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 12.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Bruno Bolsonaro Scheid × Bruno Scheid
 
 `Senado · RO` · token em comum: `bruno, scheid` · distância de edição: 10 · período: contido
@@ -2355,16 +2351,58 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
 | | Luiz Inácio Lula da Silva | Lula |
 |---|---|---|
-| pesquisas | 440 | 521 |
-| período | 2023-07-17 → 2026-08-16 | 2025-01-01 → 2026-08-12 |
-| média % | 43.0 | 44.1 |
-| partidos | PT 2023-07-17→2026-08-16 | PT 2025-01-01→2026-08-12 |
-| institutos | AtlasIntel (70), Quaest (60), Gerp (59), Paraná Pesquisas (53), +20 | Quaest (87), AtlasIntel (84), Futura (50), Gerp (42), +17 |
+| pesquisas | 440 | 874 |
+| período | 2023-07-17 → 2026-08-16 | 2024-03-22 → 2026-08-12 |
+| média % | 43.0 | 42.4 |
+| partidos | PT 2023-07-17→2026-08-16 | PT 2024-03-22→2026-08-12 |
+| institutos | AtlasIntel (70), Quaest (60), Gerp (59), Paraná Pesquisas (53), +20 | Quaest (209), AtlasIntel (117), Paraná Pesquisas (104), Futura (59), +38 |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PT)** · diferença entre as médias: 1.2 p.p.
+Partidos: **coincidem (PT)** · diferença entre as médias: 0.5 p.p.
 
-**Campo gêmeo — 619 ocorrência(s).** AtlasIntel: `2025-09-14` cita *Luiz Inácio Lula da Silva* (48.2%, 1º turno) e `2025-09-14` cita *Lula* (51.4%, 2º turno).
+**Campo gêmeo — 711 ocorrência(s).** AtlasIntel: `2025-09-14` cita *Luiz Inácio Lula da Silva* (48.2%, 1º turno) e `2025-09-14` cita *Lula* (51.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr × Ratinho Jr.
+
+`Presidente` · token em comum: `ratinho` · distância de edição: 1 · período: sobreposto
+
+| | Ratinho Jr | Ratinho Jr. |
+|---|---|---|
+| pesquisas | 102 | 28 |
+| período | 2025-01-01 → 2026-03-11 | 2025-10-06 → 2026-03-30 |
+| média % | 18.3 | 15.2 |
+| partidos | PSD 2025-01-01→2026-03-11 · PL 2025-09-14→2025-09-14 | PSD 2025-10-06→2026-03-30 · PL 2026-03-30→2026-03-30 |
+| institutos | Paraná Pesquisas (24), Futura (18), Quaest (11), AtlasIntel (9), +21 | Real Time Big Data (8), Paraná Pesquisas (6), Gerp (5), Veritá (4), +4 |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PSD, PL)** · diferença entre as médias: 3.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest, AtlasIntel, Real Time Big Data, Ranking.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr. × Ratinho Júnior
+
+`Presidente` · token em comum: `ratinho` · distância de edição: 5 · período: contido
+
+| | Ratinho Jr. | Ratinho Júnior |
+|---|---|---|
+| pesquisas | 28 | 69 |
+| período | 2025-10-06 → 2026-03-30 | 2023-10-03 → 2026-03-11 |
+| média % | 15.2 | 19.9 |
+| partidos | PSD 2025-10-06→2026-03-30 · PL 2026-03-30→2026-03-30 | PSD 2023-10-03→2026-03-11 |
+| institutos | Real Time Big Data (8), Paraná Pesquisas (6), Gerp (5), Veritá (4), +4 | AtlasIntel (15), Gerp (13), Paraná Pesquisas (11), Futura (9), +9 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **coincidem (PSD)** · diferença entre as médias: 4.6 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Quaest: `2025-11-09` cita *Ratinho Jr.* (35%, 2º turno) e `2025-11-09` cita *Ratinho Júnior* (7%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -2391,48 +2429,6 @@ Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 0.9 p.p.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente` · token em comum: `ratinho` · distância de edição: 1 · período: sobreposto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 51 | 12 |
-| período | 2025-01-01 → 2026-03-11 | 2025-10-06 → 2026-03-25 |
-| média % | 23.9 | 22.4 |
-| partidos | PSD 2025-01-01→2026-03-11 · PL 2025-09-14→2025-09-14 | PSD 2025-10-06→2026-03-25 |
-| institutos | Futura (12), Quaest (11), AtlasIntel (7), MDA (4), +10 | Gerp (5), Real Time Big Data (2), Paraná Pesquisas (2), 100% Cidades Participações (1), +2 |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 1.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest, AtlasIntel, Paraná Pesquisas, Gerp, Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr. × Ratinho Júnior
-
-`Presidente` · token em comum: `ratinho` · distância de edição: 5 · período: contido
-
-| | Ratinho Jr. | Ratinho Júnior |
-|---|---|---|
-| pesquisas | 12 | 69 |
-| período | 2025-10-06 → 2026-03-25 | 2023-10-03 → 2026-03-11 |
-| média % | 22.4 | 19.9 |
-| partidos | PSD 2025-10-06→2026-03-25 | PSD 2023-10-03→2026-03-11 |
-| institutos | Gerp (5), Real Time Big Data (2), Paraná Pesquisas (2), 100% Cidades Participações (1), +2 | AtlasIntel (15), Gerp (13), Paraná Pesquisas (11), Futura (9), +9 |
-| fontes | poder360 | , poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 2.6 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Quaest: `2025-11-09` cita *Ratinho Jr.* (35%, 2º turno) e `2025-11-09` cita *Ratinho Júnior* (7%, 1º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Joel Rodrigues × Joel Rodrigues da Silva
 
 `Governador · PI` · token em comum: `joel, rodrigues` · distância de edição: 9 · período: sobreposto
@@ -2449,6 +2445,27 @@ Partidos: **coincidem (PSD)** · diferença entre as médias: 2.6 p.p.
 Partidos: **coincidem (PP)** · diferença entre as médias: 5.6 p.p.
 
 **Campo gêmeo — 1 ocorrência(s).** AtlasIntel: `2026-03-15` cita *Joel Rodrigues* (36%, 2º turno) e `2026-03-15` cita *Joel Rodrigues da Silva* (29.8%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Renan Filho × Renan Santos
+
+`Presidente` · token em comum: `renan` · distância de edição: 5 · período: sobreposto
+
+| | Renan Filho | Renan Santos |
+|---|---|---|
+| pesquisas | 8 | 283 |
+| período | 2025-07-06 → 2025-09-10 | 2025-05-27 → 2026-08-16 |
+| média % | 0.6 | 9.2 |
+| partidos | MDB 2025-07-06→2025-09-10 | Missão 2025-05-27→2026-08-16 · União Brasil 2026-02-10→2026-02-10 |
+| institutos | Paraná Pesquisas (8) | Quaest (47), Real Time Big Data (38), AtlasIntel (24), Ideia (19), +37 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.6 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -2559,6 +2576,27 @@ Institutos que usam **os dois** nomes (em datas distantes): Vox.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
+### Ciro × Ciro Gomes
+
+`Presidente` · token em comum: `ciro` · distância de edição: 6 · período: sobreposto
+
+| | Ciro | Ciro Gomes |
+|---|---|---|
+| pesquisas | 4 | 115 |
+| período | 2025-02-25 → 2025-04-13 | 2023-10-03 → 2026-05-21 |
+| média % | 7.6 | 13.8 |
+| partidos | PDT 2025-02-25→2025-04-13 | PDT 2023-10-03→2025-10-06 · Democratic Labour Party (Brazil) 2024-05-01→2024-05-01 · PSDB 2025-05-16→2026-05-21 |
+| institutos | Paraná Pesquisas (3), Quaest (1) | Paraná Pesquisas (42), Gerp (20), Quaest (10), AtlasIntel (8), +16 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **coincidem (PDT)** · diferença entre as médias: 6.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-02-25` cita *Ciro* (7.7%, 1º turno) e `2025-02-25` cita *Ciro Gomes* (8.2%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
 ### Geraldo × Geraldo Alckmin
 
 `Senado · SP` · token em comum: `geraldo` · distância de edição: 8 · período: contido
@@ -2622,104 +2660,20 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, R
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · PE` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 3 | 4 |
-| período | 2025-08-01 → 2026-02-05 | 2026-03-30 → 2026-03-30 |
-| média % | 5.8 | 17.3 |
-| partidos | PSD 2025-08-01→2026-02-05 | PSD 2026-03-30→2026-03-30 · PL 2026-03-30→2026-03-30 |
-| institutos | Real Time Big Data (1), Paraná Pesquisas (1), Datafolha (1) | Veritá (4) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 11.5 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro × Ciro Gomes
-
-`Presidente` · token em comum: `ciro` · distância de edição: 6 · período: sobreposto
-
-| | Ciro | Ciro Gomes |
-|---|---|---|
-| pesquisas | 2 | 79 |
-| período | 2025-02-25 → 2025-04-03 | 2023-10-03 → 2026-05-21 |
-| média % | 9.3 | 16.5 |
-| partidos | PDT 2025-02-25→2025-04-03 | PDT 2023-10-03→2025-10-06 · Democratic Labour Party (Brazil) 2024-05-01→2024-05-01 · PSDB 2025-05-16→2026-05-21 |
-| institutos | Quaest (1), Paraná Pesquisas (1) | Gerp (20), Paraná Pesquisas (15), Quaest (10), MDA (7), +13 |
-| fontes | poder360 | , poder360 |
-
-Partidos: **coincidem (PDT)** · diferença entre as médias: 7.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest, Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Ciro × Ciro Nogueira
 
 `Presidente` · token em comum: `ciro` · distância de edição: 9 · período: contido
 
 | | Ciro | Ciro Nogueira |
 |---|---|---|
-| pesquisas | 2 | 2 |
-| período | 2025-02-25 → 2025-04-03 | 2024-03-22 → 2024-03-22 |
-| média % | 9.3 | 16.3 |
-| partidos | PDT 2025-02-25→2025-04-03 | PP 2024-03-22→2024-03-22 |
-| institutos | Quaest (1), Paraná Pesquisas (1) | Paraná Pesquisas (2) |
+| pesquisas | 4 | 2 |
+| período | 2025-02-25 → 2025-04-13 | 2024-03-22 → 2024-03-22 |
+| média % | 7.6 | 16.3 |
+| partidos | PDT 2025-02-25→2025-04-13 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (3), Quaest (1) | Paraná Pesquisas (2) |
 | fontes | poder360 | , poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 6.9 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Renan Filho × Renan Santos
-
-`Presidente · SP` · token em comum: `renan` · distância de edição: 5 · período: disjunto
-
-| | Renan Filho | Renan Santos |
-|---|---|---|
-| pesquisas | 2 | 15 |
-| período | 2025-07-08 → 2025-08-24 | 2026-01-23 → 2026-08-10 |
-| média % | 0.5 | 5.7 |
-| partidos | MDB 2025-07-08→2025-08-24 | Missão 2026-01-23→2026-08-10 · União Brasil 2026-02-10→2026-02-10 |
-| institutos | Paraná Pesquisas (2) | Paraná Pesquisas (2), Vox (2), Real Time Big Data (2), Enfoque (2), +6 |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 5.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · MG` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 2 | 2 |
-| período | 2025-08-25 → 2025-10-05 | 2026-03-07 → 2026-03-11 |
-| média % | 2.5 | 3.8 |
-| partidos | PSD 2025-08-25→2025-10-05 | PSD 2026-03-07→2026-03-11 |
-| institutos | Paraná Pesquisas (1), AtlasIntel (1) | Paraná Pesquisas (1), Real Time Big Data (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 1.3 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.6 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
@@ -2790,22 +2744,64 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Renan Filho × Renan Santos
+### Ciro × Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro
 
-`Presidente` · token em comum: `renan` · distância de edição: 5 · período: sobreposto
+`Presidente` · token em comum: `ciro` · distância de edição: 52 · período: contido
 
-| | Renan Filho | Renan Santos |
+| | Ciro | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 1 | 162 |
-| período | 2025-08-21 → 2025-08-21 | 2025-05-27 → 2026-08-16 |
-| média % | 1.2 | 12.6 |
-| partidos | MDB 2025-08-21→2025-08-21 | Missão 2025-05-27→2026-08-16 |
-| institutos | Paraná Pesquisas (1) | Quaest (21), Ideia (17), Nexus (17), AtlasIntel (14), +18 |
-| fontes | poder360 | , poder360 |
+| pesquisas | 4 | 1 |
+| período | 2025-02-25 → 2025-04-13 | 2024-03-22 → 2024-03-22 |
+| média % | 7.6 | 29.1 |
+| partidos | PDT 2025-02-25→2025-04-13 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (3), Quaest (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 11.4 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 21.5 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ratinho` · distância de edição: 44 · período: contido
+
+| | Ratinho Jr | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 102 | 1 |
+| período | 2025-01-01 → 2026-03-11 | 2024-03-22 → 2024-03-22 |
+| média % | 18.3 | 35.3 |
+| partidos | PSD 2025-01-01→2026-03-11 · PL 2025-09-14→2025-09-14 | PSD 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (24), Futura (18), Quaest (11), AtlasIntel (9), +21 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PSD)** · diferença entre as médias: 17.0 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Ratinho Júnior
+
+`Presidente` · token em comum: `ratinho` · distância de edição: 41 · período: sobreposto
+
+| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Ratinho Júnior |
+|---|---|---|
+| pesquisas | 1 | 69 |
+| período | 2024-03-22 → 2024-03-22 | 2023-10-03 → 2026-03-11 |
+| média % | 35.3 | 19.9 |
+| partidos | PSD 2024-03-22→2024-03-22 | PSD 2023-10-03→2026-03-11 |
+| institutos | Paraná Pesquisas (1) | AtlasIntel (15), Gerp (13), Paraná Pesquisas (11), Futura (9), +9 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **coincidem (PSD)** · diferença entre as médias: 15.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Ratinho Júnior* (35.3%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -2832,69 +2828,6 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · ES` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 2 | 1 |
-| período | 2025-05-31 → 2025-08-17 | 2026-03-25 → 2026-03-25 |
-| média % | 2.9 | 3.0 |
-| partidos | PSD 2025-05-31→2025-08-17 | PSD 2026-03-25→2026-03-25 |
-| institutos | Paraná Pesquisas (2) | Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 0.1 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Renan Filho × Renan Santos
-
-`Presidente · ES` · token em comum: `renan` · distância de edição: 5 · período: disjunto
-
-| | Renan Filho | Renan Santos |
-|---|---|---|
-| pesquisas | 1 | 5 |
-| período | 2025-08-17 → 2025-08-17 | 2026-03-25 → 2026-07-21 |
-| média % | 0.9 | 3.6 |
-| partidos | MDB 2025-08-17→2025-08-17 | Missão 2026-03-25→2026-07-21 |
-| institutos | Paraná Pesquisas (1) | Real Time Big Data (2), Quaest (2), França (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 2.7 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · SP` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 7 | 1 |
-| período | 2025-07-08 → 2026-02-10 | 2026-03-07 → 2026-03-07 |
-| média % | 22.2 | 9.0 |
-| partidos | PSD 2025-07-08→2026-02-10 | PSD 2026-03-07→2026-03-07 |
-| institutos | Paraná Pesquisas (4), Futura (2), Ipespe (1) | Real Time Big Data (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 13.2 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Maria da Consolação × Maria da Consolação Rocha
 
 `Governador · MG` · token em comum: `maria, consolacao` · distância de edição: 6 · período: contido
@@ -2911,48 +2844,6 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 Partidos: **coincidem (PSOL)** · diferença entre as médias: 1.0 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Renan Filho × Renan Santos
-
-`Presidente · BA` · token em comum: `renan` · distância de edição: 5 · período: disjunto
-
-| | Renan Filho | Renan Santos |
-|---|---|---|
-| pesquisas | 1 | 2 |
-| período | 2025-07-29 → 2025-07-29 | 2026-04-28 → 2026-07-25 |
-| média % | 0.4 | 1.9 |
-| partidos | MDB 2025-07-29→2025-07-29 | Missão 2026-04-28→2026-07-25 |
-| institutos | Paraná Pesquisas (1) | 100% Cidades Participações (1), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 1.5 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · CE` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 4 | 1 |
-| período | 2025-05-18 → 2026-02-03 | 2026-02-28 → 2026-02-28 |
-| média % | 3.0 | 3.1 |
-| partidos | PSD 2025-05-18→2026-02-03 | PSD 2026-02-28→2026-02-28 |
-| institutos | Paraná Pesquisas (3), Real Time Big Data (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 0.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -2979,48 +2870,6 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Renan Filho × Renan Santos
-
-`Presidente · RN` · token em comum: `renan` · distância de edição: 5 · período: disjunto
-
-| | Renan Filho | Renan Santos |
-|---|---|---|
-| pesquisas | 1 | 4 |
-| período | 2025-09-10 → 2025-09-10 | 2026-05-27 → 2026-08-10 |
-| média % | 0.7 | 3.8 |
-| partidos | MDB 2025-09-10→2025-09-10 | Missão 2026-05-27→2026-08-10 |
-| institutos | Paraná Pesquisas (1) | AtlasIntel (2), TN/Consult (1), Data Capital (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 3.1 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · RJ` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 3 | 1 |
-| período | 2025-08-29 → 2026-02-13 | 2026-03-10 → 2026-03-10 |
-| média % | 15.7 | 6.0 |
-| partidos | PSD 2025-08-29→2026-02-13 | PSD 2026-03-10→2026-03-10 |
-| institutos | Futura (1), AtlasIntel (1), Prefab (1) | Real Time Big Data (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 9.7 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Jesus Rodrigues × Joel Rodrigues da Silva
 
 `Governador · PI` · token em comum: `rodrigues` · distância de edição: 13 · período: sobreposto
@@ -3037,153 +2886,6 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 Partidos: **CONTRADIZEM** · diferença entre as médias: 26.4 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Data AZ.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · MS` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 3 | 1 |
-| período | 2025-05-16 → 2026-02-06 | 2026-03-20 → 2026-03-20 |
-| média % | 5.4 | 5.0 |
-| partidos | PSD 2025-05-16→2026-02-06 | PSD 2026-03-20→2026-03-20 |
-| institutos | Ranking (2), Paraná Pesquisas (1) | Ranking (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 0.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Ranking.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · PA` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 1 | 3 |
-| período | 2025-12-15 → 2025-12-15 | 2026-03-21 → 2026-03-21 |
-| média % | 2.6 | 15.6 |
-| partidos | PSD 2025-12-15→2025-12-15 | PSD 2026-03-21→2026-03-21 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (2), Real Time Big Data (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 13.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro × Ciro Gomes
-
-`Presidente · TO` · token em comum: `ciro` · distância de edição: 6 · período: disjunto
-
-| | Ciro | Ciro Gomes |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-04-08 → 2025-04-08 | 2025-08-13 → 2025-08-13 |
-| média % | 7.0 | 5.3 |
-| partidos | PDT 2025-04-08→2025-04-08 | PDT 2025-08-13→2025-08-13 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PDT)** · diferença entre as médias: 1.7 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr.
-
-`Presidente · TO` · token em comum: `ratinho` · distância de edição: 1 · período: disjunto
-
-| | Ratinho Jr | Ratinho Jr. |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-08-13 → 2025-08-13 | 2026-03-24 → 2026-03-24 |
-| média % | 3.0 | 5.0 |
-| partidos | PSD 2025-08-13→2025-08-13 | PSD 2026-03-24→2026-03-24 |
-| institutos | Paraná Pesquisas (1) | Real Time Big Data (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 2.0 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Renan Filho × Renan Santos
-
-`Presidente · TO` · token em comum: `renan` · distância de edição: 5 · período: disjunto
-
-| | Renan Filho | Renan Santos |
-|---|---|---|
-| pesquisas | 1 | 2 |
-| período | 2025-08-13 → 2025-08-13 | 2026-03-24 → 2026-06-18 |
-| média % | 0.2 | 1.5 |
-| partidos | MDB 2025-08-13→2025-08-13 | Missão 2026-03-24→2026-06-18 |
-| institutos | Paraná Pesquisas (1) | Real Time Big Data (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 1.3 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ratinho` · distância de edição: 44 · período: contido
-
-| | Ratinho Jr | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 6 | 1 |
-| período | 2025-07-06 → 2026-01-27 | 2024-03-22 → 2024-03-22 |
-| média % | 50.7 | 35.3 |
-| partidos | PSD 2025-07-06→2026-01-27 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (3), Futura (3) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 15.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Renan Filho × Renan Santos
-
-`Presidente · PR` · token em comum: `renan` · distância de edição: 5 · período: disjunto
-
-| | Renan Filho | Renan Santos |
-|---|---|---|
-| pesquisas | 1 | 6 |
-| período | 2025-07-06 → 2025-07-06 | 2026-01-22 → 2026-07-25 |
-| média % | 0.4 | 5.6 |
-| partidos | MDB 2025-07-06→2025-07-06 | Missão 2026-01-22→2026-07-25 |
-| institutos | Paraná Pesquisas (1) | Quaest (3), Paraná Pesquisas (2), Futura (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 5.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -3466,6 +3168,174 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 Partidos: **CONTRADIZEM** · diferença entre as médias: 20.9 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Gomes × Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ciro` · distância de edição: 46 · período: contido
+
+| | Ciro Gomes | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 115 | 1 |
+| período | 2023-10-03 → 2026-05-21 | 2024-03-22 → 2024-03-22 |
+| média % | 13.8 | 29.1 |
+| partidos | PDT 2023-10-03→2025-10-06 · Democratic Labour Party (Brazil) 2024-05-01→2024-05-01 · PSDB 2025-05-16→2026-05-21 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (42), Gerp (20), Quaest (10), AtlasIntel (8), +16 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 15.3 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Gomes* (7.5%, 1º turno) e `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira × Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ciro` · distância de edição: 43 · período: contido
+
+| | Ciro Nogueira | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 2 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 16.3 | 29.1 |
+| partidos | PP 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (2) | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PP)** · diferença entre as médias: 12.9 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira* (29.1%, 2º turno) e `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Luiz Felipe d'Avila × Luiz Inácio Lula da Silva
+
+`Presidente` · token em comum: `luiz` · distância de edição: 14 · período: sobreposto
+
+| | Luiz Felipe d'Avila | Luiz Inácio Lula da Silva |
+|---|---|---|
+| pesquisas | 1 | 440 |
+| período | 2025-08-21 → 2025-08-21 | 2023-07-17 → 2026-08-16 |
+| média % | 1.3 | 43.0 |
+| partidos | Novo 2025-08-21→2025-08-21 | PT 2023-07-17→2026-08-16 |
+| institutos | Paraná Pesquisas (1) | AtlasIntel (70), Quaest (60), Gerp (59), Paraná Pesquisas (53), +20 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 41.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-08-21` cita *Luiz Felipe d'Avila* (1.3%, 1º turno) e `2025-08-21` cita *Luiz Inácio Lula da Silva* (35.1%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr. × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ratinho` · distância de edição: 43 · período: contido
+
+| | Ratinho Jr. | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 28 | 1 |
+| período | 2025-10-06 → 2026-03-30 | 2024-03-22 → 2024-03-22 |
+| média % | 15.2 | 35.3 |
+| partidos | PSD 2025-10-06→2026-03-30 · PL 2026-03-30→2026-03-30 | PSD 2024-03-22→2024-03-22 |
+| institutos | Real Time Big Data (8), Paraná Pesquisas (6), Gerp (5), Veritá (4), +4 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PSD)** · diferença entre as médias: 20.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Romeu Zema × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `romeu` · distância de edição: 43 · período: contido
+
+| | Romeu Zema | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 433 | 1 |
+| período | 2023-07-17 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 15.5 | 34.6 |
+| partidos | Novo 2023-07-17→2026-08-16 · MDB 2025-08-17→2025-08-17 · PSD 2025-09-14→2025-09-14 · Avante 2025-11-10→2025-12-15 | Novo 2024-03-22→2024-03-22 |
+| institutos | Quaest (78), AtlasIntel (53), Real Time Big Data (39), Futura (34), +42 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (NOVO)** · diferença entre as médias: 19.1 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema* (34.6%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ronaldo Caiado × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ronaldo` · distância de edição: 43 · período: contido
+
+| | Ronaldo Caiado | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 456 | 1 |
+| período | 2023-10-03 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 16.6 | 32.6 |
+| partidos | União Brasil 2023-10-03→2026-07-07 · Republicanos 2025-01-26→2025-09-14 · PL 2025-09-15→2025-09-15 · PSD 2026-01-09→2026-08-16 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Quaest (78), AtlasIntel (56), Paraná Pesquisas (53), Futura (36), +42 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 16.0 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ronaldo Caiado* (32.6%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Tarcísio de Freitas × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `tarcisio` · distância de edição: 43 · período: contido
+
+| | Tarcísio de Freitas | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 165 | 1 |
+| período | 2023-07-17 → 2026-03-23 | 2024-03-22 → 2024-03-22 |
+| média % | 35.0 | 40.8 |
+| partidos | Republicanos 2023-07-17→2026-03-23 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | AtlasIntel (31), Paraná Pesquisas (31), Futura (30), Quaest (27), +16 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 5.8 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Tarcísio de Freitas* (40.8%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Tereza Cristina × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `tereza` · distância de edição: 30 · período: contido
+
+| | Tereza Cristina | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 12 | 1 |
+| período | 2023-10-03 → 2026-06-12 | 2024-03-22 → 2024-03-22 |
+| média % | 14.8 | 32.2 |
+| partidos | PP 2023-10-03→2026-06-12 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (9), Alfa/TMC (1), Ideia (1), Futura (1) | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PP)** · diferença entre as médias: 17.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Tereza Cristina* (32.2%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -3870,111 +3740,6 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Ciro Gomes × Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ciro` · distância de edição: 46 · período: contido
-
-| | Ciro Gomes | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 4 | 1 |
-| período | 2024-03-22 → 2026-01-22 | 2024-03-22 → 2024-03-22 |
-| média % | 5.7 | 29.1 |
-| partidos | PDT 2024-03-22→2025-07-06 · PSDB 2026-01-22→2026-01-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (4) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 23.4 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Gomes* (7.5%, 1º turno) e `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Eduardo Leite
-
-`Presidente · PR` · token em comum: `eduardo` · distância de edição: 8 · período: contido
-
-| | Eduardo Bolsonaro | Eduardo Leite |
-|---|---|---|
-| pesquisas | 1 | 2 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2025-02-25 |
-| média % | 49.9 | 2.0 |
-| partidos | PL 2025-07-06→2025-07-06 | PSDB 2024-03-22→2025-02-25 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 47.9 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Romeu Zema × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `romeu` · distância de edição: 43 · período: contido
-
-| | Romeu Zema | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2025-02-23 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 14.0 | 34.6 |
-| partidos | Novo 2025-02-23→2026-07-25 | Novo 2024-03-22→2024-03-22 |
-| institutos | Quaest (5), Paraná Pesquisas (2), Futura (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (NOVO)** · diferença entre as médias: 20.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ronaldo Caiado × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ronaldo` · distância de edição: 43 · período: contido
-
-| | Ronaldo Caiado | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 10 | 1 |
-| período | 2025-02-23 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 12.0 | 32.6 |
-| partidos | União Brasil 2025-02-23→2026-01-22 · PSD 2026-01-27→2026-07-25 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Quaest (5), Paraná Pesquisas (4), Futura (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 20.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Tarcísio de Freitas × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `tarcisio` · distância de edição: 43 · período: contido
-
-| | Tarcísio de Freitas | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 3 | 1 |
-| período | 2025-02-23 → 2026-01-27 | 2024-03-22 → 2024-03-22 |
-| média % | 51.7 | 40.8 |
-| partidos | Republicanos 2025-02-23→2026-01-27 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Quaest (1), Futura (1), Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 10.9 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ---
 
 ## Sobrenome em comum — provável PESSOAS DIFERENTES
@@ -3982,43 +3747,43 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 Aqui mora a família Bolsonaro. Leia cada um assumindo **pessoas diferentes** até
 prova em contrário.
 
-### Flávio Bolsonaro × Michelle Bolsonaro
-
-`Presidente` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Flávio Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 235 | 78 |
-| período | 2025-06-11 → 2026-08-16 | 2024-01-28 → 2026-07-27 |
-| média % | 38.2 | 39.9 |
-| partidos | PL 2025-06-11→2026-08-16 | PL 2024-01-28→2026-07-27 |
-| institutos | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 | Paraná Pesquisas (17), AtlasIntel (16), Futura (13), Quaest (8), +8 |
-| fontes | , poder360 | , poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 1.7 p.p.
-
-**Campo gêmeo — 60 ocorrência(s).** Futura: `2025-12-09` cita *Flávio Bolsonaro* (41.6%, 2º turno) e `2025-12-09` cita *Michelle Bolsonaro* (45.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Flávio Bolsonaro × Jair Bolsonaro
 
 `Presidente` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
 
 | | Flávio Bolsonaro | Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 235 | 51 |
-| período | 2025-06-11 → 2026-08-16 | 2025-01-01 → 2026-06-30 |
-| média % | 38.2 | 40.3 |
-| partidos | PL 2025-06-11→2026-08-16 | PL 2025-01-01→2026-06-30 |
-| institutos | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 | AtlasIntel (13), Quaest (10), Paraná Pesquisas (8), MDA (7), +5 |
+| pesquisas | 404 | 90 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2026-06-30 |
+| média % | 37.0 | 40.1 |
+| partidos | PL 2025-06-11→2026-08-16 | PL 2024-03-22→2026-06-30 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.1 p.p.
 
-**Campo gêmeo — 20 ocorrência(s).** Quaest: `2025-08-17` cita *Flávio Bolsonaro* (14%, 1º turno) e `2025-08-17` cita *Jair Bolsonaro* (35%, 2º turno).
+**Campo gêmeo — 28 ocorrência(s).** Quaest: `2025-08-17` cita *Flávio Bolsonaro* (14%, 1º turno) e `2025-08-17` cita *Jair Bolsonaro* (35%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Michelle Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Flávio Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 83 |
+| período | 2025-06-11 → 2026-08-16 | 2024-01-28 → 2026-07-27 |
+| média % | 37.0 | 40.3 |
+| partidos | PL 2025-06-11→2026-08-16 | PL 2024-01-28→2026-07-27 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 |
+| fontes | , poder360 | , poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
+
+**Campo gêmeo — 62 ocorrência(s).** Futura: `2025-12-09` cita *Flávio Bolsonaro* (41.6%, 2º turno) e `2025-12-09` cita *Michelle Bolsonaro* (45.8%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -4030,14 +3795,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
 
 | | Flávio Bolsonaro | Jair Messias Bolsonaro |
 |---|---|---|
-| pesquisas | 235 | 45 |
+| pesquisas | 404 | 45 |
 | período | 2025-06-11 → 2026-08-16 | 2023-07-17 → 2026-07-27 |
-| média % | 38.2 | 42.0 |
+| média % | 37.0 | 42.0 |
 | partidos | PL 2025-06-11→2026-08-16 | PL 2023-07-17→2026-07-27 |
-| institutos | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 3.8 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.0 p.p.
 
 **Campo gêmeo — 18 ocorrência(s).** Datafolha: `2025-06-11` cita *Flávio Bolsonaro* (38%, 2º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
 
@@ -4051,14 +3816,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 3.8 p.p.
 
 | | Jair Messias Bolsonaro | Michelle Bolsonaro |
 |---|---|---|
-| pesquisas | 45 | 78 |
+| pesquisas | 45 | 83 |
 | período | 2023-07-17 → 2026-07-27 | 2024-01-28 → 2026-07-27 |
-| média % | 42.0 | 39.9 |
+| média % | 42.0 | 40.3 |
 | partidos | PL 2023-07-17→2026-07-27 | PL 2024-01-28→2026-07-27 |
-| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (17), AtlasIntel (16), Futura (13), Quaest (8), +8 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.7 p.p.
 
 **Campo gêmeo — 35 ocorrência(s).** Futura: `2025-11-08` cita *Jair Messias Bolsonaro* (46.6%, 2º turno) e `2025-11-08` cita *Michelle Bolsonaro* (46.5%, 2º turno).
 
@@ -4072,14 +3837,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
 
 | | Eduardo Bolsonaro | Flávio Bolsonaro |
 |---|---|---|
-| pesquisas | 33 | 235 |
+| pesquisas | 34 | 404 |
 | período | 2024-12-31 → 2025-12-04 | 2025-06-11 → 2026-08-16 |
-| média % | 31.7 | 38.2 |
+| média % | 32.2 | 37.0 |
 | partidos | PL 2024-12-31→2025-12-04 | PL 2025-06-11→2026-08-16 |
-| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 6.5 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 4.8 p.p.
 
 **Campo gêmeo — 6 ocorrência(s).** Datafolha: `2025-06-11` cita *Eduardo Bolsonaro* (38%, 2º turno) e `2025-06-11` cita *Flávio Bolsonaro* (38%, 2º turno).
 
@@ -4093,14 +3858,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 6.5 p.p.
 
 | | Eduardo Bolsonaro | Jair Messias Bolsonaro |
 |---|---|---|
-| pesquisas | 33 | 45 |
+| pesquisas | 34 | 45 |
 | período | 2024-12-31 → 2025-12-04 | 2023-07-17 → 2026-07-27 |
-| média % | 31.7 | 42.0 |
+| média % | 32.2 | 42.0 |
 | partidos | PL 2024-12-31→2025-12-04 | PL 2023-07-17→2026-07-27 |
 | institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 10.3 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 9.8 p.p.
 
 **Campo gêmeo — 13 ocorrência(s).** Datafolha: `2025-06-11` cita *Eduardo Bolsonaro* (38%, 2º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
 
@@ -4129,27 +3894,6 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 17.8 p.p.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · SP` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 23 | 5 |
-| período | 2026-01-23 → 2026-08-10 | 2025-02-23 → 2025-08-24 |
-| média % | 40.7 | 43.2 |
-| partidos | PL 2026-01-23→2026-08-10 | PL 2025-02-23→2025-08-24 |
-| institutos | Vox (4), Futura (4), Paraná Pesquisas (3), Real Time Big Data (3), +6 | Paraná Pesquisas (4), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Antônio Furlan × Dr. Furlan
 
 `Governador · AP` · token em comum: `furlan` · distância de edição: 7 · período: sobreposto
@@ -4171,104 +3915,20 @@ Institutos que usam **os dois** nomes (em datas distantes): Veritá, Paraná Pes
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 5 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2025-07-06 |
-| média % | 41.6 | 46.1 |
-| partidos | PL 2026-01-22→2026-07-25 | PL 2024-03-22→2025-07-06 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (4), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 4.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest, Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · ES` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 3 |
-| período | 2026-03-25 → 2026-07-21 | 2025-02-09 → 2025-08-17 |
-| média % | 39.2 | 44.8 |
-| partidos | PL 2026-03-25→2026-07-21 | PL 2025-02-09→2025-08-17 |
-| institutos | Real Time Big Data (3), Quaest (3), França (2) | Paraná Pesquisas (3) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.6 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · MG` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 10 | 3 |
-| período | 2026-03-07 → 2026-07-29 | 2025-02-23 → 2025-10-05 |
-| média % | 33.5 | 35.6 |
-| partidos | PL 2026-03-07→2026-07-29 | PL 2025-02-23→2025-10-05 |
-| institutos | Real Time Big Data (5), Quaest (4), Paraná Pesquisas (1) | Paraná Pesquisas (2), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest, Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · RN` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 6 | 3 |
-| período | 2026-01-09 → 2026-07-29 | 2025-02-21 → 2026-05-27 |
-| média % | 31.2 | 31.6 |
-| partidos | PL 2026-01-09→2026-07-29 | PL 2025-02-21→2026-05-27 |
-| institutos | AtlasIntel (3), Exatus (1), Data Capital (1), Instituto Potiguar (1) | Paraná Pesquisas (2), AtlasIntel (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 0.4 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** AtlasIntel: `2026-05-27` cita *Flávio Bolsonaro* (28.6%, 1º turno) e `2026-05-27` cita *Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
 ### Ciro Gomes × Tallis Gomes
 
 `Presidente` · token em comum: `gomes` · distância de edição: 6 · período: contido
 
 | | Ciro Gomes | Tallis Gomes |
 |---|---|---|
-| pesquisas | 79 | 2 |
+| pesquisas | 115 | 2 |
 | período | 2023-10-03 → 2026-05-21 | 2026-02-09 → 2026-02-09 |
-| média % | 16.5 | 11.4 |
+| média % | 13.8 | 11.4 |
 | partidos | PDT 2023-10-03→2025-10-06 · Democratic Labour Party (Brazil) 2024-05-01→2024-05-01 · PSDB 2025-05-16→2026-05-21 | Sem partido 2026-02-09→2026-02-09 |
-| institutos | Gerp (20), Paraná Pesquisas (15), Quaest (10), MDA (7), +13 | Colectta (2) |
+| institutos | Paraná Pesquisas (42), Gerp (20), Quaest (10), AtlasIntel (8), +16 | Colectta (2) |
 | fontes | , poder360 | poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 5.1 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.4 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -4292,195 +3952,6 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 Partidos: **CONTRADIZEM** · diferença entre as médias: 10.8 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · BA` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 3 | 2 |
-| período | 2026-04-28 → 2026-07-25 | 2025-02-23 → 2025-07-29 |
-| média % | 22.7 | 28.1 |
-| partidos | PL 2026-04-28→2026-07-25 | PL 2025-02-23→2025-07-29 |
-| institutos | Quaest (2), 100% Cidades Participações (1) | Paraná Pesquisas (1), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · PE` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 15 | 2 |
-| período | 2025-12-30 → 2026-07-26 | 2025-02-23 → 2025-03-12 |
-| média % | 26.4 | 29.5 |
-| partidos | PL 2025-12-30→2026-07-26 | PL 2025-02-23→2025-03-12 |
-| institutos | Quaest (4), Veritá (4), Real Time Big Data (4), Datafolha (2), +1 | Quaest (1), Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 3.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · CE` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 11 | 2 |
-| período | 2026-01-21 → 2026-07-28 | 2025-05-18 → 2025-12-15 |
-| média % | 24.8 | 24.3 |
-| partidos | PL 2026-01-21→2026-07-28 | PL 2025-05-18→2025-12-15 |
-| institutos | Quaest (3), Real Time Big Data (3), Paraná Pesquisas (2), AtlasIntel (2), +1 | Paraná Pesquisas (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 0.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · RS` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 2 |
-| período | 2026-04-28 → 2026-07-28 | 2025-02-23 → 2025-03-16 |
-| média % | 40.4 | 40.4 |
-| partidos | PL 2026-04-28→2026-07-28 | PL 2025-02-23→2025-03-16 |
-| institutos | Quaest (4), Real Time Big Data (1) | Paraná Pesquisas (1), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 0.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · RJ` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 13 | 2 |
-| período | 2026-02-02 → 2026-07-28 | 2025-02-23 → 2025-04-04 |
-| média % | 40.1 | 41.9 |
-| partidos | PL 2026-02-02→2026-07-28 | PL 2025-02-23→2025-04-04 |
-| institutos | Paraná Pesquisas (4), Real Time Big Data (3), Quaest (2), Prefab (2), +2 | Quaest (1), Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 1.8 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · MS` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 4 | 2 |
-| período | 2026-02-06 → 2026-07-23 | 2025-05-16 → 2025-05-25 |
-| média % | 38.3 | 46.2 |
-| partidos | PL 2026-02-06→2026-07-23 | PL 2025-05-16→2025-05-25 |
-| institutos | Ranking (3), Real Time Big Data (1) | Paraná Pesquisas (1), Ranking (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 8.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Ranking.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · DF` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 4 | 2 |
-| período | 2026-05-10 → 2026-06-23 | 2025-03-25 → 2025-06-04 |
-| média % | 39.5 | 39.5 |
-| partidos | PL 2026-05-10→2026-06-23 | PL 2025-03-25→2025-06-04 |
-| institutos | França (2), Veritá (2) | Paraná Pesquisas (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 0.1 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · TO` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 3 | 2 |
-| período | 2026-03-24 → 2026-06-18 | 2025-04-08 → 2025-08-13 |
-| média % | 37.7 | 41.7 |
-| partidos | PL 2026-03-24→2026-06-18 | PL 2025-04-08→2025-08-13 |
-| institutos | Real Time Big Data (3) | Paraná Pesquisas (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 4.0 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Michelle Bolsonaro
-
-`Presidente · AC` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Flávio Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 4 | 2 |
-| período | 2025-09-23 → 2026-08-02 | 2025-09-23 → 2025-09-23 |
-| média % | 54.9 | 50.8 |
-| partidos | PL 2025-09-23→2026-08-02 | PL 2025-09-23→2025-09-23 |
-| institutos | AtlasIntel (2), Real Time Big Data (1), Paraná Pesquisas (1) | Paraná Pesquisas (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 4.1 p.p.
-
-**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-09-23` cita *Flávio Bolsonaro* (52.6%, 2º turno) e `2025-09-23` cita *Michelle Bolsonaro* (42.8%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -4549,20 +4020,20 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Flávio Bolsonaro × Michelle Bolsonaro
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Eduardo Bolsonaro
 
-`Presidente · SP` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 42 · período: disjunto
 
-| | Flávio Bolsonaro | Michelle Bolsonaro |
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Eduardo Bolsonaro |
 |---|---|---|
-| pesquisas | 23 | 1 |
-| período | 2026-01-23 → 2026-08-10 | 2025-08-24 → 2025-08-24 |
-| média % | 40.7 | 46.5 |
-| partidos | PL 2026-01-23→2026-08-10 | PL 2025-08-24→2025-08-24 |
-| institutos | Vox (4), Futura (4), Paraná Pesquisas (3), Real Time Big Data (3), +6 | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
+| pesquisas | 1 | 34 |
+| período | 2024-03-22 → 2024-03-22 | 2024-12-31 → 2025-12-04 |
+| média % | 29.1 | 32.2 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2024-12-31→2025-12-04 |
+| institutos | Paraná Pesquisas (1) | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 |
+| fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.8 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.1 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
@@ -4570,22 +4041,988 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Jair Bolsonaro × Michelle Bolsonaro
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Flávio Bolsonaro
 
-`Presidente · SP` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 43 · período: disjunto
 
-| | Jair Bolsonaro | Michelle Bolsonaro |
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Flávio Bolsonaro |
 |---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2025-02-23 → 2025-08-24 | 2025-08-24 → 2025-08-24 |
-| média % | 43.2 | 46.5 |
-| partidos | PL 2025-02-23→2025-08-24 | PL 2025-08-24→2025-08-24 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
+| pesquisas | 1 | 404 |
+| período | 2024-03-22 → 2024-03-22 | 2025-06-11 → 2026-08-16 |
+| média % | 29.1 | 37.0 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2025-06-11→2026-08-16 |
+| institutos | Paraná Pesquisas (1) | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 7.9 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Jair Messias Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 38 · período: sobreposto
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Jair Messias Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 45 |
+| período | 2024-03-22 → 2024-03-22 | 2023-07-17 → 2026-07-27 |
+| média % | 29.1 | 42.0 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2023-07-17→2026-07-27 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 12.9 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Michelle Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 42 · período: sobreposto
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 83 |
+| período | 2024-03-22 → 2024-03-22 | 2024-01-28 → 2026-07-27 |
+| média % | 29.1 | 40.3 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2024-01-28→2026-07-27 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 11.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 43.4 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 14.3 p.p.
 
-**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-08-24` cita *Jair Bolsonaro* (38.9%, 1º turno) e `2025-08-24` cita *Michelle Bolsonaro* (46.5%, 2º turno).
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 11 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 35.3 |
+| partidos | PP 2024-03-22→2024-03-22 | PSD 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 6.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 9 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 34.6 |
+| partidos | PP 2024-03-22→2024-03-22 | Novo 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 12 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 32.6 |
+| partidos | PP 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.5 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 12 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 40.8 |
+| partidos | PP 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 11.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 21 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 32.2 |
+| partidos | PP 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PP)** · diferença entre as médias: 3.1 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 46 · período: contido
+
+| | Eduardo Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 34 | 1 |
+| período | 2024-12-31 → 2025-12-04 | 2024-03-22 → 2024-03-22 |
+| média % | 32.2 | 43.4 |
+| partidos | PL 2024-12-31→2025-12-04 | PL 2024-03-22→2024-03-22 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 11.2 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 41 · período: contido
+
+| | Eduardo Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 34 | 1 |
+| período | 2024-12-31 → 2025-12-04 | 2024-03-22 → 2024-03-22 |
+| média % | 32.2 | 35.3 |
+| partidos | PL 2024-12-31→2025-12-04 | PSD 2024-03-22→2024-03-22 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 39 · período: contido
+
+| | Eduardo Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 34 | 1 |
+| período | 2024-12-31 → 2025-12-04 | 2024-03-22 → 2024-03-22 |
+| média % | 32.2 | 34.6 |
+| partidos | PL 2024-12-31→2025-12-04 | Novo 2024-03-22→2024-03-22 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.4 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 43 · período: contido
+
+| | Eduardo Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 34 | 1 |
+| período | 2024-12-31 → 2025-12-04 | 2024-03-22 → 2024-03-22 |
+| média % | 32.2 | 32.6 |
+| partidos | PL 2024-12-31→2025-12-04 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.4 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
+
+| | Eduardo Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 34 | 1 |
+| período | 2024-12-31 → 2025-12-04 | 2024-03-22 → 2024-03-22 |
+| média % | 32.2 | 40.8 |
+| partidos | PL 2024-12-31→2025-12-04 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.6 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 31 · período: contido
+
+| | Eduardo Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 34 | 1 |
+| período | 2024-12-31 → 2025-12-04 | 2024-03-22 → 2024-03-22 |
+| média % | 32.2 | 32.2 |
+| partidos | PL 2024-12-31→2025-12-04 | PP 2024-03-22→2024-03-22 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.0 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 47 · período: contido
+
+| | Flávio Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 1 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 37.0 | 43.4 |
+| partidos | PL 2025-06-11→2026-08-16 | PL 2024-03-22→2024-03-22 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 6.4 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 41 · período: contido
+
+| | Flávio Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 1 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 37.0 | 35.3 |
+| partidos | PL 2025-06-11→2026-08-16 | PSD 2024-03-22→2024-03-22 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 1.7 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 40 · período: contido
+
+| | Flávio Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 1 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 37.0 | 34.6 |
+| partidos | PL 2025-06-11→2026-08-16 | Novo 2024-03-22→2024-03-22 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.4 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 43 · período: contido
+
+| | Flávio Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 1 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 37.0 | 32.6 |
+| partidos | PL 2025-06-11→2026-08-16 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 4.4 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
+
+| | Flávio Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 1 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 37.0 | 40.8 |
+| partidos | PL 2025-06-11→2026-08-16 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 33 · período: contido
+
+| | Flávio Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 404 | 1 |
+| período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
+| média % | 37.0 | 32.2 |
+| partidos | PL 2025-06-11→2026-08-16 | PP 2024-03-22→2024-03-22 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 4.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Messias Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 44 · período: contido
+
+| | Jair Messias Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 45 | 1 |
+| período | 2023-07-17 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 42.0 | 43.4 |
+| partidos | PL 2023-07-17→2026-07-27 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Messias Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 35 · período: contido
+
+| | Jair Messias Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 45 | 1 |
+| período | 2023-07-17 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 42.0 | 35.3 |
+| partidos | PL 2023-07-17→2026-07-27 | PSD 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 6.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Messias Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 36 · período: contido
+
+| | Jair Messias Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 45 | 1 |
+| período | 2023-07-17 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 42.0 | 34.6 |
+| partidos | PL 2023-07-17→2026-07-27 | Novo 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 7.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Messias Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 39 · período: contido
+
+| | Jair Messias Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 45 | 1 |
+| período | 2023-07-17 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 42.0 | 32.6 |
+| partidos | PL 2023-07-17→2026-07-27 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 9.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Messias Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 43 · período: contido
+
+| | Jair Messias Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 45 | 1 |
+| período | 2023-07-17 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 42.0 | 40.8 |
+| partidos | PL 2023-07-17→2026-07-27 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 1.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Messias Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `jair, bolsonaro` · distância de edição: 29 · período: contido
+
+| | Jair Messias Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 45 | 1 |
+| período | 2023-07-17 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 42.0 | 32.2 |
+| partidos | PL 2023-07-17→2026-07-27 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 9.8 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Messias Bolsonaro* (41.7%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 40 · período: contido
+
+| | Michelle Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 83 | 1 |
+| período | 2024-01-28 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 40.3 | 35.3 |
+| partidos | PL 2024-01-28→2026-07-27 | PSD 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.0 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 39 · período: contido
+
+| | Michelle Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 83 | 1 |
+| período | 2024-01-28 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 40.3 | 34.6 |
+| partidos | PL 2024-01-28→2026-07-27 | Novo 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 43 · período: contido
+
+| | Michelle Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 83 | 1 |
+| período | 2024-01-28 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 40.3 | 32.6 |
+| partidos | PL 2024-01-28→2026-07-27 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 7.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
+
+| | Michelle Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 83 | 1 |
+| período | 2024-01-28 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 40.3 | 40.8 |
+| partidos | PL 2024-01-28→2026-07-27 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.5 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `bolsonaro` · distância de edição: 32 · período: contido
+
+| | Michelle Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 83 | 1 |
+| período | 2024-01-28 → 2026-07-27 | 2024-03-22 → 2024-03-22 |
+| média % | 40.3 | 32.2 |
+| partidos | PL 2024-01-28→2026-07-27 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.1 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 16 · período: contido
+
+| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 43.4 | 35.3 |
+| partidos | PL 2024-03-22→2024-03-22 | PSD 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.1 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 15 · período: contido
+
+| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 43.4 | 34.6 |
+| partidos | PL 2024-03-22→2024-03-22 | Novo 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.8 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
+
+| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 43.4 | 32.6 |
+| partidos | PL 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 10.8 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 17 · período: contido
+
+| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 43.4 | 40.8 |
+| partidos | PL 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.6 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 26 · período: contido
+
+| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 43.4 | 32.2 |
+| partidos | PL 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 11.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 10 · período: contido
+
+| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 35.3 | 34.6 |
+| partidos | PSD 2024-03-22→2024-03-22 | Novo 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 11 · período: contido
+
+| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 35.3 | 32.6 |
+| partidos | PSD 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
+
+| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 35.3 | 40.8 |
+| partidos | PSD 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 21 · período: contido
+
+| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 35.3 | 32.2 |
+| partidos | PSD 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.1 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Romeu Zema, com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 10 · período: contido
+
+| | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 34.6 | 32.6 |
+| partidos | Novo 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.0 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Romeu Zema, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
+
+| | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 34.6 | 40.8 |
+| partidos | Novo 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 6.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Romeu Zema, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 18 · período: contido
+
+| | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 34.6 | 32.2 |
+| partidos | Novo 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 15 · período: contido
+
+| | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 32.6 | 40.8 |
+| partidos | União Brasil 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.2 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 24 · período: contido
+
+| | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 32.6 | 32.2 |
+| partidos | União Brasil 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
+
+`Presidente` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 25 · período: contido
+
+| | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 40.8 | 32.2 |
+| partidos | Republicanos 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.6 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -4607,48 +5044,6 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
 Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 20.7 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · GO` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 18 | 1 |
-| período | 2026-01-12 → 2026-08-04 | 2025-02-23 → 2025-02-23 |
-| média % | 37.8 | 50.0 |
-| partidos | PL 2026-01-12→2026-08-04 | PL 2025-02-23→2025-02-23 |
-| institutos | Direct Pesquisas (6), Real Time Big Data (4), Quaest (4), Portal Goiás (2), +2 | Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 12.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · PI` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 7 | 1 |
-| período | 2026-05-18 → 2026-07-27 | 2026-05-18 → 2026-05-18 |
-| média % | 19.0 | 20.4 |
-| partidos | PL 2026-05-18→2026-07-27 | PL 2026-05-18→2026-05-18 |
-| institutos | AtlasIntel (6), Data AZ (1) | AtlasIntel (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 1.4 p.p.
-
-**Campo gêmeo — 2 ocorrência(s).** AtlasIntel: `2026-05-18` cita *Flávio Bolsonaro* (19.4%, 1º turno) e `2026-05-18` cita *Jair Bolsonaro* (20.4%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -4712,1035 +5107,6 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 Partidos: **CONTRADIZEM** · diferença entre as médias: 3.0 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Data AZ.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Michelle Bolsonaro
-
-`Presidente · PA` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Flávio Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-03-21 → 2026-08-03 | 2025-12-15 → 2025-12-15 |
-| média % | 34.9 | 29.8 |
-| partidos | PL 2026-03-21→2026-08-03 | PL 2025-12-15→2025-12-15 |
-| institutos | Quaest (4), Real Time Big Data (2), Paraná Pesquisas (1), Doxa (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Eduardo Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 42 · período: disjunto
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Eduardo Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2025-07-06 → 2025-07-06 |
-| média % | 29.1 | 49.9 |
-| partidos | PP 2024-03-22→2024-03-22 | PL 2025-07-06→2025-07-06 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 20.8 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Flávio Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 43 · período: disjunto
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Flávio Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 8 |
-| período | 2024-03-22 → 2024-03-22 | 2026-01-22 → 2026-07-25 |
-| média % | 29.1 | 41.6 |
-| partidos | PP 2024-03-22→2024-03-22 | PL 2026-01-22→2026-07-25 |
-| institutos | Paraná Pesquisas (1) | Quaest (3), Paraná Pesquisas (3), Futura (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 12.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Michelle Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 42 · período: disjunto
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2025-07-06 → 2025-07-06 |
-| média % | 29.1 | 55.7 |
-| partidos | PP 2024-03-22→2024-03-22 | PL 2025-07-06→2025-07-06 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 26.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 29.1 | 43.4 |
-| partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 14.3 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 11 · período: contido
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 29.1 | 35.3 |
-| partidos | PP 2024-03-22→2024-03-22 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 6.2 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 9 · período: contido
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 29.1 | 34.6 |
-| partidos | PP 2024-03-22→2024-03-22 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 12 · período: contido
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 29.1 | 32.6 |
-| partidos | PP 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 3.5 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 12 · período: contido
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 29.1 | 40.8 |
-| partidos | PP 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 11.7 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 21 · período: contido
-
-| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 29.1 | 32.2 |
-| partidos | PP 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PP)** · diferença entre as médias: 3.1 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Flávio Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 5 · período: disjunto
-
-| | Eduardo Bolsonaro | Flávio Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 8 |
-| período | 2025-07-06 → 2025-07-06 | 2026-01-22 → 2026-07-25 |
-| média % | 49.9 | 41.6 |
-| partidos | PL 2025-07-06→2025-07-06 | PL 2026-01-22→2026-07-25 |
-| institutos | Paraná Pesquisas (1) | Quaest (3), Paraná Pesquisas (3), Futura (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 8.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 6 · período: contido
-
-| | Eduardo Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 5 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2025-07-06 |
-| média % | 49.9 | 46.1 |
-| partidos | PL 2025-07-06→2025-07-06 | PL 2024-03-22→2025-07-06 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (4), Quaest (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 3.8 p.p.
-
-**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-07-06` cita *Eduardo Bolsonaro* (49.9%, 2º turno) e `2025-07-06` cita *Jair Bolsonaro* (34.4%, 1º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Michelle Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Eduardo Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2025-07-06 → 2025-07-06 |
-| média % | 49.9 | 55.7 |
-| partidos | PL 2025-07-06→2025-07-06 | PL 2025-07-06→2025-07-06 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.8 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-07-06` cita *Eduardo Bolsonaro* (49.9%, 2º turno) e `2025-07-06` cita *Michelle Bolsonaro* (55.7%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 46 · período: contido
-
-| | Eduardo Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 49.9 | 43.4 |
-| partidos | PL 2025-07-06→2025-07-06 | PL 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 6.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 41 · período: contido
-
-| | Eduardo Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 49.9 | 35.3 |
-| partidos | PL 2025-07-06→2025-07-06 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 14.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 39 · período: contido
-
-| | Eduardo Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 49.9 | 34.6 |
-| partidos | PL 2025-07-06→2025-07-06 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 15.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 43 · período: contido
-
-| | Eduardo Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 49.9 | 32.6 |
-| partidos | PL 2025-07-06→2025-07-06 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 17.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
-
-| | Eduardo Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 49.9 | 40.8 |
-| partidos | PL 2025-07-06→2025-07-06 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 9.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Eduardo Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 31 · período: contido
-
-| | Eduardo Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 49.9 | 32.2 |
-| partidos | PL 2025-07-06→2025-07-06 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 17.7 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Michelle Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Flávio Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2025-07-06 → 2025-07-06 |
-| média % | 41.6 | 55.7 |
-| partidos | PL 2026-01-22→2026-07-25 | PL 2025-07-06→2025-07-06 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 14.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 47 · período: contido
-
-| | Flávio Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 41.6 | 43.4 |
-| partidos | PL 2026-01-22→2026-07-25 | PL 2024-03-22→2024-03-22 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 1.8 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 41 · período: contido
-
-| | Flávio Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 41.6 | 35.3 |
-| partidos | PL 2026-01-22→2026-07-25 | PSD 2024-03-22→2024-03-22 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 6.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 40 · período: contido
-
-| | Flávio Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 41.6 | 34.6 |
-| partidos | PL 2026-01-22→2026-07-25 | Novo 2024-03-22→2024-03-22 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 7.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 43 · período: contido
-
-| | Flávio Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 41.6 | 32.6 |
-| partidos | PL 2026-01-22→2026-07-25 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 9.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
-
-| | Flávio Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 41.6 | 40.8 |
-| partidos | PL 2026-01-22→2026-07-25 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 0.8 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 33 · período: contido
-
-| | Flávio Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 8 | 1 |
-| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
-| média % | 41.6 | 32.2 |
-| partidos | PL 2026-01-22→2026-07-25 | PP 2024-03-22→2024-03-22 |
-| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 9.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Michelle Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Jair Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 5 | 1 |
-| período | 2024-03-22 → 2025-07-06 | 2025-07-06 → 2025-07-06 |
-| média % | 46.1 | 55.7 |
-| partidos | PL 2024-03-22→2025-07-06 | PL 2025-07-06→2025-07-06 |
-| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 9.6 p.p.
-
-**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-07-06` cita *Jair Bolsonaro* (34.4%, 1º turno) e `2025-07-06` cita *Michelle Bolsonaro* (55.7%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 40 · período: contido
-
-| | Michelle Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 55.7 | 35.3 |
-| partidos | PL 2025-07-06→2025-07-06 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 20.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 39 · período: contido
-
-| | Michelle Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 55.7 | 34.6 |
-| partidos | PL 2025-07-06→2025-07-06 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 21.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 43 · período: contido
-
-| | Michelle Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 55.7 | 32.6 |
-| partidos | PL 2025-07-06→2025-07-06 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 23.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
-
-| | Michelle Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 55.7 | 40.8 |
-| partidos | PL 2025-07-06→2025-07-06 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 14.9 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 32 · período: contido
-
-| | Michelle Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
-| média % | 55.7 | 32.2 |
-| partidos | PL 2025-07-06→2025-07-06 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 23.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 16 · período: contido
-
-| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 43.4 | 35.3 |
-| partidos | PL 2024-03-22→2024-03-22 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 8.1 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 15 · período: contido
-
-| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 43.4 | 34.6 |
-| partidos | PL 2024-03-22→2024-03-22 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 8.8 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
-
-| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 43.4 | 32.6 |
-| partidos | PL 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 10.8 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 17 · período: contido
-
-| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 43.4 | 40.8 |
-| partidos | PL 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 2.6 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 26 · período: contido
-
-| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 43.4 | 32.2 |
-| partidos | PL 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 11.2 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Romeu Zema, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 10 · período: contido
-
-| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 35.3 | 34.6 |
-| partidos | PSD 2024-03-22→2024-03-22 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 0.7 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 11 · período: contido
-
-| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 35.3 | 32.6 |
-| partidos | PSD 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 2.7 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
-
-| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 35.3 | 40.8 |
-| partidos | PSD 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 21 · período: contido
-
-| | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 35.3 | 32.2 |
-| partidos | PSD 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 3.1 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Romeu Zema, com apoio do ex-presidente Jair Bolsonaro × Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 10 · período: contido
-
-| | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 34.6 | 32.6 |
-| partidos | Novo 2024-03-22→2024-03-22 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 2.0 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Romeu Zema, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
-
-| | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 34.6 | 40.8 |
-| partidos | Novo 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 6.2 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Romeu Zema, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 18 · período: contido
-
-| | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 34.6 | 32.2 |
-| partidos | Novo 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 2.4 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 15 · período: contido
-
-| | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 32.6 | 40.8 |
-| partidos | União Brasil 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 8.2 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 24 · período: contido
-
-| | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 32.6 | 32.2 |
-| partidos | União Brasil 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 0.4 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro × Tereza Cristina, ex-presidente Jair Bolsonaro
-
-`Presidente · PR` · token em comum: `ex-presidente, jair, bolsonaro` · distância de edição: 25 · período: contido
-
-| | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
-| média % | 40.8 | 32.2 |
-| partidos | Republicanos 2024-03-22→2024-03-22 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 8.6 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Flávio Bolsonaro × Jair Bolsonaro
-
-`Presidente · AC` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
-
-| | Flávio Bolsonaro | Jair Bolsonaro |
-|---|---|---|
-| pesquisas | 4 | 1 |
-| período | 2025-09-23 → 2026-08-02 | 2025-09-23 → 2025-09-23 |
-| média % | 54.9 | 59.3 |
-| partidos | PL 2025-09-23→2026-08-02 | PL 2025-09-23→2025-09-23 |
-| institutos | AtlasIntel (2), Real Time Big Data (1), Paraná Pesquisas (1) | Paraná Pesquisas (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 4.4 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-09-23` cita *Flávio Bolsonaro* (52.6%, 2º turno) e `2025-09-23` cita *Jair Bolsonaro* (59.3%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Bolsonaro × Michelle Bolsonaro
-
-`Presidente · AC` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
-
-| | Jair Bolsonaro | Michelle Bolsonaro |
-|---|---|---|
-| pesquisas | 1 | 2 |
-| período | 2025-09-23 → 2025-09-23 | 2025-09-23 → 2025-09-23 |
-| média % | 59.3 | 50.8 |
-| partidos | PL 2025-09-23→2025-09-23 | PL 2025-09-23→2025-09-23 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (2) |
-| fontes | poder360 | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 8.5 p.p.
-
-**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-09-23` cita *Jair Bolsonaro* (59.3%, 2º turno) e `2025-09-23` cita *Michelle Bolsonaro* (42.8%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes

@@ -60,3 +60,37 @@ export function melhorGrafia(nomePesquisa, nomeUrna) {
   if (normNome(nomePesquisa) !== normNome(nomeUrna)) return nomeUrna;
   return acentos(nomePesquisa) > acentos(nomeUrna) ? nomePesquisa : nomeUrna;
 }
+
+/**
+ * A UF DA CANDIDATURA, que não é a UF da chave da disputa.
+ *
+ * A chave carrega DUAS coisas diferentes (HANDOFF §1b): a UF da AMOSTRA e a UF
+ * da CANDIDATURA. Em `governador:AC` elas coincidem. Em `presidente:AC` não:
+ * é a corrida presidencial perguntada ao eleitor do Acre — a disputa é
+ * nacional, só a amostra é estadual, e nenhum candidato ali é "candidato pelo
+ * AC".
+ *
+ * Esta função existia inline em `match-ballot-names.mjs`, onde a confusão já
+ * tinha custado 23 linhas publicando "Tarcísio de Freitas" enquanto
+ * `presidente:SP` — por coincidência do estado — publicava "Tarcísio". A
+ * segunda cópia teria custado o mesmo de novo do lado do consumo, onde as
+ * decisões de identidade são gravadas em `presidente:BR` e consultadas em
+ * `presidente:<UF>` (CONVENTIONS §5).
+ */
+export const ufDaCandidatura = (race, uf) => (race === "presidente" ? "BR" : (uf ?? "BR"));
+
+/**
+ * A chave sob a qual uma DECISÃO sobre esta disputa foi gravada.
+ *
+ * `presidente:PR` → `presidente:BR`; qualquer outra volta igual. Usada só na
+ * CONSULTA, e sempre como segunda tentativa: a chave exata manda primeiro,
+ * porque existem decisões deliberadamente estaduais numa disputa nacional (a
+ * ruling de `presidente:PR` que separou os 32,2 de Tereza Cristina dos de Jair
+ * Bolsonaro é uma delas, e dobrar a chave antes de tentar a exata a apagaria).
+ */
+export function chaveDeDisputa(contest) {
+  const i = String(contest ?? "").indexOf(":");
+  if (i < 0) return contest;
+  const race = contest.slice(0, i);
+  return `${race}:${ufDaCandidatura(race, contest.slice(i + 1))}`;
+}
