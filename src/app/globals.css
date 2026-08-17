@@ -20,14 +20,47 @@
   --series-7: #4a3aa7;
   --series-8: #e34948;
 
-  /* Text painted ON a series fill (the matchup bars). Near-black in BOTH
-     themes, and that is not an oversight: the fills are mid-luminance in both
-     palettes, so white fails there while black passes. Measured against the
-     three fills those bars actually use — light/dark --series-1, --series-2 and
-     --text-muted — the lowest ratio is 5,4:1 with black and 3,5:1 with white.
+  /* Text painted ON a bar fill (the matchup bars) — the DEFAULT ink. Near-black
+     in BOTH themes, and that is not an oversight: most fills are mid-luminance
+     in both palettes, so white fails there while black passes.
      The name is drawn twice (see MatchupRows): this colour inside the fill,
      --text-primary outside it. */
   --on-fill: #0b0b0b;
+
+  /* ── PER-FILL INK OVERRIDES ────────────────────────────────────────────
+     One ink stopped being enough on 2026-08-17, when the matchup bars started
+     taking the CANDIDATE's colour instead of a rank colour. Before that the
+     bars used exactly three fills (--series-1, --series-2, --text-muted) and
+     near-black cleared 5,4:1 on the worst of them. A bar can now carry any of
+     the twelve pinned hues or any --series-* the hash hands an unpinned
+     candidate — twenty fills — and no single ink serves them: near-black on the
+     light-theme purple is 3,10:1 and on the light-theme magenta 3,36:1, both
+     illegible for a 14px name, while white on the light-theme amber is 3,63:1.
+     So a fill token may carry a companion `--<token>-ink`. `inkOn()` in
+     lib/colors.ts asks for it with --on-fill as the CSS fallback, so ONLY the
+     exceptions below need to exist. Ratios are measured against the fill they
+     sit on (WCAG 2.1, sRGB); the AA floor for this text size is 4,5:1.
+
+     THE HARDEST FILL IS BLUE, and it is why two of these are #000 and not
+     #0b0b0b. On light #2a78d6 — --cand-blue (Ronaldo Caiado), --series-1 and
+     --accent all carry that hex — the near-black --on-fill reaches 4,46:1 and
+     white 4,42:1: NEITHER clears 4,5:1. Pure black does, at 4,76:1. The 11/255
+     of grey that --on-fill carries to match --text-primary is invisible inside a
+     saturated fill and is the whole margin here, so blue alone spends it. The
+     alternative was moving the hue, which is the owner's decision and a far
+     bigger change than this. #000 also improves the dark #3987e5 (5,78:1), so
+     these two need no reset below. */
+  --cand-blue-ink: #000000; /* 4,76:1 — --on-fill is 4,46, white 4,42 */
+  --series-1-ink: #000000; /* same hex as --cand-blue in this palette */
+  --cand-red-ink: #ffffff; /* 4,83:1 — black is 4,07 */
+  --cand-purple-ink: #ffffff; /* 6,35:1 — black is 3,10 */
+  --cand-brown-ink: #ffffff; /* 5,87:1 — black is 3,35 */
+  --cand-slate-ink: #ffffff; /* 5,85:1 — black is 3,37 */
+  --cand-magenta-ink: #ffffff; /* 5,86:1 — black is 3,36 */
+  /* --series-6 (#008300) is the ONE series colour identical in both palettes,
+     so its ink is set once here and the dark block inherits it. */
+  --series-6-ink: #ffffff; /* 4,95:1 — black is 3,98 */
+  --series-7-ink: #ffffff; /* 8,56:1 — black is 2,30 (light #4a3aa7) */
 
   /* The "Outros" hatch, over the `--text-muted` fill of an aggregate bar.
      It used to be `--grid`, i.e. "the track showing through" — which was fine
@@ -88,6 +121,19 @@
 
     /* Unchanged between themes — see the note above. */
     --on-fill: #0b0b0b;
+
+    /* The dark palette LIFTS every hue, so near-black is legible on all twelve
+       (worst: --cand-blue #3987e5 at 5,41:1) and the light theme's white-ink
+       exceptions have to be handed back. These five lines are not redundant:
+       without them the white set above leaks into this palette, where white on
+       #ef5350 is 3,49:1. --series-7-ink is also reset — dark #9085e9 takes black
+       at 6,30:1 — while --series-6-ink stays white, that hue not being lifted. */
+    --cand-red-ink: #0b0b0b; /* 5,65:1 */
+    --cand-purple-ink: #0b0b0b; /* 7,23:1 */
+    --cand-brown-ink: #0b0b0b; /* 6,26:1 */
+    --cand-slate-ink: #0b0b0b; /* 7,68:1 */
+    --cand-magenta-ink: #0b0b0b; /* 8,00:1 */
+    --series-7-ink: #0b0b0b; /* 6,30:1 */
 
     /* Same twelve hues, lifted for the #0d0d0d page. Amber and lime become the
        TRUE yellow and lime the owner asked for: on a dark background they read

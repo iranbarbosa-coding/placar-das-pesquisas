@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { colorMap, colorOf, inkOn, PALETTE_SIZE } from "@/lib/colors";
 import { fmtDate, fmtPct } from "@/lib/format";
 import { shortName } from "@/lib/names";
 import type { RaceAverage, UF } from "@/lib/types";
@@ -23,16 +24,46 @@ import type { RaceAverage, UF } from "@/lib/types";
  * so a portrait drops in the moment one is supplied — it simply pushes the name
  * to the right of it rather than replacing a placeholder.
  *
+ * ── The fill is the CANDIDATE's colour, not the rank's ──────────────────────
+ * Until 2026-08-17 the fills were positional: `--series-1` for whoever placed
+ * first, `--series-2` for whoever placed second. That made a bar's colour a
+ * property of the STANDINGS, so the same person changed colour from one part of
+ * the site to another — Tarcísio was blue in the São Paulo bar and magenta in
+ * the São Paulo chart, and a reader comparing the two had no way to know it was
+ * one man. The owner's fixed palette closed that everywhere else; the bars were
+ * the one place still painting by rank.
+ *
+ * They now resolve through the SAME machinery as every chart (`lib/colors`), and
+ * over the same KEY SET: the race's top `PALETTE_SIZE`, which is exactly what
+ * `AverageChart` assigns over on /estados/[uf] (its `maxSeries` default is 8).
+ * That matters for the candidates who are NOT pinned: slots are resolved by
+ * forward probing, so a different key set can hand the same person a different
+ * `--series-*`. Passing the same set means the home page's bar and the state
+ * page's line agree for the hashed field too, not only for the pinned twelve.
+ *
+ * Rank is therefore no longer in the fill. It was never carried by the fill
+ * alone — order, bar width and the big number all say it — but the "1º"/"2º"
+ * badge is now the only categorical cue, so the leader's badge is filled rather
+ * than tinted (see below).
+ *
  * ── Why the name inside the bar is DRAWN TWICE ──────────────────────────────
  * Bahia's "Outros" is 3,2 points: its fill is a sliver and the name spills onto
  * the empty track beside it. One colour cannot be legible on both — the fill is
- * a saturated series colour, the track is `--grid`. So the name is painted
+ * a saturated candidate colour, the track is `--grid`. So the name is painted
  * twice in the same place: once in `--text-primary`, which reads on the track,
- * and once in `--on-fill`, clipped by `clip-path` to exactly the fill's width.
- * Each pixel of the name therefore gets the colour that its own background
- * requires, with no measurement, no JS and no threshold to guess wrong. Both
- * layers sit inside the `aria-hidden` track so the duplication never reaches a
- * screen reader; the full name is real text above the bar, as it always was.
+ * and once in the fill's own ink, clipped by `clip-path` to exactly the fill's
+ * width. Each pixel of the name therefore gets the colour that its own
+ * background requires, with no measurement, no JS and no threshold to guess
+ * wrong. Both layers sit inside the `aria-hidden` track so the duplication never
+ * reaches a screen reader; the full name is real text above the bar, as it
+ * always was.
+ *
+ * That inner ink used to be the constant `--on-fill`, which was measured against
+ * the only three fills a bar could then have. Twelve pinned hues and eight
+ * hashed ones do not share one ink — near-black is 3,1:1 on the light purple,
+ * white is 3,6:1 on the light amber — so it is asked for per fill via `inkOn`.
+ * The choice lives with the hexes in `globals.css`, not here; see the note there
+ * for the measurements, and for why blue is the hue that decides the design.
  *
  * ── On the arithmetic ───────────────────────────────────────────────────────
  * The three bars are NOT parts of a whole and are deliberately never stacked.
@@ -108,7 +139,7 @@ export default function MatchupRows({
                   {fmtDate(row.average.lastPollDate)}
                   {row.average.basis === "validos" ? " · votos válidos" : null}
                 </p>
-                <Bars bars={row.bars} />
+                <Bars bars={row.bars} average={row.average} />
               </>
             )}
           </li>
@@ -119,14 +150,20 @@ export default function MatchupRows({
 }
 
 /** Rank order is the order given: leader, runner-up, Outros. Hence `<ol>`. */
-function Bars({ bars }: { bars: MatchupBar[] }) {
+function Bars({ bars, average }: { bars: MatchupBar[]; average: RaceAverage }) {
   const scale = trackScale(bars);
+  // The key set is the RACE's top `PALETTE_SIZE`, not the two names drawn — see
+  // the note at the top of the file. `average.candidates` is sorted desc, but
+  // nothing here depends on that: `colorMap` re-sorts by name before assigning
+  // (§8), so the two bars keep their colours when the standings move and only
+  // the ORDER of the rows changes.
+  const colors = colorMap(average.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
   return (
     <>
       <ol className="mt-3 space-y-3">
         {bars.map((bar, i) => (
           <li key={`${bar.kind}-${bar.label}-${i}`}>
-            <Bar bar={bar} scale={scale} />
+            <Bar bar={bar} scale={scale} colors={colors} />
           </li>
         ))}
       </ol>
@@ -137,13 +174,15 @@ function Bars({ bars }: { bars: MatchupBar[] }) {
   );
 }
 
-function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
+function Bar({ bar, scale, colors }: { bar: MatchupBar; scale: number; colors: Map<string, string> }) {
   const width = barWidth(bar.pct, scale);
   const isLeader = bar.kind === "leader";
   const isOthers = bar.kind === "others";
-  // `--text-muted` is the one neutral that reads against the track in BOTH
-  // themes; `--axis` disappears into `--grid` in the dark palette.
-  const fill = isLeader ? "var(--series-1)" : bar.kind === "runner" ? "var(--series-2)" : "var(--text-muted)";
+  // A candidate's own colour; "Outros" is not a candidate and must not take one,
+  // so it stays the neutral it always was. `--text-muted` is the one neutral
+  // that reads against the track in BOTH themes; `--axis` disappears into
+  // `--grid` in the dark palette.
+  const fill = isOthers ? "var(--text-muted)" : colorOf(colors, bar.label);
   // The in-bar name. `shortName` and not the stored one: the track is ~200px
   // wide at 375px, and it is the helper that knows "Cabo Daciolo" must not
   // become "Cabo". "Outros" has no short form and passes through unchanged.
@@ -175,12 +214,24 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
               ({bar.party})
             </span>
           )}
-          {/* Rank in words: leader and runner-up must be told apart without
-              relying on the fill colour. */}
+          {/* Rank in words — and since 2026-08-17 the ONLY categorical cue for
+              it, the fill having become the candidate's colour. The two badges
+              are deliberately unequal now: the leader's is SOLID
+              (`--text-primary` chip, `--surface-1` glyphs: 19,2:1 light, 17,4:1
+              dark) and the runner-up's keeps the tinted `--grid` chip (6,0:1 and
+              7,8:1). Both were legible before; what the tint alone did not do is
+              make 1º and 2º differ at a glance, which the old blue/orange fills
+              did carry as a side effect. Weight and fill, not a new hue: a
+              coloured badge would put colour back to work encoding rank, which
+              is the defect this change removes. */}
           {!isOthers && (
             <span
               className="ml-1.5 inline-block rounded px-1 text-[0.625rem] font-bold uppercase tracking-wide"
-              style={{ background: "var(--grid)", color: "var(--text-secondary)" }}
+              style={
+                isLeader
+                  ? { background: "var(--text-primary)", color: "var(--surface-1)" }
+                  : { background: "var(--grid)", color: "var(--text-secondary)" }
+              }
             >
               {isLeader ? "1º" : "2º"}
             </span>
@@ -216,14 +267,15 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
           {/* Layer 1 — the whole name, in the colour that reads on the TRACK. */}
           <NameLayer name={short} inset={nameInset} bold={isLeader} color="var(--text-primary)" />
           {/* Layer 2 — the same glyphs in the same place, clipped to the fill
-              and in the colour that reads on it. `inset(0 X% 0 0)` insets from
-              the RIGHT, so the visible part is exactly the filled part; a 0%
-              bar clips to nothing and layer 1 alone shows. */}
+              and in the ink that reads on THAT fill (`inkOn`, not a constant:
+              twenty possible fills do not share one). `inset(0 X% 0 0)` insets
+              from the RIGHT, so the visible part is exactly the filled part; a
+              0% bar clips to nothing and layer 1 alone shows. */}
           <NameLayer
             name={short}
             inset={nameInset}
             bold={isLeader}
-            color="var(--on-fill)"
+            color={inkOn(fill)}
             clip={`inset(0 ${100 - width}% 0 0)`}
           />
         </div>

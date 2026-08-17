@@ -180,3 +180,31 @@ export function colorMap(names: readonly string[]): Map<string, string> {
 export function colorOf(map: Map<string, string>, name: string): string {
   return map.get(candKey(name)) ?? fixedColor(name) ?? PALETTE[0];
 }
+
+/**
+ * The ink for text painted ON one of these fills.
+ *
+ * Exists because the matchup bars stopped colouring by RANK and started
+ * colouring by CANDIDATE (2026-08-17). While a bar had only two possible fills
+ * a single `--on-fill` covered both, measured. Twenty possible fills do not
+ * share one ink: near-black reads at 3,10:1 on the light-theme purple and white
+ * reads at 3,63:1 on the light-theme amber, so choosing either globally makes
+ * some bar's name illegible.
+ *
+ * The choice is per fill AND per theme (the dark palette lifts every hue, which
+ * flips purple's answer from white to black), so it cannot be computed here —
+ * a component must not know one theme's hex, or it pins it into the other. It
+ * is therefore taken where the hexes live, `app/globals.css`, as a companion
+ * token named `<fill>-ink`; this function only names it. The `var(…, …)`
+ * fallback is what keeps that table SHORT: only fills whose ink differs from
+ * `--on-fill` need a token, and a fill with no companion — `--text-muted` under
+ * the "Outros" hatch — silently keeps the default that was measured for it.
+ *
+ * Every value this module returns is a `var(--token)`, so the pattern always
+ * matches for our own palette; anything else gets the default rather than a
+ * malformed colour.
+ */
+export function inkOn(fill: string): string {
+  const token = /^var\(\s*(--[a-z0-9-]+)\s*\)$/i.exec(fill.trim());
+  return token ? `var(${token[1]}-ink, var(--on-fill))` : "var(--on-fill)";
+}
