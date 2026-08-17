@@ -34,10 +34,18 @@ function matches(poll, m) {
  * poll's registration changed, the source restructured) is itself a defect,
  * so unmatched entries are surfaced loudly rather than ignored.
  */
-export function applyRepairs(polls) {
+/**
+ * `file` existe para UM caso: `roster-retention-check.mjs` precisa provar que a
+ * cláusula `allow_roster_shrink` atravessa de verdade daqui até a retenção de
+ * elenco, e a única maneira honesta é rodar ESTA função com um reparo de teste
+ * — não uma imitação dela escrita dentro do teste, que provaria uma propriedade
+ * de código que o coletor não executa (CONVENTIONS §2). `data/repairs.json` é
+ * dado curado e não recebe entradas de teste. O coletor nunca passa o parâmetro.
+ */
+export function applyRepairs(polls, { file = FILE } = {}) {
   let spec;
   try {
-    spec = JSON.parse(fs.readFileSync(FILE, "utf-8"));
+    spec = JSON.parse(fs.readFileSync(file, "utf-8"));
   } catch {
     // Same shape on every path, `noop` included: a caller that has to guard
     // one branch's missing field is a caller that will forget to.
@@ -95,6 +103,29 @@ export function applyRepairs(polls) {
       for (const [k, v] of Object.entries(rep.set ?? {})) {
         if (poll[k] !== v) changed = true;
         poll[k] = v;
+      }
+      // ---- O DESLIGAMENTO EXPLÍCITO DA RETENÇÃO DE ELENCO ------------------
+      //
+      // `scripts/lib/roster.mjs` mantém o elenco da rodada anterior quando o
+      // que chega é um subconjunto estrito dele, porque o `v2/cenarios` do
+      // Poder360 apaga linhas de candidato. Mas um encolhimento pode ser
+      // CORRETO — o instituto publicou uma errata retirando um nome — e nesse
+      // caso a defesa vira uma trava que ressuscita um candidato para sempre.
+      //
+      // A saída é curada e citada, nunca um limiar: `"allow_roster_shrink":
+      // true` na entrada do reparo, com `source`/`evidence`/`verified_at` como
+      // qualquer outro. Fica marcado NA PESQUISA; `upsertPoll` amarra a marca à
+      // pergunta e a retenção cede gravando `roster_shrink_ratificado` em
+      // conflicts.ndjson. Ceder em silêncio seria o padrão que o HANDOFF nomeia
+      // — um guarda que desliga algo sem dizer.
+      //
+      // Conta como `changed`: permitir o encolhimento É o efeito deste reparo, e
+      // sem isso ele se auto-denunciaria como "reparo sem efeito" em toda rodada.
+      if (rep.allow_roster_shrink) {
+        poll.roster_shrink_allowed = {
+          source: rep.source, evidence: rep.evidence, verified_at: rep.verified_at,
+        };
+        changed = true;
       }
       if (changed) {
         poll.repaired = { source: rep.source, evidence: rep.evidence, verified_at: rep.verified_at };

@@ -31,6 +31,7 @@ import {
   PEOPLE_SCHEMA_VERSION,
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
+import { retainRicherRosters } from "./roster.mjs";
 import { nameKey } from "./ids.mjs";
 import { normNome } from "./nomes.mjs";
 
@@ -41,10 +42,19 @@ const TABLES = TABLE_NAMES;
 
 /**
  * @param {Array} polls  normalised flat polls, as `scrape.mjs` produces them
- * @param {{runDate: string, dir?: string, meta?: object}} opts
+ * @param {{runDate: string, dir?: string, meta?: object, reterElencos?: Function}} opts
  * @returns {{store: object, report: object}}  the store, UNWRITTEN
+ *
+ * `reterElencos` é injetável por UM motivo só: `roster-retention-check.mjs`
+ * precisa provar que ele mesmo REPROVA quando a retenção quebra, e a única
+ * maneira honesta de fazer isso é rodar o pipeline de verdade com a retenção
+ * mutilada. Um autoteste que chamasse a retenção direto provaria uma
+ * propriedade de código que o coletor não executa — o padrão que CONVENTIONS §2
+ * nomeia. Em produção o parâmetro nunca é passado.
  */
-export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} } = {}) {
+export function buildStoreFromPolls(polls, {
+  runDate, dir = DATA_DIR, meta = {}, reterElencos = retainRicherRosters,
+} = {}) {
   const previous = readStore({ dir });
   const prior = priorStamps(previous);
   const store = readStore({ dir, tables: [], runDate, prior });
@@ -71,6 +81,11 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
     const { matched_by } = upsertPoll(store, p, { source: p.source, runId: runDate, nativeId: nativeOf(p) });
     report[matched_by] = (report[matched_by] ?? 0) + 1;
   }
+  // A RETENÇÃO ANTES DA MANCHETE, e a ordem não é arbitrária: `markHeadlines`
+  // promove a pergunta de ELENCO MAIS CHEIO, então decidir a manchete sobre uma
+  // tabela que a fonte truncou promoveria o cenário errado e publicaria o
+  // truncado. Ver `scripts/lib/roster.mjs`.
+  reterElencos(store, previous, runDate);
   markHeadlines(store);
   // A PESSOA PRIMEIRO, a linha que a cita depois. As duas traduções são
   // independentes (cada uma casa a sua tabela contra a anterior), mas a ordem

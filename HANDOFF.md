@@ -789,6 +789,30 @@ metadata cells change in the table columns.
   the match clause DID find the poll. Two lessons worth keeping: the provenance stamp is a
   claim about a record, so it is written only when a value actually moved; and `expect_sum`
   deliberately still runs on a no-op match, which is exactly how the Vox 101,2% surfaced.
+- **★★ E AGORA O BANCO SE DEFENDE DISSO SOZINHO: a retenção de elenco**
+  (`scripts/lib/roster.mjs`, decisão do criador de 17/08/2026 — opção B). Quando o
+  elenco que chega é um **subconjunto estrito** do que a rodada anterior guardava,
+  os `results` anteriores e os três buckets (`others_pct`, `undecided_pct`,
+  `blank_null_pct`) são MANTIDOS — os buckets junto com as linhas, que é a regra ★
+  acima virando automática em vez de mais uma coisa para lembrar. O
+  `question_id` e o `mint_seed` voltam junto (a semente inclui o elenco, então um
+  elenco truncado cunharia outro id e a pergunta antiga ficaria órfã, perdendo
+  `created_at` em silêncio), e as linhas de `candidate`/`person` que só aquela
+  pesquisa sustentava são devolvidas ao store — sem isso o resultado retido
+  apontaria para um `candidate_id` inexistente e o validador reprovaria a rodada.
+  Cada retenção grava `roster_encolhido_na_fonte` em `conflicts.ndjson` (com os
+  nomes retidos e quantas linhas caíram) e o coletor imprime a linha
+  `ELENCO RETIDO`.
+  **Só o encolhimento PURO dispara.** Um elenco que cresce, que fica igual, ou que
+  perdeu um nome e ganhou outro é a fonte publicando outra tabela — aceito como
+  vem, senão a defesa vira uma trava que congela o banco contra a errata do
+  instituto. Doador ambíguo (duas perguntas anteriores servem) **recusa e loga**,
+  nunca escolhe (CONVENTIONS §4).
+  **Como um editor desliga**: `"allow_roster_shrink": true` na entrada do reparo
+  em `data/repairs.json`, com `source`/`evidence`/`verified_at` como qualquer
+  outro. `applyRepairs` marca a pesquisa, `upsertPoll` amarra a marca à pergunta,
+  a retenção cede e grava `roster_shrink_ratificado` — em voz alta, nunca em
+  silêncio. É a saída para quando o elenco menor é o CERTO.
 - **Poder360 drops rows without any threshold.** In the PI senate poll it dropped FIVE of
   eleven — and dropped Antonio Barros at 2% while keeping Jorge Lopes at 1%. That is
   positive evidence for the empty-name-field defect rather than an editorial cutoff, and
@@ -826,6 +850,8 @@ node scripts/validate-store.mjs                # validate the real store
 node scripts/parity-check.mjs                  # store ⇄ polls.json, three levels
 node scripts/projection-twin-check.mjs         # project.mjs ≡ src/lib/store.ts
 node scripts/upsert-harness.mjs                # the WRITE path (20 cases)
+node scripts/roster-retention-check.mjs        # a fonte encolheu o elenco? mantém o anterior
+node scripts/roster-retention-check.mjs --self-test # …e prova as DUAS metades
 node scripts/idempotence-check.mjs             # rebuild on 2 dates ⇒ identical
 node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
 node scripts/pollster-clustering-check.mjs     # institute names ignore unrelated data
@@ -851,6 +877,27 @@ partido trocado. Como `polls.json` hoje é projeção do store, o que esse port�
 de fato exercita é a **idempotência de `canonicalCandidate`** — e ela tinha um
 ciclo de 2 (`Dr. Wanderley` → `José Wanderley Neto` → `Dr. Wanderley`), causado
 pelo `norm()` duplicado descrito em §1b.
+
+⚠️ **O QUE `idempotence-check.mjs` GARANTE MUDOU DE FORMA EM 17/08/2026, e é
+importante ler a nova frase inteira.** Antes: "o store é função pura da coleta —
+reconstruir sobre a mesma entrada dá o mesmo arquivo byte a byte". Agora, com a
+retenção de elenco (`scripts/lib/roster.mjs`), o store é **função da coleta MAIS
+o estado anterior** — como já era, de resto, para `first_seen` (`priorStamps`),
+`provenance.updated_at` (`settleProvenance`) e `legacy_ids`; a retenção é da
+mesma categoria, não de uma nova. A garantia que sobra, que é a que o guarda
+confere e a que interessa:
+
+> **reconstruir (mesma entrada, mesmo estado anterior) em duas datas quaisquer
+> produz tabelas byte-idênticas** — nada depende do relógio, e a rodada N+1 sobre
+> a mesma entrada é um ponto fixo.
+
+O ponto fixo é o que faz a retenção não virar agitação: a rodada 1 restaura o
+elenco e a rodada 2, lendo esse elenco como anterior e recebendo o mesmo
+subconjunto, chega ao MESMO arquivo (provado em
+`roster-retention-check.mjs`, caso da coleta dupla). O que **não** é mais
+verdade: partir de um `data/` vazio e partir do `data/` commitado podem dar
+stores diferentes — o vazio não tem elenco a reter. `idempotence-check` continua
+válido porque as duas rodadas dele partem do MESMO diretório.
 
 ⚠️ **`validate-store.mjs` TAMBÉM CORTA A LISTA — em 60 — e isso já mentiu.**
 `validateStore()` devolve `errors.slice(0, 60)`, e os cinco chamadores
@@ -1013,6 +1060,31 @@ Tudo abaixo de 16/08 está RODADO E PUBLICADO em `04eb80a`, exceto o item 1.
    **`MAIOR_ELEITORADO`** em `src/lib/home.ts` é a ordem de 2022, não conferida.
    **Vercel** segue pendente de login do criador — até lá nada disso é visível.
 
+**A retenção de elenco, e o que ela NÃO cobre (17/08/2026)**
+
+A fonte apaga linhas de candidato e o que ela apaga **muda com o tempo**, então a
+retenção mantém o elenco anterior quando o novo é subconjunto estrito dele. Duas
+coisas ficam registradas porque nenhuma é óbvia:
+
+⚠ **O banco não é mais reconstruível só a partir das fontes.** Reconstruir num
+`data/` VAZIO devolve a tabela curta, **sem conflito nenhum** — a evidência da
+perda não existe porque não há anterior de onde reter. Para `first_seen` e
+`updated_at` um rebuild vazio perdia carimbos; aqui perde LINHAS DE CANDIDATO.
+`idempotence-check` continua válido (as duas rodadas dele partem do mesmo
+diretório) mas **exercita a retenção zero vezes** e não prova nada sobre ela.
+
+⚠ **A guarda protege o que já temos; não recupera o que nunca vimos.** As 41
+disputas que o `v2` omite inteiras não têm pergunta de entrada para casar, e a
+retenção é por pergunta. Esse buraco continua aberto.
+
+E o que quase passou: o caso MISTO da bateria trocava um nome por outro de pct
+IDÊNTICO, então o desempate por soma de `richerRoster` sozinho já rejeitava o
+doador — e apagar `subconjuntoEstrito`, o ÚNICO predicado que impede a guarda de
+congelar o banco contra errata de instituto, **deixava a bateria 9/9 VERDE**.
+Achado por verificação independente. Com pcts diferentes, neutralizar aquele
+predicado no `roster.mjs` real derruba 2 casos. **Uma bateria verde não prova
+nada sobre a linha que o fixture não consegue exercitar.**
+
 **Três armadilhas que custaram esta sessão, e vão voltar**
 
 ⚠ **A SEGUNDA COLETA TEM A PRIMEIRA COMO ANTERIOR, NÃO O STORE COMMITADO.** O
@@ -1029,6 +1101,13 @@ coleta 2, porque o store é reconstruído do zero e `conflicts.ndjson` é reescr
 A evidência da perda some junto com a perda. **Quem for mexer no pipeline: ou a
 tradução passa a ler o último store COMMITADO, ou as duas coletas não podem ser
 duas reconstruções.**
+A retenção de elenco (§4) foi desenhada para viver com essa forma em vez de
+depender de consertá-la: ela ENCADEIA — a coleta 1 retém do store commitado e
+grava o elenco cheio, a coleta 2 lê esse elenco como anterior e retém de novo —
+e o `conflict_id` sai do CONTEÚDO do conflito, então a coleta 2 regrava a mesma
+linha com o mesmo id em vez de apagar a evidência da coleta 1. As duas
+propriedades são afirmadas em `roster-retention-check.mjs`. **Nada disso salva o
+resto**: o que a coleta 1 perde por inteiro segue sem anterior de onde traduzir.
 
 
 

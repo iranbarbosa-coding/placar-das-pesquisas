@@ -19,9 +19,23 @@ on:
   # Escala medida: 423 ids do Poder360 em que o `v2` hoje descarta ao menos uma
   # linha; 68 registros nossos comprovadamente curtos; 41 disputas ausentes.
   #
-  # ⚠ NÃO RELIGAR sem uma guarda de encolhimento de elenco. Rodar sem ela é
-  # apostar o banco a cada 12 horas. `workflow_dispatch` continua ligado para
-  # rodada manual e supervisionada.
+  # ⚠ A GUARDA DE ENCOLHIMENTO JÁ EXISTE (17/08/2026) — E O AGENDAMENTO SEGUE
+  # SUSPENSO ASSIM MESMO. `scripts/lib/roster.mjs` mantém o elenco da rodada
+  # anterior quando o que chega é um subconjunto estrito dele, grava
+  # `roster_encolhido_na_fonte` em `conflicts.ndjson` e o coletor imprime a linha
+  # `ELENCO RETIDO`; `scripts/roster-retention-check.mjs` prova as duas metades
+  # (dispara quando deve, não dispara quando o elenco cresce) e o `--self-test`
+  # prova que ele mesmo reprova.
+  #
+  # O QUE FALTA ANTES DE RELIGAR, e é decisão do criador (CONVENTIONS §12):
+  #   1. uma rodada MANUAL supervisionada por `workflow_dispatch`, lendo a linha
+  #      `ELENCO RETIDO` e os conflitos — a retenção nunca foi exercitada contra
+  #      uma coleta de verdade, só contra o banco reconstruído em diretório
+  #      temporário;
+  #   2. o que fazer com as 41 disputas que o `v2` hoje não devolve INTEIRAS: a
+  #      retenção guarda pergunta a pergunta e não alcança uma pergunta que
+  #      desaparece por completo.
+  # Rodar sem os dois é apostar o banco a cada 12 horas.
   #
   # schedule:
   #   - cron: "15 12,22 * * *"
@@ -110,6 +124,16 @@ jobs:
 
       - name: Caminho de escrita (escada de resolução)
         run: node scripts/upsert-harness.mjs
+
+      # A defesa contra o `v2/cenarios` apagar candidatos. As duas metades são
+      # obrigatórias: uma retenção que disparasse sempre congelaria o banco
+      # contra toda correção que um instituto publicar. O autoteste roda ANTES,
+      # como nos demais guardas — um verde que ninguém testou não é evidência.
+      - name: Guarda de retenção de elenco dispara
+        run: node scripts/roster-retention-check.mjs --self-test
+
+      - name: Retenção de elenco (encolhimento na fonte)
+        run: node scripts/roster-retention-check.mjs
 
       # Roda 2x/dia: se a reconstrução re-datar registros, cada rodada comita
       # 4.613 linhas de carimbo e o diff deixa de ser legível.

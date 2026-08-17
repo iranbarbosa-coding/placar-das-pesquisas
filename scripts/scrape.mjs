@@ -9,6 +9,7 @@ import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
 import { today, writeStore, DATA_DIR } from "./lib/store.mjs";
+import { richerRoster } from "./lib/roster.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
@@ -88,13 +89,14 @@ function mergePolls(pollLists) {
         // poll then failed the sum guard and vanished from the averages
         // entirely. Priority settles who is authoritative about the sample size
         // or the registration; it says nothing about who published more rows.
-        const richer = (a, b) => {
-          const na = (a.results ?? []).length, nb = (b.results ?? []).length;
-          if (na !== nb) return na > nb;
-          const sum = (x) => (x.results ?? []).reduce((t, r) => t + r.pct, 0) +
-            (x.others_pct ?? 0) + (x.blank_null_pct ?? 0) + (x.undecided_pct ?? 0);
-          return sum(a) > sum(b);
-        };
+        //
+        // A REGRA MUDOU DE CASA, NÃO DE COMPORTAMENTO. `richerRoster` vive em
+        // `lib/roster.mjs` porque a retenção de elenco entre RODADAS responde à
+        // mesmíssima pergunta que este trecho responde entre FONTES, e com o
+        // mesmo desfecho se for respondida errado — a tabela completa
+        // sobrescrita por um fragmento. Duas cópias divergiriam na primeira
+        // correção feita de um lado só (CONVENTIONS §5).
+        const richer = richerRoster;
         const RESULTS = ["results", "others_pct", "blank_null_pct", "undecided_pct"];
         if (newPri > oldPri) {
           const keep = { ...p };
@@ -515,6 +517,18 @@ function persistStore(polls, dataset) {
     console.log(`  RE-CUNHAGEM: ${t.people} pessoa(s) e ${t.candidates} candidato(s) com first_seen ` +
       `traduzido do id antigo (gravado em legacy_ids) · ${t.orphanedPeople + t.orphanedCandidates} ` +
       `sem tradução, registrados em conflicts.ndjson`);
+  }
+  // O ELENCO RETIDO TEM DE APARECER NA SAÍDA DA RODADA, pelo mesmo motivo da
+  // re-cunhagem acima: numa rodada em que a fonte está sã isto é zero, e
+  // diferente de zero é o `v2/cenarios` apagando candidatos — o defeito que
+  // suspendeu o agendamento em 17/08/2026. Sem esta linha, a única pista de que
+  // o líder de uma presidencial nacional quase sumiu seria uma linha a mais em
+  // `conflicts.ndjson`, num arquivo de 491. Ver `scripts/lib/roster.mjs`.
+  const rel = store._report.retained;
+  if (rel.questions || rel.refused || rel.ratified) {
+    console.log(`  ELENCO RETIDO: ${rel.questions} pergunta(s) mantiveram o elenco da rodada anterior ` +
+      `(${rel.results} linha(s) de candidato que a fonte descartou) · ${rel.refused} recusada(s) por ` +
+      `ambiguidade · ${rel.ratified} encolhimento(s) ratificado(s) por reparo — tudo em conflicts.ndjson`);
   }
   console.log(`  resolução: ${JSON.stringify(report)}`);
 }

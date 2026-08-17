@@ -173,6 +173,19 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
   // way in that this one silently did not.
   if (poll.repaired) question.repaired = poll.repaired;
 
+  // A RATIFICAÇÃO DE UM ENCOLHIMENTO VIAJA COM A PERGUNTA, mas NÃO vai ao disco.
+  //
+  // `allow_roster_shrink` em `data/repairs.json` marca a PESQUISA (ver
+  // `applyRepairs`); quem precisa da marca é a retenção de elenco, que roda
+  // depois de todos os upserts e enxerga PERGUNTAS. Este mapa é a ponte, e é de
+  // memória de propósito: um campo novo em `question` entraria em FIELD_ORDER e
+  // reescreveria 2.964 linhas para carregar um `null` — o tipo de agitação que
+  // o NDJSON foi escolhido para não ter. A decisão continua sendo dado: ela
+  // mora em `repairs.json`, que é versionado e citado.
+  if (poll.roster_shrink_allowed) {
+    (store._rosterShrinkAllowed ??= new Map()).set(question.question_id, poll.roster_shrink_allowed);
+  }
+
   // The survey's lineage back to the source rows. The migration built this from
   // its grouping key (`legacy_ids: rows.map(r => r.id).sort()`); without it a
   // survey cannot be traced to what produced it. Sorted so the field does not

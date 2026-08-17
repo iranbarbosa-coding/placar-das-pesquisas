@@ -178,6 +178,16 @@ function newReport() {
            // `orphaned` só, `people` sequer era traduzida — um contador comum
            // teria escondido isso mostrando o zero legítimo do candidato.
            translated: { candidates: 0, orphanedCandidates: 0, people: 0, orphanedPeople: 0 },
+           // Quantas perguntas ficaram com o elenco da rodada ANTERIOR porque a
+           // fonte encolheu o que devolve, e quantas linhas de candidato isso
+           // salvou. Numa rodada em que a fonte está sã é zero; diferente de
+           // zero é o defeito do `v2/cenarios` acontecendo, e é a única coisa
+           // que o torna visível sem ler o diff inteiro. `refused` (ambíguo ou
+           // irrecuperável) e `ratified` (encolhimento aprovado por reparo)
+           // contam SEPARADO: somados a `questions` esconderiam uma retenção
+           // que deixou de disparar atrás de um total que não mudou.
+           // Ver `scripts/lib/roster.mjs`.
+           retained: { questions: 0, results: 0, refused: 0, ratified: 0 },
            filled: 0, conflicts: 0, retracted: 0 };
 }
 
