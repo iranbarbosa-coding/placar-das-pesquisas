@@ -31,7 +31,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normNome, chaveDeDisputa } from "./nomes.mjs";
+import { normNome, chaveDeDisputa, acentos } from "./nomes.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-aliases.json");
 const RULINGS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-rulings.json");
@@ -131,6 +131,10 @@ function table() {
   // top would let a name match quietly undo a hand-decided identity.
   const porUrna = new Map();   // `${contest}|${norm(nome_urna)}` -> Set<sq>
   const urnaInfo = new Map();  // `${chaveUrna}|${sq}` -> candidatura
+  // ⚠ O REGISTRO NÃO DECIDE AQUI; ELE SÓ É COLETADO. Quem aplica é o bloco
+  // "o grupo curado dobra, o nome de urna nomeia", depois deste laço — decidir
+  // dentro do laço é o defeito que este arquivo carregava. Ver lá embaixo.
+  const urnaPorChave = new Map(); // `${contest}|${key}` -> nome_urna do registro
   try {
     const registro = JSON.parse(fs.readFileSync(ARQUIVO_URNA, "utf-8"));
     for (const [contest, nomes] of Object.entries(registro.mapping ?? {})) {
@@ -161,7 +165,7 @@ function table() {
         // que case diretamente continua mandando, e assim esta linha não pode
         // roubar um nome de outra pessoa da mesma disputa.
         if (info?.nome_urna) {
-          decide(`${contest}|${key}`, info.nome_urna, "nome_urna");
+          urnaPorChave.set(`${contest}|${key}`, info.nome_urna);
           const chaveUrna = `${contest}|${norm(info.nome_urna)}`;
           if (!porUrna.has(chaveUrna)) porUrna.set(chaveUrna, new Set());
           porUrna.get(chaveUrna).add(info.sq_candidato);
@@ -180,6 +184,79 @@ function table() {
       ballot.set(chaveUrna, urnaInfo.get(`${chaveUrna}|${[...sqs][0]}`));
     }
   } catch { /* the register is optional; the site predates it */ }
+
+  // ⚠ O GRUPO CURADO DOBRA A ENTIDADE; O NOME DE URNA NOMEIA A ENTIDADE DOBRADA.
+  //
+  // (Iran, 17/08/2026) O comentário acima já dizia por que uma RULING não pode
+  // ser derrubada pelo registro: ela decide QUEM É a pessoa, e o nome de urna só
+  // decide COMO CHAMAR quem já foi identificada. Essa proteção estava dada só às
+  // rulings — e um grupo curado é a MESMA espécie de decisão. Ele afirma que
+  // várias grafias são UMA pessoa; foi conferido contra registro público, não
+  // adivinhado por semelhança de string.
+  //
+  // Com a decisão escrita chave a chave, o registro REVERTIA a fusão em silêncio,
+  // porque só o membro que casava com uma candidatura era renomeado e os outros
+  // ficavam com o nome do grupo. Em `governador:TO` o grupo "Dorinha Rezende"
+  // ⟨Dorinha Rezende, Professora Dorinha⟩ saía partido: "Professora Dorinha" pelo
+  // nome de urna (sq 270002544599) e "Dorinha Rezende" pelo grupo — dois nomes,
+  // duas linhas de candidato, duas pessoas (uma delas SEM registro), e o site
+  // publicando as duas. A curadoria tinha decidido que é uma mulher só.
+  //
+  // A ordem certa é dobrar primeiro e nomear depois: o grupo permanece dobrado e
+  // o nome de urna passa a nomear o GRUPO INTEIRO. A camada gravada continua
+  // sendo `nome_urna` porque é o registro que escolhe o nome — o que mudou é
+  // sobre O QUÊ ele escolhe: uma entidade, não uma grafia.
+  const conflitos = [];
+  const doGrupo = new Map();   // `${contest}|${norm(membro)}` -> grupo curado
+  for (const g of spec.groups ?? []) {
+    for (const m of g.members ?? []) doGrupo.set(`${g.contest}|${norm(m)}`, g);
+  }
+  const achadosDoGrupo = new Map(); // grupo -> Array<{ chave, nome_urna }>
+  for (const [chave, nome_urna] of urnaPorChave) {
+    const g = doGrupo.get(chave);
+    if (!g) continue;
+    if (!achadosDoGrupo.has(g)) achadosDoGrupo.set(g, []);
+    achadosDoGrupo.get(g).push({ chave, nome_urna });
+  }
+  // O GRUPO CONTRADITADO PELO REGISTRO NÃO É RESOLVIDO AQUI (CONVENTIONS §4).
+  //
+  // Se os membros de um grupo curado carregam MAIS DE UM nome de urna distinto,
+  // o registro está dizendo que são pessoas DIFERENTES e a curadoria que são a
+  // MESMA. Escolher um dos dois lados seria inventar a resposta — e é o mesmo
+  // erro de forma que juntou "Ciro" a "Ciro Nogueira". Então o grupo mantém o
+  // comportamento de hoje (cada chave com o seu nome, chave a chave), e a
+  // contradição vira linha em `conflicts.ndjson` para um humano ver. É uma
+  // decisão curada contra o registro oficial: ninguém além do criador a desfaz.
+  const dobrado = new Map();   // grupo -> o nome que passa a nomear o grupo todo
+  for (const [g, achados] of achadosDoGrupo) {
+    const distintos = new Set(achados.map((a) => norm(a.nome_urna)));
+    if (distintos.size !== 1) {
+      conflitos.push({
+        contest: g.contest,
+        display: g.display,
+        members: [...(g.members ?? [])].sort(),
+        nomes_urna: [...new Set(achados.map((a) => a.nome_urna))].sort(),
+      });
+      continue;
+    }
+    // Mesmo nome sob grafias diferentes (o TSE grava 29 nomes de urna sem os
+    // acentos que o nome tem): ganha o mais acentuado, e o desempate é
+    // lexicográfico, nunca a ordem do arquivo (CONVENTIONS §8). É a regra de
+    // `melhorGrafia`/`melhorDisplay`, e não uma quarta cópia dela.
+    dobrado.set(g, [...new Set(achados.map((a) => a.nome_urna))]
+      .sort((a, b) => acentos(b) - acentos(a) || (a < b ? -1 : a > b ? 1 : 0))[0]);
+  }
+  // Fora de grupo (ou grupo recusado): o registro nomeia a grafia, como sempre.
+  for (const [chave, nome_urna] of urnaPorChave) {
+    const g = doGrupo.get(chave);
+    if (g && dobrado.has(g)) continue;
+    decide(chave, nome_urna, "nome_urna");
+  }
+  // Em grupo: o registro nomeia a ENTIDADE — todos os membros, inclusive os que
+  // não casaram com candidatura nenhuma. É esta linha que impede a reversão.
+  for (const [g, nome] of dobrado) {
+    for (const m of g.members ?? []) decide(`${g.contest}|${norm(m)}`, nome, "nome_urna");
+  }
 
   // Rulings again, LAST, so a creator decision outranks the register.
   try {
@@ -226,7 +303,7 @@ function table() {
       }
     }
   }
-  TABLE = { display, origem, ballot, distinct, groups: spec.groups ?? [] };
+  TABLE = { display, origem, ballot, distinct, groups: spec.groups ?? [], conflitos };
   return TABLE;
 }
 
@@ -344,6 +421,24 @@ export function areDistinct(a, b, contest) {
 }
 
 export function groups() { return table().groups; }
+
+/**
+ * Os grupos curados que o REGISTRO CONTRADIZ — mais de um `nome_urna` distinto
+ * entre os membros de um grupo que a curadoria declarou uma pessoa só.
+ *
+ * Sai daqui como DADO, e não como escrita: este módulo é lido por `store.mjs`,
+ * então gravar em `conflicts.ndjson` a partir daqui seria uma dependência
+ * circular — e um módulo de leitura de tabela que escreve no banco é a forma do
+ * defeito "gerador lê a própria saída" (CONVENTIONS §6). Quem registra é
+ * `buildStoreFromPolls`, uma vez por rodada.
+ *
+ * Ordem estável (disputa, depois nome exibido): a lista vai para um arquivo
+ * versionado e não pode depender da ordem do JSON de entrada (CONVENTIONS §8).
+ */
+export function identityConflicts() {
+  return [...table().conflitos].sort((a, b) =>
+    a.contest.localeCompare(b.contest) || a.display.localeCompare(b.display));
+}
 
 /** Reset for tests that rewrite the table on disk. */
 export function reload() { TABLE = null; }

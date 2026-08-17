@@ -27,6 +27,7 @@ import { normNome } from "./lib/nomes.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
 import {
   ballotCandidacy, areDistinct, canonicalCandidate, displayOrigin, usarTabelaDeApelidos,
+  identityConflicts, usarRegistroDeUrna, groups as gruposCurados,
 } from "./lib/candidates.mjs";
 import { chaveDeDisputa, ufDaCandidatura } from "./lib/nomes.mjs";
 import { build as revisao } from "./candidate-review.mjs";
@@ -848,6 +849,112 @@ check("(b) a decisão resolve pelo nome que a escada de exibição publica", (st
     assert(areDistinct(outro, exibido, contest),
       `${contest}: "${outro}" × "${exibido}" é a decisão gravada, e o guarda respondeu false pelo nome que o site publica`);
   }
+});
+
+check("(d) o grupo curado DOBRA a entidade; o nome de urna nomeia o grupo INTEIRO", (store, assert) => {
+  // O DEFEITO: um MESMA curado sendo revertido em silêncio pelo registro.
+  //
+  // Em `governador:TO` a curadoria decidiu que "Dorinha Rezende" e "Professora
+  // Dorinha" são a MESMA mulher. Só o segundo nome casava com uma candidatura
+  // (sq 270002544599), então só ele era renomeado — e o grupo saía partido em
+  // dois nomes, duas linhas de candidato e duas pessoas, uma delas SEM registro.
+  // O site publicava as duas. Um registro decide COMO CHAMAR alguém e nunca
+  // QUEM ALGUÉM É; um grupo curado é decisão de identidade igual a uma ruling.
+  const casos = [
+    ["governador:TO", ["Dorinha Rezende", "Professora Dorinha"], "Professora Dorinha"],
+    // O segundo caso da mesma classe, medido na mesma varredura: aqui é o
+    // membro que ESTÁ no registro que era arrastado para longe do grupo.
+    ["senador:TO", ["Carlos Caguin", "Carlos Gaguim"], "Gaguim"],
+  ];
+  for (const [contest, membros, esperado] of casos) {
+    for (const m of membros) {
+      assert(canonicalCandidate(m, contest) === esperado,
+        `${contest}: "${m}" exibe "${canonicalCandidate(m, contest)}", e o grupo inteiro tem de exibir "${esperado}"`);
+      assert(displayOrigin(m, contest) === "nome_urna",
+        `${contest}: "${m}" saiu por "${displayOrigin(m, contest)}" — quem NOMEIA a entidade dobrada é o registro`);
+    }
+  }
+  // A METADE QUE IMPEDE A DOBRA DE VIRAR UM FUNIL: um nome fora de qualquer
+  // grupo continua sendo nomeado chave a chave, e um nome que nenhuma camada
+  // tocou continua passando inteiro. Sem estas duas, a caixa acima passaria
+  // numa implementação que renomeasse a disputa toda.
+  assert(canonicalCandidate("Rogério Marinho", "senador:RN") === "Rogério Marinho",
+    "um nome fora de grupo mudou — a dobra vazou para quem não é membro");
+  assert(canonicalCandidate("Nome Que Nao Existe", "governador:TO") === "Nome Que Nao Existe",
+    "um nome desconhecido deixou de passar inteiro");
+  // E a ruling continua ACIMA do registro: a dobra mexe na camada do meio.
+  assert(canonicalCandidate("Tereza Cristina, ex-presidente Jair Bolsonaro", "presidente:PR") === "Tereza Cristina",
+    "a ruling estadual de presidente:PR foi derrubada pela dobra — ruling não é negociável");
+
+  // ⚠ A CAMADA, E NÃO SÓ O NOME. Seis grupos curados têm membros cobertos por
+  // ruling MESMA, e nos seis a ruling e o nome de urna escrevem A MESMA STRING
+  // ("Jeferson Bezerra", "William Siri", "Cadu de Lula"…). Então trocar a ordem
+  // das duas camadas não move UM caractere do que o site publica — só troca
+  // `people.display_from` de "ruling" para "nome_urna", isto é, faz a tabela de
+  // pessoas AFIRMAR que o TSE decidiu o nome quando quem decidiu foi o criador.
+  // Sem esta asserção a inversão passava verde: foi uma mutação que sobreviveu.
+  for (const [contest, membro] of [
+    ["governador:MS", "Jefferson Bezerra"], ["governador:RJ", "Wiliam Siri"],
+    ["governador:RN", "Cadu Xavier"], ["senador:CE", "Pastor Alcides"],
+    ["senador:GO", "Vanderlan Gomes"],
+  ]) {
+    assert(displayOrigin(membro, contest) === "ruling",
+      `${contest}: "${membro}" saiu por "${displayOrigin(membro, contest)}" — a ruling do criador foi rebaixada pelo registro`);
+  }
+});
+
+check("(e) grupo curado CONTRADITO pelo registro: recusa, não escolha", (store, assert) => {
+  // CONVENTIONS §4. Se os membros de um grupo curado carregam DOIS nomes de urna
+  // distintos, o registro está afirmando que são pessoas diferentes e a
+  // curadoria que são a mesma. Não há resposta certa a derivar daí — escolher um
+  // lado é a forma exata do erro que juntou "Ciro" a "Ciro Nogueira". O grupo
+  // mantém o comportamento anterior e a contradição vai para um humano.
+  //
+  // Nenhum grupo real está nesse estado hoje (medido em 17/08/2026: 0 de 39), e
+  // é por isso que o caso é construído — um ramo de recusa que nunca é
+  // percorrido é um ramo que ninguém provou. A porta é `usarRegistroDeUrna`, que
+  // existe justamente para não sujar `data/ballot-names.json` no meio de uma
+  // verificação (CONVENTIONS §3).
+  const grupo = gruposCurados().find((g) => g.contest === "governador:TO" && g.display === "Dorinha Rezende");
+  assert(!!grupo, "o grupo de governador:TO sumiu da tabela — este caso perdeu o seu sujeito");
+  if (!grupo) return;
+  const [a, b] = grupo.members;
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-urna-"));
+  const arquivo = path.join(dir, "ballot-names.json");
+  fs.writeFileSync(arquivo, JSON.stringify({
+    mapping: {
+      "governador:TO": {
+        [normNome(a)]: { nome_urna: "Dorinha Um", sq_candidato: "900000000001", cargo: "governador", uf: "TO" },
+        [normNome(b)]: { nome_urna: "Dorinha Dois", sq_candidato: "900000000002", cargo: "governador", uf: "TO" },
+      },
+    },
+  }));
+  try {
+    usarRegistroDeUrna(arquivo);
+    // RECUSA: cada grafia fica com o SEU nome de urna, como antes desta mudança.
+    assert(canonicalCandidate(a, "governador:TO") === "Dorinha Um",
+      `recusa quebrada: "${a}" virou "${canonicalCandidate(a, "governador:TO")}", esperado "Dorinha Um"`);
+    assert(canonicalCandidate(b, "governador:TO") === "Dorinha Dois",
+      `recusa quebrada: "${b}" virou "${canonicalCandidate(b, "governador:TO")}", esperado "Dorinha Dois"`);
+    // E A RECUSA É VISÍVEL. Recusar em silêncio é o guarda que mente
+    // (CONVENTIONS §2) — `buildStoreFromPolls` transforma isto em linha de
+    // `conflicts.ndjson`, e é a única coisa que faz um humano olhar.
+    const conflitos = identityConflicts();
+    const c = conflitos.find((x) => x.contest === "governador:TO");
+    assert(!!c, "a contradição não foi registrada — o grupo foi recusado em SILÊNCIO");
+    assert(c && JSON.stringify(c.nomes_urna) === JSON.stringify(["Dorinha Dois", "Dorinha Um"]),
+      `os nomes de urna em conflito saíram como ${JSON.stringify(c?.nomes_urna)} — esperado ambos, em ordem estável`);
+  } finally {
+    usarRegistroDeUrna();
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+  // E O ARQUIVO REAL NÃO DEIXA CONFLITO PARA TRÁS: hoje nenhum grupo é
+  // contraditado, então a lista volta vazia. Se um dia parar de voltar vazia, é
+  // um humano que decide, e esta linha é o aviso.
+  assert(identityConflicts().length === 0,
+    `o registro real contradiz ${identityConflicts().length} grupo(s) curado(s): ` +
+    `${identityConflicts().map((c) => `${c.contest} "${c.display}" → ${c.nomes_urna.join(" / ")}`).join("; ")} — ` +
+    "decisão do criador, não do agente");
 });
 
 check("(c) a varredura EMITE a chave que a consulta procura", (store, assert) => {

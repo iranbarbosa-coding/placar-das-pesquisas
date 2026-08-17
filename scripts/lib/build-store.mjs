@@ -31,6 +31,7 @@ import {
   PEOPLE_SCHEMA_VERSION,
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
+import { identityConflicts } from "./candidates.mjs";
 import { retainRicherRosters } from "./roster.mjs";
 import { nameKey } from "./ids.mjs";
 import { normNome } from "./nomes.mjs";
@@ -68,6 +69,26 @@ export function buildStoreFromPolls(polls, {
   // e à junção com as fotos quando o DivulgaCand publicar. Semear antes também
   // tira a ordem de chegada da conta para essas 519 linhas.
   seedRegisteredPeople(store);
+
+  // O GRUPO CURADO QUE O REGISTRO CONTRADIZ, uma linha por rodada.
+  //
+  // `lib/candidates.mjs` RECUSA resolver um grupo cujos membros carregam mais de
+  // um `nome_urna` distinto: a curadoria diz "uma pessoa", o TSE diz "duas", e
+  // escolher um dos lados seria inventar (CONVENTIONS §4). A recusa mantém o
+  // comportamento anterior para aquele grupo — o que, sozinho, é silêncio, e
+  // silêncio não é sucesso (CONVENTIONS §2). Aqui ela vira uma linha que um
+  // humano vê, porque só o criador desfaz uma decisão curada.
+  for (const c of identityConflicts()) {
+    logConflict(store, {
+      run_id: runDate, type: "grupo_curado_contradito", table: "candidates",
+      record_id: `${c.contest}|${c.display}`, field: "canonical",
+      stored: c.members, incoming: c.nomes_urna,
+      source: "candidate-aliases", severity: "review",
+      note: `grupo curado declara ${c.members.length} grafia(s) como UMA pessoa, e o registro ` +
+        `do TSE devolve ${c.nomes_urna.length} nomes de urna distintos — contradição, ` +
+        "grupo NÃO dobrado sob o nome de urna (decisão do criador)",
+    });
+  }
 
   const rank = (s) => { const i = SOURCE_ORDER.indexOf(s); return i === -1 ? SOURCE_ORDER.length : i; };
   const ordered = [...polls].sort((a, b) =>
