@@ -4,7 +4,6 @@ import HeroChart, {
   heroSeries,
   heroChartModel,
   heroAxisTicks,
-  heroLastMarker,
   heroLevelTopPct,
 } from "./HeroChart";
 /* Type-only: `Headline` is erased at compile time, so this file carries NO
@@ -46,17 +45,6 @@ const DISPLAY = {} as const;
 
 function round1(x: number): number {
   return Math.round(x * 10) / 10;
-}
-
-/* "16 AGO 2026" — the abbreviated-month header the mockup uses INSIDE the chart
-   marker box. Scoped to that one label; every other date on the site stays on
-   `fmtDate`'s dd/mm/yyyy. Input is the same `YYYY-MM-DD` string fmtDate takes. */
-const MES_ABREV = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
-function fmtMarkerDate(iso: string | null | undefined): string {
-  if (!iso) return "—";
-  const [y, m, d] = iso.split("-");
-  const mes = MES_ABREV[Number(m) - 1];
-  return d && mes ? `${Number(d)} ${mes} ${y}` : fmtDate(iso);
 }
 
 /** Small round "i" info glyph, matching the target's title affordance. */
@@ -136,7 +124,6 @@ export default function Hero({
   const series = heroSeries(average, maxSeries);
   const model = heroChartModel(average, maxSeries);
   const ticks = heroAxisTicks(model);
-  const marker = heroLastMarker(model);
   const fiftyTop = heroLevelTopPct(model, 50);
   const validos = average?.basis === "validos";
   const basisLabel = validos ? "votos válidos" : "total da amostra";
@@ -246,41 +233,6 @@ export default function Hero({
                   >
                     50%
                   </span>
-                )}
-                {marker && (
-                  <div
-                    // Anchored by its RIGHT edge near the last-poll point, capped
-                    // at 70% of the plot. The point sits near the right, so the
-                    // right edge is clamped to [70%, 96%] from the left; with the
-                    // box no wider than 70%, its left edge stays ≥ 0 and its right
-                    // edge ≤ 96% at ANY viewport — so it can never push the page
-                    // past the plot (fixes a ~9px mobile overflow at ~320–430px).
-                    // No `whitespace-nowrap`: the box wraps rather than forcing a
-                    // width beyond the cap; on desktop the content is far narrower
-                    // than 70%, so it still renders on one line as before.
-                    className="pointer-events-none absolute z-[1] max-w-[70%] -translate-y-1/2 rounded-md border px-2 py-1.5 text-[11px] shadow-sm"
-                    style={{
-                      right: `${100 - Math.min(96, Math.max(70, marker.leftPct))}%`,
-                      top: `${Math.min(70, Math.max(18, marker.topPct))}%`,
-                      borderColor: "var(--ring)",
-                      background: "var(--surface-1)",
-                    }}
-                  >
-                    <div className="mb-0.5 font-semibold" style={{ color: "var(--text-muted)" }}>
-                      {fmtMarkerDate(marker.date)}
-                    </div>
-                    <ul className="flex flex-col gap-0.5">
-                      {kpis.map((k) => (
-                        <li key={`mk-${k.key}`} className="flex items-center gap-1.5">
-                          <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: k.color }} />
-                          <span style={{ color: "var(--text-secondary)" }}>{k.name}</span>
-                          <span className="tabular ml-auto pl-2 font-semibold" style={{ color: "var(--text-primary)" }}>
-                            {fmtPct(k.pct)}%
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 )}
                 </div>
               </div>
