@@ -19,7 +19,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {
-  readStore, writeStore, markHeadlines, resolveCandidate, resolvePerson,
+  readStore, writeStore, markHeadlines, resolveCandidate, resolvePerson, resolveInstitute,
   priorStamps, emptyIndexes, TABLE_NAMES, DATA_DIR,
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
@@ -1285,6 +1285,70 @@ check("instituto: o índice acha o sobrevivente cunhado NESTA rodada", (_store, 
     const primeira = novo.surveys.find((s) => s.tse_registration === "MG-11111/2026");
     assert(primeira?.institute_id === I_ALFA,
       `a primeira pesquisa da Alfa saiu em ${primeira?.institute_id} — o comportamento mudou, releia a nota acima`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("instituto: o índice do LOAD também acha o sobrevivente", (_store, assert) => {
+  // O GÊMEO DO CASO ACIMA, PELO OUTRO CAMINHO — e ele faltava.
+  //
+  // `instituteById` é construído em DOIS sítios: no mint (`resolveInstitute`) e
+  // no load (`buildIndexes`). O caso anterior cobre só o primeiro. A verificação
+  // independente mostrou que ESTRIPAR a cópia do `buildIndexes` deixava a
+  // bateria 46/0 VERDE — ou seja, código vivo sem guarda nenhuma, que é
+  // exatamente o §7 ("um índice construído uma vez e nunca conferido") na forma
+  // que este repositório já pagou com `byReg`.
+  //
+  // E é código vivo de verdade: `lacunas-poder360.mjs:602` chama
+  // `resolveInstitute(store, nome, { mint: false })` sobre um store vindo de
+  // `readStore`. Com o índice do load errado, uma fusão curada resolveria em
+  // silêncio para o instituto ABSORVIDO, e o relatório de lacunas atribuiria
+  // pesquisas ao instituto errado sem nada reclamar.
+  const dir = dirComFusao();
+  try {
+    const carregado = readStore({ dir, runDate: "2026-08-17" });
+    const achado = resolveInstitute(carregado, "Alfa", { mint: false });
+    assert(!!achado, "\"Alfa\" não resolveu para nada num store carregado do disco");
+    assert(achado?.institute_id === I_BETA,
+      `"Alfa" resolveu para ${achado?.institute_id}, esperado ${I_BETA} — o índice do load não seguiu a fusão`);
+    // E sem cunhar: `mint: false` não pode criar linha.
+    assert(carregado.institutes.length === 2,
+      `o store carregado ficou com ${carregado.institutes.length} institutos — a consulta cunhou`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("instituto: fusão que aponta para linha ausente REPROVA a rodada, em voz alta", (_store, assert) => {
+  // A SUPERFÍCIE NOVA QUE O CARREGAMENTO DO `merged_into` ABRIU, fixada aqui
+  // porque ela não existia antes e ninguém a estava guardando.
+  //
+  // Curadoria válida ("Alfa fundiu na Beta"), mas uma rodada em que só a Alfa
+  // recebe pesquisa: a Alfa nasce carregando `merged_into` para uma Beta que
+  // esta rodada não cunhou. Antes do carregamento o campo saía nulo e não havia
+  // erro; agora o `validate-store` reprova.
+  //
+  // ISSO É O COMPORTAMENTO DESEJADO, não um defeito a esconder: uma fusão que
+  // aponta para o nada é curadoria quebrada, e reprovar alto é o que este
+  // projeto escolhe sobre seguir em silêncio (§2). O caso existe para que a
+  // reprovação seja INTENCIONAL e não uma surpresa numa madrugada de coleta — e
+  // para que, se alguém decidir tratá-la de outro jeito, a decisão seja
+  // deliberada. `people` carrega exatamente o mesmo risco por `ensurePerson`
+  // (§5), e hoje as duas tabelas têm ZERO fusões, então é latente nas duas.
+  const dir = dirComFusao();
+  try {
+    const { store: novo } = writeStoreFromPolls(
+      [pesquisaDe("Alfa", "11111", "2026-06-05")], { runDate: "2026-08-17", dir });
+    const alfa = novo.institutes.find((i) => i.institute_id === I_ALFA);
+    assert(alfa?.merged_into === I_BETA,
+      `a Alfa nasceu com merged_into ${JSON.stringify(alfa?.merged_into)} — o carregamento não aconteceu`);
+    assert(!novo.institutes.some((i) => i.institute_id === I_BETA),
+      "a Beta apareceu nesta rodada — a fixture não está exercitando o alvo ausente");
+    const { errors } = validateStore(novo);
+    const apontado = errors.filter((e) => /funde em .* inexistente|inexistente/.test(String(e)));
+    assert(apontado.length > 0,
+      "o validador NÃO reprovou uma fusão apontando para linha inexistente — a falha virou silenciosa");
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }
