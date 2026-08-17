@@ -37,14 +37,13 @@ concorrentes; `disjunto` pode ser troca de nome **ou** substituição de candida
 
 | Sugestão | Pares |
 |---|---|
-| Variação de grafia — provável MESMA pessoa | 18 |
-| Título ou apelido — provável MESMA pessoa | 14 |
-| Indefinido — precisa de fonte primária | 2 |
-| Só o primeiro nome em comum — provável PESSOAS DIFERENTES | 19 |
-| Sobrenome em comum — provável PESSOAS DIFERENTES | 10 |
-| **Total** | **63** |
+| Título ou apelido — provável MESMA pessoa | 7 |
+| Indefinido — precisa de fonte primária | 8 |
+| Só o primeiro nome em comum — provável PESSOAS DIFERENTES | 17 |
+| Sobrenome em comum — provável PESSOAS DIFERENTES | 44 |
+| **Total** | **76** |
 
-Com campo gêmeo (evidência mais forte): **9** par(es).
+Com campo gêmeo (evidência mais forte): **21** par(es).
 
 ## Como aplicar as decisões
 
@@ -61,464 +60,15 @@ mesma pergunta é prova de fusão errada** — é o teste que teria pego o caso 
 Estes nomes formam grupos ligados — decidir par a par pode fazer você fundir A com B
 e C com A, afirmando que B = C sem nunca ter olhado esse par.
 
-- `Senado · SP` — **Alexandre Luiz Giordano** · **Alexandre Padilha** · **Capitão Derrite** · **Guilherme Boulos** · **Guilherme Derrite** · **Guilherme Giordano** · **Luiz Marinho** (6 pares abaixo)
-- `Presidente` — **Eduardo Bolsonaro** · **Eduardo Leite** · **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** (4 pares abaixo)
-- `Governador · MS` — **Jeferson Bezerra** · **Jefferson Bezerra** · **Jefferson Bezzerra** (2 pares abaixo)
-- `Senado · TO` — **Carlos Caguin** · **Carlos Gaguim** · **Carlos Velozo** (2 pares abaixo)
-- `Senado · CE` — **Alcides Fernandes** · **Pastor Alcides** · **Professor Alcides** (3 pares abaixo)
-
----
-
-## Variação de grafia — provável MESMA pessoa
-
-Diferença de 1–2 caracteres com o mesmo número de tokens — tipicamente erro de
-digitação da fonte. Ainda assim, confirme: `Bady`/`Baldy` e `Medanha`/`Mendanha`
-são plausíveis como pessoas distintas até você olhar.
-
-### Zacarias Calil × Zacharias Calil
-
-`Senado · GO` · token em comum: `calil` · distância de edição: 1 · período: sobreposto
-
-| | Zacarias Calil | Zacharias Calil |
-|---|---|---|
-| pesquisas | 14 | 20 |
-| período | 2025-12-05 → 2026-07-28 | 2026-01-01 → 2026-07-31 |
-| média % | 14.7 | 9.1 |
-| partidos | MDB 2025-12-05→2026-07-28 | União Brasil 2026-01-01→2026-02-21 · MDB 2026-04-10→2026-07-31 |
-| institutos | Paraná Pesquisas (3), Real Time Big Data (2), Directa (2), Quaest (1), +6 | Direct Pesquisas (7), Portal Goiás (3), Directa (2), Real Time Big Data (1), +7 |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (MDB)** · diferença entre as médias: 5.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Real Time Big Data, Directa, Quaest, Veritá.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Mateus Simões × Matheus Simões
-
-`Governador · MG` · token em comum: `simoes` · distância de edição: 1 · período: sobreposto
-
-| | Mateus Simões | Matheus Simões |
-|---|---|---|
-| pesquisas | 9 | 10 |
-| período | 2026-03-12 → 2026-06-23 | 2025-08-17 → 2026-07-29 |
-| média % | 11.8 | 14.2 |
-| partidos | PSD 2026-03-12→2026-06-23 | Novo 2025-08-17→2025-10-05 · PSD 2025-12-09→2026-07-29 |
-| institutos | Real Time Big Data (2), DataTempo (2), IPAN/Panorama (1), Doxa (1), +3 | Quaest (5), Real Time Big Data (2), AtlasIntel (2), Paraná Pesquisas (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 2.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, AtlasIntel.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Alexandre Bady × Alexandre Baldy
-
-`Senado · GO` · token em comum: `alexandre` · distância de edição: 1 · período: sobreposto
-
-| | Alexandre Bady | Alexandre Baldy |
-|---|---|---|
-| pesquisas | 8 | 18 |
-| período | 2026-01-01 → 2026-02-21 | 2025-12-05 → 2026-06-30 |
-| média % | 3.4 | 7.0 |
-| partidos | PP 2026-01-01→2026-02-21 · DC 2026-02-03→2026-02-11 | PP 2025-12-05→2026-06-30 |
-| institutos | Direct Pesquisas (5), Portal Goiás (3) | Paraná Pesquisas (3), Directa (3), Real Time Big Data (2), Papo Aberto/DataRD (1), +9 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (PP)** · diferença entre as médias: 3.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Direct Pesquisas, Portal Goiás.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Gustavo Medanha × Gustavo Mendanha
-
-`Senado · GO` · token em comum: `gustavo` · distância de edição: 1 · período: sobreposto
-
-| | Gustavo Medanha | Gustavo Mendanha |
-|---|---|---|
-| pesquisas | 8 | 13 |
-| período | 2026-01-01 → 2026-02-11 | 2025-12-05 → 2026-07-31 |
-| média % | 9.2 | 11.0 |
-| partidos | PSD 2026-01-01→2026-01-30 · MDB 2026-02-03→2026-02-11 | PSD 2025-12-05→2025-12-05 · PRD 2026-01-12→2026-07-31 · MDB 2026-02-21→2026-02-21 |
-| institutos | Direct Pesquisas (6), Portal Goiás (2) | Directa (4), Paraná Pesquisas (2), Real Time Big Data (1), Quaest (1), +5 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (PSD, MDB)** · diferença entre as médias: 1.8 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Portal Goiás.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Marcel van Hattem × Marcel van Hatten
-
-`Senado · RS` · token em comum: `marcel, van` · distância de edição: 1 · período: contido
-
-| | Marcel van Hattem | Marcel van Hatten |
-|---|---|---|
-| pesquisas | 12 | 5 |
-| período | 2025-10-31 → 2026-07-28 | 2025-11-24 → 2026-07-19 |
-| média % | 32.8 | 20.3 |
-| partidos | Novo 2025-10-31→2026-07-28 | Novo 2025-11-24→2026-07-19 |
-| institutos | Brasmarket (4), Veritá (3), Futura (2), Neokemp (1), +2 | Real Time Big Data (2), 100% Cidades Participações (1), Paraná Pesquisas (1), Quaest (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (NOVO)** · diferença entre as médias: 12.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Wiliam Siri × William Siri
-
-`Governador · RJ` · token em comum: `siri` · distância de edição: 1 · período: contido
-
-| | Wiliam Siri | William Siri |
-|---|---|---|
-| pesquisas | 5 | 4 |
-| período | 2026-02-13 → 2026-07-30 | 2026-04-04 → 2026-07-25 |
-| média % | 1.4 | 4.7 |
-| partidos | PSOL 2026-02-13→2026-07-30 | PSOL 2026-04-04→2026-07-25 |
-| institutos | Prefab (2), Paraná Pesquisas (2), Quaest (1) | Veritá (2), Paraná Pesquisas (1), Quaest (1) |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (PSOL)** · diferença entre as médias: 3.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Euclydes Pettersen × Euclydes Petterson
-
-`Senado · MG` · token em comum: `euclydes` · distância de edição: 1 · período: sobreposto
-
-| | Euclydes Pettersen | Euclydes Petterson |
-|---|---|---|
-| pesquisas | 3 | 5 |
-| período | 2026-03-12 → 2026-05-08 | 2025-08-25 → 2026-07-29 |
-| média % | 3.6 | 3.5 |
-| partidos | Republicanos 2026-03-12→2026-05-08 | Republicanos 2025-08-25→2026-07-29 · PSB 2026-04-26→2026-04-26 |
-| institutos | Veritá (2), Real Time Big Data (1) | Real Time Big Data (2), Quaest (2), AtlasIntel (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 0.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jeferson Bezerra × Jefferson Bezerra
-
-`Governador · MS` · token em comum: `bezerra` · distância de edição: 1 · período: contido
-
-| | Jeferson Bezerra | Jefferson Bezerra |
-|---|---|---|
-| pesquisas | 3 | 9 |
-| período | 2026-07-21 → 2026-08-12 | 2026-04-10 → 2026-08-05 |
-| média % | 0.9 | 1.0 |
-| partidos | Agir 2026-07-21→2026-08-12 | Agir 2026-04-10→2026-08-05 |
-| institutos | Ranking (3) | Ranking (3), Novo Ibrape (2), IPR (2), Real Time Big Data (1), +1 |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (AGIR)** · diferença entre as médias: 0.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Ranking.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Érica kokay × Érika Kokay
-
-`Senado · DF` · token em comum: `kokay` · distância de edição: 1 · período: sobreposto
-
-| | Érica kokay | Érika Kokay |
-|---|---|---|
-| pesquisas | 2 | 8 |
-| período | 2025-12-08 → 2026-06-23 | 2026-03-19 → 2026-08-07 |
-| média % | 13.4 | 21.2 |
-| partidos | PT 2025-12-08→2026-06-23 | PT 2026-03-19→2026-08-07 |
-| institutos | França (1), Real Time Big Data (1) | Phoenix (2), IGAPE (2), Veritá (1), Correio/Opinião (1), +2 |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (PT)** · diferença entre as médias: 7.9 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Luis Cesar Bueno × Luiz César Bueno
-
-`Governador · GO` · token em comum: `cesar, bueno` · distância de edição: 1 · período: sobreposto
-
-| | Luis Cesar Bueno | Luiz César Bueno |
-|---|---|---|
-| pesquisas | 10 | 2 |
-| período | 2026-05-17 → 2026-07-28 | 2026-07-08 → 2026-08-04 |
-| média % | 4.2 | 6.3 |
-| partidos | PT 2026-05-17→2026-07-28 | PT 2026-07-08→2026-08-04 |
-| institutos | Diagnóstico/Acieg (2), Paraná Pesquisas (2), Quaest (1), Papo Aberto/DataRD (1), +4 | Real Time Big Data (1), Papo Aberto/DataRD (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **coincidem (PT)** · diferença entre as médias: 2.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Papo Aberto/DataRD.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jacques Wagner × Jaques Wagner
-
-`Senado · BA` · token em comum: `wagner` · distância de edição: 1 · período: sobreposto
-
-| | Jacques Wagner | Jaques Wagner |
-|---|---|---|
-| pesquisas | 2 | 17 |
-| período | 2025-11-25 → 2026-02-21 | 2024-02-21 → 2026-08-10 |
-| média % | 18.6 | 27.6 |
-| partidos | PT 2025-11-25→2026-02-21 | PT 2024-02-21→2026-08-10 |
-| institutos | Instituto TML (1), Real Time Big Data (1) | Paraná Pesquisas (5), Quaest (3), Real Time Big Data (2), Veritá (2), +5 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (PT)** · diferença entre as médias: 9.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Instituto TML, Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jefferson Bezerra × Jefferson Bezzerra
-
-`Governador · MS` · token em comum: `jefferson` · distância de edição: 1 · período: contido
-
-| | Jefferson Bezerra | Jefferson Bezzerra |
-|---|---|---|
-| pesquisas | 9 | 2 |
-| período | 2026-04-10 → 2026-08-05 | 2026-02-06 → 2026-05-11 |
-| média % | 1.0 | 0.8 |
-| partidos | Agir 2026-04-10→2026-08-05 | Agir 2026-02-06→2026-05-11 |
-| institutos | Ranking (3), Novo Ibrape (2), IPR (2), Real Time Big Data (1), +1 | Ranking (1), Real Time Big Data (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (AGIR)** · diferença entre as médias: 0.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Ranking, Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Paulo Octávio × Paulo Otávio
-
-`Senado · DF` · token em comum: `paulo` · distância de edição: 1 · período: contido
-
-| | Paulo Octávio | Paulo Otávio |
-|---|---|---|
-| pesquisas | 2 | 1 |
-| período | 2026-07-31 → 2026-08-07 | 2025-12-08 → 2025-12-08 |
-| média % | 5.9 | 5.0 |
-| partidos | PSD 2026-07-31→2026-08-07 | PSD 2025-12-08→2025-12-08 |
-| institutos | Brada Comunicação (1), Phoenix (1) | Real Time Big Data (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 0.9 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Marcelo Queiroga × Marcelo Queiroz
-
-`Senado · PB` · token em comum: `marcelo` · distância de edição: 2 · período: contido
-
-| | Marcelo Queiroga | Marcelo Queiroz |
-|---|---|---|
-| pesquisas | 16 | 1 |
-| período | 2026-01-26 → 2026-07-12 | 2025-12-01 → 2025-12-01 |
-| média % | 14.1 | 14.0 |
-| partidos | PL 2026-01-26→2026-07-12 | PL 2025-12-01→2025-12-01 |
-| institutos | Seta (5), Veritá (2), Ranking (2), Índice (2), +5 | Real Time Big Data (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 0.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Jair Pereira × Jarir Pereira
-
-`Governador · CE` · token em comum: `pereira` · distância de edição: 1 · período: sobreposto
-
-| | Jair Pereira | Jarir Pereira |
-|---|---|---|
-| pesquisas | 1 | 18 |
-| período | 2026-02-03 → 2026-02-03 | 2026-01-21 → 2026-07-28 |
-| média % | 1.0 | 1.1 |
-| partidos | PSOL 2026-02-03→2026-02-03 | PSOL 2026-01-21→2026-07-28 |
-| institutos | Real Time Big Data (1) | Real Time Big Data (3), Ipec (3), Paraná Pesquisas (3), Veritá (3), +4 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (PSOL)** · diferença entre as médias: 0.1 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Sandro Pimental × Sandro Pimentel
-
-`Senado · RN` · token em comum: `sandro` · distância de edição: 1 · período: sobreposto
-
-| | Sandro Pimental | Sandro Pimentel |
-|---|---|---|
-| pesquisas | 1 | 32 |
-| período | 2026-07-22 → 2026-07-22 | 2026-03-18 → 2026-08-12 |
-| média % | 0.4 | 2.4 |
-| partidos | PSOL 2026-07-22→2026-07-22 | PSOL 2026-03-18→2026-08-12 |
-| institutos | Item (1) | Seta (5), Data Census (3), TN/Consult (3), Exatus (3), +12 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (PSOL)** · diferença entre as médias: 2.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Item.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Carlos Caguin × Carlos Gaguim
-
-`Senado · TO` · token em comum: `carlos` · distância de edição: 2 · período: disjunto
-
-| | Carlos Caguin | Carlos Gaguim |
-|---|---|---|
-| pesquisas | 1 | 13 |
-| período | 2025-04-08 → 2025-04-08 | 2025-08-03 → 2026-07-31 |
-| média % | 11.6 | 16.8 |
-| partidos | União Brasil 2025-04-08→2025-04-08 | União Brasil 2025-08-03→2026-07-31 |
-| institutos | Paraná Pesquisas (1) | Real Time Big Data (3), Paraná Pesquisas (2), Lucro Ativo (2), Vox (1), +5 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 5.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Emanoel Cacho × Emanuel Cacho
-
-`Governador · SE` · token em comum: `cacho` · distância de edição: 1 · período: disjunto
-
-| | Emanoel Cacho | Emanuel Cacho |
-|---|---|---|
-| pesquisas | 1 | 14 |
-| período | 2026-02-07 → 2026-02-07 | 2026-04-04 → 2026-08-01 |
-| média % | 11.5 | 0.9 |
-| partidos | PSD 2026-02-07→2026-02-07 | PSDB 2026-04-04→2026-08-01 |
-| institutos | França (1) | INOR (3), W1 (2), Real Time Big Data (2), CTAS (2), +5 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 10.6 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
+- `Presidente · PR` — **Ciro Gomes** · **Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro** · **Eduardo Bolsonaro** · **Eduardo Leite** · **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** · **Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro** · **Tarcísio** · **Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro** (24 pares abaixo)
+- `Presidente` — **Eduardo Bolsonaro** · **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** (3 pares abaixo)
+- `Presidente · SP` — **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** (3 pares abaixo)
+- `Senado · BA` — **Marcelo Carvalho** · **Marcelo Nilo** · **Marcelo Santtana** (2 pares abaixo)
+- `Presidente · AC` — **Flávio Bolsonaro** · **Jair Bolsonaro** · **Michelle Bolsonaro** (3 pares abaixo)
 
 ---
 
 ## Título ou apelido — provável MESMA pessoa
-
-### Coronel Zucco × Luciano Zucco
-
-`Governador · RS` · token em comum: `zucco` · distância de edição: 7 · período: contido
-
-| | Coronel Zucco | Luciano Zucco |
-|---|---|---|
-| pesquisas | 10 | 20 |
-| período | 2025-08-17 → 2026-07-19 | 2025-02-10 → 2026-07-11 |
-| média % | 30.4 | 36.2 |
-| partidos | PL 2025-08-17→2026-07-19 | PL 2025-02-10→2026-07-11 |
-| institutos | 100% Cidades Participações (4), Quaest (4), Real Time Big Data (1), Paraná Pesquisas (1) | Brasmarket (6), Veritá (4), Futura (4), Real Time Big Data (3), +2 |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.8 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Quaest, Real Time Big Data.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Daniel Santos × Dr Daniel
-
-`Governador · PA` · token em comum: `daniel` · distância de edição: 9 · período: contido
-
-| | Daniel Santos | Dr Daniel |
-|---|---|---|
-| pesquisas | 42 | 9 |
-| período | 2024-02-04 → 2026-07-10 | 2025-06-24 → 2026-06-14 |
-| média % | 32.5 | 30.1 |
-| partidos | Podemos 2024-02-04→2026-07-10 · PSB 2025-02-11→2025-12-23 | PSB 2025-06-24→2026-02-04 · Podemos 2026-03-21→2026-06-14 |
-| institutos | Doxa (11), Real Time Big Data (7), Ampla (5), Paraná Pesquisas (4), +7 | Paraná Pesquisas (3), Real Time Big Data (2), AtlasIntel (2), Doxa (2) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (PODEMOS, PSB)** · diferença entre as médias: 2.4 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Doxa, Real Time Big Data, Paraná Pesquisas, AtlasIntel.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Capitão Derrite × Guilherme Derrite
-
-`Senado · SP` · token em comum: `derrite` · distância de edição: 9 · período: sobreposto
-
-| | Capitão Derrite | Guilherme Derrite |
-|---|---|---|
-| pesquisas | 9 | 15 |
-| período | 2025-08-24 → 2026-07-03 | 2025-09-03 → 2026-08-08 |
-| média % | 21.2 | 20.7 |
-| partidos | PP 2025-08-24→2026-07-03 · PL 2026-02-09→2026-02-10 | PP 2025-09-03→2026-08-08 |
-| institutos | Paraná Pesquisas (4), Real Time Big Data (1), Futura (1), Datafolha (1), +2 | Veritá (3), AtlasIntel (2), Vox (2), Paraná Pesquisas (2), +6 |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (PP)** · diferença entre as médias: 0.5 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Real Time Big Data, Datafolha, Vox.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
 
 ### Dorinha Rezende × Professora Dorinha
 
@@ -526,226 +76,142 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, R
 
 | | Dorinha Rezende | Professora Dorinha |
 |---|---|---|
-| pesquisas | 14 | 9 |
+| pesquisas | 15 | 8 |
 | período | 2025-10-15 → 2026-07-31 | 2025-04-08 → 2026-08-03 |
-| média % | 36.3 | 37.5 |
+| média % | 36.1 | 37.9 |
 | partidos | União Brasil 2025-10-15→2026-07-31 | União Brasil 2025-04-08→2026-08-03 |
-| institutos | Real Time Big Data (6), Paraná Pesquisas (3), Vox (1), VÓPE/Primeira Página (1), +3 | Paraná Pesquisas (3), Real Time Big Data (3), Voz e Pesquisa (1), Brasmarket (1), +1 |
-| fontes | wikipedia | poder360 |
+| institutos | Real Time Big Data (6), Paraná Pesquisas (4), Brasmarketing (1), VÓPE/Primeira Página (1), +3 | Real Time Big Data (3), Paraná Pesquisas (2), Voz e Pesquisa (1), Brasmarket (1), +1 |
+| fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 1.3 p.p.
+Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 1.8 p.p.
 
-**Campo gêmeo — 6 ocorrência(s).** Paraná Pesquisas: `2026-07-24` cita *Dorinha Rezende* (42.2%, 2º turno) e `2026-07-24` cita *Professora Dorinha* (34.4%, 1º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Capitão Contar × Renan Contar
-
-`Senado · MS` · token em comum: `contar` · distância de edição: 6 · período: sobreposto
-
-| | Capitão Contar | Renan Contar |
-|---|---|---|
-| pesquisas | 5 | 15 |
-| período | 2025-11-28 → 2026-07-23 | 2026-03-09 → 2026-08-12 |
-| média % | 18.7 | 27.4 |
-| partidos | PL 2025-11-28→2026-07-23 | PL 2026-03-09→2026-08-12 |
-| institutos | Ranking (3), Real Time Big Data (2) | Ranking (5), Novo Ibrape (3), IPR (3), Veritá (1), +3 |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 8.7 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Ranking, Real Time Big Data.
+**Campo gêmeo — 6 ocorrência(s).** Paraná Pesquisas: `2026-07-24` cita *Dorinha Rezende* (42.2%, 2º turno) e `2026-07-24` cita *Professora Dorinha* (42.2%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Alcides Fernandes × Pastor Alcides
+### Jair Pereira × Professor Jarir Pereira
 
-`Senado · CE` · token em comum: `alcides` · distância de edição: 13 · período: contido
+`Governador · CE` · token em comum: `pereira` · distância de edição: 11 · período: contido
 
-| | Alcides Fernandes | Pastor Alcides |
+| | Jair Pereira | Professor Jarir Pereira |
 |---|---|---|
-| pesquisas | 16 | 2 |
-| período | 2025-02-15 → 2026-08-12 | 2026-02-03 → 2026-04-28 |
-| média % | 14.4 | 7.5 |
-| partidos | PL 2025-02-15→2026-08-12 | PL 2026-02-03→2026-04-28 |
-| institutos | Real Time Big Data (3), Paraná Pesquisas (3), Ipec (3), Veritá (3), +3 | Quaest (1), Real Time Big Data (1) |
-| fontes | poder360, wikipedia | poder360 |
+| pesquisas | 14 | 5 |
+| período | 2026-02-03 → 2026-07-28 | 2026-01-21 → 2026-07-26 |
+| média % | 1.0 | 1.5 |
+| partidos | PSOL 2026-02-03→2026-07-28 | PSOL 2026-01-21→2026-07-26 |
+| institutos | Real Time Big Data (4), Veritá (3), Ipec (2), AtlasIntel (2), +3 | Paraná Pesquisas (2), Ipec (1), Quaest (1), Datafolha (1) |
+| fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 6.9 p.p.
+Partidos: **coincidem (PSOL)** · diferença entre as médias: 0.5 p.p.
 
-Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, Quaest.
+Institutos que usam **os dois** nomes (em datas distantes): Ipec, Quaest, Paraná Pesquisas.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Guimarães do PT × José Guimarães
+### Delegado Humberto × Humberto Chaves
 
-`Senado · CE` · token em comum: `guimaraes` · distância de edição: 11 · período: sobreposto
+`Senado · GO` · token em comum: `humberto` · distância de edição: 14 · período: disjunto
 
-| | Guimarães do PT | José Guimarães |
+| | Delegado Humberto | Humberto Chaves |
 |---|---|---|
-| pesquisas | 2 | 5 |
-| período | 2026-01-21 → 2026-02-28 | 2025-02-15 → 2026-04-01 |
-| média % | 14.4 | 13.6 |
-| partidos | PT 2026-01-21→2026-02-28 | PT 2025-02-15→2026-04-01 |
-| institutos | Paraná Pesquisas (2) | Real Time Big Data (2), Paraná Pesquisas (1), Ipec (1), Futura (1) |
-| fontes | poder360 | poder360, wikipedia |
+| pesquisas | 18 | 1 |
+| período | 2026-02-03 → 2026-07-05 | 2026-07-08 → 2026-07-08 |
+| média % | 10.6 | 1.0 |
+| partidos | PL 2026-02-03→2026-02-21 · Novo 2026-04-13→2026-07-05 | PSOL 2026-07-08→2026-07-08 |
+| institutos | Portal Goiás (4), Paraná Pesquisas (2), Exata GO (2), Directa (2), +8 | Real Time Big Data (1) |
+| fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PT)** · diferença entre as médias: 0.9 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 9.6 p.p.
 
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Sebastião Bocalom × Tião Bocalom
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Jair Bolsonaro
 
-`Governador · AC` · token em comum: `bocalom` · distância de edição: 5 · período: contido
+`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 42 · período: sobreposto
 
-| | Sebastião Bocalom | Tião Bocalom |
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 2 | 26 |
-| período | 2026-02-03 → 2026-08-09 | 2025-08-17 → 2026-08-09 |
-| média % | 16.0 | 21.0 |
-| partidos | PL 2026-02-03→2026-02-03 · PSDB 2026-08-09→2026-08-09 | PL 2025-08-17→2026-02-05 · PSDB 2026-03-21→2026-08-09 |
-| institutos | Data Control (1), Delta (1) | Delta (12), Real Time Big Data (6), AtlasIntel (2), Paraná Pesquisas (2), +3 |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **coincidem (PL, PSDB)** · diferença entre as médias: 5.0 p.p.
-
-**Campo gêmeo — 1 ocorrência(s).** Delta: `2026-08-09` cita *Sebastião Bocalom* (14.02%, 1º turno) e `2026-08-09` cita *Tião Bocalom* (20.68%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Delegado Camargo × Rodrigo Camargo
-
-`Senado · RO` · token em comum: `camargo` · distância de edição: 7 · período: sobreposto
-
-| | Delegado Camargo | Rodrigo Camargo |
-|---|---|---|
-| pesquisas | 1 | 2 |
-| período | 2026-01-20 → 2026-01-20 | 2025-12-10 → 2026-03-19 |
-| média % | 7.4 | 7.7 |
-| partidos | Podemos 2026-01-20→2026-01-20 | Republicanos 2025-12-10→2026-03-19 |
-| institutos | Phoenix (1) | Veritá (1), Real Time Big Data (1) |
-| fontes | poder360 | poder360, wikipedia |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 0.3 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Alcides Fernandes × Professor Alcides
-
-`Senado · CE` · token em comum: `alcides` · distância de edição: 12 · período: contido
-
-| | Alcides Fernandes | Professor Alcides |
-|---|---|---|
-| pesquisas | 16 | 1 |
-| período | 2025-02-15 → 2026-08-12 | 2026-01-21 → 2026-01-21 |
-| média % | 14.4 | 8.1 |
-| partidos | PL 2025-02-15→2026-08-12 | PL 2026-01-21→2026-01-21 |
-| institutos | Real Time Big Data (3), Paraná Pesquisas (3), Ipec (3), Veritá (3), +3 | Paraná Pesquisas (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 6.3 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Pastor Alcides × Professor Alcides
-
-`Senado · CE` · token em comum: `alcides` · distância de edição: 5 · período: contido
-
-| | Pastor Alcides | Professor Alcides |
-|---|---|---|
-| pesquisas | 2 | 1 |
-| período | 2026-02-03 → 2026-04-28 | 2026-01-21 → 2026-01-21 |
-| média % | 7.5 | 8.1 |
-| partidos | PL 2026-02-03→2026-04-28 | PL 2026-01-21→2026-01-21 |
-| institutos | Quaest (1), Real Time Big Data (1) | Paraná Pesquisas (1) |
+| pesquisas | 1 | 6 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2025-07-06 |
+| média % | 29.1 | 43.8 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2025-07-06 · PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (5), Quaest (1) |
 | fontes | poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 0.6 p.p.
+Partidos: **coincidem (PP)** · diferença entre as médias: 14.7 p.p.
 
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Professor Tonny × Tonny Kerley
+### Jair Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
 
-`Governador · PI` · token em comum: `tonny` · distância de edição: 13 · período: disjunto
+`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 47 · período: contido
 
-| | Professor Tonny | Tonny Kerley |
+| | Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 6 | 1 |
+| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
+| média % | 43.8 | 43.4 |
+| partidos | PL 2024-03-22→2025-07-06 · PP 2024-03-22→2024-03-22 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (5), Quaest (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 0.4 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `jair, bolsonaro` · distância de edição: 48 · período: contido
+
+| | Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 6 | 1 |
+| período | 2024-03-22 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
+| média % | 43.8 | 40.8 |
+| partidos | PL 2024-03-22→2025-07-06 · PP 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (5), Quaest (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.0 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `michelle, bolsonaro` · distância de edição: 43 · período: contido
+
+| | Michelle Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
 | pesquisas | 1 | 1 |
-| período | 2025-11-27 → 2025-11-27 | 2026-03-15 → 2026-03-15 |
-| média % | 1.0 | 3.5 |
-| partidos | Novo 2025-11-27→2025-11-27 | Novo 2026-03-15→2026-03-15 |
-| institutos | Real Time Big Data (1) | AtlasIntel (1) |
+| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
+| média % | 55.7 | 43.4 |
+| partidos | PL 2025-07-06→2025-07-06 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
-Partidos: **coincidem (NOVO)** · diferença entre as médias: 2.5 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 12.3 p.p.
 
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Coronel Mello Araújo × Ricardo Mello Araújo
-
-`Senado · SP` · token em comum: `mello, araujo` · distância de edição: 7 · período: sobreposto
-
-| | Coronel Mello Araújo | Ricardo Mello Araújo |
-|---|---|---|
-| pesquisas | 1 | 5 |
-| período | 2026-02-10 → 2026-02-10 | 2025-12-01 → 2026-04-25 |
-| média % | 20.3 | 15.2 |
-| partidos | PL 2026-02-10→2026-02-10 | PL 2025-12-01→2026-04-25 |
-| institutos | Paraná Pesquisas (1) | Real Time Big Data (2), Veritá (1), AtlasIntel (1), Vox (1) |
-| fontes | poder360 | wikipedia |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.1 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Alessandro Vieira × Delegado Alessandro
-
-`Senado · SE` · token em comum: `alessandro` · distância de edição: 14 · período: contido
-
-| | Alessandro Vieira | Delegado Alessandro |
-|---|---|---|
-| pesquisas | 17 | 1 |
-| período | 2025-11-26 → 2026-08-01 | 2026-02-07 → 2026-02-07 |
-| média % | 12.4 | 20.3 |
-| partidos | MDB 2025-11-26→2026-08-01 | MDB 2026-02-07→2026-02-07 |
-| institutos | W1 (3), Real Time Big Data (3), CTAS (3), INOR (2), +5 | França (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **coincidem (MDB)** · diferença entre as médias: 8.0 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -755,22 +221,22 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 ## Indefinido — precisa de fonte primária
 
-### Ciro × Ciro Nogueira
+### Renan Filho × Renan Santos
 
-`Presidente` · token em comum: `ciro` · distância de edição: 9 · período: contido
+`Presidente · SP` · token em comum: `renan` · distância de edição: 5 · período: disjunto
 
-| | Ciro | Ciro Nogueira |
+| | Renan Filho | Renan Santos |
 |---|---|---|
-| pesquisas | 84 | 1 |
-| período | 2023-10-03 → 2026-05-21 | 2024-03-22 → 2024-03-22 |
-| média % | 15.6 | 29.1 |
-| partidos | PDT 2023-10-03→2025-10-06 · PSDB 2024-03-22→2026-05-21 | PP 2024-03-22→2024-03-22 |
-| institutos | Gerp (21), Paraná Pesquisas (16), Quaest (10), MDA (7), +13 | Paraná Pesquisas (1) |
-| fontes | poder360, wikipedia | wikipedia |
+| pesquisas | 2 | 15 |
+| período | 2025-07-08 → 2025-08-24 | 2026-01-23 → 2026-08-10 |
+| média % | 0.5 | 5.7 |
+| partidos | MDB 2025-07-08→2025-08-24 | Missão 2026-01-23→2026-08-10 · União Brasil 2026-02-10→2026-02-10 |
+| institutos | Paraná Pesquisas (2) | Enfoque (2), Ideia (2), Real Time Big Data (2), Vox (2), +6 |
+| fontes | poder360 | poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 13.5 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.2 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro* (7.5%, 1º turno) e `2024-03-22` cita *Ciro Nogueira* (29.1%, 2º turno).
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -782,16 +248,142 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 13.5 p.p.
 
 | | Renan Filho | Renan Santos |
 |---|---|---|
-| pesquisas | 1 | 157 |
-| período | 2025-08-21 → 2025-08-21 | 2025-05-27 → 2026-08-13 |
-| média % | 0.7 | 12.7 |
-| partidos | MDB 2025-08-21→2025-08-21 | Missão 2025-05-27→2026-08-13 |
-| institutos | Paraná Pesquisas (1) | Quaest (18), Ideia (17), Nexus (15), AtlasIntel (14), +18 |
-| fontes | poder360 | poder360, wikipedia |
+| pesquisas | 1 | 162 |
+| período | 2025-08-21 → 2025-08-21 | 2025-05-27 → 2026-08-16 |
+| média % | 1.2 | 12.6 |
+| partidos | MDB 2025-08-21→2025-08-21 | Missão 2025-05-27→2026-08-16 |
+| institutos | Paraná Pesquisas (1) | Quaest (21), Nexus (17), Ideia (17), AtlasIntel (14), +18 |
+| fontes | poder360 | , poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 12.0 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 11.4 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Renan Filho × Renan Santos
+
+`Presidente · RN` · token em comum: `renan` · distância de edição: 5 · período: disjunto
+
+| | Renan Filho | Renan Santos |
+|---|---|---|
+| pesquisas | 1 | 4 |
+| período | 2025-09-10 → 2025-09-10 | 2026-05-27 → 2026-08-10 |
+| média % | 0.7 | 3.8 |
+| partidos | MDB 2025-09-10→2025-09-10 | Missão 2026-05-27→2026-08-10 |
+| institutos | Paraná Pesquisas (1) | AtlasIntel (2), TN/Consult (1), Data Capital (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 3.1 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Renan Filho × Renan Santos
+
+`Presidente · PR` · token em comum: `renan` · distância de edição: 5 · período: disjunto
+
+| | Renan Filho | Renan Santos |
+|---|---|---|
+| pesquisas | 1 | 6 |
+| período | 2025-07-06 → 2025-07-06 | 2026-01-22 → 2026-07-25 |
+| média % | 0.4 | 5.6 |
+| partidos | MDB 2025-07-06→2025-07-06 | Missão 2026-01-22→2026-07-25 |
+| institutos | Paraná Pesquisas (1) | Quaest (3), Paraná Pesquisas (2), Futura (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.2 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Tarcísio × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `tarcisio` · distância de edição: 54 · período: contido
+
+| | Tarcísio | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 3 | 1 |
+| período | 2025-02-23 → 2026-01-27 | 2024-03-22 → 2024-03-22 |
+| média % | 51.7 | 40.8 |
+| partidos | Republicanos 2025-02-23→2026-01-27 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Futura (1), Paraná Pesquisas (1), Quaest (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 10.9 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Renan Filho × Renan Santos
+
+`Presidente · BA` · token em comum: `renan` · distância de edição: 5 · período: disjunto
+
+| | Renan Filho | Renan Santos |
+|---|---|---|
+| pesquisas | 1 | 2 |
+| período | 2025-07-29 → 2025-07-29 | 2026-04-28 → 2026-07-25 |
+| média % | 0.4 | 1.9 |
+| partidos | MDB 2025-07-29→2025-07-29 | Missão 2026-04-28→2026-07-25 |
+| institutos | Paraná Pesquisas (1) | 100% Cidades Participações (1), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 1.5 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Renan Filho × Renan Santos
+
+`Presidente · ES` · token em comum: `renan` · distância de edição: 5 · período: disjunto
+
+| | Renan Filho | Renan Santos |
+|---|---|---|
+| pesquisas | 1 | 5 |
+| período | 2025-08-17 → 2025-08-17 | 2026-03-25 → 2026-07-21 |
+| média % | 0.9 | 3.6 |
+| partidos | MDB 2025-08-17→2025-08-17 | Missão 2026-03-25→2026-07-21 |
+| institutos | Paraná Pesquisas (1) | Real Time Big Data (2), Quaest (2), França (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.7 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Renan Filho × Renan Santos
+
+`Presidente · TO` · token em comum: `renan` · distância de edição: 5 · período: disjunto
+
+| | Renan Filho | Renan Santos |
+|---|---|---|
+| pesquisas | 1 | 2 |
+| período | 2025-08-13 → 2025-08-13 | 2026-03-24 → 2026-06-18 |
+| média % | 0.2 | 1.5 |
+| partidos | MDB 2025-08-13→2025-08-13 | Missão 2026-03-24→2026-06-18 |
+| institutos | Paraná Pesquisas (1) | Real Time Big Data (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 1.3 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -806,64 +398,43 @@ diferentes — **mas** o nome de urna brasileiro costuma anexar uma filiação
 ("Fulano do Bolsonaro", "Fulano da Saúde"), então um par assim pode ser a mesma
 pessoa com nome de urna e nome civil. Confira antes de descartar.
 
-### Eduardo Bolsonaro × Eduardo Leite
+### Marcio Alves × Márcio França
 
-`Presidente` · token em comum: `eduardo` · distância de edição: 8 · período: sobreposto
+`Senado · SP` · token em comum: `marcio` · distância de edição: 6 · período: contido
 
-| | Eduardo Bolsonaro | Eduardo Leite |
+| | Marcio Alves | Márcio França |
 |---|---|---|
-| pesquisas | 32 | 56 |
-| período | 2024-12-31 → 2025-12-04 | 2023-10-03 → 2026-03-29 |
-| média % | 32.2 | 18.3 |
-| partidos | PL 2024-12-31→2025-12-04 | PSDB 2023-10-03→2025-04-19 · PSD 2024-03-22→2026-03-29 |
-| institutos | Quaest (8), Futura (6), Gerp (5), Datafolha (4), +6 | AtlasIntel (22), Quaest (11), Paraná Pesquisas (7), Futura (5), +6 |
-| fontes | poder360, wikipedia | poder360, wikipedia |
+| pesquisas | 4 | 9 |
+| período | 2026-07-28 → 2026-08-13 | 2026-02-09 → 2026-05-31 |
+| média % | 1.4 | 15.5 |
+| partidos | UP 2026-07-28→2026-08-13 | PSB 2026-02-09→2026-05-31 |
+| institutos | Vox (2), Ideia (1), Paraná Pesquisas (1) | Veritá (2), Gerp (2), Badra (1), Quaest (1), +3 |
+| fontes | , poder360 | , poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 13.9 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 14.1 p.p.
 
-**Campo gêmeo — 11 ocorrência(s).** AtlasIntel: `2025-01-31` cita *Eduardo Bolsonaro* (36.4%, 2º turno) e `2025-01-31` cita *Eduardo Leite* (0.9%, 1º turno).
+Institutos que usam **os dois** nomes (em datas distantes): Vox.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Cadu Xavier × Cadu de Lula
+### Alexandre Curi × Alexandre Salomão
 
-`Governador · RN` · token em comum: `cadu` · distância de edição: 7 · período: sobreposto
+`Governador · PR` · token em comum: `alexandre` · distância de edição: 7 · período: disjunto
 
-| | Cadu Xavier | Cadu de Lula |
+| | Alexandre Curi | Alexandre Salomão |
 |---|---|---|
-| pesquisas | 17 | 47 |
-| período | 2025-09-11 → 2026-08-10 | 2025-09-10 → 2026-08-12 |
-| média % | 24.6 | 17.9 |
-| partidos | PT 2025-09-11→2026-08-10 | PT 2025-09-10→2026-08-12 |
-| institutos | AtlasIntel (6), Data Capital (3), TN/Consult (1), Soluções (1), +6 | Veritá (5), Agorasei (4), AtlasIntel (4), Metadata/Grupo Dial (4), +15 |
-| fontes | poder360 | wikipedia |
+| pesquisas | 5 | 3 |
+| período | 2025-07-06 → 2026-03-20 | 2026-08-11 → 2026-08-16 |
+| média % | 20.7 | 0.2 |
+| partidos | PSD 2025-07-06→2026-01-27 · Republicanos 2026-03-04→2026-03-20 | Mobiliza 2026-08-11→2026-08-16 |
+| institutos | Paraná Pesquisas (3), Neokemp (1), Futura (1) | Paraná Pesquisas (1), IRG (1), Neokemp (1) |
+| fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PT)** · diferença entre as médias: 6.7 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 20.5 p.p.
 
-**Campo gêmeo — 12 ocorrência(s).** AtlasIntel: `2026-07-21` cita *Cadu Xavier* (36.3%, 1º turno) e `2026-07-21` cita *Cadu de Lula* (45.7%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Leila Barros × Leila do Vôlei
-
-`Senado · DF` · token em comum: `leila` · distância de edição: 7 · período: contido
-
-| | Leila Barros | Leila do Vôlei |
-|---|---|---|
-| pesquisas | 8 | 3 |
-| período | 2026-03-19 → 2026-08-07 | 2025-12-08 → 2026-07-31 |
-| média % | 25.3 | 13.5 |
-| partidos | PDT 2026-03-19→2026-08-07 | PDT 2025-12-08→2026-07-31 |
-| institutos | Phoenix (2), IGAPE (2), Veritá (1), Correio/Opinião (1), +2 | Brada Comunicação (1), França (1), Real Time Big Data (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (PDT)** · diferença entre as médias: 11.8 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Neokemp.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -875,14 +446,14 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 | | Silvio Costa Filho | Silvio Nascimento |
 |---|---|---|
-| pesquisas | 8 | 3 |
+| pesquisas | 7 | 3 |
 | período | 2025-08-05 → 2026-03-30 | 2026-07-26 → 2026-07-30 |
-| média % | 13.6 | 4.0 |
+| média % | 12.7 | 4.0 |
 | partidos | Republicanos 2025-08-05→2026-03-30 | PL 2026-07-26→2026-07-30 |
-| institutos | Real Time Big Data (3), Paraná Pesquisas (1), Datafolha (1), Múltipla (1), +2 | Real Time Big Data (1), Datafolha (1), Quaest (1) |
-| fontes | poder360, wikipedia | poder360 |
+| institutos | Real Time Big Data (2), Veritá (1), DataTrends (1), Múltipla (1), +2 | Real Time Big Data (1), Datafolha (1), Quaest (1) |
+| fontes | , poder360 | poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 9.6 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, Datafolha.
 
@@ -890,83 +461,20 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Vanderlan Cardoso × Vanderlan Gomes
+### Geraldo Alckmin × Geraldo Rufino
 
-`Senado · GO` · token em comum: `vanderlan` · distância de edição: 6 · período: contido
+`Senado · SP` · token em comum: `geraldo` · distância de edição: 6 · período: disjunto
 
-| | Vanderlan Cardoso | Vanderlan Gomes |
+| | Geraldo Alckmin | Geraldo Rufino |
 |---|---|---|
-| pesquisas | 31 | 2 |
-| período | 2025-12-05 → 2026-07-31 | 2026-01-01 → 2026-02-11 |
-| média % | 12.4 | 6.2 |
-| partidos | PSD 2025-12-05→2026-07-31 | PSD 2026-01-01→2026-02-11 |
-| institutos | Direct Pesquisas (5), Portal Goiás (4), Paraná Pesquisas (4), Directa (4), +9 | Direct Pesquisas (2) |
-| fontes | poder360, wikipedia | poder360 |
+| pesquisas | 3 | 3 |
+| período | 2025-08-24 → 2025-12-08 | 2026-08-08 → 2026-08-13 |
+| média % | 34.8 | 2.9 |
+| partidos | PSB 2025-08-24→2025-12-08 | Podemos 2026-08-08→2026-08-13 |
+| institutos | Paraná Pesquisas (2), AtlasIntel (1) | Vox (1), American Analytics (1), Ideia (1) |
+| fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PSD)** · diferença entre as médias: 6.2 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Direct Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Rodrigo Bolsonaro × Rodrigo Vieira
-
-`Governador · RN` · token em comum: `rodrigo` · distância de edição: 8 · período: contido
-
-| | Rodrigo Bolsonaro | Rodrigo Vieira |
-|---|---|---|
-| pesquisas | 17 | 2 |
-| período | 2026-05-09 → 2026-08-12 | 2026-07-21 → 2026-07-22 |
-| média % | 1.0 | 0.3 |
-| partidos | Agir 2026-05-09→2026-08-12 | Agir 2026-07-21→2026-07-21 · DC 2026-07-22→2026-07-22 |
-| institutos | Seta (4), Metadata/Grupo Dial (3), DataVero (2), Potengi/Media (2), +6 | AtlasIntel (1), Item (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (AGIR)** · diferença entre as médias: 0.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Item.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### José Aleluia × José Carlos do Pátio
-
-`Governador · BA` · token em comum: `jose` · distância de edição: 12 · período: contido
-
-| | José Aleluia | José Carlos do Pátio |
-|---|---|---|
-| pesquisas | 7 | 1 |
-| período | 2025-08-17 → 2026-04-27 | 2026-02-21 → 2026-02-21 |
-| média % | 1.5 | 1.0 |
-| partidos | Novo 2025-08-17→2026-04-27 | União Brasil 2026-02-21→2026-02-21 |
-| institutos | Real Time Big Data (3), Veritá (2), Bahia Notícia/Séculus (1), Quaest (1) | Instituto TML (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 0.5 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Gianni Nogueira × Gianni do Bolsonaro
-
-`Senado · MS` · token em comum: `gianni` · distância de edição: 10 · período: contido
-
-| | Gianni Nogueira | Gianni do Bolsonaro |
-|---|---|---|
-| pesquisas | 2 | 1 |
-| período | 2026-02-06 → 2026-03-29 | 2025-05-16 → 2025-05-16 |
-| média % | 2.8 | 12.1 |
-| partidos | PL 2026-02-06→2026-03-29 | PL 2025-05-16→2025-05-16 |
-| institutos | Novo Ibrape (1), Ranking (1) | Paraná Pesquisas (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **coincidem (PL)** · diferença entre as médias: 9.3 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 31.9 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -980,203 +488,14 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 | | Carlos Jordy | Carlos Portinho |
 |---|---|---|
-| pesquisas | 1 | 6 |
-| período | 2026-07-01 → 2026-07-01 | 2025-08-29 → 2026-07-30 |
-| média % | 12.1 | 7.5 |
-| partidos | PL 2026-07-01→2026-07-01 | PL 2025-08-29→2026-07-30 |
-| institutos | Paraná Pesquisas (1) | Prefab (2), Paraná Pesquisas (1), AtlasIntel (1), Real Time Big Data (1), +1 |
-| fontes | wikipedia | poder360, wikipedia |
+| pesquisas | 2 | 7 |
+| período | 2026-06-03 → 2026-07-01 | 2025-08-29 → 2026-07-30 |
+| média % | 11.3 | 7.0 |
+| partidos | PL 2026-06-03→2026-07-01 | PL 2025-08-29→2026-07-30 |
+| institutos | Paraná Pesquisas (2) | Prefab (2), Paraná Pesquisas (1), Real Time Big Data (1), Quaest (1), +2 |
+| fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 4.6 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### André Ceciliano × André Marinho
-
-`Governador · RJ` · token em comum: `andre` · distância de edição: 7 · período: disjunto
-
-| | André Ceciliano | André Marinho |
-|---|---|---|
-| pesquisas | 1 | 3 |
-| período | 2026-03-10 → 2026-03-10 | 2026-07-01 → 2026-07-25 |
-| média % | 9.0 | 2.3 |
-| partidos | PT 2026-03-10→2026-03-10 | Novo 2026-07-01→2026-07-25 |
-| institutos | Real Time Big Data (1) | Paraná Pesquisas (1), Gerp (1), Quaest (1) |
-| fontes | poder360 | wikipedia |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 6.7 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Rodrigo Barcellar × Rodrigo Pimentel
-
-`Governador · RJ` · token em comum: `rodrigo` · distância de edição: 8 · período: disjunto
-
-| | Rodrigo Barcellar | Rodrigo Pimentel |
-|---|---|---|
-| pesquisas | 3 | 1 |
-| período | 2025-05-23 → 2025-08-29 | 2026-02-13 → 2026-02-13 |
-| média % | 10.6 | 9.1 |
-| partidos | PL 2025-08-17→2025-08-17 · União Brasil 2025-08-29→2025-08-29 | Novo 2026-02-13→2026-02-13 |
-| institutos | AtlasIntel (1), Quaest (1), Paraná Pesquisas (1) | Prefab (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 1.5 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Gustavo Gayer × Gustavo Medanha
-
-`Governador · GO` · token em comum: `gustavo` · distância de edição: 6 · período: disjunto
-
-| | Gustavo Gayer | Gustavo Medanha |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2026-04-30 → 2026-04-30 | 2026-07-25 → 2026-07-25 |
-| média % | 12.0 | 5.0 |
-| partidos | PL 2026-04-30→2026-04-30 | PRD 2026-07-25→2026-07-25 |
-| institutos | Exata GO (1) | Delta (1) |
-| fontes | poder360 | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 7.0 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Alexandre Kalil × Alexandre Silveira
-
-`Governador · MG` · token em comum: `alexandre` · distância de edição: 6 · período: contido
-
-| | Alexandre Kalil | Alexandre Silveira |
-|---|---|---|
-| pesquisas | 25 | 1 |
-| período | 2025-08-17 → 2026-07-29 | 2025-08-25 → 2025-08-25 |
-| média % | 21.3 | 26.0 |
-| partidos | PDT 2025-10-05→2026-07-29 | PSD 2025-08-25→2025-08-25 |
-| institutos | Real Time Big Data (6), Quaest (6), AtlasIntel (4), Doxa (2), +5 | AtlasIntel (1) |
-| fontes | poder360, wikipedia | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 4.7 p.p.
-
-**Campo gêmeo — 2 ocorrência(s).** AtlasIntel: `2025-08-25` cita *Alexandre Kalil* (8.3%, 1º turno) e `2025-08-25` cita *Alexandre Silveira* (26%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Carlos Caguin × Carlos Velozo
-
-`Senado · TO` · token em comum: `carlos` · distância de edição: 6 · período: disjunto
-
-| | Carlos Caguin | Carlos Velozo |
-|---|---|---|
-| pesquisas | 1 | 5 |
-| período | 2025-04-08 → 2025-04-08 | 2026-04-12 → 2026-07-31 |
-| média % | 11.6 | 7.0 |
-| partidos | União Brasil 2025-04-08→2025-04-08 | Agir 2026-04-12→2026-07-31 |
-| institutos | Paraná Pesquisas (1) | Vox (1), VÓPE/Primeira Página (1), Lucro Ativo (1), Veritá (1), +1 |
-| fontes | poder360 | wikipedia |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 4.6 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Alexandre Luiz Giordano × Alexandre Padilha
-
-`Senado · SP` · token em comum: `alexandre` · distância de edição: 11 · período: disjunto
-
-| | Alexandre Luiz Giordano | Alexandre Padilha |
-|---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-09-03 → 2025-09-03 | 2025-12-08 → 2025-12-08 |
-| média % | 0.1 | 15.2 |
-| partidos | MDB 2025-09-03→2025-09-03 | PT 2025-12-08→2025-12-08 |
-| institutos | AtlasIntel (1) | Paraná Pesquisas (1) |
-| fontes | wikipedia | wikipedia |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 15.1 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Alexandre Luiz Giordano × Luiz Marinho
-
-`Senado · SP` · token em comum: `luiz` · distância de edição: 16 · período: sobreposto
-
-| | Alexandre Luiz Giordano | Luiz Marinho |
-|---|---|---|
-| pesquisas | 1 | 2 |
-| período | 2025-09-03 → 2025-09-03 | 2025-08-24 → 2025-10-09 |
-| média % | 0.1 | 7.0 |
-| partidos | MDB 2025-09-03→2025-09-03 | PT 2025-08-24→2025-10-09 |
-| institutos | AtlasIntel (1) | Paraná Pesquisas (2) |
-| fontes | wikipedia | poder360, wikipedia |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 6.9 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Guilherme Boulos × Guilherme Giordano
-
-`Senado · SP` · token em comum: `guilherme` · distância de edição: 7 · período: contido
-
-| | Guilherme Boulos | Guilherme Giordano |
-|---|---|---|
-| pesquisas | 2 | 1 |
-| período | 2026-03-05 → 2026-03-07 | 2025-08-24 → 2025-08-24 |
-| média % | 14.5 | 0.5 |
-| partidos | PSOL 2026-03-05→2026-03-07 | MDB 2025-08-24→2025-08-24 |
-| institutos | Real Time Big Data (1), Datafolha (1) | Paraná Pesquisas (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 14.0 p.p.
-
-Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Guilherme Derrite × Guilherme Giordano
-
-`Senado · SP` · token em comum: `guilherme` · distância de edição: 7 · período: contido
-
-| | Guilherme Derrite | Guilherme Giordano |
-|---|---|---|
-| pesquisas | 15 | 1 |
-| período | 2025-09-03 → 2026-08-08 | 2025-08-24 → 2025-08-24 |
-| média % | 20.7 | 0.5 |
-| partidos | PP 2025-09-03→2026-08-08 | MDB 2025-08-24→2025-08-24 |
-| institutos | Veritá (3), AtlasIntel (2), Vox (2), Paraná Pesquisas (2), +6 | Paraná Pesquisas (1) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **CONTRADIZEM** · diferença entre as médias: 20.2 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 4.3 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
@@ -1194,12 +513,243 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 | período | 2025-08-17 → 2025-08-17 | 2025-08-11 → 2026-01-27 |
 | média % | 8.0 | 10.7 |
 | partidos | Novo 2025-08-17→2025-08-17 | Novo 2025-08-11→2026-01-27 |
-| institutos | Quaest (1) | Real Time Big Data (1), Paraná Pesquisas (1), Futura (1) |
+| institutos | Quaest (1) | Futura (1), Real Time Big Data (1), Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **coincidem (NOVO)** · diferença entre as médias: 2.7 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Alexandre Luiz Giordano × Alexandre Padilha
+
+`Senado · SP` · token em comum: `alexandre` · distância de edição: 11 · período: disjunto
+
+| | Alexandre Luiz Giordano | Alexandre Padilha |
+|---|---|---|
+| pesquisas | 2 | 1 |
+| período | 2025-08-24 → 2025-09-03 | 2025-12-08 → 2025-12-08 |
+| média % | 0.3 | 14.5 |
+| partidos | MDB 2025-08-24→2025-09-03 | PT 2025-12-08→2025-12-08 |
+| institutos | AtlasIntel (1), Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 14.2 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Gustavo Gayer × Gustavo Mendanha
+
+`Governador · GO` · token em comum: `gustavo` · distância de edição: 7 · período: disjunto
+
+| | Gustavo Gayer | Gustavo Mendanha |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2026-04-30 → 2026-04-30 | 2026-07-25 → 2026-07-25 |
+| média % | 12.0 | 5.0 |
+| partidos | PL 2026-04-30→2026-04-30 | PRD 2026-07-25→2026-07-25 |
+| institutos | Exata GO (1) | Instituto Gazeta de Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 7.0 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Marcelo Carvalho × Marcelo Nilo
+
+`Senado · BA` · token em comum: `marcelo` · distância de edição: 6 · período: contido
+
+| | Marcelo Carvalho | Marcelo Nilo |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2026-08-02 → 2026-08-02 | 2026-02-21 → 2026-02-21 |
+| média % | 1.8 | 4.0 |
+| partidos | — | Republicanos 2026-02-21→2026-02-21 |
+| institutos | Paraná Pesquisas (1) | Instituto TML (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **sem dados** · diferença entre as médias: 2.2 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Marcelo Nilo × Marcelo Santtana
+
+`Senado · BA` · token em comum: `marcelo` · distância de edição: 7 · período: disjunto
+
+| | Marcelo Nilo | Marcelo Santtana |
+|---|---|---|
+| pesquisas | 1 | 2 |
+| período | 2026-02-21 → 2026-02-21 | 2026-04-27 → 2026-08-02 |
+| média % | 4.0 | 1.1 |
+| partidos | Republicanos 2026-02-21→2026-02-21 | DC 2026-04-27→2026-08-02 |
+| institutos | Instituto TML (1) | Paraná Pesquisas (1), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.9 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### José Aleluia × José Carlos do Pátio
+
+`Governador · BA` · token em comum: `jose` · distância de edição: 12 · período: contido
+
+| | José Aleluia | José Carlos do Pátio |
+|---|---|---|
+| pesquisas | 8 | 1 |
+| período | 2025-08-17 → 2026-04-27 | 2026-02-21 → 2026-02-21 |
+| média % | 1.2 | 1.0 |
+| partidos | Novo 2025-08-17→2026-04-27 | União Brasil 2026-02-21→2026-02-21 |
+| institutos | Real Time Big Data (3), Veritá (2), Quaest (2), Bahia Notícia/Séculus (1) | Instituto TML (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.2 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### André Ceciliano × André Marinho
+
+`Governador · RJ` · token em comum: `andre` · distância de edição: 7 · período: disjunto
+
+| | André Ceciliano | André Marinho |
+|---|---|---|
+| pesquisas | 1 | 7 |
+| período | 2026-03-10 → 2026-03-10 | 2026-04-23 → 2026-07-29 |
+| média % | 9.0 | 2.4 |
+| partidos | PT 2026-03-10→2026-03-10 | Novo 2026-04-23→2026-07-29 |
+| institutos | Real Time Big Data (1) | Paraná Pesquisas (3), Prefab (1), Real Time Big Data (1), Quaest (1), +1 |
+| fontes | poder360 | , poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 6.6 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Rodrigo Barcellar × Rodrigo Pimentel
+
+`Governador · RJ` · token em comum: `rodrigo` · distância de edição: 8 · período: disjunto
+
+| | Rodrigo Barcellar | Rodrigo Pimentel |
+|---|---|---|
+| pesquisas | 3 | 1 |
+| período | 2025-05-23 → 2025-08-29 | 2026-02-13 → 2026-02-13 |
+| média % | 10.6 | 9.1 |
+| partidos | União Brasil 2025-05-23→2025-08-29 · PL 2025-08-17→2025-08-17 | Novo 2026-02-13→2026-02-13 |
+| institutos | AtlasIntel (1), Quaest (1), Paraná Pesquisas (1) | Prefab (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 1.5 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Alexandre Kalil × Alexandre Silveira
+
+`Governador · MG` · token em comum: `alexandre` · distância de edição: 6 · período: contido
+
+| | Alexandre Kalil | Alexandre Silveira |
+|---|---|---|
+| pesquisas | 26 | 1 |
+| período | 2025-08-17 → 2026-07-29 | 2025-08-25 → 2025-08-25 |
+| média % | 20.7 | 26.0 |
+| partidos | PDT 2025-08-17→2026-07-29 | PSD 2025-08-25→2025-08-25 |
+| institutos | Real Time Big Data (6), Quaest (6), AtlasIntel (4), DataTempo (3), +5 | AtlasIntel (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 5.3 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** AtlasIntel: `2025-08-25` cita *Alexandre Kalil* (8.3%, 1º turno) e `2025-08-25` cita *Alexandre Silveira* (26%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Gomes × Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `ciro` · distância de edição: 46 · período: contido
+
+| | Ciro Gomes | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 4 | 1 |
+| período | 2024-03-22 → 2026-01-22 | 2024-03-22 → 2024-03-22 |
+| média % | 5.8 | 29.1 |
+| partidos | PDT 2024-03-22→2025-07-06 · PSDB 2026-01-22→2026-01-22 | PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (4) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 23.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Gomes* (7.5%, 1º turno) e `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Eduardo Leite
+
+`Presidente · PR` · token em comum: `eduardo` · distância de edição: 8 · período: contido
+
+| | Eduardo Bolsonaro | Eduardo Leite |
+|---|---|---|
+| pesquisas | 1 | 2 |
+| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2025-02-25 |
+| média % | 49.9 | 2.0 |
+| partidos | PL 2025-07-06→2025-07-06 | PSDB 2024-03-22→2025-02-25 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 47.9 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Dr. Marcelo Queiroga × Marcelo Queiroz
+
+`Senado · PB` · token em comum: `marcelo` · distância de edição: 6 · período: contido
+
+| | Dr. Marcelo Queiroga | Marcelo Queiroz |
+|---|---|---|
+| pesquisas | 16 | 1 |
+| período | 2026-01-26 → 2026-07-12 | 2025-12-01 → 2025-12-01 |
+| média % | 14.1 | 14.0 |
+| partidos | PL 2026-01-26→2026-07-12 | PL 2025-12-01→2025-12-01 |
+| institutos | Seta (5), Índice (2), Ranking (2), Veritá (2), +5 | Real Time Big Data (1) |
+| fontes | , poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 0.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1218,16 +768,16 @@ prova em contrário.
 
 | | Flávio Bolsonaro | Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 229 | 107 |
-| período | 2025-06-11 → 2026-08-13 | 2023-07-17 → 2026-07-27 |
-| média % | 38.4 | 40.6 |
-| partidos | PL 2025-06-11→2026-08-13 | PL 2023-07-17→2026-07-27 |
-| institutos | Futura (27), Gerp (23), Quaest (22), AtlasIntel (21), +19 | Paraná Pesquisas (29), AtlasIntel (20), Quaest (14), MDA (11), +7 |
-| fontes | poder360, wikipedia | poder360, wikipedia |
+| pesquisas | 235 | 96 |
+| período | 2025-06-11 → 2026-08-16 | 2023-07-17 → 2026-07-27 |
+| média % | 38.2 | 41.1 |
+| partidos | PL 2025-06-11→2026-08-16 | PL 2023-07-17→2026-07-27 |
+| institutos | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 | Paraná Pesquisas (21), AtlasIntel (20), Quaest (14), MDA (11), +7 |
+| fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.2 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 2.9 p.p.
 
-**Campo gêmeo — 38 ocorrência(s).** Gerp: `2025-12-10` cita *Flávio Bolsonaro* (25%, 1º turno) e `2025-12-10` cita *Jair Bolsonaro* (43%, 2º turno).
+**Campo gêmeo — 38 ocorrência(s).** AtlasIntel: `2026-07-27` cita *Flávio Bolsonaro* (35.8%, 1º turno) e `2026-07-27` cita *Jair Bolsonaro* (43.9%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1239,16 +789,16 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 2.2 p.p.
 
 | | Flávio Bolsonaro | Michelle Bolsonaro |
 |---|---|---|
-| pesquisas | 229 | 75 |
-| período | 2025-06-11 → 2026-08-13 | 2024-01-28 → 2026-07-27 |
-| média % | 38.4 | 40.6 |
-| partidos | PL 2025-06-11→2026-08-13 | PL 2024-01-28→2026-07-27 |
-| institutos | Futura (27), Gerp (23), Quaest (22), AtlasIntel (21), +19 | Paraná Pesquisas (16), Futura (14), AtlasIntel (14), Quaest (8), +8 |
-| fontes | poder360, wikipedia | poder360, wikipedia |
+| pesquisas | 235 | 78 |
+| período | 2025-06-11 → 2026-08-16 | 2024-01-28 → 2026-07-27 |
+| média % | 38.2 | 39.9 |
+| partidos | PL 2025-06-11→2026-08-16 | PL 2024-01-28→2026-07-27 |
+| institutos | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 | Paraná Pesquisas (17), AtlasIntel (16), Futura (13), Quaest (8), +8 |
+| fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 2.2 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.7 p.p.
 
-**Campo gêmeo — 56 ocorrência(s).** Gerp: `2026-07-07` cita *Flávio Bolsonaro* (45%, 2º turno) e `2026-07-07` cita *Michelle Bolsonaro* (41%, 2º turno).
+**Campo gêmeo — 60 ocorrência(s).** AtlasIntel: `2026-07-27` cita *Flávio Bolsonaro* (35.8%, 1º turno) e `2026-07-27` cita *Michelle Bolsonaro* (42.5%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1260,56 +810,119 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 2.2 p.p.
 
 | | Eduardo Bolsonaro | Flávio Bolsonaro |
 |---|---|---|
-| pesquisas | 32 | 229 |
-| período | 2024-12-31 → 2025-12-04 | 2025-06-11 → 2026-08-13 |
-| média % | 32.2 | 38.4 |
-| partidos | PL 2024-12-31→2025-12-04 | PL 2025-06-11→2026-08-13 |
-| institutos | Quaest (8), Futura (6), Gerp (5), Datafolha (4), +6 | Futura (27), Gerp (23), Quaest (22), AtlasIntel (21), +19 |
-| fontes | poder360, wikipedia | poder360, wikipedia |
+| pesquisas | 33 | 235 |
+| período | 2024-12-31 → 2025-12-04 | 2025-06-11 → 2026-08-16 |
+| média % | 31.7 | 38.2 |
+| partidos | PL 2024-12-31→2025-12-04 | PL 2025-06-11→2026-08-16 |
+| institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Futura (26), Gerp (24), AtlasIntel (24), Quaest (22), +19 |
+| fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 6.2 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 6.5 p.p.
 
-**Campo gêmeo — 6 ocorrência(s).** Quaest: `2025-08-17` cita *Eduardo Bolsonaro* (32%, 2º turno) e `2025-08-17` cita *Flávio Bolsonaro* (32%, 2º turno).
-
-- [ ] mesma pessoa → canônico: `________________`
-- [ ] pessoas diferentes
-- [ ] não sei — verificar em: `________________`
-
-### Antônio Furlan × Dr. Furlan
-
-`Governador · AP` · token em comum: `furlan` · distância de edição: 7 · período: sobreposto
-
-| | Antônio Furlan | Dr. Furlan |
-|---|---|---|
-| pesquisas | 5 | 10 |
-| período | 2026-03-15 → 2026-07-05 | 2025-07-15 → 2026-08-01 |
-| média % | 66.3 | 64.3 |
-| partidos | PSD 2026-03-15→2026-07-05 | MDB 2025-07-15→2026-03-24 · PSD 2026-06-13→2026-08-01 |
-| institutos | Veritá (3), Paraná Pesquisas (1), AtlasIntel (1) | Paraná Pesquisas (5), Real Time Big Data (3), Veritá (2) |
-| fontes | wikipedia | poder360 |
-
-Partidos: **coincidem (PSD)** · diferença entre as médias: 2.0 p.p.
-
-Institutos que usam **os dois** nomes (em datas distantes): Veritá, Paraná Pesquisas.
+**Campo gêmeo — 6 ocorrência(s).** Datafolha: `2025-12-04` cita *Eduardo Bolsonaro* (35%, 2º turno) e `2025-12-04` cita *Flávio Bolsonaro* (36%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Dr. Wanderley × José Wanderley Neto
+### Flávio Bolsonaro × Jair Bolsonaro
 
-`Senado · AL` · token em comum: `wanderley` · distância de edição: 9 · período: sobreposto
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
 
-| | Dr. Wanderley | José Wanderley Neto |
+| | Flávio Bolsonaro | Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 3 | 8 |
-| período | 2026-01-25 → 2026-07-01 | 2026-03-24 → 2026-07-20 |
-| média % | 8.1 | 11.2 |
-| partidos | MDB 2026-01-25→2026-07-01 | MDB 2026-03-24→2026-07-20 |
-| institutos | TDL (2), Paraná Pesquisas (1) | Vox (2), Veritá (2), Falpe (2), Ranking (1), +1 |
-| fontes | poder360 | wikipedia |
+| pesquisas | 8 | 6 |
+| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2025-07-06 |
+| média % | 41.6 | 43.8 |
+| partidos | PL 2026-01-22→2026-07-25 | PL 2024-03-22→2025-07-06 · PP 2024-03-22→2024-03-22 |
+| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (5), Quaest (1) |
+| fontes | poder360 | poder360 |
 
-Partidos: **coincidem (MDB)** · diferença entre as médias: 3.2 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Quaest, Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · SP` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 23 | 5 |
+| período | 2026-01-23 → 2026-08-10 | 2025-02-23 → 2025-08-24 |
+| média % | 40.7 | 43.2 |
+| partidos | PL 2026-01-23→2026-08-10 | PL 2025-02-23→2025-08-24 |
+| institutos | Vox (4), Futura (4), Real Time Big Data (3), Paraná Pesquisas (3), +6 | Paraná Pesquisas (4), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 2.5 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · RN` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 6 | 3 |
+| período | 2026-01-09 → 2026-07-29 | 2025-02-21 → 2026-05-27 |
+| média % | 31.2 | 31.6 |
+| partidos | PL 2026-01-09→2026-07-29 | PL 2025-02-21→2026-05-27 |
+| institutos | AtlasIntel (3), Data Capital (1), Exatus (1), Instituto Potiguar (1) | Paraná Pesquisas (2), AtlasIntel (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 0.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** AtlasIntel: `2026-05-27` cita *Flávio Bolsonaro* (28.6%, 1º turno) e `2026-05-27` cita *Jair Bolsonaro* (32.2%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · MG` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 10 | 3 |
+| período | 2026-03-07 → 2026-07-29 | 2025-02-23 → 2025-10-05 |
+| média % | 33.5 | 35.6 |
+| partidos | PL 2026-03-07→2026-07-29 | PL 2025-02-23→2025-10-05 |
+| institutos | Real Time Big Data (5), Quaest (4), Paraná Pesquisas (1) | Paraná Pesquisas (2), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 2.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Quaest, Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · ES` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 8 | 3 |
+| período | 2026-03-25 → 2026-07-21 | 2025-02-09 → 2025-08-17 |
+| média % | 39.2 | 44.8 |
+| partidos | PL 2026-03-25→2026-07-21 | PL 2025-02-09→2025-08-17 |
+| institutos | Real Time Big Data (3), Quaest (3), França (2) | Paraná Pesquisas (3) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.6 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -1317,41 +930,209 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Carlos Eduardo Alves × Samanda Alves
+### Ciro Gomes × Tallis Gomes
 
-`Senado · RN` · token em comum: `alves` · distância de edição: 11 · período: disjunto
+`Presidente` · token em comum: `gomes` · distância de edição: 6 · período: contido
 
-| | Carlos Eduardo Alves | Samanda Alves |
+| | Ciro Gomes | Tallis Gomes |
 |---|---|---|
-| pesquisas | 2 | 30 |
-| período | 2025-12-02 → 2026-01-11 | 2026-04-04 → 2026-08-12 |
-| média % | 13.9 | 12.9 |
-| partidos | PSD 2025-12-02→2025-12-02 · PDT 2026-01-11→2026-01-11 | PT 2026-04-04→2026-08-12 |
-| institutos | DataVero (1), Real Time Big Data (1) | Seta (5), Veritá (3), Data Census (3), Exatus (3), +12 |
-| fontes | poder360, wikipedia | wikipedia |
+| pesquisas | 81 | 2 |
+| período | 2023-10-03 → 2026-05-21 | 2026-02-09 → 2026-02-09 |
+| média % | 16.4 | 11.4 |
+| partidos | PDT 2023-10-03→2025-10-06 · Democratic Labour Party (Brazil) 2024-05-01→2024-05-01 · PSDB 2025-05-16→2026-05-21 | Sem partido 2026-02-09→2026-02-09 |
+| institutos | Gerp (20), Paraná Pesquisas (16), Quaest (11), MDA (7), +13 | Colectta (2) |
+| fontes | , poder360 | poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 1.0 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 4.9 p.p.
 
-Institutos que usam **os dois** nomes (em datas distantes): DataVero.
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Flávio Bolsonaro × Rogéria Bolsonaro
+### Flávio Bolsonaro × Michelle Bolsonaro
 
-`Senado · RJ` · token em comum: `bolsonaro` · distância de edição: 6 · período: disjunto
+`Presidente · AC` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
 
-| | Flávio Bolsonaro | Rogéria Bolsonaro |
+| | Flávio Bolsonaro | Michelle Bolsonaro |
 |---|---|---|
-| pesquisas | 2 | 1 |
-| período | 2025-08-27 → 2025-08-29 | 2026-05-08 → 2026-05-08 |
-| média % | 28.0 | 17.1 |
-| partidos | PL 2025-08-27→2025-08-29 | PL 2026-05-08→2026-05-08 |
-| institutos | Paraná Pesquisas (1), AtlasIntel (1) | Veritá (1) |
-| fontes | poder360 | wikipedia |
+| pesquisas | 4 | 2 |
+| período | 2025-09-23 → 2026-08-02 | 2025-09-23 → 2025-09-23 |
+| média % | 54.9 | 50.8 |
+| partidos | PL 2025-09-23→2026-08-02 | PL 2025-09-23→2025-09-23 |
+| institutos | AtlasIntel (2), Real Time Big Data (1), Paraná Pesquisas (1) | Paraná Pesquisas (2) |
+| fontes | poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 10.9 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 4.1 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-09-23` cita *Flávio Bolsonaro* (52.6%, 2º turno) e `2025-09-23` cita *Michelle Bolsonaro* (42.8%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · CE` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 11 | 2 |
+| período | 2026-01-21 → 2026-07-28 | 2025-05-18 → 2025-12-15 |
+| média % | 24.8 | 24.3 |
+| partidos | PL 2026-01-21→2026-07-28 | PL 2025-05-18→2025-12-15 |
+| institutos | Quaest (3), Real Time Big Data (3), AtlasIntel (2), Paraná Pesquisas (2), +1 | Paraná Pesquisas (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 0.5 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · RS` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 5 | 2 |
+| período | 2026-04-28 → 2026-07-28 | 2025-02-23 → 2025-03-16 |
+| média % | 40.4 | 40.4 |
+| partidos | PL 2026-04-28→2026-07-28 | PL 2025-02-23→2025-03-16 |
+| institutos | Quaest (4), Real Time Big Data (1) | Paraná Pesquisas (1), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 0.0 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Quaest.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · RJ` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 13 | 2 |
+| período | 2026-02-02 → 2026-07-28 | 2025-02-23 → 2025-04-04 |
+| média % | 40.1 | 41.9 |
+| partidos | PL 2026-02-02→2026-07-28 | PL 2025-02-23→2025-04-04 |
+| institutos | Paraná Pesquisas (4), Real Time Big Data (3), Prefab (2), Quaest (2), +2 | Paraná Pesquisas (1), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · PE` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 15 | 2 |
+| período | 2025-12-30 → 2026-07-26 | 2025-02-23 → 2025-03-12 |
+| média % | 26.4 | 29.5 |
+| partidos | PL 2025-12-30→2026-07-26 | PL 2025-02-23→2025-03-12 |
+| institutos | Quaest (4), Real Time Big Data (4), Veritá (4), Datafolha (2), +1 | Paraná Pesquisas (1), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Quaest.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · BA` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 3 | 2 |
+| período | 2026-04-28 → 2026-07-25 | 2025-02-23 → 2025-07-29 |
+| média % | 22.7 | 28.1 |
+| partidos | PL 2026-04-28→2026-07-25 | PL 2025-02-23→2025-07-29 |
+| institutos | Quaest (2), 100% Cidades Participações (1) | Paraná Pesquisas (1), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.4 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Quaest.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · MS` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 4 | 2 |
+| período | 2026-02-06 → 2026-07-23 | 2025-05-16 → 2025-05-25 |
+| média % | 38.3 | 46.2 |
+| partidos | PL 2026-02-06→2026-07-23 | PL 2025-05-16→2025-05-25 |
+| institutos | Ranking (3), Real Time Big Data (1) | Ranking (1), Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 8.0 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Ranking.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · DF` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 4 | 2 |
+| período | 2026-05-10 → 2026-06-23 | 2025-03-25 → 2025-06-04 |
+| média % | 39.5 | 39.5 |
+| partidos | PL 2026-05-10→2026-06-23 | PL 2025-03-25→2025-06-04 |
+| institutos | França (2), Veritá (2) | Paraná Pesquisas (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 0.1 p.p.
+
+Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · TO` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 3 | 2 |
+| período | 2026-03-24 → 2026-06-18 | 2025-04-08 → 2025-08-13 |
+| média % | 37.7 | 41.7 |
+| partidos | PL 2026-03-24→2026-06-18 | PL 2025-04-08→2025-08-13 |
+| institutos | Real Time Big Data (3) | Paraná Pesquisas (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 4.0 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -1365,14 +1146,14 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 | | Rivaldo Fernandes | Rosália Fernandes |
 |---|---|---|
-| pesquisas | 1 | 27 |
-| período | 2025-12-02 → 2025-12-02 | 2026-05-05 → 2026-08-12 |
-| média % | 1.0 | 1.5 |
-| partidos | PV 2025-12-02→2025-12-02 | PSTU 2026-05-05→2026-08-12 |
-| institutos | Real Time Big Data (1) | Seta (5), Item (2), Agorasei (2), Veritá (2), +10 |
-| fontes | wikipedia | poder360, wikipedia |
+| pesquisas | 1 | 28 |
+| período | 2025-12-02 → 2025-12-02 | 2026-05-05 → 2026-08-14 |
+| média % | 1.0 | 1.4 |
+| partidos | PV 2025-12-02→2025-12-02 | PSTU 2026-05-05→2026-08-14 |
+| institutos | Real Time Big Data (1) | Seta (5), Item (3), DataVero (2), TN/Consult (2), +10 |
+| fontes |  | , poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 0.5 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.4 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -1401,22 +1182,505 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
 
-### Alexandre Luiz Giordano × Guilherme Giordano
+### Flávio Bolsonaro × Michelle Bolsonaro
 
-`Senado · SP` · token em comum: `giordano` · distância de edição: 13 · período: contido
+`Presidente · SP` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
 
-| | Alexandre Luiz Giordano | Guilherme Giordano |
+| | Flávio Bolsonaro | Michelle Bolsonaro |
 |---|---|---|
-| pesquisas | 1 | 1 |
-| período | 2025-09-03 → 2025-09-03 | 2025-08-24 → 2025-08-24 |
-| média % | 0.1 | 0.5 |
-| partidos | MDB 2025-09-03→2025-09-03 | MDB 2025-08-24→2025-08-24 |
-| institutos | AtlasIntel (1) | Paraná Pesquisas (1) |
-| fontes | wikipedia | poder360 |
+| pesquisas | 23 | 1 |
+| período | 2026-01-23 → 2026-08-10 | 2025-08-24 → 2025-08-24 |
+| média % | 40.7 | 46.5 |
+| partidos | PL 2026-01-23→2026-08-10 | PL 2025-08-24→2025-08-24 |
+| institutos | Vox (4), Futura (4), Real Time Big Data (3), Paraná Pesquisas (3), +6 | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
 
-Partidos: **coincidem (MDB)** · diferença entre as médias: 0.4 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Michelle Bolsonaro
+
+`Presidente · SP` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Jair Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 5 | 1 |
+| período | 2025-02-23 → 2025-08-24 | 2025-08-24 → 2025-08-24 |
+| média % | 43.2 | 46.5 |
+| partidos | PL 2025-02-23→2025-08-24 | PL 2025-08-24→2025-08-24 |
+| institutos | Paraná Pesquisas (4), Quaest (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-08-24` cita *Jair Bolsonaro* (38.9%, 1º turno) e `2025-08-24` cita *Michelle Bolsonaro* (46.5%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · AC` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 4 | 1 |
+| período | 2025-09-23 → 2026-08-02 | 2025-09-23 → 2025-09-23 |
+| média % | 54.9 | 59.3 |
+| partidos | PL 2025-09-23→2026-08-02 | PL 2025-09-23→2025-09-23 |
+| institutos | AtlasIntel (2), Real Time Big Data (1), Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 4.4 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-09-23` cita *Flávio Bolsonaro* (52.6%, 2º turno) e `2025-09-23` cita *Jair Bolsonaro* (59.3%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Michelle Bolsonaro
+
+`Presidente · AC` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Jair Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 2 |
+| período | 2025-09-23 → 2025-09-23 | 2025-09-23 → 2025-09-23 |
+| média % | 59.3 | 50.8 |
+| partidos | PL 2025-09-23→2025-09-23 | PL 2025-09-23→2025-09-23 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 8.5 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-09-23` cita *Jair Bolsonaro* (59.3%, 2º turno) e `2025-09-23` cita *Michelle Bolsonaro* (42.8%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · GO` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 18 | 1 |
+| período | 2026-01-12 → 2026-08-04 | 2025-02-23 → 2025-02-23 |
+| média % | 37.9 | 50.0 |
+| partidos | PL 2026-01-12→2026-08-04 | PL 2025-02-23→2025-02-23 |
+| institutos | Direct Pesquisas (6), Quaest (4), Real Time Big Data (4), Portal Goiás (2), +2 | Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 12.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Quaest.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Michelle Bolsonaro
+
+`Presidente · PA` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Flávio Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 8 | 1 |
+| período | 2026-03-21 → 2026-08-03 | 2025-12-15 → 2025-12-15 |
+| média % | 34.9 | 29.8 |
+| partidos | PL 2026-03-21→2026-08-03 | PL 2025-12-15→2025-12-15 |
+| institutos | Quaest (4), Real Time Big Data (2), Doxa (1), Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Rogéria Bolsonaro
+
+`Senado · RJ` · token em comum: `bolsonaro` · distância de edição: 6 · período: disjunto
+
+| | Flávio Bolsonaro | Rogéria Bolsonaro |
+|---|---|---|
+| pesquisas | 2 | 1 |
+| período | 2025-08-27 → 2025-08-29 | 2026-05-08 → 2026-05-08 |
+| média % | 28.0 | 17.1 |
+| partidos | PL 2025-08-27→2025-08-29 | PL 2026-05-08→2026-05-08 |
+| institutos | AtlasIntel (1), Paraná Pesquisas (1) | Veritá (1) |
+| fontes | poder360 |  |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 10.9 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Jair Bolsonaro
+
+`Presidente · PI` · token em comum: `bolsonaro` · distância de edição: 4 · período: contido
+
+| | Flávio Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 7 | 1 |
+| período | 2026-05-18 → 2026-07-27 | 2026-05-18 → 2026-05-18 |
+| média % | 19.0 | 20.4 |
+| partidos | PL 2026-05-18→2026-07-27 | PL 2026-05-18→2026-05-18 |
+| institutos | AtlasIntel (6), Data AZ (1) | AtlasIntel (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.4 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** AtlasIntel: `2026-05-18` cita *Flávio Bolsonaro* (19.4%, 1º turno) e `2026-05-18` cita *Jair Bolsonaro* (20.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Eduardo Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 42 · período: disjunto
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Eduardo Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2025-07-06 → 2025-07-06 |
+| média % | 29.1 | 49.9 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2025-07-06→2025-07-06 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 20.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Flávio Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 43 · período: disjunto
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Flávio Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 8 |
+| período | 2024-03-22 → 2024-03-22 | 2026-01-22 → 2026-07-25 |
+| média % | 29.1 | 41.6 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2026-01-22→2026-07-25 |
+| institutos | Paraná Pesquisas (1) | Quaest (3), Paraná Pesquisas (3), Futura (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 12.5 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Michelle Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 42 · período: disjunto
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2025-07-06 → 2025-07-06 |
+| média % | 29.1 | 55.7 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2025-07-06→2025-07-06 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 26.6 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 14 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 43.4 |
+| partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 14.3 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 12 · período: contido
+
+| | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 29.1 | 40.8 |
+| partidos | PP 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 11.7 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Flávio Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 5 · período: disjunto
+
+| | Eduardo Bolsonaro | Flávio Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 8 |
+| período | 2025-07-06 → 2025-07-06 | 2026-01-22 → 2026-07-25 |
+| média % | 49.9 | 41.6 |
+| partidos | PL 2025-07-06→2025-07-06 | PL 2026-01-22→2026-07-25 |
+| institutos | Paraná Pesquisas (1) | Quaest (3), Paraná Pesquisas (3), Futura (2) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 8.3 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 6 · período: contido
+
+| | Eduardo Bolsonaro | Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 6 |
+| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2025-07-06 |
+| média % | 49.9 | 43.8 |
+| partidos | PL 2025-07-06→2025-07-06 | PL 2024-03-22→2025-07-06 · PP 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (5), Quaest (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 6.1 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-07-06` cita *Eduardo Bolsonaro* (49.9%, 2º turno) e `2025-07-06` cita *Jair Bolsonaro* (34.4%, 1º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Michelle Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Eduardo Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2025-07-06 → 2025-07-06 | 2025-07-06 → 2025-07-06 |
+| média % | 49.9 | 55.7 |
+| partidos | PL 2025-07-06→2025-07-06 | PL 2025-07-06→2025-07-06 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.8 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-07-06` cita *Eduardo Bolsonaro* (49.9%, 2º turno) e `2025-07-06` cita *Michelle Bolsonaro* (55.7%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 46 · período: contido
+
+| | Eduardo Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
+| média % | 49.9 | 43.4 |
+| partidos | PL 2025-07-06→2025-07-06 | PL 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 6.5 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Eduardo Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
+
+| | Eduardo Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
+| média % | 49.9 | 40.8 |
+| partidos | PL 2025-07-06→2025-07-06 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 9.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Michelle Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Flávio Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 8 | 1 |
+| período | 2026-01-22 → 2026-07-25 | 2025-07-06 → 2025-07-06 |
+| média % | 41.6 | 55.7 |
+| partidos | PL 2026-01-22→2026-07-25 | PL 2025-07-06→2025-07-06 |
+| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 14.1 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 47 · período: contido
+
+| | Flávio Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 8 | 1 |
+| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
+| média % | 41.6 | 43.4 |
+| partidos | PL 2026-01-22→2026-07-25 | PL 2024-03-22→2024-03-22 |
+| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 1.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Flávio Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
+
+| | Flávio Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 8 | 1 |
+| período | 2026-01-22 → 2026-07-25 | 2024-03-22 → 2024-03-22 |
+| média % | 41.6 | 40.8 |
+| partidos | PL 2026-01-22→2026-07-25 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Quaest (3), Paraná Pesquisas (3), Futura (2) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 0.8 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Jair Bolsonaro × Michelle Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 8 · período: contido
+
+| | Jair Bolsonaro | Michelle Bolsonaro |
+|---|---|---|
+| pesquisas | 6 | 1 |
+| período | 2024-03-22 → 2025-07-06 | 2025-07-06 → 2025-07-06 |
+| média % | 43.8 | 55.7 |
+| partidos | PL 2024-03-22→2025-07-06 · PP 2024-03-22→2024-03-22 | PL 2025-07-06→2025-07-06 |
+| institutos | Paraná Pesquisas (5), Quaest (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **coincidem (PL)** · diferença entre as médias: 11.9 p.p.
+
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2025-07-06` cita *Jair Bolsonaro* (34.4%, 1º turno) e `2025-07-06` cita *Michelle Bolsonaro* (55.7%, 2º turno).
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `bolsonaro` · distância de edição: 48 · período: contido
+
+| | Michelle Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2025-07-06 → 2025-07-06 | 2024-03-22 → 2024-03-22 |
+| média % | 55.7 | 40.8 |
+| partidos | PL 2025-07-06→2025-07-06 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 14.9 p.p.
+
+Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
+
+- [ ] mesma pessoa → canônico: `________________`
+- [ ] pessoas diferentes
+- [ ] não sei — verificar em: `________________`
+
+### Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro × Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro
+
+`Presidente · PR` · token em comum: `com, apoio, ex-presidente, jair, bolsonaro` · distância de edição: 17 · período: contido
+
+| | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
+|---|---|---|
+| pesquisas | 1 | 1 |
+| período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2024-03-22 |
+| média % | 43.4 | 40.8 |
+| partidos | PL 2024-03-22→2024-03-22 | Republicanos 2024-03-22→2024-03-22 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (1) |
+| fontes | poder360 | poder360 |
+
+Partidos: **CONTRADIZEM** · diferença entre as médias: 2.6 p.p.
+
+**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
