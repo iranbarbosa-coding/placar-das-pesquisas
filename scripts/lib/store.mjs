@@ -174,10 +174,14 @@ function newReport() {
            // diferente de zero é a re-cunhagem acontecendo, e é a única coisa
            // que a torna visível sem ler o diff inteiro.
            //
-           // AS DUAS TABELAS CONTAM SEPARADO de propósito: enquanto havia um
+           // AS TRÊS TABELAS CONTAM SEPARADO de propósito: enquanto havia um
            // `orphaned` só, `people` sequer era traduzida — um contador comum
-           // teria escondido isso mostrando o zero legítimo do candidato.
-           translated: { candidates: 0, orphanedCandidates: 0, people: 0, orphanedPeople: 0 },
+           // teria escondido isso mostrando o zero legítimo do candidato. Foi
+           // exatamente o que aconteceu de novo com `institutes`: as duas linhas
+           // acima ficavam em zero, a linha `RE-CUNHAGEM` nem era impressa, e o
+           // instituto perdia `first_seen` atrás desse zero legítimo.
+           translated: { candidates: 0, orphanedCandidates: 0, people: 0, orphanedPeople: 0,
+                         institutes: 0, orphanedInstitutes: 0 },
            // Quantas perguntas ficaram com o elenco da rodada ANTERIOR porque a
            // fonte encolheu o que devolve, e quantas linhas de candidato isso
            // salvou. Numa rodada em que a fonte está sã é zero; diferente de
@@ -319,6 +323,13 @@ export function resolveInstitute(store, rawName, { mint = true } = {}) {
   const institute_id = mintInstituteId(`institute|${key}`);
   const rec = {
     institute_id,
+    // A LINHAGEM DO INSTITUTO, como a do levantamento, a do candidato e a da
+    // pessoa. Faltava aqui, e a tabela nem tinha o campo: quando
+    // `canonicalizePollsters` trocou o canônico "Percent Brasil" por "Percent",
+    // o id — que sai do nome canônico — se moveu e a linha antiga sumiu sem
+    // deixar rastro, levando o `first_seen` junto. Quem preenche é
+    // `translateInstituteStamps`, em `build-store.mjs`.
+    legacy_ids: [],
     canonical: String(rawName).trim(),
     aliases: [String(rawName).trim()],
     cnpj: null, merged_into: null, first_seen: firstSeenFor(store, "institutes", institute_id),

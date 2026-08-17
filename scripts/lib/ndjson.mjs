@@ -38,7 +38,12 @@ export const FIELD_ORDER = {
     "categories", "candidates", "matrix", "extras", "orientation_raw",
     "extraction", "reconciliation", "status",
   ],
-  institute: ["institute_id", "canonical", "aliases", "cnpj", "merged_into", "first_seen"],
+  // `legacy_ids` logo depois do id, como em `survey`, `candidate` e `person`, e
+  // pelo mesmo motivo: é a linhagem do próprio id e quem revisa o diff precisa
+  // vê-la ao lado dele. Sem o campo — que esta tabela não tinha — um
+  // `institute_id` recunhado pela mudança do nome canônico desaparecia sem
+  // rastro. Ver `translateInstituteStamps` em `lib/build-store.mjs`.
+  institute: ["institute_id", "legacy_ids", "canonical", "aliases", "cnpj", "merged_into", "first_seen"],
   // A pessoa: identidade GLOBAL, acima da disputa. `sq_candidato` é lista
   // porque duas pessoas do Piauí têm dois registros cada (re-registro, não
   // homônimo). `display_from` grava POR QUE o nome exibido é o que é — até aqui

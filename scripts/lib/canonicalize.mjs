@@ -86,7 +86,29 @@ const POLLSTER_STOP = new Set([
   "dados", "data", "big", "time", "grupo", "group", "brasil", "op",
 ]);
 
-function pollsterTokens(name) {
+/**
+ * EXPORTADA porque a TRADUÇÃO DE CARIMBO tem de reencontrar o instituto pela
+ * MESMA regra que decidiu que as duas linhas são um instituto só.
+ *
+ * `translateInstituteStamps` (em `lib/build-store.mjs`) casa a linha antiga com
+ * a nova por estes tokens, e não podia ser por outra chave: quando o
+ * agrupamento aqui trocou o canônico "Percent Brasil" por "Percent", o
+ * `institute_id` (cunhado do nome canônico) se moveu e os conjuntos de ALIASES
+ * das duas linhas ficaram DISJUNTOS — `["Percent Brasil"]` contra `["Percent"]`.
+ * Uma chave por alias só acharia um órfão; o token compartilhado `percent` é o
+ * que reencontra a linha — e é literalmente o motivo pelo qual as duas viraram
+ * um instituto só.
+ *
+ * ⚠ BASTA UM TOKEN EM COMUM; não é igualdade de conjunto. Já esteve escrito
+ * aqui que o casamento depende de "brasil" estar em `POLLSTER_STOP`. Não
+ * depende: removendo "brasil" da lista, o caso da Percent continua traduzindo
+ * (provado por mutação numa verificação independente). A stopword reduz colisão,
+ * não é o que faz o reencontro acontecer.
+ *
+ * Um SEGUNDO normalizador seria o defeito clássico deste repositório — um
+ * ajudante que existia duas vezes publicou um homem sob dois nomes (§5).
+ */
+export function pollsterTokens(name) {
   return new Set(
     name
       .normalize("NFD")

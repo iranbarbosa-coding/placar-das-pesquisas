@@ -35,6 +35,7 @@ import { identityConflicts } from "./candidates.mjs";
 import { retainRicherRosters } from "./roster.mjs";
 import { nameKey } from "./ids.mjs";
 import { normNome } from "./nomes.mjs";
+import { pollsterTokens } from "./canonicalize.mjs";
 
 // A lista mora em `store.mjs`. Ela existia copiada aqui, em
 // `migrate-to-store.mjs` e em `idempotence-check.mjs` — e o defeito recorrente
@@ -108,9 +109,12 @@ export function buildStoreFromPolls(polls, {
   // truncado. Ver `scripts/lib/roster.mjs`.
   reterElencos(store, previous, runDate);
   markHeadlines(store);
-  // A PESSOA PRIMEIRO, a linha que a cita depois. As duas traduções são
+  // A PESSOA PRIMEIRO, a linha que a cita depois. As três traduções são
   // independentes (cada uma casa a sua tabela contra a anterior), mas a ordem
-  // que se lê é a da identidade → a linha, e é assim que ela fica escrita.
+  // que se lê é a da identidade → a linha, e é assim que ela fica escrita. O
+  // instituto entra junto porque a sua ausência aqui era a MESMA perda
+  // silenciosa: ver `translateInstituteStamps`.
+  translateInstituteStamps(store, previous, runDate);
   translatePersonStamps(store, previous, runDate);
   translateCandidateStamps(store, previous, runDate);
   settleProvenance(store, previous, runDate);
@@ -237,6 +241,71 @@ function translateCandidateStamps(store, previous, runDate) {
       .filter(Boolean).map((n) => `${c.contest}|${nameKey(n)}`),
     tipoConflito: "candidate_id_orphaned", contador: "candidates", orfaos: "orphanedCandidates",
     descrever: (c) => `${c.contest} — "${c.canonical}"`,
+  });
+}
+
+/**
+ * A MESMA TRADUÇÃO PARA O INSTITUTO — a terceira tabela, e a última que ainda
+ * perdia data em silêncio.
+ *
+ * O `institute_id` é cunhado do NOME CANÔNICO (`institute|${nameKey(nome)}` em
+ * `resolveInstitute`), e o nome canônico é decidido por `canonicalizePollsters`,
+ * que escolhe o nome ATESTADO mais curto do agrupamento. Então basta uma coleta
+ * nova mudar a atestação para o canônico mudar e o id se mover — que é
+ * agrupamento legítimo, não defeito. O defeito era o que acontecia depois:
+ * `priorStamps` carrega `first_seen` POR ID, o id novo não achava nada, e a
+ * linha nascia com a data da rodada.
+ *
+ * MEDIDO no banco vivo (rodada de 17/08/2026, `bc18b57` → `d908912`):
+ *   antes  {"institute_id":"i_836e2d6c6f26","canonical":"Percent Brasil",…,"first_seen":"2026-08-14"}
+ *   depois {"institute_id":"i_661f5eabdd5a","canonical":"Percent",…,"first_seen":"2026-08-17"}
+ * Três dias de `first_seen` morreram, o nome antigo sumiu, e NADA foi logado —
+ * a tabela sequer tinha `legacy_ids`.
+ *
+ * A CHAVE DE REENCONTRO SAI DA REGRA QUE FUNDIU AS DUAS LINHAS, não de uma
+ * parecida. Casar por alias NÃO funciona e isso foi medido, não suposto: os
+ * conjuntos de aliases são DISJUNTOS (`["Percent Brasil"]` vs `["Percent"]`,
+ * porque `resolveInstitute` cunha a linha com um alias só, o nome canônico da
+ * rodada). Uma chave por alias logaria um órfão e perderia a data do mesmo
+ * jeito. Quem decidiu que as duas são um instituto só foi a contenção de tokens
+ * de `canonicalizePollsters`, então a chave sai de `pollsterTokens` — essa
+ * função importada, não uma cópia dela (§5).
+ *
+ * ⚠ O CASAMENTO É POR TOKEN COMPARTILHADO, NÃO POR CONJUNTO IGUAL. Uma versão
+ * anterior deste comentário dizia que "Percent Brasil" e "Percent" casam porque
+ * `POLLSTER_STOP` contém "brasil" e os dois reduzem a `{percent}`. É falso, e a
+ * verificação independente derrubou por mutação: tirando "brasil" da lista de
+ * genéricas, o caso da Percent CONTINUA traduzindo. `chavesDe` emite uma chave
+ * POR TOKEN, e basta um token em comum. A stopword não é o que faz isto
+ * funcionar — ela só reduz a chance de colisão.
+ *
+ * A CHAVE É GROSSA, e a recusa por ambiguidade é o que a torna segura. Um token
+ * que alcance mais de uma linha nova não decide nada: `traduzirCarimbos` conta
+ * órfão e escreve `institute_id_orphaned` em `conflicts.ndjson`, em vez de
+ * escolher a primeira (§4).
+ *
+ * QUANTO ISSO ACONTECE, MEDIDO no banco vivo (137 institutos, 157 tokens): ZERO
+ * tokens são compartilhados por mais de um instituto, e zero linhas alcançam
+ * mais de um alvo. Não é sorte — é o mesmo agrupamento: dois nomes que dividem
+ * um token distintivo já teriam sido fundidos num instituto só lá em cima. A
+ * recusa continua exercitada por um caso sintético no `upsert-harness`, porque
+ * um caminho de falha que nunca roda não é evidência de nada (§2).
+ *
+ * O QUE ESTA CHAVE NÃO ALCANÇA, e é o custo honesto dela: 6 dos 137 institutos
+ * têm conjunto de tokens VAZIO, porque o nome inteiro cai em `POLLSTER_STOP` ou
+ * no piso de 3 letras — "SM Pesquisas", "Opinião", "Opinião Consultoria",
+ * "Data AZ", "W1", "MT Dados". Se um deles for recunhado, não há chave, a
+ * tradução falha e o `first_seen` se perde — mas AGORA com uma linha
+ * `institute_id_orphaned` em `conflicts.ndjson` dizendo isso, que é a diferença
+ * entre uma perda vista e a perda silenciosa que este caso existe para acabar.
+ */
+function translateInstituteStamps(store, previous, runDate) {
+  traduzirCarimbos(store, previous, runDate, {
+    tabela: "institutes", idField: "institute_id",
+    chavesDe: (i) => [...new Set([i.canonical, ...(i.aliases ?? [])])]
+      .filter(Boolean).flatMap((n) => [...pollsterTokens(n)]).map((t) => `tok|${t}`),
+    tipoConflito: "institute_id_orphaned", contador: "institutes", orfaos: "orphanedInstitutes",
+    descrever: (i) => `"${i.canonical}"`,
   });
 }
 

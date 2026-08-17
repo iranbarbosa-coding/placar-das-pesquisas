@@ -567,10 +567,18 @@ function persistStore(polls, dataset) {
   // uma pesquisa nova da fonte de topo escrevendo de outro jeito o nome de quem
   // não se registrou recunhava a pessoa, e o `first_seen` dela virava a data da
   // rodada sem uma linha de log — a mesma perda de 16/08, uma tabela acima.
+  //
+  // O INSTITUTO APARECE JUNTO, e era a última das três tabelas que se movia em
+  // silêncio: `canonicalizePollsters` escolhe o nome atestado mais curto, o
+  // `institute_id` sai do nome canônico, então uma coleta nova que mude a
+  // atestação move o id. Foi o que apagou três dias de `first_seen` do
+  // "Percent Brasil" → "Percent" em 17/08/2026 sem uma linha de log.
   const t = store._report.translated;
-  if (t.candidates || t.orphanedCandidates || t.people || t.orphanedPeople) {
-    console.log(`  RE-CUNHAGEM: ${t.people} pessoa(s) e ${t.candidates} candidato(s) com first_seen ` +
-      `traduzido do id antigo (gravado em legacy_ids) · ${t.orphanedPeople + t.orphanedCandidates} ` +
+  if (t.candidates || t.orphanedCandidates || t.people || t.orphanedPeople ||
+      t.institutes || t.orphanedInstitutes) {
+    console.log(`  RE-CUNHAGEM: ${t.people} pessoa(s), ${t.candidates} candidato(s) e ` +
+      `${t.institutes} instituto(s) com first_seen traduzido do id antigo (gravado em legacy_ids) · ` +
+      `${t.orphanedPeople + t.orphanedCandidates + t.orphanedInstitutes} ` +
       `sem tradução, registrados em conflicts.ndjson`);
   }
   // O ELENCO RETIDO TEM DE APARECER NA SAÍDA DA RODADA, pelo mesmo motivo da

@@ -23,6 +23,7 @@ import {
   priorStamps, emptyIndexes, TABLE_NAMES, DATA_DIR,
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
+import { writeStoreFromPolls } from "./lib/build-store.mjs";
 import { mintCandidateId, nameKey } from "./lib/ids.mjs";
 import { normNome } from "./lib/nomes.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
@@ -1046,6 +1047,115 @@ check("toda linha de candidato carrega person_id e mint_seed", (store, assert) =
   for (const p of store.people) {
     assert(!!p.mint_seed, `pessoa ${p.person_id} sem mint_seed`);
     assert(p.merged_into === null, `pessoa ${p.person_id} nasceu com merged_into preenchido`);
+  }
+});
+
+// ==========================================================================
+// 10. O INSTITUTO — a terceira tabela cujo id se move
+// ==========================================================================
+//
+// Os três casos abaixo rodam o CAMINHO DE VERDADE (`writeStoreFromPolls`, o
+// mesmo que o coletor chama) contra um estado anterior gravado em diretório
+// temporário. Chamar `traduzirCarimbos` direto provaria uma propriedade de
+// código que o pipeline não executa — CONVENTIONS §2.
+
+/** Um estado anterior com UMA linha de instituto, em diretório temporário. */
+function dirComInstituto(linha) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-inst-"));
+  fs.writeFileSync(path.join(dir, "institutes.ndjson"), JSON.stringify(linha) + "\n");
+  return dir;
+}
+
+check("o instituto RECUNHADO leva o first_seen e grava a linhagem", (_store, assert) => {
+  // O caso REAL, medido na rodada de 17/08/2026: `canonicalizePollsters` passou
+  // a preferir o nome atestado mais curto, "Percent Brasil" virou "Percent", o
+  // `institute_id` (cunhado do nome canônico) se moveu de `i_836e2d6c6f26` para
+  // `i_661f5eabdd5a` — e três dias de `first_seen` morreram sem uma linha de log,
+  // porque esta tabela não tinha tradução nenhuma nem campo `legacy_ids`.
+  const dir = dirComInstituto({
+    institute_id: "i_836e2d6c6f26", canonical: "Percent Brasil", aliases: ["Percent Brasil"],
+    cnpj: null, merged_into: null, first_seen: "2026-08-14",
+  });
+  try {
+    const { store: novo } = writeStoreFromPolls([poll({ pollster: "Percent" })],
+      { runDate: "2026-08-17", dir });
+    const inst = novo.institutes.find((i) => i.canonical === "Percent");
+    assert(!!inst, "o instituto 'Percent' não foi cunhado");
+    assert(inst?.institute_id === "i_661f5eabdd5a",
+      `id inesperado: ${inst?.institute_id} (a semente do id mudou; o caso deixou de reproduzir o real)`);
+    assert(inst?.first_seen === "2026-08-14",
+      `first_seen ${inst?.first_seen} — a data NÃO atravessou a recunhagem`);
+    assert((inst?.legacy_ids ?? []).includes("i_836e2d6c6f26"),
+      `legacy_ids ${JSON.stringify(inst?.legacy_ids)} — o id antigo não ficou registrado`);
+    assert(novo._report.translated.institutes === 1,
+      `contador translated.institutes = ${novo._report.translated.institutes}, esperado 1`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("a linhagem do instituto NÃO evapora na rodada seguinte", (_store, assert) => {
+  // O defeito que custou 1.080 linhas de candidato: a rodada N grava
+  // `legacy_ids`, na N+1 nenhum id some, a tradução não roda, e como o store é
+  // RECONSTRUÍDO DO ZERO a linha nasce com `legacy_ids: []`. A união com o
+  // estado anterior é feita em `traduzirCarimbos`, antes de qualquer tradução —
+  // este caso confere que ela vale também para institutos.
+  const dir = dirComInstituto({
+    institute_id: "i_836e2d6c6f26", canonical: "Percent Brasil", aliases: ["Percent Brasil"],
+    cnpj: null, merged_into: null, first_seen: "2026-08-14",
+  });
+  try {
+    writeStoreFromPolls([poll({ pollster: "Percent" })], { runDate: "2026-08-17", dir });
+    const { store: n2 } = writeStoreFromPolls([poll({ pollster: "Percent" })],
+      { runDate: "2026-09-20", dir });
+    const inst = n2.institutes.find((i) => i.canonical === "Percent");
+    assert((inst?.legacy_ids ?? []).includes("i_836e2d6c6f26"),
+      `legacy_ids ${JSON.stringify(inst?.legacy_ids)} na rodada N+1 — a linhagem evaporou`);
+    assert(inst?.first_seen === "2026-08-14",
+      `first_seen ${inst?.first_seen} na rodada N+1 — a data se perdeu na segunda rodada`);
+    assert(n2._report.translated.institutes === 0,
+      `translated.institutes = ${n2._report.translated.institutes} na N+1 — nada se moveu, nada devia ser traduzido`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("recusa: token que alcança DOIS institutos novos não traduz nada", (_store, assert) => {
+  // A chave de reencontro é GROSSA de propósito — é a mesma contenção de tokens
+  // que decidiu que as duas linhas são um instituto só. O preço é que um token
+  // pode alcançar mais de um alvo, e aí a única resposta honesta é NÃO escolher
+  // (CONVENTIONS §4): sem isto, "Alfa Brasil" doaria a sua data ao primeiro
+  // "Alfa" que aparecesse na ordem do array, que é procedência inventada.
+  //
+  // No banco vivo isto NÃO acontece hoje (medido: 0 de 137 institutos têm token
+  // compartilhado, porque o próprio agrupamento já teria fundido dois nomes que
+  // dividem um token distintivo). O caso é sintético porque a recusa tem de ser
+  // exercitada mesmo assim — um guarda cujo caminho de falha nunca rodou não é
+  // evidência de nada.
+  const dir = dirComInstituto({
+    institute_id: "i_ffffffffffff", canonical: "Alfa Brasil", aliases: ["Alfa Brasil"],
+    cnpj: null, merged_into: null, first_seen: "2026-01-01",
+  });
+  try {
+    const { store: novo } = writeStoreFromPolls([
+      poll({ id: "a", pollster: "Alfa Pesquisas", tse_registration: "MG-11111/2026" }),
+      poll({ id: "b", pollster: "Alfa Consultoria", tse_registration: "MG-22222/2026" }),
+    ], { runDate: "2026-08-17", dir });
+    assert(novo.institutes.length === 2, `${novo.institutes.length} institutos, esperado 2`);
+    assert(novo._report.translated.institutes === 0,
+      `traduziu ${novo._report.translated.institutes} — a ambiguidade foi resolvida por escolha`);
+    assert(novo._report.translated.orphanedInstitutes === 1,
+      `órfãos ${novo._report.translated.orphanedInstitutes}, esperado 1`);
+    for (const i of novo.institutes) {
+      assert(i.first_seen === "2026-08-17", `${i.canonical} herdou ${i.first_seen} de um casamento ambíguo`);
+      assert(!(i.legacy_ids ?? []).length, `${i.canonical} herdou linhagem ${JSON.stringify(i.legacy_ids)}`);
+    }
+    const k = novo.conflicts.find((c) => c.type === "institute_id_orphaned");
+    assert(!!k, "a recusa não deixou linha em conflicts.ndjson — silêncio não é sucesso (§2)");
+    assert(k?.record_id === "i_ffffffffffff", `conflito sobre ${k?.record_id}`);
+    assert((k?.incoming ?? []).length === 2, `o conflito não nomeia os dois alvos: ${JSON.stringify(k?.incoming)}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
   }
 });
 
