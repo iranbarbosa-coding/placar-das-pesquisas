@@ -15,7 +15,7 @@ Brazilian 2026 elections (president, 27 governors, senate), in pt-BR.
 
 | | |
 |---|---|
-| Database | **~2.959 polls** · ~1.001 surveys · 27 states · 137 institutes · ~1.064 candidates |
+| Database | **2.963 polls** · 1.002 surveys · 27 states · 137 institutes · 1.080 candidates (16/08, commit `04eb80a`) |
 | Store | `data/*.ndjson` is THE DATABASE, written by the scraper through the ladder. `data/polls.json` is DERIVED from it |
 | Normalised? | `CENSO_BANCO.md`, regenerated every run — **14 items, 0 double-counted polls**. That file is the operational definition; see §6 |
 | Site | builds clean, 38 pages, light+dark, pt-BR. Reads the store |
@@ -34,16 +34,16 @@ recurring one; the idempotence guard covers the recurring case.
 Recent commits (newest first):
 
 ```
-8ba943e  A Action passa a rodar o pipeline do store
-bc18b57  Agrupamento de institutos estável; coleta com presidencial estadual
-e78b945  Pesquisas incompletas na fonte: fora da média, e listadas para decisão
-56c43cb  Nomes de urna corrigidos; decisões passam a valer no consumo
-bb2ee45  Os 63 pares decididos: 34 mesma pessoa · 26 diferentes · 3 em aberto
-5d86195  Colisão de semente na cunhagem de levantamento — e o portão que a achou
-d15cc91  Um registro = um levantamento; datas de partido ratificadas no TSE
-aafeb3c  Harness do caminho de escrita — e três defeitos que ele achou
-8d7e0e8  Bloqueador da Fase 3 fechado
-35a6758  Fase 2: o site passa a ler o store
+04eb80a  A rodada que finalmente publica: acentos, nome de urna por pessoa, dois reparos
+5cc4c3a  Senado na Bahia (Quaest): faltavam dois nomes, e duas datas estavam erradas
+578fe93  A pesquisa do Senado na Bahia estava sem o líder — seis linhas descartadas
+4e5fd1a  Pesquisa reescalada do Senado sai da média pela mesma regra
+267fda6  Partido e estado entram no casamento entre disputas
+792bb8f  As presidenciais estaduais não tinham elenco — 354 ambiguidades fantasma
+6702067  O passo entre disputas absorvia gente diferente — e o 1º conserto piorou
+f61a0e4  O nome de urna vale por pessoa, não por disputa
+57e545d  Ciro Gomes é Ciro Gomes nas presidenciais; e o id que segue o nome exibido
+982eca7  O casador de nomes de urna nunca tinha rodado — e o norm() que o desfazia
 ```
 
 ## 0. If you read nothing else
@@ -197,18 +197,28 @@ porque contra o registro inteiro (519 candidaturas) a contenção nos dois senti
 deixaria qualquer token compartilhado casar. Ambiguidade continua **recusada**:
 se o nome cabe em mais de uma PESSOA, fica como está.
 
-Ensaio de 16/08 (sem gravar): **297 resoluções entre disputas, 31 recusas.**
-`Romeu Zema → Zema`, `Tarcísio de Freitas → Tarcísio`, `Ciro Gomes` em toda
-parte. Recusas corretas: `Ciro` pelado (cabe em Ciro Ferreira Gomes e em Ciro
-Nogueira Lima Filho — por isso os três rulings), e `Rui Costa` (Rui Costa
-Pimenta, presidente, × Rui Costa, senador:BA). `Lula` também é recusado, porque
-"lula" é token de `Cadu de Lula` e `Samanda de Lula` — inofensivo, já que o nome
-já é "Lula", mas é a maior parte das 31.
+✅ **RODADO E PUBLICADO em 16/08 (`04eb80a`).** Números da rodada real:
+**411 exatos · 158 contenção · 2 ambíguos · 596 sem candidatura.** Efeito
+publicado: `Zema` 434 (estava partido em "Zema" 272 × "Romeu Zema" 153),
+`Tarcísio` 218 (estava 53 × 165), `Ciro Gomes` 164 em todas as disputas,
+`Flávio Bolsonaro` 405 e `Clariana Barão` 4 com zero grafias sem acento.
 
-⚠ **COMMITADO (`f61a0e4`), NÃO RODADO.** Este arquivo chegou a dizer "nem
-commitado" — errado, era nota escrita antes do commit e não atualizada depois.
-`data/ballot-names.json` no disco ainda é a saída POR DISPUTA; **a próxima
-rodada da Action executa o passo entre disputas contra o banco vivo.**
+As 2 recusas que sobram são reais: `Ciro` pelado (cabe em Ciro Ferreira Gomes e
+em Ciro Nogueira Lima Filho — por isso os três rulings) e `Rui Costa` (Rui Costa
+Pimenta, presidente, × Rui Costa, senador:BA). Sobrevivem à unificação e devem
+sobreviver: `Tarcísio Motta` (outra pessoa, PSOL/RJ) e `Tarcísio de Freitas, com
+apoio do ex-presidente Jair Bolsonaro` (rótulo de cenário com tokens a mais).
+
+⚠ **A REGRA DE ESTADO BLOQUEOU 23 LINHAS ANTES DE ALGUÉM OLHAR — e o defeito é
+de quem escreveu a regra.** Todas em `presidente:<UF>`. Uma subamostra estadual
+da presidencial é disputa NACIONAL amostrada localmente, mas a regra lia o "AC"
+de `presidente:AC` como o estado da candidatura. Tarcísio, registrado em
+`governador:SP`, era recusado em toda parte menos `presidente:SP`, onde os
+estados coincidiam POR ACASO — o mesmo homem com dois nomes conforme a
+subamostra, que é o defeito que o nome de urna por pessoa existe para acabar.
+`ufPesquisa` agora é "BR" em toda disputa presidencial. **A lição é geral: a
+chave da disputa carrega DUAS coisas diferentes — a UF da amostra e a UF da
+candidatura — e confundir as duas é fácil.**
 
 ⚠ **A PRIMEIRA VERSÃO DO PASSO ERA INSEGURA — dois erros confirmados, 39 linhas.**
 `contido(pesquisado, registrado)` deixava um nome pesquisado de 2 tokens caber
@@ -779,68 +789,68 @@ every validator here has a `--self-test` for that reason.
 
 **A FAZER PRIMEIRO na próxima sessão**
 
-0. ✅ **ACENTOS: FEITO** (16/08, tarde). `melhorGrafia()` sobrepôs o registro em
-   **17 entradas** — `Flavio Bolsonaro → Flávio Bolsonaro`,
-   `Clariana Barao → Clariana Barão` e mais 15. Zero grafias sem acento sobram
-   em qualquer artefato publicado (`candidaturas.ndjson` ainda tem as duas sem
-   acento, e deve ter mesmo: é o registro do TSE, não saída nossa).
-   Mas o item 1 abaixo **não era o que estava escrito aqui**: o casador estava
-   quebrado e nunca tinha rodado (§1b), então esta passada aplicou o **ruling de
-   nome de urna inteiro pela primeira vez**, não só os acentos —
-   `Antônio Furlan → Dr. Furlan`, `Romeu Zema → Zema`,
-   `Natasha Slhessarenko → Doutora Natasha`. O censo não mexeu (14 itens, 0
-   pesquisas contadas em dobro).
+Tudo abaixo de 16/08 está RODADO E PUBLICADO em `04eb80a`, exceto o item 1.
 
-1. ⚠ **RODAR O NOME DE URNA ENTRE DISPUTAS — código pronto, banco NÃO rodado.**
-   Decidido pelo criador em 16/08 (§1b): o nome de urna vale por PESSOA.
-   `match-ballot-names.mjs` já implementa o passo, ensaiado em 297 resoluções /
-   31 recusas, mas **a mudança está só na árvore de trabalho, não commitada**, e
-   `data/` está no estado do commit `982eca7` — o ensaio foi gravado num arquivo
-   temporário, não no banco. Se a árvore for perdida, o passo entre disputas
-   some junto; o que sobrevive é esta decisão e os rulings.
-   **ANTES de rodar, resolver a questão do `candidate_id`** (§1b): o id
-   acompanha o nome exibido, então estas 297 renomeações vão cunhar ids novos e
-   orfanar os antigos. Uma troca de regra bem menor já trocou 27 de 1.078.
-   `Ciro` pelado já está resolvido por ruling em `presidente:BR/RO/TO`
-   (`data/candidate-rulings.json`, 6 → 9 rulings, não commitado).
-   A heurística de "grafia mais completa" em `canonicalize.mjs` foi **testada e
-   descartada pelo criador** — não reintroduzir: ela renomeava 32 candidatos que
-   ninguém pediu (`José Aleluia → José Carlos Aleluia`, `Kassab → Gilberto
-   Kassab`) e chegou a rebaixar `Covatti Filho` para `Covatti filho`.
+1. ⚠ **CAMADA DE PESSOAS — está no branch `wip/people-identity` (`81a8fc3`), NÃO
+   no main, e foi REPROVADA por verificação independente.** O commit lá descreve
+   os quatro bloqueadores e a opção C do criador em detalhe; o resumo:
+   · Os ids AINDA se movem — não por rename (isso ficou provado consertado), mas
+     por CHEGADA DE DADO: uma pesquisa nova escrevendo "Tarcísio de Freitas" em
+     vez de "Tarcísio" move o id. 814 das 1.078 linhas expostas.
+   · A causa é a montante: `scrape.mjs:338` roda `canonicalizeCandidates` ANTES
+     de `persistStore` (:425), então o "raw" que semeia a identidade já passou
+     pela regra da grafia mais curta. **Consertar isso é o primeiro passo, não a
+     camada de pessoas** — sem raw de verdade, qualquer semente herda o problema.
+   · `legacy_ids` evapora na rodada seguinte; `idempotence-check` é cego a isso
+     porque constrói duas vezes em diretório vazio.
+   · As 11 guardas de pessoa estão atrás de `if (people.length)` e nunca rodam
+     contra dado real.
+   **Decisão do criador já tomada (opção C)**, medida e por aplicar: pessoa não
+   registrada semeada por `race`+`UF` nas estaduais, por `race` só em
+   `presidente`. TEM DE ENTRAR ANTES da primeira escrita de `people.ndjson`.
 
-2. ✅ **`norm()` UNIFICADO E RODADO** (§1b). `parity-check` foi de **275 → 29 →
-   0** e sai com 0. `senador:AL` virou **um** candidato (`Dr. Wanderley`, o nome
-   de urna); as duas entidades cruzadas sumiram. 1.079 → 1.078 candidatos.
+2. ⚠ **`p360-13089-1-0-b383e9bf0a8c` está arquivada na disputa errada.** Consta
+   `senador:RS` e o próprio `source_url` é
+   `pesquisa-realtimebigdata-parana-governador-26nov2025.pdf`, com elenco de seis
+   figuras paranaenses (Ratinho Jr, Cristina Graeml, Deltan Dallagnol, Filipe
+   Barros, Gleisi Hoffmann, Zeca Dirceu). Errada em cargo E em estado. É a fonte
+   única de todas as linhas "figura do PR pesquisada no RS".
 
-3. ✅ **HOME VISTA MONTADA, PELA PRIMEIRA VEZ** — em build de produção, claro e
-   escuro, 1280 e 375. As seis faixas conferem com a especificação do criador.
-   Dois defeitos achados e consertados:
-   · **A página estourava na horizontal em TODO telefone.** Abaixo de `lg` não
-     há `grid-cols-*`, então as colunas caem numa faixa implícita `auto`, e o
-     item da esquerda com `min-width: auto` deixava o `min-w-[640px]` da tabela
-     escapar do próprio `overflow-x-auto`. A 375px sobravam 283px fora da tela
-     **e o navegador não rolava até lá**: a coluna DIFERENÇA inteira e todos os
-     selos da barra lateral eram inalcançáveis. Um `min-w-0` em `page.tsx`
-     resolve, e a rolagem volta para dentro do cartão.
-   · **A barra lateral esticava até o fim da tabela** — caixa de 3.791px para
-     1.744px de conteúdo, 2.048px de vão. `self-start` em `StateRail.tsx`.
-   Sobra para decisão: as cores do carrossel não são estáveis dentro da própria
-   fileira (Lula sai laranja em quatro cartões e verde no terceiro, e o verde do
-   cartão 2 é o Zema), e três das cinco roscas são laranja-contra-vermelho.
+3. **Auditoria de completude contra a imprensa — o achado mais rentável do dia.**
+   Duas pesquisas do Senado na Bahia estavam com candidato faltando, e uma delas
+   sem o LÍDER (Rui Costa 44,6). **Nenhum validador podia achar**: uma lista
+   curta de candidatos é bem formada — não soma demais, não tem órfão, não
+   repete. Foi achada conferindo cobertura independente contra o banco. Vale
+   varrer sistematicamente: os veículos publicam o número de registro do TSE, o
+   que torna o casamento verificável.
 
-3. (histórico) A rodada de 16/08 de manhã gravou
-   `Flavio Bolsonaro` e `Clariana Barao` **sem acento**, porque o registro do
-   TSE às vezes não os traz (29 de 521 candidaturas). A correção já está no
-   código — `melhorGrafia()` em `match-ballot-names.mjs` mantém a grafia
-   acentuada quando os dois nomes são o mesmo sob dobra de acento — mas **só
-   passa a valer depois de uma rodada completa**, porque o mapa é gerado a
-   partir de `data/nomes-crus.json`, que o coletor grava. Ou seja: rodar
-   `scrape` → `match-ballot-names` → `scrape` de novo → `derive`. Antes disso o
-   site publica dois nomes mal escritos.
-2. **Ver a home montada** em claro/escuro, desktop e 375px. Nunca foi vista.
-3. **Commitar.** Havia trabalho não commitado ao fim da sessão: registro de
-   candidaturas, nomes de urna, home inteira, `lib/colors.ts`, `lib/names.ts`,
-   `CONVENTIONS.md`.
+4. **`others_pct` nulo em pesquisa restaurada — conferir sempre.** Regra ★ do §4.
+   Nos dois reparos de hoje foi conferido CONTANDO AS BARRAS na página
+   renderizada, não pela ausência no OCR. A tabela ESPONTÂNEA vizinha costuma ter
+   "Outros" e é de lá que vaza valor errado.
+
+5. **Decisões do criador ainda não ratificadas** (as seis divergências que o
+   P26_3 registrou): o asterisco como "encomendada por partido" em vez de
+   "instituto partidário" é a que mais pesa.
+
+6. **`/sobre` não existe** e o masthead aponta para lá (404).
+   **`MAIOR_ELEITORADO`** em `src/lib/home.ts` é a ordem de 2022, não conferida.
+   **Vercel** segue pendente de login do criador — até lá nada disso é visível.
+
+**Duas armadilhas que custaram esta sessão, e vão voltar**
+
+⚠ **`parity-check.mjs` IMPRIME UM TETO DE 15, NÃO UMA CONTAGEM.** Duas rodadas
+com números completamente diferentes imprimem "15 divergência(s)". A contagem
+real está na linha `(b) igualdade de campos:`. E vermelho ali quase sempre
+significa `polls.json` DESSINCRONIZADO do store, não divergência de dado — rodar
+`derive-polls.mjs` resolve. Medido em 16/08: 275 → 29 → 0 numa rodada completa.
+
+⚠ **UM REPARO PODE FALHAR EM SILÊNCIO CARIMBANDO SUCESSO.** Um registro é UM
+levantamento, então as pesquisas do mesmo registro dividem a linha de survey, e
+`fillFields()` não sobrescreve não-nulo. Um reparo com cláusula `race` que mexe
+em campo de SURVEY (datas, amostra, registro) não move nada — a survey já tem o
+valor vindo da outra linha — e ainda assim escreve `repaired`. **Campo de survey
+se repara SEM cláusula de race.** Aconteceu hoje com as datas de BA-03657/2026.
 
 **A pattern worth naming.** Three times in one session, a guard I added *silently
 disabled something* instead of failing loudly: the resolver rewrote the alias
