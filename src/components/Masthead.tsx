@@ -310,7 +310,7 @@ function DisclosureMenu({ menu, open, setOpen, variant, idPrefix, onNavigate, on
           }
         >
           {isBar && menu.mega ? (
-            <div className="mx-auto max-w-6xl px-4">
+            <div className="shell">
               <MenuLinks menu={menu} variant={variant} onNavigate={onNavigate} />
             </div>
           ) : (
@@ -385,7 +385,7 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
         if (e.key === "Escape") closeAll();
       }}
     >
-      <div className="flex h-14 items-center gap-2 px-3 sm:gap-3 sm:px-5">
+      <div className="shell flex h-16 items-center gap-2 sm:gap-3">
         <Link
           href="/"
           onClick={closeAll}

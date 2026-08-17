@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           searchIndex={buildSearchIndex()}
           meta={`Atualizado em ${updated} · ${ds.polls.length.toLocaleString("pt-BR")} pesquisas`}
         />
-        <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
+        <main className="shell py-6">{children}</main>
         <footer className="mt-12 border-t py-6 text-center text-xs" style={{ borderColor: "var(--ring)", color: "var(--text-muted)" }}>
           <p>
             Dados compilados de fontes públicas (Wikipédia, registros do TSE/PesqEle e divulgações dos

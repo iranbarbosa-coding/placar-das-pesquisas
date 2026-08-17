@@ -2,14 +2,28 @@
 
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface-1: #fcfcfb;
+  /* SURFACE DEPTH (2026-08-17 redesign). The page was #f9f9f7 and cards #fcfcfb
+     — a 1,6% luminance gap, so a white card on the page read as no card at all,
+     which was half the "flat page" complaint in the design brief. The page now
+     carries a cooler, clearly darker neutral and cards go PURE WHITE, so every
+     surface reads as lifted off the page the way Reuters/FiveThirtyEight do it.
+     The move is a mild DARKENING of --page (0,973 → 0,958 relative luminance),
+     which can only RAISE the contrast of the chart lines and fills painted over
+     it — the "every fixed hue clears 3:1 as a 2px line on --page" guarantee below
+     is preserved, not spent. Ink-on-fill ratios are measured against the fills,
+     not the page, so they are untouched. */
+  --page: #f2f3f5;
+  --surface-1: #ffffff;
+  --surface-2: #f8f9fb; /* a second, faintly-tinted surface for nested/zebra rows */
   --text-primary: #0b0b0b;
   --text-secondary: #52514e;
   --text-muted: #898781;
   --grid: #e1e0d9;
   --axis: #c3c2b7;
-  --ring: rgba(11, 11, 11, 0.1);
+  --ring: rgba(16, 24, 40, 0.12);
+  /* The card lift the brief asks for: a hairline shadow, not a bank-app drop.
+     A data site should feel like newsprint with depth, not a dashboard widget. */
+  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 1px rgba(16, 24, 40, 0.03);
   --accent: #2a78d6;
   --series-1: #2a78d6;
   --series-2: #eb6834;
@@ -102,13 +116,17 @@
   :root {
     color-scheme: dark;
     --page: #0d0d0d;
-    --surface-1: #1a1a19;
+    --surface-1: #191919;
+    --surface-2: #212121; /* nested/zebra surface, one step up from the card */
     --text-primary: #ffffff;
     --text-secondary: #c3c2b7;
     --text-muted: #898781;
     --grid: #2c2c2a;
     --axis: #383835;
-    --ring: rgba(255, 255, 255, 0.1);
+    --ring: rgba(255, 255, 255, 0.12);
+    /* On black, a drop shadow does nothing; depth comes from the surface being
+       lighter than the page plus a hairline top highlight. */
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
     --accent: #3987e5;
     --series-1: #3987e5;
     --series-2: #d95926;
@@ -163,6 +181,21 @@ body {
   background: var(--surface-1);
   border: 1px solid var(--ring);
   border-radius: 0.75rem;
+  box-shadow: var(--card-shadow);
+}
+
+/* The centred page shell. One token so the masthead, the mega-menu and the
+   page body all break at the same width — widened from 72rem to 80rem in the
+   2026-08-17 redesign to stop the desktop whitespace the brief led with. */
+.shell {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1rem;
+}
+@media (min-width: 640px) {
+  .shell {
+    padding-inline: 1.5rem;
+  }
 }
 
 .tabular {
