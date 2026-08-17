@@ -53,12 +53,25 @@ export function buildSearchIndex(): SearchItem[] {
   // where the name does not appear is worse than no result.
   const seen = new Map<string, SearchItem>();
   for (const poll of ds.polls) {
-    const href = poll.state ? `/estados/${poll.state.toLowerCase()}` : "/presidente";
-    const onde = poll.state
-      ? `${poll.race === "governador" ? "Governador" : "Senado"} · ${poll.state}`
-      : "Presidente";
+    // A disputa decide o destino ANTES da UF. Uma pesquisa `presidente:<UF>` é a
+    // corrida NACIONAL amostrada naquele estado, não uma disputa estadual — a
+    // mesma confusão que a regra de nome de urna cometeu ao ler o "AC" de
+    // `presidente:AC` como o estado da candidatura (HANDOFF §1b). Ramificando
+    // pela UF primeiro, estas linhas ganhavam `href: /estados/pr` — página que só
+    // renderiza governador e senador — e caíam no braço `else` do rótulo, que
+    // diz "Senado". Ou seja: um resultado de busca rotulado com o cargo errado e
+    // levando a uma página onde o nome não aparece, que é exatamente o que o
+    // comentário acima declara que este módulo existe para evitar.
+    const nacional = poll.race === "presidente";
+    const href = nacional ? "/presidente" : `/estados/${poll.state!.toLowerCase()}`;
+    const onde = nacional
+      ? "Presidente"
+      : `${poll.race === "governador" ? "Governador" : "Senado"} · ${poll.state}`;
     for (const r of poll.results) {
-      const id = `cand-${poll.race}-${poll.state ?? "BR"}-${r.candidate}`;
+      // A subamostra estadual da presidencial colapsa em BR: é a mesma pessoa na
+      // mesma disputa apontando para a mesma página, e sem isto o índice publica
+      // uma entrada por UF do mesmo candidato.
+      const id = `cand-${poll.race}-${nacional ? "BR" : poll.state}-${r.candidate}`;
       if (seen.has(id)) continue;
       seen.set(id, {
         id,
