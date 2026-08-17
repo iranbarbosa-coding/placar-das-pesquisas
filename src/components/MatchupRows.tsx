@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fmtDate, fmtPct } from "@/lib/format";
+import { shortName } from "@/lib/names";
 import type { RaceAverage, UF } from "@/lib/types";
 
 /**
@@ -10,15 +11,28 @@ import type { RaceAverage, UF } from "@/lib/types";
  * (`matchupRows()` output); this file loads nothing and decides nothing about
  * which states appear.
  *
- * ── On the missing photographs ──────────────────────────────────────────────
+ * ── On the missing photographs, and what took their place ───────────────────
  * RCP puts a candidate photo inside each bar. We have none, and we are not
  * scraping press images to fake it. The intended source is the TSE's
- * DivulgaCand, which is a scraper that has not been written. So each bar
- * carries a FIXED-SIZE slot at its left edge: a monogram (initials on a colour
- * hashed from the candidate's name, so it is stable across builds) today, and
- * an `<img>` the moment a `photoUrl` is supplied. The slot is absolutely
- * positioned and its size never depends on its contents, so the real photo
- * drops in with no relayout of the bar, the label or the percentage.
+ * DivulgaCand, which is a scraper that has not been written.
+ *
+ * The bar used to carry a MONOGRAM in that slot — initials on a hashed colour.
+ * The owner's call (2026-08-17): put the candidate's NAME inside the bar
+ * instead, until real portraits exist. Initials named nobody; a `shortName`
+ * does. The `photoUrl` slot survives untouched in the props and in the render,
+ * so a portrait drops in the moment one is supplied — it simply pushes the name
+ * to the right of it rather than replacing a placeholder.
+ *
+ * ── Why the name inside the bar is DRAWN TWICE ──────────────────────────────
+ * Bahia's "Outros" is 3,2 points: its fill is a sliver and the name spills onto
+ * the empty track beside it. One colour cannot be legible on both — the fill is
+ * a saturated series colour, the track is `--grid`. So the name is painted
+ * twice in the same place: once in `--text-primary`, which reads on the track,
+ * and once in `--on-fill`, clipped by `clip-path` to exactly the fill's width.
+ * Each pixel of the name therefore gets the colour that its own background
+ * requires, with no measurement, no JS and no threshold to guess wrong. Both
+ * layers sit inside the `aria-hidden` track so the duplication never reaches a
+ * screen reader; the full name is real text above the bar, as it always was.
  *
  * ── On the arithmetic ───────────────────────────────────────────────────────
  * The three bars are NOT parts of a whole and are deliberately never stacked.
@@ -35,7 +49,7 @@ export interface MatchupBar {
   party: string | null;
   pct: number;
   kind: "leader" | "runner" | "others";
-  /** Set once DivulgaCand exists; until then the slot renders a monogram. */
+  /** Set once DivulgaCand exists; until then the bar leads with the name alone. */
   photoUrl?: string | null;
 }
 
@@ -130,24 +144,34 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
   // `--text-muted` is the one neutral that reads against the track in BOTH
   // themes; `--axis` disappears into `--grid` in the dark palette.
   const fill = isLeader ? "var(--series-1)" : bar.kind === "runner" ? "var(--series-2)" : "var(--text-muted)";
+  // The in-bar name. `shortName` and not the stored one: the track is ~200px
+  // wide at 375px, and it is the helper that knows "Cabo Daciolo" must not
+  // become "Cabo". "Outros" has no short form and passes through unchanged.
+  const short = shortName(bar.label);
+  // Left inset for that name — it clears the portrait only when there IS one.
+  // Reserving the slot unconditionally would start every name ~3rem in, which
+  // on a 3-point bar puts it past the fill entirely for no gain today.
+  const nameInset = bar.photoUrl ? "3rem" : "0.625rem";
+
   return (
     <div className="flex items-center gap-3">
       <div className="min-w-0 flex-1">
-        {/* The name sits ABOVE the bar rather than on it. Inside the bar it would
-            be white-on-fill, which is a contrast gamble in two themes, and it
-            would vanish entirely whenever the fill is a couple of points wide
-            (Bahia's "Outros" is 3,2). Above the bar it is always legible. */}
+        {/* The FULL name stays here, above the bar, now as the caption to the
+            short form inside it. It is not redundancy for its own sake: this
+            line is the only place the party and the rank fit, it is the text a
+            screen reader gets (the track below is `aria-hidden`), and it is the
+            only rendering of the name that `shortName` has not abbreviated. */}
         {/* Plain inline flow, not a flex row: the label must wrap as one
             sentence on a 375px screen. `truncate` here would imply
             `white-space: nowrap`, which makes the longest name the card's
             min-content width and pushes the card past the viewport — measured
             at 367px against a 327px column before this was flattened. */}
-        <div className="text-sm">
-          <span className="break-words" style={{ fontWeight: isLeader ? 700 : 500 }}>
+        <div className="text-xs">
+          <span className="break-words" style={{ color: "var(--text-secondary)", fontWeight: isLeader ? 600 : 400 }}>
             {bar.label}
           </span>
           {bar.party && (
-            <span className="ml-1.5 text-xs" style={{ color: "var(--text-muted)" }}>
+            <span className="ml-1.5" style={{ color: "var(--text-muted)" }}>
               ({bar.party})
             </span>
           )}
@@ -174,9 +198,11 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
               width: `${width}%`,
               background: fill,
               // "Outros" is an aggregate, not a candidate; the hatch says so
-              // without depending on anyone reading the colour.
+              // without depending on anyone reading the colour. `--hatch`
+              // LIGHTENS rather than punching the track through — see the note
+              // on that token; the name has to stay legible over the stripes.
               backgroundImage: isOthers
-                ? "repeating-linear-gradient(135deg, transparent 0 6px, var(--grid) 6px 9px)"
+                ? "repeating-linear-gradient(135deg, transparent 0 6px, var(--hatch) 6px 9px)"
                 : undefined,
             }}
           />
@@ -186,6 +212,20 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
             style={{ left: `${barWidth(50, scale)}%`, borderColor: "var(--text-muted)" }}
           />
           <PhotoSlot bar={bar} />
+
+          {/* Layer 1 — the whole name, in the colour that reads on the TRACK. */}
+          <NameLayer name={short} inset={nameInset} bold={isLeader} color="var(--text-primary)" />
+          {/* Layer 2 — the same glyphs in the same place, clipped to the fill
+              and in the colour that reads on it. `inset(0 X% 0 0)` insets from
+              the RIGHT, so the visible part is exactly the filled part; a 0%
+              bar clips to nothing and layer 1 alone shows. */}
+          <NameLayer
+            name={short}
+            inset={nameInset}
+            bold={isLeader}
+            color="var(--on-fill)"
+            clip={`inset(0 ${100 - width}% 0 0)`}
+          />
         </div>
       </div>
 
@@ -214,47 +254,65 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
 }
 
 /**
- * The photo slot. Fixed geometry, three states:
- *   • `photoUrl` present → the real portrait, cropped to the circle;
- *   • a candidate without one → a monogram on a colour hashed from the name;
- *   • "Outros" → empty. It is a sum of people, not a person, and a monogram
- *     there would invent a candidate who does not exist.
- * Decorative in all three cases: the name is already text right above the bar,
- * so the slot is inside the `aria-hidden` track and adds nothing for a reader.
+ * One painting of the in-bar name. Two of these are stacked per bar — see the
+ * note at the top of the file on why the same glyphs are drawn twice.
+ *
+ * Absolutely positioned on purpose: an out-of-flow box contributes nothing to
+ * its container's intrinsic width, so `truncate` (i.e. `white-space: nowrap`)
+ * here CANNOT do what it did to the old in-flow label — force the longest name
+ * to become the card's min-content width and push the card past a 375px
+ * viewport. The inner span's automatic minimum size is 0 because it is an
+ * `overflow: hidden` box, which is what lets the ellipsis actually appear.
  */
-function PhotoSlot({ bar }: { bar: MatchupBar }) {
-  const box = "absolute left-1.5 top-1/2 h-9 w-9 -translate-y-1/2 overflow-hidden rounded-full";
-  const ring = { boxShadow: "0 0 0 2px var(--surface-1)" };
-
-  // Not an empty ring, not a placeholder: nothing at all. The bar carries no
-  // text, so the slot reserves no space it needs, and an empty portrait frame
-  // on an aggregate reads as a candidate whose photo failed to load.
-  if (bar.kind === "others") return null;
-
-  if (bar.photoUrl) {
-    return (
-      <span className={box} style={ring}>
-        {/* Plain <img>: this is a statically exported site and the portraits
-            will be local files under /public once DivulgaCand is scraped. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={bar.photoUrl} alt="" className="h-full w-full object-cover" />
-      </span>
-    );
-  }
-
-  const tint = `var(--series-${seriesIndex(bar.label)})`;
+function NameLayer({
+  name,
+  inset,
+  bold,
+  color,
+  clip,
+}: {
+  name: string;
+  inset: string;
+  bold: boolean;
+  color: string;
+  clip?: string;
+}) {
   return (
     <span
-      className={`${box} flex items-center justify-center text-xs font-bold`}
-      style={{
-        ...ring,
-        // Mixed against the theme's own surface and text so the monogram stays
-        // legible in light and dark without two hardcoded palettes.
-        background: `color-mix(in srgb, ${tint} 22%, var(--surface-1))`,
-        color: `color-mix(in srgb, ${tint} 65%, var(--text-primary))`,
-      }}
+      className="pointer-events-none absolute inset-0 flex items-center pr-2"
+      style={{ paddingLeft: inset, clipPath: clip }}
     >
-      {initials(bar.label)}
+      <span className="truncate text-sm" style={{ color, fontWeight: bold ? 700 : 600 }}>
+        {name}
+      </span>
+    </span>
+  );
+}
+
+/**
+ * The photo slot. Fixed geometry, two states:
+ *   • `photoUrl` present → the real portrait, cropped to the circle;
+ *   • no portrait, or "Outros" → nothing at all.
+ *
+ * The monogram that used to fill the empty case is gone: the bar now carries
+ * the candidate's name, and initials beside a name are noise. Nothing is
+ * reserved when there is no portrait — an empty ring reads as a photo that
+ * failed to load, and on an aggregate it would invent a person.
+ *
+ * Decorative either way: the name is real text above the bar, so this sits
+ * inside the `aria-hidden` track and adds nothing for a reader.
+ */
+function PhotoSlot({ bar }: { bar: MatchupBar }) {
+  if (bar.kind === "others" || !bar.photoUrl) return null;
+  return (
+    <span
+      className="absolute left-1.5 top-1/2 h-9 w-9 -translate-y-1/2 overflow-hidden rounded-full"
+      style={{ boxShadow: "0 0 0 2px var(--surface-1)" }}
+    >
+      {/* Plain <img>: this is a statically exported site and the portraits
+          will be local files under /public once DivulgaCand is scraped. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={bar.photoUrl} alt="" className="h-full w-full object-cover" />
     </span>
   );
 }
@@ -275,25 +333,6 @@ function barWidth(pct: number, scale: number): number {
   return Math.min(100, (pct / safeScale) * 100);
 }
 
-/** "de", "da", "dos"… are not initials. */
-const PARTICLE = /^(d[aeo]s?|e|von|van|del|la)$/i;
-
-function initials(name: string): string {
-  const parts = name.trim().split(/\s+/).filter((p) => p.length > 0 && !PARTICLE.test(p));
-  if (parts.length === 0) return "?";
-  const first = [...parts[0]];
-  const head = first[0] ?? "";
-  const tail = parts.length > 1 ? ([...parts[parts.length - 1]][0] ?? "") : (first[1] ?? "");
-  return (head + tail).toLocaleUpperCase("pt-BR");
-}
-
-/**
- * Stable 1–8 series index from the candidate's name. Deterministic, so a
- * candidate keeps the same monogram colour across builds and across pages —
- * and carries no party meaning, which is why the party is printed in text.
- */
-function seriesIndex(name: string): number {
-  let h = 0;
-  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
-  return (h % 8) + 1;
-}
+// `initials` and the private `seriesIndex` hash lived here for the monogram and
+// went with it. `lib/names.ts` still exports an `initials` if a monogram is ever
+// wanted again; this file no longer needs a second copy of one.

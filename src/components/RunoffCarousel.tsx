@@ -1,7 +1,7 @@
 "use client";
 
 import { type KeyboardEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { colorMap, PALETTE } from "@/lib/colors";
+import { colorMap, colorOf } from "@/lib/colors";
 import { candKey } from "@/lib/average";
 import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import type { Headline } from "@/lib/home";
@@ -218,7 +218,7 @@ function RunoffCard({ card }: { card: RunoffCardData }) {
         // Carried raw: `ringMath` floors an unusable number to an empty arc,
         // and the legend prints "—" for it rather than inventing a 0,0%.
         value: c.avg,
-        color: colors.get(k) ?? PALETTE[0],
+        color: colorOf(colors, c.candidate),
         leader: k === leadKey,
       };
     });

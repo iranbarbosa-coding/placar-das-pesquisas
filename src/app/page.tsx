@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+import HeroBasisSwitch from "@/components/HeroBasisSwitch";
 import RunoffCarousel from "@/components/RunoffCarousel";
 import StateRail from "@/components/StateRail";
 import MatchupRows from "@/components/MatchupRows";
@@ -17,23 +17,31 @@ import { heroRace, runoffCards, stateRail, matchupRows, latestForTable } from "@
  * below it. The alternative, a grid of equal cards, tells a reader nothing about
  * what matters today.
  *
- * Every number here is on votos válidos and there is no basis toggle: the toggle
- * lives on the race pages where there is room to explain what the other cut
- * means. Senate figures pass through unconverted and say so.
+ * The page is on votos válidos throughout, with ONE exception the owner asked
+ * for: the hero carries its own basis toggle. It governs the hero and nothing
+ * else — see `HeroBasisSwitch` for why that scope is stated three times in the
+ * UI rather than left for a reader to discover. Everything below the hero is
+ * válidos, always. Senate figures pass through unconverted and say so.
  */
 export default function Home() {
   const hero = heroRace();
-  const cards = runoffCards(5);
+  // Three cards, ordered 1º v 2º / 1º v 3º / 1º v 4º by the first-round average
+  // — the same average the hero renders. See `runoffCards`.
+  const cards = runoffCards(3);
   const rail = stateRail();
   const matchups = matchupRows();
   const latest = latestForTable(40);
 
   return (
     <>
-      {/* Full-bleed, so it must sit outside the page container. */}
-      <Hero
+      {/* Full-bleed, so it must sit outside the page container. The switch is a
+          thin client wrapper; the hero itself is unchanged and still renders
+          whatever average it is handed. */}
+      <HeroBasisSwitch
         average={hero?.average ?? null}
         headline={hero?.headline ?? null}
+        averageBruto={hero?.averageBruto ?? null}
+        headlineBruto={hero?.headlineBruto ?? null}
         scenario={hero?.scenario}
       />
 

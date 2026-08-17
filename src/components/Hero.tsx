@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import HeroChart, { heroSeries } from "./HeroChart";
 /* Type-only: `Headline` is erased at compile time, so this file carries NO
@@ -63,12 +64,22 @@ import type { RaceAverage } from "@/lib/types";
  */
 
 /**
- * Band height, and the copy's matching floor. The two constants MUST stay in
- * step — see note 2 above. Phones get MORE height than desktop on purpose: the
+ * Band height, and the copy's matching floor. Each pair MUST stay in step —
+ * see note 2 above. Phones get MORE height than desktop on purpose: the
  * headline wraps to two lines and the legend to six, so the copy is taller.
+ *
+ * TWO PAIRS, because the band is sized to the copy and the copy has two
+ * shapes. The scrim's lower edge sits at 65% of the band (50% chart box, then
+ * 30% of that box), and the caption has to end above it. Adding the basis
+ * toggle put 76px of control and explanation into the copy and pushed the
+ * caption's baseline to 431px below the band top against a 403px scrim — the
+ * caption landed on live chart, measured at 1280 before this constant existed.
+ * The taller band restores the margin instead of shrinking the copy.
  */
 const BAND = "h-[700px] sm:h-[620px]";
 const BAND_MIN = "min-h-[700px] sm:min-h-[620px]";
+const BAND_CONTROLS = "h-[800px] sm:h-[740px]";
+const BAND_CONTROLS_MIN = "min-h-[800px] sm:min-h-[740px]";
 /** Chart box, as a share of the band. Bottom-anchored. */
 const CHART_BOX = "h-[27%] sm:h-[50%]";
 
@@ -93,14 +104,31 @@ export interface HeroProps {
   ctaLabel?: string;
   /** Hard cap on drawn areas. Default 6, per the hero spec. */
   maxSeries?: number;
+  /**
+   * Optional control strip under the badge row — the home page's basis toggle.
+   * A slot, not a control: this component stays a renderer with no state, and
+   * whoever owns the state owns the buttons.
+   */
+  controls?: ReactNode;
 }
 
 /**
  * The margin, in prose. The badge is a glance; this is the statement — and it
  * is the version a screen reader, a summary card or a reader who does not parse
  * "−7,3" as a distance actually gets.
+ *
+ * ── THE 50% CLAIM ONLY EXISTS IN VOTOS VÁLIDOS ────────────────────────────
+ * On the bruto cut the denominator includes branco/nulo and não sabe, so "X
+ * pontos abaixo dos 50% necessários" is simply false — the threshold is not on
+ * that scale. `RaceBadge` already refuses to print a distance-to-50 on bruto
+ * for exactly this reason; the hero must not contradict it two components away.
+ * So the bruto sentence states the leader's number, names its base, and says
+ * why the threshold is missing rather than quietly dropping it.
  */
-function marginSentence(h: Headline): string {
+function marginSentence(h: Headline, basis: RaceAverage["basis"]): string {
+  if (basis !== "validos") {
+    return `${h.leader} lidera com ${fmtPct(h.leaderPct)}% do total da amostra. Nesta base não há distância dos 50%: o total da amostra inclui branco, nulo e quem não sabe, e o primeiro turno se decide entre os votos válidos.`;
+  }
   const d = fmtPct(Math.abs(h.toFifty));
   const lead = `${h.leader} lidera com ${fmtPct(h.leaderPct)}% das intenções de voto`;
   if (h.toFifty < 0) {
@@ -121,10 +149,16 @@ export default function Hero({
   href = "/presidente",
   ctaLabel = "Veja as pesquisas",
   maxSeries = 6,
+  controls,
 }: HeroProps) {
   const series = heroSeries(average, maxSeries);
-  const basisLabel = average?.basis === "validos" ? "votos válidos" : "total da amostra";
+  const validos = average?.basis === "validos";
+  const basisLabel = validos ? "votos válidos" : "total da amostra";
   const hidden = average ? Math.max(0, average.candidates.length - series.length) : 0;
+  // The control strip is part of the copy, so it is part of what the band has
+  // to be tall enough for. Picked here, applied to BOTH constants together.
+  const band = controls ? BAND_CONTROLS : BAND;
+  const bandMin = controls ? BAND_CONTROLS_MIN : BAND_MIN;
 
   return (
     /* NOT `relative` — see the full-bleed note above. */
@@ -133,7 +167,7 @@ export default function Hero({
           positioned box at its static position, and its static position has to
           be the top of the band. */}
       {series.length > 0 && (
-        <div className={`pointer-events-none absolute left-0 right-0 overflow-hidden ${BAND}`}>
+        <div className={`pointer-events-none absolute left-0 right-0 overflow-hidden ${band}`}>
           <div className={`absolute inset-x-0 bottom-0 ${CHART_BOX}`}>
             <HeroChart average={average} maxSeries={maxSeries} />
             {/* Scrim over the top of the CHART BOX — see note 3 above. */}
@@ -154,7 +188,7 @@ export default function Hero({
           for. With no average there is nothing behind the copy, and a 700px
           column of empty page under four lines of text is not a hero, it is a
           hole. */}
-      <div className={`relative z-[1] flex flex-col gap-4 pt-1 ${series.length > 0 ? BAND_MIN : ""}`}>
+      <div className={`relative z-[1] flex flex-col gap-4 pt-1 ${series.length > 0 ? bandMin : ""}`}>
         <p
           className="text-[11px] font-bold uppercase tracking-[0.16em]"
           style={{ color: "var(--accent)" }}
@@ -192,7 +226,15 @@ export default function Hero({
                 className="inline-block h-3.5 w-px shrink-0"
                 style={{ background: "var(--axis)" }}
               />
-              <span className="whitespace-nowrap">{fmtSigned(headline.toFifty)} p.p. dos 50%</span>
+              {/* Same rule as `RaceBadge`: no distance-to-50 outside votos
+                  válidos. The badge does not disappear — it reports the number
+                  it does have, with its base named, so switching basis changes
+                  the claim rather than removing the summary. */}
+              <span className="whitespace-nowrap">
+                {validos
+                  ? `${fmtSigned(headline.toFifty)} p.p. dos 50%`
+                  : `${fmtPct(headline.leaderPct)}% da amostra`}
+              </span>
             </span>
           )}
 
@@ -205,9 +247,11 @@ export default function Hero({
           </Link>
         </div>
 
+        {controls}
+
         {headline ? (
           <p className="max-w-[52ch] text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
-            {marginSentence(headline)}
+            {marginSentence(headline, average?.basis ?? "validos")}
           </p>
         ) : (
           <p className="max-w-[52ch] text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>

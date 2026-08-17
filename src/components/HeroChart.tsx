@@ -1,5 +1,5 @@
 import { candKey } from "@/lib/average";
-import { colorMap, hashName, PALETTE, PALETTE_SIZE } from "@/lib/colors";
+import { colorMap, colorOf, hashName, PALETTE_SIZE } from "@/lib/colors";
 import type { CandidateAverage, RaceAverage } from "@/lib/types";
 
 /**
@@ -103,7 +103,7 @@ export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeri
       key: k,
       name: c.candidate,
       avg: fin(c.avg),
-      color: colors.get(k) ?? PALETTE[0],
+      color: colorOf(colors, c.candidate),
       points: pts,
     };
   });

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { colorMap, PALETTE } from "@/lib/colors";
+import { colorMap, colorOf } from "@/lib/colors";
 import { candKey } from "@/lib/average";
 import type { RaceAverage } from "@/lib/types";
 import type { Basis } from "@/lib/validos";
@@ -237,7 +237,7 @@ export default function AverageChart({
         avg: c.avg,
         nPolls: c.nPolls,
         muted: c.nPolls < average.pollCount,
-        color: colors.get(k) ?? PALETTE[0],
+        color: colorOf(colors, c.candidate),
         points: pts,
       };
     });

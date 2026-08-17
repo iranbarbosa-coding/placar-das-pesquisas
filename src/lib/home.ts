@@ -1,5 +1,5 @@
 import { scenarioGroups, pollsFor } from "./data";
-import { sortPollsDesc } from "./average";
+import { candKey, sortPollsDesc } from "./average";
 import { toBasis } from "./validos";
 import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
 
@@ -39,30 +39,91 @@ function round1(x: number): number {
 // here so existing server callers keep working unchanged.
 export { shortName, initials } from "./names";
 
-/** The hero: the presidential first round, the one race that gets the front page. */
+/**
+ * The hero: the presidential first round, the one race that gets the front page.
+ *
+ * BOTH CUTS are returned, already computed by `scenarioGroups` at build time.
+ * The home page's basis toggle only chooses between these two objects — it
+ * never converts or averages anything, which would be a second implementation
+ * of `average.ts` living in the browser (§5). Same mechanism as `RaceView`.
+ */
 export function heroRace() {
   const groups = scenarioGroups("presidente", null, 1);
   const g = groups[0] ?? null;
-  return g ? { average: g.average, headline: headlineOf(g.average), scenario: g.scenario } : null;
+  if (!g) return null;
+  return {
+    average: g.average,
+    headline: headlineOf(g.average),
+    averageBruto: g.averageBruto,
+    headlineBruto: headlineOf(g.averageBruto),
+    scenario: g.scenario,
+  };
 }
 
 /**
- * The carousel: the leader's runoff against each of the next-best challengers.
+ * The carousel: the first-round leader against each of the next-best
+ * challengers, in ranking order — 1º v 2º, then 1º v 3º, then 1º v 4º.
  *
- * Taken from the runoff pairings the institutes actually tested, never
- * invented — if nobody polled a matchup it does not appear, however plausible
- * it looks. Ordered by how recently each was polled, then by base, so the
- * carousel leads with the live question rather than the best-covered one.
+ * ── WHERE THE ORDER COMES FROM ────────────────────────────────────────────
+ * From the FIRST-ROUND presidential average — the same object `heroRace()`
+ * renders, taken from the same call so the two cannot disagree. Not from how
+ * recently a pairing was polled, which is what this used to sort by: that made
+ * the leftmost card whichever institute published last, so the row reordered
+ * itself on a Tuesday with no change in the race. Not from the order the groups
+ * arrive in either (§8) — every position here is decided by a rank in the
+ * average, and the lookup is by pairing key, so `scenarioGroups`' own sort has
+ * no say.
+ *
+ * ── NEVER AN INVENTED MATCHUP ─────────────────────────────────────────────
+ * The pairings still come only from second-round scenarios institutes actually
+ * tested. Rank decides the ORDER of what exists, never that something should
+ * exist: if the leader was never polled against, say, the 3rd-placed candidate,
+ * that card is SKIPPED and the next challenger down takes its place. So the
+ * three cards are "the leader against the three highest-ranked challengers he
+ * was actually polled against", which can be 1º/2º/4º/5º — and can be fewer
+ * than three cards, or none at all.
+ *
+ * A runoff between two candidates who are NOT the first-round leader (the data
+ * holds Flávio Bolsonaro v Zema, Haddad v Tarcísio, and others) never appears
+ * here. That is the rule this function implements, not an omission: the
+ * carousel's claim is "what happens to the front-runner", and /segundo-turno
+ * lists the rest.
  */
-export function runoffCards(limit = 5) {
-  return scenarioGroups("presidente", null, 2)
-    .filter((g) => g.average && g.average.candidates.length >= 2)
-    .sort((a, b) => {
-      const d = (b.average!.lastPollDate ?? "").localeCompare(a.average!.lastPollDate ?? "");
-      return d !== 0 ? d : b.average!.pollCount - a.average!.pollCount;
-    })
-    .slice(0, limit)
-    .map((g) => ({ scenario: g.scenario, average: g.average!, headline: headlineOf(g.average)! }));
+export function runoffCards(limit = 3) {
+  const first = heroRace()?.average ?? null;
+  const groups = scenarioGroups("presidente", null, 2).filter(
+    (g) => g.average && g.average.candidates.length >= 2,
+  );
+  if (!first?.candidates.length || !groups.length) return [];
+
+  // Ranking, deduped, in average order — `computeAverage` has already sorted it
+  // and broken ties on a stable field, so this carries that total order over.
+  const ranking: string[] = [];
+  for (const c of first.candidates) {
+    const k = candKey(c.candidate);
+    if (!ranking.includes(k)) ranking.push(k);
+  }
+  const leader = ranking[0];
+
+  // Pairings by unordered candidate-key pair, so a group is found by WHO is in
+  // it rather than by how its scenario label happens to be worded.
+  const byPair = new Map<string, (typeof groups)[number]>();
+  for (const g of groups) {
+    const key = [...new Set(g.average!.candidates.map((c) => candKey(c.candidate)))].sort().join("|");
+    // First wins: `scenarioGroups` already ordered by poll count then date then
+    // label, so a duplicate key (two groups over the same two people) resolves
+    // to the better-covered one and never to whichever came back first.
+    if (!byPair.has(key)) byPair.set(key, g);
+  }
+
+  const out: { scenario: string; average: RaceAverage; headline: Headline }[] = [];
+  for (const challenger of ranking.slice(1)) {
+    if (out.length >= limit) break;
+    const g = byPair.get([leader, challenger].sort().join("|"));
+    if (!g) continue; // not polled → skip to the next challenger, never invent it
+    out.push({ scenario: g.scenario, average: g.average!, headline: headlineOf(g.average)! });
+  }
+  return out;
 }
 
 /** The rail: every state's governor race, alphabetical, with its leader. */

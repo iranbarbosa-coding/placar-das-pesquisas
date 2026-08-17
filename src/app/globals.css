@@ -19,6 +19,50 @@
   --series-6: #008300;
   --series-7: #4a3aa7;
   --series-8: #e34948;
+
+  /* Text painted ON a series fill (the matchup bars). Near-black in BOTH
+     themes, and that is not an oversight: the fills are mid-luminance in both
+     palettes, so white fails there while black passes. Measured against the
+     three fills those bars actually use — light/dark --series-1, --series-2 and
+     --text-muted — the lowest ratio is 5,4:1 with black and 3,5:1 with white.
+     The name is drawn twice (see MatchupRows): this colour inside the fill,
+     --text-primary outside it. */
+  --on-fill: #0b0b0b;
+
+  /* The "Outros" hatch, over the `--text-muted` fill of an aggregate bar.
+     It used to be `--grid`, i.e. "the track showing through" — which was fine
+     while the bar carried no text and broke the moment it did: in the dark
+     palette `--grid` is #2c2c2a, so a third of that fill went near-black and
+     the name painted in `--on-fill` vanished into the stripes. Observed in the
+     dark theme on São Paulo and Minas. A translucent LIGHTENING keeps the
+     texture in both themes and can only raise the contrast of dark text, never
+     lower it. Identical in both palettes on purpose: it lightens a mid-grey
+     fill, not the page. */
+  --hatch: rgba(255, 255, 255, 0.38);
+
+  /* ── FIXED CANDIDATE COLOURS ───────────────────────────────────────────
+     Assigned by name in `lib/colors.ts`, not hashed. See the note there for
+     why. Values are chosen against `--page`, not against each other: every one
+     clears 3:1 as a 2px chart line on this background.
+
+     AMBER AND LIME CARRY A DELIBERATE LIGHT/DARK SPLIT. The owner's mapping
+     asks for "yellow" (Renan Santos) and "lime" (Samara). A true yellow on the
+     #f9f9f7 light page measures ~1,4:1 as a thin line — invisible, which is a
+     defect, not a style preference. So light gets a deep amber/gold and dark
+     gets the true yellow; both read as "yellow" to a reader who never sees the
+     two themes side by side, and both are legible. Same treatment for lime. */
+  --cand-red: #d92d20;
+  --cand-blue: #2a78d6;
+  --cand-orange: #e2620f;
+  --cand-amber: #b07d00; /* "yellow", darkened for this background */
+  --cand-green: #1a8f4c;
+  --cand-purple: #7b3fbf;
+  --cand-teal: #0d8f92;
+  --cand-pink: #d64c8f;
+  --cand-brown: #8a5a2b;
+  --cand-slate: #5a6675;
+  --cand-magenta: #b5179e;
+  --cand-lime: #5f8f00; /* "lime", darkened for this background */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,6 +85,25 @@
     --series-6: #008300;
     --series-7: #9085e9;
     --series-8: #e66767;
+
+    /* Unchanged between themes — see the note above. */
+    --on-fill: #0b0b0b;
+
+    /* Same twelve hues, lifted for the #0d0d0d page. Amber and lime become the
+       TRUE yellow and lime the owner asked for: on a dark background they read
+       at 11:1 and 12:1, so there is nothing to compensate for here. */
+    --cand-red: #ef5350;
+    --cand-blue: #3987e5;
+    --cand-orange: #f97316;
+    --cand-amber: #f5c518; /* the true yellow, safe here */
+    --cand-green: #2ec27e;
+    --cand-purple: #a78bfa;
+    --cand-teal: #2dd4bf;
+    --cand-pink: #f472b6;
+    --cand-brown: #c08457;
+    --cand-slate: #94a3b8;
+    --cand-magenta: #e879f9;
+    --cand-lime: #a3e635; /* the true lime, safe here */
   }
 }
 
