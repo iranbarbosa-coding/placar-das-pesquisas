@@ -189,7 +189,18 @@ function main() {
     // stays `presidente:MG` and stays out of the national average.
     const lista = byContest.get(contest)
       ?? (contest.startsWith("presidente:") ? byContest.get("presidente:BR") ?? [] : []);
-    const ufPesquisa = contest.split(":")[1] ?? "BR";
+    // UMA SUBAMOSTRA ESTADUAL DA PRESIDENCIAL É NACIONAL, e a regra de estado
+    // tem de saber disso.
+    //
+    // `presidente:AC` é a corrida presidencial perguntada ao eleitor do Acre —
+    // a disputa é nacional, só a amostra é estadual. Tratar o "AC" da chave como
+    // o estado da CANDIDATURA fez a regra de estado recusar Tarcísio nessas 25
+    // disputas: ele é registrado em `governador:SP`, "SP" ≠ "AC", e 23 linhas
+    // continuaram publicando "Tarcísio de Freitas" enquanto `presidente:SP` —
+    // por coincidência do estado — virava "Tarcísio". O mesmo homem com dois
+    // nomes conforme a subamostra, que é exatamente o defeito que o nome de urna
+    // por pessoa existe para acabar.
+    const ufPesquisa = contest.startsWith("presidente:") ? "BR" : (contest.split(":")[1] ?? "BR");
     for (const { nome, partidos } of nomes) {
       const exato = lista.filter((c) => norm(c.nome_urna_raw) === norm(nome));
       if (exato.length === 1) {

@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1002 levantamentos · 2964 perguntas · 137 institutos · 1078 candidatos**.
+Banco: **1002 levantamentos · 2964 perguntas · 137 institutos · 1080 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -63,13 +63,6 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_58c4cfe5786e: Lula 45 · Renan Santos 33
   s_58c4cfe5786e: Lula 45 · Joaquim Barbosa 23
   s_58c4cfe5786e: Lula 45 · Ronaldo Caiado 37.6
-- cenários separados — Datafolha · BR presidente/t2 · 2025-04-03 — 2 levantamentos
-  s_4fa66292cd87: Fernando Haddad 45 · Jair Bolsonaro 41
-  s_4fa66292cd87: Fernando Haddad 43 · Tarcísio de Freitas 37
-  s_f974da273cc9: Lula 48 · Tarcísio de Freitas 39
-  s_f974da273cc9: Lula 51 · Eduardo Bolsonaro 34
-  s_f974da273cc9: Lula 50 · Michelle Bolsonaro 38
-  s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
 - **[2026]** cenários separados — Nexus · BR presidente/t2 · 2026-08-09 — 2 levantamentos
   s_5153741c3e49: Lula 46 · Ronaldo Caiado 42
   s_5153741c3e49: Lula 47 · Flávio Bolsonaro 44
@@ -85,13 +78,20 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_7fe69b9b02c7: Wellington Fagundes 40.8 · Doutora Natasha 12.3
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - cenários separados — Futura · BR presidente/t2 · 2025-03-22 — 2 levantamentos
-  s_93d336f9d7a6: Tarcísio de Freitas 42.3 · Lula 37.6
   s_93d336f9d7a6: Michelle Bolsonaro 48.5 · Lula 37.3
   s_93d336f9d7a6: Lula 37.3 · Ronaldo Caiado 37.8
   s_93d336f9d7a6: Ratinho Jr 40.6 · Lula 37.2
+  s_93d336f9d7a6: Tarcísio 42.3 · Lula 37.6
   s_93d336f9d7a6: Jair Bolsonaro 51.1 · Lula 37.3
+  s_d4f2b6ef0f37: Tarcísio 39.1 · Geraldo Alckmin 37.5
   s_d4f2b6ef0f37: Jair Bolsonaro 50.3 · Geraldo Alckmin 36.5
-  s_d4f2b6ef0f37: Tarcísio de Freitas 39.1 · Geraldo Alckmin 37.5
+- cenários separados — Datafolha · BR presidente/t2 · 2025-04-03 — 2 levantamentos
+  s_ce9d13de8c4b: Fernando Haddad 45 · Jair Bolsonaro 41
+  s_ce9d13de8c4b: Fernando Haddad 43 · Tarcísio 37
+  s_f974da273cc9: Lula 51 · Eduardo Bolsonaro 34
+  s_f974da273cc9: Lula 50 · Michelle Bolsonaro 38
+  s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
+  s_f974da273cc9: Lula 48 · Tarcísio 39
 
 ## CONFLITO — Conflitos registrados aguardando decisão (3)
 

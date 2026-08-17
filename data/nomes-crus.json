@@ -1,1392 +1,7685 @@
 {
  "presidente:BR": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro",
-  "Ciro Gomes",
-  "Ciro Nogueira",
-  "Clariana Barão",
-  "Damares Alves",
-  "Edmilson Costa",
-  "Eduardo Bolsonaro",
-  "Eduardo Leite",
-  "Fernando Haddad",
-  "Flávio Bolsonaro",
-  "Geraldo Alckmin",
-  "Grassi",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Jair Messias Bolsonaro",
-  "Joaquim Barbosa",
-  "João Campos",
-  "Leonardo Avalanche",
-  "Luiz Inácio Lula da Silva",
-  "Lula",
-  "Marcos Pontes",
-  "Marina Silva",
-  "Michel Temer",
-  "Michelle Bolsonaro",
-  "Nikolas Ferreira",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Ratinho Júnior",
-  "Renan Filho",
-  "Renan Santos",
-  "Rogério Marinho",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta",
-  "Samara Martins",
-  "Sergio Moro",
-  "Simone Tebet",
-  "Sérgio Moro",
-  "Tabata Amaral",
-  "Tallis Gomes",
-  "Tarcísio de Freitas",
-  "Tereza Cristina"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza",
+    "PMN"
+   ]
+  },
+  {
+   "nome": "Ciro",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "Democratic Labour Party (Brazil)",
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ciro Nogueira",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Clariana Barão",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Damares Alves",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Eduardo Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "Brazilian Social Democracy Party",
+    "PSD",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Fernando Haddad",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Geraldo Alckmin",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Grassi",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "Brazilian Democratic Movement",
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Jair Messias Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "João Campos",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Leonardo Avalanche",
+   "partidos": []
+  },
+  {
+   "nome": "Luiz Inácio Lula da Silva",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Marcos Pontes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marina Silva",
+   "partidos": [
+    "Rede"
+   ]
+  },
+  {
+   "nome": "Michel Temer",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Nikolas Ferreira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PL",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Rogério Marinho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Avante",
+    "MDB",
+    "Novo",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PL",
+    "PSD",
+    "Republicanos",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCB",
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Sergio Moro",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Sérgio Moro",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Tabata Amaral",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Tallis Gomes",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "governador:AC": [
-  "Alan Rick",
-  "Doutor Luizinho",
-  "Dr.Thor Dantas",
-  "Jamyr Rosas",
-  "Mailza Assis",
-  "Sebastião Bocalom",
-  "Thor Dantas",
-  "Tião Bocalom"
+  {
+   "nome": "Alan Rick",
+   "partidos": [
+    "Republicanos",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Doutor Luizinho",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Dr.Thor Dantas",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Jamyr Rosas",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Mailza Assis",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Sebastião Bocalom",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Thor Dantas",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Tião Bocalom",
+   "partidos": [
+    "PL",
+    "PSDB"
+   ]
+  }
  ],
  "presidente:AC": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Helder Barbalho",
-  "Jair Bolsonaro",
-  "Luciano Huck",
-  "Lula",
-  "Michelle Bolsonaro",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas",
-  "Átila Maia"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Átila Maia",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Luciano Huck",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:AL": [
-  "João Henrique Caldas",
-  "Lenilda Luna",
-  "Renan Filho"
+  {
+   "nome": "João Henrique Caldas",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Lenilda Luna",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  }
  ],
  "governador:AM": [
-  "David Almeida",
-  "Maria do Carmo",
-  "Maria do Carmo Seffair",
-  "Omar Aziz",
-  "Roberto Cidade",
-  "Tadeu de Souza"
+  {
+   "nome": "David Almeida",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Maria do Carmo",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Maria do Carmo Seffair",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Omar Aziz",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Roberto Cidade",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tadeu de Souza",
+   "partidos": [
+    "Avante",
+    "PP"
+   ]
+  }
  ],
  "governador:AP": [
-  "Antônio Furlan",
-  "Clécio Luís",
-  "Dr. Furlan"
+  {
+   "nome": "Antônio Furlan",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Clécio Luís",
+   "partidos": [
+    "Solidariedade",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Dr. Furlan",
+   "partidos": [
+    "MDB",
+    "PSD"
+   ]
+  }
  ],
  "governador:BA": [
-  "ACM Neto",
-  "Aroldo Félix",
-  "Bruno Reis",
-  "Jerônimo Rodrigues",
-  "José Aleluia",
-  "José Carlos Aleluia",
-  "José Carlos do Pátio",
-  "João Roma",
-  "Kleber Rosa",
-  "Prof. Aroldo Félix",
-  "Ronaldo Mansur",
-  "Rui Costa"
+  {
+   "nome": "ACM Neto",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Aroldo Félix",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Bruno Reis",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Jerônimo Rodrigues",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "João Roma",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Aleluia",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "José Carlos Aleluia",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "José Carlos do Pátio",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Kleber Rosa",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Prof. Aroldo Félix",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Ronaldo Mansur",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rui Costa",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "presidente:BA": [
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Lula",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Renan Filho",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:CE": [
-  "Camilo Santana",
-  "Ciro Gomes",
-  "Delegado Huggo Leonardo",
-  "Eduardo Girão",
-  "Elmano Freitas",
-  "Elmano de Freitas",
-  "Jair Pereira",
-  "Jarir Pereira",
-  "Luis Eduardo Girão",
-  "Professor Jarir Pereira",
-  "Roberto Cláudio",
-  "Zé Batista"
+  {
+   "nome": "Camilo Santana",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Delegado Huggo Leonardo",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Eduardo Girão",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Elmano de Freitas",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Elmano Freitas",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Jair Pereira",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Jarir Pereira",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Luis Eduardo Girão",
+   "partidos": [
+    "Novo",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Professor Jarir Pereira",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Roberto Cláudio",
+   "partidos": [
+    "PDT",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Zé Batista",
+   "partidos": [
+    "PSTU"
+   ]
+  }
  ],
  "presidente:CE": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Helder Barbalho",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta",
-  "Tereza Cristina"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Avante",
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "governador:DF": [
-  "Celina Leão",
-  "Eduardo Pedrosa",
-  "Fred Linhares",
-  "Izalci Lucas",
-  "José Arruda",
-  "José Roberto Arruda",
-  "Kiko Caputo",
-  "Leandro Grass",
-  "Paula Belmonte",
-  "Ricardo Cappelli",
-  "Robson Raimundo",
-  "Samara Mineiro"
+  {
+   "nome": "Celina Leão",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Eduardo Pedrosa",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Fred Linhares",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Izalci Lucas",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Arruda",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "José Roberto Arruda",
+   "partidos": [
+    "PL",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Kiko Caputo",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Leandro Grass",
+   "partidos": [
+    "PT",
+    "PV"
+   ]
+  },
+  {
+   "nome": "Paula Belmonte",
+   "partidos": [
+    "Cidadania",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ricardo Cappelli",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Robson Raimundo",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Samara Mineiro",
+   "partidos": [
+    "UP"
+   ]
+  }
  ],
  "presidente:DF": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Heró Bezerra",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Heró Bezerra",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  }
  ],
  "governador:ES": [
-  "Arnaldinho Borgo",
-  "Da Vitória",
-  "Euclério Sampaio",
-  "Helder Salomão",
-  "Lorenzo Pazolini",
-  "Magno Malta",
-  "Paulo Hartung",
-  "Ricardo Ferraço",
-  "Sergio Vidigal",
-  "Vatagem"
+  {
+   "nome": "Arnaldinho Borgo",
+   "partidos": [
+    "PSDB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Da Vitória",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Euclério Sampaio",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Helder Salomão",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Lorenzo Pazolini",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Magno Malta",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Paulo Hartung",
+   "partidos": [
+    "DC",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ricardo Ferraço",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Sergio Vidigal",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Vatagem",
+   "partidos": []
+  }
  ],
  "presidente:ES": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Heró Bezerra",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Filho",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Heró Bezerra",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  }
  ],
  "governador:GO": [
-  "Adriana Accorsi",
-  "Alexandre Bady",
-  "Cintia Dias",
-  "Ciro Gomes",
-  "Daniel Vilela",
-  "Edward Madureira",
-  "Gracinha Caiado",
-  "Gustavo Gayer",
-  "Gustavo Medanha",
-  "Luis Cesar Bueno",
-  "Luiz César Bueno",
-  "Lula",
-  "Marconi Perillo",
-  "Michelle Bolsonaro",
-  "Ratinho Jr",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Telemaco Brandão",
-  "Telêmaco Brandão",
-  "Vanderlan Cardoso",
-  "Wilder Morais",
-  "Zacharias Calil"
+  {
+   "nome": "Adriana Accorsi",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Alexandre Bady",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Cintia Dias",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Daniel Vilela",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Edward Madureira",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Gracinha Caiado",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Gustavo Gayer",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gustavo Medanha",
+   "partidos": [
+    "PRD"
+   ]
+  },
+  {
+   "nome": "Luis Cesar Bueno",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Luiz César Bueno",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Marconi Perillo",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Telemaco Brandão",
+   "partidos": [
+    "Novo",
+    "PL"
+   ]
+  },
+  {
+   "nome": "Telêmaco Brandão",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Vanderlan Cardoso",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Wilder Morais",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Zacharias Calil",
+   "partidos": [
+    "MDB",
+    "União Brasil"
+   ]
+  }
  ],
  "presidente:GO": [
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:MA": [
-  "André Luis",
-  "André Luís",
-  "Eduardo Braide",
-  "Enilton Rodrigues",
-  "Felipe Camarão",
-  "Lahesio Bonfim",
-  "Lahésio Bonfim",
-  "Orleans Brandão",
-  "Roberto Rocha",
-  "Saulo Arcangeli"
+  {
+   "nome": "André Luis",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "André Luís",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Eduardo Braide",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Enilton Rodrigues",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Felipe Camarão",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Lahesio Bonfim",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Lahésio Bonfim",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Orleans Brandão",
+   "partidos": [
+    "MDB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Roberto Rocha",
+   "partidos": [
+    "Novo",
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Saulo Arcangeli",
+   "partidos": [
+    "PSTU"
+   ]
+  }
  ],
  "presidente:MA": [
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Flávio Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:MG": [
-  "Alexandre Kalil",
-  "Alexandre Silveira",
-  "Ben Mendes",
-  "Cleitinho",
-  "Cleitinho Azevedo",
-  "Gabriel Azevedo",
-  "Indira Xavier",
-  "Marcelo Aro",
-  "Maria da Consolação",
-  "Maria da Consolação Rocha",
-  "Marília Campos",
-  "Mateus Simões",
-  "Matheus Simões",
-  "Nikolas Ferreira",
-  "Patrus Ananias",
-  "Prof. Túlio Lopes",
-  "Rodrigo Pacheco",
-  "Tadeuzinho",
-  "Vittorio Medioli"
+  {
+   "nome": "Alexandre Kalil",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Alexandre Silveira",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ben Mendes",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Cleitinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Cleitinho Azevedo",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Gabriel Azevedo",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Indira Xavier",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Marcelo Aro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Maria da Consolação",
+   "partidos": [
+    "PL",
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Maria da Consolação Rocha",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Marília Campos",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Mateus Simões",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Matheus Simões",
+   "partidos": [
+    "Novo",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Nikolas Ferreira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Patrus Ananias",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Prof. Túlio Lopes",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Rodrigo Pacheco",
+   "partidos": [
+    "PSB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Tadeuzinho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Vittorio Medioli",
+   "partidos": [
+    "PL"
+   ]
+  }
  ],
  "presidente:MG": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Lula",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSD",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:MS": [
-  "Beto Figueiró",
-  "Capitão Contar",
-  "Delcídio do Amaral",
-  "Eduardo Riedel",
-  "Fábio Trad",
-  "Jaime Valler",
-  "Jeferson Bezerra",
-  "Jefferson Bezerra",
-  "Jefferson Bezzerra",
-  "João Henrique Catan",
-  "Lucien Rezende",
-  "Marcos Pollon",
-  "Renato Gomes",
-  "Tereza Cristina"
+  {
+   "nome": "Beto Figueiró",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Capitão Contar",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Delcídio do Amaral",
+   "partidos": [
+    "PRD"
+   ]
+  },
+  {
+   "nome": "Eduardo Riedel",
+   "partidos": [
+    "PP",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Fábio Trad",
+   "partidos": [
+    "PSD",
+    "PT"
+   ]
+  },
+  {
+   "nome": "Jaime Valler",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Jeferson Bezerra",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Jefferson Bezerra",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Jefferson Bezzerra",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "João Henrique Catan",
+   "partidos": [
+    "Novo",
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lucien Rezende",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Marcos Pollon",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Renato Gomes",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "governador:MT": [
-  "Carlos Fávaro",
-  "Janaína Riva",
-  "Jayme Campos",
-  "José Carlos do Pátio",
-  "Marcelo Maluf",
-  "Max Russi",
-  "Natasha Slhessarenko",
-  "Odílio Balbinotti",
-  "Otaviano Pivetta",
-  "Rafaell Milas",
-  "Sargento Laudicério",
-  "Wellington Fagundes"
+  {
+   "nome": "Carlos Fávaro",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Janaína Riva",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jayme Campos",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "José Carlos do Pátio",
+   "partidos": [
+    "PSB",
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Marcelo Maluf",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Max Russi",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Natasha Slhessarenko",
+   "partidos": [
+    "PSB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Odílio Balbinotti",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Otaviano Pivetta",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rafaell Milas",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Sargento Laudicério",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Wellington Fagundes",
+   "partidos": [
+    "PL"
+   ]
+  }
  ],
  "governador:PR": [
-  "Adriano Teixeira",
-  "Alexandre Curi",
-  "Alexandre Salomão",
-  "Alvaro Dias",
-  "Beto Richa",
-  "Cida Borghetti",
-  "Enio Verri",
-  "Fernando Giacobo",
-  "Guto Silva",
-  "Guto Silva, com o apoio do governador Ratinho Junior",
-  "Luiz França",
-  "Paulo Eduardo",
-  "Paulo Martins",
-  "Rafael Greca",
-  "Requião Filho",
-  "Samuel de Mattos",
-  "Sandro Alex",
-  "Sergio Moro",
-  "Tayná Miessa",
-  "Tony Garcia",
-  "Ênio Verri"
+  {
+   "nome": "Adriano Teixeira",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Alexandre Curi",
+   "partidos": [
+    "PSD",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Alexandre Salomão",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Alvaro Dias",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Beto Richa",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Cida Borghetti",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Enio Verri",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ênio Verri",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Fernando Giacobo",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Guto Silva",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Guto Silva, com o apoio do governador Ratinho Junior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Luiz França",
+   "partidos": [
+    "Missão",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Paulo Eduardo",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Paulo Martins",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Rafael Greca",
+   "partidos": [
+    "MDB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Requião Filho",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Samuel de Mattos",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Sandro Alex",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Sergio Moro",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tayná Miessa",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Tony Garcia",
+   "partidos": [
+    "DC"
+   ]
+  }
  ],
  "governador:PA": [
-  "Araceli Lemos",
-  "Beto Faro",
-  "Cleber Rabelo",
-  "Cléber Rabelo",
-  "Daniel Santos",
-  "Delegado Eder Mauro",
-  "Dr Daniel",
-  "Dr. Daniel",
-  "Fernando Carneiro",
-  "Gal Leite",
-  "Hana Ghassan",
-  "Joaquim Passarinho",
-  "José Moita",
-  "Marinor Brito",
-  "Mario Couto",
-  "Mário Couto",
-  "Paulo Rocha",
-  "Raquel Brício",
-  "Robertinho",
-  "Simão Jatene",
-  "Éder Mauro"
+  {
+   "nome": "Araceli Lemos",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Beto Faro",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Cleber Rabelo",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Cléber Rabelo",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Daniel Santos",
+   "partidos": [
+    "PSB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Delegado Eder Mauro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Dr Daniel",
+   "partidos": [
+    "PSB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Dr. Daniel",
+   "partidos": [
+    "PSB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Éder Mauro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Fernando Carneiro",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Gal Leite",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Hana Ghassan",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Joaquim Passarinho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Moita",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Marinor Brito",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Mario Couto",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Mário Couto",
+   "partidos": [
+    "DC",
+    "PL"
+   ]
+  },
+  {
+   "nome": "Paulo Rocha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Raquel Brício",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Robertinho",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Simão Jatene",
+   "partidos": [
+    "Sem partido"
+   ]
+  }
  ],
  "presidente:PA": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Hertz Dias",
-  "Joaquim Barbosa",
-  "Lula",
-  "Michelle Bolsonaro",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tereza Cristina"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "governador:PB": [
-  "Camilo Duarte",
-  "Cícero Lucena",
-  "Efraim Filho",
-  "Efraim Moraes Filho",
-  "Lucas Ribeiro",
-  "Lúcio Flávio",
-  "Olímpio Rocha",
-  "Pedro Cunha Lima",
-  "Yuri Ezequiel"
+  {
+   "nome": "Camilo Duarte",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Cícero Lucena",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Efraim Filho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Efraim Moraes Filho",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Lucas Ribeiro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Lúcio Flávio",
+   "partidos": [
+    "PL",
+    "PP",
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Olímpio Rocha",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Pedro Cunha Lima",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Yuri Ezequiel",
+   "partidos": [
+    "UP"
+   ]
+  }
  ],
  "presidente:PB": [
-  "Aldo Rebelo",
-  "Aécio Neves",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Helder Barbalho",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  }
  ],
  "governador:PE": [
-  "Anderson Ferreira",
-  "Eduardo Moura",
-  "Gilson Machado",
-  "Ivan Moraes",
-  "João Campos",
-  "João Henrique Campos",
-  "Raquel Lyra"
+  {
+   "nome": "Anderson Ferreira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eduardo Moura",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Gilson Machado",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ivan Moraes",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "João Campos",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "João Henrique Campos",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Raquel Lyra",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "presidente:PE": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSD",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PL",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:PI": [
-  "Dra. Lúcia Santos",
-  "Elizeu Aguiar",
-  "Geraldo Carvalho",
-  "Gisvaldo Oliveira",
-  "Gustavo Henrique",
-  "Jesus Rodrigues",
-  "Joel Rodrigues",
-  "Joel Rodrigues da Silva",
-  "Jornalista Toni Rodrigues",
-  "Lourdes Melo",
-  "Mainha",
-  "Margarete Coelho",
-  "Professor Tonny",
-  "Rafael Fonteles",
-  "Ravenna Castro",
-  "Santiago Belizário",
-  "Toni Rodrigues"
+  {
+   "nome": "Dra. Lúcia Santos",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Elizeu Aguiar",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Geraldo Carvalho",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Gisvaldo Oliveira",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Gustavo Henrique",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Jesus Rodrigues",
+   "partidos": [
+    "Cidadania"
+   ]
+  },
+  {
+   "nome": "Joel Rodrigues",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Joel Rodrigues da Silva",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Jornalista Toni Rodrigues",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lourdes Melo",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Mainha",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Margarete Coelho",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Professor Tonny",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Rafael Fonteles",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ravenna Castro",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Santiago Belizário",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Toni Rodrigues",
+   "partidos": [
+    "PL"
+   ]
+  }
  ],
  "presidente:PI": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Flávio Bolsonaro",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  }
  ],
  "presidente:PR": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro",
-  "Eduardo Bolsonaro",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Michelle Bolsonaro",
-  "Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro",
-  "Renan Filho",
-  "Renan Santos",
-  "Romeu Zema",
-  "Romeu Zema, com apoio do ex-presidente Jair Bolsonaro",
-  "Ronaldo Caiado",
-  "Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro",
-  "Simone Tebet",
-  "Tarcísio de Freitas",
-  "Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro",
-  "Tereza Cristina, ex-presidente Jair Bolsonaro"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Eduardo Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Romeu Zema, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina, ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "governador:RJ": [
-  "André Ceciliano",
-  "André Marinho",
-  "Anthony Garotinho",
-  "Bombeiro Rafa Luz",
-  "Cyro Garcia",
-  "Douglas Ruas",
-  "Eduardo Paes",
-  "Felipe Curi",
-  "Garotinho",
-  "Glauber Braga",
-  "Italo Marsili",
-  "Juiz Wilson Witzel",
-  "Juliete Pantoja",
-  "Monica Benicio",
-  "Rodrigo Barcellar",
-  "Rodrigo Pimentel",
-  "Tarcísio Motta",
-  "Washington Reis",
-  "Wiliam Siri",
-  "William Siri",
-  "Wilson Witzel",
-  "Ítalo Marsili"
+  {
+   "nome": "André Ceciliano",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "André Marinho",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Anthony Garotinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Bombeiro Rafa Luz",
+   "partidos": [
+    "Avante",
+    "Missão",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Cyro Garcia",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Douglas Ruas",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eduardo Paes",
+   "partidos": [
+    "PSD",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Felipe Curi",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Garotinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Glauber Braga",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Italo Marsili",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ítalo Marsili",
+   "partidos": [
+    "Novo",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Juiz Wilson Witzel",
+   "partidos": [
+    "DC",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Juliete Pantoja",
+   "partidos": [
+    "PSOL",
+    "UP"
+   ]
+  },
+  {
+   "nome": "Monica Benicio",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rodrigo Barcellar",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rodrigo Pimentel",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Tarcísio Motta",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Washington Reis",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Wiliam Siri",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "William Siri",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Wilson Witzel",
+   "partidos": [
+    "Democrata"
+   ]
+  }
  ],
  "presidente:RJ": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Pablo Marçal",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSD",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:RN": [
-  "Allyson Bezerra",
-  "Alvaro Dias",
-  "Cadu Xavier",
-  "Cadu de Lula",
-  "Dário Barbosa",
-  "Natália Bonavides",
-  "Robério Paulino",
-  "Rodrigo Bolsonaro",
-  "Rodrigo Vieira",
-  "Rogério Marinho",
-  "Styvenson Valentim",
-  "Walter Alves",
-  "Álvaro Costa Dias",
-  "Álvaro Dias"
+  {
+   "nome": "Allyson Bezerra",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Álvaro Costa Dias",
+   "partidos": [
+    "PL",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Alvaro Dias",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Álvaro Dias",
+   "partidos": [
+    "PL",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Cadu de Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Cadu Xavier",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Dário Barbosa",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Natália Bonavides",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Robério Paulino",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rodrigo Bolsonaro",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Rodrigo Vieira",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Rogério Marinho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Styvenson Valentim",
+   "partidos": [
+    "PSDB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Walter Alves",
+   "partidos": [
+    "MDB"
+   ]
+  }
  ],
  "presidente:RN": [
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Renan Filho",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta"
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  }
  ],
  "governador:RO": [
-  "Acir Gurgacz",
-  "Adailton Fúria",
-  "Adaílton Fúria",
-  "Alex Redano",
-  "Confúcio Moura",
-  "Delegado Flori",
-  "Expedito Netto",
-  "Fernando Máximo",
-  "Hildon Chaves",
-  "Ivo Cassol",
-  "Jaime Bagatoli",
-  "Léo Moraes",
-  "Marcos Rogério",
-  "Maurício Carvalho",
-  "Raduan Miguel",
-  "Samuel Costa",
-  "Sérgio Gonçalves"
+  {
+   "nome": "Acir Gurgacz",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Adailton Fúria",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Adaílton Fúria",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Alex Redano",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Confúcio Moura",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Delegado Flori",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Expedito Netto",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Fernando Máximo",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Hildon Chaves",
+   "partidos": [
+    "PSDB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ivo Cassol",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Jaime Bagatoli",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Léo Moraes",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Marcos Rogério",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Maurício Carvalho",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Raduan Miguel",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Samuel Costa",
+   "partidos": [
+    "Rede"
+   ]
+  },
+  {
+   "nome": "Sérgio Gonçalves",
+   "partidos": [
+    "União Brasil"
+   ]
+  }
  ],
  "governador:RS": [
-  "Cesar Pontes",
-  "Coronel Zucco",
-  "Covatti Filho",
-  "Covatti filho",
-  "Edegar Pretto",
-  "Evandro Augusto",
-  "Felipe Camozzato",
-  "Gabriel Souza",
-  "Juliana Brizola",
-  "Luciano Zucco",
-  "Marcelo Maranata",
-  "Paula Mascarenhas",
-  "Rejane de Oliveira"
+  {
+   "nome": "Cesar Pontes",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Coronel Zucco",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Covatti filho",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Covatti Filho",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Edegar Pretto",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Evandro Augusto",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Felipe Camozzato",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Gabriel Souza",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Juliana Brizola",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Luciano Zucco",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marcelo Maranata",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Paula Mascarenhas",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Rejane de Oliveira",
+   "partidos": [
+    "PSTU"
+   ]
+  }
  ],
  "presidente:RS": [
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Pablo Marçal",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "presidente:SC": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Flávio Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "governador:SE": [
-  "Delegado André David",
-  "Emanoel Cacho",
-  "Emanuel Cacho",
-  "Fábio Mitidieri",
-  "Ricardo Marques",
-  "Valmir de Francisquinho",
-  "Valmir de Francisquinho de Itabaiana"
+  {
+   "nome": "Delegado André David",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Emanoel Cacho",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Emanuel Cacho",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Fábio Mitidieri",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ricardo Marques",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Valmir de Francisquinho",
+   "partidos": [
+    "PL",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Valmir de Francisquinho de Itabaiana",
+   "partidos": [
+    "PL"
+   ]
+  }
  ],
  "governador:SP": [
-  "Alexandre Padilha",
-  "André do Prado",
-  "Astronauta Marcos Pontes",
-  "Capitão Derrite",
-  "Carlos Machado",
-  "Erika Hilton",
-  "Felicio Ramuth",
-  "Felipe d'Avila",
-  "Felício Ramuth",
-  "Fernando Haddad",
-  "Filipe Sabará",
-  "Flávio Bolsonaro",
-  "Geraldo Alckmin",
-  "Gilberto Kassab",
-  "Izadora Dias",
-  "José Carlos Machado",
-  "Kassab",
-  "Kim Kataguiri",
-  "Luiz Felipe d'Avila",
-  "Marta Suplicy",
-  "Márcio França",
-  "Pablo Marçal",
-  "Paulo Serra",
-  "Ricardo Nunes",
-  "Ricardo Salles",
-  "Rodrigo Garcia",
-  "Rodrigo Manga",
-  "Sabará",
-  "Simone Tebet",
-  "Tarcísio de Freitas",
-  "Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro",
-  "Vera Lúcia",
-  "Vera Lúcia Salgado",
-  "Vivian Mendes"
+  {
+   "nome": "Alexandre Padilha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "André do Prado",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Astronauta Marcos Pontes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Capitão Derrite",
+   "partidos": [
+    "PL",
+    "PP"
+   ]
+  },
+  {
+   "nome": "Carlos Machado",
+   "partidos": []
+  },
+  {
+   "nome": "Erika Hilton",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Felicio Ramuth",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Felício Ramuth",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Felipe d'Avila",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Fernando Haddad",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Filipe Sabará",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Geraldo Alckmin",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Gilberto Kassab",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Izadora Dias",
+   "partidos": []
+  },
+  {
+   "nome": "José Carlos Machado",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Kassab",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Kim Kataguiri",
+   "partidos": [
+    "Missão",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Luiz Felipe d'Avila",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Márcio França",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Marta Suplicy",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Paulo Serra",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ricardo Nunes",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Ricardo Salles",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Rodrigo Garcia",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Rodrigo Manga",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Sabará",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Vera Lúcia",
+   "partidos": []
+  },
+  {
+   "nome": "Vera Lúcia Salgado",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Vivian Mendes",
+   "partidos": [
+    "UP"
+   ]
+  }
  ],
  "presidente:SP": [
-  "Aldo Rebelo",
-  "Alexandre Padilha",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Erika Hilton",
-  "Flávio Bolsonaro",
-  "Geraldo Alckmin",
-  "Gilberto Kassab",
-  "Gusttavo Lima",
-  "Helder Barbalho",
-  "Hertz Dias",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Luiz Felipe d'Avila",
-  "Lula",
-  "Michelle Bolsonaro",
-  "Márcio França",
-  "Pablo Marçal",
-  "Paulo Serra",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Filho",
-  "Renan Santos",
-  "Ricardo Nunes",
-  "Rodrigo Manga",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta",
-  "Tarcísio de Freitas",
-  "Tereza Cristina"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Alexandre Padilha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Erika Hilton",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Geraldo Alckmin",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Gilberto Kassab",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Luiz Felipe d'Avila",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Márcio França",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Paulo Serra",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ricardo Nunes",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Rodrigo Manga",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "governador:TO": [
-  "Amélio Cayres",
-  "Ataides Oliveira",
-  "Ataídes Oliveira",
-  "Carlos Amastha",
-  "Carlos Eduardo Torres Gomes",
-  "Cinthia Ribeiro",
-  "Dorinha Rezende",
-  "Eduardo Gomes",
-  "Irajá",
-  "Kátia Abreu",
-  "Laurez Moreira",
-  "Mauro Carlesse",
-  "Paulo Mourão",
-  "Professora Dorinha",
-  "Vicentinho Júnior"
+  {
+   "nome": "Amélio Cayres",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Ataides Oliveira",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ataídes Oliveira",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Carlos Amastha",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Carlos Eduardo Torres Gomes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Cinthia Ribeiro",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Dorinha Rezende",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Eduardo Gomes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Irajá",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Kátia Abreu",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Laurez Moreira",
+   "partidos": [
+    "PDT",
+    "PSB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Mauro Carlesse",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Paulo Mourão",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Professora Dorinha",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Vicentinho Júnior",
+   "partidos": [
+    "PP",
+    "PSDB"
+   ]
+  }
  ],
  "presidente:TO": [
-  "Aldo Rebelo",
-  "Aécio Neves",
-  "Ciro",
-  "Ciro Gomes",
-  "Eduardo Leite",
-  "Flávio Bolsonaro",
-  "Helder Barbalho",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Filho",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Ciro",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  }
  ],
  "governador:SC": [
-  "Adriano Silva",
-  "Afrânio Boppré",
-  "Décio Lima",
-  "Gelson Merisio",
-  "Jorginho Mello",
-  "João Rodrigues",
-  "Marcos Vieira"
+  {
+   "nome": "Adriano Silva",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Afrânio Boppré",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Décio Lima",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Gelson Merisio",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "João Rodrigues",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Jorginho Mello",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marcos Vieira",
+   "partidos": [
+    "PSDB"
+   ]
+  }
  ],
  "senador:AC": [
-  "Coronel Ulysses",
-  "Eduardo Velloso",
-  "Gladson Cameli",
-  "Inácio Moreira",
-  "Jorge Viana",
-  "Jéssica Sales",
-  "Mailza Assis",
-  "Mara Rocha",
-  "Marcio Bittar",
-  "Márcio Bittar",
-  "Sérgio Petecão"
+  {
+   "nome": "Coronel Ulysses",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Eduardo Velloso",
+   "partidos": [
+    "Solidariedade",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Gladson Cameli",
+   "partidos": [
+    "PP",
+    "UP"
+   ]
+  },
+  {
+   "nome": "Inácio Moreira",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Jéssica Sales",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jorge Viana",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Mailza Assis",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Mara Rocha",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Marcio Bittar",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Márcio Bittar",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Sérgio Petecão",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:AL": [
-  "Alfredo Gaspar",
-  "Arthur Lira",
-  "Davi Davino Filho",
-  "Davi Filho",
-  "Dr. Wanderley",
-  "Eudócia Caldas",
-  "José Wanderley Neto",
-  "Marina Cândia, esposa do JHC",
-  "Marina JHC",
-  "Paulão",
-  "Paulão do PT",
-  "Renan Calheiros",
-  "Ronaldo Lessa",
-  "Ítalo Bonja"
+  {
+   "nome": "Alfredo Gaspar",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Arthur Lira",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Davi Davino Filho",
+   "partidos": [
+    "PP",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Davi Filho",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Dr. Wanderley",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Eudócia Caldas",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ítalo Bonja",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "José Wanderley Neto",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Marina Cândia, esposa do JHC",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Marina JHC",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Paulão",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Paulão do PT",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Renan Calheiros",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Ronaldo Lessa",
+   "partidos": [
+    "PDT"
+   ]
+  }
  ],
  "presidente:AL": [
-  "Aldo Rebelo",
-  "Flávio Bolsonaro",
-  "Lula",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "senador:AM": [
-  "Capitão Alberto Neto",
-  "Eduardo Braga",
-  "Marcelo Ramos",
-  "Marcos Rotta",
-  "Plínio Valério",
-  "Wilson Lima",
-  "Wilson Miranda Lima"
+  {
+   "nome": "Capitão Alberto Neto",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eduardo Braga",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Marcelo Ramos",
+   "partidos": [
+    "Mobiliza",
+    "PSD",
+    "PT"
+   ]
+  },
+  {
+   "nome": "Marcos Rotta",
+   "partidos": [
+    "Avante",
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Plínio Valério",
+   "partidos": [
+    "Avante",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Wilson Lima",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Wilson Miranda Lima",
+   "partidos": [
+    "União Brasil"
+   ]
+  }
  ],
  "presidente:AM": [
-  "Augusto Cury",
-  "Joaquim Barbosa",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:AP": [
-  "Acácio Favacho",
-  "Alliny Serrão",
-  "João Capiberibe",
-  "Lucas Barreto",
-  "Randolfe Rodrigues",
-  "Rayssa Furlan",
-  "Teles Junior",
-  "Waldez Góes",
-  "Zé Teles Júnior"
+  {
+   "nome": "Acácio Favacho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Alliny Serrão",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "João Capiberibe",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Lucas Barreto",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Randolfe Rodrigues",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Rayssa Furlan",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Teles Junior",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Waldez Góes",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Zé Teles Júnior",
+   "partidos": [
+    "PDT"
+   ]
+  }
  ],
  "presidente:AP": [
-  "Augusto Cury",
-  "Flávio Bolsonaro",
-  "Joaquim Barbosa",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:BA": [
-  "Adolfo Viana",
-  "Angelo Coronel",
-  "Aroldo Cedraz",
-  "Delliana Ribeiro",
-  "Jacques Wagner",
-  "Jaques Wagner",
-  "João Roma",
-  "Marcelo Nilo",
-  "Márcio Marinho",
-  "Rui Costa",
-  "Ângelo Coronel"
+  {
+   "nome": "Adolfo Viana",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Angelo Coronel",
+   "partidos": [
+    "PSD",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Ângelo Coronel",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Aroldo Cedraz",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Delliana Ribeiro",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Delliana Ricelli",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Gregorio Gould",
+   "partidos": []
+  },
+  {
+   "nome": "Jacques Wagner",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Jaques Wagner",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "João Roma",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marcelo Carvalho",
+   "partidos": []
+  },
+  {
+   "nome": "Marcelo Nilo",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Marcelo Santtana",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Márcio Marinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Professora Delliana",
+   "partidos": []
+  },
+  {
+   "nome": "Rui Costa",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "senador:CE": [
-  "Alcides Fernandes",
-  "Anna Karina",
-  "Capitão Wagner",
-  "Chagas Vieira",
-  "Chiquinho Feitosa",
-  "Cid Gomes",
-  "Cândido Albuquerque",
-  "Domingos Filho",
-  "Eunício Oliveira",
-  "General Theophilo",
-  "General Theóphilo",
-  "Guimarães do PT",
-  "José Guimarães",
-  "José Nobre Guimarães",
-  "Júnior Mano",
-  "Luis Eduardo Girão",
-  "Luizianne Lins",
-  "Pastor Alcides",
-  "Priscila Costa",
-  "Roberto Cláudio"
+  {
+   "nome": "Alcides Fernandes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Anna Karina",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Cândido Albuquerque",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Capitão Wagner",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Chagas Vieira",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Chiquinho Feitosa",
+   "partidos": [
+    "PSDB",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Cid Gomes",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Domingos Filho",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Eunício Oliveira",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "General Theophilo",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "General Theóphilo",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Guimarães do PT",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "José Guimarães",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "José Nobre Guimarães",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Júnior Mano",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Luis Eduardo Girão",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Luizianne Lins",
+   "partidos": [
+    "PT",
+    "Rede"
+   ]
+  },
+  {
+   "nome": "Pastor Alcides",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Priscila Costa",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Roberto Cláudio",
+   "partidos": [
+    "União Brasil"
+   ]
+  }
  ],
  "senador:PI": [
-  "Antonio Barros",
-  "Antonio José Lira",
-  "Antônio José Lira",
-  "Ciro Nogueira",
-  "Dionísio Piauí",
-  "Francinaldo Leão",
-  "Joel Rodrigues",
-  "Jorge Lopes",
-  "Júlio César",
-  "Júlio César de Carvalho Lima",
-  "Major Paulo Roberto",
-  "Marcelo Castro",
-  "Pedro Laurentino",
-  "Ravenna Castro",
-  "Tiago Junqueira",
-  "Toim do Frango"
+  {
+   "nome": "Antonio Barros",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Antonio José Lira",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Antônio José Lira",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Ciro Nogueira",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Dionísio Piauí",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Francinaldo Leão",
+   "partidos": [
+    "DC",
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Joel Rodrigues",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Jorge Lopes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Júlio César",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Júlio César de Carvalho Lima",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Major Paulo Roberto",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Marcelo Castro",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Pedro Laurentino",
+   "partidos": [
+    "PSDB",
+    "UP"
+   ]
+  },
+  {
+   "nome": "Ravenna Castro",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Tiago Junqueira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Toim do Frango",
+   "partidos": [
+    "Mobiliza"
+   ]
+  }
  ],
  "senador:DF": [
-  "Bia Kicis",
-  "Ibaneis",
-  "Ibaneis Rocha",
-  "Izalci Lucas",
-  "José Reguffe",
-  "Leandro Grass",
-  "Leila Barros",
-  "Leila do Vôlei",
-  "Michelle Bolsonaro",
-  "Paulo Octávio",
-  "Paulo Otávio",
-  "Rafael Prudente",
-  "Sebastião Coelho",
-  "Érica kokay",
-  "Érika Kokay"
+  {
+   "nome": "Bia Kicis",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Érica kokay",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Érika Kokay",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ibaneis",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Ibaneis Rocha",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Izalci Lucas",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Reguffe",
+   "partidos": [
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Leandro Grass",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Leila Barros",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Leila do Vôlei",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Paulo Octávio",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Paulo Otávio",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Rafael Prudente",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Sebastião Coelho",
+   "partidos": [
+    "Novo"
+   ]
+  }
  ],
  "senador:ES": [
-  "Arnaldinho Borgo",
-  "Carlos Manato",
-  "Da Vitória",
-  "Euclério Sampaio",
-  "Evair de Melo",
-  "Fabiano Contarato",
-  "Leonardo Monjardim",
-  "Lorenzo Pazolini",
-  "Maguinha Malta",
-  "Marcos do Val",
-  "Paulo Hartung",
-  "Renato Casagrande",
-  "Rose de Freitas",
-  "Sérgio Meneguelli",
-  "Wellington Callegari"
+  {
+   "nome": "Arnaldinho Borgo",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Carlos Manato",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Da Vitória",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Euclério Sampaio",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Evair de Melo",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Fabiano Contarato",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Leonardo Monjardim",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Lorenzo Pazolini",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Maguinha Malta",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marcos do Val",
+   "partidos": [
+    "Avante",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Paulo Hartung",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renato Casagrande",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Rose de Freitas",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Sérgio Meneguelli",
+   "partidos": [
+    "PSD",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Wellington Callegari",
+   "partidos": [
+    "DC"
+   ]
+  }
  ],
  "senador:GO": [
-  "Aldo Arantes",
-  "Alexandre Bady",
-  "Alexandre Baldy",
-  "Cintia Dias",
-  "Delegado Humberto",
-  "Delegado Humberto Teófilo",
-  "Gracinha Caiado",
-  "Gustavo Gayer",
-  "Gustavo Medanha",
-  "Gustavo Mendanha",
-  "Humberto Chaves",
-  "Isaura Lemos",
-  "Iure Castro",
-  "Jorge Kajuru",
-  "Major Vitor Hugo",
-  "Oséias Varão",
-  "Ricardo Dias",
-  "Rubens Otoni",
-  "Vanderlan Cardoso",
-  "Vanderlan Gomes",
-  "Zacarias Calil",
-  "Zacharias Calil"
+  {
+   "nome": "Aldo Arantes",
+   "partidos": [
+    "PC do B"
+   ]
+  },
+  {
+   "nome": "Alexandre Bady",
+   "partidos": [
+    "DC",
+    "PP"
+   ]
+  },
+  {
+   "nome": "Alexandre Baldy",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Cintia Dias",
+   "partidos": [
+    "Cidadania"
+   ]
+  },
+  {
+   "nome": "Delegado Humberto",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Delegado Humberto Teófilo",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Gracinha Caiado",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Gustavo Gayer",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gustavo Medanha",
+   "partidos": [
+    "MDB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Gustavo Mendanha",
+   "partidos": [
+    "MDB",
+    "PRD",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Humberto Chaves",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Isaura Lemos",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Iure Castro",
+   "partidos": [
+    "Cidadania"
+   ]
+  },
+  {
+   "nome": "Jorge Kajuru",
+   "partidos": [
+    "Cidadania",
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Major Vitor Hugo",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Oséias Varão",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ricardo Dias",
+   "partidos": [
+    "PV"
+   ]
+  },
+  {
+   "nome": "Rubens Otoni",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Vanderlan Cardoso",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Vanderlan Gomes",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Zacarias Calil",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Zacharias Calil",
+   "partidos": [
+    "MDB",
+    "União Brasil"
+   ]
+  }
  ],
  "senador:MA": [
-  "André Fufuca",
-  "Antonia Cariongo",
-  "Carlos Brandão",
-  "Cesar Pires",
-  "Cidônio Gonçalves",
-  "César Pires",
-  "Doutor Yglésio",
-  "Duarte Júnior",
-  "Eliziane Gama",
-  "Franklin Douglas",
-  "Hilton Gonçalo",
-  "Lahesio Bonfim",
-  "Mical Damasceno",
-  "Pedro Lucas",
-  "Pedro Lucas Fernandes",
-  "Roberto Rocha",
-  "Roseana Sarney",
-  "Simplício Araújo",
-  "Weverton Rocha"
+  {
+   "nome": "André Fufuca",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Antonia Cariongo",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Carlos Brandão",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Cesar Pires",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "César Pires",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Cidônio Gonçalves",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Doutor Yglésio",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Duarte Júnior",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Eliziane Gama",
+   "partidos": [
+    "PP",
+    "PSD",
+    "PT"
+   ]
+  },
+  {
+   "nome": "Franklin Douglas",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Hilton Gonçalo",
+   "partidos": [
+    "Mobiliza",
+    "PMN"
+   ]
+  },
+  {
+   "nome": "Lahesio Bonfim",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Mical Damasceno",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Pedro Lucas",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Pedro Lucas Fernandes",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Roberto Rocha",
+   "partidos": [
+    "Novo",
+    "PRTB",
+    "Republicanos",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Roseana Sarney",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Simplício Araújo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Weverton Rocha",
+   "partidos": [
+    "PDT"
+   ]
+  }
  ],
  "senador:MG": [
-  "Alexandre Silveira",
-  "Aécio Neves",
-  "Caporezzo",
-  "Carlos Viana",
-  "Domingos Savio",
-  "Domingos Sávio",
-  "Duda Salabert",
-  "Eros Biondini",
-  "Euclydes Pettersen",
-  "Euclydes Petterson",
-  "Marcelo Aro",
-  "Maria Lúcia Cardoso",
-  "Marília Campos",
-  "Maurício do Volei",
-  "Reginaldo Lopes",
-  "Rogério Correia",
-  "Romeu Zema",
-  "Vanessa Portugal",
-  "Áurea Carolina"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Alexandre Silveira",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Áurea Carolina",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Caporezzo",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Carlos Viana",
+   "partidos": [
+    "PSD",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Domingos Savio",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Domingos Sávio",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Duda Salabert",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eros Biondini",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Euclydes Pettersen",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Euclydes Petterson",
+   "partidos": [
+    "PSB",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Marcelo Aro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Maria Lúcia Cardoso",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Marília Campos",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Maurício do Volei",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Reginaldo Lopes",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Rogério Correia",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Vanessa Portugal",
+   "partidos": [
+    "PSTU"
+   ]
+  }
  ],
  "senador:MS": [
-  "Beto do Movimento",
-  "Capitão Contar",
-  "Daniel Junior",
-  "Gerson Claro",
-  "Gianni Nogueira",
-  "Gianni do Bolsonaro",
-  "Marcos Pollon",
-  "Nelsinho Trad",
-  "Oswaldo Meza",
-  "Reinaldo Azambuja",
-  "Renan Contar",
-  "Rose Modesto",
-  "Simone Tebet",
-  "Soraya Thronicke",
-  "Vander Loubet"
+  {
+   "nome": "Beto do Movimento",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Capitão Contar",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Daniel Junior",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Gerson Claro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Gianni do Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gianni Nogueira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marcos Pollon",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Nelsinho Trad",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Oswaldo Meza",
+   "partidos": [
+    "Avante",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Reinaldo Azambuja",
+   "partidos": [
+    "PL",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Renan Contar",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Rose Modesto",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Soraya Thronicke",
+   "partidos": [
+    "PSB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Vander Loubet",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "presidente:MS": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro Gomes",
-  "Flávio Bolsonaro",
-  "Jair Bolsonaro",
-  "Lula",
-  "Ratinho Jr",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Rui Costa Pimenta"
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  }
  ],
  "senador:MT": [
-  "Antônio Galvan",
-  "Carlos Fávaro",
-  "Janaína Riva",
-  "Jayme Campos",
-  "José Antonio Medeiros",
-  "José Medeiros",
-  "Margareth Buzetti",
-  "Mauro Mendes",
-  "Pedro Taques",
-  "Professora Rosa Neide"
+  {
+   "nome": "Antônio Galvan",
+   "partidos": [
+    "Avante",
+    "DC"
+   ]
+  },
+  {
+   "nome": "Carlos Fávaro",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Janaína Riva",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jayme Campos",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "José Antonio Medeiros",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Medeiros",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Margareth Buzetti",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Mauro Mendes",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Pedro Taques",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Professora Rosa Neide",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "presidente:MT": [
-  "Aldo Rebelo",
-  "Augusto Cury",
-  "Aécio Neves",
-  "Flávio Bolsonaro",
-  "Joaquim Barbosa",
-  "Lula",
-  "Ratinho Jr.",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:PA": [
-  "Breno Guimarães",
-  "Celso Sabino",
-  "Chicão",
-  "Chicão Melo",
-  "Delegado Eder Mauro",
-  "Edlaine Rodrigues",
-  "Fernanda Lopes",
-  "Fernando Carneiro",
-  "Gal Leite",
-  "Gizelle Freitas",
-  "Helder Barbalho",
-  "Joaquim Passarinho",
-  "José Nery",
-  "Lívia Noronha",
-  "Marcelino Conti",
-  "Mario Couto",
-  "Paulo Rocha",
-  "Simão Jatene",
-  "Willem da Silva",
-  "Zequinha Marinho",
-  "Éder Mauro"
+  {
+   "nome": "Breno Guimarães",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Celso Sabino",
+   "partidos": [
+    "PDT",
+    "Sem partido",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Chicão",
+   "partidos": [
+    "MDB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Chicão Melo",
+   "partidos": [
+    "MDB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Delegado Eder Mauro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Éder Mauro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Edlaine Rodrigues",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Fernanda Lopes",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Fernando Carneiro",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Gal Leite",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Gizelle Freitas",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Joaquim Passarinho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Nery",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Lívia Noronha",
+   "partidos": [
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Marcelino Conti",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Mario Couto",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Paulo Rocha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Simão Jatene",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Willem da Silva",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Zequinha Marinho",
+   "partidos": [
+    "Podemos"
+   ]
+  }
  ],
  "senador:PB": [
-  "Avenzoar Arruda",
-  "João Azevedo",
-  "João Azevêdo",
-  "Major Fábio",
-  "Marcelo Queiroga",
-  "Marcelo Queiroz",
-  "Nabor Wanderley",
-  "Padre Fabrício",
-  "Veneziano Vital do Rêgo"
+  {
+   "nome": "Avenzoar Arruda",
+   "partidos": [
+    "PSOL",
+    "PT"
+   ]
+  },
+  {
+   "nome": "João Azevedo",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "João Azevêdo",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Major Fábio",
+   "partidos": [
+    "Novo",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Marcelo Queiroga",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marcelo Queiroz",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Nabor Wanderley",
+   "partidos": [
+    "Novo",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Padre Fabrício",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Veneziano Vital do Rêgo",
+   "partidos": [
+    "MDB"
+   ]
+  }
  ],
  "senador:PE": [
-  "Anderson Ferreira",
-  "Armando Monteiro",
-  "Armando Monteiro Neto",
-  "Eduardo da Fonte",
-  "Fernando Dueire",
-  "Gilson Machado",
-  "Gilson Machado Neto",
-  "Humberto Costa",
-  "Jô Cavalcanti",
-  "Marília Arraes",
-  "Mendonça Filho",
-  "Miguel Coelho",
-  "Paulo Rubem Santiago",
-  "Silvio Costa Filho",
-  "Silvio Nascimento",
-  "Túlio Gadelha",
-  "Túlio Gadêlha",
-  "sílvio costa Filho"
+  {
+   "nome": "Anderson Ferreira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Armando Monteiro",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Armando Monteiro Neto",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Eduardo da Fonte",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Fernando Dueire",
+   "partidos": [
+    "MDB",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Gilson Machado",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gilson Machado Neto",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Humberto Costa",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Jô Cavalcanti",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Marília Arraes",
+   "partidos": [
+    "PDT",
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Mendonça Filho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Miguel Coelho",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Paulo Rubem Santiago",
+   "partidos": [
+    "Rede"
+   ]
+  },
+  {
+   "nome": "Silvio Costa Filho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "sílvio costa Filho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Silvio Nascimento",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Túlio Gadelha",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Túlio Gadêlha",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:PR": [
-  "Alexandre Curi",
-  "Alvaro Dias",
-  "Beto Richa",
-  "Cristina Graeml",
-  "Deltan Dallagnol",
-  "Dr. Rosinha",
-  "Enio Verri",
-  "Filipe Barros",
-  "Flávio Arns",
-  "Gleisi Hoffmann",
-  "Hauly",
-  "Jeffrey Chiquini",
-  "Luiz Carlos Hauly",
-  "Osmar Dias",
-  "Ratinho Jr",
-  "Rosane Ferreira",
-  "Zeca Dirceu",
-  "Álvaro Dias"
+  {
+   "nome": "Alexandre Curi",
+   "partidos": [
+    "PSD",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Alvaro Dias",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Álvaro Dias",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Beto Richa",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Cristina Graeml",
+   "partidos": [
+    "PSD",
+    "Podemos",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Deltan Dallagnol",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Dr. Rosinha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Enio Verri",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Filipe Barros",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Flávio Arns",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Gleisi Hoffmann",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Hauly",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Jeffrey Chiquini",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Luiz Carlos Hauly",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Osmar Dias",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Rosane Ferreira",
+   "partidos": [
+    "PV"
+   ]
+  },
+  {
+   "nome": "Zeca Dirceu",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "senador:RJ": [
-  "Alessandro Molon",
-  "Benedita da Silva",
-  "Carlos Jordy",
-  "Carlos Portinho",
-  "Clarissa Garotinho",
-  "Cláudio Castro",
-  "Fabiano Horta",
-  "Felipe Curi",
-  "Flávio Bolsonaro",
-  "Helio Secco",
-  "Hélio Secco",
-  "Lindbergh Farias",
-  "Luciana Boiteux",
-  "Luciano Vieira",
-  "Marcelo Crivella",
-  "Marcos Dias",
-  "Mauro Campos",
-  "Monica Benicio",
-  "Márcio Canella",
-  "Otoni de Paula",
-  "Paulo Ganime",
-  "Pedro Paulo",
-  "Rodrigo Pimentel",
-  "Rogéria Bolsonaro",
-  "Sóstenes Cavalcante",
-  "Waguinho",
-  "Washington Reis"
+  {
+   "nome": "Alessandro Molon",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Benedita da Silva",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Carlos Jordy",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Carlos Portinho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Clarissa Garotinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Cláudio Castro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Fabiano Horta",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Felipe Curi",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Helio Secco",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Hélio Secco",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Lindbergh Farias",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Luciana Boiteux",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Luciano Vieira",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Marcelo Crivella",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Márcio Canella",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Marcos Dias",
+   "partidos": [
+    "Novo",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Mauro Campos",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Monica Benicio",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Otoni de Paula",
+   "partidos": [
+    "MDB",
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Paulo Ganime",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Pedro Paulo",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Rodrigo Pimentel",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Rogéria Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Sóstenes Cavalcante",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Waguinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Washington Reis",
+   "partidos": [
+    "MDB"
+   ]
+  }
  ],
  "senador:RN": [
-  "Babá Pereira",
-  "Carlos Eduardo Alves",
-  "Coronel Hélio",
-  "Coronel Hélio Oliveira",
-  "Ezequiel Ferreira",
-  "Fátima Bezerra",
-  "Jean Paul Prates",
-  "Luciana Lima",
-  "Luizinho Cavalcante",
-  "Rafael Motta",
-  "Rivaldo Fernandes",
-  "Rosália Fernandes",
-  "Samanda de Lula",
-  "Sandro Pimentel",
-  "Styvenson Valentim",
-  "Zenaide Maia",
-  "Álvaro Costa Dias",
-  "Álvaro Dias"
+  {
+   "nome": "Álvaro Costa Dias",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Álvaro Dias",
+   "partidos": [
+    "MDB",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Babá Pereira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Carlos Eduardo Alves",
+   "partidos": [
+    "PDT",
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Coronel Hélio",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Coronel Hélio Oliveira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ezequiel Ferreira",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Fátima Bezerra",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Jean Paul Prates",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Luciana Lima",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Luizinho Cavalcante",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Rafael Motta",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Rivaldo Fernandes",
+   "partidos": [
+    "PV"
+   ]
+  },
+  {
+   "nome": "Rosália Fernandes",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Samanda de Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Sandro Pimentel",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Styvenson Valentim",
+   "partidos": [
+    "PSDB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Zenaide Maia",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:RO": [
-  "Acir Gurgacz",
-  "Amir Lando",
-  "Bruno Bolsonaro Scheid",
-  "Bruno Scheid",
-  "Confúcio Moura",
-  "Coronel Marcos Rocha",
-  "Delegado Camargo",
-  "Delegado Flori",
-  "Fernando Máximo",
-  "João Cipriano",
-  "Marcos Rogério",
-  "Mariana Carvalho",
-  "Neidinha Suruí",
-  "Rodrigo Camargo",
-  "Rodrigo Camargo Ribeiro Pinho",
-  "Silvia Cristina",
-  "Sílvia Cristina"
+  {
+   "nome": "Acir Gurgacz",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Amir Lando",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Bruno Bolsonaro Scheid",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Bruno Scheid",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Confúcio Moura",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Coronel Marcos Rocha",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Delegado Camargo",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Delegado Flori",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Fernando Máximo",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "João Cipriano",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Marcos Rogério",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Mariana Carvalho",
+   "partidos": [
+    "PSDB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Neidinha Suruí",
+   "partidos": [
+    "Rede"
+   ]
+  },
+  {
+   "nome": "Rodrigo Camargo",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rodrigo Camargo Ribeiro Pinho",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Silvia Cristina",
+   "partidos": [
+    "PP",
+    "UP"
+   ]
+  },
+  {
+   "nome": "Sílvia Cristina",
+   "partidos": [
+    "PP"
+   ]
+  }
  ],
  "presidente:RO": [
-  "Augusto Cury",
-  "Cabo Daciolo",
-  "Ciro",
-  "Eduardo Leite",
-  "Helder Barbalho",
-  "Jair Bolsonaro",
-  "Joaquim Barbosa",
-  "Luciano Huck",
-  "Lula",
-  "Ratinho Jr",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado",
-  "Tarcísio de Freitas",
-  "Átila Maia"
+  {
+   "nome": "Átila Maia",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Luciano Huck",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "senador:RS": [
-  "Cristina Graeml",
-  "Deltan Dallagnol",
-  "Eduardo Leite",
-  "Filipe Barros",
-  "Frederico Antunes",
-  "Germano Rigotto",
-  "Gleisi Hoffmann",
-  "Juliana Brizola",
-  "Luis Carlos Heinze",
-  "Manuela D'Ávila",
-  "Manuela d'Ávila",
-  "Marcel van Hattem",
-  "Marcel van Hatten",
-  "Márcio Biolchi",
-  "Paulo Pimenta",
-  "Ratinho Jr",
-  "Sanderson",
-  "Ubiratan Sanderson",
-  "Zeca Dirceu"
+  {
+   "nome": "Cristina Graeml",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Deltan Dallagnol",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSD",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Filipe Barros",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Frederico Antunes",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Germano Rigotto",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Gleisi Hoffmann",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Juliana Brizola",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Luis Carlos Heinze",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Manuela d'Ávila",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Manuela D'Ávila",
+   "partidos": [
+    "PSOL",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Marcel van Hattem",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Marcel van Hatten",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Márcio Biolchi",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Paulo Pimenta",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Sanderson",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ubiratan Sanderson",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Zeca Dirceu",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "senador:SC": [
-  "Afrânio Boppré",
-  "Carlos Bolsonaro",
-  "Carlos Chiodini",
-  "Caroline De Toni",
-  "Clésio Salvaro",
-  "Décio Lima",
-  "Esperidião Amin",
-  "Gilson Marques",
-  "Tânia Ramos",
-  "Vinicius Lummertz"
+  {
+   "nome": "Afrânio Boppré",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Carlos Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Carlos Chiodini",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Caroline De Toni",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Clésio Salvaro",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Décio Lima",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Esperidião Amin",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Gilson Marques",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Tânia Ramos",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Vinicius Lummertz",
+   "partidos": [
+    "MDB"
+   ]
+  }
  ],
  "senador:SE": [
-  "Adailton de Valmir de Francisquinho",
-  "Alessandro Vieira",
-  "André David",
-  "André Moura",
-  "Coronel Rocha",
-  "Delegado Alessandro",
-  "Eduardo Amorim",
-  "Edvaldo Nogueira",
-  "Iran Barbosa",
-  "Luizão Dona Trumpi",
-  "Márcio Macedo",
-  "Professor Iran Barbosa",
-  "Rodrigo Valadares",
-  "Rogério Carvalho"
+  {
+   "nome": "Adailton de Valmir de Francisquinho",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Alessandro Vieira",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "André David",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "André Moura",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Coronel Rocha",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Delegado Alessandro",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Eduardo Amorim",
+   "partidos": [
+    "PSDB",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Edvaldo Nogueira",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Iran Barbosa",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Luizão Dona Trumpi",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Márcio Macedo",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Professor Iran Barbosa",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rodrigo Valadares",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rogério Carvalho",
+   "partidos": [
+    "PT"
+   ]
+  }
  ],
  "presidente:SE": [
-  "Augusto Cury",
-  "Flávio Bolsonaro",
-  "Lula",
-  "Renan Santos",
-  "Romeu Zema",
-  "Ronaldo Caiado"
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
  ],
  "senador:SP": [
-  "Acácio Miranda",
-  "Alexandre Luiz Giordano",
-  "Alexandre Padilha",
-  "André do Prado",
-  "Baleia Rossi",
-  "Capitão Derrite",
-  "Cezinha de Madureira",
-  "Dr.ª",
-  "Ednelson",
-  "Eduardo Bolsonaro",
-  "Fernando Haddad",
-  "Geraldo",
-  "Geraldo Alckmin",
-  "Gil Diniz",
-  "Guilherme Boulos",
-  "Guilherme Derrite",
-  "Guilherme Giordano",
-  "Luiz Marinho",
-  "Mara Gabrilli",
-  "Marco Feliciano",
-  "Marina Silva",
-  "Maíra",
-  "Márcio",
-  "Márcio França",
-  "Mário Frias",
-  "Paulinho da Força",
-  "Paulo Serra",
-  "Petter",
-  "Ricardo Mello Araújo",
-  "Ricardo Salles",
-  "Robson Tuma",
-  "Rodrigo Garcia",
-  "Rodrigo Manga",
-  "Rosana Valle",
-  "Simone Tebet",
-  "Soninha Francine",
-  "Tomé Abduch",
-  "Weller"
+  {
+   "nome": "Acácio Miranda",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Alexandre Luiz Giordano",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Alexandre Padilha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "André do Prado",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Baleia Rossi",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Capitão Derrite",
+   "partidos": [
+    "PL",
+    "PP"
+   ]
+  },
+  {
+   "nome": "Cezinha de Madureira",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Dr.ª",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Ednelson",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Eduardo Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Fernando Haddad",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Geraldo",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Geraldo Alckmin",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Gil Diniz",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Guilherme Boulos",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Guilherme Derrite",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Guilherme Giordano",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Luiz Marinho",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Maíra",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Mara Gabrilli",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Márcio",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Márcio França",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Marco Feliciano",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Marina Silva",
+   "partidos": [
+    "Rede"
+   ]
+  },
+  {
+   "nome": "Mário Frias",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Paulinho da Força",
+   "partidos": [
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Paulo Serra",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Petter",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Ricardo Mello Araújo",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Ricardo Salles",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Robson Tuma",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rodrigo Garcia",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Rodrigo Manga",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rosana Valle",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB",
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Soninha Francine",
+   "partidos": [
+    "CID"
+   ]
+  },
+  {
+   "nome": "Tomé Abduch",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Weller",
+   "partidos": [
+    "PSTU"
+   ]
+  }
  ],
  "senador:TO": [
-  "Alexandre Guimarães",
-  "Ataides Oliveira",
-  "Carlos Caguin",
-  "Carlos Eduardo Torres Gomes",
-  "Carlos Gaguim",
-  "Carlos Velozo",
-  "Cinthia Ribeiro",
-  "Eduardo Gomes",
-  "Eli Borges",
-  "Irajá",
-  "Irajá Abreu",
-  "José Alexandre Guimarães",
-  "Pastor Amarildo",
-  "Paulo Mourão",
-  "Ronaldo Dimas",
-  "Vanderlei Luxemburgo",
-  "Vicentinho Júnior",
-  "Wanderlei Barbosa"
+  {
+   "nome": "Alexandre Guimarães",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Ataides Oliveira",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Carlos Caguin",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Carlos Eduardo Torres Gomes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Carlos Gaguim",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Carlos Velozo",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Cinthia Ribeiro",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Eduardo Gomes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eli Borges",
+   "partidos": [
+    "PL",
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Irajá",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Irajá Abreu",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "José Alexandre Guimarães",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Pastor Amarildo",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Paulo Mourão",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ronaldo Dimas",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Vanderlei Luxemburgo",
+   "partidos": [
+    "Podemos",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Vicentinho Júnior",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Wanderlei Barbosa",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "governador:RR": [
-  "Arthur Henrique",
-  "Doutor Raposo",
-  "Edilson Damião",
-  "Juscelino Kubitschek Pereira",
-  "Soldado Sampaio"
+  {
+   "nome": "Arthur Henrique",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Doutor Raposo",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Edilson Damião",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Juscelino Kubitschek Pereira",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Soldado Sampaio",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
  ],
  "senador:RR": [
-  "Antonio Carlos Nicoletti",
-  "Antônio Denarium",
-  "Chico Rodrigues",
-  "Hélio Lopes",
-  "Mecias de Jesus",
-  "Rodrigo Cataratas",
-  "Teresa Surita"
+  {
+   "nome": "Antonio Carlos Nicoletti",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Antônio Denarium",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Chico Rodrigues",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Hélio Lopes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Mecias de Jesus",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rodrigo Cataratas",
+   "partidos": [
+    "PRD"
+   ]
+  },
+  {
+   "nome": "Teresa Surita",
+   "partidos": [
+    "MDB"
+   ]
+  }
  ]
 }

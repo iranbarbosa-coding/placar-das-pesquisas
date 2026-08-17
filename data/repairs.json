@@ -238,13 +238,24 @@
    "set": {
     "others_pct": null,
     "undecided_pct": 16,
-    "blank_null_pct": 22,
-    "fieldwork_start": "2026-04-23",
-    "published_date": "2026-04-29"
+    "blank_null_pct": 22
    },
    "expect_sum": 100,
-   "_nota_datas": "Campo e divulgação corrigidos contra o registro do TSE (fonte primária): \"Data de início da pesquisa: 23/04/2026\", \"Data de término: 27/04/2026\", \"Data de divulgação: 29/04/2026\". Guardávamos início 22/04 (um dia cedo, sem fonte em lugar nenhum) e divulgação 27/04, que é o último dia de campo e não a publicação — as três reportagens são de 29/04. As duas leituras acharam isto de forma independente.",
+   "_nota_datas": "As datas saíram deste reparo e foram para um reparo próprio, SEM cláusula de race. Um registro é UM levantamento (decisão do criador, 15/08), então as três pesquisas de BA-03657/2026 dividem a mesma linha de survey — e fillFields() não sobrescreve valor não-nulo. Corrigir só a linha do senado não mexia em nada: o levantamento já tinha as datas vindas das duas linhas de governador, e derive-polls projetava essas de volta por cima. O carimbo \"repaired\" ainda dizia que tinha funcionado — o defeito de carimbo que applyRepairs já registra noutro caso.",
    "_nota_escala": "⚠ ESTA TABELA NÃO É COMPARÁVEL COM OUTRAS DO SENADO. São duas vagas coletadas em DUAS perguntas de resposta única (60 e 61), e a Quaest publica o consolidado REDUZIDO A 100%, não a forma de ~200% que o resto do banco tem. A Gazeta do Povo diz isso com todas as letras: \"o consolidado do primeiro e do segundo votos apontados pelos entrevistados e reduzidos para 100%\". Rui Costa 24 aqui e Rui Costa 44,6 na Paraná Pesquisas (BA-03043) NÃO são a mesma grandeza. Dobrar para aproximar 200 seria inferência e está proibido. O teto de 260 do validate-store não pega isto. Decisão pendente do criador sobre entrar ou não na média do Senado."
+  },
+  {
+   "match": {
+    "tse_registration": "BA-03657/2026"
+   },
+   "defect": "Início de campo e data de divulgação errados NAS TRÊS pesquisas do registro. Guardávamos início 22/04 — um dia cedo, sem fonte em lugar nenhum — e divulgação 27/04, que é o último dia de CAMPO e não a publicação. SEM CLÁUSULA DE RACE de propósito: um registro é um levantamento, as três linhas dividem a mesma survey, e um reparo restrito a uma delas não move a survey, porque fillFields() não sobrescreve não-nulo. Foi assim que a primeira tentativa falhou em silêncio, com o carimbo \"repaired\" dizendo que tinha dado certo.",
+   "source": "https://pesqele-divulgacao.tse.jus.br/app/pesquisa/detalhar.xhtml (registro BA-03657/2026)",
+   "evidence": "Registro do TSE, fonte primária: \"Data de início da pesquisa: 23/04/2026\", \"Data de término da pesquisa: 27/04/2026\", \"Data de divulgação: 29/04/2026\". Achado de forma independente pelas DUAS leituras às cegas, cada uma por um caminho diferente (uma pelo PesqEle, outra pelo relatório de divulgação da Genial/Quaest). Corroborado por Gazeta do Povo, Metrópoles e Brasil de Fato, os três artigos datados de 29/04/2026 — e a Gazeta escreve \"divulgou nesta quarta-feira (29)\". Nenhuma fonte, em lugar nenhum, sustenta 22/04.",
+   "verified_at": "2026-08-16",
+   "set": {
+    "fieldwork_start": "2026-04-23",
+    "published_date": "2026-04-29"
+   }
   }
  ]
 }

@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-08-16T22:35:36.254Z",
+ "generated_at": "2026-08-17T01:11:38.976Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-16T22:35:36.254Z"
+   "last_ok": "2026-08-17T01:11:38.976Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-16T22:35:36.254Z"
+   "last_ok": "2026-08-17T01:11:38.976Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-16T22:35:36.254Z"
+   "last_ok": "2026-08-17T01:11:38.976Z"
   }
  ],
  "polls": [
@@ -2593,7 +2593,7 @@
      "pct": 1.65
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.82
     },
@@ -2826,7 +2826,7 @@
    "margin_of_error": 3.5,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 16
     }
@@ -3769,12 +3769,12 @@
      "pct": 5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2
     },
@@ -3888,7 +3888,7 @@
      "pct": 39
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 38
     }
@@ -4721,7 +4721,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     }
@@ -6241,12 +6241,12 @@
      "pct": 4.3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.3
     }
@@ -6345,7 +6345,7 @@
      "pct": 31.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 50.3
     }
@@ -6662,12 +6662,47 @@
      "candidate": "Ângelo Coronel",
      "party": "PSD",
      "pct": 21.9
+    },
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 44.6
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 24.1
+    },
+    {
+     "candidate": "Professora Delliana",
+     "party": "PSOL",
+     "pct": 6.4
+    },
+    {
+     "candidate": "Marcelo Santtana",
+     "party": "DC",
+     "pct": 2.1
+    },
+    {
+     "candidate": "Marcelo Carvalho",
+     "party": null,
+     "pct": 1.8
+    },
+    {
+     "candidate": "Gregorio Gould",
+     "party": null,
+     "pct": 1.6
     }
    ],
    "others_pct": null,
-   "undecided_pct": 20.3,
-   "blank_null_pct": null,
-   "tse_registration": "BA-03043/2026"
+   "undecided_pct": 6.9,
+   "blank_null_pct": 13.4,
+   "tse_registration": "BA-03043/2026",
+   "repaired": {
+    "evidence": "p.17, \"Situação Eleitoral – Senador / ESTIMULADA – RM*\", oito candidatos: Rui Costa 44,6 · Jaques Wagner 35,1 · João Roma 24,1 · Angelo Coronel 21,9 · Professora Delliana 6,4 · Marcelo Santtana 2,1 · Marcelo Carvalho 1,8 · Gregorio Gould 1,6. Mais \"Nenhum/ Branco/ Nulo\" 13,4 e \"Não sabe/ Não opinou\" 6,9. LIDO DUAS VEZES, ÀS CEGAS, POR AGENTES INDEPENDENTES, sem que nenhum soubesse o que se esperava encontrar e sem acesso a cobertura de imprensa: as duas leituras batem nas dez linhas, dígito por dígito, e nas duas ausências. Cada leitura trouxe seu próprio segundo controle DENTRO do documento — a tabela comparativa da p.18, coluna \"Agosto 2026 / BA-03043/2026\", reproduz os dez valores na mesma ordem, noutro gráfico e noutro corpo de letra. CONFIRMAÇÃO INDEPENDENTE NOS NOSSOS PRÓPRIOS DADOS: o undecided_pct 20,3 que já guardávamos é exatamente 13,4 + 6,9, ou seja a linha veio deste documento e perdeu só os candidatos — mesma assinatura do PI-06473, onde um undecided 13 se abria em branco 6 + NS/NR 7. NÃO HÁ LINHA DE \"OUTROS\" na tabela estimulada: as duas leituras contaram as barras na página renderizada, não apenas a ausência no OCR. Armadilha vizinha registrada: a tabela ESPONTÂNEA da p.16 TEM \"Outros nomes citados 0,5%\" e não pode vazar para cá. O relatório NÃO IMPRIME PARTIDO para nenhum candidato (verificado à vista na página renderizada, não só por OCR), então as linhas restauradas ficam com partido NULO — mesma restrição do reparo de Telêmaco Brandão: sem fonte primária, o campo fica nulo em vez de afirmar. Pergunta de DOIS votos: rodapé das p.16–19, \"*Cada entrevistado poderia citar até 2 (dois) candidatos\" — logo não é pesquisa de voto único no Senado, e entra na média.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/parana-pesquisas-ba-6ago2026.pdf",
+    "verified_at": "2026-08-16"
+   }
   },
   {
    "id": "0685bf235024",
@@ -7188,12 +7223,12 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -9292,7 +9327,7 @@
      "pct": 33
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 12
     },
@@ -9312,7 +9347,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -9436,12 +9471,12 @@
      "pct": 6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 3
     },
@@ -10051,7 +10086,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -10061,7 +10096,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0
     }
@@ -10127,7 +10162,7 @@
      "pct": 60
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 17
     }
@@ -10312,7 +10347,7 @@
      "pct": 23
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -10322,7 +10357,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -10464,7 +10499,7 @@
      "pct": 33
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 35
     }
@@ -10710,12 +10745,12 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -12095,7 +12130,7 @@
      "pct": 4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -12105,7 +12140,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -12267,12 +12302,12 @@
      "pct": 2.8
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -12555,12 +12590,12 @@
      "pct": 1.17
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.58
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.17
     },
@@ -13263,7 +13298,7 @@
      "pct": 29
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 12
     },
@@ -13283,7 +13318,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -13354,7 +13389,7 @@
      "pct": 37
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 39
     }
@@ -13458,7 +13493,7 @@
      "pct": 21
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2
     },
@@ -13468,7 +13503,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -13577,7 +13612,7 @@
      "pct": 60
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 15
     }
@@ -13908,7 +13943,7 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -13923,7 +13958,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -14870,7 +14905,7 @@
      "pct": 24
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2
     },
@@ -14880,7 +14915,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -14989,7 +15024,7 @@
      "pct": 30
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 32
     }
@@ -15146,7 +15181,7 @@
      "pct": 3
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2
     },
@@ -15156,7 +15191,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -15293,7 +15328,7 @@
      "pct": 46
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 27
     }
@@ -15548,12 +15583,12 @@
      "pct": 2.8
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.1
     },
@@ -15601,7 +15636,7 @@
      "pct": 1
     },
     {
-     "candidate": "Zacharias Calil",
+     "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 2.2
     }
@@ -16063,7 +16098,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 12.4
     },
@@ -16078,7 +16113,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.4
     },
@@ -16549,7 +16584,7 @@
      "pct": 7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -16559,7 +16594,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -16641,7 +16676,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -16651,7 +16686,7 @@
      "pct": 0.8
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.6
     },
@@ -16694,7 +16729,7 @@
      "pct": 7.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 6.7
     },
@@ -16704,7 +16739,7 @@
      "pct": 5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.3
     }
@@ -17291,7 +17326,7 @@
      "pct": 36
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 6
     },
@@ -17311,7 +17346,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -17890,12 +17925,12 @@
      "pct": 2.3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.8
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.5
     },
@@ -17999,7 +18034,7 @@
      "pct": 60.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 29.1
     }
@@ -18657,7 +18692,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2.5
     },
@@ -18667,7 +18702,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.7
     }
@@ -18766,7 +18801,7 @@
      "pct": 70.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 21.3
     }
@@ -19441,12 +19476,12 @@
      "pct": 1.5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -21979,12 +22014,12 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2
     },
@@ -23663,7 +23698,7 @@
      "pct": 1.3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     },
@@ -23678,7 +23713,7 @@
      "pct": 1.1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.9
     },
@@ -23754,12 +23789,12 @@
      "pct": 34.94
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.75
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.54
     },
@@ -24774,7 +24809,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -24789,7 +24824,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -25910,12 +25945,12 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -27598,7 +27633,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -27613,7 +27648,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -27684,7 +27719,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 44
     },
@@ -28198,7 +28233,7 @@
      "pct": 1.8
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.6
     },
@@ -28208,7 +28243,7 @@
      "pct": 1.5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.2
     },
@@ -31242,7 +31277,7 @@
      "pct": 3.13
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.34
     },
@@ -31252,7 +31287,7 @@
      "pct": 1.19
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.9
     },
@@ -31960,7 +31995,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -31975,7 +32010,7 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -32231,7 +32266,7 @@
      "pct": 4.9
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2.9
     },
@@ -32241,7 +32276,7 @@
      "pct": 1.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     }
@@ -32373,7 +32408,7 @@
      "pct": 68.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 18.3
     }
@@ -33993,7 +34028,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -34938,7 +34973,7 @@
      "pct": 10
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 5
     },
@@ -35844,12 +35879,12 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -36023,12 +36058,12 @@
      "pct": 1.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.9
     },
@@ -36154,12 +36189,12 @@
      "pct": 1.9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.2
     }
@@ -36258,7 +36293,7 @@
      "pct": 55.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 30.7
     }
@@ -36796,7 +36831,7 @@
      "pct": 29.6
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 6.9
     },
@@ -38461,7 +38496,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -38471,7 +38506,7 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -39065,7 +39100,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     }
@@ -39346,7 +39381,7 @@
      "pct": 34
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 8
     },
@@ -39371,7 +39406,7 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -41112,7 +41147,7 @@
      "pct": 23.3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4.4
     },
@@ -41127,7 +41162,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.7
     },
@@ -41231,7 +41266,7 @@
    "margin_of_error": 3.5,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 52.2
     },
@@ -41716,7 +41751,7 @@
      "pct": 26.7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3.1
     },
@@ -42285,7 +42320,7 @@
      "pct": 6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -44139,7 +44174,7 @@
      "pct": 8.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4.5
     },
@@ -44154,7 +44189,7 @@
      "pct": 2.5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2.1
     },
@@ -44230,7 +44265,7 @@
      "pct": 44.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 31.3
     }
@@ -45429,12 +45464,12 @@
      "pct": 2.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.4
     },
@@ -45505,7 +45540,7 @@
      "pct": 61
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 29.7
     }
@@ -46251,7 +46286,7 @@
      "pct": 4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -48265,7 +48300,7 @@
      "pct": 41
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 31
     }
@@ -49201,7 +49236,7 @@
      "pct": 29
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 17
     },
@@ -49216,7 +49251,7 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -49282,7 +49317,7 @@
      "pct": 42
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 42
     }
@@ -49679,7 +49714,7 @@
      "pct": 21
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4
     },
@@ -49694,7 +49729,7 @@
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -50243,7 +50278,7 @@
      "pct": 19.4
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2.8
     },
@@ -50258,7 +50293,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -50395,7 +50430,7 @@
      "pct": 71.9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 18.9
     }
@@ -51722,7 +51757,7 @@
      "pct": 23.1
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 8.4
     },
@@ -51760,7 +51795,7 @@
      "pct": 58.6
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 17.6
     }
@@ -51856,7 +51891,7 @@
      "pct": 38
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 40
     }
@@ -52147,12 +52182,12 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     }
@@ -52512,7 +52547,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -53251,7 +53286,7 @@
      "pct": 6.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4.1
     },
@@ -53729,7 +53764,7 @@
      "pct": 34.3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 5.1
     },
@@ -54530,7 +54565,7 @@
      "pct": 41.4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 37.8
     }
@@ -54568,7 +54603,7 @@
      "pct": 17.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 14
     },
@@ -54636,7 +54671,7 @@
      "pct": 36.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 4.4
     },
@@ -55316,7 +55351,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 2.3
     },
@@ -55511,7 +55546,7 @@
      "pct": 44
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 34.5
     }
@@ -55757,7 +55792,7 @@
      "pct": 43
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 43
     }
@@ -57223,7 +57258,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 10.5
     },
@@ -57572,7 +57607,7 @@
      "pct": 12
     },
     {
-     "candidate": "Zacharias Calil",
+     "candidate": "Dr. Zacharias Calil",
      "party": "União Brasil",
      "pct": 7.55
     },
@@ -57812,7 +57847,7 @@
      "pct": 3.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3.5
     },
@@ -57822,7 +57857,7 @@
      "pct": 1.8
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.2
     },
@@ -57926,7 +57961,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 42
     },
@@ -58849,7 +58884,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -58920,7 +58955,7 @@
      "pct": 42
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 24
     }
@@ -58963,7 +58998,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -59034,7 +59069,7 @@
      "pct": 32
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 23
     }
@@ -59110,7 +59145,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -59148,7 +59183,7 @@
      "pct": 29
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 32
     }
@@ -59224,7 +59259,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -59295,7 +59330,7 @@
      "pct": 60
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 13
     }
@@ -59371,7 +59406,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 11
     },
@@ -59442,7 +59477,7 @@
      "pct": 37
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 38
     }
@@ -59518,7 +59553,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -59584,7 +59619,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 36
     },
@@ -59665,7 +59700,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -59736,7 +59771,7 @@
      "pct": 56
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 13
     }
@@ -59812,7 +59847,7 @@
      "pct": 31
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -59883,7 +59918,7 @@
      "pct": 33
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 35
     }
@@ -59959,7 +59994,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -60025,7 +60060,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 17
     },
@@ -60106,7 +60141,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -60172,7 +60207,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 30
     },
@@ -61325,9 +61360,9 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Genial Investimentos",
-   "fieldwork_start": "2026-04-22",
+   "fieldwork_start": "2026-04-23",
    "fieldwork_end": "2026-04-27",
-   "published_date": "2026-04-27",
+   "published_date": "2026-04-29",
    "sample_size": 1200,
    "margin_of_error": 3,
    "results": [
@@ -61355,7 +61390,12 @@
    "others_pct": null,
    "undecided_pct": 21,
    "blank_null_pct": null,
-   "tse_registration": "BA-03657/2026"
+   "tse_registration": "BA-03657/2026",
+   "repaired": {
+    "evidence": "Registro do TSE, fonte primária: \"Data de início da pesquisa: 23/04/2026\", \"Data de término da pesquisa: 27/04/2026\", \"Data de divulgação: 29/04/2026\". Achado de forma independente pelas DUAS leituras às cegas, cada uma por um caminho diferente (uma pelo PesqEle, outra pelo relatório de divulgação da Genial/Quaest). Corroborado por Gazeta do Povo, Metrópoles e Brasil de Fato, os três artigos datados de 29/04/2026 — e a Gazeta escreve \"divulgou nesta quarta-feira (29)\". Nenhuma fonte, em lugar nenhum, sustenta 22/04.",
+    "source": "https://pesqele-divulgacao.tse.jus.br/app/pesquisa/detalhar.xhtml (registro BA-03657/2026)",
+    "verified_at": "2026-08-16"
+   }
   },
   {
    "id": "p360-13431-2-0-af78dcce1a3c",
@@ -61368,9 +61408,9 @@
    "scenario": "2º turno: ACM Neto vs Jerônimo Rodrigues",
    "pollster": "Quaest",
    "contractor": "Genial Investimentos",
-   "fieldwork_start": "2026-04-22",
+   "fieldwork_start": "2026-04-23",
    "fieldwork_end": "2026-04-27",
-   "published_date": "2026-04-27",
+   "published_date": "2026-04-29",
    "sample_size": 1200,
    "margin_of_error": 3,
    "results": [
@@ -61388,7 +61428,12 @@
    "others_pct": null,
    "undecided_pct": 21,
    "blank_null_pct": null,
-   "tse_registration": "BA-03657/2026"
+   "tse_registration": "BA-03657/2026",
+   "repaired": {
+    "evidence": "Registro do TSE, fonte primária: \"Data de início da pesquisa: 23/04/2026\", \"Data de término da pesquisa: 27/04/2026\", \"Data de divulgação: 29/04/2026\". Achado de forma independente pelas DUAS leituras às cegas, cada uma por um caminho diferente (uma pelo PesqEle, outra pelo relatório de divulgação da Genial/Quaest). Corroborado por Gazeta do Povo, Metrópoles e Brasil de Fato, os três artigos datados de 29/04/2026 — e a Gazeta escreve \"divulgou nesta quarta-feira (29)\". Nenhuma fonte, em lugar nenhum, sustenta 22/04.",
+    "source": "https://pesqele-divulgacao.tse.jus.br/app/pesquisa/detalhar.xhtml (registro BA-03657/2026)",
+    "verified_at": "2026-08-16"
+   }
   },
   {
    "id": "p360-13432-1-0-4ad75d214248",
@@ -61401,9 +61446,9 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Genial Investimentos",
-   "fieldwork_start": "2026-04-22",
+   "fieldwork_start": "2026-04-23",
    "fieldwork_end": "2026-04-27",
-   "published_date": "2026-04-27",
+   "published_date": "2026-04-29",
    "sample_size": 1200,
    "margin_of_error": 3,
    "results": [
@@ -61426,12 +61471,27 @@
      "candidate": "Ângelo Coronel",
      "party": "Republicanos",
      "pct": 6
+    },
+    {
+     "candidate": "Professora Delliana",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Marcelo Santtana",
+     "party": "DC",
+     "pct": 0
     }
    ],
    "others_pct": null,
-   "undecided_pct": 38,
-   "blank_null_pct": null,
-   "tse_registration": "BA-03657/2026"
+   "undecided_pct": 16,
+   "blank_null_pct": 22,
+   "tse_registration": "BA-03657/2026",
+   "repaired": {
+    "evidence": "Registro do TSE, fonte primária: \"Data de início da pesquisa: 23/04/2026\", \"Data de término da pesquisa: 27/04/2026\", \"Data de divulgação: 29/04/2026\". Achado de forma independente pelas DUAS leituras às cegas, cada uma por um caminho diferente (uma pelo PesqEle, outra pelo relatório de divulgação da Genial/Quaest). Corroborado por Gazeta do Povo, Metrópoles e Brasil de Fato, os três artigos datados de 29/04/2026 — e a Gazeta escreve \"divulgou nesta quarta-feira (29)\". Nenhuma fonte, em lugar nenhum, sustenta 22/04.",
+    "source": "https://pesqele-divulgacao.tse.jus.br/app/pesquisa/detalhar.xhtml (registro BA-03657/2026)",
+    "verified_at": "2026-08-16"
+   }
   },
   {
    "id": "p360-13396-1-0-99bed4609c7e",
@@ -62454,7 +62514,7 @@
      "pct": 3.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3.1
     },
@@ -62651,7 +62711,7 @@
      "pct": 21.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 9
     },
@@ -62671,7 +62731,7 @@
      "pct": 3.5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2
     },
@@ -62770,7 +62830,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 56.8
     },
@@ -62813,7 +62873,7 @@
      "pct": 36.7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2.1
     },
@@ -62828,7 +62888,7 @@
      "pct": 1.5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.5
     },
@@ -63781,7 +63841,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -63796,7 +63856,7 @@
      "pct": 1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -64117,7 +64177,7 @@
      "pct": 2.9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2.6
     },
@@ -64127,7 +64187,7 @@
      "pct": 2.1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.8
     },
@@ -64960,12 +65020,12 @@
      "pct": 5.1
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 2.7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.9
     },
@@ -65972,12 +66032,12 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
     },
@@ -68836,7 +68896,7 @@
      "pct": 1.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.9
     },
@@ -70475,7 +70535,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -70688,7 +70748,7 @@
      "pct": 36
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 7
     },
@@ -70779,7 +70839,7 @@
      "pct": 39
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 38
     }
@@ -71020,7 +71080,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Carlos Brandão",
+     "candidate": "Orleans Brandão",
      "party": "Sem partido",
      "pct": 50.5
     },
@@ -71189,7 +71249,7 @@
      "pct": 19.2
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 18.9
     },
@@ -71828,7 +71888,7 @@
      "pct": 5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -71962,7 +72022,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -72304,7 +72364,7 @@
      "pct": 35.8
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 7.9
     },
@@ -72489,7 +72549,7 @@
      "pct": 46.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47.2
     }
@@ -73042,7 +73102,7 @@
      "pct": 6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -73229,7 +73289,7 @@
      "pct": 1.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.2
     },
@@ -73493,7 +73553,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.8
     },
@@ -73970,7 +74030,7 @@
      "pct": 14.8
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 14.6
     },
@@ -74843,7 +74903,7 @@
      "pct": 24
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 11
     },
@@ -74876,7 +74936,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Carlos Brandão",
+     "candidate": "Orleans Brandão",
      "party": "Sem partido",
      "pct": 17
     },
@@ -75093,7 +75153,7 @@
      "pct": 52
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 23
     }
@@ -76133,7 +76193,7 @@
      "pct": 31
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 15
     },
@@ -76604,7 +76664,7 @@
      "pct": 6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4
     },
@@ -76791,7 +76851,7 @@
      "pct": 46
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45
     }
@@ -77336,7 +77396,7 @@
      "pct": 30.3
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 16.1
     },
@@ -77374,7 +77434,7 @@
      "pct": 47.1
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 36.8
     }
@@ -77435,7 +77495,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Carlos Brandão",
+     "candidate": "Orleans Brandão",
      "party": "Sem partido",
      "pct": 34.6
     },
@@ -77571,7 +77631,7 @@
      "pct": 9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4
     },
@@ -77705,7 +77765,7 @@
      "pct": 32.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 14.4
     },
@@ -78145,7 +78205,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45.5
     },
@@ -78494,7 +78554,7 @@
      "pct": 45
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42
     }
@@ -79300,7 +79360,7 @@
      "pct": 1.7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.2
     },
@@ -79898,7 +79958,7 @@
      "pct": 45.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47.1
     }
@@ -80088,7 +80148,7 @@
      "pct": 33.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 7.4
     },
@@ -80156,7 +80216,7 @@
      "pct": 2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     },
@@ -80569,7 +80629,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -80670,7 +80730,7 @@
      "pct": 14.1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -81204,7 +81264,7 @@
      "pct": 8.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3.2
     },
@@ -81280,7 +81340,7 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 53.7
     },
@@ -82319,7 +82379,7 @@
      "pct": 26.2
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 6.6
     },
@@ -82542,7 +82602,7 @@
      "pct": 50.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 31.5
     }
@@ -82628,7 +82688,7 @@
      "pct": 40.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 35
     }
@@ -82742,7 +82802,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47.4
     },
@@ -83455,7 +83515,7 @@
      "pct": 3.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.2
     },
@@ -83649,7 +83709,7 @@
      "pct": 14.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.9
     },
@@ -83909,7 +83969,7 @@
      "pct": 55
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 14
     },
@@ -83924,7 +83984,7 @@
      "pct": 3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     }
@@ -83957,7 +84017,7 @@
      "pct": 58
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 29
     }
@@ -83990,7 +84050,7 @@
      "pct": 31.2
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 8.4
     },
@@ -84005,7 +84065,7 @@
      "pct": 2.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     },
@@ -84486,7 +84546,7 @@
      "pct": 7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 2
     },
@@ -84645,7 +84705,7 @@
      "pct": 2.9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.1
     },
@@ -84857,7 +84917,7 @@
      "pct": 44.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.2
     }
@@ -85207,7 +85267,7 @@
      "pct": 40.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44.5
     }
@@ -85245,7 +85305,7 @@
      "pct": 30.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 6.1
     },
@@ -85265,7 +85325,7 @@
      "pct": 3.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     }
@@ -85293,7 +85353,7 @@
    "margin_of_error": 3.1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 43.5
     },
@@ -85548,7 +85608,7 @@
      "pct": 2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 4
     },
@@ -85657,7 +85717,7 @@
      "pct": 42
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 36
     }
@@ -85837,7 +85897,7 @@
      "pct": 2.3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.9
     }
@@ -86034,7 +86094,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     },
@@ -86423,7 +86483,7 @@
      "pct": 43.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.5
     }
@@ -86494,7 +86554,7 @@
      "pct": 19.94
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 4.72
     },
@@ -86504,7 +86564,7 @@
      "pct": 1.88
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     },
@@ -86547,7 +86607,7 @@
      "pct": 37.29
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 9.23
     },
@@ -86613,7 +86673,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Carlos Brandão",
+     "candidate": "Orleans Brandão",
      "party": "Sem partido",
      "pct": 37.77
     },
@@ -86716,7 +86776,7 @@
      "pct": 0.7
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.7
     },
@@ -86749,7 +86809,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 58.8
     },
@@ -87285,12 +87345,12 @@
      "pct": 0.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.4
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.3
     },
@@ -87624,7 +87684,7 @@
      "pct": 21.8
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 2.2
     },
@@ -87649,7 +87709,7 @@
      "pct": 0.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1
     }
@@ -87774,7 +87834,7 @@
      "pct": 31.4
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 18
     },
@@ -87784,7 +87844,7 @@
      "pct": 2.9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -87888,7 +87948,7 @@
    "margin_of_error": 2.8,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.4
     },
@@ -88607,7 +88667,7 @@
      "pct": 0.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.5
     },
@@ -88617,7 +88677,7 @@
      "pct": 0.1
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.1
     }
@@ -88655,7 +88715,7 @@
      "pct": 19.15
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 8.23
     },
@@ -88675,7 +88735,7 @@
      "pct": 4.92
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 6.54
     },
@@ -88738,7 +88798,7 @@
      "pct": 1
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.9
     },
@@ -89156,7 +89216,7 @@
      "pct": 49
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45
     }
@@ -89194,7 +89254,7 @@
      "pct": 28
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 11
     },
@@ -89257,7 +89317,7 @@
      "pct": 5.8
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3.9
     },
@@ -89267,7 +89327,7 @@
      "pct": 13.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 23.4
     },
@@ -89523,7 +89583,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.1
     },
@@ -89726,7 +89786,7 @@
      "pct": 37.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 34.7
     }
@@ -89873,7 +89933,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.3
     }
@@ -90103,7 +90163,7 @@
      "pct": 44.4
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.1
     }
@@ -90382,7 +90442,7 @@
      "pct": 2.3
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.6
     }
@@ -90476,7 +90536,7 @@
    "margin_of_error": 2.83,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 38.2
     },
@@ -90729,7 +90789,7 @@
      "pct": 23
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 9
     },
@@ -90787,7 +90847,7 @@
      "pct": 44
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39
     }
@@ -91068,7 +91128,7 @@
      "pct": 32.2
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 17.3
     },
@@ -91139,7 +91199,7 @@
      "pct": 49.6
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 32.7
     }
@@ -91225,7 +91285,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.7
     },
@@ -91417,7 +91477,7 @@
      "pct": 9
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -91875,7 +91935,7 @@
      "pct": 44
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.5
     }
@@ -91923,7 +91983,7 @@
      "pct": 3.2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 8.3
     },
@@ -92416,7 +92476,7 @@
      "pct": 49
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45
     }
@@ -92581,7 +92641,7 @@
      "pct": 21.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 15
     },
@@ -92796,7 +92856,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.8
     },
@@ -92854,7 +92914,7 @@
      "pct": 1.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Avante",
      "pct": 0.8
     },
@@ -92864,7 +92924,7 @@
      "pct": 0.4
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.2
     }
@@ -93018,7 +93078,7 @@
      "pct": 4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 8
     },
@@ -93099,7 +93159,7 @@
      "pct": 45
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 35
     }
@@ -93740,7 +93800,7 @@
      "pct": 38
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 33
     }
@@ -93788,7 +93848,7 @@
      "pct": 4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 7
     },
@@ -93935,7 +93995,7 @@
      "pct": 22
     },
     {
-     "candidate": "Fernando Máximo",
+     "candidate": "Dr. Fernando Máximo",
      "party": "União Brasil",
      "pct": 22
     },
@@ -94061,7 +94121,7 @@
      "pct": 21.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 15
     },
@@ -94185,7 +94245,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 25.6
     },
@@ -94337,7 +94397,7 @@
      "pct": 39.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47.3
     }
@@ -95172,7 +95232,7 @@
      "pct": 40.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44.9
     }
@@ -95215,7 +95275,7 @@
      "pct": 3.7
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 2.3
     }
@@ -95258,7 +95318,7 @@
      "pct": 8
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 7
     },
@@ -95738,7 +95798,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 23
     },
@@ -95905,7 +95965,7 @@
      "pct": 47
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42
     }
@@ -96822,7 +96882,7 @@
      "pct": 25
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 19
     },
@@ -96855,7 +96915,7 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Carlos Brandão",
+     "candidate": "Orleans Brandão",
      "party": "Sem partido",
      "pct": 27
     },
@@ -97199,7 +97259,7 @@
      "pct": 49
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47
     }
@@ -97424,7 +97484,7 @@
      "pct": 15
     },
     {
-     "candidate": "Carlos Fávaro",
+     "candidate": "Fávaro",
      "party": "PSD",
      "pct": 12
     },
@@ -98039,7 +98099,7 @@
      "pct": 27
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 9.6
     },
@@ -98120,7 +98180,7 @@
      "pct": 45.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39.1
     }
@@ -98252,7 +98312,7 @@
      "pct": 44.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 35.1
     }
@@ -98530,7 +98590,7 @@
      "pct": 32.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 8.2
     },
@@ -98677,7 +98737,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41.8
     }
@@ -98758,7 +98818,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 8
     },
@@ -98844,7 +98904,7 @@
      "pct": 38
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 33
     }
@@ -98882,7 +98942,7 @@
      "pct": 41
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 36
     }
@@ -99148,7 +99208,7 @@
      "pct": 39.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.5
     }
@@ -99275,7 +99335,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 23.1
     },
@@ -99460,7 +99520,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44
     }
@@ -99632,7 +99692,7 @@
      "pct": 44.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.9
     }
@@ -99680,7 +99740,7 @@
      "pct": 4.7
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 7.5
     },
@@ -99761,7 +99821,7 @@
      "pct": 11.8
     },
     {
-     "candidate": "Delegado Eder Mauro",
+     "candidate": "Delegado Éder Mauro",
      "party": "PL",
      "pct": 9.3
     },
@@ -99870,7 +99930,7 @@
      "pct": 25.4
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 13.4
     },
@@ -99913,7 +99973,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45.3
     },
@@ -100215,7 +100275,7 @@
      "pct": 52
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44
     }
@@ -100276,7 +100336,7 @@
    "margin_of_error": 1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 30.4
     },
@@ -100878,7 +100938,7 @@
      "pct": 31
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 5
     },
@@ -100992,7 +101052,7 @@
    "margin_of_error": 2.24,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45
     },
@@ -101063,7 +101123,7 @@
      "pct": 34
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 32
     }
@@ -101195,7 +101255,7 @@
      "pct": 45
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 33
     }
@@ -101377,7 +101437,7 @@
      "pct": 31.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 14.9
     },
@@ -101425,7 +101485,7 @@
      "pct": 42.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41.6
     }
@@ -101453,7 +101513,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 47.7
     },
@@ -101496,7 +101556,7 @@
      "pct": 26
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9
     },
@@ -101544,7 +101604,7 @@
      "pct": 41
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 32
     }
@@ -101876,7 +101936,7 @@
      "pct": 5.2
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.7
     },
@@ -101980,7 +102040,7 @@
      "pct": 30
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 52.8
     }
@@ -102094,7 +102154,7 @@
      "pct": 19
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 20.7
     },
@@ -102208,7 +102268,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 37
     },
@@ -102307,7 +102367,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44.4
     },
@@ -102406,7 +102466,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.9
     },
@@ -102439,7 +102499,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45
     },
@@ -102472,7 +102532,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39.7
     },
@@ -102505,7 +102565,7 @@
    "margin_of_error": 1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 30.4
     },
@@ -102530,7 +102590,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 4.3
     },
@@ -102573,7 +102633,7 @@
      "pct": 50.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 45.2
     }
@@ -102809,7 +102869,7 @@
      "pct": 24
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 11
     },
@@ -102857,7 +102917,7 @@
      "pct": 40
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 33
     }
@@ -102890,7 +102950,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 35
     }
@@ -103265,12 +103325,12 @@
      "pct": 21.3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 5.8
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 2.7
     },
@@ -103515,7 +103575,7 @@
      "pct": 29.7
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9.6
     },
@@ -103596,7 +103656,7 @@
      "pct": 43.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 37.6
     }
@@ -103629,7 +103689,7 @@
      "pct": 39.4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 36
     }
@@ -103761,7 +103821,7 @@
      "pct": 14.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 22.1
     },
@@ -103771,7 +103831,7 @@
      "pct": 31.2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 15.5
     }
@@ -103824,7 +103884,7 @@
      "pct": 1.2
     },
     {
-     "candidate": "Ricardo Salles",
+     "candidate": "Salles",
      "party": "Novo",
      "pct": 15
     },
@@ -104075,7 +104135,7 @@
      "pct": 35
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 33.5
     },
@@ -104085,7 +104145,7 @@
      "pct": 8.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 3
     },
@@ -104138,7 +104198,7 @@
      "pct": 28.7
     },
     {
-     "candidate": "Delegado Eder Mauro",
+     "candidate": "Delegado Éder Mauro",
      "party": "PL",
      "pct": 10.6
     },
@@ -104186,7 +104246,7 @@
      "pct": 14.2
     },
     {
-     "candidate": "Delegado Eder Mauro",
+     "candidate": "Delegado Éder Mauro",
      "party": "PL",
      "pct": 11.9
     }
@@ -104513,7 +104573,7 @@
      "pct": 37
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46
     }
@@ -104579,7 +104639,7 @@
      "pct": 34
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 38
     }
@@ -104607,7 +104667,7 @@
    "margin_of_error": 2.24,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 20
     },
@@ -104627,7 +104687,7 @@
      "pct": 5
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 14
     },
@@ -104862,7 +104922,7 @@
      "pct": 41.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41.9
     }
@@ -104928,12 +104988,12 @@
      "pct": 42.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 32
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 9.6
     },
@@ -105199,7 +105259,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 18.7
     },
@@ -105272,7 +105332,7 @@
      "pct": 44.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 31.8
     },
@@ -105292,7 +105352,7 @@
      "pct": 4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 3.4
     },
@@ -105335,7 +105395,7 @@
      "pct": 46.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 48.4
     }
@@ -105811,7 +105871,7 @@
    "margin_of_error": 2.4,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 50.4
     },
@@ -105907,7 +105967,7 @@
    "margin_of_error": 2.4,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 43.8
     },
@@ -105965,7 +106025,7 @@
    "margin_of_error": 2.4,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 52.6
     },
@@ -106064,7 +106124,7 @@
    "margin_of_error": 2.4,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 60.4
     },
@@ -106163,7 +106223,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 24.5
     },
@@ -106178,7 +106238,7 @@
      "pct": 8.8
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9.9
     },
@@ -106287,7 +106347,7 @@
      "pct": 41.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41.9
     }
@@ -106325,12 +106385,12 @@
      "pct": 19.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 13
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 7.2
     },
@@ -106505,7 +106565,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42
     },
@@ -106543,7 +106603,7 @@
      "pct": 39.2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 35.9
     }
@@ -106637,7 +106697,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 38.7
     },
@@ -106670,7 +106730,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41.1
     },
@@ -106766,7 +106826,7 @@
      "pct": 6
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 10
     },
@@ -107193,7 +107253,7 @@
      "pct": 4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4
     }
@@ -107398,7 +107458,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 35
     }
@@ -107700,7 +107760,7 @@
      "pct": 17.3
     },
     {
-     "candidate": "Fernando Máximo",
+     "candidate": "Dr. Fernando Máximo",
      "party": "União Brasil",
      "pct": 17
     },
@@ -107773,7 +107833,7 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Fernando Máximo",
+     "candidate": "Dr. Fernando Máximo",
      "party": "União Brasil",
      "pct": 50.9
     },
@@ -107839,7 +107899,7 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Fernando Máximo",
+     "candidate": "Dr. Fernando Máximo",
      "party": "União Brasil",
      "pct": 49.6
     },
@@ -107872,7 +107932,7 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Fernando Máximo",
+     "candidate": "Dr. Fernando Máximo",
      "party": "União Brasil",
      "pct": 41.8
     },
@@ -107953,7 +108013,7 @@
      "pct": 8.7
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 5.3
     },
@@ -108163,7 +108223,7 @@
      "pct": 20.9
     },
     {
-     "candidate": "Lahesio Bonfim",
+     "candidate": "Lahésio Bonfim",
      "party": "Novo",
      "pct": 20.4
     },
@@ -108350,7 +108410,7 @@
      "pct": 55.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 13.6
     },
@@ -108370,7 +108430,7 @@
      "pct": 1.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 0.9
     }
@@ -108431,7 +108491,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40
     },
@@ -108502,7 +108562,7 @@
      "pct": 37
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 43
     }
@@ -108530,7 +108590,7 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 21
     },
@@ -108583,7 +108643,7 @@
      "pct": 45
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41
     }
@@ -108847,7 +108907,7 @@
      "pct": 35
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 36
     }
@@ -109187,7 +109247,7 @@
      "pct": 39
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41
     }
@@ -109273,7 +109333,7 @@
      "pct": 50.4
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.6
     }
@@ -109339,7 +109399,7 @@
      "pct": 48.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 33
     },
@@ -109359,7 +109419,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 2.9
     },
@@ -109869,7 +109929,7 @@
      "pct": 26
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 8
     },
@@ -109950,7 +110010,7 @@
      "pct": 41
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 37
     }
@@ -110903,7 +110963,7 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 50.3
     },
@@ -111131,7 +111191,7 @@
      "pct": 27
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 41
     }
@@ -111197,7 +111257,7 @@
      "pct": 31
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47
     }
@@ -111250,7 +111310,7 @@
      "pct": 6
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 11
     },
@@ -111445,7 +111505,7 @@
      "pct": 7.2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 3.9
     },
@@ -111483,7 +111543,7 @@
      "pct": 47.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.9
     }
@@ -111800,7 +111860,7 @@
      "pct": 8.2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 8.4
     },
@@ -111937,7 +111997,7 @@
      "pct": 41.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.5
     }
@@ -112018,7 +112078,7 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Delegado Eder Mauro",
+     "candidate": "Delegado Éder Mauro",
      "party": "PL",
      "pct": 30.5
     },
@@ -112081,7 +112141,7 @@
      "pct": 29
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 12.1
     },
@@ -112246,7 +112306,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.5
     },
@@ -112279,7 +112339,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 41.2
     },
@@ -112459,7 +112519,7 @@
      "pct": 13.9
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 15
     },
@@ -112469,7 +112529,7 @@
      "pct": 7.1
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1.2
     }
@@ -112563,7 +112623,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 43.6
     },
@@ -112766,7 +112826,7 @@
      "pct": 37
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39
     }
@@ -112837,7 +112897,7 @@
      "pct": 31.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 10.2
     },
@@ -112918,7 +112978,7 @@
      "pct": 41.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.4
     }
@@ -113065,7 +113125,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42
     }
@@ -113458,7 +113518,7 @@
      "pct": 41.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41
     }
@@ -113744,7 +113804,7 @@
      "pct": 2.4
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.5
     }
@@ -113909,7 +113969,7 @@
      "pct": 41
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40
     }
@@ -114226,7 +114286,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9
     },
@@ -114342,7 +114402,7 @@
      "pct": 1.4
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.1
     }
@@ -114750,7 +114810,7 @@
      "pct": 44.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 33.1
     },
@@ -114765,7 +114825,7 @@
      "pct": 4.7
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 3.6
     },
@@ -114813,7 +114873,7 @@
      "pct": 46.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.7
     }
@@ -115102,7 +115162,7 @@
      "pct": 0.9
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.4
     }
@@ -115216,7 +115276,7 @@
      "pct": 38.5
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44.7
     }
@@ -115249,7 +115309,7 @@
      "pct": 36.2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 38.3
     }
@@ -115282,7 +115342,7 @@
      "pct": 26
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 43.6
     }
@@ -115310,12 +115370,12 @@
    "margin_of_error": 2.1,
    "results": [
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PSDB",
      "pct": 41.4
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 34.3
     }
@@ -115343,7 +115403,7 @@
    "margin_of_error": 2.1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 28.6
     },
@@ -115353,7 +115413,7 @@
      "pct": 26.3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 25.6
     }
@@ -115391,7 +115451,7 @@
      "pct": 25.5
     },
     {
-     "candidate": "Renan Contar",
+     "candidate": "Capitão Contar",
      "party": "PRTB",
      "pct": 13.6
     },
@@ -115623,7 +115683,7 @@
      "pct": 11.8
     },
     {
-     "candidate": "Carlos Fávaro",
+     "candidate": "Fávaro",
      "party": "PSD",
      "pct": 4.3
     },
@@ -115772,7 +115832,7 @@
      "pct": 3.2
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.5
     }
@@ -115949,7 +116009,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 7
     },
@@ -116060,7 +116120,7 @@
      "pct": 3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 3
     },
@@ -116113,7 +116173,7 @@
      "pct": 46.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46.7
     }
@@ -116377,7 +116437,7 @@
      "pct": 40.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 43.4
     }
@@ -116481,7 +116541,7 @@
      "pct": 33.3
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9.7
     },
@@ -116496,7 +116556,7 @@
      "pct": 2.9
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1
     }
@@ -116572,7 +116632,7 @@
      "pct": 5.4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 4.9
     },
@@ -116582,7 +116642,7 @@
      "pct": 1.4
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.2
     }
@@ -116625,7 +116685,7 @@
      "pct": 10.4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 7
     },
@@ -116635,7 +116695,7 @@
      "pct": 1.2
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1.1
     }
@@ -116751,7 +116811,7 @@
      "pct": 10.2
     },
     {
-     "candidate": "Ataides Oliveira",
+     "candidate": "Ataides de Oliveira",
      "party": "Novo",
      "pct": 7
     }
@@ -116870,7 +116930,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.7
     }
@@ -116903,7 +116963,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 37
     }
@@ -116969,12 +117029,12 @@
      "pct": 35
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 15
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 11
     },
@@ -117052,7 +117112,7 @@
      "pct": 4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 12
     },
@@ -117095,7 +117155,7 @@
      "pct": 48
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39
     }
@@ -117293,7 +117353,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 37
     }
@@ -117529,7 +117589,7 @@
      "pct": 28.6
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 16.6
     },
@@ -117549,7 +117609,7 @@
      "pct": 2.6
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.2
     }
@@ -117676,7 +117736,7 @@
    "margin_of_error": 2.24,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 18
     },
@@ -117701,7 +117761,7 @@
      "pct": 4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 12
     },
@@ -117759,7 +117819,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.4
     }
@@ -117792,7 +117852,7 @@
      "pct": 41.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 33.9
     },
@@ -117850,7 +117910,7 @@
    "margin_of_error": 1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 47
     },
@@ -118147,7 +118207,7 @@
    "margin_of_error": 3.1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39.1
     },
@@ -118355,7 +118415,7 @@
    "margin_of_error": 3.1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.3
     },
@@ -118393,7 +118453,7 @@
      "pct": 39
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 20.4
     },
@@ -118418,7 +118478,7 @@
      "pct": 2.3
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.1
     }
@@ -118552,7 +118612,7 @@
      "pct": 1.7
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.2
     }
@@ -118610,7 +118670,7 @@
      "pct": 0.5
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.1
     }
@@ -118706,7 +118766,7 @@
      "pct": 2
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 5
     },
@@ -118744,7 +118804,7 @@
      "pct": 41.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 32.3
     },
@@ -118807,7 +118867,7 @@
    "margin_of_error": 1,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 49
     },
@@ -119081,7 +119141,7 @@
      "pct": 33.8
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 7.7
     },
@@ -119101,7 +119161,7 @@
      "pct": 2.7
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1.1
     }
@@ -119159,7 +119219,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.2
     }
@@ -119225,7 +119285,7 @@
      "pct": 37.3
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 38.3
     }
@@ -119367,7 +119427,7 @@
      "pct": 59
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 25
     }
@@ -119466,7 +119526,7 @@
      "pct": 62
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 20
     }
@@ -119565,7 +119625,7 @@
      "pct": 29
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46
     }
@@ -119664,7 +119724,7 @@
      "pct": 29
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 42
     }
@@ -119796,7 +119856,7 @@
      "pct": 37
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40
     }
@@ -119862,7 +119922,7 @@
      "pct": 33
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 52
     }
@@ -119961,7 +120021,7 @@
      "pct": 30
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 46
     }
@@ -120060,7 +120120,7 @@
      "pct": 32
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 40
     }
@@ -120159,7 +120219,7 @@
      "pct": 58
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 26
     }
@@ -120258,7 +120318,7 @@
      "pct": 61
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 21
     }
@@ -120357,7 +120417,7 @@
      "pct": 39
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 35
     }
@@ -120456,7 +120516,7 @@
      "pct": 41
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 28
     }
@@ -120555,7 +120615,7 @@
      "pct": 36
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 41
     }
@@ -120654,7 +120714,7 @@
      "pct": 38
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 36
     }
@@ -120753,7 +120813,7 @@
      "pct": 30
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 54
     }
@@ -120852,7 +120912,7 @@
      "pct": 36
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 37
     }
@@ -120923,7 +120983,7 @@
      "pct": 30.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9.8
     },
@@ -120999,7 +121059,7 @@
    "margin_of_error": 2.2,
    "results": [
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.7
     },
@@ -121181,7 +121241,7 @@
      "pct": 34.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 21.9
     },
@@ -121191,7 +121251,7 @@
      "pct": 11
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 10
     },
@@ -121201,7 +121261,7 @@
      "pct": 4.1
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1.3
     },
@@ -121305,7 +121365,7 @@
      "pct": 41.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.8
     }
@@ -121553,7 +121613,7 @@
      "pct": 2.3
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.7
     }
@@ -121619,7 +121679,7 @@
      "pct": 41.1
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 26.2
     },
@@ -121687,7 +121747,7 @@
      "pct": 45.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 44.7
     }
@@ -121852,7 +121912,7 @@
      "pct": 30
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 13
     },
@@ -121867,7 +121927,7 @@
      "pct": 11
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9
     },
@@ -122009,7 +122069,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 34
     }
@@ -122108,7 +122168,7 @@
      "pct": 29
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 14
     },
@@ -122209,7 +122269,7 @@
      "pct": 6.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 11.3
     },
@@ -122219,7 +122279,7 @@
      "pct": 4.7
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1.2
     }
@@ -122285,7 +122345,7 @@
      "pct": 43.4
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.6
     }
@@ -122318,7 +122378,7 @@
      "pct": 33.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 16.1
     },
@@ -122394,7 +122454,7 @@
      "pct": 41
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40
     }
@@ -122721,7 +122781,7 @@
      "pct": 49
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39
     }
@@ -122820,7 +122880,7 @@
      "pct": 44
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 25
     }
@@ -123028,7 +123088,7 @@
      "pct": 52
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 26
     }
@@ -123226,7 +123286,7 @@
      "pct": 43
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39.2
     }
@@ -123259,12 +123319,12 @@
      "pct": 34.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 24.1
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 11.5
     },
@@ -123327,7 +123387,7 @@
      "pct": 4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 6.6
     },
@@ -123380,7 +123440,7 @@
      "pct": 8.4
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 6.2
     },
@@ -123423,7 +123483,7 @@
      "pct": 18
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 15
     }
@@ -123471,7 +123531,7 @@
      "pct": 6.5
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 9.3
     },
@@ -123481,7 +123541,7 @@
      "pct": 1.9
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.9
     }
@@ -123547,7 +123607,7 @@
      "pct": 44.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 39.8
     }
@@ -123874,7 +123934,7 @@
      "pct": 44.2
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 38.5
     }
@@ -123912,7 +123972,7 @@
      "pct": 36.9
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 7.9
     },
@@ -123927,7 +123987,7 @@
      "pct": 1.9
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.5
     }
@@ -124287,7 +124347,7 @@
      "pct": 46
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40
     }
@@ -124320,7 +124380,7 @@
      "pct": 46
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40
     }
@@ -124386,7 +124446,7 @@
      "pct": 41.7
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 36.6
     }
@@ -124419,7 +124479,7 @@
      "pct": 36.9
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "Democratic Labour Party (Brazil)",
      "pct": 15.2
     },
@@ -124429,7 +124489,7 @@
      "pct": 6.5
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "Brazilian Democratic Movement",
      "pct": 1.9
     },
@@ -124893,7 +124953,7 @@
      "pct": 43.9
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 40.8
     }
@@ -125048,7 +125108,7 @@
      "pct": 44.9
     },
     {
-     "candidate": "Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro",
+     "candidate": "Ronaldo Caiado",
      "party": "União Brasil",
      "pct": 32.6
     }
@@ -125188,7 +125248,7 @@
      "pct": 44.5
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 34.6
     }
@@ -125221,7 +125281,7 @@
      "pct": 36.9
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 14
     },
@@ -125662,7 +125722,7 @@
      "pct": 37.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 17.4
     },
@@ -125677,7 +125737,7 @@
      "pct": 5.8
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 10.3
     },
@@ -125687,7 +125747,7 @@
      "pct": 2.1
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 1.1
     }
@@ -125720,7 +125780,7 @@
      "pct": 45.8
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 34.6
     }
@@ -125753,7 +125813,7 @@
      "pct": 36.6
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 12.7
     },
@@ -125768,7 +125828,7 @@
      "pct": 5.7
     },
     {
-     "candidate": "Ciro",
+     "candidate": "Ciro Gomes",
      "party": "PDT",
      "pct": 6.3
     },
@@ -125892,7 +125952,7 @@
      "pct": 57.2
     },
     {
-     "candidate": "Tarcísio de Freitas",
+     "candidate": "Tarcísio",
      "party": "Republicanos",
      "pct": 42.8
     }
