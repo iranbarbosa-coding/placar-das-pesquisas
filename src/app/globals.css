@@ -125,6 +125,18 @@
   --dual-lead: #d92d20;   /* = --cand-red */
   --dual-rival: #2156a5;  /* the brief accent blue, for the runner-up */
   --series-muted: #9aa2af;
+
+  /* ── SIDEBAR MAP PASTELS (2026-08-17, mockup match) ────────────────────────
+     The choropleth of Brazil in the sidebar wants the mockup's SOFT, airy fills
+     — a whole country tinted at once reads as heavy if it borrows the saturated
+     chart tokens (--series-3 teal, --cand-amber #b07d00 mustard), which carry
+     WCAG guarantees for thin lines/bars and must NOT change. These are map-only,
+     paired with the white state borders, so contrast comes from the stroke, not
+     the fill. Legend dots (HomeSidebar) use the same four. */
+  --map-acima: #bfe3c8;   /* pale sage — leader above 50 */
+  --map-abaixo: #f3e2a6;  /* pale yellow — leader below 50 */
+  --map-empate: #f6cdd9;  /* light pink — technical tie */
+  --map-sem: #e2e5ea;     /* light grey — no recent poll */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -188,6 +200,15 @@
     --dual-lead: #ef5350;   /* = --cand-red (dark) */
     --dual-rival: #3987e5;  /* accent blue (dark) */
     --series-muted: #6b7280;
+
+    /* Map pastels, adjusted for the #0d0d0d page: the light theme's true pastels
+       would glow on black, so these are the same four hues as deep, soft tints —
+       lighter than the near-black state stroke (--surface-1 #191919) so the
+       borders still read, and kept apart from one another in hue. */
+    --map-acima: #35624a;   /* deep sage */
+    --map-abaixo: #6f5f30;  /* deep amber */
+    --map-empate: #74455a;  /* deep pink */
+    --map-sem: #2f3236;     /* dark grey, a hair above --grid */
   }
 }
 

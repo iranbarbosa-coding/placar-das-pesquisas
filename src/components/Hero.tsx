@@ -48,6 +48,17 @@ function round1(x: number): number {
   return Math.round(x * 10) / 10;
 }
 
+/* "16 AGO 2026" — the abbreviated-month header the mockup uses INSIDE the chart
+   marker box. Scoped to that one label; every other date on the site stays on
+   `fmtDate`'s dd/mm/yyyy. Input is the same `YYYY-MM-DD` string fmtDate takes. */
+const MES_ABREV = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+function fmtMarkerDate(iso: string | null | undefined): string {
+  if (!iso) return "—";
+  const [y, m, d] = iso.split("-");
+  const mes = MES_ABREV[Number(m) - 1];
+  return d && mes ? `${Number(d)} ${mes} ${y}` : fmtDate(iso);
+}
+
 /** Small round "i" info glyph, matching the target's title affordance. */
 function InfoGlyph() {
   return (
@@ -276,7 +287,7 @@ export default function Hero({
                     }}
                   >
                     <div className="mb-0.5 font-semibold" style={{ color: "var(--text-muted)" }}>
-                      {fmtDate(marker.date)}
+                      {fmtMarkerDate(marker.date)}
                     </div>
                     <ul className="flex flex-col gap-0.5">
                       {kpis.map((k) => (
