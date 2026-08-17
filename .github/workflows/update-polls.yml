@@ -135,6 +135,17 @@ jobs:
       - name: Retenção de elenco (encolhimento na fonte)
         run: node scripts/roster-retention-check.mjs
 
+      # A recuperação de fonte caída prometia "mantendo dados anteriores desta
+      # fonte" e, para a Wikipédia, guardava ZERO: filtrava por `p.source ===
+      # "wikipedia"`, rótulo que a projeção nunca emite. Uma falha de coleta
+      # apagaria 1.039 pesquisas com mensagem de sucesso. O autoteste desta
+      # bateria reproduz esse predicado histórico e exige que ela REPROVE.
+      - name: Guarda de recuperação de fonte dispara
+        run: node scripts/source-fallback-check.mjs --self-test
+
+      - name: Recuperação de fonte caída (partição por espaço de id)
+        run: node scripts/source-fallback-check.mjs
+
       # A retenção de elenco guarda pergunta a pergunta e NÃO alcança a pergunta
       # que a fonte apaga por completo — o item 2 da lista "o que falta antes de
       # religar" acima. `add_poll` em `data/repairs.json` é a porta curada para

@@ -909,6 +909,7 @@ node scripts/validate-store.mjs                # validate the real store
 node scripts/parity-check.mjs                  # store ⇄ polls.json, three levels
 node scripts/projection-twin-check.mjs         # project.mjs ≡ src/lib/store.ts
 node scripts/upsert-harness.mjs                # the WRITE path (20 cases)
+node scripts/source-fallback-check.mjs         # recuperação de fonte caída (+ --self-test)
 node scripts/roster-retention-check.mjs        # a fonte encolheu o elenco? mantém o anterior
 node scripts/roster-retention-check.mjs --self-test # …e prova as DUAS metades
 node scripts/curated-insert-check.mjs          # add_poll: insere, não duplica, recusa sem fonte

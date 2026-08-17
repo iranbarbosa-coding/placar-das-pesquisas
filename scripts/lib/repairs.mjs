@@ -306,6 +306,21 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
     // órfão); para `add_poll` é o estado NORMAL — a pesquisa não existe, e é
     // exatamente por isso que ela vai ser inserida.
     if (rep.add_poll) {
+      // `expect_sum` É OBRIGATÓRIO AQUI, e só aqui.
+      //
+      // Em todo outro reparo ele é opcional porque a pesquisa já veio da fonte e
+      // o resto do pipeline a conferiu. Numa pesquisa TRANSCRITA À MÃO de um PDF
+      // não existe essa segunda conferência: o único controle aritmético é o
+      // total que o instituto imprimiu. Deixá-lo opcional tornava o controle
+      // OPT-OUT justamente na classe de registro em que um dígito trocado é mais
+      // provável — e a verificação independente mostrou que uma inserção somando
+      // 15 entrava sem um aviso sequer. Um `expect_sum` ignorado é o que deixou
+      // a Vox presidencial ir ao ar com 101,2% por toda a vida do reparo.
+      if (rep.expect_sum == null) {
+        warnings.push(`RECUSADO ${label}: add_poll exige "expect_sum" — o total impresso pelo instituto. ` +
+          `Sem ele a pesquisa transcrita entra sem nenhuma conferência aritmética.`);
+        continue;
+      }
       const r = inserir(polls, rep, targets, label);
       for (const w of r.warnings ?? []) warnings.push(w);
       if (r.noop) noop.push(r.noop);

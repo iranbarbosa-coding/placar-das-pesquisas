@@ -191,14 +191,58 @@ function dropExactDuplicates(polls) {
   return polls.filter((p) => !dropped.has(p));
 }
 
+/**
+ * Quais pesquisas JÁ GRAVADAS pertencem a uma fonte, quando essa fonte falha.
+ *
+ * ⚠ ISTO ERA `p.source === name` E, PARA A WIKIPÉDIA, NÃO CASAVA COM NADA.
+ *
+ * `polls.json` é PROJEÇÃO do store, e `project.mjs` tira o `source` do primeiro
+ * `source_ref` do LEVANTAMENTO. Uma pesquisa da Wikipédia não tem id nativo,
+ * então `upsertPoll` não cria `source_ref` nenhum para ela: o levantamento só
+ * dela projeta `source: null`, e a pergunta dela pendurada num levantamento que
+ * também tem registro do Poder360 projeta `source: "poder360"`. Medido no banco:
+ * a projeção emite `null` (1.039) e `poder360` (1.933) e **nunca** `wikipedia`.
+ *
+ * Ou seja: o ramo de recuperação da Wikipédia era CÓDIGO MORTO. Numa falha de
+ * coleta ele guardava ZERO linhas e a mensagem dizia "mantendo dados anteriores
+ * desta fonte" enquanto **apagava as 1.039**. Hoje o piso de `minQuestions`
+ * ainda barra isso — por 58 perguntas. Quando o banco passar de ~3.040
+ * perguntas, o piso para de pegar e a exclusão fica silenciosa.
+ *
+ * Então a pertinência passa a ser pelo ESPAÇO DE ID, que a projeção preserva:
+ * o Poder360 cunha `p360-…` em `poder360.mjs`, a inserção curada cunha
+ * `curado-…`, e o que sobra é da Wikipédia. Curadas ficam de fora porque
+ * `applyRepairs` as reinsere toda rodada — mantê-las aqui as duplicaria.
+ */
+export const PERTENCE_A_FONTE = {
+  poder360: (p) => typeof p.id === "string" && p.id.startsWith("p360-"),
+  wikipedia: (p) => typeof p.id === "string" && !p.id.startsWith("p360-") && !p.id.startsWith("curado-"),
+};
+
 async function runSource(name, fn, previous) {
   try {
     const r = await fn();
     console.log(`✓ ${name}: ${r.polls?.length ?? r.count ?? 0} registro(s)`);
     return { ok: true, ...r };
   } catch (e) {
-    console.error(`✗ ${name} FALHOU: ${e.message} — mantendo dados anteriores desta fonte`);
-    const kept = previous.polls.filter((p) => p.source === name);
+    const pertence = PERTENCE_A_FONTE[name] ?? ((p) => p.source === name);
+    const kept = (previous.polls ?? []).filter(pertence);
+
+    // UMA RECUPERAÇÃO QUE NÃO RECUPERA NADA TEM DE GRITAR, NÃO SEGUIR.
+    //
+    // O defeito acima passou despercebido porque a mensagem de sucesso era
+    // impressa mesmo guardando zero. Se havia banco anterior e a recuperação
+    // volta vazia, o predicado desta fonte está errado — e seguir publica um
+    // conjunto truncado. Abortar deixa `data/` intacto, que é o lado seguro.
+    if ((previous.polls ?? []).length && !kept.length) {
+      throw new Error(
+        `${name} falhou (${e.message}) E a recuperação do banco anterior voltou VAZIA ` +
+        `de ${previous.polls.length} pesquisas — o predicado de pertinência desta fonte não casa mais. ` +
+        `Abortando em vez de publicar sem os dados dela.`,
+      );
+    }
+
+    console.error(`✗ ${name} FALHOU: ${e.message} — mantendo ${kept.length} pesquisa(s) anterior(es) desta fonte`);
     return { ok: false, polls: kept, url: null, error: String(e.message) };
   }
 }
