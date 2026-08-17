@@ -2,9 +2,9 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 407,
-  "contencao": 156,
-  "outra_disputa": 133,
+  "exato": 411,
+  "contencao": 159,
+  "outra_disputa": 136,
   "ambiguo": 4,
   "sem": 517
  },
@@ -76,6 +76,15 @@
   },
   {
    "contest": "presidente:BA",
+   "nome": "Ciro Gomes",
+   "urna": "Ciro Gomes",
+   "pesquisa": [
+    "PDT"
+   ],
+   "registro": "PSDB"
+  },
+  {
+   "contest": "presidente:DF",
    "nome": "Ciro Gomes",
    "urna": "Ciro Gomes",
    "pesquisa": [
@@ -928,6 +937,27 @@
    }
   },
   "presidente:DF": {
+   "augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
+   "cabo daciolo": {
+    "nome_urna": "Cabo Daciolo",
+    "sq_candidato": "40002551740",
+    "partido": "MOBILIZA",
+    "numero": "33",
+    "origem": "outra-disputa"
+   },
+   "ciro gomes": {
+    "nome_urna": "Ciro Gomes",
+    "sq_candidato": "60002531351",
+    "partido": "PSDB",
+    "numero": "45",
+    "origem": "outra-disputa"
+   },
    "flavio bolsonaro": {
     "nome_urna": "Flávio Bolsonaro",
     "sq_candidato": "280002551544",
@@ -935,11 +965,53 @@
     "numero": "22",
     "origem": "exato"
    },
+   "helder barbalho": {
+    "nome_urna": "Helder",
+    "sq_candidato": "140002550779",
+    "partido": "MDB",
+    "numero": "151",
+    "origem": "outra-disputa"
+   },
+   "hertz dias": {
+    "nome_urna": "Hertz Dias",
+    "sq_candidato": "280002541457",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "exato"
+   },
    "lula": {
     "nome_urna": "Lula",
     "sq_candidato": "280002542548",
     "partido": "PT",
     "numero": "13",
+    "origem": "exato"
+   },
+   "renan santos": {
+    "nome_urna": "Renan Santos",
+    "sq_candidato": "280002540694",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "romeu zema": {
+    "nome_urna": "Zema",
+    "sq_candidato": "280002539826",
+    "partido": "NOVO",
+    "numero": "30",
+    "origem": "contencao"
+   },
+   "ronaldo caiado": {
+    "nome_urna": "Ronaldo Caiado",
+    "sq_candidato": "280002551932",
+    "partido": "PSD",
+    "numero": "55",
+    "origem": "exato"
+   },
+   "rui costa pimenta": {
+    "nome_urna": "Rui Costa Pimenta",
+    "sq_candidato": "280002552487",
+    "partido": "PCO",
+    "numero": "29",
     "origem": "exato"
    }
   },
@@ -1577,6 +1649,13 @@
     "partido": "MISSÃO",
     "numero": "14",
     "origem": "exato"
+   },
+   "sargento laudicerio": {
+    "nome_urna": "Sargento Laudicério (lau)",
+    "sq_candidato": "110002553937",
+    "partido": "AGIR",
+    "numero": "36",
+    "origem": "contencao"
    },
    "wellington fagundes": {
     "nome_urna": "Wellington Fagundes",

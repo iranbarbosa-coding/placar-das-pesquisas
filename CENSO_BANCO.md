@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1002 levantamentos · 2964 perguntas · 137 institutos · 1080 candidatos**.
+Banco: **1005 levantamentos · 2973 perguntas · 137 institutos · 1074 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,8 +15,8 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 2 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 7 | 5 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 3 | 3 |
-| **total** | **14** | **10** |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 11 | 3 |
+| **total** | **22** | **10** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -93,11 +93,19 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
   s_f974da273cc9: Lula 48 · Tarcísio de Freitas 39
 
-## CONFLITO — Conflitos registrados aguardando decisão (3)
+## CONFLITO — Conflitos registrados aguardando decisão (11)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
 - **[2026]** registration_dates_contradict · s_118355fc693b · fieldwork_end: "2026-08-03" × "2025-08-03"
 - **[2026]** registration_dates_contradict · s_c3ea7003b0c2 · fieldwork_end: "2026-02-01" × "2026-01-01"
 - **[2026]** registration_dates_contradict · s_01a5b68c7c38 · fieldwork_end: "2026-06-18" × "2026-02-18"
+- person_id_orphaned · p_25c8a14a6cf7 · person_id: "p_25c8a14a6cf7" × null
+- person_id_orphaned · p_7a48334e3eed · person_id: "p_7a48334e3eed" × null
+- person_id_orphaned · p_d5428757615f · person_id: "p_d5428757615f" × null
+- person_id_orphaned · p_55f646657c2c · person_id: "p_55f646657c2c" × null
+- person_id_orphaned · p_39f99c278a47 · person_id: "p_39f99c278a47" × null
+- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
+- person_id_orphaned · p_1262d23f73d4 · person_id: "p_1262d23f73d4" × null
+- person_id_orphaned · p_8628635825fd · person_id: "p_8628635825fd" × null
 

@@ -6958,28 +6958,10 @@
  ],
  "senador:RS": [
   {
-   "nome": "Cristina Graeml",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Deltan Dallagnol",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
    "nome": "Eduardo Leite",
    "partidos": [
     "PSD",
     "PSDB"
-   ]
-  },
-  {
-   "nome": "Filipe Barros",
-   "partidos": [
-    "PL"
    ]
   },
   {
@@ -6992,12 +6974,6 @@
    "nome": "Germano Rigotto",
    "partidos": [
     "MDB"
-   ]
-  },
-  {
-   "nome": "Gleisi Hoffmann",
-   "partidos": [
-    "PT"
    ]
   },
   {
@@ -7050,12 +7026,6 @@
    ]
   },
   {
-   "nome": "Ratinho Jr",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
    "nome": "Sanderson",
    "partidos": [
     "PL"
@@ -7065,12 +7035,6 @@
    "nome": "Ubiratan Sanderson",
    "partidos": [
     "PL"
-   ]
-  },
-  {
-   "nome": "Zeca Dirceu",
-   "partidos": [
-    "PT"
    ]
   }
  ],

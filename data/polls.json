@@ -1,24 +1,277 @@
 {
- "generated_at": "2026-08-17T02:55:23.443Z",
+ "generated_at": "2026-08-17T13:04:12.633Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-17T02:55:23.443Z"
+   "last_ok": "2026-08-17T13:04:12.633Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-17T02:55:23.443Z"
+   "last_ok": "2026-08-17T13:04:12.633Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-17T02:55:23.443Z"
+   "last_ok": "2026-08-17T13:04:12.633Z"
   }
  ],
  "polls": [
+  {
+   "id": "1b4f74f7da1d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-16",
+   "published_date": null,
+   "sample_size": 2003,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "45421a159788",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Zema",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-16",
+   "published_date": null,
+   "sample_size": 2003,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "46fe2d3e85b3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Caiado",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-16",
+   "published_date": null,
+   "sample_size": 2003,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "911e49e4311e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-16",
+   "published_date": null,
+   "sample_size": 2003,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 36
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 5
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 4
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 4
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d62e0b7b223c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Renan Santos",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-16",
+   "published_date": null,
+   "sample_size": 2003,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f915db4de047",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-16",
+   "published_date": null,
+   "sample_size": 1520,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 46.1
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 23.4
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 16.5
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 0.6
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.6
+    },
+    {
+     "candidate": "Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "68fb63eb44e3",
    "source": null,
@@ -152,6 +405,97 @@
    ],
    "others_pct": 0.9,
    "undecided_pct": 30.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "bfb08f0ca043",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-12",
+   "fieldwork_end": "2026-08-15",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 29
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 18
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 12
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 12
+    },
+    {
+     "candidate": "Paulo Rubem Santiago",
+     "party": "Rede",
+     "pct": 1
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f4d5ac8467ef",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-12",
+   "fieldwork_end": "2026-08-15",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 43
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 43
+    },
+    {
+     "candidate": "Ivan Moraes",
+     "party": "PSOL",
+     "pct": 2
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -681,13 +1025,17 @@
      "candidate": "Ricardo Marques",
      "party": "PL",
      "pct": 4.28
+    },
+    {
+     "candidate": "Emanuel Cacho",
+     "party": "PSDB",
+     "pct": 0.62
     }
    ],
-   "others_pct": null,
-   "undecided_pct": null,
+   "others_pct": 1.37,
+   "undecided_pct": 26.03,
    "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
+   "tse_registration": null
   },
   {
    "id": "8b1bf442158c",
@@ -1667,13 +2015,13 @@
      "pct": 19
     },
     {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
+     "candidate": "Mendonça Filho",
+     "party": "PL",
      "pct": 15
     },
     {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
      "pct": 14
     },
     {
@@ -1902,7 +2250,7 @@
      "pct": 13
     },
     {
-     "candidate": "Sargento Laudicério",
+     "candidate": "Sargento Laudicério (lau)",
      "party": "Agir",
      "pct": 1
     },
@@ -12365,7 +12713,7 @@
      "pct": 5.4
     },
     {
-     "candidate": "Sargento Laudicério",
+     "candidate": "Sargento Laudicério (lau)",
      "party": "Agir",
      "pct": 4.1
     },
@@ -19476,12 +19824,12 @@
      "pct": 1.5
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.4
     },
@@ -31277,7 +31625,7 @@
      "pct": 3.13
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 1.34
     },
@@ -31287,7 +31635,7 @@
      "pct": 1.19
     },
     {
-     "candidate": "Augusto Cury",
+     "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.9
     },
@@ -31742,7 +32090,7 @@
      "pct": 5.1
     },
     {
-     "candidate": "Sargento Laudicério",
+     "candidate": "Sargento Laudicério (lau)",
      "party": "Agir",
      "pct": 4.3
     },
@@ -53286,7 +53634,7 @@
      "pct": 6.4
     },
     {
-     "candidate": "Romeu Zema",
+     "candidate": "Zema",
      "party": "Novo",
      "pct": 4.1
     },
@@ -56035,7 +56383,7 @@
      "pct": 4
     },
     {
-     "candidate": "Sargento Laudicério",
+     "candidate": "Sargento Laudicério (lau)",
      "party": "Agir",
      "pct": 3.8
     },
@@ -57152,7 +57500,7 @@
      "pct": 3
     },
     {
-     "candidate": "Sargento Laudicério",
+     "candidate": "Sargento Laudicério (lau)",
      "party": "Agir",
      "pct": 1.2
     },
@@ -71052,7 +71400,7 @@
      "pct": 7.7
     },
     {
-     "candidate": "Sargento Laudicério",
+     "candidate": "Sargento Laudicério (lau)",
      "party": "Agir",
      "pct": 4.2
     }
@@ -97591,19 +97939,72 @@
    "tse_registration": null
   },
   {
+   "id": "p360-13088-1-0-b8ea3c28a967",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2025-11-25",
+   "fieldwork_end": "2025-11-26",
+   "published_date": "2025-11-25",
+   "sample_size": 1200,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "União Brasil",
+     "pct": 41
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 20
+    },
+    {
+     "candidate": "Guto Silva",
+     "party": "PSD",
+     "pct": 13
+    },
+    {
+     "candidate": "Paulo Martins",
+     "party": "Novo",
+     "pct": 8
+    },
+    {
+     "candidate": "Enio Verri",
+     "party": "PT",
+     "pct": 5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 9,
+   "tse_registration": null,
+   "repaired": {
+    "evidence": "p.2 METODOLOGIA: \"DATA DE CAMPO: 25 E 26 DE NOVEMBRO DE 2025\". Mesmo documento que sustenta o reparo de UF acima, lido na mesma passada, e a CNN Brasil descreve a mesma rodada como \"entre os dias 25 e 26 de novembro\". A linha de governador (p.7: Moro 41 · Requião Filho 20 · Guto Silva 13 · Paulo Martins 8 · Enio Verri 5) já está arquivada corretamente quanto a cargo e UF; só as datas estavam curtas.",
+    "source": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
+    "verified_at": "2026-08-17"
+   }
+  },
+  {
    "id": "p360-13089-1-0-b383e9bf0a8c",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
    "integra_url": null,
    "race": "senador",
-   "state": "RS",
+   "state": "PR",
    "round": 1,
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2025-11-25",
    "fieldwork_end": "2025-11-26",
-   "published_date": "2025-11-26",
+   "published_date": "2025-11-25",
    "sample_size": 1200,
    "margin_of_error": 3,
    "results": [
@@ -97613,7 +98014,7 @@
      "pct": 31
     },
     {
-     "candidate": "Cristina Graeml",
+     "candidate": "Cristina Reis Graeml",
      "party": "União Brasil",
      "pct": 14
     },
@@ -97628,7 +98029,7 @@
      "pct": 13
     },
     {
-     "candidate": "Gleisi Hoffmann",
+     "candidate": "Gleisi",
      "party": "PT",
      "pct": 10
     },
@@ -97641,7 +98042,12 @@
    "others_pct": null,
    "undecided_pct": 5,
    "blank_null_pct": 6,
-   "tse_registration": null
+   "tse_registration": null,
+   "repaired": {
+    "evidence": "Relatório do próprio instituto, p.2 METODOLOGIA: \"1.200 ENTREVISTAS · UNIVERSO: ELEITORES DO ESTADO DO PARANÁ · MARGEM DE ERRO: +/- 3.0 P.P. · DATA DE CAMPO: 25 E 26 DE NOVEMBRO DE 2025\". p.1: \"RODADA NACIONAL POR ESTADOS - NOV/DEZ / PARANÁ\". p.14, a tabela que é esta linha: \"EM QUEM O SR.(A) VOTARIA PARA AS DUAS VAGAS DE SENADOR DO PARANÁ? CONSOLIDADO (100%) CENÁRIO 01\" — Ratinho Jr. (PSD) 31 · Cristina Graeml (União) 14 · Deltan Dallagnol (Novo) 13 · Filipe Barros (PL) 13 · Gleisi Hoffmann (PT) 10 · Zeca Dirceu (PT) 8 · Nulo/Branco 6 · NS/NR 5 — bate com o que guardamos dígito por dígito, então NENHUM resultado muda. SEGUNDA LEITURA INDEPENDENTE, da CNN Brasil: mesma pesquisa descrita como \"Senado ... Paraná\", \"entre os dias 25 e 26 de novembro\", 1.200 entrevistas, ±3 p.p., com os seis percentuais e Nulo/Branco 6 e NS/NR 5 idênticos. Conferido que NÃO houve colisão: a operação de campo do RS daquela semana é outra (21 a 24/11, relatório próprio) e já está no banco como p360-13086 e p360-13087. E conferido que o PR não tem cópia certa em lugar nenhum — a lista de senado do PR no Poder360 não traz nenhuma entrada do Real Time em nov/2025 — então descartar apagaria uma pesquisa real. O relatório NÃO traz número de registro no TSE em nenhuma das 23 páginas.",
+    "source": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13082-1-0-2bcd10651ca5",
@@ -97848,54 +98254,6 @@
    "others_pct": null,
    "undecided_pct": 3,
    "blank_null_pct": 4,
-   "tse_registration": null
-  },
-  {
-   "id": "p360-13088-1-0-b8ea3c28a967",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
-   "fieldwork_end": "2025-11-25",
-   "published_date": "2025-11-25",
-   "sample_size": 1200,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Sergio Moro",
-     "party": "União Brasil",
-     "pct": 41
-    },
-    {
-     "candidate": "Requião Filho",
-     "party": "PDT",
-     "pct": 20
-    },
-    {
-     "candidate": "Guto Silva",
-     "party": "PSD",
-     "pct": 13
-    },
-    {
-     "candidate": "Paulo Martins",
-     "party": "Novo",
-     "pct": 8
-    },
-    {
-     "candidate": "Enio Verri",
-     "party": "PT",
-     "pct": 5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4,
-   "blank_null_pct": 9,
    "tse_registration": null
   },
   {
@@ -107738,6 +108096,39 @@
    "tse_registration": null
   },
   {
+   "id": "dd8d2ba5b5e4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Raquel Lyra e João Campos",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-08-12",
+   "fieldwork_end": "2025-08-15",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-12992-1-3-88fae410776d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/parana-pesquisas-fernando-maximo-lidera-disputa-pelo-governo-de-ro/",
@@ -113804,7 +114195,7 @@
      "pct": 2.4
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.5
     }
@@ -117819,7 +118210,7 @@
      "pct": 2.2
     },
     {
-     "candidate": "Helder Barbalho",
+     "candidate": "Helder",
      "party": "MDB",
      "pct": 0.4
     }
