@@ -13,7 +13,7 @@
 // how `sameCandidate()` came to merge "Ciro Nogueira" into "Ciro". The
 // `suggestion` column below is a sorting aid and carries no authority.
 //
-// Usage: node scripts/candidate-review.mjs [--out REVISAO_CANDIDATOS.md]
+// Usage: node scripts/candidate-review.mjs [--out REVISAO_CANDIDATOS.md] [--self-test]
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -47,34 +47,138 @@ function levenshtein(a, b) {
 
 const RACE_LABEL = { presidente: "Presidente", governador: "Governador", senador: "Senado" };
 
-// LÊ data/polls.json — os nomes CRUS, como as fontes entregam.
+// LÊ AS GRAFIAS PUBLICADAS: `results[].name_raw` de data/questions.ndjson.
 //
-// Ler o store seria um laço que se come: o store já tem a tabela de apelidos
-// aplicada, então a varredura não acharia par nenhum e reescreveria a tabela
-// vazia, desfazendo todas as fusões na migração seguinte. A entrada da decisão
-// tem de ser sempre o dado bruto.
-export function build() {
-  const store = readStore({ dir: DATA_DIR });
-  const polls = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "polls.json"), "utf-8")).polls;
-  const surveyOfPoll = new Map();
-  for (const q of store.questions) surveyOfPoll.set(q.legacy_id ?? q.question_id, q.survey_id);
+// ATÉ 17/08/2026 ESTE GERADOR LIA `data/polls.json`, e o comentário que ficava
+// aqui dizia que ler o store seria "um laço que se come". A defesa era
+// verdadeira quando foi escrita e parou de ser sem que ninguém a atualizasse:
+// `polls.json` virou PROJEÇÃO do store (`derived_from_store: true`) e
+// `project.mjs` publica `candidate: candById.get(...)?.canonical`. Ou seja, o
+// gerador passou a ler exatamente a camada canonicalizada de que se defendia —
+// CONVENTIONS §6, quarta ocorrência registrada, depois de `candidate-resolve`
+// (que escreveu a tabela vazia duas vezes) e `match-ballot-names` (16/08).
+//
+// O QUE ISSO APAGAVA, medido em 17/08/2026 antes do conserto: 274 dos 1.074
+// candidatos já tinham 2+ apelidos fundidos e NENHUMA dessas fusões aparecia na
+// revisão. A classe `grafia` inteira tinha ido de 18 pares a zero, e 27 dos 47
+// pares que sumiram do dossiê foram fundidos pela automação, sem ruling humana
+// nenhuma — `Alexandre Bady × Alexandre Baldy`, `Carlos Caguin × Carlos Gaguim`,
+// `Sebastião Bocalom × Tião Bocalom`. Uma varredura que lê o nome já fundido não
+// pode, por construção, encontrar fusão para revisar.
+//
+// O ERRO NÃO ERA "LER O STORE", ERA "LER O CAMPO CANÔNICO". O store guarda as
+// duas camadas: `name_raw` é a grafia que o instituto publicou, `canonical` é o
+// que decidimos exibir. Desde 16/08 (`46ea8c7`) `name_raw` guarda de fato a
+// grafia publicada — até então guardava o canônico, o oposto do que o próprio
+// nome do campo prometia, e por isso qualquer intuição anterior sobre ele é
+// suspeita.
+//
+// O QUE ESTA ENTRADA NÃO ENXERGA, dito aqui antes que alguém descubra do jeito
+// caro: `name_raw` guarda a grafia do PRIMEIRO escritor de cada
+// (pergunta, candidato), então é PISO do que foi publicado, nunca teto — 125
+// candidatos carregam 2+ grafias distintas, contra 274 que a tabela de apelidos
+// diz terem sido fundidos. E `aliases` só começou a acumular em 16/08, quando
+// `resolveCandidate` passou a receber a grafia crua: a história de fusões
+// visível aqui é de 16/08 para a frente, não retroativa. `data/nomes-crus.json`
+// tem grafias que esta varredura não alcança e entra como conferência de
+// cobertura no rodapé — não como entrada, porque ele é um CONJUNTO por disputa,
+// sem a ligação "qual pesquisa trouxe qual grafia" que a evidência exige.
+//
+// A METADATA (instituto, data, fonte, turno) CONTINUA VINDO DA PROJEÇÃO, de
+// propósito: `projectPolls()` é a única implementação de "quais perguntas
+// contam" e do passo `merged_into` dos institutos (§5), e institutos são outra
+// canonicalização, não a que mentia aqui. Ela roda em memória sobre o store
+// vivo — não é o arquivo derivado no disco.
+const RAW = (r) => r.name_raw;
 
-  // contest -> name -> occurrences
+/** contest → nome → ocorrências, e candidate_id → grafias vistas (para o guarda). */
+function collect(store, nameOf) {
+  const meta = new Map(projectPolls(store).map((p) => [p.id, p]));
   const contests = new Map();
-  for (const p of polls) {
+  const spellings = new Map();
+  for (const q of store.questions) {
+    const id = q.legacy_id ?? q.question_id;
+    const p = meta.get(id);
+    if (!p) continue; // não-headline ou retratada: o filtro é o da projeção
     const c = `${p.race}|${p.state ?? "BR"}`;
     if (!contests.has(c)) contests.set(c, new Map());
     const m = contests.get(c);
-    for (const r of p.results) {
-      if (!m.has(r.candidate)) m.set(r.candidate, []);
-      m.get(r.candidate).push({
-        pollId: p.id, surveyId: surveyOfPoll.get(p.id) ?? null,
-        date: p.fieldwork_end ?? p.published_date ?? null,
+    for (const r of q.results ?? []) {
+      const name = nameOf(r);
+      if (!spellings.has(r.candidate_id)) spellings.set(r.candidate_id, new Set());
+      spellings.get(r.candidate_id).add(name);
+      if (!m.has(name)) m.set(name, []);
+      m.get(name).push({
+        pollId: id, date: p.fieldwork_end ?? p.published_date ?? null,
         institute: p.pollster, source: p.source, round: p.round,
         party: r.party ?? null, pct: r.pct,
       });
     }
   }
+  return { contests, spellings };
+}
+
+/**
+ * RECUSA RODAR SOBRE ENTRADA CANONICALIZADA. O predicado é derivado, não
+ * escolhido (§10): a projeção colapsa cada candidato numa grafia só POR
+ * CONSTRUÇÃO, então "algum candidato aparece com duas grafias" vale zero na
+ * saída canonicalizada e positivo na crua. Não é limiar, é a diferença
+ * estrutural entre as duas camadas — e `--self-test` prova os dois lados.
+ *
+ * O precedente é `candidate-resolve.mjs`, que se recusa a escrever uma tabela
+ * menor do que a que substitui porque já se escreveu vazio duas vezes. Aqui o
+ * modo de falha é o mesmo com outra roupa: silêncio que passa por "nada a
+ * revisar".
+ */
+function assertRawInput({ spellings }, store) {
+  const candById = new Map(store.candidates.map((c) => [c.candidate_id, c]));
+  const aliasMulti = store.candidates.filter((c) => new Set(c.aliases).size > 1).length;
+  const multi = [...spellings].filter(([, s]) => s.size > 1);
+  if (!multi.length) {
+    throw new Error(
+      "ENTRADA CANONICALIZADA (CONVENTIONS §6): nenhum candidato aparece com duas grafias.\n" +
+      `  A tabela de apelidos do store diz que ${aliasMulti} candidatos foram fundidos a partir de 2+ grafias.\n` +
+      "  Uma revisão de identidade que lê o nome já fundido não acha fusão nenhuma para revisar.");
+  }
+  // A entrada e o store têm de concordar sobre o que foi publicado. Uma grafia
+  // que a tabela de apelidos não conhece significa que uma das duas camadas
+  // andou sem a outra — e a varredura estaria julgando um nome órfão.
+  const unknown = [];
+  for (const [cid, ss] of multi) {
+    const c = candById.get(cid);
+    for (const n of ss) if (!new Set(c?.aliases ?? []).has(n)) unknown.push(`${c?.contest ?? "?"} · ${n}`);
+  }
+  if (unknown.length) {
+    throw new Error(
+      `${unknown.length} grafia(s) publicada(s) que a tabela de apelidos não conhece:\n  ` +
+      unknown.slice(0, 5).join("\n  "));
+  }
+  return { multi: multi.length, aliasMulti, candidates: spellings.size };
+}
+
+/**
+ * O que `nomes-crus.json` viu e esta varredura não. Ele é o dump anterior à
+ * canonicalização, sem ligação com a pesquisa de origem — serve para dizer o
+ * tamanho do ponto cego, não para preenchê-lo.
+ */
+function coverageGap(contests) {
+  const file = path.join(ROOT, "data", "nomes-crus.json");
+  if (!fs.existsSync(file)) return null;
+  const crus = JSON.parse(fs.readFileSync(file, "utf-8"));
+  let total = 0, missing = 0;
+  for (const [contest, list] of Object.entries(crus)) {
+    // O arquivo mudou de forma em 17/08 (string → {nome, partidos}); aceita as duas.
+    const names = list.map((x) => (typeof x === "string" ? x : x?.nome)).filter(Boolean);
+    const seen = contests.get(contest.replace(":", "|")) ?? new Map();
+    for (const n of names) { total++; if (!seen.has(n)) missing++; }
+  }
+  return { total, missing };
+}
+
+export function buildDetailed({ store = readStore({ dir: DATA_DIR }), nameOf = RAW, guard = true } = {}) {
+  const collected = collect(store, nameOf);
+  const stats = guard ? assertRawInput(collected, store) : null;
+  const { contests } = collected;
 
   const pairs = [];
   for (const [c, names] of contests) {
@@ -97,8 +201,11 @@ export function build() {
   pairs.sort((x, y) =>
     ORDER.indexOf(x.suggestion) - ORDER.indexOf(y.suggestion) ||
     Math.min(y.a.n, y.b.n) - Math.min(x.a.n, x.b.n));
-  return pairs;
+  return { pairs, stats, coverage: coverageGap(contests) };
 }
+
+// `candidate-resolve.mjs` consome só os pares — contrato preservado de propósito.
+export function build(opts) { return buildDetailed(opts).pairs; }
 
 const ORDER = ["grafia", "titulo_apelido", "indefinido", "prenome_comum", "sobrenome_comum"];
 const LABEL = {
@@ -367,16 +474,75 @@ function render(pairs) {
   return L.join("\n") + "\n";
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+/**
+ * AUTOTESTE (§2). Não basta afirmar "a entrada é crua": o teste TROCA a entrada
+ * de volta pela camada canonicalizada — a mesma expressão que `project.mjs:68`
+ * publica — e EXIGE que a bateria fique vermelha. Um autoteste que só conferisse
+ * uma contagem na entrada boa passaria verde com o guarda apagado, que é
+ * exatamente o modo de falha que este arquivo acabou de sofrer por um ano de
+ * comentário desatualizado.
+ */
+function selfTest() {
+  const store = readStore({ dir: DATA_DIR });
+  const candById = new Map(store.candidates.map((c) => [c.candidate_id, c]));
+  const CANONICAL = (r) => candById.get(r.candidate_id)?.canonical ?? r.name_raw;
+  const casos = [];
+  const afirma = (nome, fn) => {
+    try { fn(); casos.push([true, nome]); }
+    catch (e) { casos.push([false, `${nome} — ${e.message.split("\n")[0]}`]); }
+  };
+
+  // (1) A entrada CRUA passa, e enxerga o que a canonicalizada apagava.
+  afirma("a entrada crua passa no guarda e reencontra a classe `grafia`", () => {
+    const { pairs, stats } = buildDetailed({ store });
+    if (!stats?.multi) throw new Error("nenhum candidato com 2+ grafias");
+    const grafia = pairs.filter((p) => p.suggestion === "grafia").length;
+    if (!grafia) throw new Error("classe `grafia` vazia — a entrada não é crua");
+  });
+
+  // (2) O CONTROLE NEGATIVO: entrada canonicalizada tem de DERRUBAR o guarda.
+  afirma("a entrada canonicalizada é RECUSADA com a citação de §6", () => {
+    let erro = null;
+    try { buildDetailed({ store, nameOf: CANONICAL }); }
+    catch (e) { erro = e; }
+    if (!erro) throw new Error("o guarda passou sobre entrada canonicalizada");
+    if (!/§6/.test(erro.message)) throw new Error(`recusou por outro motivo: ${erro.message}`);
+  });
+
+  // (3) E sem o guarda ela roda até o fim, provando que é o GUARDA que barra —
+  //     e não um acidente de dados — e medindo o estrago que ele evita.
+  afirma("sem o guarda, a entrada canonicalizada produz um dossiê MENOR e sem `grafia`", () => {
+    const cru = buildDetailed({ store }).pairs;
+    const cano = buildDetailed({ store, nameOf: CANONICAL, guard: false }).pairs;
+    if (cano.length >= cru.length) throw new Error(`canonicalizado ${cano.length} ≥ cru ${cru.length}`);
+    if (cano.some((p) => p.suggestion === "grafia")) throw new Error("classe `grafia` não vazia");
+  });
+
+  for (const [ok, nome] of casos) console.log(`  ${ok ? "ok  " : "FALHA"}  ${nome}`);
+  const falhas = casos.filter(([ok]) => !ok).length;
+  console.log(falhas ? `\n${falhas} caso(s) do autoteste não se comportaram como esperado` : "\nautoteste: o guarda dispara nos dois sentidos");
+  return falhas;
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  if (process.argv.includes("--self-test")) process.exit(selfTest() ? 1 : 0);
+  main();
+}
 
 function main() {
 const outArg = process.argv.find((a) => a.startsWith("--out="))?.split("=")[1];
 const out = path.join(ROOT, outArg ?? "REVISAO_CANDIDATOS.md");
-const pairs = build();
+const { pairs, stats, coverage } = buildDetailed();
 fs.writeFileSync(out, render(pairs));
 console.log(`${pairs.length} pares · ${pairs.filter((p) => p.twins.length).length} com campo gêmeo → ${path.relative(ROOT, out)}`);
 for (const k of ORDER) {
   const n = pairs.filter((p) => p.suggestion === k).length;
   if (n) console.log(`  ${String(n).padStart(3)}  ${LABEL[k]}`);
+}
+console.log(`entrada crua: ${stats.multi} de ${stats.candidates} candidatos com 2+ grafias publicadas` +
+  ` · a tabela de apelidos registra ${stats.aliasMulti} fusões`);
+if (coverage) {
+  console.log(`ponto cego: ${coverage.missing} de ${coverage.total} nomes de data/nomes-crus.json` +
+    ` não aparecem em nenhuma pergunta headline`);
 }
 }
