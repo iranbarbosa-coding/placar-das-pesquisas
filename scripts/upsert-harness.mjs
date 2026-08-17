@@ -24,7 +24,8 @@ import {
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
 import { writeStoreFromPolls } from "./lib/build-store.mjs";
-import { mintCandidateId, nameKey } from "./lib/ids.mjs";
+import { mintCandidateId, mintInstituteId, nameKey } from "./lib/ids.mjs";
+import { validateStore } from "./validate-store.mjs";
 import { normNome } from "./lib/nomes.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
 import {
@@ -1154,6 +1155,136 @@ check("recusa: token que alcança DOIS institutos novos não traduz nada", (_sto
     assert(!!k, "a recusa não deixou linha em conflicts.ndjson — silêncio não é sucesso (§2)");
     assert(k?.record_id === "i_ffffffffffff", `conflito sobre ${k?.record_id}`);
     assert((k?.incoming ?? []).length === 2, `o conflito não nomeia os dois alvos: ${JSON.stringify(k?.incoming)}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ==========================================================================
+// 11. A FUSÃO DE INSTITUTOS — `merged_into`, a curadoria que se perdia
+// ==========================================================================
+//
+// Os três casos abaixo também rodam o CAMINHO DE VERDADE
+// (`writeStoreFromPolls`), pelo mesmo motivo do bloco 10: chamar
+// `resolveInstitute` direto provaria uma propriedade de código que o coletor
+// não executa (§2). O que eles exercitam é a caminhada de `merged_into` em
+// `lib/store.mjs`, e cada um morre sob UMA mutação diferente dela.
+
+const I_ALFA = mintInstituteId(`institute|${nameKey("Alfa")}`);
+const I_BETA = mintInstituteId(`institute|${nameKey("Beta")}`);
+
+/**
+ * Estado anterior com a fusão CURADA "Alfa foi absorvida pela Beta", em
+ * diretório temporário. Curadoria válida: as duas linhas existem e a cadeia
+ * termina — é exatamente o que `validate-store.mjs` exige.
+ */
+function dirComFusao() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-fusao-"));
+  fs.writeFileSync(path.join(dir, "institutes.ndjson"),
+    JSON.stringify({ institute_id: I_ALFA, legacy_ids: [], canonical: "Alfa", aliases: ["Alfa"],
+      cnpj: null, merged_into: I_BETA, first_seen: "2026-01-01" }) + "\n" +
+    JSON.stringify({ institute_id: I_BETA, legacy_ids: [], canonical: "Beta", aliases: ["Beta"],
+      cnpj: null, merged_into: null, first_seen: "2026-01-01" }) + "\n");
+  return dir;
+}
+
+/**
+ * Pesquisas com data DECRESCENTE, que é a ordem em que `buildStoreFromPolls` as
+ * ingere (prioridade de fonte, depois `fieldwork_end` DESC). É por aqui que a
+ * ORDEM DE CHEGADA é controlada — e é a ordem de chegada, não a curadoria, que
+ * decide se o alvo da fusão já existe quando a cadeia é caminhada.
+ */
+const pesquisaDe = (pollster, reg, fim) => poll({
+  id: `${pollster}-${reg}`, pollster, tse_registration: `MG-${reg}/2026`,
+  fieldwork_start: fim, fieldwork_end: fim, published_date: fim,
+});
+
+check("instituto: fusão cujo alvo ainda não chegou NÃO cunha linha duplicada", (_store, assert) => {
+  // A REPRODUÇÃO, sem curadoria ruim nenhuma. `store.institutes` é construído
+  // incrementalmente na ordem de chegada; aqui as duas pesquisas da Alfa chegam
+  // ANTES da primeira pesquisa da Beta, então na segunda consulta a "Alfa" o
+  // alvo da fusão ainda não tem linha. Sem o `break`, `resolveInstitute` caía
+  // para a cunhagem a partir do MESMO `nameKey` e produzia uma segunda linha com
+  // o MESMO `institute_id` — e `validate-store.mjs` reprovava a rodada inteira
+  // na unicidade de id entre tabelas. Medido antes do reparo:
+  //   linhas: 2 · ids: ["i_c6677180a1c2","i_c6677180a1c2"]
+  //   ERRO: id duplicado "i_c6677180a1c2" em institutes e institutes
+  const dir = dirComFusao();
+  try {
+    const { store: novo } = writeStoreFromPolls([
+      pesquisaDe("Alfa", "11111", "2026-06-05"),
+      pesquisaDe("Alfa", "22222", "2026-06-04"),
+      pesquisaDe("Beta", "33333", "2026-05-01"),
+    ], { runDate: "2026-08-17", dir });
+    const ids = novo.institutes.map((i) => i.institute_id);
+    assert(new Set(ids).size === ids.length,
+      `institute_id duplicado: ${JSON.stringify(ids)} — a cadeia caiu na cunhagem em vez de parar`);
+    assert(novo.institutes.length === 2, `${novo.institutes.length} institutos, esperado 2 (Alfa e Beta)`);
+    // E o guarda que reprovaria a rodada é consultado DE VERDADE, não citado de
+    // memória: silêncio não é sucesso (§2).
+    const { errors } = validateStore(novo);
+    const dup = errors.filter((e) => /id duplicado/.test(e));
+    assert(dup.length === 0, `validate-store reprovaria: ${dup.join(" · ")}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("instituto: o `merged_into` curado ATRAVESSA a reconstrução do zero", (_store, assert) => {
+  // O store é refeito do zero a cada rodada, então tudo que não se re-deriva da
+  // entrada tem de ser carregado do estado anterior — `legacy_ids` e o
+  // `merged_into` da PESSOA já pagaram este defeito. `resolveInstitute` fixava
+  // `merged_into: null` na cunhagem: uma fusão decidida à mão sobrevivia a UMA
+  // reconstrução e evaporava na coleta seguinte, sem erro e sem log. O carry lê
+  // `priorStamps().institutesById`, gêmeo de `peopleById` (§5).
+  const dir = dirComFusao();
+  try {
+    const { store: novo } = writeStoreFromPolls([
+      pesquisaDe("Alfa", "11111", "2026-06-05"),
+      pesquisaDe("Beta", "33333", "2026-05-01"),
+    ], { runDate: "2026-08-17", dir });
+    const alfa = novo.institutes.find((i) => i.institute_id === I_ALFA);
+    assert(!!alfa, "a linha da Alfa não foi cunhada");
+    assert(alfa?.merged_into === I_BETA,
+      `merged_into = ${JSON.stringify(alfa?.merged_into)} — a fusão curada evaporou na reconstrução`);
+    // E a metade oposta, sem a qual um carry que copiasse qualquer coisa passaria
+    // verde: quem NÃO foi fundido continua nascendo com o campo nulo.
+    const beta = novo.institutes.find((i) => i.institute_id === I_BETA);
+    assert(beta?.merged_into === null, `Beta nasceu com merged_into ${JSON.stringify(beta?.merged_into)}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("instituto: o índice acha o sobrevivente cunhado NESTA rodada", (_store, assert) => {
+  // CONVENTIONS §7 — o índice tem de responder "o que me atualiza DURANTE uma
+  // rodada?". No caminho de reconstrução o load traz NADA (`emptyIndexes()`),
+  // então `instituteById` só existe pelo `set` no mint. Aqui a Beta chega
+  // PRIMEIRO (data mais recente), a Alfa depois: a segunda consulta a "Alfa"
+  // caminha a fusão e só alcança a Beta se o índice tiver sido atualizado no
+  // write. Com o índice construído e não mantido, a fusão é ignorada em silêncio
+  // e a pesquisa fica pendurada no instituto absorvido.
+  const dir = dirComFusao();
+  try {
+    const { store: novo } = writeStoreFromPolls([
+      pesquisaDe("Beta", "33333", "2026-07-01"),
+      pesquisaDe("Alfa", "11111", "2026-06-05"),
+      pesquisaDe("Alfa", "22222", "2026-06-04"),
+    ], { runDate: "2026-08-17", dir });
+    const segunda = novo.surveys.find((s) => s.tse_registration === "MG-22222/2026");
+    assert(!!segunda, "a segunda pesquisa da Alfa não foi gravada");
+    assert(segunda?.institute_id === I_BETA,
+      `pesquisa em ${segunda?.institute_id}, esperado ${I_BETA} — a fusão não foi seguida dentro da rodada`);
+    // ⚠ COMPORTAMENTO REGISTRADO, NÃO ENDOSSADO. A PRIMEIRA pesquisa da Alfa
+    // fica no instituto ABSORVIDO, porque a cunhagem devolve a linha recém-criada
+    // sem caminhar a cadeia — exatamente como `ensurePerson` faz com pessoas. O
+    // efeito é que a mesma fusão dá dois `institute_id` diferentes a duas
+    // pesquisas da mesma rodada, conforme a ordem de chegada. Fica fixado aqui
+    // para que a assimetria seja VISÍVEL: mudá-la é decisão do criador (§12), e
+    // vale para as duas tabelas ao mesmo tempo (§5), não só para esta.
+    const primeira = novo.surveys.find((s) => s.tse_registration === "MG-11111/2026");
+    assert(primeira?.institute_id === I_ALFA,
+      `a primeira pesquisa da Alfa saiu em ${primeira?.institute_id} — o comportamento mudou, releia a nota acima`);
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }

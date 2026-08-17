@@ -135,6 +135,12 @@ export function priorStamps(store) {
   }
   return {
     institutes: new Map((store.institutes ?? []).map((i) => [i.institute_id, i.first_seen])),
+    // A LINHA INTEIRA DO INSTITUTO, e não só o carimbo — gêmeo de `peopleById`.
+    // `resolveInstitute` lê `merged_into` daqui porque a fusão é curadoria e o
+    // store é refeito do zero: sem este mapa, a única maneira de o campo
+    // sobreviver seria alguém reescrevê-lo à mão depois de cada coleta. Ver a
+    // nota em `resolveInstitute`.
+    institutesById: new Map((store.institutes ?? []).map((i) => [i.institute_id, i])),
     candidates: new Map((store.candidates ?? []).map((c) => [c.candidate_id, c.first_seen])),
     people: new Map((store.people ?? []).map((p) => [p.person_id, p.first_seen])),
     peopleById: new Map((store.people ?? []).map((p) => [p.person_id, p])),
@@ -207,6 +213,9 @@ function newReport() {
  *   questionById      ← at mint
  *   questionsBySurvey ← at mint (and it is what the roster tests read)
  *   instituteByAlias  ← resolveInstitute
+ *   instituteById     ← resolveInstitute (é ele que faz a caminhada de
+ *                       `merged_into` alcançar um sobrevivente cunhado ANTES
+ *                       nesta mesma rodada — ver `resolveInstitute`)
  *   candidateByAlias  ← resolveCandidate
  *   candidateById     ← resolveCandidate (é o que faz duas grafias da MESMA
  *                       pessoa caírem na MESMA linha em vez de cunharem duas —
@@ -235,6 +244,7 @@ function buildIndexes(store) {
     questionById: new Map(store.questions.map((q) => [q.question_id, q])),
     questionsBySurvey: groupBy(store.questions, (q) => q.survey_id),
     instituteByAlias: aliasIndex(store.institutes),
+    instituteById: new Map((store.institutes ?? []).map((i) => [i.institute_id, i])),
     candidateByAlias: candidateAliasIndex(store.candidates),
     candidateById: new Map((store.candidates ?? []).map((c) => [c.candidate_id, c])),
     personById: new Map((store.people ?? []).map((p) => [p.person_id, p])),
@@ -256,7 +266,7 @@ export function emptyIndexes() {
   return {
     byReg: new Map(), byRef: new Map(), surveyById: new Map(),
     questionById: new Map(), questionsBySurvey: new Map(),
-    instituteByAlias: new Map(),
+    instituteByAlias: new Map(), instituteById: new Map(),
     candidateByAlias: new Map(), candidateById: new Map(),
     personById: new Map(), personByPolled: new Map(), personByCluster: new Map(),
   };
@@ -307,14 +317,55 @@ function candidateAliasIndex(candidates) {
   return m;
 }
 
-/** Follow merged_into chains to the surviving institute. */
+/**
+ * Segue a cadeia de `merged_into` até o instituto que sobreviveu — a MESMA
+ * caminhada de `ensurePerson`, que é o gêmeo desta função uma tabela acima.
+ *
+ * ⚠ O `break` NÃO É DETALHE: é ele que impede uma SEGUNDA LINHA COM O MESMO
+ * `institute_id`. A versão anterior era
+ *
+ *     inst = store._indexes.surveyById && store.institutes.find(…)
+ *
+ * sem saída: alvo não encontrado ⇒ `inst` vira `undefined`, o `if (inst) return`
+ * abaixo não devolve nada, e a função CUNHA — do mesmo `nameKey` que acabou de
+ * consultar, portanto do mesmo `institute_id`. `validate-store.mjs` reprova a
+ * rodada inteira na unicidade de id entre tabelas ("id duplicado …"), e a
+ * segunda linha ainda leva `merged_into: null`, apagando a curadoria.
+ *
+ * REPRODUZIDO SEM CURADORIA RUIM, que é o que torna isto urgente e não teórico:
+ * `store.institutes` é construído INCREMENTALMENTE, na ordem de chegada das
+ * pesquisas (o store é refeito do zero a cada rodada). Uma fusão perfeitamente
+ * válida A→B cujo primeiro poll de B chega DEPOIS deixa o alvo ausente no
+ * momento em que A é consultado pela segunda vez. Nada na curadoria está errado;
+ * é a ordem do arquivo que decide. Caso vivo no `upsert-harness`:
+ * "instituto: fusão cujo alvo ainda não chegou NÃO cunha linha duplicada".
+ *
+ * O `store._indexes.surveyById &&` que estava aqui era resíduo de cópia — e a
+ * leitura corrente dele ("anula a expressão quando o índice está vazio") é
+ * FALSA: `Map` vazio é truthy em JS, então o resíduo nunca anulou nada. Ele era
+ * peso morto apontando para uma tabela que não tem relação com institutos, e sai
+ * por isso, não por causar defeito.
+ *
+ * A BUSCA LINEAR (`store.institutes.find`) VIRA ÍNDICE, como em `ensurePerson`.
+ * QUEM MANTÉM `instituteById` DURANTE A RODADA (CONVENTIONS §7): o `set` no
+ * mint aqui embaixo, e mais nada — porque `resolveInstitute` é o ÚNICO ponto do
+ * repositório que dá `push` em `store.institutes` (conferido: `build-store.mjs`
+ * só MUTA linhas existentes em `traduzirCarimbos`, sem trocar `institute_id`; o
+ * `push` em `validate-store.mjs` monta um store sintético de autoteste que nunca
+ * passa por aqui e não tem `_indexes`). Um índice construído no load e nunca
+ * atualizado no write é o defeito recorrente deste repositório (`byRef`
+ * consertado, `byReg` deixado quebrado por meses) — mutilar este `set` faz o
+ * caso "o índice acha o sobrevivente cunhado NESTA rodada" ficar vermelho.
+ */
 export function resolveInstitute(store, rawName, { mint = true } = {}) {
   const key = nameKey(rawName);
   let inst = store._indexes.instituteByAlias.get(key);
   const seen = new Set();
   while (inst?.merged_into && !seen.has(inst.institute_id)) {
     seen.add(inst.institute_id);
-    inst = store._indexes.surveyById && store.institutes.find((i) => i.institute_id === inst.merged_into);
+    const proximo = store._indexes.instituteById.get(inst.merged_into);
+    if (!proximo) break;
+    inst = proximo;
   }
   if (inst) return inst;
   if (!mint) return null;
@@ -332,10 +383,38 @@ export function resolveInstitute(store, rawName, { mint = true } = {}) {
     legacy_ids: [],
     canonical: String(rawName).trim(),
     aliases: [String(rawName).trim()],
-    cnpj: null, merged_into: null, first_seen: firstSeenFor(store, "institutes", institute_id),
+    cnpj: null,
+    // `merged_into` É CURADORIA, NÃO DERIVAÇÃO — e o store é RECONSTRUÍDO DO
+    // ZERO a cada rodada, então o que não se re-deriva da entrada tem de ser
+    // carregado explicitamente ou evapora na rodada seguinte. Estava fixo em
+    // `null` aqui: uma fusão de institutos decidida à mão sobreviveria a UMA
+    // reconstrução e sumiria na primeira coleta seguinte, sem erro e sem log.
+    //
+    // É o MESMO mecanismo de `ensurePerson` (`store._prior.peopleById`), lendo o
+    // mesmo tipo de mapa em `priorStamps` — não um segundo jeito de fazer a
+    // mesma coisa (CONVENTIONS §5). É também o mesmo defeito que `legacy_ids` e
+    // que o `merged_into` da PESSOA já pagaram, uma tabela de cada vez.
+    //
+    // Hoje as 137 linhas gravadas têm `merged_into: null`, então a perda é
+    // LATENTE: nada muda no banco vivo. O preço de esperar seria a primeira
+    // fusão curada desaparecer sozinha na coleta seguinte àquela em que foi
+    // escrita.
+    //
+    // A leitura é por ID e o id é cunhado do nome canônico, então uma fusão NÃO
+    // atravessa uma recunhagem de `institute_id` (o caso "Percent Brasil" →
+    // "Percent"). `translateInstituteStamps` traduz `first_seen` e `legacy_ids`
+    // nesse salto, não este campo — fica registrado aqui como limite conhecido.
+    merged_into: store._prior?.institutesById?.get(institute_id)?.merged_into ?? null,
+    first_seen: firstSeenFor(store, "institutes", institute_id),
   };
   store.institutes.push(rec);
   store._indexes.instituteByAlias.set(key, rec);
+  // ⚠ O ÍNDICE ATUALIZADO NO WRITE (CONVENTIONS §7). Sem esta linha,
+  // `instituteById` só teria o que o load trouxe — e no caminho de reconstrução
+  // o load traz NADA (`emptyIndexes()`), então a caminhada de `merged_into`
+  // acima nunca alcançaria um sobrevivente cunhado nesta mesma rodada e a fusão
+  // seria silenciosamente ignorada.
+  store._indexes.instituteById.set(institute_id, rec);
   store._report.minted.institutes++;
   return rec;
 }
