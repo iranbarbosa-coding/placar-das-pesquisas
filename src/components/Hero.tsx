@@ -39,12 +39,10 @@ import type { RaceAverage } from "@/lib/types";
  *    Lula da Silva" into "Luiz").
  */
 
-/** Condensed display face, with real fallbacks; no webfont, no new dependency. */
-const DISPLAY = {
-  fontFamily:
-    '"Arial Narrow", "Helvetica Neue Condensed", "Roboto Condensed", "Liberation Sans Narrow", ui-sans-serif, system-ui, sans-serif',
-  fontStretch: "condensed",
-} as const;
+/* The hero used a CONDENSED display face; the mockup's headline is a normal-width
+   bold sans, so numbers and the title now inherit the site face (Inter). Kept as
+   an empty style object so the many call sites read the same. */
+const DISPLAY = {} as const;
 
 export interface HeroProps {
   /** The presidential first-round average. `null` renders the block without a chart. */
@@ -138,6 +136,8 @@ export default function Hero({
   const leader = average?.candidates[0] ?? null;
   const second = average?.candidates[1] ?? null;
   const showFifty = fiftyTop != null && fiftyTop >= 0 && fiftyTop <= 100;
+  // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
+  const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
   return (
     <section aria-labelledby="hero-titulo" className="mb-10">
@@ -171,24 +171,30 @@ export default function Hero({
               colours and order as the drawing, one computation shared. */}
           {series.length > 0 && (
             <ul className="flex flex-wrap gap-x-6 gap-y-3">
-              {series.map((s) => (
-                <li key={s.key} className="flex min-w-0 flex-col gap-0.5">
-                  <span
-                    className="tabular text-2xl font-bold leading-none"
-                    style={{ ...DISPLAY, color: "var(--text-primary)" }}
-                  >
-                    {fmtPct(s.avg)}%
-                  </span>
-                  <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+              {series.map((s) => {
+                const party = partyOf.get(s.name);
+                return (
+                  <li key={s.key} className="flex min-w-0 flex-col gap-0.5">
                     <span
-                      aria-hidden="true"
-                      className="h-2 w-2 shrink-0 rounded-full"
-                      style={{ background: s.color }}
-                    />
-                    <span className="truncate">{s.name}</span>
-                  </span>
-                </li>
-              ))}
+                      className="tabular text-2xl font-bold leading-none"
+                      style={{ ...DISPLAY, color: "var(--text-primary)" }}
+                    >
+                      {fmtPct(s.avg)}%
+                    </span>
+                    <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                      <span
+                        aria-hidden="true"
+                        className="h-2 w-2 shrink-0 rounded-full"
+                        style={{ background: s.color }}
+                      />
+                      <span className="truncate">
+                        {s.name}
+                        {party ? <span style={{ color: "var(--text-muted)" }}> ({party})</span> : null}
+                      </span>
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           )}
 

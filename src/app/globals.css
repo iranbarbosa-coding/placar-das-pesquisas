@@ -12,19 +12,23 @@
      it — the "every fixed hue clears 3:1 as a 2px line on --page" guarantee below
      is preserved, not spent. Ink-on-fill ratios are measured against the fills,
      not the page, so they are untouched. */
-  --page: #f2f3f5;
+  /* EXACT DESIGN-BRIEF TOKENS (PDF §2, 2026-08-17). These hexes are copied from
+     the spec, not approximated: background #F5F6F8, cards #FFFFFF, ink #111318,
+     secondary #667085, borders #E2E5EA, accent #2156A5, radius 8px, and the
+     hairline shadow `0 1px 2px rgba(16,24,40,.04)`. The candidate hues and the
+     `--on-fill` ink below are NOT part of this palette — they carry their own
+     measured WCAG ratios and stay exactly as ratified. */
+  --page: #f5f6f8;
   --surface-1: #ffffff;
   --surface-2: #f8f9fb; /* a second, faintly-tinted surface for nested/zebra rows */
-  --text-primary: #0b0b0b;
-  --text-secondary: #52514e;
-  --text-muted: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --ring: rgba(16, 24, 40, 0.12);
-  /* The card lift the brief asks for: a hairline shadow, not a bank-app drop.
-     A data site should feel like newsprint with depth, not a dashboard widget. */
-  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 1px rgba(16, 24, 40, 0.03);
-  --accent: #2a78d6;
+  --text-primary: #111318;
+  --text-secondary: #667085;
+  --text-muted: #98a2b3;
+  --grid: #e2e5ea;
+  --axis: #c8cdd6;
+  --ring: #e2e5ea;
+  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --accent: #2156a5;
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
@@ -174,13 +178,13 @@
 body {
   background: var(--page);
   color: var(--text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .card {
   background: var(--surface-1);
   border: 1px solid var(--ring);
-  border-radius: 0.75rem;
+  border-radius: 8px; /* PDF §2 — exact */
   box-shadow: var(--card-shadow);
 }
 
