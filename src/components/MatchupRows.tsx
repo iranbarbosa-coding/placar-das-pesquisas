@@ -35,10 +35,11 @@ import type { RaceAverage, UF } from "@/lib/types";
  * track is 100 points wide, widened only if some value exceeds 100 — so no bar
  * overflows its track and the 50% dashed marker sits at a comparable place.
  *
- * ── The state flags are a placeholder ───────────────────────────────────────
- * Brazilian state flags are not emoji, and none are bundled yet, so a small
- * neutral chip stands in to the left of each name. It drops out for a real
- * per-state image the moment one is supplied (see `FlagChip`).
+ * ── The state flags are real ────────────────────────────────────────────────
+ * A small state flag sits to the left of each name, from
+ * `/public/flags/<uf>.svg` — the official state symbols (public domain) fetched
+ * from Wikimedia Commons. Served via a plain <img> (an <img>-loaded SVG cannot
+ * run scripts), so it is a static, self-contained asset. See `FlagChip`.
  */
 
 export interface MatchupBar {
@@ -99,7 +100,7 @@ export default function MatchupRows({
             style={{ background: "var(--surface-2)", borderColor: "var(--ring)" }}
           >
             <div className="flex items-center gap-1.5">
-              <FlagChip />
+              <FlagChip uf={row.uf} />
               <h3 className="min-w-0 flex-1 truncate text-sm font-bold" style={{ color: "var(--text-primary)" }}>
                 <Link href={`/estados/${row.uf.toLowerCase()}`} className="hover:underline">
                   {row.name}
@@ -222,13 +223,18 @@ function Bar({ bar, scale }: { bar: MatchupBar; scale: number }) {
  * placeholder, not a claim. Decorative: the state is named in text beside it.
  * Swap this for an <img> under /public the moment real flag assets exist.
  */
-function FlagChip() {
+/** Real state flag from /public/flags/<uf>.svg (Wikimedia, public-domain state
+ *  symbols). Decorative — the state name is the real text beside it. Plain
+ *  <img> so the SVG cannot run scripts, and this is a static export. */
+function FlagChip({ uf }: { uf: UF }) {
   return (
     <span
-      aria-hidden="true"
-      className="inline-block h-3.5 w-5 shrink-0 rounded-[3px] border"
-      style={{ background: "var(--surface-1)", borderColor: "var(--ring)" }}
-    />
+      className="inline-flex h-3.5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-[3px] border"
+      style={{ borderColor: "var(--ring)", background: "var(--surface-1)" }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`/flags/${uf.toLowerCase()}.svg`} alt="" className="h-full w-full object-cover" />
+    </span>
   );
 }
 
