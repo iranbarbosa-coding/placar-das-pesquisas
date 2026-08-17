@@ -171,6 +171,27 @@
     "data/questions.ndjson#p360-11583-2-4 (scenario_label_raw)",
     "data/candidates.ndjson#c_19f66ce8190d"
    ]
+  },
+  {
+   "contest": "presidente:PR",
+   "verdict": "MESMA",
+   "canonical": "Tarcísio",
+   "names": [
+    "Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro",
+    "Tarcísio de Freitas",
+    "Tarcísio"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "MESMA DISPUTA, DOIS HOMENS ONDE HÁ UM. `presidente:PR` guarda hoje c_430c8fc35ddb, cujo canonical é a própria cláusula \"Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro\" (pessoa p_0b468553aba7, SEM registro, nome_urna nulo, e cujo polled_names contém só a string com cláusula), ao lado de c_96da254c35fc \"Tarcísio\" (pessoa p_26e6aad71206, REGISTRADA, sq_candidato 250002541303), cujos aliases já incluem \"Tarcísio de Freitas\" — o prefixo exato da cláusula, na mesma disputa. A linha da cláusula é q_70e27109519a, 2º turno, 40,8, is_headline TRUE, com rótulo \"2º turno: Lula vs Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro\": o site publica um segundo turno cujo adversário é uma pessoa que não existe em nenhuma outra disputa do banco. A ATESTAÇÃO NÃO É NOSSA E NÃO É CIRCULAR: `match-ballot-names.mjs` resolveu a MESMA string com cláusula contra o cadastro do TSE, por contenção sobre uma única candidatura — data/ballot-names.json, chave `governador:SP` › `tarcisio de freitas com apoio do ex presidente jair bolsonaro` → nome_urna \"Tarcísio\", sq_candidato 250002541303, REPUBLICANOS, nº 10, origem \"contencao\". Corrobora de forma independente do nome: o `party_raw` da linha é \"Republicanos\", que é o partido dessa candidatura. A cláusula é qualificador de cenário (o apoio declarado), não parte do nome — o próprio relatório a repete em seis linhas do mesmo levantamento, cada uma com um candidato diferente e o mesmo sufixo.",
+   "overrides": "É a fusão POR SORTE, e é demonstrável só com o store: a MESMA string vira Tarcísio em `governador:SP` (onde o elenco daquela disputa deixou `canonicalizeCandidates` achar exatamente um match) e vira pessoa nova em `presidente:PR` (onde não deixou). Uma identidade decidida por qual elenco por acaso estava presente. Corrige também uma linha VELHA do HANDOFF, que afirmava que esta string \"sobrevive à unificação e deve sobreviver\": ela não sobreviveu — resolveu para Tarcísio no cadastro. A ruling é o instrumento certo porque fica no TOPO da escada de precedência (people.mjs:94, `ruling` › `nome_urna` › `grupo curado` › `mais curta observada`), enquanto o nome da cláusula hoje é publicado pelo FUNDO dela: `display_from` de p_0b468553aba7 é \"mais curta observada\", ou seja, camada nenhuma escolheu esse nome. Gravada em `presidente:PR`, e não em `presidente:BR`, porque é onde a linha está e porque assim vale com ou sem a dobra de chave presidencial que está em verificação. Achado ao investigar a cláusula de cenário; a cláusula é da FONTE (vem na célula `nome` do Poder360), lido às cegas por dois agentes que concordaram, e o criador decidiu escrever esta ruling em 17/08/2026 depois de ver a evidência. As duas irmãs — \"Michelle Bolsonaro, com apoio...\" e \"Ciro Nogueira, com apoio...\" — NÃO recebem ruling: nenhuma casa com candidatura no cadastro, o levantamento não tem íntegra (integra_url nulo, sem registro TSE, só a página do agregador), e sem fonte primária afirmar seria a inferência que o §4 proíbe.",
+   "sources": [
+    "data/questions.ndjson#q_70e27109519a (scenario_label_raw, party_raw Republicanos)",
+    "data/candidates.ndjson#c_430c8fc35ddb, #c_96da254c35fc",
+    "data/people.ndjson#p_0b468553aba7, #p_26e6aad71206",
+    "data/ballot-names.json mapping['governador:SP']['tarcisio de freitas com apoio do ex presidente jair bolsonaro'] (sq_candidato 250002541303)",
+    "data/candidaturas.ndjson (sq_candidato 250002541303, REPUBLICANOS, nº 10)"
+   ]
   }
  ]
 }
