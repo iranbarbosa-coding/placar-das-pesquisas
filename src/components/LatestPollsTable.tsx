@@ -169,7 +169,7 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
             {days.map((day) => (
               <Fragmentish key={day.key || "sem-data"}>
                 <tr style={{ background: "var(--surface-2)" }}>
-                  <th scope="colgroup" colSpan={8} className="px-3 py-1.5 text-left text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)", borderTop: "1px solid var(--ring)" }}>
+                  <th scope="colgroup" colSpan={8} className="px-3 py-1.5 text-left text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--accent)", borderTop: "1px solid var(--ring)" }}>
                     {day.key ? dayLabel(day.key) : "SEM DATA DE CAMPO"}
                   </th>
                 </tr>
@@ -198,13 +198,25 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
                       {r.leader ? (
                         <>
                           <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>
-                            {shortName(r.leader.candidate)} {n1(r.leader.pct)}
+                            {shortName(r.leader.candidate)} {n1(r.leader.pct)}%
                           </strong>
-                          {r.runnerUp ? ` × ${shortName(r.runnerUp.candidate)} ${n1(r.runnerUp.pct)}` : null}
+                          {r.runnerUp ? (
+                            <>
+                              <span style={{ color: "var(--text-muted)" }}> x </span>
+                              <span style={{ color: "var(--text-secondary)" }}>
+                                {shortName(r.runnerUp.candidate)} {n1(r.runnerUp.pct)}%
+                              </span>
+                            </>
+                          ) : null}
                         </>
                       ) : "—"}
                     </td>
-                    <td className="tabular px-3 py-2 text-right font-semibold">{r.spread == null ? "—" : `+${n1(r.spread)}`}</td>
+                    <td
+                      className="tabular px-3 py-2 text-right font-semibold"
+                      style={{ color: r.spread == null || r.spread === 0 ? "var(--text-muted)" : "var(--series-3)" }}
+                    >
+                      {r.spread == null ? "—" : `+${n1(r.spread)}`}
+                    </td>
                     <td className="px-3 py-2 text-center"><TrendArrow trend={r.trend} /></td>
                   </tr>
                 ))}
