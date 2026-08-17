@@ -135,6 +135,19 @@ jobs:
       - name: Retenção de elenco (encolhimento na fonte)
         run: node scripts/roster-retention-check.mjs
 
+      # A retenção de elenco guarda pergunta a pergunta e NÃO alcança a pergunta
+      # que a fonte apaga por completo — o item 2 da lista "o que falta antes de
+      # religar" acima. `add_poll` em `data/repairs.json` é a porta curada para
+      # essas 41 disputas, e este guarda prova as duas metades: insere quando a
+      # pesquisa não existe, NÃO insere quando a fonte volta a servi-la (senão a
+      # média conta a mesma amostra duas vezes), e RECUSA sem fonte citada. O
+      # autoteste roda antes, como nos demais.
+      - name: Guarda de inserção curada dispara
+        run: node scripts/curated-insert-check.mjs --self-test
+
+      - name: Inserção curada (disputa apagada por inteiro na fonte)
+        run: node scripts/curated-insert-check.mjs
+
       # Roda 2x/dia: se a reconstrução re-datar registros, cada rodada comita
       # 4.613 linhas de carimbo e o diff deixa de ser legível.
       - name: Reconstrução não redata o que já existia

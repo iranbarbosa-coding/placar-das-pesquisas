@@ -32,6 +32,17 @@ const ALIASES = {
   Novo: ["Novo", "NOVO"],
   Rede: ["Rede", "REDE"],
   Mobiliza: ["Mobiliza", "MOBILIZA"],
+  // AVANTE FALTAVA, e a falta só aparece quando uma grafia em caixa alta chega.
+  // O relatório do Datafolha de PE (28–30/07/2026) imprime TODAS as siglas em
+  // caixa alta — `PL`, `PSD`, `NOVO`, `MOBILIZA`, `MISSÃO`, `UP`, `PCO`, `PCB`,
+  // `PRTB` e `AVANTE` —, e todas as outras esta tabela já dobrava. Sem esta
+  // linha, aquele `AVANTE` entrava como o 37º rótulo de partido do banco ao lado
+  // dos 212 `Avante` que já existem: o mesmo partido com dois nomes na mesma
+  // página, que é o defeito que este módulo existe para não ter. É unificação de
+  // GRAFIA do partido como ele se chamava naquela data, o único tipo de mudança
+  // que a regra do topo autoriza — nenhuma linha do banco dizia `AVANTE` antes,
+  // então nada é reescrito por isto.
+  Avante: ["Avante", "AVANTE"],
   PP: ["PP", "pp", "Progressistas"],
   "Sem partido": ["Sem partido", "sem partido"],
 

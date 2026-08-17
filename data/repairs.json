@@ -290,6 +290,112 @@
     "fieldwork_start": "2025-11-25",
     "fieldwork_end": "2025-11-26"
    }
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "senador",
+    "state": "RS",
+    "fieldwork_end": "2025-11-24"
+   },
+   "defect": "Amostra 1300 onde o relatório do instituto diz 1.200. A linha irmã de governador da MESMA operação (p360-13086, mesmo PDF) já guardava 1200, então o banco discordava de si mesmo sobre quantas entrevistas houve num único campo.",
+   "source": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-riograndedosul-governador-24nov2025.pdf",
+   "evidence": "p.2 METODOLOGIA, os cinco marcadores da página: \"1.200 ENTREVISTAS · UNIVERSO: ELEITORES DO ESTADO DO RIO GRANDE DO SUL · MARGEM DE ERRO: +/- 3.0 P.P. · ÍNDICE DE CONFIANÇA: 95% · DATA DE CAMPO: 21 A 24 DE NOVEMBRO DE 2025\". LIDO DUAS VEZES ÀS CEGAS por agentes independentes, cada um por três caminhos de extração (camada de texto embutida, OCR do Vision e leitura visual da página renderizada), e as duas leituras batem em todos os cinco campos. O documento cobre governador e Senado do RS e NENHUMA presidencial. Não traz número de registro no TSE em nenhuma das 26 páginas — as duas leituras varreram camada de texto e OCR por \"tse\", \"registr\", \"RS-\", \"BR-\" e \"protocolo\": zero ocorrências. Nem contagem de municípios, nem técnica de coleta. Nada disso foi inventado.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "sample_size": 1200
+   },
+   "_nota_datas": "O fim de campo da linha de governador consta 2025-11-21 e o relatório diz 21 A 24 DE NOVEMBRO — provavelmente curto, MAS não reparado aqui: a cláusula deste reparo casa por data de fim, e mexer nela mudaria o alvo. Fica anotado para um reparo próprio."
+  },
+  {
+   "match": {
+    "pollster": "Datafolha",
+    "race": "presidente",
+    "state": "PE",
+    "round": 1,
+    "fieldwork_end": "2026-07-30"
+   },
+   "defect": "DISPUTA AUSENTE DO BANCO POR INTEIRO, e não pesquisa incompleta: nenhum reparo de correção podia alcançá-la. O v2/cenarios do Poder360 apaga linhas de candidato cujo campo 'nome' chega vazio; quando apaga TODAS as linhas de um bloco, sources/poder360.mjs descarta a pesquisa (o 'if (!results.length) continue;') e ela nunca entra na lista que applyRepairs mutila. É o caso desta: o levantamento PE-04519/2026 do Datafolha está no banco com governador 1º turno, governador 2º turno e senador 1º turno (p360-13722 e p360-13723, survey s_4bc31f83b328), e SEM a presidencial — a mesma amostra de 1.022 eleitores de Pernambuco respondeu à pergunta presidencial e a tabela existe na p.8 do relatório. Escala medida em 17/08/2026: 41 blocos de disputa ausentes por este motivo, contra 423 ids do Poder360 em que o v2 hoje descarta ao menos uma linha. A saída NÃO é afrouxar o filtro da fonte (emitir 423 registros sem elenco faria os guardas de soma reprovarem pesquisa boa), e por isso este é o primeiro reparo da ação 'add_poll': a pesquisa é transcrita do relatório do próprio instituto e inserida onde applyRepairs roda, antes do filtro de elenco vazio, para atravessar canonicalização, nomes de urna, escada do store e validadores como qualquer outra.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/presidente-datafolha-3ago.pdf",
+   "evidence": "p.8, gráfico de intenção de voto ESTIMULADA para presidente no 1º turno, na ordem impressa: Lula (PT) 57 · Flávio Bolsonaro (PL) 22 · Augusto Cury (AVANTE) 2 · Renan Santos (MISSÃO) 2 · Ronaldo Caiado (PSD) 2 · Romeu Zema (NOVO) 1 · Cabo Daciolo (MOBILIZA) 1 · Samara Martins (UP) 1 · Rui Costa Pimenta (PCO) 1 · Edmilson Costa (PCB) 0 · Leonardo Avalanche (PRTB) 0. Baldes: 'Em branco/nulo/nenhum' 9 e 'Não sabe' 3. Ficha técnica: 1.022 entrevistas, margem de 3 pontos, índice de confiança 95%, 44 municípios de Pernambuco, contratante 'Nassau Editora Rádio e TV', campo de 28 a 30 de julho de 2026, divulgação em 03/08/2026. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE, cada leitura por TRÊS caminhos de extração (camada de texto embutida, OCR do Vision da Apple, e leitura visual da página renderizada), e as duas leituras batem em TODAS as figuras — os onze candidatos, os dois baldes e os seis campos da ficha técnica. Segundo controle DENTRO do documento: os crosstabs das p.22 e p.30 reproduzem independentemente todas as figuras, NOUTRA ORDEM DE LINHAS (ordenadas por segmento, não pelo percentual), o que liga cada número ao seu próprio nome sem depender da geometria das barras da p.8. ⚠ HERTZ DIAS (PSTU) NÃO ESTÁ NESTA PESQUISA, e não é a mesma coisa que estar com zero. O gráfico da p.8 imprime '*' na linha dele, não um número; o rodapé da mesma página diz 'O pré-candidato Hertz Dias (PSTU) foi estimulado e não foi citado'; e a célula dele no crosstab vem EM BRANCO. Escrever 0 seria inferir um valor que o instituto deliberadamente não publicou (CONVENTIONS §4) — o zero é uma medição, o asterisco é a ausência dela. Ele existe no banco em presidente:PE (a pesquisa do Datafolha de 15/04/2026 o traz com 0, ali sim um número impresso), então a ausência aqui é dele nesta rodada, não do nosso elenco. ⚠ NÃO HÁ LINHA DE 'OUTROS' na tabela estimulada — 'others_pct' fica NULO. As duas leituras contaram as barras NA PÁGINA RENDERIZADA, não apenas a ausência da palavra no OCR. A armadilha vizinha está identificada e não pode vazar para cá: a pergunta ESPONTÂNEA da p.7 TEM 'Outras respostas 4', e é de outra pergunta. É exatamente a regra ★ do HANDOFF §4: restaurar linhas de candidato sem zerar o 'outros' da fonte conta a mesma massa duas vezes, e foi assim que a Vox presidencial (BR-01084) foi ao ar somando 101,2%. SOMA 101, E NÃO SE CORRIGE. Os candidatos somam 89 (57+22+2+2+2+1+1+1+1+0+0); com 9 de branco/nulo/nenhum e 3 de não sabe, o total é 101. O crosstab do próprio instituto imprime 'Total em % 100' na coluna geral: o ponto extra é arredondamento do Datafolha, que publica todos os percentuais desta tabela em números inteiros. Guardar 100 exigiria mexer num dígito que o instituto imprimiu, e a folga do guarda de soma é justamente a que a fonte ganhou por arredondar em inteiros (CONVENTIONS §10). Por isso 'expect_sum' é 101 e não 100. ⚠ GRAFIA COM ERRO NA FONTE: o rótulo do gráfico da p.8 imprime 'Leonardo Avalanhce' (letras transpostas), enquanto as p.5, 9, 22 e 23 do MESMO documento imprimem 'Leonardo Avalanche'. Inserido 'Leonardo Avalanche' — quatro ocorrências contra uma, e a transposição é erro de digitação de rótulo, não outra pessoa. Registrado aqui para que a divergência não se perca. E o PARTIDO dele SAI DESTE DOCUMENTO: o HANDOFF §4 registra que 'Leonardo Avalanche' aparecia em ZERO linhas independentes do banco e que o PRTB do reparo BR-01084 ficou NULO para o reparo não citar a si mesmo. Este relatório imprime '(PRTB)' ao lado do nome dele em cinco páginas — é a primeira atestação de fonte primária que essa sigla tem, e vale só para esta linha. SIGLAS EM CAIXA ALTA: o documento imprime todas as siglas em maiúsculas (PL, PSD, NOVO, MOBILIZA, MISSÃO, UP, PCO, PCB, PRTB, AVANTE). Transcritas como impressas; a unificação de grafia é do pipeline (scripts/lib/parties.mjs), que já dobrava NOVO→Novo, MOBILIZA→Mobiliza e MISSÃO→Missão e passou a dobrar AVANTE→Avante junto com este reparo. NOMES: transcritos como o gráfico os imprime ('Augusto Cury', 'Romeu Zema'); a canonicalização do pipeline os leva ao nome de urna ('Escritor Augusto Cury', 'Zema'), que é onde essa decisão mora. Nada aqui foi conferido contra pesquisa vizinha, nem contra o agregador: o Poder360 não serve esta pesquisa — é essa a razão de o reparo existir.",
+   "verified_at": "2026-08-17",
+   "add_poll": {
+    "pollster": "Datafolha",
+    "race": "presidente",
+    "state": "PE",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Nassau Editora Rádio e TV",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-07-30",
+    "published_date": "2026-08-03",
+    "sample_size": 1022,
+    "margin_of_error": 3,
+    "tse_registration": "PE-04519/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 57
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 22
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "AVANTE",
+      "pct": 2
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "MISSÃO",
+      "pct": 2
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "NOVO",
+      "pct": 1
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "MOBILIZA",
+      "pct": 1
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct": 1
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct": 1
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0
+     },
+     {
+      "candidate": "Leonardo Avalanche",
+      "party": "PRTB",
+      "pct": 0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 3,
+    "blank_null_pct": 9
+   },
+   "expect_sum": 101,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS DO TSE: 'PE-04519/2026' e 'BR-07601/2026'. O nosso esquema guarda UM 'tse_registration', e a escolha é 'PE-04519/2026' por uma razão de mecanismo, não de gosto: é o registro que as três linhas IRMÃS desta mesma operação de campo já carregam (p360-13722 governador 1º e 2º turnos, p360-13723 senador), e é por ele que o degrau 2 de resolveSurvey junta esta pergunta ao levantamento s_4bc31f83b328 em vez de cunhar um segundo levantamento para o mesmo campo — 'um registro é um levantamento' (decisão do criador, 15/08/2026). 'BR-07601/2026' fica registrado AQUI, e nesta nota, para não se perder. NÃO usada a forma com barra vertical ('PE-04519/2026|BR-07601/2026'), embora o banco tenha quatro linhas assim: elas são a prova de que o parser NÃO suporta o formato, não de que suporta. normalizeRegistration() só normaliza o que casa /^[A-Z]{2}-?\\d+\\/\\d{4}$/, então a string com barra passa verbatim e vira uma CHAVE PRÓPRIA no índice byReg — que não casa com nenhum dos dois registros que ela contém. O efeito está visível no banco: 'PE-09595/2026|BR-06559/2026' e 'PE-09595/2026|BR-06559/2026.' (a segunda com um ponto final) partiram UMA operação de campo do Datafolha em PE em DOIS levantamentos, s_b2fab1fde077 e s_caf66aa3c083. Inventar o formato aqui repetiria esse defeito de propósito.",
+   "_nota_divergencias": "Três divergências entre este documento e o que o levantamento já guarda, todas ANOTADAS e nenhuma reparada aqui, porque o efeito real é nenhum e um reparo a mais daria falsa impressão de curadoria. (1) DIVULGAÇÃO: o relatório é de 03/08/2026 e o levantamento guarda published_date 2026-07-30, vindo do agregador nas linhas irmãs. fillFields() não sobrescreve valor não-nulo e esta pesquisa é ingerida por último (a fonte 'repair:curadoria' não está em SOURCE_ORDER), então o levantamento MANTÉM 30/07 e a discordância é registrada em conflicts.ndjson como field_disagreement — visível, e não silenciosa. (2) CONTRATANTE: o relatório imprime 'Nassau Editora Rádio e TV' e o agregador serve 'Nassau editora Rádio e TV' (minúscula em 'editora'); pelo mesmo primeiro-escritor-vence, o levantamento fica com a grafia do agregador. (3) A URL: article_url do levantamento já aponta para a matéria do Poder360, então o PDF do instituto não substitui essa URL — a citação desta pesquisa chega ao store pelo carimbo question.repaired, que project.mjs projeta em polls.json. Dois campos do documento que o esquema plano de pesquisa não tem onde guardar e por isso ficam SÓ na evidência acima: o índice de confiança de 95% (survey.confidence_level existe, mas upsertPoll não o preenche) e os 44 municípios ouvidos (não há campo). Não inventados campos novos para eles."
   }
  ]
 }

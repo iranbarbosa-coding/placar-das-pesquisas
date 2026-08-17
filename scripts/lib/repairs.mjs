@@ -12,6 +12,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sameCandidate } from "./canonicalize.mjs";
+import { pollId } from "./util.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "repairs.json");
 
@@ -23,9 +24,224 @@ function matches(poll, m) {
   if (m.race && poll.race !== m.race) return false;
   if (m.round && poll.round !== m.round) return false;
   if (m.state !== undefined && poll.state !== m.state) return false;
-  if (m.pollster && poll.pollster.toLowerCase() !== m.pollster.toLowerCase()) return false;
+  // `?? ""` porque `matches` passou a receber também a pesquisa que `add_poll`
+  // MONTA, e uma entrada mal escrita (sem `pollster`) tem de ser RECUSADA com um
+  // aviso legível — não derrubar a coleta inteira com um TypeError.
+  if (m.pollster && (poll.pollster ?? "").toLowerCase() !== m.pollster.toLowerCase()) return false;
   if (m.fieldwork_end && poll.fieldwork_end !== m.fieldwork_end) return false;
   return true;
+}
+
+// ===========================================================================
+// `add_poll` — A PESQUISA QUE NUNCA CHEGA A EXISTIR PARA UM REPARO CORRIGIR
+// ===========================================================================
+//
+// O `v2/cenarios` do Poder360 apaga linhas de candidato cujo campo `nome` chega
+// vazio. Quando apaga TODAS as linhas de um bloco, `sources/poder360.mjs` (o
+// `if (!results.length) continue;`) descarta a pesquisa inteira — e aí nenhum
+// reparo a alcança, porque `applyRepairs` só sabe MUTAR pesquisa que já está na
+// lista. Escala medida em 17/08/2026: **41 blocos de disputa ausentes do banco
+// por este motivo** (423 ids do Poder360 perdem ao menos uma linha hoje).
+//
+// ⚠ E A SAÍDA NÃO É AFROUXAR O FILTRO DA FONTE. Emitir a pesquisa vazia
+// inundaria o pipeline com 423 registros sem elenco, e os guardas de soma
+// (`sum < 30` no coletor, `incompleteFlag` na projeção) passariam a reprovar
+// pesquisa boa. O filtro está certo; o que falta é uma porta CURADA.
+//
+// Então esta é a terceira família de ação do arquivo, ao lado de `add_results`,
+// `set_party` e `set`: uma pesquisa inteira, transcrita à mão do relatório do
+// próprio instituto, com a MESMA barra probatória de todo reparo —
+// `source`/`evidence`/`verified_at` obrigatórios, e RECUSA sem eles. Nada aqui
+// é inferido de pesquisa vizinha (CONVENTIONS §4).
+//
+// ---------------------------------------------------------------------------
+// A CHAVE DE IDENTIDADE É A PRÓPRIA CLÁUSULA `match` (§5, §8)
+// ---------------------------------------------------------------------------
+//
+// A fonte pode voltar a servir a pesquisa a qualquer rodada, e nesse dia a
+// inserção tem de virar NADA em vez de um duplicado. A pergunta "esta pesquisa
+// já existe?" é exatamente a pergunta que `matches()` responde para todo reparo
+// deste arquivo — então ela é respondida pelo MESMO predicado, e não por uma
+// segunda regra escrita só para cá que divergiria na primeira correção feita de
+// um lado só. Três estados, todos em voz alta:
+//
+//   sem alvo, sem vizinho  → INSERE (e o coletor imprime `PESQUISA INSERIDA`)
+//   com alvo               → NO-OP  (`noop`, que o coletor já imprime)
+//   vizinho fora do match  → RECUSA (`warnings`)
+//
+// Duas travas que valem a leitura:
+//
+// 1. A pesquisa montada tem de satisfazer a PRÓPRIA cláusula. Sem isso "nenhum
+//    alvo casou" não significa nada: um `match` que descreva outra pesquisa
+//    inseriria de novo em toda rodada, e a idempotência do §8 seria uma
+//    coincidência em vez de uma propriedade.
+//
+// 2. Um QUASE-igual recusa, nunca insere. `matches()` compara `fieldwork_end`
+//    por igualdade exata; se a fonte passar a servir a mesma operação de campo
+//    datada um dia adiante, o alvo não casa e o duplicado entraria. A janela é a
+//    mesma "uma operação de campo = um levantamento" que o banco já usa em
+//    `resolveSurvey` (degraus 2 e 3, `3 * DAY`) e em `datesClose` do coletor —
+//    DERIVADA da doutrina que já está no código, não escolhida para este guarda
+//    (§10). Doador ambíguo recusa e loga, como faz a retenção de elenco.
+//
+// ---------------------------------------------------------------------------
+// COMO SE SABE, DEPOIS, QUE A PESQUISA É CURADA E NÃO COLETADA
+// ---------------------------------------------------------------------------
+//
+// Três marcas, todas mecanismos que já existiam (§5), nenhuma inventada aqui:
+//
+//   * `id` com prefixo `curado-` em vez de `p360-`. O id da fonte é
+//     `p360-<nativo>-<turno>-<idx>-<pollId(poll)>`; o nosso é
+//     `curado-<pollId(poll)>`, então os dois espaços NÃO PODEM COLIDIR — e o id
+//     é cunhado da mesma `pollId()`, portanto determinístico e estável entre
+//     rodadas. Como `nativeOf()` em `build-store.mjs` só reconhece `p360-`, a
+//     pesquisa inserida entra sem `source_ref` nativo: ela não reivindica um id
+//     nativo que não é dela, e o degrau 1 da escada segue livre para a pesquisa
+//     REAL quando a fonte voltar a servi-la.
+//   * o carimbo `repaired`, com `inserted: true` para separar "este registro foi
+//     corrigido" de "este registro só existe porque foi curado". É o carimbo que
+//     `upsertPoll` já leva para `question.repaired` e que `project.mjs` já
+//     projeta em `polls.json`.
+//   * `provenance.field_sources` da pergunta com o prefixo `repair:`, que é o
+//     que `fillFields` já lê para tratar o campo como FIXADO POR REPARO e
+//     registrar `locked_field` quando uma fonte discordar depois.
+//
+// E NENHUMA SEMENTE DE ID CONTÉM O ID DA PESQUISA, que é o que faz a inserção
+// JUNTAR em vez de DESLOCAR. O levantamento é alcançado pelo degrau 2 de
+// `resolveSurvey` (o registro do TSE), então a pergunta inserida entra no
+// levantamento que já existe, com o `mint_seed` que ele já tinha — medido no
+// caso real: `s_4bc31f83b328`, semente `survey|ref|poder360:13722`, INALTERADA.
+// E a semente da pergunta é `question|<survey_id>|<race>|<round>|<ordinal>|
+// <elenco canônico>`: quando a fonte voltar a servir a pesquisa com o mesmo
+// elenco, ela cai na MESMA pergunta e herda `question_id` e `created_at`.
+const FONTE_CURADA = "repair:curadoria";
+const PREFIXO_ID_CURADO = "curado-";
+const CITACAO = ["source", "evidence", "verified_at"];
+// Uma entrada insere OU corrige. Misturar as duas deixaria ambíguo se a correção
+// se aplica à pesquisa inserida ou às que a cláusula casou — e ambiguidade se
+// recusa (§4), não se resolve por convenção tácita.
+const ACOES_DE_CORRECAO = ["add_results", "set_party", "set", "allow_roster_shrink"];
+const JANELA_OPERACAO_MS = 3 * 86_400_000;
+
+// A mesma normalização de instituto do `bucketKey` do coletor: acento e
+// pontuação fora. Mais severa que o `toLowerCase()` de `matches()` de propósito
+// — aqui ela decide uma RECUSA, e errar para o lado de recusar não perde dado
+// nenhum (a fonte está servindo a pesquisa), enquanto errar para o outro lado
+// duplica uma operação de campo.
+const chaveInstituto = (s) =>
+  (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+/** Duas linhas descrevem a MESMA operação de campo? Ver a janela acima. */
+function mesmaOperacao(a, b) {
+  if (chaveInstituto(a.pollster) !== chaveInstituto(b.pollster)) return false;
+  if (a.race !== b.race) return false;
+  if ((a.state ?? null) !== (b.state ?? null)) return false;
+  if (a.round !== b.round) return false;
+  const da = a.fieldwork_end ?? a.published_date;
+  const db = b.fieldwork_end ?? b.published_date;
+  if (!da || !db) return true; // sem data não há como separar ⇒ ambíguo ⇒ recusa
+  return Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS;
+}
+
+/**
+ * A pesquisa curada, montada do `add_poll` e SÓ dele.
+ *
+ * Campo a campo, nunca `{...rep.add_poll}`: um espalhamento carregaria para
+ * dentro da pesquisa qualquer chave que um curador escrevesse por engano — um
+ * `repaired` forjado, um `id` à mão, um `roster_shrink_allowed` — e o pipeline
+ * trataria como dado o que é ruído de edição. A lista abaixo é o contrato.
+ *
+ * Exportada para que a mutação `sempre` do `--self-test` de
+ * `curated-insert-check.mjs` mutile só a DECISÃO de inserir, usando a construção
+ * de verdade. Uma mutação que também montasse a pesquisa à mão testaria uma
+ * pesquisa que o coletor nunca produz.
+ */
+export function montarPesquisaCurada(rep) {
+  const a = rep.add_poll ?? {};
+  const p = {
+    id: "",
+    source: FONTE_CURADA,
+    // O documento citado É a fonte desta pesquisa. `source_url` não pode ficar
+    // nulo (o validador legado reprova) e apontar para a página do agregador
+    // seria creditar a ele um número que ele não serve.
+    source_url: a.source_url ?? rep.source,
+    integra_url: a.integra_url ?? rep.source,
+    race: a.race ?? null,
+    state: a.state ?? null,
+    round: a.round ?? null,
+    scenario: a.scenario ?? null,
+    pollster: a.pollster ?? null,
+    contractor: a.contractor ?? null,
+    fieldwork_start: a.fieldwork_start ?? null,
+    fieldwork_end: a.fieldwork_end ?? null,
+    published_date: a.published_date ?? null,
+    sample_size: a.sample_size ?? null,
+    margin_of_error: a.margin_of_error ?? null,
+    results: (a.results ?? []).map((r) => ({
+      candidate: r.candidate, party: r.party ?? null, pct: r.pct,
+    })),
+    others_pct: a.others_pct ?? null,
+    undecided_pct: a.undecided_pct ?? null,
+    blank_null_pct: a.blank_null_pct ?? null,
+    tse_registration: a.tse_registration ?? null,
+  };
+  p.id = `${PREFIXO_ID_CURADO}${pollId(p)}`;
+  p.repaired = {
+    source: rep.source, evidence: rep.evidence, verified_at: rep.verified_at,
+    // O QUE SEPARA "CORRIGIDO" DE "SÓ EXISTE PORQUE FOI CURADO". Sem esta
+    // marca, um registro inserido é indistinguível de um coletado que ganhou um
+    // reparo — e a diferença importa: um deles a fonte nunca serviu.
+    inserted: true,
+  };
+  return p;
+}
+
+/**
+ * Decide e executa a inserção. Devolve `{warnings, poll?, noop?}`.
+ *
+ * Exportada por UM motivo: `curated-insert-check.mjs` precisa provar que a
+ * decisão REPROVA quando mutilada, e a única maneira honesta é rodar
+ * `applyRepairs` de verdade com esta função substituída — um autoteste que
+ * imitasse a decisão provaria uma propriedade de código que o coletor não
+ * executa (CONVENTIONS §2). Mesmo argumento do parâmetro `file` abaixo. O
+ * coletor nunca passa o parâmetro.
+ */
+export function inserirPesquisaCurada(polls, rep, targets, label) {
+  const recusa = (motivo) => ({ warnings: [`add_poll ${label} RECUSADO — ${motivo}`] });
+
+  // A BARRA PROBATÓRIA PRIMEIRO. Uma pesquisa inserida sem fonte primária
+  // citada não é um reparo, é uma invenção com carimbo de reparo — e ela entra
+  // na média de uma disputa. É a única checagem que roda antes de a pesquisa ser
+  // montada, porque nada do resto importa se esta falha.
+  const semCitacao = CITACAO.filter((f) => !String(rep[f] ?? "").trim());
+  if (semCitacao.length) {
+    return recusa(`falta ${semCitacao.join(", ")} — nenhuma pesquisa entra no banco sem fonte primária citada`);
+  }
+  const misturadas = ACOES_DE_CORRECAO.filter((k) => rep[k] != null);
+  if (misturadas.length) {
+    return recusa(`combina add_poll com ${misturadas.join(", ")} — uma entrada insere OU corrige, nunca as duas`);
+  }
+
+  const nova = montarPesquisaCurada(rep);
+  if (!matches(nova, rep.match ?? {})) {
+    return recusa("a pesquisa montada não satisfaz a própria cláusula match — a chave de identidade não descreve o que seria inserido, e \"nenhum alvo casou\" deixaria de significar \"ainda não existe\"");
+  }
+  if (targets.length) {
+    // A fonte sarou (ou a rodada anterior já projetou a pesquisa de volta em
+    // polls.json). Não é defeito e não é sucesso: é a inserção dispensada, e o
+    // coletor diz isso na linha `reparo sem efeito`.
+    return { warnings: [], noop: `${label} (a fonte já serve esta pesquisa — ${targets.map((p) => p.id).join(", ")}; inserção dispensada)` };
+  }
+  const vizinho = polls.find((p) => mesmaOperacao(p, nova));
+  if (vizinho) {
+    return recusa(
+      `${vizinho.id} (${vizinho.pollster} ${vizinho.race}/${vizinho.state ?? "BR"} turno ${vizinho.round}, ` +
+      `campo ${vizinho.fieldwork_end ?? vizinho.published_date ?? "?"}) está na janela de 3 dias mas fora da cláusula ` +
+      "match — a mesma operação de campo com outra data é ambígua, e nada foi inserido",
+    );
+  }
+  polls.push(nova);
+  return { warnings: [], poll: nova };
 }
 
 /**
@@ -41,15 +257,17 @@ function matches(poll, m) {
  * — não uma imitação dela escrita dentro do teste, que provaria uma propriedade
  * de código que o coletor não executa (CONVENTIONS §2). `data/repairs.json` é
  * dado curado e não recebe entradas de teste. O coletor nunca passa o parâmetro.
+ *
+ * `inserir` existe pelo mesmo motivo, para a decisão de `add_poll`.
  */
-export function applyRepairs(polls, { file = FILE } = {}) {
+export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCurada } = {}) {
   let spec;
   try {
     spec = JSON.parse(fs.readFileSync(file, "utf-8"));
   } catch {
-    // Same shape on every path, `noop` included: a caller that has to guard
-    // one branch's missing field is a caller that will forget to.
-    return { applied: 0, unmatched: [], noop: [], warnings: ["data/repairs.json ausente ou ilegível"] };
+    // Same shape on every path, `noop` and `inserted` included: a caller that
+    // has to guard one branch's missing field is a caller that will forget to.
+    return { applied: 0, inserted: [], unmatched: [], noop: [], warnings: ["data/repairs.json ausente ou ilegível"] };
   }
 
   let applied = 0;
@@ -68,11 +286,41 @@ export function applyRepairs(polls, { file = FILE } = {}) {
   // that it had. A repair that has become a no-op is either stale or the source
   // has healed, and both are things a run should say out loud.
   const noop = [];
+  // PESQUISAS QUE SÓ EXISTEM PORQUE FORAM CURADAS. Contadas à parte de `applied`
+  // na saída (elas também somam em `applied`, porque inserir É aplicar) porque o
+  // coletor tem de IMPRIMIR quais foram — pelo mesmo motivo que imprime a
+  // re-cunhagem de id e o elenco retido: numa rodada em que a fonte está sã isto
+  // é a lista das disputas que o `v2/cenarios` apagou por inteiro, e essa lista
+  // não pode viver só dentro de um número.
+  const inserted = [];
   const warnings = [];
 
   for (const rep of spec.repairs ?? []) {
     const targets = polls.filter((p) => matches(p, rep.match));
     const label = rep.match.tse_registration ?? JSON.stringify(rep.match);
+
+    // ---- A INSERÇÃO CURADA (`add_poll`) ---------------------------------
+    //
+    // Antes do teste de `unmatched`, e é a diferença que define a ação: para
+    // todo outro reparo "nenhuma pesquisa casou" é um DEFEITO (o reparo ficou
+    // órfão); para `add_poll` é o estado NORMAL — a pesquisa não existe, e é
+    // exatamente por isso que ela vai ser inserida.
+    if (rep.add_poll) {
+      const r = inserir(polls, rep, targets, label);
+      for (const w of r.warnings ?? []) warnings.push(w);
+      if (r.noop) noop.push(r.noop);
+      if (!r.poll) continue;
+      inserted.push(`${r.poll.pollster} ${r.poll.race}/${r.poll.state ?? "BR"} turno ${r.poll.round} ` +
+        `campo ${r.poll.fieldwork_end ?? "?"} — ${r.poll.results.length} candidato(s), id ${r.poll.id} · ${r.poll.repaired.source}`);
+      applied++;
+      // A SOMA ESPERADA CONFERE A PESQUISA INSERIDA TAMBÉM. Foi um `expect_sum`
+      // ignorado que deixou a Vox presidencial ir ao ar com 101,2% durante toda
+      // a vida do reparo; uma pesquisa transcrita à mão é o lugar onde um dígito
+      // trocado é MAIS provável, não menos.
+      conferirSoma(r.poll, rep, label, warnings);
+      continue;
+    }
+
     if (!targets.length) {
       unmatched.push(label);
       continue;
@@ -137,24 +385,34 @@ export function applyRepairs(polls, { file = FILE } = {}) {
       // corrections are already present is exactly when you want to know its
       // expected total still holds. Gating this on `changed` would switch off a
       // check precisely as the repair goes stale.
-      if (rep.expect_sum != null) {
-        const sum =
-          poll.results.reduce((a, r) => a + r.pct, 0) +
-          (poll.others_pct ?? 0) + (poll.blank_null_pct ?? 0) + (poll.undecided_pct ?? 0);
-        if (Math.abs(sum - rep.expect_sum) > 0.6) {
-          warnings.push(
-            // O rótulo cai para a cláusula inteira quando o reparo não casa por
-            // registro. Nem toda pesquisa TEM registro — a do Paraná arquivada
-            // como RS não tem, e o agregador serve `"registro": ""` — e um aviso
-            // dizendo "reparo undefined" não diz de qual reparo se trata.
-            `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum}`,
-          );
-        }
-      }
+      conferirSoma(poll, rep, label, warnings);
     }
     if (!touched) noop.push(`${label} (${targets.length} pesquisa(s) casada(s), nada a corrigir)`);
   }
-  return { applied, unmatched, noop, warnings };
+  return { applied, inserted, unmatched, noop, warnings };
+}
+
+/**
+ * `expect_sum` — o total que o instituto imprimiu, conferido contra o que
+ * guardamos. UMA implementação para os dois caminhos (correção e inserção): o
+ * corpo estava embutido no laço de correção, e duplicá-lo para `add_poll` era
+ * garantir que os dois divergissem na primeira folga ajustada de um lado só
+ * (CONVENTIONS §5).
+ */
+function conferirSoma(poll, rep, label, warnings) {
+  if (rep.expect_sum == null) return;
+  const sum =
+    poll.results.reduce((a, r) => a + r.pct, 0) +
+    (poll.others_pct ?? 0) + (poll.blank_null_pct ?? 0) + (poll.undecided_pct ?? 0);
+  if (Math.abs(sum - rep.expect_sum) > 0.6) {
+    warnings.push(
+      // O rótulo cai para a cláusula inteira quando o reparo não casa por
+      // registro. Nem toda pesquisa TEM registro — a do Paraná arquivada
+      // como RS não tem, e o agregador serve `"registro": ""` — e um aviso
+      // dizendo "reparo undefined" não diz de qual reparo se trata.
+      `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum}`,
+    );
+  }
 }
 
 let cachedSpec;

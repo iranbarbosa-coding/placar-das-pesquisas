@@ -813,6 +813,65 @@ metadata cells change in the table columns.
   outro. `applyRepairs` marca a pesquisa, `upsertPoll` amarra a marca à pergunta,
   a retenção cede e grava `roster_shrink_ratificado` — em voz alta, nunca em
   silêncio. É a saída para quando o elenco menor é o CERTO.
+- **★★★ E QUANDO O `v2` APAGA O BLOCO INTEIRO, NENHUM REPARO ALCANÇAVA A PESQUISA**
+  (`add_poll`, 17/08/2026). `applyRepairs` só sabe MUTAR pesquisa que já está na lista, e
+  `sources/poder360.mjs` descarta a pesquisa cujo elenco chegou vazio (`if
+  (!results.length) continue;`). Resultado: **41 blocos de disputa ausentes do banco por
+  inteiro** — invisíveis para todo validador, porque a ausência de uma pesquisa não soma
+  demais, não tem órfão e não repete. A retenção de elenco não os alcança: ela guarda
+  pergunta a pergunta e não tem a quem retornar quando a pergunta desaparece.
+  **Afrouxar o filtro da fonte NÃO é a saída** — 423 ids do Poder360 perdem ao menos uma
+  linha hoje, e emitir registros sem elenco faria os guardas de soma reprovarem pesquisa
+  boa. A saída é curada: `"add_poll"` em `data/repairs.json`, com a mesma barra probatória
+  de todo reparo (`source`/`evidence`/`verified_at` obrigatórios, e **RECUSA** sem eles).
+  · **A chave de identidade é a própria cláusula `match`** (§5): a pergunta "esta pesquisa
+    já existe?" é a mesma que `matches()` responde para todo reparo do arquivo. Três
+    estados, todos em voz alta — insere (`inserted`, o coletor imprime `PESQUISA
+    INSERIDA (curada)`), no-op quando a fonte volta a servi-la (`noop`), e **recusa** um
+    quase-igual dentro da janela de 3 dias que já é a de `resolveSurvey` e de
+    `datesClose` (ambíguo recusa e loga, nunca escolhe — §4).
+  · Duas travas que valem a leitura: a pesquisa montada tem de satisfazer a PRÓPRIA
+    cláusula (senão "nenhum alvo casou" deixa de significar "ainda não existe" e a
+    inserção repetiria a cada rodada), e uma entrada **insere OU corrige**, nunca as duas.
+  · **Como se sabe depois que é curada**: `id` com prefixo `curado-<12 hex>` (cunhado da
+    mesma `pollId()`, portanto determinístico, e sem colidir com o espaço `p360-`); o
+    carimbo `repaired` com **`inserted: true`**, que `project.mjs` já projeta; e
+    `question.provenance.field_sources` com o prefixo `repair:`, que `fillFields` já lê
+    para tratar o campo como FIXADO e registrar `locked_field`. Nenhum mecanismo novo.
+  · **Junta, nunca desloca.** Nem `survey.mint_seed` nem `question.mint_seed` contêm o id
+    da pesquisa — o do levantamento sai do registro do TSE, o da pergunta do elenco
+    canônico —, então a pesquisa inserida cai no MESMO levantamento e na MESMA pergunta
+    que a real ocuparia. Provado no guarda: quando a fonte sara, a linha real herda o
+    `question_id` e o `created_at` da inserida.
+  · **O primeiro caso: Datafolha, presidencial, PERNAMBUCO, campo 28–30/07/2026.** O
+    levantamento `PE-04519/2026` (`s_4bc31f83b328`) estava no banco com governador 1º e 2º
+    turnos e senado, **sem a presidencial**, e a mesma amostra de 1.022 eleitores respondeu
+    à pergunta. Lula 57 · Flávio Bolsonaro 22 · Escritor Augusto Cury 2 · Renan Santos 2 ·
+    Ronaldo Caiado 2 · Zema 1 · Cabo Daciolo 1 · Samara Martins 1 · Rui Costa Pimenta 1 ·
+    Edmilson Costa 0 · Leonardo Avalanche 0, mais branco/nulo 9 e não sabe 3.
+    ⚠ **`Hertz Dias (PSTU)` NÃO está nela**: o gráfico imprime `*`, o rodapé diz "foi
+    estimulado e não foi citado" e a célula do crosstab vem em branco. Zero é uma medição,
+    asterisco é a ausência dela — escrever 0 seria inferência (§4).
+    ⚠ **`others_pct` NULO**: não há linha de "outros" na estimulada; o `Outras respostas 4`
+    da p.7 é da pergunta ESPONTÂNEA. É a regra ★ acima, e é o que shipou BR-01084 a 101,2%.
+    ⚠ **`expect_sum` 101, e não se corrige**: o crosstab do instituto imprime `Total em %
+    100`; o ponto extra é o arredondamento em inteiros do Datafolha.
+    ⚠ **DOIS registros do TSE impressos**, `PE-04519/2026` e `BR-07601/2026`. Guardado o
+    primeiro — é o que as três linhas irmãs carregam, e é por ele que o degrau 2 de
+    `resolveSurvey` junta a pergunta ao levantamento existente. O segundo fica registrado
+    no `_nota_registro` do reparo. **NÃO usada a forma com barra vertical**: as quatro
+    linhas do banco que a têm são a prova de que o parser não a suporta —
+    `normalizeRegistration` a deixa passar verbatim, ela vira chave própria em `byReg` e
+    não casa com nenhum dos dois registros que contém, e o efeito está visível em
+    `PE-09595/2026|BR-06559/2026` vs `…/2026.` (com ponto final), que partiram UMA operação
+    de campo do Datafolha em PE em dois levantamentos (`s_b2fab1fde077`, `s_caf66aa3c083`).
+    · O gráfico da p.8 imprime `Leonardo Avalanhce` (transposto) contra `Leonardo
+      Avalanche` nas p.5, 9, 22 e 23 — inserida a grafia das quatro. E este documento é a
+      **primeira fonte primária do partido dele** (`PRTB`), que o reparo BR-01084 teve de
+      deixar nulo por não ter nenhuma.
+    · O relatório imprime as siglas em CAIXA ALTA, e `parties.mjs` dobrava `NOVO`,
+      `MOBILIZA` e `MISSÃO` mas **não `AVANTE`** — teria entrado como o 37º rótulo de
+      partido ao lado dos 212 `Avante` que já existem. Alias acrescentado junto.
 - **Poder360 drops rows without any threshold.** In the PI senate poll it dropped FIVE of
   eleven — and dropped Antonio Barros at 2% while keeping Jorge Lopes at 1%. That is
   positive evidence for the empty-name-field defect rather than an editorial cutoff, and
@@ -852,6 +911,8 @@ node scripts/projection-twin-check.mjs         # project.mjs ≡ src/lib/store.t
 node scripts/upsert-harness.mjs                # the WRITE path (20 cases)
 node scripts/roster-retention-check.mjs        # a fonte encolheu o elenco? mantém o anterior
 node scripts/roster-retention-check.mjs --self-test # …e prova as DUAS metades
+node scripts/curated-insert-check.mjs          # add_poll: insere, não duplica, recusa sem fonte
+node scripts/curated-insert-check.mjs --self-test # …e prova as DUAS metades (nunca / sempre)
 node scripts/idempotence-check.mjs             # rebuild on 2 dates ⇒ identical
 node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
 node scripts/pollster-clustering-check.mjs     # institute names ignore unrelated data

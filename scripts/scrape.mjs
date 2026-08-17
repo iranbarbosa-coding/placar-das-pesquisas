@@ -234,6 +234,14 @@ async function main() {
   // Curated repairs from primary sources, replayed every run (data/repairs.json).
   const rep = applyRepairs(polls);
   console.log(`✓ reparos curados aplicados: ${rep.applied}`);
+  // A PESQUISA INSERIDA TEM DE APARECER NA SAÍDA DA RODADA, nomeada, pelo mesmo
+  // motivo da `RE-CUNHAGEM` e do `ELENCO RETIDO` mais abaixo: cada linha aqui é
+  // uma disputa que o `v2/cenarios` do Poder360 apagou POR INTEIRO (41 medidas
+  // em 17/08/2026), de modo que nenhum reparo de correção a alcançava — a
+  // pesquisa nem chegava à lista. O dia em que uma delas parar de ser impressa é
+  // o dia em que a fonte sarou OU em que a inserção quebrou, e as duas coisas
+  // precisam ser vistas. Ver `add_poll` em `scripts/lib/repairs.mjs`.
+  for (const i of rep.inserted ?? []) console.log(`  PESQUISA INSERIDA (curada): ${i}`);
   for (const u of rep.unmatched) console.warn(`AVISO: reparo sem pesquisa correspondente — ${u}`);
   // A repair that matches a poll and then corrects nothing is either stale or
   // its source has healed. Both are worth a line: without one, the only trace
