@@ -140,8 +140,8 @@ export default function Hero({
   const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
   return (
-    <section aria-labelledby="hero-titulo" className="mb-10">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start">
+    <section aria-labelledby="hero-titulo">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
         {/* ── LEFT: title, KPI numbers, the framed chart ─────────────────── */}
         <div className="flex min-w-0 flex-col gap-4">
           <div className="flex flex-col gap-2">
@@ -267,7 +267,8 @@ export default function Hero({
         {average && headline && leader && (
           <aside
             aria-label="Em resumo"
-            className="card p-4 lg:sticky lg:top-20"
+            className="p-4"
+            style={{ background: "var(--surface-2)", borderRadius: "8px", border: "1px solid var(--ring)" }}
           >
             <p
               className="mb-1 text-[11px] font-bold uppercase tracking-[0.16em]"

@@ -182,6 +182,20 @@ export function colorOf(map: Map<string, string>, name: string): string {
 }
 
 /**
+ * THE DUAL PALETTE (2026-08-17). The home page composition colours every race
+ * with two hues plus grey — leader, rival, and a muted rest — per the creator's
+ * redesign mockup. `leadHue` flips which of red/blue leads: the presidential
+ * chart and the runoff bars lead RED (Lula), while the state college bars lead
+ * BLUE, both matching the picture. `rank` is 0-based over the race's candidates
+ * as already sorted by average.
+ */
+export function dualColor(rank: number, leadHue: "red" | "blue" = "red"): string {
+  if (rank <= 0) return leadHue === "red" ? "var(--dual-lead)" : "var(--dual-rival)";
+  if (rank === 1) return leadHue === "red" ? "var(--dual-rival)" : "var(--dual-lead)";
+  return "var(--series-muted)";
+}
+
+/**
  * The ink for text painted ON one of these fills.
  *
  * Exists because the matchup bars stopped colouring by RANK and started

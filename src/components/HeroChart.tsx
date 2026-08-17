@@ -1,5 +1,5 @@
 import { candKey } from "@/lib/average";
-import { colorMap, colorOf, hashName, PALETTE_SIZE } from "@/lib/colors";
+import { dualColor, hashName } from "@/lib/colors";
 import type { CandidateAverage, RaceAverage } from "@/lib/types";
 
 /**
@@ -42,10 +42,9 @@ const H = 320;
 const PAD_TOP = 16;
 const PAD_BOTTOM = 8;
 
-// Palette, hash and slot assignment live in `@/lib/colors` — see the note
-// there on why probing makes the KEY SET part of the answer, and why three
-// private copies of this could give one candidate two colours on one page.
-const assignColors = (keys: string[]) => colorMap(keys);
+// DUAL PALETTE (2026-08-17): the home hero colours by RANK, not by name — the
+// leader red, the rival blue, the rest muted grey, matching the redesign mockup.
+// (State pages keep the per-candidate hash via `colorMap` elsewhere.)
 
 // ── numbers that can never reach the DOM broken ───────────────────────────
 /** Any non-finite input becomes 0. Nothing else is allowed near a path. */
@@ -93,8 +92,7 @@ export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeri
     seen.add(k);
     uniq.push(c);
   }
-  const colors = assignColors(uniq.slice(0, PALETTE_SIZE).map((c) => candKey(c.candidate)));
-  return uniq.slice(0, Math.max(1, maxSeries)).map((c) => {
+  return uniq.slice(0, Math.max(1, maxSeries)).map((c, rank) => {
     const k = candKey(c.candidate);
     const pts = (Array.isArray(c.trend) ? c.trend : [])
       .filter((p) => typeof p?.date === "string" && p.date.length >= 7 && Number.isFinite(p.avg))
@@ -103,7 +101,7 @@ export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeri
       key: k,
       name: c.candidate,
       avg: fin(c.avg),
-      color: colorOf(colors, c.candidate),
+      color: dualColor(rank, "red"),
       points: pts,
     };
   });

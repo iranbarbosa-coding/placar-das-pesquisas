@@ -1,4 +1,4 @@
-import { colorMap, colorOf } from "@/lib/colors";
+import { dualColor } from "@/lib/colors";
 import { candKey } from "@/lib/average";
 import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import type { Headline } from "@/lib/home";
@@ -46,21 +46,6 @@ function matchupTitle(scenario: string): string {
   return (m ? m[1] : scenario).trim() || scenario;
 }
 
-function baseOf(basis: RaceAverage["basis"]): string {
-  return basis === "validos" ? "dos votos válidos" : "do total da amostra";
-}
-
-/** "Fora dessa base: 14,4% entre branco, nulo e não sabe." — válidos only. */
-function setAsideLine(avg: RaceAverage): string | null {
-  if (avg.basis !== "validos") return null;
-  const { blankNull, undecided, combined } = avg.setAside;
-  if (blankNull != null && undecided != null) {
-    return `Fora dessa base: ${pct(blankNull)} branco/nulo e ${pct(undecided)} não sabe.`;
-  }
-  if (combined != null) return `Fora dessa base: ${pct(combined)} entre branco, nulo e não sabe.`;
-  return null;
-}
-
 function RunoffBar({ card }: { card: RunoffCardData }) {
   const { average, headline } = card;
   // The two contenders, deduped and in average order (leader first).
@@ -75,19 +60,19 @@ function RunoffBar({ card }: { card: RunoffCardData }) {
   const b = pair[1];
   if (!a || !b) return null;
 
-  const colors = colorMap([a, b].map((c) => candKey(c.candidate)));
-  const colorA = colorOf(colors, a.candidate);
-  const colorB = colorOf(colors, b.candidate);
+  // Dual palette: leader red, rival blue (mockup).
+  const colorA = dualColor(0, "red");
+  const colorB = dualColor(1, "red");
 
   // Split point of the bar: the two share the head-to-head base, so normalise
   // over their sum rather than assuming they land on exactly 100.
   const sum = (Number.isFinite(a.avg) ? a.avg : 0) + (Number.isFinite(b.avg) ? b.avg : 0);
   const leftFrac = sum > 0 ? Math.max(0, Math.min(100, (a.avg / sum) * 100)) : 50;
-  const aside = setAsideLine(average);
 
   return (
     <article
-      className="card flex flex-col gap-3 p-4"
+      className="flex flex-col gap-3 rounded-lg p-3"
+      style={{ background: "var(--surface-2)" }}
       aria-label={`Cenário de segundo turno: ${a.candidate} ${pct(a.avg)} contra ${b.candidate} ${pct(b.avg)}. Vantagem de ${headline.leader}: ${fmtSigned(average.spread)} pontos.`}
     >
       <span className="text-[11px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
@@ -138,11 +123,8 @@ function RunoffBar({ card }: { card: RunoffCardData }) {
         <span style={{ color: "var(--text-secondary)" }}>vantagem de {headline.leader}</span>
       </div>
 
-      <div className="mt-auto flex flex-col gap-0.5 text-xs" style={{ color: "var(--text-muted)" }}>
-        {aside && <span>{aside}</span>}
-        <span>
-          {average.pollCount} pesquisa{average.pollCount === 1 ? "" : "s"} · última em {fmtDate(average.lastPollDate)}
-        </span>
+      <div className="mt-auto text-xs" style={{ color: "var(--text-muted)" }}>
+        {average.pollCount} pesquisa{average.pollCount === 1 ? "" : "s"} · última em {fmtDate(average.lastPollDate)}
       </div>
     </article>
   );
@@ -162,12 +144,19 @@ export default function RunoffBars({ cards, title, className }: RunoffBarsProps)
 
   return (
     <section className={className} aria-label={title ?? "Confrontos de segundo turno"}>
-      {title && <h2 className="mb-3 text-lg font-bold">{title}</h2>}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {title && (
+        <h2 className="mb-3 text-sm font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+          {title} <span style={{ color: "var(--text-muted)" }}>· votos válidos</span>
+        </h2>
+      )}
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((c) => (
           <RunoffBar key={c.scenario} card={c} />
         ))}
       </div>
+      <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
+        A barra mostra a distribuição dos votos válidos. Fora dessa base ficam os votos brancos, nulos e quem não sabe.
+      </p>
     </section>
   );
 }

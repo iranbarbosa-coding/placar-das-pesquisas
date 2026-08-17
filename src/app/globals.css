@@ -114,6 +114,17 @@
   --cand-slate: #5a6675;
   --cand-magenta: #b5179e;
   --cand-lime: #5f8f00; /* "lime", darkened for this background */
+
+  /* ── DUAL PALETTE (2026-08-17, creator's call) ─────────────────────────────
+     The redesign mockup drives every race with just TWO hues plus grey: the
+     leader in red, the main rival in blue, and the rest of the field muted. This
+     is the "dual palette" the creator asked us to adopt, replacing the earlier
+     twelve-hue per-candidate scheme in the home-page composition. The candidate
+     hues above still exist (state pages, legends) but the home now reads two-tone
+     like RCP. `--series-muted` is the neutral for everyone past second place. */
+  --dual-lead: #d92d20;   /* = --cand-red */
+  --dual-rival: #2156a5;  /* the brief accent blue, for the runner-up */
+  --series-muted: #9aa2af;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -172,6 +183,11 @@
     --cand-slate: #94a3b8;
     --cand-magenta: #e879f9;
     --cand-lime: #a3e635; /* the true lime, safe here */
+
+    /* Dual palette, lifted for the dark page. */
+    --dual-lead: #ef5350;   /* = --cand-red (dark) */
+    --dual-rival: #3987e5;  /* accent blue (dark) */
+    --series-muted: #6b7280;
   }
 }
 

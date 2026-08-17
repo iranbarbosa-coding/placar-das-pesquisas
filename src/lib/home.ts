@@ -265,6 +265,104 @@ export function partyCommissioned(p: Poll): string | null {
   return SIGLAS.has(semAcento(p.contractor)) ? p.contractor : null;
 }
 
+/**
+ * The "Destaques" ranking in the sidebar: major-state governor races, each with
+ * its leader, party, margin over the runner-up and distance to 50%. Order is a
+ * curated importance list (electorate-weighted), matching the redesign mockup;
+ * a state with no average is dropped rather than shown blank.
+ */
+const DESTAQUE_UFS: UF[] = ["SP", "MG", "RJ", "BA", "RS", "PR", "PE", "CE"];
+
+export interface StateHighlight {
+  uf: UF;
+  name: string;
+  leader: string;
+  party: string | null;
+  /** Leader minus runner-up, the "margin" column. */
+  margin: number;
+  /** leaderPct − 50: ≥ 0 means a first-round win on today's numbers. */
+  toFifty: number;
+}
+
+export function stateHighlights(): StateHighlight[] {
+  const out: StateHighlight[] = [];
+  for (const uf of DESTAQUE_UFS) {
+    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    const top = avg?.candidates[0];
+    if (!avg || !top) continue;
+    out.push({
+      uf,
+      name: UF_NAMES[uf],
+      leader: top.candidate,
+      party: top.party,
+      margin: round1(avg.spread),
+      toFifty: round1(top.avg - 50),
+    });
+  }
+  return out;
+}
+
+/**
+ * Every state's governor leader and status, for the sidebar map. `status`
+ * drives the fill: a clear first-round lead, a lead under 50, a technical tie,
+ * or no recent poll. "Technical tie" is a margin inside 2 p.p. — a display
+ * threshold, not a statistical claim about the margin of error.
+ */
+export type MapStatus = "acima" | "abaixo" | "empate" | "sem";
+
+export interface StateMapDatum {
+  uf: UF;
+  name: string;
+  leader: string | null;
+  status: MapStatus;
+}
+
+export function stateMapData(): StateMapDatum[] {
+  return [...UFS].sort().map((uf) => {
+    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    const top = avg?.candidates[0];
+    if (!avg || !top) return { uf, name: UF_NAMES[uf], leader: null, status: "sem" as const };
+    const status: MapStatus =
+      Math.abs(avg.spread) < 2 ? "empate" : top.avg >= 50 ? "acima" : "abaixo";
+    return { uf, name: UF_NAMES[uf], leader: top.candidate, status };
+  });
+}
+
+/**
+ * "O que mudou": the biggest recent moves in the state governor races, from each
+ * leader's own rolling-average trend. The delta is the leader's average now
+ * minus their average at the last trend sample at least `windowDays` earlier —
+ * so it is the same moving average the charts draw, read at two dates, never a
+ * fresh computation. Sorted by absolute move, largest first.
+ */
+export interface Mover {
+  uf: UF;
+  name: string;
+  leader: string;
+  delta: number;
+}
+
+export function recentMovers(limit = 4, windowDays = 30): Mover[] {
+  const movers: Mover[] = [];
+  for (const uf of UFS) {
+    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    const top = avg?.candidates[0];
+    const trend = top?.trend ?? [];
+    if (!avg || !top || trend.length < 2) continue;
+    const last = trend[trend.length - 1];
+    const cutoff = new Date(last.date).getTime() - windowDays * 86400000;
+    // Walk back to the newest sample at or before the cutoff.
+    let prior = trend[0];
+    for (const p of trend) {
+      if (new Date(p.date).getTime() <= cutoff) prior = p;
+    }
+    const delta = round1(last.avg - prior.avg);
+    if (Math.abs(delta) < 0.1) continue;
+    movers.push({ uf, name: UF_NAMES[uf], leader: top.candidate, delta });
+  }
+  return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, limit);
+}
+
 /** The latest-polls table, newest first, grouped by day at render time. */
 export function latestForTable(limit = 40): {
   poll: Poll;
