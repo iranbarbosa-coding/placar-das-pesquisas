@@ -60,13 +60,31 @@ function MapCard({ map }: { map: StateMapDatum[] }) {
         Situação dos líderes
       </p>
 
-      {/* Point-cartogram of Brazil: chips at real geographic positions. */}
+      {/* Point-cartogram of Brazil: chips at real geographic positions, over a
+          soft self-authored silhouette so it reads as a filled landmass, not a
+          scatter. The outline is approximate (no third-party asset) and shares
+          the 0–100 coordinate space with the chip positions. */}
       <div
         className="relative mt-3 w-full"
         style={{ paddingBottom: "98%" }}
         role="img"
         aria-label="Mapa do Brasil por situação do líder de cada estado"
       >
+        <svg
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full"
+        >
+          <path
+            d="M28 6 L40 4 L50 6 L58 12 L70 16 L82 20 L92 25 L97 31 L94 38 L90 45 L85 55 L82 63 L78 70 L68 74 L60 79 L54 89 L50 94 L45 88 L44 80 L42 70 L40 58 L34 52 L26 46 L14 42 L7 38 L12 30 L18 26 L20 18 L24 12 Z"
+            fill="var(--grid)"
+            stroke="var(--axis)"
+            strokeWidth="0.8"
+            strokeLinejoin="round"
+            opacity="0.7"
+          />
+        </svg>
         {map.map((d) => {
           const pos = UF_POS[d.uf];
           if (!pos) return null;
