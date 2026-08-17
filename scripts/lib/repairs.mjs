@@ -112,7 +112,11 @@ export function applyRepairs(polls) {
           (poll.others_pct ?? 0) + (poll.blank_null_pct ?? 0) + (poll.undecided_pct ?? 0);
         if (Math.abs(sum - rep.expect_sum) > 0.6) {
           warnings.push(
-            `reparo ${rep.match.tse_registration}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum}`,
+            // O rótulo cai para a cláusula inteira quando o reparo não casa por
+            // registro. Nem toda pesquisa TEM registro — a do Paraná arquivada
+            // como RS não tem, e o agregador serve `"registro": ""` — e um aviso
+            // dizendo "reparo undefined" não diz de qual reparo se trata.
+            `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum}`,
           );
         }
       }

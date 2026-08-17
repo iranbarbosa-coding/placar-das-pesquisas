@@ -256,6 +256,40 @@
     "fieldwork_start": "2026-04-23",
     "published_date": "2026-04-29"
    }
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "senador",
+    "state": "RS",
+    "fieldwork_end": "2025-11-26"
+   },
+   "defect": "Pesquisa do PARANÁ arquivada como RIO GRANDE DO SUL. O cargo está certo (senador) e os números estão certos; só a UF está errada. A consulta de senado do Poder360 para RS (unidadesFederativasId=24) devolve este registro, e o nosso coletor tira o `state` da UF DA CONSULTA, não do registro. A correção automática de UF que já existe não podia disparar: ela depende do prefixo do registro no TSE, e esta pesquisa não tem registro nenhum — o agregador serve `\"registro\": \"\"`. Era a única linha do banco a colocar figuras paranaenses (Ratinho Jr, Zeca Dirceu) no RS, e foi o que os fez parecer duas pessoas em dois estados na camada de pessoas.",
+   "source": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
+   "evidence": "Relatório do próprio instituto, p.2 METODOLOGIA: \"1.200 ENTREVISTAS · UNIVERSO: ELEITORES DO ESTADO DO PARANÁ · MARGEM DE ERRO: +/- 3.0 P.P. · DATA DE CAMPO: 25 E 26 DE NOVEMBRO DE 2025\". p.1: \"RODADA NACIONAL POR ESTADOS - NOV/DEZ / PARANÁ\". p.14, a tabela que é esta linha: \"EM QUEM O SR.(A) VOTARIA PARA AS DUAS VAGAS DE SENADOR DO PARANÁ? CONSOLIDADO (100%) CENÁRIO 01\" — Ratinho Jr. (PSD) 31 · Cristina Graeml (União) 14 · Deltan Dallagnol (Novo) 13 · Filipe Barros (PL) 13 · Gleisi Hoffmann (PT) 10 · Zeca Dirceu (PT) 8 · Nulo/Branco 6 · NS/NR 5 — bate com o que guardamos dígito por dígito, então NENHUM resultado muda. SEGUNDA LEITURA INDEPENDENTE, da CNN Brasil: mesma pesquisa descrita como \"Senado ... Paraná\", \"entre os dias 25 e 26 de novembro\", 1.200 entrevistas, ±3 p.p., com os seis percentuais e Nulo/Branco 6 e NS/NR 5 idênticos. Conferido que NÃO houve colisão: a operação de campo do RS daquela semana é outra (21 a 24/11, relatório próprio) e já está no banco como p360-13086 e p360-13087. E conferido que o PR não tem cópia certa em lugar nenhum — a lista de senado do PR no Poder360 não traz nenhuma entrada do Real Time em nov/2025 — então descartar apagaria uma pesquisa real. O relatório NÃO traz número de registro no TSE em nenhuma das 23 páginas.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "state": "PR",
+    "fieldwork_start": "2025-11-25"
+   },
+   "_nota_mecanismo": "Reparo casado por instituto+cargo+UF+data, e não por registro, porque esta pesquisa não tem registro. É o primeiro do arquivo assim; o rótulo de log em repairs.mjs caía para \"undefined\" nesse caso e foi consertado junto. O `pollId()` faz hash do `state`, mas o id é cunhado em poder360.mjs ANTES de applyRepairs rodar, então `p360-13089-1-0-b383e9bf0a8c` continua estável (§8). Nem `survey.mint_seed` nem `question.mint_seed` contêm a UF.",
+   "_nota_nao_consertado": "O coletor continua ingerindo a UF da consulta. Ensinar o coletor a ler a UF do NOME DO ARQUIVO do PDF consertaria a classe, mas seria inferir um fato a partir de um nome de arquivo — §4 — e reescreveria em silêncio qualquer pesquisa futura cujo nome de arquivo e UF de consulta discordem, sem que documento nenhum fosse lido. Fica para quando aparecer um segundo caso da mesma forma."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "governador",
+    "state": "PR",
+    "fieldwork_end": "2025-11-25"
+   },
+   "defect": "Data de campo curta em um dia na linha de governador da MESMA operação. O relatório diz campo em 25 E 26 de novembro; guardávamos fim em 25/11 e início nulo.",
+   "source": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
+   "evidence": "p.2 METODOLOGIA: \"DATA DE CAMPO: 25 E 26 DE NOVEMBRO DE 2025\". Mesmo documento que sustenta o reparo de UF acima, lido na mesma passada, e a CNN Brasil descreve a mesma rodada como \"entre os dias 25 e 26 de novembro\". A linha de governador (p.7: Moro 41 · Requião Filho 20 · Guto Silva 13 · Paulo Martins 8 · Enio Verri 5) já está arquivada corretamente quanto a cargo e UF; só as datas estavam curtas.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "fieldwork_start": "2025-11-25",
+    "fieldwork_end": "2025-11-26"
+   }
   }
  ]
 }
