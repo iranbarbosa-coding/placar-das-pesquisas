@@ -92,8 +92,37 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     const party = ov.has ? ov.party : canonicalPartyAt(r.party, date);
     const nome = canonicalCandidate(r.candidate, contest);
     const c = resolveCandidate(store, nome, contest, party, { fuzzy: fuzzyCandidates });
-    return { candidate_id: c.candidate_id, name_raw: r.candidate, party_raw: r.party ?? null, party, pct: r.pct };
+    // `name_raw` é a grafia que o INSTITUTO publicou, presa em `candidate_raw`
+    // por `scrape.mjs` antes de `canonicalizeCandidates` reescrever a linha.
+    // Antes disto aqui gravava `r.candidate`, que a essa altura já é o nome
+    // canônico — o campo dizia "raw" e guardava o oposto. O `??` cobre quem
+    // chama o upsert sem passar pelo coletor (harness, migração).
+    return {
+      candidate_id: c.candidate_id,
+      name_raw: r.candidate_raw ?? r.candidate,
+      party_raw: r.party ?? null, party, pct: r.pct,
+    };
   });
+
+  // A SEMENTE DA PERGUNTA CONTINUA SENDO O ELENCO CANÔNICO, e isso é
+  // deliberado: consertar `name_raw` não pode custar os ids das perguntas.
+  //
+  // `resolveQuestion` semeava o id a partir de `name_raw`. Com `name_raw`
+  // passando a guardar a grafia publicada, a semente mudaria em toda pergunta
+  // que tivesse qualquer variação de grafia — e as 2.964 perguntas seriam
+  // recunhadas, levando junto o `created_at` que `priorStamps` casa POR ID.
+  // É exatamente a perda de 16/08, que este arquivo registra e que não se
+  // repete de graça. O elenco canônico é estável sob mudança de grafia, então
+  // é ele que semeia; `name_raw` fica para quem precisa da grafia de origem.
+  // Exatamente o que a semente sempre recebeu: `poll.results[].candidate`, que
+  // é o que `name_raw` guardava antes desta mudança. NÃO passar por
+  // `canonicalCandidate` outra vez — o nome aqui já saiu de
+  // `canonicalizeCandidates`, e aplicar a regra duas vezes move a semente onde
+  // ela não for idempotente. Custou 36 ids de pergunta na primeira tentativa,
+  // que é o mesmo tipo de perda de `created_at` que este conserto existe para
+  // evitar. A semente tem de reproduzir a anterior byte a byte, não ser
+  // "equivalente".
+  const rosterSeed = (poll.results ?? []).map((r) => r.candidate);
 
   const { question, matched_by: question_matched_by } = resolveQuestion(store, survey, {
     source_refs: nativeId == null ? [] : [{ source, native_id: `${nativeId}:${poll.race}:${poll.round}:${poll.scenario ?? ""}` }],
@@ -101,6 +130,7 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     scenario_label_raw: poll.scenario ?? null,
     legacy_id: poll.id ?? null,
     results,
+    roster_seed: rosterSeed,
   });
 
   fillFields(store, question, {

@@ -500,8 +500,14 @@ export function resolveQuestion(store, survey, incoming) {
       return { question: q, matched_by: "roster" };
     }
   }
+  // A semente usa o elenco CANÔNICO quando o chamador o fornece — ver a nota em
+  // `upsert.mjs`. `roster` (de `name_raw`) passou a guardar a grafia publicada,
+  // e semear com ela recunharia toda pergunta em que uma fonte escrevesse o nome
+  // de outro jeito. `roster_seed` não é gravado: o registro da pergunta é montado
+  // campo a campo logo abaixo e não copia `incoming` inteiro.
+  const sementeRoster = incoming.roster_seed ?? roster;
   const seed = incoming.mint_seed
-    ?? `question|${survey.survey_id}|${incoming.race}|${incoming.round}|${incoming.scenario_ordinal ?? 0}|${roster.slice().sort().join(",")}`;
+    ?? `question|${survey.survey_id}|${incoming.race}|${incoming.round}|${incoming.scenario_ordinal ?? 0}|${sementeRoster.slice().sort().join(",")}`;
   const question_id = mintQuestionId(seed);
   const question = {
     question_id, mint_seed: seed,

@@ -335,6 +335,25 @@ async function main() {
       null, 1) + "\n",
   );
 
+  // A GRAFIA PUBLICADA, PRESA À LINHA ANTES DE QUALQUER REGRA NOSSA TOCAR NELA.
+  //
+  // `canonicalizeCandidates` reescreve `r.candidate` no lugar. Depois desta
+  // linha, a grafia que o instituto publicou não existe em lugar nenhum da
+  // memória — e o store, que roda 90 linhas abaixo, gravava `name_raw:
+  // r.candidate` achando que era o nome cru. Não era: era a saída da regra da
+  // grafia mais curta. Medido: 11.536 linhas de resultado, e exatamente UM
+  // `name_raw` distinto por `candidate_id`. Um campo chamado "raw" que só
+  // guarda o nome já normalizado não é um campo inútil, é um campo que MENTE —
+  // e a camada de pessoas foi construída em cima dele, semeando identidade com
+  // a própria regra de que a identidade deveria se desacoplar.
+  //
+  // `nomes-crus.json`, gravado logo acima, guarda o mesmo conjunto de grafias
+  // por disputa — mas como CONJUNTO, sem dizer qual linha de qual pesquisa
+  // trouxe cada uma. Para semear identidade é preciso a grafia DAQUELA linha.
+  for (const p of polls) {
+    for (const r of p.results ?? []) r.candidate_raw = r.candidate;
+  }
+
   polls = canonicalizeCandidates(polls);
   polls = dropExactDuplicates(polls);
 

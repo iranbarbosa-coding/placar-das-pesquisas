@@ -26,9 +26,9 @@ mais recentes, então um defeito num levantamento de 2023 não aparece em lugar 
 Cada eleitor tem um voto: as linhas de candidato não podem passar de 100. A folga é derivada das próprias casas decimais da fonte (0,5 por inteiro, 0,05 por décimo). O que aparecer aqui é arredondamento da fonte ou linha a mais no elenco — o segundo caso é defeito nosso.
 
 - **[2026]** 100.9 (folga 0.65) · AtlasIntel · CE governador/t1 · 2026-03-30 · f74bd7fb7526
-  Ciro Gomes 46 · Camilo Santana 48.8 · Eduardo Girão 5.4 · Jair Pereira 0.7
+  Ciro Gomes 46 · Camilo Santana 48.8 · Eduardo Girão 5.4 · Jarir Pereira 0.7
 - **[2026]** 100.2 (folga 0.10) · Veritá · AP governador/t1 · 2026-05-31 · 72d253a0383b
-  Dr. Furlan 70.7 · Clécio 29.5
+  Antônio Furlan 70.7 · Clécio Luís 29.5
 
 ## PESSOA — Candidatos que podem não ser pessoas (0)
 
@@ -57,41 +57,41 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_291fa207ccea: Alan Rick 45 · Mailza Assis 36
   s_cb78c6655121: Alan Rick 54 · Tião Bocalom 26
 - **[2026]** cenários separados — Ideia · BR presidente/t2 · 2026-07-06 — 2 levantamentos
-  s_2df164010e26: Lula 45 · Flávio Bolsonaro 40
-  s_2df164010e26: Lula 45 · Michelle Bolsonaro 36
-  s_58c4cfe5786e: Lula 45 · Zema 37
+  s_2df164010e26: Luiz Inácio Lula da Silva 45 · Flávio Bolsonaro 40
+  s_2df164010e26: Luiz Inácio Lula da Silva 45 · Michelle Bolsonaro 36
+  s_58c4cfe5786e: Lula 45 · Romeu Zema 37
   s_58c4cfe5786e: Lula 45 · Renan Santos 33
   s_58c4cfe5786e: Lula 45 · Joaquim Barbosa 23
   s_58c4cfe5786e: Lula 45 · Ronaldo Caiado 37.6
 - **[2026]** cenários separados — Nexus · BR presidente/t2 · 2026-08-09 — 2 levantamentos
-  s_5153741c3e49: Lula 46 · Ronaldo Caiado 42
-  s_5153741c3e49: Lula 47 · Flávio Bolsonaro 44
-  s_d5d78bf1e2cb: Lula 47 · Zema 40
-  s_d5d78bf1e2cb: Lula 46 · Renan Santos 37
+  s_5153741c3e49: Luiz Inácio Lula da Silva 46 · Ronaldo Caiado 42
+  s_5153741c3e49: Luiz Inácio Lula da Silva 47 · Flávio Bolsonaro 44
+  s_d5d78bf1e2cb: Luiz Inácio Lula da Silva 47 · Romeu Zema 40
+  s_d5d78bf1e2cb: Luiz Inácio Lula da Silva 46 · Renan Santos 37
 - **[2026]** cenários separados — Ideia · BR presidente/t2 · 2026-08-03 — 2 levantamentos
-  s_6b1c1c12ed87: Lula 48 · Renan Santos 34.7
-  s_6b1c1c12ed87: Lula 48.5 · Flávio Bolsonaro 43
-  s_6b1c1c12ed87: Lula 48.5 · Zema 37
-  s_c094e9fa2c40: Lula 48.5 · Ronaldo Caiado 40
+  s_6b1c1c12ed87: Luiz Inácio Lula da Silva 48 · Renan Santos 34.7
+  s_6b1c1c12ed87: Luiz Inácio Lula da Silva 48.5 · Flávio Bolsonaro 43
+  s_6b1c1c12ed87: Luiz Inácio Lula da Silva 48.5 · Romeu Zema 37
+  s_c094e9fa2c40: Luiz Inácio Lula da Silva 48.5 · Ronaldo Caiado 40
 - **[2026]** cenários separados — Percent Brasil · MT governador/t2 · 2026-07-27 — 2 levantamentos
   s_7fe69b9b02c7: Wellington Fagundes 36.3 · Jayme Campos 22
-  s_7fe69b9b02c7: Wellington Fagundes 40.8 · Doutora Natasha 12.3
+  s_7fe69b9b02c7: Wellington Fagundes 40.8 · Natasha Slhessarenko 12.3
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - cenários separados — Futura · BR presidente/t2 · 2025-03-22 — 2 levantamentos
   s_93d336f9d7a6: Michelle Bolsonaro 48.5 · Lula 37.3
-  s_93d336f9d7a6: Lula 37.3 · Ronaldo Caiado 37.8
+  s_93d336f9d7a6: Luiz Inácio Lula da Silva 37.3 · Ronaldo Caiado 37.8
   s_93d336f9d7a6: Ratinho Jr 40.6 · Lula 37.2
-  s_93d336f9d7a6: Tarcísio 42.3 · Lula 37.6
+  s_93d336f9d7a6: Tarcísio de Freitas 42.3 · Lula 37.6
   s_93d336f9d7a6: Jair Bolsonaro 51.1 · Lula 37.3
-  s_d4f2b6ef0f37: Tarcísio 39.1 · Geraldo Alckmin 37.5
-  s_d4f2b6ef0f37: Jair Bolsonaro 50.3 · Geraldo Alckmin 36.5
+  s_d4f2b6ef0f37: Tarcísio de Freitas 39.1 · Geraldo Alckmin 37.5
+  s_d4f2b6ef0f37: Jair Messias Bolsonaro 50.3 · Geraldo Alckmin 36.5
 - cenários separados — Datafolha · BR presidente/t2 · 2025-04-03 — 2 levantamentos
-  s_ce9d13de8c4b: Fernando Haddad 45 · Jair Bolsonaro 41
-  s_ce9d13de8c4b: Fernando Haddad 43 · Tarcísio 37
+  s_ce9d13de8c4b: Fernando Haddad 45 · Jair Messias Bolsonaro 41
+  s_ce9d13de8c4b: Fernando Haddad 43 · Tarcísio de Freitas 37
   s_f974da273cc9: Lula 51 · Eduardo Bolsonaro 34
   s_f974da273cc9: Lula 50 · Michelle Bolsonaro 38
   s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
-  s_f974da273cc9: Lula 48 · Tarcísio 39
+  s_f974da273cc9: Lula 48 · Tarcísio de Freitas 39
 
 ## CONFLITO — Conflitos registrados aguardando decisão (3)
 
