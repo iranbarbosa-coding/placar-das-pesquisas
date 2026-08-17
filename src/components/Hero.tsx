@@ -62,7 +62,7 @@ function fmtMarkerDate(iso: string | null | undefined): string {
 /** Small round "i" info glyph, matching the target's title affordance. */
 function InfoGlyph() {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden="true" className="inline-block h-4 w-4 align-middle" style={{ color: "var(--text-muted)" }}>
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="inline-block h-3.5 w-3.5 align-middle" style={{ color: "var(--text-muted)" }}>
       <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.3" />
       <circle cx="8" cy="5" r="0.9" fill="currentColor" />
       <path d="M8 7.2v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
@@ -171,15 +171,11 @@ export default function Hero({
           owner's request, so the title, KPIs and framed chart span the card. */}
       <div className="flex min-w-0 flex-col gap-3">
           <div className="flex flex-col gap-0.5">
-            <p
-              className="text-[10px] font-bold uppercase tracking-[0.16em]"
-              style={{ color: "var(--accent)" }}
-            >
-              {eyebrow}
-            </p>
+            {/* Card-header style, matching the mockup: a small UPPERCASE title,
+                no separate eyebrow — the KPIs below are the prominent element. */}
             <h1
               id="hero-titulo"
-              className="flex items-center gap-1.5 text-xl font-bold leading-tight tracking-[-0.01em] sm:text-2xl"
+              className="flex items-center gap-1.5 text-[15px] font-bold uppercase tracking-wide sm:text-base"
               style={{ ...DISPLAY, color: "var(--text-primary)" }}
             >
               {title}
@@ -200,7 +196,7 @@ export default function Hero({
               {kpis.map((k) => (
                 <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
                   <span
-                    className="tabular text-[26px] font-bold leading-none sm:text-[32px]"
+                    className="tabular text-[24px] font-bold leading-none sm:text-[28px]"
                     style={{ ...DISPLAY, color: k.color }}
                   >
                     {fmtPct(k.pct)}
