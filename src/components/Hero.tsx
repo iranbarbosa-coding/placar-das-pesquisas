@@ -249,9 +249,18 @@ export default function Hero({
                 )}
                 {marker && (
                   <div
-                    className="pointer-events-none absolute z-[1] -translate-y-1/2 whitespace-nowrap rounded-md border px-2 py-1.5 text-[11px] shadow-sm"
+                    // Anchored by its RIGHT edge near the last-poll point, capped
+                    // at 70% of the plot. The point sits near the right, so the
+                    // right edge is clamped to [70%, 96%] from the left; with the
+                    // box no wider than 70%, its left edge stays ≥ 0 and its right
+                    // edge ≤ 96% at ANY viewport — so it can never push the page
+                    // past the plot (fixes a ~9px mobile overflow at ~320–430px).
+                    // No `whitespace-nowrap`: the box wraps rather than forcing a
+                    // width beyond the cap; on desktop the content is far narrower
+                    // than 70%, so it still renders on one line as before.
+                    className="pointer-events-none absolute z-[1] max-w-[70%] -translate-y-1/2 rounded-md border px-2 py-1.5 text-[11px] shadow-sm"
                     style={{
-                      left: `${Math.min(58, Math.max(4, marker.leftPct - 26))}%`,
+                      right: `${100 - Math.min(96, Math.max(70, marker.leftPct))}%`,
                       top: `${Math.min(70, Math.max(18, marker.topPct))}%`,
                       borderColor: "var(--ring)",
                       background: "var(--surface-1)",
