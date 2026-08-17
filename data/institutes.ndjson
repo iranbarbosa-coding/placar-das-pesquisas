@@ -3,7 +3,7 @@
 {"institute_id":"i_0a06315ea0e7","canonical":"Comunidados","aliases":["Comunidados"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0a7de44776d9","canonical":"Datamax","aliases":["Datamax"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0b39ae1059b8","canonical":"Affare","aliases":["Affare"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_0e525a98c799","canonical":"IGAPE","aliases":["IGAPE"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_0e525a98c799","canonical":"Igape","aliases":["Igape"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_11d4e8d0af4c","canonical":"Perfil/ES Hoje","aliases":["Perfil/ES Hoje"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_1bbbb98e80ab","canonical":"Ipec","aliases":["Ipec"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_1c30ec4f160f","canonical":"Lucro Ativo","aliases":["Lucro Ativo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -50,6 +50,7 @@
 {"institute_id":"i_609e1b050026","canonical":"Potengi/Media","aliases":["Potengi/Media"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_60e80ad63304","canonical":"Opinião","aliases":["Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_64e7733f0f11","canonical":"Portal Goiás","aliases":["Portal Goiás"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_661f5eabdd5a","canonical":"Percent","aliases":["Percent"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-17"}
 {"institute_id":"i_6658652dc3c4","canonical":"Metadata/Grupo Dial","aliases":["Metadata/Grupo Dial"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_669ca5649299","canonical":"Intenção Instituto de Pesquisa","aliases":["Intenção Instituto de Pesquisa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_677841b1755a","canonical":"Quantivus","aliases":["Quantivus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -65,7 +66,6 @@
 {"institute_id":"i_7e29b216ff0d","canonical":"IPSsensus","aliases":["IPSsensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8054cae80e13","canonical":"Veritate","aliases":["Veritate"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_81933bf5f963","canonical":"100% Cidades Participações","aliases":["100% Cidades Participações"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_836e2d6c6f26","canonical":"Percent Brasil","aliases":["Percent Brasil"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_88d51a3e59d1","canonical":"IPAN/Panorama","aliases":["IPAN/Panorama"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8e9a424ba87b","canonical":"Instituto Potiguar","aliases":["Instituto Potiguar"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8ef2c80f7b85","canonical":"Opinião Consultoria","aliases":["Opinião Consultoria"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

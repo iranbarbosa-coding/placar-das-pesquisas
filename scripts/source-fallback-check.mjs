@@ -45,13 +45,30 @@ function rodar(pred) {
   //    duplicaria numa falha dupla; buraco apagaria em silêncio.
   const ids = (a) => new Set(a.map((p) => p.id));
   const w = ids(wiki), s = ids(p360);
-  ok("nenhuma pesquisa pertence às duas fontes", [...w].every((id) => !s.has(id)));
-  ok("nenhuma pesquisa fica fora das duas", w.size + s.size === polls.length);
 
-  // 3. As curadas ficam fora: `applyRepairs` as reinsere toda rodada, e mantê-las
-  //    aqui as duplicaria. (Vacuamente verdadeiro enquanto não houver nenhuma —
-  //    e é por isso que o caso diz o que verifica.)
+  // 3. As curadas ficam fora das FONTES: `applyRepairs` as reinsere toda rodada,
+  //    e mantê-las aqui as duplicaria.
+  //
+  // ⚠ ISTO E A PARTIÇÃO ABAIXO SE CONTRADIZIAM, e a contradição era invisível.
+  // O caso trazia a ressalva "vacuamente verdadeiro enquanto não houver
+  // nenhuma" — e não havia: `polls.json` tinha 0 curadas, porque um reparo só se
+  // materializa numa rodada completa e nenhuma tinha rodado desde que a
+  // inserção foi escrita. Na primeira rodada que a materializou
+  // (`curado-2650cfeabcb9`, Datafolha presidente:PE), a partição passou a exigir
+  // que ela pertencesse a uma fonte enquanto este caso exige que não pertença a
+  // nenhuma. As duas não podiam estar certas juntas.
+  //
+  // A partição é sobre TRÊS populações, não duas: as duas fontes mais a porta
+  // curada. É a mesma lição que este arquivo já registra sobre a promessa de
+  // recuperação — um caso que não pode ser exercitado não prova nada, e a
+  // ressalva escrita ao lado dele não impede que ele minta quando finalmente
+  // puder ser exercitado.
   const curadas = polls.filter((p) => String(p.id).startsWith("curado-"));
+  const c = ids(curadas);
+
+  ok("nenhuma pesquisa pertence às duas fontes", [...w].every((id) => !s.has(id)));
+  ok("nenhuma pesquisa fica fora das duas fontes ou da porta curada",
+    w.size + s.size + c.size === polls.length);
   ok("pesquisa curada não é recuperada por nenhuma fonte",
     curadas.every((p) => !w.has(p.id) && !s.has(p.id)));
 
@@ -74,7 +91,7 @@ if (!auto) {
 // poderia estar verde por não conferir nada — que é como o defeito original
 // sobreviveu a tantas rodadas.
 const esperado = {
-  rotulo: ["wikipedia recupera alguma coisa", "nenhuma pesquisa fica fora das duas"],
+  rotulo: ["wikipedia recupera alguma coisa", "nenhuma pesquisa fica fora das duas fontes ou da porta curada"],
   sobreposto: ["nenhuma pesquisa pertence às duas fontes"],
 };
 let ok = true;

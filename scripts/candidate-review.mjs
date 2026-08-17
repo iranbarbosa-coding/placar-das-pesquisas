@@ -14,6 +14,7 @@
 // `suggestion` column below is a sorting aid and carries no authority.
 //
 // Usage: node scripts/candidate-review.mjs [--out REVISAO_CANDIDATOS.md] [--self-test]
+import { nomeSemClausula } from "./lib/canonicalize.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -163,10 +164,23 @@ function assertRawInput({ spellings }, store) {
   // A entrada e o store têm de concordar sobre o que foi publicado. Uma grafia
   // que a tabela de apelidos não conhece significa que uma das duas camadas
   // andou sem a outra — e a varredura estaria julgando um nome órfão.
+  // ⚠ A GRAFIA É COMPARADA SEM A CLÁUSULA DE CENÁRIO, porque é assim que ela
+  // entra na tabela de apelidos. A cláusula ("…, com apoio do ex-presidente
+  // Jair Bolsonaro") é a CONDIÇÃO da pergunta, não parte do nome — decisão do
+  // criador, 17/08/2026 —, então `resolveCandidate` a tira antes de pendurar o
+  // alias, de propósito: enquanto ela virava alias, encolher os tokens fazia
+  // "Tereza Cristina, ex-presidente Jair Bolsonaro" casar exatamente com
+  // "Tereza Cristina" e a linha dela era absorvida pelo Jair Bolsonaro.
+  //
+  // Sem esta linha o guarda acusa as 7 grafias com cláusula como órfãs e
+  // derruba a varredura inteira — o que ele viu é real, mas a conclusão seria
+  // errada: a grafia crua É conhecida, sob a sua cabeça. `name_raw` continua
+  // guardando a string inteira, que é a procedência.
   const unknown = [];
   for (const [cid, ss] of multi) {
     const c = candById.get(cid);
-    for (const n of ss) if (!new Set(c?.aliases ?? []).has(n)) unknown.push(`${c?.contest ?? "?"} · ${n}`);
+    const conhecidos = new Set((c?.aliases ?? []).map(nomeSemClausula));
+    for (const n of ss) if (!conhecidos.has(nomeSemClausula(n))) unknown.push(`${c?.contest ?? "?"} · ${n}`);
   }
   if (unknown.length) {
     throw new Error(

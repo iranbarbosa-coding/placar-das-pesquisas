@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 411,
-  "contencao": 159,
+  "exato": 413,
+  "contencao": 160,
   "outra_disputa": 136,
   "ambiguo": 4,
-  "sem": 517
+  "sem": 518
  },
  "ambiguos": [
   {
@@ -306,13 +306,6 @@
     "numero": "22",
     "origem": "exato"
    },
-   "grassi": {
-    "nome_urna": "Veterinário Wilson Grassi",
-    "sq_candidato": "280002548139",
-    "partido": "DEMOCRATA",
-    "numero": "35",
-    "origem": "contencao"
-   },
    "helder barbalho": {
     "nome_urna": "Helder",
     "sq_candidato": "140002550779",
@@ -431,6 +424,13 @@
     "partido": "REPUBLICANOS",
     "numero": "10",
     "origem": "outra-disputa"
+   },
+   "wilson grassi": {
+    "nome_urna": "Veterinário Wilson Grassi",
+    "sq_candidato": "280002548139",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "contencao"
    }
   },
   "governador:AC": {
@@ -2014,6 +2014,13 @@
     "numero": "45",
     "origem": "outra-disputa"
    },
+   "edmilson costa": {
+    "nome_urna": "Edmilson Costa",
+    "sq_candidato": "280002551975",
+    "partido": "PCB",
+    "numero": "21",
+    "origem": "exato"
+   },
    "flavio bolsonaro": {
     "nome_urna": "Flávio Bolsonaro",
     "sq_candidato": "280002551544",
@@ -2076,6 +2083,13 @@
     "partido": "PCO",
     "numero": "29",
     "origem": "exato"
+   },
+   "samara martins": {
+    "nome_urna": "Samara",
+    "sq_candidato": "280002538811",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "contencao"
    },
    "tarcisio de freitas": {
     "nome_urna": "Tarcísio",
@@ -4444,6 +4458,13 @@
    }
   },
   "senador:PE": {
+   "carlos sant anna": {
+    "nome_urna": "Carlos Sant Anna",
+    "sq_candidato": "170002530097",
+    "partido": "NOVO",
+    "numero": "300",
+    "origem": "exato"
+   },
    "eduardo da fonte": {
     "nome_urna": "Eduardo da Fonte",
     "sq_candidato": "170002552102",

@@ -390,14 +390,14 @@ Institutos que usam **os dois** nomes (em datas distantes): Ranking.
 
 | | Paulo Octávio | Paulo Otávio |
 |---|---|---|
-| pesquisas | 3 | 1 |
-| período | 2026-07-31 → 2026-08-07 | 2025-12-08 → 2025-12-08 |
-| média % | 9.2 | 5.0 |
-| partidos | PSD 2026-07-31→2026-08-07 | PSD 2025-12-08→2025-12-08 |
-| institutos | Phoenix (1), Brada Comunicação (1), Correio/Opinião (1) | Real Time Big Data (1) |
+| pesquisas | 4 | 1 |
+| período | 2026-07-31 → 2026-08-15 | 2025-12-08 → 2025-12-08 |
+| média % | 10.5 | 5.0 |
+| partidos | PSD 2026-07-31→2026-08-15 | PSD 2025-12-08→2025-12-08 |
+| institutos | Phoenix (1), Brada Comunicação (1), Igape (1), Correio/Opinião (1) | Real Time Big Data (1) |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PSD)** · diferença entre as médias: 4.2 p.p.
+Partidos: **coincidem (PSD)** · diferença entre as médias: 5.5 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -411,14 +411,14 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 | | Érica kokay | Érika Kokay |
 |---|---|---|
-| pesquisas | 1 | 10 |
-| período | 2025-12-08 → 2025-12-08 | 2026-03-19 → 2026-08-07 |
-| média % | 10.0 | 21.7 |
-| partidos | PT 2025-12-08→2025-12-08 | PT 2026-03-19→2026-08-07 |
-| institutos | Real Time Big Data (1) | Phoenix (2), IGAPE (2), Veritá (2), França (1), +3 |
+| pesquisas | 1 | 11 |
+| período | 2025-12-08 → 2025-12-08 | 2026-03-19 → 2026-08-15 |
+| média % | 10.0 | 20.8 |
+| partidos | PT 2025-12-08→2025-12-08 | PT 2026-03-19→2026-08-15 |
+| institutos | Real Time Big Data (1) | Igape (3), Phoenix (2), Veritá (2), França (1), +3 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (PT)** · diferença entre as médias: 11.7 p.p.
+Partidos: **coincidem (PT)** · diferença entre as médias: 10.8 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -478,16 +478,16 @@ Partidos: **coincidem (PSD)** · diferença entre as médias: 1.6 p.p.
 
 | | Jair Bolsonaro | Jair Messias Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 45 |
+| pesquisas | 91 | 45 |
 | período | 2024-03-22 → 2026-06-30 | 2023-07-17 → 2026-07-27 |
 | média % | 40.1 | 42.0 |
 | partidos | PL 2024-03-22→2026-06-30 | PL 2023-07-17→2026-07-27 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **coincidem (PL)** · diferença entre as médias: 1.9 p.p.
 
-**Campo gêmeo — 12 ocorrência(s).** Datafolha: `2025-06-11` cita *Jair Bolsonaro* (35%, 1º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
+**Campo gêmeo — 13 ocorrência(s).** Datafolha: `2025-06-11` cita *Jair Bolsonaro* (35%, 1º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -499,14 +499,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 1.9 p.p.
 
 | | João Campos | João Henrique Campos |
 |---|---|---|
-| pesquisas | 23 | 43 |
+| pesquisas | 23 | 45 |
 | período | 2025-03-12 → 2026-08-07 | 2025-02-05 → 2026-08-15 |
-| média % | 49.1 | 44.2 |
+| média % | 49.1 | 43.8 |
 | partidos | PSB 2025-03-12→2026-08-07 | PSB 2025-02-05→2026-08-15 |
-| institutos | Paraná Pesquisas (7), Real Time Big Data (5), Quaest (4), Datafolha (2), +5 | Real Time Big Data (10), Datafolha (7), Múltipla (6), Ipespe (4), +8 |
+| institutos | Paraná Pesquisas (7), Real Time Big Data (5), Quaest (4), Datafolha (2), +5 | Real Time Big Data (10), Datafolha (7), Múltipla (6), DataTrends (5), +8 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (PSB)** · diferença entre as médias: 4.9 p.p.
+Partidos: **coincidem (PSB)** · diferença entre as médias: 5.2 p.p.
 
 **Campo gêmeo — 5 ocorrência(s).** Ipespe: `2026-06-14` cita *João Campos* (44%, 2º turno) e `2026-06-14` cita *João Henrique Campos* (42%, 1º turno).
 
@@ -524,7 +524,7 @@ Partidos: **coincidem (PSB)** · diferença entre as médias: 4.9 p.p.
 | período | 2025-08-17 → 2026-07-19 | 2025-02-10 → 2026-07-11 |
 | média % | 30.4 | 36.4 |
 | partidos | PL 2025-08-17→2026-07-19 | PL 2025-02-10→2026-07-11 |
-| institutos | Quaest (4), 100% Cidades Participações (4), Real Time Big Data (1), Paraná Pesquisas (1) | Brasmarket (6), Veritá (4), Real Time Big Data (4), Futura (3), +2 |
+| institutos | Quaest (4), 100% Cidades Participações (4), Paraná Pesquisas (1), Real Time Big Data (1) | Brasmarket (6), Veritá (4), Real Time Big Data (4), Futura (3), +2 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **coincidem (PL)** · diferença entre as médias: 6.0 p.p.
@@ -562,16 +562,16 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 
 | | Dorinha Rezende | Professora Dorinha |
 |---|---|---|
-| pesquisas | 15 | 8 |
+| pesquisas | 13 | 8 |
 | período | 2025-10-15 → 2026-07-31 | 2025-04-08 → 2026-08-03 |
-| média % | 36.1 | 37.9 |
+| média % | 34.8 | 37.9 |
 | partidos | União Brasil 2025-10-15→2026-07-31 | União Brasil 2025-04-08→2026-08-03 |
-| institutos | Real Time Big Data (6), Paraná Pesquisas (4), Lucro Ativo (1), Brasmarketing (1), +3 | Real Time Big Data (3), Paraná Pesquisas (2), Voz e Pesquisa (1), Brasmarket (1), +1 |
+| institutos | Real Time Big Data (5), Paraná Pesquisas (3), Lucro Ativo (1), Brasmarketing (1), +3 | Real Time Big Data (3), Paraná Pesquisas (2), Voz e Pesquisa (1), Brasmarket (1), +1 |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 1.8 p.p.
+Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 3.2 p.p.
 
-**Campo gêmeo — 6 ocorrência(s).** Real Time Big Data: `2026-06-18` cita *Dorinha Rezende* (43%, 2º turno) e `2026-06-18` cita *Professora Dorinha* (33%, 1º turno).
+**Campo gêmeo — 3 ocorrência(s).** Real Time Big Data: `2026-06-18` cita *Dorinha Rezende* (43%, 2º turno) e `2026-06-18` cita *Professora Dorinha* (33%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -650,7 +650,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, D
 | período | 2025-04-08 → 2026-07-31 | 2026-01-30 → 2026-07-31 |
 | média % | 13.4 | 20.2 |
 | partidos | MDB 2025-04-08→2026-07-31 | MDB 2026-01-30→2026-07-31 |
-| institutos | Paraná Pesquisas (2), Real Time Big Data (1), Brasmarket (1), Voz e Pesquisa (1), +1 | Real Time Big Data (2), Lucro Ativo (1), Brasmarketing (1), Paraná Pesquisas (1), +4 |
+| institutos | Paraná Pesquisas (2), Real Time Big Data (1), Brasmarket (1), Voz e Pesquisa (1), +1 | Real Time Big Data (2), Lucro Ativo (1), Brasmarketing (1), VÓPE/Primeira Página (1), +4 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **coincidem (MDB)** · diferença entre as médias: 6.8 p.p.
@@ -671,7 +671,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, R
 | período | 2026-01-30 → 2026-07-31 | 2025-04-08 → 2026-07-31 |
 | média % | 30.7 | 26.4 |
 | partidos | PL 2026-01-30→2026-07-31 | PL 2025-04-08→2026-07-31 |
-| institutos | Real Time Big Data (2), Lucro Ativo (1), Brasmarketing (1), Paraná Pesquisas (1), +4 | Paraná Pesquisas (2), Real Time Big Data (1), Brasmarket (1), Voz e Pesquisa (1), +1 |
+| institutos | Real Time Big Data (2), Lucro Ativo (1), Brasmarketing (1), VÓPE/Primeira Página (1), +4 | Paraná Pesquisas (2), Real Time Big Data (1), Brasmarket (1), Voz e Pesquisa (1), +1 |
 | fontes | , poder360 | poder360 |
 
 Partidos: **coincidem (PL)** · diferença entre as médias: 4.3 p.p.
@@ -856,14 +856,14 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 
 | | Wilson Lima | Wilson Miranda Lima |
 |---|---|---|
-| pesquisas | 4 | 17 |
-| período | 2025-12-12 → 2026-07-23 | 2026-03-18 → 2026-08-01 |
-| média % | 22.8 | 16.6 |
-| partidos | União Brasil 2025-12-12→2026-07-23 | União Brasil 2026-03-18→2026-08-01 |
-| institutos | Projeta (1), Real Time Big Data (1), Perspectiva (1), Direito ao Ponto (1) | Veritá (5), Comunidados (2), DMP (1), Real Time Big Data (1), +8 |
+| pesquisas | 4 | 18 |
+| período | 2025-12-12 → 2026-07-23 | 2026-03-18 → 2026-08-14 |
+| média % | 22.8 | 16.4 |
+| partidos | União Brasil 2025-12-12→2026-07-23 | União Brasil 2026-03-18→2026-08-14 |
+| institutos | Projeta (1), Real Time Big Data (1), Perspectiva (1), Direito ao Ponto (1) | Veritá (5), DMP (2), Comunidados (2), Real Time Big Data (1), +8 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 6.3 p.p.
+Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 6.4 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Projeta, Real Time Big Data.
 
@@ -1028,7 +1028,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 | período | 2026-04-26 → 2026-07-26 | 2026-04-15 → 2026-08-15 |
 | média % | 9.5 | 8.5 |
 | partidos | PSD 2026-04-26→2026-07-26 | PSD 2026-04-15→2026-08-15 |
-| institutos | Quaest (2), Paraná Pesquisas (1) | Múltipla (3), Real Time Big Data (3), Datafolha (3), Ipespe (2), +3 |
+| institutos | Quaest (2), Paraná Pesquisas (1) | Múltipla (3), Datafolha (3), Real Time Big Data (3), Ipespe (2), +3 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **coincidem (PSD)** · diferença entre as médias: 1.0 p.p.
@@ -1151,9 +1151,9 @@ Institutos que usam **os dois** nomes (em datas distantes): DataVero.
 | | Covatti Filho | Covatti filho |
 |---|---|---|
 | pesquisas | 2 | 2 |
-| período | 2026-03-16 → 2026-04-04 | 2025-11-21 → 2026-02-10 |
+| período | 2026-03-16 → 2026-04-04 | 2025-11-24 → 2026-02-10 |
 | média % | 2.9 | 3.8 |
-| partidos | PP 2026-03-16→2026-04-04 | PP 2025-11-21→2026-02-10 |
+| partidos | PP 2026-03-16→2026-04-04 | PP 2025-11-24→2026-02-10 |
 | institutos | Veritá (1), Real Time Big Data (1) | 100% Cidades Participações (1), Real Time Big Data (1) |
 | fontes |  | poder360 |
 
@@ -1465,16 +1465,16 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 | | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 1 | 90 |
+| pesquisas | 1 | 91 |
 | período | 2024-03-22 → 2024-03-22 | 2024-03-22 → 2026-06-30 |
 | média % | 29.1 | 40.1 |
 | partidos | PP 2024-03-22→2024-03-22 | PL 2024-03-22→2026-06-30 |
-| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 |
+| institutos | Paraná Pesquisas (1) | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 |
 | fontes | poder360 | poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 11.0 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro* (29.1%, 2º turno) e `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1486,16 +1486,16 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 11.0 p.p.
 
 | | Jair Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 1 |
+| pesquisas | 91 | 1 |
 | período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
 | média % | 40.1 | 43.4 |
 | partidos | PL 2024-03-22→2026-06-30 | PL 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro* (43.4%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1507,16 +1507,16 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
 
 | | Jair Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 1 |
+| pesquisas | 91 | 1 |
 | período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
 | média % | 40.1 | 35.3 |
 | partidos | PL 2024-03-22→2026-06-30 | PSD 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 4.8 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro* (35.3%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1528,16 +1528,16 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 4.8 p.p.
 
 | | Jair Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 1 |
+| pesquisas | 91 | 1 |
 | período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
 | média % | 40.1 | 34.6 |
 | partidos | PL 2024-03-22→2026-06-30 | Novo 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Romeu Zema, com apoio do ex-presidente Jair Bolsonaro* (34.6%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1549,16 +1549,16 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 5.5 p.p.
 
 | | Jair Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 1 |
+| pesquisas | 91 | 1 |
 | período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
 | média % | 40.1 | 32.6 |
 | partidos | PL 2024-03-22→2026-06-30 | União Brasil 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 7.5 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1570,16 +1570,16 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 7.5 p.p.
 
 | | Jair Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 1 |
+| pesquisas | 91 | 1 |
 | período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
 | média % | 40.1 | 40.8 |
 | partidos | PL 2024-03-22→2026-06-30 | Republicanos 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 0.7 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro* (40.8%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -1591,16 +1591,16 @@ Partidos: **CONTRADIZEM** · diferença entre as médias: 0.7 p.p.
 
 | | Jair Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 90 | 1 |
+| pesquisas | 91 | 1 |
 | período | 2024-03-22 → 2026-06-30 | 2024-03-22 → 2024-03-22 |
 | média % | 40.1 | 32.2 |
 | partidos | PL 2024-03-22→2026-06-30 | PP 2024-03-22→2024-03-22 |
-| institutos | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
+| institutos | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 | Paraná Pesquisas (1) |
 | fontes | poder360 | poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 7.9 p.p.
 
-**Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
+**Campo gêmeo — 2 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Jair Bolsonaro* (37.1%, 1º turno) e `2024-03-22` cita *Tereza Cristina, ex-presidente Jair Bolsonaro* (32.2%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -2221,14 +2221,14 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
 | | José Antonio Medeiros | José Medeiros |
 |---|---|---|
-| pesquisas | 15 | 1 |
+| pesquisas | 16 | 1 |
 | período | 2025-05-11 → 2026-08-11 | 2026-03-23 → 2026-03-23 |
-| média % | 16.2 | 10.0 |
+| média % | 16.3 | 10.0 |
 | partidos | PL 2025-05-11→2026-08-11 | PL 2026-03-23→2026-03-23 |
-| institutos | MT Dados (3), Veritá (3), Percent Brasil (3), Real Time Big Data (3), +2 | Real Time Big Data (1) |
+| institutos | Percent (4), MT Dados (3), Veritá (3), Real Time Big Data (3), +2 | Real Time Big Data (1) |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 6.2 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 6.3 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
@@ -2242,14 +2242,14 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
 | | José Arruda | José Roberto Arruda |
 |---|---|---|
-| pesquisas | 1 | 16 |
-| período | 2025-08-27 → 2025-08-27 | 2025-06-04 → 2026-08-01 |
-| média % | 16.0 | 24.8 |
-| partidos | PSD 2025-08-27→2025-08-27 | PL 2025-06-04→2025-06-04 · PSD 2025-12-08→2026-08-01 |
-| institutos | Paraná Pesquisas (1) | Veritá (3), IGAPE (2), Exata GO (2), Paraná Pesquisas (2), +6 |
+| pesquisas | 1 | 17 |
+| período | 2025-08-27 → 2025-08-27 | 2025-06-04 → 2026-08-15 |
+| média % | 16.0 | 24.7 |
+| partidos | PSD 2025-08-27→2025-08-27 | PL 2025-06-04→2025-06-04 · PSD 2025-12-08→2026-08-15 |
+| institutos | Paraná Pesquisas (1) | Igape (3), Veritá (3), Exata GO (2), Paraná Pesquisas (2), +6 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **coincidem (PSD)** · diferença entre as médias: 8.8 p.p.
+Partidos: **coincidem (PSD)** · diferença entre as médias: 8.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
@@ -2351,16 +2351,16 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
 | | Luiz Inácio Lula da Silva | Lula |
 |---|---|---|
-| pesquisas | 440 | 874 |
-| período | 2023-07-17 → 2026-08-16 | 2024-03-22 → 2026-08-12 |
-| média % | 43.0 | 42.4 |
-| partidos | PT 2023-07-17→2026-08-16 | PT 2024-03-22→2026-08-12 |
-| institutos | AtlasIntel (70), Quaest (60), Gerp (59), Paraná Pesquisas (53), +20 | Quaest (209), AtlasIntel (117), Paraná Pesquisas (104), Futura (59), +38 |
+| pesquisas | 439 | 877 |
+| período | 2023-07-17 → 2026-08-16 | 2024-03-22 → 2026-08-16 |
+| média % | 42.9 | 42.4 |
+| partidos | PT 2023-07-17→2026-08-16 | PT 2024-03-22→2026-08-16 |
+| institutos | AtlasIntel (70), Quaest (60), Gerp (59), Paraná Pesquisas (53), +20 | Quaest (209), AtlasIntel (117), Paraná Pesquisas (105), Futura (59), +38 |
 | fontes | , poder360 | poder360 |
 
 Partidos: **coincidem (PT)** · diferença entre as médias: 0.5 p.p.
 
-**Campo gêmeo — 711 ocorrência(s).** AtlasIntel: `2025-09-14` cita *Luiz Inácio Lula da Silva* (48.2%, 1º turno) e `2025-09-14` cita *Lula* (51.4%, 2º turno).
+**Campo gêmeo — 724 ocorrência(s).** AtlasIntel: `2025-09-14` cita *Luiz Inácio Lula da Silva* (48.2%, 1º turno) e `2025-09-14` cita *Lula* (51.4%, 2º turno).
 
 - [ ] mesma pessoa → canônico: `________________`
 - [ ] pessoas diferentes
@@ -2456,14 +2456,14 @@ Partidos: **coincidem (PP)** · diferença entre as médias: 5.6 p.p.
 
 | | Renan Filho | Renan Santos |
 |---|---|---|
-| pesquisas | 8 | 283 |
+| pesquisas | 8 | 284 |
 | período | 2025-07-06 → 2025-09-10 | 2025-05-27 → 2026-08-16 |
-| média % | 0.6 | 9.2 |
+| média % | 0.6 | 9.1 |
 | partidos | MDB 2025-07-06→2025-09-10 | Missão 2025-05-27→2026-08-16 · União Brasil 2026-02-10→2026-02-10 |
 | institutos | Paraná Pesquisas (8) | Quaest (47), Real Time Big Data (38), AtlasIntel (24), Ideia (19), +37 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 8.6 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 8.5 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
@@ -2649,7 +2649,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data, 
 | período | 2025-04-08 → 2026-07-24 | 2025-08-03 → 2026-07-31 |
 | média % | 14.0 | 12.0 |
 | partidos | PSD 2025-04-08→2026-07-24 | PSD 2025-08-03→2026-07-31 |
-| institutos | Paraná Pesquisas (2), Real Time Big Data (1) | Real Time Big Data (2), Lucro Ativo (2), Brasmarketing (1), Paraná Pesquisas (1), +5 |
+| institutos | Paraná Pesquisas (2), Real Time Big Data (1) | Real Time Big Data (2), Lucro Ativo (2), Brasmarketing (1), Voz e Pesquisa (1), +5 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **coincidem (PSD)** · diferença entre as médias: 1.9 p.p.
@@ -2813,14 +2813,14 @@ Partidos: **coincidem (PSD)** · diferença entre as médias: 15.4 p.p.
 
 | | Maria do Carmo | Maria do Carmo Seffair |
 |---|---|---|
-| pesquisas | 36 | 1 |
-| período | 2025-12-26 → 2026-08-01 | 2025-12-12 → 2025-12-12 |
-| média % | 30.8 | 25.0 |
-| partidos | PL 2025-12-26→2026-08-01 | PL 2025-12-12→2025-12-12 |
-| institutos | Veritá (9), AtlasIntel (6), Real Time Big Data (3), Comunidados (3), +11 | Real Time Big Data (1) |
+| pesquisas | 38 | 1 |
+| período | 2025-12-26 → 2026-08-14 | 2025-12-12 → 2025-12-12 |
+| média % | 30.7 | 25.0 |
+| partidos | PL 2025-12-26→2026-08-14 | PL 2025-12-12→2025-12-12 |
+| institutos | Veritá (9), AtlasIntel (6), DMP (4), Real Time Big Data (3), +11 | Real Time Big Data (1) |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.8 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 
@@ -2922,7 +2922,7 @@ Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 | período | 2025-12-08 → 2025-12-08 | 2026-03-19 → 2026-06-23 |
 | média % | 19.0 | 14.5 |
 | partidos | MDB 2025-12-08→2025-12-08 | MDB 2026-03-19→2026-06-23 |
-| institutos | Real Time Big Data (1) | Veritá (2), França (1), IGAPE (1), Phoenix (1), +1 |
+| institutos | Real Time Big Data (1) | Veritá (2), França (1), Igape (1), Phoenix (1), +1 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **coincidem (MDB)** · diferença entre as médias: 4.5 p.p.
@@ -3032,14 +3032,14 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Leila Barros | Leila do Vôlei |
 |---|---|---|
-| pesquisas | 10 | 2 |
-| período | 2026-03-19 → 2026-08-07 | 2025-12-08 → 2026-07-31 |
-| média % | 23.8 | 14.6 |
-| partidos | PDT 2026-03-19→2026-08-07 | PDT 2025-12-08→2026-07-31 |
-| institutos | Phoenix (2), IGAPE (2), Veritá (2), França (1), +3 | Brada Comunicação (1), Real Time Big Data (1) |
+| pesquisas | 11 | 2 |
+| período | 2026-03-19 → 2026-08-15 | 2025-12-08 → 2026-07-31 |
+| média % | 23.2 | 14.6 |
+| partidos | PDT 2026-03-19→2026-08-15 | PDT 2025-12-08→2026-07-31 |
+| institutos | Igape (3), Phoenix (2), Veritá (2), França (1), +3 | Brada Comunicação (1), Real Time Big Data (1) |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (PDT)** · diferença entre as médias: 9.2 p.p.
+Partidos: **coincidem (PDT)** · diferença entre as médias: 8.6 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
@@ -3221,14 +3221,14 @@ Partidos: **coincidem (PP)** · diferença entre as médias: 12.9 p.p.
 
 | | Luiz Felipe d'Avila | Luiz Inácio Lula da Silva |
 |---|---|---|
-| pesquisas | 1 | 440 |
+| pesquisas | 1 | 439 |
 | período | 2025-08-21 → 2025-08-21 | 2023-07-17 → 2026-08-16 |
-| média % | 1.3 | 43.0 |
+| média % | 1.3 | 42.9 |
 | partidos | Novo 2025-08-21→2025-08-21 | PT 2023-07-17→2026-08-16 |
 | institutos | Paraná Pesquisas (1) | AtlasIntel (70), Quaest (60), Gerp (59), Paraná Pesquisas (53), +20 |
 | fontes | poder360 | , poder360 |
 
-Partidos: **CONTRADIZEM** · diferença entre as médias: 41.7 p.p.
+Partidos: **CONTRADIZEM** · diferença entre as médias: 41.6 p.p.
 
 **Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2025-08-21` cita *Luiz Felipe d'Avila* (1.3%, 1º turno) e `2025-08-21` cita *Luiz Inácio Lula da Silva* (35.1%, 1º turno).
 
@@ -3263,7 +3263,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Romeu Zema | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 433 | 1 |
+| pesquisas | 434 | 1 |
 | período | 2023-07-17 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 15.5 | 34.6 |
 | partidos | Novo 2023-07-17→2026-08-16 · MDB 2025-08-17→2025-08-17 · PSD 2025-09-14→2025-09-14 · Avante 2025-11-10→2025-12-15 | Novo 2024-03-22→2024-03-22 |
@@ -3284,14 +3284,14 @@ Partidos: **coincidem (NOVO)** · diferença entre as médias: 19.1 p.p.
 
 | | Ronaldo Caiado | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 456 | 1 |
+| pesquisas | 457 | 1 |
 | período | 2023-10-03 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
-| média % | 16.6 | 32.6 |
+| média % | 16.5 | 32.6 |
 | partidos | União Brasil 2023-10-03→2026-07-07 · Republicanos 2025-01-26→2025-09-14 · PL 2025-09-15→2025-09-15 · PSD 2026-01-09→2026-08-16 | União Brasil 2024-03-22→2024-03-22 |
 | institutos | Quaest (78), AtlasIntel (56), Paraná Pesquisas (53), Futura (36), +42 | Paraná Pesquisas (1) |
 | fontes | , poder360 | poder360 |
 
-Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 16.0 p.p.
+Partidos: **coincidem (UNIAO BRASIL)** · diferença entre as médias: 16.1 p.p.
 
 **Campo gêmeo — 1 ocorrência(s).** Paraná Pesquisas: `2024-03-22` cita *Ronaldo Caiado* (32.6%, 2º turno) e `2024-03-22` cita *Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro* (32.6%, 2º turno).
 
@@ -3540,7 +3540,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Real Time Big Data.
 | período | 2025-04-08 → 2025-04-08 | 2026-01-30 → 2026-07-31 |
 | média % | 11.6 | 30.7 |
 | partidos | União Brasil 2025-04-08→2025-04-08 | PL 2026-01-30→2026-07-31 |
-| institutos | Paraná Pesquisas (1) | Real Time Big Data (2), Lucro Ativo (1), Brasmarketing (1), Paraná Pesquisas (1), +4 |
+| institutos | Paraná Pesquisas (1) | Real Time Big Data (2), Lucro Ativo (1), Brasmarketing (1), VÓPE/Primeira Página (1), +4 |
 | fontes | poder360 | , poder360 |
 
 Partidos: **CONTRADIZEM** · diferença entre as médias: 19.1 p.p.
@@ -3753,11 +3753,11 @@ prova em contrário.
 
 | | Flávio Bolsonaro | Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 90 |
+| pesquisas | 405 | 91 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2026-06-30 |
 | média % | 37.0 | 40.1 |
 | partidos | PL 2025-06-11→2026-08-16 | PL 2024-03-22→2026-06-30 |
-| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (36), Quaest (18), AtlasIntel (15), MDA (7), +6 |
+| institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (37), Quaest (18), AtlasIntel (15), MDA (7), +6 |
 | fontes | , poder360 | poder360 |
 
 Partidos: **coincidem (PL)** · diferença entre as médias: 3.1 p.p.
@@ -3774,14 +3774,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 3.1 p.p.
 
 | | Flávio Bolsonaro | Michelle Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 83 |
+| pesquisas | 405 | 83 |
 | período | 2025-06-11 → 2026-08-16 | 2024-01-28 → 2026-07-27 |
 | média % | 37.0 | 40.3 |
 | partidos | PL 2025-06-11→2026-08-16 | PL 2024-01-28→2026-07-27 |
 | institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (22), AtlasIntel (16), Futura (13), Quaest (8), +8 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 3.4 p.p.
 
 **Campo gêmeo — 62 ocorrência(s).** Futura: `2025-12-09` cita *Flávio Bolsonaro* (41.6%, 2º turno) e `2025-12-09` cita *Michelle Bolsonaro* (45.8%, 2º turno).
 
@@ -3795,14 +3795,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 3.3 p.p.
 
 | | Flávio Bolsonaro | Jair Messias Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 45 |
+| pesquisas | 405 | 45 |
 | período | 2025-06-11 → 2026-08-16 | 2023-07-17 → 2026-07-27 |
 | média % | 37.0 | 42.0 |
 | partidos | PL 2025-06-11→2026-08-16 | PL 2023-07-17→2026-07-27 |
 | institutos | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 | Paraná Pesquisas (13), Gerp (7), AtlasIntel (7), Futura (5), +5 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 5.0 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 5.1 p.p.
 
 **Campo gêmeo — 18 ocorrência(s).** Datafolha: `2025-06-11` cita *Flávio Bolsonaro* (38%, 2º turno) e `2025-06-11` cita *Jair Messias Bolsonaro* (45%, 2º turno).
 
@@ -3837,14 +3837,14 @@ Partidos: **coincidem (PL)** · diferença entre as médias: 1.7 p.p.
 
 | | Eduardo Bolsonaro | Flávio Bolsonaro |
 |---|---|---|
-| pesquisas | 34 | 404 |
+| pesquisas | 34 | 405 |
 | período | 2024-12-31 → 2025-12-04 | 2025-06-11 → 2026-08-16 |
 | média % | 32.2 | 37.0 |
 | partidos | PL 2024-12-31→2025-12-04 | PL 2025-06-11→2026-08-16 |
 | institutos | Quaest (8), Futura (6), Datafolha (5), Gerp (4), +6 | Quaest (57), Real Time Big Data (50), AtlasIntel (37), Futura (33), +38 |
 | fontes | , poder360 | , poder360 |
 
-Partidos: **coincidem (PL)** · diferença entre as médias: 4.8 p.p.
+Partidos: **coincidem (PL)** · diferença entre as médias: 4.7 p.p.
 
 **Campo gêmeo — 6 ocorrência(s).** Datafolha: `2025-06-11` cita *Eduardo Bolsonaro* (38%, 2º turno) e `2025-06-11` cita *Flávio Bolsonaro* (38%, 2º turno).
 
@@ -4047,7 +4047,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro | Flávio Bolsonaro |
 |---|---|---|
-| pesquisas | 1 | 404 |
+| pesquisas | 1 | 405 |
 | período | 2024-03-22 → 2024-03-22 | 2025-06-11 → 2026-08-16 |
 | média % | 29.1 | 37.0 |
 | partidos | PP 2024-03-22→2024-03-22 | PL 2025-06-11→2026-08-16 |
@@ -4362,7 +4362,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Flávio Bolsonaro | Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 1 |
+| pesquisas | 405 | 1 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 37.0 | 43.4 |
 | partidos | PL 2025-06-11→2026-08-16 | PL 2024-03-22→2024-03-22 |
@@ -4383,7 +4383,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Flávio Bolsonaro | Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 1 |
+| pesquisas | 405 | 1 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 37.0 | 35.3 |
 | partidos | PL 2025-06-11→2026-08-16 | PSD 2024-03-22→2024-03-22 |
@@ -4404,7 +4404,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Flávio Bolsonaro | Romeu Zema, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 1 |
+| pesquisas | 405 | 1 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 37.0 | 34.6 |
 | partidos | PL 2025-06-11→2026-08-16 | Novo 2024-03-22→2024-03-22 |
@@ -4425,7 +4425,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Flávio Bolsonaro | Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 1 |
+| pesquisas | 405 | 1 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 37.0 | 32.6 |
 | partidos | PL 2025-06-11→2026-08-16 | União Brasil 2024-03-22→2024-03-22 |
@@ -4446,7 +4446,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Flávio Bolsonaro | Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 1 |
+| pesquisas | 405 | 1 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 37.0 | 40.8 |
 | partidos | PL 2025-06-11→2026-08-16 | Republicanos 2024-03-22→2024-03-22 |
@@ -4467,7 +4467,7 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
 | | Flávio Bolsonaro | Tereza Cristina, ex-presidente Jair Bolsonaro |
 |---|---|---|
-| pesquisas | 404 | 1 |
+| pesquisas | 405 | 1 |
 | período | 2025-06-11 → 2026-08-16 | 2024-03-22 → 2024-03-22 |
 | média % | 37.0 | 32.2 |
 | partidos | PL 2025-06-11→2026-08-16 | PP 2024-03-22→2024-03-22 |

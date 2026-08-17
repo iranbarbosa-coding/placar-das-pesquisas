@@ -96,12 +96,6 @@
    ]
   },
   {
-   "nome": "Grassi",
-   "partidos": [
-    "Democrata"
-   ]
-  },
-  {
    "nome": "Gusttavo Lima",
    "partidos": [
     "Sem partido"
@@ -304,6 +298,12 @@
    "nome": "Tereza Cristina",
    "partidos": [
     "PP"
+   ]
+  },
+  {
+   "nome": "Wilson Grassi",
+   "partidos": [
+    "Democrata"
    ]
   }
  ],
@@ -2569,6 +2569,12 @@
    ]
   },
   {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
    "nome": "Eduardo Leite",
    "partidos": [
     "PSD",
@@ -2607,6 +2613,12 @@
    "nome": "Joaquim Barbosa",
    "partidos": [
     "DC"
+   ]
+  },
+  {
+   "nome": "Leonardo Avalanche",
+   "partidos": [
+    "PRTB"
    ]
   },
   {
@@ -2658,6 +2670,12 @@
    "nome": "Rui Costa Pimenta",
    "partidos": [
     "PCO"
+   ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
    ]
   },
   {
@@ -6270,6 +6288,12 @@
    "nome": "Armando Monteiro Neto",
    "partidos": [
     "Podemos"
+   ]
+  },
+  {
+   "nome": "Carlos Sant'anna",
+   "partidos": [
+    "Novo"
    ]
   },
   {

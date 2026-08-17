@@ -10,9 +10,47 @@ import { canonicalCandidate, areDistinct } from "./candidates.mjs";
 
 const STOP = new Set(["da", "de", "do", "das", "dos", "e"]);
 
+/**
+ * A CLÁUSULA DE CENÁRIO NÃO É PARTE DO NOME (decisão do criador, 17/08/2026).
+ *
+ * O Poder360 publica, na própria célula `nome`, a CONDIÇÃO da pergunta junto do
+ * candidato: "Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro". A
+ * pergunta que o instituto fez é "você votaria em Ciro Nogueira SE ele fosse
+ * apoiado por Jair Bolsonaro?" — o voto é do Ciro Nogueira, e o apoiador jamais
+ * deveria influenciar o casamento de identidade. O nome é o que vem antes da
+ * vírgula; o resto é qualificador do cenário.
+ *
+ * O QUE ISSO CUSTOU ANTES DE SER ENTENDIDO. Sem isto, os tokens do apoiador
+ * entram no casamento e `isSubset` faz "Jair Bolsonaro" caber dentro da
+ * cláusula: o 32,2 da Tereza Cristina foi ao ar como sendo do Jair Bolsonaro
+ * (commit `6231cca`), e o 29,1 do Ciro Nogueira (PP) é absorvido pelo Jair
+ * (PL) exatamente do mesmo jeito. Pior, o resultado depende do elenco que a
+ * disputa por acaso tem: a MESMA string vira Tarcísio em `governador:SP`, onde
+ * havia um match, e pessoa nova em `presidente:PR`, onde não havia. Identidade
+ * decidida por sorte.
+ *
+ * A VÍRGULA É O DISCRIMINADOR, e isso foi MEDIDO, não suposto: dos 735 nomes
+ * distintos do banco (store + `nomes-crus.json`), exatamente 9 têm vírgula e os
+ * 9 são cláusula. Nenhum nome legítimo tem — nem os que enganam um detector por
+ * tamanho, como "Adailton de Valmir de Francisquinho". Nenhum outro separador
+ * (`;`, `(`, `:`, ` - `) aparece em nome nenhum.
+ *
+ * A grafia crua NÃO se perde: `scrape.mjs` prende `r.candidate_raw` antes de
+ * canonicalizar e o store guarda `name_raw`, então a cláusula continua
+ * auditável — some do casamento e da exibição, não do registro.
+ */
+export function nomeSemClausula(name) {
+  const i = name.indexOf(",");
+  if (i < 0) return name;
+  const cabeca = name.slice(0, i).trim();
+  // Cabeça vazia significa que a vírgula abre a string — não é a forma que se
+  // mediu, então não se adivinha: devolve como veio (§4).
+  return cabeca || name;
+}
+
 export function nameTokens(name) {
   return new Set(
-    name
+    nomeSemClausula(name)
       .normalize("NFD")
       .replace(/[̀-ͯ]/g, "")
       .toLowerCase()
@@ -202,7 +240,12 @@ export function canonicalizeCandidates(polls) {
   // strings look.
   for (const [contest, contestPolls] of contests) {
     for (const p of contestPolls) {
-      for (const r of p.results ?? []) r.candidate = canonicalCandidate(r.candidate, contest);
+      // A cláusula sai ANTES da tabela curada e antes do agrupamento: ela é a
+      // condição do cenário, não o nome de quem recebeu o voto (ver
+      // `nomeSemClausula`). Tirá-la aqui faz o nome PUBLICADO ser o do
+      // candidato — sem isto a linha do Ciro Nogueira publicava a pergunta
+      // inteira como se fosse o nome dele.
+      for (const r of p.results ?? []) r.candidate = canonicalCandidate(nomeSemClausula(r.candidate), contest);
     }
   }
 

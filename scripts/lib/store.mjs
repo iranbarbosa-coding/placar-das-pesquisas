@@ -26,7 +26,7 @@ import {
   mintSurveyId, mintQuestionId, mintInstituteId, mintCandidateId, mintConflictId,
   normalizeRegistration, nameKey, contestKey,
 } from "./ids.mjs";
-import { sameCandidate } from "./canonicalize.mjs";
+import { sameCandidate, nomeSemClausula } from "./canonicalize.mjs";
 import { normNome } from "./nomes.mjs";
 import { ballotCandidacy, displayOrigin } from "./candidates.mjs";
 import {
@@ -348,7 +348,7 @@ export function resolveInstitute(store, rawName, { mint = true } = {}) {
  *      "Ciro Gomes" e "Ciro" (não registrados) de virarem duas pessoas.
  *   5. cunhar de `person|obs|<escopo>|<grafia>`, com o escopo da opção C.
  */
-export function resolvePerson(store, { raw, display, contest }) {
+export function resolvePerson(store, { raw, display, contest, rawFull = null }) {
   const idx = store._indexes;
   const race = raceOf(contest);
   // O ESCOPO SAI DA MESMA FUNÇÃO QUE A SEMENTE USA. Quando `polledKey` usava a
@@ -368,7 +368,25 @@ export function resolvePerson(store, { raw, display, contest }) {
   const clusterKey = `${contest}|${nameKey(exibido)}`;
   const polledKey = `${escopo}|${normNome(grafia)}`;
 
-  const candidatura = ballotCandidacy(grafia, contest) ?? ballotCandidacy(exibido, contest);
+  // ⚠ A CLÁUSULA SAI DA IDENTIDADE MAS NÃO DA BUSCA PELO REGISTRO — as duas
+  // chaves são consultadas (decisão do criador, 17/08/2026).
+  //
+  // `match-ballot-names.mjs` chaveia `ballot-names.json` pela grafia PUBLICADA,
+  // cláusula inclusive, e em alguns casos é justamente um token da cláusula que
+  // alcança a candidatura. O caso medido: `senador:AL`
+  // "Marina Cândia, esposa do JHC" casa com o nome de urna "Marina Jhc" pelo
+  // token `jhc` — que é o apelido do marido. Consultando só a forma sem
+  // cláusula, ela deixava de casar e uma candidata REGISTRADA se partia em
+  // duas: a pessoa com `sq_candidato` de um lado e uma observação sem registro
+  // do outro, com a linha de pesquisa perdendo o vínculo com o TSE.
+  //
+  // Note a assimetria, que é deliberada: a cláusula não decide QUEM é a pessoa
+  // (não vira alias, não semeia id), mas pode ajudar a ENCONTRAR a candidatura
+  // oficial dela. Encontrar não é inferir — o casador já exigiu candidatura
+  // única e recusa ambíguo (§4).
+  const candidatura = ballotCandidacy(grafia, contest)
+    ?? ballotCandidacy(exibido, contest)
+    ?? ballotCandidacy(rawFull, contest);
   // QUEM SE REGISTROU SÓ É ALCANÇADO PELO REGISTRO.
   //
   // A volta pela grafia (`personByPolled`) é escopada pela opção C, que é a
@@ -447,9 +465,22 @@ function observePerson(store, pessoa, { grafia, exibido, origem }) {
   if (grafia && !pessoa.polled_names.includes(grafia)) {
     pessoa.polled_names = [...pessoa.polled_names, grafia].sort();
   }
+  // `display_from` É UMA AFIRMAÇÃO SOBRE ESTA PESSOA, NÃO SOBRE A TABELA.
+  //
+  // `displayOrigin` responde "existe entrada de nome de urna para esta grafia?",
+  // que é pergunta sobre o ARQUIVO. Se a pessoa não tem `nome_urna`, nenhuma
+  // camada de nome de urna decidiu o nome dela, e carimbar `nome_urna` aqui é
+  // procedência falsa — o mesmo defeito que `chaveDecidida` fechou entre
+  // `canonicalCandidate` e `displayOrigin`, uma camada acima.
+  //
+  // Medido: `p_4ccb803fcd5f` ("Ciro Nogueira", presidente) saiu com
+  // `display_from: "nome_urna"` tendo `nome_urna: null` e `sq_candidato: []`.
+  // A tabela conhecia a grafia por OUTRA disputa; esta pessoa não.
+  const alegada = origem ?? "mais curta observada";
+  const honesta = alegada === "nome_urna" && !pessoa.nome_urna ? "mais curta observada" : alegada;
   const escolha = melhorDisplay(
     { display: pessoa.display, display_from: pessoa.display_from },
-    { display: exibido, display_from: origem ?? "mais curta observada" },
+    { display: exibido, display_from: honesta },
   );
   pessoa.display = escolha.display;
   pessoa.display_from = escolha.display_from;
@@ -483,13 +514,37 @@ export function seedRegisteredPeople(store, opts) {
  */
 export function resolveCandidate(store, rawName, contest, party, { mint = true, fuzzy = true, raw = null } = {}) {
   const idx = store._indexes;
+  // A CLÁUSULA DE CENÁRIO NÃO ENTRA NA IDENTIDADE — NEM COMO ALIAS, NEM NA
+  // SEMENTE DA PESSOA (decisão do criador, 17/08/2026; ver `nomeSemClausula`).
+  //
+  // ONDE ISTO JÁ ESTEVE E POR QUE NÃO BASTAVA. A primeira versão tirava a
+  // cláusula só em `nameTokens` e na entrada de `canonicalizeCandidates` — ou
+  // seja, DEPOIS que a grafia crua já tinha virado alias aqui. O efeito, achado
+  // por verificação independente e não pelos guardas (parity, validate-store e
+  // censo estavam TODOS verdes): o alias
+  // "Tereza Cristina, ex-presidente Jair Bolsonaro", pendurado no candidato
+  // "Jair Bolsonaro", encolhia para {tereza, cristina} e passava a casar
+  // EXATAMENTE com a "Tereza Cristina" limpa que chegava. Ela era reabsorvida
+  // pelo Jair, a semente da pergunta colidia com o cenário Bolsonaro×Lula
+  // legítimo, o legítimo ganhava — e a linha `Lula 44,5 × Tereza Cristina 32,2`
+  // deixava de existir no banco. Um dado publicado desaparecia para consertar o
+  // rótulo dele.
+  //
+  // ONDE A CLÁUSULA SOBREVIVE E ONDE NÃO. Sobrevive em `results[].name_raw` na
+  // pergunta, que é a procedência de verdade — o que o instituto publicou — e
+  // que não passa por esta função. NÃO sobrevive em `polled_names`: apesar do
+  // nome, aquilo é ÍNDICE DE REENCONTRO (`priorStamps` chaveia
+  // `obs_scope|normNome(grafia)` por ali para não recunhar quem não se
+  // registrou), então uma cláusula lá voltaria a ser chave de identidade pela
+  // porta dos fundos — o mesmo defeito, um nível abaixo.
+  const rawIdent = raw ? nomeSemClausula(raw) : null;
   const key = `${contest}|${nameKey(rawName)}`;
-  const rawKey = raw ? `${contest}|${nameKey(raw)}` : null;
+  const rawKey = rawIdent ? `${contest}|${nameKey(rawIdent)}` : null;
   let cand = idx.candidateByAlias.get(key) ?? (rawKey ? idx.candidateByAlias.get(rawKey) : null);
   if (cand) {
     attachAlias(store, cand, key, rawName);
-    if (raw) attachAlias(store, cand, rawKey, raw);
-    notePolledName(store, cand, { raw, rawName, contest });
+    if (rawIdent) attachAlias(store, cand, rawKey, rawIdent);
+    notePolledName(store, cand, { raw: rawIdent, rawName, contest });
     return cand;
   }
   if (fuzzy) {
@@ -497,14 +552,14 @@ export function resolveCandidate(store, rawName, contest, party, { mint = true, 
       if (c.contest !== contest) continue;
       if (sameCandidate(c.canonical, rawName) || (c.aliases ?? []).some((a) => sameCandidate(a, rawName))) {
         attachAlias(store, c, key, rawName);
-        notePolledName(store, c, { raw, rawName, contest });
+        notePolledName(store, c, { raw: rawIdent, rawName, contest });
         return c;
       }
     }
   }
   if (!mint) return null;
 
-  const pessoa = resolvePerson(store, { raw: raw ?? rawName, display: rawName, contest });
+  const pessoa = resolvePerson(store, { raw: rawIdent ?? rawName, display: rawName, contest, rawFull: raw });
   // A LINHA CONTINUA SENDO POR DISPUTA, de propósito. É ela que deixa
   // `validate-store.mjs` seguir afirmando `candidate.contest === question.race:uf`
   // — o guarda que pega um candidato a governador aparecendo numa pergunta de
@@ -518,7 +573,7 @@ export function resolveCandidate(store, rawName, contest, party, { mint = true, 
   const existente = idx.candidateById.get(candidate_id);
   if (existente) {
     attachAlias(store, existente, key, rawName);
-    if (raw) attachAlias(store, existente, rawKey, raw);
+    if (rawIdent) attachAlias(store, existente, rawKey, rawIdent);
     return existente;
   }
 
@@ -534,7 +589,7 @@ export function resolveCandidate(store, rawName, contest, party, { mint = true, 
   store.candidates.push(rec);
   idx.candidateByAlias.set(key, rec);
   idx.candidateById.set(candidate_id, rec);
-  if (rawKey) attachAlias(store, rec, rawKey, raw);
+  if (rawKey) attachAlias(store, rec, rawKey, rawIdent);
   store._report.minted.candidates++;
   return rec;
 }
