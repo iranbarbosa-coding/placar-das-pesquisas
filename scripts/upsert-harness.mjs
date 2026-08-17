@@ -14,12 +14,13 @@
 // destroy the database.
 //
 // Run: node scripts/upsert-harness.mjs [--verbose]
+import { nomeSemClausula, nameTokens } from "./lib/canonicalize.mjs";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {
   readStore, writeStore, markHeadlines, resolveCandidate, resolvePerson,
-  priorStamps, emptyIndexes, TABLE_NAMES,
+  priorStamps, emptyIndexes, TABLE_NAMES, DATA_DIR,
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
 import { mintCandidateId, nameKey } from "./lib/ids.mjs";
@@ -442,6 +443,56 @@ check("o registro é alcançável pelo NOME DE URNA que ele próprio impõe", (s
     assert(!!viaUrna, `${contest}: "${urna}" (o nome que o site EXIBE) não alcança o registro`);
     assert(viaPublicado?.sq_candidato === viaUrna?.sq_candidato,
       `${contest}: as duas grafias apontam para candidaturas diferentes (${viaPublicado?.sq_candidato} × ${viaUrna?.sq_candidato})`);
+  }
+});
+
+check("a cláusula de cenário nunca entrega o voto ao APOIADOR", (store, assert) => {
+  // O RISCO QUE `ballotCandidacy(rawFull)` ABRE, e que só um caso fecha.
+  //
+  // A cláusula está barrada da identidade — não vira alias, não semeia id —, mas
+  // `resolvePerson` ainda a consulta para ENCONTRAR a candidatura oficial. É o
+  // que devolve a "Marina Cândia, esposa do JHC" o seu nome de urna "Marina Jhc"
+  // (o token `jhc` é o único caminho até ela) sem o qual uma candidata
+  // REGISTRADA se partia em duas.
+  //
+  // O buraco: `match-ballot-names.mjs` casa por CONTENÇÃO e não sabe qual token
+  // é a cabeça do nome. Numa cláusula "X, com apoio de Y", se Y tem candidatura
+  // registrada naquela disputa e X não tem, existe exatamente UMA candidatura
+  // compatível — a de Y — e o voto de X iria para o apoiador. É a mesma família
+  // do 32,2 da Tereza Cristina publicado como do Jair Bolsonaro (`6231cca`),
+  // entrando por outra porta.
+  //
+  // Hoje isso não acontece porque Jair Bolsonaro não tem candidatura em 2026, o
+  // que é um fato sobre ESTA eleição, não uma propriedade da regra. Este caso
+  // existe para que a próxima cláusula que chegue não o descubra em produção.
+  // ⚠ LÊ O BANCO REAL, não o `store` fixture que `check()` entrega — a fixture
+  // não tem cláusula nenhuma, e um caso que só a percorresse seria vacuamente
+  // verde para sempre. É o mesmo motivo pelo qual o caso do nome de urna acima
+  // consulta `ballotCandidacy`, que lê `data/ballot-names.json` de verdade.
+  const clausulas = new Map();
+  for (const linha of fs.readFileSync(path.join(DATA_DIR, "questions.ndjson"), "utf-8").trim().split("\n")) {
+    const q = JSON.parse(linha);
+    for (const r of q.results ?? []) {
+      const n = r.name_raw ?? "";
+      if (n.includes(",")) clausulas.set(`${q.race}:${q.uf ?? "BR"}|${n}`, { contest: `${q.race}:${q.uf ?? "BR"}`, nome: n });
+    }
+  }
+  assert(clausulas.size > 0, "nenhuma cláusula no banco — este caso não está exercitando nada");
+  for (const { contest, nome } of clausulas.values()) {
+    const achado = ballotCandidacy(nome, contest);
+    if (!achado) continue; // não casar é o resultado seguro
+    const cabeca = nomeSemClausula(nome);
+    const viaCabeca = ballotCandidacy(cabeca, contest);
+    // A candidatura alcançada PELA CLÁUSULA tem de ser a mesma que a CABEÇA
+    // alcança — ou, quando a cabeça sozinha não casa (o caso da Marina), tem de
+    // ao menos partilhar token com ela, nunca ser puro apoiador.
+    const ok = viaCabeca
+      ? achado.sq_candidato === viaCabeca.sq_candidato
+      : nameTokens(achado.nome_urna ?? "").size > 0 &&
+        [...nameTokens(cabeca)].some((t) => nameTokens(achado.nome_urna ?? "").has(t));
+    assert(ok,
+      `${contest}: "${nome}" resolveu para a candidatura "${achado.nome_urna}" ` +
+      `(sq ${achado.sq_candidato}), que NÃO é a de "${cabeca}" — o voto foi para o apoiador`);
   }
 });
 
