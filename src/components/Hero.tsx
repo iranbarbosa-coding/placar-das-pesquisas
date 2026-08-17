@@ -10,7 +10,7 @@ import HeroChart, {
 /* Type-only: `Headline` is erased at compile time, so this file carries NO
    runtime dependency on lib/home (and therefore none on lib/data's `node:fs`). */
 import type { Headline } from "@/lib/home";
-import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
+import { fmtDate, fmtPct } from "@/lib/format";
 import type { RaceAverage } from "@/lib/types";
 
 /**
@@ -122,33 +122,6 @@ function marginSentence(h: Headline, basis: RaceAverage["basis"]): string {
   return `${lead} — ${d} ponto${h.toFifty === 1 ? "" : "s"} percentua${h.toFifty === 1 ? "l" : "is"} acima dos 50% necessários para vencer ainda no primeiro turno.`;
 }
 
-/** One line of the "Em resumo" panel: a big tabular number over a quiet label. */
-function ResumoRow({
-  value,
-  label,
-  color,
-  accent,
-}: {
-  value: string;
-  label: string;
-  color?: string;
-  accent?: boolean;
-}) {
-  return (
-    <div className="flex items-baseline justify-between gap-3 py-2">
-      <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
-        {label}
-      </span>
-      <span
-        className="tabular shrink-0 text-lg font-bold"
-        style={{ ...DISPLAY, color: color ?? (accent ? "var(--accent)" : "var(--text-primary)") }}
-      >
-        {value}
-      </span>
-    </div>
-  );
-}
-
 export default function Hero({
   average,
   headline,
@@ -168,8 +141,6 @@ export default function Hero({
   const validos = average?.basis === "validos";
   const basisLabel = validos ? "votos válidos" : "total da amostra";
   const hidden = average ? Math.max(0, average.candidates.length - series.length) : 0;
-  const leader = average?.candidates[0] ?? null;
-  const second = average?.candidates[1] ?? null;
   const showFifty = fiftyTop != null && fiftyTop >= 0 && fiftyTop <= 100;
   // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
   const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
@@ -196,9 +167,9 @@ export default function Hero({
 
   return (
     <section aria-labelledby="hero-titulo">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
-        {/* ── LEFT: title, KPI numbers, the framed chart ─────────────────── */}
-        <div className="flex min-w-0 flex-col gap-4">
+      {/* Single full-width column: the "Em resumo" side panel was removed at the
+          owner's request, so the title, KPIs and framed chart span the card. */}
+      <div className="flex min-w-0 flex-col gap-4">
           <div className="flex flex-col gap-2">
             <p
               className="text-[11px] font-bold uppercase tracking-[0.16em]"
@@ -356,48 +327,18 @@ export default function Hero({
               Ainda não há pesquisas suficientes para uma média da corrida presidencial.
             </p>
           )}
-        </div>
 
-        {/* ── RIGHT: the "Em resumo" panel ───────────────────────────────── */}
-        {average && headline && leader && (
-          <aside
-            aria-label="Em resumo"
-            className="p-4"
-            style={{ background: "var(--surface-2)", borderRadius: "8px", border: "1px solid var(--ring)" }}
+          {/* The hero's CTA. The "Em resumo" panel that used to carry it was
+              removed at the owner's request, so this modest inline link keeps the
+              hero's single link to the full race. */}
+          <Link
+            href={href}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold"
+            style={{ color: "var(--accent)" }}
           >
-            <p
-              className="mb-1 text-[11px] font-bold uppercase tracking-[0.16em]"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Em resumo
-            </p>
-            <div className="divide-y" style={{ borderColor: "var(--ring)" }}>
-              <ResumoRow value={`${fmtPct(leader.avg)}%`} label={leader.candidate} color={series[0]?.color} />
-              {second && (
-                <ResumoRow value={`${fmtPct(second.avg)}%`} label={second.candidate} color={series[1]?.color} />
-              )}
-              <ResumoRow
-                value={`${fmtSigned(average.spread)} p.p.`}
-                label={`Vantagem de ${headline.leader}`}
-              />
-              {validos && (
-                <ResumoRow
-                  value={`${fmtSigned(headline.toFifty)} p.p.`}
-                  label="Para vencer no 1º turno"
-                />
-              )}
-              <ResumoRow value={String(average.pollCount)} label="Pesquisas na média" />
-            </div>
-            <Link
-              href={href}
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ background: "var(--accent)" }}
-            >
-              Ver análise completa <span aria-hidden="true">→</span>
-            </Link>
-          </aside>
-        )}
-      </div>
+            Ver análise completa <span aria-hidden="true">→</span>
+          </Link>
+        </div>
     </section>
   );
 }
