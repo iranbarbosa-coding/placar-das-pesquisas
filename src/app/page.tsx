@@ -39,9 +39,10 @@ export default function Home() {
 
   return (
     <>
-      {/* Full-bleed, so it must sit outside the page container. The switch is a
-          thin client wrapper; the hero itself is unchanged and still renders
-          whatever average it is handed. */}
+      {/* Contained since the 2026-08-17 redesign — the hero is now a chart card
+          plus an "Em resumo" panel inside the page shell, not a full-bleed
+          backdrop. The switch is a thin client wrapper that hands the hero the
+          chosen basis cut. */}
       <HeroBasisSwitch
         average={hero?.average ?? null}
         headline={hero?.headline ?? null}

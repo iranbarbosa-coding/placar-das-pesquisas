@@ -233,11 +233,90 @@ export function heroChartModel(average: RaceAverage | null, maxSeries = 6): Mode
 }
 
 const MES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const MES_ABREV = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 
 function fmtLong(iso: string): string {
   const [y, m, d] = iso.split("-");
   const mes = MES[Number(m) - 1];
   return mes ? `${Number(d)} de ${mes} de ${y}` : iso;
+}
+
+/**
+ * Month ticks for the FRAMED hero, as {label, leftPct} — the x-axis the brief
+ * (§4) asks for so a reader can place "when", not just "what". Geometry stays
+ * here, in the one module that owns the x-scale, instead of being re-derived in
+ * the hero. Each tick is the first of a month inside the drawn span, placed by
+ * the same linear time scale the paths use. Returns [] on a flat/single-date
+ * race, where there is no time extent to label.
+ */
+export function heroAxisTicks(model: Model | null): { label: string; leftPct: number }[] {
+  if (!model || model.flat || !model.from || !model.to) return [];
+  const t0 = isoTime(model.from);
+  const t1 = isoTime(model.to);
+  const span = t1 - t0;
+  if (!(span > 0)) return [];
+  // Collect every month-first inside the span, then THIN to ~8 labels so a
+  // two-year series does not print a solid ribbon of month names (the mockup's
+  // span was four months; real data reaches two years). The step keeps January
+  // preferentially so year boundaries survive the thinning and carry the year.
+  const months: { y: number; m: number; t: number }[] = [];
+  const start = new Date(t0);
+  let y = start.getUTCFullYear();
+  let m = start.getUTCMonth();
+  if (start.getUTCDate() !== 1) { m += 1; if (m > 11) { m = 0; y += 1; } }
+  for (;;) {
+    const t = Date.UTC(y, m, 1);
+    if (t > t1) break;
+    months.push({ y, m, t });
+    m += 1; if (m > 11) { m = 0; y += 1; }
+  }
+  const MAX = 8;
+  // Snap the stride to a divisor of 12, so kept months stay evenly spaced FROM
+  // January. A raw stride of 5 (what ~3 years produces) would keep Jan and Nov,
+  // two months apart, and the year label collides with the Nov tick at 375px.
+  const raw = Math.max(1, Math.ceil(months.length / MAX));
+  const step = [1, 2, 3, 4, 6, 12].find((s) => s >= raw) ?? 12;
+  const ticks: { label: string; leftPct: number }[] = [];
+  for (const mo of months) {
+    // Anchor on January (m 0) so kept ticks line up with year turns, and a
+    // January tick carries the year instead of the month name.
+    if (mo.m % step !== 0) continue;
+    ticks.push({
+      label: mo.m === 0 ? String(mo.y) : MES_ABREV[mo.m],
+      leftPct: ((mo.t - t0) / span) * 100,
+    });
+  }
+  return ticks;
+}
+
+/** Vertical position (top %, 0 at the box top) of a value on the framed scale.
+ *  Lets the hero place an HTML "50%" label exactly on the SVG's dashed line. */
+export function heroLevelTopPct(model: Model | null, value: number): number | null {
+  if (!model) return null;
+  return (model.y(value) / H) * 100;
+}
+
+/** The last-poll marker for the framed hero: the leader series' final point,
+ *  as {leftPct, topPct, label, value, color}. Null when there is no span. */
+export function heroLastMarker(model: Model | null):
+  | { leftPct: number; topPct: number; name: string; value: number; color: string; date: string }
+  | null {
+  if (!model || model.flat || !model.from || !model.to) return null;
+  const t0 = isoTime(model.from);
+  const span = isoTime(model.to) - t0;
+  if (!(span > 0)) return null;
+  // Leader = the largest current average (painting order's first area).
+  const leader = [...model.series].sort((a, b) => b.avg - a.avg)[0];
+  const last = leader?.points[leader.points.length - 1];
+  if (!leader || !last) return null;
+  return {
+    leftPct: ((isoTime(last.date) - t0) / span) * 100,
+    topPct: (model.y(last.avg) / H) * 100,
+    name: leader.name,
+    value: last.avg,
+    color: leader.color,
+    date: last.date,
+  };
 }
 
 function pct(v: number): string {
@@ -250,13 +329,24 @@ export interface HeroChartProps {
   /** Hard cap on drawn areas. Default 6, per the hero spec. */
   maxSeries?: number;
   className?: string;
+  /**
+   * FRAMED mode (2026-08-17 redesign). Draws the 50% line inside the plot.
+   * The old note below explains why the line was REMOVED from the full-bleed
+   * hero: unlabelled, over a full-bleed backdrop, near the scrimmed top, it read
+   * as a section divider. The redesign puts the chart inside a bordered card
+   * with an axis and an HTML "50%" label beside the line (see Hero), so the
+   * objection no longer holds and the brief (§4) asks for it back. Off by
+   * default, so the full-bleed usage — if any survives — is unchanged.
+   */
+  framed?: boolean;
 }
 
-export default function HeroChart({ average, maxSeries = 6, className }: HeroChartProps) {
+export default function HeroChart({ average, maxSeries = 6, className, framed = false }: HeroChartProps) {
   const model = heroChartModel(average, maxSeries);
   if (!model) return null;
 
-  const { painted, y, from, to, flat } = model;
+  const { painted, y, from, to, flat, yMax } = model;
+  const marker = framed ? heroLastMarker(model) : null;
   const top = model.series.slice(0, 3).map((s) => `${s.name} ${pct(s.avg)}`).join(", ");
   const period =
     flat || !from || !to
@@ -348,6 +438,31 @@ export default function HeroChart({ average, maxSeries = 6, className }: HeroCha
         strokeWidth={1}
         vectorEffect="non-scaling-stroke"
       />
+
+      {/* FRAMED extras — see the `framed` prop note. The 50% line only exists
+          when 50 is on the drawn scale; below that it would sit off the top. */}
+      {framed && yMax >= 50 && (
+        <line
+          x1={0}
+          x2={W}
+          y1={co(y(50))}
+          y2={co(y(50))}
+          stroke="var(--axis)"
+          strokeWidth={1}
+          strokeDasharray="4 4"
+          vectorEffect="non-scaling-stroke"
+        />
+      )}
+      {framed && marker && (
+        <path
+          d={`M${co((marker.leftPct / 100) * W)},${co((marker.topPct / 100) * H)} L${co((marker.leftPct / 100) * W)},${co((marker.topPct / 100) * H)}`}
+          fill="none"
+          stroke={marker.color}
+          strokeWidth={8}
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      )}
     </svg>
   );
 }

@@ -1,87 +1,43 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import HeroChart, { heroSeries } from "./HeroChart";
+import HeroChart, {
+  heroSeries,
+  heroChartModel,
+  heroAxisTicks,
+  heroLastMarker,
+  heroLevelTopPct,
+} from "./HeroChart";
 /* Type-only: `Headline` is erased at compile time, so this file carries NO
-   runtime dependency on lib/home (and therefore none on lib/data's `node:fs`).
-   `shortName` was imported here at first and dropped — see the badge below. */
+   runtime dependency on lib/home (and therefore none on lib/data's `node:fs`). */
 import type { Headline } from "@/lib/home";
 import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import type { RaceAverage } from "@/lib/types";
 
 /**
- * The front page's opening statement: one race, most of the first screen.
+ * The front page's opening statement: one race as an electoral dashboard.
  *
- * Server component — nothing here reacts to anything. The interactive chart is
- * `AverageChart`, on the race page this hero links to; the backdrop here is
- * `HeroChart`, which is static by design.
+ * ── THE 2026-08-17 REDESIGN ───────────────────────────────────────────────
+ * This used to be a FULL-BLEED area chart with the headline set over it, and
+ * carried a page of machinery for that: a zero-scrollbar full-bleed trick, band
+ * heights tuned to the copy, a scrim to keep type legible over live chart. The
+ * creator's redesign mockup replaces that with the RealClearPolling/Bloomberg
+ * shape — a CONTAINED chart in a card, with a visible time axis, the 50% line
+ * and a last-poll marker, beside an "Em resumo" panel of the key numbers. All
+ * of that machinery is therefore gone: the chart lives in a normal box now, so
+ * there is nothing to keep from overflowing and nothing to scrim.
  *
- * It renders what it is handed and loads nothing. The page calls `heroRace()`
- * and passes the result down, so the selection rule ("which race gets the front
- * page") stays in `lib/home.ts` where it is written down with its reason.
+ * Server component — nothing here reacts. The basis toggle is the one piece of
+ * state, and it lives one level up in `HeroBasisSwitch`, which hands this
+ * component the chosen cut as props plus the toggle itself as `controls`.
  *
- * FULL BLEED WITHOUT A HORIZONTAL SCROLLBAR
- * -----------------------------------------
- * The usual `width: 100vw; margin-inline: calc(50% - 50vw)` overflows by half a
- * scrollbar: viewport units are defined as if scrollbars did not exist, so
- * `100vw` is wider than the document whenever the scrollbar is a classic one,
- * and the page grows a horizontal scrollbar it never asked for.
- *
- * This uses no viewport units at all. The chart layer is `position: absolute`
- * with `left: 0; right: 0` and NO positioned ancestor, so its containing block
- * is the initial containing block — which is the viewport MINUS the scrollbar,
- * the exact width of the document. It cannot overflow, at 375px or anywhere
- * else, because it is sized to the thing it must not exceed. `top` is left auto
- * so the layer lands at its static position: the top of this section.
- *
- * Two consequences worth knowing before editing:
- *  1. Nothing between this layer and <html> may be positioned or create a
- *     containing block (`transform`, `filter`, `contain`, `backdrop-filter`).
- *     `<section>` below is therefore deliberately NOT `relative`. If a future
- *     wrapper breaks that, the chart quietly falls back to container width —
- *     it degrades, it does not overflow.
- *  2. Out of flow means it reserves no height, so the text block carries a
- *     matching `min-height`. If the copy ever grows past the band the text wins
- *     and the chart simply covers less of it; nothing collides.
- *
- * LEGIBILITY OVER THE CHART
- * -------------------------
- * Measured at 375, 768 and 1280, not assumed — the first version put the type
- * straight onto live chart at 375px because the copy wraps to nearly twice its
- * desktop height there while the band did not grow to match. Three measures,
- * each doing a different job:
- *
- *  1. The band is taller on phones than on desktop (the copy is), so the type
- *     block ends inside the chart's scrim rather than past it.
- *  2. The chart occupies the bottom of the band only — 27% on phones, 50% from
- *     `sm` up — so the 48px headline is never over a drawn area at any width.
- *  3. A `var(--page)` scrim covers the top 30% of the CHART BOX (not of the
- *     band): it is anchored to the thing it has to hide, so changing either
- *     height cannot slide it off target. The tail of the copy — legend and
- *     caption — lands inside it, measured, with margin to spare.
- *
- * The fills are gradients that fade out toward the baseline, so the bottom of
- * the band, where the areas overlap most, is the quietest part of the picture.
+ * WHAT SURVIVED THE REWRITE, and must not regress:
+ *  · Colours come from `heroSeries` (name-hashed / pinned), never from position.
+ *  · The 50%/distance claim exists ONLY on votos válidos — the "Em resumo" panel
+ *    and the sentence both drop the distance-to-50 line on bruto, matching
+ *    `RaceBadge`, so switching basis changes the claim rather than lying.
+ *  · The full leader name is shown, never `shortName` (which turns "Luiz Inácio
+ *    Lula da Silva" into "Luiz").
  */
-
-/**
- * Band height, and the copy's matching floor. Each pair MUST stay in step —
- * see note 2 above. Phones get MORE height than desktop on purpose: the
- * headline wraps to two lines and the legend to six, so the copy is taller.
- *
- * TWO PAIRS, because the band is sized to the copy and the copy has two
- * shapes. The scrim's lower edge sits at 65% of the band (50% chart box, then
- * 30% of that box), and the caption has to end above it. Adding the basis
- * toggle put 76px of control and explanation into the copy and pushed the
- * caption's baseline to 431px below the band top against a 403px scrim — the
- * caption landed on live chart, measured at 1280 before this constant existed.
- * The taller band restores the margin instead of shrinking the copy.
- */
-const BAND = "h-[700px] sm:h-[620px]";
-const BAND_MIN = "min-h-[700px] sm:min-h-[620px]";
-const BAND_CONTROLS = "h-[800px] sm:h-[740px]";
-const BAND_CONTROLS_MIN = "min-h-[800px] sm:min-h-[740px]";
-/** Chart box, as a share of the band. Bottom-anchored. */
-const CHART_BOX = "h-[27%] sm:h-[50%]";
 
 /** Condensed display face, with real fallbacks; no webfont, no new dependency. */
 const DISPLAY = {
@@ -99,31 +55,24 @@ export interface HeroProps {
   scenario?: string;
   eyebrow?: string;
   title?: string;
-  /** Where the ghost button goes. Default `/presidente`. */
+  /** Where the panel's CTA goes. Default `/presidente`. */
   href?: string;
   ctaLabel?: string;
   /** Hard cap on drawn areas. Default 6, per the hero spec. */
   maxSeries?: number;
   /**
-   * Optional control strip under the badge row — the home page's basis toggle.
-   * A slot, not a control: this component stays a renderer with no state, and
-   * whoever owns the state owns the buttons.
+   * The basis toggle, owned by `HeroBasisSwitch`. A slot, not a control: this
+   * component stays a renderer with no state.
    */
   controls?: ReactNode;
 }
 
 /**
- * The margin, in prose. The badge is a glance; this is the statement — and it
- * is the version a screen reader, a summary card or a reader who does not parse
- * "−7,3" as a distance actually gets.
- *
+ * The margin, in prose — the version a screen reader or a summary card gets.
  * ── THE 50% CLAIM ONLY EXISTS IN VOTOS VÁLIDOS ────────────────────────────
- * On the bruto cut the denominator includes branco/nulo and não sabe, so "X
- * pontos abaixo dos 50% necessários" is simply false — the threshold is not on
- * that scale. `RaceBadge` already refuses to print a distance-to-50 on bruto
- * for exactly this reason; the hero must not contradict it two components away.
- * So the bruto sentence states the leader's number, names its base, and says
- * why the threshold is missing rather than quietly dropping it.
+ * On bruto the denominator includes branco/nulo/não sabe, so "X pontos abaixo
+ * dos 50%" is false — the threshold is not on that scale. So the bruto sentence
+ * states the number, names the base, and says why the threshold is missing.
  */
 function marginSentence(h: Headline, basis: RaceAverage["basis"]): string {
   if (basis !== "validos") {
@@ -140,6 +89,33 @@ function marginSentence(h: Headline, basis: RaceAverage["basis"]): string {
   return `${lead} — ${d} ponto${h.toFifty === 1 ? "" : "s"} percentua${h.toFifty === 1 ? "l" : "is"} acima dos 50% necessários para vencer ainda no primeiro turno.`;
 }
 
+/** One line of the "Em resumo" panel: a big tabular number over a quiet label. */
+function ResumoRow({
+  value,
+  label,
+  color,
+  accent,
+}: {
+  value: string;
+  label: string;
+  color?: string;
+  accent?: boolean;
+}) {
+  return (
+    <div className="flex items-baseline justify-between gap-3 py-2">
+      <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
+        {label}
+      </span>
+      <span
+        className="tabular shrink-0 text-lg font-bold"
+        style={{ ...DISPLAY, color: color ?? (accent ? "var(--accent)" : "var(--text-primary)") }}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
+
 export default function Hero({
   average,
   headline,
@@ -152,143 +128,172 @@ export default function Hero({
   controls,
 }: HeroProps) {
   const series = heroSeries(average, maxSeries);
+  const model = heroChartModel(average, maxSeries);
+  const ticks = heroAxisTicks(model);
+  const marker = heroLastMarker(model);
+  const fiftyTop = heroLevelTopPct(model, 50);
   const validos = average?.basis === "validos";
   const basisLabel = validos ? "votos válidos" : "total da amostra";
   const hidden = average ? Math.max(0, average.candidates.length - series.length) : 0;
-  // The control strip is part of the copy, so it is part of what the band has
-  // to be tall enough for. Picked here, applied to BOTH constants together.
-  const band = controls ? BAND_CONTROLS : BAND;
-  const bandMin = controls ? BAND_CONTROLS_MIN : BAND_MIN;
+  const leader = average?.candidates[0] ?? null;
+  const second = average?.candidates[1] ?? null;
+  const showFifty = fiftyTop != null && fiftyTop >= 0 && fiftyTop <= 100;
 
   return (
-    /* NOT `relative` — see the full-bleed note above. */
-    <section aria-labelledby="hero-titulo" className="mb-8">
-      {/* The backdrop. First in flow because `top: auto` puts an absolutely
-          positioned box at its static position, and its static position has to
-          be the top of the band. */}
-      {series.length > 0 && (
-        <div className={`pointer-events-none absolute left-0 right-0 overflow-hidden ${band}`}>
-          <div className={`absolute inset-x-0 bottom-0 ${CHART_BOX}`}>
-            <HeroChart average={average} maxSeries={maxSeries} />
-            {/* Scrim over the top of the CHART BOX — see note 3 above. */}
-            <div
-              className="absolute inset-0"
-              aria-hidden="true"
-              style={{
-                background: "linear-gradient(to bottom, var(--page) 0%, rgba(0,0,0,0) 30%)",
-              }}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* `relative` here is safe: this box is a SIBLING of the layer above, not
-          an ancestor of it. It only lifts the type above the backdrop. */}
-      {/* The band's height is reserved only when there IS a chart to reserve it
-          for. With no average there is nothing behind the copy, and a 700px
-          column of empty page under four lines of text is not a hero, it is a
-          hole. */}
-      <div className={`relative z-[1] flex flex-col gap-4 pt-1 ${series.length > 0 ? bandMin : ""}`}>
-        <p
-          className="text-[11px] font-bold uppercase tracking-[0.16em]"
-          style={{ color: "var(--accent)" }}
-        >
-          {eyebrow}
-        </p>
-
-        <h1
-          id="hero-titulo"
-          className="max-w-[15ch] text-[48px] font-bold leading-[0.98] tracking-[-0.01em]"
-          style={{ ...DISPLAY, color: "var(--text-primary)" }}
-        >
-          {title}
-        </h1>
-
-        <div className="flex flex-wrap items-center gap-3">
-          {headline && (
-            <span
-              className="tabular inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-semibold"
-              style={{
-                borderColor: "var(--accent)",
-                background: "var(--surface-1)",
-                color: "var(--text-primary)",
-              }}
+    <section aria-labelledby="hero-titulo" className="mb-10">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start">
+        {/* ── LEFT: title, KPI numbers, the framed chart ─────────────────── */}
+        <div className="flex min-w-0 flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.16em]"
+              style={{ color: "var(--accent)" }}
             >
-              {/* FULL NAME, not `shortName`. That helper takes the first token
-                  unless it is an honorific, which turns "Luiz Inácio Lula da
-                  Silva" into "Luiz" — a name nobody uses for him. It measures
-                  under the pill's width at 375px; `truncate` is the backstop
-                  for a longer one, and the sentence below always spells the
-                  leader out in full regardless. */}
-              <span className="truncate">{headline.leader}</span>
-              <span
-                aria-hidden="true"
-                className="inline-block h-3.5 w-px shrink-0"
-                style={{ background: "var(--axis)" }}
-              />
-              {/* Same rule as `RaceBadge`: no distance-to-50 outside votos
-                  válidos. The badge does not disappear — it reports the number
-                  it does have, with its base named, so switching basis changes
-                  the claim rather than removing the summary. */}
-              <span className="whitespace-nowrap">
-                {validos
-                  ? `${fmtSigned(headline.toFifty)} p.p. dos 50%`
-                  : `${fmtPct(headline.leaderPct)}% da amostra`}
-              </span>
-            </span>
-          )}
+              {eyebrow}
+            </p>
+            <h1
+              id="hero-titulo"
+              className="text-[40px] font-bold leading-[0.98] tracking-[-0.01em] sm:text-[46px]"
+              style={{ ...DISPLAY, color: "var(--text-primary)" }}
+            >
+              {title}
+            </h1>
+            {average && (
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                Média das {average.pollCount} pesquisa{average.pollCount === 1 ? "" : "s"} · 1º turno · {basisLabel}
+              </p>
+            )}
+          </div>
 
-          <Link
-            href={href}
-            className="inline-flex items-center gap-2 rounded-md border px-4 py-1.5 text-sm font-semibold transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            style={{ borderColor: "var(--axis)", background: "transparent", color: "var(--text-primary)" }}
-          >
-            {ctaLabel} <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+          {controls}
 
-        {controls}
-
-        {headline ? (
-          <p className="max-w-[52ch] text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
-            {marginSentence(headline, average?.basis ?? "validos")}
-          </p>
-        ) : (
-          <p className="max-w-[52ch] text-sm sm:text-base" style={{ color: "var(--text-secondary)" }}>
-            Ainda não há pesquisas suficientes para uma média da corrida presidencial.
-          </p>
-        )}
-
-        {series.length > 0 && (
-          <>
-            {/* The chart's numbers, in text. Doubles as the legend: same colours,
-                same order, one computation shared with the drawing. */}
-            <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm">
+          {/* KPI number row — the chart's series as headline figures. Same
+              colours and order as the drawing, one computation shared. */}
+          {series.length > 0 && (
+            <ul className="flex flex-wrap gap-x-6 gap-y-3">
               {series.map((s) => (
-                <li key={s.key} className="flex items-center gap-2">
+                <li key={s.key} className="flex min-w-0 flex-col gap-0.5">
                   <span
-                    aria-hidden="true"
-                    className="h-2.5 w-2.5 shrink-0 rounded-full"
-                    style={{ background: s.color }}
-                  />
-                  <span className="truncate" style={{ color: "var(--text-secondary)" }}>
-                    {s.name}
+                    className="tabular text-2xl font-bold leading-none"
+                    style={{ ...DISPLAY, color: "var(--text-primary)" }}
+                  >
+                    {fmtPct(s.avg)}%
                   </span>
-                  <span className="tabular font-semibold">{fmtPct(s.avg)}%</span>
+                  <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                    <span
+                      aria-hidden="true"
+                      className="h-2 w-2 shrink-0 rounded-full"
+                      style={{ background: s.color }}
+                    />
+                    <span className="truncate">{s.name}</span>
+                  </span>
                 </li>
               ))}
             </ul>
+          )}
 
-            {average && (
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                Média das {average.pollCount} pesquisa{average.pollCount === 1 ? "" : "s"} mais
-                recentes · {basisLabel}
-                {scenario ? ` · ${scenario}` : ""} · última pesquisa em{" "}
-                {fmtDate(average.lastPollDate)}
-                {hidden > 0 ? ` · ${hidden} candidato${hidden === 1 ? "" : "s"} fora do gráfico` : ""}
-              </p>
-            )}
-          </>
+          {/* The framed chart: a bordered surface with 50% line, axis and marker. */}
+          {series.length > 0 ? (
+            <div className="card p-3 sm:p-4">
+              <div className="relative h-[220px] sm:h-[280px]">
+                <HeroChart average={average} maxSeries={maxSeries} framed />
+                {showFifty && (
+                  <span
+                    className="tabular pointer-events-none absolute right-0 -translate-y-1/2 rounded px-1 text-[10px] font-semibold"
+                    style={{ top: `${fiftyTop}%`, color: "var(--text-muted)", background: "var(--surface-1)" }}
+                  >
+                    50%
+                  </span>
+                )}
+                {marker && (
+                  <span
+                    className="tabular pointer-events-none absolute z-[1] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-semibold shadow-sm"
+                    style={{
+                      left: `${Math.min(88, Math.max(12, marker.leftPct))}%`,
+                      top: `calc(${marker.topPct}% - 8px)`,
+                      borderColor: "var(--ring)",
+                      background: "var(--surface-1)",
+                      color: "var(--text-primary)",
+                    }}
+                  >
+                    {fmtDate(marker.date)} · {fmtPct(marker.value)}%
+                  </span>
+                )}
+              </div>
+              {/* Time axis — HTML, so labels never squash under the SVG's
+                  preserveAspectRatio="none". */}
+              {ticks.length > 0 && (
+                <div className="relative mt-2 h-4">
+                  {ticks.map((t) => (
+                    <span
+                      key={`${t.label}-${t.leftPct.toFixed(1)}`}
+                      className="absolute -translate-x-1/2 text-[10px] uppercase tracking-wide"
+                      style={{ left: `${t.leftPct}%`, color: "var(--text-muted)" }}
+                    >
+                      {t.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : null}
+
+          {average && series.length > 0 && (
+            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+              Última pesquisa em {fmtDate(average.lastPollDate)}
+              {scenario ? ` · ${scenario}` : ""}
+              {hidden > 0 ? ` · ${hidden} candidato${hidden === 1 ? "" : "s"} fora do gráfico` : ""}
+            </p>
+          )}
+
+          {headline ? (
+            <p className="max-w-[62ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+              {marginSentence(headline, average?.basis ?? "validos")}
+            </p>
+          ) : (
+            <p className="max-w-[62ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+              Ainda não há pesquisas suficientes para uma média da corrida presidencial.
+            </p>
+          )}
+        </div>
+
+        {/* ── RIGHT: the "Em resumo" panel ───────────────────────────────── */}
+        {average && headline && leader && (
+          <aside
+            aria-label="Em resumo"
+            className="card p-4 lg:sticky lg:top-20"
+          >
+            <p
+              className="mb-1 text-[11px] font-bold uppercase tracking-[0.16em]"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Em resumo
+            </p>
+            <div className="divide-y" style={{ borderColor: "var(--ring)" }}>
+              <ResumoRow value={`${fmtPct(leader.avg)}%`} label={leader.candidate} color={series[0]?.color} />
+              {second && (
+                <ResumoRow value={`${fmtPct(second.avg)}%`} label={second.candidate} color={series[1]?.color} />
+              )}
+              <ResumoRow
+                value={`${fmtSigned(average.spread)} p.p.`}
+                label={`Vantagem de ${headline.leader}`}
+              />
+              {validos && (
+                <ResumoRow
+                  value={`${fmtSigned(headline.toFifty)} p.p.`}
+                  label="Para vencer no 1º turno"
+                />
+              )}
+              <ResumoRow value={String(average.pollCount)} label="Pesquisas na média" />
+            </div>
+            <Link
+              href={href}
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ background: "var(--accent)" }}
+            >
+              {ctaLabel} <span aria-hidden="true">→</span>
+            </Link>
+          </aside>
         )}
       </div>
     </section>
