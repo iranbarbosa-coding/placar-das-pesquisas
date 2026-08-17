@@ -170,25 +170,28 @@ export default function Hero({
       {/* Single full-width column: the "Em resumo" side panel was removed at the
           owner's request, so the title, KPIs and framed chart span the card. */}
       <div className="flex min-w-0 flex-col gap-3">
-          <div className="flex flex-col gap-0.5">
-            {/* Card-header style, matching the mockup: a small UPPERCASE title,
-                no separate eyebrow — the KPIs below are the prominent element. */}
-            <h1
-              id="hero-titulo"
-              className="flex items-center gap-1.5 text-[15px] font-bold uppercase tracking-wide sm:text-base"
-              style={{ ...DISPLAY, color: "var(--text-primary)" }}
-            >
-              {title}
-              <InfoGlyph />
-            </h1>
-            {average && (
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                Média das pesquisas · 1º turno · {basisLabel}
-              </p>
-            )}
+          {/* Header row: title/subtitle on the left, the basis toggle pinned to
+              the UPPER-RIGHT corner of the card (owner's request). */}
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex min-w-0 flex-col gap-0.5">
+              {/* Card-header style, matching the mockup: a small UPPERCASE title,
+                  no separate eyebrow — the KPIs below are the prominent element. */}
+              <h1
+                id="hero-titulo"
+                className="flex items-center gap-1.5 text-[15px] font-bold uppercase tracking-wide sm:text-base"
+                style={{ ...DISPLAY, color: "var(--text-primary)" }}
+              >
+                {title}
+                <InfoGlyph />
+              </h1>
+              {average && (
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  Média das pesquisas · 1º turno · {basisLabel}
+                </p>
+              )}
+            </div>
+            {controls && <div className="shrink-0">{controls}</div>}
           </div>
-
-          {controls}
 
           {/* KPI row — top three plus "Outros" on ONE line, like the target. */}
           {kpis.length > 0 && (
