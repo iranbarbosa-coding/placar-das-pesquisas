@@ -68,12 +68,41 @@ export function averageable(p: Poll): boolean {
   return senateVoteMode(p) === "dois";
 }
 
-/** Why a senate poll sits outside the average, for the table to show. */
+/**
+ * Why a senate poll sits outside the average, for the table to show.
+ *
+ * A TABLE SUMMING TO ~100 HAS TWO DIFFERENT CAUSES, AND THE ARITHMETIC CANNOT
+ * TELL THEM APART — so this text must not claim which one it is.
+ *
+ * The first is the one the ruling was written about: the institute asked for a
+ * single name in a two-seat contest. The second was found on 16/08/2026 in
+ * BA-03657/2026 (Genial/Quaest, Bahia): the questionnaire registered at the TSE
+ * has TWO questions, "para a primeira vaga" and "para a segunda vaga", each
+ * `RU` — two votes were genuinely collected — and the institute then published
+ * the consolidation REDUCED TO 100%. Gazeta do Povo printed the note in full:
+ * "o consolidado do primeiro e do segundo votos apontados pelos entrevistados e
+ * reduzidos para 100%".
+ *
+ * RULING (Iran, 2026-08-16): a rescaled senate poll is excluded exactly like a
+ * single-vote one. The reason is the same in both cases — the published figures
+ * are not the quantity the other polls report. Rui Costa reads 24 in this poll
+ * and 44,6 in the Paraná Pesquisas poll of the same race; averaging them
+ * compares two different statistics. Doubling the rescaled figures to reach ~200
+ * would be inference, which `repairs.json` forbids, and the 260 cap in
+ * `validate-store` cannot see any of this.
+ *
+ * The gate above already catches both, because both land at ~100. What was
+ * wrong was only this sentence: it asserted "voto único" about a poll that asked
+ * twice. Saying which cause applies needs the institute's questionnaire, not the
+ * table, so the text now names both and claims neither.
+ */
 export function exclusionReason(p: Poll): string | null {
   if (p.race !== "senador") return null;
   const mode = senateVoteMode(p);
   if (mode === "dois") return null;
   return mode === "um"
-    ? "pergunta de voto único — o Senado elege dois por estado"
+    ? "a tabela soma ~100 num pleito de duas vagas: ou a pergunta foi de voto único, " +
+      "ou os dois votos foram reescalados para 100% — nos dois casos, não é a mesma " +
+      "grandeza que as demais pesquisas do Senado publicam"
     : "não dá para determinar se a pergunta foi de um ou dois votos";
 }
