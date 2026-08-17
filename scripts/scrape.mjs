@@ -496,7 +496,19 @@ function persistStore(polls, dataset) {
 
   const counts = writeStore(store, { dir: DATA_DIR });
   console.log(`store gravado pela escada: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
-    `${counts.institutes} institutos · ${counts.candidates} candidatos · ${counts.conflicts} conflitos`);
+    `${counts.institutes} institutos · ${counts.people} pessoas · ${counts.candidates} candidatos · ` +
+    `${counts.conflicts} conflitos`);
+  // A RE-CUNHAGEM DE ID TEM DE APARECER NA SAÍDA DA RODADA.
+  //
+  // Numa rodada normal isto é zero. Diferente de zero significa que ids de
+  // candidato mudaram de valor e o `first_seen` foi resgatado do id antigo —
+  // que é o passo que NÃO foi dado em 16/08/2026, quando 1.164 levantamentos e
+  // 2.961 perguntas perderam `created_at` sem uma linha de log dizendo nada.
+  const t = store._report.translated;
+  if (t.candidates || t.orphaned) {
+    console.log(`  RE-CUNHAGEM: ${t.candidates} candidato(s) com first_seen traduzido do id antigo ` +
+      `(gravado em legacy_ids) · ${t.orphaned} sem tradução, registrados em conflicts.ndjson`);
+  }
   console.log(`  resolução: ${JSON.stringify(report)}`);
 }
 

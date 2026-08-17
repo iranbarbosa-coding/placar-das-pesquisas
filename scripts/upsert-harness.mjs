@@ -17,8 +17,10 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { readStore, markHeadlines } from "./lib/store.mjs";
+import { readStore, markHeadlines, resolveCandidate } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
+import { mintCandidateId, nameKey } from "./lib/ids.mjs";
+import { pessoasRegistradas } from "./lib/people.mjs";
 
 const VERBOSE = process.argv.includes("--verbose");
 const RUN_DATE = "2026-08-15";
@@ -317,6 +319,140 @@ check("caso real: os dois registros da Delta no AC (mesmo campo, duas fontes)", 
   assert(b.matched_by === "natural" || b.matched_by === "minted", `veredito inesperado: ${b.matched_by}`);
   console.log(`    · comportamento atual: "${b.matched_by}" (${unified ? "unifica" : "NÃO unifica"}) — ` +
     `${unified ? "" : "os dois registros Delta seguem separados; "}elencos divergem em Tião/Sebastião Bocalom`);
+});
+
+// ==========================================================================
+// 8. A PESSOA — a identidade que não acompanha o nome exibido
+// ==========================================================================
+
+/** Um store limpo à parte, para comparar DUAS reconstruções independentes. */
+function storeVazio() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-pessoa-"));
+  const s = readStore({ dir, tables: [], runDate: RUN_DATE });
+  s._tmpdir = dir;
+  return s;
+}
+
+check("O PONTO INTEIRO: o candidate_id NÃO se move quando o nome exibido muda", (store, assert) => {
+  // Dois stores independentes, mesma grafia CRUA, nomes exibidos diferentes —
+  // que é exatamente o que uma mudança de regra de exibição faz sobre uma
+  // reconstrução do zero. Em 16/08/2026 isso moveu 27 de 1.078 ids, e cada id
+  // movido levou junto o `first_seen`, porque `priorStamps` carrega POR ID.
+  const contest = "governador:MG";
+  const crua = "Ana Lima da Silva";
+  const A = storeVazio();
+  const B = storeVazio();
+  try {
+    const a = resolveCandidate(A, "Ana Lima", contest, "PT", { fuzzy: false, raw: crua });
+    const b = resolveCandidate(B, "Aninha da Silva", contest, "PT", { fuzzy: false, raw: crua });
+    assert(a.candidate_id === b.candidate_id,
+      `o id se moveu com o nome exibido: ${a.candidate_id} × ${b.candidate_id}`);
+    assert(a.person_id === b.person_id, `person_id divergiu: ${a.person_id} × ${b.person_id}`);
+    assert(a.mint_seed === `candidate|${contest}|${a.person_id}`, `semente inesperada: ${a.mint_seed}`);
+    // E o teste só prova alguma coisa se a semente ANTIGA de fato se movia.
+    const antigoA = mintCandidateId(`candidate|${contest}|${nameKey("Ana Lima")}`);
+    const antigoB = mintCandidateId(`candidate|${contest}|${nameKey("Aninha da Silva")}`);
+    assert(antigoA !== antigoB, "a semente antiga não se movia neste caso — o teste não prova nada");
+  } finally {
+    fs.rmSync(A._tmpdir, { recursive: true, force: true });
+    fs.rmSync(B._tmpdir, { recursive: true, force: true });
+  }
+});
+
+check("duas grafias da MESMA pessoa registrada caem numa linha só (senador:AL)", (store, assert) => {
+  // O cruzamento real: "Dr. Wanderley" e "José Wanderley Neto" são o mesmo
+  // homem (SQ 20002553726 no registro), e cunhavam DOIS candidate_id que ainda
+  // por cima se cruzavam — o site publicava um homem sob dois nomes na mesma
+  // disputa. Com a semente na pessoa, o id colide de propósito.
+  const base = {
+    pollster: "Quaest", race: "senador", state: "AL", round: 1,
+    tse_registration: "AL-01111/2026", sample_size: 1200,
+    fieldwork_start: "2026-06-01", fieldwork_end: "2026-06-03", published_date: "2026-06-04",
+  };
+  const a = upsertPoll(store, poll({ ...base, id: "al-1",
+    results: [{ candidate: "Dr. Wanderley", party: "MDB", pct: 20 }, { candidate: "Arthur Lira", party: "PP", pct: 30 }] }),
+    { source: "poder360", nativeId: 41 });
+  const b = upsertPoll(store, poll({ ...base, id: "al-2", tse_registration: "AL-02222/2026",
+    fieldwork_end: "2026-07-03", fieldwork_start: "2026-07-01", published_date: "2026-07-04",
+    results: [{ candidate: "José Wanderley Neto", party: "MDB", pct: 22 }, { candidate: "Arthur Lira", party: "PP", pct: 31 }] }),
+    { source: "poder360", nativeId: 42 });
+  const idA = a.question.results.find((r) => r.name_raw === "Dr. Wanderley")?.candidate_id;
+  const idB = b.question.results.find((r) => r.name_raw === "José Wanderley Neto")?.candidate_id;
+  assert(!!idA && idA === idB, `duas grafias de um homem viraram ${idA} × ${idB}`);
+  const linhas = store.candidates.filter((c) => c.contest === "senador:AL");
+  assert(linhas.length === 2, `${linhas.length} linhas em senador:AL, esperado 2 (Wanderley + Lira)`);
+  const pessoa = store.people.find((p) => p.person_id === store.candidates.find((c) => c.candidate_id === idA).person_id);
+  assert(pessoa?.registered === true, "a pessoa deveria ter vindo do registro do TSE");
+  assert(pessoa?.polled_names.length === 2, `polled_names: ${JSON.stringify(pessoa?.polled_names)}`);
+});
+
+check("pessoa com DOIS sq_candidato (re-registro do Piauí) é UMA pessoa", (store, assert) => {
+  // Piauí tem dois casos de uma candidatura arquivada de novo: mesmo nome de
+  // urna, mesmo número, mesmo partido, dois SQ_CANDIDATO. Colapsá-los é o que
+  // separa "re-registro" de "homônimo" — e o colapso é o de
+  // `lib/candidaturas.mjs`, o mesmo que o casador de nomes de urna usa.
+  const registradas = pessoasRegistradas();
+  if (!registradas.length) {
+    assert(false, "data/candidaturas.ndjson ausente — este caso não pôde ser exercitado");
+    return;
+  }
+  const duplas = registradas.filter((p) => p.sq_candidato.length > 1);
+  assert(duplas.length >= 1, "nenhuma pessoa com dois sq — o colapso de re-registro não está agindo");
+  for (const p of duplas) {
+    assert(p.mint_seed === `person|tse|${p.sq_candidato[0]}`,
+      `a semente tem de ser o MENOR sq do grupo, não "${p.mint_seed}"`);
+    assert(new Set(p.candidacies.map((c) => `${c.cargo}:${c.uf}`)).size === 1,
+      `${p.nome_urna}: um re-registro não muda de disputa — ${JSON.stringify(p.candidacies)}`);
+  }
+  // Nenhum sq pode pertencer a duas pessoas: seria o mesmo registro cunhando
+  // duas identidades.
+  const dono = new Map();
+  for (const p of registradas) for (const sq of p.sq_candidato) {
+    assert(!dono.has(sq), `sq ${sq} em duas pessoas (${dono.get(sq)} e ${p.person_id})`);
+    dono.set(sq, p.person_id);
+  }
+  console.log(`    · ${dono.size} candidaturas → ${registradas.length} pessoas ` +
+    `(${duplas.length} com dois registros: ${duplas.map((p) => p.nome_urna).join(", ")})`);
+});
+
+check("sem registro: duas RACES são duas pessoas; a mesma race em duas UFs é uma", (store, assert) => {
+  // A decisão do criador (16/08/2026): a identidade de quem não se registrou é
+  // escopada POR RACE. Global por nome fundiria `Rui Costa` (senador:BA) com
+  // `Rui Costa Pimenta` (presidente) e `Ciro` com `Ciro Nogueira`; por disputa
+  // (`race:UF`) estilhaçaria o presidencial, porque `presidente:MG` é a mesma
+  // corrida perguntada a mineiros. As duas metades estão aqui de propósito: um
+  // teste só da fusão passaria com uma regra que funde tudo.
+  const nome = "Fulano Inexistente de Tal";
+  const g = resolveCandidate(store, nome, "governador:MG", "PT", { fuzzy: false, raw: nome });
+  const s = resolveCandidate(store, nome, "senador:MG", "PT", { fuzzy: false, raw: nome });
+  assert(g.person_id !== s.person_id,
+    "governador e senado viraram a MESMA pessoa — sem registro, races diferentes não se fundem");
+
+  const p1 = resolveCandidate(store, nome, "presidente:BR", "PT", { fuzzy: false, raw: nome });
+  const p2 = resolveCandidate(store, nome, "presidente:MG", "PT", { fuzzy: false, raw: nome });
+  assert(p1.person_id === p2.person_id,
+    "a corrida presidencial nacional e a subamostra estadual viraram DUAS pessoas");
+  assert(p1.candidate_id !== p2.candidate_id,
+    "a linha de candidato tem de continuar POR DISPUTA — é ela que guarda contest === race:uf");
+  const pessoa = store.people.find((p) => p.person_id === p1.person_id);
+  assert(pessoa?.mint_seed === `person|obs|presidente|${nameKey(nome)}`,
+    `semente inesperada para quem não se registrou: "${pessoa?.mint_seed}"`);
+  assert(pessoa?.registered === false && pessoa?.nome_completo === null && pessoa?.nome_urna === null,
+    "quem não se registrou não tem nome civil apurado — o campo fica NULO, nunca adivinhado");
+});
+
+check("toda linha de candidato carrega person_id e mint_seed", (store, assert) => {
+  upsertPoll(store, poll(), { source: "poder360", nativeId: 1 });
+  for (const c of store.candidates) {
+    assert(!!c.person_id, `${c.canonical} sem person_id`);
+    assert(c.mint_seed === `candidate|${c.contest}|${c.person_id}`, `${c.canonical}: semente "${c.mint_seed}"`);
+    assert(Array.isArray(c.legacy_ids), `${c.canonical} sem legacy_ids`);
+    assert(store.people.some((p) => p.person_id === c.person_id), `${c.canonical}: pessoa inexistente`);
+  }
+  for (const p of store.people) {
+    assert(!!p.mint_seed, `pessoa ${p.person_id} sem mint_seed`);
+    assert(p.merged_into === null, `pessoa ${p.person_id} nasceu com merged_into preenchido`);
+  }
 });
 
 // ---------------------------------------------------------------- resultado

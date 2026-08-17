@@ -16,6 +16,7 @@ import path from "node:path";
 import { readStore, DATA_DIR, headlineGroupKey } from "./lib/store.mjs";
 import { serializeRecord, FIELD_ORDER, SORT } from "./lib/ndjson.mjs";
 import { selfTest as partySelfTest, partyExistedAt } from "./lib/parties.mjs";
+import { sqsRegistrados } from "./lib/candidaturas.mjs";
 
 const RACES = new Set(["presidente", "governador", "senador"]);
 const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
@@ -23,7 +24,7 @@ const PUB_STATES = new Set(["results_held","published_not_obtained","scheduled_f
 const XT_STATUS = new Set(["verified","unverified","rejected"]);
 const DIMENSIONS = new Set(["sexo","faixa_etaria","escolaridade","renda","religiao","regiao","cor_raca","pea","capital_interior","voto_2022","desconhecida"]);
 
-export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) {
+export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConhecidos = null } = {}) {
   const errors = [];
   const warn = [];
   const E = (m) => errors.push(m);
@@ -32,6 +33,7 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
   const questions = store.questions ?? [];
   const crosstabs = store.crosstabs ?? [];
   const institutes = store.institutes ?? [];
+  const people = store.people ?? [];
   const candidates = store.candidates ?? [];
   const registry = store.registry ?? [];
   const searches = store.searches ?? [];
@@ -42,8 +44,12 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
 
   // ---- ids unique within and across tables --------------------------------
   const seen = new Map();
+  // `people` ENTRA AQUI, e não é detalhe: fora desta lista um `p_…` escapa da
+  // unicidade entre tabelas por inteiro. `hash12` são 12 hex sobre oito
+  // namespaces; um nono não conferido é superfície de colisão silenciosa — e é
+  // também a única coisa que garante `person_id` único.
   const idOf = { surveys: "survey_id", questions: "question_id", crosstabs: "crosstab_id",
-                 institutes: "institute_id", candidates: "candidate_id",
+                 institutes: "institute_id", people: "person_id", candidates: "candidate_id",
                  registry: "registration_id", searches: "search_id" };
   for (const [table, key] of Object.entries(idOf)) {
     for (const r of store[table] ?? []) {
@@ -118,6 +124,77 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
       if (!next) { E(`institutes: ${cur.institute_id} funde em ${cur.merged_into}, inexistente`); break; }
       cur = next;
     }
+  }
+
+  // ---- people -------------------------------------------------------------
+  //
+  // A pessoa é a identidade que o `candidate_id` passou a citar. Se ela puder
+  // apontar para o nada, para si mesma em ciclo, ou para um `SQ_CANDIDATO` que
+  // o TSE não conhece, a correção inteira é decorativa.
+  const personById = new Map(people.map((p) => [p.person_id, p]));
+  for (const p of people) {
+    const at = `person ${p.person_id}`;
+    if (!p.mint_seed) E(`${at}: sem mint_seed — id sem semente registrada não é id (ver lib/ids.mjs)`);
+    if (!Array.isArray(p.sq_candidato)) E(`${at}: sq_candidato deve ser lista (há pessoas com dois registros)`);
+    if (p.registered === false && (p.sq_candidato?.length || p.nome_completo || p.nome_urna)) {
+      E(`${at}: marcada como não registrada mas carrega dado de registro`);
+    }
+    // Nunca inferir (CONVENTIONS §4): quem não se registrou não tem nome civil
+    // apurado, e escrever o nome da pesquisa ali seria afirmar o que não se sabe.
+    if (p.registered === true && !p.sq_candidato?.length) E(`${at}: marcada como registrada sem sq_candidato`);
+  }
+
+  // merged_into chains terminate and are acyclic — mesma regra dos institutos,
+  // e obrigatória aqui: sem ela uma ruling futura do tipo "estas duas são a
+  // mesma pessoa" órfã um person_id e o defeito volta um nível acima.
+  for (const p of people) {
+    const path_ = new Set([p.person_id]);
+    let cur = p;
+    while (cur?.merged_into) {
+      if (path_.has(cur.merged_into)) { E(`people: ciclo de merged_into em ${p.person_id}`); break; }
+      path_.add(cur.merged_into);
+      const next = personById.get(cur.merged_into);
+      if (!next) { E(`people: ${cur.person_id} funde em ${cur.merged_into}, inexistente`); break; }
+      cur = next;
+    }
+  }
+
+  // Todo `sq_candidato` tem de existir em data/candidaturas.ndjson. O `sq` é a
+  // SEMENTE do person_id de quem se registrou; um sq inventado é um id cunhado
+  // do nada.
+  {
+    const sqs = sqsConhecidos ?? sqsRegistrados();
+    if (!sqs.size) {
+      // Ausente ≠ vazio. Sem o registro no disco a checagem não roda, e isso é
+      // dito em voz alta — um guarda que se desliga em silêncio é o padrão que
+      // este repositório já pagou para não repetir.
+      if (people.some((p) => p.sq_candidato?.length)) {
+        warn.push("registro de candidaturas indisponível — os sq_candidato de people.ndjson NÃO foram conferidos");
+      }
+    } else {
+      for (const p of people) {
+        for (const sq of p.sq_candidato ?? []) {
+          if (!sqs.has(String(sq))) E(`person ${p.person_id}: sq_candidato ${sq} não existe no registro do TSE`);
+        }
+      }
+    }
+  }
+
+  // Toda linha de candidato aponta para uma pessoa que existe.
+  //
+  // A ausência de `people.ndjson` é tolerada (o site é anterior à tabela e um
+  // clone só a tem depois da primeira coleta), mas NÃO em silêncio: assim que a
+  // tabela existe, um candidato sem `person_id` é erro, porque aí a linha ficou
+  // para trás numa rodada que já sabia cunhar pessoa.
+  for (const c of candidates) {
+    if (c.person_id == null) {
+      if (people.length) E(`candidate ${c.candidate_id}: sem person_id, mas people.ndjson já existe (${people.length} pessoas)`);
+      continue;
+    }
+    if (!personById.has(c.person_id)) E(`candidate ${c.candidate_id}: person_id ${c.person_id} inexistente`);
+  }
+  if (!people.length && candidates.length) {
+    warn.push(`people.ndjson vazio — ${candidates.length} candidatos sem pessoa; a tabela só existe depois de uma coleta`);
   }
 
   // ---- questions ----------------------------------------------------------
@@ -310,7 +387,7 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1 } = {}) 
 
   return { errors: errors.slice(0, 60), warn: warn.slice(0, 30),
            counts: { surveys: surveys.length, questions: questions.length, crosstabs: crosstabs.length,
-                     institutes: institutes.length, candidates: candidates.length,
+                     institutes: institutes.length, people: people.length, candidates: candidates.length,
                      registry: registry.length, searches: searches.length } };
 }
 
@@ -332,10 +409,37 @@ function baseStore() {
     undecided_pct: 10, provenance: { created_at: "2026-08-03", updated_at: "2026-08-03", field_sources: {} },
   };
   return { surveys: [survey], questions: [question], crosstabs: [], institutes: [inst],
-           candidates: [c1, c2], registry: [], searches: [], conflicts: [] };
+           people: [], candidates: [c1, c2], registry: [], searches: [], conflicts: [] };
 }
 
 function clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+/**
+ * O mesmo store, com a tabela de pessoas povoada.
+ *
+ * Separado de `baseStore()` de propósito: assim que `people` existe, "candidato
+ * sem person_id" vira ERRO, e é essa transição que os casos abaixo provam. Um
+ * autoteste que só exercitasse o caminho tolerante não provaria nada sobre o
+ * dia em que a tabela existir — que é o dia inteiro daqui para a frente.
+ */
+const SQ_FICTICIO = new Set(["10000000001"]);
+function pessoasStore() {
+  const s = clone(baseStore());
+  s.people = [
+    { person_id: "p_1", mint_seed: "person|tse|10000000001", registered: true,
+      sq_candidato: ["10000000001"], nome_completo: "Luiz Inacio Lula da Silva", nome_urna: "Lula",
+      display: "Lula", display_from: "nome_urna", polled_names: ["Lula"],
+      candidacies: [{ sq_candidato: "10000000001", cargo: "presidente", uf: null, numero: "13", partido: "PT", ano: 2026 }],
+      merged_into: null, first_seen: "2026-08-03" },
+    { person_id: "p_2", mint_seed: "person|obs|presidente|flavio bolsonaro", registered: false,
+      sq_candidato: [], nome_completo: null, nome_urna: null,
+      display: "Flávio Bolsonaro", display_from: "mais curta observada",
+      polled_names: ["Flávio Bolsonaro"], candidacies: [], merged_into: null, first_seen: "2026-08-03" },
+  ];
+  s.candidates[0].person_id = "p_1";
+  s.candidates[1].person_id = "p_2";
+  return s;
+}
 
 function selfTest() {
   const cases = [
@@ -416,11 +520,50 @@ function selfTest() {
       const s = clone(baseStore());
       s.registry.push({ registration_id: "BR-00003/2026", publication_status: "UNPUBLISHED" });
       return s; })(), false],
+    // ---- PESSOAS ----
+    // O registro é injetado nestes casos porque o autoteste não pode depender
+    // do conteúdo de data/candidaturas.ndjson: um caso que quebra quando o TSE
+    // republica o arquivo não prova nada sobre o guarda.
+    ["store com pessoas passa", pessoasStore(), true, { sqsConhecidos: SQ_FICTICIO }],
+    ["candidate.person_id inexistente é rejeitado", (() => {
+      const s = pessoasStore(); s.candidates[0].person_id = "p_fantasma"; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    // O caso que a re-cunhagem cria: a tabela existe e uma linha ficou sem pessoa.
+    ["candidato sem person_id com people povoado é rejeitado", (() => {
+      const s = pessoasStore(); delete s.candidates[1].person_id; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    ["ciclo de merged_into entre pessoas é rejeitado", (() => {
+      const s = pessoasStore();
+      s.people[0].merged_into = "p_2";
+      s.people[1].merged_into = "p_1";
+      return s; })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    ["merged_into para pessoa inexistente é rejeitado", (() => {
+      const s = pessoasStore(); s.people[1].merged_into = "p_fantasma"; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    ["sq_candidato fora do registro do TSE é rejeitado", (() => {
+      const s = pessoasStore();
+      s.people[0].sq_candidato = ["99999999999"];
+      return s; })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    ["person_id duplicado é rejeitado", (() => {
+      const s = pessoasStore(); s.people[1].person_id = "p_1"; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    // A outra metade da unicidade: um p_ colidindo com um id de OUTRA tabela.
+    ["person_id colidindo com id de outra tabela é rejeitado", (() => {
+      const s = pessoasStore();
+      s.people[1].person_id = "i_1";
+      s.candidates[1].person_id = "i_1";
+      return s; })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    ["pessoa sem mint_seed é rejeitada", (() => {
+      const s = pessoasStore(); delete s.people[1].mint_seed; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
+    ["pessoa não registrada carregando dado de registro é rejeitada", (() => {
+      const s = pessoasStore(); s.people[1].nome_urna = "Flávio"; return s;
+    })(), false, { sqsConhecidos: SQ_FICTICIO }],
   ];
 
   let failed = 0;
-  for (const [name, store, shouldPass] of cases) {
-    const { errors } = validateStore(store);
+  for (const [name, store, shouldPass, opts] of cases) {
+    const { errors } = validateStore(store, opts ?? {});
     const passed = errors.length === 0;
     const ok = passed === shouldPass;
     if (!ok) failed++;
@@ -456,7 +599,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       process.exit(1);
     }
     console.log(`OK: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
-      `${counts.crosstabs} recortes · ${counts.institutes} institutos · ${counts.candidates} candidatos · ` +
-      `${counts.registry} registros · ${counts.searches} buscas`);
+      `${counts.crosstabs} recortes · ${counts.institutes} institutos · ${counts.people} pessoas · ` +
+      `${counts.candidates} candidatos · ${counts.registry} registros · ${counts.searches} buscas`);
   }
 }

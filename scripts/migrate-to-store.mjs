@@ -20,6 +20,7 @@ import { fileURLToPath } from "node:url";
 import {
   readStore, writeStore, resolveInstitute, resolveCandidate,
   markHeadlines, priorStamps, firstSeenFor, provenanceFor, today, DATA_DIR,
+  emptyIndexes, TABLE_NAMES,
 } from "./lib/store.mjs";
 import { mintSurveyId, mintQuestionId, normalizeRegistration, contestKey } from "./lib/ids.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
@@ -106,14 +107,11 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false, allowDerived =
 
   // Start from an empty store so the migration is a pure function of the input.
   const store = readStore({ dir, tables: [], runDate, prior });
-  for (const t of ["surveys", "questions", "crosstabs", "institutes", "candidates", "registry", "searches", "conflicts"]) {
-    store[t] = [];
-  }
-  store._indexes = {
-    byReg: new Map(), byRef: new Map(), surveyById: new Map(),
-    questionById: new Map(), questionsBySurvey: new Map(),
-    instituteByAlias: new Map(), candidateByAlias: new Map(),
-  };
+  // A lista e os índices vazios moram em `lib/store.mjs`. Estavam copiados aqui
+  // e em `lib/build-store.mjs`, e uma tabela nova que alguém esqueça de somar a
+  // uma das cópias fica de fora sem erro nenhum.
+  for (const t of TABLE_NAMES) store[t] = [];
+  store._indexes = emptyIndexes();
 
   // Which registrations hold rows that contradict each other on fieldwork end.
   // ±3 days of slack, because sources round the last day of a window.

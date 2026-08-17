@@ -30,10 +30,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normNome } from "./lib/nomes.mjs";
+import { normNome, acentos, melhorGrafia } from "./lib/nomes.mjs";
+// O agrupamento do registro mora em `lib/candidaturas.mjs` desde que
+// `lib/people.mjs` passou a precisar do MESMO colapso de re-registros para
+// contar pessoas. Uma regra, uma implementação (CONVENTIONS §5).
+import { agruparPorDisputa, lerCandidaturas } from "./lib/candidaturas.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const CANDIDATURAS = path.join(ROOT, "data", "candidaturas.ndjson");
 const CRUS = path.join(ROOT, "data", "nomes-crus.json");
 
 // Shared with `lib/candidates.mjs`, which READS the keys this file WRITES.
@@ -82,65 +85,8 @@ function contido(pequeno, grande) {
   return true;
 }
 
-const contestOf = (cargo, uf) => `${cargo}:${uf ?? "BR"}`;
-
-/**
- * `SQ_CANDIDATO` ordered as a number, not as text.
- *
- * It is the only ordering the register carries — there is no date on a
- * candidacy row — so "the most recent registration" can only mean the highest
- * sequential id. The ids are 11 digits today and a plain `>` on the strings
- * agrees with that, but only while every id has the same length: the day one
- * arrives with 12, lexicographic order silently puts "9…" above "10…" and the
- * collapse below starts keeping the WRONG row. Padding costs nothing and
- * removes the trap.
- */
-const maisRecente = (a, b) =>
-  a.sq_candidato.padStart(20, "0") > b.sq_candidato.padStart(20, "0") ? a : b;
-
-/**
- * The register indexed by contest, with the TSE's re-registrations collapsed.
- *
- * THE SAME PERSON APPEARS TWICE. Piauí has two cases of one candidacy filed
- * again — same ballot name, same number, same party, same civil name, two
- * `SQ_CANDIDATO`. Left alone, both rows land in the same contest, the exact
- * match finds TWO candidacies for one polled name, and the name is refused as
- * ambiguous. That is a namesake rule firing on a person who has no namesake:
- * the whole contest loses a mapping to a filing artefact.
- *
- * So rows identical on contest + ballot name + number + party are ONE
- * candidacy, and the newest registration wins. Rows that differ in number or
- * in party are NOT collapsed — those are two real people, or one person whose
- * filing genuinely changed, and either way the ambiguity is real and stays
- * refused. Collapsing on the name alone is what would re-introduce the
- * coin-toss this script exists to refuse.
- */
-function agruparPorDisputa(cands) {
-  const unicos = new Map();
-  for (const c of cands) {
-    const chave = `${contestOf(c.cargo, c.uf)}|${norm(c.nome_urna_raw)}|${c.numero}|${c.partido}`;
-    const anterior = unicos.get(chave);
-    unicos.set(chave, anterior ? maisRecente(anterior, c) : c);
-  }
-
-  const byContest = new Map();
-  for (const c of unicos.values()) {
-    const contest = contestOf(c.cargo, c.uf);
-    if (!byContest.has(contest)) byContest.set(contest, []);
-    byContest.get(contest).push(c);
-  }
-  // Stable order so `ambiguos` reports the same list every run: the report is
-  // read by a human deciding cases, and a list that reshuffles between runs
-  // looks like the data moved when nothing did.
-  for (const lista of byContest.values()) {
-    lista.sort((a, b) => a.sq_candidato.padStart(20, "0").localeCompare(b.sq_candidato.padStart(20, "0")));
-  }
-  return byContest;
-}
-
 function main() {
-  const cands = fs.readFileSync(CANDIDATURAS, "utf-8").trim().split("\n").map((l) => JSON.parse(l));
-  const byContest = agruparPorDisputa(cands);
+  const byContest = agruparPorDisputa(lerCandidaturas());
   // The same collapsed candidacies, flat — the cross-contest fallback searches
   // the whole register, so it must see the SAME rows the per-contest pass sees
   // (re-registrations already merged), not the raw file.
@@ -439,29 +385,6 @@ function main() {
   for (const a of ambiguos.slice(0, 10)) {
     console.log(`   ambíguo — ${a.contest} "${a.nome}" ~ ${a.candidatos.join(" / ")} (${a.motivo})`);
   }
-}
-
-/** How many diacritics a string carries — the tiebreak for the case below. */
-const acentos = (s) => (s.normalize("NFD").match(/[\u0300-\u036f]/g) ?? []).length;
-
-/**
- * The register's diacritics are not reliable, and dropping ours would look like
- * a typo on every page.
- *
- * TSE writes "PABLO MARÇAL" and "VETERINÁRIO WILSON GRASSI" with their accents
- * and "FLAVIO BOLSONARO" and "CLARIANA BARAO" without — 29 of 521 candidacies
- * carry a ballot name stripped of accents the name actually has. Publishing
- * "Flavio Bolsonaro" is not adopting the official name, it is misspelling it.
- *
- * So when the polled name and the ballot name are THE SAME NAME apart from
- * diacritics, the better-accented spelling wins. This is not overriding the
- * register — the string is identical under accent folding, which is exactly why
- * it is safe. When the two differ as names ("Allyson Bezerra" vs "Allyson"),
- * the ballot name wins outright, accents or not.
- */
-function melhorGrafia(nomePesquisa, nomeUrna) {
-  if (norm(nomePesquisa) !== norm(nomeUrna)) return nomeUrna;
-  return acentos(nomePesquisa) > acentos(nomeUrna) ? nomePesquisa : nomeUrna;
 }
 
 function add(mapping, contest, nome, cand, how) {

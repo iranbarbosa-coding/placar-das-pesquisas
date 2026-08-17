@@ -26,11 +26,16 @@
 // priority (poder360 → eleicaoemdados → wikipedia). Parallelising it silently
 // changes which source wins a disagreement.
 import {
-  readStore, writeStore, markHeadlines, priorStamps, DATA_DIR, SOURCE_ORDER,
+  readStore, writeStore, markHeadlines, priorStamps, emptyIndexes,
+  seedRegisteredPeople, logConflict, DATA_DIR, SOURCE_ORDER, TABLE_NAMES,
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
+import { nameKey } from "./ids.mjs";
 
-const TABLES = ["surveys", "questions", "crosstabs", "institutes", "candidates", "registry", "searches", "conflicts"];
+// A lista mora em `store.mjs`. Ela existia copiada aqui, em
+// `migrate-to-store.mjs` e em `idempotence-check.mjs` — e o defeito recorrente
+// deste repositório é a lista que alguém esqueceu de atualizar.
+const TABLES = TABLE_NAMES;
 
 /**
  * @param {Array} polls  normalised flat polls, as `scrape.mjs` produces them
@@ -42,11 +47,15 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
   const prior = priorStamps(previous);
   const store = readStore({ dir, tables: [], runDate, prior });
   for (const t of TABLES) store[t] = [];
-  store._indexes = {
-    byReg: new Map(), byRef: new Map(), surveyById: new Map(),
-    questionById: new Map(), questionsBySurvey: new Map(),
-    instituteByAlias: new Map(), candidateByAlias: new Map(),
-  };
+  store._indexes = emptyIndexes();
+
+  // O CADASTRO DE PESSOAS ANTES DA PRIMEIRA PESQUISA.
+  //
+  // As 519 pessoas do registro do TSE entram independentemente de terem sido
+  // medidas: a tabela é o cadastro de PESSOAS, e é ela que dá alvo a uma ruling
+  // e à junção com as fotos quando o DivulgaCand publicar. Semear antes também
+  // tira a ordem de chegada da conta para essas 519 linhas.
+  seedRegisteredPeople(store);
 
   const rank = (s) => { const i = SOURCE_ORDER.indexOf(s); return i === -1 ? SOURCE_ORDER.length : i; };
   const ordered = [...polls].sort((a, b) =>
@@ -61,9 +70,74 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
     report[matched_by] = (report[matched_by] ?? 0) + 1;
   }
   markHeadlines(store);
+  translateCandidateStamps(store, previous, runDate);
   settleProvenance(store, previous, runDate);
   store.meta = { schema_version: 1, ...meta };
   return { store, report };
+}
+
+/**
+ * O `first_seen` ATRAVESSA a re-cunhagem de id — a parte que foi pulada em
+ * 16/08 e que custou `created_at` em 1.164 levantamentos e 2.961 perguntas.
+ *
+ * `priorStamps` carrega `first_seen` POR ID. Um id que muda de valor não acha
+ * nada e leva `runDate` em silêncio: sem erro, sem conflito, sem nada no diff
+ * que diga "isto não é uma data nova, é uma data perdida". Como esta mudança
+ * re-cunha TODA a tabela de candidatos (a semente passou do nome para a
+ * pessoa), ela pagaria o preço inteiro de novo.
+ *
+ * Então a tradução é feita aqui, com o store anterior na mão: cada linha antiga
+ * cujo id sumiu é procurada entre as novas da MESMA disputa por qualquer grafia
+ * que as duas compartilhem. Casando exatamente uma, a data antiga volta e o id
+ * antigo fica gravado em `legacy_ids` — do jeito que levantamento já faz — para
+ * que a linhagem não dependa de alguém lembrar desta rodada.
+ *
+ * O QUE NÃO CASA VIRA CONFLITO, nunca silêncio. Uma linha antiga órfã é ou uma
+ * pessoa que saiu dos dados (legítimo) ou uma tradução que falhou (defeito), e
+ * as duas merecem ser vistas — foi a ausência exata desta linha de log que fez
+ * a perda de 16/08 passar despercebida.
+ */
+function translateCandidateStamps(store, previous, runDate) {
+  const novos = new Set((store.candidates ?? []).map((c) => c.candidate_id));
+  const antigos = (previous.candidates ?? []).filter((c) => !novos.has(c.candidate_id));
+  if (!antigos.length) return;
+
+  // Grafia → linhas novas, por disputa. Uma grafia que aponte para mais de uma
+  // linha nova é ambígua e NÃO decide nada: escolher uma seria inventar uma
+  // procedência, que é o oposto do que CONVENTIONS §4 manda fazer.
+  const porGrafia = new Map();
+  for (const c of store.candidates ?? []) {
+    for (const n of new Set([c.canonical, ...(c.aliases ?? [])])) {
+      const k = `${c.contest}|${nameKey(n)}`;
+      if (!porGrafia.has(k)) porGrafia.set(k, new Set());
+      porGrafia.get(k).add(c);
+    }
+  }
+
+  // Ordem estável: a tradução escreve `legacy_ids`, que vai para o disco.
+  for (const velho of [...antigos].sort((a, b) => (a.candidate_id < b.candidate_id ? -1 : 1))) {
+    const alvos = new Set();
+    for (const n of new Set([velho.canonical, ...(velho.aliases ?? [])])) {
+      for (const c of porGrafia.get(`${velho.contest}|${nameKey(n)}`) ?? []) alvos.add(c);
+    }
+    if (alvos.size === 1) {
+      const novo = [...alvos][0];
+      if (velho.first_seen) novo.first_seen = velho.first_seen;
+      novo.legacy_ids = [...new Set([...(novo.legacy_ids ?? []), velho.candidate_id])].sort();
+      store._report.translated.candidates++;
+      continue;
+    }
+    store._report.translated.orphaned++;
+    logConflict(store, {
+      run_id: runDate, type: "candidate_id_orphaned", table: "candidates",
+      record_id: velho.candidate_id, field: "candidate_id",
+      stored: velho.candidate_id, incoming: alvos.size ? [...alvos].map((c) => c.candidate_id).sort() : null,
+      source: "build-store", severity: "review",
+      note: alvos.size
+        ? `id antigo compatível com ${alvos.size} linhas novas em ${velho.contest} — ambíguo, first_seen NÃO traduzido`
+        : `id antigo sem linha nova correspondente em ${velho.contest} ("${velho.canonical}") — first_seen perdido se isto não for uma saída legítima dos dados`,
+    });
+  }
 }
 
 /**

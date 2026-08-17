@@ -39,7 +39,20 @@ export const FIELD_ORDER = {
     "extraction", "reconciliation", "status",
   ],
   institute: ["institute_id", "canonical", "aliases", "cnpj", "merged_into", "first_seen"],
-  candidate: ["candidate_id", "contest", "canonical", "aliases", "party", "first_seen"],
+  // A pessoa: identidade GLOBAL, acima da disputa. `sq_candidato` é lista
+  // porque duas pessoas do Piauí têm dois registros cada (re-registro, não
+  // homônimo). `display_from` grava POR QUE o nome exibido é o que é — até aqui
+  // esse motivo vivia numa ordem de escritas dentro de `lib/candidates.mjs` e
+  // não existia em lugar nenhum nos dados.
+  person: [
+    "person_id", "mint_seed", "registered", "sq_candidato",
+    "nome_completo", "nome_urna", "display", "display_from",
+    "polled_names", "candidacies", "merged_into", "first_seen",
+  ],
+  candidate: [
+    "candidate_id", "legacy_ids", "person_id", "contest", "canonical",
+    "aliases", "party", "mint_seed", "first_seen",
+  ],
   registry: [
     "registration_id", "uf", "ue", "cargos", "cnpj", "institute_name_registry",
     "institute_id", "dt_registro", "dt_inicio", "dt_fim", "dt_divulgacao",
@@ -134,6 +147,9 @@ export const SORT = {
   question: (q) => [q.survey_id, String(q.race), String(q.round), String(q.scenario_ordinal ?? 0), q.question_id],
   crosstab: (c) => [c.question_id, c.dimension, c.crosstab_id],
   institute: (i) => [i.institute_id],
+  // Pelo id, como institutos: a pessoa não tem data nem disputa única por onde
+  // ordenar, e o id é a única chave estável que ela carrega.
+  person: (p) => [p.person_id],
   candidate: (c) => [c.contest, c.candidate_id],
   registry: (r) => [r.dt_fim ?? "9999-12-31", r.registration_id],
   search: (s) => [s.performed_at, s.search_id],

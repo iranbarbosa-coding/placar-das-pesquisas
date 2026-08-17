@@ -27,6 +27,11 @@ import {
   normalizeRegistration, nameKey, contestKey,
 } from "./ids.mjs";
 import { sameCandidate } from "./canonicalize.mjs";
+import { normNome } from "./nomes.mjs";
+import { ballotCandidacy, displayOrigin } from "./candidates.mjs";
+import {
+  raceOf, pessoaPorSq, pessoasRegistradas, modeloObservada, melhorDisplay,
+} from "./people.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const DATA_DIR = path.join(ROOT, "data");
@@ -35,9 +40,20 @@ export const SOURCE_ORDER = ["poder360", "eleicaoemdados", "wikipedia"];
 
 const TABLES = {
   surveys: "survey", questions: "question", crosstabs: "crosstab",
-  institutes: "institute", candidates: "candidate", registry: "registry",
-  searches: "search", conflicts: "conflict",
+  institutes: "institute", people: "person", candidates: "candidate",
+  registry: "registry", searches: "search", conflicts: "conflict",
 };
+
+/**
+ * A LISTA DE TABELAS, UMA VEZ SÓ.
+ *
+ * Ela existia copiada em `build-store.mjs`, em `migrate-to-store.mjs` e em
+ * `idempotence-check.mjs`, e o defeito recorrente deste repositório é
+ * exatamente esse: um índice ou uma lista que alguém esqueceu de atualizar.
+ * Uma tabela ausente de `idempotence-check.TABLES` não é conferida por
+ * `snapshot` nem por `stampsIn` — não dá erro, some da verificação.
+ */
+export const TABLE_NAMES = Object.keys(TABLES);
 
 /**
  * `runDate` is the run's clock, injected rather than read from the wall.
@@ -79,9 +95,29 @@ export function priorStamps(store) {
   for (const s of store.surveys ?? []) {
     for (const r of s.source_refs ?? []) refs.set(`${s.survey_id}|${r.source}:${r.native_id}`, r.first_seen);
   }
+  // A PESSOA REENCONTRADA PELA GRAFIA, NÃO PELO ID — é isto que torna a semente
+  // "cunhada uma vez" verdadeira para quem não se registrou. A semente
+  // `person|obs|…` sai da primeira grafia vista, que é ordem de chegada; sem
+  // esta volta pelo `polled_names`, uma rodada que visse as grafias em outra
+  // ordem cunharia outra semente e moveria o id. Com ela, a semente gravada é
+  // reusada COMO ESTÁ e nunca é recomputada.
+  //
+  // Só para quem NÃO se registrou: quem se registrou é reencontrado pelo
+  // `sq_candidato`, que não depende de grafia nenhuma. A race sai da própria
+  // semente (`person|obs|<race>|<grafia>`) em vez de virar um campo novo —
+  // um campo a mais é mais uma coisa que pode ficar desatualizada.
+  const peopleByPolled = new Map();
+  for (const p of store.people ?? []) {
+    const race = /^person\|obs\|([^|]+)\|/.exec(p.mint_seed ?? "")?.[1];
+    if (!race) continue;
+    for (const n of p.polled_names ?? []) peopleByPolled.set(`${race}|${normNome(n)}`, p);
+  }
   return {
     institutes: new Map((store.institutes ?? []).map((i) => [i.institute_id, i.first_seen])),
     candidates: new Map((store.candidates ?? []).map((c) => [c.candidate_id, c.first_seen])),
+    people: new Map((store.people ?? []).map((p) => [p.person_id, p.first_seen])),
+    peopleById: new Map((store.people ?? []).map((p) => [p.person_id, p])),
+    peopleByPolled,
     surveys: new Map((store.surveys ?? []).map((s) => [s.survey_id, s.provenance])),
     questions: new Map((store.questions ?? []).map((q) => [q.question_id, q.provenance])),
     conflicts: new Map((store.conflicts ?? []).map((c) => [c.conflict_id, c.at])),
@@ -110,8 +146,13 @@ export function provenanceFor(store, kind, id) {
 }
 
 function newReport() {
-  return { minted: { surveys: 0, questions: 0, institutes: 0, candidates: 0 },
+  return { minted: { surveys: 0, questions: 0, institutes: 0, people: 0, candidates: 0 },
            matched: { registration: 0, source_ref: 0, natural: 0 },
+           // Quantos `candidate_id` mudaram de valor nesta rodada e tiveram o
+           // `first_seen` resgatado do id antigo. Numa rodada normal é ZERO; um
+           // número diferente de zero é a re-cunhagem acontecendo, e é a única
+           // coisa que a torna visível sem ler o diff inteiro.
+           translated: { candidates: 0, orphaned: 0 },
            filled: 0, conflicts: 0, retracted: 0 };
 }
 
@@ -128,6 +169,12 @@ function newReport() {
  *   questionsBySurvey ← at mint (and it is what the roster tests read)
  *   instituteByAlias  ← resolveInstitute
  *   candidateByAlias  ← resolveCandidate
+ *   candidateById     ← resolveCandidate (é o que faz duas grafias da MESMA
+ *                       pessoa caírem na MESMA linha em vez de cunharem duas —
+ *                       o cruzamento de `senador:AL`)
+ *   personById        ← resolvePerson
+ *   personByPolled    ← resolvePerson (grafia crua → pessoa, por race)
+ *   personByCluster   ← resolvePerson (nome exibido → pessoa, por race)
  *
  * There was an eighth, `rosters`: a per-survey union of every question's names,
  * built at load and never updated. Its only reader took the whole-survey union
@@ -143,13 +190,48 @@ function buildIndexes(store) {
     for (const r of s.source_refs ?? []) byRef.set(`${r.source}:${r.native_id}`, s);
   }
   store._indexes = {
+    ...emptyIndexes(),
     byReg, byRef,
     surveyById: new Map(store.surveys.map((s) => [s.survey_id, s])),
     questionById: new Map(store.questions.map((q) => [q.question_id, q])),
     questionsBySurvey: groupBy(store.questions, (q) => q.survey_id),
     instituteByAlias: aliasIndex(store.institutes),
     candidateByAlias: candidateAliasIndex(store.candidates),
+    candidateById: new Map((store.candidates ?? []).map((c) => [c.candidate_id, c])),
+    personById: new Map((store.people ?? []).map((p) => [p.person_id, p])),
+    personByPolled: personPolledIndex(store.people ?? []),
+    personByCluster: new Map(),
   };
+}
+
+/**
+ * O conjunto VAZIO de índices, numa definição só.
+ *
+ * `build-store.mjs` e `migrate-to-store.mjs` montavam este literal cada um por
+ * conta própria, e nenhum dos dois é obrigado a lembrar de um índice novo:
+ * esquecer um deixa `store._indexes.X` indefinido e o primeiro `.get()` estoura
+ * — ou, pior, um `?? new Map()` defensivo o deixa mudo. `buildIndexes` parte
+ * daqui pelo mesmo motivo.
+ */
+export function emptyIndexes() {
+  return {
+    byReg: new Map(), byRef: new Map(), surveyById: new Map(),
+    questionById: new Map(), questionsBySurvey: new Map(),
+    instituteByAlias: new Map(),
+    candidateByAlias: new Map(), candidateById: new Map(),
+    personById: new Map(), personByPolled: new Map(), personByCluster: new Map(),
+  };
+}
+
+/** Grafia crua → pessoa, escopada por race. Ver `resolvePerson`. */
+function personPolledIndex(people) {
+  const m = new Map();
+  for (const p of people) {
+    const race = /^person\|obs\|([^|]+)\|/.exec(p.mint_seed ?? "")?.[1];
+    if (!race) continue;
+    for (const n of p.polled_names ?? []) m.set(`${race}|${normNome(n)}`, p);
+  }
+  return m;
 }
 
 function groupBy(rows, keyFn) {
@@ -207,39 +289,227 @@ export function resolveInstitute(store, rawName, { mint = true } = {}) {
 }
 
 /**
+ * A PESSOA por trás de uma linha de resultado.
+ *
+ * A escada, em ordem, e cada degrau existe por um caso concreto:
+ *   1. o REGISTRO do TSE, alcançado pela grafia CRUA. `data/ballot-names.json`
+ *      casa "Romeu Zema" com a candidatura de Zema e entrega o `SQ_CANDIDATO`,
+ *      que é a semente. Nenhuma regra nossa move um `sq`.
+ *   2. o registro alcançado pelo NOME EXIBIDO. É o que salva a ruling do Cadu:
+ *      "Cadu Xavier" não casa com candidatura nenhuma (o casador diz, com razão,
+ *      que "Cadu" não partilha token com "Carlos Eduardo"), mas o criador
+ *      decidiu que ele é "Cadu de Lula", e ESSE nome casa. Sem este degrau a
+ *      ruling produziria DUAS pessoas para um homem.
+ *   3. a pessoa que uma rodada anterior já gravou para esta grafia — reusando
+ *      `person_id` e `mint_seed` como estão. É o degrau que faz a semente ser
+ *      cunhada uma vez e nunca recomputada.
+ *   4. o cluster desta rodada: mesma DISPUTA, mesmo nome exibido. É o que impede
+ *      "Ciro Gomes" e "Ciro" (não registrados) de virarem duas pessoas.
+ *   5. cunhar de `person|obs|<race>|<grafia>`.
+ */
+export function resolvePerson(store, { raw, display, contest }) {
+  const idx = store._indexes;
+  const race = raceOf(contest);
+  const grafia = String(raw ?? display ?? "").trim();
+  const exibido = String(display ?? raw ?? "").trim();
+  // O CLUSTER É POR DISPUTA, não por race, porque quem o forma é
+  // `canonicalCandidate(nome, contest)` — a decisão de nome exibido já é
+  // escopada por disputa. Chaveá-lo por race fundia estados: `Alvaro Dias` de
+  // `governador:PR` caía no mesmo cluster que `Álvaro Costa Dias` de
+  // `governador:RN` (as duas grafias exibem "Álvaro Dias"), que é exatamente o
+  // par que `match-ballot-names.mjs` separa com a regra de estado — nomes de
+  // urna idênticos, pessoas diferentes, 24 linhas de pesquisa.
+  const clusterKey = `${contest}|${nameKey(exibido)}`;
+  const polledKey = `${race}|${normNome(grafia)}`;
+
+  const candidatura = ballotCandidacy(grafia, contest) ?? ballotCandidacy(exibido, contest);
+  // QUEM SE REGISTROU SÓ É ALCANÇADO PELO REGISTRO.
+  //
+  // A volta pela grafia (`personByPolled`) é escopada por race, que é a decisão
+  // do criador para quem NÃO se registrou — e para quem se registrou ela seria
+  // perigosa na direção pior: um "Alvaro Dias" de `governador:PR` acharia pela
+  // grafia o ÁLVARO DIAS registrado em `governador:RN` e a linha de pesquisa
+  // sairia carregando o `sq_candidato`, o número e o partido de outra pessoa.
+  // O registro tem a regra de estado aplicada no casador; a grafia não tem.
+  const semRegistro = (p) => (p && p.registered === false ? p : null);
+  const modelo = (candidatura && pessoaPorSq(candidatura.sq_candidato))
+    ?? semRegistro(idx.personByPolled.get(polledKey))
+    ?? idx.personByCluster.get(clusterKey)
+    ?? semRegistro(store._prior?.peopleByPolled?.get(polledKey))
+    ?? modeloObservada(race, grafia);
+
+  const pessoa = ensurePerson(store, modelo);
+  observePerson(store, pessoa, { grafia, exibido, origem: displayOrigin(grafia, contest) });
+  idx.personByCluster.set(clusterKey, pessoa);
+  if (!pessoa.registered) idx.personByPolled.set(polledKey, pessoa);
+  return pessoa;
+}
+
+/**
+ * A linha da pessoa, criada se ainda não existir, seguindo `merged_into` até
+ * quem sobreviveu — o mesmo tratamento que `resolveInstitute` dá a institutos.
+ * Sem isso, uma ruling futura do tipo "estas duas são a mesma pessoa" órfã um
+ * `person_id` e o defeito que esta tabela conserta reaparece um nível acima.
+ */
+function ensurePerson(store, modelo) {
+  const idx = store._indexes;
+  let p = idx.personById.get(modelo.person_id);
+  const visto = new Set();
+  while (p?.merged_into && !visto.has(p.person_id)) {
+    visto.add(p.person_id);
+    const proximo = idx.personById.get(p.merged_into);
+    if (!proximo) break;
+    p = proximo;
+  }
+  if (p) return p;
+  const rec = {
+    person_id: modelo.person_id,
+    mint_seed: modelo.mint_seed,
+    registered: modelo.registered,
+    sq_candidato: modelo.sq_candidato ?? [],
+    nome_completo: modelo.nome_completo ?? null,
+    nome_urna: modelo.nome_urna ?? null,
+    display: modelo.nome_urna ?? null,
+    display_from: modelo.nome_urna ? "nome_urna" : null,
+    polled_names: [],
+    candidacies: modelo.candidacies ?? [],
+    // `merged_into` é CURADORIA, não derivação: o store é reconstruído do zero a
+    // cada rodada, então uma fusão decidida à mão só sobrevive se for carregada
+    // do estado anterior. Institutos têm o mesmo campo pelo mesmo motivo.
+    merged_into: store._prior?.peopleById?.get(modelo.person_id)?.merged_into ?? null,
+    first_seen: firstSeenFor(store, "people", modelo.person_id),
+  };
+  store.people.push(rec);
+  idx.personById.set(rec.person_id, rec);
+  store._report.minted.people = (store._report.minted.people ?? 0) + 1;
+  return rec;
+}
+
+/** Registra uma grafia observada e reavalia o nome exibido pela precedência. */
+function observePerson(store, pessoa, { grafia, exibido, origem }) {
+  if (grafia && !pessoa.polled_names.includes(grafia)) {
+    pessoa.polled_names = [...pessoa.polled_names, grafia].sort();
+  }
+  const escolha = melhorDisplay(
+    { display: pessoa.display, display_from: pessoa.display_from },
+    { display: exibido, display_from: origem ?? "mais curta observada" },
+  );
+  pessoa.display = escolha.display;
+  pessoa.display_from = escolha.display_from;
+}
+
+/**
+ * Todas as 519 pessoas do registro, mesmo as que nenhuma pesquisa mediu.
+ *
+ * A tabela é o cadastro de PESSOAS, não a lista de quem apareceu numa pesquisa:
+ * é ela que dá alvo a uma ruling ("estas duas linhas são a mesma pessoa") e à
+ * junção com as fotos do DivulgaCand quando o TSE publicar. Semear todas
+ * também tira a ordem de chegada da conta para 519 das linhas.
+ */
+export function seedRegisteredPeople(store, opts) {
+  for (const modelo of pessoasRegistradas(opts)) ensurePerson(store, modelo);
+  return store.people.length;
+}
+
+/**
  * `fuzzy` controls token-subset matching ("Lula" ⊂ "Luiz Inácio Lula da
  * Silva"). It must be OFF when ingesting names that are already canonical —
  * notably the migration, whose job is structural, not to re-run entity
  * resolution. Leaving it on there merged "Ciro Nogueira" into "Ciro", who is a
  * different politician; the parity gate caught it. The same hazard is latent
  * in canonicalize.mjs for live ingestion and needs its own fix.
+ *
+ * `raw` É A GRAFIA COMO O INSTITUTO PUBLICOU, e é ela que decide a identidade.
+ * `rawName` aqui sempre foi o nome PÓS-canonicalização, e a semente saía dele —
+ * por isso todo rename cunhava um id novo. Agora o nome só escolhe COMO CHAMAR;
+ * quem cunha é a pessoa.
  */
-export function resolveCandidate(store, rawName, contest, party, { mint = true, fuzzy = true } = {}) {
+export function resolveCandidate(store, rawName, contest, party, { mint = true, fuzzy = true, raw = null } = {}) {
+  const idx = store._indexes;
   const key = `${contest}|${nameKey(rawName)}`;
-  let cand = store._indexes.candidateByAlias.get(key);
-  if (cand) return cand;
+  const rawKey = raw ? `${contest}|${nameKey(raw)}` : null;
+  let cand = idx.candidateByAlias.get(key) ?? (rawKey ? idx.candidateByAlias.get(rawKey) : null);
+  if (cand) {
+    attachAlias(store, cand, key, rawName);
+    if (raw) attachAlias(store, cand, rawKey, raw);
+    notePolledName(store, cand, { raw, rawName, contest });
+    return cand;
+  }
   if (fuzzy) {
     for (const c of store.candidates) {
       if (c.contest !== contest) continue;
       if (sameCandidate(c.canonical, rawName) || (c.aliases ?? []).some((a) => sameCandidate(a, rawName))) {
-        c.aliases = [...new Set([...(c.aliases ?? []), String(rawName).trim()])];
-        store._indexes.candidateByAlias.set(key, c);
+        attachAlias(store, c, key, rawName);
+        notePolledName(store, c, { raw, rawName, contest });
         return c;
       }
     }
   }
   if (!mint) return null;
-  const candidate_id = mintCandidateId(`candidate|${key}`);
+
+  const pessoa = resolvePerson(store, { raw: raw ?? rawName, display: rawName, contest });
+  // A LINHA CONTINUA SENDO POR DISPUTA, de propósito. É ela que deixa
+  // `validate-store.mjs` seguir afirmando `candidate.contest === question.race:uf`
+  // — o guarda que pega um candidato a governador aparecendo numa pergunta de
+  // Senado, que é justamente por onde o cruzamento de `senador:AL` passou.
+  const seed = `candidate|${contest}|${pessoa.person_id}`;
+  const candidate_id = mintCandidateId(seed);
+  // DUAS GRAFIAS DA MESMA PESSOA NA MESMA DISPUTA CAEM NA MESMA LINHA. Antes,
+  // "Dr. Wanderley" e "José Wanderley Neto" em `senador:AL` cunhavam dois
+  // `candidate_id` e ainda se CRUZAVAM — o site publicava um homem sob dois
+  // nomes na mesma disputa. Com a semente na pessoa, o id colide de propósito.
+  const existente = idx.candidateById.get(candidate_id);
+  if (existente) {
+    attachAlias(store, existente, key, rawName);
+    if (raw) attachAlias(store, existente, rawKey, raw);
+    return existente;
+  }
+
   const rec = {
     candidate_id,
+    legacy_ids: [],
+    mint_seed: seed,
+    person_id: pessoa.person_id,
     contest, canonical: String(rawName).trim(),
     aliases: [String(rawName).trim()], party: party ?? null,
     first_seen: firstSeenFor(store, "candidates", candidate_id),
   };
   store.candidates.push(rec);
-  store._indexes.candidateByAlias.set(key, rec);
+  idx.candidateByAlias.set(key, rec);
+  idx.candidateById.set(candidate_id, rec);
+  if (rawKey) attachAlias(store, rec, rawKey, raw);
   store._report.minted.candidates++;
   return rec;
+}
+
+/**
+ * A grafia crua chega à PESSOA mesmo quando a linha de candidato já existia.
+ *
+ * O caminho rápido (índice de apelidos) devolve a linha sem passar por
+ * `resolvePerson`, e sem isto o `polled_names` da pessoa só guardaria a
+ * PRIMEIRA grafia vista: em `senador:AL`, "José Wanderley Neto" canonicaliza
+ * para "Dr. Wanderley", acerta o índice na primeira consulta e a segunda grafia
+ * do mesmo homem nunca era registrada. O campo existe justamente para dizer sob
+ * quantos nomes uma pessoa foi medida — e uma tabela de identidade que perde as
+ * grafias não serve para decidir identidade nenhuma.
+ */
+function notePolledName(store, cand, { raw, rawName, contest }) {
+  const pessoa = store._indexes.personById.get(cand.person_id);
+  if (!pessoa) return;
+  const grafia = String(raw ?? rawName ?? "").trim();
+  observePerson(store, pessoa, {
+    grafia, exibido: String(rawName ?? "").trim(), origem: displayOrigin(grafia, contest),
+  });
+  // Só quem não se registrou entra no índice por grafia — ver `resolvePerson`.
+  if (grafia && !pessoa.registered) {
+    store._indexes.personByPolled.set(`${raceOf(contest)}|${normNome(grafia)}`, pessoa);
+  }
+}
+
+function attachAlias(store, cand, key, nome) {
+  const t = String(nome ?? "").trim();
+  if (t && !(cand.aliases ?? []).includes(t)) cand.aliases = [...new Set([...(cand.aliases ?? []), t])].sort();
+  if (key) store._indexes.candidateByAlias.set(key, cand);
 }
 
 const DAY = 86_400_000;

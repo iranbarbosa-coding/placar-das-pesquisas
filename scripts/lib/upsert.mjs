@@ -90,13 +90,27 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     // argument for keeping a gate that compares the two.
     const ov = partyOverride(poll, r.candidate);
     const party = ov.has ? ov.party : canonicalPartyAt(r.party, date);
+    // A GRAFIA CRUA VIAJA JUNTO, e é ela que decide a identidade.
+    //
+    // `nome` é pós-canonicalização — é o nome EXIBIDO. Cunhar a identidade dele
+    // fazia o id acompanhar o nome: em 16/08/2026 uma mudança na regra de
+    // exibição moveu 27 de 1.078 `candidate_id` sem que um dado de origem
+    // mudasse, e cada id movido levou junto o `first_seen`, que `priorStamps`
+    // carrega POR ID.
+    //
+    // ⚠ ESTE COMENTÁRIO JÁ FOI FALSO. Ele dizia que `r.candidate` "é o que o
+    // instituto publicou e não se muda quando a nossa regra de nome muda" — e
+    // não era: `scrape.mjs` reescreve `r.candidate` em `canonicalizeCandidates`
+    // ANTES do store rodar, então a identidade estava sendo semeada pela própria
+    // regra de que ela deveria se desacoplar. A verificação independente pegou.
+    // Hoje a grafia publicada chega em `r.candidate_raw`, presa antes daquela
+    // reescrita, e é ela que semeia. O `??` cobre quem chama sem passar pelo
+    // coletor (harness, migração).
     const nome = canonicalCandidate(r.candidate, contest);
-    const c = resolveCandidate(store, nome, contest, party, { fuzzy: fuzzyCandidates });
-    // `name_raw` é a grafia que o INSTITUTO publicou, presa em `candidate_raw`
-    // por `scrape.mjs` antes de `canonicalizeCandidates` reescrever a linha.
-    // Antes disto aqui gravava `r.candidate`, que a essa altura já é o nome
-    // canônico — o campo dizia "raw" e guardava o oposto. O `??` cobre quem
-    // chama o upsert sem passar pelo coletor (harness, migração).
+    const c = resolveCandidate(store, nome, contest, party, {
+      fuzzy: fuzzyCandidates,
+      raw: r.candidate_raw ?? r.candidate,
+    });
     return {
       candidate_id: c.candidate_id,
       name_raw: r.candidate_raw ?? r.candidate,
@@ -114,6 +128,7 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
   // É exatamente a perda de 16/08, que este arquivo registra e que não se
   // repete de graça. O elenco canônico é estável sob mudança de grafia, então
   // é ele que semeia; `name_raw` fica para quem precisa da grafia de origem.
+  //
   // Exatamente o que a semente sempre recebeu: `poll.results[].candidate`, que
   // é o que `name_raw` guardava antes desta mudança. NÃO passar por
   // `canonicalCandidate` outra vez — o nome aqui já saiu de

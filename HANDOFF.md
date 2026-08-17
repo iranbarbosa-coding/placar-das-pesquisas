@@ -171,15 +171,56 @@ menos duas vezes no cluster**, com o nome-semente (mais frequente) como
 fallback. É deliberado, e é o que faz "Lula" ganhar de "Luiz Inácio Lula da
 Silva" — os institutos escrevem o nome de urna, não o nome civil.
 
-⚠ **O `candidate_id` ACOMPANHA O NOME EXIBIDO — e isto contradiz o que este
-arquivo promete em outro lugar.** `mintCandidateId` recebe
-`candidate|${contest}|${nameKey(nome)}`, e esse nome é o **pós-canonicalização**.
-Logo **todo rename cunha um id novo e órfã o antigo**. Medido em 16/08: uma
-mudança na regra de exibição trocou **27 de 1.078 ids** sem que os dados de
-origem mudassem (o `nomes-crus.json` mexeu em UMA entrada na mesma rodada).
-A promessa "ids são cunhados uma vez e nunca recomputados" vale para a ESCADA de
-resolução, não para o nome. **Quem for mexer em nome exibido tem de decidir isto
-antes de rodar, não depois.**
+### O `candidate_id` NÃO acompanha mais o nome exibido — a PESSOA entrou no meio
+
+**O defeito (era assim até esta mudança).** `mintCandidateId` recebia
+`candidate|${contest}|${nameKey(nome)}` com o nome **pós-canonicalização**, então
+**todo rename cunhava um id novo e órfã o antigo**. Medido em 16/08: uma mudança
+na regra de exibição trocou **27 de 1.078 ids** sem que os dados de origem
+mudassem. E como `priorStamps` carrega `first_seen` **por id**, um id que se move
+leva a data junto, em silêncio — foi assim que a virada de 16/08 perdeu
+`created_at` em 1.164 levantamentos e 2.961 perguntas.
+
+**Como está agora.** Existe `data/people.ndjson`, a identidade da PESSOA, global
+e acima da disputa (`scripts/lib/people.mjs`). As sementes:
+
+| população | semente |
+|---|---|
+| pessoa registrada | `person\|tse\|<menor sq_candidato do grupo colapsado>` |
+| pessoa sem registro | `person\|obs\|<race>\|<normNome(primeira grafia vista)>` |
+| linha de candidato | `candidate\|<contest>\|<person_id>` |
+
+`mint_seed` fica gravado nas duas tabelas. A linha de candidato **continua por
+disputa** — é ela que sustenta `candidate.contest === question.race:uf`, o
+guarda por onde o cruzamento de `senador:AL` passou.
+
+- **O escopo de quem não se registrou é a RACE** (decisão do criador). Global por
+  nome fundiria `Rui Costa` (senador:BA) com `Rui Costa Pimenta` (presidente) e
+  `Ciro` com `Ciro Nogueira`; por disputa estilhaçaria o presidencial, porque
+  `presidente:MG` é a mesma corrida perguntada a mineiros (Ratinho Jr aparece em
+  21 disputas presidenciais e é UMA pessoa). Custo medido: **49 humanos partidos
+  entre races**.
+- ⚠ **E 4 fusões entre UFs da MESMA race, que ainda são decisão em aberto:**
+  `Álvaro Dias` (senador:PR + senador:RN), `Ratinho Jr` e `Zeca Dirceu`
+  (senador:PR + senador:RS), `José Carlos do Pátio` (governador:BA +
+  governador:MT). Vêm da semente, não de um índice. Não movem número publicado
+  nem `candidate_id` (que segue por disputa) — afetam o que a linha de
+  `people.ndjson` **afirma**. Quem se registrou está fora disso: **pessoa
+  registrada só é alcançada pelo registro**, nunca pela grafia, justamente para
+  o "Alvaro Dias" do PR não sair carregando o `sq` do ÁLVARO DIAS do RN.
+- **`display_from` grava POR QUE o nome é o que é** (`ruling` › `nome_urna` ›
+  `grupo curado` › `mais curta observada`). Essa precedência sempre existiu como
+  ordem de escritas dentro de `lib/candidates.mjs` e não existia nos dados.
+- **`merged_into` é obrigatório e é carregado do estado anterior**, como em
+  institutos: sem ele uma ruling futura "estas duas são a mesma pessoa" órfã um
+  `person_id` e o defeito volta um nível acima.
+
+**A re-cunhagem de 16/08 não se repete de graça.** `build-store.mjs` traduz o
+`first_seen` do id antigo para o novo casando a disputa e as grafias, grava o id
+antigo em `legacy_ids` (como levantamento já faz) e **loga em
+`conflicts.ndjson`** todo id antigo que não casou — ensaio contra o banco vivo:
+**1.078 ids re-cunhados, 1.078 `first_seen` preservados, 0 órfãos, 0 linhas com
+a data da rodada.**
 
 ### Nome de urna vale POR PESSOA, não por disputa (decisão do criador, 16/08/2026)
 
@@ -357,11 +398,20 @@ intention by institute and by demographic segment.
 
 **Phase 1 (done, commit `c595d7e`)** — NDJSON store under `data/`:
 `surveys.ndjson` (1.155) · `questions.ndjson` (2.585) · `crosstabs.ndjson` (empty) ·
-`institutes.ndjson` (133) · `candidates.ndjson` (740) · `registry.ndjson` (empty) ·
+`institutes.ndjson` (133) · `people.ndjson` (**novo**, ver §1b: 519 pessoas do
+registro + as observadas em pesquisa) · `candidates.ndjson` (740) ·
+`registry.ndjson` (empty) ·
 `searches.ndjson` (empty) · `conflicts.ndjson` · `meta.json`.
 
-Key modules: `scripts/lib/{ndjson,ids,store,project}.mjs`, `scripts/validate-store.mjs`
-(20 guards, each with a self-test), `scripts/migrate-to-store.mjs`, `scripts/parity-check.mjs`.
+Key modules: `scripts/lib/{ndjson,ids,store,project,people,candidaturas}.mjs`,
+`scripts/validate-store.mjs` (30 guards, each with a self-test),
+`scripts/migrate-to-store.mjs`, `scripts/parity-check.mjs`.
+
+⚠ **A lista de tabelas e o conjunto vazio de índices moram em `lib/store.mjs`**
+(`TABLE_NAMES`, `emptyIndexes()`). Estavam copiados em `build-store.mjs`,
+`migrate-to-store.mjs` e `idempotence-check.mjs` — e uma tabela ausente da cópia
+do `idempotence-check` não é conferida nem por `snapshot` nem por `stampsIn`:
+não dá erro, some da verificação.
 
 Central decision: **ids are minted once from a recorded seed and never recomputed**;
 the resolution ladder uses only raw source data (native ref → TSE registration → natural

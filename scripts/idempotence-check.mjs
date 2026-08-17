@@ -23,6 +23,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { writeStoreFromPolls } from "./lib/build-store.mjs";
+import { TABLE_NAMES } from "./lib/store.mjs";
 
 // Drives the SAME builder the scraper does. It used to drive
 // `migrate-to-store.mjs`; once the scraper switched to the resolution ladder
@@ -35,7 +36,13 @@ const build = (runDate, dir) =>
     runDate, dir, meta: { built_by: "idempotence-check" },
   });
 
-const TABLES = ["surveys", "questions", "crosstabs", "institutes", "candidates", "registry", "searches", "conflicts"];
+// A LISTA VEM DO STORE, não de uma cópia.
+//
+// Uma tabela ausente daqui não é conferida por `snapshot` NEM por `stampsIn` —
+// não dá erro, apenas some das duas metades da verificação, e o guarda segue
+// verde enquanto a tabela nova re-data o banco inteiro a cada rodada. É a mesma
+// família de defeito do `byRef` consertado e do `byReg` deixado quebrado.
+const TABLES = TABLE_NAMES;
 const DATE_A = "2026-01-02";
 const DATE_B = "2027-09-30";
 

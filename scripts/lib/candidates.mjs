@@ -32,8 +32,21 @@ function table() {
   try { spec = JSON.parse(fs.readFileSync(FILE, "utf-8")); } catch { /* table is optional */ }
   const display = new Map();   // `${contest}|${norm(name)}` -> display name
   const distinct = new Set();  // `${contest}|${norm(a)}|${norm(b)}` (sorted)
+  // POR QUE O NOME EXIBIDO É O QUE É — gravado, não deduzido depois.
+  //
+  // A precedência abaixo (grupo curado → ruling → nome de urna → ruling) é
+  // real e é decidida aqui, mas até `people.ndjson` existir ela ficava
+  // implícita numa ordem de escritas: o mapa guardava só a resposta, e quem
+  // lesse `candidates.ndjson` não tinha como saber se "Zema" veio do registro
+  // do TSE, de uma decisão do criador ou da grafia mais curta observada. Como o
+  // `candidate_id` acompanhava esse nome, a origem do nome era também a origem
+  // do id — e ninguém conseguia auditar isso. Agora cada escrita registra a sua
+  // camada, e `people.display_from` publica a resposta.
+  const origem = new Map();    // `${contest}|${norm(name)}` -> qual camada decidiu
+  const ballot = new Map();    // `${contest}|${norm(name)}` -> candidatura do TSE
+  const decide = (chave, nome, camada) => { display.set(chave, nome); origem.set(chave, camada); };
   for (const g of spec.groups ?? []) {
-    for (const m of g.members ?? []) display.set(`${g.contest}|${norm(m)}`, g.display);
+    for (const m of g.members ?? []) decide(`${g.contest}|${norm(m)}`, g.display, "grupo curado");
   }
   // Rulings are applied HERE, at consume time, not only when the table is
   // regenerated. The generator discovers pairs by scanning the data — and once
@@ -44,7 +57,7 @@ function table() {
     const ruled = JSON.parse(fs.readFileSync(RULINGS, "utf-8"));
     for (const r of ruled.rulings ?? []) {
       if (r.verdict !== "MESMA" || !r.canonical) continue;
-      for (const n of r.names ?? []) display.set(`${r.contest}|${norm(n)}`, r.canonical);
+      for (const n of r.names ?? []) decide(`${r.contest}|${norm(n)}`, r.canonical, "ruling");
     }
   } catch { /* rulings are optional */ }
   // THE OFFICIAL BALLOT NAME, applied under the creator's own rulings.
@@ -61,10 +74,18 @@ function table() {
   // decides WHAT TO CALL a person already identified. Putting the register on
   // top would let a name match quietly undo a hand-decided identity.
   try {
-    const ballot = JSON.parse(fs.readFileSync(BALLOT, "utf-8"));
-    for (const [contest, nomes] of Object.entries(ballot.mapping ?? {})) {
+    const registro = JSON.parse(fs.readFileSync(BALLOT, "utf-8"));
+    for (const [contest, nomes] of Object.entries(registro.mapping ?? {})) {
       for (const [key, info] of Object.entries(nomes)) {
-        if (info?.nome_urna) display.set(`${contest}|${key}`, info.nome_urna);
+        // A CANDIDATURA É GRAVADA MESMO QUANDO O NOME NÃO MUDA.
+        //
+        // `sq_candidato` é a semente do `person_id` de quem se registrou, e ele
+        // não pode depender de a linha ter ou não mudado de nome: um nome que já
+        // estava escrito como o nome de urna não produz renomeação nenhuma e
+        // ainda assim identifica a pessoa. Guardar só o rename deixaria essas
+        // pessoas sem `sq` e as cunharia como não-registradas.
+        ballot.set(`${contest}|${key}`, info);
+        if (info?.nome_urna) decide(`${contest}|${key}`, info.nome_urna, "nome_urna");
       }
     }
   } catch { /* the register is optional; the site predates it */ }
@@ -74,7 +95,7 @@ function table() {
     const ruled = JSON.parse(fs.readFileSync(RULINGS, "utf-8"));
     for (const r of ruled.rulings ?? []) {
       if (r.verdict !== "MESMA" || !r.canonical) continue;
-      for (const n of r.names ?? []) display.set(`${r.contest}|${norm(n)}`, r.canonical);
+      for (const n of r.names ?? []) decide(`${r.contest}|${norm(n)}`, r.canonical, "ruling");
     }
   } catch { /* rulings are optional */ }
 
@@ -82,7 +103,7 @@ function table() {
     const [a, b] = (d.names ?? []).map(norm).sort();
     if (a && b) distinct.add(`${d.contest}|${a}|${b}`);
   }
-  TABLE = { display, distinct, groups: spec.groups ?? [] };
+  TABLE = { display, origem, ballot, distinct, groups: spec.groups ?? [] };
   return TABLE;
 }
 
@@ -94,6 +115,29 @@ function table() {
 export function canonicalCandidate(name, contest) {
   if (!name) return name;
   return table().display.get(`${contest}|${norm(name)}`) ?? name;
+}
+
+/**
+ * QUAL CAMADA decidiu o nome exibido de `name` em `contest`.
+ *
+ * `null` quando nenhuma decidiu — aí o nome que sai de `canonicalCandidate` é o
+ * próprio nome de entrada, e quem escolheu a grafia foi `canonicalizeCandidates`
+ * (a mais curta vista ao menos duas vezes no cluster). Quem consome traduz esse
+ * `null` para "mais curta observada"; aqui ele é honesto: esta tabela não opinou.
+ */
+export function displayOrigin(name, contest) {
+  if (!name) return null;
+  return table().origem.get(`${contest}|${norm(name)}`) ?? null;
+}
+
+/**
+ * A candidatura do TSE que `data/ballot-names.json` casou com este nome, ou
+ * `null`. É por aqui que uma linha de pesquisa alcança um `SQ_CANDIDATO` — a
+ * semente do `person_id` de quem se registrou.
+ */
+export function ballotCandidacy(name, contest) {
+  if (!name) return null;
+  return table().ballot.get(`${contest}|${norm(name)}`) ?? null;
 }
 
 /** Were these two names CHECKED and found to be different people? */

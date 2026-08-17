@@ -32,6 +32,25 @@ export function mintCandidateId(seed) {
   return `c_${hash12(seed)}`;
 }
 /**
+ * A PESSOA, que é a identidade que existe fora de uma disputa.
+ *
+ * O `candidate_id` era sementeado com o NOME EXIBIDO (`candidate|contest|
+ * nameKey(nome)`), e o nome exibido é decidido pela canonicalização — então
+ * todo rename cunhava um id novo e órfã o antigo. Medido em 16/08/2026: uma
+ * mudança na regra de exibição moveu 27 de 1.078 ids sem que um único dado de
+ * origem tivesse mudado. E como `priorStamps` carrega `first_seen` POR ID, um
+ * id que se move perde a data em silêncio — foi assim que 1.164 levantamentos e
+ * 2.961 perguntas perderam `created_at` na virada de 16/08.
+ *
+ * A pessoa quebra a corrente: o `person_id` sai do registro do TSE
+ * (`SQ_CANDIDATO`, que nenhuma regra nossa move) ou da primeira grafia
+ * observada, e o `candidate_id` passa a sair da pessoa. Renomear deixa de ser
+ * um evento de identidade.
+ */
+export function mintPersonId(seed) {
+  return `p_${hash12(seed)}`;
+}
+/**
  * A conflict's id is a function of WHAT IT SAYS, never of when it was logged.
  *
  * It was `k_<n>_<runDate>` — an index plus the run's date. Under the migration
