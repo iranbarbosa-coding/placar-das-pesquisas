@@ -830,6 +830,19 @@ metadata cells change in the table columns.
     INSERIDA (curada)`), no-op quando a fonte volta a servi-la (`noop`), e **recusa** um
     quase-igual dentro da janela de 3 dias que já é a de `resolveSurvey` e de
     `datesClose` (ambíguo recusa e loga, nunca escolhe — §4).
+  · **★ E ESSA JANELA HOJE É UMA CONSTANTE SÓ** (17/08/2026): `JANELA_OPERACAO_MS`, em
+    `scripts/lib/store.mjs`, ao lado da escada que a usa. Ela estava escrita como literal
+    em OITO lugares — os degraus 2 e 3 de `resolveSurvey`, `datesClose` e
+    `dropExactDuplicates` do coletor, a recusa de quase-igual de `repairs.mjs`, os gêmeos
+    de `candidate-review.mjs`, a coorte de registros contraditórios de
+    `migrate-to-store.mjs` e a invariante C de `upsert-vs-migration.mjs`. É a mesma
+    família das duas cópias de `norm()` (um homem publicado sob dois nomes) e das três
+    cópias do esquema de cores — CONVENTIONS §5. A janela é **derivada** de como os
+    institutos publicam (o último dia do campo arredondado de dois jeitos; um registro
+    cobrindo três cargos em dias vizinhos da mesma ida a campo), nunca escolhida:
+    alargá-la para um portão passar é a jogada proibida do §10. Nenhuma mudança de
+    comportamento — o store reconstruído antes e depois é byte-idêntico, em diretório
+    vazio e sobre uma cópia de `data/`.
   · Duas travas que valem a leitura: a pesquisa montada tem de satisfazer a PRÓPRIA
     cláusula (senão "nenhum alvo casou" deixa de significar "ainda não existe" e a
     inserção repetiria a cada rodada), e uma entrada **insere OU corrige**, nunca as duas.
@@ -843,6 +856,29 @@ metadata cells change in the table columns.
     canônico —, então a pesquisa inserida cai no MESMO levantamento e na MESMA pergunta
     que a real ocuparia. Provado no guarda: quando a fonte sara, a linha real herda o
     `question_id` e o `created_at` da inserida.
+  · **★ A INSERÇÃO NÃO É PONTO FIXO DESDE A RODADA 1 — ELA CONVERGE NA RODADA 2, E O
+    `created_at` DA PRIMEIRA MORRE NO CAMINHO.** Este documento e a narrativa do commit
+    `c3e3539` afirmaram o contrário; a afirmação era falsa e a bateria não podia vê-la,
+    porque as fixtures dela usam nomes ausentes do registro do TSE — a condição que
+    esconde o fenômeno. **Verificado em três rodadas ao vivo do pipeline:** da 1ª para a
+    2ª o `question_id` da pesquisa inserida MUDOU (`q_aee70a1239f0` → `q_875819b0e55b`) e
+    o `created_at` foi recunhado junto; da 2ª para a 3ª tudo é byte-idêntico
+    (`surveys/questions/candidates/people/institutes` e `polls[]`).
+    **Causa: a defasagem de uma rodada do casador de nomes de urna (CONVENTIONS §6).** A
+    inserção estreia `Samara Martins` e `Edmilson Costa` em `presidente:PE`;
+    `match-ballot-names.mjs` roda DEPOIS da coleta e o mapa que ele gera só vale para a
+    rodada SEGUINTE. Então na rodada 2 `Samara Martins` vira `Samara`, o elenco canônico
+    muda, e com ele a semente `question|…|<elenco canônico>` — id novo, e como
+    `priorStamps` casa `created_at` POR ID, carimbo novo. Vale para QUALQUER pesquisa
+    inserida que traga para a disputa um nome que o mapa reescreva; para as outras, a
+    rodada 2 já é ponto fixo.
+    **Guardado por caso próprio**: `curated-insert-check.mjs`, "a inserção converge em
+    DUAS rodadas quando estreia um nome de urna" — as duas rodadas veem mapas de urna
+    diferentes (é o que acontece na vida real), e o caso afirma o comportamento
+    observado: move UMA vez, depois fica. O caso vizinho, o do ponto fixo, foi renomeado
+    para dizer o que de fato prova — ponto fixo **com o mapa de urna parado**.
+    **Consertar em vez de documentar?** Ver §6, item novo: as duas saídas óbvias mexem na
+    ORDEM do pipeline, que §0 marca como contra-intuitiva e load-bearing.
   · **O primeiro caso: Datafolha, presidencial, PERNAMBUCO, campo 28–30/07/2026.** O
     levantamento `PE-04519/2026` (`s_4bc31f83b328`) estava no banco com governador 1º e 2º
     turnos e senado, **sem a presidencial**, e a mesma amostra de 1.022 eleitores respondeu
@@ -912,7 +948,7 @@ node scripts/upsert-harness.mjs                # the WRITE path (20 cases)
 node scripts/source-fallback-check.mjs         # recuperação de fonte caída (+ --self-test)
 node scripts/roster-retention-check.mjs        # a fonte encolheu o elenco? mantém o anterior
 node scripts/roster-retention-check.mjs --self-test # …e prova as DUAS metades
-node scripts/curated-insert-check.mjs          # add_poll: insere, não duplica, recusa sem fonte
+node scripts/curated-insert-check.mjs          # add_poll: insere, não duplica, recusa sem fonte, converge em 2 rodadas
 node scripts/curated-insert-check.mjs --self-test # …e prova as DUAS metades (nunca / sempre)
 node scripts/idempotence-check.mjs             # rebuild on 2 dates ⇒ identical
 node scripts/idempotence-check.mjs --self-test # …and prove that check can fail
@@ -960,6 +996,20 @@ subconjunto, chega ao MESMO arquivo (provado em
 verdade: partir de um `data/` vazio e partir do `data/` commitado podem dar
 stores diferentes — o vazio não tem elenco a reter. `idempotence-check` continua
 válido porque as duas rodadas dele partem do MESMO diretório.
+
+⚠️ **"MESMA ENTRADA" INCLUI O MAPA DE NOMES DE URNA — e ele muda entre a rodada
+que estreia um nome e a seguinte.** `data/ballot-names.json` é saída de
+`match-ballot-names.mjs`, que roda DEPOIS da coleta e vale para a rodada seguinte
+(CONVENTIONS §6). Uma rodada que traga para uma disputa um nome que o mapa
+reescreva não é ponto fixo: na rodada seguinte o elenco canônico muda, a semente
+`question|…|<elenco canônico>` muda com ele e o `question_id` é recunhado UMA
+vez, levando o `created_at` junto. Depois disso estabiliza. Foi o que aconteceu
+com a primeira inserção curada (ver §4, `add_poll`), e é por isso que
+`idempotence-check` não vê o fenômeno: as duas rodadas dele leem o MESMO
+`ballot-names.json`. Quem o guarda é `curated-insert-check.mjs`, no caso "a
+inserção converge em DUAS rodadas quando estreia um nome de urna" — o único da
+casa que injeta dois estados do mapa, via `usarRegistroDeUrna` de
+`lib/candidates.mjs` (porta que existe só para isto e que produção nunca chama).
 
 ⚠️ **`validate-store.mjs` TAMBÉM CORTA A LISTA — em 60 — e isso já mentiu.**
 `validateStore()` devolve `errors.slice(0, 60)`, e os cinco chamadores
@@ -1026,6 +1076,33 @@ every validator here has a `--self-test` for that reason.
    **não conferida** contra o cadastro de 2026.
 6. **68 pesquisas incompletas** (`PESQUISAS_INCOMPLETAS.md`) e **4 registros TSE
    com datas contraditórias** — decisões editoriais suas, inalteradas.
+7. **A defasagem de uma rodada do casador: consertar ou continuar documentada?**
+   (17/08/2026 — decisão de método, §12.) Hoje uma pesquisa que estreia um nome
+   numa disputa recunha a pergunta na rodada seguinte e perde o `created_at` (ver
+   §4, `add_poll`, e §5). Está **documentada e guardada por teste**, não
+   consertada. As duas saídas óbvias mexem na ORDEM do pipeline, que §0 marca
+   como contra-intuitiva e load-bearing:
+   · **(a) rodar `match-ballot-names.mjs` ANTES da inserção**, dentro da rodada.
+     Custo: o casador lê `data/nomes-crus.json`, que `scrape.mjs` só grava depois
+     de coletar — então "antes" quer dizer partir a coleta em duas (coletar →
+     gravar nomes crus → casar → reparar → construir), e o mapa da rodada passa a
+     depender da coleta da própria rodada. É exatamente o laço que CONVENTIONS §6
+     proíbe, com o agravante de que o gerador voltaria a rodar sobre dados que a
+     mesma rodada acabou de produzir. **Não recomendado.**
+   · **(b) semear o mapa com os nomes que a inserção traz**, ainda na rodada em
+     que ela acontece — pedir a `match-ballot-names` só as candidaturas dos nomes
+     do `add_poll` e aplicá-las antes de `canonicalizeCandidates`. Não mexe na
+     ordem geral e resolve a classe inteira, mas cria um segundo caminho de
+     escrita para o mesmo mapa (§5: uma regra, uma implementação) e ele teria de
+     provar que dá a MESMA resposta que o casador daria — mais um par
+     gerador/consumidor para manter em concordância, que é a fonte do defeito do
+     `norm()` duplicado.
+   · **(c) não consertar** (o estado atual): a defasagem custa **uma** recunhagem
+     por pesquisa curada que estreie nome, na rodada seguinte à inserção, e o
+     `created_at` que ela perde é o de uma pergunta cuja idade real é a data de
+     campo, não a da inserção. **Recomendado**, enquanto `add_poll` for raro
+     (hoje: uma entrada). Se a porta curada virar rotina — dezenas de blocos dos
+     41 medidos —, a conta vira e (b) passa a valer o custo.
 
 **A FAZER PRIMEIRO na próxima sessão**
 

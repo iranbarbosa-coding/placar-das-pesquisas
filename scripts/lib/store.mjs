@@ -575,6 +575,29 @@ function attachAlias(store, cand, key, nome) {
 const DAY = 86_400_000;
 
 /**
+ * A JANELA QUE DECIDE "ESTAS LINHAS SÃO A MESMA OPERAÇÃO DE CAMPO" — uma
+ * implementação só (CONVENTIONS §5), aqui porque é `resolveSurvey` quem a usa
+ * para decidir que um registro do TSE é UM levantamento.
+ *
+ * DERIVADA, NÃO ESCOLHIDA (CONVENTIONS §10). Os institutos publicam a mesma
+ * coleta com o último dia arredondado de formas diferentes — "22–24/07" no
+ * relatório e "22–23/07" no agregador —, e um registro do TSE cobre governo,
+ * senado e presidência filtrados em dias vizinhos da MESMA ida a campo. Três
+ * dias é a folga que essa prática de publicação impõe; para além dela a
+ * discordância deixa de ser arredondamento e vira defeito de fonte (erro de
+ * dígito no mês ou no ano), que fica separado e é logado. **Alargá-la para um
+ * portão passar é a jogada proibida do §10** — o preço não é um aviso, é fundir
+ * duas operações de campo distintas e contar uma amostra que nunca existiu.
+ *
+ * Estava escrita como literal em oito lugares (dois degraus da escada, dois
+ * pontos do coletor, a recusa de quase-igual de `repairs.mjs`, o dossiê de
+ * candidatos, a migração e o portão da Fase 3). Cópias divergem: é o mesmo
+ * defeito que deu duas cópias de `norm()` — e com elas um homem publicado sob
+ * dois nomes na mesma disputa — e três cópias do esquema de cores.
+ */
+export const JANELA_OPERACAO_MS = 3 * DAY;
+
+/**
  * The resolution ladder. First hit wins; every input is RAW source data so
  * that a canonicalisation change cannot move a key.
  *   1. source native ref — the finest truth about what one record is, and the
@@ -620,7 +643,7 @@ export function resolveSurvey(store, incoming) {
     const incomingDate = incoming.fieldwork_end ?? incoming.published_date;
     const heldDate = held.fieldwork_end ?? held.published_date;
     const contradictory = incomingDate && heldDate &&
-      Math.abs(+new Date(heldDate) - +new Date(incomingDate)) > 3 * DAY;
+      Math.abs(+new Date(heldDate) - +new Date(incomingDate)) > JANELA_OPERACAO_MS;
     if (!contradictory) {
       store._report.matched.registration++;
       return { survey: held, matched_by: "registration" };
@@ -646,7 +669,7 @@ export function resolveSurvey(store, incoming) {
       // if a source had erred.
       if (reg && s.tse_registration && s.tse_registration !== reg) continue;
       const sd = s.fieldwork_end ?? s.published_date;
-      if (!sd || Math.abs(+new Date(sd) - +new Date(date)) > 3 * DAY) continue;
+      if (!sd || Math.abs(+new Date(sd) - +new Date(date)) > JANELA_OPERACAO_MS) continue;
       // The sample size is a fact OF the field operation, so two rows that
       // report different ones are not it. Without this the rung fused an Ideia
       // poll of 27.600 with one of 1.500 taken the same day, an AtlasIntel

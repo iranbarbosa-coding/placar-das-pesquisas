@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
-import { today, writeStore, DATA_DIR } from "./lib/store.mjs";
+import { today, writeStore, DATA_DIR, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { richerRoster } from "./lib/roster.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
@@ -50,11 +50,14 @@ function pollDate(p) {
 }
 
 // Sources disagree by a day or two on fieldwork end ("22–24/07" vs "22–23/07").
+// A janela é a de `resolveSurvey` — uma implementação só (§5): se este lado e a
+// escada discordarem sobre o que é uma operação de campo, o coletor funde o que
+// o store separa (ou o contrário) e ninguém vê a divergência.
 function datesClose(a, b) {
   const da = pollDate(a);
   const db = pollDate(b);
   if (!da || !db) return true; // undated: let the roster check decide
-  return Math.abs(+new Date(da) - +new Date(db)) <= 3 * 86_400_000;
+  return Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS;
 }
 
 function rostersMatch(a, b) {
@@ -161,7 +164,7 @@ function dropExactDuplicates(polls) {
         if (dropped.has(b)) continue;
         const da = pollDate(a);
         const db = pollDate(b);
-        if (da && db && +new Date(db) - +new Date(da) > 3 * 86_400_000) break;
+        if (da && db && +new Date(db) - +new Date(da) > JANELA_OPERACAO_MS) break;
         if (a.pollster === b.pollster) continue; // same institute handled upstream
         if (a.sample_size && b.sample_size && a.sample_size !== b.sample_size) continue;
         const small = a.results.length <= b.results.length ? a : b;

@@ -49,7 +49,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readStore, markHeadlines, DATA_DIR, SOURCE_ORDER } from "./lib/store.mjs";
+import { readStore, markHeadlines, DATA_DIR, SOURCE_ORDER, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
 import { projectPolls } from "./lib/project.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
@@ -197,7 +197,9 @@ function gate(polls, { quiet = false } = {}) {
     const regs = new Set(rows.map((r) => normalizeRegistration(r.tse_registration)).filter(Boolean));
     if (regs.size > 1) fail("C", `${sid} uniu registros TSE diferentes: ${[...regs].join(", ")}`);
     const ds = rows.map(dateOf).filter(Boolean).map((d) => +new Date(d));
-    if (ds.length && Math.max(...ds) - Math.min(...ds) > 3 * DAY) {
+    // O portão confere a invariante da escada com a janela DA escada, importada
+    // (§5) — uma cópia aqui poderia aprovar o que `resolveSurvey` recusa.
+    if (ds.length && Math.max(...ds) - Math.min(...ds) > JANELA_OPERACAO_MS) {
       fail("C", `${sid} uniu campos a ${Math.round((Math.max(...ds) - Math.min(...ds)) / DAY)} dias de distância`);
     }
   }

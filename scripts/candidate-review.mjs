@@ -17,7 +17,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { readStore, DATA_DIR } from "./lib/store.mjs";
+import { readStore, DATA_DIR, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { projectPolls } from "./lib/project.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -45,7 +45,6 @@ function levenshtein(a, b) {
   return prev[n];
 }
 
-const DAY = 86_400_000;
 const RACE_LABEL = { presidente: "Presidente", governador: "Governador", senador: "Senado" };
 
 // LÊ data/polls.json — os nomes CRUS, como as fontes entregam.
@@ -143,7 +142,9 @@ function analyse(contest, A, B, occA, occB, shared, ta, tb) {
   for (const x of occA) {
     for (const y of occB) {
       if (x.institute !== y.institute || !x.date || !y.date) continue;
-      if (Math.abs(+new Date(x.date) - +new Date(y.date)) > 3 * DAY) continue;
+      // A MESMA janela de "uma operação de campo" da escada (§5): o sinal aqui é
+      // justamente "o mesmo instituto, a mesma disputa, a mesma ida a campo".
+      if (Math.abs(+new Date(x.date) - +new Date(y.date)) > JANELA_OPERACAO_MS) continue;
       twins.push({ institute: x.institute, a: x, b: y });
     }
   }

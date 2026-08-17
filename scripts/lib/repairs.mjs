@@ -13,6 +13,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sameCandidate } from "./canonicalize.mjs";
 import { pollId } from "./util.mjs";
+// A janela de "mesma operação de campo" mora em `store.mjs`, ao lado da escada
+// que a usa. Sem ciclo: o fecho de imports de `store.mjs` (candidates,
+// canonicalize, candidaturas, ids, ndjson, nomes, parties, people) não alcança
+// este arquivo, e `canonicalize.mjs` acima já vem de dentro desse fecho.
+import { JANELA_OPERACAO_MS } from "./store.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "repairs.json");
 
@@ -80,9 +85,10 @@ function matches(poll, m) {
 //    por igualdade exata; se a fonte passar a servir a mesma operação de campo
 //    datada um dia adiante, o alvo não casa e o duplicado entraria. A janela é a
 //    mesma "uma operação de campo = um levantamento" que o banco já usa em
-//    `resolveSurvey` (degraus 2 e 3, `3 * DAY`) e em `datesClose` do coletor —
-//    DERIVADA da doutrina que já está no código, não escolhida para este guarda
-//    (§10). Doador ambíguo recusa e loga, como faz a retenção de elenco.
+//    `resolveSurvey` (degraus 2 e 3) e em `datesClose` do coletor, e é a MESMA
+//    constante, importada: `JANELA_OPERACAO_MS` de `store.mjs` — DERIVADA da
+//    doutrina que já está no código, não escolhida para este guarda (§10).
+//    Doador ambíguo recusa e loga, como faz a retenção de elenco.
 //
 // ---------------------------------------------------------------------------
 // COMO SE SABE, DEPOIS, QUE A PESQUISA É CURADA E NÃO COLETADA
@@ -121,7 +127,6 @@ const CITACAO = ["source", "evidence", "verified_at"];
 // se aplica à pesquisa inserida ou às que a cláusula casou — e ambiguidade se
 // recusa (§4), não se resolve por convenção tácita.
 const ACOES_DE_CORRECAO = ["add_results", "set_party", "set", "allow_roster_shrink"];
-const JANELA_OPERACAO_MS = 3 * 86_400_000;
 
 // A mesma normalização de instituto do `bucketKey` do coletor: acento e
 // pontuação fora. Mais severa que o `toLowerCase()` de `matches()` de propósito

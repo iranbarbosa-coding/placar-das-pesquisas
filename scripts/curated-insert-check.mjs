@@ -37,6 +37,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { writeStoreFromPolls } from "./lib/build-store.mjs";
 import { applyRepairs, inserirPesquisaCurada, montarPesquisaCurada } from "./lib/repairs.mjs";
+import { usarRegistroDeUrna } from "./lib/candidates.mjs";
+import { canonicalizeCandidates } from "./lib/canonicalize.mjs";
+import { agruparPorDisputa, lerCandidaturas } from "./lib/candidaturas.mjs";
+import { normNome } from "./lib/nomes.mjs";
 import { projectPolls } from "./lib/project.mjs";
 import { validateStore } from "./validate-store.mjs";
 import { validate as validateLegado } from "./validate-data.mjs";
@@ -293,7 +297,7 @@ function rodar({ mutacao = null } = {}) {
     afirma(presidencial(dir).length === 1, `${presidencial(dir).length} perguntas presidenciais, esperado 1`);
   });
 
-  caso("a inserção é PONTO FIXO: duas datas, a mesma entrada, o mesmo arquivo", ({ dir, construir, afirma, opcoes }) => {
+  caso("a inserção é PONTO FIXO COM O MAPA DE URNA PARADO: duas datas, a mesma entrada, o mesmo arquivo", ({ dir, construir, afirma, opcoes }) => {
     // §8, na forma que o HANDOFF §5 dá à garantia depois da retenção de elenco:
     // reconstruir (mesma entrada, mesmo estado anterior) em duas datas quaisquer
     // produz tabelas byte-idênticas. A "mesma entrada" de uma rodada normal é a
@@ -303,6 +307,19 @@ function rodar({ mutacao = null } = {}) {
     // mesmo `created_at`, sem uma linha reescrita. Sem isto, cada rodada
     // comitaria a pesquisa inserida de novo só com carimbo diferente — a
     // agitação que o NDJSON foi escolhido para não ter.
+    //
+    // ⚠ E O QUE ESTE CASO **NÃO** PROVA — a leitura anterior dele era falsa.
+    // Ele afirmava que a inserção é ponto fixo DESDE A RODADA 1, e não é: o
+    // elenco desta fixture é feito de nomes que não existem no registro do TSE,
+    // então o mapa de nomes de urna não tem nada a reescrever nele e as duas
+    // rodadas ficam iguais por CONSTRUÇÃO DA FIXTURE. Quando a pesquisa inserida
+    // estreia na disputa um nome que o mapa reescreve — o caso real: `Samara
+    // Martins` e `Edmilson Costa` entrando em `presidente:PE` —, a rodada 2
+    // renomeia, a semente da pergunta muda com o elenco e o `question_id` se
+    // move UMA vez, levando o `created_at` junto. Medido em três rodadas ao
+    // vivo: `q_aee70a1239f0` → `q_875819b0e55b` da 1ª para a 2ª, e a 2ª para a
+    // 3ª byte a byte igual. Quem prova isso é o caso seguinte; este aqui prova a
+    // outra metade, com o mapa parado.
     const rodada1 = [irma()];
     const rel1 = applyRepairs(rodada1, opcoes(specDeTeste(dir)));
     afirma(rel1.inserted.length === 1, `rodada 1 inseriu ${rel1.inserted.length}, esperado 1`);
@@ -320,6 +337,138 @@ function rodar({ mutacao = null } = {}) {
     afirma(presidencial(dir)[0]?.question_id === idAntes, "o question_id não sobreviveu à segunda rodada");
     afirma(fs.readFileSync(path.join(dir, "questions.ndjson"), "utf-8") === antes,
       "a 2ª rodada reescreveu questions.ndjson — a inserção não é um ponto fixo");
+  });
+
+  caso("a inserção converge em DUAS rodadas quando estreia um nome de urna: move uma vez, depois fica", ({ dir, construir, afirma, opcoes }) => {
+    // A DEFASAGEM DE UMA RODADA DO CASADOR (CONVENTIONS §6), PROVADA — e não
+    // escondida pela escolha da fixture.
+    //
+    // Todos os outros casos desta bateria usam nomes ausentes do registro do
+    // TSE, de propósito: um caso que dependesse do conteúdo de
+    // `data/candidaturas.ndjson` quebraria quando o TSE republicasse o arquivo.
+    // Só que essa escolha esconde exatamente o comportamento que a inserção tem
+    // no banco de verdade. `match-ballot-names.mjs` roda DEPOIS da coleta e o
+    // mapa que ele gera vale para a rodada SEGUINTE — então a pesquisa inserida,
+    // que estreia `Samara Martins` e `Edmilson Costa` em `presidente:PE`, não é
+    // renomeada na rodada em que entra. Na rodada 2 o mapa já a alcança, o
+    // elenco canônico vira `Samara`, a semente
+    // `question|…|<elenco canônico>` muda, e o `question_id` é RECUNHADO uma
+    // vez. Como `priorStamps` casa `created_at` POR ID, o carimbo do dia da
+    // inserção morre junto — a mesma perda que a virada de 16/08 custou em 1.164
+    // levantamentos, aqui em escala de uma pergunta.
+    //
+    // Isto NÃO é "pode acontecer": aconteceu, medido em três rodadas ao vivo do
+    // pipeline (`q_aee70a1239f0` → `q_875819b0e55b`, `created_at` perdido; e a
+    // 3ª rodada byte a byte igual à 2ª). O que este caso cobra é a forma exata
+    // do fenômeno — MOVE UMA VEZ E DEPOIS FICA. Se um dia a inserção passar a
+    // convergir na rodada 1, é AQUI que se descobre, porque a 1ª afirmação
+    // abaixo cai.
+    //
+    // As duas rodadas veem mapas de urna DIFERENTES porque na vida real elas
+    // veem: o mapa é a saída da rodada anterior. A rodada 1 vê um mapa sem a
+    // disputa (o casador ainda não leu esses nomes crus); a 2ª e a 3ª veem a
+    // entrada que o casador de verdade escreveu para este nome — copiada de
+    // `data/ballot-names.json`, do elenco `presidente:BR`, que é o MESMO elenco
+    // que `match-ballot-names.mjs` usa para as subamostras estaduais da
+    // presidencial (`byContest.get("presidente:BR")` quando a chave começa com
+    // `presidente:`). Não se remonta aqui a regra de casamento: usa-se a
+    // resposta que o casador já deu.
+    const NOME_PUBLICADO = "Samara Martins";
+    const DISPUTA = "presidente:PE";
+    const mapaReal = JSON.parse(fs.readFileSync(path.join(RAIZ, "data", "ballot-names.json"), "utf-8"));
+    const entrada = mapaReal.mapping?.["presidente:BR"]?.[normNome(NOME_PUBLICADO)];
+    afirma(!!entrada, `"${NOME_PUBLICADO}" não está em data/ballot-names.json (presidente:BR) — escolha outro nome que o registro reescreva`);
+    afirma(normNome(entrada?.nome_urna ?? "") !== normNome(NOME_PUBLICADO),
+      `o mapa não RENOMEIA "${NOME_PUBLICADO}" (nome_urna = ${entrada?.nome_urna}) — sem renomeação não há defasagem a provar`);
+    // E o nome tem de estar mesmo no registro do TSE: é o registro que dá a
+    // resposta, o mapa é só a materialização dela.
+    const registrada = (agruparPorDisputa(lerCandidaturas()).get("presidente:BR") ?? [])
+      .find((c) => c.sq_candidato === entrada?.sq_candidato);
+    afirma(!!registrada && normNome(registrada.nome_urna) === normNome(entrada?.nome_urna ?? ""),
+      `a candidatura ${entrada?.sq_candidato} não está em data/candidaturas.ndjson com o nome de urna ${entrada?.nome_urna}`);
+
+    // Soma 79 como o `ELENCO` padrão (41+30+6+2), para `expect_sum` seguir vivo.
+    const elenco = [
+      { candidate: "Alfa Insercao", party: "PT", pct: 41 },
+      { candidate: "Beta Insercao", party: "PL", pct: 30 },
+      { candidate: "Gama Insercao", party: "PSD", pct: 6 },
+      { candidate: NOME_PUBLICADO, party: entrada?.partido ?? "UP", pct: 2 },
+    ];
+    const spec = () => specDeTeste(dir, { poll: { results: structuredClone(elenco) } });
+    const mapa = (nome, mapping) => {
+      const f = path.join(dir, nome);
+      fs.writeFileSync(f, JSON.stringify({ mapping }));
+      return f;
+    };
+    const SEM = mapa("urna-antes.json", {});
+    const COM = mapa("urna-depois.json", { [DISPUTA]: { [normNome(NOME_PUBLICADO)]: entrada } });
+
+    // ⚠ ESTE CASO PRECISA DA CANONICALIZAÇÃO, e os outros não — por isso ela
+    // aparece aqui e não no `construir` comum. É `canonicalizeCandidates` que
+    // aplica o mapa de urna sobre `r.candidate` (o coletor a roda entre os
+    // reparos e o store, linhas 410–414 de `scrape.mjs`), e é `r.candidate` que
+    // semeia `question|…|<elenco canônico>`. Sem esta chamada o mapa não toca a
+    // semente e o caso testaria um pipeline que não existe — foi exatamente o
+    // que aconteceu na primeira versão dele, que passou verde por omitir a
+    // etapa que causa a defasagem. `candidate_raw` é preso antes, como lá.
+    const comoOColetor = (polls) => {
+      for (const p of polls) for (const r of p.results ?? []) r.candidate_raw ??= r.candidate;
+      return canonicalizeCandidates(polls);
+    };
+    // O nome EXIBIDO de cada linha vive na tabela de candidatos; `name_raw`
+    // guarda de propósito a grafia publicada e não mudaria nem com o rename.
+    const nomesDaPergunta = () => {
+      const porId = new Map(ler(dir, "candidates").map((c) => [c.candidate_id, c.canonical]));
+      return (presidencial(dir)[0]?.results ?? []).map((r) => porId.get(r.candidate_id) ?? r.name_raw);
+    };
+
+    try {
+      // RODADA 1 — o casador ainda não viu estes nomes crus.
+      usarRegistroDeUrna(SEM);
+      const r1 = [irma()];
+      afirma(applyRepairs(r1, opcoes(spec())).inserted.length === 1, "rodada 1 não inseriu");
+      construir(comoOColetor(r1), D0);
+      const q1 = presidencial(dir)[0] ?? {};
+      afirma(nomesDaPergunta().includes(NOME_PUBLICADO),
+        `a rodada 1 já renomeou o elenco (${nomesDaPergunta().join(", ")}) — a defasagem que este caso descreve não existe mais`);
+      afirma(q1.provenance?.created_at === D0, `created_at da rodada 1 = ${q1.provenance?.created_at}, esperado ${D0}`);
+
+      // RODADA 2 — o mapa que a rodada 1 gerou entra em vigor. A pergunta se MOVE.
+      usarRegistroDeUrna(COM);
+      const r2 = [irma()];
+      afirma(applyRepairs(r2, opcoes(spec())).inserted.length === 1,
+        "rodada 2 não inseriu — a fonte continua apagando o bloco, a inserção tinha de repetir");
+      construir(comoOColetor(r2), D1);
+      const q2 = presidencial(dir)[0] ?? {};
+      afirma(presidencial(dir).length === 1, `${presidencial(dir).length} perguntas presidenciais na rodada 2, esperado 1`);
+      afirma(nomesDaPergunta().includes(entrada?.nome_urna),
+        `a rodada 2 não aplicou o nome de urna: ${nomesDaPergunta().join(", ")}`);
+      afirma(q2.question_id !== q1.question_id,
+        `o question_id NÃO se moveu (${q1.question_id}) — se a inserção passou a convergir na rodada 1, é este caso e o HANDOFF §5 que estão desatualizados`);
+      afirma(q2.provenance?.created_at === D1,
+        `created_at da rodada 2 = ${q2.provenance?.created_at}, esperado ${D1} — o carimbo do dia da inserção se perde com o id`);
+      // O LEVANTAMENTO NÃO SE MOVE: a semente dele é o registro do TSE, não o
+      // elenco. Quem paga a recunhagem é só a pergunta.
+      afirma(ler(dir, "surveys").length === 1, `${ler(dir, "surveys").length} levantamentos na rodada 2, esperado 1`);
+      afirma(q2.survey_id === q1.survey_id,
+        `o levantamento também se moveu (${q1.survey_id} → ${q2.survey_id}) — a defasagem estaria partindo a operação de campo`);
+      const depoisDa2 = fs.readFileSync(path.join(dir, "questions.ndjson"), "utf-8");
+
+      // RODADA 3 — mesmo mapa, mesma entrada: agora sim, ponto fixo.
+      const r3 = [irma()];
+      afirma(applyRepairs(r3, opcoes(spec())).inserted.length === 1, "rodada 3 não inseriu");
+      construir(comoOColetor(r3), "2026-08-24");
+      const q3 = presidencial(dir)[0] ?? {};
+      afirma(q3.question_id === q2.question_id,
+        `o question_id se moveu DE NOVO (${q2.question_id} → ${q3.question_id}) — não converge em uma rodada extra`);
+      afirma(q3.provenance?.created_at === D1, `created_at da rodada 3 = ${q3.provenance?.created_at}, esperado ${D1}`);
+      afirma(fs.readFileSync(path.join(dir, "questions.ndjson"), "utf-8") === depoisDa2,
+        "a 3ª rodada reescreveu questions.ndjson — a inserção não estabiliza depois da rodada extra");
+    } finally {
+      // O mapa real de volta: as caixas seguintes desta bateria (e as duas
+      // rodadas mutiladas do `--self-test`) leem o arquivo de verdade.
+      usarRegistroDeUrna();
+    }
   });
 
   caso("NÃO insere de novo quando a pesquisa já voltou pela lista", ({ dir, construir, afirma, opcoes }) => {
@@ -515,7 +664,8 @@ if (process.argv.includes("--self-test")) {
     nunca: [
       "insere a pesquisa ausente e ela atravessa o pipeline inteiro",
       "a pesquisa inserida se declara CURADA, não coletada",
-      "a inserção é PONTO FIXO: duas datas, a mesma entrada, o mesmo arquivo",
+      "a inserção é PONTO FIXO COM O MAPA DE URNA PARADO: duas datas, a mesma entrada, o mesmo arquivo",
+      "a inserção converge em DUAS rodadas quando estreia um nome de urna: move uma vez, depois fica",
       "a pesquisa REAL, quando a fonte sarar, ocupa a MESMA pergunta",
       // "todo add_poll de data/repairs.json…" NÃO entra em nenhuma das duas
       // listas de propósito: ele roda a decisão REAL (ver a nota no caso) e

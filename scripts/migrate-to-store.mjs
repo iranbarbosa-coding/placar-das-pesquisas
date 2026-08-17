@@ -20,7 +20,7 @@ import { fileURLToPath } from "node:url";
 import {
   readStore, writeStore, resolveInstitute, resolveCandidate,
   markHeadlines, priorStamps, firstSeenFor, provenanceFor, today, DATA_DIR,
-  emptyIndexes, TABLE_NAMES, PEOPLE_SCHEMA_VERSION,
+  emptyIndexes, TABLE_NAMES, PEOPLE_SCHEMA_VERSION, JANELA_OPERACAO_MS,
 } from "./lib/store.mjs";
 import { mintSurveyId, mintQuestionId, normalizeRegistration, contestKey } from "./lib/ids.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
@@ -114,7 +114,10 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false, allowDerived =
   store._indexes = emptyIndexes();
 
   // Which registrations hold rows that contradict each other on fieldwork end.
-  // ±3 days of slack, because sources round the last day of a window.
+  // A folga é a MESMA janela de operação de campo de `resolveSurvey`, importada
+  // (§5): o caminho retirado e o caminho vivo têm de discordar sobre dados, não
+  // sobre a régua — senão a comparação entre eles mede a cópia, não a migração.
+  // `DAY` fica só como unidade, para imprimir a distância em dias.
   const DAY = 86_400_000;
   const datesByReg = new Map();
   for (const p of polls) {
@@ -129,7 +132,7 @@ function main({ runDate = today(), dir = DATA_DIR, quiet = false, allowDerived =
   for (const [reg, ds] of datesByReg) {
     const sorted = [...ds].sort();
     const spread = +new Date(sorted[sorted.length - 1]) - +new Date(sorted[0]);
-    if (spread > 3 * DAY) {
+    if (spread > JANELA_OPERACAO_MS) {
       regCohort.set(reg, "contraditorio");
       contraditorios.push({ reg, datas: sorted, dias: Math.round(spread / DAY) });
     }

@@ -20,6 +20,26 @@ const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..",
 const RULINGS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-rulings.json");
 const BALLOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "ballot-names.json");
 
+// O ARQUIVO DE NOMES DE URNA É SUBSTITUÍVEL POR UM MOTIVO SÓ, e é o mesmo do
+// `reterElencos` injetável de `build-store.mjs`: provar entre RODADAS uma coisa
+// que só existe entre rodadas.
+//
+// O casador roda DEPOIS da coleta e o mapa que ele gera vale para a rodada
+// SEGUINTE (CONVENTIONS §6). Então a defasagem de uma rodada — um nome que
+// estreia numa disputa não é renomeado na rodada em que estreia, e é na seguinte
+// — só se observa com DOIS estados deste arquivo. Sem esta porta, o único jeito
+// de exercitá-la seria reescrever `data/ballot-names.json`, o artefato real, no
+// meio de uma verificação (CONVENTIONS §3), e um teste que suja o banco para se
+// provar não é um teste que se pode rodar.
+//
+// Em produção nunca é chamada: o coletor, a projeção e o site leem o arquivo
+// real. Quem chama devolve ao padrão (`usarRegistroDeUrna()`) no `finally`.
+let ARQUIVO_URNA = BALLOT;
+export function usarRegistroDeUrna(arquivo = null) {
+  ARQUIVO_URNA = arquivo ?? BALLOT;
+  TABLE = null;
+}
+
 // Shared with `match-ballot-names.mjs`, which WRITES the keys this file READS.
 // When the two had a copy each they disagreed on punctuation and every ballot
 // name containing a dot resolved to nothing. See `lib/nomes.mjs`.
@@ -76,7 +96,7 @@ function table() {
   const porUrna = new Map();   // `${contest}|${norm(nome_urna)}` -> Set<sq>
   const urnaInfo = new Map();  // `${chaveUrna}|${sq}` -> candidatura
   try {
-    const registro = JSON.parse(fs.readFileSync(BALLOT, "utf-8"));
+    const registro = JSON.parse(fs.readFileSync(ARQUIVO_URNA, "utf-8"));
     for (const [contest, nomes] of Object.entries(registro.mapping ?? {})) {
       for (const [key, info] of Object.entries(nomes)) {
         // A CANDIDATURA É GRAVADA MESMO QUANDO O NOME NÃO MUDA.
