@@ -25,6 +25,25 @@ const STATUS_LABEL: { key: MapStatus; label: string }[] = [
   { key: "sem", label: "Sem pesquisa recente" },
 ];
 
+/**
+ * Geographic positions for a self-contained POINT-CARTOGRAM of Brazil — each
+ * state placed at its real centroid (as a % of the country's bounding box), so
+ * the chips read as Brazil's shape without any third-party map asset. A few
+ * north-east states are nudged apart, since their true centroids sit almost on
+ * top of each other. `{x, y}` are percentages within the map box.
+ */
+const UF_POS: Record<string, { x: number; y: number }> = {
+  RR: { x: 31, y: 8 }, AP: { x: 52, y: 10 },
+  AM: { x: 22, y: 24 }, PA: { x: 50, y: 24 }, MA: { x: 66, y: 26 }, CE: { x: 82, y: 24 }, RN: { x: 94, y: 26 },
+  AC: { x: 9, y: 38 }, RO: { x: 26, y: 40 }, TO: { x: 60, y: 38 }, PI: { x: 74, y: 32 }, PB: { x: 95, y: 31 },
+  MT: { x: 43, y: 46 }, PE: { x: 88, y: 35 }, AL: { x: 96, y: 39 },
+  MS: { x: 46, y: 63 }, GO: { x: 58, y: 53 }, DF: { x: 66, y: 51 }, BA: { x: 76, y: 45 }, SE: { x: 90, y: 41 },
+  MG: { x: 70, y: 60 }, ES: { x: 83, y: 62 },
+  PR: { x: 55, y: 74 }, SP: { x: 62, y: 68 }, RJ: { x: 77, y: 68 },
+  SC: { x: 57, y: 82 },
+  RS: { x: 50, y: 90 },
+};
+
 function CardTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--text-secondary)" }}>
@@ -41,21 +60,33 @@ function MapCard({ map }: { map: StateMapDatum[] }) {
         Situação dos líderes
       </p>
 
-      {/* Status grid standing in for the geographic map (follow-up). */}
-      <div className="mt-3 grid grid-cols-6 gap-1" role="img" aria-label="Mapa dos estados por situação do líder">
-        {map.map((d) => (
-          <span
-            key={d.uf}
-            title={d.leader ? `${d.name}: ${d.leader}` : `${d.name}: sem pesquisa recente`}
-            className="tabular flex h-7 items-center justify-center rounded text-[10px] font-semibold"
-            style={{
-              background: STATUS_COLOR[d.status],
-              color: d.status === "sem" ? "var(--text-muted)" : "#fff",
-            }}
-          >
-            {d.uf}
-          </span>
-        ))}
+      {/* Point-cartogram of Brazil: chips at real geographic positions. */}
+      <div
+        className="relative mt-3 w-full"
+        style={{ paddingBottom: "98%" }}
+        role="img"
+        aria-label="Mapa do Brasil por situação do líder de cada estado"
+      >
+        {map.map((d) => {
+          const pos = UF_POS[d.uf];
+          if (!pos) return null;
+          return (
+            <span
+              key={d.uf}
+              title={d.leader ? `${d.name}: ${d.leader}` : `${d.name}: sem pesquisa recente`}
+              className="tabular absolute flex h-[13%] min-h-[16px] w-[13%] min-w-[20px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded text-[9px] font-bold leading-none"
+              style={{
+                left: `${pos.x}%`,
+                top: `${pos.y}%`,
+                background: STATUS_COLOR[d.status],
+                color: d.status === "sem" ? "var(--text-muted)" : "#fff",
+                boxShadow: "0 0 0 1.5px var(--surface-1)",
+              }}
+            >
+              {d.uf}
+            </span>
+          );
+        })}
       </div>
 
       <ul className="mt-3 grid grid-cols-2 gap-y-1 text-xs" style={{ color: "var(--text-secondary)" }}>

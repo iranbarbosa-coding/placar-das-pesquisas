@@ -162,7 +162,7 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
               <th scope="col" className="px-3 py-2 text-right font-semibold">Amostra</th>
               <th scope="col" className="px-3 py-2 font-semibold">Resultado</th>
               <th scope="col" className="px-3 py-2 text-right font-semibold">Margem</th>
-              <th scope="col" className="px-3 py-2 text-center font-semibold">Tend.</th>
+              <th scope="col" className="px-3 py-2 text-center font-semibold">Tendência</th>
             </tr>
           </thead>
           <tbody>
