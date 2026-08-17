@@ -28,6 +28,7 @@
 import {
   readStore, writeStore, markHeadlines, priorStamps, emptyIndexes,
   seedRegisteredPeople, logConflict, DATA_DIR, SOURCE_ORDER, TABLE_NAMES,
+  PEOPLE_SCHEMA_VERSION,
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
 import { nameKey } from "./ids.mjs";
@@ -72,7 +73,11 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
   markHeadlines(store);
   translateCandidateStamps(store, previous, runDate);
   settleProvenance(store, previous, runDate);
-  store.meta = { schema_version: 1, ...meta };
+  // A VERSÃO É A PROMESSA QUE O VALIDADOR COBRA. Este caminho cunha pessoas,
+  // então o store que sai daqui DECLARA a camada — e `validate-store.mjs`
+  // reprova um store que a declare e venha com `people` vazio, em vez de
+  // desculpá-lo por a tabela ainda não existir. Ver PEOPLE_SCHEMA_VERSION.
+  store.meta = { schema_version: PEOPLE_SCHEMA_VERSION, ...meta };
   return { store, report };
 }
 
@@ -98,6 +103,31 @@ export function buildStoreFromPolls(polls, { runDate, dir = DATA_DIR, meta = {} 
  * a perda de 16/08 passar despercebida.
  */
 function translateCandidateStamps(store, previous, runDate) {
+  // ---- O `legacy_ids` DA RODADA ANTERIOR VOLTA ANTES DE QUALQUER TRADUÇÃO ----
+  //
+  // A linhagem EVAPORAVA na rodada seguinte, e o efeito era um diff de tabela
+  // inteira a cada duas rodadas: a rodada N traduzia 1.078 ids e gravava
+  // `legacy_ids` nas 1.078 linhas; na rodada N+1 nenhum id sumia, a tradução
+  // abaixo não rodava, e como o store é RECONSTRUÍDO DO ZERO cada linha nascia
+  // com `legacy_ids: []` — 1.078 linhas mudando de novo, agora perdendo a
+  // linhagem em silêncio.
+  //
+  // `merged_into` (em `ensurePerson`) já é carregado do estado anterior pelo
+  // mesmo motivo e com o mesmo argumento: reconstruir do zero significa que
+  // TUDO que não se re-deriva da entrada tem de ser carregado explicitamente.
+  // `legacy_ids` é registro histórico — "este id já se chamou assim" — e não
+  // existe na entrada; ninguém pode re-derivá-lo depois que a tradução que o
+  // produziu deixou de acontecer.
+  //
+  // A união é com o que a tradução desta rodada acrescentar, nunca a
+  // substituição: um id pode ser recunhado mais de uma vez ao longo da vida e
+  // cada salto pertence à linhagem.
+  const anteriores = new Map((previous.candidates ?? []).map((c) => [c.candidate_id, c.legacy_ids ?? []]));
+  for (const c of store.candidates ?? []) {
+    const herdados = anteriores.get(c.candidate_id);
+    if (herdados?.length) c.legacy_ids = [...new Set([...(c.legacy_ids ?? []), ...herdados])].sort();
+  }
+
   const novos = new Set((store.candidates ?? []).map((c) => c.candidate_id));
   const antigos = (previous.candidates ?? []).filter((c) => !novos.has(c.candidate_id));
   if (!antigos.length) return;
@@ -123,7 +153,10 @@ function translateCandidateStamps(store, previous, runDate) {
     if (alvos.size === 1) {
       const novo = [...alvos][0];
       if (velho.first_seen) novo.first_seen = velho.first_seen;
-      novo.legacy_ids = [...new Set([...(novo.legacy_ids ?? []), velho.candidate_id])].sort();
+      // A linhagem do id antigo viaja JUNTO com ele. Sem `...velho.legacy_ids` a
+      // segunda recunhagem apagaria a primeira: A→B grava [A] em B, B→C gravaria
+      // só [B] em C e A sumiria da história sem que nada reclamasse.
+      novo.legacy_ids = [...new Set([...(novo.legacy_ids ?? []), ...(velho.legacy_ids ?? []), velho.candidate_id])].sort();
       store._report.translated.candidates++;
       continue;
     }

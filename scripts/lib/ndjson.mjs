@@ -44,8 +44,14 @@ export const FIELD_ORDER = {
   // homônimo). `display_from` grava POR QUE o nome exibido é o que é — até aqui
   // esse motivo vivia numa ordem de escritas dentro de `lib/candidates.mjs` e
   // não existia em lugar nenhum nos dados.
+  // `obs_scope` é o escopo de identidade de quem NÃO se registrou (opção C:
+  // `presidente` na presidencial, `race|UF` nas estaduais). Declarado aqui de
+  // propósito: uma chave fora de FIELD_ORDER ainda é gravada, mas no FIM do
+  // registro, e o campo é lido por dois índices — deixá-lo escorregar para o
+  // rabo do JSON esconde de quem revisa o diff justamente o campo que decide
+  // quem é quem.
   person: [
-    "person_id", "mint_seed", "registered", "sq_candidato",
+    "person_id", "mint_seed", "obs_scope", "registered", "sq_candidato",
     "nome_completo", "nome_urna", "display", "display_from",
     "polled_names", "candidacies", "merged_into", "first_seen",
   ],

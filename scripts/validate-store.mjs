@@ -13,7 +13,7 @@
 // to break this rule than any other, which is why it is enforced in code and
 // asserted in a named self-test.
 import path from "node:path";
-import { readStore, DATA_DIR, headlineGroupKey } from "./lib/store.mjs";
+import { readStore, DATA_DIR, headlineGroupKey, PEOPLE_SCHEMA_VERSION } from "./lib/store.mjs";
 import { serializeRecord, FIELD_ORDER, SORT } from "./lib/ndjson.mjs";
 import { selfTest as partySelfTest, partyExistedAt } from "./lib/parties.mjs";
 import { sqsRegistrados } from "./lib/candidaturas.mjs";
@@ -131,6 +131,27 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConh
   // A pessoa é a identidade que o `candidate_id` passou a citar. Se ela puder
   // apontar para o nada, para si mesma em ciclo, ou para um `SQ_CANDIDATO` que
   // o TSE não conhece, a correção inteira é decorativa.
+  //
+  // ⚠ O GATILHO É O QUE O STORE DECLARA SER, NÃO O QUE ELE TEM.
+  //
+  // Todas as onze afirmações abaixo percorrem `people`, e todas eram
+  // VACUAMENTE verdadeiras enquanto a tabela não existia: o validador rodava
+  // contra o banco vivo, imprimia um aviso e saía com 0 tendo conferido NADA de
+  // pessoa. A primeira escrita de `people.ndjson` — justamente a rodada em que
+  // um defeito de identidade custa mais caro — passaria sem exame, e o guarda
+  // teria se desligado sozinho no momento em que começava a servir para algo.
+  // É o padrão nomeado em CONVENTIONS §2 e no HANDOFF ("um guarda que
+  // silenciosamente desliga algo em vez de reprovar").
+  //
+  // `schema_version` é o que declara a expectativa: um store gravado pelo
+  // caminho que cunha pessoas sai com PEOPLE_SCHEMA_VERSION. Um store anterior
+  // (o site é mais velho que a tabela, e um clone só a tem depois da primeira
+  // coleta) declara 1 e continua tolerado — mas em voz alta, como aviso.
+  const esperaPessoas = Number(store.meta?.schema_version ?? 0) >= PEOPLE_SCHEMA_VERSION;
+  if (esperaPessoas && !people.length) {
+    E(`store declara schema_version ${store.meta?.schema_version} (camada de pessoas) e people.ndjson está VAZIO — ` +
+      `${candidates.length} candidatos sem pessoa e nenhuma das checagens de identidade tem o que conferir`);
+  }
   const personById = new Map(people.map((p) => [p.person_id, p]));
   for (const p of people) {
     const at = `person ${p.person_id}`;
@@ -142,6 +163,23 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConh
     // Nunca inferir (CONVENTIONS §4): quem não se registrou não tem nome civil
     // apurado, e escrever o nome da pesquisa ali seria afirmar o que não se sabe.
     if (p.registered === true && !p.sq_candidato?.length) E(`${at}: marcada como registrada sem sq_candidato`);
+    // O ESCOPO GRAVADO TEM DE SER O ESCOPO QUE CUNHOU A SEMENTE.
+    //
+    // `obs_scope` existe porque dois índices o liam da semente com
+    // `/^person\|obs\|([^|]+)\|/`, que sob a opção C captura só a race de
+    // `person|obs|senador|PR|…` e re-funde UFs em silêncio. Um campo à parte só
+    // fecha essa porta enquanto os dois concordarem: um `obs_scope` que
+    // discorde da semente é o mesmo defeito com outro nome, e não dá sintoma
+    // nenhum — o id simplesmente para de ser reencontrado entre rodadas.
+    if (p.registered === false) {
+      if (!p.obs_scope) E(`${at}: sem registro e sem obs_scope — o escopo de identidade (opção C) não pode ficar implícito na semente`);
+      else if (!String(p.mint_seed ?? "").startsWith(`person|obs|${p.obs_scope}|`)) {
+        E(`${at}: obs_scope "${p.obs_scope}" não é o escopo da semente "${p.mint_seed}"`);
+      }
+    }
+    if (p.registered === true && p.obs_scope) {
+      E(`${at}: registrada carregando obs_scope "${p.obs_scope}" — quem se registrou é alcançada pelo sq_candidato, nunca por escopo de grafia`);
+    }
   }
 
   // merged_into chains terminate and are acyclic — mesma regra dos institutos,
@@ -182,19 +220,22 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConh
 
   // Toda linha de candidato aponta para uma pessoa que existe.
   //
-  // A ausência de `people.ndjson` é tolerada (o site é anterior à tabela e um
-  // clone só a tem depois da primeira coleta), mas NÃO em silêncio: assim que a
-  // tabela existe, um candidato sem `person_id` é erro, porque aí a linha ficou
-  // para trás numa rodada que já sabia cunhar pessoa.
+  // A condição é a EXPECTATIVA do store, não o tamanho da tabela — pelo mesmo
+  // motivo do bloco acima. Com `if (people.length)` a checagem se auto-desligava
+  // exatamente no caso que ela existe para pegar: a rodada em que a camada de
+  // pessoas roda e nenhuma pessoa é cunhada.
   for (const c of candidates) {
     if (c.person_id == null) {
-      if (people.length) E(`candidate ${c.candidate_id}: sem person_id, mas people.ndjson já existe (${people.length} pessoas)`);
+      if (esperaPessoas || people.length) {
+        E(`candidate ${c.candidate_id}: sem person_id, num store que declara a camada de pessoas` +
+          (people.length ? ` (${people.length} pessoas)` : " (e com people.ndjson vazio)"));
+      }
       continue;
     }
     if (!personById.has(c.person_id)) E(`candidate ${c.candidate_id}: person_id ${c.person_id} inexistente`);
   }
-  if (!people.length && candidates.length) {
-    warn.push(`people.ndjson vazio — ${candidates.length} candidatos sem pessoa; a tabela só existe depois de uma coleta`);
+  if (!esperaPessoas && !people.length && candidates.length) {
+    warn.push(`people.ndjson vazio — ${candidates.length} candidatos sem pessoa; store anterior à camada de pessoas (schema_version ${store.meta?.schema_version ?? "ausente"})`);
   }
 
   // ---- questions ----------------------------------------------------------
@@ -408,7 +449,11 @@ function baseStore() {
     results: [{ candidate_id: "c_1", name_raw: "Lula", pct: 40 }, { candidate_id: "c_2", name_raw: "Flávio", pct: 34 }],
     undecided_pct: 10, provenance: { created_at: "2026-08-03", updated_at: "2026-08-03", field_sources: {} },
   };
-  return { surveys: [survey], questions: [question], crosstabs: [], institutes: [inst],
+  // `meta` entra no fixture porque o gatilho das checagens de pessoa é o que o
+  // store DECLARA. Sem ele todo caso rodaria no ramo tolerante e a transição
+  // que importa nunca seria exercitada.
+  return { meta: { schema_version: 1 },
+           surveys: [survey], questions: [question], crosstabs: [], institutes: [inst],
            people: [], candidates: [c1, c2], registry: [], searches: [], conflicts: [] };
 }
 
@@ -425,6 +470,7 @@ function clone(o) { return JSON.parse(JSON.stringify(o)); }
 const SQ_FICTICIO = new Set(["10000000001"]);
 function pessoasStore() {
   const s = clone(baseStore());
+  s.meta = { schema_version: PEOPLE_SCHEMA_VERSION };
   s.people = [
     { person_id: "p_1", mint_seed: "person|tse|10000000001", registered: true,
       sq_candidato: ["10000000001"], nome_completo: "Luiz Inacio Lula da Silva", nome_urna: "Lula",
@@ -432,6 +478,7 @@ function pessoasStore() {
       candidacies: [{ sq_candidato: "10000000001", cargo: "presidente", uf: null, numero: "13", partido: "PT", ano: 2026 }],
       merged_into: null, first_seen: "2026-08-03" },
     { person_id: "p_2", mint_seed: "person|obs|presidente|flavio bolsonaro", registered: false,
+      obs_scope: "presidente",
       sq_candidato: [], nome_completo: null, nome_urna: null,
       display: "Flávio Bolsonaro", display_from: "mais curta observada",
       polled_names: ["Flávio Bolsonaro"], candidacies: [], merged_into: null, first_seen: "2026-08-03" },
@@ -525,6 +572,18 @@ function selfTest() {
     // do conteúdo de data/candidaturas.ndjson: um caso que quebra quando o TSE
     // republica o arquivo não prova nada sobre o guarda.
     ["store com pessoas passa", pessoasStore(), true, { sqsConhecidos: SQ_FICTICIO }],
+    // ⚠ OS DOIS CASOS QUE PROVAM QUE O PORTÃO NÃO SE DESLIGA SOZINHO.
+    //
+    // Enquanto a condição era `if (people.length)`, um store SEM pessoas passava
+    // — e era exatamente esse o estado do banco vivo: `validate-store.mjs`
+    // imprimia um aviso e saía com 0 tendo conferido nada. O primeiro caso é a
+    // rodada em que a camada roda e nada é cunhado (tem de REPROVAR); o segundo
+    // é o store legado, anterior à tabela (tem de PASSAR, com aviso). Sem os
+    // dois lados, uma regra que reprovasse tudo passaria no autoteste.
+    ["store que DECLARA a camada de pessoas e vem com a tabela vazia é rejeitado", (() => {
+      const s = clone(baseStore()); s.meta = { schema_version: PEOPLE_SCHEMA_VERSION }; return s;
+    })(), false],
+    ["store anterior à camada (schema_version 1) sem pessoas ainda passa", baseStore(), true],
     ["candidate.person_id inexistente é rejeitado", (() => {
       const s = pessoasStore(); s.candidates[0].person_id = "p_fantasma"; return s;
     })(), false, { sqsConhecidos: SQ_FICTICIO }],
@@ -555,6 +614,17 @@ function selfTest() {
       return s; })(), false, { sqsConhecidos: SQ_FICTICIO }],
     ["pessoa sem mint_seed é rejeitada", (() => {
       const s = pessoasStore(); delete s.people[1].mint_seed; return s;
+    })(), false],
+    // A armadilha da opção C: o campo e a semente discordando. Sem sintoma
+    // visível — o id apenas para de ser reencontrado entre rodadas.
+    ["obs_scope que não é o escopo da semente é rejeitado", (() => {
+      const s = pessoasStore(); s.people[1].obs_scope = "governador|SP"; return s;
+    })(), false],
+    ["pessoa sem registro e sem obs_scope é rejeitada", (() => {
+      const s = pessoasStore(); delete s.people[1].obs_scope; return s;
+    })(), false],
+    ["pessoa REGISTRADA carregando obs_scope é rejeitada", (() => {
+      const s = pessoasStore(); s.people[0].obs_scope = "presidente"; return s;
     })(), false, { sqsConhecidos: SQ_FICTICIO }],
     ["pessoa não registrada carregando dado de registro é rejeitada", (() => {
       const s = pessoasStore(); s.people[1].nome_urna = "Flávio"; return s;

@@ -9,15 +9,30 @@
 // three-line reviewable diff that NDJSON exists to give you, and with it the
 // ability to tell a real regression from date churn.
 //
-// Two properties are checked, because either alone would pass while broken:
+// Three properties are checked, because any one alone would pass while broken:
 //   (1) INJECTION  — a fresh build stamps the date it was GIVEN, never today's.
 //                    Without this, `runDate` could be ignored entirely.
 //   (2) PRESERVATION — a rebuild carries forward the stamps it already had.
 //                    Without this, every run re-dates the whole store.
+//   (3) LINHAGEM   — o que uma RECUNHAGEM gravou sobrevive à rodada seguinte.
 //
-// `--self-test` proves the check can fail, by wiping the store between the two
-// runs so nothing is available to preserve — exactly the old behaviour. A guard
-// whose failure path has never been executed is not evidence of anything.
+// ⚠ POR QUE (3) EXISTE, e por que a verificação era ESTRUTURALMENTE INCAPAZ de
+// ver o defeito que ela agora vê. As duas rodadas eram construídas num diretório
+// VAZIO. Num diretório vazio nenhum id "some", então `translateCandidateStamps`
+// nunca disparava, então `legacy_ids` nunca era escrito — e a pergunta "o que
+// a tradução gravou sobrevive?" jamais chegava a ser feita. O defeito real:
+// `legacy_ids` era escrito na rodada N e voltava a `[]` na N+1, um segundo diff
+// de tabela inteira, invisível a um guarda verde. É o padrão que CONVENTIONS §2
+// nomeia — um guarda que passa a proteger código que ninguém executa mente.
+//
+// Por isso a rodada 1 agora parte de um estado anterior SEMEADO com ids
+// deliberadamente alheios ao espaço de ids atual: eles somem, a tradução roda,
+// `legacy_ids` é escrito, e a rodada 2 tem algo real a preservar.
+//
+// `--self-test` prova as três, cada uma pelo seu defeito: apagar o store entre
+// as rodadas (perde a preservação) e desligar o carregamento de `legacy_ids`
+// (perde a linhagem). Um guarda cujo caminho de falha nunca foi executado não é
+// evidência de nada.
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -75,12 +90,60 @@ function stampsIn(dir) {
   return found;
 }
 
+/**
+ * Planta um estado ANTERIOR cujos `candidate_id` não existem mais, para que a
+ * rodada 1 tenha uma RECUNHAGEM de verdade a traduzir.
+ *
+ * Sem isto as duas rodadas partiam de um diretório vazio, nenhum id sumia,
+ * `translateCandidateStamps` nunca era executada e nada da linhagem que ela
+ * escreve chegava a ser conferido. O estado é derivado de uma construção
+ * descartável (0,4 s) em vez de lido do `data/` vivo: o guarda continua
+ * dependendo só de `polls.json`, e não passa a certificar o banco contra ele
+ * mesmo.
+ *
+ * A mutação do id é a INVERSÃO do payload hexadecimal — determinística, e
+ * conferida contra colisão: um "id antigo" que por acaso fosse um id novo não
+ * sumiria, e o caso deixaria de exercitar a tradução em silêncio.
+ */
+function plantarAnterior(dir) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "placar-idem-seed-"));
+  try {
+    build(DATE_A, tmp);
+    const linhas = fs.readFileSync(path.join(tmp, "candidates.ndjson"), "utf-8")
+      .split("\n").filter(Boolean).map((l) => JSON.parse(l));
+    const reais = new Set(linhas.map((c) => c.candidate_id));
+    const antigos = linhas.map((c) => {
+      const [pre, hex] = [c.candidate_id.slice(0, 2), c.candidate_id.slice(2)];
+      const id = pre + [...hex].reverse().join("");
+      if (reais.has(id)) throw new Error(`semente colidiu com id real (${id}) — o caso não exercitaria a tradução`);
+      return { ...c, candidate_id: id, legacy_ids: [], first_seen: DATE_A };
+    });
+    fs.writeFileSync(path.join(dir, "candidates.ndjson"),
+      antigos.map((c) => JSON.stringify(c)).join("\n") + "\n");
+    return antigos.length;
+  } finally {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
 function run({ selfTest = false } = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-idem-"));
   const errors = [];
   try {
+    const plantados = plantarAnterior(dir);
+
     // ---- run 1: a fresh build on DATE_A -----------------------------------
     build(DATE_A, dir);
+
+    // (3) linhagem: a tradução TEM de ter acontecido, senão o resto da
+    // verificação abaixo não prova nada sobre ela. Um guarda que confere um
+    // campo que nunca foi escrito é o zero em que este projeto já acreditou.
+    const comLinhagem = fs.readFileSync(path.join(dir, "candidates.ndjson"), "utf-8")
+      .split("\n").filter(Boolean).map((l) => JSON.parse(l))
+      .filter((c) => (c.legacy_ids ?? []).length).length;
+    if (!comLinhagem) {
+      errors.push(`(3) linhagem: plantados ${plantados} ids antigos e NENHUMA linha saiu com legacy_ids — a tradução não rodou, e a comparação abaixo não exercita a linhagem`);
+    }
     const first = snapshot(dir);
     const stampsA = stampsIn(dir);
 
@@ -90,9 +153,19 @@ function run({ selfTest = false } = {}) {
       errors.push(`(1) injeção: carimbos fora de ${DATE_A} → ${JSON.stringify(strays.slice(0, 5))} (relógio de parede vazando)`);
     }
 
-    if (selfTest) {
+    if (selfTest === "carimbos") {
       // Simulate the old behaviour: nothing survives for run 2 to preserve.
       for (const t of TABLES) fs.rmSync(path.join(dir, `${t}.ndjson`), { force: true });
+    }
+    if (selfTest === "linhagem") {
+      // Simula EXATAMENTE o defeito do carregamento quebrado: a rodada 2 lê um
+      // estado anterior sem `legacy_ids`, que é o que ela veria se
+      // `build-store.mjs` deixasse de carregar o campo. Se a comparação (2) não
+      // reprovar aqui, ela é cega para a evaporação da linhagem — que foi
+      // precisamente o caso enquanto as duas rodadas partiam do vazio.
+      const f = path.join(dir, "candidates.ndjson");
+      fs.writeFileSync(f, fs.readFileSync(f, "utf-8").split("\n").filter(Boolean)
+        .map((l) => JSON.stringify({ ...JSON.parse(l), legacy_ids: [] })).join("\n") + "\n");
     }
 
     // ---- run 2: rebuild on DATE_B ------------------------------------------
@@ -115,14 +188,26 @@ function run({ selfTest = false } = {}) {
 const selfTest = process.argv.includes("--self-test");
 
 if (selfTest) {
-  const errors = run({ selfTest: true });
-  if (!errors.length) {
-    console.error("AUTOTESTE FALHOU: a verificação passou mesmo sem nada a preservar — ela não detecta o defeito que existe para detectar.");
-    process.exit(1);
+  // CADA DEFEITO TEM O SEU AUTOTESTE. Um autoteste só, que apaga o store
+  // inteiro, reprova por tudo ao mesmo tempo e não prova nada sobre nenhuma das
+  // propriedades em separado: ele passaria intacto mesmo que a linhagem
+  // deixasse de ser conferida, que foi o estado real deste arquivo.
+  const casos = [
+    ["carimbos", "os carimbos não são preservados (store apagado entre as rodadas)"],
+    ["linhagem", "a linhagem evapora (legacy_ids some do estado anterior)"],
+  ];
+  let ok = true;
+  for (const [modo, descricao] of casos) {
+    const errors = run({ selfTest: modo });
+    if (!errors.length) {
+      console.error(`AUTOTESTE FALHOU (${modo}): a verificação passou mesmo com ${descricao} — ela não detecta o defeito que existe para detectar.`);
+      ok = false;
+      continue;
+    }
+    console.log(`autoteste (${modo}): a verificação DISPARA quando ${descricao}`);
+    for (const e of errors.slice(0, 2)) console.log(`  detectado → ${e}`);
   }
-  console.log("autoteste: a verificação DISPARA quando os carimbos não são preservados");
-  for (const e of errors.slice(0, 3)) console.log(`  detectado → ${e}`);
-  process.exit(0);
+  process.exit(ok ? 0 : 1);
 }
 
 const errors = run();

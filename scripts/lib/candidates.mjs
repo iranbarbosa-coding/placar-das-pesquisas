@@ -73,6 +73,8 @@ function table() {
   // "these two are not"), which no register can overrule; the ballot name only
   // decides WHAT TO CALL a person already identified. Putting the register on
   // top would let a name match quietly undo a hand-decided identity.
+  const porUrna = new Map();   // `${contest}|${norm(nome_urna)}` -> Set<sq>
+  const urnaInfo = new Map();  // `${chaveUrna}|${sq}` -> candidatura
   try {
     const registro = JSON.parse(fs.readFileSync(BALLOT, "utf-8"));
     for (const [contest, nomes] of Object.entries(registro.mapping ?? {})) {
@@ -85,8 +87,41 @@ function table() {
         // ainda assim identifica a pessoa. Guardar só o rename deixaria essas
         // pessoas sem `sq` e as cunharia como não-registradas.
         ballot.set(`${contest}|${key}`, info);
-        if (info?.nome_urna) decide(`${contest}|${key}`, info.nome_urna, "nome_urna");
+        // ⚠ O REGISTRO TEM DE SER ALCANÇÁVEL PELO NOME QUE ELE PRÓPRIO IMPÕE.
+        //
+        // As chaves deste mapa são as grafias PUBLICADAS de UMA rodada (saem de
+        // `data/nomes-crus.json`), e ele é consultado também com o nome já
+        // canonicalizado. Quando a canonicalização adota o nome de urna, o nome
+        // resultante muitas vezes NÃO está entre as grafias publicadas e a
+        // consulta erra: em `governador:AL` o instituto publicou
+        // "João Henrique Caldas", o registro renomeia para "Jhc", e
+        // `ballotCandidacy("Jhc", "governador:AL")` devolvia `null` — o registro
+        // ficava inalcançável pelo único nome que o site exibe, e a linha caía
+        // numa pessoa SEM registro ao lado de uma pessoa registrada idêntica.
+        //
+        // Indexar o próprio `nome_urna` fecha a classe inteira, e sem inventar
+        // nada: a chave nova aponta para a MESMA candidatura que a entrada já
+        // afirma. Nunca sobrescreve uma chave existente — uma grafia publicada
+        // que case diretamente continua mandando, e assim esta linha não pode
+        // roubar um nome de outra pessoa da mesma disputa.
+        if (info?.nome_urna) {
+          decide(`${contest}|${key}`, info.nome_urna, "nome_urna");
+          const chaveUrna = `${contest}|${norm(info.nome_urna)}`;
+          if (!porUrna.has(chaveUrna)) porUrna.set(chaveUrna, new Set());
+          porUrna.get(chaveUrna).add(info.sq_candidato);
+          urnaInfo.set(`${chaveUrna}|${info.sq_candidato}`, info);
+        }
       }
+    }
+    // Fora do laço DE PROPÓSITO: dentro dele, "só se ainda não existe" faria a
+    // resposta depender da ORDEM em que as entradas aparecem no JSON, que é o
+    // defeito-família deste repositório (CONVENTIONS §8). Aqui a grafia
+    // publicada sempre vence a chave derivada, seja qual for a ordem — e um
+    // nome de urna que aponte para DUAS candidaturas na mesma disputa é
+    // ambíguo e não decide nada, em vez de sortear (CONVENTIONS §4).
+    for (const [chaveUrna, sqs] of porUrna) {
+      if (ballot.has(chaveUrna) || sqs.size !== 1) continue;
+      ballot.set(chaveUrna, urnaInfo.get(`${chaveUrna}|${[...sqs][0]}`));
     }
   } catch { /* the register is optional; the site predates it */ }
 

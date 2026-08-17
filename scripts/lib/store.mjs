@@ -30,13 +30,30 @@ import { sameCandidate } from "./canonicalize.mjs";
 import { normNome } from "./nomes.mjs";
 import { ballotCandidacy, displayOrigin } from "./candidates.mjs";
 import {
-  raceOf, pessoaPorSq, pessoasRegistradas, modeloObservada, melhorDisplay,
+  raceOf, escopoObservado, pessoaPorSq, pessoasRegistradas, modeloObservada, melhorDisplay,
 } from "./people.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const DATA_DIR = path.join(ROOT, "data");
 
 export const SOURCE_ORDER = ["poder360", "eleicaoemdados", "wikipedia"];
+
+/**
+ * A versão de esquema em que `people.ndjson` passa a ser OBRIGATÓRIA.
+ *
+ * Existe porque um guarda não pode se condicionar ao dado que ele guarda. As
+ * checagens de identidade em `validate-store.mjs` percorrem `people`, e
+ * enquanto a tabela não existisse elas eram todas vacuamente verdadeiras: o
+ * validador rodava contra o banco vivo e saía com 0 sem ter conferido uma
+ * pessoa sequer — inclusive na PRIMEIRA rodada que cunhasse pessoas, que é
+ * quando um erro de identidade é mais caro.
+ *
+ * Quem GRAVA (`build-store.mjs`) e quem CONFERE (`validate-store.mjs`) leem
+ * esta constante, não um número literal cada um: duas cópias que divergissem
+ * deixariam o portão permanentemente desligado sem que nada reclamasse.
+ * CONVENTIONS §5.
+ */
+export const PEOPLE_SCHEMA_VERSION = 2;
 
 const TABLES = {
   surveys: "survey", questions: "question", crosstabs: "crosstab",
@@ -103,14 +120,18 @@ export function priorStamps(store) {
   // reusada COMO ESTÁ e nunca é recomputada.
   //
   // Só para quem NÃO se registrou: quem se registrou é reencontrado pelo
-  // `sq_candidato`, que não depende de grafia nenhuma. A race sai da própria
-  // semente (`person|obs|<race>|<grafia>`) em vez de virar um campo novo —
-  // um campo a mais é mais uma coisa que pode ficar desatualizada.
+  // `sq_candidato`, que não depende de grafia nenhuma.
+  //
+  // ⚠ O ESCOPO SAI DO CAMPO `obs_scope`, e já saiu da semente por regex
+  // (`/^person\|obs\|([^|]+)\|/`). Sob a opção C a semente estadual passou a ter
+  // DUAS partes no escopo (`person|obs|senador|PR|alvaro dias`) e a regex
+  // capturava só `senador`: este índice voltaria a fundir UFs em silêncio,
+  // desfazendo aqui o corte que a semente faz lá. Ver `personPolledIndex`, o
+  // gêmeo desta função — os dois têm de concordar byte a byte.
   const peopleByPolled = new Map();
   for (const p of store.people ?? []) {
-    const race = /^person\|obs\|([^|]+)\|/.exec(p.mint_seed ?? "")?.[1];
-    if (!race) continue;
-    for (const n of p.polled_names ?? []) peopleByPolled.set(`${race}|${normNome(n)}`, p);
+    if (p.registered !== false || !p.obs_scope) continue;
+    for (const n of p.polled_names ?? []) peopleByPolled.set(`${p.obs_scope}|${normNome(n)}`, p);
   }
   return {
     institutes: new Map((store.institutes ?? []).map((i) => [i.institute_id, i.first_seen])),
@@ -223,13 +244,19 @@ export function emptyIndexes() {
   };
 }
 
-/** Grafia crua → pessoa, escopada por race. Ver `resolvePerson`. */
+/**
+ * Grafia crua → pessoa, escopada por `obs_scope` (opção C). Ver `resolvePerson`.
+ *
+ * Gêmeo de `peopleByPolled` em `priorStamps`, e a chave TEM de ser a mesma: um
+ * deles lê o estado anterior, o outro o desta rodada, e se discordarem a pessoa
+ * não é reencontrada e o id se move. Os dois liam o escopo da semente por regex
+ * — que sob a opção C captura só a race.
+ */
 function personPolledIndex(people) {
   const m = new Map();
   for (const p of people) {
-    const race = /^person\|obs\|([^|]+)\|/.exec(p.mint_seed ?? "")?.[1];
-    if (!race) continue;
-    for (const n of p.polled_names ?? []) m.set(`${race}|${normNome(n)}`, p);
+    if (p.registered !== false || !p.obs_scope) continue;
+    for (const n of p.polled_names ?? []) m.set(`${p.obs_scope}|${normNome(n)}`, p);
   }
   return m;
 }
@@ -305,11 +332,16 @@ export function resolveInstitute(store, rawName, { mint = true } = {}) {
  *      cunhada uma vez e nunca recomputada.
  *   4. o cluster desta rodada: mesma DISPUTA, mesmo nome exibido. É o que impede
  *      "Ciro Gomes" e "Ciro" (não registrados) de virarem duas pessoas.
- *   5. cunhar de `person|obs|<race>|<grafia>`.
+ *   5. cunhar de `person|obs|<escopo>|<grafia>`, com o escopo da opção C.
  */
 export function resolvePerson(store, { raw, display, contest }) {
   const idx = store._indexes;
   const race = raceOf(contest);
+  // O ESCOPO SAI DA MESMA FUNÇÃO QUE A SEMENTE USA. Quando `polledKey` usava a
+  // race e a semente usava outra coisa, a consulta da rodada seguinte errava o
+  // alvo e TODA pessoa sem registro era recunhada — o oposto exato do que esta
+  // tabela existe para garantir. CONVENTIONS §5.
+  const escopo = escopoObservado(race, contest);
   const grafia = String(raw ?? display ?? "").trim();
   const exibido = String(display ?? raw ?? "").trim();
   // O CLUSTER É POR DISPUTA, não por race, porque quem o forma é
@@ -320,13 +352,13 @@ export function resolvePerson(store, { raw, display, contest }) {
   // par que `match-ballot-names.mjs` separa com a regra de estado — nomes de
   // urna idênticos, pessoas diferentes, 24 linhas de pesquisa.
   const clusterKey = `${contest}|${nameKey(exibido)}`;
-  const polledKey = `${race}|${normNome(grafia)}`;
+  const polledKey = `${escopo}|${normNome(grafia)}`;
 
   const candidatura = ballotCandidacy(grafia, contest) ?? ballotCandidacy(exibido, contest);
   // QUEM SE REGISTROU SÓ É ALCANÇADO PELO REGISTRO.
   //
-  // A volta pela grafia (`personByPolled`) é escopada por race, que é a decisão
-  // do criador para quem NÃO se registrou — e para quem se registrou ela seria
+  // A volta pela grafia (`personByPolled`) é escopada pela opção C, que é a
+  // decisão do criador para quem NÃO se registrou — e para quem se registrou ela seria
   // perigosa na direção pior: um "Alvaro Dias" de `governador:PR` acharia pela
   // grafia o ÁLVARO DIAS registrado em `governador:RN` e a linha de pesquisa
   // sairia carregando o `sq_candidato`, o número e o partido de outra pessoa.
@@ -336,7 +368,7 @@ export function resolvePerson(store, { raw, display, contest }) {
     ?? semRegistro(idx.personByPolled.get(polledKey))
     ?? idx.personByCluster.get(clusterKey)
     ?? semRegistro(store._prior?.peopleByPolled?.get(polledKey))
-    ?? modeloObservada(race, grafia);
+    ?? modeloObservada(race, grafia, contest);
 
   const pessoa = ensurePerson(store, modelo);
   observePerson(store, pessoa, { grafia, exibido, origem: displayOrigin(grafia, contest) });
@@ -365,6 +397,11 @@ function ensurePerson(store, modelo) {
   const rec = {
     person_id: modelo.person_id,
     mint_seed: modelo.mint_seed,
+    // Escopo de identidade de quem não se registrou (opção C). NULO para quem
+    // se registrou: lá a identidade é o `sq_candidato` e não depende de escopo
+    // nenhum. É este campo — e não a semente lida por regex — que os dois
+    // índices de grafia consultam.
+    obs_scope: modelo.obs_scope ?? null,
     registered: modelo.registered,
     sq_candidato: modelo.sq_candidato ?? [],
     nome_completo: modelo.nome_completo ?? null,
@@ -501,8 +538,11 @@ function notePolledName(store, cand, { raw, rawName, contest }) {
     grafia, exibido: String(rawName ?? "").trim(), origem: displayOrigin(grafia, contest),
   });
   // Só quem não se registrou entra no índice por grafia — ver `resolvePerson`.
-  if (grafia && !pessoa.registered) {
-    store._indexes.personByPolled.set(`${raceOf(contest)}|${normNome(grafia)}`, pessoa);
+  // A chave usa `obs_scope`, o mesmo escopo que cunhou a semente: derivá-la de
+  // novo aqui (era `raceOf(contest)`) é a terceira cópia da regra, e uma cópia
+  // que discorda faz o índice apontar para uma chave que ninguém consulta.
+  if (grafia && !pessoa.registered && pessoa.obs_scope) {
+    store._indexes.personByPolled.set(`${pessoa.obs_scope}|${normNome(grafia)}`, pessoa);
   }
 }
 

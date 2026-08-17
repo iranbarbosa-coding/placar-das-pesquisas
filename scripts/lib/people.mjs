@@ -11,24 +11,41 @@
 //
 // AS SEMENTES (decisão do criador, 16/08/2026):
 //   pessoa registrada     `person|tse|<menor sq_candidato do grupo colapsado>`
-//   pessoa sem registro   `person|obs|<race>|<normNome(primeira grafia vista)>`
+//   pessoa sem registro   `person|obs|<escopo>|<normNome(primeira grafia vista)>`
 //   linha de candidato    `candidate|<contest>|<person_id>`
 //
-// O ESCOPO DE QUEM NÃO SE REGISTROU É A RACE, NÃO O NOME GLOBAL — e não é a
-// disputa. Global por nome fundiria gente comprovadamente diferente: `Rui Costa`
-// (senador:BA, PT) com `Rui Costa Pimenta` (presidente, PCO), `Ciro` com
-// `Ciro Nogueira`, e um `Lula` de `governador:GO` com o Lula presidencial. Por
-// disputa (`race:UF`) estilhaçaria o outro lado: `presidente:MG` é a corrida
-// presidencial perguntada a mineiros, e um candidato a presidente viraria até
-// 26 pessoas diferentes. A race é o corte que resolve os dois.
+// O ESCOPO DE QUEM NÃO SE REGISTROU (opção C, decidida pelo criador em
+// 16/08/2026 depois de as três opções serem medidas):
 //
-// ⚠ O QUE ESSE CORTE AINDA CUSTA, e está aqui escrito porque é decisão a tomar,
-// não defeito a esconder: dentro de `governador` e `senador` a race NÃO separa
-// UFs, então duas pessoas sem registro homônimas em estados diferentes caem numa
-// pessoa só. É a mesma forma do erro `Álvaro Dias` (senador:PR × governador:RN)
-// que `match-ballot-names.mjs` bloqueia com a regra de estado. Não afeta
-// `candidate_id` (que continua por disputa) nem número publicado — afeta o que a
-// linha de `people.ndjson` AFIRMA. Medido e reportado; a decisão é do criador.
+//   `presidente`          → a RACE sozinha
+//   `governador`/`senador`→ `race|UF`
+//
+// Por que não o nome global: fundiria gente comprovadamente diferente —
+// `Rui Costa` (senador:BA, PT) com `Rui Costa Pimenta` (presidente, PCO),
+// `Ciro` com `Ciro Nogueira`, um `Lula` de `governador:GO` com o presidencial.
+// Por que não a disputa inteira (`race:UF` em tudo): `presidente:MG` NÃO é uma
+// corrida mineira, é a corrida NACIONAL perguntada a mineiros — uma subamostra
+// estadual — e cortar por ali estilhaçaria um candidato a presidente em até 26
+// pessoas. Ratinho Jr aparece em 21 disputas presidenciais e é UM homem.
+// É a mesma armadilha que `match-ballot-names.mjs` documenta: a chave da disputa
+// carrega DUAS coisas — a UF da amostra e a UF da candidatura — e confundi-las é
+// fácil. Aqui a presidencial é a única race em que a UF é só amostra.
+//
+// Por que a race sozinha não bastava nas estaduais: dentro de `governador` e
+// `senador` a UF é a corrida, então dois homônimos sem registro em estados
+// diferentes caíam numa pessoa só. Medidas quatro fusões reais — `Álvaro Dias`
+// (senador:PR + senador:RN), `Ratinho Jr` e `Zeca Dirceu` (senador:PR +
+// senador:RS), `José Carlos do Pátio` (governador:BA + governador:MT). É a mesma
+// FORMA do erro `Álvaro Dias` × `Álvaro Costa Dias` que o casador bloqueia com a
+// regra de estado; não movia número publicado nem `candidate_id`, mas fazia a
+// linha de `people.ndjson` AFIRMAR que dois homens são um.
+//
+// ⚠ O ESCOPO VAI GRAVADO NO CAMPO `obs_scope`, não só dentro da semente. Ele
+// JÁ esteve só na semente, e dois leitores o recuperavam com
+// `/^person\|obs\|([^|]+)\|/` — que sob a opção C captura `senador` de
+// `person|obs|senador|PR|...` e chaveia o índice de grafias pela race errada,
+// re-fundindo em silêncio exatamente o que este corte separa. Um campo não pode
+// ser mal-parseado.
 import { normNome, acentos } from "./nomes.mjs";
 import { mintPersonId } from "./ids.mjs";
 import { colapsarReRegistros, lerCandidaturas, ordemSq } from "./candidaturas.mjs";
@@ -39,7 +56,22 @@ export const raceOf = (contest) => String(contest).split(":")[0];
 export const seedRegistrada = (sqMenor) => `person|tse|${sqMenor}`;
 
 /**
- * `person|obs|<race>|<normNome(primeira grafia)>`.
+ * O ESCOPO de identidade de quem não se registrou. Opção C — ver o cabeçalho.
+ *
+ * Uma implementação só, porque ela tem TRÊS leitores que precisam concordar
+ * byte a byte: a semente, o índice de grafias desta rodada (`personByPolled`) e
+ * o índice da rodada anterior (`priorStamps`). Quando o escopo estava escrito à
+ * mão em cada um deles, o segundo e o terceiro usavam a race e o primeiro a
+ * disputa — e a pessoa nunca era reencontrada, então TODA pessoa sem registro
+ * era recunhada a cada rodada. CONVENTIONS §5.
+ */
+export const escopoObservado = (race, contest) => {
+  const uf = String(contest ?? "").split(":")[1] || "BR";
+  return race === "presidente" ? race : `${race}|${uf}`;
+};
+
+/**
+ * `person|obs|<escopo>|<normNome(primeira grafia)>`.
  *
  * "Primeira grafia" é ordem de chegada, e a ordem de ingestão é determinística
  * (prioridade de fonte → data → id). Mas ela só decide a semente UMA VEZ: a
@@ -47,7 +79,8 @@ export const seedRegistrada = (sqMenor) => `person|tse|${sqMenor}`;
  * `polled_names` e reusa `person_id` e `mint_seed` COMO ESTÃO, sem recomputar.
  * É literalmente o que `lib/ids.mjs` promete no cabeçalho — e o que faltava.
  */
-export const seedObservada = (race, grafia) => `person|obs|${race}|${normNome(grafia)}`;
+export const seedObservada = (race, grafia, contest) =>
+  `person|obs|${escopoObservado(race, contest)}|${normNome(grafia)}`;
 
 /**
  * A precedência de nome exibido, materializada.
@@ -152,11 +185,14 @@ export function pessoasRegistradas(opts) {
  * adivinhados (CONVENTIONS §4): não sabemos o nome civil de quem não se
  * registrou, e escrever o nome da pesquisa ali seria afirmar o que não se apurou.
  */
-export function modeloObservada(race, grafia) {
-  const mint_seed = seedObservada(race, grafia);
+export function modeloObservada(race, grafia, contest) {
+  const mint_seed = seedObservada(race, grafia, contest);
   return {
     person_id: mintPersonId(mint_seed),
     mint_seed,
+    // O escopo gravado como CAMPO, não deduzido da semente por regex — ver o
+    // cabeçalho deste arquivo e `personPolledIndex` em `store.mjs`.
+    obs_scope: escopoObservado(race, contest),
     registered: false,
     sq_candidato: [],
     nome_completo: null,

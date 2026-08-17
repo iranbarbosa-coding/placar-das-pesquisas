@@ -17,10 +17,14 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { readStore, markHeadlines, resolveCandidate } from "./lib/store.mjs";
+import {
+  readStore, writeStore, markHeadlines, resolveCandidate,
+  priorStamps, emptyIndexes, TABLE_NAMES,
+} from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
 import { mintCandidateId, nameKey } from "./lib/ids.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
+import { ballotCandidacy } from "./lib/candidates.mjs";
 
 const VERBOSE = process.argv.includes("--verbose");
 const RUN_DATE = "2026-08-15";
@@ -359,6 +363,63 @@ check("O PONTO INTEIRO: o candidate_id NÃO se move quando o nome exibido muda",
   }
 });
 
+check("A OUTRA METADE: o id NÃO se move quando uma pesquisa NOVA escreve o nome de outro jeito", (store, assert) => {
+  // O defeito que a metade "nome exibido" não cobria, e que a verificação
+  // independente mediu em 814 das 1.078 linhas: a semente saía da grafia da
+  // PRIMEIRA pesquisa, então uma pesquisa nova publicando "Tarcísio de Freitas"
+  // onde as anteriores publicavam "Tarcísio" cunhava outra pessoa e outro id.
+  // Não é rename nenhum — é CHEGADA DE DADO, e nenhum dado antigo mudou.
+  //
+  // O que o fecha: a pessoa registrada é alcançada pelo REGISTRO, e o registro
+  // é alcançável tanto pela grafia publicada quanto pelo nome de urna que ele
+  // próprio impõe (`data/ballot-names.json`, indexado também pelo `nome_urna`).
+  // Sem essa segunda chave, "Jhc" — que é o nome que o site EXIBE em
+  // `governador:AL` — não achava a candidatura de "João Henrique Caldas" e a
+  // linha caía numa pessoa sem registro ao lado da registrada idêntica.
+  const contest = "governador:AL";
+  const A = storeVazio();
+  const B = storeVazio();
+  try {
+    // Rodada 1: o instituto publica o nome civil. Rodada 2 (outro store, do
+    // zero): outro instituto publica o nome de urna. Mesmo homem, e o id tem de
+    // ser o MESMO byte a byte.
+    const a = resolveCandidate(A, "Jhc", contest, "PSDB", { fuzzy: false, raw: "João Henrique Caldas" });
+    const b = resolveCandidate(B, "Jhc", contest, "PSDB", { fuzzy: false, raw: "JHC" });
+    assert(a.candidate_id === b.candidate_id,
+      `o id se moveu com a grafia da pesquisa: ${a.candidate_id} × ${b.candidate_id}`);
+    const pa = A.people.find((p) => p.person_id === a.person_id);
+    const pb = B.people.find((p) => p.person_id === b.person_id);
+    assert(pa?.registered === true && pb?.registered === true,
+      `o registro ficou inalcançável por uma das grafias (reg: ${pa?.registered} × ${pb?.registered})`);
+    assert(pa?.mint_seed === pb?.mint_seed && /^person\|tse\|/.test(pa?.mint_seed ?? ""),
+      `sementes divergentes: "${pa?.mint_seed}" × "${pb?.mint_seed}"`);
+  } finally {
+    fs.rmSync(A._tmpdir, { recursive: true, force: true });
+    fs.rmSync(B._tmpdir, { recursive: true, force: true });
+  }
+});
+
+check("o registro é alcançável pelo NOME DE URNA que ele próprio impõe", (store, assert) => {
+  // 65 linhas de pesquisa sentavam numa pessoa NÃO registrada enquanto uma
+  // pessoa REGISTRADA da mesma disputa carregava o mesmo nome. A causa: as
+  // chaves de `data/ballot-names.json` são as grafias publicadas de UMA rodada,
+  // e o mapa é consultado também com o nome já canonicalizado — que, quando a
+  // canonicalização adota o nome de urna, muitas vezes não está entre elas.
+  const casos = [
+    ["governador:AL", "Jhc", "João Henrique Caldas"],
+    ["presidente:BR", "Zema", "Romeu Zema"],
+    ["senador:MG", "Zema", "Romeu Zema"],
+  ];
+  for (const [contest, urna, publicado] of casos) {
+    const viaPublicado = ballotCandidacy(publicado, contest);
+    const viaUrna = ballotCandidacy(urna, contest);
+    assert(!!viaPublicado, `${contest}: "${publicado}" não alcança o registro — o casador não rodou?`);
+    assert(!!viaUrna, `${contest}: "${urna}" (o nome que o site EXIBE) não alcança o registro`);
+    assert(viaPublicado?.sq_candidato === viaUrna?.sq_candidato,
+      `${contest}: as duas grafias apontam para candidaturas diferentes (${viaPublicado?.sq_candidato} × ${viaUrna?.sq_candidato})`);
+  }
+});
+
 check("duas grafias da MESMA pessoa registrada caem numa linha só (senador:AL)", (store, assert) => {
   // O cruzamento real: "Dr. Wanderley" e "José Wanderley Neto" são o mesmo
   // homem (SQ 20002553726 no registro), e cunhavam DOIS candidate_id que ainda
@@ -415,19 +476,39 @@ check("pessoa com DOIS sq_candidato (re-registro do Piauí) é UMA pessoa", (sto
     `(${duplas.length} com dois registros: ${duplas.map((p) => p.nome_urna).join(", ")})`);
 });
 
-check("sem registro: duas RACES são duas pessoas; a mesma race em duas UFs é uma", (store, assert) => {
-  // A decisão do criador (16/08/2026): a identidade de quem não se registrou é
-  // escopada POR RACE. Global por nome fundiria `Rui Costa` (senador:BA) com
-  // `Rui Costa Pimenta` (presidente) e `Ciro` com `Ciro Nogueira`; por disputa
-  // (`race:UF`) estilhaçaria o presidencial, porque `presidente:MG` é a mesma
-  // corrida perguntada a mineiros. As duas metades estão aqui de propósito: um
-  // teste só da fusão passaria com uma regra que funde tudo.
+check("opção C: sem registro, a UF SEPARA nas estaduais e NÃO separa na presidencial", (store, assert) => {
+  // A decisão do criador (16/08/2026, opção C, medida antes de decidida): a
+  // identidade de quem não se registrou é escopada por `race|UF` nas estaduais e
+  // pela RACE SOZINHA na presidencial.
+  //
+  // ⚠ ESTE CASO JÁ AFIRMOU O CONTRÁRIO — "a mesma race em duas UFs é uma" — e
+  // fundir era o defeito, não a especificação. Quatro fusões reais foram
+  // medidas (`Álvaro Dias` senador:PR+RN, `Ratinho Jr` e `Zeca Dirceu`
+  // senador:PR+RS, `José Carlos do Pátio` governador:BA+MT): homônimos de
+  // estados diferentes que a linha de `people.ndjson` AFIRMAVA ser um homem só.
+  //
+  // As três metades estão aqui de propósito. Uma regra que funde tudo passaria
+  // num teste só de fusão; uma que separa tudo passaria num teste só de
+  // separação e estilhaçaria a presidencial em até 26 pessoas.
   const nome = "Fulano Inexistente de Tal";
   const g = resolveCandidate(store, nome, "governador:MG", "PT", { fuzzy: false, raw: nome });
   const s = resolveCandidate(store, nome, "senador:MG", "PT", { fuzzy: false, raw: nome });
   assert(g.person_id !== s.person_id,
     "governador e senado viraram a MESMA pessoa — sem registro, races diferentes não se fundem");
 
+  // (a) mesma race, UFs diferentes, disputa ESTADUAL → duas pessoas.
+  const pr = resolveCandidate(store, nome, "senador:PR", "PT", { fuzzy: false, raw: nome });
+  const rs = resolveCandidate(store, nome, "senador:RS", "PT", { fuzzy: false, raw: nome });
+  assert(pr.person_id !== rs.person_id,
+    "senador:PR e senador:RS viraram a MESMA pessoa — nas estaduais a UF É a corrida");
+  const pessoaPR = store.people.find((p) => p.person_id === pr.person_id);
+  assert(pessoaPR?.mint_seed === `person|obs|senador|PR|${nameKey(nome)}`,
+    `semente estadual inesperada: "${pessoaPR?.mint_seed}"`);
+  assert(pessoaPR?.obs_scope === "senador|PR",
+    `o escopo tem de ir GRAVADO no campo, não só dentro da semente: "${pessoaPR?.obs_scope}"`);
+
+  // (b) presidencial: `presidente:MG` é a corrida NACIONAL perguntada a
+  // mineiros. Separar aqui partiria um candidato a presidente em 26 pessoas.
   const p1 = resolveCandidate(store, nome, "presidente:BR", "PT", { fuzzy: false, raw: nome });
   const p2 = resolveCandidate(store, nome, "presidente:MG", "PT", { fuzzy: false, raw: nome });
   assert(p1.person_id === p2.person_id,
@@ -437,8 +518,79 @@ check("sem registro: duas RACES são duas pessoas; a mesma race em duas UFs é u
   const pessoa = store.people.find((p) => p.person_id === p1.person_id);
   assert(pessoa?.mint_seed === `person|obs|presidente|${nameKey(nome)}`,
     `semente inesperada para quem não se registrou: "${pessoa?.mint_seed}"`);
+  assert(pessoa?.obs_scope === "presidente", `escopo presidencial inesperado: "${pessoa?.obs_scope}"`);
   assert(pessoa?.registered === false && pessoa?.nome_completo === null && pessoa?.nome_urna === null,
     "quem não se registrou não tem nome civil apurado — o campo fica NULO, nunca adivinhado");
+});
+
+check("opção C: o escopo gravado e o escopo da semente NÃO podem divergir", (store, assert) => {
+  // A armadilha que este campo existe para fechar. O escopo era recuperado da
+  // semente com `/^person\|obs\|([^|]+)\|/` em DOIS lugares (`priorStamps` e
+  // `personPolledIndex`); sob a opção C essa regex captura `senador` de
+  // `person|obs|senador|PR|…` e chaveia o índice de grafias pela RACE — que
+  // re-funde, no índice, exatamente o que a semente separa. O sintoma seria
+  // mudo: nenhum erro, só o id se movendo ou a pessoa errada sendo reencontrada.
+  const nome = "Beltrano Improvável";
+  for (const contest of ["senador:PR", "governador:BA", "presidente:MG", "presidente:BR"]) {
+    const c = resolveCandidate(store, nome, contest, "PT", { fuzzy: false, raw: nome });
+    const p = store.people.find((x) => x.person_id === c.person_id);
+    assert(p.mint_seed === `person|obs|${p.obs_scope}|${nameKey(nome)}`,
+      `${contest}: semente "${p.mint_seed}" não bate com obs_scope "${p.obs_scope}"`);
+    // E a regex antiga TEM de discordar do campo nas estaduais, senão o caso
+    // não prova nada sobre o defeito que ele existe para pegar.
+    const porRegex = /^person\|obs\|([^|]+)\|/.exec(p.mint_seed)?.[1];
+    if (contest.startsWith("presidente")) assert(porRegex === p.obs_scope, `${contest}: escopo presidencial deveria coincidir`);
+    else assert(porRegex !== p.obs_scope, `${contest}: a regex antiga daria "${porRegex}" e o campo dá "${p.obs_scope}" — se coincidem, o caso não exercita nada`);
+  }
+});
+
+check("opção C ATRAVESSA a rodada: a pessoa da rodada anterior é reencontrada, e só na SUA UF", (store, assert) => {
+  // A armadilha 2. `priorStamps` indexa as grafias da rodada anterior e
+  // `resolvePerson` consulta esse índice; se as duas chaves não forem idênticas
+  // a consulta erra sempre, ninguém percebe, e TODA pessoa sem registro é
+  // recunhada a cada rodada — com o `first_seen` indo junto, que é a perda
+  // silenciosa que esta camada inteira existe para acabar.
+  //
+  // Um `idempotence-check` que reconstrói o MESMO `polls.json` duas vezes não
+  // alcança isto: a semente é determinística, então a pessoa é recunhada com o
+  // mesmo id e as tabelas saem byte-idênticas mesmo com o índice quebrado. O
+  // caso só aparece quando a rodada nova vê uma grafia que a antiga não viu.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-prior-"));
+  try {
+    const antes = readStore({ dir, tables: [], runDate: RUN_DATE });
+    // Rodada 1: DUAS grafias da mesma pessoa em senador:PR. A semente sai da
+    // PRIMEIRA — e é justamente por isso que o índice por grafia tem de existir:
+    // sem ele, uma rodada que visse as duas na ordem inversa cunharia outra
+    // semente e moveria o id, e a saída passaria a depender da ordem em que os
+    // registros estão no disco (CONVENTIONS §8).
+    resolveCandidate(antes, "Fulano Improvável", "senador:PR", "PT", { fuzzy: false, raw: "Fulano Improvável de Tal" });
+    resolveCandidate(antes, "Fulano Improvável", "senador:PR", "PT", { fuzzy: false, raw: "F. Improvável" });
+    writeStore(antes, { dir });
+
+    const prior = priorStamps(readStore({ dir }));
+    const depois = readStore({ dir, tables: [], runDate: "2027-01-01", prior });
+    for (const t of TABLE_NAMES) depois[t] = [];
+    depois._indexes = emptyIndexes();
+
+    // Rodada 2: a SEGUNDA grafia chega PRIMEIRO. A semente calculada agora
+    // seria outra; só o índice de grafias da rodada anterior salva o id.
+    const mesma = resolveCandidate(depois, "Fulano Improvável", "senador:PR", "PT",
+      { fuzzy: false, raw: "F. Improvável" });
+    const alvo = antes.people.find((p) => !p.registered);
+    assert(alvo?.mint_seed === `person|obs|senador|PR|${nameKey("Fulano Improvável de Tal")}`,
+      `a semente não saiu da PRIMEIRA grafia — o caso não exercitaria o índice: "${alvo?.mint_seed}"`);
+    assert(mesma.person_id === alvo.person_id,
+      `a pessoa da rodada anterior não foi reencontrada: ${mesma.person_id} × ${alvo.person_id}`);
+
+    // …e a MESMA grafia em OUTRA UF NÃO pode cair nela. Um índice chaveado pela
+    // race (a regex antiga sobre a semente) devolveria a pessoa do PR aqui.
+    const outraUf = resolveCandidate(depois, "Fulano Improvável", "senador:RS", "PT",
+      { fuzzy: false, raw: "F. Improvável" });
+    assert(outraUf.person_id !== alvo.person_id,
+      "a grafia do PR alcançou a pessoa no RS — o índice está chaveado pela race, não pelo escopo da opção C");
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 check("toda linha de candidato carrega person_id e mint_seed", (store, assert) => {

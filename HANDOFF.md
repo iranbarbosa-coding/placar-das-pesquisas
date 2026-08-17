@@ -187,27 +187,36 @@ e acima da disputa (`scripts/lib/people.mjs`). As sementes:
 | população | semente |
 |---|---|
 | pessoa registrada | `person\|tse\|<menor sq_candidato do grupo colapsado>` |
-| pessoa sem registro | `person\|obs\|<race>\|<normNome(primeira grafia vista)>` |
+| pessoa sem registro | `person\|obs\|<escopo>\|<normNome(primeira grafia vista)>` |
 | linha de candidato | `candidate\|<contest>\|<person_id>` |
 
 `mint_seed` fica gravado nas duas tabelas. A linha de candidato **continua por
 disputa** — é ela que sustenta `candidate.contest === question.race:uf`, o
 guarda por onde o cruzamento de `senador:AL` passou.
 
-- **O escopo de quem não se registrou é a RACE** (decisão do criador). Global por
-  nome fundiria `Rui Costa` (senador:BA) com `Rui Costa Pimenta` (presidente) e
-  `Ciro` com `Ciro Nogueira`; por disputa estilhaçaria o presidencial, porque
-  `presidente:MG` é a mesma corrida perguntada a mineiros (Ratinho Jr aparece em
-  21 disputas presidenciais e é UMA pessoa). Custo medido: **49 humanos partidos
-  entre races**.
-- ⚠ **E 4 fusões entre UFs da MESMA race, que ainda são decisão em aberto:**
-  `Álvaro Dias` (senador:PR + senador:RN), `Ratinho Jr` e `Zeca Dirceu`
-  (senador:PR + senador:RS), `José Carlos do Pátio` (governador:BA +
-  governador:MT). Vêm da semente, não de um índice. Não movem número publicado
-  nem `candidate_id` (que segue por disputa) — afetam o que a linha de
-  `people.ndjson` **afirma**. Quem se registrou está fora disso: **pessoa
-  registrada só é alcançada pelo registro**, nunca pela grafia, justamente para
-  o "Alvaro Dias" do PR não sair carregando o `sq` do ÁLVARO DIAS do RN.
+- **O escopo de quem não se registrou é a OPÇÃO C** (decisão do criador,
+  16/08/2026, medida antes de decidida): `presidente` usa a **race sozinha**;
+  `governador` e `senador` usam **`race|UF`**. Global por nome fundiria
+  `Rui Costa` (senador:BA) com `Rui Costa Pimenta` (presidente) e `Ciro` com
+  `Ciro Nogueira`; `race:UF` em tudo estilhaçaria o presidencial, porque
+  `presidente:MG` é a corrida NACIONAL perguntada a mineiros (Ratinho Jr aparece
+  em 19 disputas presidenciais e continua UMA pessoa). Custo medido do corte por
+  race: **49 humanos partidos entre races**.
+- ✅ **As fusões entre UFs da MESMA race ACABARAM.** Eram `Álvaro Dias`
+  (senador:PR + senador:RN), `Ratinho Jr` e `Zeca Dirceu` (senador:PR +
+  senador:RS), `José Carlos do Pátio` (governador:BA + governador:MT) — vinham da
+  semente, não de um índice. Medido depois da opção C: **0 fusões entre UFs**, ao
+  custo de **+3 pessoas** (859 → 862) e nenhuma divisão na presidencial. Quem se
+  registrou está fora disso: **pessoa registrada só é alcançada pelo registro**,
+  nunca pela grafia, justamente para o "Alvaro Dias" do PR não sair carregando o
+  `sq` do ÁLVARO DIAS do RN.
+- ⚠ **O escopo vai gravado no campo `obs_scope`, não só dentro da semente.** Ele
+  já esteve só na semente, e DOIS índices o recuperavam com
+  `/^person\|obs\|([^|]+)\|/` — que sob a opção C captura `senador` de
+  `person|obs|senador|PR|…` e chaveia o índice de grafias pela race, re-fundindo
+  no índice exatamente o que a semente separa. Sem sintoma: nenhum erro, só o id
+  deixando de ser reencontrado entre rodadas. `validate-store` reprova um
+  `obs_scope` que não seja o escopo da própria semente.
 - **`display_from` grava POR QUE o nome é o que é** (`ruling` › `nome_urna` ›
   `grupo curado` › `mais curta observada`). Essa precedência sempre existiu como
   ordem de escritas dentro de `lib/candidates.mjs` e não existia nos dados.
@@ -221,6 +230,18 @@ antigo em `legacy_ids` (como levantamento já faz) e **loga em
 `conflicts.ndjson`** todo id antigo que não casou — ensaio contra o banco vivo:
 **1.078 ids re-cunhados, 1.078 `first_seen` preservados, 0 órfãos, 0 linhas com
 a data da rodada.**
+
+⚠ **E `legacy_ids` EVAPORAVA na rodada seguinte.** A tradução só dispara quando
+um id SOME; na rodada N+1 nenhum some, e como o store é reconstruído do zero
+cada linha renascia com `legacy_ids: []` — **um segundo diff de tabela inteira,
+1.078 linhas, perdendo a linhagem em silêncio**. Hoje o campo é carregado do
+estado anterior e unido ao que a tradução acrescentar, como `merged_into` já era.
+**E o guarda era estruturalmente cego**: `idempotence-check.mjs` construía as
+duas rodadas num diretório VAZIO, onde nenhum id some e a tradução nunca roda.
+Ele agora **planta um estado anterior** com ids alheios ao espaço atual, confere
+que a tradução de fato escreveu linhagem, e tem autoteste próprio para ela.
+Provado por mutação: **removido o carregamento, o guarda reprova em 1.078
+linhas; na versão antiga, de diretório vazio, o mesmo defeito imprimia OK.**
 
 ### Nome de urna vale POR PESSOA, não por disputa (decisão do criador, 16/08/2026)
 
@@ -841,23 +862,33 @@ every validator here has a `--self-test` for that reason.
 
 Tudo abaixo de 16/08 está RODADO E PUBLICADO em `04eb80a`, exceto o item 1.
 
-1. ⚠ **CAMADA DE PESSOAS — está no branch `wip/people-identity` (`81a8fc3`), NÃO
-   no main, e foi REPROVADA por verificação independente.** O commit lá descreve
-   os quatro bloqueadores e a opção C do criador em detalhe; o resumo:
-   · Os ids AINDA se movem — não por rename (isso ficou provado consertado), mas
-     por CHEGADA DE DADO: uma pesquisa nova escrevendo "Tarcísio de Freitas" em
-     vez de "Tarcísio" move o id. 814 das 1.078 linhas expostas.
-   · A causa é a montante: `scrape.mjs:338` roda `canonicalizeCandidates` ANTES
-     de `persistStore` (:425), então o "raw" que semeia a identidade já passou
-     pela regra da grafia mais curta. **Consertar isso é o primeiro passo, não a
-     camada de pessoas** — sem raw de verdade, qualquer semente herda o problema.
-   · `legacy_ids` evapora na rodada seguinte; `idempotence-check` é cego a isso
-     porque constrói duas vezes em diretório vazio.
-   · As 11 guardas de pessoa estão atrás de `if (people.length)` e nunca rodam
-     contra dado real.
-   **Decisão do criador já tomada (opção C)**, medida e por aplicar: pessoa não
-   registrada semeada por `race`+`UF` nas estaduais, por `race` só em
-   `presidente`. TEM DE ENTRAR ANTES da primeira escrita de `people.ndjson`.
+1. ⚠ **CAMADA DE PESSOAS — está no branch `wip/people-identity`, NÃO no main.**
+   Os quatro bloqueadores da verificação independente estão TRATADOS e a opção C
+   do criador está aplicada. O que falta é **uma rodada real** (`scrape.mjs`
+   precisa de rede e ~10 min): tudo abaixo foi medido offline, reconstruindo o
+   store a partir de `data/polls.json` com a grafia crua reidratada do `name_raw`
+   que o store vivo já guarda.
+   · **Grafia crua (consertado no main, `46ea8c7`)** — `scrape.mjs` prende
+     `r.candidate_raw` ANTES de `canonicalizeCandidates`, e `upsert.mjs` a passa
+     para `resolveCandidate`. É ela que semeia a identidade. Medido: 125
+     `candidate_id` passam a carregar mais de uma grafia em `name_raw` (era 1
+     para todos os 1.080).
+   · **Registro alcançável pelo NOME DE URNA que ele próprio impõe** —
+     `data/ballot-names.json` é chaveado pelas grafias publicadas de UMA rodada,
+     e era consultado também com o nome já canonicalizado: `ballotCandidacy("Jhc",
+     "governador:AL")` devolvia `null` para o único nome que o site exibe.
+     Indexado também pelo `nome_urna` (nunca sobrescrevendo grafia publicada, e
+     recusando nome de urna ambíguo). **Efeito medido: as linhas em pessoa
+     REGISTRADA passam de 484 para 630, e o resultado deixa de depender da grafia
+     — com e sem `candidate_raw` o store sai idêntico.** É o que fecha "uma
+     pesquisa nova escrevendo o nome de outro jeito move o id".
+   · `legacy_ids` e a cegueira do `idempotence-check`: ver §1b acima.
+   · **As guardas de pessoa agora dependem do que o store DECLARA**
+     (`meta.schema_version >= 2`), não de a tabela estar cheia. Antes, todas
+     percorriam `people`, e com `people.ndjson` inexistente o validador saía com
+     0 tendo conferido NADA — inclusive na primeira rodada que cunhasse pessoas.
+   **Números da simulação offline: 862 pessoas (519 do registro + 343
+   observadas), 1.080 linhas de candidato, 0 erros e 0 avisos de validação.**
 
 2. ⚠ **`p360-13089-1-0-b383e9bf0a8c` está arquivada na disputa errada.** Consta
    `senador:RS` e o próprio `source_url` é
