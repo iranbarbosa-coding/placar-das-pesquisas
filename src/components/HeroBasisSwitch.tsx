@@ -63,34 +63,32 @@ export default function HeroBasisSwitch({
       scenario={scenario}
       controls={
         convertible ? (
-          <div className="flex flex-col gap-1">
-            <div
-              role="group"
-              aria-label="Base dos números deste bloco"
-              className="inline-flex w-fit overflow-hidden rounded-md text-xs"
-              style={{ border: "1px solid var(--grid)", background: "var(--surface-1)" }}
-            >
-              {(["validos", "bruto"] as const).map((b) => (
-                <button
-                  key={b}
-                  type="button"
-                  onClick={() => setBasis(b)}
-                  aria-pressed={basis === b}
-                  className="px-2.5 py-1 transition-colors"
-                  style={{
-                    background: basis === b ? "var(--accent)" : "transparent",
-                    color: basis === b ? "#fff" : "var(--text-muted)",
-                    fontWeight: basis === b ? 600 : 400,
-                  }}
-                >
-                  {b === "validos" ? "votos válidos" : "bruto"}
-                </button>
-              ))}
-            </div>
-            <p className="max-w-[52ch] text-xs" style={{ color: "var(--text-muted)" }}>
-              Muda apenas este bloco. Os confrontos de 2º turno, as barras dos maiores
-              colégios eleitorais e a tabela de pesquisas seguem em votos válidos.
-            </p>
+          // Compact toggle only — the long "muda apenas este bloco" explainer was
+          // removed to match the mockup's dense header. The scope note now lives
+          // as the toggle's title/aria-label instead of a paragraph.
+          <div
+            role="group"
+            aria-label="Base dos números deste bloco — muda apenas o bloco presidencial; o resto do site segue em votos válidos"
+            title="Muda apenas este bloco; o resto do site segue em votos válidos"
+            className="inline-flex w-fit overflow-hidden rounded-md text-xs"
+            style={{ border: "1px solid var(--grid)", background: "var(--surface-1)" }}
+          >
+            {(["validos", "bruto"] as const).map((b) => (
+              <button
+                key={b}
+                type="button"
+                onClick={() => setBasis(b)}
+                aria-pressed={basis === b}
+                className="px-2.5 py-1 transition-colors"
+                style={{
+                  background: basis === b ? "var(--accent)" : "transparent",
+                  color: basis === b ? "#fff" : "var(--text-muted)",
+                  fontWeight: basis === b ? 600 : 400,
+                }}
+              >
+                {b === "validos" ? "votos válidos" : "bruto"}
+              </button>
+            ))}
           </div>
         ) : null
       }

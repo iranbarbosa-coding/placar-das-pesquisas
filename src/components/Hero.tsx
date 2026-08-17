@@ -169,25 +169,25 @@ export default function Hero({
     <section aria-labelledby="hero-titulo">
       {/* Single full-width column: the "Em resumo" side panel was removed at the
           owner's request, so the title, KPIs and framed chart span the card. */}
-      <div className="flex min-w-0 flex-col gap-4">
-          <div className="flex flex-col gap-2">
+      <div className="flex min-w-0 flex-col gap-3">
+          <div className="flex flex-col gap-0.5">
             <p
-              className="text-[11px] font-bold uppercase tracking-[0.16em]"
+              className="text-[10px] font-bold uppercase tracking-[0.16em]"
               style={{ color: "var(--accent)" }}
             >
               {eyebrow}
             </p>
             <h1
               id="hero-titulo"
-              className="flex items-center gap-2 text-[40px] font-bold leading-[0.98] tracking-[-0.01em] sm:text-[46px]"
+              className="flex items-center gap-1.5 text-xl font-bold leading-tight tracking-[-0.01em] sm:text-2xl"
               style={{ ...DISPLAY, color: "var(--text-primary)" }}
             >
               {title}
               <InfoGlyph />
             </h1>
             {average && (
-              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                Média das {average.pollCount} pesquisa{average.pollCount === 1 ? "" : "s"} · 1º turno · {basisLabel}
+              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                Média das pesquisas · 1º turno · {basisLabel}
               </p>
             )}
           </div>
@@ -196,14 +196,15 @@ export default function Hero({
 
           {/* KPI row — top three plus "Outros" on ONE line, like the target. */}
           {kpis.length > 0 && (
-            <ul className="flex flex-nowrap gap-x-4 overflow-hidden sm:gap-x-6">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-7">
               {kpis.map((k) => (
-                <li key={k.key} className="flex min-w-0 flex-col gap-1">
+                <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
                   <span
-                    className="tabular text-2xl font-bold leading-none sm:text-[30px]"
+                    className="tabular text-[26px] font-bold leading-none sm:text-[32px]"
                     style={{ ...DISPLAY, color: k.color }}
                   >
-                    {fmtPct(k.pct)}%
+                    {fmtPct(k.pct)}
+                    <span className="text-[0.55em] font-bold align-baseline">%</span>
                   </span>
                   <span className="flex items-center gap-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
                     <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
@@ -237,7 +238,7 @@ export default function Hero({
                     );
                   })}
                 </div>
-                <div className="relative h-[220px] flex-1 sm:h-[280px]">
+                <div className="relative h-[200px] flex-1 sm:h-[240px]">
                 <HeroChart average={average} maxSeries={maxSeries} framed />
                 {showFifty && (
                   <span
