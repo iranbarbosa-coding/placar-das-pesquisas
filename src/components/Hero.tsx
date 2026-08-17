@@ -299,12 +299,12 @@ export default function Hero({
                   </div>
                 </div>
               )}
-              {/* Legend row, as in the target: each series plus the 50% line. */}
+              {/* Legend row — the same four the KPIs show, plus the 50% line. */}
               <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-                {series.map((s) => (
-                  <li key={`leg-${s.key}`} className="flex items-center gap-1.5">
-                    <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: s.color }} />
-                    <span className="truncate">{s.name}</span>
+                {kpis.map((k) => (
+                  <li key={`leg-${k.key}`} className="flex items-center gap-1.5">
+                    <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: k.color }} />
+                    <span className="truncate">{k.name}</span>
                   </li>
                 ))}
                 <li className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>

@@ -388,33 +388,62 @@ export function recentMovers(limit = 4, windowDays = 30): Mover[] {
   return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, limit);
 }
 
-/** The latest-polls table, newest first, grouped by day at render time. */
-export function latestForTable(limit = 40): {
+export type PollTrend = "up" | "down" | "flat";
+
+export interface LatestTableRow {
   poll: Poll;
   commissionedBy: string | null;
   leader: { candidate: string; pct: number } | null;
   runnerUp: { candidate: string; pct: number } | null;
   spread: number | null;
-}[] {
+  /** The leader's move vs the previous poll of the same race (Tendência column). */
+  trend: PollTrend | null;
+}
+
+/**
+ * The latest-polls table, newest first. Each row carries a `trend`: whether the
+ * leader's margin grew, shrank or held versus the previous poll of the SAME race
+ * (same race/state/round). It is a comparison of two published polls, not a
+ * fresh model — the first (oldest) poll of a race has no predecessor and is null.
+ */
+export function latestForTable(limit = 40): LatestTableRow[] {
   const all = [
     ...pollsFor("presidente", null),
     ...UFS.flatMap((uf) => [...pollsFor("governador", uf), ...pollsFor("senador", uf)]),
     ...UFS.flatMap((uf) => pollsFor("presidente", uf)),
   ];
-  return sortPollsDesc(all)
-    .slice(0, limit)
-    .map((raw) => {
-      // Converted individually, like every other number on the site. The Senate
-      // passes through untouched.
-      const poll = toBasis(raw, "validos");
-      const ranked = [...poll.results].sort((a, b) => b.pct - a.pct || a.candidate.localeCompare(b.candidate));
-      const [leader, runnerUp] = ranked;
-      return {
-        poll,
-        commissionedBy: partyCommissioned(poll),
-        leader: leader ? { candidate: leader.candidate, pct: leader.pct } : null,
-        runnerUp: runnerUp ? { candidate: runnerUp.candidate, pct: runnerUp.pct } : null,
-        spread: leader && runnerUp ? round1(leader.pct - runnerUp.pct) : null,
-      };
-    });
+  const sorted = sortPollsDesc(all);
+  // Previous spread per race key, walking oldest→newest so "previous" is the
+  // poll immediately before this one in that race.
+  const raceKey = (p: Poll) => `${p.race}|${p.state ?? "BR"}|${p.round}`;
+  const spreadOf = (p: Poll): number | null => {
+    const conv = toBasis(p, "validos");
+    const r = [...conv.results].sort((a, b) => b.pct - a.pct);
+    return r[0] && r[1] ? round1(r[0].pct - r[1].pct) : null;
+  };
+  const prevSpread = new Map<string, number>();
+  const trendById = new Map<string | number, PollTrend | null>();
+  for (const p of [...sorted].reverse()) {
+    const k = raceKey(p);
+    const s = spreadOf(p);
+    const prev = prevSpread.get(k);
+    let t: PollTrend | null = null;
+    if (s != null && prev != null) t = s - prev > 0.3 ? "up" : s - prev < -0.3 ? "down" : "flat";
+    trendById.set(p.id, t);
+    if (s != null) prevSpread.set(k, s);
+  }
+
+  return sorted.slice(0, limit).map((raw) => {
+    const poll = toBasis(raw, "validos");
+    const ranked = [...poll.results].sort((a, b) => b.pct - a.pct || a.candidate.localeCompare(b.candidate));
+    const [leader, runnerUp] = ranked;
+    return {
+      poll,
+      commissionedBy: partyCommissioned(poll),
+      leader: leader ? { candidate: leader.candidate, pct: leader.pct } : null,
+      runnerUp: runnerUp ? { candidate: runnerUp.candidate, pct: runnerUp.pct } : null,
+      spread: leader && runnerUp ? round1(leader.pct - runnerUp.pct) : null,
+      trend: trendById.get(raw.id) ?? null,
+    };
+  });
 }
