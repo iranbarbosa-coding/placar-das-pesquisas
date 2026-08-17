@@ -156,6 +156,27 @@ export function stateRail(): {
 export const MAIOR_ELEITORADO: UF[] = ["SP", "MG", "RJ", "BA", "RS"];
 
 /**
+ * Electorate size (millions of voters), TSE 2022 roll — the "N milhões de
+ * eleitores" subtitle the mockup shows on each college card. Hardcoded for the
+ * same reason `MAIOR_ELEITORADO` is: the poll database carries no electorate
+ * figures. Only the five largest are needed here.
+ */
+export const ELEITORADO_MI: Partial<Record<UF, number>> = {
+  SP: 34.6, MG: 16.3, RJ: 13.2, BA: 11.3, RS: 8.7,
+};
+
+/** The leader's rolling-average change over `windowDays`, from their trend. */
+function leaderDelta(avg: RaceAverage | null, windowDays = 30): number | null {
+  const trend = avg?.candidates[0]?.trend ?? [];
+  if (trend.length < 2) return null;
+  const last = trend[trend.length - 1];
+  const cutoff = new Date(last.date).getTime() - windowDays * 86400000;
+  let prior = trend[0];
+  for (const p of trend) if (new Date(p.date).getTime() <= cutoff) prior = p;
+  return round1(last.avg - prior.avg);
+}
+
+/**
  * Leader, runner-up, and everyone else — three bars that DO sum to 100.
  *
  * The obvious construction is wrong, and it shipped for an hour before a render
@@ -176,7 +197,9 @@ export function matchupRows() {
   return MAIOR_ELEITORADO.map((uf) => {
     const grupo = scenarioGroups("governador", uf, 1)[0] ?? null;
     const avg = grupo?.average ?? null;
-    if (!avg?.candidates.length) return { uf, name: UF_NAMES[uf], average: null, bars: [] };
+    if (!avg?.candidates.length) {
+      return { uf, name: UF_NAMES[uf], average: null, bars: [], eleitoresMi: ELEITORADO_MI[uf] ?? null, leaderDelta30: null };
+    }
     const [first, second] = avg.candidates;
 
     const key = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
@@ -201,6 +224,8 @@ export function matchupRows() {
       uf,
       name: UF_NAMES[uf],
       average: avg,
+      eleitoresMi: ELEITORADO_MI[uf] ?? null,
+      leaderDelta30: leaderDelta(avg, 30),
       bars: [
         { label: first.candidate, party: first.party, pct: pctA, kind: "leader" as const },
         ...(second

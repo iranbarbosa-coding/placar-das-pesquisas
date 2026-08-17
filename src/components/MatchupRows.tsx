@@ -90,6 +90,10 @@ export interface MatchupRow {
   average: RaceAverage | null;
   /** Empty exactly when the state has no governor average yet. */
   bars: MatchupBar[];
+  /** Electorate in millions (TSE 2022), for the card subtitle. */
+  eleitoresMi?: number | null;
+  /** The leader's rolling-average change over 30 days. */
+  leaderDelta30?: number | null;
 }
 
 export default function MatchupRows({
@@ -105,41 +109,54 @@ export default function MatchupRows({
     <section aria-labelledby="matchup-rows-title" className={className}>
       <h2
         id="matchup-rows-title"
-        className="border-b pb-2 text-xs font-bold uppercase tracking-widest"
-        style={{ borderColor: "var(--grid)", color: "var(--text-secondary)" }}
+        className="text-sm font-bold uppercase tracking-wide"
+        style={{ color: "var(--text-secondary)" }}
       >
         {title}
       </h2>
-      <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-        Governador, 1º turno, do maior eleitorado para o menor (ordem conforme o eleitorado de 2022).
+      <p className="mt-1 text-xs" style={{ color: "var(--text-muted)" }}>
+        Governador · 1º turno · do maior eleitorado para o menor (ordem conforme o eleitorado de 2022).
       </p>
 
-      <ol className="mt-4 space-y-4">
+      <ol className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {rows.map((row) => (
-          <li key={row.uf} className="card p-4 sm:p-5">
-            <div className="flex items-baseline justify-between gap-3">
-              <h3 className="text-base font-bold">
+          <li key={row.uf} className="rounded-lg p-4" style={{ background: "var(--surface-2)" }}>
+            <div className="flex items-baseline justify-between gap-2">
+              <h3 className="min-w-0 truncate text-base font-bold">
                 <Link href={`/estados/${row.uf.toLowerCase()}`} className="hover:underline">
                   {row.name}
                 </Link>
               </h3>
-              <span className="tabular text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
+              <span className="tabular shrink-0 rounded px-1.5 text-[10px] font-bold" style={{ background: "var(--grid)", color: "var(--text-secondary)" }}>
                 {row.uf}
               </span>
             </div>
+            {row.eleitoresMi != null && (
+              <p className="tabular mt-0.5 text-xs" style={{ color: "var(--text-muted)" }}>
+                {fmtPct(row.eleitoresMi)} milhões de eleitores
+              </p>
+            )}
 
             {row.bars.length === 0 || !row.average ? (
               <p className="mt-2 text-sm italic" style={{ color: "var(--text-muted)" }}>
-                Sem média: nenhuma pesquisa de governador registrada para este estado.
+                Sem média de governador registrada.
               </p>
             ) : (
               <>
-                <p className="mt-0.5 text-xs" style={{ color: "var(--text-muted)" }}>
-                  {row.average.pollCount} pesquisa{row.average.pollCount === 1 ? "" : "s"} · última em{" "}
-                  {fmtDate(row.average.lastPollDate)}
-                  {row.average.basis === "validos" ? " · votos válidos" : null}
-                </p>
                 <Bars bars={row.bars} average={row.average} />
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs" style={{ color: "var(--text-muted)" }}>
+                  <span>
+                    {row.average.pollCount} pesquisa{row.average.pollCount === 1 ? "" : "s"} · última em {fmtDate(row.average.lastPollDate)}
+                  </span>
+                  {row.leaderDelta30 != null && Math.abs(row.leaderDelta30) >= 0.1 && (
+                    <span
+                      className="tabular font-semibold"
+                      style={{ color: row.leaderDelta30 > 0 ? "var(--series-3)" : "var(--cand-red)" }}
+                    >
+                      {row.leaderDelta30 > 0 ? "▲" : "▼"} {fmtPct(Math.abs(row.leaderDelta30))} p.p. em 30 dias
+                    </span>
+                  )}
+                </div>
               </>
             )}
           </li>
@@ -239,7 +256,7 @@ function Bar({ bar, scale, colors }: { bar: MatchupBar; scale: number; colors: M
         </div>
 
         <div
-          className="relative mt-1 h-12 overflow-hidden rounded-md"
+          className="relative mt-1 h-8 overflow-hidden rounded"
           style={{ background: "var(--grid)" }}
           aria-hidden="true"
         >
@@ -282,21 +299,16 @@ function Bar({ bar, scale, colors }: { bar: MatchupBar; scale: number; colors: M
       </div>
 
       <div
-        // Fixed width, not fit-to-content: the three bars of a state are
-        // separate flex rows, so a column that resized per row would leave
-        // their tracks starting and ending at different x.
-        className="tabular w-20 shrink-0 whitespace-nowrap text-right text-3xl leading-none sm:w-24 sm:text-4xl"
+        // Fixed width so the three bars of a state end at the same x.
+        className="tabular w-16 shrink-0 whitespace-nowrap text-right text-xl leading-none"
         style={{
           fontWeight: isLeader ? 700 : 600,
           color: isOthers ? "var(--text-muted)" : "var(--text-primary)",
         }}
       >
-        {/* True minus, matching the rail's badges. Cannot arise from
-            `matchupRows()` — averages are non-negative — but the formatting is
-            the site's, not this component's, so it holds for any input. */}
         {fmtPct(bar.pct).replace("-", "−")}
         {Number.isFinite(bar.pct) && (
-          <span className="text-base font-semibold" style={{ color: "var(--text-muted)" }}>
+          <span className="text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
             %
           </span>
         )}

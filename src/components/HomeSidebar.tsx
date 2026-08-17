@@ -125,8 +125,11 @@ function DestaquesCard({ highlights }: { highlights: StateHighlight[] }) {
 
 function MudouCard({ movers }: { movers: Mover[] }) {
   return (
-    <section className="card p-4" aria-label="O que mudou nas últimas 24 horas">
-      <CardTitle>O que mudou · 30 dias</CardTitle>
+    <section className="card p-4" aria-label="O que mudou recentemente">
+      <CardTitle>O que mudou</CardTitle>
+      <p className="-mt-0.5 mb-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+        Maiores variações em 30 dias
+      </p>
       <ul className="mt-2 space-y-2">
         {movers.map((m) => {
           const up = m.delta > 0;

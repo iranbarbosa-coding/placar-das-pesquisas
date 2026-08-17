@@ -31,7 +31,7 @@ export interface MastheadProps {
   meta?: React.ReactNode;
 }
 
-type MenuKey = "sobre" | "presidente" | "estados" | "metodologia";
+type MenuKey = "sobre" | "presidente" | "governadores" | "senado" | "estados" | "metodologia";
 
 interface MenuLink {
   href: string;
@@ -57,13 +57,10 @@ const STATE_LINKS: MenuLink[] = UFS.map((uf) => ({
   tag: uf,
 }));
 
+// Order and labels mirror the redesign mockup: Presidente · Governadores ·
+// Senado · Estados · Metodologia · Sobre. Governadores and Senado have no
+// dedicated index yet, so they point at the states hub for now.
 const MENUS: Menu[] = [
-  {
-    key: "sobre",
-    label: "Sobre nós",
-    href: "/sobre",
-    links: [{ href: "/sobre", label: "O projeto", note: "Quem faz, com que dados e por quê" }],
-  },
   {
     key: "presidente",
     label: "Presidente",
@@ -77,6 +74,18 @@ const MENUS: Menu[] = [
         note: "Cada pareamento testado — presidente e governadores",
       },
     ],
+  },
+  {
+    key: "governadores",
+    label: "Governadores",
+    href: "/estados",
+    links: [{ href: "/estados", label: "Corridas de governador", note: "Por estado, a média de cada disputa" }],
+  },
+  {
+    key: "senado",
+    label: "Senado",
+    href: "/estados",
+    links: [{ href: "/estados", label: "Corridas ao Senado", note: "Por estado, em números brutos" }],
   },
   {
     key: "estados",
@@ -93,6 +102,12 @@ const MENUS: Menu[] = [
       { href: "/metodologia", label: "Como a média é calculada", note: "Janela, limite por instituto, base mínima" },
       { href: "/institutos", label: "Institutos", note: "Todas as casas com pesquisas no banco" },
     ],
+  },
+  {
+    key: "sobre",
+    label: "Sobre",
+    href: "/sobre",
+    links: [{ href: "/sobre", label: "O projeto", note: "Quem faz, com que dados e por quê" }],
   },
 ];
 
@@ -389,9 +404,21 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
         <Link
           href="/"
           onClick={closeAll}
-          className="min-w-0 shrink truncate text-base font-bold tracking-tight sm:text-lg lg:shrink-0"
+          className="flex min-w-0 shrink items-center gap-2 lg:shrink-0"
+          aria-label={`${SITE_NAME} ${SITE_YEAR}`}
         >
-          {SITE_NAME} <span style={{ color: "var(--accent)" }}>{SITE_YEAR}</span>
+          {/* Bar-chart wordmark mark. */}
+          <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7 shrink-0">
+            <rect x="3" y="12" width="4" height="9" rx="1" fill="var(--accent)" />
+            <rect x="10" y="7" width="4" height="14" rx="1" fill="var(--accent)" />
+            <rect x="17" y="3" width="4" height="18" rx="1" fill="var(--dual-lead)" />
+          </svg>
+          <span className="hidden min-w-0 leading-none sm:block">
+            <span className="block truncate text-sm font-extrabold uppercase tracking-tight">Placar</span>
+            <span className="block truncate text-[10px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+              das Pesquisas <span style={{ color: "var(--accent)" }}>{SITE_YEAR}</span>
+            </span>
+          </span>
         </Link>
 
         <nav ref={barNavRef} aria-label="Principal" className="hidden h-full lg:block">
@@ -417,9 +444,18 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
               {meta}
             </span>
           )}
-          <div className="hidden w-44 sm:block md:w-56 lg:w-64">
+          <div className="hidden w-40 sm:block md:w-52 lg:w-60">
             <SiteSearch index={searchIndex} />
           </div>
+          {/* "Entrar" — a filled affordance on the right, matching the mockup.
+              No auth yet; it points at the about page until accounts exist. */}
+          <Link
+            href="/sobre"
+            className="hidden shrink-0 rounded-md px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:inline-block"
+            style={{ background: "var(--accent)" }}
+          >
+            Entrar
+          </Link>
           <button
             type="button"
             aria-expanded={mobileOpen}

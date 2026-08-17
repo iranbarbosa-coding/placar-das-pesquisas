@@ -396,18 +396,38 @@ export default function HeroChart({ average, maxSeries = 6, className, framed = 
         )}
       </defs>
 
+      {/* FRAMED y-gridlines at 0/20/40/60 (≤ yMax): the target chart reads as a
+          gridded trend, not a filled backdrop. Labels are HTML in Hero. */}
+      {framed &&
+        [0, 20, 40, 60, 80, 100]
+          .filter((v) => v <= yMax)
+          .map((v) => (
+            <line
+              key={`grid-${v}`}
+              x1={0}
+              x2={W}
+              y1={co(y(v))}
+              y2={co(y(v))}
+              stroke="var(--grid)"
+              strokeWidth={1}
+              vectorEffect="non-scaling-stroke"
+            />
+          ))}
+
       {painted.map((p) =>
         p.kind === "area" ? (
           <g key={p.s.key}>
-            <path d={p.area} fill={`url(#${p.gradientId})`} stroke="none" />
+            {/* Area fill only in the legacy full-bleed backdrop; the framed hero
+                draws thin LINES over the gridlines, matching the target. */}
+            {!framed && <path d={p.area} fill={`url(#${p.gradientId})`} stroke="none" />}
             <path
               d={p.line}
               fill="none"
               stroke={p.s.color}
-              strokeWidth={2}
+              strokeWidth={framed ? 1.75 : 2}
               strokeLinejoin="round"
               strokeLinecap="round"
-              opacity={0.9}
+              opacity={framed ? 1 : 0.9}
               vectorEffect="non-scaling-stroke"
             />
           </g>

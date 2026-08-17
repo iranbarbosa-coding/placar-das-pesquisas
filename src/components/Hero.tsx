@@ -44,6 +44,30 @@ import type { RaceAverage } from "@/lib/types";
    an empty style object so the many call sites read the same. */
 const DISPLAY = {} as const;
 
+function round1(x: number): number {
+  return Math.round(x * 10) / 10;
+}
+
+/** Small round "i" info glyph, matching the target's title affordance. */
+function InfoGlyph() {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="inline-block h-4 w-4 align-middle" style={{ color: "var(--text-muted)" }}>
+      <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.3" />
+      <circle cx="8" cy="5" r="0.9" fill="currentColor" />
+      <path d="M8 7.2v4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Speech-bubble glyph before the editorial sentence, as in the target. */
+function ChatGlyph() {
+  return (
+    <svg viewBox="0 0 20 20" aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" style={{ color: "var(--text-muted)" }}>
+      <path d="M3 4h14v9H8l-4 3v-3H3z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export interface HeroProps {
   /** The presidential first-round average. `null` renders the block without a chart. */
   average: RaceAverage | null;
@@ -139,6 +163,26 @@ export default function Hero({
   // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
   const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
+  // KPI row like the target: the top THREE candidates plus an "Outros" bucket.
+  // On votos válidos the field sums to ~100, so "Outros" is 100 minus the top
+  // three — every remaining candidate, honestly, not a fabricated slice. Off the
+  // válidos cut that identity does not hold, so the bucket is dropped there.
+  const topKpis = series.slice(0, 3).map((s, i) => ({
+    key: s.key,
+    pct: s.avg,
+    name: s.name,
+    party: partyOf.get(s.name) ?? null,
+    color: s.color,
+  }));
+  const outrosPct = round1(100 - topKpis.reduce((sum, k) => sum + k.pct, 0));
+  const kpis =
+    validos && series.length > 3 && outrosPct > 0
+      ? [...topKpis, { key: "__outros", pct: outrosPct, name: "Outros", party: null, color: "var(--series-muted)" }]
+      : topKpis;
+
+  // y-axis gridline values on the framed chart's own scale (0/20/40/60…≤ yMax).
+  const gridLevels = [0, 20, 40, 60, 80, 100].filter((v) => model != null && v <= model.yMax);
+
   return (
     <section aria-labelledby="hero-titulo">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
@@ -153,10 +197,11 @@ export default function Hero({
             </p>
             <h1
               id="hero-titulo"
-              className="text-[40px] font-bold leading-[0.98] tracking-[-0.01em] sm:text-[46px]"
+              className="flex items-center gap-2 text-[40px] font-bold leading-[0.98] tracking-[-0.01em] sm:text-[46px]"
               style={{ ...DISPLAY, color: "var(--text-primary)" }}
             >
               {title}
+              <InfoGlyph />
             </h1>
             {average && (
               <p className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -167,41 +212,50 @@ export default function Hero({
 
           {controls}
 
-          {/* KPI number row — the chart's series as headline figures. Same
-              colours and order as the drawing, one computation shared. */}
-          {series.length > 0 && (
-            <ul className="flex flex-wrap gap-x-6 gap-y-3">
-              {series.map((s) => {
-                const party = partyOf.get(s.name);
-                return (
-                  <li key={s.key} className="flex min-w-0 flex-col gap-0.5">
-                    <span
-                      className="tabular text-2xl font-bold leading-none"
-                      style={{ ...DISPLAY, color: "var(--text-primary)" }}
-                    >
-                      {fmtPct(s.avg)}%
+          {/* KPI row — top three plus "Outros", large, like the target. */}
+          {kpis.length > 0 && (
+            <ul className="flex flex-wrap gap-x-8 gap-y-3">
+              {kpis.map((k) => (
+                <li key={k.key} className="flex min-w-0 flex-col gap-1">
+                  <span
+                    className="tabular text-[32px] font-bold leading-none sm:text-[38px]"
+                    style={{ ...DISPLAY, color: k.color }}
+                  >
+                    {fmtPct(k.pct)}%
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                    <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
+                    <span className="truncate">
+                      {k.name}
+                      {k.party ? <span style={{ color: "var(--text-muted)" }}> ({k.party})</span> : null}
                     </span>
-                    <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
-                      <span
-                        aria-hidden="true"
-                        className="h-2 w-2 shrink-0 rounded-full"
-                        style={{ background: s.color }}
-                      />
-                      <span className="truncate">
-                        {s.name}
-                        {party ? <span style={{ color: "var(--text-muted)" }}> ({party})</span> : null}
-                      </span>
-                    </span>
-                  </li>
-                );
-              })}
+                  </span>
+                </li>
+              ))}
             </ul>
           )}
 
-          {/* The framed chart: a bordered surface with 50% line, axis and marker. */}
+          {/* The framed chart: a bordered surface with y-gridlines, 50% line,
+              month axis, a last-poll marker and a legend row. */}
           {series.length > 0 ? (
             <div className="card p-3 sm:p-4">
-              <div className="relative h-[220px] sm:h-[280px]">
+              <div className="flex gap-1.5">
+                {/* y-axis labels, aligned to the SVG gridlines. */}
+                <div className="relative w-7 shrink-0" aria-hidden="true">
+                  {gridLevels.map((v) => {
+                    const top = heroLevelTopPct(model, v);
+                    return top == null ? null : (
+                      <span
+                        key={`ylab-${v}`}
+                        className="tabular absolute right-0 -translate-y-1/2 text-[10px]"
+                        style={{ top: `${top}%`, color: "var(--text-muted)" }}
+                      >
+                        {v}%
+                      </span>
+                    );
+                  })}
+                </div>
+                <div className="relative h-[220px] flex-1 sm:h-[280px]">
                 <HeroChart average={average} maxSeries={maxSeries} framed />
                 {showFifty && (
                   <span
@@ -225,22 +279,39 @@ export default function Hero({
                     {fmtDate(marker.date)} · {fmtPct(marker.value)}%
                   </span>
                 )}
+                </div>
               </div>
-              {/* Time axis — HTML, so labels never squash under the SVG's
-                  preserveAspectRatio="none". */}
+              {/* Time axis — same w-7 gutter + flex-1 as the chart, so month
+                  ticks line up under the plot. */}
               {ticks.length > 0 && (
-                <div className="relative mt-2 h-4">
-                  {ticks.map((t) => (
-                    <span
-                      key={`${t.label}-${t.leftPct.toFixed(1)}`}
-                      className="absolute -translate-x-1/2 text-[10px] uppercase tracking-wide"
-                      style={{ left: `${t.leftPct}%`, color: "var(--text-muted)" }}
-                    >
-                      {t.label}
-                    </span>
-                  ))}
+                <div className="flex gap-1.5">
+                  <div className="w-7 shrink-0" aria-hidden="true" />
+                  <div className="relative mt-2 h-4 flex-1">
+                    {ticks.map((t) => (
+                      <span
+                        key={`${t.label}-${t.leftPct.toFixed(1)}`}
+                        className="absolute -translate-x-1/2 text-[10px] uppercase tracking-wide"
+                        style={{ left: `${t.leftPct}%`, color: "var(--text-muted)" }}
+                      >
+                        {t.label}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )}
+              {/* Legend row, as in the target: each series plus the 50% line. */}
+              <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
+                {series.map((s) => (
+                  <li key={`leg-${s.key}`} className="flex items-center gap-1.5">
+                    <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: s.color }} />
+                    <span className="truncate">{s.name}</span>
+                  </li>
+                ))}
+                <li className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
+                  <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
+                  50% (vitória no 1º turno)
+                </li>
+              </ul>
             </div>
           ) : null}
 
@@ -253,11 +324,12 @@ export default function Hero({
           )}
 
           {headline ? (
-            <p className="max-w-[62ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-              {marginSentence(headline, average?.basis ?? "validos")}
+            <p className="flex max-w-[64ch] items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+              <ChatGlyph />
+              <span>{marginSentence(headline, average?.basis ?? "validos")}</span>
             </p>
           ) : (
-            <p className="max-w-[62ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+            <p className="max-w-[64ch] text-sm" style={{ color: "var(--text-secondary)" }}>
               Ainda não há pesquisas suficientes para uma média da corrida presidencial.
             </p>
           )}
@@ -298,7 +370,7 @@ export default function Hero({
               className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               style={{ background: "var(--accent)" }}
             >
-              {ctaLabel} <span aria-hidden="true">→</span>
+              Ver análise completa <span aria-hidden="true">→</span>
             </Link>
           </aside>
         )}
