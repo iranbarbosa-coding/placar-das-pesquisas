@@ -19,6 +19,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { projectPolls } from "./lib/project.mjs";
+import { ufDaCandidatura } from "./lib/nomes.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -100,7 +101,26 @@ function collect(store, nameOf) {
     const id = q.legacy_id ?? q.question_id;
     const p = meta.get(id);
     if (!p) continue; // não-headline ou retratada: o filtro é o da projeção
-    const c = `${p.race}|${p.state ?? "BR"}`;
+    // ⚠ A CHAVE MONTADA AQUI É A CHAVE SOB A QUAL A DECISÃO SERÁ GRAVADA.
+    //
+    // `candidate-resolve.mjs` escreve `x.contest.replace("|", ":")` em
+    // `data/candidate-aliases.json`, e é essa string que `lib/candidates.mjs`
+    // consulta depois. Uma subamostra estadual da presidencial é a disputa
+    // NACIONAL perguntada num estado (HANDOFF §1b): gravar um par de
+    // `presidente|PR` como se a candidatura fosse paranaense produz uma decisão
+    // que vale em 1 das 26 amostras da MESMA corrida, enquanto a decisão
+    // idêntica já gravada em `presidente:BR` fica ao lado sem ser consultada.
+    //
+    // É esta linha que torna a dobra de consulta em `lib/candidates.mjs`
+    // OBRIGATÓRIA, e não um enfeite: a partir daqui toda decisão presidencial
+    // nova nasce em `presidente:BR`, e sem a dobra do outro lado ela nasceria
+    // morta nas 25 subamostras estaduais da corrida que ela decide.
+    //
+    // Dobrar aqui também aperta o critério (c) da varredura: "nunca aparecem
+    // juntos na mesma pesquisa" passa a ser avaliado sobre a corrida inteira, e
+    // dois nomes que coexistem numa pesquisa nacional são pessoas diferentes
+    // independentemente de a subamostra ser do Paraná.
+    const c = `${p.race}|${ufDaCandidatura(p.race, p.state)}`;
     if (!contests.has(c)) contests.set(c, new Map());
     const m = contests.get(c);
     for (const r of q.results ?? []) {
@@ -169,7 +189,12 @@ function coverageGap(contests) {
   for (const [contest, list] of Object.entries(crus)) {
     // O arquivo mudou de forma em 17/08 (string → {nome, partidos}); aceita as duas.
     const names = list.map((x) => (typeof x === "string" ? x : x?.nome)).filter(Boolean);
-    const seen = contests.get(contest.replace(":", "|")) ?? new Map();
+    // A MESMA DOBRA DA VARREDURA, ou este rodapé mente. Sem ela, `presidente:PR`
+    // não existe mais no mapa e TODOS os nomes crus das 25 subamostras
+    // presidenciais seriam contados como ponto cego — um número inflado por
+    // desalinhamento de chave, que é o defeito que este arquivo está corrigindo.
+    const [race, uf] = contest.split(":");
+    const seen = contests.get(`${race}|${ufDaCandidatura(race, uf)}`) ?? new Map();
     for (const n of names) { total++; if (!seen.has(n)) missing++; }
   }
   return { total, missing };
