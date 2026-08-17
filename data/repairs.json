@@ -212,6 +212,39 @@
    },
    "expect_sum": 157.9,
    "_nota_margem": "O documento diz \"margem estimada de erro de aproximadamente 2,7 pontos percentuais\" (p.3) e nós guardamos 2. NÃO reparado aqui, seguindo a decisão de classe já registrada no HANDOFF: há 67 arredondamentos de margem idênticos no banco e consertar um só daria falsa impressão de curadoria. Fica anotado. O documento também traz data de Curitiba de 03/08/2026 contra o published_date 02/08 que guardamos, e NÃO nomeia contratante em lugar nenhum — \"Bahia Notícias\" não aparece no relatório do instituto e vem do registro do TSE, não daqui."
+  },
+  {
+   "match": {
+    "tse_registration": "BA-03657/2026",
+    "race": "senador",
+    "round": 1
+   },
+   "defect": "Duas linhas de candidato descartadas — Delliana Ricelli (PSOL) 1 e Marcelo Santtana (DC) 0 — pela mesma falha de campo nome vazio do v2/cenarios (BR-01084, PI-06473, BA-03043). Aqui o buraco é pequeno em pontos (1) mas fecha o elenco: a lista estimulada do Senado na Bahia tem SEIS nomes, não quatro. Junto vão duas datas erradas conferidas contra o registro do TSE, e a separação de indecisos e brancos/nulos que vinham somados num campo só.",
+   "source": "https://www.pollingdata.com.br/links/relatorio_BA-03657-2026_Quaest.pdf",
+   "evidence": "LIDO DUAS VEZES ÀS CEGAS por agentes independentes, cada um chegando por um CAMINHO DIFERENTE, e as duas leituras batem em todos os números. (1) Relatório de divulgação da Genial/Quaest, slides 62-64: divisor \"INTENÇÃO DE VOTO ESTIMULADA (SENADOR) - DUAS VAGAS\" e tabela com Rui Costa (PT) 24 · Jaques Wagner (PT) 22 · João Roma (PL) 9 · Angelo Coronel (Republicanos) 6 · Delliana Ricelli (PSOL) 1 · Marcelo Santtana (DC) 0 · Indecisos 16 · Branco/Nulo/Não vai votar 22. (2) Registro BA-03657/2026 no PesqEle do TSE, com o QUESTIONÁRIO registrado da própria Quaest: perguntas 60 e 61, \"...PARA A PRIMEIRA VAGA? (LER OPÇÕES - RU)\" e \"USANDO A MESMA LISTA... PARA A SEGUNDA VAGA? (RU)\", com a lista fechada de seis nomes e os partidos impressos. O relatório COMPLETO de resultados está no TSE mas EMBARGADO até depois da eleição — a íntegra dos percentuais vem do relatório de divulgação, não do arquivo embargado. Corroboração independente do agregador: Gazeta do Povo, Metrópoles e Brasil de Fato, todos de 29/04/2026, com os seis valores idênticos; os dois primeiros imprimem o número de registro. O Poder360, que é a nossa própria fonte, NÃO foi usado para nenhum número. PARTIDOS SÃO DE FONTE PRIMÁRIA aqui, ao contrário do reparo BA-03043: tanto o questionário quanto o relatório imprimem o partido ao lado de cada nome. NÃO HÁ LINHA DE \"OUTROS\": a lista estimulada é fechada (códigos 1-6, 18, 19, 88, sem código de outros) e o crosstab do slide 64 imprime Outros = 0 em todos os segmentos.",
+   "verified_at": "2026-08-16",
+   "add_results": [
+    {
+     "candidate": "Delliana Ricelli",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Marcelo Santtana",
+     "party": "DC",
+     "pct": 0
+    }
+   ],
+   "set": {
+    "others_pct": null,
+    "undecided_pct": 16,
+    "blank_null_pct": 22,
+    "fieldwork_start": "2026-04-23",
+    "published_date": "2026-04-29"
+   },
+   "expect_sum": 100,
+   "_nota_datas": "Campo e divulgação corrigidos contra o registro do TSE (fonte primária): \"Data de início da pesquisa: 23/04/2026\", \"Data de término: 27/04/2026\", \"Data de divulgação: 29/04/2026\". Guardávamos início 22/04 (um dia cedo, sem fonte em lugar nenhum) e divulgação 27/04, que é o último dia de campo e não a publicação — as três reportagens são de 29/04. As duas leituras acharam isto de forma independente.",
+   "_nota_escala": "⚠ ESTA TABELA NÃO É COMPARÁVEL COM OUTRAS DO SENADO. São duas vagas coletadas em DUAS perguntas de resposta única (60 e 61), e a Quaest publica o consolidado REDUZIDO A 100%, não a forma de ~200% que o resto do banco tem. A Gazeta do Povo diz isso com todas as letras: \"o consolidado do primeiro e do segundo votos apontados pelos entrevistados e reduzidos para 100%\". Rui Costa 24 aqui e Rui Costa 44,6 na Paraná Pesquisas (BA-03043) NÃO são a mesma grandeza. Dobrar para aproximar 200 seria inferência e está proibido. O teto de 260 do validate-store não pega isto. Decisão pendente do criador sobre entrar ou não na média do Senado."
   }
  ]
 }
