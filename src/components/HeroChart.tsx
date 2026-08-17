@@ -67,6 +67,26 @@ function clamp(v: number, lo: number, hi: number): number {
   return v < lo ? lo : v > hi ? hi : v;
 }
 
+// DISPLAY WINDOW (2026-08-17 redesign). The framed hero shows the CURRENT CYCLE
+// — the last ~6 months ending at the newest poll — not the full multi-year
+// trend, so the lines read as clean recent tracking with ~6 monthly ticks
+// (mar–ago). This is a view over real data, not a crop of it: the averages and
+// the KPI numbers are untouched; only the DRAWN span is trimmed here.
+const WINDOW_DAYS = 180;
+
+/** ISO date `WINDOW_DAYS` before the newest poll, or null if unknown. Points
+ *  older than this are dropped from the drawn trend (string compare is safe on
+ *  zero-padded YYYY-MM-DD). */
+function windowStartIso(lastIso: string | null | undefined): string | null {
+  if (!lastIso || lastIso.length < 10) return null;
+  const t = isoTime(lastIso) - WINDOW_DAYS * 86400000;
+  if (!Number.isFinite(t) || t <= 0) return null;
+  const d = new Date(t);
+  const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(d.getUTCDate()).padStart(2, "0");
+  return `${d.getUTCFullYear()}-${mm}-${dd}`;
+}
+
 export interface HeroSeries {
   /** Normalized name — the identity used for colour and dedupe. */
   key: string;
@@ -84,6 +104,9 @@ export interface HeroSeries {
  */
 export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeries[] {
   if (!average) return [];
+  // Trim the drawn trend to the last ~6 months (see WINDOW_DAYS). The KPI
+  // averages come from `c.avg`, untouched — only the drawn points are windowed.
+  const cutoff = windowStartIso(average.lastPollDate);
   const seen = new Set<string>();
   const uniq: CandidateAverage[] = [];
   for (const c of average.candidates) {
@@ -96,6 +119,7 @@ export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeri
     const k = candKey(c.candidate);
     const pts = (Array.isArray(c.trend) ? c.trend : [])
       .filter((p) => typeof p?.date === "string" && p.date.length >= 7 && Number.isFinite(p.avg))
+      .filter((p) => !cutoff || p.date >= cutoff)
       .map((p) => ({ date: p.date, avg: fin(p.avg) }));
     return {
       key: k,
