@@ -25,9 +25,14 @@ import { heroRace, runoffCards, stateRail, matchupRows, latestForTable } from "@
  */
 export default function Home() {
   const hero = heroRace();
-  // Three cards, ordered 1º v 2º / 1º v 3º / 1º v 4º by the first-round average
-  // — the same average the hero renders. See `runoffCards`.
-  const cards = runoffCards(3);
+  // Cinco cards, ordenados 1º v 2º … 1º v 6º pela média de 1º turno — a mesma
+  // que o herói mostra. Eram três até 17/08/2026, quando o criador pediu os
+  // confrontos com o 5º e o 6º colocados à direita dos existentes. A ordem é do
+  // ranking, não da cobertura: quem foi mais pesquisado não sobe. Ver
+  // `runoffCards`, que pula o par não pesquisado em vez de inventá-lo — então
+  // cinco cards podem alcançar além do 6º colocado se algum par no meio nunca
+  // foi a campo.
+  const cards = runoffCards(5);
   const rail = stateRail();
   const matchups = matchupRows();
   const latest = latestForTable(40);

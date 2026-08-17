@@ -89,7 +89,7 @@ export function heroRace() {
  * carousel's claim is "what happens to the front-runner", and /segundo-turno
  * lists the rest.
  */
-export function runoffCards(limit = 3) {
+export function runoffCards(limit = 5) {
   const first = heroRace()?.average ?? null;
   const groups = scenarioGroups("presidente", null, 2).filter(
     (g) => g.average && g.average.candidates.length >= 2,
