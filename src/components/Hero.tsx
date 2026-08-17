@@ -212,18 +212,18 @@ export default function Hero({
 
           {controls}
 
-          {/* KPI row — top three plus "Outros", large, like the target. */}
+          {/* KPI row — top three plus "Outros" on ONE line, like the target. */}
           {kpis.length > 0 && (
-            <ul className="flex flex-wrap gap-x-8 gap-y-3">
+            <ul className="flex flex-nowrap gap-x-4 overflow-hidden sm:gap-x-6">
               {kpis.map((k) => (
                 <li key={k.key} className="flex min-w-0 flex-col gap-1">
                   <span
-                    className="tabular text-[32px] font-bold leading-none sm:text-[38px]"
+                    className="tabular text-2xl font-bold leading-none sm:text-[30px]"
                     style={{ ...DISPLAY, color: k.color }}
                   >
                     {fmtPct(k.pct)}%
                   </span>
-                  <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                  <span className="flex items-center gap-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
                     <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
                     <span className="truncate">
                       {k.name}
@@ -266,18 +266,30 @@ export default function Hero({
                   </span>
                 )}
                 {marker && (
-                  <span
-                    className="tabular pointer-events-none absolute z-[1] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border px-2 py-1 text-[11px] font-semibold shadow-sm"
+                  <div
+                    className="pointer-events-none absolute z-[1] -translate-y-1/2 whitespace-nowrap rounded-md border px-2 py-1.5 text-[11px] shadow-sm"
                     style={{
-                      left: `${Math.min(88, Math.max(12, marker.leftPct))}%`,
-                      top: `calc(${marker.topPct}% - 8px)`,
+                      left: `${Math.min(58, Math.max(4, marker.leftPct - 26))}%`,
+                      top: `${Math.min(70, Math.max(18, marker.topPct))}%`,
                       borderColor: "var(--ring)",
                       background: "var(--surface-1)",
-                      color: "var(--text-primary)",
                     }}
                   >
-                    {fmtDate(marker.date)} · {fmtPct(marker.value)}%
-                  </span>
+                    <div className="mb-0.5 font-semibold" style={{ color: "var(--text-muted)" }}>
+                      {fmtDate(marker.date)}
+                    </div>
+                    <ul className="flex flex-col gap-0.5">
+                      {kpis.map((k) => (
+                        <li key={`mk-${k.key}`} className="flex items-center gap-1.5">
+                          <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: k.color }} />
+                          <span style={{ color: "var(--text-secondary)" }}>{k.name}</span>
+                          <span className="tabular ml-auto pl-2 font-semibold" style={{ color: "var(--text-primary)" }}>
+                            {fmtPct(k.pct)}%
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
                 </div>
               </div>

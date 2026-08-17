@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { fmtSigned } from "@/lib/format";
-import type { StateHighlight, Mover, StateMapDatum, MapStatus } from "@/lib/home";
+import BrasilMap from "./BrasilMap";
+import type { StateHighlight, Mover, StateMapDatum, MapStatus, NewestPoll } from "@/lib/home";
 
 /**
  * The home page's right-hand dashboard column, per the redesign mockup:
  * a state map, the "Destaques" ranking, "O que mudou nas últimas 24h", and a
  * glossary. Server component — all four are static reads of build-time data.
  *
- * The geographic SVG map is a follow-up; this iteration ships the same data as a
- * status-coloured state grid inside the same card, with the mockup's legend.
+ * The map card renders the real geographic Brazil SVG (see `BrasilMap`), with
+ * the mockup's status legend below it.
  */
 
 const STATUS_COLOR: Record<MapStatus, string> = {
@@ -24,25 +25,6 @@ const STATUS_LABEL: { key: MapStatus; label: string }[] = [
   { key: "empate", label: "Empate técnico" },
   { key: "sem", label: "Sem pesquisa recente" },
 ];
-
-/**
- * Geographic positions for a self-contained POINT-CARTOGRAM of Brazil — each
- * state placed at its real centroid (as a % of the country's bounding box), so
- * the chips read as Brazil's shape without any third-party map asset. A few
- * north-east states are nudged apart, since their true centroids sit almost on
- * top of each other. `{x, y}` are percentages within the map box.
- */
-const UF_POS: Record<string, { x: number; y: number }> = {
-  RR: { x: 31, y: 8 }, AP: { x: 52, y: 10 },
-  AM: { x: 22, y: 24 }, PA: { x: 50, y: 24 }, MA: { x: 66, y: 26 }, CE: { x: 82, y: 24 }, RN: { x: 94, y: 26 },
-  AC: { x: 9, y: 38 }, RO: { x: 26, y: 40 }, TO: { x: 60, y: 38 }, PI: { x: 74, y: 32 }, PB: { x: 95, y: 31 },
-  MT: { x: 43, y: 46 }, PE: { x: 88, y: 35 }, AL: { x: 96, y: 39 },
-  MS: { x: 46, y: 63 }, GO: { x: 58, y: 53 }, DF: { x: 66, y: 51 }, BA: { x: 76, y: 45 }, SE: { x: 90, y: 41 },
-  MG: { x: 70, y: 60 }, ES: { x: 83, y: 62 },
-  PR: { x: 55, y: 74 }, SP: { x: 62, y: 68 }, RJ: { x: 77, y: 68 },
-  SC: { x: 57, y: 82 },
-  RS: { x: 50, y: 90 },
-};
 
 function CardTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -60,51 +42,10 @@ function MapCard({ map }: { map: StateMapDatum[] }) {
         Situação dos líderes
       </p>
 
-      {/* Point-cartogram of Brazil: chips at real geographic positions, over a
-          soft self-authored silhouette so it reads as a filled landmass, not a
-          scatter. The outline is approximate (no third-party asset) and shares
-          the 0–100 coordinate space with the chip positions. */}
-      <div
-        className="relative mt-3 w-full"
-        style={{ paddingBottom: "98%" }}
-        role="img"
-        aria-label="Mapa do Brasil por situação do líder de cada estado"
-      >
-        <svg
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full"
-        >
-          <path
-            d="M28 6 L40 4 L50 6 L58 12 L70 16 L82 20 L92 25 L97 31 L94 38 L90 45 L85 55 L82 63 L78 70 L68 74 L60 79 L54 89 L50 94 L45 88 L44 80 L42 70 L40 58 L34 52 L26 46 L14 42 L7 38 L12 30 L18 26 L20 18 L24 12 Z"
-            fill="var(--grid)"
-            stroke="var(--axis)"
-            strokeWidth="0.8"
-            strokeLinejoin="round"
-            opacity="0.7"
-          />
-        </svg>
-        {map.map((d) => {
-          const pos = UF_POS[d.uf];
-          if (!pos) return null;
-          return (
-            <span
-              key={d.uf}
-              title={d.leader ? `${d.name}: ${d.leader}` : `${d.name}: sem pesquisa recente`}
-              className="tabular absolute flex h-[13%] min-h-[16px] w-[13%] min-w-[20px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded text-[9px] font-bold leading-none"
-              style={{
-                left: `${pos.x}%`,
-                top: `${pos.y}%`,
-                background: STATUS_COLOR[d.status],
-                color: d.status === "sem" ? "var(--text-muted)" : "#fff",
-                boxShadow: "0 0 0 1.5px var(--surface-1)",
-              }}
-            >
-              {d.uf}
-            </span>
-          );
-        })}
+      {/* The real geographic Brazil SVG (creator-supplied), each state coloured
+          by its leader status. See `BrasilMap`. */}
+      <div className="mt-3">
+        <BrasilMap map={map} />
       </div>
 
       <ul className="mt-3 grid grid-cols-2 gap-y-1 text-xs" style={{ color: "var(--text-secondary)" }}>
@@ -172,7 +113,7 @@ function DestaquesCard({ highlights }: { highlights: StateHighlight[] }) {
   );
 }
 
-function MudouCard({ movers }: { movers: Mover[] }) {
+function MudouCard({ movers, newPoll }: { movers: Mover[]; newPoll: NewestPoll | null }) {
   return (
     <section className="card p-4" aria-label="O que mudou recentemente">
       <CardTitle>O que mudou</CardTitle>
@@ -197,6 +138,18 @@ function MudouCard({ movers }: { movers: Mover[] }) {
             </li>
           );
         })}
+        {newPoll && (
+          <li className="flex items-start gap-2 text-sm">
+            <span
+              aria-hidden="true"
+              className="mt-0.5 shrink-0 rounded px-1 text-[9px] font-bold uppercase tracking-wide text-white"
+              style={{ background: "var(--accent)" }}
+            >
+              New
+            </span>
+            <span style={{ color: "var(--text-secondary)" }}>{newPoll.label}</span>
+          </li>
+        )}
       </ul>
       <Link href="/estados" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
         Ver todas as mudanças <span aria-hidden="true">→</span>
@@ -239,14 +192,15 @@ export interface HomeSidebarProps {
   highlights: StateHighlight[];
   movers: Mover[];
   map: StateMapDatum[];
+  newPoll: NewestPoll | null;
 }
 
-export default function HomeSidebar({ highlights, movers, map }: HomeSidebarProps) {
+export default function HomeSidebar({ highlights, movers, map, newPoll }: HomeSidebarProps) {
   return (
     <aside className="flex flex-col gap-5" aria-label="Painel de estados">
       <MapCard map={map} />
       <DestaquesCard highlights={highlights} />
-      {movers.length > 0 && <MudouCard movers={movers} />}
+      {(movers.length > 0 || newPoll) && <MudouCard movers={movers} newPoll={newPoll} />}
       <GlossarioCard />
     </aside>
   );

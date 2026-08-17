@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Masthead from "@/components/Masthead";
-import { loadDataset, fmtDate } from "@/lib/data";
+import { loadDataset } from "@/lib/data";
 import { buildSearchIndex } from "@/lib/search-index";
 import { SITE_NAME, SITE_YEAR } from "@/lib/brand";
 import "./globals.css";
@@ -25,9 +25,22 @@ export const metadata: Metadata = {
     "Agregador de pesquisas eleitorais das eleições brasileiras de 2026: presidente, governadores e senadores. Médias, tendências e todas as pesquisas publicadas, atualizado diariamente.",
 };
 
+const MES_LONGO = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+
+/** "17 de agosto de 2026, 13:04" — the target's spelled-out date + time. Parsed
+ *  as UTC so the label cannot slide by where the build machine sits. */
+function longDateTime(iso: string | null | undefined): string {
+  if (!iso) return "—";
+  const [datePart, timePart] = iso.split("T");
+  const [y, m, d] = datePart.split("-").map(Number);
+  const hhmm = timePart ? timePart.slice(0, 5) : null;
+  const base = `${d} de ${MES_LONGO[(m ?? 1) - 1]} de ${y}`;
+  return hhmm ? `${base}, ${hhmm}` : base;
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const ds = loadDataset();
-  const updated = ds.generated_at ? fmtDate(ds.generated_at.slice(0, 10)) : "—";
+  const updated = longDateTime(ds.generated_at);
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body className="min-h-screen antialiased">

@@ -11,6 +11,7 @@ import {
   stateHighlights,
   recentMovers,
   stateMapData,
+  newestPoll,
 } from "@/lib/home";
 
 /**
@@ -33,6 +34,7 @@ export default function Home() {
   const highlights = stateHighlights();
   const movers = recentMovers(4);
   const map = stateMapData();
+  const newPoll = newestPoll();
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_336px]">
@@ -65,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* RIGHT: the dashboard sidebar. Stacks under the content on phones. */}
-      <HomeSidebar highlights={highlights} movers={movers} map={map} />
+      <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} />
     </div>
   );
 }

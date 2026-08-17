@@ -367,6 +367,26 @@ export interface Mover {
   delta: number;
 }
 
+/** The single newest poll in the base, for the "NEW" row of "O que mudou". */
+export interface NewestPoll {
+  race: string;
+  uf: string | null;
+  label: string;
+}
+
+export function newestPoll(): NewestPoll | null {
+  const all = [
+    ...pollsFor("presidente", null),
+    ...UFS.flatMap((uf) => [...pollsFor("governador", uf), ...pollsFor("senador", uf)]),
+    ...UFS.flatMap((uf) => pollsFor("presidente", uf)),
+  ];
+  const [p] = sortPollsDesc(all);
+  if (!p) return null;
+  const cargo = p.race === "presidente" ? "presidente" : p.race === "governador" ? "governador" : "senador";
+  const onde = p.state ? ` do ${p.state}` : "";
+  return { race: p.race, uf: p.state ?? null, label: `Nova pesquisa para ${cargo}${onde}` };
+}
+
 export function recentMovers(limit = 4, windowDays = 30): Mover[] {
   const movers: Mover[] = [];
   for (const uf of UFS) {
