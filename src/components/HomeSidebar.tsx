@@ -38,8 +38,8 @@ function CardTitle({ children }: { children: React.ReactNode }) {
 
 function MapCard({ map }: { map: StateMapDatum[] }) {
   return (
-    <section className="card p-4" aria-label="Corridas estaduais">
-      <CardTitle>Corridas estaduais</CardTitle>
+    <section className="card p-4" aria-label="Corridas estaduais — Governador">
+      <CardTitle>Corridas estaduais · Governador</CardTitle>
       <p className="mt-0.5 text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
         Situação dos líderes
       </p>
