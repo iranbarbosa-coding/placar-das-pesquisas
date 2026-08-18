@@ -23,7 +23,7 @@ import {
   priorStamps, emptyIndexes, TABLE_NAMES, DATA_DIR,
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
-import { writeStoreFromPolls } from "./lib/build-store.mjs";
+import { writeStoreFromPolls, recusaEntradaDerivada } from "./lib/build-store.mjs";
 import { mintCandidateId, mintInstituteId, nameKey } from "./lib/ids.mjs";
 import { validateStore } from "./validate-store.mjs";
 import { normNome } from "./lib/nomes.mjs";
@@ -1352,6 +1352,48 @@ check("instituto: fusão que aponta para linha ausente REPROVA a rodada, em voz 
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+check("reconstruir o data/ REAL a partir da projeção é RECUSADO", (_store, assert) => {
+  // O REFLEXO NATURAL DE QUEM QUER CONSERTAR ALGO SEM REDE — e ele re-chaveia
+  // 127 levantamentos em silêncio.
+  //
+  // Medido em 17/08/2026: reconstruindo do `data/polls.json` commitado, 127 dos
+  // 1.009 `survey_id` se movem e as sementes trocam de CLASSE
+  // (`survey|ref|poder360:13144` vira `survey|reg|BR-00835/2026`). A causa não é
+  // entrada faltando — só 1 de 747 ids nativos some — é que `polls.json` é
+  // ENRIQUECIDO: `project.mjs` escreve o registro do LEVANTAMENTO em toda
+  // pesquisa dele, o degrau 2 da escada passa a atender antes do degrau 1, e a
+  // semente sai de outro lugar. CONVENTIONS §6 um nível acima.
+  //
+  // O caso fixa as TRÊS condições, porque um guarda largo demais quebraria o
+  // coletor e um estreito demais não guardaria nada.
+  const dirReal = DATA_DIR;
+  const marcado = JSON.parse(fs.readFileSync(path.join(dirReal, "polls.json"), "utf-8")).derived_from_store === true;
+  assert(marcado, "data/polls.json não se declara derivado — a fixture não está exercitando nada");
+
+  let recusou = false;
+  try { recusaEntradaDerivada(undefined); } catch { recusou = true; }
+  assert(recusou, "reconstruir o data/ real a partir da projeção NÃO foi recusado");
+
+  // ⚠ A METADE OPOSTA. Os checadores (`idempotence-check`, `curated-insert`,
+  // `roster-retention`) alimentam a projeção em diretório TEMPORÁRIO e isso é
+  // legítimo: as duas rodadas recebem a mesma entrada e o store real não é
+  // tocado. Recusar ali desligaria a conferência em SILÊNCIO — o defeito que
+  // este repositório já cometeu ao pôr um guarda no lugar errado.
+  //
+  // ⚠ O TEMPORÁRIO PRECISA CONTER UM `polls.json` MARCADO, senão o caso não
+  // exercita nada. A primeira versão usava um `mkdtemp` VAZIO: a função retornava
+  // no `existsSync` antes de chegar à comparação com `DATA_DIR`, e a mutação
+  // "recusa também o temporário" passava VERDE. Um caso que não alcança a linha
+  // que diz guardar é o verde vazio que este repositório coleciona (§2).
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), "placar-guarda-"));
+  fs.writeFileSync(path.join(temp, "polls.json"),
+    JSON.stringify({ derived_from_store: true, polls: [] }));
+  let recusouTemp = false;
+  try { recusaEntradaDerivada(temp); } catch { recusouTemp = true; }
+  fs.rmSync(temp, { recursive: true, force: true });
+  assert(!recusouTemp, "o guarda recusou um diretório temporário COM projeção marcada — os checadores ficariam desligados");
 });
 
 // ---------------------------------------------------------------- resultado

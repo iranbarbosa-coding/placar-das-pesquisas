@@ -25,6 +25,8 @@
 // ORDER MATTERS. Upsert is first-writer-wins, so ingestion follows source
 // priority (poder360 → eleicaoemdados → wikipedia). Parallelising it silently
 // changes which source wins a disagreement.
+import fs from "node:fs";
+import path from "node:path";
 import {
   readStore, writeStore, markHeadlines, priorStamps, emptyIndexes,
   seedRegisteredPeople, logConflict, DATA_DIR, SOURCE_ORDER, TABLE_NAMES,
@@ -398,8 +400,69 @@ function settleProvenance(store, previous, runDate) {
   }
 }
 
+/**
+ * RECONSTRUIR O `data/` REAL A PARTIR DA PROJEÇÃO RE-CHAVEIA LEVANTAMENTOS EM
+ * SILÊNCIO — e é o reflexo natural de quem quer consertar algo sem rede.
+ *
+ * MEDIDO em 17/08/2026, reconstruindo do `data/polls.json` commitado:
+ * **127 dos 1.009 `survey_id` se movem**, e os seeds trocam de CLASSE —
+ * `survey|ref|poder360:13144` vira `survey|reg|BR-00835/2026`.
+ *
+ * A CAUSA NÃO É ENTRADA FALTANDO, e duas hipóteses melhores caíram antes desta:
+ * dos 747 ids nativos que o store cita, só 1 some da projeção, e os 1.757
+ * registros `p360-` têm `source` preenchido — a chave do degrau 1 é formável.
+ * O que muda é QUAL DEGRAU a pesquisa acerta. `polls.json` é ENRIQUECIDO pelo
+ * store: `project.mjs` escreve o registro TSE do LEVANTAMENTO em toda pesquisa
+ * dele, então 1.380 das 2.984 linhas chegam com registro contra 392
+ * levantamentos que de fato têm um. Realimentando isso, pesquisas que na coleta
+ * chegavam sem registro passam a chegar com ele, o degrau 2 (registro) atende
+ * antes do degrau 1 (id nativo), e a semente sai de outro lugar. A correlação
+ * fecha: 84 dos 127 movidos têm registro (66%) contra 308 dos 882 estáveis
+ * (35%), e a reconstrução produziu 82 seeds `reg` novos.
+ *
+ * É CONVENTIONS §6 um nível acima. Ali o gerador lia a própria saída
+ * canonicalizada; aqui a saída não está errada, está ENRIQUECIDA — e é o
+ * enriquecimento que desvia a escada.
+ *
+ * O guarda é ESTREITO de propósito: só recusa quando o alvo é o `data/` real.
+ * Os checadores (`idempotence-check`, `curated-insert-check`,
+ * `roster-retention-check`) alimentam a projeção em diretório TEMPORÁRIO e isso
+ * é legítimo — as duas rodadas deles recebem a mesma entrada e o store real não
+ * é tocado. Recusar ali desligaria a conferência em silêncio, que é o defeito
+ * que este arquivo inteiro existe para não repetir.
+ *
+ * O coletor passa: `scrape.mjs` grava `data/polls.json` (sem a marca) ANTES de
+ * construir o store, então no momento da construção a marca não está lá.
+ *
+ * ⚠ O QUE ESTE GUARDA NÃO PROVA: que uma coleta reproduz o store. Isso só uma
+ * coleta real testaria, e ninguém testa. `idempotence-check` prova ausência de
+ * dependência de relógio sobre a PROJEÇÃO — propriedade real, entrada que a
+ * produção não usa.
+ */
+export function recusaEntradaDerivada(dir) {
+  const alvo = path.resolve(dir ?? DATA_DIR);
+  if (alvo !== path.resolve(DATA_DIR)) return;
+  const arquivo = path.join(alvo, "polls.json");
+  if (!fs.existsSync(arquivo)) return;
+  let marcado = false;
+  try { marcado = JSON.parse(fs.readFileSync(arquivo, "utf-8")).derived_from_store === true; } catch { return; }
+  if (!marcado) return;
+  throw new Error(
+    "RECUSADO: reconstruir data/ a partir de data/polls.json, que se declara " +
+    "`derived_from_store: true`.\n" +
+    "  A projeção carrega o registro TSE do LEVANTAMENTO em toda pesquisa dele, " +
+    "então a escada acerta outro degrau:\n" +
+    "  medido, 127 dos 1.009 survey_id se movem e as sementes trocam de classe " +
+    "(survey|ref|… vira survey|reg|…).\n" +
+    "  A entrada legítima do data/ real é a saída FRESCA do coletor: rode " +
+    "`node scripts/scrape.mjs`.\n" +
+    "  (Checadores reconstroem em diretório temporário e não passam por aqui, " +
+    "de propósito.)");
+}
+
 /** Build and write, in one call. Returns the row counts per table. */
 export function writeStoreFromPolls(polls, opts = {}) {
+  recusaEntradaDerivada(opts.dir);
   const { store, report } = buildStoreFromPolls(polls, opts);
   return { counts: writeStore(store, { dir: opts.dir ?? DATA_DIR }), store, report };
 }
