@@ -192,6 +192,538 @@
     "data/ballot-names.json mapping['governador:SP']['tarcisio de freitas com apoio do ex presidente jair bolsonaro'] (sq_candidato 250002541303)",
     "data/candidaturas.ndjson (sq_candidato 250002541303, REPUBLICANOS, nº 10)"
    ]
+  },
+  {
+   "contest": "presidente:BR",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:AC",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:AL",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:AM",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:AP",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:BA",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:CE",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:DF",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:ES",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:GO",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:MA",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:MG",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:MS",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:MT",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:PA",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:PB",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:PE",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:PI",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:PR",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:RJ",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:RN",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:RO",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:RR",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:RS",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:SC",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:SE",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:SP",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
+  },
+  {
+   "contest": "presidente:TO",
+   "verdict": "MESMA",
+   "canonical": "Pablo Marçal",
+   "names": [
+    "Marçal",
+    "Pablo Marçal",
+    "Pablo Henrique Costa Marçal",
+    "Pablo Henrique Costa Marcal"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-17",
+   "evidence": "PREVENTIVA: gravada ANTES de a grafia chegar, não depois do estrago. Pablo Marçal registrou a candidatura presidencial nos últimos minutos do prazo (informado pelo criador em 17/08/2026), e os institutos vão voltar a testá-lo — a última pesquisa com ele no banco é de 12/05/2026, de quando ainda não havia registro. Ele é conhecido pelo SOBRENOME, então 'Marçal' sozinho é a grafia mais provável a aparecer, e hoje ela NÃO alcança o cadastro: `ballotCandidacy(\"Marçal\", \"presidente:BR\")` devolve null, e o nome canonicalizaria como 'Marçal', cunhando uma pessoa SEM registro em paralelo à registrada. As pesquisas dele se partiriam em duas séries — o defeito que separou 'Zema' de 'Romeu Zema' e 'Tarcísio' de 'Tarcísio de Freitas', com a diferença de que desta vez dá para ver chegando. MEDIDO ANTES DE ESCREVER: no cadastro inteiro (523 candidaturas) existe UM único Marçal — PABLO MARÇAL, PRTB, nº 28, sq_candidato 280002553884, nome civil Pablo Henrique Costa Marcal —, então o sobrenome sozinho não é ambíguo. É a diferença entre este caso e o de 'Ciro', que exigiu três rulings porque havia Ciro Gomes E Ciro Nogueira. Também medido: TODAS as grafias já vistas em pesquisa e em nomes-crus.json, nas dez disputas em que ele aparece, são 'Pablo Marçal' — esta ruling não corrige nada existente, ela cobre a grafia que ainda não chegou.",
+   "overrides": "Vale para a presidencial NACIONAL e para as 27 subamostras estaduais dela, porque uma pesquisa `presidente:<UF>` é a corrida nacional perguntada naquele estado (HANDOFF §1b) e a ruling precisa alcançá-la ali também. NÃO vale para `governador:SP`, onde ele aparece em 2 pesquisas: ali ele não tem candidatura e o que a fonte publicou fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. A ruling fica no TOPO da escada de precedência (people.mjs), então não depende do casador de nomes de urna nem da defasagem de uma rodada que ele tem: uma grafia nova que chegasse antes do mapa ser regenerado recunharia a pergunta e perderia o created_at.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
+    "data/people.ndjson#p_0cdb69b1373a"
+   ]
   }
  ]
 }
