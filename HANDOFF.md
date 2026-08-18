@@ -758,8 +758,18 @@ metadata cells change in the table columns.
 - **Trap**: "Perfil da Amostra" blocks use identical band labels but are sample
   composition, not voting intention. Reject any block whose columns don't map to ≥2
   candidates in the parent question's roster.
-- `pdftotext`, `pdftoppm` and `pypdf` are NOT installed — no interpreter on this
-  machine has any of them. Use `scripts/ocr/` instead (below).
+- ⚠ **ESTA LINHA ESTAVA ERRADA E CUSTOU LEITURA RUIM. `PyMuPDF` (import `fitz`)
+  ESTÁ INSTALADO** — versão 1.26.5, conferido em 17/08/2026 com
+  `python3 -c "import fitz"`. O que de fato falta é `pdftotext`, `pdftoppm`,
+  `pypdf`, `PyPDF2` e `pdfplumber`.
+  **Tente SEMPRE a camada de texto primeiro**: a maioria destes relatórios tem
+  texto de verdade, e lê-lo é exato onde o OCR é aproximado. O custo de acreditar
+  no contrário está medido: no relatório da Futura o OCR leu `100/31%` onde a
+  página dizia `2,1%`, porque a marca d'água atravessa o número. Quatro leitores
+  independentes, em dois relatórios diferentes, chegaram sozinhos à camada de
+  texto e bateram dígito a dígito entre si; nenhum deles conseguiu o mesmo pelo
+  OCR. Use `scripts/ocr/` para o que é imagem de verdade — slide escaneado,
+  gráfico sem texto —, não como primeira opção.
 - **OCR exists: `scripts/ocr/`.** Apple's Vision framework via a small Swift binary — ships
   with macOS, runs offline, reads pt-BR, nothing leaves the machine.
   `swiftc -O -o scripts/ocr/ocr scripts/ocr/ocr.swift`, then `scripts/ocr/ocr file.pdf [p1 p2]`.
