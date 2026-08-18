@@ -102,11 +102,8 @@ export default function Hero({
   // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
   const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
-  // KPI row like the target: the top THREE candidates plus an "Outros" bucket =
-  // 100 minus the top three. On BOTH cuts the base is 100, so "Outros" is simply
-  // "everything else": on votos válidos that is every remaining candidate; on
-  // bruto it also folds in branco/nulo/não sabe. The bucket now shows on both so
-  // toggling the basis keeps the same four KPIs (it used to vanish on bruto).
+  // KPI row: the top THREE candidates, then "Outros", and — on the bruto cut only
+  // — a separate "Brancos/Nulos/NR" bucket.
   const topKpis = series.slice(0, 3).map((s) => ({
     key: s.key,
     pct: s.avg,
@@ -114,11 +111,28 @@ export default function Hero({
     party: partyOf.get(s.name) ?? null,
     color: s.color,
   }));
-  const outrosPct = round1(100 - topKpis.reduce((sum, k) => sum + k.pct, 0));
-  const kpis =
-    series.length > 3 && outrosPct > 0
+  // "Outros" sums only the LEFTOVER CANDIDATES (ranked 4+), directly — not
+  // 100−top3, which on bruto would swallow branco/nulo/não sabe into "Outros".
+  // On válidos the field rescales to 100 across candidates, so this still lands
+  // near 100−top3.
+  const outrosPct = round1((average?.candidates ?? []).slice(3).reduce((s, c) => s + (Number.isFinite(c.avg) ? c.avg : 0), 0));
+  // Branco/nulo/NR is a share of the TOTAL sample, so it belongs only on the
+  // bruto cut (válidos removes it from the base). `setAside` carries the real
+  // poll shares regardless of basis.
+  const sa = average?.setAside;
+  const brancosNulosPct =
+    !validos && sa ? round1(sa.combined ?? (sa.blankNull ?? 0) + (sa.undecided ?? 0)) : null;
+
+  // The candidate KPIs (top 3 + Outros) also label the chart legend. The
+  // branco/nulo bucket is NOT a chart line, so it stays out of the legend.
+  const candidateKpis =
+    outrosPct > 0.05
       ? [...topKpis, { key: "__outros", pct: outrosPct, name: "Outros", party: null, color: "var(--series-muted)" }]
       : topKpis;
+  const kpis =
+    brancosNulosPct != null && brancosNulosPct > 0.05
+      ? [...candidateKpis, { key: "__bn", pct: brancosNulosPct, name: "Brancos/Nulos/NR", party: null, color: "var(--text-muted)" }]
+      : candidateKpis;
 
   // y-axis gridline values on the framed chart's own scale (0/20/40/60…≤ yMax).
   const gridLevels = [0, 20, 40, 60, 80, 100].filter((v) => model != null && v <= model.yMax);
@@ -225,9 +239,10 @@ export default function Hero({
                   </div>
                 </div>
               )}
-              {/* Legend row — the same four the KPIs show, plus the 50% line. */}
+              {/* Legend row — the candidate series (top 3 + Outros) plus the 50%
+                  line. NOT the branco/nulo bucket: it is not a drawn line. */}
               <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-                {kpis.map((k) => (
+                {candidateKpis.map((k) => (
                   <li key={`leg-${k.key}`} className="flex items-center gap-1.5">
                     <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: k.color }} />
                     <span className="truncate">{k.name}</span>
