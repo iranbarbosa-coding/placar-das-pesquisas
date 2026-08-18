@@ -149,40 +149,40 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
       </div>
 
       <div className="card overflow-x-auto">
-        <table className="w-full min-w-[720px] text-sm">
+        <table className="w-full min-w-[560px] text-xs">
           <caption className="sr-only">
             Pesquisas publicadas mais recentes, agrupadas por dia: data, disputa, estado, instituto, amostra, resultado, margem e tendência.
           </caption>
           <thead>
             <tr className="text-left text-[11px] uppercase tracking-wide" style={{ color: "var(--text-muted)", borderBottom: "1px solid var(--ring)" }}>
-              <th scope="col" className="px-3 py-2 font-semibold">Data</th>
-              <th scope="col" className="px-3 py-2 font-semibold">Disputa</th>
-              <th scope="col" className="px-3 py-2 font-semibold">Estado</th>
-              <th scope="col" className="px-3 py-2 font-semibold">Instituto</th>
-              <th scope="col" className="px-3 py-2 text-right font-semibold">Amostra</th>
-              <th scope="col" className="px-3 py-2 font-semibold">Resultado</th>
-              <th scope="col" className="px-3 py-2 text-right font-semibold">Margem</th>
-              <th scope="col" className="px-3 py-2 text-center font-semibold">Tendência</th>
+              <th scope="col" className="px-1.5 py-2 font-semibold">Data</th>
+              <th scope="col" className="px-1.5 py-2 font-semibold">Disputa</th>
+              <th scope="col" className="px-1.5 py-2 font-semibold">Estado</th>
+              <th scope="col" className="px-1.5 py-2 font-semibold">Instituto</th>
+              <th scope="col" className="px-1.5 py-2 text-right font-semibold">Amostra</th>
+              <th scope="col" className="px-1.5 py-2 font-semibold">Resultado</th>
+              <th scope="col" className="px-1.5 py-2 text-right font-semibold">Margem</th>
+              <th scope="col" className="px-1.5 py-2 text-center font-semibold">Tendência</th>
             </tr>
           </thead>
           <tbody>
             {days.map((day) => (
               <Fragmentish key={day.key || "sem-data"}>
                 <tr style={{ background: "var(--surface-2)" }}>
-                  <th scope="colgroup" colSpan={8} className="px-3 py-1.5 text-left text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--accent)", borderTop: "1px solid var(--ring)" }}>
+                  <th scope="colgroup" colSpan={8} className="px-1.5 py-1.5 text-left text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--accent)", borderTop: "1px solid var(--ring)" }}>
                     {day.key ? dayLabel(day.key) : "SEM DATA DE CAMPO"}
                   </th>
                 </tr>
                 {day.rows.map((r) => (
                   <tr key={r.poll.id} className="border-b last:border-0" style={{ borderColor: "var(--ring)" }}>
-                    <td className="tabular whitespace-nowrap px-3 py-2" style={{ color: "var(--text-secondary)" }}>{day.key ? shortDate(day.key) : "—"}</td>
-                    <td className="whitespace-nowrap px-3 py-2">
+                    <td className="tabular whitespace-nowrap px-1.5 py-2" style={{ color: "var(--text-secondary)" }}>{day.key ? shortDate(day.key) : "—"}</td>
+                    <td className="whitespace-nowrap px-1.5 py-2">
                       <Link href={href(r.poll)} className="hover:underline" style={{ color: "var(--accent)" }}>
                         {raceLabel(r.poll)}
                       </Link>
                     </td>
-                    <td className="px-3 py-2" style={{ color: "var(--text-secondary)" }}>{estadoLabel(r.poll)}</td>
-                    <th scope="row" className="whitespace-nowrap px-3 py-2 text-left font-medium">
+                    <td className="px-1.5 py-2" style={{ color: "var(--text-secondary)" }}>{estadoLabel(r.poll)}</td>
+                    <th scope="row" className="whitespace-nowrap px-1.5 py-2 text-left font-medium">
                       {r.poll.pollster}
                       {r.commissionedBy ? (
                         <>
@@ -191,10 +191,10 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
                         </>
                       ) : null}
                     </th>
-                    <td className="tabular px-3 py-2 text-right" style={{ color: "var(--text-secondary)" }}>
+                    <td className="tabular px-1.5 py-2 text-right" style={{ color: "var(--text-secondary)" }}>
                       {r.poll.sample_size ? r.poll.sample_size.toLocaleString("pt-BR") : "—"}
                     </td>
-                    <td className="whitespace-nowrap px-3 py-2 text-xs" style={{ color: "var(--text-secondary)" }}>
+                    <td className="whitespace-nowrap px-1.5 py-2 text-xs" style={{ color: "var(--text-secondary)" }}>
                       {r.leader ? (
                         <>
                           <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>
@@ -212,12 +212,12 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
                       ) : "—"}
                     </td>
                     <td
-                      className="tabular px-3 py-2 text-right font-semibold"
+                      className="tabular px-1.5 py-2 text-right font-semibold"
                       style={{ color: r.spread == null || r.spread === 0 ? "var(--text-muted)" : "var(--series-3)" }}
                     >
                       {r.spread == null ? "—" : `+${n1(r.spread)}`}
                     </td>
-                    <td className="px-3 py-2 text-center"><TrendArrow trend={r.trend} /></td>
+                    <td className="px-1.5 py-2 text-center"><TrendArrow trend={r.trend} /></td>
                   </tr>
                 ))}
               </Fragmentish>
