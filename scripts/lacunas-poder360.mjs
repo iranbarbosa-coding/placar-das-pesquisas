@@ -39,9 +39,12 @@
 // Poder360 é resgatada por OUTRA FONTE — uma nacional da AtlasIntel está no
 // banco pela Wikipédia, sem nenhum id `p360-`. Ausente é ausente do BANCO, não
 // do espaço de ids de uma fonte. O teste aqui é instituto + disputa + data, em
-// TODAS as fontes, e o instituto é resolvido pelo `resolveInstitute` do próprio
-// store (que segue `merged_into` e os aliases) em vez de por comparação de
-// string — é o que junta "Futura" e "Futura Inteligência".
+// TODAS as fontes. O instituto é resolvido em TRÊS degraus — `resolveInstitute`
+// (apelidos + `merged_into`), nome normalizado igual, e por fim token distintivo
+// em comum, que é a regra do próprio agrupador. O terceiro degrau existe porque
+// os dois primeiros diziam que "Futura Inteligência" e "Futura" eram institutos
+// diferentes, e isso listou como AUSENTE uma pesquisa que o banco tinha inteira.
+// Ver `mesmoInstituto`.
 //
 // A janela de data é a MESMA "uma operação de campo = um levantamento" que o
 // repositório já usa em `resolveSurvey`, em `datesClose` e em `repairs.mjs`, e
@@ -66,6 +69,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { readStore, DATA_DIR, resolveInstitute, JANELA_OPERACAO_MS } from "./lib/store.mjs";
+import { pollsterTokens } from "./lib/canonicalize.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -597,11 +601,48 @@ function escolherCenario(cenarios, idx, reg, ehBalde) {
   return null;
 }
 
+/**
+ * ⚠ O NOME EXATO NÃO BASTA, E ACREDITAR QUE BASTAVA INVENTOU LACUNA.
+ *
+ * O cabeçalho deste arquivo dizia que `resolveInstitute` "é o que junta 'Futura'
+ * e 'Futura Inteligência'". NÃO junta: ele consulta o índice de apelidos por
+ * chave EXATA, e o store guarda o instituto sob o nome CANÔNICO ("Futura"),
+ * porque quem o cunha já recebeu o nome depois do agrupamento. A grafia que o
+ * Poder360 publica ("Futura Inteligência") nunca virou apelido de ninguém.
+ *
+ * O ESTRAGO, medido em 17/08/2026: a Futura nacional de 07/08 (BR-08109/2026)
+ * foi listada como AUSENTE — pesquisa que o banco tem INTEIRA, com os quatro
+ * segundos turnos. Dois leitores independentes transcreveram o relatório do
+ * instituto e os números batiam linha a linha com os que já estavam publicados.
+ * Escrever o `add_poll` que a lista pedia teria DUPLICADO dado no ar, que é pior
+ * do que a lacuna que se queria fechar.
+ *
+ * E não era um caso: das 77 linhas AUSENTE com instituto nomeado, **21** traziam
+ * um nome que o índice não reconhece.
+ *
+ * O CONSERTO É CAIR NA MESMA REGRA QUE DECIDIU QUE OS DOIS SÃO UM INSTITUTO SÓ.
+ * `canonicalizePollsters` agrupa por token distintivo, e `pollsterTokens` é a
+ * função que ele usa — importada, não copiada (§5). Ela já derruba as palavras
+ * genéricas ("instituto", "pesquisas", "brasil"), então "Instituto França" e
+ * "França" partilham `franca`, enquanto "BG Mídias e Assessoria" não partilha
+ * token com ninguém e continua, corretamente, sendo instituto novo.
+ *
+ * DIREÇÃO DO ERRO, escolhida de propósito: afirmar ausência falsamente convida
+ * um reparo que duplica dado publicado; deixar de afirmar apenas mantém a lacuna
+ * na fila. Entre os dois, este relatório erra para o lado de NÃO afirmar — e o
+ * que ele não consegue afirmar sai contado no placar, não escondido.
+ */
 function mesmoInstituto(store, guardado, nomeV1) {
   if (!nomeV1) return false;
   const inst = resolveInstitute(store, nomeV1, { mint: false });
   if (inst && guardado.instituteId) return inst.institute_id === guardado.instituteId;
-  return chaveNome(guardado.instituto) === chaveNome(nomeV1);
+  if (chaveNome(guardado.instituto) === chaveNome(nomeV1)) return true;
+  // Último degrau: token distintivo em comum, a regra do agrupador.
+  const a = pollsterTokens(nomeV1);
+  const b = pollsterTokens(guardado.instituto ?? "");
+  if (!a.size || !b.size) return false;
+  for (const t of a) if (b.has(t)) return true;
+  return false;
 }
 
 function perto(a, b, janelaMs) {
