@@ -1,0 +1,817 @@
+#!/usr/bin/env node
+// QUEM FOI TESTADO EM PESQUISA E NÃO SE REGISTROU — enumeração, nunca reparo.
+//
+// O banco guarda muita pesquisa que testou gente que depois não registrou
+// candidatura nenhuma para aquela disputa. `Lula × Tarcísio` são 78 cenários
+// nacionais de 2º turno; `Jair Bolsonaro × Lula`, 68. Isso NÃO é erro de dado:
+// o instituto perguntou mesmo, e na data em que perguntou ninguém sabia quem ia
+// se registrar. A decisão do criador já está escrita no repositório — "quem foi
+// testado em pesquisa e não se registrou fica também — é fato sobre a pesquisa,
+// não erro a corrigir" — e este arquivo não a desfaz: ele a CATALOGA.
+//
+// Por que catalogar, então (decisão do criador, 17/08/2026): ele não quer gastar
+// tempo com candidatura não registrada agora. Quer a lista à mão para o dia em
+// que uma dessas linhas parecer estar distorcendo a análise de uma pesquisa do
+// PERÍODO ELEITORAL — que começou em 16/08/2026. Um confronto cujas pesquisas
+// todas são anteriores a essa data é história; um que continua sendo perguntado
+// depois dela merece um olhar.
+//
+// ---------------------------------------------------------------------------
+// TRÊS RESPOSTAS, E A TERCEIRA É UMA RECUSA
+// ---------------------------------------------------------------------------
+//
+//   SEM CANDIDATURA   a pessoa não tem candidatura registrada NESTA disputa e o
+//                     casador de nomes de urna procurou o nome dela no registro
+//                     INTEIRO sem achar nada. É o Jair Bolsonaro da presidencial.
+//   OUTRA DISPUTA     a pessoa não tem candidatura NESTA disputa mas tem em
+//                     outra. É o Tarcísio: testado para presidente, registrado
+//                     em `governador:SP`. É a linha mais interessante da lista.
+//   NÃO DETERMINADO   não dá para afirmar nem uma coisa nem outra. NUNCA vira
+//                     "não registrada" (CONVENTIONS §4). Ver `situacao()`.
+//
+// ⚠ POR QUE A TERCEIRA EXISTE, MEDIDO E NÃO SUPOSTO. Sem ela, quatro pessoas
+// sairiam deste relatório com a afirmação "nenhuma candidatura no registro
+// inteiro", e para TRÊS delas a afirmação é falsa contra o próprio
+// `data/candidaturas.ndjson`:
+//
+//     governador:GO  Gustavo Mendanha  → registrado em `senador:GO`
+//     governador:SP  Guilherme Derrite → registrado em `senador:SP`
+//     presidente:BR  Ciro Nogueira     → registrado em `senador:PI`
+//
+// Em todos, a grafia que o instituto PUBLICOU ("Gustavo Medanha" com um "n" a
+// menos, "Capitão Derrite", "Ciro Nogueira, com apoio do ex-presidente Jair
+// Bolsonaro") é a que o casador examinou, e ela não alcança a candidatura; o
+// nome que alcançaria é o nome CANONIZADO por nós, que o casador nunca viu.
+// Afirmar a partir da nossa própria falha de casamento é exatamente a inferência
+// que o §4 proíbe — e o repositório já tem a regra irmã escrita: "UNPUBLISHED
+// nunca se infere da nossa própria ausência".
+//
+// ---------------------------------------------------------------------------
+// O QUE ESTE ARQUIVO NÃO FAZ
+// ---------------------------------------------------------------------------
+//
+// · NÃO escreve em `data/`, não escreve reparo, não muda o que o site exibe.
+// · NÃO reimplementa a média. `src/lib/average.ts` é dono de "quais pesquisas
+//   entram na média" e uma segunda cópia aqui seria o defeito do §5. Este
+//   relatório reporta fato cru — quantos cenários, quais datas — e deixa o
+//   julgamento para um humano. Onde eu achar que uma linha distorce alguma
+//   coisa, isso vai em PROSA, não em conta.
+// · NÃO escreve um segundo normalizador nem um segundo casador. `normNome` e
+//   `chaveDeDisputa` vêm de `lib/nomes.mjs`; `contestOf` e `lerCandidaturas` de
+//   `lib/candidaturas.mjs`; e a resposta "esta pessoa casou com que candidatura"
+//   é lida de `data/people.ndjson`, que é onde `resolvePerson` (via
+//   `ballotCandidacy`) já a gravou. Este repositório publicou um homem sob dois
+//   nomes porque um auxiliar existia duas vezes (§5).
+//
+// Uso:
+//   node scripts/candidaturas-nao-registradas.mjs [--out=CANDIDATURAS_NAO_REGISTRADAS.md]
+//                                                 [--self-test]
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { readStore, DATA_DIR } from "./lib/store.mjs";
+import { normNome, chaveDeDisputa } from "./lib/nomes.mjs";
+import { contestOf, lerCandidaturas } from "./lib/candidaturas.mjs";
+
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+// ---------------------------------------------------------------------------
+// A DATA DE CORTE É UM FATO DATADO, NÃO UMA JANELA ESCOLHIDA
+// ---------------------------------------------------------------------------
+//
+// 16/08/2026 é o início da campanha, e é o gatilho que o criador declarou: antes
+// dela, testar quem não se registrou é retrato de um cenário que ainda não
+// existia; depois dela, o registro já está fechado e a pergunta passa a medir
+// gente que não vai estar na urna. Não é tolerância de comparação — nada aqui a
+// alarga para um portão passar (§10) —, é uma data do calendário eleitoral.
+//
+// Fica como parâmetro de `catalogar` porque o autoteste precisa exercitar os dois
+// lados do corte com fixtures, e não porque o valor seja negociável.
+export const INICIO_PERIODO_ELEITORAL = "2026-08-16";
+
+// ---------------------------------------------------------------------------
+// O UNIVERSO QUE O CASADOR EXAMINOU — e por que ele é lido, não recontado
+// ---------------------------------------------------------------------------
+//
+// `scripts/match-ballot-names.mjs` percorre EXATAMENTE as grafias de
+// `data/nomes-crus.json` (o despejo que `scrape.mjs` grava ANTES de
+// canonicalizar, CONVENTIONS §6) e, para cada uma, ou grava um casamento em
+// `data/ballot-names.json.mapping`, ou registra uma recusa em `.ambiguos`, ou
+// conta um `stats.sem` — "nenhuma candidatura compatível no registro inteiro".
+//
+// Então a pergunta "o casador chegou a examinar este nome?" tem resposta EXATA
+// nos dados, e é ela que separa uma negativa de verdade de um silêncio nosso.
+// Recontar isso aqui seria escrever um segundo casador (§5); ler é ler.
+function universoExaminado(crus) {
+  const m = new Map();
+  for (const [contest, nomes] of Object.entries(crus ?? {})) {
+    // `nomes-crus.json` carrega `{nome, partidos}` desde 16/08; a forma de
+    // string pura ainda é aceita, como no próprio casador — um clone só tem a
+    // forma nova depois da primeira coleta.
+    m.set(contest, new Set(nomes.map((n) => normNome(typeof n === "string" ? n : n?.nome))));
+  }
+  return m;
+}
+
+/** As recusas que o casador GRAVOU, indexadas como ele as gravou. */
+function recusasDoCasador(ballot) {
+  const s = new Set();
+  for (const a of ballot?.ambiguos ?? []) s.add(`${a.contest}|${normNome(a.nome)}`);
+  return s;
+}
+
+// ---------------------------------------------------------------------------
+// ⚠ A CHAVE DE EXAME NÃO SE DOBRA PARA A NACIONAL, E ISSO É MEDIDO
+// ---------------------------------------------------------------------------
+//
+// Em quase tudo mais neste repositório, `presidente:PR` dobra para
+// `presidente:BR`: a disputa é nacional e só a amostra é estadual (HANDOFF §1b).
+// A pergunta "esta pessoa tem candidatura nesta disputa?" usa a dobra, e tem de
+// usar — é a mesma corrida.
+//
+// A pergunta "o casador examinou esta grafia?" NÃO usa, e a medida é esta
+// (rodada dos dois jeitos contra o banco real em 18/08/2026, dobrando os DOIS
+// lados — a grafia observada e o universo examinado):
+//
+//     sem dobra   326 sem candidatura ·  8 não determinados
+//     com dobra   328 sem candidatura ·  6 não determinados
+//
+// As duas linhas que a dobra "resolve" são `Tereza Cristina` e `Ciro Nogueira`.
+// A primeira é ganho real — ela não tem candidatura nenhuma. A segunda é uma
+// AFIRMAÇÃO FALSA: `presidente:PR` publica "Ciro Nogueira, com apoio do
+// ex-presidente Jair Bolsonaro", que não casa com nada, e dessa grafia nasceu
+// uma pessoa SEM registro; com a dobra ela herda o exame de "Ciro Nogueira" em
+// `presidente:BR` e sai publicada como "nenhuma no registro" — sendo que Ciro
+// Nogueira está registrado em `senador:PI`.
+//
+// Uma afirmação falsa contra duas recusas a mais: o repositório já declarou a
+// direção do erro em `lacunas-poder360.mjs` — "erra para o lado de NÃO afirmar".
+// O preço fica sendo `Lula × Tereza Cristina`, 5 cenários nacionais em não
+// determinado.
+//
+// ⚠ E a dobra tem de ser dos DOIS lados ou de nenhum. Dobrar só a grafia
+// observada torna as listas estaduais de `nomes-crus.json` inalcançáveis e joga
+// 11 pessoas a mais em não determinado — um relatório que encolhe em silêncio,
+// que é a família de defeito do §2. O autoteste cobre as duas metades.
+
+/**
+ * A situação de uma pessoa numa disputa. Três respostas, nunca duas.
+ *
+ * `grafias` são todas as formas sob as quais esta pessoa aparece nesta disputa,
+ * cada uma carimbada com a CHAVE DE DISPUTA PESQUISADA em que foi vista — a
+ * grafia crua que o instituto publicou, o nome canônico que o site exibe e os
+ * apelidos que a linha de candidato acumulou.
+ *
+ * A ordem das checagens é a ordem da força da evidência:
+ *   1. tem candidatura NESTA disputa                        → registrada
+ *   2. tem candidatura em OUTRA                             → outra disputa
+ *   3. o casador RECUSOU alguma grafia por ambiguidade      → não determinado
+ *   4. alguma grafia nunca foi examinada pelo casador       → não determinado
+ *   5. todas foram examinadas e nenhuma achou candidatura   → sem candidatura
+ *
+ * O passo 4 é conjuntivo de propósito ("alguma", não "nenhuma"): basta uma
+ * grafia fora do universo examinado para que a negativa deixe de ser uma
+ * negativa sobre a PESSOA e passe a ser uma negativa sobre uma string.
+ */
+export function situacao(pessoa, disputa, grafias, { examinado, recusado }) {
+  const candidaturas = (pessoa?.candidacies ?? []).map((c) => contestOf(c.cargo, c.uf));
+  if (candidaturas.includes(disputa)) return { classe: "registrada", outras: [] };
+  // Registrada em outra disputa. `outras` sai ordenada e sem repetição: a linha
+  // vai para arquivo versionado e não pode depender da ordem do NDJSON (§8).
+  if (candidaturas.length) {
+    return { classe: "outra-disputa", outras: [...new Set(candidaturas)].sort() };
+  }
+  for (const g of grafias) if (recusado.has(`${g.contest}|${normNome(g.nome)}`)) {
+    return { classe: "nao-determinado", outras: [], motivo: `o casador recusou "${g.nome}" em ${g.contest} por ambiguidade` };
+  }
+  for (const g of grafias) if (!examinado.get(g.contest)?.has(normNome(g.nome))) {
+    return { classe: "nao-determinado", outras: [], motivo: `"${g.nome}" não está entre as grafias que o casador examinou em ${g.contest}` };
+  }
+  return { classe: "sem-candidatura", outras: [] };
+}
+
+// ---------------------------------------------------------------------------
+// AGREGAÇÃO
+// ---------------------------------------------------------------------------
+
+/** A chave de disputa de uma pergunta: `presidente:SP` dobra para `presidente:BR`. */
+const disputaDaPergunta = (q) => chaveDeDisputa(`${q.race}:${q.uf ?? "BR"}`);
+/** A chave de disputa PESQUISADA, que é a que o casador usou. NÃO dobra. */
+const chavePesquisada = (q) => `${q.race}:${q.uf ?? "BR"}`;
+
+/**
+ * Ordem estável de rótulos de confronto e de nomes.
+ *
+ * `localeCompare` sem locale é o que o resto do repositório usa (`identityConflicts`,
+ * os desempates de `lacunas-poder360.mjs`), e o desempate final é sempre um campo
+ * que não pode empatar — `person_id` ou a própria chave do confronto (§8).
+ */
+const porNome = (a, b) => a.localeCompare(b) || (a < b ? -1 : a > b ? 1 : 0);
+
+/**
+ * A janela de campo de um levantamento, com a ausência REPRESENTADA.
+ *
+ * `fieldwork_end` é nulo em 2 dos 1.010 levantamentos. Contar um nulo como
+ * "fora do período eleitoral" seria afirmar uma data que não temos; ele sai numa
+ * coluna própria (§4). O fim do campo é a data usada porque é ela que diz quando
+ * a pergunta parou de ser feita — que é a pergunta do criador.
+ */
+const fimDeCampo = (s) => s?.fieldwork_end ?? null;
+
+/**
+ * O catálogo inteiro, como dado. Puro: recebe as tabelas e devolve estrutura.
+ *
+ * Nada de `Date.now()`, nada de ordem de array decidindo saída (§8) — o autoteste
+ * embaralha as entradas e compara o JSON, e é ele que segura essa promessa.
+ */
+export function catalogar({ questions, surveys, candidates, people, crus, ballot, inicioPeriodo = INICIO_PERIODO_ELEITORAL }) {
+  const examinado = universoExaminado(crus);
+  const recusado = recusasDoCasador(ballot);
+  const porId = new Map(candidates.map((c) => [c.candidate_id, c]));
+  const pessoaPorId = new Map(people.map((p) => [p.person_id, p]));
+  const levantamento = new Map(surveys.map((s) => [s.survey_id, s]));
+
+  // 1. Por (disputa, pessoa): grafias vistas, cenários, levantamentos, datas.
+  const pessoas = new Map();
+  // 2. Por (disputa, conjunto de pessoas) nos cenários de 2º turno: o confronto.
+  const confrontos = new Map();
+  // 3. O DENOMINADOR. Sem ele "36 confrontos" não quer dizer nada — é a mesma
+  //    razão pela qual `lacunas-poder360.mjs` conta as RECUPERADAS que não
+  //    precisam de reparo nenhum. Aqui: todos os confrontos de 2º turno da
+  //    disputa, inclusive os em que todo mundo se registrou.
+  const totais = new Map();
+  const total = (d) => {
+    let t = totais.get(d);
+    if (!t) { t = { confrontos: new Set(), cenarios: 0, confrontosNacionais: new Set(), cenariosNacionais: 0 }; totais.set(d, t); }
+    return t;
+  };
+  // O universo do período eleitoral, como denominador do `0` que este relatório
+  // provavelmente vai imprimir: quantos cenários o banco tem depois do corte.
+  const periodo = { cenarios: 0, levantamentos: new Set() };
+
+  const registrar = (mapa, chave, base) => {
+    let e = mapa.get(chave);
+    if (!e) { e = { ...base, cenarios: 0, levantamentos: new Set(), primeiro: null, ultimo: null, noPeriodo: 0, semData: 0, nacionais: 0 }; mapa.set(chave, e); }
+    return e;
+  };
+  const contar = (e, q, s) => {
+    e.cenarios++;
+    e.levantamentos.add(q.survey_id);
+    if (q.uf == null) e.nacionais++;
+    const d = fimDeCampo(s);
+    if (!d) { e.semData++; return; }
+    if (!e.primeiro || d < e.primeiro) e.primeiro = d;
+    if (!e.ultimo || d > e.ultimo) e.ultimo = d;
+    if (d >= inicioPeriodo) e.noPeriodo++;
+  };
+
+  for (const q of questions) {
+    const disputa = disputaDaPergunta(q);
+    const pesquisada = chavePesquisada(q);
+    const s = levantamento.get(q.survey_id) ?? null;
+    const fim = fimDeCampo(s);
+    if (fim && fim >= inicioPeriodo) { periodo.cenarios++; periodo.levantamentos.add(q.survey_id); }
+    const ids = [];
+    for (const r of q.results ?? []) {
+      const c = porId.get(r.candidate_id);
+      // Uma linha de resultado sem candidato no store não é achado deste
+      // relatório — é defeito de integridade, e quem reprova por isso é
+      // `validate-store.mjs`. Aqui ela é ignorada em vez de virar pessoa nova.
+      if (!c) continue;
+      ids.push(c.person_id);
+      const chave = `${disputa}|${c.person_id}`;
+      const e = registrar(pessoas, chave, { disputa, person_id: c.person_id, grafias: new Map() });
+      for (const nome of [r.name_raw, c.canonical, ...(c.aliases ?? [])]) {
+        if (nome) e.grafias.set(`${pesquisada}|${normNome(nome)}`, { contest: pesquisada, nome });
+      }
+      contar(e, q, s);
+    }
+    if (q.round !== 2) continue;
+    const conjunto = [...new Set(ids)].sort();
+    if (!conjunto.length) continue;
+    const chave = `${disputa}|${conjunto.join(",")}`;
+    contar(registrar(confrontos, chave, { disputa, pessoas: conjunto }), q, s);
+    const t = total(disputa);
+    t.confrontos.add(chave); t.cenarios++;
+    if (q.uf == null) { t.confrontosNacionais.add(chave); t.cenariosNacionais++; }
+  }
+
+  // 3. Situação de cada pessoa, e só então a do confronto.
+  const situacoes = new Map();
+  for (const e of pessoas.values()) {
+    const p = pessoaPorId.get(e.person_id) ?? null;
+    e.pessoa = p;
+    e.situacao = situacao(p, e.disputa, [...e.grafias.values()], { examinado, recusado });
+    situacoes.set(`${e.disputa}|${e.person_id}`, e.situacao);
+    e.display = p?.display ?? e.person_id;
+  }
+  for (const c of confrontos.values()) {
+    const ss = c.pessoas.map((id) => situacoes.get(`${c.disputa}|${id}`)?.classe ?? "nao-determinado");
+    c.semCandidatura = c.pessoas.filter((id, i) => ss[i] === "sem-candidatura" || ss[i] === "outra-disputa");
+    c.indeterminados = c.pessoas.filter((id, i) => ss[i] === "nao-determinado");
+    c.classe = c.semCandidatura.length ? "afirmado" : c.indeterminados.length ? "nao-determinado" : "todos-registrados";
+    c.rotulo = c.pessoas.map((id) => pessoaPorId.get(id)?.display ?? id).sort(porNome).join(" × ");
+  }
+
+  // 4. Ordem determinística e final: nada aqui depende de ordem de leitura.
+  const disputas = new Map();
+  const secao = (d) => {
+    if (!disputas.has(d)) {
+      const t = totais.get(d);
+      disputas.set(d, {
+        disputa: d, candidatos: [], indeterminados: [], confrontos: [], confrontosIndeterminados: [],
+        total2T: t?.confrontos.size ?? 0, cenarios2T: t?.cenarios ?? 0,
+        total2TNacional: t?.confrontosNacionais.size ?? 0, cenarios2TNacional: t?.cenariosNacionais ?? 0,
+      });
+    }
+    return disputas.get(d);
+  };
+  for (const e of [...pessoas.values()]) {
+    if (e.situacao.classe === "registrada") continue;
+    const linha = {
+      disputa: e.disputa, person_id: e.person_id, display: e.display,
+      classe: e.situacao.classe, outras: e.situacao.outras, motivo: e.situacao.motivo ?? null,
+      cenarios: e.cenarios, levantamentos: e.levantamentos.size, nacionais: e.nacionais,
+      primeiro: e.primeiro, ultimo: e.ultimo, noPeriodo: e.noPeriodo, semData: e.semData,
+      grafias: [...e.grafias.values()].map((g) => g.nome).sort(porNome),
+    };
+    const s = secao(e.disputa);
+    (linha.classe === "nao-determinado" ? s.indeterminados : s.candidatos).push(linha);
+  }
+  for (const c of confrontos.values()) {
+    if (c.classe === "todos-registrados") continue;
+    const linha = {
+      disputa: c.disputa, rotulo: c.rotulo, chave: c.pessoas.join(","),
+      cenarios: c.cenarios, levantamentos: c.levantamentos.size, nacionais: c.nacionais,
+      primeiro: c.primeiro, ultimo: c.ultimo, noPeriodo: c.noPeriodo, semData: c.semData,
+      quem: c.semCandidatura.map((id) => pessoaPorId.get(id)?.display ?? id).sort(porNome),
+      indeterminados: c.indeterminados.map((id) => pessoaPorId.get(id)?.display ?? id).sort(porNome),
+    };
+    const s = secao(c.disputa);
+    (c.classe === "afirmado" ? s.confrontos : s.confrontosIndeterminados).push(linha);
+  }
+
+  // Desempate final SEMPRE num campo que não empata: `person_id` para candidato,
+  // o conjunto de ids para confronto. Sem isso, dois nomes iguais (e existem —
+  // ver as duas linhas "Ciro Nogueira" em `presidente:BR`) trocariam de lugar
+  // entre rodadas sem nada ter mudado.
+  const porPeso = (a, b) =>
+    b.cenarios - a.cenarios ||
+    String(b.ultimo ?? "").localeCompare(String(a.ultimo ?? "")) ||
+    porNome(a.display ?? a.rotulo, b.display ?? b.rotulo) ||
+    porNome(a.person_id ?? a.chave, b.person_id ?? b.chave);
+  for (const s of disputas.values()) {
+    s.candidatos.sort(porPeso); s.indeterminados.sort(porPeso);
+    s.confrontos.sort(porPeso); s.confrontosIndeterminados.sort(porPeso);
+  }
+
+  // A ordem das seções: presidencial, depois governador por UF, depois senador.
+  const ordemRace = { presidente: 0, governador: 1, senador: 2 };
+  const lista = [...disputas.values()].sort((a, b) => {
+    const [ra, ua] = a.disputa.split(":");
+    const [rb, ub] = b.disputa.split(":");
+    return (ordemRace[ra] ?? 9) - (ordemRace[rb] ?? 9) || porNome(ua, ub);
+  });
+
+  const somar = (f) => lista.reduce((n, s) => n + f(s), 0);
+  return {
+    disputas: lista,
+    inicioPeriodo,
+    periodo: { cenarios: periodo.cenarios, levantamentos: periodo.levantamentos.size },
+    placar: {
+      total2T: [...totais.values()].reduce((n, t) => n + t.confrontos.size, 0),
+      cenarios2T: [...totais.values()].reduce((n, t) => n + t.cenarios, 0),
+      disputasComLinha: lista.length,
+      candidatos: somar((s) => s.candidatos.length),
+      semCandidatura: somar((s) => s.candidatos.filter((c) => c.classe === "sem-candidatura").length),
+      outraDisputa: somar((s) => s.candidatos.filter((c) => c.classe === "outra-disputa").length),
+      indeterminados: somar((s) => s.indeterminados.length),
+      confrontos: somar((s) => s.confrontos.length),
+      confrontosIndeterminados: somar((s) => s.confrontosIndeterminados.length),
+      cenariosDeConfronto: somar((s) => s.confrontos.reduce((n, c) => n + c.cenarios, 0)),
+      noPeriodoCandidatos: somar((s) => s.candidatos.reduce((n, c) => n + c.noPeriodo, 0)),
+      noPeriodoConfrontos: somar((s) => s.confrontos.reduce((n, c) => n + c.noPeriodo, 0)),
+    },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// RELATÓRIO
+// ---------------------------------------------------------------------------
+
+const RACE_NOME = { presidente: "Presidente", governador: "Governador", senador: "Senado" };
+const tituloDisputa = (d) => {
+  const [race, uf] = d.split(":");
+  return `${RACE_NOME[race] ?? race} · ${uf === "BR" ? "Brasil" : uf}`;
+};
+/** Data em pt-BR: `DD/MM/AAAA` (§11). Nulo vira travessão, nunca uma data inventada. */
+const dt = (s) => (s ? `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}` : "—");
+const outrasCol = (l) =>
+  l.classe === "outra-disputa" ? l.outras.map((o) => `\`${o}\``).join(" · ") : "nenhuma no registro";
+
+function relatorio(cat, ctx) {
+  const L = [];
+  const p = cat.placar;
+  L.push("# Candidaturas não registradas — quem foi testado e não se registrou");
+  L.push("");
+  L.push("Gerado por `node scripts/candidaturas-nao-registradas.mjs`. **Enumeração, não reparo.**");
+  L.push("");
+  L.push("O banco guarda muita pesquisa que testou gente que depois não registrou candidatura para");
+  L.push("aquela disputa. **Isso não é erro de dado e não se corrige aqui.** O instituto perguntou");
+  L.push("mesmo, e na data em que perguntou ninguém sabia quem ia se registrar — a decisão do criador");
+  L.push("já está no repositório: *quem foi testado em pesquisa e não se registrou fica também; é fato");
+  L.push("sobre a pesquisa, não erro a corrigir*. Este arquivo existe para **sinalizar e catalogar**, e");
+  L.push("só para o dia em que uma dessas linhas parecer estar distorcendo a análise de uma pesquisa do");
+  L.push("período eleitoral.");
+  L.push("");
+  L.push(`**Período eleitoral: a partir de ${dt(cat.inicioPeriodo)}** (início da campanha). É o gatilho declarado`);
+  L.push("pelo criador: um confronto cujas pesquisas são todas anteriores a essa data é história; um que");
+  L.push("continua sendo perguntado depois dela merece um olhar. A coluna **no período** conta cenários");
+  L.push("cujo **fim de campo** é dessa data em diante.");
+  L.push("");
+  L.push("⚠ **Nenhuma conta de média aqui.** `src/lib/average.ts` é dono de *quais pesquisas entram na");
+  L.push("média*, e uma segunda cópia neste relatório seria o defeito do §5. As colunas abaixo são fato");
+  L.push("cru — quantos cenários, quais datas, qual candidatura consta do registro — e o julgamento é de");
+  L.push("um humano. O que eu achei que merece atenção está em prosa na seção **Leitura**, não em conta.");
+  L.push("");
+
+  L.push("## Placar");
+  L.push("");
+  L.push("| população | o que é | quantas |");
+  L.push("|---|---|---|");
+  L.push(`| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa e o casador procurou o nome dela no registro inteiro sem achar nada | **${p.semCandidatura}** |`);
+  L.push(`| **OUTRA DISPUTA** | a pessoa não tem candidatura nesta disputa mas TEM em outra — o caso Tarcísio | **${p.outraDisputa}** |`);
+  L.push(`| *não determinado* | não dá para afirmar nem uma coisa nem outra — **recusado**, nunca contado como não registrada | ${p.indeterminados} |`);
+  L.push(`| **confrontos de 2º turno** | confrontos com ao menos um dos dois acima | **${p.confrontos}** |`);
+  L.push(`| *confrontos não determinados* | nenhum afirmado, mas ao menos um não determinado | ${p.confrontosIndeterminados} |`);
+  L.push(`| *denominador* | confrontos de 2º turno que o banco guarda ao todo, inclusive os em que todo mundo se registrou | ${p.total2T} |`);
+  L.push("");
+  L.push(`Disputas com ao menos uma linha: **${p.disputasComLinha}** · cenários de 2º turno alcançados pelos confrontos afirmados: **${p.cenariosDeConfronto}** de ${p.cenarios2T}.`);
+  L.push(`Cenários no período eleitoral: **${p.noPeriodoCandidatos}** nas linhas de candidato, **${p.noPeriodoConfrontos}** nas de confronto —`);
+  L.push(`de **${cat.periodo.cenarios}** cenários que o banco tem com campo encerrado em ${dt(cat.inicioPeriodo)} ou depois, em ${cat.periodo.levantamentos} levantamento(s).`);
+  L.push("");
+
+  L.push("## Como cada linha é classificada");
+  L.push("");
+  L.push("A pergunta \"esta pessoa tem candidatura nesta disputa?\" é respondida por `data/people.ndjson`,");
+  L.push("onde `resolvePerson` — via `ballotCandidacy` e `data/ballot-names.json` — **já** gravou com que");
+  L.push("candidatura do TSE cada pessoa casou. Não há segundo casador nem segundo normalizador aqui (§5).");
+  L.push("");
+  L.push("A ordem das checagens, da evidência mais forte para a mais fraca:");
+  L.push("");
+  L.push("1. tem candidatura **nesta** disputa → registrada, não entra neste arquivo;");
+  L.push("2. tem candidatura em **outra** disputa → **OUTRA DISPUTA**, e a disputa vai na coluna;");
+  L.push("3. o casador **recusou** alguma grafia por ambiguidade (`ballot-names.json.ambiguos`) → **não determinado**;");
+  L.push("4. alguma grafia **nunca foi examinada** pelo casador (não está em `data/nomes-crus.json` da disputa pesquisada) → **não determinado**;");
+  L.push("5. todas foram examinadas e nenhuma achou candidatura no registro inteiro → **SEM CANDIDATURA**.");
+  L.push("");
+  L.push("**O passo 4 é a regra que impede a inferência proibida (§4), e ele não é decorativo.** Sem ele,");
+  L.push("quatro pessoas sairiam daqui afirmadas como \"nenhuma candidatura no registro inteiro\", e para");
+  L.push("três a afirmação é falsa contra `data/candidaturas.ndjson`:");
+  L.push("");
+  L.push("| disputa | pessoa | a grafia que o casador examinou | a candidatura que existe |");
+  L.push("|---|---|---|---|");
+  L.push("| `governador:GO` | Gustavo Mendanha | \"Gustavo Medanha\" (um `n` a menos, como o instituto publicou) | `senador:GO` |");
+  L.push("| `governador:SP` | Guilherme Derrite | \"Capitão Derrite\" | `senador:SP` |");
+  L.push("| `presidente:BR` | Ciro Nogueira | \"Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro\" | `senador:PI` |");
+  L.push("");
+  L.push("Em todos, o nome que **alcançaria** a candidatura é o nome canonizado por nós, que o casador");
+  L.push("nunca viu. Afirmar a partir da nossa própria falha de casamento é exatamente o que o §4 proíbe.");
+  L.push("");
+  L.push("**A chave de exame não dobra para a nacional, e isso foi medido dos dois jeitos.** Em quase todo");
+  L.push("o resto do repositório `presidente:PR` dobra para `presidente:BR` — a disputa é nacional, só a");
+  L.push("amostra é estadual. A pergunta \"tem candidatura nesta disputa?\" usa a dobra. A pergunta \"o");
+  L.push("casador examinou esta grafia?\" **não**, e rodando os dois jeitos contra este banco:");
+  L.push("");
+  L.push("| | sem candidatura | não determinados |");
+  L.push("|---|---|---|");
+  L.push("| **sem dobra** (o que está publicado aqui) | 326 | 8 |");
+  L.push("| com dobra | 328 | 6 |");
+  L.push("");
+  L.push("A dobra \"resolve\" duas linhas: `Tereza Cristina`, que é ganho real, e `Ciro Nogueira`, que é");
+  L.push("**afirmação falsa** — a pessoa sem registro nascida da grafia com cláusula herdaria o exame de");
+  L.push("\"Ciro Nogueira\" em `presidente:BR` e sairia como \"nenhuma no registro\", sendo que Ciro Nogueira");
+  L.push("está registrado em `senador:PI`. Uma afirmação falsa contra duas recusas a mais: o repositório");
+  L.push("já declarou a direção do erro — *erra para o lado de NÃO afirmar*. O preço é `Lula × Tereza");
+  L.push("Cristina`, 5 cenários nacionais, em não determinado.");
+  L.push("");
+
+  L.push("## Leitura — o que salta aos olhos");
+  L.push("");
+  for (const linha of ctx.leitura) L.push(linha);
+  L.push("");
+
+  L.push("---");
+  L.push("");
+
+  for (const s of cat.disputas) {
+    L.push(`## ${tituloDisputa(s.disputa)} — \`${s.disputa}\``);
+    L.push("");
+    const nac = s.disputa === "presidente:BR";
+    if (s.candidatos.length) {
+      L.push("### Testados sem candidatura na disputa");
+      L.push("");
+      L.push(`| # | candidato | \`person_id\` | cenários |${nac ? " nacionais |" : ""} levantamentos | 1º campo | último campo | no período | s/ data | candidatura em outra disputa |`);
+      L.push(`|---|---|---|---|${nac ? "---|" : ""}---|---|---|---|---|---|`);
+      s.candidatos.forEach((l, i) => {
+        L.push(`| ${i + 1} | ${l.display} | \`${l.person_id}\` | ${l.cenarios} |${nac ? ` ${l.nacionais} |` : ""} ${l.levantamentos} | ${dt(l.primeiro)} | ${dt(l.ultimo)} | ${l.noPeriodo} | ${l.semData} | ${outrasCol(l)} |`);
+      });
+      L.push("");
+    }
+    if (s.confrontos.length) {
+      L.push("### Confrontos de 2º turno com ao menos um deles");
+      L.push("");
+      L.push(`${s.confrontos.length} de **${s.total2T}** confrontos de 2º turno que o banco guarda nesta disputa` +
+        (nac ? ` (amostra nacional: ${s.confrontos.filter((c) => c.nacionais > 0).length} de ${s.total2TNacional}, em ${s.confrontos.reduce((n, c) => n + c.nacionais, 0)} de ${s.cenarios2TNacional} cenários).` : "."));
+      L.push("");
+      L.push(`| # | confronto | cenários |${nac ? " nacionais |" : ""} levantamentos | 1º campo | último campo | no período | s/ data | quem não tem candidatura na disputa |`);
+      L.push(`|---|---|---|${nac ? "---|" : ""}---|---|---|---|---|---|`);
+      s.confrontos.forEach((l, i) => {
+        L.push(`| ${i + 1} | ${l.rotulo} | ${l.cenarios} |${nac ? ` ${l.nacionais} |` : ""} ${l.levantamentos} | ${dt(l.primeiro)} | ${dt(l.ultimo)} | ${l.noPeriodo} | ${l.semData} | ${l.quem.join(" · ")} |`);
+      });
+      L.push("");
+    }
+    if (s.indeterminados.length || s.confrontosIndeterminados.length) {
+      L.push("### Não determinados — recusa, não afirmação");
+      L.push("");
+      if (s.indeterminados.length) {
+        L.push(`| candidato | \`person_id\` | cenários | 1º campo | último campo | no período | por que não dá para afirmar |`);
+        L.push("|---|---|---|---|---|---|---|");
+        for (const l of s.indeterminados) {
+          L.push(`| ${l.display} | \`${l.person_id}\` | ${l.cenarios} | ${dt(l.primeiro)} | ${dt(l.ultimo)} | ${l.noPeriodo} | ${l.motivo ?? "—"} |`);
+        }
+        L.push("");
+      }
+      if (s.confrontosIndeterminados.length) {
+        L.push(`| confronto | cenários | 1º campo | último campo | no período | quem não foi determinado |`);
+        L.push("|---|---|---|---|---|---|");
+        for (const l of s.confrontosIndeterminados) {
+          L.push(`| ${l.rotulo} | ${l.cenarios} | ${dt(l.primeiro)} | ${dt(l.ultimo)} | ${l.noPeriodo} | ${l.indeterminados.join(" · ")} |`);
+        }
+        L.push("");
+      }
+    }
+  }
+
+  L.push("---");
+  L.push("");
+  L.push("Nada se corrige a partir desta tabela. Ela existe para que, quando uma pesquisa do período");
+  L.push("eleitoral parecer estranha, dê para responder em um olhar se um nome fora da urna está no");
+  L.push("meio dela — e a decisão do que fazer continua sendo do criador (§12).");
+  return L.join("\n") + "\n";
+}
+
+/**
+ * A PROSA É ESCRITA A PARTIR DOS NÚMEROS, e cada frase carrega o número que a
+ * sustenta. Uma leitura sem número é opinião; com número, é achado conferível.
+ */
+function leitura(cat) {
+  const L = [];
+  const pres = cat.disputas.find((s) => s.disputa === "presidente:BR");
+  const p = cat.placar;
+  if (pres) {
+    const nac = pres.confrontos.filter((c) => c.nacionais > 0);
+    const cenNac = nac.reduce((n, c) => n + c.nacionais, 0);
+    const ndNac = pres.confrontosIndeterminados.filter((c) => c.nacionais > 0);
+    const cenNd = ndNac.reduce((n, c) => n + c.nacionais, 0);
+    L.push(`- **A presidencial é o grosso.** ${pres.candidatos.length} pessoas testadas para presidente não têm candidatura presidencial, e elas aparecem em ${pres.confrontos.length} confrontos de 2º turno da disputa (de ${pres.total2T}), somando ${pres.confrontos.reduce((n, c) => n + c.cenarios, 0)} de ${pres.cenarios2T} cenários.`);
+    L.push(`- **Restringindo à amostra nacional** — que é o recorte em que o criador mediu —, o banco tem **${pres.total2TNacional} confrontos** de 2º turno e **${pres.cenarios2TNacional} cenários**. Destes, **${nac.length} confrontos (${cenNac} cenários)** têm alguém sem candidatura presidencial *afirmado*, e **${ndNac.length} confronto(s) (${cenNd} cenários)** ficam em não determinado. A **soma, ${nac.length + ndNac.length} confrontos e ${cenNac + cenNd} cenários**, é exatamente a medida de 17/08/2026 — a diferença é que aqui a linha que não dá para afirmar está separada, em vez de contada junto.`);
+    const tarc = pres.candidatos.filter((c) => c.classe === "outra-disputa");
+    if (tarc.length) {
+      const top = tarc.slice(0, 5).map((c) => `**${c.display}** (${c.outras.join(", ")}, ${c.cenarios} cenários)`).join("; ");
+      L.push(`- **Registrados em outra disputa — o caso mais interessante.** ${tarc.length} das pessoas testadas para presidente se registraram para outro cargo: ${top}${tarc.length > 5 ? "; e outros" : ""}. O instituto perguntou por eles como presidenciáveis e eles foram disputar governo ou senado.`);
+    }
+  }
+  const comPeriodo = cat.disputas.flatMap((s) => s.confrontos).filter((c) => c.noPeriodo > 0);
+  if (!comPeriodo.length) {
+    L.push(`- **Nenhum confronto afirmado tem cenário no período eleitoral, e nenhuma linha de candidato também.** É o achado que mais importa para a decisão do criador: hoje nenhuma dessas linhas está distorcendo pesquisa de campanha, porque nenhuma delas foi perguntada de ${dt(cat.inicioPeriodo)} em diante. **Mas leia o \`0\` com o denominador ao lado:** o banco tem só **${cat.periodo.cenarios} cenários** com campo encerrado nessa data ou depois, em **${cat.periodo.levantamentos} levantamento(s)** — o corte é de dois dias atrás. O \`0\` mede tanto a idade do corte quanto a ausência do problema, e este arquivo tem de ser relido quando houver campo pós-corte de verdade.`);
+  } else {
+    const top = comPeriodo.sort((a, b) => b.noPeriodo - a.noPeriodo).slice(0, 8);
+    L.push(`- **${comPeriodo.length} confronto(s) afirmado(s) já foram perguntados no período eleitoral** — estes são os que merecem olhar: ${top.map((c) => `${c.rotulo} (${c.noPeriodo})`).join("; ")}.`);
+  }
+  const vivos = cat.disputas.flatMap((s) => s.confrontos).filter((c) => c.ultimo).sort((a, b) => String(b.ultimo).localeCompare(String(a.ultimo))).slice(0, 5);
+  if (vivos.length) {
+    L.push(`- **Os que mais recentemente ainda estavam sendo perguntados:** ${vivos.map((c) => `${c.rotulo} — ${dt(c.ultimo)} (${c.disputa})`).join("; ")}.`);
+  }
+  L.push(`- **${p.indeterminados} linha(s) de candidato e ${p.confrontosIndeterminados} de confronto ficaram sem resposta**, e continuam sem. Elas não são "não registradas" — são casos em que a nossa própria máquina de casamento não conseguiu dizer, e o §4 manda recusar em vez de escolher.`);
+  L.push("- **Duas pessoas com o mesmo nome na mesma disputa não são erro deste relatório.** Em `presidente:BR` há duas linhas \"Ciro Nogueira\" e duas \"Ciro Gomes\": uma registrada (alcançada pela grafia curta que o instituto publicou) e uma sem registro (criada pela grafia com cláusula, que não alcança candidatura nenhuma). É um rachado de identidade que já está no banco, `person_id` a `person_id`; está anotado aqui e **não foi corrigido** — achado fora das classes do censo se anota, não se conserta no meio da rodada (§9).");
+  return L;
+}
+
+// ---------------------------------------------------------------------------
+// PRÉ-CONDIÇÕES — o silêncio que pareceria sucesso
+// ---------------------------------------------------------------------------
+//
+// Sem o registro do TSE, `people.candidacies` está vazio em TODA pessoa e este
+// relatório afirmaria que 855 pessoas não registraram candidatura nenhuma. Sem
+// `nomes-crus.json`, nada foi "examinado" e tudo cai em não determinado — um
+// arquivo bem formado, exit 0, e completamente vazio de conteúdo.
+//
+// As duas falham ALTO. É a mesma recusa que `match-ballot-names.mjs` tem contra
+// entrada vazia, mas ancorada nas ENTRADAS e não na saída anterior: um gerador
+// que lê a própria saída para se validar é o defeito do §6, e este não a lê.
+function exigirEntradas({ candidaturas, crus, ballot }) {
+  const faltas = [];
+  if (!candidaturas.length) faltas.push("`data/candidaturas.ndjson` está vazio ou ausente — sem o registro do TSE toda pessoa pareceria não registrada. Rode `scripts/fetch-candidaturas.mjs` primeiro.");
+  if (!Object.keys(crus ?? {}).length) faltas.push("`data/nomes-crus.json` está vazio ou ausente — sem ele nenhuma grafia consta como examinada e tudo cairia em não determinado.");
+  if (!Object.keys(ballot?.mapping ?? {}).length) faltas.push("`data/ballot-names.json` não tem mapeamento — rode `scripts/match-ballot-names.mjs` primeiro.");
+  if (faltas.length) {
+    console.error("RECUSADO — este relatório não roda sem as entradas que o sustentam:");
+    for (const f of faltas) console.error(`  ✗ ${f}`);
+    process.exit(1);
+  }
+}
+
+const lerJson = (f, padrao) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf-8")) : padrao);
+
+// ---------------------------------------------------------------------------
+// AUTOTESTE — o guarda tem de FALHAR quando deve (§2)
+// ---------------------------------------------------------------------------
+
+function fixtures() {
+  // Uma disputa presidencial e uma estadual, com um representante de cada classe.
+  const surveys = [
+    { survey_id: "s1", fieldwork_end: "2026-03-23" },
+    { survey_id: "s2", fieldwork_end: "2026-08-17" },  // dentro do período eleitoral
+    { survey_id: "s3", fieldwork_end: null },          // sem data — nunca "fora"
+  ];
+  const people = [
+    { person_id: "p_lula", display: "Lula", registered: true, candidacies: [{ cargo: "presidente", uf: null }] },
+    { person_id: "p_tarc", display: "Tarcísio", registered: true, candidacies: [{ cargo: "governador", uf: "SP" }] },
+    { person_id: "p_jair", display: "Jair Bolsonaro", registered: false, candidacies: [] },
+    { person_id: "p_neblina", display: "Fulano Da Névoa", registered: false, candidacies: [] },
+    { person_id: "p_amb", display: "Ciro", registered: false, candidacies: [] },
+    // AS DUAS METADES DA DOBRA (ver o cabeçalho "A CHAVE DE EXAME NÃO SE DOBRA").
+    // `p_clausula` é o caso Ciro Nogueira em miniatura: só aparece em
+    // `presidente:PR`, sob uma grafia com cláusula que foi examinada LÁ, e o
+    // nome curto dele é examinado em `presidente:BR` — onde pertence a OUTRA
+    // pessoa, registrada. Dobrar os dois lados o afirmaria como sem candidatura.
+    { person_id: "p_clausula", display: "Xará Registrado", registered: false, candidacies: [] },
+    // `p_estadual` é a outra metade: aparece só em `presidente:PR` e TODAS as
+    // grafias dele estão na lista de `presidente:PR`. Dobrar só a grafia
+    // observada torna essa lista inalcançável e o afirmado vira recusa.
+    { person_id: "p_estadual", display: "Beltrano Do Paraná", registered: false, candidacies: [] },
+  ];
+  const candidates = [
+    { candidate_id: "c_lula", person_id: "p_lula", contest: "presidente:BR", canonical: "Lula", aliases: ["Lula"] },
+    { candidate_id: "c_tarc", person_id: "p_tarc", contest: "presidente:BR", canonical: "Tarcísio", aliases: ["Tarcísio"] },
+    { candidate_id: "c_jair", person_id: "p_jair", contest: "presidente:BR", canonical: "Jair Bolsonaro", aliases: ["Jair Bolsonaro"] },
+    { candidate_id: "c_neb", person_id: "p_neblina", contest: "presidente:PR", canonical: "Fulano Da Névoa", aliases: [] },
+    { candidate_id: "c_amb", person_id: "p_amb", contest: "presidente:BR", canonical: "Ciro", aliases: ["Ciro"] },
+    { candidate_id: "c_cla", person_id: "p_clausula", contest: "presidente:PR", canonical: "Xará Registrado", aliases: [] },
+    { candidate_id: "c_est", person_id: "p_estadual", contest: "presidente:PR", canonical: "Beltrano Do Paraná", aliases: [] },
+  ];
+  // A grafia CRUA é a que o instituto publicou; quando ela difere do canônico, o
+  // fixture a declara — é justamente essa diferença que separa as duas metades.
+  const CRU = { c_cla: "Xará Registrado, com apoio de alguém" };
+  const q = (id, survey_id, uf, round, ids) => ({
+    question_id: id, survey_id, race: "presidente", round, uf,
+    results: ids.map((c) => ({ candidate_id: c, name_raw: CRU[c] ?? candidates.find((x) => x.candidate_id === c).canonical })),
+  });
+  const questions = [
+    q("q1", "s1", null, 2, ["c_lula", "c_tarc"]),
+    q("q2", "s2", null, 2, ["c_lula", "c_jair"]),
+    q("q3", "s3", null, 2, ["c_lula", "c_jair"]),
+    q("q4", "s1", "PR", 2, ["c_lula", "c_neb"]),
+    q("q5", "s1", null, 2, ["c_lula", "c_amb"]),
+    q("q6", "s1", "PR", 2, ["c_lula", "c_cla"]),
+    q("q7", "s1", "PR", 2, ["c_lula", "c_est"]),
+  ];
+  const crus = {
+    // "Fulano Da Névoa" NÃO consta: é a grafia que o casador nunca examinou.
+    // "Xará Registrado" consta AQUI e não em `presidente:PR` — é o nome curto,
+    // que na vida real pertence a uma pessoa registrada noutra disputa.
+    "presidente:BR": [{ nome: "Lula" }, { nome: "Tarcísio" }, { nome: "Jair Bolsonaro" }, { nome: "Ciro" }, { nome: "Xará Registrado" }],
+    "presidente:PR": [{ nome: "Lula" }, { nome: "Xará Registrado, com apoio de alguém" }, { nome: "Beltrano Do Paraná" }],
+  };
+  const ballot = { mapping: { "presidente:BR": {} }, ambiguos: [{ contest: "presidente:BR", nome: "Ciro", motivo: "compatível com mais de uma pessoa" }] };
+  return { questions, surveys, candidates, people, crus, ballot };
+}
+
+function autoteste() {
+  const falhas = [];
+  const ok = (cond, msg) => { if (!cond) falhas.push(msg); };
+  const f = fixtures();
+  const cat = catalogar(f);
+  const pres = cat.disputas.find((s) => s.disputa === "presidente:BR");
+  const acha = (nome) => pres?.candidatos.find((c) => c.display === nome);
+  const achaNd = (nome) => pres?.indeterminados.find((c) => c.display === nome);
+
+  // 1. Lula tem candidatura presidencial: NÃO entra no relatório.
+  ok(!acha("Lula") && !achaNd("Lula"), "quem tem candidatura na disputa não pode aparecer");
+
+  // 2. TARCÍSIO — a consulta entre disputas. Registrado em `governador:SP`,
+  //    testado para presidente: sai como OUTRA DISPUTA, com a disputa nomeada.
+  //    ⚠ Este é o caso que a mutação (ii) tem de avermelhar.
+  ok(acha("Tarcísio")?.classe === "outra-disputa", "Tarcísio tem de sair como outra-disputa");
+  ok(acha("Tarcísio")?.outras.join() === "governador:SP", `a outra disputa tem de ser governador:SP (veio ${acha("Tarcísio")?.outras.join()})`);
+
+  // 3. Jair — examinado, nenhuma candidatura em lugar nenhum.
+  ok(acha("Jair Bolsonaro")?.classe === "sem-candidatura", "Jair sai como sem-candidatura");
+  ok(acha("Jair Bolsonaro")?.outras.length === 0, "sem-candidatura não pode listar outra disputa");
+
+  // 4. GRAFIA NUNCA EXAMINADA → NÃO DETERMINADO, jamais "sem candidatura".
+  //    ⚠ Este é o caso que a mutação (i) tem de avermelhar.
+  ok(!!achaNd("Fulano Da Névoa"), "grafia não examinada tem de cair em não determinado");
+  ok(!acha("Fulano Da Névoa"), "grafia não examinada NÃO pode ser afirmada como sem candidatura");
+  ok(/não está entre as grafias/.test(achaNd("Fulano Da Névoa")?.motivo ?? ""), "o motivo tem de dizer que a grafia não foi examinada");
+
+  // 5. RECUSA GRAVADA PELO CASADOR → não determinado, e o motivo cita ambiguidade.
+  ok(!!achaNd("Ciro"), "grafia recusada por ambiguidade tem de cair em não determinado");
+  ok(/ambiguidade/.test(achaNd("Ciro")?.motivo ?? ""), "o motivo tem de citar a recusa do casador");
+
+  // 5b. AS DUAS METADES DA DOBRA DA CHAVE DE EXAME (§2 — o guarda que protege
+  //     código que ninguém executa mente; estas duas linhas existem porque a
+  //     primeira bateria passava verde com a dobra ligada).
+  //     · dobrar OS DOIS lados afirmaria `Xará Registrado` como sem candidatura,
+  //       herdando o exame do nome curto que é de outra pessoa;
+  //     · dobrar SÓ a grafia observada tornaria a lista de `presidente:PR`
+  //       inalcançável e recusaria `Beltrano Do Paraná`, que é afirmável.
+  ok(!!achaNd("Xará Registrado"), "a grafia com cláusula não pode herdar o exame do nome curto da disputa nacional");
+  ok(!acha("Xará Registrado"), "dobrar os dois lados da chave de exame produziria aqui uma afirmação falsa");
+  ok(acha("Beltrano Do Paraná")?.classe === "sem-candidatura", "quem tem TODAS as grafias na lista estadual é afirmável — dobrar só um lado esconderia isto");
+
+  // 6. CONFRONTOS: os que têm alguém sem candidatura são afirmados; o que só tem
+  //    não determinado fica na tabela de recusa; nenhum dos dois some.
+  const rot = (l) => l.rotulo;
+  ok(pres.confrontos.map(rot).includes("Lula × Tarcísio"), "Lula × Tarcísio é confronto afirmado");
+  ok(pres.confrontos.map(rot).includes("Jair Bolsonaro × Lula"), "Jair × Lula é confronto afirmado");
+  ok(pres.confrontosIndeterminados.map(rot).includes("Ciro × Lula"), "Ciro × Lula fica em não determinado");
+  ok(!pres.confrontos.map(rot).includes("Ciro × Lula"), "um confronto não determinado NÃO pode ser afirmado");
+  // O confronto da subamostra estadual dobra para a disputa nacional, e o
+  // "Fulano Da Névoa" (não determinado) não o promove a afirmado.
+  ok(pres.confrontosIndeterminados.map(rot).includes("Fulano Da Névoa × Lula"), "a subamostra PR dobra para presidente:BR e fica em não determinado");
+
+  // 7. PERÍODO ELEITORAL: s2 (17/08) conta, s1 (23/03) não, s3 (sem data) NUNCA
+  //    é contado como fora — sai na coluna própria (§4).
+  const jair = acha("Jair Bolsonaro");
+  ok(jair?.cenarios === 2 && jair?.noPeriodo === 1 && jair?.semData === 1,
+    `Jair: 2 cenários, 1 no período, 1 sem data (veio ${jair?.cenarios}/${jair?.noPeriodo}/${jair?.semData})`);
+  ok(jair?.primeiro === "2026-08-17" && jair?.ultimo === "2026-08-17", "a data nula não pode virar primeiro/último campo");
+  ok(acha("Tarcísio")?.noPeriodo === 0, "Tarcísio, só com campo de março, não tem cenário no período");
+
+  // 8. AMOSTRA NACIONAL contada à parte da subamostra estadual.
+  const nevoa = achaNd("Fulano Da Névoa");
+  ok(nevoa?.cenarios === 1 && nevoa?.nacionais === 0, `a subamostra PR não conta como nacional (veio ${nevoa?.nacionais})`);
+
+  // 9. DETERMINISMO (§8): a mesma entrada em ordem embaralhada dá o MESMO JSON.
+  //    Sem isto, um empate de contagem trocaria de lugar entre rodadas e o diff
+  //    do commit mentiria sobre o que mudou.
+  {
+    const inverso = { ...f, questions: [...f.questions].reverse(), candidates: [...f.candidates].reverse(), people: [...f.people].reverse(), surveys: [...f.surveys].reverse() };
+    const limpo = (c) => JSON.stringify(c, (k, v) => (v instanceof Set ? [...v] : v));
+    ok(limpo(catalogar(inverso)) === limpo(cat), "a ordem das tabelas de entrada não pode mudar a saída");
+  }
+
+  // 10. O RELATÓRIO SE RENDERIZA e carrega as duas tabelas — um catálogo que
+  //     agrega certo e imprime errado não vale nada.
+  {
+    const md = relatorio(cat, { leitura: leitura(cat) });
+    ok(md.includes("| Tarcísio |") && md.includes("`governador:SP`"), "a tabela tem de publicar Tarcísio com a outra disputa");
+    ok(md.includes("Lula × Tarcísio"), "a tabela de confrontos tem de publicar o par");
+    ok(md.includes("Fulano Da Névoa"), "o não determinado tem de aparecer no relatório, não sumir");
+    ok(md.includes("23/03/2026"), "as datas saem em DD/MM/AAAA (§11)");
+  }
+
+  // 11. O PLACAR SOMA O QUE AS TABELAS MOSTRAM. Um placar derivado por outra
+  //     conta é a segunda implementação da mesma regra (§5).
+  {
+    const p = cat.placar;
+    const cand = cat.disputas.reduce((n, s) => n + s.candidatos.length, 0);
+    ok(p.candidatos === cand && p.candidatos === p.semCandidatura + p.outraDisputa,
+      `o placar tem de bater com as linhas (${p.candidatos} vs ${cand})`);
+  }
+
+  if (falhas.length) {
+    console.error("AUTOTESTE FALHOU:");
+    for (const f of falhas) console.error(`  ✗ ${f}`);
+    process.exit(1);
+  }
+  console.log("autoteste ok — outra-disputa (Tarcísio), grafia não examinada, recusa do casador, confrontos, período eleitoral, data nula, determinismo, renderização e placar");
+}
+
+// ---------------------------------------------------------------------------
+
+const arg = (n) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split("=").slice(1).join("=");
+
+if (process.argv.includes("--self-test")) {
+  autoteste();
+} else {
+  const store = readStore({ tables: ["surveys", "questions", "candidates", "people"] });
+  const crus = lerJson(path.join(DATA_DIR, "nomes-crus.json"), {});
+  const ballot = lerJson(path.join(DATA_DIR, "ballot-names.json"), {});
+  exigirEntradas({ candidaturas: lerCandidaturas(), crus, ballot });
+  const cat = catalogar({
+    questions: store.questions, surveys: store.surveys,
+    candidates: store.candidates, people: store.people,
+    crus, ballot,
+  });
+  const md = relatorio(cat, { leitura: leitura(cat) });
+  const out = path.resolve(ROOT, arg("out") ?? "CANDIDATURAS_NAO_REGISTRADAS.md");
+  fs.writeFileSync(out, md);
+  const p = cat.placar;
+  console.log(`SEM CANDIDATURA ${p.semCandidatura} · OUTRA DISPUTA ${p.outraDisputa} · não determinados ${p.indeterminados}`);
+  console.log(`  confrontos de 2º turno afirmados ${p.confrontos} (${p.cenariosDeConfronto} cenários) · não determinados ${p.confrontosIndeterminados}`);
+  console.log(`  disputas com linha ${p.disputasComLinha} · cenários no período eleitoral (desde ${cat.inicioPeriodo}): candidatos ${p.noPeriodoCandidatos}, confrontos ${p.noPeriodoConfrontos}`);
+  console.log(`→ ${path.relative(ROOT, out)}`);
+}
