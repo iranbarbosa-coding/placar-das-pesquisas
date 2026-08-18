@@ -724,6 +724,24 @@
     "data/candidaturas.ndjson (sq_candidato 280002553884, PRTB, nº 28)",
     "data/people.ndjson#p_0cdb69b1373a"
    ]
+  },
+  {
+   "contest": "senador:PI",
+   "verdict": "MESMA",
+   "canonical": "Ravenna da Inclusão",
+   "names": [
+    "Ravenna Castro",
+    "Ravenna da Inclusão"
+   ],
+   "stated_by": "criador",
+   "stated_at": "2026-08-18",
+   "evidence": "MESMA MULHER, PARTIDA EM DUAS PESSOAS PELO BANCO. O cadastro do TSE tem UMA única Ravenna em 523 candidaturas: RAVENNA DA INCLUSÃO, nome civil 'Ravenna de Castro Lima Azevedo', sq_candidato 180002548388, DEMOCRATA, nº 35, candidata a GOVERNADORA do Piauí. As quatro pesquisas que a testam grafam todas 'Ravenna Castro' e publicam todas o partido 'Democrata': governador:PI 18/05 (AtlasIntel, 0), governador:PI 21/06 (AtlasIntel, 0,2), governador:PI 27/07 (Data AZ, 0,33) e senador:PI 13/07 (Real Time Big Data, 1). TRÊS EIXOS INDEPENDENTES DO NOME FECHAM A IDENTIFICAÇÃO: mesmo estado, mesmo partido, e unicidade no cadastro. O partido não é dedução nossa — o HANDOFF registra que o relatório da AtlasIntel imprime 'Ravenna Castro (Democrata)' e o da Real Time Big Data '(Democratas)', contra o 'DEM' errado que o agregador servia (o agregador confundiu a Democrata nova, ex-PMB de dez/2025, com os Democratas extintos em 2022). Não é contenção de nome civil sozinha, que este repositório já documentou como não confiável — ver Professor Alcides e Flávio × Jair Bolsonaro.",
+   "overrides": "É o caso Tarcísio na forma exata: testada para um cargo, registrada para outro. O instituto perguntou por ela como senadora; ela disputa o governo. Isso NÃO é erro da fonte e a pesquisa de Senado fica como está — quem foi testado e não se registrou é fato sobre a pesquisa. O que a ruling corrige é a IDENTIDADE: hoje o banco tem duas pessoas com a MESMA grafia 'Ravenna Castro' — p_ad7389244eab (registrada, sq 180002548388, exibida 'Ravenna da Inclusão') e p_bad76224457b (sem registro, escopo senador|PI). ⚠ A RULING SOZINHA NÃO AS JUNTA, e isso está medido: `ballotCandidacy` procura a candidatura POR DISPUTA, e `data/ballot-names.json` tem a entrada dela só em `governador:PI`. Em `senador:PI` não alcança nem por 'Ravenna Castro' nem por 'Ravenna da Inclusão'. A ruling dá o nome de urna correto na disputa de Senado — que já é o certo a publicar — e deixa a fusão da pessoa dependendo do casador, que é onde ela pertence. Registrado aqui em voz alta em vez de descoberto depois.",
+   "sources": [
+    "data/candidaturas.ndjson (sq_candidato 180002548388, DEMOCRATA, nº 35, governador PI)",
+    "data/people.ndjson#p_ad7389244eab, #p_bad76224457b",
+    "data/questions.ndjson — 4 perguntas, partido_raw 'Democrata' nas quatro"
+   ]
   }
  ]
 }
