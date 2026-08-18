@@ -102,11 +102,12 @@ export default function Hero({
   // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
   const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
-  // KPI row like the target: the top THREE candidates plus an "Outros" bucket.
-  // On votos válidos the field sums to ~100, so "Outros" is 100 minus the top
-  // three — every remaining candidate, honestly, not a fabricated slice. Off the
-  // válidos cut that identity does not hold, so the bucket is dropped there.
-  const topKpis = series.slice(0, 3).map((s, i) => ({
+  // KPI row like the target: the top THREE candidates plus an "Outros" bucket =
+  // 100 minus the top three. On BOTH cuts the base is 100, so "Outros" is simply
+  // "everything else": on votos válidos that is every remaining candidate; on
+  // bruto it also folds in branco/nulo/não sabe. The bucket now shows on both so
+  // toggling the basis keeps the same four KPIs (it used to vanish on bruto).
+  const topKpis = series.slice(0, 3).map((s) => ({
     key: s.key,
     pct: s.avg,
     name: s.name,
@@ -115,7 +116,7 @@ export default function Hero({
   }));
   const outrosPct = round1(100 - topKpis.reduce((sum, k) => sum + k.pct, 0));
   const kpis =
-    validos && series.length > 3 && outrosPct > 0
+    series.length > 3 && outrosPct > 0
       ? [...topKpis, { key: "__outros", pct: outrosPct, name: "Outros", party: null, color: "var(--series-muted)" }]
       : topKpis;
 

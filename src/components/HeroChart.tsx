@@ -192,9 +192,15 @@ export function heroChartModel(average: RaceAverage | null, maxSeries = 6): Mode
   const x = (iso: string) => (flat ? 0 : ((isoTime(iso) - t0) / span) * W);
 
   const peak = Math.max(10, ...series.map((s) => s.avg), ...series.flatMap((s) => s.points.map((p) => p.avg)));
-  // `peak` is finite by construction (every input passed `fin`), and the
-  // Math.max(10, …) floor means yMax >= 10 — the divisor can never be 0.
-  const yMax = clamp(Math.ceil((fin(peak, 10) + 5) / 10) * 10, 10, 100);
+  // FIXED SCALE FLOOR OF 60 (2026-08-17). The y-axis top was derived from each
+  // cut's own peak, so "votos válidos" (peaks ~48 → yMax 60) and "bruto" (peaks
+  // ~42 → yMax 50) scaled DIFFERENTLY and a line at 40% sat at two different
+  // heights when the reader toggled — confusing to compare. Flooring yMax at 60
+  // gives both cuts the SAME 0/20/40/60 grid and the same 50% line height, since
+  // neither basis's leader approaches 55% in this race; it still grows past 60
+  // if some value ever demands it. `peak` is finite and the floor keeps yMax ≥ 60,
+  // so the divisor can never be 0.
+  const yMax = clamp(Math.ceil((fin(peak, 10) + 5) / 10) * 10, 60, 100);
   const plot = H - PAD_TOP - PAD_BOTTOM;
   const y = (v: number) => PAD_TOP + (1 - clamp(fin(v), 0, yMax) / yMax) * plot;
   const y0 = y(0);
