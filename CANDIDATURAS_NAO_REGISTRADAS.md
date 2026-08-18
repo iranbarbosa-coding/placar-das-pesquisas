@@ -24,7 +24,7 @@ um humano. O que eu achei que merece atenção está em prosa na seção **Leitu
 
 | população | o que é | quantas |
 |---|---|---|
-| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa e o casador procurou o nome dela no registro inteiro sem achar nada | **320** |
+| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa, e o casador procurou o nome dela **até onde alcança**: no registro inteiro nas 28 linhas da disputa nacional, e só na UF da disputa mais as 13 candidaturas nacionais nas 292 estaduais | **320** |
 | **OUTRA DISPUTA** | a pessoa não tem candidatura nesta disputa mas TEM em outra — o caso Tarcísio | **59** |
 | *contradição no nosso banco* | outra linha de pessoa carrega a MESMA grafia e TEM candidatura — **recusado**, nunca afirmado | 6 |
 | *não determinado* | não dá para afirmar nem uma coisa nem outra — **recusado**, nunca contado como não registrada | 8 |
@@ -35,6 +35,23 @@ um humano. O que eu achei que merece atenção está em prosa na seção **Leitu
 Disputas com ao menos uma linha: **53** · cenários de 2º turno alcançados pelos confrontos afirmados: **615** de 1537.
 Cenários no período eleitoral: **0** nas linhas de candidato, **0** nas de confronto —
 de **13** cenários que o banco tem com campo encerrado em 16/08/2026 ou depois, em 4 levantamento(s).
+
+## ⚠ O que esta lista NÃO enxerga
+
+Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e entre
+as 13 candidaturas nacionais — **ele não olha os outros 26 estados**. Então quem se registrou
+num estado que não foi procurado, e que nunca foi pesquisado sob uma grafia que colidisse com a
+de alguém registrado, **continua aparecendo aqui como sem candidatura**. Não é engano de
+leitura: é o alcance do que dá para provar com o que temos hoje. Se uma linha desta lista
+importar para uma decisão, confira o nome no registro antes de agir.
+
+Isso vale para **292 das 320** linhas afirmadas — as de disputa estadual. Nas 28 da disputa
+nacional a busca varreu o registro inteiro, e ali a negativa é forte.
+
+Foi exatamente essa a falha da primeira versão deste arquivo: ela afirmou "nenhuma no registro"
+em três linhas estaduais e as três estavam erradas. O passo 5 e a coluna escopada fecham o que
+é demonstrável; **este parágrafo é o que sobra, e sobra de propósito** — dizer o resto exigiria
+um segundo casador, que é o que o §5 proíbe.
 
 ## Como cada linha é classificada
 

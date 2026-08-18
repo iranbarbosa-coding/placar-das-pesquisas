@@ -241,20 +241,45 @@ export function situacao(pessoa, disputa, grafias, { examinado, recusado, regist
   // por isso usa só as grafias vistas AQUI. "O nosso banco se contradiz sobre
   // esta pessoa?" é pergunta sobre a PESSOA, que é global — então entram também
   // o `display` que o site publica e todas as `polled_names` que a linha dela
-  // acumulou em qualquer disputa. Foi por `display` que Michelle, Simone Tebet e
-  // Ciro Gomes foram alcançados; deixar essa porta mais estreita que a outra
-  // seria reabrir a classe pelo lado de dentro.
+  // acumulou em qualquer disputa.
+  //
+  // ⚠ CORREÇÃO DE 18/08/2026 — a versão anterior deste comentário AFIRMAVA que
+  // "foi por `display` que Michelle, Simone Tebet e Ciro Gomes foram
+  // alcançados". É FALSO, e a conferência provou apagando `pessoa?.display`
+  // daqui: autoteste verde e o arquivo gerado byte a byte igual. Os três são
+  // alcançados pela grafia observada NESTA disputa contra as `polled_names` da
+  // linha registrada — o `display` daqui não participou de nenhum deles.
+  //
+  // As três fontes ficam, e cada uma tem agora fixture que a torna necessária
+  // (`p_ord_obs` para as grafias, `p_disp_obs` para o `display`, `p_larga_obs`
+  // para as `polled_names`). Um comentário que promete proteção que o código não
+  // dá é pior que nenhum — é a lição que `lib/candidates.mjs` já carrega no
+  // cabeçalho, e eu a repeti aqui.
   const contradiz = [];
   const amplas = [...grafias.map((g) => g.nome), pessoa?.display, ...(pessoa?.polled_names ?? [])].filter(Boolean);
   for (const nome of amplas) {
     for (const o of registradoPorGrafia?.get(normNome(nome)) ?? []) {
       if (o.person_id === pessoa?.person_id) continue;
+      // A MESMA LINHA REGISTRADA ALCANÇADA POR DUAS GRAFIAS É UMA LINHA SÓ.
+      // `amplas` repete de propósito (a grafia observada costuma reaparecer em
+      // `polled_names`), então sem esta deduplicação a mesma pessoa sairia
+      // listada duas vezes na coluna. Também só exercitada por fixture.
       if (contradiz.some((x) => x.person_id === o.person_id)) continue;
+      // ⚠ A GRAFIA VAI COMO FOI PUBLICADA, NÃO NORMALIZADA. `normNome` serve
+      // para CASAR, nunca para exibir: trocar por `normNome(nome)` reescreve as
+      // 6 linhas do arquivo (`"Ciro Gomes"` → `"ciro gomes"`) e a bateria não
+      // via. O autoteste afirma a grafia publicada, letra a letra.
       contradiz.push({ ...o, grafia: nome });
     }
   }
   if (contradiz.length) {
-    // Ordem estável: `person_id` não empata (§8).
+    // ⚠ ORDEM ESTÁVEL, E EXERCITADA. `person_id` não empata (§8). A ordem de
+    // construção é a de `amplas`, que é a ordem das grafias — então a linha que
+    // colide primeiro NÃO é necessariamente a de menor id, e sem este `sort` a
+    // saída passaria a seguir a ordem das grafias. Toda linha real de hoje tem
+    // exatamente UMA candidatura contraditória, então esta guarda protegia
+    // código que nenhum dado executa (§2): `p_ord_obs`, no fixture, colide com
+    // TRÊS linhas e é ele que a mantém honesta.
     contradiz.sort((a, b) => porNome(a.person_id, b.person_id));
     return { classe: "contradicao", outras: [], contradiz };
   }
@@ -283,7 +308,10 @@ export function registradosPorGrafia(people) {
       if (!m.get(k).some((x) => x.person_id === p.person_id)) m.get(k).push(linha);
     }
   }
-  // Ordem estável dentro de cada grafia (§8): a lista vai para arquivo versionado.
+  // Ordem estável dentro de cada grafia (§8): a lista vai para arquivo
+  // versionado. Hoje nenhuma grafia real alcança DUAS pessoas registradas, então
+  // sem fixture esta ordenação seria uma guarda sobre código morto (§2) — o
+  // trio `p_ord_b`/`p_ord_c` existe para isso.
   for (const lista of m.values()) lista.sort((a, b) => porNome(a.person_id, b.person_id));
   return m;
 }
@@ -513,6 +541,12 @@ export function catalogar({ questions, surveys, candidates, people, crus, ballot
       disputasComLinha: lista.length,
       candidatos: somar((s) => s.candidatos.length),
       semCandidatura: somar((s) => s.candidatos.filter((c) => c.classe === "sem-candidatura").length),
+      // O CORTE QUE A GLOSA DO PLACAR PRECISA. A negativa não tem o mesmo
+      // alcance nos dois casos, e a linha de resumo é o que um leitor não
+      // técnico lê primeiro — dizer "no registro inteiro" ali desfazia, no
+      // resumo, o conserto feito linha a linha.
+      semCandidaturaNacional: somar((s) => (s.disputa.endsWith(":BR") ? s.candidatos.filter((c) => c.classe === "sem-candidatura").length : 0)),
+      semCandidaturaEstadual: somar((s) => (s.disputa.endsWith(":BR") ? 0 : s.candidatos.filter((c) => c.classe === "sem-candidatura").length)),
       outraDisputa: somar((s) => s.candidatos.filter((c) => c.classe === "outra-disputa").length),
       indeterminados: somar((s) => s.indeterminados.length),
       contradicoes: somar((s) => s.contradicoes.length),
@@ -569,7 +603,7 @@ function relatorio(cat, ctx) {
   L.push("");
   L.push("| população | o que é | quantas |");
   L.push("|---|---|---|");
-  L.push(`| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa e o casador procurou o nome dela no registro inteiro sem achar nada | **${p.semCandidatura}** |`);
+  L.push(`| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa, e o casador procurou o nome dela **até onde alcança**: no registro inteiro nas ${p.semCandidaturaNacional} linhas da disputa nacional, e só na UF da disputa mais as 13 candidaturas nacionais nas ${p.semCandidaturaEstadual} estaduais | **${p.semCandidatura}** |`);
   L.push(`| **OUTRA DISPUTA** | a pessoa não tem candidatura nesta disputa mas TEM em outra — o caso Tarcísio | **${p.outraDisputa}** |`);
   L.push(`| *contradição no nosso banco* | outra linha de pessoa carrega a MESMA grafia e TEM candidatura — **recusado**, nunca afirmado | ${p.contradicoes} |`);
   L.push(`| *não determinado* | não dá para afirmar nem uma coisa nem outra — **recusado**, nunca contado como não registrada | ${p.indeterminados} |`);
@@ -582,6 +616,23 @@ function relatorio(cat, ctx) {
   L.push(`de **${cat.periodo.cenarios}** cenários que o banco tem com campo encerrado em ${dt(cat.inicioPeriodo)} ou depois, em ${cat.periodo.levantamentos} levantamento(s).`);
   L.push("");
 
+  L.push("## ⚠ O que esta lista NÃO enxerga");
+  L.push("");
+  L.push("Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e entre");
+  L.push("as 13 candidaturas nacionais — **ele não olha os outros 26 estados**. Então quem se registrou");
+  L.push("num estado que não foi procurado, e que nunca foi pesquisado sob uma grafia que colidisse com a");
+  L.push("de alguém registrado, **continua aparecendo aqui como sem candidatura**. Não é engano de");
+  L.push("leitura: é o alcance do que dá para provar com o que temos hoje. Se uma linha desta lista");
+  L.push("importar para uma decisão, confira o nome no registro antes de agir.");
+  L.push("");
+  L.push(`Isso vale para **${p.semCandidaturaEstadual} das ${p.semCandidatura}** linhas afirmadas — as de disputa estadual. Nas ${p.semCandidaturaNacional} da disputa`);
+  L.push("nacional a busca varreu o registro inteiro, e ali a negativa é forte.");
+  L.push("");
+  L.push("Foi exatamente essa a falha da primeira versão deste arquivo: ela afirmou \"nenhuma no registro\"");
+  L.push("em três linhas estaduais e as três estavam erradas. O passo 5 e a coluna escopada fecham o que");
+  L.push("é demonstrável; **este parágrafo é o que sobra, e sobra de propósito** — dizer o resto exigiria");
+  L.push("um segundo casador, que é o que o §5 proíbe.");
+  L.push("");
   L.push("## Como cada linha é classificada");
   L.push("");
   L.push("A pergunta \"esta pessoa tem candidatura nesta disputa?\" é respondida por `data/people.ndjson`,");
@@ -868,10 +919,14 @@ function fixtures() {
     // Duas linhas de pessoa com a MESMA grafia: uma registrada noutra disputa,
     // outra vazia. Numa disputa estadual o casador não olha fora do estado, e a
     // linha vazia era publicada como "nenhuma no registro" — falso.
-    // ⚠ AS DUAS PONTES SÃO TESTADAS SEPARADAMENTE. O índice de contradição lê
-    // `polled_names`, `display` e `nome_urna`; se as três coincidissem no
-    // fixture, apagar qualquer uma delas passaria verde.
-    //   · aqui a única ponte é o `display` (as grafias pesquisadas não batem);
+    // ⚠ CADA PONTE TEM A SUA LINHA, E ISSO FOI CONSERTADO DEPOIS DE UMA
+    // CONFERÊNCIA. O índice de contradição lê `polled_names`, `display` e
+    // `nome_urna` da pessoa REGISTRADA; a consulta lê as grafias vistas na
+    // disputa, o `display` e as `polled_names` da linha SEM registro. São seis
+    // fontes, e uma versão anterior deste fixture cobria só três — apagar
+    // `nome_urna` do índice, ou `display` da consulta, passava verde enquanto o
+    // comentário dizia que estavam cobertos.
+    //   · aqui a única ponte é o `display` da linha REGISTRADA;
     { person_id: "p_rachado_reg", display: "Nome Rachado", registered: true, polled_names: ["Grafia Só Do Registro"], candidacies: [{ cargo: "senador", uf: "DF" }] },
     { person_id: "p_rachado_obs", display: "Nome Rachado", registered: false, polled_names: ["Nome Rachado"], candidacies: [] },
     //   · e aqui a única ponte é `polled_names` — que é o caso Ravenna Castro,
@@ -885,6 +940,30 @@ function fixtures() {
     //     `polled_names` da própria pessoa, a colisão fica invisível.
     { person_id: "p_larga_reg", display: "Apelido Alheio", registered: true, polled_names: ["Apelido Alheio"], candidacies: [{ cargo: "senador", uf: "RR" }] },
     { person_id: "p_larga_obs", display: "Nome Largo", registered: false, polled_names: ["Nome Largo", "Apelido Alheio"], candidacies: [] },
+    //   · ponte SÓ pelo `display` da linha SEM registro. `people.display` é
+    //     global e `candidates.canonical` é por disputa, então uma pessoa vista
+    //     em duas disputas pode exibir o nome de uma e ser publicada com o da
+    //     outra — é a única grafia que não está nem nas vistas aqui nem nas
+    //     `polled_names`.
+    { person_id: "p_disp_reg", display: "Registrado Do Display", registered: true, polled_names: ["Só No Display"], candidacies: [{ cargo: "senador", uf: "RO" }] },
+    { person_id: "p_disp_obs", display: "Só No Display", registered: false, polled_names: ["Grafia Publicada"], candidacies: [] },
+    //   · ponte SÓ pelo `nome_urna` da linha REGISTRADA: ela é publicada sob
+    //     outro nome e nunca foi pesquisada sob o nome de urna do TSE.
+    { person_id: "p_urna2_reg", display: "Display Diferente", registered: true, polled_names: ["Outra Grafia Ainda"], nome_urna: "Nome De Urna Só", candidacies: [{ cargo: "senador", uf: "TO" }] },
+    { person_id: "p_urna2_obs", display: "Nome De Urna Só", registered: false, polled_names: ["Nome De Urna Só"], candidacies: [] },
+    // ⚠ TRÊS LINHAS CONTRADITÓRIAS PARA UMA PESSOA SÓ — as guardas de ordem e de
+    // deduplicação não têm o que exercitar no banco real, onde toda linha colide
+    // com exatamente uma. Inseridos em ordem INVERSA à do `person_id` de
+    // propósito: assim a ordenação do índice tem de trabalhar para acertar.
+    { person_id: "p_ord_c", display: "Cê Registrado", registered: true, polled_names: ["Zeta Grafia"], candidacies: [{ cargo: "senador", uf: "AC" }] },
+    { person_id: "p_ord_b", display: "Bê Registrado", registered: true, polled_names: ["Zeta Grafia"], candidacies: [{ cargo: "senador", uf: "AL" }] },
+    { person_id: "p_ord_a", display: "Á Registrado", registered: true, polled_names: ["Alfa Grafia"], candidacies: [{ cargo: "senador", uf: "AM" }] },
+    { person_id: "p_ord_obs", display: "Alfa Grafia", registered: false, polled_names: ["Alfa Grafia", "Zeta Grafia"], candidacies: [] },
+    //   · e a sexta ponte: a grafia vista NESTA disputa, que não é nem o
+    //     `display` da linha nem nenhuma das `polled_names` dela. Sem esta,
+    //     apagar as grafias da consulta passava verde.
+    { person_id: "p_gr_reg", display: "Registrado Da Grafia", registered: true, polled_names: ["Grafia Da Disputa"], candidacies: [{ cargo: "senador", uf: "SE" }] },
+    { person_id: "p_gr_obs", display: "Outro Display", registered: false, polled_names: ["Outro Display"], candidacies: [] },
   ];
   const candidates = [
     { candidate_id: "c_lula", person_id: "p_lula", contest: "presidente:BR", canonical: "Lula", aliases: ["Lula"] },
@@ -899,6 +978,10 @@ function fixtures() {
     { candidate_id: "c_rac", person_id: "p_rachado_obs", contest: "presidente:BR", canonical: "Nome Rachado", aliases: [] },
     { candidate_id: "c_urn", person_id: "p_urna_obs", contest: "presidente:BR", canonical: "Grafia Compartilhada", aliases: [] },
     { candidate_id: "c_lrg", person_id: "p_larga_obs", contest: "presidente:BR", canonical: "Nome Largo", aliases: [] },
+    { candidate_id: "c_dsp", person_id: "p_disp_obs", contest: "presidente:BR", canonical: "Grafia Publicada", aliases: [] },
+    { candidate_id: "c_urn2", person_id: "p_urna2_obs", contest: "presidente:BR", canonical: "Nome De Urna Só", aliases: [] },
+    { candidate_id: "c_ord", person_id: "p_ord_obs", contest: "presidente:BR", canonical: "Zeta Grafia", aliases: [] },
+    { candidate_id: "c_gr", person_id: "p_gr_obs", contest: "presidente:BR", canonical: "Grafia Da Disputa", aliases: [] },
   ];
   // A grafia CRUA é a que o instituto publicou; quando ela difere do canônico, o
   // fixture a declara — é justamente essa diferença que separa as duas metades.
@@ -924,13 +1007,18 @@ function fixtures() {
     q("q10", "s5", null, 2, ["c_lula", "c_rac"]),    // véspera do corte
     q("q11", "s5", null, 2, ["c_lula", "c_urn"]),
     q("q12", "s5", null, 2, ["c_lula", "c_lrg"]),
+    q("q13", "s5", null, 2, ["c_lula", "c_dsp"]),
+    q("q14", "s5", null, 2, ["c_lula", "c_urn2"]),
+    q("q15", "s5", null, 2, ["c_lula", "c_ord"]),
+    q("q16", "s5", null, 2, ["c_lula", "c_gr"]),
   ];
   const crus = {
     // "Fulano Da Névoa" NÃO consta: é a grafia que o casador nunca examinou.
     // "Xará Registrado" consta AQUI e não em `presidente:PR` — é o nome curto,
     // que na vida real pertence a uma pessoa registrada noutra disputa.
     "presidente:BR": [{ nome: "Lula" }, { nome: "Tarcísio" }, { nome: "Jair Bolsonaro" }, { nome: "Ciro" }, { nome: "Ciro Gomes" },
-      { nome: "Xará Registrado" }, { nome: "Homônimo Empatado" }, { nome: "Nome Rachado" }, { nome: "Grafia Compartilhada" }, { nome: "Nome Largo" }],
+      { nome: "Xará Registrado" }, { nome: "Homônimo Empatado" }, { nome: "Nome Rachado" }, { nome: "Grafia Compartilhada" }, { nome: "Nome Largo" },
+      { nome: "Grafia Publicada" }, { nome: "Nome De Urna Só" }, { nome: "Zeta Grafia" }, { nome: "Grafia Da Disputa" }],
     "presidente:PR": [{ nome: "Lula" }, { nome: "Xará Registrado, com apoio de alguém" }, { nome: "Beltrano Do Paraná" }],
   };
   const ballot = { mapping: { "presidente:BR": {} }, ambiguos: [{ contest: "presidente:BR", nome: "Ciro", motivo: "compatível com mais de uma pessoa" }] };
@@ -1018,6 +1106,37 @@ function autoteste() {
   //     NESTA disputa — vem das `polled_names` da própria linha sem registro.
   ok(!!achaContra("Nome Largo"), "a consulta de contradição é mais larga que a de exame e usa as `polled_names` da própria pessoa");
   ok(achaContra("Nome Largo")?.contradiz?.[0]?.person_id === "p_larga_reg", "e nomeia quem colide");
+  //     ...e pelo `display` da própria linha sem registro, que não está nem nas
+  //     grafias vistas aqui nem nas `polled_names` dela.
+  ok(!!achaContra("Só No Display"), "a consulta de contradição usa também o `display` da linha sem registro");
+  ok(achaContra("Só No Display")?.contradiz?.[0]?.person_id === "p_disp_reg", "e nomeia quem colide pelo display");
+  //     E do lado do ÍNDICE, a ponte pelo `nome_urna` do TSE: a pessoa
+  //     registrada é publicada sob outro nome e nunca foi pesquisada sob o dela.
+  ok(!!achaContra("Nome De Urna Só"), "o índice de contradição usa o `nome_urna` da pessoa registrada");
+  ok(achaContra("Nome De Urna Só")?.contradiz?.[0]?.person_id === "p_urna2_reg", "e nomeia quem colide pelo nome de urna");
+  //     E a grafia vista NESTA disputa, que não é o `display` nem `polled_names`.
+  ok(!!achaContra("Outro Display"), "a consulta de contradição usa a grafia vista NESTA disputa");
+  ok(achaContra("Outro Display")?.contradiz?.[0]?.person_id === "p_gr_reg", "e nomeia quem colide pela grafia da disputa");
+
+  // 6d. A GRAFIA PUBLICADA VAI COMO FOI PUBLICADA. Trocar por `normNome(nome)`
+  //     reescreve as 6 linhas do arquivo real em minúsculas sem acento, e a
+  //     bateria não via. `normNome` casa; não exibe.
+  ok(achaContra("Grafia Compartilhada")?.contradiz?.[0]?.grafia === "Grafia Compartilhada",
+    `a grafia sai como publicada, não normalizada (veio ${achaContra("Grafia Compartilhada")?.contradiz?.[0]?.grafia})`);
+  ok(achaContra("Nome Rachado")?.contradiz?.[0]?.grafia === "Nome Rachado", "e o mesmo na ponte pelo display");
+
+  // 6e. ORDEM E DEDUPLICAÇÃO COM MAIS DE UMA LINHA CONTRADITÓRIA (§8). No banco
+  //     real toda linha colide com exatamente uma, então as três guardas abaixo
+  //     só existem porque este fixture as executa.
+  {
+    const o = achaContra("Alfa Grafia");
+    ok(o?.contradiz?.length === 3, `três linhas contraditórias, sem repetir a mesma duas vezes (veio ${o?.contradiz?.length})`);
+    ok(o?.contradiz?.map((x) => x.person_id).join() === "p_ord_a,p_ord_b,p_ord_c",
+      `a lista de contradições sai ordenada por person_id (veio ${o?.contradiz?.map((x) => x.person_id).join()})`);
+    const idx = registradosPorGrafia(f.people).get(normNome("Zeta Grafia"));
+    ok(idx?.map((x) => x.person_id).join() === "p_ord_b,p_ord_c",
+      `o índice ordena as pessoas de uma mesma grafia por person_id (veio ${idx?.map((x) => x.person_id).join()})`);
+  }
   ok(!pres.confrontos.map(rot).includes("Lula × Nome Rachado"), "confronto cujo único nome fora da urna é contradito NÃO é afirmado");
   ok(pres.confrontosIndeterminados.map(rot).includes("Lula × Nome Rachado"), "ele sai na tabela de recusa");
 
@@ -1080,6 +1199,13 @@ function autoteste() {
     ok(md.includes("23/03/2026"), "as datas saem em DD/MM/AAAA (§11)");
     ok(md.includes("p_rachado_reg"), "a recusa por contradição tem de nomear no relatório a linha que contradiz");
     ok(md.includes("nenhuma no registro inteiro"), "a negativa nacional sai com o alcance escrito");
+    // ⚠ A GLOSA DO PLACAR É O QUE UM LEITOR NÃO TÉCNICO LÊ PRIMEIRO, e ela
+    // carregou por uma rodada inteira a MESMA afirmação falsa que o passo 5
+    // tinha acabado de tirar das linhas. Prosa também se testa.
+    ok(!/registro inteiro sem achar nada/.test(md), "a glosa do placar NÃO pode alegar o registro inteiro para todas as linhas");
+    ok(md.includes("até onde alcança"), "a glosa do placar diz até onde a busca alcançou");
+    ok(md.includes("O que esta lista NÃO enxerga"), "o relatório tem de dizer o que NÃO consegue ver");
+    ok(md.includes("não olha os outros 26 estados"), "e dizer, em português claro, qual é o resíduo");
   }
 
   // 11. O PLACAR SOMA O QUE AS TABELAS MOSTRAM. Um placar derivado por outra
@@ -1097,7 +1223,7 @@ function autoteste() {
     for (const f of falhas) console.error(`  ✗ ${f}`);
     process.exit(1);
   }
-  console.log("autoteste ok — outra-disputa (Tarcísio), grafia não examinada, recusa do casador (pela grafia CRUA), contradição no próprio banco, alcance da negativa, confrontos, período eleitoral com o DIA do corte, data nula, empate por person_id, determinismo, renderização e placar");
+  console.log("autoteste ok — outra-disputa (Tarcísio), grafia não examinada, recusa do casador (pela grafia CRUA), contradição no próprio banco pelas 6 pontes, grafia publicada sem normalizar, ordem e deduplicação com 3 contradições, alcance da negativa, confrontos, período eleitoral com o DIA do corte, data nula, empate por person_id, determinismo, renderização e placar");
 }
 
 // ---------------------------------------------------------------------------
