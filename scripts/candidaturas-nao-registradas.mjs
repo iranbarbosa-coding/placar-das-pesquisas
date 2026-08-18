@@ -99,13 +99,13 @@ export const INICIO_PERIODO_ELEITORAL = "2026-08-16";
 // `data/ballot-names.json.mapping`, ou registra uma recusa em `.ambiguos`, ou
 // conta um `stats.sem`.
 //
-// ⚠ E `stats.sem` NÃO QUER DIZER "nenhuma candidatura no registro inteiro" —
-// esta linha já disse isso e era a mesma falsidade que custou a rodada 1 (ver
-// `situacao`, passo 5). Numa disputa ESTADUAL a reserva do casador descarta
-// candidatura de outra UF de propósito, então `stats.sem` ali significa
-// "nenhuma compatível NESTA UF nem entre as nacionais". Só em `presidente:BR`,
-// onde a regra de estado é isenta nas duas pontas, ele significa o registro
-// inteiro. Quem escreve a frase certa é `alcanceDaNegativa`.
+// ⚠ E `stats.sem` NÃO QUER DIZER "nenhuma candidatura no registro inteiro".
+// Numa disputa cuja UF de candidatura não é "BR", a reserva do casador descarta
+// candidatura de outra UF de propósito, então ali `stats.sem` significa "nenhuma
+// compatível NESTA UF nem entre as nacionais". Nas disputas presidenciais — TODAS
+// elas, porque `ufDaCandidatura` devolve "BR" também para `presidente:<UF>` — a
+// regra de estado é isenta nas duas pontas e o registro inteiro foi varrido.
+// Quem escreve a frase certa é `alcanceDaNegativa`.
 //
 // Então a pergunta que ESTE índice responde é a estreita e verificável — "o
 // casador chegou a examinar este nome?" —, e ela tem resposta exata nos dados.
@@ -342,7 +342,7 @@ export function registradosPorGrafia(people) {
 // Em `presidente:BR` a regra de estado é isenta nas duas pontas (`ufPesquisa`
 // é "BR"), então ali a reserva varreu o registro INTEIRO e a frase forte vale.
 //
-// Toni Rodrigues (`governador:PI`) e José Guimarães (`governador:CE`) são a
+// Toni Rodrigues (`governador:PI`) e José Guimarães (`senador:CE`) são a
 // classe que sobra: o passo 5 não os alcança, porque o nosso banco não tem
 // nenhuma outra linha com a grafia deles. É esta coluna que os deixa honestos.
 export function alcanceDaNegativa(disputa) {
@@ -816,7 +816,7 @@ function relatorio(cat, ctx) {
   L.push("nacionais. Só em `presidente:BR` — onde a regra de estado é isenta nas duas pontas — a frase");
   L.push("forte `nenhuma no registro inteiro` continua valendo. É esta coluna que deixa honestos os");
   L.push("casos que o passo 5 **não** alcança, como Toni Rodrigues (`governador:PI`) e José Guimarães");
-  L.push("(`governador:CE`), cujas grafias não aparecem em nenhuma outra linha do nosso banco.");
+  L.push("(`senador:CE`), cujas grafias não aparecem em nenhuma outra linha do nosso banco.");
   L.push("");
   L.push("⚠ **O balde de contradição mistura três espécies, e separá-las é ruling de humano, não conta");
   L.push("de relatório** (§4, §12): a mesma pessoa partida em duas linhas (Michelle, Tebet, Ciro Gomes);");

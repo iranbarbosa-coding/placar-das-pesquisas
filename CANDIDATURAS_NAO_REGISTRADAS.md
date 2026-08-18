@@ -113,7 +113,7 @@ provado: nenhuma candidatura compatível naquela UF (governo e senado) nem entre
 nacionais. Só em `presidente:BR` — onde a regra de estado é isenta nas duas pontas — a frase
 forte `nenhuma no registro inteiro` continua valendo. É esta coluna que deixa honestos os
 casos que o passo 5 **não** alcança, como Toni Rodrigues (`governador:PI`) e José Guimarães
-(`governador:CE`), cujas grafias não aparecem em nenhuma outra linha do nosso banco.
+(`senador:CE`), cujas grafias não aparecem em nenhuma outra linha do nosso banco.
 
 ⚠ **O balde de contradição mistura três espécies, e separá-las é ruling de humano, não conta
 de relatório** (§4, §12): a mesma pessoa partida em duas linhas (Michelle, Tebet, Ciro Gomes);
