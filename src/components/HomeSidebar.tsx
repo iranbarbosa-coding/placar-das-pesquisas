@@ -80,33 +80,29 @@ function DestaquesCard({ highlights }: { highlights: StateHighlight[] }) {
         </span>
       </div>
       <ul className="mt-2 divide-y" style={{ borderColor: "var(--ring)" }}>
-        {highlights.map((h) => {
-          const winning = h.toFifty >= 0;
-          return (
-            <li key={h.uf} className="flex items-center gap-3 py-2">
-              <span
-                className="tabular flex h-7 w-7 shrink-0 items-center justify-center rounded text-[10px] font-bold"
-                style={{ background: "var(--surface-2)", color: "var(--text-secondary)" }}
-              >
-                {h.uf}
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-                  {h.leader}
-                </div>
-                <div className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  Governador
-                </div>
-              </div>
-              <span
-                className="tabular shrink-0 text-sm font-bold"
-                style={{ color: winning ? "var(--series-3)" : "var(--cand-amber)" }}
-              >
-                {fmtSigned(h.margin)}
-              </span>
-            </li>
-          );
-        })}
+        {highlights.map((h) => (
+          // Linear row: state chip · cargo · nome · margem — the chip stays grey.
+          <li key={h.uf} className="flex items-center gap-2 py-2">
+            <span
+              className="tabular flex h-6 w-7 shrink-0 items-center justify-center rounded text-[10px] font-bold"
+              style={{ background: "var(--surface-2)", color: "var(--text-secondary)" }}
+            >
+              {h.uf}
+            </span>
+            <span className="shrink-0 text-xs" style={{ color: "var(--text-muted)" }}>
+              Governador
+            </span>
+            <span className="min-w-0 flex-1 truncate text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+              {h.leader}
+            </span>
+            <span
+              className="tabular shrink-0 text-sm font-bold"
+              style={{ color: h.margin >= 0 ? "var(--series-3)" : "var(--cand-red)" }}
+            >
+              {fmtSigned(h.margin)}
+            </span>
+          </li>
+        ))}
       </ul>
       <Link href="/estados" className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
         Ver todos os estados <span aria-hidden="true">→</span>
