@@ -97,26 +97,38 @@ export const INICIO_PERIODO_ELEITORAL = "2026-08-16";
 // `data/nomes-crus.json` (o despejo que `scrape.mjs` grava ANTES de
 // canonicalizar, CONVENTIONS §6) e, para cada uma, ou grava um casamento em
 // `data/ballot-names.json.mapping`, ou registra uma recusa em `.ambiguos`, ou
-// conta um `stats.sem` — "nenhuma candidatura compatível no registro inteiro".
+// conta um `stats.sem`.
 //
-// Então a pergunta "o casador chegou a examinar este nome?" tem resposta EXATA
-// nos dados, e é ela que separa uma negativa de verdade de um silêncio nosso.
+// ⚠ E `stats.sem` NÃO QUER DIZER "nenhuma candidatura no registro inteiro" —
+// esta linha já disse isso e era a mesma falsidade que custou a rodada 1 (ver
+// `situacao`, passo 5). Numa disputa ESTADUAL a reserva do casador descarta
+// candidatura de outra UF de propósito, então `stats.sem` ali significa
+// "nenhuma compatível NESTA UF nem entre as nacionais". Só em `presidente:BR`,
+// onde a regra de estado é isenta nas duas pontas, ele significa o registro
+// inteiro. Quem escreve a frase certa é `alcanceDaNegativa`.
+//
+// Então a pergunta que ESTE índice responde é a estreita e verificável — "o
+// casador chegou a examinar este nome?" —, e ela tem resposta exata nos dados.
 // Recontar isso aqui seria escrever um segundo casador (§5); ler é ler.
-function universoExaminado(crus) {
+function universoExaminado(crus, { dobrar = false } = {}) {
   const m = new Map();
   for (const [contest, nomes] of Object.entries(crus ?? {})) {
     // `nomes-crus.json` carrega `{nome, partidos}` desde 16/08; a forma de
     // string pura ainda é aceita, como no próprio casador — um clone só tem a
     // forma nova depois da primeira coleta.
-    m.set(contest, new Set(nomes.map((n) => normNome(typeof n === "string" ? n : n?.nome))));
+    const k = dobrar ? chaveDeDisputa(contest) : contest;
+    if (!m.has(k)) m.set(k, new Set());
+    for (const n of nomes) m.get(k).add(normNome(typeof n === "string" ? n : n?.nome));
   }
   return m;
 }
 
 /** As recusas que o casador GRAVOU, indexadas como ele as gravou. */
-function recusasDoCasador(ballot) {
+function recusasDoCasador(ballot, { dobrar = false } = {}) {
   const s = new Set();
-  for (const a of ballot?.ambiguos ?? []) s.add(`${a.contest}|${normNome(a.nome)}`);
+  for (const a of ballot?.ambiguos ?? []) {
+    s.add(`${dobrar ? chaveDeDisputa(a.contest) : a.contest}|${normNome(a.nome)}`);
+  }
   return s;
 }
 
@@ -346,8 +358,13 @@ export function alcanceDaNegativa(disputa) {
 
 /** A chave de disputa de uma pergunta: `presidente:SP` dobra para `presidente:BR`. */
 const disputaDaPergunta = (q) => chaveDeDisputa(`${q.race}:${q.uf ?? "BR"}`);
-/** A chave de disputa PESQUISADA, que é a que o casador usou. NÃO dobra. */
-const chavePesquisada = (q) => `${q.race}:${q.uf ?? "BR"}`;
+/**
+ * A chave de disputa PESQUISADA, que é a que o casador usou. NÃO dobra —
+ * `dobrarExame` só existe para o relatório PUBLICAR quanto custa dobrar, e o
+ * custo é medido rodando, nunca digitado. Ver `COMPARACAO DA DOBRA`.
+ */
+const chavePesquisada = (q, dobrar) =>
+  dobrar ? chaveDeDisputa(`${q.race}:${q.uf ?? "BR"}`) : `${q.race}:${q.uf ?? "BR"}`;
 
 /**
  * Ordem estável de rótulos de confronto e de nomes.
@@ -374,9 +391,9 @@ const fimDeCampo = (s) => s?.fieldwork_end ?? null;
  * Nada de `Date.now()`, nada de ordem de array decidindo saída (§8) — o autoteste
  * embaralha as entradas e compara o JSON, e é ele que segura essa promessa.
  */
-export function catalogar({ questions, surveys, candidates, people, crus, ballot, inicioPeriodo = INICIO_PERIODO_ELEITORAL }) {
-  const examinado = universoExaminado(crus);
-  const recusado = recusasDoCasador(ballot);
+export function catalogar({ questions, surveys, candidates, people, crus, ballot, candidaturas = [], inicioPeriodo = INICIO_PERIODO_ELEITORAL, dobrarExame = false }) {
+  const examinado = universoExaminado(crus, { dobrar: dobrarExame });
+  const recusado = recusasDoCasador(ballot, { dobrar: dobrarExame });
   const porGrafia = registradosPorGrafia(people);
   const porId = new Map(candidates.map((c) => [c.candidate_id, c]));
   const pessoaPorId = new Map(people.map((p) => [p.person_id, p]));
@@ -418,7 +435,7 @@ export function catalogar({ questions, surveys, candidates, people, crus, ballot
 
   for (const q of questions) {
     const disputa = disputaDaPergunta(q);
-    const pesquisada = chavePesquisada(q);
+    const pesquisada = chavePesquisada(q, dobrarExame);
     const s = levantamento.get(q.survey_id) ?? null;
     const fim = fimDeCampo(s);
     if (fim && fim >= inicioPeriodo) { periodo.cenarios++; periodo.levantamentos.add(q.survey_id); }
@@ -534,6 +551,16 @@ export function catalogar({ questions, surveys, candidates, people, crus, ballot
   return {
     disputas: lista,
     inicioPeriodo,
+    dobrarExame,
+    // ⚠ O "13 CANDIDATURAS NACIONAIS" NÃO É LITERAL. Ele aparece em duas frases
+    // do relatório e estava digitado à mão nas duas — um número solto, preso a
+    // nada, que ficaria errado no dia em que o TSE publicasse a 14ª. Sai do
+    // registro, que é onde ele mora.
+    candidaturasNacionais: (candidaturas ?? []).filter((c) => c.uf == null).length,
+    // Idem para o "outros 26 estados": é o número de UFs que o registro conhece
+    // menos a da própria disputa. Digitado, ficaria errado no dia em que o
+    // registro chegasse incompleto — e ninguém veria.
+    ufsNaoProcuradas: Math.max(0, new Set((candidaturas ?? []).map((c) => c.uf).filter(Boolean)).size - 1),
     periodo: { cenarios: periodo.cenarios, levantamentos: periodo.levantamentos.size },
     placar: {
       total2T: [...totais.values()].reduce((n, t) => n + t.confrontos.size, 0),
@@ -557,6 +584,123 @@ export function catalogar({ questions, surveys, candidates, people, crus, ballot
       noPeriodoConfrontos: somar((s) => s.confrontos.reduce((n, c) => n + c.noPeriodo, 0)),
     },
   };
+}
+
+// ---------------------------------------------------------------------------
+// O RESÍDUO — a frase é MONTADA a partir dos números, não digitada
+// ---------------------------------------------------------------------------
+//
+// Três rodadas de conferência acharam a MESMA falsidade em TRÊS lugares
+// diferentes deste arquivo — a linha, depois a glosa do placar, depois a tabela
+// da dobra. O padrão não é azar: é que prosa escrita à mão sobre números
+// calculados envelhece sozinha, e a bateria pinava substring em vez de sentido.
+// Um conferente mirou 16 mutações na prosa desta seção e ONZE ficaram verdes,
+// inclusive trocar os dois contadores de lugar (o arquivo publicava "292 linhas
+// da disputa nacional … 292 estaduais", de 320) e inverter a seção para dizer
+// "numa disputa NACIONAL" e "NÃO aparece aqui".
+//
+// Então a seção deixou de ser texto solto e virou ESTA função: pura, recebendo
+// o catálogo, com DOIS ramos de verdade opostos. Inverter o sentido agora exige
+// inverter o ramo, e o autoteste exercita os dois — com resíduo e sem resíduo.
+//
+// `ESCOPO_ESTREITO` é derivado de `alcanceDaNegativa`, não digitado: a disputa
+// em que a negativa sai escopada é, por definição, aquela em que a busca não
+// varreu o registro inteiro. Trocar a palavra na frase passa a exigir trocar a
+// regra, e a regra tem mutação vermelha (`N3`).
+export const ESCOPO_ESTREITO = alcanceDaNegativa("governador:XX").includes("nem nacional") ? "estadual" : "nacional";
+export const ESCOPO_AMPLO = ESCOPO_ESTREITO === "estadual" ? "nacional" : "estadual";
+
+/**
+ * A seção "o que esta lista não enxerga", em linhas de markdown.
+ *
+ * Exportada e pura porque é assim que ela vira afirmável: o autoteste a chama
+ * com um catálogo QUE TEM linhas estaduais e com um que NÃO TEM, e os dois
+ * textos têm de ser opostos. Uma inversão de sentido quebra um dos dois.
+ */
+export function fraseResiduo(cat) {
+  const p = cat.placar;
+  const L = ["## ⚠ O que esta lista NÃO enxerga", ""];
+  if (!p.semCandidaturaEstadual) {
+    L.push(`Nada — **as ${p.semCandidatura} linhas afirmadas são todas da disputa ${ESCOPO_AMPLO}**, onde o casador de nomes`);
+    L.push("varreu o registro inteiro. Não há resíduo desta espécie neste arquivo hoje.");
+    L.push("");
+    return L;
+  }
+  L.push(`Numa disputa **${ESCOPO_ESTREITO}** o casador de nomes só procurou o nome na UF daquela disputa e entre`);
+  L.push(`as ${cat.candidaturasNacionais} candidaturas nacionais — **ele não olha os outros ${cat.ufsNaoProcuradas} estados**. Então quem se registrou`);
+  L.push("num estado que não foi procurado, **e** que nunca foi pesquisado sob uma grafia que colidisse");
+  L.push(`com a de alguém registrado, **continua aparecendo aqui como sem candidatura**: são as`);
+  L.push(`**${p.semCandidaturaEstadual} de ${p.semCandidatura}** linhas afirmadas que saem de disputa ${ESCOPO_ESTREITO}. Não é engano de leitura — é o`);
+  L.push("alcance do que dá para provar com o que temos hoje.");
+  L.push("");
+  L.push("**Se uma linha desta lista importar para uma decisão, confira o nome no registro antes de agir.**");
+  L.push("");
+  L.push(`Nas ${p.semCandidaturaNacional} linhas da disputa ${ESCOPO_AMPLO} a busca varreu o registro inteiro, e ali a negativa é forte.`);
+  L.push("");
+  L.push("As duas condições são conjuntas de propósito: quem foi pesquisado sob uma grafia que colide com");
+  L.push("a de alguém registrado **não** cai nesta sombra — é interceptado pelo passo 5 e vai para a");
+  L.push("tabela de contradições. A sombra é só de quem escapou das duas.");
+  L.push("");
+  L.push("Foi exatamente essa a falha da primeira versão deste arquivo: ela afirmou \"nenhuma no registro\"");
+  L.push("em três linhas estaduais e as três estavam erradas. O passo 5 e a coluna escopada fecham o que");
+  L.push("é demonstrável; **este parágrafo é o que sobra, e sobra de propósito** — dizer o resto exigiria");
+  L.push("um segundo casador, que é o que o §5 proíbe.");
+  L.push("");
+  return L;
+}
+
+/**
+ * A COMPARAÇÃO DA DOBRA, medida em vez de lembrada.
+ *
+ * A tabela que este relatório publica sobre "e se a chave de exame dobrasse
+ * para a nacional?" ficou ERRADA por uma rodada inteira: os números eram os da
+ * contabilidade anterior ao passo 5 (326/8) enquanto o arquivo publicava 320, e
+ * o rótulo dizia "o que está publicado aqui". Números medidos uma vez e
+ * digitados envelhecem em silêncio.
+ *
+ * Agora as duas linhas saem de DUAS execuções de `catalogar` sobre a mesma
+ * entrada, uma com `dobrarExame`. Não há como a tabela discordar do arquivo.
+ */
+export function fraseDobra(base, dobrado) {
+  const a = base.placar;
+  const b = dobrado.placar;
+  const L = [];
+  L.push("**A chave de exame não dobra para a nacional, e a conta dos dois jeitos é rodada a cada");
+  L.push("geração — não é lembrança.** Em quase todo o resto do repositório `presidente:PR` dobra para");
+  L.push("`presidente:BR`, porque a disputa é nacional e só a amostra é estadual. A pergunta \"tem");
+  L.push("candidatura nesta disputa?\" usa a dobra; a pergunta \"o casador examinou esta grafia?\" não.");
+  L.push("");
+  L.push("| | sem candidatura | contradições | não determinados |");
+  L.push("|---|---|---|---|");
+  L.push(`| **sem dobra** — o que está publicado neste arquivo | **${a.semCandidatura}** | ${a.contradicoes} | ${a.indeterminados} |`);
+  L.push(`| com dobra dos dois lados | ${b.semCandidatura} | ${b.contradicoes} | ${b.indeterminados} |`);
+  L.push("");
+  const dAf = b.semCandidatura - a.semCandidatura;
+  const dCo = b.contradicoes - a.contradicoes;
+  const dNd = a.indeterminados - b.indeterminados;
+  // Sinal escrito por extenso: um "−2 não determinados" já foi publicado e lia
+  // como se a dobra criasse recusas, quando ela as resolve. Número com sinal em
+  // prosa é armadilha; a frase diz a direção.
+  L.push(dNd > 0
+    ? `Hoje a dobra **resolveria ${dNd} não determinado(s)**: ${dAf} viraria(m) afirmação e ${dCo} viraria(m) contradição.`
+    : dNd < 0
+      ? `Hoje a dobra **criaria ${-dNd} não determinado(s) a mais**.`
+      : "Hoje a dobra não moveria nenhuma linha.");
+  L.push("");
+  L.push("⚠ **A razão escrita aqui em 18/08/2026 deixou de valer no mesmo dia, e isto é a correção.** Ela");
+  L.push("dizia que dobrar produziria uma *afirmação falsa* sobre Ciro Nogueira — a linha sem registro");
+  L.push("nascida da grafia com cláusula herdaria o exame de \"Ciro Nogueira\" em `presidente:BR` e sairia");
+  L.push("como \"nenhuma no registro\", sendo ele registrado em `senador:PI`. Isso **era** verdade, e");
+  L.push("deixou de ser quando o passo 5 entrou na mesma série: hoje a dobra manda essa linha para a");
+  L.push("tabela de **contradições**, não para uma afirmação. A justificativa sobreviveu à sua própria");
+  L.push("causa por uma rodada.");
+  L.push("");
+  L.push("**O que sobra como razão, e é razão suficiente:** sem dobra existem DUAS barreiras independentes");
+  L.push("entre esta linha e uma afirmação falsa — a chave de exame por disputa pesquisada e o passo 5.");
+  L.push("Com a dobra sobra uma. O preço de manter as duas é uma recusa a mais, e a direção declarada");
+  L.push("deste repositório é errar para o lado de não afirmar.");
+  L.push("");
+  return L;
 }
 
 // ---------------------------------------------------------------------------
@@ -603,7 +747,7 @@ function relatorio(cat, ctx) {
   L.push("");
   L.push("| população | o que é | quantas |");
   L.push("|---|---|---|");
-  L.push(`| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa, e o casador procurou o nome dela **até onde alcança**: no registro inteiro nas ${p.semCandidaturaNacional} linhas da disputa nacional, e só na UF da disputa mais as 13 candidaturas nacionais nas ${p.semCandidaturaEstadual} estaduais | **${p.semCandidatura}** |`);
+  L.push(`| **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa, e o casador procurou o nome dela **até onde alcança**: no registro inteiro nas ${p.semCandidaturaNacional} linhas da disputa nacional, e só na UF da disputa mais as ${cat.candidaturasNacionais} candidaturas nacionais nas ${p.semCandidaturaEstadual} estaduais | **${p.semCandidatura}** |`);
   L.push(`| **OUTRA DISPUTA** | a pessoa não tem candidatura nesta disputa mas TEM em outra — o caso Tarcísio | **${p.outraDisputa}** |`);
   L.push(`| *contradição no nosso banco* | outra linha de pessoa carrega a MESMA grafia e TEM candidatura — **recusado**, nunca afirmado | ${p.contradicoes} |`);
   L.push(`| *não determinado* | não dá para afirmar nem uma coisa nem outra — **recusado**, nunca contado como não registrada | ${p.indeterminados} |`);
@@ -616,23 +760,7 @@ function relatorio(cat, ctx) {
   L.push(`de **${cat.periodo.cenarios}** cenários que o banco tem com campo encerrado em ${dt(cat.inicioPeriodo)} ou depois, em ${cat.periodo.levantamentos} levantamento(s).`);
   L.push("");
 
-  L.push("## ⚠ O que esta lista NÃO enxerga");
-  L.push("");
-  L.push("Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e entre");
-  L.push("as 13 candidaturas nacionais — **ele não olha os outros 26 estados**. Então quem se registrou");
-  L.push("num estado que não foi procurado, e que nunca foi pesquisado sob uma grafia que colidisse com a");
-  L.push("de alguém registrado, **continua aparecendo aqui como sem candidatura**. Não é engano de");
-  L.push("leitura: é o alcance do que dá para provar com o que temos hoje. Se uma linha desta lista");
-  L.push("importar para uma decisão, confira o nome no registro antes de agir.");
-  L.push("");
-  L.push(`Isso vale para **${p.semCandidaturaEstadual} das ${p.semCandidatura}** linhas afirmadas — as de disputa estadual. Nas ${p.semCandidaturaNacional} da disputa`);
-  L.push("nacional a busca varreu o registro inteiro, e ali a negativa é forte.");
-  L.push("");
-  L.push("Foi exatamente essa a falha da primeira versão deste arquivo: ela afirmou \"nenhuma no registro\"");
-  L.push("em três linhas estaduais e as três estavam erradas. O passo 5 e a coluna escopada fecham o que");
-  L.push("é demonstrável; **este parágrafo é o que sobra, e sobra de propósito** — dizer o resto exigiria");
-  L.push("um segundo casador, que é o que o §5 proíbe.");
-  L.push("");
+  for (const linha of fraseResiduo(cat)) L.push(linha);
   L.push("## Como cada linha é classificada");
   L.push("");
   L.push("A pergunta \"esta pessoa tem candidatura nesta disputa?\" é respondida por `data/people.ndjson`,");
@@ -710,24 +838,7 @@ function relatorio(cat, ctx) {
   L.push("Em todos, o nome que **alcançaria** a candidatura é o nome canonizado por nós, que o casador");
   L.push("nunca viu. Afirmar a partir da nossa própria falha de casamento é exatamente o que o §4 proíbe.");
   L.push("");
-  L.push("**A chave de exame não dobra para a nacional, e isso foi medido dos dois jeitos.** Em quase todo");
-  L.push("o resto do repositório `presidente:PR` dobra para `presidente:BR` — a disputa é nacional, só a");
-  L.push("amostra é estadual. A pergunta \"tem candidatura nesta disputa?\" usa a dobra. A pergunta \"o");
-  L.push("casador examinou esta grafia?\" **não**, e rodando os dois jeitos contra este banco:");
-  L.push("");
-  L.push("| | sem candidatura | não determinados |");
-  L.push("|---|---|---|");
-  L.push("| **sem dobra** (o que está publicado aqui) | 326 | 8 |");
-  L.push("| com dobra | 328 | 6 |");
-  L.push("");
-  L.push("A dobra \"resolve\" duas linhas: `Tereza Cristina`, que é ganho real, e `Ciro Nogueira`, que é");
-  L.push("**afirmação falsa** — a pessoa sem registro nascida da grafia com cláusula herdaria o exame de");
-  L.push("\"Ciro Nogueira\" em `presidente:BR` e sairia como \"nenhuma no registro\", sendo que Ciro Nogueira");
-  L.push("está registrado em `senador:PI`. Uma afirmação falsa contra duas recusas a mais: o repositório");
-  L.push("já declarou a direção do erro — *erra para o lado de NÃO afirmar*. O preço é `Lula × Tereza");
-  L.push("Cristina`, 5 cenários nacionais, em não determinado.");
-  L.push("");
-
+  for (const linha of fraseDobra(cat, ctx.dobrado)) L.push(linha);
   L.push("## Leitura — o que salta aos olhos");
   L.push("");
   for (const linha of ctx.leitura) L.push(linha);
@@ -876,6 +987,27 @@ function exigirEntradas({ candidaturas, crus, ballot }) {
 
 const lerJson = (f, padrao) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf-8")) : padrao);
 
+/**
+ * O par de execuções que produz o arquivo. UMA função, chamada pelo CLI E pelo
+ * autoteste.
+ *
+ * ⚠ EXISTE PORQUE O AUTOTESTE ANDAVA POR OUTRO CAMINHO. Ele montava o seu
+ * próprio `dobrado` e o CLI montava o dele; apagar `dobrarExame: true` do CLI
+ * — o que faz a tabela comparar o arquivo consigo mesmo e imprimir duas linhas
+ * idênticas — passava VERDE. Um guarda que não pisa no caminho de produção não
+ * guarda o caminho de produção (§2), e é a mesma família do
+ * `upsert-vs-migration.mjs` comparando o caminho consigo mesmo.
+ *
+ * A SEGUNDA EXECUÇÃO É O QUE IMPEDE A TABELA DA DOBRA DE MENTIR: ela já foi
+ * publicada com números de uma contabilidade anterior, contradizendo o placar
+ * do próprio arquivo 110 linhas acima. Medir é barato; lembrar não é confiável.
+ */
+export function gerar(entrada) {
+  const cat = catalogar(entrada);
+  const dobrado = catalogar({ ...entrada, dobrarExame: true });
+  return { cat, dobrado, md: relatorio(cat, { leitura: leitura(cat), dobrado }) };
+}
+
 // ---------------------------------------------------------------------------
 // AUTOTESTE — o guarda tem de FALHAR quando deve (§2)
 // ---------------------------------------------------------------------------
@@ -964,6 +1096,16 @@ function fixtures() {
     //     apagar as grafias da consulta passava verde.
     { person_id: "p_gr_reg", display: "Registrado Da Grafia", registered: true, polled_names: ["Grafia Da Disputa"], candidacies: [{ cargo: "senador", uf: "SE" }] },
     { person_id: "p_gr_obs", display: "Outro Display", registered: false, polled_names: ["Outro Display"], candidacies: [] },
+    // ⚠ O XARÁ REGISTRADO DE VERDADE. `p_clausula` acima é a linha SEM registro
+    // nascida da grafia com cláusula; esta é a pessoa REGISTRADA que carrega o
+    // nome curto — o par Ciro Nogueira × Ciro Nogueira do banco real. Sem ela o
+    // fixture modelava o mundo ANTES do passo 5, e a bateria continuava
+    // afirmando que dobrar produz afirmação falsa, o que deixou de ser verdade.
+    { person_id: "p_xara_reg", display: "Xará Registrado", registered: true, polled_names: ["Xará Registrado"], candidacies: [{ cargo: "senador", uf: "PI" }] },
+    // ⚠ UMA DISPUTA ESTADUAL. Sem ela `semCandidaturaEstadual` era ZERO no
+    // fixture, e trocar os dois contadores de lugar — que fez o arquivo publicar
+    // "292 da disputa nacional … 292 estaduais", de 320 — passava verde.
+    { person_id: "p_gov_obs", display: "Testado Em Goiás", registered: false, polled_names: ["Testado Em Goiás"], candidacies: [] },
   ];
   const candidates = [
     { candidate_id: "c_lula", person_id: "p_lula", contest: "presidente:BR", canonical: "Lula", aliases: ["Lula"] },
@@ -982,6 +1124,7 @@ function fixtures() {
     { candidate_id: "c_urn2", person_id: "p_urna2_obs", contest: "presidente:BR", canonical: "Nome De Urna Só", aliases: [] },
     { candidate_id: "c_ord", person_id: "p_ord_obs", contest: "presidente:BR", canonical: "Zeta Grafia", aliases: [] },
     { candidate_id: "c_gr", person_id: "p_gr_obs", contest: "presidente:BR", canonical: "Grafia Da Disputa", aliases: [] },
+    { candidate_id: "c_gov", person_id: "p_gov_obs", contest: "governador:GO", canonical: "Testado Em Goiás", aliases: [] },
   ];
   // A grafia CRUA é a que o instituto publicou; quando ela difere do canônico, o
   // fixture a declara — é justamente essa diferença que separa as duas metades.
@@ -990,8 +1133,8 @@ function fixtures() {
   // conjunto de grafias, sobra só o canônico, que é examinado e não é ambíguo,
   // e a linha vira afirmação. É o que torna visível apagar `name_raw`.
   const CRU = { c_cla: "Xará Registrado, com apoio de alguém", c_amb: "Ciro" };
-  const q = (id, survey_id, uf, round, ids) => ({
-    question_id: id, survey_id, race: "presidente", round, uf,
+  const q = (id, survey_id, uf, round, ids, race = "presidente") => ({
+    question_id: id, survey_id, race, round, uf,
     results: ids.map((c) => ({ candidate_id: c, name_raw: CRU[c] ?? candidates.find((x) => x.candidate_id === c).canonical })),
   });
   const questions = [
@@ -1011,6 +1154,16 @@ function fixtures() {
     q("q14", "s5", null, 2, ["c_lula", "c_urn2"]),
     q("q15", "s5", null, 2, ["c_lula", "c_ord"]),
     q("q16", "s5", null, 2, ["c_lula", "c_gr"]),
+    q("q17", "s5", "GO", 1, ["c_gov"], "governador"),
+  ];
+  // O registro do TSE, reduzido ao que este relatório lê dele: quantas
+  // candidaturas são nacionais (`uf` nulo) e quantas UFs existem. Os dois
+  // números aparecem em frases do relatório e SAEM DAQUI — digitados, ficariam
+  // errados no dia em que o registro mudasse, e ninguém veria.
+  const candidaturas = [
+    { cargo: "presidente", uf: null }, { cargo: "presidente", uf: null }, { cargo: "presidente", uf: null },
+    { cargo: "governador", uf: "GO" }, { cargo: "senador", uf: "GO" },
+    { cargo: "governador", uf: "PI" }, { cargo: "senador", uf: "SP" }, { cargo: "governador", uf: "RN" },
   ];
   const crus = {
     // "Fulano Da Névoa" NÃO consta: é a grafia que o casador nunca examinou.
@@ -1019,10 +1172,11 @@ function fixtures() {
     "presidente:BR": [{ nome: "Lula" }, { nome: "Tarcísio" }, { nome: "Jair Bolsonaro" }, { nome: "Ciro" }, { nome: "Ciro Gomes" },
       { nome: "Xará Registrado" }, { nome: "Homônimo Empatado" }, { nome: "Nome Rachado" }, { nome: "Grafia Compartilhada" }, { nome: "Nome Largo" },
       { nome: "Grafia Publicada" }, { nome: "Nome De Urna Só" }, { nome: "Zeta Grafia" }, { nome: "Grafia Da Disputa" }],
+    "governador:GO": [{ nome: "Testado Em Goiás" }],
     "presidente:PR": [{ nome: "Lula" }, { nome: "Xará Registrado, com apoio de alguém" }, { nome: "Beltrano Do Paraná" }],
   };
   const ballot = { mapping: { "presidente:BR": {} }, ambiguos: [{ contest: "presidente:BR", nome: "Ciro", motivo: "compatível com mais de uma pessoa" }] };
-  return { questions, surveys, candidates, people, crus, ballot };
+  return { questions, surveys, candidates, people, crus, ballot, candidaturas };
 }
 
 function autoteste() {
@@ -1074,7 +1228,7 @@ function autoteste() {
   //     · dobrar SÓ a grafia observada tornaria a lista de `presidente:PR`
   //       inalcançável e recusaria `Beltrano Do Paraná`, que é afirmável.
   ok(!!achaNd("Xará Registrado"), "a grafia com cláusula não pode herdar o exame do nome curto da disputa nacional");
-  ok(!acha("Xará Registrado"), "dobrar os dois lados da chave de exame produziria aqui uma afirmação falsa");
+  ok(!acha("Xará Registrado"), "a grafia com cláusula não pode sair afirmada");
   ok(acha("Beltrano Do Paraná")?.classe === "sem-candidatura", "quem tem TODAS as grafias na lista estadual é afirmável — dobrar só um lado esconderia isto");
 
   // 6. CONFRONTOS: os que têm alguém sem candidatura são afirmados; o que só tem
@@ -1192,7 +1346,9 @@ function autoteste() {
   // 10. O RELATÓRIO SE RENDERIZA e carrega as duas tabelas — um catálogo que
   //     agrega certo e imprime errado não vale nada.
   {
-    const md = relatorio(cat, { leitura: leitura(cat) });
+    // ⚠ PELO MESMO CAMINHO DO CLI. Ver `gerar`.
+    const { md, dobrado: dobradoDoCli } = gerar(f);
+    ok(dobradoDoCli.dobrarExame === true, "o caminho de produção tem de medir a dobra de verdade, não comparar o arquivo consigo mesmo");
     ok(md.includes("| Tarcísio |") && md.includes("`governador:SP`"), "a tabela tem de publicar Tarcísio com a outra disputa");
     ok(md.includes("Lula × Tarcísio"), "a tabela de confrontos tem de publicar o par");
     ok(md.includes("Fulano Da Névoa"), "o não determinado tem de aparecer no relatório, não sumir");
@@ -1205,7 +1361,12 @@ function autoteste() {
     ok(!/registro inteiro sem achar nada/.test(md), "a glosa do placar NÃO pode alegar o registro inteiro para todas as linhas");
     ok(md.includes("até onde alcança"), "a glosa do placar diz até onde a busca alcançou");
     ok(md.includes("O que esta lista NÃO enxerga"), "o relatório tem de dizer o que NÃO consegue ver");
-    ok(md.includes("não olha os outros 26 estados"), "e dizer, em português claro, qual é o resíduo");
+    ok(md.includes(`não olha os outros ${cat.ufsNaoProcuradas} estados`), "e dizer, em português claro, qual é o resíduo — com o número saindo do registro");
+    // O "13 candidaturas nacionais" aparece em DUAS frases e era literal nas
+    // duas; agora sai do registro, e as duas ocorrências são afirmadas.
+    ok(md.includes(`mais as ${cat.candidaturasNacionais} candidaturas nacionais`), "a glosa do placar publica o número de candidaturas nacionais que o registro tem");
+    ok(md.includes(`as ${cat.candidaturasNacionais} candidaturas nacionais —`), "e o resíduo também");
+    ok(!/\b13 candidaturas nacionais\b/.test(md) || cat.candidaturasNacionais === 13, "nenhum literal solto de candidaturas nacionais");
   }
 
   // 11. O PLACAR SOMA O QUE AS TABELAS MOSTRAM. Um placar derivado por outra
@@ -1218,12 +1379,90 @@ function autoteste() {
       `o placar tem de bater com as linhas (${p.candidatos} vs ${cand})`);
   }
 
+  // 12. ⚠ OS NÚMEROS DA PROSA, LIGADOS AO QUE ELES CONTAM.
+  //
+  //     Três rodadas de conferência acharam a mesma falsidade em três lugares
+  //     diferentes deste arquivo, e a bateria só pinava substring. Um conferente
+  //     mirou 16 mutações na prosa e ONZE ficaram verdes — inclusive trocar os
+  //     dois contadores de lugar, fazendo o arquivo publicar "292 da disputa
+  //     nacional … 292 estaduais" de um total de 320. A invariante abaixo mata
+  //     essa classe inteira de uma vez.
+  {
+    const p = cat.placar;
+    ok(p.semCandidaturaNacional + p.semCandidaturaEstadual === p.semCandidatura,
+      `o corte nacional/estadual tem de fechar com o total (${p.semCandidaturaNacional} + ${p.semCandidaturaEstadual} ≠ ${p.semCandidatura})`);
+    ok(p.semCandidaturaNacional > 0 && p.semCandidaturaEstadual > 0,
+      `os dois lados do corte têm de ser exercitados (veio ${p.semCandidaturaNacional}/${p.semCandidaturaEstadual})`);
+    // E cada lado tem de bater com as seções, contadas por outro caminho.
+    const nac = cat.disputas.filter((s) => s.disputa.endsWith(":BR")).reduce((n, s) => n + s.candidatos.filter((c) => c.classe === "sem-candidatura").length, 0);
+    const est = cat.disputas.filter((s) => !s.disputa.endsWith(":BR")).reduce((n, s) => n + s.candidatos.filter((c) => c.classe === "sem-candidatura").length, 0);
+    ok(p.semCandidaturaNacional === nac && p.semCandidaturaEstadual === est,
+      `o placar tem de bater com as seções (${p.semCandidaturaNacional}/${p.semCandidaturaEstadual} vs ${nac}/${est})`);
+    // O "13 candidaturas nacionais" e o "outros 26 estados" saem do REGISTRO.
+    ok(cat.candidaturasNacionais === f.candidaturas.filter((c) => c.uf == null).length && cat.candidaturasNacionais === 3,
+      `as candidaturas nacionais saem do registro (veio ${cat.candidaturasNacionais})`);
+    ok(cat.ufsNaoProcuradas === 3, `as UFs não procuradas saem do registro (veio ${cat.ufsNaoProcuradas})`);
+  }
+
+  // 13. ⚠ O RESÍDUO TEM DOIS RAMOS OPOSTOS, e os dois são exercitados. Inverter
+  //     o sentido da seção passa a exigir inverter o ramo, e aí o outro quebra.
+  {
+    const comResiduo = fraseResiduo(cat).join("\n");
+    ok(/Numa disputa \*\*estadual\*\*/.test(comResiduo), "o resíduo é da disputa ESTADUAL, não da nacional");
+    ok(!/Numa disputa \*\*nacional\*\*/.test(comResiduo), "e não pode dizer o contrário");
+    ok(/continua aparecendo aqui como sem candidatura/.test(comResiduo), "e diz que essas linhas CONTINUAM aparecendo");
+    ok(!/não aparece aqui/.test(comResiduo), "nunca que elas não aparecem");
+    ok(/\*\*e\*\* que nunca foi pesquisado sob uma grafia que colidisse/.test(comResiduo), "as duas condições são conjuntas e a conjunção é explícita");
+    ok(/confira o nome no registro antes de agir/.test(comResiduo), "e diz ao leitor o que fazer com isso");
+    // ⚠ ESTE É PINO DE SUBSTRING, E EU DIGO QUE É. O parágrafo de fechamento é
+    // narrativa histórica — não tem número que o prenda —, então a única coisa
+    // afirmável sobre ele é que ele está lá. Um conferente apagou-o e a bateria
+    // não viu. Fica pinado, com a etiqueta de que é pino e não amarração.
+    ok(/afirmou "nenhuma no registro"/.test(comResiduo) && /três linhas estaduais e as três estavam erradas/.test(comResiduo),
+      "o fechamento que conta de onde veio esta seção não pode sumir");
+    ok(comResiduo.includes(`**${cat.placar.semCandidaturaEstadual} de ${cat.placar.semCandidatura}**`), "o tamanho da sombra sai dos contadores, não digitado");
+    // O ramo oposto: um catálogo SEM linha estadual tem de dizer o contrário.
+    const semEstaduais = { ...cat, placar: { ...cat.placar, semCandidaturaEstadual: 0, semCandidatura: cat.placar.semCandidaturaNacional } };
+    const sem = fraseResiduo(semEstaduais).join("\n");
+    ok(/são todas da disputa nacional/.test(sem), "sem linha estadual, a seção diz que não há resíduo desta espécie");
+    ok(!/continua aparecendo aqui/.test(sem), "e não repete a frase do outro ramo");
+    ok(ESCOPO_ESTREITO === "estadual" && ESCOPO_AMPLO === "nacional", "o escopo estreito é derivado de `alcanceDaNegativa`, não digitado");
+  }
+
+  // 14. ⚠ A TABELA DA DOBRA É MEDIDA, e o que ela custa hoje é UMA RECUSA A
+  //     MAIS, não uma afirmação falsa. A justificativa anterior sobreviveu à
+  //     própria causa: o passo 5 passou a interceptar o caso Ciro Nogueira, e a
+  //     bateria continuou afirmando o contrário porque o fixture não tinha a
+  //     linha registrada que faz a interceptação acontecer.
+  {
+    const dobrado = catalogar({ ...f, dobrarExame: true });
+    const pd = dobrado.disputas.find((s) => s.disputa === "presidente:BR");
+    const xaraDobrado = pd.contradicoes.find((c) => c.display === "Xará Registrado");
+    ok(!!xaraDobrado, "com a dobra, a linha da cláusula é INTERCEPTADA pelo passo 5 — vira contradição");
+    ok(!pd.candidatos.some((c) => c.display === "Xará Registrado"), "com a dobra ela NÃO vira afirmação — isso deixou de ser verdade quando o passo 5 entrou");
+    ok(dobrado.placar.semCandidatura + dobrado.placar.contradicoes + dobrado.placar.indeterminados
+       === cat.placar.semCandidatura + cat.placar.contradicoes + cat.placar.indeterminados,
+      "dobrar move linhas entre baldes, não cria nem destrói linha");
+    // E sem o passo 5 a dobra AFIRMARIA — que é a razão histórica, hoje
+    // exercitada onde ela ainda é verdadeira, e não na prosa.
+    const semPasso5 = situacao(
+      f.people.find((p) => p.person_id === "p_clausula"),
+      "presidente:BR",
+      [{ contest: "presidente:BR", nome: "Xará Registrado" }],
+      { examinado: universoExaminado(f.crus, { dobrar: true }), recusado: new Set(), registradoPorGrafia: new Map() },
+    );
+    ok(semPasso5.classe === "sem-candidatura", "sem o passo 5, a dobra produziria a afirmação — é a razão histórica, e continua verdadeira");
+    const tabela = fraseDobra(cat, dobrado).join("\n");
+    ok(tabela.includes(`| **${cat.placar.semCandidatura}** |`), "a tabela da dobra publica o número que o arquivo publica");
+    ok(tabela.includes(`| ${dobrado.placar.semCandidatura} |`), "e o número medido do outro jeito");
+  }
+
   if (falhas.length) {
     console.error("AUTOTESTE FALHOU:");
     for (const f of falhas) console.error(`  ✗ ${f}`);
     process.exit(1);
   }
-  console.log("autoteste ok — outra-disputa (Tarcísio), grafia não examinada, recusa do casador (pela grafia CRUA), contradição no próprio banco pelas 6 pontes, grafia publicada sem normalizar, ordem e deduplicação com 3 contradições, alcance da negativa, confrontos, período eleitoral com o DIA do corte, data nula, empate por person_id, determinismo, renderização e placar");
+  console.log("autoteste ok — outra-disputa (Tarcísio), grafia não examinada, recusa do casador (pela grafia CRUA), contradição no próprio banco pelas 6 pontes, grafia publicada sem normalizar, ordem e deduplicação com 3 contradições, alcance da negativa, invariante do corte nacional/estadual, números da prosa derivados do registro, resíduo nos DOIS ramos, dobra medida (recusa a mais, não afirmação falsa), confrontos, período eleitoral com o DIA do corte, data nula, empate por person_id, determinismo, renderização e placar");
 }
 
 // ---------------------------------------------------------------------------
@@ -1237,12 +1476,13 @@ if (process.argv.includes("--self-test")) {
   const crus = lerJson(path.join(DATA_DIR, "nomes-crus.json"), {});
   const ballot = lerJson(path.join(DATA_DIR, "ballot-names.json"), {});
   exigirEntradas({ candidaturas: lerCandidaturas(), crus, ballot });
-  const cat = catalogar({
+
+  const candidaturas = lerCandidaturas();
+  const { cat, md } = gerar({
     questions: store.questions, surveys: store.surveys,
     candidates: store.candidates, people: store.people,
-    crus, ballot,
+    crus, ballot, candidaturas,
   });
-  const md = relatorio(cat, { leitura: leitura(cat) });
   const out = path.resolve(ROOT, arg("out") ?? "CANDIDATURAS_NAO_REGISTRADAS.md");
   fs.writeFileSync(out, md);
   const p = cat.placar;

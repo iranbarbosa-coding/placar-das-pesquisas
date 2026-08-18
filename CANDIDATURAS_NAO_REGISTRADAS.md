@@ -40,13 +40,18 @@ de **13** cenários que o banco tem com campo encerrado em 16/08/2026 ou depois,
 
 Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e entre
 as 13 candidaturas nacionais — **ele não olha os outros 26 estados**. Então quem se registrou
-num estado que não foi procurado, e que nunca foi pesquisado sob uma grafia que colidisse com a
-de alguém registrado, **continua aparecendo aqui como sem candidatura**. Não é engano de
-leitura: é o alcance do que dá para provar com o que temos hoje. Se uma linha desta lista
-importar para uma decisão, confira o nome no registro antes de agir.
+num estado que não foi procurado, **e** que nunca foi pesquisado sob uma grafia que colidisse
+com a de alguém registrado, **continua aparecendo aqui como sem candidatura**: são as
+**292 de 320** linhas afirmadas que saem de disputa estadual. Não é engano de leitura — é o
+alcance do que dá para provar com o que temos hoje.
 
-Isso vale para **292 das 320** linhas afirmadas — as de disputa estadual. Nas 28 da disputa
-nacional a busca varreu o registro inteiro, e ali a negativa é forte.
+**Se uma linha desta lista importar para uma decisão, confira o nome no registro antes de agir.**
+
+Nas 28 linhas da disputa nacional a busca varreu o registro inteiro, e ali a negativa é forte.
+
+As duas condições são conjuntas de propósito: quem foi pesquisado sob uma grafia que colide com
+a de alguém registrado **não** cai nesta sombra — é interceptado pelo passo 5 e vai para a
+tabela de contradições. A sombra é só de quem escapou das duas.
 
 Foi exatamente essa a falha da primeira versão deste arquivo: ela afirmou "nenhuma no registro"
 em três linhas estaduais e as três estavam erradas. O passo 5 e a coluna escopada fecham o que
@@ -130,22 +135,30 @@ três a afirmação é falsa contra `data/candidaturas.ndjson`:
 Em todos, o nome que **alcançaria** a candidatura é o nome canonizado por nós, que o casador
 nunca viu. Afirmar a partir da nossa própria falha de casamento é exatamente o que o §4 proíbe.
 
-**A chave de exame não dobra para a nacional, e isso foi medido dos dois jeitos.** Em quase todo
-o resto do repositório `presidente:PR` dobra para `presidente:BR` — a disputa é nacional, só a
-amostra é estadual. A pergunta "tem candidatura nesta disputa?" usa a dobra. A pergunta "o
-casador examinou esta grafia?" **não**, e rodando os dois jeitos contra este banco:
+**A chave de exame não dobra para a nacional, e a conta dos dois jeitos é rodada a cada
+geração — não é lembrança.** Em quase todo o resto do repositório `presidente:PR` dobra para
+`presidente:BR`, porque a disputa é nacional e só a amostra é estadual. A pergunta "tem
+candidatura nesta disputa?" usa a dobra; a pergunta "o casador examinou esta grafia?" não.
 
-| | sem candidatura | não determinados |
-|---|---|---|
-| **sem dobra** (o que está publicado aqui) | 326 | 8 |
-| com dobra | 328 | 6 |
+| | sem candidatura | contradições | não determinados |
+|---|---|---|---|
+| **sem dobra** — o que está publicado neste arquivo | **320** | 6 | 8 |
+| com dobra dos dois lados | 321 | 7 | 6 |
 
-A dobra "resolve" duas linhas: `Tereza Cristina`, que é ganho real, e `Ciro Nogueira`, que é
-**afirmação falsa** — a pessoa sem registro nascida da grafia com cláusula herdaria o exame de
-"Ciro Nogueira" em `presidente:BR` e sairia como "nenhuma no registro", sendo que Ciro Nogueira
-está registrado em `senador:PI`. Uma afirmação falsa contra duas recusas a mais: o repositório
-já declarou a direção do erro — *erra para o lado de NÃO afirmar*. O preço é `Lula × Tereza
-Cristina`, 5 cenários nacionais, em não determinado.
+Hoje a dobra **resolveria 2 não determinado(s)**: 1 viraria(m) afirmação e 1 viraria(m) contradição.
+
+⚠ **A razão escrita aqui em 18/08/2026 deixou de valer no mesmo dia, e isto é a correção.** Ela
+dizia que dobrar produziria uma *afirmação falsa* sobre Ciro Nogueira — a linha sem registro
+nascida da grafia com cláusula herdaria o exame de "Ciro Nogueira" em `presidente:BR` e sairia
+como "nenhuma no registro", sendo ele registrado em `senador:PI`. Isso **era** verdade, e
+deixou de ser quando o passo 5 entrou na mesma série: hoje a dobra manda essa linha para a
+tabela de **contradições**, não para uma afirmação. A justificativa sobreviveu à sua própria
+causa por uma rodada.
+
+**O que sobra como razão, e é razão suficiente:** sem dobra existem DUAS barreiras independentes
+entre esta linha e uma afirmação falsa — a chave de exame por disputa pesquisada e o passo 5.
+Com a dobra sobra uma. O preço de manter as duas é uma recusa a mais, e a direção declarada
+deste repositório é errar para o lado de não afirmar.
 
 ## Leitura — o que salta aos olhos
 
