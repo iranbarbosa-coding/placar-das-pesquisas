@@ -1,4 +1,4 @@
-# Relatório do redesign e rebranding — Voto em Dados
+# Relatório do redesign — Placar das Pesquisas
 
 Este documento registra **o que foi feito** na reformulação da home e no rebranding, e **por quê**. Serve de memória do projeto (por que cada decisão foi tomada) e de contexto para quem for continuar. Companheiro do [GUIA_DE_DESIGN.md](GUIA_DE_DESIGN.md), que traduz tudo isto em padrões acionáveis para as outras páginas.
 
@@ -64,15 +64,15 @@ Estas regras carregam decisões de significado, não só de estilo:
 
 ---
 
-## 6. Rebranding — Voto em Dados
+## 6. Marca e paleta — Placar das Pesquisas
 
-O produto passou a se chamar **Voto em Dados** (votoemdados.com.br), com base no guia de marca "Conceito 3 — Mapa & Dados".
+Durante o redesign testou-se um rebranding para "Voto em Dados"; ele foi **revertido** e a marca voltou a ser **Placar das Pesquisas** (`placar-das-pesquisas.vercel.app`), com a logo do mapa em rede. **A paleta e o tema escuro navy — adotados no redesign — permanecem**, porque a própria logo (mapa do Brasil em nós navy/azul/vermelho) já vive nessa linguagem.
 
-- **Marca no cabeçalho:** ícone (rede do Brasil, transparente) + wordmark empilhado "VOTO / EM DADOS" em caixa alta, com cores por token de tema (no claro VOTO é escuro; no escuro vira branco; "em" cinza e "DADOS" azul). O lockup completo com slogan foi para o **rodapé**.
+- **Marca no cabeçalho:** ícone (rede do Brasil, transparente — `public/brand/placar-icon.png`) + wordmark empilhado "PLACAR / DAS PESQUISAS" em caixa alta, com cores por token de tema (no claro PLACAR é escuro; no escuro vira branco; "das" cinza e "PESQUISAS" azul). No **rodapé**, o mesmo lockup + a tagline "A média que você pode refazer", tudo em texto temático (sem raster de fundo branco).
 - **Paleta oficial** (tokens em `globals.css`): azul `#2563EB`, vermelho `#EF4444`, navy `#0B1020`, slate `#64748B`, cinza `#E5E7EB`, off-white `#F8FAFC`, branco. Lula = vermelho da marca; Flávio = azul da marca.
-- **Tema escuro em navy** `#0B1020` (era cinza neutro), com cards navy que se destacam — como no header mobile e no ícone do app do guia.
+- **Tema escuro em navy** `#0B1020` (era cinza neutro), com cards navy que se destacam.
 - **Mapa na paleta da marca:** acima de 50% **azul**, abaixo de 50% **azul claro**, empate técnico **vermelho**, sem pesquisa **cinza**.
-- `SITE_NAME` → "Voto em Dados"; fallback de domínio do sitemap/robots → `https://www.votoemdados.com.br`.
+- `SITE_NAME` → "Placar das Pesquisas"; fallback de domínio do sitemap/robots → `https://placar-das-pesquisas.vercel.app`.
 - **Fora do escopo desta leva:** a estrutura de navegação (masthead, mega-menu, busca) não foi reformulada — só o wordmark/ícone do cabeçalho trocou. Migrar o interior das outras páginas (`/estados`, `/presidente` etc.) para o padrão da home é trabalho seguinte, guiado pelo [GUIA_DE_DESIGN.md](GUIA_DE_DESIGN.md).
 
 ---
@@ -97,6 +97,5 @@ O produto passou a se chamar **Voto em Dados** (votoemdados.com.br), com base no
 
 ## 9. Pendências de deploy/admin (fora do código)
 
-1. Definir **`NEXT_PUBLIC_SITE_URL=https://www.votoemdados.com.br`** no Vercel (o sitemap/robots usam isso; o fallback já aponta para lá).
-2. Opcional: renomear o repositório de `placar-das-pesquisas` para `voto-em-dados` (admin do GitHub, não afeta o código).
-3. Variantes de marca para o tema escuro: o header usa tokens de tema (ok), mas o lockup do rodapé é PNG de fundo branco — uma versão em claro/transparente melhoraria o rodapé no escuro.
+1. Definir **`NEXT_PUBLIC_SITE_URL`** no Vercel com o domínio de produção (o sitemap/robots usam isso; o fallback aponta para `https://placar-das-pesquisas.vercel.app`).
+2. Nenhuma outra: a marca voltou a **Placar das Pesquisas**, então o repositório `placar-das-pesquisas` já casa com o nome. Header e rodapé usam ícone transparente + texto por token de tema (sem raster de fundo branco), então funcionam nos dois temas sem asset adicional.

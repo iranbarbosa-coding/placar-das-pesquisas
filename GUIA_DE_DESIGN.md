@@ -1,4 +1,4 @@
-# Guia de design — Voto em Dados
+# Guia de design — Placar das Pesquisas
 
 Como manter o padrão da home ao construir o resto do site (`/estados/[uf]`, `/presidente`, `/segundo-turno`, `/institutos`, `/metodologia` e novas páginas). Companheiro do [RELATORIO_REDESIGN.md](RELATORIO_REDESIGN.md).
 
