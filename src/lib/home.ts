@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { scenarioGroups, pollsFor } from "./data";
 import { candKey, sortPollsDesc } from "./average";
 import { toBasis } from "./validos";
@@ -15,6 +17,35 @@ import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
  * Everything is on VOTOS VÁLIDOS, matching the rest of the site, except the
  * Senate, which `toBasis` refuses to convert.
  */
+
+/**
+ * The TSE-registered presidential candidates, as `candKey`-folded `nome_urna`.
+ *
+ * Owner's rule (2026-08-18): ONLY a registered president candidate may be NAMED
+ * in the hero. Names polled in hypothetical first-round line-ups but NOT
+ * registered for president (Ratinho Jr, Tarcísio, Ciro Gomes, Jair Bolsonaro,
+ * Haddad, Moro…) fold anonymously into "Outros" — their share still counts, but
+ * their name never shows. The registrations live in `data/candidaturas.ndjson`;
+ * the 13 rows with `cargo === "presidente"` are the registered field. Read once
+ * at build time (this module already reaches `node:fs` via `lib/data`).
+ */
+export function registeredPresidentKeys(): string[] {
+  const file = path.join(process.cwd(), "data", "candidaturas.ndjson");
+  if (!fs.existsSync(file)) return [];
+  const keys = new Set<string>();
+  for (const line of fs.readFileSync(file, "utf-8").split("\n")) {
+    const t = line.trim();
+    if (!t) continue;
+    try {
+      const r = JSON.parse(t) as { cargo?: string; nome_urna?: string };
+      if (r.cargo === "presidente" && r.nome_urna) keys.add(candKey(r.nome_urna));
+    } catch {
+      // A malformed row is skipped, never fatal: the hero degrades to naming
+      // whoever the average holds rather than crashing the front page.
+    }
+  }
+  return [...keys];
+}
 
 /** Leader plus distance from the 50% an outright first-round win requires. */
 export interface Headline {

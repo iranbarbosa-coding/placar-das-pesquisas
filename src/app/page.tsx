@@ -12,6 +12,7 @@ import {
   recentMovers,
   stateMapData,
   newestPoll,
+  registeredPresidentKeys,
 } from "@/lib/home";
 
 /**
@@ -35,6 +36,7 @@ export default function Home() {
   const movers = recentMovers(4);
   const map = stateMapData();
   const newPoll = newestPoll();
+  const registeredKeys = registeredPresidentKeys();
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_336px]">
@@ -48,6 +50,7 @@ export default function Home() {
             averageBruto={hero?.averageBruto ?? null}
             headlineBruto={hero?.headlineBruto ?? null}
             scenario={hero?.scenario}
+            registeredKeys={registeredKeys}
           />
         </section>
 

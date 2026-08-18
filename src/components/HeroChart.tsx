@@ -103,6 +103,7 @@ export function heroSeries(
   maxSeries = 6,
   cutoff: string | null = DEFAULT_CUTOFF,
   significantKeys: ReadonlySet<string> | null = null,
+  registeredKeys: ReadonlySet<string> | null = null,
 ): HeroSeries[] {
   if (!average) return [];
   // Trim the drawn trend to points at or after `cutoff` (null = no trim / the
@@ -119,6 +120,9 @@ export function heroSeries(
     const k = candKey(c.candidate);
     if (seen.has(k)) continue;
     seen.add(k);
+    // Only REGISTERED president candidates get an individual line; the rest fold
+    // anonymously into "Outros" and are never drawn (owner's rule 2026-08-18).
+    if (registeredKeys && !registeredKeys.has(k)) continue;
     uniq.push(c);
   }
   return uniq.slice(0, Math.max(1, maxSeries)).map((c) => {
@@ -187,8 +191,9 @@ export function heroChartModel(
   maxSeries = 6,
   cutoff: string | null = DEFAULT_CUTOFF,
   significantKeys: ReadonlySet<string> | null = null,
+  registeredKeys: ReadonlySet<string> | null = null,
 ): Model | null {
-  const series = heroSeries(average, maxSeries, cutoff, significantKeys);
+  const series = heroSeries(average, maxSeries, cutoff, significantKeys, registeredKeys);
   if (!series.length) return null;
 
   const dates = [...new Set(series.flatMap((s) => s.points.map((p) => p.date)))].sort();
@@ -384,10 +389,13 @@ export interface HeroChartProps {
   /** Candidate keys (`candKey`) at or above `SIGNIFICANT_PCT` on the válidos
    *  average — those draw with their fixed colour, the rest muted grey. */
   significantKeys?: ReadonlySet<string> | null;
+  /** Candidate keys of the TSE-registered president candidates — only these are
+   *  drawn as individual lines; non-registered names are never drawn. */
+  registeredKeys?: ReadonlySet<string> | null;
 }
 
-export default function HeroChart({ average, maxSeries = 6, className, framed = false, cutoff = DEFAULT_CUTOFF, significantKeys = null }: HeroChartProps) {
-  const model = heroChartModel(average, maxSeries, cutoff, significantKeys);
+export default function HeroChart({ average, maxSeries = 6, className, framed = false, cutoff = DEFAULT_CUTOFF, significantKeys = null, registeredKeys = null }: HeroChartProps) {
+  const model = heroChartModel(average, maxSeries, cutoff, significantKeys, registeredKeys);
   if (!model) return null;
 
   const { painted, y, from, to, flat, yMax } = model;

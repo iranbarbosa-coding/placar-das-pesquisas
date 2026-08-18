@@ -42,6 +42,9 @@ export interface HeroBasisSwitchProps {
   averageBruto: RaceAverage | null;
   headlineBruto: Headline | null;
   scenario?: string;
+  /** `candKey`s of the TSE-registered president candidates — only these may be
+   *  named in the hero (see `registeredPresidentKeys`). */
+  registeredKeys?: string[];
 }
 
 export default function HeroBasisSwitch({
@@ -50,6 +53,7 @@ export default function HeroBasisSwitch({
   averageBruto,
   headlineBruto,
   scenario,
+  registeredKeys = [],
 }: HeroBasisSwitchProps) {
   const [basis, setBasis] = useState<Basis>("validos");
 
@@ -71,6 +75,7 @@ export default function HeroBasisSwitch({
       headline={shownHeadline}
       scenario={scenario}
       significantKeys={significantKeys}
+      registeredKeys={registeredKeys}
       controls={
         convertible ? (
           // Compact toggle only — the long "muda apenas este bloco" explainer was

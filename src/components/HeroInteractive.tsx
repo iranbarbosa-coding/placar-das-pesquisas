@@ -86,9 +86,13 @@ export interface HeroInteractiveProps {
    *  and the significant/Outros split come from this set, so the basis toggle
    *  never recolours. */
   significantKeys?: string[];
+  /** `candKey`s of the TSE-registered president candidates. Only these may be
+   *  NAMED (line, KPI, tooltip, "Outros" list); non-registered names fold
+   *  anonymously into the "Outros" aggregate. Empty = no filter (degrade). */
+  registeredKeys?: string[];
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [] }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [] }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -102,11 +106,13 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   }, []);
 
   const sigSet = new Set(significantKeys);
+  const regSet = new Set(registeredKeys);
+  const filterReg = regSet.size > 0; // no registry loaded → name whoever is polled
   const validos = average?.basis === "validos";
   const candidates = average?.candidates ?? [];
 
-  const series = heroSeries(average, maxSeries, cutoff, sigSet);
-  const model = heroChartModel(average, maxSeries, cutoff, sigSet);
+  const series = heroSeries(average, maxSeries, cutoff, sigSet, filterReg ? regSet : null);
+  const model = heroChartModel(average, maxSeries, cutoff, sigSet, filterReg ? regSet : null);
   const ticks = heroAxisTicks(model);
   const fiftyTop = heroLevelTopPct(model, 50);
   const showFifty = fiftyTop != null && fiftyTop >= 0 && fiftyTop <= 100;
@@ -116,9 +122,15 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   const cmap = colorMap(candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
   const colorFor = (name: string) => colorOf(cmap, name);
   const trendByKey = new Map(candidates.map((c) => [candKey(c.candidate), cleanPoints(c.trend)] as const));
-  const isSig = (c: { candidate: string }) => sigSet.has(candKey(c.candidate));
-  const sigCands = candidates.filter(isSig);
-  const nonSigCands = candidates.filter((c) => !isSig(c));
+
+  // Only REGISTERED president candidates may be named; among those, ≥5% válidos
+  // are coloured, the rest are grey and named. Non-registered candidates are
+  // never named — their share is absorbed into the "Outros" aggregate only.
+  const displayable = (c: { candidate: string }) => !filterReg || regSet.has(candKey(c.candidate));
+  const isColored = (c: { candidate: string }) => displayable(c) && sigSet.has(candKey(c.candidate));
+  const sigCands = candidates.filter(isColored); // named + coloured (≥5%, registered)
+  const namedNonSig = candidates.filter((c) => displayable(c) && !sigSet.has(candKey(c.candidate))); // named, grey
+  const nonColored = candidates.filter((c) => !isColored(c)); // everything folded into "Outros"
 
   const valueOfCand = (c: { candidate: string; avg: number }, date: string | null) =>
     date == null ? fin(c.avg) : valueAt(trendByKey.get(candKey(c.candidate)) ?? [], date);
@@ -130,8 +142,10 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   const bucketPcts = (date: string | null): Map<string, number> => {
     const sigT = sigCands.map((c) => tenths(valueOfCand(c, date)));
     const sigSumT = sigT.reduce((a, b) => a + b, 0);
-    const nonSigSum = nonSigCands.reduce((s, c) => s + valueOfCand(c, date), 0);
-    const outrosT = validos ? Math.max(0, 1000 - sigSumT) : tenths(nonSigSum);
+    // "Outros" absorbs EVERY non-coloured candidate — named sub-5% and unnamed
+    // non-registered alike — so their share still counts, just without a name.
+    const nonColoredSum = nonColored.reduce((s, c) => s + valueOfCand(c, date), 0);
+    const outrosT = validos ? Math.max(0, 1000 - sigSumT) : tenths(nonColoredSum);
     const bnT = validos ? null : Math.max(0, 1000 - sigSumT - outrosT);
     const m = new Map<string, number>();
     sigCands.forEach((c, i) => m.set(candKey(c.candidate), sigT[i] / 10));
@@ -199,14 +213,16 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   const showOverlay = interactive && hoveredDate != null;
   const hoverX = hoveredDate != null ? xPctOf(hoveredDate) : 0;
 
-  // Tooltip rows: EVERY candidate with a trend, valued at the hovered date and
-  // sorted leader-first; the dot mirrors the line (fixed colour if significant,
-  // grey otherwise). "Outros" is not aggregated here — each candidate is listed.
+  // Tooltip rows: every REGISTERED candidate with a trend, valued at the hovered
+  // date and sorted leader-first; the dot mirrors the line (fixed colour if ≥5%,
+  // grey otherwise). Non-registered names are omitted — their share lives in the
+  // "Outros" number, not as a row.
   const tooltipRows =
     hoveredDate == null
       ? []
       : candidates
-          .map((c) => ({ key: candKey(c.candidate), name: c.candidate, pts: trendByKey.get(candKey(c.candidate)) ?? [], sig: isSig(c) }))
+          .filter((c) => displayable(c))
+          .map((c) => ({ key: candKey(c.candidate), name: c.candidate, pts: trendByKey.get(candKey(c.candidate)) ?? [], sig: sigSet.has(candKey(c.candidate)) }))
           .filter((r) => r.pts.length > 0)
           .map((r) => ({ ...r, value: valueAt(r.pts, hoveredDate) }))
           .sort((a, b) => b.value - a.value);
@@ -238,9 +254,10 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
         </ul>
       )}
 
-      {/* Expandable "who is in Outros": the sub-5% candidates, each with their
-          current-basis value. Understated; reflects the basis, not hover. */}
-      {nonSigCands.length > 0 && (
+      {/* Expandable "who is in Outros": the REGISTERED sub-5% candidates, each
+          with their current-basis value. Non-registered names are NOT listed —
+          only their share is inside the "Outros" total. Reflects basis, not hover. */}
+      {namedNonSig.length > 0 && (
         <div className="text-xs">
           <button
             type="button"
@@ -249,12 +266,12 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             className="inline-flex items-center gap-1"
             style={{ color: "var(--text-muted)" }}
           >
-            Outros: {nonSigCands.length} candidato{nonSigCands.length === 1 ? "" : "s"}
+            Outros: {namedNonSig.length} candidato{namedNonSig.length === 1 ? "" : "s"}
             <span aria-hidden="true">{outrosOpen ? "▴" : "▾"}</span>
           </button>
           {outrosOpen && (
             <ul className="mt-1 flex flex-col gap-0.5" style={{ color: "var(--text-secondary)" }}>
-              {nonSigCands.map((c) => (
+              {namedNonSig.map((c) => (
                 <li key={candKey(c.candidate)} className="flex items-baseline justify-between gap-3">
                   <span className="min-w-0 truncate">
                     {c.candidate}
@@ -293,7 +310,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             onMouseLeave={onLeave}
             className="relative h-[200px] flex-1 sm:h-[240px]"
           >
-            <HeroChart average={average} maxSeries={maxSeries} framed cutoff={cutoff} significantKeys={sigSet} />
+            <HeroChart average={average} maxSeries={maxSeries} framed cutoff={cutoff} significantKeys={sigSet} registeredKeys={filterReg ? regSet : null} />
             {showFifty && (
               <span
                 className="tabular pointer-events-none absolute right-0 -translate-y-1/2 rounded px-1 text-[10px] font-semibold"

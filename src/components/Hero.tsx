@@ -92,6 +92,9 @@ export interface HeroProps {
    *  significant set, computed once by `HeroBasisSwitch` so it stays válidos-
    *  based across the basis toggle, and threaded to `HeroInteractive`. */
   significantKeys?: string[];
+  /** `candKey`s of the TSE-registered president candidates — only these may be
+   *  named anywhere in the hero. */
+  registeredKeys?: string[];
   /**
    * The basis toggle, owned by `HeroBasisSwitch`. A slot, not a control: this
    * component stays a renderer with no state of its own beyond the chart range.
@@ -109,6 +112,7 @@ export default function Hero({
   ctaLabel = "Veja as pesquisas",
   maxSeries = 6,
   significantKeys = [],
+  registeredKeys = [],
   controls,
 }: HeroProps) {
   const [range, setRange] = useState<ChartRange>("2026");
@@ -182,7 +186,7 @@ export default function Hero({
           </div>
 
           {/* The reactive core: KPI row + framed, hoverable chart. */}
-          <HeroInteractive average={average} maxSeries={maxSeries} cutoff={cutoff} significantKeys={significantKeys} />
+          <HeroInteractive average={average} maxSeries={maxSeries} cutoff={cutoff} significantKeys={significantKeys} registeredKeys={registeredKeys} />
 
           {average && hasChart && (
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
