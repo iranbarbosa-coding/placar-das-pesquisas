@@ -2,15 +2,35 @@
 
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface-1: #fcfcfb;
-  --text-primary: #0b0b0b;
-  --text-secondary: #52514e;
-  --text-muted: #898781;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --ring: rgba(11, 11, 11, 0.1);
-  --accent: #2a78d6;
+  /* SURFACE DEPTH (2026-08-17 redesign). The page was #f9f9f7 and cards #fcfcfb
+     — a 1,6% luminance gap, so a white card on the page read as no card at all,
+     which was half the "flat page" complaint in the design brief. The page now
+     carries a cooler, clearly darker neutral and cards go PURE WHITE, so every
+     surface reads as lifted off the page the way Reuters/FiveThirtyEight do it.
+     The move is a mild DARKENING of --page (0,973 → 0,958 relative luminance),
+     which can only RAISE the contrast of the chart lines and fills painted over
+     it — the "every fixed hue clears 3:1 as a 2px line on --page" guarantee below
+     is preserved, not spent. Ink-on-fill ratios are measured against the fills,
+     not the page, so they are untouched. */
+  /* OFFICIAL BRAND PALETTE ("Voto em Dados — Conceito 3", 2026-08-18). The light
+     neutrals are the guide's exact hexes: page #F8FAFC (off-white), cards
+     #FFFFFF, ink #0B1020 (navy), secondary #64748B (slate), borders #E5E7EB
+     (light-grey), accent #2563EB (blue). Radius 8px and the hairline shadow are
+     unchanged. The candidate hues below carry their own chart-line contrast
+     against `--page`; red and blue are now the brand red/blue (see there). */
+  --page: #f8fafc;
+  --surface-1: #ffffff;
+  --surface-2: #f1f5f9; /* a second, faintly-tinted surface for nested/zebra rows */
+  --text-primary: #0b1020;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --grid: #e5e7eb;
+  --axis: #cbd5e1;
+  --ring: #e5e7eb;
+  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  /* Brand blue (Voto em Dados guide, #2563EB) — the primary accent: links,
+     buttons, active toggles, the "DADOS" wordmark, the "Entrar" button. */
+  --accent: #2563eb;
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
@@ -27,40 +47,29 @@
      --text-primary outside it. */
   --on-fill: #0b0b0b;
 
-  /* ── PER-FILL INK OVERRIDES ────────────────────────────────────────────
-     One ink stopped being enough on 2026-08-17, when the matchup bars started
-     taking the CANDIDATE's colour instead of a rank colour. Before that the
-     bars used exactly three fills (--series-1, --series-2, --text-muted) and
-     near-black cleared 5,4:1 on the worst of them. A bar can now carry any of
-     the twelve pinned hues or any --series-* the hash hands an unpinned
-     candidate — twenty fills — and no single ink serves them: near-black on the
-     light-theme purple is 3,10:1 and on the light-theme magenta 3,36:1, both
-     illegible for a 14px name, while white on the light-theme amber is 3,63:1.
-     So a fill token may carry a companion `--<token>-ink`. `inkOn()` in
-     lib/colors.ts asks for it with --on-fill as the CSS fallback, so ONLY the
-     exceptions below need to exist. Ratios are measured against the fill they
-     sit on (WCAG 2.1, sRGB); the AA floor for this text size is 4,5:1.
+  /* ── PER-FILL INK OVERRIDES (CURRENTLY DORMANT) ────────────────────────
+     ⚠ NOTHING PAINTS TEXT ON A COLOURED FILL ANY MORE. These tokens fed
+     `inkOn()`, which the matchup bars used to colour a candidate NAME drawn
+     inside its bar. That design is gone: MatchupRows now writes the name ABOVE a
+     thin bar and the hero dropped names-in-bars entirely, so `inkOn()` has no
+     caller and none of the `--*-ink` tokens below are read. They are kept as a
+     latent API only.
 
-     THE HARDEST FILL IS BLUE, and it is why two of these are #000 and not
-     #0b0b0b. On light #2a78d6 — --cand-blue (Ronaldo Caiado), --series-1 and
-     --accent all carry that hex — the near-black --on-fill reaches 4,46:1 and
-     white 4,42:1: NEITHER clears 4,5:1. Pure black does, at 4,76:1. The 11/255
-     of grey that --on-fill carries to match --text-primary is invisible inside a
-     saturated fill and is the whole margin here, so blue alone spends it. The
-     alternative was moving the hue, which is the owner's decision and a far
-     bigger change than this. #000 also improves the dark #3987e5 (5,78:1), so
-     these two need no reset below. */
-  --cand-blue-ink: #000000; /* 4,76:1 — --on-fill is 4,46, white 4,42 */
-  --series-1-ink: #000000; /* same hex as --cand-blue in this palette */
-  --cand-red-ink: #ffffff; /* 4,83:1 — black is 4,07 */
-  --cand-purple-ink: #ffffff; /* 6,35:1 — black is 3,10 */
-  --cand-brown-ink: #ffffff; /* 5,87:1 — black is 3,35 */
-  --cand-slate-ink: #ffffff; /* 5,85:1 — black is 3,37 */
-  --cand-magenta-ink: #ffffff; /* 5,86:1 — black is 3,36 */
-  /* --series-6 (#008300) is the ONE series colour identical in both palettes,
-     so its ink is set once here and the dark block inherits it. */
-  --series-6-ink: #ffffff; /* 4,95:1 — black is 3,98 */
-  --series-7-ink: #ffffff; /* 8,56:1 — black is 2,30 (light #4a3aa7) */
+     The ratios in the trailing comments were measured against the OLD hexes
+     (e.g. --cand-red #d92d20, --cand-blue #2a78d6) and are NO LONGER TRUE now
+     that red is #EF4444 and blue #2563EB — white on #EF4444 is ~3,4:1, which
+     would FAIL AA. That is harmless while dormant, but if `inkOn()` is ever
+     wired back up, every value here MUST be re-measured against the current fill
+     first. The numbers are left as historical, explicitly not a live claim. */
+  --cand-blue-ink: #000000; /* was 4,76:1 on old #2a78d6 — re-measure before use */
+  --series-1-ink: #000000;
+  --cand-red-ink: #ffffff; /* was 4,83:1 on old #d92d20; white on #EF4444 ≈ 3,4:1 (would fail) */
+  --cand-purple-ink: #ffffff;
+  --cand-brown-ink: #ffffff;
+  --cand-slate-ink: #ffffff;
+  --cand-magenta-ink: #ffffff;
+  --series-6-ink: #ffffff; /* --series-6 (#008300) is identical in both palettes */
+  --series-7-ink: #ffffff;
 
   /* The "Outros" hatch, over the `--text-muted` fill of an aggregate bar.
      It used to be `--grid`, i.e. "the track showing through" — which was fine
@@ -84,8 +93,8 @@
      defect, not a style preference. So light gets a deep amber/gold and dark
      gets the true yellow; both read as "yellow" to a reader who never sees the
      two themes side by side, and both are legible. Same treatment for lime. */
-  --cand-red: #d92d20;
-  --cand-blue: #2a78d6;
+  --cand-red: #ef4444;   /* brand red (Lula / leader) */
+  --cand-blue: #2563eb;  /* brand blue (Flávio / rival) */
   --cand-orange: #e2620f;
   --cand-amber: #b07d00; /* "yellow", darkened for this background */
   --cand-green: #1a8f4c;
@@ -96,20 +105,51 @@
   --cand-slate: #5a6675;
   --cand-magenta: #b5179e;
   --cand-lime: #5f8f00; /* "lime", darkened for this background */
+
+  /* ── DUAL PALETTE (2026-08-17, creator's call) ─────────────────────────────
+     The redesign mockup drives every race with just TWO hues plus grey: the
+     leader in red, the main rival in blue, and the rest of the field muted. This
+     is the "dual palette" the creator asked us to adopt, replacing the earlier
+     twelve-hue per-candidate scheme in the home-page composition. The candidate
+     hues above still exist (state pages, legends) but the home now reads two-tone
+     like RCP. `--series-muted` is the neutral for everyone past second place. */
+  --dual-lead: #ef4444;   /* = --cand-red (brand red) */
+  --dual-rival: #2563eb;  /* = --cand-blue / brand blue, for the runner-up */
+  --series-muted: #94a3b8;
+
+  /* ── SIDEBAR MAP CHOROPLETH — BRAND BLUE / RED (guide's "Card de mapa") ─────
+     Owner's mapping (2026-08-18): strong brand blue = líder ≥50; a lighter blue
+     = líder <50 (runoff); RED = empate técnico (the races to watch); grey = no
+     poll. Soft, airy fills because the whole country is tinted at once, paired
+     with white state borders so the separation comes from the stroke, not
+     saturation. Legend dots (HomeSidebar) read the same four. */
+  --map-acima: #6f9bf0;   /* brand blue — leader above 50 */
+  --map-abaixo: #cbdcfb;  /* light blue — leader below 50 (runoff) */
+  --map-empate: #f2a6a6;  /* soft red — technical tie */
+  --map-sem: #e5e7eb;     /* light grey — no recent poll */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --page: #0d0d0d;
-    --surface-1: #1a1a19;
-    --text-primary: #ffffff;
-    --text-secondary: #c3c2b7;
-    --text-muted: #898781;
-    --grid: #2c2c2a;
-    --axis: #383835;
+    /* NAVY DARK THEME (brand guide's dark header / app-icon, 2026-08-18). The
+       page is the guide's navy #0B1020; cards are a raised navy (#142038) that
+       lifts clearly off it, with a second step (#1B2540) for nested rows. Text
+       is the off-white/slate pair; borders are navy-tinted and subtle. The
+       masthead background is --surface-1, so the header becomes the navy card. */
+    --page: #0b1020;
+    --surface-1: #142038;
+    --surface-2: #1b2540; /* nested/zebra surface, one step up from the card */
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --grid: #23304a;
+    --axis: #334155;
     --ring: rgba(255, 255, 255, 0.1);
-    --accent: #3987e5;
+    /* On navy, depth comes from the card surface being lighter than the page
+       plus a hairline top highlight. */
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+    --accent: #3b82f6; /* brand blue, lifted for the dark background */
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-3: #199e70;
@@ -122,24 +162,21 @@
     /* Unchanged between themes — see the note above. */
     --on-fill: #0b0b0b;
 
-    /* The dark palette LIFTS every hue, so near-black is legible on all twelve
-       (worst: --cand-blue #3987e5 at 5,41:1) and the light theme's white-ink
-       exceptions have to be handed back. These five lines are not redundant:
-       without them the white set above leaks into this palette, where white on
-       #ef5350 is 3,49:1. --series-7-ink is also reset — dark #9085e9 takes black
-       at 6,30:1 — while --series-6-ink stays white, that hue not being lifted. */
-    --cand-red-ink: #0b0b0b; /* 5,65:1 */
-    --cand-purple-ink: #0b0b0b; /* 7,23:1 */
-    --cand-brown-ink: #0b0b0b; /* 6,26:1 */
-    --cand-slate-ink: #0b0b0b; /* 7,68:1 */
-    --cand-magenta-ink: #0b0b0b; /* 8,00:1 */
-    --series-7-ink: #0b0b0b; /* 6,30:1 */
+    /* Dark-theme ink overrides — DORMANT, same as the light block: `inkOn()` has
+       no caller, so these are never read. Historical ratios were measured against
+       the dark fills; re-measure before any reuse. */
+    --cand-red-ink: #0b0b0b;
+    --cand-purple-ink: #0b0b0b;
+    --cand-brown-ink: #0b0b0b;
+    --cand-slate-ink: #0b0b0b;
+    --cand-magenta-ink: #0b0b0b;
+    --series-7-ink: #0b0b0b;
 
-    /* Same twelve hues, lifted for the #0d0d0d page. Amber and lime become the
+    /* Same twelve hues, lifted for the navy page. Amber and lime become the
        TRUE yellow and lime the owner asked for: on a dark background they read
        at 11:1 and 12:1, so there is nothing to compensate for here. */
-    --cand-red: #ef5350;
-    --cand-blue: #3987e5;
+    --cand-red: #f87171;   /* brand red, lifted to read on navy (Lula / leader) */
+    --cand-blue: #3b82f6;  /* brand blue, lifted for navy (Flávio / rival) */
     --cand-orange: #f97316;
     --cand-amber: #f5c518; /* the true yellow, safe here */
     --cand-green: #2ec27e;
@@ -150,19 +187,50 @@
     --cand-slate: #94a3b8;
     --cand-magenta: #e879f9;
     --cand-lime: #a3e635; /* the true lime, safe here */
+
+    /* Dual palette, lifted for the navy page. */
+    --dual-lead: #f87171;   /* = --cand-red (brand red, dark) */
+    --dual-rival: #3b82f6;  /* = --cand-blue / brand blue (dark) */
+    --series-muted: #7c8aa1;
+
+    /* Brand blue/red choropleth on navy (owner's mapping): strong blue = líder
+       ≥50, a muted blue = líder <50 (runoff), RED = empate técnico, navy-grey =
+       no poll. Same hue logic as light, tuned to read on the navy #0B1020 page.
+       All are clearly lighter than the navy state stroke (--surface-1 #142038)
+       so the borders read as thin separators, and acima (strong blue) stays
+       distinct from abaixo (muted blue). */
+    --map-acima: #3f6fd0;   /* strong brand blue — leader above 50 */
+    --map-abaixo: #274a86;  /* muted blue — leader below 50 (runoff) */
+    --map-empate: #b84b4e;  /* muted red — technical tie */
+    --map-sem: #2b3a55;     /* navy-grey — no recent poll */
   }
 }
 
 body {
   background: var(--page);
   color: var(--text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .card {
   background: var(--surface-1);
   border: 1px solid var(--ring);
-  border-radius: 0.75rem;
+  border-radius: 8px; /* PDF §2 — exact */
+  box-shadow: var(--card-shadow);
+}
+
+/* The centred page shell. One token so the masthead, the mega-menu and the
+   page body all break at the same width — widened from 72rem to 80rem in the
+   2026-08-17 redesign to stop the desktop whitespace the brief led with. */
+.shell {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1rem;
+}
+@media (min-width: 640px) {
+  .shell {
+    padding-inline: 1.5rem;
+  }
 }
 
 .tabular {

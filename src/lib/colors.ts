@@ -21,7 +21,7 @@ import { candKey } from "./average";
  * else keeps the old deterministic hash over the remaining slots.
  *
  * IT LIVES HERE BECAUSE IT WAS WRITTEN THREE TIMES. `AverageChart`,
- * `HeroChart` and `RunoffCarousel` each grew their own copy — every one a
+ * `HeroChart` and the old runoff carousel each grew their own copy — every one a
  * client component that cannot import from `lib/home` (which reaches `node:fs`
  * through `lib/data`), and none able to add a shared module at the time.
  * `lib/average` is Node-free, so this one can sit beside it and be imported
@@ -100,12 +100,17 @@ export const PALETTE_SIZE = PALETTE.length;
 const FIXED_COLORS: ReadonlyMap<string, string> = new Map(
   (
     [
-      // The owner's twelve, in his order.
+      // The owner's twelve, in his order. 2026-08-18: Flávio Bolsonaro is pinned
+      // to BLUE (owner: "Flávio always blue"), which freed blue from Ronaldo
+      // Caiado — Caiado moves to TEAL (owner OK'd a new hue). Flávio's old GREEN
+      // is now free; Ratinho Jr keeps teal, so the twelve stay mutually distinct
+      // EXCEPT Caiado and Ratinho Jr both hold teal now — they never share a race
+      // (Caiado = governador/GO, Ratinho = senador/PR), so no chart draws both.
       ["Lula", "red"],
-      ["Ronaldo Caiado", "blue"],
+      ["Ronaldo Caiado", "teal"],
       ["Zema", "orange"],
       ["Renan Santos", "amber"],
-      ["Flávio Bolsonaro", "green"],
+      ["Flávio Bolsonaro", "blue"],
       ["Escritor Augusto Cury", "purple"],
       ["Ratinho Jr", "teal"],
       ["Ciro Gomes", "pink"],
@@ -179,6 +184,20 @@ export function colorMap(names: readonly string[]): Map<string, string> {
  */
 export function colorOf(map: Map<string, string>, name: string): string {
   return map.get(candKey(name)) ?? fixedColor(name) ?? PALETTE[0];
+}
+
+/**
+ * THE DUAL PALETTE (2026-08-17). The home page composition colours every race
+ * with two hues plus grey — leader, rival, and a muted rest — per the creator's
+ * redesign mockup. `leadHue` flips which of red/blue leads: the presidential
+ * chart and the runoff bars lead RED (Lula), while the state college bars lead
+ * BLUE, both matching the picture. `rank` is 0-based over the race's candidates
+ * as already sorted by average.
+ */
+export function dualColor(rank: number, leadHue: "red" | "blue" = "red"): string {
+  if (rank <= 0) return leadHue === "red" ? "var(--dual-lead)" : "var(--dual-rival)";
+  if (rank === 1) return leadHue === "red" ? "var(--dual-rival)" : "var(--dual-lead)";
+  return "var(--series-muted)";
 }
 
 /**

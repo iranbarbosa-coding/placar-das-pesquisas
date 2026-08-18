@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { scenarioGroups, pollsFor } from "./data";
 import { candKey, sortPollsDesc } from "./average";
 import { toBasis } from "./validos";
@@ -15,6 +17,35 @@ import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
  * Everything is on VOTOS VÁLIDOS, matching the rest of the site, except the
  * Senate, which `toBasis` refuses to convert.
  */
+
+/**
+ * The TSE-registered presidential candidates, as `candKey`-folded `nome_urna`.
+ *
+ * Owner's rule (2026-08-18): ONLY a registered president candidate may be NAMED
+ * in the hero. Names polled in hypothetical first-round line-ups but NOT
+ * registered for president (Ratinho Jr, Tarcísio, Ciro Gomes, Jair Bolsonaro,
+ * Haddad, Moro…) fold anonymously into "Outros" — their share still counts, but
+ * their name never shows. The registrations live in `data/candidaturas.ndjson`;
+ * the 13 rows with `cargo === "presidente"` are the registered field. Read once
+ * at build time (this module already reaches `node:fs` via `lib/data`).
+ */
+export function registeredPresidentKeys(): string[] {
+  const file = path.join(process.cwd(), "data", "candidaturas.ndjson");
+  if (!fs.existsSync(file)) return [];
+  const keys = new Set<string>();
+  for (const line of fs.readFileSync(file, "utf-8").split("\n")) {
+    const t = line.trim();
+    if (!t) continue;
+    try {
+      const r = JSON.parse(t) as { cargo?: string; nome_urna?: string };
+      if (r.cargo === "presidente" && r.nome_urna) keys.add(candKey(r.nome_urna));
+    } catch {
+      // A malformed row is skipped, never fatal: the hero degrades to naming
+      // whoever the average holds rather than crashing the front page.
+    }
+  }
+  return [...keys];
+}
 
 /** Leader plus distance from the 50% an outright first-round win requires. */
 export interface Headline {
@@ -156,6 +187,27 @@ export function stateRail(): {
 export const MAIOR_ELEITORADO: UF[] = ["SP", "MG", "RJ", "BA", "RS"];
 
 /**
+ * Electorate size (millions of voters), TSE 2022 roll — the "N milhões de
+ * eleitores" subtitle the mockup shows on each college card. Hardcoded for the
+ * same reason `MAIOR_ELEITORADO` is: the poll database carries no electorate
+ * figures. Only the five largest are needed here.
+ */
+export const ELEITORADO_MI: Partial<Record<UF, number>> = {
+  SP: 34.6, MG: 16.3, RJ: 13.2, BA: 11.3, RS: 8.7,
+};
+
+/** The leader's rolling-average change over `windowDays`, from their trend. */
+function leaderDelta(avg: RaceAverage | null, windowDays = 30): number | null {
+  const trend = avg?.candidates[0]?.trend ?? [];
+  if (trend.length < 2) return null;
+  const last = trend[trend.length - 1];
+  const cutoff = new Date(last.date).getTime() - windowDays * 86400000;
+  let prior = trend[0];
+  for (const p of trend) if (new Date(p.date).getTime() <= cutoff) prior = p;
+  return round1(last.avg - prior.avg);
+}
+
+/**
  * Leader, runner-up, and everyone else — three bars that DO sum to 100.
  *
  * The obvious construction is wrong, and it shipped for an hour before a render
@@ -176,7 +228,9 @@ export function matchupRows() {
   return MAIOR_ELEITORADO.map((uf) => {
     const grupo = scenarioGroups("governador", uf, 1)[0] ?? null;
     const avg = grupo?.average ?? null;
-    if (!avg?.candidates.length) return { uf, name: UF_NAMES[uf], average: null, bars: [] };
+    if (!avg?.candidates.length) {
+      return { uf, name: UF_NAMES[uf], average: null, bars: [], eleitoresMi: ELEITORADO_MI[uf] ?? null, leaderDelta30: null };
+    }
     const [first, second] = avg.candidates;
 
     const key = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
@@ -201,6 +255,8 @@ export function matchupRows() {
       uf,
       name: UF_NAMES[uf],
       average: avg,
+      eleitoresMi: ELEITORADO_MI[uf] ?? null,
+      leaderDelta30: leaderDelta(avg, 30),
       bars: [
         { label: first.candidate, party: first.party, pct: pctA, kind: "leader" as const },
         ...(second
@@ -265,33 +321,180 @@ export function partyCommissioned(p: Poll): string | null {
   return SIGLAS.has(semAcento(p.contractor)) ? p.contractor : null;
 }
 
-/** The latest-polls table, newest first, grouped by day at render time. */
-export function latestForTable(limit = 40): {
-  poll: Poll;
-  commissionedBy: string | null;
-  leader: { candidate: string; pct: number } | null;
-  runnerUp: { candidate: string; pct: number } | null;
-  spread: number | null;
-}[] {
+/**
+ * The "Destaques" ranking in the sidebar: major-state governor races, each with
+ * its leader, party, margin over the runner-up and distance to 50%. Order is a
+ * curated importance list (electorate-weighted), matching the redesign mockup;
+ * a state with no average is dropped rather than shown blank.
+ */
+const DESTAQUE_UFS: UF[] = ["SP", "MG", "RJ", "BA", "RS", "PR", "PE", "CE"];
+
+export interface StateHighlight {
+  uf: UF;
+  name: string;
+  leader: string;
+  party: string | null;
+  /** Leader minus runner-up, the "margin" column. */
+  margin: number;
+  /** leaderPct − 50: ≥ 0 means a first-round win on today's numbers. */
+  toFifty: number;
+}
+
+export function stateHighlights(): StateHighlight[] {
+  const out: StateHighlight[] = [];
+  for (const uf of DESTAQUE_UFS) {
+    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    const top = avg?.candidates[0];
+    if (!avg || !top) continue;
+    out.push({
+      uf,
+      name: UF_NAMES[uf],
+      leader: top.candidate,
+      party: top.party,
+      margin: round1(avg.spread),
+      toFifty: round1(top.avg - 50),
+    });
+  }
+  return out;
+}
+
+/**
+ * Every state's governor leader and status, for the sidebar map. `status`
+ * drives the fill: a clear first-round lead, a lead under 50, a technical tie,
+ * or no recent poll. "Technical tie" is a margin inside 2 p.p. — a display
+ * threshold, not a statistical claim about the margin of error.
+ */
+export type MapStatus = "acima" | "abaixo" | "empate" | "sem";
+
+export interface StateMapDatum {
+  uf: UF;
+  name: string;
+  leader: string | null;
+  status: MapStatus;
+}
+
+export function stateMapData(): StateMapDatum[] {
+  return [...UFS].sort().map((uf) => {
+    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    const top = avg?.candidates[0];
+    if (!avg || !top) return { uf, name: UF_NAMES[uf], leader: null, status: "sem" as const };
+    const status: MapStatus =
+      Math.abs(avg.spread) < 2 ? "empate" : top.avg >= 50 ? "acima" : "abaixo";
+    return { uf, name: UF_NAMES[uf], leader: top.candidate, status };
+  });
+}
+
+/**
+ * "O que mudou": the biggest recent moves in the state governor races, from each
+ * leader's own rolling-average trend. The delta is the leader's average now
+ * minus their average at the last trend sample at least `windowDays` earlier —
+ * so it is the same moving average the charts draw, read at two dates, never a
+ * fresh computation. Sorted by absolute move, largest first.
+ */
+export interface Mover {
+  uf: UF;
+  name: string;
+  leader: string;
+  delta: number;
+}
+
+/** The single newest poll in the base, for the "NEW" row of "O que mudou". */
+export interface NewestPoll {
+  race: string;
+  uf: string | null;
+  label: string;
+}
+
+export function newestPoll(): NewestPoll | null {
   const all = [
     ...pollsFor("presidente", null),
     ...UFS.flatMap((uf) => [...pollsFor("governador", uf), ...pollsFor("senador", uf)]),
     ...UFS.flatMap((uf) => pollsFor("presidente", uf)),
   ];
-  return sortPollsDesc(all)
-    .slice(0, limit)
-    .map((raw) => {
-      // Converted individually, like every other number on the site. The Senate
-      // passes through untouched.
-      const poll = toBasis(raw, "validos");
-      const ranked = [...poll.results].sort((a, b) => b.pct - a.pct || a.candidate.localeCompare(b.candidate));
-      const [leader, runnerUp] = ranked;
-      return {
-        poll,
-        commissionedBy: partyCommissioned(poll),
-        leader: leader ? { candidate: leader.candidate, pct: leader.pct } : null,
-        runnerUp: runnerUp ? { candidate: runnerUp.candidate, pct: runnerUp.pct } : null,
-        spread: leader && runnerUp ? round1(leader.pct - runnerUp.pct) : null,
-      };
-    });
+  const [p] = sortPollsDesc(all);
+  if (!p) return null;
+  const cargo = p.race === "presidente" ? "presidente" : p.race === "governador" ? "governador" : "senador";
+  const onde = p.state ? ` do ${p.state}` : "";
+  return { race: p.race, uf: p.state ?? null, label: `Nova pesquisa para ${cargo}${onde}` };
+}
+
+export function recentMovers(limit = 4, windowDays = 30): Mover[] {
+  const movers: Mover[] = [];
+  for (const uf of UFS) {
+    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    const top = avg?.candidates[0];
+    const trend = top?.trend ?? [];
+    if (!avg || !top || trend.length < 2) continue;
+    const last = trend[trend.length - 1];
+    const cutoff = new Date(last.date).getTime() - windowDays * 86400000;
+    // Walk back to the newest sample at or before the cutoff.
+    let prior = trend[0];
+    for (const p of trend) {
+      if (new Date(p.date).getTime() <= cutoff) prior = p;
+    }
+    const delta = round1(last.avg - prior.avg);
+    if (Math.abs(delta) < 0.1) continue;
+    movers.push({ uf, name: UF_NAMES[uf], leader: top.candidate, delta });
+  }
+  return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, limit);
+}
+
+export type PollTrend = "up" | "down" | "flat";
+
+export interface LatestTableRow {
+  poll: Poll;
+  commissionedBy: string | null;
+  leader: { candidate: string; pct: number } | null;
+  runnerUp: { candidate: string; pct: number } | null;
+  spread: number | null;
+  /** The leader's move vs the previous poll of the same race (Tendência column). */
+  trend: PollTrend | null;
+}
+
+/**
+ * The latest-polls table, newest first. Each row carries a `trend`: whether the
+ * leader's margin grew, shrank or held versus the previous poll of the SAME race
+ * (same race/state/round). It is a comparison of two published polls, not a
+ * fresh model — the first (oldest) poll of a race has no predecessor and is null.
+ */
+export function latestForTable(limit = 40): LatestTableRow[] {
+  const all = [
+    ...pollsFor("presidente", null),
+    ...UFS.flatMap((uf) => [...pollsFor("governador", uf), ...pollsFor("senador", uf)]),
+    ...UFS.flatMap((uf) => pollsFor("presidente", uf)),
+  ];
+  const sorted = sortPollsDesc(all);
+  // Previous spread per race key, walking oldest→newest so "previous" is the
+  // poll immediately before this one in that race.
+  const raceKey = (p: Poll) => `${p.race}|${p.state ?? "BR"}|${p.round}`;
+  const spreadOf = (p: Poll): number | null => {
+    const conv = toBasis(p, "validos");
+    const r = [...conv.results].sort((a, b) => b.pct - a.pct);
+    return r[0] && r[1] ? round1(r[0].pct - r[1].pct) : null;
+  };
+  const prevSpread = new Map<string, number>();
+  const trendById = new Map<string | number, PollTrend | null>();
+  for (const p of [...sorted].reverse()) {
+    const k = raceKey(p);
+    const s = spreadOf(p);
+    const prev = prevSpread.get(k);
+    let t: PollTrend | null = null;
+    if (s != null && prev != null) t = s - prev > 0.3 ? "up" : s - prev < -0.3 ? "down" : "flat";
+    trendById.set(p.id, t);
+    if (s != null) prevSpread.set(k, s);
+  }
+
+  return sorted.slice(0, limit).map((raw) => {
+    const poll = toBasis(raw, "validos");
+    const ranked = [...poll.results].sort((a, b) => b.pct - a.pct || a.candidate.localeCompare(b.candidate));
+    const [leader, runnerUp] = ranked;
+    return {
+      poll,
+      commissionedBy: partyCommissioned(poll),
+      leader: leader ? { candidate: leader.candidate, pct: leader.pct } : null,
+      runnerUp: runnerUp ? { candidate: runnerUp.candidate, pct: runnerUp.pct } : null,
+      spread: leader && runnerUp ? round1(leader.pct - runnerUp.pct) : null,
+      trend: trendById.get(raw.id) ?? null,
+    };
+  });
 }

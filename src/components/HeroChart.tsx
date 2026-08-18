@@ -2,6 +2,12 @@ import { candKey } from "@/lib/average";
 import { colorMap, colorOf, hashName, PALETTE_SIZE } from "@/lib/colors";
 import type { CandidateAverage, RaceAverage } from "@/lib/types";
 
+/** A candidate is "significant" — coloured line + KPI — iff their VÁLIDOS
+ *  average is at least this. Below it they draw as an individual grey line and
+ *  fold into "Outros". Callers pass the válidos-based set so the threshold does
+ *  not move when the basis toggle shows bruto. */
+export const SIGNIFICANT_PCT = 5;
+
 /**
  * The hero backdrop: an OVERLAPPING (not stacked) area chart of the presidential
  * average, drawn edge to edge behind the front-page headline.
@@ -42,10 +48,11 @@ const H = 320;
 const PAD_TOP = 16;
 const PAD_BOTTOM = 8;
 
-// Palette, hash and slot assignment live in `@/lib/colors` — see the note
-// there on why probing makes the KEY SET part of the answer, and why three
-// private copies of this could give one candidate two colours on one page.
-const assignColors = (keys: string[]) => colorMap(keys);
+// COLOUR BY SIGNIFICANCE (2026-08-18): the hero colours every candidate at or
+// above `SIGNIFICANT_PCT` (válidos) with their FIXED per-candidate colour
+// (`colorMap`/`colorOf`, the same palette state pages use), and draws everyone
+// below it as an individual muted-grey line near the baseline. The válidos-based
+// significant set is threaded in so the basis toggle never recolours a line.
 
 // ── numbers that can never reach the DOM broken ───────────────────────────
 /** Any non-finite input becomes 0. Nothing else is allowed near a path. */
@@ -68,6 +75,14 @@ function clamp(v: number, lo: number, hi: number): number {
   return v < lo ? lo : v > hi ? hi : v;
 }
 
+// DISPLAY WINDOW (2026-08-17 redesign). The framed hero draws only a slice of
+// the full multi-year trend — the CUTOFF date below — so the lines read as clean
+// recent tracking. This is a view over real data, not a crop of it: the averages
+// and the KPI numbers are untouched; only the DRAWN span is trimmed here. The
+// hero's range selector chooses the cutoff (2026 / Tudo / 12m / 6m / 3m) and
+// passes it in; the DEFAULT is the election-cycle view since 1 Jan 2026.
+export const DEFAULT_CUTOFF = "2026-01-01";
+
 export interface HeroSeries {
   /** Normalized name — the identity used for colour and dedupe. */
   key: string;
@@ -83,27 +98,44 @@ export interface HeroSeries {
  * The drawn series, with colours — exported so the hero's legend labels the
  * same candidates in the same colours from one computation instead of two.
  */
-export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeries[] {
+export function heroSeries(
+  average: RaceAverage | null,
+  maxSeries = 6,
+  cutoff: string | null = DEFAULT_CUTOFF,
+  significantKeys: ReadonlySet<string> | null = null,
+  registeredKeys: ReadonlySet<string> | null = null,
+): HeroSeries[] {
   if (!average) return [];
+  // Trim the drawn trend to points at or after `cutoff` (null = no trim / the
+  // "Tudo" range). The KPI averages come from `c.avg`, untouched — only the
+  // drawn points are windowed here.
+  // Colours come from the fixed per-candidate palette, resolved over the race's
+  // top `PALETTE_SIZE` so a candidate keeps one colour across the whole page.
+  const cmap = colorMap(average.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
+  const isSignificant = (k: string, avg: number) =>
+    significantKeys ? significantKeys.has(k) : avg >= SIGNIFICANT_PCT;
   const seen = new Set<string>();
   const uniq: CandidateAverage[] = [];
   for (const c of average.candidates) {
     const k = candKey(c.candidate);
     if (seen.has(k)) continue;
     seen.add(k);
+    // Only REGISTERED president candidates get an individual line; the rest fold
+    // anonymously into "Outros" and are never drawn (owner's rule 2026-08-18).
+    if (registeredKeys && !registeredKeys.has(k)) continue;
     uniq.push(c);
   }
-  const colors = assignColors(uniq.slice(0, PALETTE_SIZE).map((c) => candKey(c.candidate)));
   return uniq.slice(0, Math.max(1, maxSeries)).map((c) => {
     const k = candKey(c.candidate);
     const pts = (Array.isArray(c.trend) ? c.trend : [])
       .filter((p) => typeof p?.date === "string" && p.date.length >= 7 && Number.isFinite(p.avg))
+      .filter((p) => !cutoff || p.date >= cutoff)
       .map((p) => ({ date: p.date, avg: fin(p.avg) }));
     return {
       key: k,
       name: c.candidate,
       avg: fin(c.avg),
-      color: colorOf(colors, c.candidate),
+      color: isSignificant(k, fin(c.avg)) ? colorOf(cmap, c.candidate) : "var(--series-muted)",
       points: pts,
     };
   });
@@ -154,8 +186,14 @@ interface Model {
  * checked finite by `co` before it becomes an attribute, and this is the
  * function a test drives with degenerate races.
  */
-export function heroChartModel(average: RaceAverage | null, maxSeries = 6): Model | null {
-  const series = heroSeries(average, maxSeries);
+export function heroChartModel(
+  average: RaceAverage | null,
+  maxSeries = 6,
+  cutoff: string | null = DEFAULT_CUTOFF,
+  significantKeys: ReadonlySet<string> | null = null,
+  registeredKeys: ReadonlySet<string> | null = null,
+): Model | null {
+  const series = heroSeries(average, maxSeries, cutoff, significantKeys, registeredKeys);
   if (!series.length) return null;
 
   const dates = [...new Set(series.flatMap((s) => s.points.map((p) => p.date)))].sort();
@@ -170,9 +208,15 @@ export function heroChartModel(average: RaceAverage | null, maxSeries = 6): Mode
   const x = (iso: string) => (flat ? 0 : ((isoTime(iso) - t0) / span) * W);
 
   const peak = Math.max(10, ...series.map((s) => s.avg), ...series.flatMap((s) => s.points.map((p) => p.avg)));
-  // `peak` is finite by construction (every input passed `fin`), and the
-  // Math.max(10, …) floor means yMax >= 10 — the divisor can never be 0.
-  const yMax = clamp(Math.ceil((fin(peak, 10) + 5) / 10) * 10, 10, 100);
+  // FIXED SCALE FLOOR OF 60 (2026-08-17). The y-axis top was derived from each
+  // cut's own peak, so "votos válidos" (peaks ~48 → yMax 60) and "bruto" (peaks
+  // ~42 → yMax 50) scaled DIFFERENTLY and a line at 40% sat at two different
+  // heights when the reader toggled — confusing to compare. Flooring yMax at 60
+  // gives both cuts the SAME 0/20/40/60 grid and the same 50% line height, since
+  // neither basis's leader approaches 55% in this race; it still grows past 60
+  // if some value ever demands it. `peak` is finite and the floor keeps yMax ≥ 60,
+  // so the divisor can never be 0.
+  const yMax = clamp(Math.ceil((fin(peak, 10) + 5) / 10) * 10, 60, 100);
   const plot = H - PAD_TOP - PAD_BOTTOM;
   const y = (v: number) => PAD_TOP + (1 - clamp(fin(v), 0, yMax) / yMax) * plot;
   const y0 = y(0);
@@ -233,11 +277,90 @@ export function heroChartModel(average: RaceAverage | null, maxSeries = 6): Mode
 }
 
 const MES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const MES_ABREV = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 
 function fmtLong(iso: string): string {
   const [y, m, d] = iso.split("-");
   const mes = MES[Number(m) - 1];
   return mes ? `${Number(d)} de ${mes} de ${y}` : iso;
+}
+
+/**
+ * Month ticks for the FRAMED hero, as {label, leftPct} — the x-axis the brief
+ * (§4) asks for so a reader can place "when", not just "what". Geometry stays
+ * here, in the one module that owns the x-scale, instead of being re-derived in
+ * the hero. Each tick is the first of a month inside the drawn span, placed by
+ * the same linear time scale the paths use. Returns [] on a flat/single-date
+ * race, where there is no time extent to label.
+ */
+export function heroAxisTicks(model: Model | null): { label: string; leftPct: number }[] {
+  if (!model || model.flat || !model.from || !model.to) return [];
+  const t0 = isoTime(model.from);
+  const t1 = isoTime(model.to);
+  const span = t1 - t0;
+  if (!(span > 0)) return [];
+  // Collect every month-first inside the span, then THIN to ~8 labels so a
+  // two-year series does not print a solid ribbon of month names (the mockup's
+  // span was four months; real data reaches two years). The step keeps January
+  // preferentially so year boundaries survive the thinning and carry the year.
+  const months: { y: number; m: number; t: number }[] = [];
+  const start = new Date(t0);
+  let y = start.getUTCFullYear();
+  let m = start.getUTCMonth();
+  if (start.getUTCDate() !== 1) { m += 1; if (m > 11) { m = 0; y += 1; } }
+  for (;;) {
+    const t = Date.UTC(y, m, 1);
+    if (t > t1) break;
+    months.push({ y, m, t });
+    m += 1; if (m > 11) { m = 0; y += 1; }
+  }
+  const MAX = 8;
+  // Snap the stride to a divisor of 12, so kept months stay evenly spaced FROM
+  // January. A raw stride of 5 (what ~3 years produces) would keep Jan and Nov,
+  // two months apart, and the year label collides with the Nov tick at 375px.
+  const raw = Math.max(1, Math.ceil(months.length / MAX));
+  const step = [1, 2, 3, 4, 6, 12].find((s) => s >= raw) ?? 12;
+  const ticks: { label: string; leftPct: number }[] = [];
+  for (const mo of months) {
+    // Anchor on January (m 0) so kept ticks line up with year turns, and a
+    // January tick carries the year instead of the month name.
+    if (mo.m % step !== 0) continue;
+    ticks.push({
+      label: mo.m === 0 ? String(mo.y) : MES_ABREV[mo.m],
+      leftPct: ((mo.t - t0) / span) * 100,
+    });
+  }
+  return ticks;
+}
+
+/** Vertical position (top %, 0 at the box top) of a value on the framed scale.
+ *  Lets the hero place an HTML "50%" label exactly on the SVG's dashed line. */
+export function heroLevelTopPct(model: Model | null, value: number): number | null {
+  if (!model) return null;
+  return (model.y(value) / H) * 100;
+}
+
+/** The last-poll marker for the framed hero: the leader series' final point,
+ *  as {leftPct, topPct, label, value, color}. Null when there is no span. */
+export function heroLastMarker(model: Model | null):
+  | { leftPct: number; topPct: number; name: string; value: number; color: string; date: string }
+  | null {
+  if (!model || model.flat || !model.from || !model.to) return null;
+  const t0 = isoTime(model.from);
+  const span = isoTime(model.to) - t0;
+  if (!(span > 0)) return null;
+  // Leader = the largest current average (painting order's first area).
+  const leader = [...model.series].sort((a, b) => b.avg - a.avg)[0];
+  const last = leader?.points[leader.points.length - 1];
+  if (!leader || !last) return null;
+  return {
+    leftPct: ((isoTime(last.date) - t0) / span) * 100,
+    topPct: (model.y(last.avg) / H) * 100,
+    name: leader.name,
+    value: last.avg,
+    color: leader.color,
+    date: last.date,
+  };
 }
 
 function pct(v: number): string {
@@ -250,13 +373,33 @@ export interface HeroChartProps {
   /** Hard cap on drawn areas. Default 6, per the hero spec. */
   maxSeries?: number;
   className?: string;
+  /**
+   * FRAMED mode (2026-08-17 redesign). Draws the 50% line inside the plot.
+   * The old note below explains why the line was REMOVED from the full-bleed
+   * hero: unlabelled, over a full-bleed backdrop, near the scrimmed top, it read
+   * as a section divider. The redesign puts the chart inside a bordered card
+   * with an axis and an HTML "50%" label beside the line (see Hero), so the
+   * objection no longer holds and the brief (§4) asks for it back. Off by
+   * default, so the full-bleed usage — if any survives — is unchanged.
+   */
+  framed?: boolean;
+  /** The drawn window's start (ISO date), or null for the full "Tudo" range.
+   *  Defaults to the election-cycle view (`DEFAULT_CUTOFF`). */
+  cutoff?: string | null;
+  /** Candidate keys (`candKey`) at or above `SIGNIFICANT_PCT` on the válidos
+   *  average — those draw with their fixed colour, the rest muted grey. */
+  significantKeys?: ReadonlySet<string> | null;
+  /** Candidate keys of the TSE-registered president candidates — only these are
+   *  drawn as individual lines; non-registered names are never drawn. */
+  registeredKeys?: ReadonlySet<string> | null;
 }
 
-export default function HeroChart({ average, maxSeries = 6, className }: HeroChartProps) {
-  const model = heroChartModel(average, maxSeries);
+export default function HeroChart({ average, maxSeries = 6, className, framed = false, cutoff = DEFAULT_CUTOFF, significantKeys = null, registeredKeys = null }: HeroChartProps) {
+  const model = heroChartModel(average, maxSeries, cutoff, significantKeys, registeredKeys);
   if (!model) return null;
 
-  const { painted, y, from, to, flat } = model;
+  const { painted, y, from, to, flat, yMax } = model;
+  const marker = framed ? heroLastMarker(model) : null;
   const top = model.series.slice(0, 3).map((s) => `${s.name} ${pct(s.avg)}`).join(", ");
   const period =
     flat || !from || !to
@@ -308,18 +451,38 @@ export default function HeroChart({ average, maxSeries = 6, className }: HeroCha
         )}
       </defs>
 
+      {/* FRAMED y-gridlines at 0/20/40/60 (≤ yMax): the target chart reads as a
+          gridded trend, not a filled backdrop. Labels are HTML in Hero. */}
+      {framed &&
+        [0, 20, 40, 60, 80, 100]
+          .filter((v) => v <= yMax)
+          .map((v) => (
+            <line
+              key={`grid-${v}`}
+              x1={0}
+              x2={W}
+              y1={co(y(v))}
+              y2={co(y(v))}
+              stroke="var(--grid)"
+              strokeWidth={1}
+              vectorEffect="non-scaling-stroke"
+            />
+          ))}
+
       {painted.map((p) =>
         p.kind === "area" ? (
           <g key={p.s.key}>
-            <path d={p.area} fill={`url(#${p.gradientId})`} stroke="none" />
+            {/* Area fill only in the legacy full-bleed backdrop; the framed hero
+                draws thin LINES over the gridlines, matching the target. */}
+            {!framed && <path d={p.area} fill={`url(#${p.gradientId})`} stroke="none" />}
             <path
               d={p.line}
               fill="none"
               stroke={p.s.color}
-              strokeWidth={2}
+              strokeWidth={framed ? 1.75 : 2}
               strokeLinejoin="round"
               strokeLinecap="round"
-              opacity={0.9}
+              opacity={framed ? 1 : 0.9}
               vectorEffect="non-scaling-stroke"
             />
           </g>
@@ -348,6 +511,31 @@ export default function HeroChart({ average, maxSeries = 6, className }: HeroCha
         strokeWidth={1}
         vectorEffect="non-scaling-stroke"
       />
+
+      {/* FRAMED extras — see the `framed` prop note. The 50% line only exists
+          when 50 is on the drawn scale; below that it would sit off the top. */}
+      {framed && yMax >= 50 && (
+        <line
+          x1={0}
+          x2={W}
+          y1={co(y(50))}
+          y2={co(y(50))}
+          stroke="var(--axis)"
+          strokeWidth={1}
+          strokeDasharray="4 4"
+          vectorEffect="non-scaling-stroke"
+        />
+      )}
+      {framed && marker && (
+        <path
+          d={`M${co((marker.leftPct / 100) * W)},${co((marker.topPct / 100) * H)} L${co((marker.leftPct / 100) * W)},${co((marker.topPct / 100) * H)}`}
+          fill="none"
+          stroke={marker.color}
+          strokeWidth={8}
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      )}
     </svg>
   );
 }

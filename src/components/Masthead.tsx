@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { SITE_NAME, SITE_YEAR } from "@/lib/brand";
+import { SITE_NAME } from "@/lib/brand";
 import { UFS, UF_NAMES } from "@/lib/types";
 import SiteSearch, { type SearchItem } from "./SiteSearch";
 
@@ -31,7 +31,7 @@ export interface MastheadProps {
   meta?: React.ReactNode;
 }
 
-type MenuKey = "sobre" | "presidente" | "estados" | "metodologia";
+type MenuKey = "sobre" | "presidente" | "governadores" | "senado" | "estados" | "metodologia";
 
 interface MenuLink {
   href: string;
@@ -57,13 +57,10 @@ const STATE_LINKS: MenuLink[] = UFS.map((uf) => ({
   tag: uf,
 }));
 
+// Order and labels mirror the redesign mockup: Presidente · Governadores ·
+// Senado · Estados · Metodologia · Sobre. Governadores and Senado have no
+// dedicated index yet, so they point at the states hub for now.
 const MENUS: Menu[] = [
-  {
-    key: "sobre",
-    label: "Sobre nós",
-    href: "/sobre",
-    links: [{ href: "/sobre", label: "O projeto", note: "Quem faz, com que dados e por quê" }],
-  },
   {
     key: "presidente",
     label: "Presidente",
@@ -77,6 +74,18 @@ const MENUS: Menu[] = [
         note: "Cada pareamento testado — presidente e governadores",
       },
     ],
+  },
+  {
+    key: "governadores",
+    label: "Governadores",
+    href: "/estados",
+    links: [{ href: "/estados", label: "Corridas de governador", note: "Por estado, a média de cada disputa" }],
+  },
+  {
+    key: "senado",
+    label: "Senado",
+    href: "/estados",
+    links: [{ href: "/estados", label: "Corridas ao Senado", note: "Por estado, em números brutos" }],
   },
   {
     key: "estados",
@@ -93,6 +102,12 @@ const MENUS: Menu[] = [
       { href: "/metodologia", label: "Como a média é calculada", note: "Janela, limite por instituto, base mínima" },
       { href: "/institutos", label: "Institutos", note: "Todas as casas com pesquisas no banco" },
     ],
+  },
+  {
+    key: "sobre",
+    label: "Sobre",
+    href: "/sobre",
+    links: [{ href: "/sobre", label: "O projeto", note: "Quem faz, com que dados e por quê" }],
   },
 ];
 
@@ -310,7 +325,7 @@ function DisclosureMenu({ menu, open, setOpen, variant, idPrefix, onNavigate, on
           }
         >
           {isBar && menu.mega ? (
-            <div className="mx-auto max-w-6xl px-4">
+            <div className="shell">
               <MenuLinks menu={menu} variant={variant} onNavigate={onNavigate} />
             </div>
           ) : (
@@ -385,13 +400,31 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
         if (e.key === "Escape") closeAll();
       }}
     >
-      <div className="flex h-14 items-center gap-2 px-3 sm:gap-3 sm:px-5">
+      <div className="shell flex h-16 items-center gap-2 sm:gap-3">
         <Link
           href="/"
           onClick={closeAll}
-          className="min-w-0 shrink truncate text-base font-bold tracking-tight sm:text-lg lg:shrink-0"
+          className="flex min-w-0 shrink-0 items-center gap-2"
+          aria-label={SITE_NAME}
         >
-          {SITE_NAME} <span style={{ color: "var(--accent)" }}>{SITE_YEAR}</span>
+          {/* Header lockup: the transparent brand ICON + the wordmark as themed
+              text (no tagline — that stays on the full lockup in the footer). The
+              icon is a transparent PNG, so it sits clean on both themes; the
+              wordmark uses theme tokens so "VOTO"/"DADOS" invert in dark.
+              eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/voto-icon.png" alt="" aria-hidden="true" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+          {/* Stacked wordmark from the brand guide: VOTO over EM DADOS, uppercase.
+              Theme tokens make VOTO invert to white on the dark header while
+              DADOS stays the brand blue and EM the slate grey. */}
+          <span className="hidden leading-[0.92] sm:block">
+            <span className="block text-[17px] font-extrabold uppercase tracking-tight" style={{ color: "var(--text-primary)" }}>
+              Voto
+            </span>
+            <span className="block text-[17px] font-extrabold uppercase tracking-tight">
+              <span className="text-[10px] align-top" style={{ color: "var(--text-muted)" }}>em </span>
+              <span style={{ color: "var(--accent)" }}>Dados</span>
+            </span>
+          </span>
         </Link>
 
         <nav ref={barNavRef} aria-label="Principal" className="hidden h-full lg:block">
@@ -417,9 +450,18 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
               {meta}
             </span>
           )}
-          <div className="hidden w-44 sm:block md:w-56 lg:w-64">
+          <div className="hidden w-40 sm:block md:w-52 lg:w-60">
             <SiteSearch index={searchIndex} />
           </div>
+          {/* "Entrar" — a filled affordance on the right, matching the mockup.
+              No auth yet; it points at the about page until accounts exist. */}
+          <Link
+            href="/sobre"
+            className="hidden shrink-0 rounded-md px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:inline-block"
+            style={{ background: "var(--accent)" }}
+          >
+            Entrar
+          </Link>
           <button
             type="button"
             aria-expanded={mobileOpen}

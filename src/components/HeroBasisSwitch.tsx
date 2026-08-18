@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Hero from "./Hero";
+import { SIGNIFICANT_PCT } from "./HeroChart";
+import { candKey } from "@/lib/average";
 import type { Headline } from "@/lib/home";
 import type { RaceAverage } from "@/lib/types";
 import type { Basis } from "@/lib/validos";
@@ -40,6 +42,9 @@ export interface HeroBasisSwitchProps {
   averageBruto: RaceAverage | null;
   headlineBruto: Headline | null;
   scenario?: string;
+  /** `candKey`s of the TSE-registered president candidates — only these may be
+   *  named in the hero (see `registeredPresidentKeys`). */
+  registeredKeys?: string[];
 }
 
 export default function HeroBasisSwitch({
@@ -48,6 +53,7 @@ export default function HeroBasisSwitch({
   averageBruto,
   headlineBruto,
   scenario,
+  registeredKeys = [],
 }: HeroBasisSwitchProps) {
   const [basis, setBasis] = useState<Basis>("validos");
 
@@ -56,41 +62,48 @@ export default function HeroBasisSwitch({
   const shown = !convertible ? (average ?? averageBruto) : useBruto ? averageBruto : average;
   const shownHeadline = !convertible ? (headline ?? headlineBruto) : useBruto ? headlineBruto : headline;
 
+  // The significant set (≥5%) is computed ONCE from the VÁLIDOS cut, so which
+  // candidates are coloured never changes when the reader toggles to bruto.
+  const thresholdBase = average ?? averageBruto;
+  const significantKeys = (thresholdBase?.candidates ?? [])
+    .filter((c) => Number.isFinite(c.avg) && c.avg >= SIGNIFICANT_PCT)
+    .map((c) => candKey(c.candidate));
+
   return (
     <Hero
       average={shown}
       headline={shownHeadline}
       scenario={scenario}
+      significantKeys={significantKeys}
+      registeredKeys={registeredKeys}
       controls={
         convertible ? (
-          <div className="flex flex-col gap-1">
-            <div
-              role="group"
-              aria-label="Base dos números deste bloco"
-              className="inline-flex w-fit overflow-hidden rounded-md text-xs"
-              style={{ border: "1px solid var(--grid)", background: "var(--surface-1)" }}
-            >
-              {(["validos", "bruto"] as const).map((b) => (
-                <button
-                  key={b}
-                  type="button"
-                  onClick={() => setBasis(b)}
-                  aria-pressed={basis === b}
-                  className="px-2.5 py-1 transition-colors"
-                  style={{
-                    background: basis === b ? "var(--accent)" : "transparent",
-                    color: basis === b ? "#fff" : "var(--text-muted)",
-                    fontWeight: basis === b ? 600 : 400,
-                  }}
-                >
-                  {b === "validos" ? "votos válidos" : "bruto"}
-                </button>
-              ))}
-            </div>
-            <p className="max-w-[52ch] text-xs" style={{ color: "var(--text-muted)" }}>
-              Muda apenas este bloco. Os confrontos de 2º turno, as barras dos maiores
-              colégios eleitorais e a tabela de pesquisas seguem em votos válidos.
-            </p>
+          // Compact toggle only — the long "muda apenas este bloco" explainer was
+          // removed to match the mockup's dense header. The scope note now lives
+          // as the toggle's title/aria-label instead of a paragraph.
+          <div
+            role="group"
+            aria-label="Base dos números deste bloco — muda apenas o bloco presidencial; o resto do site segue em votos válidos"
+            title="Muda apenas este bloco; o resto do site segue em votos válidos"
+            className="inline-flex w-fit overflow-hidden rounded-md text-xs"
+            style={{ border: "1px solid var(--grid)", background: "var(--surface-1)" }}
+          >
+            {(["validos", "bruto"] as const).map((b) => (
+              <button
+                key={b}
+                type="button"
+                onClick={() => setBasis(b)}
+                aria-pressed={basis === b}
+                className="px-2.5 py-1 transition-colors"
+                style={{
+                  background: basis === b ? "var(--accent)" : "transparent",
+                  color: basis === b ? "#fff" : "var(--text-muted)",
+                  fontWeight: basis === b ? 600 : 400,
+                }}
+              >
+                {b === "validos" ? "votos válidos" : "bruto"}
+              </button>
+            ))}
           </div>
         ) : null
       }

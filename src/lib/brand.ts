@@ -13,11 +13,11 @@
  * prefixes in the check scripts.
  *
  * ⚠ `NEXT_PUBLIC_SITE_URL` is NOT derived from this. sitemap.ts and robots.ts
- * fall back to a hardcoded vercel.app host, and that host must match the Vercel
- * project name. Renaming here without setting that variable publishes a sitemap
- * pointing at a domain that is not the site — an error no build step catches
- * and search engines act on.
+ * fall back to a hardcoded host (`https://www.votoemdados.com.br`), and that host
+ * must match the production domain. Changing the brand here without setting that
+ * variable (or updating the fallback) publishes a sitemap pointing at the wrong
+ * domain — an error no build step catches and search engines act on.
  */
-export const SITE_NAME = "Placar das Pesquisas";
+export const SITE_NAME = "Voto em Dados";
 export const SITE_YEAR = "2026";
-export const SITE_TAGLINE = "A média que você pode refazer";
+export const SITE_TAGLINE = "Eleições transparentes, decisões informadas";
