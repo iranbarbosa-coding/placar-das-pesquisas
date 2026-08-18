@@ -12,13 +12,13 @@ import type { StateHighlight, Mover, StateMapDatum, MapStatus, NewestPoll } from
  * the mockup's status legend below it.
  */
 
-// Legend dots share the map's pastel fills (see `BrasilMap`/globals.css) so the
+// Legend dots share the map's brand fills (see `BrasilMap`/globals.css) so the
 // key matches the choropleth exactly.
 const STATUS_COLOR: Record<MapStatus, string> = {
-  acima: "var(--map-acima)", // pale sage — leader above 50
-  abaixo: "var(--map-abaixo)", // pale yellow — leader below 50
-  empate: "var(--map-empate)", // light pink — technical tie
-  sem: "var(--map-sem)", // light grey — no recent poll
+  acima: "var(--map-acima)", // brand blue — leader above 50
+  abaixo: "var(--map-abaixo)", // light blue — leader below 50 (runoff)
+  empate: "var(--map-empate)", // red — technical tie
+  sem: "var(--map-sem)", // grey — no recent poll
 };
 
 const STATUS_LABEL: { key: MapStatus; label: string }[] = [

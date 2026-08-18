@@ -73,6 +73,7 @@ O produto passou a se chamar **Voto em Dados** (votoemdados.com.br), com base no
 - **Tema escuro em navy** `#0B1020` (era cinza neutro), com cards navy que se destacam — como no header mobile e no ícone do app do guia.
 - **Mapa na paleta da marca:** acima de 50% **azul**, abaixo de 50% **azul claro**, empate técnico **vermelho**, sem pesquisa **cinza**.
 - `SITE_NAME` → "Voto em Dados"; fallback de domínio do sitemap/robots → `https://www.votoemdados.com.br`.
+- **Fora do escopo desta leva:** a estrutura de navegação (masthead, mega-menu, busca) não foi reformulada — só o wordmark/ícone do cabeçalho trocou. Migrar o interior das outras páginas (`/estados`, `/presidente` etc.) para o padrão da home é trabalho seguinte, guiado pelo [GUIA_DE_DESIGN.md](GUIA_DE_DESIGN.md).
 
 ---
 

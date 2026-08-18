@@ -21,10 +21,10 @@ import type { StateMapDatum, MapStatus } from "@/lib/home";
 const SVG = fs.readFileSync(path.join(process.cwd(), "src/components/brasil-mapa.svg"), "utf-8");
 
 const STATUS_FILL: Record<MapStatus, string> = {
-  acima: "var(--map-acima)", // pale sage — leader above 50
-  abaixo: "var(--map-abaixo)", // pale yellow — leader below 50
-  empate: "var(--map-empate)", // light pink — technical tie
-  sem: "var(--map-sem)", // light grey — no recent poll
+  acima: "var(--map-acima)", // brand blue — leader above 50
+  abaixo: "var(--map-abaixo)", // light blue — leader below 50 (runoff)
+  empate: "var(--map-empate)", // red — technical tie
+  sem: "var(--map-sem)", // grey — no recent poll
 };
 
 export default function BrasilMap({ map }: { map: StateMapDatum[] }) {
