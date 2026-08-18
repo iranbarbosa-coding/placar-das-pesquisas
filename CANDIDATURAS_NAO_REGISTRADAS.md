@@ -2,23 +2,16 @@
 
 Gerado por `node scripts/candidaturas-nao-registradas.mjs`. **Enumeração, não reparo.**
 
-O banco guarda muita pesquisa que testou gente que depois não registrou candidatura para
-aquela disputa. **Isso não é erro de dado e não se corrige aqui.** O instituto perguntou
-mesmo, e na data em que perguntou ninguém sabia quem ia se registrar — a decisão do criador
-já está no repositório: *quem foi testado em pesquisa e não se registrou fica também; é fato
-sobre a pesquisa, não erro a corrigir*. Este arquivo existe para **sinalizar e catalogar**, e
-só para o dia em que uma dessas linhas parecer estar distorcendo a análise de uma pesquisa do
-período eleitoral.
+Muita pesquisa deste banco testou gente que depois não registrou candidatura para aquela
+disputa. **Isso não é erro de dado e não se corrige aqui**: o instituto perguntou mesmo, e na
+data em que perguntou ninguém sabia quem ia se registrar. Quem foi testado e não se registrou
+fica, porque é fato sobre a pesquisa. Este arquivo apenas cataloga.
 
-**Período eleitoral: a partir de 16/08/2026** (início da campanha). É o gatilho declarado
-pelo criador: um confronto cujas pesquisas são todas anteriores a essa data é história; um que
-continua sendo perguntado depois dela merece um olhar. A coluna **no período** conta cenários
-cujo **fim de campo** é dessa data em diante.
+**Período eleitoral: a partir de 16/08/2026** (início da campanha). A coluna **no período** conta
+cenários cujo **fim de campo** é dessa data em diante.
 
-⚠ **Nenhuma conta de média aqui.** `src/lib/average.ts` é dono de *quais pesquisas entram na
-média*, e uma segunda cópia neste relatório seria o defeito do §5. As colunas abaixo são fato
-cru — quantos cenários, quais datas, qual candidatura consta do registro — e o julgamento é de
-um humano. O que eu achei que merece atenção está em prosa na seção **Leitura**, não em conta.
+Nenhuma conta de média aqui: `src/lib/average.ts` é dono de quais pesquisas entram na média.
+As colunas são fato cru — cenários, datas, e qual candidatura consta do registro.
 
 ## Placar
 
@@ -38,138 +31,32 @@ de **13** cenários que o banco tem com campo encerrado em 16/08/2026 ou depois,
 
 ## ⚠ O que esta lista NÃO enxerga
 
-Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e entre
-as 13 candidaturas nacionais — **ele não olha os outros 26 estados**. Então quem se registrou
-num estado que não foi procurado, **e** que nunca foi pesquisado sob uma grafia que colidisse
-com a de alguém registrado, **continua aparecendo aqui como sem candidatura**: são as
-**292 de 320** linhas afirmadas que saem de disputa estadual. Não é engano de leitura — é o
-alcance do que dá para provar com o que temos hoje.
+Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e
+entre as 13 candidaturas nacionais — **ele não olha os outros 26 estados**. Então quem se
+registrou num estado que não foi procurado, **e** que nunca foi pesquisado sob uma grafia que
+colidisse com a de alguém registrado, **continua aparecendo aqui como sem candidatura**: são as
+**292 de 320** linhas afirmadas que saem de disputa estadual.
 
 **Se uma linha desta lista importar para uma decisão, confira o nome no registro antes de agir.**
 
 Nas 28 linhas da disputa nacional a busca varreu o registro inteiro, e ali a negativa é forte.
 
-As duas condições são conjuntas de propósito: quem foi pesquisado sob uma grafia que colide com
-a de alguém registrado **não** cai nesta sombra — é interceptado pelo passo 5 e vai para a
-tabela de contradições. A sombra é só de quem escapou das duas.
-
-Foi exatamente essa a falha da primeira versão deste arquivo: ela afirmou "nenhuma no registro"
-em três linhas estaduais e as três estavam erradas. O passo 5 e a coluna escopada fecham o que
-é demonstrável; **este parágrafo é o que sobra, e sobra de propósito** — dizer o resto exigiria
-um segundo casador, que é o que o §5 proíbe.
-
 ## Como cada linha é classificada
 
-A pergunta "esta pessoa tem candidatura nesta disputa?" é respondida por `data/people.ndjson`,
-onde `resolvePerson` — via `ballotCandidacy` e `data/ballot-names.json` — **já** gravou com que
-candidatura do TSE cada pessoa casou. Não há segundo casador nem segundo normalizador aqui (§5).
-
-A ordem das checagens, da evidência mais forte para a mais fraca:
+"Esta pessoa tem candidatura nesta disputa?" é respondida por `data/people.ndjson`, onde
+`resolvePerson` — via `ballotCandidacy` e `data/ballot-names.json` — já gravou com que
+candidatura do TSE cada pessoa casou. Não há segundo casador nem segundo normalizador aqui.
 
 1. tem candidatura **nesta** disputa → registrada, não entra neste arquivo;
 2. tem candidatura em **outra** disputa → **OUTRA DISPUTA**, e a disputa vai na coluna;
 3. o casador **recusou** alguma grafia por ambiguidade (`ballot-names.json.ambiguos`) → **não determinado**;
 4. alguma grafia **nunca foi examinada** pelo casador (não está em `data/nomes-crus.json` da disputa pesquisada) → **não determinado**;
-5. **outra linha de pessoa do nosso próprio banco carrega a mesma grafia e TEM candidatura** → *contradição*;
-6. todas foram examinadas e nenhuma achou candidatura ao alcance do casador → **SEM CANDIDATURA**.
+5. **outra linha de pessoa deste banco carrega a mesma grafia e TEM candidatura** → *contradição*;
+6. todas examinadas e nenhuma achou candidatura ao alcance do casador → **SEM CANDIDATURA**.
 
-### O passo 5 existe porque a versão anterior deste arquivo publicou afirmação falsa
-
-A conferência independente leu **todas as 326** linhas então afirmadas contra
-`data/candidaturas.ndjson` — não por amostra — e três estavam erradas:
-
-| disputa | a linha dizia | o registro diz |
-|---|---|---|
-| `governador:GO` | Michelle Bolsonaro — nenhuma no registro | `senador:DF` MICHELLE BOLSONARO |
-| `senador:MS` | Simone Tebet — nenhuma no registro | `senador:SP` SIMONE TEBET |
-| `governador:GO` | Ciro Gomes — nenhuma no registro | `governador:CE` CIRO GOMES |
-
-E o arquivo **contradizia a si mesmo**: a seção `presidente:BR` publicava Ciro Gomes em
-`governador:CE` e Michelle em `senador:DF`, enquanto a seção `governador:GO` publicava os dois
-como não tendo nada no registro.
-
-A causa está em `scripts/match-ballot-names.mjs`, na reserva de registro inteiro:
-
-```js
-if (ufPesquisa !== "BR" && c.uf && c.uf !== ufPesquisa) continue;
-```
-
-Uma candidatura de **outro estado** é recusada **de propósito** — é a regra que impede o
-"Álvaro Dias" do Paraná de sair carregando o registro do "ÁLVARO DIAS" do Rio Grande do
-Norte. Só que essa recusa é contada como `stats.sem`, e o passo final lia `stats.sem` como
-*nenhuma candidatura no registro inteiro*. Numa disputa **estadual o casador nunca olhou fora
-do estado**: existem **quatro** desfechos, não três, e o quarto é "examinado e recusado pela
-regra de estado". É o defeito de `LACUNAS_PODER360.md` outra vez, um nível acima — o nosso
-próprio casador se abstendo, publicado como fato sobre o mundo.
-
-**O conserto não é um segundo casador** (§5): sair procurando o nome nos outros estados seria
-uma segunda regra de identidade. O passo 5 é barato e não decide nada — pergunta se o nosso
-banco já se contradiz sobre a **mesma grafia normalizada**. Quando duas linhas de pessoa
-carregam a mesma grafia e uma delas tem candidatura, não é afirmação que a gente possa publicar.
-
-**E o alcance da negativa passou a ser dito na coluna, em vez de subentendido.** Numa disputa
-estadual a coluna agora lê `nenhuma em \`UF\` nem nacional`, que é exatamente o que ficou
-provado: nenhuma candidatura compatível naquela UF (governo e senado) nem entre as 13
-nacionais. Só em `presidente:BR` — onde a regra de estado é isenta nas duas pontas — a frase
-forte `nenhuma no registro inteiro` continua valendo. É esta coluna que deixa honestos os
-casos que o passo 5 **não** alcança, como Toni Rodrigues (`governador:PI`) e José Guimarães
-(`senador:CE`), cujas grafias não aparecem em nenhuma outra linha do nosso banco.
-
-⚠ **O balde de contradição mistura três espécies, e separá-las é ruling de humano, não conta
-de relatório** (§4, §12): a mesma pessoa partida em duas linhas (Michelle, Tebet, Ciro Gomes);
-homônimos que a curadoria já declarou pessoas **diferentes** (os dois "Álvaro Dias" do PR
-contra o do RN — a regra de estado existe por causa deles, e continuam corretamente recusados);
-e o indecidível sem documento (Ravenna Castro × Ravenna da Inclusão). **Este relatório não
-decide nenhuma das três.**
-
-**O passo 4 é a regra que impede a inferência proibida (§4), e ele não é decorativo.** Sem ele,
-quatro pessoas sairiam daqui afirmadas como "nenhuma candidatura no registro inteiro", e para
-três a afirmação é falsa contra `data/candidaturas.ndjson`:
-
-| disputa | pessoa | a grafia que o casador examinou | a candidatura que existe |
-|---|---|---|---|
-| `governador:GO` | Gustavo Mendanha | "Gustavo Medanha" (um `n` a menos, como o instituto publicou) | `senador:GO` |
-| `governador:SP` | Guilherme Derrite | "Capitão Derrite" | `senador:SP` |
-| `presidente:BR` | Ciro Nogueira | "Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro" | `senador:PI` |
-
-Em todos, o nome que **alcançaria** a candidatura é o nome canonizado por nós, que o casador
-nunca viu. Afirmar a partir da nossa própria falha de casamento é exatamente o que o §4 proíbe.
-
-**A chave de exame não dobra para a nacional, e a conta dos dois jeitos é rodada a cada
-geração — não é lembrança.** Em quase todo o resto do repositório `presidente:PR` dobra para
-`presidente:BR`, porque a disputa é nacional e só a amostra é estadual. A pergunta "tem
-candidatura nesta disputa?" usa a dobra; a pergunta "o casador examinou esta grafia?" não.
-
-| | sem candidatura | contradições | não determinados |
-|---|---|---|---|
-| **sem dobra** — o que está publicado neste arquivo | **320** | 6 | 8 |
-| com dobra dos dois lados | 321 | 7 | 6 |
-
-Hoje a dobra **resolveria 2 não determinado(s)**: 1 viraria(m) afirmação e 1 viraria(m) contradição.
-
-⚠ **A razão escrita aqui em 18/08/2026 deixou de valer no mesmo dia, e isto é a correção.** Ela
-dizia que dobrar produziria uma *afirmação falsa* sobre Ciro Nogueira — a linha sem registro
-nascida da grafia com cláusula herdaria o exame de "Ciro Nogueira" em `presidente:BR` e sairia
-como "nenhuma no registro", sendo ele registrado em `senador:PI`. Isso **era** verdade, e
-deixou de ser quando o passo 5 entrou na mesma série: hoje a dobra manda essa linha para a
-tabela de **contradições**, não para uma afirmação. A justificativa sobreviveu à sua própria
-causa por uma rodada.
-
-**O que sobra como razão, e é razão suficiente:** sem dobra existem DUAS barreiras independentes
-entre esta linha e uma afirmação falsa — a chave de exame por disputa pesquisada e o passo 5.
-Com a dobra sobra uma. O preço de manter as duas é uma recusa a mais, e a direção declarada
-deste repositório é errar para o lado de não afirmar.
-
-## Leitura — o que salta aos olhos
-
-- **A presidencial é o grosso.** 40 pessoas testadas para presidente não têm candidatura presidencial, e elas aparecem em 42 confrontos de 2º turno da disputa (de 57), somando 493 de 1079 cenários.
-- **Restringindo à amostra nacional** — que é o recorte em que o criador mediu —, o banco tem **47 confrontos** de 2º turno e **854 cenários**. Destes, **36 confrontos (429 cenários)** têm alguém sem candidatura presidencial *afirmado*, e **1 confronto(s) (5 cenários)** ficam em não determinado. A **soma, 37 confrontos e 434 cenários**, é exatamente a medida de 17/08/2026 — a diferença é que aqui a linha que não dá para afirmar está separada, em vez de contada junto.
-- **Registrados em outra disputa — o caso mais interessante.** 12 das pessoas testadas para presidente se registraram para outro cargo: **Tarcísio** (governador:SP, 166 cenários); **Ciro Gomes** (governador:CE, 118 cenários); **Michelle Bolsonaro** (senador:DF, 84 cenários); **Cabo Daciolo** (governador:AM, 82 cenários); **Fernando Haddad** (governador:SP, 37 cenários); e outros. O instituto perguntou por eles como presidenciáveis e eles foram disputar governo ou senado.
-- **Nenhum confronto afirmado tem cenário no período eleitoral, e nenhuma linha de candidato também.** É o achado que mais importa para a decisão do criador: hoje nenhuma dessas linhas está distorcendo pesquisa de campanha, porque nenhuma delas foi perguntada de 16/08/2026 em diante. **Mas leia o `0` com o denominador ao lado:** o banco tem só **13 cenários** com campo encerrado nessa data ou depois, em **4 levantamento(s)** — o corte é de dois dias atrás. O `0` mede tanto a idade do corte quanto a ausência do problema, e este arquivo tem de ser relido quando houver campo pós-corte de verdade.
-- **Os que mais recentemente ainda estavam sendo perguntados:** Alexandre Kalil × Marcelo Aro — 29/07/2026 (governador:MG); Marcelo Aro × Patrus Ananias — 29/07/2026 (governador:MG); Jair Bolsonaro × Lula — 27/07/2026 (presidente:BR); Lula × Michelle Bolsonaro — 27/07/2026 (presidente:BR); Fernando Haddad × Flávio Bolsonaro — 27/07/2026 (presidente:BR).
-- **8 linha(s) de candidato e 3 de confronto ficaram sem resposta**, e continuam sem. Elas não são "não registradas" — são casos em que a nossa própria máquina de casamento não conseguiu dizer, e o §4 manda recusar em vez de escolher.
-- **6 linha(s) foram recusadas porque o nosso próprio banco carrega a mesma grafia registrada** — e este é o achado que mais pede decisão do criador: Ciro Gomes em `governador:GO` ⟂ `governador:CE`; Michelle Bolsonaro em `governador:GO` ⟂ `senador:DF`; Alvaro Dias em `governador:PR` ⟂ `governador:RN`; Simone Tebet em `senador:MS` ⟂ `senador:SP`; Ravenna Castro em `senador:PI` ⟂ `governador:PI`; Álvaro Dias em `senador:PR` ⟂ `governador:RN`. São três espécies misturadas — a mesma pessoa partida em duas linhas, homônimos já declarados pessoas diferentes, e o indecidível sem documento — e **nenhuma delas é decidida aqui**.
-- **O mesmo nome em duas linhas de pessoa é um rachado de identidade do banco, não erro deste relatório — e ele não está só na presidencial.** Em `presidente:BR` há duas linhas "Ciro Nogueira" e duas "Ciro Gomes", uma registrada e uma não. A versão anterior deste arquivo dizia que isso era inofensivo por ser coisa de `presidente:BR`, e estava errado: em disputa ESTADUAL o mesmo rachado produziu afirmação falsa sobre Michelle Bolsonaro, Simone Tebet e Ciro Gomes, porque ali a regra de estado do casador impede o encontro. Está anotado, `person_id` a `person_id`, e **não foi corrigido** — achado fora das classes do censo se anota, não se conserta no meio da rodada (§9).
+O balde de *contradição* não decide nada: ele mistura a mesma pessoa partida em duas linhas,
+homônimos que a curadoria já declarou pessoas diferentes, e casos indecidíveis sem documento.
+Separar as três espécies é decisão de um humano.
 
 ---
 
@@ -420,10 +307,8 @@ deste repositório é errar para o lado de não afirmar.
 
 ### Recusados — o nosso próprio banco carrega a mesma grafia registrada
 
-Não é afirmação de que sejam a mesma pessoa, nem de que não sejam. É o registro de que
-`people.ndjson` tem **outra linha** com a mesma grafia normalizada e **com** candidatura —
-o que basta para esta linha não poder ser publicada como "sem candidatura". Quem decide se
-é a mesma pessoa, um homônimo ou um caso a pesquisar é um humano (§4, §12).
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 
 | candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
 |---|---|---|---|---|---|---|
@@ -637,10 +522,8 @@ o que basta para esta linha não poder ser publicada como "sem candidatura". Que
 
 ### Recusados — o nosso próprio banco carrega a mesma grafia registrada
 
-Não é afirmação de que sejam a mesma pessoa, nem de que não sejam. É o registro de que
-`people.ndjson` tem **outra linha** com a mesma grafia normalizada e **com** candidatura —
-o que basta para esta linha não poder ser publicada como "sem candidatura". Quem decide se
-é a mesma pessoa, um homônimo ou um caso a pesquisar é um humano (§4, §12).
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 
 | candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
 |---|---|---|---|---|---|---|
@@ -996,10 +879,8 @@ o que basta para esta linha não poder ser publicada como "sem candidatura". Que
 
 ### Recusados — o nosso próprio banco carrega a mesma grafia registrada
 
-Não é afirmação de que sejam a mesma pessoa, nem de que não sejam. É o registro de que
-`people.ndjson` tem **outra linha** com a mesma grafia normalizada e **com** candidatura —
-o que basta para esta linha não poder ser publicada como "sem candidatura". Quem decide se
-é a mesma pessoa, um homônimo ou um caso a pesquisar é um humano (§4, §12).
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 
 | candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
 |---|---|---|---|---|---|---|
@@ -1066,10 +947,8 @@ o que basta para esta linha não poder ser publicada como "sem candidatura". Que
 
 ### Recusados — o nosso próprio banco carrega a mesma grafia registrada
 
-Não é afirmação de que sejam a mesma pessoa, nem de que não sejam. É o registro de que
-`people.ndjson` tem **outra linha** com a mesma grafia normalizada e **com** candidatura —
-o que basta para esta linha não poder ser publicada como "sem candidatura". Quem decide se
-é a mesma pessoa, um homônimo ou um caso a pesquisar é um humano (§4, §12).
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 
 | candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
 |---|---|---|---|---|---|---|
@@ -1093,10 +972,8 @@ o que basta para esta linha não poder ser publicada como "sem candidatura". Que
 
 ### Recusados — o nosso próprio banco carrega a mesma grafia registrada
 
-Não é afirmação de que sejam a mesma pessoa, nem de que não sejam. É o registro de que
-`people.ndjson` tem **outra linha** com a mesma grafia normalizada e **com** candidatura —
-o que basta para esta linha não poder ser publicada como "sem candidatura". Quem decide se
-é a mesma pessoa, um homônimo ou um caso a pesquisar é um humano (§4, §12).
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 
 | candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
 |---|---|---|---|---|---|---|
@@ -1245,6 +1122,4 @@ o que basta para esta linha não poder ser publicada como "sem candidatura". Que
 
 ---
 
-Nada se corrige a partir desta tabela. Ela existe para que, quando uma pesquisa do período
-eleitoral parecer estranha, dê para responder em um olhar se um nome fora da urna está no
-meio dela — e a decisão do que fazer continua sendo do criador (§12).
+Nada se corrige a partir deste arquivo.
