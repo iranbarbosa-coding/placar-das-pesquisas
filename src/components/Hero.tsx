@@ -43,10 +43,6 @@ import type { RaceAverage } from "@/lib/types";
    an empty style object so the many call sites read the same. */
 const DISPLAY = {} as const;
 
-function round1(x: number): number {
-  return Math.round(x * 10) / 10;
-}
-
 /** Small round "i" info glyph, matching the target's title affordance. */
 function InfoGlyph() {
   return (
@@ -102,36 +98,40 @@ export default function Hero({
   // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
   const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
-  // KPI row: the top THREE candidates, then "Outros", and — on the bruto cut only
-  // — a separate "Brancos/Nulos/NR" bucket.
-  const topKpis = series.slice(0, 3).map((s) => ({
+  // KPI row: the top THREE candidates, "Outros" (leftover candidates), and — on
+  // the bruto cut only — "Brancos/Nulos/NR". Everything is reconciled in TENTHS
+  // so the DISPLAYED row sums to exactly 100,0: independently-rounded buckets had
+  // summed to 99,6. The remainder bucket absorbs the rounding, which is honest —
+  // on each base it IS "everything not shown above".
+  const tenths = (x: number) => Math.round((Number.isFinite(x) ? x : 0) * 10);
+  const top3 = series.slice(0, 3);
+  const top3SumT = top3.reduce((a, s) => a + tenths(s.avg), 0);
+  // Leftover candidates (ranked 4+), summed directly.
+  const leftoverT = tenths((average?.candidates ?? []).slice(3).reduce((s, c) => s + (Number.isFinite(c.avg) ? c.avg : 0), 0));
+  // Válidos: the base is candidates-only, so "Outros" is the rest of the field
+  // (100 − top3) — which is the leftover candidates — and there is no branco/nulo
+  // bucket. Bruto: "Outros" is the leftover candidates directly, and
+  // "Brancos/Nulos/NR" takes the remainder (branco + nulo + não sabe) so the row
+  // sums to 100.
+  const outrosT = validos ? Math.max(0, 1000 - top3SumT) : leftoverT;
+  const brancosNulosT = validos ? null : Math.max(0, 1000 - top3SumT - outrosT);
+
+  const topKpis = top3.map((s) => ({
     key: s.key,
-    pct: s.avg,
+    pct: tenths(s.avg) / 10,
     name: s.name,
     party: partyOf.get(s.name) ?? null,
     color: s.color,
   }));
-  // "Outros" sums only the LEFTOVER CANDIDATES (ranked 4+), directly — not
-  // 100−top3, which on bruto would swallow branco/nulo/não sabe into "Outros".
-  // On válidos the field rescales to 100 across candidates, so this still lands
-  // near 100−top3.
-  const outrosPct = round1((average?.candidates ?? []).slice(3).reduce((s, c) => s + (Number.isFinite(c.avg) ? c.avg : 0), 0));
-  // Branco/nulo/NR is a share of the TOTAL sample, so it belongs only on the
-  // bruto cut (válidos removes it from the base). `setAside` carries the real
-  // poll shares regardless of basis.
-  const sa = average?.setAside;
-  const brancosNulosPct =
-    !validos && sa ? round1(sa.combined ?? (sa.blankNull ?? 0) + (sa.undecided ?? 0)) : null;
-
   // The candidate KPIs (top 3 + Outros) also label the chart legend. The
-  // branco/nulo bucket is NOT a chart line, so it stays out of the legend.
+  // branco/nulo bucket is NOT a drawn line, so it stays out of the legend.
   const candidateKpis =
-    outrosPct > 0.05
-      ? [...topKpis, { key: "__outros", pct: outrosPct, name: "Outros", party: null, color: "var(--series-muted)" }]
+    outrosT > 0
+      ? [...topKpis, { key: "__outros", pct: outrosT / 10, name: "Outros", party: null, color: "var(--series-muted)" }]
       : topKpis;
   const kpis =
-    brancosNulosPct != null && brancosNulosPct > 0.05
-      ? [...candidateKpis, { key: "__bn", pct: brancosNulosPct, name: "Brancos/Nulos/NR", party: null, color: "var(--text-muted)" }]
+    brancosNulosT != null && brancosNulosT > 0
+      ? [...candidateKpis, { key: "__bn", pct: brancosNulosT / 10, name: "Brancos/Nulos/NR", party: null, color: "var(--text-muted)" }]
       : candidateKpis;
 
   // y-axis gridline values on the framed chart's own scale (0/20/40/60…≤ yMax).
