@@ -1,11 +1,10 @@
 /**
  * The site's name, in one place.
  *
- * A rename is live: "Placar das Pesquisas" frames the product as a scoreboard —
- * the horse-race framing the method exists to argue against — and a replacement
- * is being chosen. Every user-visible occurrence reads from here so that
- * decision costs one edit instead of a search across pages, metadata, the
- * masthead and the OG tags.
+ * The product is "Placar das Pesquisas". Every user-visible occurrence reads
+ * from here so a rename costs one edit instead of a search across pages,
+ * metadata, the masthead and the OG tags. (A brief "Voto em Dados" rebrand was
+ * tried and reverted — the brand and the network-map logo returned to Placar.)
  *
  * NOT covered, deliberately, because they are not user-visible branding and
  * changing them would churn the data for no reader benefit: the scraper
@@ -13,11 +12,11 @@
  * prefixes in the check scripts.
  *
  * ⚠ `NEXT_PUBLIC_SITE_URL` is NOT derived from this. sitemap.ts and robots.ts
- * fall back to a hardcoded host (`https://www.votoemdados.com.br`), and that host
- * must match the production domain. Changing the brand here without setting that
- * variable (or updating the fallback) publishes a sitemap pointing at the wrong
- * domain — an error no build step catches and search engines act on.
+ * fall back to a hardcoded host (`https://placar-das-pesquisas.vercel.app`), and
+ * that host must match the production domain. Changing the brand here without
+ * setting that variable (or updating the fallback) publishes a sitemap pointing
+ * at the wrong domain — an error no build step catches and search engines act on.
  */
-export const SITE_NAME = "Voto em Dados";
+export const SITE_NAME = "Placar das Pesquisas";
 export const SITE_YEAR = "2026";
-export const SITE_TAGLINE = "Eleições transparentes, decisões informadas";
+export const SITE_TAGLINE = "A média que você pode refazer";

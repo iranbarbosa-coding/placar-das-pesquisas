@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import Masthead from "@/components/Masthead";
 import { loadDataset } from "@/lib/data";
 import { buildSearchIndex } from "@/lib/search-index";
-import { SITE_NAME, SITE_YEAR } from "@/lib/brand";
+import { SITE_NAME, SITE_YEAR, SITE_TAGLINE } from "@/lib/brand";
 import "./globals.css";
 
 /* The UI face named first in the brief (§11). Loaded through next/font, so it is
@@ -72,11 +72,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main className="shell py-6">{children}</main>
         <footer className="mt-12 border-t py-8 text-center text-xs" style={{ borderColor: "var(--ring)", color: "var(--text-muted)" }}>
-          {/* The full brand lockup (with tagline) lives here. The asset has a
-              white background, given rounded corners so it reads as a brand card
-              on the dark theme. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/voto-em-dados.png" alt={SITE_NAME} className="mx-auto mb-5 h-12 w-auto rounded-md sm:h-14" />
+          {/* Full brand lockup: the network-map ICON + the "PLACAR DAS PESQUISAS"
+              wordmark + tagline, rendered as themed text so it adapts to both
+              themes natively (no white-box raster to card off). */}
+          <div className="mb-5 flex flex-col items-center gap-2">
+            <div className="flex items-center gap-2.5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/placar-icon.png" alt="" aria-hidden="true" className="h-10 w-10 sm:h-12 sm:w-12" />
+              <span className="text-left leading-[0.9]">
+                <span className="block text-lg font-extrabold uppercase tracking-tight sm:text-xl" style={{ color: "var(--text-primary)" }}>
+                  Placar
+                </span>
+                <span className="block text-lg font-extrabold uppercase tracking-tight sm:text-xl">
+                  <span className="align-top text-[11px]" style={{ color: "var(--text-muted)" }}>das </span>
+                  <span style={{ color: "var(--accent)" }}>Pesquisas</span>
+                </span>
+              </span>
+            </div>
+            <p className="text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--text-muted)" }}>{SITE_TAGLINE}</p>
+          </div>
           <p className="mx-auto max-w-2xl px-4">
             Dados compilados de fontes públicas (Wikipédia, registros do TSE/PesqEle e divulgações dos
             institutos). Médias calculadas conforme a <Link href="/metodologia" className="underline">metodologia</Link>.
