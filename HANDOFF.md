@@ -1114,6 +1114,127 @@ every validator here has a `--self-test` for that reason.
      (hoje: uma entrada). Se a porta curada virar rotina — dezenas de blocos dos
      41 medidos —, a conta vira e (b) passa a valer o custo.
 
+## SESSÃO DE 17–18/08/2026 — o que mudou, e o que ela ensinou
+
+**Estado**: `main` limpo e pushado. 1.010 levantamentos · 2.990 perguntas · 137
+institutos · 855 pessoas · 1.080 candidatos. Censo em 14 itens. Suíte inteira
+verde (`upsert-harness` 49 casos).
+
+### Dados corrigidos
+
+**Três nacionais recentes voltaram a ser o que o instituto publicou** — PoderData
+12/08, Nexus 09/08, Quaest 03/08. Cada relatório lido por DOIS agentes às cegas,
+em diretórios separados, e as seis transcrições comparadas antes de qualquer
+reparo.
+
+⚠ **O PADRÃO QUE ISSO REVELOU, e que vale para as outras 224 curtas:** quando o
+agregador apaga uma linha de candidato, **o ponto dela REAPARECE COMO `outros`**.
+Não é perda, é troca de rótulo. Três institutos, três vezes a mesma conta batendo
+(Leonardo Avalanche 1 / Cabo Daciolo 1 / Cabo Daciolo 1, contra `outros: 1` nos
+três). Por isso restaurar o nome SEM zerar o `outros` conta o mesmo ponto duas
+vezes — é a regra ★ do §4, agora com mecanismo conhecido.
+E ele **SOMA `branco/nulo` com `não sabe`** num campo só; o relatório publica os
+dois separados. Aconteceu nos 15 cenários das três.
+
+**Ruling do Marçal, preventiva** (28 disputas): ele registrou no limite do prazo e
+volta às pesquisas. `Marçal` sozinho não alcançava o cadastro e cunharia uma
+pessoa paralela. Escrita ANTES da grafia chegar — dá para ver esse defeito vindo.
+
+**Ruling da Ravenna Castro**: é `Ravenna da Inclusão`, registrada para
+`governador:PI`. ⚠ A ruling dá o nome de urna certo mas **NÃO junta as duas
+pessoas** — `ballotCandidacy` procura POR DISPUTA e o mapa só tem a entrada dela
+em `governador:PI`. Medido antes de escrever, não descoberto depois.
+
+### Ferramentas consertadas — as quatro teriam causado dano silencioso
+
+1. **O relatório de lacunas INVENTAVA pesquisa faltando.** Ele resolvia o
+   instituto por nome exato: o Poder360 escreve "Futura Inteligência", o store
+   guarda "Futura", e a pesquisa inteira virava AUSENTE. Eu ia escrever um
+   `add_poll` que DUPLICARIA dado publicado — parei porque conferi o banco antes.
+   Hoje cai na mesma regra de token do agrupador. 99 → 94 ausentes, as cinco
+   conferidas uma a uma.
+2. **O casador de reparos não alcançava cenário.** Quatro confrontos de 2º turno
+   dividem registro, disputa e turno; um `set` de balde acertava os quatro com o
+   valor errado em três. Ganhou `has_candidate`, comparado por `sameCandidate`
+   porque reparo roda ANTES da canonicalização. E ganhou AVISO de casamento
+   múltiplo — restrito a campo de PERGUNTA, porque campo de LEVANTAMENTO
+   legitimamente alcança todas (o reparo de `sample_size` da Quaest casa com 11).
+3. **O handoff mandava usar OCR sem necessidade** — ver a linha corrigida acima.
+4. **Reconstruir `data/` a partir de `polls.json` re-chaveava 127 levantamentos**
+   em silêncio; hoje `writeStoreFromPolls` RECUSA. Ver o item próprio abaixo.
+
+### ⚠ `polls.json` É A PROJEÇÃO ENRIQUECIDA — a armadilha que mais custou
+
+Ele carrega o registro TSE do LEVANTAMENTO em toda pesquisa dele: 1.380 das 2.984
+linhas trazem registro contra 392 levantamentos que de fato têm um.
+**Consequências, as duas medidas:**
+- Realimentar o construtor com ele move **127 dos 1.009 `survey_id`**, e as
+  sementes trocam de CLASSE (`survey|ref|…` vira `survey|reg|…`), porque o degrau
+  2 da escada passa a atender antes do degrau 1. É CONVENTIONS §6 um nível acima:
+  a saída não está errada, está ENRIQUECIDA, e é o enriquecimento que desvia.
+- **Escrever reparo olhando para ele ENGANA.** Quatro reparos meus nasceram
+  órfãos por casarem em registro que a entrada ainda não tinha — as linhas vieram
+  da Wikipédia e só ganham registro quando `derive-polls` projeta. Casar por
+  instituto+data resolveu.
+⚠ `idempotence-check` alimenta o construtor com `polls.json`. Ele prova ausência
+de dependência de relógio sobre a PROJEÇÃO — propriedade real, entrada que a
+produção não usa. **Ninguém verifica que uma coleta reproduz o store.**
+
+### Identidade e linhagem
+
+- **Dobra da chave nacional** (`0eff6e5`): decisões gravadas em `presidente:BR`
+  eram inalcançáveis de `presidente:<UF>`. ⚠ Vale ZERO em fusões impedidas hoje —
+  `areDistinct` fica atrás de `isSubset` e só 1 das 25 decisões é par de
+  subconjunto. Vale como contrapartida da dobra de emissão.
+- **O grupo curado volta a mandar na identidade** (`106c518`): o cadastro
+  DESFAZIA fusões curadas. É classe, não caso — 2 dos 39 grupos.
+- **Institutos ganharam tradução de carimbo** (`be4e310`) e a caminhada de
+  `merged_into` foi consertada (`5e70266`). ⚠ A ordem importou: carregar o campo
+  antes de consertar a caminhada teria CRIADO o defeito (linha duplicada com id
+  repetido), e isso não exige curadoria errada — basta a ordem de chegada.
+- ⚠ **A mutação de ambiguidade do `traduzirCarimbos` não derrubava NENHUM caso
+  pré-existente** — aquele braço não era guardado por nada, nem para candidato
+  nem para pessoa.
+
+### A cláusula de cenário — decisão do criador, e o erro que ela me custou
+
+O Poder360 publica a CONDIÇÃO da pergunta dentro da célula do nome ("Ciro
+Nogueira, com apoio do ex-presidente Jair Bolsonaro"). **O voto é de quem vem
+antes da vírgula.** Medido: 9 nomes com vírgula em 735, todos cláusula.
+
+⚠ **A PRIMEIRA VERSÃO APAGOU UM DADO PUBLICADO.** Tirei a cláusula em
+`nameTokens`, DEPOIS de a grafia crua já ter virado alias. O alias
+"Tereza Cristina, ex-presidente Jair Bolsonaro" pendurado no Jair encolhia para
+{tereza, cristina} e reabsorvia a Tereza limpa; a linha `Lula 44,5 × Tereza
+Cristina 32,2` DEIXOU DE EXISTIR. **`parity`, `validate-store` e o censo estavam
+TODOS VERDES.** Hoje a tira está em `resolveCandidate`, antes de virar alias e
+antes de semear a pessoa. A cláusula ainda é consultada para ENCONTRAR a
+candidatura (é o que devolve o nome de urna da Marina Cândia) — e essa porta tem
+caso próprio na bateria, porque contenção não sabe qual token é a cabeça.
+
+### Candidaturas não registradas — `CANDIDATURAS_NAO_REGISTRADAS.md`
+
+Enumeração, nunca reparo. **320 sem candidatura · 59 em OUTRA disputa · 8 não
+determinados · 6 contradições · 108 confrontos de 2º turno de 190.** Na amostra
+nacional: 37 de 47 confrontos, 434 de 854 cenários.
+
+⚠ **`/segundo-turno` publica confronto que não pode existir.** `Fernando Haddad ×
+Pablo Marçal` tem média de UMA pesquisa de 09/12/2024; `Lula × Tarcísio` parou em
+23/03/2026. A home já filtra por registro (`registeredPresidentKeys` em
+`lib/home.ts`); a página de 2º turno NÃO. Decisão do criador: catalogar e
+sinalizar, não filtrar.
+
+⚠ **A LIÇÃO DESTE ARQUIVO É MAIOR QUE ELE.** Seis verificações, as quatro
+primeiras achando UMA AFIRMAÇÃO FALSA CADA, sempre num lugar que ninguém tinha
+lido. A causa raiz era a mesma sempre: **a recusa do nosso casador publicada como
+fato sobre o mundo.** A classificação nunca esteve errada — 320 linhas varridas
+cinco vezes com zero falsos. O que apodrecia era a PROSA em que o arquivo
+explicava a si mesmo. Decisão do criador: **cortar, não consertar pela quinta
+vez** (−799 linhas). Sete mutações de texto seguem verdes e ACEITAS; a lista está
+numa tarefa aberta.
+
+---
+
 **A FAZER PRIMEIRO na próxima sessão**
 
 Tudo abaixo de 16/08 está RODADO E PUBLICADO em `04eb80a`, exceto o item 1.
