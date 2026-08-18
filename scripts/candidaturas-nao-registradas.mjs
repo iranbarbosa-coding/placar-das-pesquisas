@@ -21,6 +21,17 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const INICIO_PERIODO_ELEITORAL = "2026-08-16";
 
 /**
+ * A medição que o criador fez à mão em 17/08/2026, na amostra nacional da
+ * presidencial: 37 confrontos de 2º turno, 434 cenários.
+ *
+ * Ela contava numa soma só o afirmado e o recusado; este arquivo os separa,
+ * então o número afirmado sozinho NÃO fecha com o que ele tem na mão. É um
+ * número de fora do banco — fica aqui como constante, e a frase que o cita tem
+ * dois ramos: só afirma a igualdade quando ela vale (ver `fraseReconciliacao`).
+ */
+export const MEDICAO_DO_CRIADOR = { data: "2026-08-17", confrontos: 37, cenarios: 434 };
+
+/**
  * As grafias que `match-ballot-names.mjs` examinou, por disputa pesquisada.
  *
  * É a entrada dele — `data/nomes-crus.json` —, lida e não recontada: um segundo
@@ -327,9 +338,23 @@ export function catalogar({ questions, surveys, candidates, people, crus, ballot
   });
 
   const somar = (f) => lista.reduce((n, s) => n + f(s), 0);
+  // A amostra nacional da presidencial, que é o recorte da medição de 17/08:
+  // afirmados e recusados contados à parte, porque é a separação deles que
+  // explica por que o afirmado sozinho não bate com o número medido.
+  const presid = lista.find((s) => s.disputa === "presidente:BR") ?? null;
+  const nacionaisDe = (l) => l.filter((c) => c.nacionais > 0);
+  const cenariosDe = (l) => l.reduce((n, c) => n + c.nacionais, 0);
   return {
     disputas: lista,
     inicioPeriodo,
+    presidencialNacional: presid && {
+      total2T: presid.total2TNacional,
+      cenarios2T: presid.cenarios2TNacional,
+      afirmados: nacionaisDe(presid.confrontos).length,
+      cenariosAfirmados: cenariosDe(nacionaisDe(presid.confrontos)),
+      recusados: nacionaisDe(presid.confrontosIndeterminados).length,
+      cenariosRecusados: cenariosDe(nacionaisDe(presid.confrontosIndeterminados)),
+    },
     // Os dois números que a prosa cita saem do REGISTRO, nunca digitados.
     candidaturasNacionais: (candidaturas ?? []).filter((c) => c.uf == null).length,
     ufsNaoProcuradas: Math.max(0, new Set((candidaturas ?? []).map((c) => c.uf).filter(Boolean)).size - 1),
@@ -405,6 +430,34 @@ const dt = (s) => (s ? `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}` : "
 const outrasCol = (l) =>
   l.classe === "outra-disputa" ? l.outras.map((o) => `\`${o}\``).join(" · ") : alcanceDaNegativa(l.disputa);
 
+/**
+ * A ponte entre este arquivo e a medição de 17/08/2026 (`MEDICAO_DO_CRIADOR`).
+ *
+ * O leitor que tem 37 confrontos / 434 cenários na mão não acha esse número nas
+ * tabelas, porque aqui o recusado está separado do afirmado. Esta é a única
+ * frase do arquivo que soma os dois — e soma porque é o que foi medido.
+ *
+ * DOIS RAMOS OPOSTOS, como `fraseResiduo`: a igualdade com a medição só é
+ * AFIRMADA quando ela vale. Se o banco mudar, a frase passa a dizer que já não
+ * bate, em vez de continuar afirmando uma igualdade falsa — foi essa espécie de
+ * frase (verdadeira no dia em que foi escrita) que produziu quatro falsidades.
+ * Cada número sai de `presidencialNacional`, nenhum é digitado.
+ */
+export function fraseReconciliacao(cat) {
+  const r = cat.presidencialNacional;
+  if (!r) return [];
+  const confrontos = r.afirmados + r.recusados;
+  const cenarios = r.cenariosAfirmados + r.cenariosRecusados;
+  const bate = confrontos === MEDICAO_DO_CRIADOR.confrontos && cenarios === MEDICAO_DO_CRIADOR.cenarios;
+  const fecho = bate
+    ? `é a medida de ${dt(MEDICAO_DO_CRIADOR.data)}, e a diferença é que aqui a linha que não dá para afirmar está separada, em vez de contada junto.`
+    : `a medição de ${dt(MEDICAO_DO_CRIADOR.data)} registrou **${MEDICAO_DO_CRIADOR.confrontos} de 2º turno** e **${MEDICAO_DO_CRIADOR.cenarios} cenários**, e este banco já não dá o mesmo número.`;
+  return [
+    `**A medida de ${dt(MEDICAO_DO_CRIADOR.data)}, reconciliada.** Na amostra nacional da presidencial — o recorte em que o criador mediu — o banco guarda ${r.total2T} confrontos de 2º turno em ${r.cenarios2T} cenários. Destes, **${r.afirmados} com alguém afirmado** sem candidatura presidencial, em ${r.cenariosAfirmados} cenários, e **${r.recusados} em recusa**, em ${r.cenariosRecusados} cenários. Somados: **${confrontos} de ${r.total2T} confrontos** e **${cenarios} de ${r.cenarios2T} cenários** — ${fecho}`,
+    "",
+  ];
+}
+
 function relatorio(cat) {
   const L = [];
   const p = cat.placar;
@@ -441,6 +494,7 @@ function relatorio(cat) {
   L.push(`de **${cat.periodo.cenarios}** cenários que o banco tem com campo encerrado em ${dt(cat.inicioPeriodo)} ou depois, em ${cat.periodo.levantamentos} levantamento(s).`);
   L.push("");
 
+  for (const linha of fraseReconciliacao(cat)) L.push(linha);
   for (const linha of fraseResiduo(cat)) L.push(linha);
   L.push("## Como cada linha é classificada");
   L.push("");
@@ -578,7 +632,8 @@ function fixtures() {
     { person_id: "p_jair", display: "Jair Bolsonaro", registered: false, candidacies: [] },
     { person_id: "p_neblina", display: "Fulano Da Névoa", registered: false, candidacies: [] },
     { person_id: "p_amb", display: "Ciro Gomes", registered: false, candidacies: [] },
-    // AS DUAS METADES DA DOBRA (ver o cabeçalho "A CHAVE DE EXAME NÃO SE DOBRA").
+    // AS DUAS METADES DA DOBRA — a chave de exame é a disputa PESQUISADA e não
+    // dobra; quem prova isso é o bloco 5b do autoteste, logo abaixo.
     // `p_clausula` é o caso Ciro Nogueira em miniatura: só aparece em
     // `presidente:PR`, sob uma grafia com cláusula que foi examinada LÁ, e o
     // nome curto dele é examinado em `presidente:BR` — onde pertence a OUTRA
@@ -642,9 +697,16 @@ function fixtures() {
     // fixture modelava o mundo ANTES do passo 5, e a bateria continuava
     // afirmando que dobrar produz afirmação falsa, o que deixou de ser verdade.
     { person_id: "p_xara_reg", display: "Xará Registrado", registered: true, polled_names: ["Xará Registrado"], candidacies: [{ cargo: "senador", uf: "PI" }] },
-    // ⚠ UMA DISPUTA ESTADUAL. Sem ela `semCandidaturaEstadual` era ZERO no
-    // fixture, e trocar os dois contadores de lugar — que fez o arquivo publicar
-    // "292 da disputa nacional … 292 estaduais", de 320 — passava verde.
+    // ⚠ UMA DISPUTA ESTADUAL — e o que ela cobre é o RESÍDUO, medido: tirá-la
+    // avermelha as nove asserções do resíduo (as do bloco 13 e as duas do bloco
+    // 10 que leem a seção publicada) mais o "os dois lados do corte têm de ser
+    // exercitados", e nada mais. Sem ela `semCandidaturaEstadual` é ZERO, a
+    // seção "O que esta lista NÃO enxerga" cai no ramo "não há resíduo desta
+    // espécie" — o ramo que o arquivo real NÃO publica — e o ramo publicado
+    // (tamanho da sombra, conjunção das duas condições, o que fazer com isso)
+    // fica sem prova nenhuma. A troca dos contadores na glosa do placar — a
+    // falsidade da rodada 4, "292 da disputa nacional … 292 estaduais", de 320 —
+    // quem avermelha é a asserção do bloco 10, não esta linha.
     { person_id: "p_gov_obs", display: "Testado Em Goiás", registered: false, polled_names: ["Testado Em Goiás"], candidacies: [] },
   ];
   const candidates = [
@@ -893,7 +955,17 @@ function autoteste() {
     // Toda prosa que sobrevive carrega número, e todo número é afirmado.
     ok(!/registro inteiro sem achar nada/.test(md), "a glosa do placar NÃO pode alegar o registro inteiro para todas as linhas");
     ok(md.includes("até onde alcança"), "a glosa do placar diz até onde a busca alcançou");
+    // ⚠ E CADA CONTADOR AMARRADO AO SEU PAPEL NA FRASE. Sem estas duas, trocar
+    //   `semCandidaturaNacional` por `semCandidaturaEstadual` aqui publicava
+    //   "no registro inteiro nas 292 linhas da disputa nacional … nas 28
+    //   estaduais", de 320 — a falsidade da rodada 4, com a bateria verde. O
+    //   total fechar (bloco 12) não basta: a soma é a mesma dos dois jeitos.
+    ok(md.includes(`no registro inteiro nas ${cat.placar.semCandidaturaNacional} linhas da disputa nacional`),
+      "o contador NACIONAL tem de ser o que sai ao lado do registro inteiro");
+    ok(md.includes(`nas ${cat.placar.semCandidaturaEstadual} estaduais`),
+      "e o ESTADUAL o que sai ao lado da busca escopada na UF");
     ok(md.includes("O que esta lista NÃO enxerga"), "o relatório tem de dizer o que NÃO consegue ver");
+    ok(md.includes(fraseReconciliacao(cat)[0]), "e publicar a reconciliação com a medição do criador, não só o lado afirmado");
     ok(md.includes(`não olha os outros ${cat.ufsNaoProcuradas} estados`), "e dizer, em português claro, qual é o resíduo — com o número saindo do registro");
     ok(md.includes(`mais as ${cat.candidaturasNacionais} candidaturas nacionais`), "a glosa do placar publica o número de candidaturas nacionais que o registro tem");
     ok(md.includes(`as ${cat.candidaturasNacionais} candidaturas nacionais —`), "e o resíduo também");
@@ -940,12 +1012,67 @@ function autoteste() {
       "as duas condições são conjuntas e a conjunção é explícita");
     ok(/confira o nome no registro antes de agir/.test(comResiduo), "e diz ao leitor o que fazer com isso");
     ok(comResiduo.includes(`**${cat.placar.semCandidaturaEstadual} de ${cat.placar.semCandidatura}**`), "o tamanho da sombra sai dos contadores, não digitado");
+    ok(comResiduo.includes(`Nas ${cat.placar.semCandidaturaNacional} linhas da disputa ${ESCOPO_AMPLO}`),
+      "e a linha da negativa forte leva o contador NACIONAL, não o outro");
     // O ramo oposto: um catálogo SEM linha estadual tem de dizer o contrário.
     const semEstaduais = { ...cat, placar: { ...cat.placar, semCandidaturaEstadual: 0, semCandidatura: cat.placar.semCandidaturaNacional } };
     const sem = fraseResiduo(semEstaduais).join("\n");
     ok(/são todas da disputa nacional/.test(sem), "sem linha estadual, a seção diz que não há resíduo desta espécie");
     ok(!/continua aparecendo aqui/.test(sem), "e não repete a frase do outro ramo");
-    ok(ESCOPO_ESTREITO === "estadual" && ESCOPO_AMPLO === "nacional", "o escopo estreito é derivado de `alcanceDaNegativa`, não digitado");
+    // ⚠ ESTA ASSERÇÃO CONFERE O VALOR, NÃO A DERIVAÇÃO. `ESCOPO_ESTREITO` é uma
+    //   constante avaliada na carga do módulo; trocar a derivação por um literal
+    //   `"estadual"` passa verde aqui, e conferi-la recomputando a mesma
+    //   expressão seria a segunda implementação da mesma regra (§5). A mensagem
+    //   diz o que ela confere, e não a proteção que não tem.
+    ok(ESCOPO_ESTREITO === "estadual" && ESCOPO_AMPLO === "nacional",
+      `o escopo estreito é \`estadual\` e o amplo \`nacional\` (veio ${ESCOPO_ESTREITO}/${ESCOPO_AMPLO})`);
+  }
+
+  // 14. A RECONCILIAÇÃO COM A MEDIÇÃO DE 17/08. O criador tem 37 confrontos /
+  //     434 cenários na mão; as tabelas mostram só o lado afirmado, e sem esta
+  //     frase o número dele não fecha com nada deste arquivo.
+  {
+    const r = cat.presidencialNacional;
+    const nacs = (l) => l.filter((c) => c.nacionais > 0);
+    const cen = (l) => nacs(l).reduce((n, c) => n + c.nacionais, 0);
+    // (a) o bloco tem de bater com as seções, contadas por outro caminho.
+    ok(r.afirmados === nacs(pres.confrontos).length && r.recusados === nacs(pres.confrontosIndeterminados).length,
+      `a reconciliação tem de bater com as tabelas (veio ${r.afirmados}/${r.recusados})`);
+    ok(r.cenariosAfirmados === cen(pres.confrontos) && r.cenariosRecusados === cen(pres.confrontosIndeterminados),
+      `e os cenários também (veio ${r.cenariosAfirmados}/${r.cenariosRecusados})`);
+    // (b) os dois lados exercitados E com valores DIFERENTES — iguais, trocá-los
+    //     de lugar na frase passaria verde.
+    ok(r.afirmados > 0 && r.recusados > 0, `os dois lados da soma têm de ser exercitados (veio ${r.afirmados}/${r.recusados})`);
+    ok(r.afirmados !== r.recusados && r.cenariosAfirmados !== r.cenariosRecusados,
+      `e com valores diferentes (veio ${r.afirmados}/${r.recusados} e ${r.cenariosAfirmados}/${r.cenariosRecusados})`);
+    // (c) cada número no SEU papel dentro da frase.
+    const rec = fraseReconciliacao(cat).join("\n");
+    ok(rec.includes(`o banco guarda ${r.total2T} confrontos de 2º turno em ${r.cenarios2T} cenários`),
+      "o denominador da amostra nacional sai do catálogo");
+    // ⚠ E é o denominador da AMOSTRA NACIONAL, não o da disputa inteira: sem
+    //   estas duas, ler `total2T` no lugar de `total2TNacional` passava verde,
+    //   porque a frase e a asserção liam o mesmo campo errado.
+    ok(r.total2T === pres.total2TNacional && r.cenarios2T === pres.cenarios2TNacional,
+      `o denominador tem de ser o da amostra nacional (veio ${r.total2T}/${r.cenarios2T})`);
+    ok(pres.total2TNacional < pres.total2T && pres.cenarios2TNacional < pres.cenarios2T,
+      `e o fixture tem de ter subamostra estadual, senão os dois denominadores empatam (veio ${pres.total2TNacional}/${pres.total2T})`);
+    ok(rec.includes(`**${r.afirmados} com alguém afirmado** sem candidatura presidencial, em ${r.cenariosAfirmados} cenários`),
+      "o lado afirmado sai com os dois números dele");
+    ok(rec.includes(`**${r.recusados} em recusa**, em ${r.cenariosRecusados} cenários`), "e o recusado com os dele");
+    ok(rec.includes(`**${r.afirmados + r.recusados} de ${r.total2T} confrontos** e **${r.cenariosAfirmados + r.cenariosRecusados} de ${r.cenarios2T} cenários**`),
+      "e a soma é somada, nunca digitada");
+    // (d) OS DOIS RAMOS. O fixture NÃO bate com a medição, e a frase diz isso;
+    //     um catálogo que bata tem de afirmar a igualdade, e só ele.
+    ok(/já não dá o mesmo número/.test(rec), "quando a soma não é a medida, a frase diz que não é");
+    ok(!/é a medida de/.test(rec), "e NUNCA afirma uma igualdade que não vale");
+    const igual = { ...cat, presidencialNacional: { ...r,
+      afirmados: MEDICAO_DO_CRIADOR.confrontos - r.recusados,
+      cenariosAfirmados: MEDICAO_DO_CRIADOR.cenarios - r.cenariosRecusados } };
+    const bate = fraseReconciliacao(igual).join("\n");
+    ok(/é a medida de 17\/08\/2026/.test(bate), "quando bate, afirma — e a data sai em DD/MM/AAAA (§11)");
+    ok(!/já não dá o mesmo número/.test(bate), "sem repetir a frase do outro ramo");
+    ok(fraseReconciliacao({ ...cat, presidencialNacional: null }).length === 0,
+      "sem disputa presidencial no catálogo, a frase não é inventada");
   }
 
   if (falhas.length) {
@@ -953,7 +1080,7 @@ function autoteste() {
     for (const f of falhas) console.error(`  ✗ ${f}`);
     process.exit(1);
   }
-  console.log("autoteste ok — outra-disputa, grafia não examinada, recusa do casador pela grafia crua, contradição no próprio banco pelas 6 pontes, grafia publicada sem normalizar, ordem e deduplicação, alcance da negativa, invariante do corte nacional/estadual, números da prosa derivados do registro, resíduo nos dois ramos, confrontos, dia do corte, data nula, empate por person_id, determinismo, renderização e placar");
+  console.log("autoteste ok — outra-disputa, grafia não examinada, recusa do casador pela grafia crua, contradição no próprio banco pelas 6 pontes, grafia publicada sem normalizar, ordem e deduplicação, alcance da negativa, invariante do corte nacional/estadual, números da prosa derivados do registro, resíduo nos dois ramos, reconciliação com a medição de 17/08 nos dois ramos, confrontos, dia do corte, data nula, empate por person_id, determinismo, renderização e placar");
 }
 
 // ---------------------------------------------------------------------------

@@ -29,6 +29,8 @@ Disputas com ao menos uma linha: **53** · cenários de 2º turno alcançados pe
 Cenários no período eleitoral: **0** nas linhas de candidato, **0** nas de confronto —
 de **13** cenários que o banco tem com campo encerrado em 16/08/2026 ou depois, em 4 levantamento(s).
 
+**A medida de 17/08/2026, reconciliada.** Na amostra nacional da presidencial — o recorte em que o criador mediu — o banco guarda 47 confrontos de 2º turno em 854 cenários. Destes, **36 com alguém afirmado** sem candidatura presidencial, em 429 cenários, e **1 em recusa**, em 5 cenários. Somados: **37 de 47 confrontos** e **434 de 854 cenários** — é a medida de 17/08/2026, e a diferença é que aqui a linha que não dá para afirmar está separada, em vez de contada junto.
+
 ## ⚠ O que esta lista NÃO enxerga
 
 Numa disputa **estadual** o casador de nomes só procurou o nome na UF daquela disputa e
