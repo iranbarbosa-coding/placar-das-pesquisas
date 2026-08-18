@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1009 levantamentos · 2985 perguntas · 137 institutos · 1079 candidatos**.
+Banco: **1010 levantamentos · 2990 perguntas · 137 institutos · 1080 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,8 +15,8 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 2 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 7 | 5 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 4 | 3 |
-| **total** | **15** | **10** |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 3 | 3 |
+| **total** | **14** | **10** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -93,12 +93,11 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
   s_f974da273cc9: Lula 48 · Tarcísio de Freitas 39
 
-## CONFLITO — Conflitos registrados aguardando decisão (4)
+## CONFLITO — Conflitos registrados aguardando decisão (3)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
 - **[2026]** registration_dates_contradict · s_118355fc693b · fieldwork_end: "2026-08-03" × "2025-08-03"
 - **[2026]** registration_dates_contradict · s_c3ea7003b0c2 · fieldwork_end: "2026-02-01" × "2026-01-01"
 - **[2026]** registration_dates_contradict · s_01a5b68c7c38 · fieldwork_end: "2026-06-18" × "2026-02-18"
-- person_id_orphaned · p_9ce12d46c851 · person_id: "p_9ce12d46c851" × null
 

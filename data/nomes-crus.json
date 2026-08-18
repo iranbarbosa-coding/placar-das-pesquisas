@@ -109,6 +109,10 @@
    ]
   },
   {
+   "nome": "Heró Bezerra",
+   "partidos": []
+  },
+  {
    "nome": "Hertz Dias",
    "partidos": [
     "PSTU"
@@ -140,7 +144,9 @@
   },
   {
    "nome": "Leonardo Avalanche",
-   "partidos": []
+   "partidos": [
+    "PRTB"
+   ]
   },
   {
    "nome": "Luiz Inácio Lula da Silva",
@@ -299,6 +305,10 @@
    "partidos": [
     "PP"
    ]
+  },
+  {
+   "nome": "Veterinário Wilson Grassi",
+   "partidos": []
   },
   {
    "nome": "Wilson Grassi",

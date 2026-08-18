@@ -34,6 +34,32 @@ function matches(poll, m) {
   // aviso legível — não derrubar a coleta inteira com um TypeError.
   if (m.pollster && (poll.pollster ?? "").toLowerCase() !== m.pollster.toLowerCase()) return false;
   if (m.fieldwork_end && poll.fieldwork_end !== m.fieldwork_end) return false;
+  // ---- O DISCRIMINADOR DE CENÁRIO -----------------------------------------
+  //
+  // Sem ele NÃO HÁ COMO MIRAR UM SEGUNDO TURNO. Uma pesquisa nacional traz
+  // quatro confrontos sob o MESMO registro, a MESMA disputa e o MESMO turno —
+  // Lula×Flávio, Lula×Caiado, Lula×Zema, Lula×Renan —, e as chaves acima não os
+  // distinguem. Medido em 17/08/2026: PoderData e Quaest com 4 cenários de 2º
+  // turno cada, Nexus com 2, todos indistinguíveis. Um `set` de balde escrito
+  // para um deles acertaria os quatro, com o valor errado em três.
+  //
+  // `has_candidate` exige que os nomes citados estejam no elenco da pesquisa. É
+  // dado, não rótulo: `scenario_label_raw` é gerado e este repositório já achou
+  // rótulo que não corresponde às linhas que carrega.
+  //
+  // ⚠ COMPARA COM `sameCandidate`, e a razão é a ORDEM DO PIPELINE: os reparos
+  // são aplicados ANTES de `canonicalizeCandidates` (scrape.mjs, applyRepairs na
+  // 282, canonicalização na 397). O nome no elenco é o que a FONTE publicou, não
+  // o que o site exibe — escrever "Zema" e comparar por igualdade falharia numa
+  // rodada em que a fonte publicou "Romeu Zema". `sameCandidate` é a regra que o
+  // resto do repositório usa para "é a mesma pessoa" (§5).
+  if (m.has_candidate != null) {
+    const querem = Array.isArray(m.has_candidate) ? m.has_candidate : [m.has_candidate];
+    const elenco = (poll.results ?? []).map((r) => r.candidate).filter(Boolean);
+    for (const nome of querem) {
+      if (!elenco.some((c) => sameCandidate(c, nome))) return false;
+    }
+  }
   return true;
 }
 
@@ -303,6 +329,42 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
   for (const rep of spec.repairs ?? []) {
     const targets = polls.filter((p) => matches(p, rep.match));
     const label = rep.match.tse_registration ?? JSON.stringify(rep.match);
+
+    // ---- UM REPARO QUE ACERTA VÁRIAS PESQUISAS TEM DE DIZER ISSO ----------
+    //
+    // `targets` sempre foi uma LISTA e o laço abaixo escreve em todas, calado.
+    // Enquanto todo reparo do arquivo mirava uma pesquisa só, isso não mordia.
+    // Passou a morder no dia em que se quis corrigir um cenário de 2º turno: os
+    // quatro confrontos de uma nacional dividem registro, disputa e turno, então
+    // um `set` de balde escrito para um acertava os quatro — com o valor certo
+    // em um e errado em três, sem uma linha de aviso.
+    //
+    // O aviso não RECUSA porque casar várias é legítimo em parte dos casos: um
+    // `set_party` corrige a mesma grafia em toda pesquisa do levantamento. O que
+    // não pode é ser SILENCIOSO. Quem quer mirar um cenário usa `has_candidate`
+    // (ver `matches`); quem quer mesmo escrever em várias, vê o número e confirma
+    // que era isso.
+    //
+    // `add_poll` fica de fora: para ele "nenhuma casou" é o estado normal e
+    // "várias casaram" já é tratado pela recusa de quase-igual dentro de
+    // `inserir()`.
+    // ⚠ SÓ PARA CAMPO DE PERGUNTA, e a primeira versão deste aviso não fazia essa
+    // distinção — gritava num reparo LEGÍTIMO. Um registro é UM levantamento, e
+    // as pesquisas dele dividem a linha de survey: corrigir `sample_size`,
+    // margem ou data DEVE alcançar todas (o reparo da Quaest de 09/11/2025 casa
+    // com 11 pesquisas e está certo; o HANDOFF registra que campo de survey se
+    // repara SEM cláusula de race, justamente por isso). O que não pode alcançar
+    // várias é campo POR CENÁRIO — elenco e os três baldes —, porque aí cada
+    // confronto tem o seu valor e escrever o mesmo nos quatro erra em três.
+    const CAMPOS_DE_PERGUNTA = ["others_pct", "undecided_pct", "blank_null_pct", "results", "scenario"];
+    const mexeEmPergunta = !!rep.add_results
+      || Object.keys(rep.set ?? {}).some((k) => CAMPOS_DE_PERGUNTA.includes(k));
+    if (!rep.add_poll && mexeEmPergunta && targets.length > 1) {
+      warnings.push(`ATENÇÃO ${label}: a cláusula match casou com ${targets.length} pesquisas e o reparo ` +
+        `será aplicado a TODAS — ${targets.map((p) => `${p.race}/${p.state ?? "BR"} t${p.round} ` +
+        `[${(p.results ?? []).map((r) => r.candidate).join(", ")}]`).join(" · ")}. ` +
+        `Se a intenção era UMA, acrescente "has_candidate" ao match.`);
+    }
 
     // ---- A INSERÇÃO CURADA (`add_poll`) ---------------------------------
     //

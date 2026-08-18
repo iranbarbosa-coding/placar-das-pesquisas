@@ -396,6 +396,332 @@
    "expect_sum": 101,
    "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS DO TSE: 'PE-04519/2026' e 'BR-07601/2026'. O nosso esquema guarda UM 'tse_registration', e a escolha é 'PE-04519/2026' por uma razão de mecanismo, não de gosto: é o registro que as três linhas IRMÃS desta mesma operação de campo já carregam (p360-13722 governador 1º e 2º turnos, p360-13723 senador), e é por ele que o degrau 2 de resolveSurvey junta esta pergunta ao levantamento s_4bc31f83b328 em vez de cunhar um segundo levantamento para o mesmo campo — 'um registro é um levantamento' (decisão do criador, 15/08/2026). 'BR-07601/2026' fica registrado AQUI, e nesta nota, para não se perder. NÃO usada a forma com barra vertical ('PE-04519/2026|BR-07601/2026'), embora o banco tenha quatro linhas assim: elas são a prova de que o parser NÃO suporta o formato, não de que suporta. normalizeRegistration() só normaliza o que casa /^[A-Z]{2}-?\\d+\\/\\d{4}$/, então a string com barra passa verbatim e vira uma CHAVE PRÓPRIA no índice byReg — que não casa com nenhum dos dois registros que ela contém. O efeito está visível no banco: 'PE-09595/2026|BR-06559/2026' e 'PE-09595/2026|BR-06559/2026.' (a segunda com um ponto final) partiram UMA operação de campo do Datafolha em PE em DOIS levantamentos, s_b2fab1fde077 e s_caf66aa3c083. Inventar o formato aqui repetiria esse defeito de propósito.",
    "_nota_divergencias": "Três divergências entre este documento e o que o levantamento já guarda, todas ANOTADAS e nenhuma reparada aqui, porque o efeito real é nenhum e um reparo a mais daria falsa impressão de curadoria. (1) DIVULGAÇÃO: o relatório é de 03/08/2026 e o levantamento guarda published_date 2026-07-30, vindo do agregador nas linhas irmãs. fillFields() não sobrescreve valor não-nulo e esta pesquisa é ingerida por último (a fonte 'repair:curadoria' não está em SOURCE_ORDER), então o levantamento MANTÉM 30/07 e a discordância é registrada em conflicts.ndjson como field_disagreement — visível, e não silenciosa. (2) CONTRATANTE: o relatório imprime 'Nassau Editora Rádio e TV' e o agregador serve 'Nassau editora Rádio e TV' (minúscula em 'editora'); pelo mesmo primeiro-escritor-vence, o levantamento fica com a grafia do agregador. (3) A URL: article_url do levantamento já aponta para a matéria do Poder360, então o PDF do instituto não substitui essa URL — a citação desta pesquisa chega ao store pelo carimbo question.repaired, que project.mjs projeta em polls.json. Dois campos do documento que o esquema plano de pesquisa não tem onde guardar e por isso ficam SÓ na evidência acima: o índice de confiança de 95% (survey.confidence_level existe, mas upsertPoll não o preenche) e os 44 municípios ouvidos (não há campo). Não inventados campos novos para eles."
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06868/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O agregador do Poder360 faz DUAS coisas com esta pesquisa, e as duas foram medidas em 17/08/2026 lendo o relatório do instituto por DOIS agentes às cegas, cujas transcrições bateram linha a linha. (1) APAGA linhas de candidato e o ponto delas REAPARECE COMO 'outros' — não é perda, é troca de rótulo, e por isso restaurar o nome sem zerar o 'outros' contaria o mesmo ponto duas vezes (a regra que shipou BR-01084 a 101,2%). (2) SOMA 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Padrão confirmado em três institutos independentes no mesmo dia — PoderData, Nexus e Quaest —, e nos três o 'outros' guardado é exatamente o percentual do candidato apagado.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+   "evidence": "p.6, 'Intenção de voto no 1º turno', coluna 12/ago: 13 candidatos nomeados mais 'Branco ou nulo' 4 e 'Não sabe' 2, somando 99 — o instituto declara na ficha técnica (p.2) que arredonda e que 'o somatório dos resultados em algumas questões seja diferente de 100'. NÃO HÁ LINHA DE 'OUTROS' em nenhum dos cenários: confirmado por ambos os leitores nas oito páginas de recorte (p.7-14), que repetem as mesmas 15 linhas mais um 'Total'. A única ocorrência de 'Outro' no documento é 'Outro motivo', resposta de OUTRA pergunta (motivo do voto, p.21-26), e não pode ser trazida para cá. O 'outros: 1' que guardávamos é o 1 ponto do Leonardo Avalanche, apagado pela fonte. Nosso 'não sabe: 6' é a soma 4+2. Ficha: 2.400 entrevistas em 658 municípios, margem 2,0 p.p., 95%, campo 9 a 12 de agosto de 2026, IVR. Nenhum candidato tem asterisco; os zeros são zeros impressos, e os quatro aparecem com base real nos recortes das p.26, 32 e 63.",
+   "verified_at": "2026-08-17",
+   "add_results": [
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 1
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": null,
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": null,
+     "pct": 0
+    },
+    {
+     "candidate": "Samara Martins",
+     "party": null,
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": null,
+     "pct": 0
+    }
+   ],
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 4,
+    "undecided_pct": 2
+   },
+   "expect_sum": 99
+  },
+  {
+   "match": {
+    "tse_registration": "BR-08428/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O agregador do Poder360 faz DUAS coisas com esta pesquisa, e as duas foram medidas em 17/08/2026 lendo o relatório do instituto por DOIS agentes às cegas, cujas transcrições bateram linha a linha. (1) APAGA linhas de candidato e o ponto delas REAPARECE COMO 'outros' — não é perda, é troca de rótulo, e por isso restaurar o nome sem zerar o 'outros' contaria o mesmo ponto duas vezes (a regra que shipou BR-01084 a 101,2%). (2) SOMA 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Padrão confirmado em três institutos independentes no mesmo dia — PoderData, Nexus e Quaest —, e nos três o 'outros' guardado é exatamente o percentual do candidato apagado.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+   "evidence": "p.18, 'Intenção de voto estimulado – 1º Turno (amostra total)': 13 candidatos nomeados um a um mais 'Nenhum/Branco/Nulo' 5 e 'NS/NR' 3, somando 99 — dentro da tolerância que o próprio documento declara (p.4: 'Devido ao arredondamento dos percentuais, a soma deles pode variar de 99% a 101%'). SEM LINHA DE 'OUTROS' na p.18. ⚠ A p.20 (recorte por comparecimento) IMPRIME um 'Outros 4%', que é a soma dos oito candidatos menores listados individualmente na p.18 — os dois leitores flagraram isso como armadilha e ele NÃO entra aqui. O 'outros: 1' que guardávamos é o 1 ponto do Cabo Daciolo. Nosso 'não sabe: 8' é a soma 5+3. A obs. da p.18 diz: 'nessa rodada, foi incluído o candidato Wilson Grassi Júnior. Cabo Daciolo foi testado porque o questionário foi registrado no TSE antes de o DC desistir de sua candidatura' — inclusão, não não-citação; ambos impressos com valor. Ficha: 2.001 entrevistados, 2 p.p., 95%, campo 7 a 9 de agosto de 2026, CATI. Contratante declarado no disclaimer da p.114: contratada pelo Banco BTG Pactual S.A.",
+   "verified_at": "2026-08-17",
+   "add_results": [
+    {
+     "candidate": "Cabo Daciolo",
+     "party": null,
+     "pct": 1
+    },
+    {
+     "candidate": "Heró Bezerra",
+     "party": null,
+     "pct": 0
+    }
+   ],
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 5,
+    "undecided_pct": 3
+   },
+   "expect_sum": 99
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06591/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O agregador do Poder360 faz DUAS coisas com esta pesquisa, e as duas foram medidas em 17/08/2026 lendo o relatório do instituto por DOIS agentes às cegas, cujas transcrições bateram linha a linha. (1) APAGA linhas de candidato e o ponto delas REAPARECE COMO 'outros' — não é perda, é troca de rótulo, e por isso restaurar o nome sem zerar o 'outros' contaria o mesmo ponto duas vezes (a regra que shipou BR-01084 a 101,2%). (2) SOMA 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Padrão confirmado em três institutos independentes no mesmo dia — PoderData, Nexus e Quaest —, e nos três o 'outros' guardado é exatamente o percentual do candidato apagado.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+   "evidence": "p.11, 'Intenção de voto para Presidente - 1º turno': 12 candidatos mais 'Indecisos' 10 e 'Branco/Nulo/Não vai votar' 8, somando 100 exatos. SEM LINHA DE 'OUTROS' na p.11, e as sete páginas de recorte (p.12-18) repetem o mesmo elenco de 12 sem 'outros'. ⚠ A p.10 imprime um 'Outros 13' — é o MESMO cenário colapsado num gráfico de série, e 13 é a soma dos dez candidatos menores da p.11 (4+4+2+1+1+1+0+0+0+0). Não entra. O 'outros: 1' que guardávamos é o 1 ponto do Cabo Daciolo. Nosso 'não sabe: 18' é a soma 10+8. Ficha (p.3 e p.6): 2.004 entrevistas, margem 2 pontos, 95%, campo 31 de julho a 3 de agosto de 2026, coleta domiciliar face a face; contratante impresso na p.6: 'A QUAEST, CONTRATADA PELA GENIAL INVESTIMENTOS'. Nenhum candidato com asterisco; os quatro zeros são zeros impressos.",
+   "verified_at": "2026-08-17",
+   "add_results": [
+    {
+     "candidate": "Cabo Daciolo",
+     "party": "Mobiliza",
+     "pct": 1
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
+    }
+   ],
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 8,
+    "undecided_pct": 10
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06868/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+   "evidence": "p.16, coluna 12-Aug: Flávio Bolsonaro 45, Lula 46, Branco/Nulo 8, Não sabe 1 — soma 100.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 8,
+    "undecided_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06868/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+   "evidence": "p.17, coluna 12-Aug: Renan Santos 37, Lula 46, Branco/Nulo 15, Não sabe 2 — soma 100.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 15,
+    "undecided_pct": 2
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06868/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Zema"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+   "evidence": "p.18, coluna 12-Aug: Romeu Zema 43, Lula 45, Branco/Nulo 10, Não sabe 1 — soma 99. ⚠ GUARDÁVAMOS 12 no balde único, contra 10+1=11 do instituto: o ponto a mais parece ter sido acrescentado pelo agregador para fechar em 100. Seguimos o relatório, que declara na ficha técnica (p.2) que arredonda e que a soma pode diferir de 100. Um ponto que ninguém mediu não entra.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 10,
+    "undecided_pct": 1
+   },
+   "expect_sum": 99
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06868/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+   "evidence": "p.19, coluna 12-Aug: Ronaldo Caiado 44, Lula 45, Branco/Nulo 10, Não sabe 1 — soma 100.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 10,
+    "undecided_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Nexus",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-08-09",
+    "has_candidate": "Zema"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+   "evidence": "p.36, 'Lula vs. Romeu Zema': Lula 47, Romeu Zema 40, Nenhum/Branco/Nulo 11, NS/NR 2 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO: este cenário entrou no banco pela WIKIPÉDIA, não pelo Poder360, e por isso chega com tse_registration nulo. Um match por registro ficava órfão — foi o balde `unmatched` de applyRepairs que acusou.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 11,
+    "undecided_pct": 2
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Nexus",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-08-09",
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+   "evidence": "p.36, 'Lula vs. Renan Santos': Lula 46, Renan Santos 37, Nenhum/Branco/Nulo 14, NS/NR 3 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO: este cenário entrou no banco pela WIKIPÉDIA, não pelo Poder360, e por isso chega com tse_registration nulo. Um match por registro ficava órfão — foi o balde `unmatched` de applyRepairs que acusou.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 14,
+    "undecided_pct": 3
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-08428/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+   "evidence": "p.36, 'Lula vs. Flávio Bolsonaro': Lula 47, Flávio Bolsonaro 44, Nenhum/Branco/Nulo 8, NS/NR 1 — soma 100.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 8,
+    "undecided_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-08428/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+   "evidence": "p.36, 'Lula vs. Ronaldo Caiado': Lula 46, Ronaldo Caiado 42, Nenhum/Branco/Nulo 9, NS/NR 2 — soma 99.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 9,
+    "undecided_pct": 2
+   },
+   "expect_sum": 99
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-08-03",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+   "evidence": "p.20, 'Cenário 1', coluna Ago/26: Lula 44, Flávio Bolsonaro 39, Branco/Nulo/Não vai votar 13, Indecisos 4 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO. Este cenário entrou pela WIKIPÉDIA e no momento em que applyRepairs roda ele ainda NÃO tem tse_registration — o registro do levantamento só aparece na pesquisa depois, quando derive-polls projeta. Olhar o polls.json e ver o registro lá engana: aquele arquivo é a projeção enriquecida, não a entrada do reparo. Quem acusou foi o AVISO de reparo sem pesquisa correspondente.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 13,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06591/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Zema"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+   "evidence": "p.26, 'Cenário 2', coluna Ago/26: Lula 46, Romeu Zema 34, Branco/Nulo/Não vai votar 16, Indecisos 4 — soma 100.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 16,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06591/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+   "evidence": "p.23, 'Cenário 3', coluna Ago/26: Lula 45, Ronaldo Caiado 37, Branco/Nulo/Não vai votar 14, Indecisos 4 — soma 100.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 14,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-08-03",
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Mesmo defeito do reparo de 1º turno do mesmo registro: o agregador SOMA 'branco/nulo' com 'não sabe' num campo só, e o relatório publica os dois separados. Lido por dois agentes às cegas em 17/08/2026, transcrições idênticas. Nenhum candidato falta neste cenário — os dois leitores confirmaram que cada confronto do relatório tem exatamente quatro linhas, e NENHUM tem linha de 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+   "evidence": "p.29, 'Cenário 4', coluna Ago/26: Lula 45, Renan Santos 35, Branco/Nulo/Não vai votar 16, Indecisos 4 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO. Este cenário entrou pela WIKIPÉDIA e no momento em que applyRepairs roda ele ainda NÃO tem tse_registration — o registro do levantamento só aparece na pesquisa depois, quando derive-polls projeta. Olhar o polls.json e ver o registro lá engana: aquele arquivo é a projeção enriquecida, não a entrada do reparo. Quem acusou foi o AVISO de reparo sem pesquisa correspondente.",
+   "verified_at": "2026-08-17",
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 16,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
   }
  ]
 }

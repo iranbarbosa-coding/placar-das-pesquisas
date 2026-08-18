@@ -1,24 +1,307 @@
 {
- "generated_at": "2026-08-17T22:13:34.754Z",
+ "generated_at": "2026-08-18T19:22:56.442Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-17T22:13:34.754Z"
+   "last_ok": "2026-08-18T19:22:56.442Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-17T22:13:34.754Z"
+   "last_ok": "2026-08-18T19:22:56.442Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-17T22:13:34.754Z"
+   "last_ok": "2026-08-18T19:22:56.442Z"
   }
  ],
  "polls": [
+  {
+   "id": "0f755d2f459c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Sandro Alex",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "391b4eb27b60",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 37
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 20
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 22
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 1
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 1
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5ea540b6b47e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 19
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 17
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 17
+    },
+    {
+     "candidate": "Cristina Reis Graeml",
+     "party": "PSD",
+     "pct": 13
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 15
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 5
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "87b242ada0ea",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Requião Filho",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 55
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a889b6dfbc58",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1240,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 41
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 27.1
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 21.4
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 19.5
+    },
+    {
+     "candidate": "Gustavo Mendanha",
+     "party": "PRD",
+     "pct": 16.3
+    },
+    {
+     "candidate": "Oséias Varão",
+     "party": "PL",
+     "pct": 4
+    },
+    {
+     "candidate": "Iure Castro",
+     "party": "Cidadania",
+     "pct": 1.3
+    }
+   ],
+   "others_pct": 14.6,
+   "undecided_pct": 15.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b9cc0696cd5c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-14",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1240,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 45.8
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 24.9
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 13.2
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 2.3
+    }
+   ],
+   "others_pct": 2.1,
+   "undecided_pct": 11.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "45421a159788",
    "source": "poder360",
@@ -1038,19 +1321,19 @@
    "tse_registration": "PE-02774/2026"
   },
   {
-   "id": "716baa66bf83",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "id": "p360-13847-1-0-d0291e17c079",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/marina-tebet-e-andre-empatam-em-disputa-ao-senado-por-sp-diz-vox/",
    "integra_url": null,
    "race": "senador",
    "state": "SP",
    "round": 1,
-   "scenario": "1º turno — cenário único",
+   "scenario": "1º turno",
    "pollster": "Vox",
-   "contractor": null,
+   "contractor": "Vox Brasil Opinião e Pesquisas",
    "fieldwork_start": "2026-08-11",
    "fieldwork_end": "2026-08-13",
-   "published_date": null,
+   "published_date": "2026-08-13",
    "sample_size": 1480,
    "margin_of_error": 2.55,
    "results": [
@@ -1123,22 +1406,22 @@
    "others_pct": null,
    "undecided_pct": 74.4,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "SP-04670/2026"
   },
   {
-   "id": "c17d40de80f9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "id": "p360-13849-1-0-98dcc6fb584a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/marina-tebet-e-andre-empatam-em-disputa-ao-senado-por-sp-diz-vox/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
    "round": 1,
-   "scenario": "1º turno — cenário único",
+   "scenario": "1º turno",
    "pollster": "Vox",
-   "contractor": null,
+   "contractor": "Vox Brasil Opinião e Pesquisas",
    "fieldwork_start": "2026-08-11",
    "fieldwork_end": "2026-08-13",
-   "published_date": null,
+   "published_date": "2026-08-13",
    "sample_size": 1480,
    "margin_of_error": 2.55,
    "results": [
@@ -1176,7 +1459,7 @@
    "others_pct": null,
    "undecided_pct": 9.9,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "SP-04670/2026"
   },
   {
    "id": "11d028868159",
@@ -1871,12 +2154,42 @@
      "candidate": "Rui Costa Pimenta",
      "party": "PCO",
      "pct": 1
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 1
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
     }
    ],
-   "others_pct": 1,
-   "undecided_pct": 6,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06868/2026"
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 4,
+   "tse_registration": "BR-06868/2026",
+   "repaired": {
+    "evidence": "p.6, 'Intenção de voto no 1º turno', coluna 12/ago: 13 candidatos nomeados mais 'Branco ou nulo' 4 e 'Não sabe' 2, somando 99 — o instituto declara na ficha técnica (p.2) que arredonda e que 'o somatório dos resultados em algumas questões seja diferente de 100'. NÃO HÁ LINHA DE 'OUTROS' em nenhum dos cenários: confirmado por ambos os leitores nas oito páginas de recorte (p.7-14), que repetem as mesmas 15 linhas mais um 'Total'. A única ocorrência de 'Outro' no documento é 'Outro motivo', resposta de OUTRA pergunta (motivo do voto, p.21-26), e não pode ser trazida para cá. O 'outros: 1' que guardávamos é o 1 ponto do Leonardo Avalanche, apagado pela fonte. Nosso 'não sabe: 6' é a soma 4+2. Ficha: 2.400 entrevistas em 658 municípios, margem 2,0 p.p., 95%, campo 9 a 12 de agosto de 2026, IVR. Nenhum candidato tem asterisco; os zeros são zeros impressos, e os quatro aparecem com base real nos recortes das p.26, 32 e 63.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13819-2-0-effc95fa1388",
@@ -1907,9 +2220,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06868/2026"
+   "undecided_pct": 1,
+   "blank_null_pct": 8,
+   "tse_registration": "BR-06868/2026",
+   "repaired": {
+    "evidence": "p.16, coluna 12-Aug: Flávio Bolsonaro 45, Lula 46, Branco/Nulo 8, Não sabe 1 — soma 100.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13819-2-1-235ee8f28c0d",
@@ -1940,9 +2258,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06868/2026"
+   "undecided_pct": 2,
+   "blank_null_pct": 15,
+   "tse_registration": "BR-06868/2026",
+   "repaired": {
+    "evidence": "p.17, coluna 12-Aug: Renan Santos 37, Lula 46, Branco/Nulo 15, Não sabe 2 — soma 100.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13819-2-2-4848ac6691be",
@@ -1973,9 +2296,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06868/2026"
+   "undecided_pct": 1,
+   "blank_null_pct": 10,
+   "tse_registration": "BR-06868/2026",
+   "repaired": {
+    "evidence": "p.18, coluna 12-Aug: Romeu Zema 43, Lula 45, Branco/Nulo 10, Não sabe 1 — soma 99. ⚠ GUARDÁVAMOS 12 no balde único, contra 10+1=11 do instituto: o ponto a mais parece ter sido acrescentado pelo agregador para fechar em 100. Seguimos o relatório, que declara na ficha técnica (p.2) que arredonda e que a soma pode diferir de 100. Um ponto que ninguém mediu não entra.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13819-2-3-c30d905aecff",
@@ -2006,9 +2334,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06868/2026"
+   "undecided_pct": 1,
+   "blank_null_pct": 10,
+   "tse_registration": "BR-06868/2026",
+   "repaired": {
+    "evidence": "p.19, coluna 12-Aug: Ronaldo Caiado 44, Lula 45, Branco/Nulo 10, Não sabe 1 — soma 100.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-poderdata-aya-presidente-12ago.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13828-1-0-a6f9485ef65d",
@@ -3958,9 +4291,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 13,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 2,
+   "blank_null_pct": 11,
+   "tse_registration": null,
+   "repaired": {
+    "evidence": "p.36, 'Lula vs. Romeu Zema': Lula 47, Romeu Zema 40, Nenhum/Branco/Nulo 11, NS/NR 2 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO: este cenário entrou no banco pela WIKIPÉDIA, não pelo Poder360, e por isso chega com tse_registration nulo. Um match por registro ficava órfão — foi o balde `unmatched` de applyRepairs que acusou.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "f9e050c77c5f",
@@ -4077,9 +4415,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 3,
+   "blank_null_pct": 14,
+   "tse_registration": null,
+   "repaired": {
+    "evidence": "p.36, 'Lula vs. Renan Santos': Lula 46, Renan Santos 37, Nenhum/Branco/Nulo 14, NS/NR 3 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO: este cenário entrou no banco pela WIKIPÉDIA, não pelo Poder360, e por isso chega com tse_registration nulo. Um match por registro ficava órfão — foi o balde `unmatched` de applyRepairs que acusou.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13798-1-0-de98d8b7f3e9",
@@ -4152,12 +4495,27 @@
      "candidate": "Rui Costa Pimenta",
      "party": "PCO",
      "pct": 0
+    },
+    {
+     "candidate": "Cabo Daciolo",
+     "party": "Mobiliza",
+     "pct": 1
+    },
+    {
+     "candidate": "Heró Bezerra",
+     "party": null,
+     "pct": 0
     }
    ],
-   "others_pct": 1,
-   "undecided_pct": 8,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08428/2026"
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-08428/2026",
+   "repaired": {
+    "evidence": "p.18, 'Intenção de voto estimulado – 1º Turno (amostra total)': 13 candidatos nomeados um a um mais 'Nenhum/Branco/Nulo' 5 e 'NS/NR' 3, somando 99 — dentro da tolerância que o próprio documento declara (p.4: 'Devido ao arredondamento dos percentuais, a soma deles pode variar de 99% a 101%'). SEM LINHA DE 'OUTROS' na p.18. ⚠ A p.20 (recorte por comparecimento) IMPRIME um 'Outros 4%', que é a soma dos oito candidatos menores listados individualmente na p.18 — os dois leitores flagraram isso como armadilha e ele NÃO entra aqui. O 'outros: 1' que guardávamos é o 1 ponto do Cabo Daciolo. Nosso 'não sabe: 8' é a soma 5+3. A obs. da p.18 diz: 'nessa rodada, foi incluído o candidato Wilson Grassi Júnior. Cabo Daciolo foi testado porque o questionário foi registrado no TSE antes de o DC desistir de sua candidatura' — inclusão, não não-citação; ambos impressos com valor. Ficha: 2.001 entrevistados, 2 p.p., 95%, campo 7 a 9 de agosto de 2026, CATI. Contratante declarado no disclaimer da p.114: contratada pelo Banco BTG Pactual S.A.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13798-2-0-45ee98dabe65",
@@ -4188,9 +4546,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08428/2026"
+   "undecided_pct": 1,
+   "blank_null_pct": 8,
+   "tse_registration": "BR-08428/2026",
+   "repaired": {
+    "evidence": "p.36, 'Lula vs. Flávio Bolsonaro': Lula 47, Flávio Bolsonaro 44, Nenhum/Branco/Nulo 8, NS/NR 1 — soma 100.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13798-2-1-670965e6533d",
@@ -4221,9 +4584,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08428/2026"
+   "undecided_pct": 2,
+   "blank_null_pct": 9,
+   "tse_registration": "BR-08428/2026",
+   "repaired": {
+    "evidence": "p.36, 'Lula vs. Ronaldo Caiado': Lula 46, Ronaldo Caiado 42, Nenhum/Branco/Nulo 9, NS/NR 2 — soma 99.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/BTG-Nexus-Eleicoes2026-Brasil-10.ago_.2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13808-1-0-91865faabe67",
@@ -6162,9 +6530,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06591/2026"
+   "undecided_pct": 4,
+   "blank_null_pct": 13,
+   "tse_registration": "BR-06591/2026",
+   "repaired": {
+    "evidence": "p.20, 'Cenário 1', coluna Ago/26: Lula 44, Flávio Bolsonaro 39, Branco/Nulo/Não vai votar 13, Indecisos 4 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO. Este cenário entrou pela WIKIPÉDIA e no momento em que applyRepairs roda ele ainda NÃO tem tse_registration — o registro do levantamento só aparece na pesquisa depois, quando derive-polls projeta. Olhar o polls.json e ver o registro lá engana: aquele arquivo é a projeção enriquecida, não a entrada do reparo. Quem acusou foi o AVISO de reparo sem pesquisa correspondente.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "93f17bbb686a",
@@ -6261,9 +6634,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06591/2026"
+   "undecided_pct": 4,
+   "blank_null_pct": 16,
+   "tse_registration": "BR-06591/2026",
+   "repaired": {
+    "evidence": "p.29, 'Cenário 4', coluna Ago/26: Lula 45, Renan Santos 35, Branco/Nulo/Não vai votar 16, Indecisos 4 — soma 100. ⚠ CASA POR INSTITUTO+DATA, NÃO POR REGISTRO. Este cenário entrou pela WIKIPÉDIA e no momento em que applyRepairs roda ele ainda NÃO tem tse_registration — o registro do levantamento só aparece na pesquisa depois, quando derive-polls projeta. Olhar o polls.json e ver o registro lá engana: aquele arquivo é a projeção enriquecida, não a entrada do reparo. Quem acusou foi o AVISO de reparo sem pesquisa correspondente.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13697-2-0-8e2d394ecc0f",
@@ -6634,12 +7012,27 @@
      "candidate": "Edmilson Costa",
      "party": "PCB",
      "pct": 0
+    },
+    {
+     "candidate": "Cabo Daciolo",
+     "party": "Mobiliza",
+     "pct": 1
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
     }
    ],
-   "others_pct": 1,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06591/2026"
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": 8,
+   "tse_registration": "BR-06591/2026",
+   "repaired": {
+    "evidence": "p.11, 'Intenção de voto para Presidente - 1º turno': 12 candidatos mais 'Indecisos' 10 e 'Branco/Nulo/Não vai votar' 8, somando 100 exatos. SEM LINHA DE 'OUTROS' na p.11, e as sete páginas de recorte (p.12-18) repetem o mesmo elenco de 12 sem 'outros'. ⚠ A p.10 imprime um 'Outros 13' — é o MESMO cenário colapsado num gráfico de série, e 13 é a soma dos dez candidatos menores da p.11 (4+4+2+1+1+1+0+0+0+0). Não entra. O 'outros: 1' que guardávamos é o 1 ponto do Cabo Daciolo. Nosso 'não sabe: 18' é a soma 10+8. Ficha (p.3 e p.6): 2.004 entrevistas, margem 2 pontos, 95%, campo 31 de julho a 3 de agosto de 2026, coleta domiciliar face a face; contratante impresso na p.6: 'A QUAEST, CONTRATADA PELA GENIAL INVESTIMENTOS'. Nenhum candidato com asterisco; os quatro zeros são zeros impressos.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13706-2-1-ef06a22d5516",
@@ -6670,9 +7063,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06591/2026"
+   "undecided_pct": 4,
+   "blank_null_pct": 16,
+   "tse_registration": "BR-06591/2026",
+   "repaired": {
+    "evidence": "p.26, 'Cenário 2', coluna Ago/26: Lula 46, Romeu Zema 34, Branco/Nulo/Não vai votar 16, Indecisos 4 — soma 100.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "p360-13706-2-2-b0fccd1f517e",
@@ -6703,9 +7101,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06591/2026"
+   "undecided_pct": 4,
+   "blank_null_pct": 14,
+   "tse_registration": "BR-06591/2026",
+   "repaired": {
+    "evidence": "p.23, 'Cenário 3', coluna Ago/26: Lula 45, Ronaldo Caiado 37, Branco/Nulo/Não vai votar 14, Indecisos 4 — soma 100.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Quaest-nacional-5ago2026.pdf",
+    "verified_at": "2026-08-17"
+   }
   },
   {
    "id": "7190b35cb9b7",
@@ -11913,7 +12316,7 @@
     },
     {
      "candidate": "Leonardo Avalanche",
-     "party": null,
+     "party": "PRTB",
      "pct": 0.5
     }
    ],
@@ -23975,14 +24378,14 @@
    "tse_registration": null
   },
   {
-   "id": "b337b040cdc6",
+   "id": "b5e361446044",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
    "integra_url": null,
    "race": "governador",
    "state": "AL",
    "round": 2,
-   "scenario": "2º turno: João Henrique Caldas e Renan Filho",
+   "scenario": "2º turno: JHC e Renan Filho",
    "pollster": "Ranking",
    "contractor": null,
    "fieldwork_start": "2026-07-09",
@@ -25163,6 +25566,39 @@
    "tse_registration": "PE-00478/2026"
   },
   {
+   "id": "2e63e20dc63a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: JHC e Renan Filho",
+   "pollster": "Vox",
+   "contractor": null,
+   "fieldwork_start": "2026-07-06",
+   "fieldwork_end": "2026-07-08",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 45.4
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 51.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "32d082843bbd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -25222,39 +25658,6 @@
    ],
    "others_pct": 1,
    "undecided_pct": 34.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7f3dd3c7e91d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: João Henrique Caldas e Renan Filho",
-   "pollster": "Vox",
-   "contractor": null,
-   "fieldwork_start": "2026-07-06",
-   "fieldwork_end": "2026-07-08",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 45.4
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 51.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -39835,7 +40238,7 @@
   {
    "id": "p360-13674-1-0-099e47089851",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/07/DataTrends-PB-junho-2026.pdf",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "integra_url": null,
    "race": "governador",
    "state": "PB",
@@ -39878,7 +40281,7 @@
   {
    "id": "p360-13674-2-0-1507d818262f",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/07/DataTrends-PB-junho-2026.pdf",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "integra_url": null,
    "race": "governador",
    "state": "PB",
@@ -39911,7 +40314,7 @@
   {
    "id": "p360-13677-1-0-e59af906e1f8",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/07/DataTrends-PB-junho-2026.pdf",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "integra_url": null,
    "race": "senador",
    "state": "PB",
@@ -49798,7 +50201,7 @@
    "fieldwork_end": "2026-05-20",
    "published_date": "2026-05-20",
    "sample_size": 1640,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -49841,7 +50244,7 @@
    "fieldwork_end": "2026-05-20",
    "published_date": "2026-05-20",
    "sample_size": 1640,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -49874,7 +50277,7 @@
    "fieldwork_end": "2026-05-20",
    "published_date": "2026-05-20",
    "sample_size": 1640,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -64929,7 +65332,7 @@
    "fieldwork_end": "2026-04-14",
    "published_date": "2026-04-14",
    "sample_size": 1600,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -64972,7 +65375,7 @@
    "fieldwork_end": "2026-04-14",
    "published_date": "2026-04-14",
    "sample_size": 1600,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -65005,7 +65408,7 @@
    "fieldwork_end": "2026-04-14",
    "published_date": "2026-04-14",
    "sample_size": 1600,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -80087,35 +80490,6 @@
    "tse_registration": "BR-09353/2026"
   },
   {
-   "id": "p360-13306-1-0-5cfc90a58d0c",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/2026/03/regiao-metropolitana-de-maceio-1pdf.pdf",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 1,
-   "scenario": "1º turno",
-   "pollster": "Falpe",
-   "contractor": "Plus Comunicação",
-   "fieldwork_start": null,
-   "fieldwork_end": "2026-03-01",
-   "published_date": "2026-03-01",
-   "sample_size": 1200,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 23.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
-   "blank_null_pct": 5.5,
-   "tse_registration": "AL-05611/2026",
-   "incomplete": true
-  },
-  {
    "id": "8160d3d3fcb1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -88610,7 +88984,7 @@
     {
      "candidate": "Zema",
      "party": "Novo",
-     "pct": 1
+     "pct": 0.1
     }
    ],
    "others_pct": null,
