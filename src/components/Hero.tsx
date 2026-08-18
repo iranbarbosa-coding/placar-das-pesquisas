@@ -88,6 +88,10 @@ export interface HeroProps {
   ctaLabel?: string;
   /** Hard cap on drawn areas. Default 6, per the hero spec. */
   maxSeries?: number;
+  /** Candidate keys (`candKey`) at or above 5% on the VÁLIDOS average — the
+   *  significant set, computed once by `HeroBasisSwitch` so it stays válidos-
+   *  based across the basis toggle, and threaded to `HeroInteractive`. */
+  significantKeys?: string[];
   /**
    * The basis toggle, owned by `HeroBasisSwitch`. A slot, not a control: this
    * component stays a renderer with no state of its own beyond the chart range.
@@ -104,6 +108,7 @@ export default function Hero({
   href = "/presidente",
   ctaLabel = "Veja as pesquisas",
   maxSeries = 6,
+  significantKeys = [],
   controls,
 }: HeroProps) {
   const [range, setRange] = useState<ChartRange>("2026");
@@ -177,7 +182,7 @@ export default function Hero({
           </div>
 
           {/* The reactive core: KPI row + framed, hoverable chart. */}
-          <HeroInteractive average={average} maxSeries={maxSeries} cutoff={cutoff} />
+          <HeroInteractive average={average} maxSeries={maxSeries} cutoff={cutoff} significantKeys={significantKeys} />
 
           {average && hasChart && (
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>

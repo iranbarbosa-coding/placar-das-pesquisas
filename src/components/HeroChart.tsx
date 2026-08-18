@@ -1,6 +1,12 @@
 import { candKey } from "@/lib/average";
-import { dualColor, hashName } from "@/lib/colors";
+import { colorMap, colorOf, hashName, PALETTE_SIZE } from "@/lib/colors";
 import type { CandidateAverage, RaceAverage } from "@/lib/types";
+
+/** A candidate is "significant" — coloured line + KPI — iff their VÁLIDOS
+ *  average is at least this. Below it they draw as an individual grey line and
+ *  fold into "Outros". Callers pass the válidos-based set so the threshold does
+ *  not move when the basis toggle shows bruto. */
+export const SIGNIFICANT_PCT = 5;
 
 /**
  * The hero backdrop: an OVERLAPPING (not stacked) area chart of the presidential
@@ -42,9 +48,11 @@ const H = 320;
 const PAD_TOP = 16;
 const PAD_BOTTOM = 8;
 
-// DUAL PALETTE (2026-08-17): the home hero colours by RANK, not by name — the
-// leader red, the rival blue, the rest muted grey, matching the redesign mockup.
-// (State pages keep the per-candidate hash via `colorMap` elsewhere.)
+// COLOUR BY SIGNIFICANCE (2026-08-18): the hero colours every candidate at or
+// above `SIGNIFICANT_PCT` (válidos) with their FIXED per-candidate colour
+// (`colorMap`/`colorOf`, the same palette state pages use), and draws everyone
+// below it as an individual muted-grey line near the baseline. The válidos-based
+// significant set is threaded in so the basis toggle never recolours a line.
 
 // ── numbers that can never reach the DOM broken ───────────────────────────
 /** Any non-finite input becomes 0. Nothing else is allowed near a path. */
@@ -94,11 +102,17 @@ export function heroSeries(
   average: RaceAverage | null,
   maxSeries = 6,
   cutoff: string | null = DEFAULT_CUTOFF,
+  significantKeys: ReadonlySet<string> | null = null,
 ): HeroSeries[] {
   if (!average) return [];
   // Trim the drawn trend to points at or after `cutoff` (null = no trim / the
   // "Tudo" range). The KPI averages come from `c.avg`, untouched — only the
   // drawn points are windowed here.
+  // Colours come from the fixed per-candidate palette, resolved over the race's
+  // top `PALETTE_SIZE` so a candidate keeps one colour across the whole page.
+  const cmap = colorMap(average.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
+  const isSignificant = (k: string, avg: number) =>
+    significantKeys ? significantKeys.has(k) : avg >= SIGNIFICANT_PCT;
   const seen = new Set<string>();
   const uniq: CandidateAverage[] = [];
   for (const c of average.candidates) {
@@ -107,7 +121,7 @@ export function heroSeries(
     seen.add(k);
     uniq.push(c);
   }
-  return uniq.slice(0, Math.max(1, maxSeries)).map((c, rank) => {
+  return uniq.slice(0, Math.max(1, maxSeries)).map((c) => {
     const k = candKey(c.candidate);
     const pts = (Array.isArray(c.trend) ? c.trend : [])
       .filter((p) => typeof p?.date === "string" && p.date.length >= 7 && Number.isFinite(p.avg))
@@ -117,7 +131,7 @@ export function heroSeries(
       key: k,
       name: c.candidate,
       avg: fin(c.avg),
-      color: dualColor(rank, "red"),
+      color: isSignificant(k, fin(c.avg)) ? colorOf(cmap, c.candidate) : "var(--series-muted)",
       points: pts,
     };
   });
@@ -172,8 +186,9 @@ export function heroChartModel(
   average: RaceAverage | null,
   maxSeries = 6,
   cutoff: string | null = DEFAULT_CUTOFF,
+  significantKeys: ReadonlySet<string> | null = null,
 ): Model | null {
-  const series = heroSeries(average, maxSeries, cutoff);
+  const series = heroSeries(average, maxSeries, cutoff, significantKeys);
   if (!series.length) return null;
 
   const dates = [...new Set(series.flatMap((s) => s.points.map((p) => p.date)))].sort();
@@ -366,10 +381,13 @@ export interface HeroChartProps {
   /** The drawn window's start (ISO date), or null for the full "Tudo" range.
    *  Defaults to the election-cycle view (`DEFAULT_CUTOFF`). */
   cutoff?: string | null;
+  /** Candidate keys (`candKey`) at or above `SIGNIFICANT_PCT` on the válidos
+   *  average — those draw with their fixed colour, the rest muted grey. */
+  significantKeys?: ReadonlySet<string> | null;
 }
 
-export default function HeroChart({ average, maxSeries = 6, className, framed = false, cutoff = DEFAULT_CUTOFF }: HeroChartProps) {
-  const model = heroChartModel(average, maxSeries, cutoff);
+export default function HeroChart({ average, maxSeries = 6, className, framed = false, cutoff = DEFAULT_CUTOFF, significantKeys = null }: HeroChartProps) {
+  const model = heroChartModel(average, maxSeries, cutoff, significantKeys);
   if (!model) return null;
 
   const { painted, y, from, to, flat, yMax } = model;

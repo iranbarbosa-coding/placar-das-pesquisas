@@ -7,6 +7,8 @@ import HeroChart, {
   heroAxisTicks,
   heroLevelTopPct,
 } from "./HeroChart";
+import { candKey } from "@/lib/average";
+import { colorMap, colorOf, PALETTE_SIZE } from "@/lib/colors";
 import { shortName } from "@/lib/names";
 import { fmtPct } from "@/lib/format";
 import type { RaceAverage } from "@/lib/types";
@@ -14,25 +16,24 @@ import type { RaceAverage } from "@/lib/types";
 /**
  * The interactive half of the hero: the KPI row + the framed chart, as a CLIENT
  * component so both can react to hover. `Hero` (its parent) keeps the title,
- * toggle, caption and CTA and hands this component the serializable `average`.
+ * toggles, caption and CTA and hands this component the serializable `average`,
+ * the drawn-window `cutoff`, and the válidos-based `significantKeys`.
  *
- * ── WHAT HOVER DOES (desktop only) ─────────────────────────────────────────
+ * ── COLOUR + NAME EVERY CANDIDATE ≥ 5% (2026-08-18) ─────────────────────────
+ * Significant candidates (válidos average ≥ 5%) get a coloured line and a
+ * coloured KPI in their FIXED per-candidate colour; everyone below 5% draws as
+ * an individual grey line near the baseline and folds into the "Outros" KPI. The
+ * significant set is válidos-based and passed in, so toggling to bruto never
+ * recolours a line — only the numbers change.
+ *
+ * ── HOVER (desktop only) ───────────────────────────────────────────────────
  * Moving the mouse over the plot shows a vertical guide, a dot on each drawn
- * line at that date, and a tooltip listing every series' moving-average value
- * AT THAT DATE — and the big KPI numbers above the chart switch to that date's
- * values. On mouse leave everything reverts to the current averages. Hover is
- * gated on `(hover: hover) and (pointer: fine)` and bound to MOUSE events only,
- * so touch devices never enter a hovered state and always show current values.
- *
- * ── STATIC LOOK IS UNCHANGED ───────────────────────────────────────────────
- * The KPI math, the sum-to-100 tenths reconciliation and the chart-card markup
- * are moved here verbatim from `Hero`. When not hovering, the output is
- * identical to before — the overlays render nothing and every number is the
- * current average. Only interactivity was added.
+ * line at that date, and a tooltip listing EVERY candidate's value at that date
+ * (leader first). The big KPI numbers switch to that date's values. On leave,
+ * everything reverts to the current averages. Hover is gated on
+ * `(hover: hover) and (pointer: fine)` and mouse-only events, so touch devices
+ * never enter a hovered state.
  */
-
-// Empty style object kept so the moved KPI markup reads identically to Hero's.
-const DISPLAY = {} as const;
 
 const MES_ABREV = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
 
@@ -51,9 +52,11 @@ function isoMs(iso: string | null): number {
   return Number.isFinite(t) ? t : 0;
 }
 
-/** Carry-forward: the series' value at the last point AT OR BEFORE `date`,
- *  falling back to the first point. `points` must be ascending by date. */
-function valueAt(points: { date: string; avg: number }[], date: string): number {
+type Pt = { date: string; avg: number };
+
+/** Carry-forward: the value at the last point AT OR BEFORE `date`, falling back
+ *  to the first point. `points` must be ascending by date. */
+function valueAt(points: Pt[], date: string): number {
   if (!points.length) return 0;
   let v = points[0].avg;
   for (const p of points) {
@@ -63,94 +66,108 @@ function valueAt(points: { date: string; avg: number }[], date: string): number 
   return v;
 }
 
+/** A candidate's trend, cleaned and ascending. */
+function cleanPoints(trend: unknown): Pt[] {
+  return (Array.isArray(trend) ? trend : [])
+    .filter((p): p is Pt => !!p && typeof p.date === "string" && p.date.length >= 7 && Number.isFinite(p.avg))
+    .map((p) => ({ date: p.date, avg: p.avg }))
+    .sort((a, b) => (a.date < b.date ? -1 : 1));
+}
+
+const fin = (x: number) => (Number.isFinite(x) ? x : 0);
+const tenths = (x: number) => Math.round(fin(x) * 10);
+
 export interface HeroInteractiveProps {
   average: RaceAverage | null;
   maxSeries?: number;
-  /** The drawn window's start (ISO date), or null for "Tudo". Chosen by the
-   *  hero's range selector; windows the drawn lines, the hover timeline and the
-   *  month axis together. KPI averages stay untouched. */
+  /** The drawn window's start (ISO date), or null for "Tudo". */
   cutoff?: string | null;
+  /** Candidate keys (`candKey`) at or above 5% on the VÁLIDOS average. Colours
+   *  and the significant/Outros split come from this set, so the basis toggle
+   *  never recolours. */
+  significantKeys?: string[];
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [] }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
+  const [outrosOpen, setOutrosOpen] = useState(false);
   const plotRef = useRef<HTMLDivElement | null>(null);
 
   // Enable hover only on a real mouse (fine pointer). Runs client-side after
-  // mount, so SSR and touch devices keep `hoverable = false` and the current
-  // values — no stuck overlay, no hydration mismatch.
+  // mount, so SSR and touch devices keep `hoverable = false`.
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
     setHoverable(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
   }, []);
 
-  const series = heroSeries(average, maxSeries, cutoff);
-  const model = heroChartModel(average, maxSeries, cutoff);
+  const sigSet = new Set(significantKeys);
+  const validos = average?.basis === "validos";
+  const candidates = average?.candidates ?? [];
+
+  const series = heroSeries(average, maxSeries, cutoff, sigSet);
+  const model = heroChartModel(average, maxSeries, cutoff, sigSet);
   const ticks = heroAxisTicks(model);
   const fiftyTop = heroLevelTopPct(model, 50);
-  const validos = average?.basis === "validos";
   const showFifty = fiftyTop != null && fiftyTop >= 0 && fiftyTop <= 100;
-  const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
 
-  // The three drawn leaders, and the leftover candidates (ranked 4+) with their
-  // cleaned ascending trends — the exact two inputs the KPI reconciliation uses.
-  const top3 = series.slice(0, 3);
-  const leftoverTrends = (average?.candidates ?? []).slice(3).map((c) => ({
-    avg: Number.isFinite(c.avg) ? c.avg : 0,
-    points: (Array.isArray(c.trend) ? c.trend : [])
-      .filter((p) => typeof p?.date === "string" && p.date.length >= 7 && Number.isFinite(p.avg))
-      .map((p) => ({ date: p.date, avg: p.avg }))
-      .sort((a, b) => (a.date < b.date ? -1 : 1)),
-  }));
+  // Fixed per-candidate colours over the race's top slots (basis-independent —
+  // `colorMap` sorts by name, and every significant candidate is pinned).
+  const cmap = colorMap(candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
+  const colorFor = (name: string) => colorOf(cmap, name);
+  const trendByKey = new Map(candidates.map((c) => [candKey(c.candidate), cleanPoints(c.trend)] as const));
+  const isSig = (c: { candidate: string }) => sigSet.has(candKey(c.candidate));
+  const sigCands = candidates.filter(isSig);
+  const nonSigCands = candidates.filter((c) => !isSig(c));
 
-  // KPI buckets at a given date (or the current averages when `date` is null).
-  // Everything is reconciled in TENTHS so the row sums to exactly 100,0 — the
-  // remainder bucket absorbs the rounding. Identical logic to the old server
-  // computation; only the per-date inputs differ.
+  const valueOfCand = (c: { candidate: string; avg: number }, date: string | null) =>
+    date == null ? fin(c.avg) : valueAt(trendByKey.get(candKey(c.candidate)) ?? [], date);
+
+  // KPI buckets at a date (or the current averages when `date` is null). The
+  // significant candidates are shown individually; everyone else is "Outros";
+  // bruto adds the branco/nulo residual. Reconciled in TENTHS so the row sums to
+  // exactly 100,0 — the remainder bucket absorbs the rounding.
   const bucketPcts = (date: string | null): Map<string, number> => {
-    const tenths = (x: number) => Math.round((Number.isFinite(x) ? x : 0) * 10);
-    const top3vals = top3.map((s) => (date == null ? s.avg : valueAt(s.points, date)));
-    const leftoverSum = leftoverTrends.reduce(
-      (sum, lt) => sum + (date == null ? lt.avg : valueAt(lt.points, date)),
-      0,
-    );
-    const top3T = top3vals.map(tenths);
-    const top3SumT = top3T.reduce((a, b) => a + b, 0);
-    const leftoverT = tenths(leftoverSum);
-    const outrosT = validos ? Math.max(0, 1000 - top3SumT) : leftoverT;
-    const brancosNulosT = validos ? null : Math.max(0, 1000 - top3SumT - outrosT);
+    const sigT = sigCands.map((c) => tenths(valueOfCand(c, date)));
+    const sigSumT = sigT.reduce((a, b) => a + b, 0);
+    const nonSigSum = nonSigCands.reduce((s, c) => s + valueOfCand(c, date), 0);
+    const outrosT = validos ? Math.max(0, 1000 - sigSumT) : tenths(nonSigSum);
+    const bnT = validos ? null : Math.max(0, 1000 - sigSumT - outrosT);
     const m = new Map<string, number>();
-    top3.forEach((s, i) => m.set(s.key, top3T[i] / 10));
+    sigCands.forEach((c, i) => m.set(candKey(c.candidate), sigT[i] / 10));
     m.set("__outros", outrosT / 10);
-    if (brancosNulosT != null) m.set("__bn", brancosNulosT / 10);
+    if (bnT != null) m.set("__bn", bnT / 10);
     return m;
   };
 
-  // The bucket STRUCTURE (which items exist, their names/colours) is fixed from
-  // the current values, so the row never changes item-count on hover and the
-  // static look matches the old server render exactly.
+  // The bucket STRUCTURE is fixed from the current values, so the row never
+  // changes item-count on hover.
   const currentPcts = bucketPcts(null);
   const hasOutros = (currentPcts.get("__outros") ?? 0) > 0;
   const hasBN = currentPcts.has("__bn") && (currentPcts.get("__bn") ?? 0) > 0;
 
-  const topKpis = top3.map((s) => ({
-    key: s.key,
-    name: s.name,
-    party: partyOf.get(s.name) ?? null,
-    color: s.color,
+  const sigBuckets = sigCands.map((c) => ({
+    key: candKey(c.candidate),
+    name: c.candidate,
+    party: c.party,
+    color: colorFor(c.candidate),
   }));
   const candidateBuckets = hasOutros
-    ? [...topKpis, { key: "__outros", name: "Outros", party: null as string | null, color: "var(--series-muted)" }]
-    : topKpis;
+    ? [...sigBuckets, { key: "__outros", name: "Outros", party: null as string | null, color: "var(--series-muted)" }]
+    : sigBuckets;
   const buckets = hasBN
     ? [...candidateBuckets, { key: "__bn", name: "Brancos/Nulos/NR", party: null as string | null, color: "var(--text-muted)" }]
     : candidateBuckets;
 
   const gridLevels = [0, 20, 40, 60, 80, 100].filter((v) => model != null && v <= model.yMax);
 
-  // Hover timeline: the sorted union of drawn-series point dates, each with its
-  // x position (percent of the plot) on the same scale the lines use.
+  // Elastic KPI sizing: shrink the number font + gaps as the count grows, so a
+  // wider field stays compact instead of exploding the card height or the width.
+  const n = buckets.length;
+  const numCls = n <= 4 ? "text-[24px] sm:text-[28px]" : n <= 6 ? "text-2xl" : "text-xl";
+  const gapCls = n <= 4 ? "gap-x-5 gap-y-2 sm:gap-x-7" : n <= 6 ? "gap-x-4 gap-y-2 sm:gap-x-5" : "gap-x-3 gap-y-1.5 sm:gap-x-4";
+
+  // Hover timeline over the drawn-series point dates.
   const snapshots = [...new Set(series.flatMap((s) => s.points.map((p) => p.date)))].sort();
   const t0 = isoMs(model?.from ?? null);
   const span = isoMs(model?.to ?? null) - t0;
@@ -182,20 +199,30 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
   const showOverlay = interactive && hoveredDate != null;
   const hoverX = hoveredDate != null ? xPctOf(hoveredDate) : 0;
 
+  // Tooltip rows: EVERY candidate with a trend, valued at the hovered date and
+  // sorted leader-first; the dot mirrors the line (fixed colour if significant,
+  // grey otherwise). "Outros" is not aggregated here — each candidate is listed.
+  const tooltipRows =
+    hoveredDate == null
+      ? []
+      : candidates
+          .map((c) => ({ key: candKey(c.candidate), name: c.candidate, pts: trendByKey.get(candKey(c.candidate)) ?? [], sig: isSig(c) }))
+          .filter((r) => r.pts.length > 0)
+          .map((r) => ({ ...r, value: valueAt(r.pts, hoveredDate) }))
+          .sort((a, b) => b.value - a.value);
+  const tooltipBN = hoveredDate != null && hasBN ? (activePcts.get("__bn") ?? 0) : null;
+
   if (series.length === 0) return null;
 
   return (
     <>
-      {/* KPI row — top three plus "Outros" on ONE line, like the target. On
-          hover these switch to the hovered date's values. */}
+      {/* KPI row — significant candidates + "Outros" (+ bruto Brancos/Nulos/NR),
+          elastic in size so a wider field never reformats the page. */}
       {buckets.length > 0 && (
-        <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-7">
+        <ul className={`flex flex-wrap ${gapCls}`}>
           {buckets.map((k) => (
             <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
-              <span
-                className="tabular text-[24px] font-bold leading-none sm:text-[28px]"
-                style={{ ...DISPLAY, color: k.color }}
-              >
+              <span className={`tabular font-bold leading-none ${numCls}`} style={{ color: k.color }}>
                 {fmtPct(activePcts.get(k.key) ?? 0)}
                 <span className="text-[0.55em] font-bold align-baseline">%</span>
               </span>
@@ -211,11 +238,41 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
         </ul>
       )}
 
-      {/* The framed chart: a bordered surface with y-gridlines, 50% line,
-          month axis and a legend row. */}
+      {/* Expandable "who is in Outros": the sub-5% candidates, each with their
+          current-basis value. Understated; reflects the basis, not hover. */}
+      {nonSigCands.length > 0 && (
+        <div className="text-xs">
+          <button
+            type="button"
+            onClick={() => setOutrosOpen((o) => !o)}
+            aria-expanded={outrosOpen}
+            className="inline-flex items-center gap-1"
+            style={{ color: "var(--text-muted)" }}
+          >
+            Outros: {nonSigCands.length} candidato{nonSigCands.length === 1 ? "" : "s"}
+            <span aria-hidden="true">{outrosOpen ? "▴" : "▾"}</span>
+          </button>
+          {outrosOpen && (
+            <ul className="mt-1 flex flex-col gap-0.5" style={{ color: "var(--text-secondary)" }}>
+              {nonSigCands.map((c) => (
+                <li key={candKey(c.candidate)} className="flex items-baseline justify-between gap-3">
+                  <span className="min-w-0 truncate">
+                    {c.candidate}
+                    {c.party ? <span style={{ color: "var(--text-muted)" }}> ({c.party})</span> : null}
+                  </span>
+                  <span className="tabular shrink-0" style={{ color: "var(--text-muted)" }}>
+                    {fmtPct(fin(c.avg))}%
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      {/* The framed chart. */}
       <div className="card p-3 sm:p-4">
         <div className="flex gap-1.5">
-          {/* y-axis labels, aligned to the SVG gridlines. */}
           <div className="relative w-7 shrink-0" aria-hidden="true">
             {gridLevels.map((v) => {
               const top = heroLevelTopPct(model, v);
@@ -236,7 +293,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
             onMouseLeave={onLeave}
             className="relative h-[200px] flex-1 sm:h-[240px]"
           >
-            <HeroChart average={average} maxSeries={maxSeries} framed cutoff={cutoff} />
+            <HeroChart average={average} maxSeries={maxSeries} framed cutoff={cutoff} significantKeys={sigSet} />
             {showFifty && (
               <span
                 className="tabular pointer-events-none absolute right-0 -translate-y-1/2 rounded px-1 text-[10px] font-semibold"
@@ -246,9 +303,6 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
               </span>
             )}
 
-            {/* HOVER OVERLAY — vertical guide, per-series dots, tooltip. Renders
-                only while a date is hovered (mouse + fine pointer); everything
-                is pointer-events-none so the plot keeps receiving mousemove. */}
             {showOverlay && (
               <>
                 <div
@@ -268,7 +322,13 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
                   );
                 })}
                 <div
-                  className="pointer-events-none absolute z-[1] top-1 max-w-[68%] rounded-md border px-2 py-1.5 text-[11px] shadow-sm"
+                  // Vertically CENTERED on the plot so the whole list (all
+                  // candidates, no internal scroll for the normal field) stays
+                  // on-screen and near the card even as it grows; `max-h-[70vh]`
+                  // is only a last-resort cap for an extreme 20+ field. The
+                  // horizontal clamp (left/right + max-w) keeps it from ever
+                  // causing horizontal page overflow.
+                  className="pointer-events-none absolute z-[1] top-1/2 flex max-h-[70vh] max-w-[68%] -translate-y-1/2 flex-col overflow-y-auto rounded-md border px-2 py-1.5 text-[11px] shadow-sm"
                   style={{
                     ...(hoverX > 55
                       ? { right: `${Math.min(30, Math.max(0, 100 - hoverX))}%` }
@@ -281,23 +341,30 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
                     {fmtAbbrevDate(hoveredDate)}
                   </div>
                   <ul className="flex flex-col gap-0.5">
-                    {candidateBuckets.map((k) => (
-                      <li key={`tt-${k.key}`} className="flex items-center gap-1.5">
-                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: k.color }} />
-                        <span style={{ color: "var(--text-secondary)" }}>{shortName(k.name)}</span>
+                    {tooltipRows.map((r) => (
+                      <li key={`tt-${r.key}`} className="flex items-center gap-1.5">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: r.sig ? colorFor(r.name) : "var(--series-muted)" }} />
+                        <span style={{ color: "var(--text-secondary)" }}>{shortName(r.name)}</span>
                         <span className="tabular ml-auto pl-2 font-semibold" style={{ color: "var(--text-primary)" }}>
-                          {fmtPct(activePcts.get(k.key) ?? 0)}%
+                          {fmtPct(r.value)}%
                         </span>
                       </li>
                     ))}
+                    {tooltipBN != null && (
+                      <li key="tt-bn" className="flex items-center gap-1.5">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--text-muted)" }} />
+                        <span style={{ color: "var(--text-secondary)" }}>Brancos/Nulos/NR</span>
+                        <span className="tabular ml-auto pl-2 font-semibold" style={{ color: "var(--text-primary)" }}>
+                          {fmtPct(tooltipBN)}%
+                        </span>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </>
             )}
           </div>
         </div>
-        {/* Time axis — same w-7 gutter + flex-1 as the chart, so month ticks
-            line up under the plot. */}
         {ticks.length > 0 && (
           <div className="flex gap-1.5">
             <div className="w-7 shrink-0" aria-hidden="true" />
@@ -314,8 +381,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null 
             </div>
           </div>
         )}
-        {/* Legend row — the candidate series (top 3 + Outros) plus the 50%
-            line. NOT the branco/nulo bucket: it is not a drawn line. */}
+        {/* Legend row — the coloured candidates + "Outros" + the 50% line. */}
         <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
           {candidateBuckets.map((k) => (
             <li key={`leg-${k.key}`} className="flex items-center gap-1.5">

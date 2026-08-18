@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Hero from "./Hero";
+import { SIGNIFICANT_PCT } from "./HeroChart";
+import { candKey } from "@/lib/average";
 import type { Headline } from "@/lib/home";
 import type { RaceAverage } from "@/lib/types";
 import type { Basis } from "@/lib/validos";
@@ -56,11 +58,19 @@ export default function HeroBasisSwitch({
   const shown = !convertible ? (average ?? averageBruto) : useBruto ? averageBruto : average;
   const shownHeadline = !convertible ? (headline ?? headlineBruto) : useBruto ? headlineBruto : headline;
 
+  // The significant set (≥5%) is computed ONCE from the VÁLIDOS cut, so which
+  // candidates are coloured never changes when the reader toggles to bruto.
+  const thresholdBase = average ?? averageBruto;
+  const significantKeys = (thresholdBase?.candidates ?? [])
+    .filter((c) => Number.isFinite(c.avg) && c.avg >= SIGNIFICANT_PCT)
+    .map((c) => candKey(c.candidate));
+
   return (
     <Hero
       average={shown}
       headline={shownHeadline}
       scenario={scenario}
+      significantKeys={significantKeys}
       controls={
         convertible ? (
           // Compact toggle only — the long "muda apenas este bloco" explainer was

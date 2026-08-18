@@ -100,12 +100,17 @@ export const PALETTE_SIZE = PALETTE.length;
 const FIXED_COLORS: ReadonlyMap<string, string> = new Map(
   (
     [
-      // The owner's twelve, in his order.
+      // The owner's twelve, in his order. 2026-08-18: Flávio Bolsonaro is pinned
+      // to BLUE (owner: "Flávio always blue"), which freed blue from Ronaldo
+      // Caiado — Caiado moves to TEAL (owner OK'd a new hue). Flávio's old GREEN
+      // is now free; Ratinho Jr keeps teal, so the twelve stay mutually distinct
+      // EXCEPT Caiado and Ratinho Jr both hold teal now — they never share a race
+      // (Caiado = governador/GO, Ratinho = senador/PR), so no chart draws both.
       ["Lula", "red"],
-      ["Ronaldo Caiado", "blue"],
+      ["Ronaldo Caiado", "teal"],
       ["Zema", "orange"],
       ["Renan Santos", "amber"],
-      ["Flávio Bolsonaro", "green"],
+      ["Flávio Bolsonaro", "blue"],
       ["Escritor Augusto Cury", "purple"],
       ["Ratinho Jr", "teal"],
       ["Ciro Gomes", "pink"],
