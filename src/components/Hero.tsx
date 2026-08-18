@@ -58,15 +58,6 @@ function InfoGlyph() {
   );
 }
 
-/** Speech-bubble glyph before the editorial sentence, as in the target. */
-function ChatGlyph() {
-  return (
-    <svg viewBox="0 0 20 20" aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" style={{ color: "var(--text-muted)" }}>
-      <path d="M3 4h14v9H8l-4 3v-3H3z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 export interface HeroProps {
   /** The presidential first-round average. `null` renders the block without a chart. */
   average: RaceAverage | null;
@@ -88,27 +79,6 @@ export interface HeroProps {
   controls?: ReactNode;
 }
 
-/**
- * The margin, in prose — the version a screen reader or a summary card gets.
- * ── THE 50% CLAIM ONLY EXISTS IN VOTOS VÁLIDOS ────────────────────────────
- * On bruto the denominator includes branco/nulo/não sabe, so "X pontos abaixo
- * dos 50%" is false — the threshold is not on that scale. So the bruto sentence
- * states the number, names the base, and says why the threshold is missing.
- */
-function marginSentence(h: Headline, basis: RaceAverage["basis"]): string {
-  if (basis !== "validos") {
-    return `${h.leader} lidera com ${fmtPct(h.leaderPct)}% do total da amostra. Nesta base não há distância dos 50%: o total da amostra inclui branco, nulo e quem não sabe, e o primeiro turno se decide entre os votos válidos.`;
-  }
-  const d = fmtPct(Math.abs(h.toFifty));
-  const lead = `${h.leader} lidera com ${fmtPct(h.leaderPct)}% das intenções de voto`;
-  if (h.toFifty < 0) {
-    return `${lead} — ${d} ponto${Math.abs(h.toFifty) === 1 ? "" : "s"} percentua${Math.abs(h.toFifty) === 1 ? "l" : "is"} abaixo dos 50% necessários para vencer ainda no primeiro turno. Na média de hoje, a eleição iria a segundo turno.`;
-  }
-  if (h.toFifty === 0) {
-    return `${lead} — exatamente os 50% necessários para vencer no primeiro turno.`;
-  }
-  return `${lead} — ${d} ponto${h.toFifty === 1 ? "" : "s"} percentua${h.toFifty === 1 ? "l" : "is"} acima dos 50% necessários para vencer ainda no primeiro turno.`;
-}
 
 export default function Hero({
   average,
@@ -278,12 +248,7 @@ export default function Hero({
             </p>
           )}
 
-          {headline ? (
-            <p className="flex max-w-[64ch] items-start gap-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-              <ChatGlyph />
-              <span>{marginSentence(headline, average?.basis ?? "validos")}</span>
-            </p>
-          ) : (
+          {!headline && (
             <p className="max-w-[64ch] text-sm" style={{ color: "var(--text-secondary)" }}>
               Ainda não há pesquisas suficientes para uma média da corrida presidencial.
             </p>
