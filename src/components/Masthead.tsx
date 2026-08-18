@@ -407,22 +407,23 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
           className="flex min-w-0 shrink-0 items-center gap-2"
           aria-label={SITE_NAME}
         >
-          {/* Header lockup: the transparent brand ICON + the wordmark as themed
-              text (no tagline — that stays on the full lockup in the footer). The
-              icon is a transparent PNG, so it sits clean on both themes; the
-              wordmark uses theme tokens so "VOTO"/"DADOS" invert in dark.
+          {/* Header lockup: the transparent brand ICON (Brazil as a node network)
+              + the wordmark as themed text (no tagline — that stays on the full
+              lockup in the footer). The icon is a transparent PNG, so it sits
+              clean on both themes; the wordmark uses theme tokens so "PLACAR"
+              inverts to white on the dark header.
               eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/voto-icon.png" alt="" aria-hidden="true" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
-          {/* Stacked wordmark from the brand guide: VOTO over EM DADOS, uppercase.
-              Theme tokens make VOTO invert to white on the dark header while
-              DADOS stays the brand blue and EM the slate grey. */}
+          <img src="/brand/placar-icon.png" alt="" aria-hidden="true" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+          {/* Stacked wordmark from the logo: PLACAR over DAS PESQUISAS, uppercase.
+              Theme tokens make PLACAR invert to white on the dark header while
+              PESQUISAS stays the brand blue and DAS the slate grey. */}
           <span className="hidden leading-[0.92] sm:block">
             <span className="block text-[17px] font-extrabold uppercase tracking-tight" style={{ color: "var(--text-primary)" }}>
-              Voto
+              Placar
             </span>
             <span className="block text-[17px] font-extrabold uppercase tracking-tight">
-              <span className="text-[10px] align-top" style={{ color: "var(--text-muted)" }}>em </span>
-              <span style={{ color: "var(--accent)" }}>Dados</span>
+              <span className="text-[10px] align-top" style={{ color: "var(--text-muted)" }}>das </span>
+              <span style={{ color: "var(--accent)" }}>Pesquisas</span>
             </span>
           </span>
         </Link>

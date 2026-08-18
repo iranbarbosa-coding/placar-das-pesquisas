@@ -12,7 +12,8 @@
      it — the "every fixed hue clears 3:1 as a 2px line on --page" guarantee below
      is preserved, not spent. Ink-on-fill ratios are measured against the fills,
      not the page, so they are untouched. */
-  /* OFFICIAL BRAND PALETTE ("Voto em Dados — Conceito 3", 2026-08-18). The light
+  /* OFFICIAL BRAND PALETTE (Placar das Pesquisas, 2026-08-18; adopted in the
+     redesign and kept when the brand returned to Placar). The light
      neutrals are the guide's exact hexes: page #F8FAFC (off-white), cards
      #FFFFFF, ink #0B1020 (navy), secondary #64748B (slate), borders #E5E7EB
      (light-grey), accent #2563EB (blue). Radius 8px and the hairline shadow are
@@ -28,8 +29,8 @@
   --axis: #cbd5e1;
   --ring: #e5e7eb;
   --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
-  /* Brand blue (Voto em Dados guide, #2563EB) — the primary accent: links,
-     buttons, active toggles, the "DADOS" wordmark, the "Entrar" button. */
+  /* Brand blue (#2563EB) — the primary accent: links, buttons, active toggles,
+     the "PESQUISAS" wordmark, the "Entrar" button. */
   --accent: #2563eb;
   --series-1: #2a78d6;
   --series-2: #eb6834;
