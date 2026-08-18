@@ -67,25 +67,13 @@ function clamp(v: number, lo: number, hi: number): number {
   return v < lo ? lo : v > hi ? hi : v;
 }
 
-// DISPLAY WINDOW (2026-08-17 redesign). The framed hero shows the CURRENT CYCLE
-// — the last ~6 months ending at the newest poll — not the full multi-year
-// trend, so the lines read as clean recent tracking with ~6 monthly ticks
-// (mar–ago). This is a view over real data, not a crop of it: the averages and
-// the KPI numbers are untouched; only the DRAWN span is trimmed here.
-const WINDOW_DAYS = 180;
-
-/** ISO date `WINDOW_DAYS` before the newest poll, or null if unknown. Points
- *  older than this are dropped from the drawn trend (string compare is safe on
- *  zero-padded YYYY-MM-DD). */
-function windowStartIso(lastIso: string | null | undefined): string | null {
-  if (!lastIso || lastIso.length < 10) return null;
-  const t = isoTime(lastIso) - WINDOW_DAYS * 86400000;
-  if (!Number.isFinite(t) || t <= 0) return null;
-  const d = new Date(t);
-  const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
-  const dd = String(d.getUTCDate()).padStart(2, "0");
-  return `${d.getUTCFullYear()}-${mm}-${dd}`;
-}
+// DISPLAY WINDOW (2026-08-17 redesign). The framed hero draws only a slice of
+// the full multi-year trend — the CUTOFF date below — so the lines read as clean
+// recent tracking. This is a view over real data, not a crop of it: the averages
+// and the KPI numbers are untouched; only the DRAWN span is trimmed here. The
+// hero's range selector chooses the cutoff (2026 / Tudo / 12m / 6m / 3m) and
+// passes it in; the DEFAULT is the election-cycle view since 1 Jan 2026.
+export const DEFAULT_CUTOFF = "2026-01-01";
 
 export interface HeroSeries {
   /** Normalized name — the identity used for colour and dedupe. */
@@ -102,11 +90,15 @@ export interface HeroSeries {
  * The drawn series, with colours — exported so the hero's legend labels the
  * same candidates in the same colours from one computation instead of two.
  */
-export function heroSeries(average: RaceAverage | null, maxSeries = 6): HeroSeries[] {
+export function heroSeries(
+  average: RaceAverage | null,
+  maxSeries = 6,
+  cutoff: string | null = DEFAULT_CUTOFF,
+): HeroSeries[] {
   if (!average) return [];
-  // Trim the drawn trend to the last ~6 months (see WINDOW_DAYS). The KPI
-  // averages come from `c.avg`, untouched — only the drawn points are windowed.
-  const cutoff = windowStartIso(average.lastPollDate);
+  // Trim the drawn trend to points at or after `cutoff` (null = no trim / the
+  // "Tudo" range). The KPI averages come from `c.avg`, untouched — only the
+  // drawn points are windowed here.
   const seen = new Set<string>();
   const uniq: CandidateAverage[] = [];
   for (const c of average.candidates) {
@@ -176,8 +168,12 @@ interface Model {
  * checked finite by `co` before it becomes an attribute, and this is the
  * function a test drives with degenerate races.
  */
-export function heroChartModel(average: RaceAverage | null, maxSeries = 6): Model | null {
-  const series = heroSeries(average, maxSeries);
+export function heroChartModel(
+  average: RaceAverage | null,
+  maxSeries = 6,
+  cutoff: string | null = DEFAULT_CUTOFF,
+): Model | null {
+  const series = heroSeries(average, maxSeries, cutoff);
   if (!series.length) return null;
 
   const dates = [...new Set(series.flatMap((s) => s.points.map((p) => p.date)))].sort();
@@ -367,10 +363,13 @@ export interface HeroChartProps {
    * default, so the full-bleed usage — if any survives — is unchanged.
    */
   framed?: boolean;
+  /** The drawn window's start (ISO date), or null for the full "Tudo" range.
+   *  Defaults to the election-cycle view (`DEFAULT_CUTOFF`). */
+  cutoff?: string | null;
 }
 
-export default function HeroChart({ average, maxSeries = 6, className, framed = false }: HeroChartProps) {
-  const model = heroChartModel(average, maxSeries);
+export default function HeroChart({ average, maxSeries = 6, className, framed = false, cutoff = DEFAULT_CUTOFF }: HeroChartProps) {
+  const model = heroChartModel(average, maxSeries, cutoff);
   if (!model) return null;
 
   const { painted, y, from, to, flat, yMax } = model;

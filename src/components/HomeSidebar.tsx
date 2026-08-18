@@ -195,7 +195,7 @@ export interface HomeSidebarProps {
 
 export default function HomeSidebar({ highlights, movers, map, newPoll }: HomeSidebarProps) {
   return (
-    <aside className="flex flex-col gap-5" aria-label="Painel de estados">
+    <aside className="flex min-w-0 flex-col gap-5" aria-label="Painel de estados">
       <MapCard map={map} />
       <DestaquesCard highlights={highlights} />
       {(movers.length > 0 || newPoll) && <MudouCard movers={movers} newPoll={newPoll} />}

@@ -1,41 +1,30 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
-import HeroChart, {
-  heroSeries,
-  heroChartModel,
-  heroAxisTicks,
-  heroLevelTopPct,
-} from "./HeroChart";
+import HeroInteractive from "./HeroInteractive";
+import { heroSeries, DEFAULT_CUTOFF } from "./HeroChart";
 /* Type-only: `Headline` is erased at compile time, so this file carries NO
    runtime dependency on lib/home (and therefore none on lib/data's `node:fs`). */
 import type { Headline } from "@/lib/home";
-import { fmtDate, fmtPct } from "@/lib/format";
+import { fmtDate } from "@/lib/format";
 import type { RaceAverage } from "@/lib/types";
 
 /**
  * The front page's opening statement: one race as an electoral dashboard.
  *
- * ── THE 2026-08-17 REDESIGN ───────────────────────────────────────────────
- * This used to be a FULL-BLEED area chart with the headline set over it, and
- * carried a page of machinery for that: a zero-scrollbar full-bleed trick, band
- * heights tuned to the copy, a scrim to keep type legible over live chart. The
- * creator's redesign mockup replaces that with the RealClearPolling/Bloomberg
- * shape — a CONTAINED chart in a card, with a visible time axis, the 50% line
- * and a last-poll marker, beside an "Em resumo" panel of the key numbers. All
- * of that machinery is therefore gone: the chart lives in a normal box now, so
- * there is nothing to keep from overflowing and nothing to scrim.
- *
- * Server component — nothing here reacts. The basis toggle is the one piece of
- * state, and it lives one level up in `HeroBasisSwitch`, which hands this
- * component the chosen cut as props plus the toggle itself as `controls`.
+ * A thin CLIENT shell now: it renders the card header (title/subtitle + the
+ * basis toggle and the chart RANGE selector, top-right), the caption and the
+ * CTA, and delegates the reactive part — the KPI row and the framed, HOVERABLE
+ * chart — to `HeroInteractive`. The range selector's state lives here because
+ * its buttons sit in the header beside the basis toggle; the chosen `cutoff`
+ * is handed to `HeroInteractive`, which windows the drawn lines, the hover
+ * timeline and the month axis together. The KPI averages never change with the
+ * range — only the drawn span does.
  *
  * WHAT SURVIVED THE REWRITE, and must not regress:
- *  · Colours come from `heroSeries` (name-hashed / pinned), never from position.
- *  · The 50%/distance claim exists ONLY on votos válidos — the "Em resumo" panel
- *    and the sentence both drop the distance-to-50 line on bruto, matching
- *    `RaceBadge`, so switching basis changes the claim rather than lying.
- *  · The full leader name is shown, never `shortName` (which turns "Luiz Inácio
- *    Lula da Silva" into "Luiz").
+ *  · Colours come from `heroSeries`, never from position.
+ *  · The full leader name is shown, never `shortName`.
  */
 
 /* The hero used a CONDENSED display face; the mockup's headline is a normal-width
@@ -54,6 +43,37 @@ function InfoGlyph() {
   );
 }
 
+/** The chart's time-range selector. "2026" (since 1 Jan 2026) is the default
+ *  election-cycle view; the rest are relative to the latest poll. */
+type ChartRange = "2026" | "tudo" | "12m" | "6m" | "3m";
+const RANGE_BUTTONS: { key: ChartRange; label: string }[] = [
+  { key: "2026", label: "2026" },
+  { key: "tudo", label: "Tudo" },
+  { key: "12m", label: "12m" },
+  { key: "6m", label: "6m" },
+  { key: "3m", label: "3m" },
+];
+
+/** ISO date `days` before `iso` (UTC), or null if `iso` is unusable. */
+function isoMinusDays(iso: string | null | undefined, days: number): string | null {
+  if (!iso || iso.length < 10) return null;
+  const [y, m, d] = iso.split("-").map(Number);
+  const t = Date.UTC(y, m - 1, d) - days * 86400000;
+  if (!Number.isFinite(t)) return null;
+  const dt = new Date(t);
+  const mm = String(dt.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(dt.getUTCDate()).padStart(2, "0");
+  return `${dt.getUTCFullYear()}-${mm}-${dd}`;
+}
+
+/** The drawn window's start for a range: null = "Tudo" (no trim). */
+function cutoffFor(range: ChartRange, lastPollDate: string | null): string | null {
+  if (range === "tudo") return null;
+  if (range === "2026") return DEFAULT_CUTOFF;
+  const days = range === "12m" ? 365 : range === "6m" ? 180 : 90;
+  return isoMinusDays(lastPollDate, days);
+}
+
 export interface HeroProps {
   /** The presidential first-round average. `null` renders the block without a chart. */
   average: RaceAverage | null;
@@ -70,11 +90,10 @@ export interface HeroProps {
   maxSeries?: number;
   /**
    * The basis toggle, owned by `HeroBasisSwitch`. A slot, not a control: this
-   * component stays a renderer with no state.
+   * component stays a renderer with no state of its own beyond the chart range.
    */
   controls?: ReactNode;
 }
-
 
 export default function Hero({
   average,
@@ -87,64 +106,27 @@ export default function Hero({
   maxSeries = 6,
   controls,
 }: HeroProps) {
+  const [range, setRange] = useState<ChartRange>("2026");
+
   const series = heroSeries(average, maxSeries);
-  const model = heroChartModel(average, maxSeries);
-  const ticks = heroAxisTicks(model);
-  const fiftyTop = heroLevelTopPct(model, 50);
   const validos = average?.basis === "validos";
   const basisLabel = validos ? "votos válidos" : "total da amostra";
   const hidden = average ? Math.max(0, average.candidates.length - series.length) : 0;
-  const showFifty = fiftyTop != null && fiftyTop >= 0 && fiftyTop <= 100;
-  // Party per candidate, so the KPI row can read "Lula (PT)" like the mockup.
-  const partyOf = new Map((average?.candidates ?? []).map((c) => [c.candidate, c.party]));
-
-  // KPI row: the top THREE candidates, "Outros" (leftover candidates), and — on
-  // the bruto cut only — "Brancos/Nulos/NR". Everything is reconciled in TENTHS
-  // so the DISPLAYED row sums to exactly 100,0: independently-rounded buckets had
-  // summed to 99,6. The remainder bucket absorbs the rounding, which is honest —
-  // on each base it IS "everything not shown above".
-  const tenths = (x: number) => Math.round((Number.isFinite(x) ? x : 0) * 10);
-  const top3 = series.slice(0, 3);
-  const top3SumT = top3.reduce((a, s) => a + tenths(s.avg), 0);
-  // Leftover candidates (ranked 4+), summed directly.
-  const leftoverT = tenths((average?.candidates ?? []).slice(3).reduce((s, c) => s + (Number.isFinite(c.avg) ? c.avg : 0), 0));
-  // Válidos: the base is candidates-only, so "Outros" is the rest of the field
-  // (100 − top3) — which is the leftover candidates — and there is no branco/nulo
-  // bucket. Bruto: "Outros" is the leftover candidates directly, and
-  // "Brancos/Nulos/NR" takes the remainder (branco + nulo + não sabe) so the row
-  // sums to 100.
-  const outrosT = validos ? Math.max(0, 1000 - top3SumT) : leftoverT;
-  const brancosNulosT = validos ? null : Math.max(0, 1000 - top3SumT - outrosT);
-
-  const topKpis = top3.map((s) => ({
-    key: s.key,
-    pct: tenths(s.avg) / 10,
-    name: s.name,
-    party: partyOf.get(s.name) ?? null,
-    color: s.color,
-  }));
-  // The candidate KPIs (top 3 + Outros) also label the chart legend. The
-  // branco/nulo bucket is NOT a drawn line, so it stays out of the legend.
-  const candidateKpis =
-    outrosT > 0
-      ? [...topKpis, { key: "__outros", pct: outrosT / 10, name: "Outros", party: null, color: "var(--series-muted)" }]
-      : topKpis;
-  const kpis =
-    brancosNulosT != null && brancosNulosT > 0
-      ? [...candidateKpis, { key: "__bn", pct: brancosNulosT / 10, name: "Brancos/Nulos/NR", party: null, color: "var(--text-muted)" }]
-      : candidateKpis;
-
-  // y-axis gridline values on the framed chart's own scale (0/20/40/60…≤ yMax).
-  const gridLevels = [0, 20, 40, 60, 80, 100].filter((v) => model != null && v <= model.yMax);
+  const hasChart = series.length > 0;
+  const cutoff = cutoffFor(range, average?.lastPollDate ?? null);
 
   return (
     <section aria-labelledby="hero-titulo">
       {/* Single full-width column: the "Em resumo" side panel was removed at the
           owner's request, so the title, KPIs and framed chart span the card. */}
       <div className="flex min-w-0 flex-col gap-3">
-          {/* Header row: title/subtitle on the left, the basis toggle pinned to
-              the UPPER-RIGHT corner of the card (owner's request). */}
-          <div className="flex items-start justify-between gap-3">
+          {/* Header row: title/subtitle on the left, the basis toggle and the
+              chart range selector pinned to the UPPER-RIGHT corner of the card.
+              `flex-wrap` lets the toggle column drop below the title only on very
+              narrow screens (≈320px), where the two toggles no longer fit beside
+              the title — keeps the page from overflowing without changing the
+              desktop one-row layout. */}
+          <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
             <div className="flex min-w-0 flex-col gap-0.5">
               {/* Card-header style, matching the mockup: a small UPPERCASE title,
                   no separate eyebrow — the KPIs below are the prominent element. */}
@@ -162,101 +144,42 @@ export default function Hero({
                 </p>
               )}
             </div>
-            {controls && <div className="shrink-0">{controls}</div>}
-          </div>
-
-          {/* KPI row — top three plus "Outros" on ONE line, like the target. */}
-          {kpis.length > 0 && (
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-7">
-              {kpis.map((k) => (
-                <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
-                  <span
-                    className="tabular text-[24px] font-bold leading-none sm:text-[28px]"
-                    style={{ ...DISPLAY, color: k.color }}
+            {(controls || hasChart) && (
+              <div className="flex shrink-0 flex-col items-end gap-1">
+                {controls}
+                {hasChart && (
+                  <div
+                    role="group"
+                    aria-label="Intervalo de tempo do gráfico"
+                    className="inline-flex w-fit overflow-hidden rounded-md text-xs"
+                    style={{ border: "1px solid var(--grid)", background: "var(--surface-1)" }}
                   >
-                    {fmtPct(k.pct)}
-                    <span className="text-[0.55em] font-bold align-baseline">%</span>
-                  </span>
-                  <span className="flex items-center gap-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-                    <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
-                    <span className="truncate">
-                      {k.name}
-                      {k.party ? <span style={{ color: "var(--text-muted)" }}> ({k.party})</span> : null}
-                    </span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {/* The framed chart: a bordered surface with y-gridlines, 50% line,
-              month axis, a last-poll marker and a legend row. */}
-          {series.length > 0 ? (
-            <div className="card p-3 sm:p-4">
-              <div className="flex gap-1.5">
-                {/* y-axis labels, aligned to the SVG gridlines. */}
-                <div className="relative w-7 shrink-0" aria-hidden="true">
-                  {gridLevels.map((v) => {
-                    const top = heroLevelTopPct(model, v);
-                    return top == null ? null : (
-                      <span
-                        key={`ylab-${v}`}
-                        className="tabular absolute right-0 -translate-y-1/2 text-[10px]"
-                        style={{ top: `${top}%`, color: "var(--text-muted)" }}
+                    {RANGE_BUTTONS.map((b) => (
+                      <button
+                        key={b.key}
+                        type="button"
+                        onClick={() => setRange(b.key)}
+                        aria-pressed={range === b.key}
+                        className="px-2.5 py-1 transition-colors"
+                        style={{
+                          background: range === b.key ? "var(--accent)" : "transparent",
+                          color: range === b.key ? "#fff" : "var(--text-muted)",
+                          fontWeight: range === b.key ? 600 : 400,
+                        }}
                       >
-                        {v}%
-                      </span>
-                    );
-                  })}
-                </div>
-                <div className="relative h-[200px] flex-1 sm:h-[240px]">
-                <HeroChart average={average} maxSeries={maxSeries} framed />
-                {showFifty && (
-                  <span
-                    className="tabular pointer-events-none absolute right-0 -translate-y-1/2 rounded px-1 text-[10px] font-semibold"
-                    style={{ top: `${fiftyTop}%`, color: "var(--text-muted)", background: "var(--surface-1)" }}
-                  >
-                    50%
-                  </span>
-                )}
-                </div>
-              </div>
-              {/* Time axis — same w-7 gutter + flex-1 as the chart, so month
-                  ticks line up under the plot. */}
-              {ticks.length > 0 && (
-                <div className="flex gap-1.5">
-                  <div className="w-7 shrink-0" aria-hidden="true" />
-                  <div className="relative mt-2 h-4 flex-1">
-                    {ticks.map((t) => (
-                      <span
-                        key={`${t.label}-${t.leftPct.toFixed(1)}`}
-                        className="absolute -translate-x-1/2 text-[10px] uppercase tracking-wide"
-                        style={{ left: `${t.leftPct}%`, color: "var(--text-muted)" }}
-                      >
-                        {t.label}
-                      </span>
+                        {b.label}
+                      </button>
                     ))}
                   </div>
-                </div>
-              )}
-              {/* Legend row — the candidate series (top 3 + Outros) plus the 50%
-                  line. NOT the branco/nulo bucket: it is not a drawn line. */}
-              <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-                {candidateKpis.map((k) => (
-                  <li key={`leg-${k.key}`} className="flex items-center gap-1.5">
-                    <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: k.color }} />
-                    <span className="truncate">{k.name}</span>
-                  </li>
-                ))}
-                <li className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
-                  <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
-                  50% (vitória no 1º turno)
-                </li>
-              </ul>
-            </div>
-          ) : null}
+                )}
+              </div>
+            )}
+          </div>
 
-          {average && series.length > 0 && (
+          {/* The reactive core: KPI row + framed, hoverable chart. */}
+          <HeroInteractive average={average} maxSeries={maxSeries} cutoff={cutoff} />
+
+          {average && hasChart && (
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
               Última pesquisa em {fmtDate(average.lastPollDate)}
               {scenario ? ` · ${scenario}` : ""}
