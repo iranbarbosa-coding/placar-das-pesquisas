@@ -28,7 +28,9 @@
   --axis: #c8cdd6;
   --ring: #e2e5ea;
   --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
-  --accent: #2156a5;
+  /* Brand blue (Voto em Dados guide, #2563EB) — the primary accent: links,
+     buttons, active toggles, the "DADOS" wordmark, the "Entrar" button. */
+  --accent: #2563eb;
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
@@ -154,7 +156,7 @@
     /* On black, a drop shadow does nothing; depth comes from the surface being
        lighter than the page plus a hairline top highlight. */
     --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-    --accent: #3987e5;
+    --accent: #3b82f6; /* brand blue, lifted for the dark background */
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-3: #199e70;

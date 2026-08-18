@@ -404,18 +404,27 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
         <Link
           href="/"
           onClick={closeAll}
-          className="flex min-w-0 shrink-0 items-center"
+          className="flex min-w-0 shrink-0 items-center gap-2"
           aria-label={SITE_NAME}
         >
-          {/* Brand lockup (Voto em Dados). The asset carries a white background,
-              so it is given rounded corners to read as a logo chip on the dark
-              theme's dark header; on light it blends with the white header.
+          {/* Header lockup: the transparent brand ICON + the wordmark as themed
+              text (no tagline — that stays on the full lockup in the footer). The
+              icon is a transparent PNG, so it sits clean on both themes; the
+              wordmark uses theme tokens so "VOTO"/"DADOS" invert in dark.
               eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/brand/voto-em-dados.png"
-            alt={SITE_NAME}
-            className="h-8 w-auto rounded sm:h-10"
-          />
+          <img src="/brand/voto-icon.png" alt="" aria-hidden="true" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+          {/* Stacked wordmark from the brand guide: VOTO over EM DADOS, uppercase.
+              Theme tokens make VOTO invert to white on the dark header while
+              DADOS stays the brand blue and EM the slate grey. */}
+          <span className="hidden leading-[0.92] sm:block">
+            <span className="block text-[17px] font-extrabold uppercase tracking-tight" style={{ color: "var(--text-primary)" }}>
+              Voto
+            </span>
+            <span className="block text-[17px] font-extrabold uppercase tracking-tight">
+              <span className="text-[10px] align-top" style={{ color: "var(--text-muted)" }}>em </span>
+              <span style={{ color: "var(--accent)" }}>Dados</span>
+            </span>
+          </span>
         </Link>
 
         <nav ref={barNavRef} aria-label="Principal" className="hidden h-full lg:block">

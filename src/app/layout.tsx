@@ -71,8 +71,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <main className="shell py-6">{children}</main>
-        <footer className="mt-12 border-t py-6 text-center text-xs" style={{ borderColor: "var(--ring)", color: "var(--text-muted)" }}>
-          <p>
+        <footer className="mt-12 border-t py-8 text-center text-xs" style={{ borderColor: "var(--ring)", color: "var(--text-muted)" }}>
+          {/* The full brand lockup (with tagline) lives here. The asset has a
+              white background, given rounded corners so it reads as a brand card
+              on the dark theme. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/voto-em-dados.png" alt={SITE_NAME} className="mx-auto mb-5 h-12 w-auto rounded-md sm:h-14" />
+          <p className="mx-auto max-w-2xl px-4">
             Dados compilados de fontes públicas (Wikipédia, registros do TSE/PesqEle e divulgações dos
             institutos). Médias calculadas conforme a <Link href="/metodologia" className="underline">metodologia</Link>.
             Este site não realiza pesquisas; números pertencem aos institutos citados.
