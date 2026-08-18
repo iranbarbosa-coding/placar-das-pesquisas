@@ -18,6 +18,6 @@
  * pointing at a domain that is not the site — an error no build step catches
  * and search engines act on.
  */
-export const SITE_NAME = "Placar das Pesquisas";
+export const SITE_NAME = "Voto em Dados";
 export const SITE_YEAR = "2026";
-export const SITE_TAGLINE = "A média que você pode refazer";
+export const SITE_TAGLINE = "Eleições transparentes, decisões informadas";

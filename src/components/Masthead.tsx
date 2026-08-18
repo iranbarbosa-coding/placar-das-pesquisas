@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { SITE_NAME, SITE_YEAR } from "@/lib/brand";
+import { SITE_NAME } from "@/lib/brand";
 import { UFS, UF_NAMES } from "@/lib/types";
 import SiteSearch, { type SearchItem } from "./SiteSearch";
 
@@ -404,21 +404,18 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
         <Link
           href="/"
           onClick={closeAll}
-          className="flex min-w-0 shrink items-center gap-2 lg:shrink-0"
-          aria-label={`${SITE_NAME} ${SITE_YEAR}`}
+          className="flex min-w-0 shrink-0 items-center"
+          aria-label={SITE_NAME}
         >
-          {/* Bar-chart wordmark mark. */}
-          <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7 shrink-0">
-            <rect x="3" y="12" width="4" height="9" rx="1" fill="var(--accent)" />
-            <rect x="10" y="7" width="4" height="14" rx="1" fill="var(--accent)" />
-            <rect x="17" y="3" width="4" height="18" rx="1" fill="var(--dual-lead)" />
-          </svg>
-          <span className="hidden min-w-0 leading-none sm:block">
-            <span className="block truncate text-sm font-extrabold uppercase tracking-tight">Placar</span>
-            <span className="block truncate text-[10px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
-              das Pesquisas <span style={{ color: "var(--accent)" }}>{SITE_YEAR}</span>
-            </span>
-          </span>
+          {/* Brand lockup (Voto em Dados). The asset carries a white background,
+              so it is given rounded corners to read as a logo chip on the dark
+              theme's dark header; on light it blends with the white header.
+              eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/voto-em-dados.png"
+            alt={SITE_NAME}
+            className="h-8 w-auto rounded sm:h-10"
+          />
         </Link>
 
         <nav ref={barNavRef} aria-label="Principal" className="hidden h-full lg:block">
