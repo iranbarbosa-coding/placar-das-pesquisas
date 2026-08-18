@@ -49,6 +49,14 @@ export function AverageCaption({
   atHover?: { date: string; setAside: RaceAverage["setAside"] };
 }) {
   const setAside = atHover?.setAside ?? average.setAside;
+  // Branco/nulo e NS/NR são SEMPRE apresentados como um número único (decisão do
+  // projeto), mesmo quando o dado subjacente os separa (`setAside` mantém a
+  // granularidade intacta — isto é só a soma para exibição).
+  const setAsideCombined =
+    setAside.combined ??
+    (setAside.blankNull != null && setAside.undecided != null
+      ? setAside.blankNull + setAside.undecided
+      : null);
   // Split at the chart's cap: the drawn candidates get named, the rest counted.
   const drawn = average.candidates.slice(0, maxSeries);
   const partial = drawn.filter((c) => c.nPolls < average.pollCount);
@@ -99,16 +107,8 @@ export function AverageCaption({
       {average.basis === "validos" ? (
         <p>
           Votos válidos: cada candidato sobre o total de votos em candidatos.
-          {setAside.blankNull != null && setAside.undecided != null ? (
-            <> {n1(setAside.blankNull)}% dos entrevistados responderam branco ou nulo,{" "}
-              {n1(setAside.undecided)}% não responderam.</>
-          ) : setAside.combined != null ? (
-            /* Combined, because at least one institute in the window publishes a
-               single figure. Splitting a mean across polls that report it and
-               polls that fold it together would understate it, and the caption
-               would read as a measurement when it is an artefact of reporting. */
-            <> {n1(setAside.combined)}% responderam branco, nulo ou não souberam
-              — os institutos desta média não separam os dois.</>
+          {setAsideCombined != null ? (
+            <> {n1(setAsideCombined)}% responderam branco, nulo ou não souberam.</>
           ) : null}
         </p>
       ) : (
