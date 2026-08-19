@@ -1494,3 +1494,29 @@ manual `workflow_dispatch` supervisionada exercitando `ELENCO RETIDO` + conflito
 da Ravenna TODOS esperam essa rodada supervisionada.** A Ravenna sozinha não paga as
 duas condições; `DECLARED` interino no `parity-check` é o razoável até a coleta
 religar por outro motivo. É decisão do criador.
+
+**Decisão do criador (18/08): ele dispara a rodada manual `workflow_dispatch` ele
+mesmo — essa rodada É a condição 1 (estrear a retenção de elenco contra coleta
+real), não uma violação.** Ninguém mais roda scrape. A sessão da linhagem de
+pessoa vigia a execução e lê o log (`ELENCO RETIDO`, `roster_encolhido_na_fonte`
+em `conflicts.ndjson`, censo); se `p360-13816` (Futura nacional, 10 candidatos no
+banco × 2 na API) aparecer retido, é a prova de que a retenção nunca tinha sido
+testada. ⚠ **Supervisão centralizada: pedidos de decisão das outras sessões passam
+por esta sessão de dados, que leva ao criador.**
+
+### Bug do parser achado (diagnóstico da /presidente, 18/08) + o conserto do integra_url
+O diagnóstico das features que a /presidente pede (rejeição, presidente:UF,
+methodology) achou um bug: **`integra_url` é null nas 1.010 pesquisas** porque
+`upsert.mjs` não o passava ao `fillFields` (embora esteja em `SURVEY_FIELDS` e
+`poder360.mjs` o emita). Perde TODOS os ponteiros de PDF do instituto — e é
+pré-requisito de qualquer extração por OCR (rejeição/methodology). ⚠ **O conserto
+está no branch `wip/integra-url-fix` (pushado, provado em sandbox), FORA do main de
+propósito**: preencher `integra_url` move até 1.010 carimbos `provenance.updated_at`
+e enterraria o sinal da estreia da retenção. **Plano do criador: FUNDIR
+`wip/integra-url-fix` no main DEPOIS do debut da retenção**, para entrar na coleta
+seguinte. Se ninguém fundiu ainda, esse é o próximo passo pendente.
+As outras duas features seguem como decisão: **rejeição** = grande (só existe no
+PDF `integra`, exige OCR + schema + validadores nos 3 cargos); **presidente:UF** =
+o barato é mais curadoria `add_poll` (o v2 apaga a presidencial estadual, mesmo
+defeito dos reparos), não reescrever o coletor; **methodology** = pequeno SE o CSV
+do TSE tiver a coluna, senão vem do mesmo PDF.
