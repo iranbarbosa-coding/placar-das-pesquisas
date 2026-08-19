@@ -55,10 +55,6 @@ export default function PresidentLatestPolls({ rows }: { rows: PollRow[] }) {
           </tbody>
         </table>
       </div>
-
-      <a href="#todas-as-pesquisas" className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
-        Ver todas as pesquisas utilizadas na média <span aria-hidden="true">→</span>
-      </a>
     </div>
   );
 }
