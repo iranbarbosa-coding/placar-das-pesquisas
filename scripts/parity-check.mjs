@@ -128,9 +128,13 @@ function main() {
       continue;
     }
     for (let i = 0; i < lr.length; i++) {
-      const contestOf = `${lp.race}:${lp.state ?? "BR"}`;
-      if (canonicalCandidate(lr[i].candidate, contestOf) !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
-        if (fieldDiffs < 15) E(`(b) ${id}: ${lr[i].candidate} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
+      // O nome canônico é o que se compara, então é o que a mensagem tem de
+      // nomear: imprimindo o cru do legado, uma renomeação da tabela de alias
+      // que o store não acompanhou saía como "Ravenna Castro ≠ Ravenna Castro"
+      // — a divergência real ficava ilegível. O cru vai junto, como origem.
+      const canon = canonicalCandidate(lr[i].candidate, contestOfPoll);
+      if (canon !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
+        if (fieldDiffs < 15) E(`(b) ${id}: ${canon} (cru "${lr[i].candidate}") ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
         fieldDiffs++;
       }
       // The party label is rendered on every board and card. Compared THROUGH
