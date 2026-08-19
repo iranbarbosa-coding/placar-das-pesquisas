@@ -57,8 +57,14 @@ ListAgents, os ids mudam):
    ele pediu este handoff. **Pergunta-lhe e, se sim, dispara pares de leitores cegos
    (o método provado): 2 por relatório em diretórios separados, verificação por
    agente DIFERENTE, `add_poll`/`add_results` em `data/repairs.json`.**
-3. **Fusão da Ravenna** (pessoa registrada gov:PI × observada senador:PI) — decisão
-   dele, deferida pela própria ruling. NÃO se auto-limpa (ballotCandidacy null).
+3. **Fusão da Ravenna** (pessoa registrada gov:PI × observada senador:PI) —
+   **RATIFICADA ESTACIONADA pelo criador (19/08/2026):** fica partida, fusão
+   DIFERIDA, sem merge à mão (§8: fusão manual não é reproduzida pelo build).
+   Identidade confirmada por 3 eixos (mesmo estado, partido, unicidade no
+   registro); nome já correto na disputa de Senado via ruling. Nada publicado
+   está errado — a partida vive no balde de recusa do censo. Reabre só quando
+   existir mecanismo determinístico de fusão por pessoa. NÃO se auto-limpa
+   (ballotCandidacy null em senador:PI).
 4. **Contradições só-por-grafia** (Álvaro Dias, Ciro, Michelle, Derrite, Ciro
    Nogueira, Rui Costa, Simone Tebet, Gustavo Mendanha) — curadoria humana; não se
    fundem sozinhas.
