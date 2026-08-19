@@ -32,6 +32,10 @@
   /* Brand blue (#2563EB) — the primary accent: links, buttons, active toggles,
      the "PESQUISAS" wordmark, the "Entrar" button. */
   --accent: #2563eb;
+  /* The RCP table's highlighted "Média" band — a vivid brand blue (not the old
+     near-black navy, which read as black). Slightly brighter on the dark page so
+     it pops off the navy card. Text on it is always white/near-white. */
+  --rcp-avg-band: #1d4ed8;
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
@@ -168,6 +172,7 @@
        plus a hairline top highlight. */
     --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
     --accent: #3b82f6; /* brand blue, lifted for the dark background */
+    --rcp-avg-band: #2563eb; /* brand blue, a touch brighter to pop off the navy card */
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-3: #199e70;

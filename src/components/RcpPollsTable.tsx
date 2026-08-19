@@ -103,14 +103,14 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
             </tr>
           </thead>
           <tbody>
-            {/* Highlighted average row: a navy band (#081020) with light text so
-                it reads as the table's headline in both themes — the leader's
-                number in white, the rest in a softer white. */}
-            <tr className="font-bold" style={{ background: "#081020" }}>
+            {/* Highlighted average row: a deep-navy band on light, a vivid brand
+                blue on dark (--rcp-avg-band), with light text so it reads as the
+                table's headline in both themes — leader in white, rest softer. */}
+            <tr className="font-bold" style={{ background: "var(--rcp-avg-band)" }}>
               <td className={`${TD} text-left`} style={{ color: "#ffffff" }}>
                 Média
               </td>
-              <td className={`${TD} text-left`} style={{ color: "rgba(255,255,255,0.45)" }}>
+              <td className={`${TD} text-left`} style={{ color: "rgba(255,255,255,0.6)" }}>
                 —
               </td>
               <td className={`${TD} text-left`}>
@@ -120,7 +120,7 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                 <td
                   key={data.candidates[i].key}
                   className={`${TD} tabular text-right`}
-                  style={{ color: i === avgLeader ? "#ffffff" : "rgba(255,255,255,0.62)" }}
+                  style={{ color: i === avgLeader ? "#ffffff" : "rgba(255,255,255,0.78)" }}
                 >
                   {v == null ? "—" : `${fmtPct(v)}%`}
                 </td>
