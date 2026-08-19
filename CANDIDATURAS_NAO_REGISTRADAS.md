@@ -19,15 +19,15 @@ As colunas são fato cru — cenários, datas, e qual candidatura consta do regi
 |---|---|---|
 | **SEM CANDIDATURA** | a pessoa não tem candidatura nesta disputa, e o casador procurou o nome dela **até onde alcança**: no registro inteiro nas 28 linhas da disputa nacional, e só na UF da disputa mais as 13 candidaturas nacionais nas 292 estaduais | **320** |
 | **OUTRA DISPUTA** | a pessoa não tem candidatura nesta disputa mas TEM em outra — o caso Tarcísio | **59** |
-| *contradição no nosso banco* | outra linha de pessoa carrega a MESMA grafia e TEM candidatura — **recusado**, nunca afirmado | 6 |
-| *não determinado* | não dá para afirmar nem uma coisa nem outra — **recusado**, nunca contado como não registrada | 8 |
+| *contradição no nosso banco* | outra linha de pessoa carrega a MESMA grafia e TEM candidatura — **recusado**, nunca afirmado | 12 |
+| *não determinado* | não dá para afirmar nem uma coisa nem outra — **recusado**, nunca contado como não registrada | 10 |
 | **confrontos de 2º turno** | confrontos com ao menos um dos dois acima | **108** |
 | *confrontos não determinados* | nenhum afirmado, mas ao menos um não determinado | 3 |
 | *denominador* | confrontos de 2º turno que o banco guarda ao todo, inclusive os em que todo mundo se registrou | 190 |
 
-Disputas com ao menos uma linha: **53** · cenários de 2º turno alcançados pelos confrontos afirmados: **615** de 1537.
+Disputas com ao menos uma linha: **53** · cenários de 2º turno alcançados pelos confrontos afirmados: **615** de 1539.
 Cenários no período eleitoral: **0** nas linhas de candidato, **0** nas de confronto —
-de **13** cenários que o banco tem com campo encerrado em 16/08/2026 ou depois, em 4 levantamento(s).
+de **14** cenários que o banco tem com campo encerrado em 16/08/2026 ou depois, em 4 levantamento(s).
 
 **A medida de 17/08/2026, reconciliada.** Na amostra nacional da presidencial — o recorte em que o criador mediu — o banco guarda 47 confrontos de 2º turno em 854 cenários. Destes, **36 com alguém afirmado** sem candidatura presidencial, em 429 cenários, e **1 em recusa**, em 5 cenários. Somados: **37 de 47 confrontos** e **434 de 854 cenários** — é a medida de 17/08/2026, e a diferença é que aqui a linha que não dá para afirmar está separada, em vez de contada junto.
 
@@ -74,7 +74,7 @@ Separar as três espécies é decisão de um humano.
 | 4 | Ciro Gomes | `p_46e43c67194e` | 118 | 81 | 101 | 03/10/2023 | 21/05/2026 | 0 | 0 | `governador:CE` |
 | 5 | Aldo Rebelo | `p_4ea832b43410` | 99 | 61 | 86 | 14/12/2025 | 27/07/2026 | 0 | 0 | nenhuma no registro inteiro |
 | 6 | Michelle Bolsonaro | `p_a24a364b9a5e` | 84 | 78 | 73 | 28/01/2024 | 27/07/2026 | 0 | 0 | `senador:DF` |
-| 7 | Cabo Daciolo | `p_0dfb7b95bb84` | 82 | 45 | 81 | 09/04/2026 | 09/08/2026 | 0 | 0 | `governador:AM` |
+| 7 | Cabo Daciolo | `p_0dfb7b95bb84` | 83 | 46 | 82 | 09/04/2026 | 09/08/2026 | 0 | 0 | `governador:AM` |
 | 8 | Eduardo Leite | `p_477731d9502e` | 73 | 59 | 58 | 03/10/2023 | 29/03/2026 | 0 | 0 | nenhuma no registro inteiro |
 | 9 | Joaquim Barbosa | `p_f7d6f9a23b58` | 62 | 33 | 57 | 24/05/2026 | 27/07/2026 | 0 | 0 | nenhuma no registro inteiro |
 | 10 | Fernando Haddad | `p_39b752645a0c` | 37 | 37 | 22 | 09/12/2024 | 27/07/2026 | 0 | 0 | `governador:SP` |
@@ -85,8 +85,8 @@ Separar as três espécies é decisão de um humano.
 | 15 | Geraldo Alckmin | `p_7edd8a75b6ea` | 17 | 13 | 12 | 22/03/2025 | 27/07/2026 | 0 | 0 | nenhuma no registro inteiro |
 | 16 | Simone Tebet | `p_d957177e5198` | 11 | 10 | 11 | 03/10/2023 | 11/09/2025 | 0 | 0 | `senador:SP` |
 | 17 | Renan Filho | `p_adcfbcc04182` | 8 | 1 | 8 | 06/07/2025 | 10/09/2025 | 0 | 0 | `governador:AL` |
-| 18 | Marina Silva | `p_d410430276d1` | 5 | 5 | 5 | 31/12/2024 | 24/04/2025 | 0 | 0 | `senador:SP` |
-| 19 | Leonardo Avalanche | `p_8fa28bcb7d26` | 4 | 3 | 4 | 28/07/2026 | 12/08/2026 | 0 | 0 | nenhuma no registro inteiro |
+| 18 | Leonardo Avalanche | `p_8fa28bcb7d26` | 5 | 4 | 5 | 28/07/2026 | 12/08/2026 | 0 | 0 | nenhuma no registro inteiro |
+| 19 | Marina Silva | `p_d410430276d1` | 5 | 5 | 5 | 31/12/2024 | 24/04/2025 | 0 | 0 | `senador:SP` |
 | 20 | Sérgio Moro | `p_54d2d3ee8d18` | 4 | 4 | 4 | 03/10/2023 | 31/01/2025 | 0 | 0 | `governador:PR` |
 | 21 | Michel Temer | `p_da57956d1174` | 3 | 3 | 2 | 30/08/2025 | 14/06/2026 | 0 | 0 | nenhuma no registro inteiro |
 | 22 | Rogério Marinho | `p_ff027ea7b12b` | 3 | 3 | 2 | 22/06/2025 | 25/08/2025 | 0 | 0 | nenhuma no registro inteiro |
@@ -158,11 +158,21 @@ Separar as três espécies é decisão de um humano.
 | 41 | Fernando Haddad × Pablo Marçal | 1 | 1 | 1 | 09/12/2024 | 09/12/2024 | 0 | 0 | Fernando Haddad |
 | 42 | Ciro Nogueira × Lula | 1 | 1 | 1 | 22/03/2024 | 22/03/2024 | 0 | 0 | Ciro Nogueira |
 
+### Recusados — o nosso próprio banco carrega a mesma grafia registrada
+
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
+
+| candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
+|---|---|---|---|---|---|---|
+| Lula | `p_6b71c0d7e999` | 1 | 23/07/2026 | 23/07/2026 | 0 | Lula `p_60768259dc7a` `presidente:BR` — pela grafia "Lula" |
+
 ### Não determinados — recusa, não afirmação
 
 | candidato | `person_id` | cenários | 1º campo | último campo | no período | por que não dá para afirmar |
 |---|---|---|---|---|---|---|
 | Tereza Cristina | `p_ea9863dcd903` | 13 | 03/10/2023 | 12/06/2026 | 0 | "Tereza Cristina" não está entre as grafias que o casador examinou em presidente:PR |
+| Samara | `p_df414abcf83c` | 1 | 10/07/2026 | 10/07/2026 | 0 | "Samara" não está entre as grafias que o casador examinou em presidente:RN |
 | Ciro Gomes | `p_b172881c76c5` | 1 | 13/04/2025 | 13/04/2025 | 0 | o casador recusou "Ciro" em presidente:RO por ambiguidade |
 | Ciro Nogueira | `p_4ccb803fcd5f` | 1 | 22/03/2024 | 22/03/2024 | 0 | "Ciro Nogueira" não está entre as grafias que o casador examinou em presidente:PR |
 
@@ -406,6 +416,15 @@ Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 | 1 | Jayme Campos × Wellington Fagundes | 7 | 7 | 23/03/2025 | 27/07/2026 | 0 | 0 | Jayme Campos |
 | 2 | Doutora Natasha × Jayme Campos | 2 | 2 | 23/03/2026 | 01/06/2026 | 0 | 0 | Jayme Campos |
 | 3 | Jayme Campos × Otaviano Pivetta | 2 | 2 | 23/03/2026 | 01/06/2026 | 0 | 0 | Jayme Campos |
+
+### Recusados — o nosso próprio banco carrega a mesma grafia registrada
+
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
+
+| candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
+|---|---|---|---|---|---|---|
+| Maurício Coelho | `p_438c14215f62` | 2 | 10/08/2026 | 11/08/2026 | 0 | Mauricio Coelho `p_da9f590635ba` `governador:MT` — pela grafia "Maurício Coelho" |
 
 ## Governador · PA — `governador:PA`
 
@@ -897,6 +916,17 @@ Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 | 1 | Jayme Campos | `p_dafc79a6c96b` | 9 | 9 | 11/05/2025 | 21/07/2026 | 0 | 0 | nenhuma em `MT` nem nacional |
 | 2 | Professora Rosa Neide | `p_049c2f076a88` | 1 | 1 | 23/03/2026 | 23/03/2026 | 0 | 0 | nenhuma em `MT` nem nacional |
 
+### Recusados — o nosso próprio banco carrega a mesma grafia registrada
+
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
+
+| candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
+|---|---|---|---|---|---|---|
+| Beny Godoy | `p_21b700867042` | 2 | 10/08/2026 | 11/08/2026 | 0 | Beny Godoy `p_cfb9b5cb872e` `senador:MT` — pela grafia "Beny Godoy" |
+| Professor Nelson Ferreira | `p_c6aea7b2f6d1` | 2 | 10/08/2026 | 11/08/2026 | 0 | Professor Nelson Ferreira `p_d16aec475de9` `senador:MT` — pela grafia "Professor Nelson Ferreira" |
+| Coronel Darwin | `p_819c55380e54` | 1 | 10/08/2026 | 10/08/2026 | 0 | Coronel Darwin `p_554a1231d2db` `senador:MT` — pela grafia "Coronel Darwin" |
+
 ## Senado · PA — `senador:PA`
 
 ### Testados sem candidatura na disputa
@@ -947,14 +977,11 @@ Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 | 2 | Joel Rodrigues | `p_c39f0193679a` | 1 | 1 | 27/11/2025 | 27/11/2025 | 0 | 0 | `governador:PI` |
 | 3 | Toim do Frango | `p_1d7ec4399a55` | 1 | 1 | — | — | 0 | 1 | nenhuma em `PI` nem nacional |
 
-### Recusados — o nosso próprio banco carrega a mesma grafia registrada
+### Não determinados — recusa, não afirmação
 
-Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
-Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
-
-| candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
+| candidato | `person_id` | cenários | 1º campo | último campo | no período | por que não dá para afirmar |
 |---|---|---|---|---|---|---|
-| Ravenna Castro | `p_bad76224457b` | 1 | 13/07/2026 | 13/07/2026 | 0 | Ravenna da Inclusão `p_ad7389244eab` `governador:PI` — pela grafia "Ravenna Castro" |
+| Ravenna da Inclusão | `p_bad76224457b` | 1 | 13/07/2026 | 13/07/2026 | 0 | "Ravenna da Inclusão" não está entre as grafias que o casador examinou em senador:PI |
 
 ## Senado · PR — `senador:PR`
 
@@ -1076,6 +1103,16 @@ Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
 | 1 | Adailton de Valmir de Francisquinho | `p_95aa32ea2e8c` | 1 | 1 | 07/02/2026 | 07/02/2026 | 0 | 0 | nenhuma em `SE` nem nacional |
 | 2 | Luizão Dona Trumpi | `p_f4d654b4b016` | 1 | 1 | 07/02/2026 | 07/02/2026 | 0 | 0 | nenhuma em `SE` nem nacional |
 | 3 | Márcio Macedo | `p_c3227aacda54` | 1 | 1 | 26/11/2025 | 26/11/2025 | 0 | 0 | nenhuma em `SE` nem nacional |
+
+### Recusados — o nosso próprio banco carrega a mesma grafia registrada
+
+Outra linha de `people.ndjson` carrega a mesma grafia normalizada **e tem** candidatura.
+Não é afirmação de que sejam a mesma pessoa, nem de que não sejam.
+
+| candidato | `person_id` | cenários | 1º campo | último campo | no período | a linha que contradiz |
+|---|---|---|---|---|---|---|
+| Paulinho da União Tur | `p_8f9490a3b8a8` | 2 | 12/08/2026 | 12/08/2026 | 0 | Paulinho da União Tur `p_d733ecb1c42d` `senador:SE` — pela grafia "Paulinho da União Tur" |
+| Renatinha | `p_1c67895b599e` | 2 | 12/08/2026 | 12/08/2026 | 0 | Renatinha `p_40d3508f7aa5` `senador:SE` — pela grafia "Renatinha" |
 
 ## Senado · SP — `senador:SP`
 
