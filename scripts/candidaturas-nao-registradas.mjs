@@ -798,6 +798,15 @@ function fixtures() {
     // levantamento). Sem ele `recusados` e `cenariosRecusados` empatam em 8, e
     // trocá-los de lugar na frase publicava o mesmo texto nos dois sentidos.
     q("q19", "s5", null, 2, ["c_lula", "c_amb"]),
+    // ⚠ O CONFRONTO QUE DESEMPATA O PLACAR. `semCandidatura` e `confrontos`
+    // valiam os dois 5, e trocar as duas células de lugar publicava o mesmo
+    // texto — a trava do bloco 10b(f) ficava decorativa justo nos dois números
+    // de maior destaque do arquivo (320 e 108, no banco real). Este confronto
+    // leva `confrontos` a 6.
+    // É entre os DOIS HOMÔNIMOS, de propósito: pôr gente nova aqui subiria
+    // `semCandidatura` junto e o empate se manteria. E vai em `s5`, fora do
+    // período eleitoral, para não mexer no denominador do bloco 7b.
+    q("q20", "s5", null, 2, ["c_gem_a", "c_gem_b"]),
   ];
   // O registro do TSE, reduzido ao que este relatório lê dele: quantas
   // candidaturas são nacionais (`uf` nulo) e quantas UFs existem. Os dois
@@ -1196,6 +1205,14 @@ function autoteste() {
         ["*denominador*", String(p.total2T)],
       ];
       for (const [rot, esperado] of par) ok(q(rot) === esperado, `a célula "${rot}" leva o contador dela (veio ${q(rot)}, esperado ${esperado})`);
+      // ⚠ E OS SETE CONTADORES TÊM DE SER DOIS A DOIS DISTINTOS, senão a trava
+      //   acima é decorativa: dois contadores iguais publicam o mesmo texto
+      //   trocados de lugar. `semCandidatura` e `confrontos` empataram em 5 e
+      //   passaram verdes as duas direções — foi `q20` que desempatou. Mesma
+      //   espécie do bloco 14(b), e a conferência independente a reencontrou.
+      const vistos = par.map(([, v]) => v.replace(/\*/g, ""));
+      ok(new Set(vistos).size === vistos.length,
+        `os sete contadores do placar têm de ser dois a dois distintos (vieram ${vistos.join(", ")})`);
     }
   }
 
