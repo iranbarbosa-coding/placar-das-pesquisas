@@ -1514,7 +1514,19 @@ está no branch `wip/integra-url-fix` (pushado, provado em sandbox), FORA do mai
 propósito**: preencher `integra_url` move até 1.010 carimbos `provenance.updated_at`
 e enterraria o sinal da estreia da retenção. **Plano do criador: FUNDIR
 `wip/integra-url-fix` no main DEPOIS do debut da retenção**, para entrar na coleta
-seguinte. Se ninguém fundiu ainda, esse é o próximo passo pendente.
+seguinte.
+
+⚠ **GATILHO COMO CONDIÇÃO VERIFICÁVEL, não como "esperar um aviso"** (as vigias das
+sessões morrem com elas; qualquer sessão futura verifica isto sozinha): fundir
+`wip/integra-url-fix` quando a rodada de estreia da retenção tiver COMPLETADO. Ver:
+```
+gh run list --workflow="Atualizar pesquisas" --limit 1
+```
+A última execução ANTERIOR ao debut é a **31976760157** (16/08/2026, success) —
+qualquer run posterior a essa é o debut. Antes de fundir, ler no log a linha
+`ELENCO RETIDO` e os `roster_encolhido_na_fonte` em `conflicts.ndjson` (é o que a
+rodada existe para estrear). Enquanto não houver run posterior a 31976760157, o
+conserto FICA no branch — não fundir.
 As outras duas features seguem como decisão: **rejeição** = grande (só existe no
 PDF `integra`, exige OCR + schema + validadores nos 3 cargos); **presidente:UF** =
 o barato é mais curadoria `add_poll` (o v2 apaga a presidencial estadual, mesmo
