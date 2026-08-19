@@ -61,7 +61,7 @@ export default function SegundoTurnoPage() {
     groups: splitRecent(scenarioGroups("governador", uf, 2)).current,
   }))
     .filter((s) => s.groups.length > 0)
-    .sort((a, b) => b.groups.reduce((n, g) => n + g.polls.length, 0) - a.groups.reduce((n, g) => n + g.polls.length, 0));
+    .sort((a, b) => UF_NAMES[a.uf].localeCompare(UF_NAMES[b.uf], "pt-BR"));
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
