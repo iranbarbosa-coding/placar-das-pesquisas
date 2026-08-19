@@ -24,6 +24,43 @@ leituras são comparadas.** Foi assim que se resolveram a tabela do Senado no
 Piauí, a Vox nacional e os cenários cruzados da AtlasIntel no RN. Uma leitura
 só não basta para um número que vai ao ar.
 
+**Uma frase também é afirmação, e nada a executa.** "É só comentário" não
+dispensa conferência — o que dispensa é a afirmação não ser medível. Se um
+comentário, uma mensagem de commit ou uma glosa carrega **número** ou
+**quantificador** ("nenhuma", "todas", "só", "sempre", "uma em N"), esse pedaço
+vale a mesma regra do resto: mede-se antes de virar memória, e quem produz não
+certifica.
+
+Vale mesmo quando o número parece já medido. Um número **medido** e um número
+**repetido** chegam com a mesma cara — uma frase afirmativa numa mensagem —, e a
+cadeia não carrega a procedência. É o mesmo defeito que abre esta seção: no
+reparo em que creditei ao Poder360 um valor que era da Wikipédia, o valor estava
+certo; o que se perdeu foi a origem. Por isso a regra é **quem escreve mede**,
+não "desconfie de número herdado".
+
+Quatro casos de uma rodada só, os três primeiros em diff que não mudava uma
+linha de código:
+
+- "as tabelas são ~1.000 das 1.127 linhas" — são **675**;
+- "**nenhuma** asserção lê uma célula de tabela" — várias leem, e algumas
+  avermelham quando a célula muda;
+- um caso em que o número herdado estava **certo** (1 de 11.681, medido por um
+  conferente três mensagens antes) — mas nenhum dos dois que o repetiram sabia
+  disso ao repetir;
+- e um em que o número foi medido **pelo próprio autor** e ainda assim saiu
+  errado: `uniq -c | tail -4` devolveu 34 conflitos onde havia **488**, porque o
+  `tail` truncou os grupos. Quem pegou foi a segunda leitura cega.
+
+O quarto é o que impede a regra de virar autoindulgência: **"quem escreve mede"
+é o piso, não o teto.** Instrumento erra em silêncio, e contra isso só a leitura
+independente serve — que é o que esta seção já mandava fazer para número de
+documento, e passa a valer para número de prosa.
+
+Corolário para comentário e mensagem de commit: **comentário sem número
+sobrevive à mudança do banco; mensagem de commit é datada por natureza.** Quando
+o número for instantâneo e não propriedade, ele vai na mensagem — que descreve
+um dia — e o comentário fica com a forma qualitativa.
+
 ## 2. Prove que o guarda dispara antes de acreditar no zero
 
 Um verde que ninguém testou não é evidência. Todo validador tem `--self-test`
