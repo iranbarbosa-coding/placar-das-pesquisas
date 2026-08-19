@@ -1032,7 +1032,8 @@ e a frase sai de `contagem()`, uma implementação só para os cinco chamadores:
 número pode saturar, ele tem de anunciar que saturou.**
 
 ⚠️ **`upsert-vs-migration.mjs` hoje RECUSA rodar** (`meta.written_by =
-"scrape.mjs/upsert"`) e sai com 0. Ele compararia o caminho consigo mesmo. O
+"scrape.mjs/upsert"`) e sai com **1** — a recusa é reprovação, não passe (medido
+18/08/2026, `exit=1`). Ele compararia o caminho consigo mesmo. O
 `--self-test` recusa junto, de propósito. Quem guarda agrupamento agora é
 `census.mjs` (classe DUPLICATA) + `idempotence-check` + `parity-check`.
 
@@ -1383,9 +1384,18 @@ resto**: o que a coleta 1 perde por inteiro segue sem anterior de onde traduzir.
 
 ⚠ **`parity-check.mjs` IMPRIME UM TETO DE 15, NÃO UMA CONTAGEM.** Duas rodadas
 com números completamente diferentes imprimem "15 divergência(s)". A contagem
-real está na linha `(b) igualdade de campos:`. E vermelho ali quase sempre
-significa `polls.json` DESSINCRONIZADO do store, não divergência de dado — rodar
-`derive-polls.mjs` resolve. Medido em 16/08: 275 → 29 → 0 numa rodada completa.
+real está na linha `(b) igualdade de campos:`. ⚠ **ESTE PARÁGRAFO DAVA UM
+CONSELHO QUE HOJE ESTÁ INVERTIDO, corrigido 18/08/2026.** Dizia que vermelho ali
+"quase sempre significa `polls.json` dessincronizado — rodar `derive-polls.mjs`
+resolve (medido 16/08: 275 → 29 → 0)". Isso era verdade **naquele dia**; depois
+da Fase 3 inverteu de sinal. Hoje `polls.json` é DERIVADO do store
+(`derived_from_store: true`), então regerá-lo NÃO muda o lado esquerdo da
+comparação — `parity-check` aplica `canonicalCandidate` AO VIVO (`:132`). Vermelho
+significa que o **nome gravado no store deixou de ser ponto fixo da regra de nome
+atual** — tipicamente uma ruling nova em `candidate-rulings.json` sem rebuild
+depois (foi a Ravenna, medida 18/08). Quem verdeja é a BUILD (`scrape.mjs` →
+`buildStoreFromPolls` zera as tabelas e recunha), não `derive-polls.mjs`. Seguir o
+conselho velho gasta uma escrita no banco sem mover o portão.
 
 ⚠ **UM REPARO PODE FALHAR EM SILÊNCIO CARIMBANDO SUCESSO.** Um registro é UM
 levantamento, então as pesquisas do mesmo registro dividem a linha de survey, e

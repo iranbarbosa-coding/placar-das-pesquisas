@@ -10,9 +10,10 @@ e tabela completa de todas as pesquisas publicadas — **atualizado automaticame
   partir do store em `data/*.ndjson`, via `src/lib/store.ts`. Sem banco de dados, sem
   servidor, carregamento instantâneo.
 - **Dados:** o store consolidado (`surveys` ⨝ `questions`, mais institutos e candidatos),
-  projetado no formato plano que as páginas consomem. `data/polls.json` continua sendo
-  gravado pelo coletor e é a referência do portão de paridade, mas não alimenta mais o
-  site. Alimentado por `scripts/scrape.mjs` a partir de três fontes:
+  projetado no formato plano que as páginas consomem. `data/polls.json` é DERIVADO do
+  store por `scripts/derive-polls.mjs` (`derived_from_store: true`), não gravado pelo
+  coletor, e não alimenta mais o site. O store é alimentado por `scripts/scrape.mjs` a
+  partir de três fontes:
   1. **Poder360 Agregador** (resultados estruturados, com nº de registro TSE);
   2. **Wikipédia** (tabelas de pesquisas nacionais e estaduais);
   3. **TSE Dados Abertos / PesqEle** (registro oficial — metadados, licença CC-BY).
