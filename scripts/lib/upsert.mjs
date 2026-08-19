@@ -70,6 +70,13 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     margin_of_error: poll.margin_of_error ?? null,
     tse_registration: poll.tse_registration ?? null,
     article_url: poll.source_url ?? null,
+    // O PONTEIRO DO PDF DO INSTITUTO viajava até aqui e caía no chão. `poder360.mjs`
+    // emite `poll.integra_url` (separado de `source_url`, que colapsa notícia+PDF), e
+    // `SURVEY_FIELDS` já o listava — mas este objeto não o passava, então `integra_url`
+    // saía null nas 1.010 pesquisas. Sem ele, nenhuma extração por OCR do relatório
+    // (rejeição, metodologia, conferência de reparo) tem por onde começar. Achado no
+    // diagnóstico das features da /presidente, 18/08/2026.
+    integra_url: poll.integra_url ?? null,
   }, { source, runId, table: "surveys", fields: SURVEY_FIELDS });
 
   // Candidates resolve against the store's alias index. `fuzzyCandidates` is
