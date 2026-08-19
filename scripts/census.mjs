@@ -178,9 +178,21 @@ const add = (id, titulo, nota, itens) => classes.push({ id, titulo, nota, itens 
 // POR ISSO ISTO É CENSO E NÃO VALIDADOR (§9). A duplicata é SUSPEITA, não
 // impossível, e some sozinha em uma rodada. Um guarda duro reprovaria toda
 // coleta que tivesse uma estreia — oito numa só — travando o pipeline em cima
-// de dado bom. O que esta classe existe para achar é a que NÃO vai sumir: a
-// que o registro não alcança, como a Ravenna observada de `senador:PI`, que
-// segue partida desde 16/08 porque a atestação dela é ruling e não candidatura.
+// de dado bom.
+//
+// ⚠ O QUE ESTA CLASSE NÃO ALCANÇA, dito aqui para ninguém contar com o que ela
+// não faz: ela só enxerga a partida que o REGISTRO alcança. A Ravenna observada
+// de `senador:PI` NÃO aparece — `ballotCandidacy` devolve null para ela, porque
+// a entrada de urna dela existe só em `governador:PI`, e a atestação de que é a
+// mesma mulher vem de uma ruling do criador, não da candidatura. Partida por
+// grafia sem registro alcançável — Álvaro Dias PR × RN, Ciro × Ciro Gomes —
+// também não aparece, e ali é DELIBERADO: alcançá-las exigiria casar por nome,
+// que é o defeito de atribuição que `store.mjs` documenta e que publica partido
+// errado.
+//
+// Então o sinal de "não vai se curar" não é aparecer aqui uma vez — é aparecer
+// aqui em DUAS rodadas seguidas. Uma estreia some sozinha; o que fica, fica
+// listado. Quem for ler isto, compare com o censo anterior no git.
 {
   const surveyDoCandidato = new Map();
   for (const q of store.questions) for (const r of q.results ?? [])
