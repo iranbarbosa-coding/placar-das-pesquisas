@@ -1046,7 +1046,7 @@
     "round": 2,
     "has_candidate": "Ronaldo Caiado"
    },
-   "defect": "O agregador funde 'branco/nulo' com 'não sabe'; o relatório publica os dois separados. Nenhum candidato falta neste confronto. (Os outros 3 confrontos de 2º turno do relatório — vs Flávio, vs Zema, vs Renan — estão AUSENTES do banco por inteiro; ver anotação de escopo, não são reparo de add_results.)",
+   "defect": "O agregador funde 'branco/nulo' com 'não sabe'; o relatório publica os dois separados. Nenhum candidato falta neste confronto. (Os outros 3 confrontos de 2º turno do relatório — vs Flávio, vs Zema, vs Renan — NÃO estão ausentes do banco, ao contrário do que esta anotação afirmava até 18/08/2026: entraram pela Wikipédia no levantamento IRMÃO s_6b1c1c12ed87 (amostra 1.500), separado deste levantamento do Poder360 (amostra 27.600) porque o degrau 3 de resolveSurvey recusa fundir dois registros cujas amostras discordam. NÃO fazer add_poll deles — duplicaria dado já publicado. A correção é a amostra 27.600→1.500, em reparo próprio; corrigidos os dois lados, a fusão junta os quatro confrontos num levantamento só. Achado por sessão irmã, conferido no store.)",
    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-meio-ideia-presidencia-republica-5ago2026.pdf",
    "evidence": "p.47, confronto Lula × Ronaldo Caiado (2º turno): Lula 48,5, Ronaldo Caiado 40, Branco/Nulo 7, Não sabe 4,5 = 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
    "verified_at": "2026-08-18",
