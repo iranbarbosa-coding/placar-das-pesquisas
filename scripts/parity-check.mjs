@@ -128,9 +128,20 @@ function main() {
       continue;
     }
     for (let i = 0; i < lr.length; i++) {
-      const contestOf = `${lp.race}:${lp.state ?? "BR"}`;
-      if (canonicalCandidate(lr[i].candidate, contestOf) !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
-        if (fieldDiffs < 15) E(`(b) ${id}: ${lr[i].candidate} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
+      // O nome canônico é o que se compara, então é o que a mensagem tem de
+      // nomear: imprimindo o cru do legado, uma renomeação da tabela de alias
+      // que o store não acompanhou saía como "Ravenna Castro ≠ Ravenna Castro"
+      // — a divergência real ficava ilegível.
+      const canon = canonicalCandidate(lr[i].candidate, contestOfPoll);
+      // O cru vai junto como origem, mas SÓ quando difere: na esmagadora
+      // maioria das linhas o alias não renomeia nada, e "Lula (cru "Lula")"
+      // gastaria a metade da mensagem repetindo o mesmo nome. Consequência para
+      // quem for testar isto: a mensagem muda de FORMA com o dado, e o caso raro
+      // é justamente o que leva o sufixo — uma asserção ancorada no formato SEM
+      // sufixo passa verde sem nunca tocar no caso que importa.
+      const cru = canon !== lr[i].candidate ? ` (cru "${lr[i].candidate}")` : "";
+      if (canon !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
+        if (fieldDiffs < 15) E(`(b) ${id}: ${canon}${cru} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
         fieldDiffs++;
       }
       // The party label is rendered on every board and card. Compared THROUGH
@@ -138,13 +149,19 @@ function main() {
       // first, then date-aware normalisation — rather than exempted. The store
       // may differ from the legacy file by exactly those and by nothing else,
       // so a wrong party still fails here.
+      // `partyOverride` casa pela grafia CRUA de propósito: o reparo curado está
+      // gravado em data/repairs.json contra o nome que o instituto publicou, não
+      // contra o canônico. Trocar esta chave por `canon` faria o reparo deixar de
+      // casar em silêncio — foi assim que um reparo curado já se perdeu, com o
+      // `upsertPoll` que não consultava `partyOverride`. Só o RÓTULO abaixo usa o
+      // canônico, pelo mesmo motivo da mensagem de cima.
       const ovp = partyOverride(lp, lr[i].candidate);
       const expectedParty = ovp.has
         ? ovp.party
         : canonicalPartyAt(lr[i].party, lp.fieldwork_end ?? lp.published_date ?? null);
       if ((pr[i].party ?? null) !== expectedParty) {
         if (fieldDiffs < 15) {
-          E(`(b) ${id}: partido de ${lr[i].candidate}: legado ${JSON.stringify(lr[i].party)} → esperado ${JSON.stringify(expectedParty)}${ovp.has ? " (reparo curado)" : ""} ≠ projetado ${JSON.stringify(pr[i].party)}`);
+          E(`(b) ${id}: partido de ${canon}${cru}: legado ${JSON.stringify(lr[i].party)} → esperado ${JSON.stringify(expectedParty)}${ovp.has ? " (reparo curado)" : ""} ≠ projetado ${JSON.stringify(pr[i].party)}`);
         }
         fieldDiffs++;
       }
