@@ -330,6 +330,58 @@ function autoteste() {
     ok(!/\(cru /.test(msg), "e o sufixo NÃO aparece quando o canônico é igual ao cru");
   }
 
+  // 5c. ⚠ A ORDENAÇÃO DO LADO LEGADO É PELO NOME CANÔNICO, e isto não estava
+  //     exercitado: todos os fixtures dublavam `canon` como identidade, e o
+  //     único que renomeia tinha UMA linha de resultado — com uma linha só,
+  //     ordenar por cru ou por canônico dá o mesmo. O cabeçalho do laço chama
+  //     essa ordenação de load-bearing ("sorting the legacy side by its raw name
+  //     would misalign every row the alias table renames"), e nada a trancava.
+  //
+  //     Aqui a renomeação INVERTE a ordem de propósito: no cru, "Alfa Cru" vem
+  //     antes de "Zeta Cru"; nos canônicos, a ordem se inverte. Ordenar pelo cru
+  //     desalinha as duas listas e o portão acusa uma divergência que não existe.
+  {
+    const MAPA = { "Alfa Cru": "Zeta Canônico", "Zeta Cru": "Alfa Canônico" };
+    const canon = (n) => MAPA[n] ?? n;
+    const leg = pesquisa({ results: [
+      { candidate: "Zeta Cru", pct: 10, party: "AA" },
+      { candidate: "Alfa Cru", pct: 20, party: "BB" },
+    ] });
+    const proj = pesquisa({ results: [
+      { candidate: "Alfa Canônico", pct: 10, party: "AA" },
+      { candidate: "Zeta Canônico", pct: 20, party: "BB" },
+    ] });
+    const r = rodar([leg], [proj], { canon });
+    ok(r.errors.length === 0,
+      `ordenado pelo canônico, as duas listas alinham (veio ${r.errors.length}: ${r.errors[0] ?? ""})`);
+    // E a prova de que o fixture não é degenerado: as duas ordens DIFEREM.
+    const porCru = [...leg.results].map((x) => x.candidate).sort();
+    const porCanon = [...leg.results].sort((a, b) => canon(a.candidate).localeCompare(canon(b.candidate))).map((x) => x.candidate);
+    ok(porCru.join() !== porCanon.join(),
+      `o fixture tem de ter ordem crua diferente da canônica (veio ${porCru.join()} vs ${porCanon.join()})`);
+  }
+
+  // 5d. ⚠ CADA CAMPO DE `FIELDS` É COMPARADO, um a um. Tirar `scenario`,
+  //     `source_url`, `contractor` ou `source` da lista passava VERDE: só o
+  //     `pollster` era perturbado em algum caso, e os outros dezesseis não
+  //     tinham nada os trancando. O cabeçalho de `FIELDS` conta que esses três
+  //     eram ponto cego e foram incluídos — "a blind spot in a migration gate is
+  //     indistinguishable from a passing one until it ships" —, e uma regressão
+  //     que reabrisse o ponto cego passava neste autoteste.
+  //     `fieldwork_start` fica de fora: uma exceção declarada o absolve de
+  //     propósito, e ele é exercitado no bloco 9.
+  {
+    const CAMPOS = ["pollster", "race", "state", "round", "fieldwork_end", "published_date",
+                    "sample_size", "margin_of_error", "others_pct", "undecided_pct",
+                    "blank_null_pct", "source", "tse_registration", "scenario", "source_url", "contractor"];
+    for (const f of CAMPOS) {
+      const proj = clonar(pesquisa()); proj[f] = "PERTURBADO";
+      const r = rodar([pesquisa()], [proj]);
+      ok(r.errors.some((e) => e.startsWith(`(b) px-1.${f}:`)),
+        `o campo \`${f}\` tem de ser comparado pelo nível (b) (veio ${r.errors[0] ?? "nada"})`);
+    }
+  }
+
   // 6. (b) PERCENTUAL — a tolerância é 0,001, e ela tem de barrar dos dois lados.
   {
     const dentro = clonar(pesquisa()); dentro.results[0].pct = 40.0005;
@@ -418,6 +470,17 @@ function autoteste() {
     const r3 = rodar([pesquisa()], [outraData]);
     ok(r3.errors.some((e) => /\(c\) disputa presidente\|BR\|1: conjunto \(data, instituto\) diverge/.test(e)),
       `mesma pesquisa com data diferente é vista pelo conjunto (data, instituto) (veio ${r3.errors.filter((e) => /\(c\)/.test(e))[0] ?? "nada"})`);
+    // ⚠ E A ORDENAÇÃO DENTRO DA DISPUTA. Com uma pesquisa por disputa, os dois
+    //   `.sort()` do nível (c) não têm o que ordenar e tirá-los passa verde.
+    //   Aqui a MESMA disputa tem duas pesquisas, e os dois lados as trazem em
+    //   ordem INVERTIDA: o conjunto é o mesmo, então o portão tem de calar. Sem
+    //   a ordenação ele acusaria uma divergência que não existe — falso
+    //   positivo, que num portão bloqueante custa tanto quanto o falso negativo.
+    const a1 = pesquisa({ id: "pc-1", fieldwork_end: "2026-01-03" });
+    const a2 = pesquisa({ id: "pc-2", fieldwork_end: "2026-01-09" });
+    const r4 = rodar([a1, a2], [clonar(a2), clonar(a1)]);
+    ok(r4.errors.length === 0,
+      `a mesma disputa em ordem invertida nos dois lados não é divergência (veio ${r4.errors.length}: ${r4.errors[0] ?? ""})`);
   }
 
   if (falhas.length) {
