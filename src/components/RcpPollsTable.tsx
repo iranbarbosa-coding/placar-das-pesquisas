@@ -47,13 +47,15 @@ const SPREAD_SOLID: Record<RcpSpread["status"], string> = {
 function SpreadChip({ spread, onDark = false }: { spread: RcpSpread | null; onDark?: boolean }) {
   if (!spread) return <span style={{ color: onDark ? "rgba(255,255,255,0.6)" : "var(--text-muted)" }}>—</span>;
 
-  // The "Média" band gets a SOLID pill in the status colour with white text.
+  // The "Média" band gets a SOLID pill in the status colour with white text —
+  // same geometry as the soft chips (dot + gap), so it doesn't read smaller.
   if (onDark) {
     return (
       <span
-        className="tabular inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold"
+        className="tabular inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold"
         style={{ background: SPREAD_SOLID[spread.status], color: "#ffffff" }}
       >
+        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#ffffff" }} />
         {spread.leaderShort} {fmtSigned(spread.distTo50)}
       </span>
     );
