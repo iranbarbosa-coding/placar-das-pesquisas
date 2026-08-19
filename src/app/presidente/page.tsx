@@ -5,6 +5,7 @@ import PresidentEvolution from "@/components/PresidentEvolution";
 import RejectionPlaceholder from "@/components/RejectionPlaceholder";
 import RunoffSimChart from "@/components/RunoffSimChart";
 import PresidentStateMap from "@/components/PresidentStateMap";
+import PresidentMomentum from "@/components/PresidentMomentum";
 import StatePies from "@/components/StatePies";
 import AllPollsTable from "@/components/AllPollsTable";
 import { loadDataset } from "@/lib/data";
@@ -13,6 +14,7 @@ import {
   presidentEvolution,
   runoffSim,
   presidentMapData,
+  presidentMomentum,
   statePies,
   allPresidentialPolls,
 } from "@/lib/presidente";
@@ -48,6 +50,7 @@ export default function PresidentePage() {
   const evo = presidentEvolution();
   const runoff = runoffSim();
   const mapData = presidentMapData();
+  const momentum = presidentMomentum();
   const pies = statePies();
   const allPolls = allPresidentialPolls();
   const ds = loadDataset();
@@ -109,9 +112,15 @@ export default function PresidentePage() {
 
       {/* Row 5 — two columns: map + pies */}
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
-        <section className="card min-w-0 p-4 sm:p-6" aria-label="Disputa por estado · 1º turno">
-          <PresidentStateMap data={mapData} />
-        </section>
+        <div className="flex min-w-0 flex-col gap-6">
+          <section className="card min-w-0 p-4 sm:p-6" aria-label="Disputa por estado · 1º turno">
+            <PresidentStateMap data={mapData} />
+          </section>
+          {/* Momentum art, directly under the map. */}
+          <section className="card min-w-0 p-4 sm:p-6" aria-label="Tendência · 30 dias">
+            <PresidentMomentum rows={momentum} />
+          </section>
+        </div>
         <section className="card min-w-0 p-4 sm:p-6" aria-label="Pesquisas por estado · 1º turno">
           <StatePies pies={pies} />
         </section>

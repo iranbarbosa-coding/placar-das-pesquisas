@@ -131,6 +131,37 @@ export function presidentBars(): PresidentBarsData {
   };
 }
 
+// ── Momentum: each candidate's 30-day change ────────────────────────────────
+
+export interface MomentumRow {
+  candidate: string;
+  short: string;
+  color: string;
+  /** 30-day change in p.p. (signed); 0 when the trend is too short to read. */
+  delta: number;
+}
+
+/**
+ * The named roster with each candidate's 30-day change, sorted by that change
+ * (biggest riser first). Same roster/colours as the rest of the page; the delta
+ * reuses `candDelta` over each candidate's own rolling trend.
+ */
+export function presidentMomentum(): MomentumRow[] {
+  const g = scenarioGroups("presidente", null, 1)[0];
+  const avg = g?.average ?? null;
+  if (!avg) return [];
+  const reg = registeredSet();
+  const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
+  return namedRoster(avg, reg)
+    .map((c) => ({
+      candidate: c.candidate,
+      short: shortName(c.candidate),
+      color: colorOf(cmap, c.candidate),
+      delta: candDelta(c.trend, 30) ?? 0,
+    }))
+    .sort((a, b) => b.delta - a.delta);
+}
+
 // ── A compact poll row, shared by the two tables ────────────────────────────
 
 export interface PollRow {
