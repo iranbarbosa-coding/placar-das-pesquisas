@@ -24,8 +24,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
+import { ballotCandidacy } from "./lib/candidates.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+// O autoteste roda ANTES de ler o banco: ele prova a classe PARTIDA contra
+// bancos sintéticos, e não tem nada a dizer sobre o real. Ver `autoteste()`.
+if (process.argv.includes("--self-test")) autoteste();
+
 const store = readStore({ dir: DATA_DIR });
 const surveyById = new Map(store.surveys.map((s) => [s.survey_id, s]));
 const candById = new Map(store.candidates.map((c) => [c.candidate_id, c]));
@@ -155,6 +161,41 @@ const add = (id, titulo, nota, itens) => classes.push({ id, titulo, nota, itens 
 }
 
 // ───────────────────────────────────────────────────────────── saída
+// ── 7. A mesma pessoa partida em duas linhas ────────────────────────────────
+//
+// MEDIDO EM 19/08/2026, E A TAXA É O ARGUMENTO: a coleta daquele dia cunhou 8
+// pessoas observadas e as OITO duplicavam uma pessoa já registrada — Lula em
+// `presidente:AP`, Samara em `presidente:RN`, e mais seis em MT e SE. Ninguém
+// viu, porque nenhum validador tem o que reprovar: uma pessoa partida é uma
+// pessoa BEM FORMADA. Não soma demais, não tem órfão, não repete.
+//
+// A causa é a defasagem que o §6 institui: `match-ballot-names.mjs` roda DEPOIS
+// da coleta, então na rodada em que um nome ESTREIA numa disputa a entrada de
+// urna ainda não existe, `ballotCandidacy` devolve null, e a escada cunha uma
+// pessoa observada em vez de anexar à registrada. Na coleta seguinte a entrada
+// existe e a linha anexa sozinha — medido, 8 de 8.
+//
+// POR ISSO ISTO É CENSO E NÃO VALIDADOR (§9). A duplicata é SUSPEITA, não
+// impossível, e some sozinha em uma rodada. Um guarda duro reprovaria toda
+// coleta que tivesse uma estreia — oito numa só — travando o pipeline em cima
+// de dado bom. O que esta classe existe para achar é a que NÃO vai sumir: a
+// que o registro não alcança, como a Ravenna observada de `senador:PI`, que
+// segue partida desde 16/08 porque a atestação dela é ruling e não candidatura.
+{
+  const surveyDoCandidato = new Map();
+  for (const q of store.questions) for (const r of q.results ?? [])
+    if (r.candidate_id && !surveyDoCandidato.has(r.candidate_id)) surveyDoCandidato.set(r.candidate_id, q.survey_id);
+  const itens = partidas(store, ballotCandidacy).map(({ obs, reg, linha, nome, sq }) => {
+    const s = surveyById.get(surveyDoCandidato.get(linha.candidate_id));
+    return { s, texto: `"${obs.display}" \`${obs.person_id}\` (observada, ${linha.contest}) é \`${reg.person_id}\` ` +
+      `"${reg.nome_urna}" (registrada, sq ${sq}) — a grafia "${nome}" alcança a candidatura, mas a linha ficou na observada` };
+  });
+  add("PARTIDA", "A mesma pessoa em duas linhas, uma delas sem registro",
+    "Uma pessoa observada cuja grafia ALCANÇA, na disputa dela, a candidatura de uma pessoa registrada: são a mesma " +
+    "pessoa, gravada duas vezes. O caso normal é a estreia de um nome numa disputa nova e se resolve na coleta " +
+    "seguinte sem intervenção (§6) — o que importa aqui é o que PERSISTIR de uma rodada para a outra.", itens);
+}
+
 const L = [];
 L.push("# Censo do banco — Placar das Pesquisas 2026", "");
 L.push(`Gerado por \`node scripts/census.mjs\` a partir de \`data/\`. Não editar à mão.`, "");
@@ -187,3 +228,87 @@ const out = path.join(ROOT, outArg ?? "CENSO_BANCO.md");
 fs.writeFileSync(out, L.join("\n") + "\n");
 console.log(`censo: ${total} item(ns) em ${classes.length} classes (${de2026} de 2026) → ${path.relative(ROOT, out)}`);
 for (const c of classes) console.log(`  ${String(c.itens.length).padStart(4)}  ${c.id} — ${c.titulo}`);
+
+
+/**
+ * A detecção da classe PARTIDA, isolada da leitura do banco para que o
+ * autoteste possa alimentá-la com um banco sintético — o padrão que
+ * `roster-retention-check.mjs` usa. Chamá-la com o `ballotCandidacy` real é o
+ * caminho de produção; o autoteste passa um alcance de mentira.
+ */
+function partidas(store, alcance) {
+  const porSq = new Map();
+  for (const p of store.people ?? []) for (const sq of p.sq_candidato ?? []) porSq.set(String(sq), p);
+  const linhasDe = new Map();
+  for (const c of store.candidates ?? []) {
+    if (!linhasDe.has(c.person_id)) linhasDe.set(c.person_id, []);
+    linhasDe.get(c.person_id).push(c);
+  }
+  const achados = [];
+  for (const obs of store.people ?? []) {
+    if (obs.registered !== false || obs.merged_into) continue;
+    for (const linha of linhasDe.get(obs.person_id) ?? []) {
+      for (const nome of obs.polled_names ?? []) {
+        const cand = alcance(nome, linha.contest);
+        if (!cand) continue;
+        const reg = porSq.get(String(cand.sq_candidato));
+        // A registrada tem de ser OUTRA pessoa: alcançar a própria candidatura
+        // é o caso são de quem já está casado com o registro.
+        if (!reg || reg.registered !== true || reg.person_id === obs.person_id) continue;
+        achados.push({ obs, reg, linha, nome, sq: cand.sq_candidato });
+        break;
+      }
+    }
+  }
+  return achados;
+}
+
+/**
+ * ⚠ AS DUAS METADES SÃO OBRIGATÓRIAS, pela mesma simetria de
+ * `roster-retention-check.mjs` e `curated-insert-check.mjs`. Uma classe que
+ * acusasse sempre é pior que nenhuma: ela chamaria de partida toda pessoa
+ * observada do banco — 342 delas — e o censo deixaria de distinguir o suspeito
+ * do normal, que é a única coisa que ele existe para fazer.
+ *
+ * O caso 3 é o que guarda o defeito real: o "Alvaro Dias" de `governador:PR`
+ * NÃO pode casar com o ÁLVARO DIAS registrado em `governador:RN`. Quem os separa
+ * é a regra de estado do casador, e ela se expressa aqui como um alcance que
+ * devolve null. Se algum dia esta classe passar a acusar esse par, é porque
+ * alguém alargou o alcance por grafia — o defeito de ATRIBUIÇÃO que
+ * `store.mjs` documenta e que custa partido publicado errado.
+ */
+function autoteste() {
+  const reg = { person_id: "p_reg", registered: true, nome_urna: "Fulana", sq_candidato: ["123"], polled_names: ["Fulana"] };
+  const obs = { person_id: "p_obs", registered: false, display: "Fulana", sq_candidato: [], polled_names: ["Fulana"] };
+  const banco = { people: [reg, obs], candidates: [{ candidate_id: "c_1", person_id: "p_obs", contest: "senador:XX" }] };
+  const casos = [
+    ["acusa quando o registro alcança outra pessoa",
+      () => partidas(banco, () => ({ sq_candidato: "123" })).length === 1],
+    ["não acusa quando o registro não alcança (a regra de estado recusou)",
+      () => partidas(banco, () => null).length === 0],
+    ["não acusa o par Alvaro Dias PR × RN, que o casador separa",
+      () => partidas({ ...banco, people: [{ ...reg, nome_urna: "Álvaro Dias" }, { ...obs, display: "Alvaro Dias", polled_names: ["Alvaro Dias"] }] },
+        (nome, contest) => (contest === "governador:RN" ? { sq_candidato: "123" } : null)).length === 0],
+    ["não acusa quem alcança a PRÓPRIA candidatura",
+      () => partidas({ people: [{ ...obs, sq_candidato: ["123"] }], candidates: banco.candidates },
+        () => ({ sq_candidato: "123" })).length === 0],
+    ["não acusa pessoa já fundida (merged_into)",
+      () => partidas({ ...banco, people: [reg, { ...obs, merged_into: "p_reg" }] }, () => ({ sq_candidato: "123" })).length === 0],
+  ];
+  let falhas = 0;
+  for (const [nome, fn] of casos) {
+    let ok = false;
+    try { ok = fn(); } catch (e) { ok = false; }
+    if (!ok) falhas++;
+    console.log(`  ${ok ? "✓" : "✗"} ${nome}`);
+  }
+  // A MUTAÇÃO, que é o que prova a bateria e não só a classe (§2): com a
+  // detecção mutilada para nunca acusar, os casos "acusa" TÊM de cair; com ela
+  // mutilada para acusar sempre, os casos "não acusa" TÊM de cair. Exigir
+  // apenas "alguma falha" deixaria passar uma bateria cega de um dos lados.
+  const nunca = partidas(banco, () => null).length === 1;
+  const sempre = partidas(banco, () => ({ sq_candidato: "123" })).length === 0;
+  if (nunca || sempre) { console.log("  ✗ a bateria não distingue os dois lados"); falhas++; }
+  console.log(falhas ? `\nCENSO/PARTIDA FALHOU — ${falhas} caso(s)` : "\nCENSO/PARTIDA OK — a classe acusa quando deve e cala quando deve");
+  process.exit(falhas ? 1 : 0);
+}
