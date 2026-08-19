@@ -15,7 +15,8 @@
 //
 // ⚠ O QUE ESTA LINHA DIZIA E NÃO ERA VERDADE: "…and can no longer fail. Its
 // job is done." Ele PODE falhar, e estava falhando quando isto foi escrito —
-// medido em 18/08/2026: 1 divergência, a linha de senador:PI da Ravenna.
+// a linha de senador:PI da Ravenna acusava. (O placar daquele dia está na
+// mensagem do commit, que é datada por natureza; aqui ele envelheceria.)
 //
 // A comparação de RESULTADOS não é tautológica, porque `parity-check`
 // reconstrói o lado legado com `canonicalCandidate` e o partido com
@@ -39,16 +40,10 @@
 // segunda. Nomear a causa errada custa o mesmo que a promessa falsa que este
 // bloco corrige: faz a próxima pessoa consertar o casador por uma ruling.
 //
-// Superfície viva, para quem for reconferir: 1 de 11.681 linhas de resultado
-// tem `canonicalCandidate(nome, disputa) !== nome`, e 2 linhas passam por
-// reparo curado de partido (hoje concordando). Pequena, mas não vazia.
-//
-// Os guardas que carregam peso hoje são `upsert-harness.mjs` (a escada se
-// comporta), `validate-store.mjs` e o diff antes/depois deste arquivo, que o
-// git guarda. `upsert-vs-migration.mjs` NÃO está entre eles, e dizer que está
-// era o mesmo vício três parágrafos abaixo: desde a virada da Fase 3 ele
-// compararia o caminho de upsert consigo mesmo, por isso RECUSA rodar (§2), e
-// o workflow não o executa — só o menciona num comentário igualmente vencido.
+// A superfície viva do portão é pequena e não é vazia: umas poucas linhas em
+// que a camada de identidade discorda do nome gravado, mais as que passam por
+// reparo curado de partido. Quem for reconferir, MEÇA — o número do dia não
+// cabe aqui, porque envelhece com a próxima coleta.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
