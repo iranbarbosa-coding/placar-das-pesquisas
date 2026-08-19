@@ -34,11 +34,26 @@ function norm(v) {
   return v;
 }
 
-function main() {
-  const legacy = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "polls.json"), "utf-8"));
-  const store = readStore({ dir: DATA_DIR });
-  const projected = projectPolls(store);
-
+/**
+ * A COMPARAÇÃO, SEM DISCO E SEM CONSOLE — os três níveis, sobre dois lados dados.
+ *
+ * Separada de `main` para que exista um `--self-test`: enquanto ler `data/` e
+ * imprimir estivessem no mesmo lugar da comparação, este portão só podia ser
+ * exercitado contra o banco vivo, e um portão que ninguém consegue testar é o
+ * que o §2 do CONVENTIONS chama de guarda que mente (foi o destino do
+ * `upsert-vs-migration.mjs`).
+ *
+ * As TRÊS FUNÇÕES DE TABELA entram por parâmetro, com o valor real por padrão.
+ * Não é indireção decorativa: `canonicalCandidate` lê `candidate-rulings.json`,
+ * `partyOverride` lê `repairs.json` e `canonicalPartyAt` lê a tabela de partidos
+ * — todas dado VIVO. Um autoteste que dependesse delas envelheceria com a
+ * coleta e passaria a medir o banco em vez do portão.
+ *
+ * Devolve as linhas a imprimir em vez de imprimi-las, para `main` sair
+ * exatamente igual ao que saía antes desta separação.
+ */
+export function comparar({ legacy, projected, canon = canonicalCandidate, override = partyOverride, partido = canonicalPartyAt }) {
+  const linhas = [];
   const errors = [];
   const E = (m) => errors.push(m);
 
@@ -49,7 +64,7 @@ function main() {
   if (projected.length !== projById.size) E(`projeção tem ids duplicados (${projected.length} linhas, ${projById.size} ids)`);
   for (const id of legacyById.keys()) if (!projById.has(id)) E(`(a) ausente na projeção: ${id}`);
   for (const id of projById.keys()) if (!legacyById.has(id)) E(`(a) extra na projeção: ${id}`);
-  console.log(`(a) bijeção: ${legacyById.size} legadas × ${projById.size} projetadas — ${errors.length ? "FALHA" : "ok"}`);
+  linhas.push(`(a) bijeção: ${legacyById.size} legadas × ${projById.size} projetadas — ${errors.length ? "FALHA" : "ok"}`);
 
   // ---------------------------------------------------------------- (b)
   //
@@ -119,7 +134,7 @@ function main() {
     // and the mismatch would read as a data error rather than a sort bug.
     const contestOfPoll = `${lp.race}:${lp.state ?? "BR"}`;
     const lr = [...(lp.results ?? [])].sort((a, b) =>
-      canonicalCandidate(a.candidate, contestOfPoll).localeCompare(canonicalCandidate(b.candidate, contestOfPoll)));
+      canon(a.candidate, contestOfPoll).localeCompare(canon(b.candidate, contestOfPoll)));
     const pr = [...(pp.results ?? [])].sort((a, b) => a.candidate.localeCompare(b.candidate));
     resultRows += lr.length;
     if (lr.length !== pr.length) {
@@ -132,16 +147,16 @@ function main() {
       // nomear: imprimindo o cru do legado, uma renomeação da tabela de alias
       // que o store não acompanhou saía como "Ravenna Castro ≠ Ravenna Castro"
       // — a divergência real ficava ilegível.
-      const canon = canonicalCandidate(lr[i].candidate, contestOfPoll);
+      const nome = canon(lr[i].candidate, contestOfPoll);
       // O cru vai junto como origem, mas SÓ quando difere: na esmagadora
       // maioria das linhas o alias não renomeia nada, e "Lula (cru "Lula")"
       // gastaria a metade da mensagem repetindo o mesmo nome. Consequência para
       // quem for testar isto: a mensagem muda de FORMA com o dado, e o caso raro
       // é justamente o que leva o sufixo — uma asserção ancorada no formato SEM
       // sufixo passa verde sem nunca tocar no caso que importa.
-      const cru = canon !== lr[i].candidate ? ` (cru "${lr[i].candidate}")` : "";
-      if (canon !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
-        if (fieldDiffs < 15) E(`(b) ${id}: ${canon}${cru} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
+      const cru = nome !== lr[i].candidate ? ` (cru "${lr[i].candidate}")` : "";
+      if (nome !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
+        if (fieldDiffs < 15) E(`(b) ${id}: ${nome}${cru} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
         fieldDiffs++;
       }
       // The party label is rendered on every board and card. Compared THROUGH
@@ -155,23 +170,23 @@ function main() {
       // casar em silêncio — foi assim que um reparo curado já se perdeu, com o
       // `upsertPoll` que não consultava `partyOverride`. Só o RÓTULO abaixo usa o
       // canônico, pelo mesmo motivo da mensagem de cima.
-      const ovp = partyOverride(lp, lr[i].candidate);
+      const ovp = override(lp, lr[i].candidate);
       const expectedParty = ovp.has
         ? ovp.party
-        : canonicalPartyAt(lr[i].party, lp.fieldwork_end ?? lp.published_date ?? null);
+        : partido(lr[i].party, lp.fieldwork_end ?? lp.published_date ?? null);
       if ((pr[i].party ?? null) !== expectedParty) {
         if (fieldDiffs < 15) {
-          E(`(b) ${id}: partido de ${canon}${cru}: legado ${JSON.stringify(lr[i].party)} → esperado ${JSON.stringify(expectedParty)}${ovp.has ? " (reparo curado)" : ""} ≠ projetado ${JSON.stringify(pr[i].party)}`);
+          E(`(b) ${id}: partido de ${nome}${cru}: legado ${JSON.stringify(lr[i].party)} → esperado ${JSON.stringify(expectedParty)}${ovp.has ? " (reparo curado)" : ""} ≠ projetado ${JSON.stringify(pr[i].party)}`);
         }
         fieldDiffs++;
       }
     }
   }
-  console.log(`(b) igualdade de campos: ${resultRows} linhas de resultado — ${fieldDiffs} divergência(s) não declarada(s)`);
+  linhas.push(`(b) igualdade de campos: ${resultRows} linhas de resultado — ${fieldDiffs} divergência(s) não declarada(s)`);
   for (const [k, n] of Object.entries(declaredCounts)) {
     if (!n) continue;
     const cap = DECLARED_CAPS[k];
-    console.log(`    declarada · ${k}: ${n} campo(s)${cap ? ` (limite ${cap})` : ""}`);
+    linhas.push(`    declarada · ${k}: ${n} campo(s)${cap ? ` (limite ${cap})` : ""}`);
     if (cap && n > cap) E(`(b) exceção declarada "${k}" excedeu o limite: ${n} > ${cap}`);
   }
 
@@ -207,8 +222,217 @@ function main() {
       contestDiffs++;
     }
   }
-  console.log(`(c) conjuntos por disputa: ${allKeys.size} disputas — ${contestDiffs} divergência(s)`);
+  linhas.push(`(c) conjuntos por disputa: ${allKeys.size} disputas — ${contestDiffs} divergência(s)`);
 
+  return { errors, linhas };
+}
+
+// ---------------------------------------------------------------------------
+// AUTOTESTE — o guarda tem de FALHAR quando deve (§2)
+// ---------------------------------------------------------------------------
+//
+// Este portão passou meses sem autoteste, e é o mesmo portão que o cabeçalho de
+// `derive-polls.mjs` declara ter tido o trabalho encerrado ("compares the store
+// against its own output"). Um guarda nessa situação só não mente porque o
+// `canonicalCandidate` do lado esquerdo é aplicado AO VIVO — o que o transformou,
+// sem ninguém projetar, num detector de store defasado em relação à tabela de
+// nomes. Foi assim que a Ravenna acendeu aqui e em lugar nenhum mais.
+//
+// FIXTURES SINTÉTICOS, E AS TRÊS TABELAS DUBLADAS. Nada aqui lê `data/`: um
+// autoteste que chamasse `canonicalCandidate` de verdade passaria a medir o
+// banco em vez do portão, e envelheceria a cada ruling nova.
+
+/** Uma pesquisa mínima com todos os campos que o nível (b) compara. */
+function pesquisa(over = {}) {
+  return {
+    id: "px-1", pollster: "Instituto Sintético", race: "presidente", state: null, round: 1,
+    fieldwork_start: "2026-01-01", fieldwork_end: "2026-01-03", published_date: "2026-01-04",
+    sample_size: 1000, margin_of_error: 3, others_pct: 0, undecided_pct: 0, blank_null_pct: 0,
+    source: "sintetico", tse_registration: "BR-00001/2026", scenario: "1º turno",
+    source_url: "https://exemplo.invalido/1", contractor: null,
+    results: [{ candidate: "Alfa", pct: 40, party: "AA" }, { candidate: "Beta", pct: 35, party: "BB" }],
+    ...over,
+  };
+}
+const clonar = (o) => JSON.parse(JSON.stringify(o));
+/** As três tabelas, neutras: identidade, sem reparo curado, partido como veio. */
+const NEUTRO = { canon: (n) => n, override: () => ({ has: false }), partido: (x) => x };
+
+function autoteste() {
+  const falhas = [];
+  const ok = (cond, msg) => { if (!cond) falhas.push(msg); };
+  const rodar = (legacyPolls, projected, opts = {}) =>
+    comparar({ legacy: { polls: legacyPolls }, projected, ...NEUTRO, ...opts });
+
+  // 1. LADOS IDÊNTICOS NÃO ACUSAM NADA. Sem isto, um portão que acusa sempre
+  //    passaria por rigoroso.
+  {
+    const r = rodar([pesquisa()], [clonar(pesquisa())]);
+    ok(r.errors.length === 0, `lados idênticos não podem acusar (veio ${r.errors.length}: ${r.errors[0] ?? ""})`);
+    ok(r.linhas.some((l) => l.includes("(a) bijeção: 1 legadas × 1 projetadas — ok")), "a linha (a) sai com o veredito ok");
+    ok(r.linhas.some((l) => l.includes("(b) igualdade de campos: 2 linhas de resultado — 0 divergência")), "a linha (b) conta as linhas de resultado");
+    ok(r.linhas.some((l) => l.includes("(c) conjuntos por disputa: 1 disputas — 0 divergência")), "e a linha (c) as disputas");
+  }
+
+  // 2. (a) BIJEÇÃO — os dois sentidos, e ids duplicados.
+  {
+    ok(rodar([pesquisa()], []).errors.some((e) => /\(a\) ausente na projeção: px-1/.test(e)), "some da projeção → acusa ausente");
+    ok(rodar([], [pesquisa()]).errors.some((e) => /\(a\) extra na projeção: px-1/.test(e)), "sobra na projeção → acusa extra");
+    const dup = [pesquisa(), pesquisa()];
+    ok(rodar(dup, [pesquisa()]).errors.some((e) => /ids duplicados/.test(e)), "id repetido no legado é acusado");
+  }
+
+  // 3. (b) UM CAMPO QUALQUER DIVERGINDO. `pollster` é EXATO por estar em
+  //    `EXACT`: nenhuma exceção declarada o absolve.
+  {
+    const r = rodar([pesquisa()], [clonar(pesquisa({ pollster: "Outro Instituto" }))]);
+    ok(r.errors.some((e) => /\(b\) px-1\.pollster:/.test(e)), `instituto diferente é acusado (veio ${r.errors[0] ?? "nada"})`);
+  }
+
+  // 4. (b) NÚMERO DE LINHAS DE RESULTADO.
+  {
+    const curto = pesquisa(); curto.results = [curto.results[0]];
+    const r = rodar([pesquisa()], [clonar(curto)]);
+    ok(r.errors.some((e) => /2 resultados no legado, 1 na projeção/.test(e)), "elenco encurtado na projeção é acusado");
+    // ⚠ COMO ESTA É PEGA, dito com precisão: tirar o `continue` desta guarda NÃO
+    //   avermelha esta asserção — o laço seguinte estoura em `pr[i].candidate`
+    //   com `pr[i]` indefinido, e o autoteste CAI em vez de acusar. Falha alta e
+    //   imediata, então protege; mas quem ler "vermelho" aqui está lendo um
+    //   crash, não este `ok`. Registrado porque red-por-crash não é evidência da
+    //   mesma qualidade que red-por-asserção — é a versão em runtime do mutante
+    //   que não compila.
+  }
+
+  // 5. ⚠ O CASO RAVENNA, SINTÉTICO — a tabela de nomes renomeia e o store não
+  //    acompanhou. É a única espécie que este portão ainda pega de verdade, e a
+  //    que ficou ILEGÍVEL por anos porque a mensagem imprimia o cru dos dois
+  //    lados ("Ravenna Castro ≠ Ravenna Castro").
+  {
+    const canon = (n, c) => (n === "Ravenna Castro" && c === "senador:PI" ? "Ravenna da Inclusão" : n);
+    const leg = pesquisa({ race: "senador", state: "PI", results: [{ candidate: "Ravenna Castro", pct: 1, party: "DEM" }] });
+    const proj = clonar(leg);
+    const r = rodar([leg], [proj], { canon });
+    ok(r.errors.length > 0, "renomeação que o store não acompanhou TEM de acusar");
+    const msg = r.errors.find((e) => /\(b\) px-1:/.test(e)) ?? "";
+    ok(/Ravenna da Inclusão/.test(msg), `a mensagem nomeia o CANÔNICO, que é o que foi comparado (veio "${msg}")`);
+    ok(/\(cru "Ravenna Castro"\)/.test(msg), `e carrega o CRU como origem, entre parênteses (veio "${msg}")`);
+    ok(!/^\(b\) px-1: Ravenna Castro \d/.test(msg), "e nunca abre com o cru dos dois lados, que era o ilegível");
+  }
+
+  // 5b. ⚠ E O SUFIXO SÓ SAI QUANDO DIFERE. A mensagem muda de FORMA com o dado:
+  //     no caso comum o cru é igual ao canônico e o sufixo não aparece. Uma
+  //     asserção ancorada só no formato SEM sufixo passaria verde sem nunca
+  //     tocar no caso do bloco 5, que é o único que importa.
+  {
+    const proj = clonar(pesquisa()); proj.results[0].candidate = "Gama";
+    const msg = rodar([pesquisa()], [proj]).errors.find((e) => /\(b\) px-1:/.test(e)) ?? "";
+    ok(/Alfa 40 ≠/.test(msg), `sem renomeação a mensagem sai sem sufixo (veio "${msg}")`);
+    ok(!/\(cru /.test(msg), "e o sufixo NÃO aparece quando o canônico é igual ao cru");
+  }
+
+  // 6. (b) PERCENTUAL — a tolerância é 0,001, e ela tem de barrar dos dois lados.
+  {
+    const dentro = clonar(pesquisa()); dentro.results[0].pct = 40.0005;
+    ok(rodar([pesquisa()], [dentro]).errors.length === 0, "diferença abaixo da tolerância não acusa");
+    const fora = clonar(pesquisa()); fora.results[0].pct = 40.01;
+    ok(rodar([pesquisa()], [fora]).errors.some((e) => /40 ≠ Alfa 40\.01/.test(e)), "acima da tolerância acusa");
+  }
+
+  // 7. (b) PARTIDO, e a NORMALIZAÇÃO POR DATA. O esperado passa por `partido`;
+  //    o portão compara contra ele, não contra o rótulo cru do legado.
+  {
+    const proj = clonar(pesquisa()); proj.results[0].party = "ZZ";
+    ok(rodar([pesquisa()], [proj]).errors.some((e) => /partido de Alfa/.test(e)), "partido divergente é acusado");
+    const norm = clonar(pesquisa()); norm.results[0].party = "AA-NOVO";
+    ok(rodar([pesquisa()], [norm], { partido: (x) => (x === "AA" ? "AA-NOVO" : x) }).errors.length === 0,
+      "e a renomeação de partido por data é absorvida, não acusada");
+  }
+
+  // 8. ⚠ O REPARO CURADO CASA PELA GRAFIA CRUA — a armadilha da linha do
+  //    `override`. O reparo está gravado em `repairs.json` contra o nome que o
+  //    instituto PUBLICOU, não contra o canônico. Trocar essa chave por `nome`
+  //    faz o reparo deixar de casar EM SILÊNCIO: nos dados de hoje o fallback
+  //    acerta por acaso, e o dano só aparece quando o rótulo cru está errado —
+  //    que é justamente o caso que o reparo existe para corrigir.
+  {
+    const canon = (n) => (n === "Grafia Publicada" ? "Nome Canônico" : n);
+    const override = (lp, n) => (n === "Grafia Publicada" ? { has: true, party: "CERTO" } : { has: false });
+    const leg = pesquisa({ results: [{ candidate: "Grafia Publicada", pct: 10, party: "ERRADO" }] });
+    const proj = clonar(leg); proj.results[0] = { candidate: "Nome Canônico", pct: 10, party: "CERTO" };
+    const r = rodar([leg], [proj], { canon, override });
+    ok(r.errors.length === 0,
+      `o reparo curado tem de casar pela grafia CRUA (veio ${r.errors.length}: ${r.errors[0] ?? ""})`);
+    // E o contrafactual: casando pelo canônico, o reparo não é achado e o
+    // fallback publica o rótulo errado — que é o dano que a armadilha causa.
+    const porCanonico = (lp, n) => (n === "Nome Canônico" ? { has: true, party: "CERTO" } : { has: false });
+    ok(rodar([leg], [proj], { canon, override: porCanonico }).errors.length > 0,
+      "e o contrafactual prova a diferença: casando pelo canônico, o reparo se perde");
+  }
+
+  // 9. (b) EXCEÇÃO DECLARADA não é falha — mas o teto dela é.
+  {
+    const semInicio = pesquisa({ fieldwork_start: null });
+    const r = rodar([semInicio], [clonar(pesquisa())]);
+    ok(r.errors.length === 0, `o backfill de fieldwork_start é declarado, não acusado (veio ${r.errors[0] ?? ""})`);
+    ok(r.linhas.some((l) => /declarada · fieldwork_start_backfilled: 1 campo/.test(l)), "e sai CONTADO na saída, nunca silencioso");
+    // O teto: `source_self_contradiction_on_start` tem limite 6. Sete pesquisas
+    // com o começo divergente estouram e viram erro.
+    const legs = [], projs = [];
+    for (let i = 0; i < 7; i++) {
+      legs.push(pesquisa({ id: `px-${i}`, fieldwork_start: "2026-01-01" }));
+      projs.push(pesquisa({ id: `px-${i}`, fieldwork_start: "2026-02-01" }));
+    }
+    const t = rodar(legs, projs);
+    ok(t.errors.some((e) => /excedeu o limite: 7 > 6/.test(e)), `o teto da exceção declarada reprova quando estourado (veio ${t.errors[0] ?? "nada"})`);
+    // ⚠ O QUE ESTE BLOCO NÃO ALCANÇA, medido e anotado em vez de fingido: o
+    //   cinto `!EXACT.has(f)`, que impede uma exceção declarada de absolver um
+    //   campo exato. Ele é INALCANÇÁVEL com a tabela de hoje — os quatro portões
+    //   declarados exigem `fieldwork_start`, `published_date`, `source_url` e
+    //   `tse_registration`, e nenhum desses está em `EXACT` (interseção vazia,
+    //   conferida). Ou seja, hoje ele é cinto para uma regra declarada FUTURA
+    //   larga demais, e nenhuma mutação o avermelha porque nenhuma o executa.
+    //   Alcançá-lo exigiria içar `DECLARED` para parâmetro, como as três funções
+    //   de tabela — decisão de escopo, não descuido.
+  }
+
+  // 10. (c) OS CONJUNTOS POR DISPUTA. É o nível que importa: (a) e (b) podem
+  //     passar e a média ainda mudar, se o agrupamento mudou.
+  {
+    const outraDisputa = clonar(pesquisa()); outraDisputa.round = 2;
+    const r = rodar([pesquisa()], [outraDisputa]);
+    ok(r.errors.some((e) => /\(c\) disputa presidente\|BR\|/.test(e)), `mudar a disputa de uma pesquisa quebra o conjunto (veio ${r.errors[0] ?? "nada"})`);
+    // ⚠ E O CONJUNTO DE IDS, SEPARADO DA ORDENAÇÃO. O nível (c) tem DUAS
+    //   verificações — o conjunto de ids e o de (data, instituto) — e o caso
+    //   acima é pego pelas duas, então desligar a primeira passava verde.
+    //   Aqui os dois lados têm a MESMA data e o MESMO instituto e diferem só no
+    //   id: só a primeira verificação vê, e a mensagem sai com as contagens
+    //   IGUAIS dos dois lados, que é a assinatura dela.
+    const trocado = clonar(pesquisa()); trocado.id = "px-2";
+    const r2 = rodar([pesquisa()], [trocado]);
+    ok(r2.errors.some((e) => /\(c\) disputa presidente\|BR\|1: 1 pesquisas no legado, 1 na projeção/.test(e)),
+      `troca de id com mesma data e instituto é vista pelo conjunto de ids (veio ${r2.errors.filter((e) => /\(c\)/.test(e))[0] ?? "nada"})`);
+    // ⚠ E A OUTRA METADE, isolada pelo mesmo motivo: MESMO id, data diferente.
+    //   O conjunto de ids bate, e só a comparação de (data, instituto) vê — é
+    //   ela que garante que a média pegue as mesmas 10 mais recentes.
+    const outraData = clonar(pesquisa()); outraData.fieldwork_end = "2026-01-05";
+    const r3 = rodar([pesquisa()], [outraData]);
+    ok(r3.errors.some((e) => /\(c\) disputa presidente\|BR\|1: conjunto \(data, instituto\) diverge/.test(e)),
+      `mesma pesquisa com data diferente é vista pelo conjunto (data, instituto) (veio ${r3.errors.filter((e) => /\(c\)/.test(e))[0] ?? "nada"})`);
+  }
+
+  if (falhas.length) {
+    console.error("AUTOTESTE FALHOU:");
+    for (const f of falhas) console.error(`  ✗ ${f}`);
+    process.exit(1);
+  }
+  console.log("autoteste ok — bijeção nos dois sentidos e ids duplicados, campo exato, elenco encurtado, renomeação que o store não acompanhou (com o canônico na mensagem e o cru só quando difere), tolerância de percentual dos dois lados, partido e normalização por data, reparo curado casando pela grafia CRUA com contrafactual, exceção declarada contada e seu teto, e conjuntos por disputa");
+}
+
+function main() {
+  const legacy = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "polls.json"), "utf-8"));
+  const projected = projectPolls(readStore({ dir: DATA_DIR }));
+  const { errors, linhas } = comparar({ legacy, projected });
+  for (const l of linhas) console.log(l);
   if (errors.length) {
     console.error("");
     for (const e of errors.slice(0, 30)) console.error(`ERRO ${e}`);
@@ -218,4 +442,5 @@ function main() {
   console.log(`\nPARIDADE OK — a projeção do store reproduz data/polls.json em todos os três níveis`);
 }
 
-main();
+if (process.argv.includes("--self-test")) autoteste();
+else main();
