@@ -594,9 +594,14 @@ Partidos: **coincidem (PL, REPUBLICANOS)** · diferença entre as médias: 4.1 p
 
 **Campo gêmeo — 3 ocorrência(s).** Data Capital: `2026-07-29` cita *Álvaro Costa Dias* (26%, 1º turno) e `2026-07-29` cita *Álvaro Dias* (47%, 2º turno).
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. Álvaro Costa Dias, PL, nº 22, `sq_candidato` 200002534442 no
+> cadastro do TSE (`data/candidaturas.ndjson`), nome de urna "Álvaro Dias". As duas grafias
+> são a mesma candidatura registrada. **Já implementado**: `canonicalCandidate` dobra as três
+> grafias em "Álvaro Dias" nesta disputa — a marcação registra o que o banco já faz.
 
 ### Felipe d'Avila × Luiz Felipe d'Avila
 
@@ -762,9 +767,23 @@ Partidos: **coincidem (MDB)** · diferença entre as médias: 1.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest, IRG.
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. MDB nas duas grafias, período sobreposto, médias a 1,7 p.p., e os
+> mesmos institutos usam as duas — é o senador Álvaro Dias, do Paraná.
+>
+> ⚠ **NÃO implementado.** Medido em 19/08: `canonicalCandidate("Alvaro Dias","senador:PR")`
+> devolve "Alvaro Dias" e `canonicalCandidate("Álvaro Dias","senador:PR")` devolve
+> "Álvaro Dias" — o senador segue partido por acento no banco. Marcar esta caixa registra a
+> decisão para quem lê; não a aplica. O canal que aplica é uma ruling em
+> `data/candidate-rulings.json`, que `candidate-resolve.mjs` propaga para o grupo de alias.
+>
+> ⚠ E ESTE É OUTRO HOMEM, não o de `Governador · RN`. O senador do PR (MDB, Senado, Paraná)
+> não está no cadastro do TSE; o do RN é Álvaro Costa Dias (PL, governo, Rio Grande do Norte).
+> Partido, cargo e estado divergem com período sobreposto. Este documento não tem caixa para
+> um par que cruza disputas, então a distinção fica dita aqui.
 
 ### Jarir Pereira × Professor Jarir Pereira
 
