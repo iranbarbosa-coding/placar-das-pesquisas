@@ -722,6 +722,339 @@
     "undecided_pct": 4
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04488/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios do Poder360 apagou a linha 'OUTROS' (1%), que chega sem nome no v1 e o v2 descarta. Não é candidato relabelado: o relatório imprime 'OUTROS' como linha própria e os 6 candidatos nomeados já estão no banco. Sem ela a pesquisa somava 99.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+   "evidence": "p.12, 'Cenário 1 – 1º Turno, RU ESTIMULADA': Lula 43, Flávio Bolsonaro 29, Ronaldo Caiado 7, Romeu Zema 6, Renan Santos 3, Augusto Cury 1, OUTROS 1, NENHUM/BRANCO/NULO 8, NÃO SABE/NÃO RESPONDEU 2 = 100. A única 'OUTROS' de voto está aqui (1%) e na espontânea da p.11 (5%); 'OUTRAS' 1% é religião no perfil (p.9). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "others_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04488/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "O agregador do Poder360 funde 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+   "evidence": "Confronto Lula × Flávio Bolsonaro (2º turno): NENHUM/BRANCO/NULO 10, NÃO SABE/NÃO RESPONDEU 1; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 10,
+    "undecided_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04488/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "O agregador do Poder360 funde 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+   "evidence": "Confronto Lula × Ronaldo Caiado (2º turno): NENHUM/BRANCO/NULO 13, NÃO SABE/NÃO RESPONDEU 2; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 13,
+    "undecided_pct": 2
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04488/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "O agregador do Poder360 funde 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+   "evidence": "Confronto Lula × Renan Santos (2º turno): NENHUM/BRANCO/NULO 19, NÃO SABE/NÃO RESPONDEU 3; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 19,
+    "undecided_pct": 3
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04488/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "O agregador do Poder360 funde 'branco/nulo' com 'não sabe' num campo só; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+   "evidence": "Confronto Lula × Romeu Zema (2º turno): NENHUM/BRANCO/NULO 15, NÃO SABE/NÃO RESPONDEU 2; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 15,
+    "undecided_pct": 2
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06773/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios do Poder360 apagou a linha de Leonardo Avalanche (PRTB, 0%) — linha sem nome descartada pelo v2 — e fundiu 'branco/nulo' com 'indecisos' num campo. O relatório publica 13 candidatos e os dois baldes separados, sem linha 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+   "evidence": "p.3, 'Intenção de voto para Presidente - 1º turno (estimulada)': 13 candidatos (Lula 38, Flávio Bolsonaro 31, Renan Santos 4, Ronaldo Caiado 4, Augusto Cury 2, Romeu Zema 2, Samara Martins 1, e Edmilson Costa, Clariana Barão, Hertz Dias, Leonardo Avalanche, Rui Costa Pimenta, Wilson Grassi com 0), Branco/nulo/não vai votar 8, Indecisos 10 = 100. SEM linha 'outros' (o 'Outros 3' da p.5 é da pergunta ESPONTÂNEA). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
+    }
+   ],
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 8,
+    "undecided_pct": 10
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06773/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "O agregador funde 'branco/nulo' com 'indecisos'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+   "evidence": "Confronto Lula × Flávio Bolsonaro (2º turno, p.5-6): Branco/nulo 13, Indecisos 4; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 13,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06773/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "O agregador funde 'branco/nulo' com 'indecisos'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+   "evidence": "Confronto Lula × Ronaldo Caiado (2º turno, p.5-6): Branco/nulo 14, Indecisos 5; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 14,
+    "undecided_pct": 5
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06773/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "O agregador funde 'branco/nulo' com 'indecisos'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+   "evidence": "Confronto Lula × Renan Santos (2º turno, p.5-6): Branco/nulo 16, Indecisos 4; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 16,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-06773/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "O agregador funde 'branco/nulo' com 'indecisos'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+   "evidence": "Confronto Lula × Romeu Zema (2º turno, p.5-6): Branco/nulo 16, Indecisos 5; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 16,
+    "undecided_pct": 5
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-01084/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "O v2/cenarios apagou a linha 'NÃO SABE/NÃO OPINOU' deste confronto; o banco guardava as duas figuras e o balde 'branco/nulo', sem o 'não sabe'. O relatório publica os dois separados.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/RELATORIO-VOX-BRASIL-NACIONAL-5-31-07-2026.pdf",
+   "evidence": "Confronto Lula × Romeu Zema (2º turno): NENHUM/BRANCO/NULO 8.3, NÃO SABE/NÃO OPINOU 2.5; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 8.3,
+    "undecided_pct": 2.5
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-01084/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "O v2/cenarios apagou a linha 'NÃO SABE/NÃO OPINOU' deste confronto; o banco guardava as duas figuras e o balde 'branco/nulo', sem o 'não sabe'. O relatório publica os dois separados.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/RELATORIO-VOX-BRASIL-NACIONAL-5-31-07-2026.pdf",
+   "evidence": "Confronto Lula × Ronaldo Caiado (2º turno): NENHUM/BRANCO/NULO 6.8, NÃO SABE/NÃO OPINOU 3.9; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 6.8,
+    "undecided_pct": 3.9
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-09247/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios apagou a linha 'Outros' (1%) — soma rotulada de 6 candidatos menores com nota de rodapé — e o banco guardava 'branco/nulo' e 'NS/NR' já separados. Restaura o 'outros' para a soma fechar em 100. (A capa do relatório imprime BR-05864/2026, mas o conteúdo — elenco e percentuais — é idêntico ao levantamento de 18-20/07 que o banco guarda sob BR-09247/2026; casado por conteúdo, não pela capa.)",
+   "source": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+   "evidence": "p.8, 'ESTIMULADA PRESIDENTE': Lula 40, Flávio Bolsonaro 33, Renan Santos 9, Ronaldo Caiado 7, Romeu Zema 2, Augusto Cury 1, Joaquim Barbosa 1, OUTROS 1 (rodapé: Cabo Daciolo, Leonardo Avalanche, Rui Costa Pimenta, Samara Martins, Edmilson Costa, Hertz Dias), Nulo/Branco 3, NS/NR 3 = 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "others_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-09247/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "O agregador funde 'nulo/branco' com 'NS/NR'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+   "evidence": "Confronto Lula × Flávio Bolsonaro (2º turno): Nulo/Branco 8, NS/NR 5; fecha em 100 com os dois candidatos (conferido por imagem, pois a camada de texto embaralha a ordem dos cards). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 8,
+    "undecided_pct": 5
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-09247/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "O agregador funde 'nulo/branco' com 'NS/NR'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+   "evidence": "Confronto Lula × Renan Santos (2º turno): Nulo/Branco 11, NS/NR 10; fecha em 100 com os dois candidatos (conferido por imagem, pois a camada de texto embaralha a ordem dos cards). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 11,
+    "undecided_pct": 10
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-09247/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "O agregador funde 'nulo/branco' com 'NS/NR'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+   "evidence": "Confronto Lula × Ronaldo Caiado (2º turno): Nulo/Branco 8, NS/NR 5; fecha em 100 com os dois candidatos (conferido por imagem, pois a camada de texto embaralha a ordem dos cards). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 8,
+    "undecided_pct": 5
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-09247/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "O agregador funde 'nulo/branco' com 'NS/NR'; o relatório publica os dois separados. Nenhum candidato falta neste confronto.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+   "evidence": "Confronto Lula × Romeu Zema (2º turno): Nulo/Branco 11, NS/NR 7; fecha em 100 com os dois candidatos (conferido por imagem, pois a camada de texto embaralha a ordem dos cards). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 11,
+    "undecided_pct": 7
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04579/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios apagou a linha de Cabo Daciolo (0,6%) e o ponto dela REAPARECEU como 'outros: 0,6' — troca de rótulo, não perda. Restaurar o nome sem zerar o 'outros' contaria o mesmo 0,6 duas vezes. O relatório NÃO tem linha 'outros' na estimulada (lista todos os menores nominalmente). Também funde 'ninguém/branco/nulo' com 'não sabe'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-meio-ideia-presidencia-republica-5ago2026.pdf",
+   "evidence": "p.35, 1º turno ESTIMULADA: Lula 43, Flávio Bolsonaro 35, Ronaldo Caiado 5,7, Renan Santos 4,7, Romeu Zema 2,6, Augusto Cury 1,7, Cabo Daciolo 0,6, Samara Martins 0,3, Edmilson Costa 0,2, Hertz Dias 0,1, Rui Costa Pimenta 0,1, Ninguém/Branco/Nulo 2, Não sabe 4 = 100. SEM 'outros' (o 'Outros 0,8' da p.33 é da ESPONTÂNEA; o 'Outros 9,3' da p.34 é série temporal). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Cabo Daciolo",
+     "party": null,
+     "pct": 0.6
+    }
+   ],
+   "set": {
+    "others_pct": null,
+    "blank_null_pct": 2,
+    "undecided_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04579/2026",
+    "race": "presidente",
+    "round": 2,
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "O agregador funde 'branco/nulo' com 'não sabe'; o relatório publica os dois separados. Nenhum candidato falta neste confronto. (Os outros 3 confrontos de 2º turno do relatório — vs Flávio, vs Zema, vs Renan — estão AUSENTES do banco por inteiro; ver anotação de escopo, não são reparo de add_results.)",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-meio-ideia-presidencia-republica-5ago2026.pdf",
+   "evidence": "p.47, confronto Lula × Ronaldo Caiado (2º turno): Lula 48,5, Ronaldo Caiado 40, Branco/Nulo 7, Não sabe 4,5 = 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "set": {
+    "blank_null_pct": 7,
+    "undecided_pct": 4.5
+   },
+   "expect_sum": 100
   }
  ]
 }
