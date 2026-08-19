@@ -35,15 +35,21 @@ const SPREAD_STYLE: Record<RcpSpread["status"], { bg: string; fg: string; dot: s
   empate: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
 };
 
-function SpreadChip({ spread }: { spread: RcpSpread | null }) {
-  if (!spread) return <span style={{ color: "var(--text-muted)" }}>—</span>;
+function SpreadChip({ spread, onDark = false }: { spread: RcpSpread | null; onDark?: boolean }) {
+  if (!spread) return <span style={{ color: onDark ? "rgba(255,255,255,0.5)" : "var(--text-muted)" }}>—</span>;
   const s = SPREAD_STYLE[spread.status];
+  // On the navy "Média" band the tint backgrounds vanish, so use a translucent
+  // white chip; the status hue stays (green/red read on navy), and the grey
+  // "empate" lifts to a light slate that the dark theme's --text-muted can't give.
+  const bg = onDark ? "rgba(255,255,255,0.12)" : s.bg;
+  const hue = onDark && spread.status === "empate" ? "#cbd5e1" : s.fg;
+  const dot = onDark && spread.status === "empate" ? "#cbd5e1" : s.dot;
   return (
     <span
       className="tabular inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold"
-      style={{ background: s.bg, color: s.fg }}
+      style={{ background: bg, color: hue }}
     >
-      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: s.dot }} />
+      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: dot }} />
       {spread.leaderShort} {fmtSigned(spread.distTo50)}
     </span>
   );
@@ -85,7 +91,7 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
             <tr style={{ borderBottom: "1px solid var(--ring)" }}>
               <th className={`${TH} text-left`}>Instituto</th>
               <th className={`${TH} text-left`}>Data</th>
-              <th className={`${TH} text-left`}>% para 50</th>
+              <th className={`${TH} text-left`}>Resultado</th>
               {data.candidates.map((c) => (
                 <th key={c.key} className={`${TH} text-right`}>
                   <span className="inline-flex items-center gap-1">
@@ -97,22 +103,24 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
             </tr>
           </thead>
           <tbody>
-            {/* Highlighted average row on top. */}
-            <tr className="font-bold" style={{ background: "var(--surface-2)", borderBottom: "1px solid var(--ring)" }}>
-              <td className={`${TD} text-left`} style={{ color: "var(--text-primary)" }}>
+            {/* Highlighted average row: a navy band (#081020) with light text so
+                it reads as the table's headline in both themes — the leader's
+                number in white, the rest in a softer white. */}
+            <tr className="font-bold" style={{ background: "#081020" }}>
+              <td className={`${TD} text-left`} style={{ color: "#ffffff" }}>
                 Média
               </td>
-              <td className={`${TD} text-left`} style={{ color: "var(--text-muted)" }}>
+              <td className={`${TD} text-left`} style={{ color: "rgba(255,255,255,0.45)" }}>
                 —
               </td>
               <td className={`${TD} text-left`}>
-                <SpreadChip spread={data.average.spread} />
+                <SpreadChip spread={data.average.spread} onDark />
               </td>
               {data.average.values.map((v, i) => (
                 <td
                   key={data.candidates[i].key}
                   className={`${TD} tabular text-right`}
-                  style={{ color: i === avgLeader ? "var(--text-primary)" : "var(--text-secondary)" }}
+                  style={{ color: i === avgLeader ? "#ffffff" : "rgba(255,255,255,0.62)" }}
                 >
                   {v == null ? "—" : `${fmtPct(v)}%`}
                 </td>
@@ -148,6 +156,12 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
           </tbody>
         </table>
       </div>
+
+      <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+        A coluna <span className="font-semibold" style={{ color: "var(--text-secondary)" }}>Resultado</span> aponta
+        quem lidera e quantos pontos faltam ao líder para vencer no 1º turno (atingir 50% dos votos válidos) — em
+        verde quando ele já passou dos 50%, vermelho quando ainda falta, e cinza no empate técnico com os 50%.
+      </p>
 
       <a href="#todas-as-pesquisas" className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
         Ver todas as pesquisas utilizadas na média <span aria-hidden="true">→</span>
