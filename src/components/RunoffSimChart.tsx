@@ -2,28 +2,27 @@
 
 import { fmtPct } from "@/lib/format";
 import { shortName } from "@/lib/names";
-import type { RunoffSimData } from "@/lib/presidente";
+import type { RunoffSimData, RunoffSimCard } from "@/lib/presidente";
 
 /**
- * Section 5 — the runoff simulation. ONE area-line chart plotting the
- * first-round LEADER's second-round vote share over time against each of the
- * three registered challengers immediately behind him. Each line is the leader's
- * share inside that specific head-to-head, coloured by the CHALLENGER, with a
- * faint area under it. Client component (a self-contained SVG; no chart library).
+ * Section 5 — the runoff simulations, as THREE cards side by side (one per
+ * matchup of the first-round leader against each of the three registered
+ * candidates behind him). Each card is a small area chart plotting BOTH
+ * candidates' second-round intention over time — the leader in his own colour
+ * (Lula = red), the challenger in theirs. Client component (self-contained SVGs;
+ * no chart library).
  *
  * The SVG is stretched to its box (`preserveAspectRatio="none"`), so the viewBox
- * is a coordinate space, not an aspect ratio; strokes are pinned with
- * `vector-effect="non-scaling-stroke"` and the axis labels live in HTML, where a
- * non-uniform scale cannot squash them.
+ * is a coordinate space; strokes are pinned with `vector-effect`.
  */
 
-const W = 1200;
-const H = 320;
-const PAD_TOP = 10;
-const PAD_BOTTOM = 8;
+const W = 600;
+const H = 220;
+const PAD_TOP = 8;
+const PAD_BOTTOM = 6;
 const PLOT = H - PAD_TOP - PAD_BOTTOM;
 
-const MES_ABREV = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+const MES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 
 function isoTime(iso: string): number {
   const [y, m, d] = iso.split("-").map(Number);
@@ -31,10 +30,124 @@ function isoTime(iso: string): number {
   return Number.isFinite(t) ? t : 0;
 }
 const co = (v: number) => (Number.isFinite(v) ? v : 0).toFixed(2);
+const tickLabel = (iso: string) => {
+  const [y, m] = iso.split("-").map(Number);
+  return `${MES[(m || 1) - 1]}/${String(y || 0).slice(2)}`;
+};
+
+function MatchupCard({ card, leader, leaderColor }: { card: RunoffSimCard; leader: string; leaderColor: string }) {
+  const t0 = isoTime(card.points[0].date);
+  const t1 = isoTime(card.points[card.points.length - 1].date);
+  const span = t1 - t0;
+  const flat = !(span > 0);
+
+  const vals = card.points.flatMap((p) => [p.leader, p.challenger]);
+  const yMin = Math.max(0, Math.floor((Math.min(...vals) - 2) / 5) * 5);
+  const yMax = Math.min(100, Math.ceil((Math.max(...vals) + 2) / 5) * 5);
+  const yRange = Math.max(1, yMax - yMin);
+
+  const x = (iso: string) => (flat ? W : ((isoTime(iso) - t0) / span) * W);
+  const y = (v: number) => PAD_TOP + (1 - (v - yMin) / yRange) * PLOT;
+  const topPct = (v: number) => (y(v) / H) * 100;
+  const showFifty = 50 >= yMin && 50 <= yMax;
+
+  const build = (pick: (p: { leader: number; challenger: number }) => number) => {
+    const pts = card.points.map((p) => ({ px: x(p.date), py: y(pick(p)) }));
+    const line = pts.map((p, i) => `${i ? "L" : "M"}${co(p.px)},${co(p.py)}`).join(" ");
+    const area = pts.length
+      ? `${line} L${co(pts[pts.length - 1].px)},${co(y(yMin))} L${co(pts[0].px)},${co(y(yMin))} Z`
+      : "";
+    return { line, area };
+  };
+  const leaderP = build((p) => p.leader);
+  const chP = build((p) => p.challenger);
+  const id = card.challenger.replace(/[^a-z0-9]+/gi, "-");
+
+  // Three sparse x ticks (start · middle · end of the polled span).
+  const ticks = flat
+    ? []
+    : [0, 0.5, 1].map((f) => {
+        const iso = card.points[Math.round(f * (card.points.length - 1))]?.date;
+        return { label: iso ? tickLabel(iso) : "", leftPct: f * 100 };
+      });
+
+  return (
+    <div className="card flex min-w-0 flex-col gap-2 p-3">
+      <div className="flex items-baseline justify-between gap-2">
+        <h3 className="truncate text-sm font-bold" style={{ color: "var(--text-primary)" }}>
+          {shortName(leader)} <span style={{ color: "var(--text-muted)" }}>vs</span> {shortName(card.challenger)}
+        </h3>
+      </div>
+      <div className="flex items-baseline gap-3 text-sm font-bold tabular">
+        <span style={{ color: leaderColor }}>
+          {fmtPct(card.leaderCurrent)}<span className="text-[0.6em]">%</span>
+        </span>
+        <span style={{ color: card.challengerColor }}>
+          {fmtPct(card.challengerCurrent)}<span className="text-[0.6em]">%</span>
+        </span>
+      </div>
+
+      <div className="flex gap-1">
+        <div className="relative w-6 shrink-0" aria-hidden="true">
+          {[yMin, showFifty ? 50 : (yMin + yMax) / 2, yMax].map((v) => (
+            <span key={`yl-${v}`} className="tabular absolute right-0 -translate-y-1/2 text-[9px]" style={{ top: `${topPct(v)}%`, color: "var(--text-muted)" }}>
+              {Math.round(v)}
+            </span>
+          ))}
+        </div>
+        <div className="relative h-[110px] flex-1 sm:h-[130px]">
+          <svg
+            viewBox={`0 0 ${W} ${H}`}
+            preserveAspectRatio="none"
+            className="block h-full w-full"
+            role="img"
+            aria-label={`${shortName(leader)} vs ${shortName(card.challenger)}: intenção de voto de 2º turno ao longo do tempo.`}
+          >
+            <defs>
+              <linearGradient id={`ro-l-${id}`} gradientUnits="userSpaceOnUse" x1={0} x2={0} y1={co(y(yMax))} y2={co(y(yMin))}>
+                <stop offset="0%" stopColor={leaderColor} stopOpacity={0.18} />
+                <stop offset="100%" stopColor={leaderColor} stopOpacity={0.02} />
+              </linearGradient>
+              <linearGradient id={`ro-c-${id}`} gradientUnits="userSpaceOnUse" x1={0} x2={0} y1={co(y(yMax))} y2={co(y(yMin))}>
+                <stop offset="0%" stopColor={card.challengerColor} stopOpacity={0.14} />
+                <stop offset="100%" stopColor={card.challengerColor} stopOpacity={0.02} />
+              </linearGradient>
+            </defs>
+
+            {showFifty && (
+              <line x1={0} x2={W} y1={co(y(50))} y2={co(y(50))} stroke="var(--axis)" strokeWidth={1} strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
+            )}
+
+            {chP.area ? <path d={chP.area} fill={`url(#ro-c-${id})`} stroke="none" /> : null}
+            {leaderP.area ? <path d={leaderP.area} fill={`url(#ro-l-${id})`} stroke="none" /> : null}
+            <path d={chP.line} fill="none" stroke={card.challengerColor} strokeWidth={1.8} strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+            <path d={leaderP.line} fill="none" stroke={leaderColor} strokeWidth={1.8} strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          </svg>
+        </div>
+      </div>
+
+      {ticks.length > 0 && (
+        <div className="flex gap-1">
+          <div className="w-6 shrink-0" aria-hidden="true" />
+          <div className="relative h-3 flex-1">
+            {ticks.map((t, i) => (
+              <span
+                key={`${t.label}-${i}`}
+                className="absolute text-[9px] uppercase tracking-wide"
+                style={{ left: `${t.leftPct}%`, transform: i === 0 ? "none" : i === ticks.length - 1 ? "translateX(-100%)" : "translateX(-50%)", color: "var(--text-muted)" }}
+              >
+                {t.label}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function RunoffSimChart({ data }: { data: RunoffSimData }) {
-  const series = data.series;
-  if (!series.length) {
+  if (!data.cards.length) {
     return (
       <div className="flex min-w-0 flex-col gap-3">
         <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
@@ -47,154 +160,17 @@ export default function RunoffSimChart({ data }: { data: RunoffSimData }) {
     );
   }
 
-  // Shared domains across every series.
-  const allDates = [...new Set(series.flatMap((s) => s.points.map((p) => p.date)))].sort();
-  const t0 = isoTime(allDates[0]);
-  const t1 = isoTime(allDates[allDates.length - 1]);
-  const span = t1 - t0;
-  const flat = !(span > 0);
-
-  const vals = series.flatMap((s) => s.points.map((p) => p.avg));
-  const vMin = Math.min(...vals);
-  const vMax = Math.max(...vals);
-  const yMin = Math.max(0, Math.floor((vMin - 2) / 5) * 5);
-  const yMax = Math.min(100, Math.ceil((vMax + 2) / 5) * 5);
-  const yRange = Math.max(1, yMax - yMin);
-
-  const x = (iso: string) => (flat ? W : ((isoTime(iso) - t0) / span) * W);
-  const y = (v: number) => PAD_TOP + (1 - (v - yMin) / yRange) * PLOT;
-  const topPct = (v: number) => (y(v) / H) * 100;
-
-  const gridLevels: number[] = [];
-  for (let v = yMin; v <= yMax; v += 5) gridLevels.push(v);
-  const showFifty = 50 >= yMin && 50 <= yMax;
-
-  // Month-first ticks, thinned to ~6 so a long span does not print a ribbon.
-  const ticks: { label: string; leftPct: number }[] = [];
-  if (!flat) {
-    const months: { y: number; m: number; t: number }[] = [];
-    const start = new Date(t0);
-    let yy = start.getUTCFullYear();
-    let mm = start.getUTCMonth();
-    if (start.getUTCDate() !== 1) {
-      mm += 1;
-      if (mm > 11) { mm = 0; yy += 1; }
-    }
-    for (;;) {
-      const t = Date.UTC(yy, mm, 1);
-      if (t > t1) break;
-      months.push({ y: yy, m: mm, t });
-      mm += 1;
-      if (mm > 11) { mm = 0; yy += 1; }
-    }
-    const step = [1, 2, 3, 4, 6, 12].find((s) => s >= Math.max(1, Math.ceil(months.length / 6))) ?? 12;
-    for (const mo of months) {
-      if (mo.m % step !== 0) continue;
-      ticks.push({ label: mo.m === 0 ? String(mo.y) : MES_ABREV[mo.m], leftPct: ((mo.t - t0) / span) * 100 });
-    }
-  }
-
-  const paths = series.map((s) => {
-    const pts = s.points.map((p) => ({ px: x(p.date), py: y(p.avg) }));
-    const line = pts.map((p, i) => `${i ? "L" : "M"}${co(p.px)},${co(p.py)}`).join(" ");
-    const area = pts.length
-      ? `${line} L${co(pts[pts.length - 1].px)},${co(y(yMin))} L${co(pts[0].px)},${co(y(yMin))} Z`
-      : "";
-    return { s, line, area };
-  });
-
   return (
     <div className="flex min-w-0 flex-col gap-3">
       <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
         Simulações de 2º turno
       </h2>
 
-      <div className="card p-3 sm:p-4">
-        <div className="flex gap-1.5">
-          <div className="relative w-8 shrink-0" aria-hidden="true">
-            {gridLevels.map((v) => (
-              <span
-                key={`yl-${v}`}
-                className="tabular absolute right-0 -translate-y-1/2 text-[10px]"
-                style={{ top: `${topPct(v)}%`, color: "var(--text-muted)" }}
-              >
-                {v}%
-              </span>
-            ))}
-          </div>
-
-          <div className="relative h-[220px] flex-1 sm:h-[260px]">
-            <svg
-              viewBox={`0 0 ${W} ${H}`}
-              preserveAspectRatio="none"
-              className="block h-full w-full"
-              role="img"
-              aria-label={`Simulações de 2º turno: participação de ${shortName(data.leader)} contra ${series.map((s) => shortName(s.challenger)).join(", ")} ao longo do tempo.`}
-            >
-              <defs>
-                {paths.map((p) => (
-                  <linearGradient key={`g-${p.s.challenger}`} id={`runoff-fill-${p.s.challenger.replace(/[^a-z0-9]+/gi, "-")}`} gradientUnits="userSpaceOnUse" x1={0} x2={0} y1={co(y(yMax))} y2={co(y(yMin))}>
-                    <stop offset="0%" stopColor={p.s.color} stopOpacity={0.16} />
-                    <stop offset="100%" stopColor={p.s.color} stopOpacity={0.02} />
-                  </linearGradient>
-                ))}
-              </defs>
-
-              {gridLevels.map((v) => (
-                <line key={`grid-${v}`} x1={0} x2={W} y1={co(y(v))} y2={co(y(v))} stroke="var(--grid)" strokeWidth={1} vectorEffect="non-scaling-stroke" />
-              ))}
-
-              {paths.map((p) =>
-                p.area ? <path key={`a-${p.s.challenger}`} d={p.area} fill={`url(#runoff-fill-${p.s.challenger.replace(/[^a-z0-9]+/gi, "-")})`} stroke="none" /> : null,
-              )}
-              {paths.map((p) => (
-                <path key={`l-${p.s.challenger}`} d={p.line} fill="none" stroke={p.s.color} strokeWidth={1.9} strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-              ))}
-
-              {showFifty && (
-                <line x1={0} x2={W} y1={co(y(50))} y2={co(y(50))} stroke="var(--axis)" strokeWidth={1} strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
-              )}
-            </svg>
-
-            {showFifty && (
-              <span
-                className="tabular pointer-events-none absolute right-0 -translate-y-1/2 rounded px-1 text-[10px] font-semibold"
-                style={{ top: `${topPct(50)}%`, color: "var(--text-muted)", background: "var(--surface-1)" }}
-              >
-                50%
-              </span>
-            )}
-          </div>
-        </div>
-
-        {ticks.length > 0 && (
-          <div className="flex gap-1.5">
-            <div className="w-8 shrink-0" aria-hidden="true" />
-            <div className="relative mt-2 h-4 flex-1">
-              {ticks.map((t) => (
-                <span key={`${t.label}-${t.leftPct.toFixed(1)}`} className="absolute -translate-x-1/2 text-[10px] uppercase tracking-wide" style={{ left: `${t.leftPct}%`, color: "var(--text-muted)" }}>
-                  {t.label}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Legend — one entry per challenger, coloured by the challenger, with
-            the leader's current share against them. */}
-        <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-          {series.map((s) => (
-            <li key={`leg-${s.challenger}`} className="flex items-center gap-1.5">
-              <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: s.color }} />
-              <span className="truncate">
-                {shortName(data.leader)} vs {shortName(s.challenger)}
-              </span>
-              <span className="tabular font-semibold" style={{ color: "var(--text-primary)" }}>
-                {fmtPct(s.current)}%
-              </span>
-            </li>
-          ))}
-        </ul>
+      {/* Three matchup cards side by side; each stacks on very narrow screens. */}
+      <div className="grid min-w-0 gap-4 sm:grid-cols-3">
+        {data.cards.map((c) => (
+          <MatchupCard key={c.challenger} card={c} leader={data.leader} leaderColor={data.leaderColor} />
+        ))}
       </div>
 
       <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>

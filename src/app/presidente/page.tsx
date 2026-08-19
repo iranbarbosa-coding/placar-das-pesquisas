@@ -110,8 +110,8 @@ export default function PresidentePage() {
         <RejectionPlaceholder />
       </section>
 
-      {/* Row 4 — runoff simulations */}
-      <section className="card min-w-0 p-4 sm:p-6" aria-label="Simulações de 2º turno">
+      {/* Row 4 — runoff simulations (three matchup cards, each its own card) */}
+      <section className="min-w-0" aria-label="Simulações de 2º turno">
         <RunoffSimChart data={runoff} />
       </section>
 

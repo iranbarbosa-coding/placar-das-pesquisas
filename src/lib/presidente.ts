@@ -229,39 +229,43 @@ export function presidentEvolution(): PresidentEvolutionData {
 
 // ── Section 5: the runoff simulation ────────────────────────────────────────
 
-export interface RunoffSimSeries {
+export interface RunoffSimCard {
   challenger: string;
-  /** The challenger's fixed colour — the series is coloured by the CHALLENGER. */
-  color: string;
-  /** The LEADER's second-round share over time, in this matchup. */
-  points: { date: string; avg: number }[];
-  /** The leader's current second-round share against this challenger. */
-  current: number;
+  /** The challenger's fixed colour. The leader keeps his own (Lula = red). */
+  challengerColor: string;
+  /** Both candidates' second-round share at each measurement, over time. */
+  points: { date: string; leader: number; challenger: number }[];
+  /** Current second-round shares. */
+  leaderCurrent: number;
+  challengerCurrent: number;
   polls: number;
 }
 
 export interface RunoffSimData {
   leader: string;
-  series: RunoffSimSeries[];
+  /** The leader's fixed colour (Lula = red), shared by every card. */
+  leaderColor: string;
+  cards: RunoffSimCard[];
 }
 
 /**
- * The leader's second-round share against each of the three registered
- * candidates immediately behind him in the first round. For every such
+ * One card per second-round matchup of the first-round LEADER against each of
+ * the three registered candidates immediately behind him. For every such
  * challenger, find the head-to-head group (matched by the unordered candidate
- * pair, exactly as `runoffCards` does) and take the LEADER's trend inside it —
- * one line per challenger, coloured by the challenger. A challenger with no
- * polled matchup is skipped.
+ * pair, exactly as `runoffCards` does) and take BOTH candidates' trends inside
+ * it — so each card can draw the leader's and the challenger's intention over
+ * time as two area series. A challenger with no polled matchup is skipped.
  */
 export function runoffSim(): RunoffSimData {
   const reg = registeredSet();
   const first = scenarioGroups("presidente", null, 1)[0]?.average ?? null;
-  if (!first?.candidates.length) return { leader: "", series: [] };
+  if (!first?.candidates.length) return { leader: "", leaderColor: "var(--cand-red)", cards: [] };
 
   const registered = first.candidates.filter((c) => reg.has(candKey(c.candidate)));
   const leaderCand = registered[0];
-  if (!leaderCand) return { leader: "", series: [] };
+  if (!leaderCand) return { leader: "", leaderColor: "var(--cand-red)", cards: [] };
   const leaderKey = candKey(leaderCand.candidate);
+  const leaderColor = colorOf(colorMap([leaderCand.candidate]), leaderCand.candidate);
   const challengers = registered.slice(1, 4); // ranks 2, 3, 4 among registered
 
   const groups = scenarioGroups("presidente", null, 2).filter(
@@ -273,25 +277,40 @@ export function runoffSim(): RunoffSimData {
     if (!byPair.has(k)) byPair.set(k, g);
   }
 
-  const series: RunoffSimSeries[] = [];
+  const cards: RunoffSimCard[] = [];
   for (const ch of challengers) {
     const g = byPair.get([leaderKey, candKey(ch.candidate)].sort().join("|"));
     if (!g?.average) continue; // never polled → skip, never invented
     const leaderInMatchup = g.average.candidates.find((c) => candKey(c.candidate) === leaderKey);
-    if (!leaderInMatchup) continue;
+    const chInMatchup = g.average.candidates.find((c) => candKey(c.candidate) === candKey(ch.candidate));
+    if (!leaderInMatchup || !chInMatchup) continue;
+
+    // Challenger value keyed by date, so the two trends merge even if a date is
+    // missing on one side; where it is, fall back to 100 − leader (válidos runoff
+    // sums to 100 between the two).
+    const chByDate = new Map<string, number>();
+    for (const p of chInMatchup.trend ?? []) {
+      if (typeof p.date === "string" && Number.isFinite(p.avg)) chByDate.set(p.date, p.avg);
+    }
     const pts = (leaderInMatchup.trend ?? []).filter(
       (p) => typeof p.date === "string" && Number.isFinite(p.avg),
     );
     if (!pts.length) continue;
-    series.push({
+
+    cards.push({
       challenger: ch.candidate,
-      color: colorOf(colorMap([ch.candidate]), ch.candidate),
-      points: pts.map((p) => ({ date: p.date, avg: p.avg })),
-      current: round1(leaderInMatchup.avg),
+      challengerColor: colorOf(colorMap([ch.candidate]), ch.candidate),
+      points: pts.map((p) => ({
+        date: p.date,
+        leader: p.avg,
+        challenger: chByDate.get(p.date) ?? 100 - p.avg,
+      })),
+      leaderCurrent: round1(leaderInMatchup.avg),
+      challengerCurrent: round1(chInMatchup.avg),
       polls: g.polls.length,
     });
   }
-  return { leader: leaderCand.candidate, series };
+  return { leader: leaderCand.candidate, leaderColor, cards };
 }
 
 // ── Section 6: the presidential state map ───────────────────────────────────
