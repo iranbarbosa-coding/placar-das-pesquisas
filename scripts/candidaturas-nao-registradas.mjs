@@ -441,7 +441,20 @@ const outrasCol = (l) =>
  * AFIRMADA quando ela vale. Se o banco mudar, a frase passa a dizer que já não
  * bate, em vez de continuar afirmando uma igualdade falsa — foi essa espécie de
  * frase (verdadeira no dia em que foi escrita) que produziu quatro falsidades.
- * Cada número sai de `presidencialNacional`, nenhum é digitado.
+ *
+ * Os números do BANCO saem todos de `presidencialNacional`; nenhum é digitado.
+ * Os da MEDIÇÃO não têm de onde sair — e este comentário dizia "cada número sai
+ * de `presidencialNacional`, nenhum é digitado", o que é FALSO nos dois ramos:
+ *   · o CABEÇALHO imprime a DATA da constante — nos dois ramos, sempre;
+ *   · o fecho de NÃO-COINCIDÊNCIA imprime os dois literais (`confrontos`, `cenarios`);
+ *   · o de COINCIDÊNCIA — que é o que o arquivo publica HOJE ("**37 de 47
+ *     confrontos** … é a medida de 17/08/2026") — imprime a DATA outra vez.
+ * Como não há de onde derivá-los, quem os segura é literal no autoteste: os dois
+ * números, a data do cabeçalho e a do fecho que afirma (bloco 14(d)).
+ *
+ * ⚠ "SAIR DE `presidencialNacional`" NÃO É "ESTAR AMARRADO". Os números DESTA
+ * frase estão presos por asserção; os MESMOS números do banco impressos no
+ * placar e nas tabelas não estão presos por nada — ver a nota do bloco 10.
  */
 export function fraseReconciliacao(cat) {
   const r = cat.presidencialNacional;
@@ -697,17 +710,35 @@ function fixtures() {
     // fixture modelava o mundo ANTES do passo 5, e a bateria continuava
     // afirmando que dobrar produz afirmação falsa, o que deixou de ser verdade.
     { person_id: "p_xara_reg", display: "Xará Registrado", registered: true, polled_names: ["Xará Registrado"], candidacies: [{ cargo: "senador", uf: "PI" }] },
-    // ⚠ UMA DISPUTA ESTADUAL — e o que ela cobre é o RESÍDUO, medido: tirá-la
-    // avermelha as nove asserções do resíduo (as do bloco 13 e as duas do bloco
-    // 10 que leem a seção publicada) mais o "os dois lados do corte têm de ser
-    // exercitados", e nada mais. Sem ela `semCandidaturaEstadual` é ZERO, a
-    // seção "O que esta lista NÃO enxerga" cai no ramo "não há resíduo desta
-    // espécie" — o ramo que o arquivo real NÃO publica — e o ramo publicado
-    // (tamanho da sombra, conjunção das duas condições, o que fazer com isso)
-    // fica sem prova nenhuma. A troca dos contadores na glosa do placar — a
-    // falsidade da rodada 4, "292 da disputa nacional … 292 estaduais", de 320 —
-    // quem avermelha é a asserção do bloco 10, não esta linha.
+    // ⚠ A LINHA DE PESSOA DA DISPUTA ESTADUAL. Ela sozinha NÃO COBRE NADA:
+    // apagá-la deixa o autoteste verde, com ZERO falhas — medido. O que ela faz
+    // é dar o `display` "Testado Em Goiás" à linha, que nenhuma asserção lê.
+    //
+    // QUEM COBRE O RESÍDUO É `q17` (com `c_gov`, logo abaixo): é a pergunta que
+    // faz existir uma disputa estadual no catálogo. Tirar `q17` avermelha NOVE
+    // asserções — medido —, e nada mais: seis do bloco 13, duas do bloco 10 (as
+    // que leem a seção publicada) e uma do bloco 12 ("os dois lados do corte têm
+    // de ser exercitados"). Este comentário dava NOVE só aos blocos 13+10, onde
+    // há oito, e portanto DEZ ao todo; a conferência mediu e são nove.
+    //
+    // Sem `q17`, `semCandidaturaEstadual` é ZERO, a seção "O que esta lista NÃO
+    // enxerga" cai no ramo "não há resíduo desta espécie" — o ramo que o arquivo
+    // real NÃO publica — e o ramo publicado (tamanho da sombra, conjunção das
+    // duas condições, o que fazer com isso) fica sem prova nenhuma. A troca dos
+    // contadores na glosa do placar — a falsidade da rodada 4, "292 da disputa
+    // nacional … 28 estaduais", de 320 — quem avermelha é a asserção do bloco
+    // 10, nem esta linha nem `q17`. (O publicado é o INVERSO: 28 na nacional e
+    // 292 nas estaduais. Esta frase dizia "292 … 292", que descreve outra
+    // mutação; conferido contra o arquivo e contra `0bd0642`.)
     { person_id: "p_gov_obs", display: "Testado Em Goiás", registered: false, polled_names: ["Testado Em Goiás"], candidacies: [] },
+    // ⚠ A SEGUNDA PESSOA REGISTRADA NA PRESIDENCIAL, e a única razão dela é
+    // `q18` — o confronto em que TODO MUNDO se registrou. Sem `q18` todo
+    // confronto da amostra nacional é afirmado ou recusado, a soma da
+    // reconciliação IGUALA o denominador, e antes de `q18`/`q19` existirem a
+    // frase publicava "**12 de 12 confrontos** e **13 de 13 cenários**" — fazer
+    // o denominador virar o numerador não mudava uma letra da saída e passava
+    // verde. Ver o bloco 14(b).
+    { person_id: "p_presid2", display: "Presidenciável Registrado", registered: true, polled_names: ["Presidenciável Registrado"], candidacies: [{ cargo: "presidente", uf: null }] },
   ];
   const candidates = [
     { candidate_id: "c_lula", person_id: "p_lula", contest: "presidente:BR", canonical: "Lula", aliases: ["Lula"] },
@@ -727,6 +758,7 @@ function fixtures() {
     { candidate_id: "c_ord", person_id: "p_ord_obs", contest: "presidente:BR", canonical: "Zeta Grafia", aliases: [] },
     { candidate_id: "c_gr", person_id: "p_gr_obs", contest: "presidente:BR", canonical: "Grafia Da Disputa", aliases: [] },
     { candidate_id: "c_gov", person_id: "p_gov_obs", contest: "governador:GO", canonical: "Testado Em Goiás", aliases: [] },
+    { candidate_id: "c_pres2", person_id: "p_presid2", contest: "presidente:BR", canonical: "Presidenciável Registrado", aliases: [] },
   ];
   // A grafia CRUA é a que o instituto publicou; quando ela difere do canônico, o
   // fixture a declara — é justamente essa diferença que separa as duas metades.
@@ -756,7 +788,16 @@ function fixtures() {
     q("q14", "s5", null, 2, ["c_lula", "c_urn2"]),
     q("q15", "s5", null, 2, ["c_lula", "c_ord"]),
     q("q16", "s5", null, 2, ["c_lula", "c_gr"]),
+    // ⚠ `q17` É QUEM COBRE O RESÍDUO — ver a nota em `p_gov_obs`, acima.
     q("q17", "s5", "GO", 1, ["c_gov"], "governador"),
+    // ⚠ O CONFRONTO EM QUE TODO MUNDO SE REGISTROU. Ele não aparece em tabela
+    // nenhuma (é `todos-registrados`), e é exatamente por isso que existe: só
+    // ele abre folga entre a soma da reconciliação e o denominador dela.
+    q("q18", "s1", null, 2, ["c_lula", "c_pres2"]),
+    // ⚠ O SEGUNDO CENÁRIO DE UM CONFRONTO RECUSADO (o mesmo par de `q5`, noutro
+    // levantamento). Sem ele `recusados` e `cenariosRecusados` empatam em 8, e
+    // trocá-los de lugar na frase publicava o mesmo texto nos dois sentidos.
+    q("q19", "s5", null, 2, ["c_lula", "c_amb"]),
   ];
   // O registro do TSE, reduzido ao que este relatório lê dele: quantas
   // candidaturas são nacionais (`uf` nulo) e quantas UFs existem. Os dois
@@ -943,6 +984,44 @@ function autoteste() {
 
   // 10. O RELATÓRIO SE RENDERIZA e carrega as duas tabelas — um catálogo que
   //     agrega certo e imprime errado não vale nada.
+  //
+  //     ⚠ O LIMITE DESTE BLOCO, MEDIDO E ANOTADO, NÃO CONSERTADO.
+  //
+  //     ATENÇÃO AO REFERENCIAL: estas 16 asserções rodam contra o markdown do
+  //     FIXTURE; os números abaixo são do arquivo PUBLICADO. Misturar os dois foi
+  //     o que tornou falsas duas versões anteriores desta nota.
+  //
+  //     O bloco TOCA tabela — trocar o rótulo do confronto, ou o `person_id` da
+  //     linha que contradiz, avermelha (medido). Mas nenhuma das 16 confere o
+  //     VALOR de uma COLUNA recomputado do catálogo: o que elas testam é
+  //     presença (ou ausência) de uma string no markdown INTEIRO — e uma string
+  //     pode aparecer noutra tabela, ou (no publicado) num título, sem que a
+  //     célula visada esteja certa. Medido no fixture: descaracterizar a célula
+  //     de "| Tarcísio |" na tabela de candidatos passa VERDE, porque a mesma
+  //     grafia aparece na coluna `quem` da tabela de confrontos.
+  //
+  //     Por isso a superfície de tabela vaza, e ela é grande: 675 das 1.127
+  //     linhas do arquivo publicado são linha de tabela (`grep -c "^|"`).
+  //     Rodadas por mim, VERDES na bateria — o efeito no arquivo publicado que
+  //     vem descrito a seguir é dedução do código somada à contagem do
+  //     publicado, não medição da mutação sobre ele (o CLI reescreveria o
+  //     artefato):
+  //       · `outrasCol` ignorando a disputa → as 292 células "nenhuma em `UF`
+  //         nem nacional" viram "nenhuma no registro inteiro", afirmando busca no
+  //         registro inteiro onde o casador só varreu uma UF — o defeito de
+  //         origem desta série, de volta inteiro;
+  //       · `l.quem` → `l.indeterminados` → as 108 linhas de confronto afirmado
+  //         ficam sem dizer de QUEM se afirma;
+  //       · cargo e UF trocados no título das 53 seções.
+  //     E na tabela de contradição, publicar o `display`, os `contests` ou a
+  //     grafia da linha OBSERVADA em vez da REGISTRADA passa verde; o
+  //     `person_id` é pego. (Uma conferência contou 24 mutações nessa superfície
+  //     com 21 verdes; reproduzi as três acima e os quatro campos da
+  //     contradição, não as 24.)
+  //
+  //     Fechar isso é uma trava por COLUNA — recomputar cada célula do catálogo
+  //     —, que é rodada própria e mexe em mais do que esta se propôs. Fica dito
+  //     em voz alta em vez de descoberto depois.
   {
     // Pelo mesmo caminho do CLI. Ver `gerar`.
     const { md } = gerar(f);
@@ -1019,13 +1098,24 @@ function autoteste() {
     const sem = fraseResiduo(semEstaduais).join("\n");
     ok(/são todas da disputa nacional/.test(sem), "sem linha estadual, a seção diz que não há resíduo desta espécie");
     ok(!/continua aparecendo aqui/.test(sem), "e não repete a frase do outro ramo");
-    // ⚠ ESTA ASSERÇÃO CONFERE O VALOR, NÃO A DERIVAÇÃO. `ESCOPO_ESTREITO` é uma
-    //   constante avaliada na carga do módulo; trocar a derivação por um literal
-    //   `"estadual"` passa verde aqui, e conferi-la recomputando a mesma
+    // ⚠ ESTAS DUAS ASSERÇÕES CONFEREM O VALOR, NÃO A DERIVAÇÃO. `ESCOPO_ESTREITO`
+    //   é uma constante avaliada na carga do módulo; trocar a derivação por um
+    //   literal `"estadual"` passa verde aqui, e conferi-la recomputando a mesma
     //   expressão seria a segunda implementação da mesma regra (§5). A mensagem
-    //   diz o que ela confere, e não a proteção que não tem.
-    ok(ESCOPO_ESTREITO === "estadual" && ESCOPO_AMPLO === "nacional",
-      `o escopo estreito é \`estadual\` e o amplo \`nacional\` (veio ${ESCOPO_ESTREITO}/${ESCOPO_AMPLO})`);
+    //   diz o que cada uma confere, e não a proteção que não tem.
+    //   DUAS, e não um `&&`: como conjunção única, apagar uma das metades some no
+    //   diff e a outra continua verde — a metade perdida não deixa rastro. Das
+    //   duas, só `ESCOPO_AMPLO` dá para isolar da outra (corrompê-lo avermelha
+    //   esta asserção e mais a do ramo sem resíduo — duas, medido); corromper
+    //   `ESCOPO_ESTREITO` derruba as duas metades, porque `ESCOPO_AMPLO` deriva
+    //   dele. O que a divisão compra é a mensagem própria, não detecção nova.
+    //   ⚠ ANOTADO, NÃO CONSERTADO — decisão de escopo desta rodada, não §9 (que
+    //   é sobre o censo do banco): o bloco 14 ainda carrega SEIS conjunções
+    //   com este mesmo defeito — contadas. Que apagar metade delas passe verde
+    //   não é achado de medição, é aritmética: se `A && B` vale, `A` vale. O que
+    //   custa é o rastro, não a detecção.
+    ok(ESCOPO_ESTREITO === "estadual", `o escopo estreito é \`estadual\` (veio ${ESCOPO_ESTREITO})`);
+    ok(ESCOPO_AMPLO === "nacional", `e o escopo amplo é \`nacional\` (veio ${ESCOPO_AMPLO})`);
   }
 
   // 14. A RECONCILIAÇÃO COM A MEDIÇÃO DE 17/08. O criador tem 37 confrontos /
@@ -1045,6 +1135,22 @@ function autoteste() {
     ok(r.afirmados > 0 && r.recusados > 0, `os dois lados da soma têm de ser exercitados (veio ${r.afirmados}/${r.recusados})`);
     ok(r.afirmados !== r.recusados && r.cenariosAfirmados !== r.cenariosRecusados,
       `e com valores diferentes (veio ${r.afirmados}/${r.recusados} e ${r.cenariosAfirmados}/${r.cenariosRecusados})`);
+    // ⚠ E O CONFRONTO NÃO PODE EMPATAR COM O CENÁRIO. Com `recusados` igual a
+    //   `cenariosRecusados` (8 e 8, como era), trocá-los de lugar na frase
+    //   publicava o MESMO texto nos dois sentidos e passava verde. `q19` é o
+    //   segundo cenário de um confronto recusado, e é ele que os separa.
+    ok(r.recusados !== r.cenariosRecusados,
+      `confronto e cenário do lado recusado têm de diferir (veio ${r.recusados}/${r.cenariosRecusados})`);
+    ok(r.afirmados !== r.cenariosAfirmados,
+      `e o mesmo do lado afirmado (veio ${r.afirmados}/${r.cenariosAfirmados})`);
+    // ⚠ E A SOMA TEM DE SER ESTRITAMENTE MENOR QUE O DENOMINADOR. Iguais (era
+    //   "12 de 12 confrontos" e "13 de 13 cenários"), fazer o denominador virar
+    //   o numerador não mudava uma letra da saída. `q18` — o confronto em que
+    //   todo mundo se registrou — é a única coisa que abre essa folga.
+    ok(r.afirmados + r.recusados < r.total2T,
+      `a soma dos confrontos tem de ficar abaixo do denominador (veio ${r.afirmados + r.recusados}/${r.total2T})`);
+    ok(r.cenariosAfirmados + r.cenariosRecusados < r.cenarios2T,
+      `e a soma dos cenários também (veio ${r.cenariosAfirmados + r.cenariosRecusados}/${r.cenarios2T})`);
     // (c) cada número no SEU papel dentro da frase.
     const rec = fraseReconciliacao(cat).join("\n");
     ok(rec.includes(`o banco guarda ${r.total2T} confrontos de 2º turno em ${r.cenarios2T} cenários`),
@@ -1063,13 +1169,41 @@ function autoteste() {
       "e a soma é somada, nunca digitada");
     // (d) OS DOIS RAMOS. O fixture NÃO bate com a medição, e a frase diz isso;
     //     um catálogo que bata tem de afirmar a igualdade, e só ele.
+    // ⚠ A DATA DO CABEÇALHO TAMBÉM. Ela sai nos DOIS ramos e não era amarrada:
+    //   trocá-la por `cat.inicioPeriodo` publicava "**A medida de 16/08/2026,
+    //   reconciliada.**" contra um fecho que diz 17/08, no mesmo parágrafo.
+    ok(/^\*\*A medida de 17\/08\/2026, reconciliada\.\*\*/.test(rec),
+      `o cabeçalho leva a data da medição (veio ${rec.slice(0, 40)})`);
     ok(/já não dá o mesmo número/.test(rec), "quando a soma não é a medida, a frase diz que não é");
     ok(!/é a medida de/.test(rec), "e NUNCA afirma uma igualdade que não vale");
+    // ⚠ E OS DOIS NÚMEROS DA MEDIÇÃO VÃO FIXOS. Eles vêm de FORA do banco: não
+    //   há de onde derivá-los, então quem os segura é o literal aqui. Sem isto,
+    //   corrompê-los VIRAVA EM SILÊNCIO o ramo que o arquivo publica — hoje o de
+    //   coincidência ("é a medida de 17/08/2026") — para o outro, que passava a
+    //   dizer que o criador "registrou **38 de 2º turno**", com a bateria verde.
+    //   `rec` é a frase do FIXTURE, que cai no ramo de NÃO-COINCIDÊNCIA; é lá que
+    //   os dois literais são impressos, e por isso é lá que dá para prendê-los.
+    //
+    //   O QUE ESTAS DUAS NÃO PEGAM, medido nesta rodada e deixado de fora dela:
+    //   digitar `37`/`434` direto na frase, desligando-a da constante, passa
+    //   verde; digitar a data `17/08/2026` no lugar de `dt(...)`, nos dois ramos,
+    //   passa verde; e a própria CONDIÇÃO `bate` não é testada — trocar o `&&`
+    //   por `||`, ou apagar metade dela, passa verde e o arquivo pode afirmar a
+    //   igualdade com metade dela valendo.
+    ok(/registrou \*\*37 de 2º turno\*\*/.test(rec),
+      `o ramo de não-coincidência leva os 37 confrontos medidos (veio ${rec.match(/registrou \*\*\d+ de 2º turno\*\*/)?.[0]})`);
+    ok(/e \*\*434 cenários\*\*, e este banco/.test(rec),
+      `e os 434 cenários medidos (veio ${rec.match(/e \*\*\d+ cenários\*\*, e este banco/)?.[0]})`);
     const igual = { ...cat, presidencialNacional: { ...r,
       afirmados: MEDICAO_DO_CRIADOR.confrontos - r.recusados,
       cenariosAfirmados: MEDICAO_DO_CRIADOR.cenarios - r.cenariosRecusados } };
     const bate = fraseReconciliacao(igual).join("\n");
-    ok(/é a medida de 17\/08\/2026/.test(bate), "quando bate, afirma — e a data sai em DD/MM/AAAA (§11)");
+    // ⚠ ANCORADA NO TRAVESSÃO, e com a negação barrada em separado. Sem a
+    //   âncora esta regex era satisfeita por "NÃO é a medida de 17/08/2026" —
+    //   a string contém a outra —, e o arquivo publicava a negação exata da
+    //   coisa que o ramo existe para garantir, com a bateria verde. Medido.
+    ok(/— é a medida de 17\/08\/2026/.test(bate), "quando bate, afirma — e a data sai em DD/MM/AAAA (§11)");
+    ok(!/não é a medida de/.test(bate), "e a frase do ramo que afirma NÃO pode ser a negação dela");
     ok(!/já não dá o mesmo número/.test(bate), "sem repetir a frase do outro ramo");
     ok(fraseReconciliacao({ ...cat, presidencialNacional: null }).length === 0,
       "sem disputa presidencial no catálogo, a frase não é inventada");
