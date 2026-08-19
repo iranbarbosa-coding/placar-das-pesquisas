@@ -135,7 +135,10 @@ function main() {
       const canon = canonicalCandidate(lr[i].candidate, contestOfPoll);
       // O cru vai junto como origem, mas SÓ quando difere: na esmagadora
       // maioria das linhas o alias não renomeia nada, e "Lula (cru "Lula")"
-      // gastaria a metade da mensagem repetindo o mesmo nome.
+      // gastaria a metade da mensagem repetindo o mesmo nome. Consequência para
+      // quem for testar isto: a mensagem muda de FORMA com o dado, e o caso raro
+      // é justamente o que leva o sufixo — uma asserção ancorada no formato SEM
+      // sufixo passa verde sem nunca tocar no caso que importa.
       const cru = canon !== lr[i].candidate ? ` (cru "${lr[i].candidate}")` : "";
       if (canon !== pr[i].candidate || Math.abs(lr[i].pct - pr[i].pct) > 0.001) {
         if (fieldDiffs < 15) E(`(b) ${id}: ${canon}${cru} ${lr[i].pct} ≠ ${pr[i].candidate} ${pr[i].pct}`);
