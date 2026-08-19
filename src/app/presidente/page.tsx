@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PresidentBars from "@/components/PresidentBars";
 import RcpPollsTable from "@/components/RcpPollsTable";
 import PresidentEvolution from "@/components/PresidentEvolution";
 import RejectionPlaceholder from "@/components/RejectionPlaceholder";
@@ -10,7 +9,6 @@ import StatePies from "@/components/StatePies";
 import AllPollsTable from "@/components/AllPollsTable";
 import { loadDataset } from "@/lib/data";
 import {
-  presidentBars,
   rcpTable,
   presidentEvolution,
   runoffSim,
@@ -46,7 +44,6 @@ function InfoGlyph() {
 }
 
 export default function PresidentePage() {
-  const bars = presidentBars();
   const rcp = rcpTable(10);
   const evo = presidentEvolution();
   const runoff = runoffSim();
@@ -90,12 +87,7 @@ export default function PresidentePage() {
         </div>
       </header>
 
-      {/* Row 1a — bars, full width */}
-      <section className="card min-w-0 p-4 sm:p-6" aria-label="Média das pesquisas · 1º turno">
-        <PresidentBars data={bars} />
-      </section>
-
-      {/* Row 1b — RCP matrix of the polls in the average, full width */}
+      {/* Row 1 — RCP matrix of the polls in the average, full width */}
       <section className="card min-w-0 p-4 sm:p-6" aria-label="Pesquisas que compõem a média">
         <RcpPollsTable data={rcp} />
       </section>
