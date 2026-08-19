@@ -31,7 +31,7 @@ export interface MastheadProps {
   meta?: React.ReactNode;
 }
 
-type MenuKey = "sobre" | "presidente" | "governadores" | "senado" | "estados" | "metodologia";
+type MenuKey = "sobre" | "presidente" | "segundo-turno" | "governadores" | "senado" | "estados" | "metodologia";
 
 interface MenuLink {
   href: string;
@@ -55,7 +55,7 @@ const STATE_LINKS: MenuLink[] = UFS.map((uf) => ({
   href: `/estados/${uf.toLowerCase()}`,
   label: UF_NAMES[uf],
   tag: uf,
-}));
+})).sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
 
 // Order and labels mirror the redesign mockup: Presidente · Governadores ·
 // Senado · Estados · Metodologia · Sobre. Governadores and Senado have no
@@ -66,13 +66,16 @@ const MENUS: Menu[] = [
     label: "Presidente",
     href: "/presidente",
     links: [
-      { href: "/presidente#turno1", label: "1º turno", note: "Médias e todos os cenários testados" },
-      { href: "/presidente#turno2", label: "2º turno", note: "Confrontos diretos para presidente" },
-      {
-        href: "/segundo-turno",
-        label: "Todos os confrontos",
-        note: "Cada pareamento testado — presidente e governadores",
-      },
+      { href: "/presidente", label: "Disputa presidencial 2026", note: "Média, tendência, simulações de 2º turno e pesquisas por estado" },
+    ],
+  },
+  {
+    key: "segundo-turno",
+    label: "2º turno",
+    href: "/segundo-turno",
+    links: [
+      { href: "/segundo-turno#presidente", label: "Presidente", note: "Confrontos entre candidatos registrados" },
+      { href: "/segundo-turno#governadores", label: "Governadores", note: "Confrontos de 2º turno por estado" },
     ],
   },
   {

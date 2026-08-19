@@ -611,7 +611,7 @@ export function statePies(): StatePie[] {
         s.group.average.candidates.length > 0 &&
         s.group.average.pollCount >= THIN_POLLS,
     )
-    .sort((a, b) => b.group!.average!.pollCount - a.group!.average!.pollCount);
+    .sort((a, b) => UF_NAMES[a.uf].localeCompare(UF_NAMES[b.uf], "pt-BR"));
 
   const norm = (s: string) => candKey(s);
 
