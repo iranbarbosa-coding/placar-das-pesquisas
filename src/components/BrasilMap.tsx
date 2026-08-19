@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { StateMapDatum, MapStatus } from "@/lib/home";
+import type { MapStatus } from "@/lib/home";
+import type { UF } from "@/lib/types";
 
 /**
  * The geographic Brazil map in the sidebar — the creator supplied a real
@@ -14,8 +15,16 @@ import type { StateMapDatum, MapStatus } from "@/lib/home";
  * paths, colouring either shape.
  *
  * Server component — the file is read once at build time. It must not be
- * imported by a client component (fs would break the bundle); `HomeSidebar`,
- * its only caller, is a server component.
+ * imported by a client component (fs would break the bundle); its callers
+ * (`HomeSidebar`, `PresidentStateMap`) are server components.
+ *
+ * TWO COLOURING MODES. The governor sidebar map passes a `status` per state and
+ * lets the STATUS_FILL table below choose the fill (the original behaviour). The
+ * presidential map colours by leader IDENTITY + intensity, a space of fills the
+ * four-value status enum cannot express, so it passes an explicit `fill` per
+ * datum. `fill` wins when present; `status` is the fallback, so the governor map
+ * keeps working untouched. Both fills are CSS token expressions (a `var(--…)` or
+ * a `color-mix(… var(--…) …)`), never a raw hex — theme-awareness is preserved.
  */
 
 const SVG = fs.readFileSync(path.join(process.cwd(), "src/components/brasil-mapa.svg"), "utf-8");
@@ -27,9 +36,20 @@ const STATUS_FILL: Record<MapStatus, string> = {
   sem: "var(--map-sem)", // grey — no recent poll
 };
 
-export default function BrasilMap({ map }: { map: StateMapDatum[] }) {
+/** A paintable state: a `status` (governor map) and/or an explicit token `fill`
+ *  (presidential map). `fill` overrides `status` when both are present. */
+export interface MapDatum {
+  uf: UF;
+  status: MapStatus;
+  fill?: string;
+}
+
+export default function BrasilMap({ map }: { map: MapDatum[] }) {
   const rules = map
-    .map((d) => `#brasil-map .uf-${d.uf},#brasil-map .uf-${d.uf} path{fill:${STATUS_FILL[d.status]};}`)
+    .map((d) => {
+      const fill = d.fill ?? STATUS_FILL[d.status];
+      return `#brasil-map .uf-${d.uf},#brasil-map .uf-${d.uf} path{fill:${fill};}`;
+    })
     .join("");
   const html =
     `<style>` +

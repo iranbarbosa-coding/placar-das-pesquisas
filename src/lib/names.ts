@@ -31,19 +31,45 @@ const HONORIFIC = new Set([
   "juíza", "economista", "engenheiro", "engenheira", "advogado", "advogada",
 ]);
 
+/**
+ * Ballot PROFESSIONS that are NOT part of how the person is known, so they are
+ * DROPPED rather than kept: "Escritor Augusto Cury" → "Augusto", "Veterinário
+ * Wilson Grassi" → "Wilson". The line vs `HONORIFIC` is whether the title brands
+ * the person (kept — "Cabo Daciolo") or is just an occupation label (dropped).
+ */
+const PROFESSION = new Set([
+  "escritor", "escritora", "veterinario", "veterinaria",
+  "empresario", "empresaria", "medico", "medica",
+]);
+
 const bare = (w: string) =>
   w.replace(/\.$/, "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
 export function shortName(name: string): string {
-  const parts = (name ?? "").trim().split(/\s+/).filter(Boolean);
-  if (parts.length <= 1) return name ?? "";
+  let parts = (name ?? "").trim().split(/\s+/).filter(Boolean);
+  // Drop leading occupation labels first (they name nobody), then keep a branding
+  // honorific if that is what leads.
+  while (parts.length > 1 && PROFESSION.has(bare(parts[0]))) parts = parts.slice(1);
+  if (parts.length <= 1) return parts[0] ?? name ?? "";
   return HONORIFIC.has(bare(parts[0])) ? `${parts[0]} ${parts[1]}` : parts[0];
 }
 
-/** Initials for a monogram avatar: at most two letters, honorifics skipped. */
+/**
+ * The DISPLAY form of a name: the full name minus a leading occupation label
+ * ("Escritor Augusto Cury" → "Augusto Cury"). Unlike `shortName` it keeps the
+ * surname; unlike the raw ballot name it drops the profession. Use it for text
+ * display only — never as a colour/identity key (`candKey` must see the original).
+ */
+export function displayName(name: string): string {
+  let parts = (name ?? "").trim().split(/\s+/).filter(Boolean);
+  while (parts.length > 1 && PROFESSION.has(bare(parts[0]))) parts = parts.slice(1);
+  return parts.join(" ") || (name ?? "");
+}
+
+/** Initials for a monogram avatar: at most two letters, titles skipped. */
 export function initials(name: string): string {
   const parts = (name ?? "").trim().split(/\s+/).filter(Boolean);
-  const useful = parts.filter((p) => !HONORIFIC.has(bare(p)) && bare(p).length > 1);
+  const useful = parts.filter((p) => !HONORIFIC.has(bare(p)) && !PROFESSION.has(bare(p)) && bare(p).length > 1);
   const pick = useful.length ? useful : parts;
   const first = pick[0]?.[0] ?? "";
   const last = pick.length > 1 ? pick[pick.length - 1][0] : "";

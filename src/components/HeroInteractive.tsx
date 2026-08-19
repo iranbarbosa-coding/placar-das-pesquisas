@@ -9,7 +9,7 @@ import HeroChart, {
 } from "./HeroChart";
 import { candKey } from "@/lib/average";
 import { colorMap, colorOf, PALETTE_SIZE } from "@/lib/colors";
-import { shortName } from "@/lib/names";
+import { shortName, displayName } from "@/lib/names";
 import { fmtPct } from "@/lib/format";
 import type { RaceAverage } from "@/lib/types";
 
@@ -90,9 +90,13 @@ export interface HeroInteractiveProps {
    *  NAMED (line, KPI, tooltip, "Outros" list); non-registered names fold
    *  anonymously into the "Outros" aggregate. Empty = no filter (degrade). */
   registeredKeys?: string[];
+  /** Tailwind height classes for the plot area. Defaults to the home hero's
+   *  `h-[200px] sm:h-[240px]`; callers can pass a shorter pair for a compact card
+   *  (e.g. the /presidente evolution card at half height). */
+  chartHeightClass?: string;
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [] }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]" }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -162,7 +166,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
 
   const sigBuckets = sigCands.map((c) => ({
     key: candKey(c.candidate),
-    name: c.candidate,
+    name: displayName(c.candidate), // text only; colour/key stay on the raw name
     party: c.party,
     color: colorFor(c.candidate),
   }));
@@ -235,7 +239,10 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
       {/* KPI row — significant candidates + "Outros" (+ bruto Brancos/Nulos/NR),
           elastic in size so a wider field never reformats the page. */}
       {buckets.length > 0 && (
-        <ul className={`flex flex-wrap ${gapCls}`}>
+        // Mobile: a fixed 2-column grid so the cells align in neat rows instead
+        // of the ragged widths a flex-wrap gives with names of different lengths.
+        // From `sm` up (where the whole field fits one row) it reverts to wrap.
+        <ul className={`grid grid-cols-2 sm:flex sm:flex-wrap ${gapCls}`}>
           {buckets.map((k) => (
             <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
               <span className={`tabular font-bold leading-none ${numCls}`} style={{ color: k.color }}>
@@ -274,7 +281,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
               {namedNonSig.map((c) => (
                 <li key={candKey(c.candidate)} className="flex items-baseline justify-between gap-3">
                   <span className="min-w-0 truncate">
-                    {c.candidate}
+                    {displayName(c.candidate)}
                     {c.party ? <span style={{ color: "var(--text-muted)" }}> ({c.party})</span> : null}
                   </span>
                   <span className="tabular shrink-0" style={{ color: "var(--text-muted)" }}>
@@ -308,7 +315,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             ref={plotRef}
             onMouseMove={onMove}
             onMouseLeave={onLeave}
-            className="relative h-[200px] flex-1 sm:h-[240px]"
+            className={`relative flex-1 ${chartHeightClass}`}
           >
             <HeroChart average={average} maxSeries={maxSeries} framed cutoff={cutoff} significantKeys={sigSet} registeredKeys={filterReg ? regSet : null} />
             {showFifty && (
@@ -398,19 +405,13 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             </div>
           </div>
         )}
-        {/* Legend row — the coloured candidates + "Outros" + the 50% line. */}
-        <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-          {candidateBuckets.map((k) => (
-            <li key={`leg-${k.key}`} className="flex items-center gap-1.5">
-              <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: k.color }} />
-              <span className="truncate">{k.name}</span>
-            </li>
-          ))}
-          <li className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
-            <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
-            50% (vitória no 1º turno)
-          </li>
-        </ul>
+        {/* Only the 50% line needs a legend: the candidates are already colour-
+            coded with their values in the KPI row above the chart, so repeating
+            them here is redundant. */}
+        <div className="mt-2 flex items-center gap-1.5 text-[11px]" style={{ color: "var(--text-muted)" }}>
+          <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
+          50% (vitória no 1º turno)
+        </div>
       </div>
     </>
   );
