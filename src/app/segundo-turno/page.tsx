@@ -4,6 +4,8 @@ import MatchupCard from "@/components/MatchupCard";
 import { scenarioGroups, fmtDate } from "@/lib/data";
 import { UFS, UF_NAMES } from "@/lib/types";
 import { displayName } from "@/lib/names";
+import { registeredPresidentKeys } from "@/lib/home";
+import { candKey } from "@/lib/average";
 import type { ScenarioGroup } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -43,7 +45,15 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 export default function SegundoTurnoPage() {
-  const pres = scenarioGroups("presidente", null, 2);
+  // Only projections BETWEEN registered president candidates. A presidential
+  // 2nd-round matchup that includes anyone not registered for president
+  // (Tarcísio, Jair Bolsonaro, Ciro, Haddad…) is not a valid runoff, so it is
+  // dropped — both candidates of the pairing must be registered.
+  const registered = new Set(registeredPresidentKeys());
+  const bothRegistered = (g: ScenarioGroup) =>
+    !!g.average && g.average.candidates.slice(0, 2).every((c) => registered.has(candKey(c.candidate)));
+
+  const pres = scenarioGroups("presidente", null, 2).filter(bothRegistered);
   const { current: presCurrent, older: presOlder } = splitRecent(pres);
 
   const states = UFS.map((uf) => ({
