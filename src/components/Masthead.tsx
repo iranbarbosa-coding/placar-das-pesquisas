@@ -55,7 +55,7 @@ const STATE_LINKS: MenuLink[] = UFS.map((uf) => ({
   href: `/estados/${uf.toLowerCase()}`,
   label: UF_NAMES[uf],
   tag: uf,
-}));
+})).sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
 
 // Order and labels mirror the redesign mockup: Presidente · Governadores ·
 // Senado · Estados · Metodologia · Sobre. Governadores and Senado have no
