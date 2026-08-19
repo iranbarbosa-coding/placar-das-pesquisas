@@ -1532,3 +1532,66 @@ PDF `integra`, exige OCR + schema + validadores nos 3 cargos); **presidente:UF**
 o barato é mais curadoria `add_poll` (o v2 apaga a presidencial estadual, mesmo
 defeito dos reparos), não reescrever o coletor; **methodology** = pequeno SE o CSV
 do TSE tiver a coluna, senão vem do mesmo PDF.
+
+## RODADA SUPERVISIONADA DE 19/08/2026 — a coleta que pôs tudo no ar, e as três abertas
+
+O criador autorizou e a rodada manual `workflow_dispatch` foi disparada (run
+32208332431 → commit `d75e7e7`; o conserto do `integra_url` veio depois em
+`86b5144`; catálogo regenerado + emenda ao CONVENTIONS §1 + fixture da linhagem em
+`ae66e7d`). Store reconstruído: **1.013 · 2.996 · 864 · 1.088**. Todos os 25 reparos
++ o da Ideia aplicados. **Paridade PASSOU** (2995×2995, 0 divergências). **Ravenna
+curada** — `senador:PI` virou "Ravenna da Inclusão", mesma pessoa `p_bad76224457b`,
+sem duplicar; o vermelho sumiu sozinho no rebuild, exatamente a previsão medida no
+sandbox. O `integra_url` passa a preencher na PRÓXIMA coleta.
+
+### 🔴 A ESTREIA DA RETENÇÃO NÃO ACONTECEU — condição 1 continua ABERTA
+Três leituras cegas independentes (bateram em cada número; o protocolo de troca
+simultânea pegou um erro de contagem de uma delas): **ELENCO RETIDO = 0** no log ·
+**roster_encolhido_na_fonte = 0** · self-test da retenção 9/9. A retenção NÃO
+FALHOU; **NÃO DISPAROU** — a fonte serviu os elencos cheios desta vez, e o
+`p360-13816` (o caso que suspendeu o agendamento, 10 no banco × 2 temidos na API)
+veio com os 10, líder e vice intactos. O risco foi **evitado pela sorte da fonte,
+não medido**. **NÃO religar o agendamento com base nesta rodada:** a retenção segue
+sem nunca ter rodado contra um encolhimento real (§2). O item 1 do `update-polls.yml`
+está aberto.
+
+### Identidades partidas na coleta — família Ravenna, criada AGORA
+Mecanismo: um nome que ESTREIA numa UF onde a pessoa já existia é cunhado como
+identidade NOVA, porque o casador não alcança entre disputas. Duas origens nesta
+rodada:
+- **2 duplicatas dos reparos estaduais**: `Lula` em `presidente:AP`
+  (`p_6b71c0d7e999`, dup da registrada `p_60768259dc7a`, que tinha 26 contests menos
+  AP) e `Samara` em `presidente:RN` (dup da registrada). Restaurar o líder numa UF
+  onde a registrada não tinha linha cunhou observada em vez de anexar.
+- **6 contradições novas da coleta** (número FIRME, extração limpa validada contra o
+  placar do script): contradição **6→12**; ENTRARAM 7 [`senador:MT` 3 (Beny Godoy,
+  Coronel Darwin, Prof. Nelson Ferreira) · `senador:SE` 2 (Paulinho da União Tur,
+  Renatinha) · `governador:MT` 1 (Maurício Coelho) · `presidente:BR` 1 (Lula)], SAIU
+  1 (Ravenna → não-determinado). ⚠ Só **Lula** liga as duplicatas ao balde de
+  contradição — Samara é duplicata mas NÃO virou contradição. O grosso (MT 4 + SE 2)
+  é pesquisa NOVA de MT/SE partindo nome existente, não os reparos.
+Não é bug de DADO (canonical certo, médias e rótulos intactos, nenhum validador
+reprova) — é dívida de IDENTIDADE, e a Ravenna provou que não se resolve sozinha.
+Decisão do criador: (i) a escada anexar à registrada em disputa nova; (ii) o que
+fazer com as identidades já partidas. Front de linhagem; ninguém escreve
+`people.ndjson` nem propõe ruling sem a liberação dele.
+
+### Placar do catálogo, CONVENTIONS, e o que ficou engatilhado
+- Catálogo (ae66e7d): **320·59·12·10·108** — todas as mudanças em balde de RECUSA;
+  nenhum afirmativo mexeu (ninguém passou a ser afirmado sem candidatura pela coleta).
+- CONVENTIONS §1 emendado (`120044c`): "uma frase também é afirmação".
+- **Aprovado para DEPOIS desta rodada**: as travas por COLUNA nas tabelas do
+  relatório — 21 mutações passam verdes porque nenhuma asserção confere valor de
+  coluna contra o catálogo; a pior faz 292 linhas afirmarem "nenhuma no registro
+  inteiro" varrendo uma UF só. É o defeito de origem da série, inteiro.
+
+### A disciplina que esta rodada testou
+Três sessões escrevendo no mesmo repo, ZERO corrida de artefato: push freeze com o
+job no ar (o job commita o banco no fim; um push concorrente o recusa e mata a
+rodada), leituras cegas do log com troca simultânea, e autoridade de release
+centralizada e RELATADA — um par age sobre a liberação relatada do criador, nunca
+sobre a palavra de outro par (a cadeia não carrega procedência). E várias
+afirmações NÃO MEDIDAS saíram erradas e foram pegas por leitura cruzada: a previsão
+6→5 deu 6→12; "Lula/Flávio casam pessoa existente" deu duas duplicatas; "Samara
+aparece na contradição" era lixo de extração. Cada uma corrigida com número. É o §1
+em ação, e a razão da emenda ao §1.
