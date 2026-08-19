@@ -85,6 +85,7 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
             <tr style={{ borderBottom: "1px solid var(--ring)" }}>
               <th className={`${TH} text-left`}>Instituto</th>
               <th className={`${TH} text-left`}>Data</th>
+              <th className={`${TH} text-left`}>% para 50</th>
               {data.candidates.map((c) => (
                 <th key={c.key} className={`${TH} text-right`}>
                   <span className="inline-flex items-center gap-1">
@@ -93,7 +94,6 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                   </span>
                 </th>
               ))}
-              <th className={`${TH} text-right`}>% para 50</th>
             </tr>
           </thead>
           <tbody>
@@ -105,6 +105,9 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
               <td className={`${TD} text-left`} style={{ color: "var(--text-muted)" }}>
                 —
               </td>
+              <td className={`${TD} text-left`}>
+                <SpreadChip spread={data.average.spread} />
+              </td>
               {data.average.values.map((v, i) => (
                 <td
                   key={data.candidates[i].key}
@@ -114,9 +117,6 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                   {v == null ? "—" : `${fmtPct(v)}%`}
                 </td>
               ))}
-              <td className={`${TD} text-right`}>
-                <SpreadChip spread={data.average.spread} />
-              </td>
             </tr>
 
             {/* One row per poll. */}
@@ -130,6 +130,9 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                   <td className={`${TD} tabular text-left`} style={{ color: "var(--accent)" }}>
                     {fmtDate(r.date)}
                   </td>
+                  <td className={`${TD} text-left`}>
+                    <SpreadChip spread={r.spread} />
+                  </td>
                   {r.values.map((v, i) => (
                     <td
                       key={data.candidates[i].key}
@@ -139,9 +142,6 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                       {v == null ? "—" : `${fmtPct(v)}%`}
                     </td>
                   ))}
-                  <td className={`${TD} text-right`}>
-                    <SpreadChip spread={r.spread} />
-                  </td>
                 </tr>
               );
             })}
