@@ -55,8 +55,8 @@ export interface AverageChartProps {
 // ── geometry ──────────────────────────────────────────────────────────────
 // Two viewBoxes: wide reserves a column on the right for the panel; narrow
 // gives the whole frame to the lines because the panel stacks below it.
-const WIDE = { W: 860, H: 340, pad: { top: 18, right: 196, bottom: 30, left: 38 } };
-const NARROW = { W: 420, H: 300, pad: { top: 14, right: 14, bottom: 28, left: 32 } };
+const WIDE = { W: 860, H: 165, pad: { top: 12, right: 196, bottom: 24, left: 38 } };
+const NARROW = { W: 420, H: 200, pad: { top: 12, right: 14, bottom: 24, left: 32 } };
 /** Below this rendered width the panel stops fitting inside the frame. */
 const STACK_BELOW = 640;
 /** Panel row box height and minimum centre-to-centre spacing, in CSS pixels. */

@@ -16,8 +16,8 @@ import type { ScenarioGroup } from "@/lib/data";
 export default function RaceSection({ groups, heading }: { groups: ScenarioGroup[]; heading: string }) {
   if (!groups.length) {
     return (
-      <section>
-        <h2 className="mb-2 text-xl font-bold">{heading}</h2>
+      <section className="flex flex-col gap-3">
+        <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>{heading}</h2>
         <p className="card p-4 text-sm" style={{ color: "var(--text-secondary)" }}>
           Ainda não há pesquisas publicadas para esta disputa. Assim que forem registradas e
           divulgadas, aparecerão aqui automaticamente.
@@ -27,8 +27,8 @@ export default function RaceSection({ groups, heading }: { groups: ScenarioGroup
   }
 
   return (
-    <section className="space-y-10">
-      <h2 className="text-xl font-bold">{heading}</h2>
+    <section className="flex flex-col gap-6">
+      <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>{heading}</h2>
       {groups.map((g) => (
         <RaceView
           key={g.scenario}
