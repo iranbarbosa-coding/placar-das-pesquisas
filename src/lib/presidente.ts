@@ -133,18 +133,22 @@ export function presidentBars(): PresidentBarsData {
 
 // ── Momentum: each candidate's 30-day change ────────────────────────────────
 
+/** The windows the momentum toggle offers, in days. */
+export type MomentumWindow = 60 | 30 | 15;
+export const MOMENTUM_WINDOWS: MomentumWindow[] = [60, 30, 15];
+
 export interface MomentumRow {
   candidate: string;
   short: string;
   color: string;
-  /** 30-day change in p.p. (signed); 0 when the trend is too short to read. */
-  delta: number;
+  /** Signed change in p.p. for each window (0 when the trend is too short). */
+  deltas: Record<MomentumWindow, number>;
 }
 
 /**
- * The named roster with each candidate's 30-day change, sorted by that change
- * (biggest riser first). Same roster/colours as the rest of the page; the delta
- * reuses `candDelta` over each candidate's own rolling trend.
+ * The named roster with each candidate's change over 60/30/15 days — the client
+ * toggle picks the window and re-sorts. Same roster/colours as the rest of the
+ * page; each delta reuses `candDelta` over the candidate's own rolling trend.
  */
 export function presidentMomentum(): MomentumRow[] {
   const g = scenarioGroups("presidente", null, 1)[0];
@@ -152,14 +156,16 @@ export function presidentMomentum(): MomentumRow[] {
   if (!avg) return [];
   const reg = registeredSet();
   const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
-  return namedRoster(avg, reg)
-    .map((c) => ({
-      candidate: c.candidate,
-      short: shortName(c.candidate),
-      color: colorOf(cmap, c.candidate),
-      delta: candDelta(c.trend, 30) ?? 0,
-    }))
-    .sort((a, b) => b.delta - a.delta);
+  return namedRoster(avg, reg).map((c) => ({
+    candidate: c.candidate,
+    short: shortName(c.candidate),
+    color: colorOf(cmap, c.candidate),
+    deltas: {
+      60: candDelta(c.trend, 60) ?? 0,
+      30: candDelta(c.trend, 30) ?? 0,
+      15: candDelta(c.trend, 15) ?? 0,
+    },
+  }));
 }
 
 // ── A compact poll row, shared by the two tables ────────────────────────────
