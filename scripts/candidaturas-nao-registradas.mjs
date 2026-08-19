@@ -822,6 +822,44 @@ function fixtures() {
   return { questions, surveys, candidates, people, crus, ballot, candidaturas };
 }
 
+/**
+ * O MARKDOWN PUBLICADO, LIDO DE VOLTA — por disputa, por tabela, e com as células
+ * indexadas pelo NOME DA COLUNA.
+ *
+ * NÃO é a segunda implementação do renderizador (§5): é o INVERSO dele. O
+ * renderizador escreve linha; este lê célula pelo nome que a própria tabela
+ * publica; e quem decide se está certo é o CATÁLOGO, que é a fonte dos dois.
+ *
+ * Ler pelo NOME, e não pela posição, é o que faz a conferência valer: uma troca
+ * de colunas deixa o valor certo no arquivo, debaixo do nome errado — e é
+ * exatamente isso que passava verde.
+ */
+function tabelasPublicadas(md) {
+  const out = [];
+  let disputa = null, tabela = null, cab = null;
+  const celulas = (ln) => ln.replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim());
+  for (const ln of md.split("\n")) {
+    if (ln.startsWith("## ")) {
+      const sec = /^## .+ — `([^`]+)`$/.exec(ln);
+      disputa = sec ? sec[1] : null;
+      tabela = sec ? null : ln.slice(3).trim();
+      cab = null;
+      continue;
+    }
+    if (ln.startsWith("### ")) { tabela = ln.slice(4).trim(); cab = null; continue; }
+    // Linha em branco fecha a tabela: a seção "Não determinados" publica DUAS
+    // tabelas com cabeçalhos diferentes, e sem isto a segunda herdaria a primeira.
+    if (!ln.startsWith("|")) { cab = null; continue; }
+    const c = celulas(ln);
+    if (c.every((x) => /^-+$/.test(x))) continue;
+    if (!cab) { cab = c; continue; }
+    const col = {};
+    cab.forEach((nome, i) => { col[nome] = c[i] ?? ""; });
+    out.push({ disputa, tabela, col });
+  }
+  return out;
+}
+
 function autoteste() {
   const falhas = [];
   const ok = (cond, msg) => { if (!cond) falhas.push(msg); };
@@ -985,43 +1023,34 @@ function autoteste() {
   // 10. O RELATÓRIO SE RENDERIZA e carrega as duas tabelas — um catálogo que
   //     agrega certo e imprime errado não vale nada.
   //
-  //     ⚠ O LIMITE DESTE BLOCO, MEDIDO E ANOTADO, NÃO CONSERTADO.
+  //     ⚠ O LIMITE DESTE BLOCO — e o que o bloco 10b, logo abaixo, passou a
+  //     cobrir. ATENÇÃO AO REFERENCIAL: estas 16 asserções rodam contra o
+  //     markdown do FIXTURE; números do arquivo PUBLICADO ficam nomeados como
+  //     tais. Misturar os dois tornou falsas duas versões anteriores desta nota.
   //
-  //     ATENÇÃO AO REFERENCIAL: estas 16 asserções rodam contra o markdown do
-  //     FIXTURE; os números abaixo são do arquivo PUBLICADO. Misturar os dois foi
-  //     o que tornou falsas duas versões anteriores desta nota.
+  //     O que ESTE bloco faz é testar PRESENÇA (ou ausência) de string no
+  //     markdown inteiro. Ele toca tabela — trocar o rótulo do confronto, ou o
+  //     `person_id` da linha que contradiz, avermelha —, mas presença não
+  //     distingue a célula certa da célula ao lado: uma troca de colunas deixa o
+  //     valor no arquivo, debaixo do nome errado, e o `includes` continua verde.
+  //     A superfície é grande: 675 das 1.127 linhas do arquivo publicado são
+  //     linha de tabela (`grep -c "^|"`).
   //
-  //     O bloco TOCA tabela — trocar o rótulo do confronto, ou o `person_id` da
-  //     linha que contradiz, avermelha (medido). Mas nenhuma das 16 confere o
-  //     VALOR de uma COLUNA recomputado do catálogo: o que elas testam é
-  //     presença (ou ausência) de uma string no markdown INTEIRO — e uma string
-  //     pode aparecer noutra tabela, ou (no publicado) num título, sem que a
-  //     célula visada esteja certa. Medido no fixture: descaracterizar a célula
-  //     de "| Tarcísio |" na tabela de candidatos passa VERDE, porque a mesma
-  //     grafia aparece na coluna `quem` da tabela de confrontos.
+  //     O BLOCO 10b FECHA ESSA FUGA lendo a tabela de volta pelo NOME da coluna
+  //     e conferindo cada célula contra o catálogo. Onze mutações de código que
+  //     passavam VERDES avermelham por causa dele, medidas uma a uma: `outrasCol`
+  //     ignorando a disputa (a pior — 292 linhas do arquivo real afirmariam
+  //     "nenhuma no registro inteiro" onde o casador só varreu uma UF); as três
+  //     da tabela de contradição (display, contests e grafia da linha OBSERVADA
+  //     em vez da REGISTRADA); `l.quem` → `l.indeterminados`; 1º e último campo
+  //     trocados; cargo e UF trocados no título; e quatro células do placar.
   //
-  //     Por isso a superfície de tabela vaza, e ela é grande: 675 das 1.127
-  //     linhas do arquivo publicado são linha de tabela (`grep -c "^|"`).
-  //     Rodadas por mim, VERDES na bateria — o efeito no arquivo publicado que
-  //     vem descrito a seguir é dedução do código somada à contagem do
-  //     publicado, não medição da mutação sobre ele (o CLI reescreveria o
-  //     artefato):
-  //       · `outrasCol` ignorando a disputa → as 292 células "nenhuma em `UF`
-  //         nem nacional" viram "nenhuma no registro inteiro", afirmando busca no
-  //         registro inteiro onde o casador só varreu uma UF — o defeito de
-  //         origem desta série, de volta inteiro;
-  //       · `l.quem` → `l.indeterminados` → as 108 linhas de confronto afirmado
-  //         ficam sem dizer de QUEM se afirma;
-  //       · cargo e UF trocados no título das 53 seções.
-  //     E na tabela de contradição, publicar o `display`, os `contests` ou a
-  //     grafia da linha OBSERVADA em vez da REGISTRADA passa verde; o
-  //     `person_id` é pego. (Uma conferência contou 24 mutações nessa superfície
-  //     com 21 verdes; reproduzi as três acima e os quatro campos da
-  //     contradição, não as 24.)
-  //
-  //     Fechar isso é uma trava por COLUNA — recomputar cada célula do catálogo
-  //     —, que é rodada própria e mexe em mais do que esta se propôs. Fica dito
-  //     em voz alta em vez de descoberto depois.
+  //     O QUE CONTINUA ABERTO, e é decisão de escopo, não descuido: a cobertura
+  //     de 10b é por AMOSTRA — uma linha por espécie de coluna, escolhida por ser
+  //     não-degenerada —, não uma varredura de todas as ~90 interpolações do
+  //     relatório. Uma conferência contou 24 mutações nessa superfície com 21
+  //     verdes; onze estão fechadas e medidas aqui, as demais não foram
+  //     reproduzidas nem fechadas.
   {
     // Pelo mesmo caminho do CLI. Ver `gerar`.
     const { md } = gerar(f);
@@ -1049,6 +1078,125 @@ function autoteste() {
     ok(md.includes(`mais as ${cat.candidaturasNacionais} candidaturas nacionais`), "a glosa do placar publica o número de candidaturas nacionais que o registro tem");
     ok(md.includes(`as ${cat.candidaturasNacionais} candidaturas nacionais —`), "e o resíduo também");
     ok(!/\b13 candidaturas nacionais\b/.test(md) || cat.candidaturasNacionais === 13, "nenhum literal solto de candidaturas nacionais");
+  }
+
+  // 10b. AS CÉLULAS, CONFERIDAS CONTRA O CATÁLOGO — não a presença da string.
+  //
+  //      O bloco 10 confere que certas strings SAEM no markdown. Isso deixa
+  //      passar a troca de colunas: o valor certo continua no arquivo, debaixo do
+  //      nome errado, e o `includes` não vê. Foram 21 mutações de código medidas
+  //      VERDES por causa disso — a pior fazendo 292 linhas do arquivo real
+  //      afirmarem "nenhuma no registro inteiro" onde o casador só varreu uma UF,
+  //      que é o defeito de origem desta série inteira.
+  //
+  //      Aqui a tabela publicada é LIDA DE VOLTA pelo NOME da coluna
+  //      (`tabelasPublicadas`) e cada célula é conferida contra `cat`.
+  {
+    const { md } = gerar(f);
+    const pub = tabelasPublicadas(md);
+    const linhasDe = (d, t) => pub.filter((r) => r.disputa === d && (r.tabela ?? "").startsWith(t));
+    const porId = (d, t, id) => linhasDe(d, t).find((r) => r.col["`person_id`"] === `\`${id}\``);
+
+    // (a) A COLUNA DO ALCANCE DEPENDE DA DISPUTA DA LINHA. Ignorar a disputa e
+    //     escrever sempre a negativa nacional é o defeito de origem, e passava
+    //     verde porque a frase forte também existe legitimamente noutras linhas.
+    for (const s of cat.disputas) {
+      for (const l of s.candidatos) {
+        const r = porId(s.disputa, "Testados sem candidatura", l.person_id);
+        ok(!!r, `a linha de ${l.display} tem de estar publicada em ${s.disputa}`);
+        if (!r) continue;
+        const cel = r.col["candidatura em outra disputa"] ?? "";
+        const uf = s.disputa.split(":")[1];
+        if (l.classe !== "sem-candidatura") {
+          for (const o of l.outras) ok(cel.includes(`\`${o}\``), `a linha de outra-disputa publica a disputa DELA (veio "${cel}")`);
+        } else if (uf === "BR") {
+          ok(cel === "nenhuma no registro inteiro", `na nacional a célula leva a negativa forte (veio "${cel}")`);
+        } else {
+          ok(cel.includes(`\`${uf}\``), `na estadual a célula NOMEIA A UF DA LINHA (veio "${cel}" em ${s.disputa})`);
+          ok(cel !== "nenhuma no registro inteiro", `e nunca a negativa forte numa disputa estadual (${s.disputa})`);
+        }
+      }
+    }
+
+    // (b) AS DUAS DATAS, CADA UMA NA SUA COLUNA. `Ciro Gomes` tem 1º e último
+    //     campo DIFERENTES — foi `q19` que comprou isso. Iguais, trocar as duas
+    //     colunas de lugar não muda uma letra do arquivo.
+    {
+      const nd = achaNd("Ciro Gomes");
+      ok(nd?.primeiro !== nd?.ultimo, `o fixture tem de ter as duas datas diferentes (veio ${nd?.primeiro}/${nd?.ultimo})`);
+      const r = porId("presidente:BR", "Não determinados", nd?.person_id);
+      ok(r?.col["1º campo"] === dt(nd?.primeiro), `a coluna 1º campo leva o PRIMEIRO (veio ${r?.col["1º campo"]}, esperado ${dt(nd?.primeiro)})`);
+      ok(r?.col["último campo"] === dt(nd?.ultimo), `e a de último leva o ÚLTIMO (veio ${r?.col["último campo"]}, esperado ${dt(nd?.ultimo)})`);
+    }
+
+    // (c) A TABELA DE CONTRADIÇÃO NOMEIA A LINHA REGISTRADA, nunca a observada.
+    //     Publicar o `display`, os `contests` ou a grafia da observada atribui a
+    //     candidatura a quem não a tem — e três dos quatro campos passavam verde.
+    {
+      const l = achaContra("Nome Rachado");
+      const cel = porId("presidente:BR", "Recusados", l?.person_id)?.col["a linha que contradiz"] ?? "";
+      ok(cel.includes("`p_rachado_reg`"), `a célula nomeia o person_id da REGISTRADA (veio "${cel}")`);
+      ok(!cel.includes(`\`${l?.person_id}\``), "e NÃO o da observada, que já é a primeira coluna da mesma linha");
+      ok(cel.includes("`senador:DF`"), `e a candidatura publicada é a DELA, não a disputa desta seção (veio "${cel}")`);
+      // ⚠ O DISPLAY EXIGE OUTRA LINHA. Em `Nome Rachado` a observada e a
+      //   registrada EXIBEM O MESMO TEXTO, então trocar `x.display` por
+      //   `l.display` não muda uma letra e passa verde — degenerescência de
+      //   fixture, a mesma espécie do bloco 14(b). `Grafia Compartilhada` é
+      //   publicada sob um nome e registrada sob outro, e é ela que separa.
+      const g = achaContra("Grafia Compartilhada");
+      const celG = porId("presidente:BR", "Recusados", g?.person_id)?.col["a linha que contradiz"] ?? "";
+      ok(g?.display !== g?.contradiz?.[0]?.display,
+        `o fixture precisa de uma contradição em que os dois displays DIFIRAM (veio ${g?.display}/${g?.contradiz?.[0]?.display})`);
+      ok(celG.startsWith(`${g?.contradiz?.[0]?.display} `), `a célula abre com o display da REGISTRADA (veio "${celG}")`);
+      ok(!celG.startsWith(`${g?.display} `), "e não com o da observada, que é a primeira coluna da linha");
+      // ⚠ E A GRAFIA EXIGE UMA TERCEIRA LINHA, pelo mesmo motivo: onde a grafia
+      //   que colide é igual ao display, trocá-la não muda o texto. Em
+      //   `Outro Display` a colisão vem por "Grafia Da Disputa", que não é nem o
+      //   display da observada nem o da registrada.
+      const gr = achaContra("Outro Display");
+      const celGr = porId("presidente:BR", "Recusados", gr?.person_id)?.col["a linha que contradiz"] ?? "";
+      const grafia = gr?.contradiz?.[0]?.grafia;
+      ok(grafia !== gr?.display, `o fixture precisa de uma grafia de colisão diferente do display (veio ${grafia}/${gr?.display})`);
+      ok(celGr.includes(`pela grafia "${grafia}"`), `a célula publica a GRAFIA QUE COLIDE (veio "${celGr}")`);
+    }
+
+    // (d) "QUEM NÃO TEM CANDIDATURA" É O AFIRMADO, e não o indeterminado. Os
+    //     dois conjuntos são disjuntos, então a troca esvazia a coluna nas 108
+    //     linhas afirmadas do arquivo real, sem quebrar nenhuma string.
+    {
+      const c = pres.confrontos.find((x) => x.rotulo === "Jair Bolsonaro × Lula");
+      ok((c?.quem ?? []).length > 0, "o fixture tem de ter alguém afirmado nesse confronto");
+      const r = linhasDe("presidente:BR", "Confrontos").find((x) => x.col["confronto"] === c?.rotulo);
+      ok(r?.col["quem não tem candidatura na disputa"] === (c?.quem ?? []).join(" · "),
+        `a coluna publica os AFIRMADOS (veio "${r?.col["quem não tem candidatura na disputa"]}", esperado "${(c?.quem ?? []).join(" · ")}")`);
+    }
+
+    // (e) O TÍTULO DA SEÇÃO CASA COM A CHAVE QUE ELE MESMO PUBLICA. Trocar cargo
+    //     e UF de lugar mantém as duas palavras na linha, então `includes` não vê.
+    for (const s of cat.disputas) {
+      const [race, uf] = s.disputa.split(":");
+      const linha = md.split("\n").find((x) => x.startsWith("## ") && x.endsWith(`— \`${s.disputa}\``));
+      const m = /^## (.+) · (.+) — `.+`$/.exec(linha ?? "");
+      ok(m?.[1] === (RACE_NOME[race] ?? race), `o CARGO vem antes do ponto em ${s.disputa} (veio "${m?.[1]}")`);
+      ok(m?.[2] === (uf === "BR" ? "Brasil" : uf), `e a UF depois (veio "${m?.[2]}")`);
+    }
+
+    // (f) CADA CÉLULA DO PLACAR COM O SEU CONTADOR. O bloco 12 prova que a SOMA
+    //     fecha; a soma fecha igual com dois contadores trocados de linha.
+    {
+      const p = cat.placar;
+      const q = (rot) => pub.find((r) => r.tabela === "Placar" && r.col["população"] === rot)?.col["quantas"];
+      const par = [
+        ["**SEM CANDIDATURA**", `**${p.semCandidatura}**`],
+        ["**OUTRA DISPUTA**", `**${p.outraDisputa}**`],
+        ["*contradição no nosso banco*", String(p.contradicoes)],
+        ["*não determinado*", String(p.indeterminados)],
+        ["**confrontos de 2º turno**", `**${p.confrontos}**`],
+        ["*confrontos não determinados*", String(p.confrontosIndeterminados)],
+        ["*denominador*", String(p.total2T)],
+      ];
+      for (const [rot, esperado] of par) ok(q(rot) === esperado, `a célula "${rot}" leva o contador dela (veio ${q(rot)}, esperado ${esperado})`);
+    }
   }
 
   // 11. O PLACAR SOMA O QUE AS TABELAS MOSTRAM. Um placar derivado por outra
