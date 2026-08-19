@@ -90,9 +90,13 @@ export interface HeroInteractiveProps {
    *  NAMED (line, KPI, tooltip, "Outros" list); non-registered names fold
    *  anonymously into the "Outros" aggregate. Empty = no filter (degrade). */
   registeredKeys?: string[];
+  /** Tailwind height classes for the plot area. Defaults to the home hero's
+   *  `h-[200px] sm:h-[240px]`; callers can pass a shorter pair for a compact card
+   *  (e.g. the /presidente evolution card at half height). */
+  chartHeightClass?: string;
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [] }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]" }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -308,7 +312,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             ref={plotRef}
             onMouseMove={onMove}
             onMouseLeave={onLeave}
-            className="relative h-[200px] flex-1 sm:h-[240px]"
+            className={`relative flex-1 ${chartHeightClass}`}
           >
             <HeroChart average={average} maxSeries={maxSeries} framed cutoff={cutoff} significantKeys={sigSet} registeredKeys={filterReg ? regSet : null} />
             {showFifty && (

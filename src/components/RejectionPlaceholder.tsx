@@ -75,22 +75,16 @@ export default function RejectionPlaceholder() {
         </div>
       </div>
 
-      {/* Empty state at real-chart height, so the card holds its shape. */}
+      {/* Empty state at HALF the chart height (owner's call), so the card is
+          compact but still reads as an intentional placeholder. */}
       <div
-        className="flex h-[200px] flex-col items-center justify-center gap-2 rounded-lg text-center sm:h-[240px]"
+        className="flex h-[100px] flex-col items-center justify-center gap-1.5 rounded-lg px-3 text-center sm:h-[120px]"
         style={{ background: "var(--surface-2)", border: "1px dashed var(--ring)" }}
       >
-        <span
-          aria-hidden="true"
-          className="flex h-9 w-9 items-center justify-center rounded-full text-lg"
-          style={{ background: "var(--surface-1)", color: "var(--text-muted)" }}
-        >
-          ⏳
-        </span>
         <p className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>
-          Em breve — dados de rejeição em coleta.
+          ⏳ Em breve — dados de rejeição em coleta.
         </p>
-        <p className="max-w-[42ch] text-xs" style={{ color: "var(--text-muted)" }}>
+        <p className="max-w-[54ch] text-xs" style={{ color: "var(--text-muted)" }}>
           Assim que os institutos divulgarem séries de rejeição, elas aparecerão aqui, com as bases
           bruta e líquida.
         </p>

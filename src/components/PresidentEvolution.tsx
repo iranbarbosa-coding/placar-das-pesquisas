@@ -116,6 +116,9 @@ export default function PresidentEvolution({ average, registeredKeys, significan
         cutoff={cutoff}
         significantKeys={significantKeys}
         registeredKeys={registeredKeys}
+        // Half the home hero's plot height — the owner wants this card (and the
+        // rejection card below it) at half the vertical size.
+        chartHeightClass="h-[100px] sm:h-[120px]"
       />
     </div>
   );
