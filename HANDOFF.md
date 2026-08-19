@@ -1431,3 +1431,66 @@ indexes in the same breath.** `store._indexes` currently holds `byReg`, `byRef`,
 `rosters`, `surveyById`, `questionById`, `questionsBySurvey`, `instituteByAlias`
 and `candidateByAlias`; each one needs an answer to "what updates this during a
 run?"
+
+## SESSÃO DE 18/08/2026 (continuação) — lacunas presidenciais e a lição das fontes
+
+**Estado**: `main` limpo e pushado. Nada aplicado ainda — ver o gating do pipeline
+abaixo.
+
+### 25 reparos curados escritos a `data/repairs.json` (NÃO aplicados)
+Cada um: DOIS leitores cegos por relatório em diretórios SEPARADOS, transcrições
+idênticas, e um agente DIFERENTE refez aritmética + doutrina do `outros` antes do
+commit (§1). Todos restauram linhas que o `v2/cenarios` apagou e/ou separam
+`branco/nulo` de `não sabe` que o agregador funde.
+- **19 nacionais** presidenciais (`11eaeaf`): Alfa BR-04488, Quaest BR-06773,
+  Vox BR-01084 (2º turno), RTBD BR-09247, Ideia BR-04579. Nenhum move o placar —
+  o agregador sempre serve os líderes; o que ele apaga nas nacionais é balde ou
+  candidato de 0–1%.
+- **6 estaduais** de LÍDER/POLO (`2dbb1f5` + `871756c`): MG BR-08054 (Lula+Flávio),
+  AP BR-05542 (Lula), RN BR-07763 (Lula), AL BR-00994 (JHC), PA BR-04700 (Flávio),
+  RN RN-06579 (Lula). Estes SIM movem o placar da disputa.
+
+### Decisão do criador (18/08): fonte secundária vale quando reconcilia
+Os PDFs estaduais da coluna `integra` são MUITAS VEZES matéria do Poder360, blog,
+ou arte de TV — não o relatório do instituto. Decisão: **aceitar fonte secundária
+QUANDO as duas leituras cegas batem E a soma reconcilia EXATA em 100 com os baldes
+que já temos**, marcada honestamente como secundária no `evidence`. Relatório de
+instituto quando existe (MG, AP, PA).
+
+### ⚠ Achado: pesquisas MUNICIPAIS gravadas como ESTADUAIS
+A triagem de "maior impacto" ranqueia por líder apagado, e 4 dos 6 primeiros
+estaduais eram sub-amostras MUNICIPAIS rotuladas como disputa estadual de
+governador (Jatobá n=359, Vila Nova n=300, Caicó n=500), com `universe.level='uf'`.
+Restaurar o líder as puxaria para a média estadual e a distorceria. Decisão do
+criador: **tirar da média** — mas amostra pequena SOZINHA não prova municipal
+(varredura achou 26 candidatas <800, muitas legítimas), então cada uma exige
+leitura de fonte antes de gatear. Virou tarefa dedicada (`task_0cec1401`): marcar
+o universo real nos dados + um gate em `src/average.ts` (hoje só filtra
+`!incomplete && averageable`, sem checagem de universo) — coordenar com quem tem
+`src/`. AC-03113 ficou de fora (PDF oficial 404; leitura só saiu de fonte
+terciária, abaixo da barra).
+
+### Ravenna: por que o parity está vermelho, e como cura (medido 3×)
+O `(b)` do `parity-check` acende em `p360-13651-1-0` (Ravenna Castro, senador:PI).
+Causa: a ruling do criador em `data/candidate-rulings.json` (`a794e59`, senador:PI,
+"MESMA", nome de urna "Ravenna da Inclusão") renomeia, mas o store nunca foi
+reconstruído depois — é defasagem EDITORIAL, não estrutural. Medido em sandbox por
+duas sessões: uma build do ZERO (`buildStoreFromPolls` zera `candidates` e recunha)
+cunha a linha com `canonical="Ravenna da Inclusão"`, MESMO `candidate_id`
+(semente por pessoa, cai na observada `p_bad76224457b`), SEM duplicar → cura e
+verdeja no MESMO job (ordem: scrape→derive→parity). ⚠ NÃO cura com `derive-polls`
+sozinho (o lado esquerdo canoniza ao vivo) — ver a correção do parágrafo do teto
+de 15. A FUSÃO das duas pessoas Ravenna (registrada gov:PI × observada senador:PI)
+é outra coisa, ficou com a sessão da linhagem de pessoa (6 órfãos), e provavelmente
+exige ruling — decisão do criador.
+
+### 🔴 GATING DO PIPELINE — nada disto está no ar
+`update-polls.yml` está SUSPENSO desde 17/08 por segurança: uma coleta hoje trocaria
+o líder e o vice de uma nacional por nada (`p360-13816`), porque o `v2` apaga linha
+de nome vazio. Religar exige DUAS condições escritas no workflow: (1) uma rodada
+manual `workflow_dispatch` supervisionada exercitando `ELENCO RETIDO` + conflitos
+(a retenção nunca rodou contra coleta de verdade); (2) decidir as 41 disputas que o
+`v2` não devolve inteiras. **Os 25 reparos + o conserto de amostra da Ideia + a cura
+da Ravenna TODOS esperam essa rodada supervisionada.** A Ravenna sozinha não paga as
+duas condições; `DECLARED` interino no `parity-check` é o razoável até a coleta
+religar por outro motivo. É decisão do criador.
