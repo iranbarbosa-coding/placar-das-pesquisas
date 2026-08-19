@@ -301,9 +301,21 @@ function autoteste() {
     ["não acusa o par Alvaro Dias PR × RN, que o casador separa",
       () => partidas({ ...banco, people: [{ ...reg, nome_urna: "Álvaro Dias" }, { ...obs, display: "Alvaro Dias", polled_names: ["Alvaro Dias"] }] },
         (nome, contest) => (contest === "governador:RN" ? { sq_candidato: "123" } : null)).length === 0],
-    ["não acusa quem alcança a PRÓPRIA candidatura",
-      () => partidas({ people: [{ ...obs, sq_candidato: ["123"] }], candidates: banco.candidates },
+    // ⚠ ESTES DOIS CASOS EXISTEM PARA ISOLAR UMA CLÁUSULA CADA, e o caso único
+    // que eles substituem não isolava nenhuma. Ele montava uma observada que
+    // alcançava o próprio `sq`, e ali `registered !== true` e
+    // `person_id === obs.person_id` barravam AO MESMO TEMPO — então remover
+    // qualquer uma das duas deixava a bateria verde. Medido por mutação
+    // externa: as duas cláusulas estavam sem cobertura, não só a segunda.
+    ["não acusa quando o alcançado também é observado (isola `registered`)",
+      () => partidas({ people: [{ ...obs, person_id: "p_outra", sq_candidato: ["123"] }, obs], candidates: banco.candidates },
         () => ({ sq_candidato: "123" })).length === 0],
+    // O banco com DUAS linhas de mesmo `person_id`, uma registrada e outra não,
+    // é malformado — mas é exatamente contra ele que a cláusula de self-match
+    // serve, e sem este caso ela é código que ninguém executa (§2).
+    ["não acusa a si mesma quando o banco tem o id duplicado (isola o self-match)",
+      () => partidas({ people: [{ person_id: "p_obs", registered: true, nome_urna: "Fulana", sq_candidato: ["123"], polled_names: ["Fulana"] }, obs],
+        candidates: banco.candidates }, () => ({ sq_candidato: "123" })).length === 0],
     ["não acusa pessoa já fundida (merged_into)",
       () => partidas({ ...banco, people: [reg, { ...obs, merged_into: "p_reg" }] }, () => ({ sq_candidato: "123" })).length === 0],
   ];
