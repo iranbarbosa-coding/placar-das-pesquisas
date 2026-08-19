@@ -90,7 +90,7 @@ export default function SegundoTurnoPage() {
       </header>
 
       {/* Presidente */}
-      <section className="flex min-w-0 flex-col gap-4" aria-label="Presidente · 2º turno">
+      <section id="presidente" className="flex min-w-0 scroll-mt-24 flex-col gap-4" aria-label="Presidente · 2º turno">
         <SectionTitle>Presidente · 2º turno</SectionTitle>
         {presCurrent.length ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,7 +125,7 @@ export default function SegundoTurnoPage() {
       </section>
 
       {/* Governadores */}
-      <section className="flex min-w-0 flex-col gap-4" aria-label="Governadores · 2º turno">
+      <section id="governadores" className="flex min-w-0 scroll-mt-24 flex-col gap-4" aria-label="Governadores · 2º turno">
         <div className="flex flex-col gap-1">
           <SectionTitle>Governadores · 2º turno</SectionTitle>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
