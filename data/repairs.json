@@ -1178,7 +1178,7 @@
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 41.0
+     "pct": 41
     }
    ],
    "expect_sum": 100
@@ -1215,6 +1215,509 @@
     "margin_of_error": 2.5
    },
    "_nota_baldes": "O relatório publica 'branco/nulo' e 'não sabe' SEPARADOS. O reparo irmão já separa os baldes do round 1 e do confronto Lula×Caiado (perguntas do Poder360). Os outros três confrontos vêm da Wikipédia com os dois baldes SOMADOS em undecided_pct (Flávio 8,5; Zema 14,5; Renan 17,2) — não separados aqui porque separar é reparo de balde POR CENÁRIO (com has_candidate) sobre pergunta que hoje chega da Wikipédia sem registro nesta fase, de outra classe que este. Fica anotado para o criador decidir, como os baldes de 2º turno de BR-06868/BR-06591."
+  },
+  {
+   "match": {
+    "pollster": "Direto ao Ponto Pesquisas",
+    "race": "presidente",
+    "state": "AM",
+    "round": 1,
+    "fieldwork_end": "2026-06-20"
+   },
+   "defect": "AUSENTE: cenário estimulado de 1º turno presidente não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/relatorio_AM-08042-2026_Amazonia-TI.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1200, margem=3, campo 15 a 20/06/2026. Cenário estimulado (p.13, confirmado pela coluna TOTAL/AMAZONAS da p.14): Lula 44 · Flávio Bolsonaro 35 · Renan Santos 3 · Augusto Cury 2 · Joaquim Barbosa 2 · Ronaldo Caiado 1 · Romeu Zema 1; branco/nulo 7; não sabe 5. Soma 100. Sem 2º turno presidencial no relatório.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Direto ao Ponto Pesquisas",
+    "race": "presidente",
+    "state": "AM",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Direto ao Ponto Pesquisas",
+    "fieldwork_start": "2026-06-15",
+    "fieldwork_end": "2026-06-20",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3,
+    "tse_registration": "BR-05945/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 44
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": null,
+      "pct": 35
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": null,
+      "pct": 3
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": null,
+      "pct": 2
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": null,
+      "pct": 2
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 1
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": null,
+      "pct": 1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5,
+    "blank_null_pct": 7
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2026-03-28"
+   },
+   "defect": "AUSENTE: cenário estimulado de 1º turno presidente não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1029, margem=3, campo 23 a 28/03/2026. Estimulada 1º turno: Flávio Bolsonaro 44,8 · Lula 37,5 · Renan Santos 4,4 · Ronaldo Caiado 2,9 · Romeu Zema 1,6 · Aldo Rebelo 0,2; branco/nulo 5,7; não sabe 3. Soma 100,1.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-23",
+    "fieldwork_end": "2026-03-28",
+    "published_date": "2026-04-01",
+    "sample_size": 1029,
+    "margin_of_error": 3,
+    "tse_registration": "BR-06808/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 44.8
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 37.5
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 4.4
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2.9
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1.6
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.2
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 3,
+    "blank_null_pct": 5.7
+   },
+   "expect_sum": 100.1
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-03-28",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Lula vs Flávio Bolsonaro não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1029, margem=3, campo 23 a 28/03/2026. 2º turno Lula×Flávio Bolsonaro: Lula 40,2 · Flávio Bolsonaro 50,1; branco/nulo 9,7. Soma 100,0.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-23",
+    "fieldwork_end": "2026-03-28",
+    "published_date": "2026-04-01",
+    "sample_size": 1029,
+    "margin_of_error": 3,
+    "tse_registration": "BR-06808/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 40.2
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": null,
+      "pct": 50.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 9.7
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-07-23"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Lula vs Flávio Bolsonaro não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/realtime-amapa-nacional-24jul.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1600, margem=2, campo 19 a 23/07/2026. 2º turno (Cenário 01): Lula 42 · Flávio Bolsonaro 44; branco/nulo 7; não sabe 7. Soma 100.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-07-19",
+    "fieldwork_end": "2026-07-23",
+    "published_date": "2026-07-24",
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": "BR-05542/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 42
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 44
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 7,
+    "blank_null_pct": 7
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "RO",
+    "round": 1,
+    "fieldwork_end": "2026-07-15"
+   },
+   "defect": "AUSENTE: cenário estimulado de 1º turno presidente não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Rondonia-BR-05580-2026-Jul_26-3.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1600, margem=2, campo 14 a 15/07/2026. Estimulada 1º turno: Flávio Bolsonaro 58 · Lula 25 · Ronaldo Caiado 5 · Renan Santos 3 · Romeu Zema 2 · Joaquim Barbosa 1 · Augusto Cury 1 · Cabo Daciolo 1; branco/nulo 2; não sabe 1; outros 1. Soma 100.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "RO",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-07-14",
+    "fieldwork_end": "2026-07-15",
+    "published_date": "2026-07-16",
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": "BR-05580/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 58
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 25
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 5
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 3
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 2
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "DC",
+      "pct": 1
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 1
+     }
+    ],
+    "others_pct": 1,
+    "undecided_pct": 1,
+    "blank_null_pct": 2
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "RO",
+    "round": 2,
+    "fieldwork_end": "2026-07-15"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Flávio Bolsonaro vs Lula não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Rondonia-BR-05580-2026-Jul_26-3.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1600, margem=2, campo 14 a 15/07/2026. 2º turno (Cenário 01): Flávio Bolsonaro 66 · Lula 24; branco/nulo 4; não sabe 3. Soma 97 (total impresso não fecha 100; as duas leituras cegas batem no 97).",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "RO",
+    "round": 2,
+    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+    "contractor": null,
+    "fieldwork_start": "2026-07-14",
+    "fieldwork_end": "2026-07-15",
+    "published_date": "2026-07-16",
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": "BR-05580/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 66
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 24
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 3,
+    "blank_null_pct": 4
+   },
+   "expect_sum": 97
+  },
+  {
+   "match": {
+    "pollster": "Instituto França",
+    "race": "presidente",
+    "state": "SE",
+    "round": 1,
+    "fieldwork_end": "2026-07-02"
+   },
+   "defect": "AUSENTE: cenário estimulado de 1º turno presidente não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1116, margem=2,9, campo 30/06 a 02/07/2026. Estimulada 1º turno: LULA 52,48 · FLÁVIO BOLSONARO 23,54 · SAMARA MARTINS 1,14 · RENAN SANTOS 1,04 · RONALDO CAIADO 0,74 · AUGUSTO CURY 0,56 · AÉCIO NEVES 0,30 · MINISTRO JOAQUIM BARBOSA 0,21 · CABO DACIOLO 0,17 · ROMEU ZEMA 0,06; branco/nulo 11,93; não sabe 7,83. Soma 100,00.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Instituto França",
+    "race": "presidente",
+    "state": "SE",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-06-30",
+    "fieldwork_end": "2026-07-02",
+    "published_date": null,
+    "sample_size": 1116,
+    "margin_of_error": 2.9,
+    "tse_registration": "BR-09714/2026",
+    "results": [
+     {
+      "candidate": "LULA",
+      "party": null,
+      "pct": 52.48
+     },
+     {
+      "candidate": "FLÁVIO BOLSONARO",
+      "party": null,
+      "pct": 23.54
+     },
+     {
+      "candidate": "SAMARA MARTINS",
+      "party": null,
+      "pct": 1.14
+     },
+     {
+      "candidate": "RENAN SANTOS",
+      "party": null,
+      "pct": 1.04
+     },
+     {
+      "candidate": "RONALDO CAIADO",
+      "party": null,
+      "pct": 0.74
+     },
+     {
+      "candidate": "AUGUSTO CURY",
+      "party": null,
+      "pct": 0.56
+     },
+     {
+      "candidate": "AÉCIO NEVES",
+      "party": null,
+      "pct": 0.3
+     },
+     {
+      "candidate": "MINISTRO JOAQUIM BARBOSA",
+      "party": null,
+      "pct": 0.21
+     },
+     {
+      "candidate": "CABO DACIOLO",
+      "party": null,
+      "pct": 0.17
+     },
+     {
+      "candidate": "ROMEU ZEMA",
+      "party": null,
+      "pct": 0.06
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 7.83,
+    "blank_null_pct": 11.93
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Instituto França",
+    "race": "presidente",
+    "state": "SE",
+    "round": 2,
+    "fieldwork_end": "2026-07-02"
+   },
+   "defect": "AUSENTE: confronto de 2º turno LULA vs FLÁVIO BOLSONARO não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1116, margem=2,9, campo 30/06 a 02/07/2026. 2º turno LULA×FLÁVIO BOLSONARO: LULA 56,25 · FLÁVIO BOLSONARO 25,84; branco/nulo 11,91; não sabe 6,00. Soma 100,00.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Instituto França",
+    "race": "presidente",
+    "state": "SE",
+    "round": 2,
+    "scenario": "2º turno: LULA vs FLÁVIO BOLSONARO",
+    "contractor": null,
+    "fieldwork_start": "2026-06-30",
+    "fieldwork_end": "2026-07-02",
+    "published_date": null,
+    "sample_size": 1116,
+    "margin_of_error": 2.9,
+    "tse_registration": "BR-09714/2026",
+    "results": [
+     {
+      "candidate": "LULA",
+      "party": null,
+      "pct": 56.25
+     },
+     {
+      "candidate": "FLÁVIO BOLSONARO",
+      "party": null,
+      "pct": 25.84
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 6,
+    "blank_null_pct": 11.91
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "SE",
+    "round": 2,
+    "fieldwork_end": "2026-08-01"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Lula vs Flávio Bolsonaro não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Sergipe-BR-07696_2026_Ago26-1-1.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1600, margem=2, campo 28/07 a 01/08/2026. 2º turno (Cenário 01): Lula 63 · Flávio Bolsonaro 27; branco/nulo 6; não sabe 4. Soma 100.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "SE",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": "2026-08-03",
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": "BR-07696/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 63
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 27
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 4,
+    "blank_null_pct": 6
+   },
+   "expect_sum": 100
   }
  ]
 }
