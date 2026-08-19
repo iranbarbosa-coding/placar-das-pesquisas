@@ -1055,6 +1055,90 @@
     "undecided_pct": 4.5
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-08054/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios do Poder360 apagou os DOIS polos da presidencial amostrada em MG — Lula 37,7 e Flávio Bolsonaro 31,8 — e fundiu 'ninguém/branco/nulo' com 'NS/NR/indeciso' num campo só. O banco começava em Zema 12,4 e somava só 30,5. Sem linha 'outros' na tabela estimulada. Disputa presidente:MG (nacional amostrada em MG); alto impacto na página do estado.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Relatorio_MG_Julho_2026_Poder-360%C2%B0.pdf",
+   "evidence": "Relatório do próprio instituto (Futura Inteligência, 1.200 entrevistas, CATI, campo 21-24/07/2026, margem 2,8, veículo Poder360), p.12, '1º turno – Estimulada, Cenário 1': Lula 37,7, Flávio Bolsonaro 31,8, Romeu Zema 12,4, Ronaldo Caiado 5,0, Renan Santos 2,6, Augusto Cury 1,4, Cabo Daciolo 0,8, Ninguém/Branco/Nulo 5,7, NS/NR/Indeciso 2,6 = 100,0. SEM linha 'outros' (os 'Outros' das p.9/p.10 são conhecimento e voto ESPONTÂNEO, e 'Outras Religiões' p.4 é perfil). O relatório NÃO imprime partido; PT e PL vêm da atestação do banco em centenas de linhas independentes, como no reparo BR-01084. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 37.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 31.8
+    }
+   ],
+   "set": {
+    "blank_null_pct": 5.7,
+    "undecided_pct": 2.6
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-05542/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios apagou o LÍDER da presidencial amostrada no AP — Lula 36 — e a linha 'Outros' (1%, soma rotulada de 6 menores). O banco começava em Flávio 31 e somava 99 sem o líder. É a ÚNICA pesquisa de presidente:AP no banco, então pesa o máximo na média da disputa.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/realtime-amapa-nacional-24jul.pdf",
+   "evidence": "Relatório do próprio instituto (Real Time Big Data, 1.600 entrevistas, campo 19-23/07/2026, margem 2,0, divulgação 24/07/2026), p.7, 'Estimulada Cenário 01': Lula 36, Flávio Bolsonaro 31, Ronaldo Caiado 8, Renan Santos 7, Romeu Zema 1, Joaquim Barbosa 1, Augusto Cury 1, OUTROS 1 (rodapé: Cabo Daciolo, Rui Costa Pimenta, Samara Martins, Edmilson Costa, Hertz Dias, Leonardo Avalanche), Nulo/Branco 9, NS/NR 5 = 100. Os dois leitores conferiram a p.7 por imagem além do texto. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 36
+    }
+   ],
+   "set": {
+    "others_pct": 1
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-07763/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios do Poder360 apagou o LÍDER da presidencial amostrada no RN — Lula 51,30 — mais Ronaldo Caiado 1,84, Renan Santos 1,15 e Samara Martins 0,12. O banco começava em Flávio 34,94 e somava 45,6. Os baldes 'Nenhum' 5,17 e 'Não sabe' 3,52 já estavam corretos; sem linha 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
+   "evidence": "⚠ FONTE SECUNDÁRIA, citada honestamente: o PDF é uma MATÉRIA (Blog do Heitor Gregório) reproduzindo o infográfico do instituto Exatus, não o relatório técnico. Aceita por decisão do criador (18/08/2026) porque as duas leituras cegas batem E a soma reconcilia EXATA em 100 com os baldes que já temos. Pesquisa Exatus/Grupo Agora RN, 1.500 eleitores, margem 2,53, campo 07-10/07/2026, registros BR-07763/2026 (nacional) e RN-02620/2026. 1º turno estimulada: Lula 51,30, Flávio Bolsonaro 34,94, Ronaldo Caiado 1,84, Renan Santos 1,15, Augusto Cury 0,75, Romeu Zema 0,54, Cabo Daciolo 0,34, Joaquim Barbosa 0,34, Samara Martins 0,12, Nenhum 5,17, Não sabe 3,52 = 100,01. SEM 'outros' (o 'Nenhum 5,17' é rejeição, já em blank_null_pct). Partido do Caiado: a fonte se contradiz (infográfico 'União Brasil', prosa 'PSD') — usado PSD, atestado em centenas de linhas do banco; Lula PT, Renan Missão, Samara UP conforme impresso. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas nos 9 candidatos e nos baldes.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 51.3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1.84
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 1.15
+    },
+    {
+     "candidate": "Samara Martins",
+     "party": "UP",
+     "pct": 0.12
+    }
+   ],
+   "expect_sum": 100
   }
  ]
 }
