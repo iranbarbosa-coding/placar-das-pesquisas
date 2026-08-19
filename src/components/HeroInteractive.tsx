@@ -402,19 +402,13 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             </div>
           </div>
         )}
-        {/* Legend row — the coloured candidates + "Outros" + the 50% line. */}
-        <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-          {candidateBuckets.map((k) => (
-            <li key={`leg-${k.key}`} className="flex items-center gap-1.5">
-              <span aria-hidden="true" className="inline-block h-0.5 w-3.5 rounded-full" style={{ background: k.color }} />
-              <span className="truncate">{k.name}</span>
-            </li>
-          ))}
-          <li className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
-            <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
-            50% (vitória no 1º turno)
-          </li>
-        </ul>
+        {/* Only the 50% line needs a legend: the candidates are already colour-
+            coded with their values in the KPI row above the chart, so repeating
+            them here is redundant. */}
+        <div className="mt-2 flex items-center gap-1.5 text-[11px]" style={{ color: "var(--text-muted)" }}>
+          <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
+          50% (vitória no 1º turno)
+        </div>
       </div>
     </>
   );
