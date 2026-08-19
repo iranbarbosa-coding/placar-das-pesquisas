@@ -93,7 +93,7 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                   </span>
                 </th>
               ))}
-              <th className={`${TH} text-right`}>Spread</th>
+              <th className={`${TH} text-right`}>% para 50</th>
             </tr>
           </thead>
           <tbody>
