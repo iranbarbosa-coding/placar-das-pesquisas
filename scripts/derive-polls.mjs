@@ -7,12 +7,43 @@
 // legacy validator, the diff history, and anything outside the repo.
 //
 // WHAT THIS DOES TO THE PARITY GATE, said plainly: once polls.json is derived,
-// `parity-check.mjs` compares the store against its own output and can no
-// longer fail. Its job is done — it existed to prove the migration lost
-// nothing, and it did that. From here the guards that carry weight are
-// `upsert-vs-migration.mjs` (the write path agrees with the migration),
-// `upsert-harness.mjs` (the ladder behaves), `validate-store.mjs`, and the
-// before/after diff of this file, which git keeps.
+// most of `parity-check.mjs` compares the store against its own output. This
+// file writes `projectPolls(store)` record for record, without transforming any
+// of them (it only sorts the array, and the gate indexes by id), so the
+// bijection, every field in FIELDS and the per-contest sets are tautological
+// from here.
+//
+// ⚠ O QUE ESTA LINHA DIZIA E NÃO ERA VERDADE: "…and can no longer fail. Its
+// job is done." Ele PODE falhar, e estava falhando quando isto foi escrito —
+// a linha de senador:PI da Ravenna acusava. (O placar daquele dia está na
+// mensagem do commit, que é datada por natureza; aqui ele envelheceria.)
+//
+// A comparação de RESULTADOS não é tautológica, porque `parity-check`
+// reconstrói o lado legado com `canonicalCandidate` e o partido com
+// `partyOverride` + `canonicalPartyAt`. Esses leem `candidate-rulings.json`,
+// `candidate-aliases.json`, `ballot-names.json` e `repairs.json` — NENHUM deles
+// sai do store, e o store guarda o nome já canonicalizado da rodada em que foi
+// gravado. O que o portão acusa, então, é DEFASAGEM: uma camada de identidade
+// mudou depois da última coleta e o nome gravado ainda é o de antes.
+//
+// ⚠ E A CAUSA NÃO É A QUE PARECE. A primeira versão desta correção culpou a
+// tabela de urna, por ver "ravenna castro" em `ballot-names.json`. Medido: essa
+// entrada está sob `governador:PI` e NÃO existe em `senador:PI`, e injetando um
+// registro de urna vazio por `usarRegistroDeUrna()` a renomeação SOBREVIVE —
+// `displayOrigin` responde "ruling". Quem renomeia é uma ruling do criador em
+// `data/candidate-rulings.json` (senador:PI, "MESMA", 18/08/2026), que vale no
+// instante em que é commitada enquanto o store só a absorve na coleta seguinte.
+//
+// As duas origens de defasagem coexistem e convém não confundi-las: a
+// estrutural, do casador que roda depois da coleta e cujo mapa vale para a
+// rodada seguinte (§6); e a editorial, de uma ruling escrita à mão. Esta foi a
+// segunda. Nomear a causa errada custa o mesmo que a promessa falsa que este
+// bloco corrige: faz a próxima pessoa consertar o casador por uma ruling.
+//
+// A superfície viva do portão é pequena e não é vazia: umas poucas linhas em
+// que a camada de identidade discorda do nome gravado, mais as que passam por
+// reparo curado de partido. Quem for reconferir, MEÇA — o número do dia não
+// cabe aqui, porque envelhece com a próxima coleta.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
