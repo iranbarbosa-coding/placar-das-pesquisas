@@ -1139,6 +1139,68 @@
     }
    ],
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-00994/2026",
+    "race": "governador",
+    "round": 1
+   },
+   "defect": "O v2/cenarios apagou o LÍDER da disputa de governador em AL — JHC 50 — e Lenilda Luna 1. O banco tinha só Renan Filho 36 e somava 49. Sem linha 'outros'. Amostra ESTADUAL (1.200, todas as regiões de AL), confirmada pelos dois leitores.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf",
+   "evidence": "⚠ FONTE SECUNDÁRIA (matéria, Francês News/Agora Alagoas reproduzindo a TDL), aceita por decisão do criador (18/08/2026) porque as duas leituras cegas batem E a soma reconcilia exata em 100. TDL Pesquisa & Marketing, 1.200 entrevistas presenciais, margem 3, 95%, campo 15-17/07/2026. 1º turno estimulado: JHC 50, Renan Filho 36, Lenilda Luna 1, Branco/nulo 5, Não sabe/NR 8 = 100. SEM 'outros' (a série 57%/41% é votos VÁLIDOS, não a bruta). Partidos impressos: JHC PSDB, Lenilda Luna UP. ⚠ O PDF cita registro AL-04857/2026 (TRE-AL); o banco guarda este levantamento sob BR-00994/2026 e é por ele que o reparo casa. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "JHC",
+     "party": "PSDB",
+     "pct": 50
+    },
+    {
+     "candidate": "Lenilda Luna",
+     "party": "UP",
+     "pct": 1
+    }
+   ],
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "BR-04700/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios apagou o LÍDER da presidencial amostrada no PA — Flávio Bolsonaro 41,0. O banco começava em Lula 38,3 e somava 59. Sem linha 'outros' na estimulada. Amostra ESTADUAL (1.400, 59 municípios do PA).",
+   "source": "https://static.poder360.com.br/2026/04/PA_Mar26-presidente.pdf",
+   "evidence": "Relatório do próprio instituto (Paraná Pesquisas, 1.400 eleitores em 59 municípios, presencial, margem ~2,7, 95%, campo 18-21/03/2026), p.8, 'Presidente Estimulada Cenário 1': Flávio Bolsonaro 41,0, Lula 38,3, Ratinho Junior 3,1, Tereza Cristina 2,4, Renan Santos 1,5, Romeu Zema 1,2, Aldo Rebelo 0,6, Nenhum/Branco/Nulo 7,0, Não sabe/não opinou 4,9 = 100,0. SEM 'outros' (o 'Outros nomes citados' 1,0 é da ESPONTÂNEA, p.7). Partido não impresso; PL vem da atestação do banco em centenas de linhas, como no reparo BR-01084. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 41.0
+    }
+   ],
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "RN-06579/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "O v2/cenarios apagou o POLO da presidencial amostrada no RN — Lula 40. O banco começava em Flávio 33 e somava 60. Sem linha 'outros'.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-data-capital-presidente-rn-5ago2026.pdf",
+   "evidence": "⚠ FONTE FRACA, citada honestamente: o PDF são duas telas de ARTE DE TV (sem ficha técnica impressa: n, margem, campo e método não constam), creditadas 'Fonte: Data Capital, REGISTRO RN-06579/2026'. Aceita por decisão do criador (18/08/2026) porque as duas leituras cegas batem E a soma reconcilia exata em 100 com os baldes que já temos; o levantamento já está no banco (n=2.050 no store, estadual). 1º turno estimulado: Lula 40, Flávio Bolsonaro 33, Ronaldo Caiado 6, Romeu Zema 5, Augusto Cury 3, Renan Santos 2, Cabo Daciolo 2, Branco/nulo 5, NS/NR 4 = 100. SEM 'outros'. Partido não impresso; PT do Lula por atestação. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+   "verified_at": "2026-08-18",
+   "add_results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 40
+    }
+   ],
+   "expect_sum": 100
   }
  ]
 }
