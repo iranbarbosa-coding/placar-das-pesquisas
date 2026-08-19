@@ -90,8 +90,8 @@ export default function PresidentePage() {
         </div>
       </header>
 
-      {/* Row 1 — two columns */}
-      <div className="grid items-start gap-6 lg:grid-cols-2">
+      {/* Row 1 — two columns; default `stretch` keeps both cards the same height. */}
+      <div className="grid gap-6 lg:grid-cols-2">
         <section className="card min-w-0 p-4 sm:p-6" aria-label="Média das pesquisas · 1º turno">
           <PresidentBars data={bars} />
         </section>
