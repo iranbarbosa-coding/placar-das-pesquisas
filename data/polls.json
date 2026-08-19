@@ -1,206 +1,24 @@
 {
- "generated_at": "2026-08-18T19:22:56.442Z",
+ "generated_at": "2026-08-19T02:22:56.052Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-18T19:22:56.442Z"
+   "last_ok": "2026-08-19T02:22:56.052Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-18T19:22:56.442Z"
+   "last_ok": "2026-08-19T02:22:56.052Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-18T19:22:56.442Z"
+   "last_ok": "2026-08-19T02:22:56.052Z"
   }
  ],
  "polls": [
-  {
-   "id": "0f755d2f459c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PR",
-   "round": 2,
-   "scenario": "2º turno: Sérgio Moro e Sandro Alex",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-17",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Sergio Moro",
-     "party": "PL",
-     "pct": 45
-    },
-    {
-     "candidate": "Sandro Alex",
-     "party": "PSD",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "391b4eb27b60",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-17",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Sergio Moro",
-     "party": "PL",
-     "pct": 37
-    },
-    {
-     "candidate": "Requião Filho",
-     "party": "PDT",
-     "pct": 20
-    },
-    {
-     "candidate": "Sandro Alex",
-     "party": "PSD",
-     "pct": 22
-    },
-    {
-     "candidate": "Luiz França",
-     "party": "Missão",
-     "pct": 2
-    },
-    {
-     "candidate": "Samuel de Mattos",
-     "party": "PSTU",
-     "pct": 1
-    },
-    {
-     "candidate": "Adriano Funileiro",
-     "party": "PCO",
-     "pct": 1
-    },
-    {
-     "candidate": "Tayná Miessa",
-     "party": "UP",
-     "pct": 1
-    },
-    {
-     "candidate": "Alexandre Salomão",
-     "party": "Mobiliza",
-     "pct": 1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "5ea540b6b47e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-17",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Deltan Dallagnol",
-     "party": "Novo",
-     "pct": 19
-    },
-    {
-     "candidate": "Filipe Barros",
-     "party": "PL",
-     "pct": 17
-    },
-    {
-     "candidate": "Alexandre Curi",
-     "party": "Republicanos",
-     "pct": 17
-    },
-    {
-     "candidate": "Cristina Reis Graeml",
-     "party": "PSD",
-     "pct": 13
-    },
-    {
-     "candidate": "Gleisi",
-     "party": "PT",
-     "pct": 15
-    },
-    {
-     "candidate": "Dr Rosinha",
-     "party": "PT",
-     "pct": 5
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "87b242ada0ea",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PR",
-   "round": 2,
-   "scenario": "2º turno: Sérgio Moro e Requião Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-17",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Sergio Moro",
-     "party": "PL",
-     "pct": 55
-    },
-    {
-     "candidate": "Requião Filho",
-     "party": "PDT",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
   {
    "id": "a889b6dfbc58",
    "source": null,
@@ -303,6 +121,221 @@
    "tse_registration": null
   },
   {
+   "id": "p360-13857-1-0-384ce87d4529",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-no-2o-turno/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time big Data",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": "2026-08-17",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 37
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 20
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 22
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 1
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 1
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": "PR-09262/2026"
+  },
+  {
+   "id": "p360-13857-2-0-239ad5bc8f54",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-no-2o-turno/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sergio Moro vs Requião Filho",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time big Data",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": "2026-08-17",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 55
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": 9,
+   "tse_registration": "PR-09262/2026"
+  },
+  {
+   "id": "p360-13857-2-1-fae064b5fd49",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-no-2o-turno/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sergio Moro vs Sandro Alex",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time big Data",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": "2026-08-17",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": "PR-09262/2026"
+  },
+  {
+   "id": "p360-13857-2-2-3d3a201ffe80",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-no-2o-turno/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sandro Alex vs Requião Filho",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time big Data",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": "2026-08-17",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 33
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": 18,
+   "tse_registration": "PR-09262/2026"
+  },
+  {
+   "id": "p360-13859-1-0-77a2077d22a9",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-no-2o-turno/",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time big Data",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": "2026-08-17",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 19
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 17
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 17
+    },
+    {
+     "candidate": "Cristina Reis Graeml",
+     "party": "PSD",
+     "pct": 13
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 15
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 5
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": "PR-09262/2026"
+  },
+  {
    "id": "45421a159788",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-47-contra-44-de-flavio-no-2o-turno-diz-nexus/",
@@ -369,59 +402,6 @@
    "tse_registration": "BR-03317/2026"
   },
   {
-   "id": "d2eba398b067",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-16",
-   "published_date": null,
-   "sample_size": 1520,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Deltan Dallagnol",
-     "party": "Novo",
-     "pct": 34
-    },
-    {
-     "candidate": "Filipe Barros",
-     "party": "PL",
-     "pct": 26
-    },
-    {
-     "candidate": "Alexandre Curi",
-     "party": "Republicanos",
-     "pct": 29.6
-    },
-    {
-     "candidate": "Cristina Reis Graeml",
-     "party": "PSD",
-     "pct": 17.2
-    },
-    {
-     "candidate": "Gleisi",
-     "party": "PT",
-     "pct": 28.1
-    },
-    {
-     "candidate": "Dr Rosinha",
-     "party": "PT",
-     "pct": 12.3
-    }
-   ],
-   "others_pct": 3.5,
-   "undecided_pct": 13.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "d62e0b7b223c",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-47-contra-44-de-flavio-no-2o-turno-diz-nexus/",
@@ -453,69 +433,6 @@
    "undecided_pct": 17,
    "blank_null_pct": null,
    "tse_registration": "BR-03317/2026"
-  },
-  {
-   "id": "f915db4de047",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-16",
-   "published_date": null,
-   "sample_size": 1520,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Sergio Moro",
-     "party": "PL",
-     "pct": 46.1
-    },
-    {
-     "candidate": "Requião Filho",
-     "party": "PDT",
-     "pct": 23.4
-    },
-    {
-     "candidate": "Sandro Alex",
-     "party": "PSD",
-     "pct": 16.5
-    },
-    {
-     "candidate": "Luiz França",
-     "party": "Missão",
-     "pct": 0.6
-    },
-    {
-     "candidate": "Samuel de Mattos",
-     "party": "PSTU",
-     "pct": 0.1
-    },
-    {
-     "candidate": "Adriano Funileiro",
-     "party": "PCO",
-     "pct": 0
-    },
-    {
-     "candidate": "Tayná Miessa",
-     "party": "UP",
-     "pct": 0.6
-    },
-    {
-     "candidate": "Alexandre Salomão",
-     "party": "Mobiliza",
-     "pct": 0.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-13848-1-0-ef841a2f8870",
@@ -632,6 +549,122 @@
    "undecided_pct": 1,
    "blank_null_pct": 8,
    "tse_registration": "BR-03317/2026"
+  },
+  {
+   "id": "p360-13850-1-0-cadb10a55e4a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-em-1o-turno/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "PL",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-16",
+   "published_date": "2026-08-16",
+   "sample_size": 1520,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 46.1
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 23.4
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 16.5
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 0.6
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.6
+    },
+    {
+     "candidate": "Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": "PR-09048/2026"
+  },
+  {
+   "id": "p360-13851-1-0-64d1e939cd24",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-em-1o-turno/",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "PL",
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-16",
+   "published_date": "2026-08-16",
+   "sample_size": 1520,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 34
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 26
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 29.6
+    },
+    {
+     "candidate": "Cristina Reis Graeml",
+     "party": "PSD",
+     "pct": 17.2
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 28.1
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 12.3
+    }
+   ],
+   "others_pct": 3.5,
+   "undecided_pct": 13.7,
+   "blank_null_pct": null,
+   "tse_registration": "PR-09048/2026"
   },
   {
    "id": "68fb63eb44e3",
@@ -770,64 +803,6 @@
    "tse_registration": null
   },
   {
-   "id": "bfb08f0ca043",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-12",
-   "fieldwork_end": "2026-08-15",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 29
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 18
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 12
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 12
-    },
-    {
-     "candidate": "Carlos Sant Anna",
-     "party": "Novo",
-     "pct": 2
-    },
-    {
-     "candidate": "Paulo Rubem Santiago",
-     "party": "Rede",
-     "pct": 1
-    }
-   ],
-   "others_pct": 0,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "ebff65f2da81",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
@@ -944,30 +919,30 @@
    "tse_registration": null
   },
   {
-   "id": "f4d5ac8467ef",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "id": "p360-13854-1-0-de1be52daddc",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lyra-e-joao-campos-estao-empatados-na-corrida-pelo-governo-de-pe/",
    "integra_url": null,
    "race": "governador",
    "state": "PE",
    "round": 1,
-   "scenario": "1º turno — cenário único",
+   "scenario": "1º turno",
    "pollster": "Real Time Big Data",
-   "contractor": null,
+   "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-12",
    "fieldwork_end": "2026-08-15",
-   "published_date": null,
+   "published_date": "2026-08-15",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
+     "candidate": "João Campos",
+     "party": "PSB",
      "pct": 43
     },
     {
-     "candidate": "João Campos",
-     "party": "PSB",
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
      "pct": 43
     },
     {
@@ -976,10 +951,101 @@
      "pct": 2
     }
    ],
-   "others_pct": 4,
-   "undecided_pct": 8,
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 4,
+   "tse_registration": "PE-06056/2026"
+  },
+  {
+   "id": "p360-13854-2-0-abb759aaac25",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lyra-e-joao-campos-estao-empatados-na-corrida-pelo-governo-de-pe/",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Raquel Lyra vs João Campos",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-12",
+   "fieldwork_end": "2026-08-15",
+   "published_date": "2026-08-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": 7,
+   "tse_registration": "PE-06056/2026"
+  },
+  {
+   "id": "p360-13855-1-0-adf6d43881c9",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lyra-e-joao-campos-estao-empatados-na-corrida-pelo-governo-de-pe/",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-12",
+   "fieldwork_end": "2026-08-15",
+   "published_date": "2026-08-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 29
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 18
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 12
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 12
+    },
+    {
+     "candidate": "Carlos Sant Anna",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
+     "candidate": "Paulo Rubem Santiago",
+     "party": "Rede",
+     "pct": 1
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 7,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "PE-06056/2026"
   },
   {
    "id": "32235dcedb6e",
@@ -1321,6 +1387,107 @@
    "tse_registration": "PE-02774/2026"
   },
   {
+   "id": "34f5cb894614",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "GP1",
+   "contractor": null,
+   "fieldwork_start": "2026-08-11",
+   "fieldwork_end": "2026-08-13",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 22.3
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 46.2
+    },
+    {
+     "candidate": "Júlio César",
+     "party": "PSD",
+     "pct": 14.9
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 3.4
+    },
+    {
+     "candidate": "Pedro Laurentino",
+     "party": "UP",
+     "pct": 0.8
+    },
+    {
+     "candidate": "Jorge Lopes",
+     "party": "PSDB",
+     "pct": 0.7
+    }
+   ],
+   "others_pct": 11.9,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "da7ab346bbfc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "GP1",
+   "contractor": null,
+   "fieldwork_start": "2026-08-11",
+   "fieldwork_end": "2026-08-13",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Rafael Fonteles",
+     "party": "PT",
+     "pct": 50.6
+    },
+    {
+     "candidate": "Joel Rodrigues",
+     "party": "PP",
+     "pct": 16.3
+    },
+    {
+     "candidate": "Elizeu Aguiar",
+     "party": "Novo",
+     "pct": 0.7
+    },
+    {
+     "candidate": "Professor Gisvaldo",
+     "party": "PSOL",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Dra. Lúcia Santos",
+     "party": "PSDB",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 30,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-13847-1-0-d0291e17c079",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/marina-tebet-e-andre-empatam-em-disputa-ao-senado-por-sp-diz-vox/",
@@ -1536,6 +1703,50 @@
    "undecided_pct": 14.3,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "3928a4b193af",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "ECM Sergipe",
+   "contractor": null,
+   "fieldwork_start": "2026-08-09",
+   "fieldwork_end": "2026-08-12",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 37
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 23.8
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 7.6
+    },
+    {
+     "candidate": "Emanuel Cacho",
+     "party": "PSDB",
+     "pct": 1
+    }
+   ],
+   "others_pct": 1.13,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
   },
   {
    "id": "39ee265d1639",
@@ -1834,6 +2045,84 @@
    "tse_registration": null
   },
   {
+   "id": "a129098447ec",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "ECM Sergipe",
+   "contractor": null,
+   "fieldwork_start": "2026-08-09",
+   "fieldwork_end": "2026-08-12",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Delegado André David",
+     "party": "Republicanos",
+     "pct": 27.26
+    },
+    {
+     "candidate": "André Moura",
+     "party": "União Brasil",
+     "pct": 24.07
+    },
+    {
+     "candidate": "Eduardo Amorim",
+     "party": "Republicanos",
+     "pct": 17.8
+    },
+    {
+     "candidate": "Delegado Alessandro",
+     "party": "MDB",
+     "pct": 16.4
+    },
+    {
+     "candidate": "Rogério Carvalho",
+     "party": "PT",
+     "pct": 17.4
+    },
+    {
+     "candidate": "Rodrigo Valadares",
+     "party": "PL",
+     "pct": 9.06
+    },
+    {
+     "candidate": "Edvaldo",
+     "party": "PDT",
+     "pct": 17.87
+    },
+    {
+     "candidate": "Coronel Rocha",
+     "party": "PL",
+     "pct": 1.73
+    },
+    {
+     "candidate": "Iran Barbosa",
+     "party": "PSOL",
+     "pct": 2.33
+    },
+    {
+     "candidate": "Paulinho da União Tur",
+     "party": "DC",
+     "pct": 0.67
+    },
+    {
+     "candidate": "Renatinha",
+     "party": "DC",
+     "pct": 1.26
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 64.15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "b620f7781581",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -2048,14 +2337,14 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "André Moura",
-     "party": "União Brasil",
-     "pct": 17.12
-    },
-    {
      "candidate": "Delegado André David",
      "party": "Republicanos",
      "pct": 25.85
+    },
+    {
+     "candidate": "André Moura",
+     "party": "União Brasil",
+     "pct": 17.12
     },
     {
      "candidate": "Eduardo Amorim",
@@ -2091,9 +2380,19 @@
      "candidate": "Iran Barbosa",
      "party": "PSOL",
      "pct": 2.41
+    },
+    {
+     "candidate": "Paulinho da União Tur",
+     "party": "DC",
+     "pct": 0.54
+    },
+    {
+     "candidate": "Renatinha",
+     "party": "DC",
+     "pct": 1.58
     }
    ],
-   "others_pct": 2.12,
+   "others_pct": null,
    "undecided_pct": 85.38,
    "blank_null_pct": null,
    "tse_registration": null
@@ -2702,12 +3001,22 @@
      "candidate": "Rui Costa Pimenta",
      "party": "PCO",
      "pct": 0
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
     }
    ],
-   "others_pct": 0,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06773/2026"
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": 8,
+   "tse_registration": "BR-06773/2026",
+   "repaired": {
+    "evidence": "p.3, 'Intenção de voto para Presidente - 1º turno (estimulada)': 13 candidatos (Lula 38, Flávio Bolsonaro 31, Renan Santos 4, Ronaldo Caiado 4, Augusto Cury 2, Romeu Zema 2, Samara Martins 1, e Edmilson Costa, Clariana Barão, Hertz Dias, Leonardo Avalanche, Rui Costa Pimenta, Wilson Grassi com 0), Branco/nulo/não vai votar 8, Indecisos 10 = 100. SEM linha 'outros' (o 'Outros 3' da p.5 é da pergunta ESPONTÂNEA). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13845-2-1-c747e7d2ff4f",
@@ -2738,9 +3047,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06773/2026"
+   "undecided_pct": 5,
+   "blank_null_pct": 14,
+   "tse_registration": "BR-06773/2026",
+   "repaired": {
+    "evidence": "Confronto Lula × Ronaldo Caiado (2º turno, p.5-6): Branco/nulo 14, Indecisos 5; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "04ce2ef62947",
@@ -3018,9 +3332,14 @@
      "candidate": "Rafaell Milas",
      "party": "Missão",
      "pct": 3
+    },
+    {
+     "candidate": "Maurício Coelho",
+     "party": "Mobiliza",
+     "pct": 0
     }
    ],
-   "others_pct": 0,
+   "others_pct": null,
    "undecided_pct": 23,
    "blank_null_pct": null,
    "tse_registration": "MT-04560/2026"
@@ -3109,9 +3428,19 @@
      "candidate": "Margareth Buzetti",
      "party": "PP",
      "pct": 4
+    },
+    {
+     "candidate": "Professor Nelson Ferreira",
+     "party": "Agir",
+     "pct": 0
+    },
+    {
+     "candidate": "Beny Godoy",
+     "party": "Agir",
+     "pct": 0
     }
    ],
-   "others_pct": 0,
+   "others_pct": null,
    "undecided_pct": 4,
    "blank_null_pct": null,
    "tse_registration": "MT-04560/2026"
@@ -3378,9 +3707,14 @@
      "candidate": "Rafaell Milas",
      "party": "Missão",
      "pct": 1.1
+    },
+    {
+     "candidate": "Maurício Coelho",
+     "party": "Mobiliza",
+     "pct": 0.8
     }
    ],
-   "others_pct": 0.8,
+   "others_pct": null,
    "undecided_pct": 32,
    "blank_null_pct": null,
    "tse_registration": null
@@ -3512,9 +3846,24 @@
      "candidate": "Margareth Buzetti",
      "party": "PP",
      "pct": 2.4
+    },
+    {
+     "candidate": "Coronel Darwin",
+     "party": "Democrata",
+     "pct": 2.1
+    },
+    {
+     "candidate": "Professor Nelson Ferreira",
+     "party": "Agir",
+     "pct": 1.8
+    },
+    {
+     "candidate": "Beny Godoy",
+     "party": "Agir",
+     "pct": 0.8
     }
    ],
-   "others_pct": 5.7,
+   "others_pct": null,
    "undecided_pct": 57.9,
    "blank_null_pct": null,
    "tse_registration": null
@@ -6855,7 +7204,7 @@
    "fieldwork_end": "2026-08-03",
    "published_date": "2026-08-03",
    "sample_size": 27600,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -6906,12 +7255,22 @@
      "candidate": "Rui Costa Pimenta",
      "party": "PCO",
      "pct": 0.1
+    },
+    {
+     "candidate": "Cabo Daciolo",
+     "party": "Mobiliza",
+     "pct": 0.6
     }
    ],
-   "others_pct": 0.6,
-   "undecided_pct": 6,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04579/2026"
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 2,
+   "tse_registration": "BR-04579/2026",
+   "repaired": {
+    "evidence": "p.35, 1º turno ESTIMULADA: Lula 43, Flávio Bolsonaro 35, Ronaldo Caiado 5,7, Renan Santos 4,7, Romeu Zema 2,6, Augusto Cury 1,7, Cabo Daciolo 0,6, Samara Martins 0,3, Edmilson Costa 0,2, Hertz Dias 0,1, Rui Costa Pimenta 0,1, Ninguém/Branco/Nulo 2, Não sabe 4 = 100. SEM 'outros' (o 'Outros 0,8' da p.33 é da ESPONTÂNEA; o 'Outros 9,3' da p.34 é série temporal). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-meio-ideia-presidencia-republica-5ago2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13705-2-1-4dbde94fdeb6",
@@ -6928,7 +7287,7 @@
    "fieldwork_end": "2026-08-03",
    "published_date": "2026-08-03",
    "sample_size": 27600,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -6942,9 +7301,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 11.5,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04579/2026"
+   "undecided_pct": 4.5,
+   "blank_null_pct": 7,
+   "tse_registration": "BR-04579/2026",
+   "repaired": {
+    "evidence": "p.47, confronto Lula × Ronaldo Caiado (2º turno): Lula 48,5, Ronaldo Caiado 40, Branco/Nulo 7, Não sabe 4,5 = 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-meio-ideia-presidencia-republica-5ago2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13706-1-0-b07f0f24b71b",
@@ -8343,14 +8707,14 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "André Moura",
-     "party": "União Brasil",
-     "pct": 14
-    },
-    {
      "candidate": "Delegado André David",
      "party": "Republicanos",
      "pct": 17
+    },
+    {
+     "candidate": "André Moura",
+     "party": "União Brasil",
+     "pct": 14
     },
     {
      "candidate": "Eduardo Amorim",
@@ -8882,7 +9246,7 @@
    "fieldwork_end": "2026-07-31",
    "published_date": "2026-07-31",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -9003,7 +9367,7 @@
    "fieldwork_end": "2026-07-31",
    "published_date": "2026-07-31",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -9056,7 +9420,7 @@
    "fieldwork_end": "2026-07-31",
    "published_date": "2026-07-31",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -10857,13 +11221,22 @@
      "candidate": "Cabo Daciolo",
      "party": "Mobiliza",
      "pct": 2
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 40
     }
    ],
    "others_pct": null,
    "undecided_pct": 4,
    "blank_null_pct": 5,
    "tse_registration": "RN-06579/2026",
-   "incomplete": true
+   "repaired": {
+    "evidence": "⚠ FONTE FRACA, citada honestamente: o PDF são duas telas de ARTE DE TV (sem ficha técnica impressa: n, margem, campo e método não constam), creditadas 'Fonte: Data Capital, REGISTRO RN-06579/2026'. Aceita por decisão do criador (18/08/2026) porque as duas leituras cegas batem E a soma reconcilia exata em 100 com os baldes que já temos; o levantamento já está no banco (n=2.050 no store, estadual). 1º turno estimulado: Lula 40, Flávio Bolsonaro 33, Ronaldo Caiado 6, Romeu Zema 5, Augusto Cury 3, Renan Santos 2, Cabo Daciolo 2, Branco/nulo 5, NS/NR 4 = 100. SEM 'outros'. Partido não impresso; PT do Lula por atestação. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-data-capital-presidente-rn-5ago2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13713-1-0-4f4f98a4d58c",
@@ -11111,26 +11484,36 @@
    "scenario": "1º turno",
    "pollster": "INOR",
    "contractor": "Martins Produções",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-07-27",
    "fieldwork_end": "2026-07-29",
    "published_date": "2026-07-29",
    "sample_size": 1070,
    "margin_of_error": 3,
    "results": [
     {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 37.94
+    },
+    {
      "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 46.07
     },
     {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 37.94
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 7.01
+    },
+    {
+     "candidate": "Emanuel Cacho",
+     "party": "PSDB",
+     "pct": 0.28
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 6.27,
-   "blank_null_pct": 2.24,
+   "others_pct": 0.19,
+   "undecided_pct": 8.51,
+   "blank_null_pct": null,
    "tse_registration": "SE-00281/2026"
   },
   {
@@ -11201,7 +11584,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 1680,
-   "margin_of_error": 2,
+   "margin_of_error": 2.4,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -11335,7 +11718,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2700,
-   "margin_of_error": 1,
+   "margin_of_error": 1.8,
    "results": [
     {
      "candidate": "Lula",
@@ -11368,7 +11751,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 1680,
-   "margin_of_error": 2,
+   "margin_of_error": 2.4,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -12252,7 +12635,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -12345,7 +12728,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -12378,7 +12761,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -12392,9 +12775,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 10.8,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01084/2026"
+   "undecided_pct": 2.5,
+   "blank_null_pct": 8.3,
+   "tse_registration": "BR-01084/2026",
+   "repaired": {
+    "evidence": "Confronto Lula × Romeu Zema (2º turno): NENHUM/BRANCO/NULO 8.3, NÃO SABE/NÃO OPINOU 2.5; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/RELATORIO-VOX-BRASIL-NACIONAL-5-31-07-2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13668-2-2-54f55f6fb845",
@@ -12411,7 +12799,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -12425,9 +12813,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 10.7,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01084/2026"
+   "undecided_pct": 3.9,
+   "blank_null_pct": 6.8,
+   "tse_registration": "BR-01084/2026",
+   "repaired": {
+    "evidence": "Confronto Lula × Ronaldo Caiado (2º turno): NENHUM/BRANCO/NULO 6.8, NÃO SABE/NÃO OPINOU 3.9; fecha em 100 com os dois candidatos. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/RELATORIO-VOX-BRASIL-NACIONAL-5-31-07-2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13683-1-0-95a054df88a2",
@@ -12444,7 +12837,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2700,
-   "margin_of_error": 1,
+   "margin_of_error": 1.8,
    "results": [
     {
      "candidate": "Lula",
@@ -12477,10 +12870,15 @@
      "pct": 1
     }
    ],
-   "others_pct": null,
+   "others_pct": 1,
    "undecided_pct": 2,
    "blank_null_pct": 8,
-   "tse_registration": "BR-04488/2026"
+   "tse_registration": "BR-04488/2026",
+   "repaired": {
+    "evidence": "p.12, 'Cenário 1 – 1º Turno, RU ESTIMULADA': Lula 43, Flávio Bolsonaro 29, Ronaldo Caiado 7, Romeu Zema 6, Renan Santos 3, Augusto Cury 1, OUTROS 1, NENHUM/BRANCO/NULO 8, NÃO SABE/NÃO RESPONDEU 2 = 100. A única 'OUTROS' de voto está aqui (1%) e na espontânea da p.11 (5%); 'OUTRAS' 1% é religião no perfil (p.9). LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13683-2-1-319a1751a290",
@@ -12497,7 +12895,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2700,
-   "margin_of_error": 1,
+   "margin_of_error": 1.8,
    "results": [
     {
      "candidate": "Lula",
@@ -12511,9 +12909,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04488/2026"
+   "undecided_pct": 2,
+   "blank_null_pct": 13,
+   "tse_registration": "BR-04488/2026",
+   "repaired": {
+    "evidence": "Confronto Lula × Ronaldo Caiado (2º turno): NENHUM/BRANCO/NULO 13, NÃO SABE/NÃO RESPONDEU 2; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13683-2-2-c5c2ccf00a99",
@@ -12530,7 +12933,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2700,
-   "margin_of_error": 1,
+   "margin_of_error": 1.8,
    "results": [
     {
      "candidate": "Lula",
@@ -12544,9 +12947,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04488/2026"
+   "undecided_pct": 3,
+   "blank_null_pct": 19,
+   "tse_registration": "BR-04488/2026",
+   "repaired": {
+    "evidence": "Confronto Lula × Renan Santos (2º turno): NENHUM/BRANCO/NULO 19, NÃO SABE/NÃO RESPONDEU 3; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13683-2-3-560d46c9155d",
@@ -12563,7 +12971,7 @@
    "fieldwork_end": "2026-07-28",
    "published_date": "2026-07-28",
    "sample_size": 2700,
-   "margin_of_error": 1,
+   "margin_of_error": 1.8,
    "results": [
     {
      "candidate": "Lula",
@@ -12577,9 +12985,14 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04488/2026"
+   "undecided_pct": 2,
+   "blank_null_pct": 15,
+   "tse_registration": "BR-04488/2026",
+   "repaired": {
+    "evidence": "Confronto Lula × Romeu Zema (2º turno): NENHUM/BRANCO/NULO 15, NÃO SABE/NÃO RESPONDEU 2; com os dois candidatos fecha em 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-nacional-Alfa-Inteligencia-31-jul-2026.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13691-2-0-95898dc61443",
@@ -17456,13 +17869,27 @@
      "candidate": "Cabo Daciolo",
      "party": "Mobiliza",
      "pct": 0.8
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 37.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 31.8
     }
    ],
    "others_pct": null,
-   "undecided_pct": 8.3,
-   "blank_null_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": 5.7,
    "tse_registration": "BR-08054/2026",
-   "incomplete": true
+   "repaired": {
+    "evidence": "Relatório do próprio instituto (Futura Inteligência, 1.200 entrevistas, CATI, campo 21-24/07/2026, margem 2,8, veículo Poder360), p.12, '1º turno – Estimulada, Cenário 1': Lula 37,7, Flávio Bolsonaro 31,8, Romeu Zema 12,4, Ronaldo Caiado 5,0, Renan Santos 2,6, Augusto Cury 1,4, Cabo Daciolo 0,8, Ninguém/Branco/Nulo 5,7, NS/NR/Indeciso 2,6 = 100,0. SEM linha 'outros' (os 'Outros' das p.9/p.10 são conhecimento e voto ESPONTÂNEO, e 'Outras Religiões' p.4 é perfil). O relatório NÃO imprime partido; PT e PL vêm da atestação do banco em centenas de linhas independentes, como no reparo BR-01084. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/Relatorio_MG_Julho_2026_Poder-360%C2%B0.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13710-1-0-b0f65ac689e4",
@@ -17932,13 +18359,22 @@
      "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 1
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 36
     }
    ],
-   "others_pct": null,
+   "others_pct": 1,
    "undecided_pct": 5,
    "blank_null_pct": 9,
    "tse_registration": "BR-05542/2026",
-   "incomplete": true
+   "repaired": {
+    "evidence": "Relatório do próprio instituto (Real Time Big Data, 1.600 entrevistas, campo 19-23/07/2026, margem 2,0, divulgação 24/07/2026), p.7, 'Estimulada Cenário 01': Lula 36, Flávio Bolsonaro 31, Ronaldo Caiado 8, Renan Santos 7, Romeu Zema 1, Joaquim Barbosa 1, Augusto Cury 1, OUTROS 1 (rodapé: Cabo Daciolo, Rui Costa Pimenta, Samara Martins, Edmilson Costa, Hertz Dias, Leonardo Avalanche), Nulo/Branco 9, NS/NR 5 = 100. Os dois leitores conferiram a p.7 por imagem além do texto. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/realtime-amapa-nacional-24jul.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13608-1-0-50a0b5649f85",
@@ -19921,10 +20357,15 @@
      "pct": 1
     }
    ],
-   "others_pct": null,
+   "others_pct": 1,
    "undecided_pct": 3,
    "blank_null_pct": 3,
-   "tse_registration": "BR-09247/2026"
+   "tse_registration": "BR-09247/2026",
+   "repaired": {
+    "evidence": "p.8, 'ESTIMULADA PRESIDENTE': Lula 40, Flávio Bolsonaro 33, Renan Santos 9, Ronaldo Caiado 7, Romeu Zema 2, Augusto Cury 1, Joaquim Barbosa 1, OUTROS 1 (rodapé: Cabo Daciolo, Leonardo Avalanche, Rui Costa Pimenta, Samara Martins, Edmilson Costa, Hertz Dias), Nulo/Branco 3, NS/NR 3 = 100. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13605-1-0-2cf364165846",
@@ -20439,7 +20880,7 @@
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -20472,7 +20913,7 @@
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -20545,7 +20986,7 @@
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -20578,7 +21019,7 @@
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -20611,7 +21052,7 @@
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -21180,7 +21621,7 @@
    "fieldwork_end": "2026-07-17",
    "published_date": "2026-07-17",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -21253,7 +21694,7 @@
    "fieldwork_end": "2026-07-17",
    "published_date": "2026-07-17",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -21286,7 +21727,7 @@
    "fieldwork_end": "2026-07-17",
    "published_date": "2026-07-17",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -21319,7 +21760,7 @@
    "fieldwork_end": "2026-07-17",
    "published_date": "2026-07-17",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -21352,7 +21793,7 @@
    "fieldwork_end": "2026-07-17",
    "published_date": "2026-07-17",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -21391,13 +21832,23 @@
      "candidate": "Renan Filho",
      "party": "MDB",
      "pct": 36
+    },
+    {
+     "candidate": "Lenilda Luna",
+     "party": "UP",
+     "pct": 1
     }
    ],
    "others_pct": null,
    "undecided_pct": 8,
    "blank_null_pct": 5,
    "tse_registration": "BR-00994/2026",
-   "incomplete": true
+   "incomplete": true,
+   "repaired": {
+    "evidence": "⚠ FONTE SECUNDÁRIA (matéria, Francês News/Agora Alagoas reproduzindo a TDL), aceita por decisão do criador (18/08/2026) porque as duas leituras cegas batem E a soma reconcilia exata em 100. TDL Pesquisa & Marketing, 1.200 entrevistas presenciais, margem 3, 95%, campo 15-17/07/2026. 1º turno estimulado: JHC 50, Renan Filho 36, Lenilda Luna 1, Branco/nulo 5, Não sabe/NR 8 = 100. SEM 'outros' (a série 57%/41% é votos VÁLIDOS, não a bruta). Partidos impressos: JHC PSDB, Lenilda Luna UP. ⚠ O PDF cita registro AL-04857/2026 (TRE-AL); o banco guarda este levantamento sob BR-00994/2026 e é por ele que o reparo casa. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13815-1-0-3947b573806e",
@@ -23450,19 +23901,34 @@
      "pct": 23
     },
     {
+     "candidate": "Toni Rodrigues",
+     "party": "PL",
+     "pct": 1
+    },
+    {
+     "candidate": "Elizeu Aguiar",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
      "candidate": "Mainha",
      "party": "Podemos",
      "pct": 2
     },
     {
-     "candidate": "Toni Rodrigues",
-     "party": "PL",
-     "pct": 1
+     "candidate": "Lourdes Melo",
+     "party": "PCO",
+     "pct": 2
+    },
+    {
+     "candidate": "Dra. Lúcia Santos",
+     "party": "PSDB",
+     "pct": 2
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": 3,
+   "others_pct": 2,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
    "tse_registration": "PI-06473/2026"
   },
   {
@@ -23556,7 +24022,7 @@
      "pct": 1
     },
     {
-     "candidate": "Ravenna Castro",
+     "candidate": "Ravenna da Inclusão",
      "party": "Democrata",
      "pct": 1
     },
@@ -25142,13 +25608,37 @@
      "candidate": "Joaquim Barbosa",
      "party": "DC",
      "pct": 0.34
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 51.3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1.84
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 1.15
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0.12
     }
    ],
    "others_pct": null,
    "undecided_pct": 3.52,
    "blank_null_pct": 5.17,
    "tse_registration": "BR-07763/2026",
-   "incomplete": true
+   "repaired": {
+    "evidence": "⚠ FONTE SECUNDÁRIA, citada honestamente: o PDF é uma MATÉRIA (Blog do Heitor Gregório) reproduzindo o infográfico do instituto Exatus, não o relatório técnico. Aceita por decisão do criador (18/08/2026) porque as duas leituras cegas batem E a soma reconcilia EXATA em 100 com os baldes que já temos. Pesquisa Exatus/Grupo Agora RN, 1.500 eleitores, margem 2,53, campo 07-10/07/2026, registros BR-07763/2026 (nacional) e RN-02620/2026. 1º turno estimulada: Lula 51,30, Flávio Bolsonaro 34,94, Ronaldo Caiado 1,84, Renan Santos 1,15, Augusto Cury 0,75, Romeu Zema 0,54, Cabo Daciolo 0,34, Joaquim Barbosa 0,34, Samara Martins 0,12, Nenhum 5,17, Não sabe 3,52 = 100,01. SEM 'outros' (o 'Nenhum 5,17' é rejeição, já em blank_null_pct). Partido do Caiado: a fonte se contradiz (infográfico 'União Brasil', prosa 'PSD') — usado PSD, atestado em centenas de linhas do banco; Lula PT, Renan Missão, Samara UP conforme impresso. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas nos 9 candidatos e nos baldes.",
+    "source": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13843-1-0-1deed68128cd",
@@ -26313,7 +26803,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26576,7 +27066,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26609,7 +27099,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26687,7 +27177,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26720,7 +27210,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26753,7 +27243,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26786,7 +27276,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26819,7 +27309,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -26852,7 +27342,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -26885,7 +27375,7 @@
    "fieldwork_end": "2026-07-07",
    "published_date": "2026-07-07",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -27636,7 +28126,7 @@
    "fieldwork_end": "2026-07-06",
    "published_date": "2026-07-06",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -27724,7 +28214,7 @@
    "fieldwork_end": "2026-07-06",
    "published_date": "2026-07-06",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -27757,7 +28247,7 @@
    "fieldwork_end": "2026-07-06",
    "published_date": "2026-07-06",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -27790,7 +28280,7 @@
    "fieldwork_end": "2026-07-06",
    "published_date": "2026-07-06",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -27823,7 +28313,7 @@
    "fieldwork_end": "2026-07-06",
    "published_date": "2026-07-06",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -31183,7 +31673,7 @@
    "fieldwork_end": "2026-06-27",
    "published_date": "2026-06-27",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -31216,7 +31706,7 @@
    "fieldwork_end": "2026-06-27",
    "published_date": "2026-06-27",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Marina Silva",
@@ -31636,7 +32126,7 @@
    "fieldwork_end": "2026-06-25",
    "published_date": "2026-06-25",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -31704,7 +32194,7 @@
    "fieldwork_end": "2026-06-25",
    "published_date": "2026-06-25",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -31737,7 +32227,7 @@
    "fieldwork_end": "2026-06-25",
    "published_date": "2026-06-25",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -31770,7 +32260,7 @@
    "fieldwork_end": "2026-06-25",
    "published_date": "2026-06-25",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -31803,7 +32293,7 @@
    "fieldwork_end": "2026-06-25",
    "published_date": "2026-06-25",
    "sample_size": 2100,
-   "margin_of_error": 2,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
@@ -34304,7 +34794,7 @@
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -34377,7 +34867,7 @@
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -34410,7 +34900,7 @@
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -34443,7 +34933,7 @@
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.19,
    "results": [
     {
      "candidate": "Lula",
@@ -36798,7 +37288,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -36861,7 +37351,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -36894,7 +37384,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -36927,7 +37417,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -36960,7 +37450,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -36993,7 +37483,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -37026,7 +37516,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -37059,7 +37549,7 @@
    "fieldwork_end": "2026-06-14",
    "published_date": "2026-06-14",
    "sample_size": 2002,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38547,7 +39037,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38610,7 +39100,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38643,7 +39133,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38676,7 +39166,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Zema",
@@ -38709,7 +39199,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38742,7 +39232,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38775,7 +39265,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38808,7 +39298,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -38841,7 +39331,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -38874,7 +39364,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -38907,7 +39397,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -38940,7 +39430,7 @@
    "fieldwork_end": "2026-06-12",
    "published_date": "2026-06-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -45458,7 +45948,7 @@
    "fieldwork_end": "2026-05-28",
    "published_date": "2026-05-28",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -45526,7 +46016,7 @@
    "fieldwork_end": "2026-05-28",
    "published_date": "2026-05-28",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -45559,7 +46049,7 @@
    "fieldwork_end": "2026-05-28",
    "published_date": "2026-05-28",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Lula",
@@ -45592,7 +46082,7 @@
    "fieldwork_end": "2026-05-28",
    "published_date": "2026-05-28",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -45645,7 +46135,7 @@
    "fieldwork_end": "2026-05-28",
    "published_date": "2026-05-28",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -45693,7 +46183,7 @@
    "fieldwork_end": "2026-05-28",
    "published_date": "2026-05-28",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -46140,7 +46630,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46226,7 +46716,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46279,7 +46769,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46312,7 +46802,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46345,7 +46835,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46378,7 +46868,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46411,7 +46901,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46444,7 +46934,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46477,7 +46967,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -46510,7 +47000,7 @@
    "fieldwork_end": "2026-05-27",
    "published_date": "2026-05-27",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Fernando Haddad",
@@ -49478,7 +49968,7 @@
    "fieldwork_end": "2026-05-21",
    "published_date": "2026-05-21",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -49561,7 +50051,7 @@
    "fieldwork_end": "2026-05-21",
    "published_date": "2026-05-21",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -49594,7 +50084,7 @@
    "fieldwork_end": "2026-05-21",
    "published_date": "2026-05-21",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -49627,7 +50117,7 @@
    "fieldwork_end": "2026-05-21",
    "published_date": "2026-05-21",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -49660,7 +50150,7 @@
    "fieldwork_end": "2026-05-21",
    "published_date": "2026-05-21",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -52230,7 +52720,7 @@
   {
    "id": "p360-13446-1-0-97d3e3a6106f",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/agregador-de-pesquisas/",
+   "source_url": "https://static.poder360.com.br/2026/05/GERP-Relatorio-1a-Pesquisa-Eleicoes-Senador-de-Sao-Paulo-2026.pdf",
    "integra_url": null,
    "race": "senador",
    "state": "SP",
@@ -52242,7 +52732,7 @@
    "fieldwork_end": "2026-05-15",
    "published_date": "2026-05-15",
    "sample_size": 1400,
-   "margin_of_error": 2,
+   "margin_of_error": 2.67,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -56127,7 +56617,7 @@
    "fieldwork_end": "2026-05-08",
    "published_date": "2026-05-08",
    "sample_size": 2004,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -56200,7 +56690,7 @@
    "fieldwork_end": "2026-05-08",
    "published_date": "2026-05-08",
    "sample_size": 2004,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -56233,7 +56723,7 @@
    "fieldwork_end": "2026-05-08",
    "published_date": "2026-05-08",
    "sample_size": 2004,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -56266,7 +56756,7 @@
    "fieldwork_end": "2026-05-08",
    "published_date": "2026-05-08",
    "sample_size": 2004,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -56299,7 +56789,7 @@
    "fieldwork_end": "2026-05-08",
    "published_date": "2026-05-08",
    "sample_size": 2004,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -56534,7 +57024,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -56630,7 +57120,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -56708,7 +57198,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -56741,7 +57231,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -56774,7 +57264,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -56807,7 +57297,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -56840,7 +57330,7 @@
    "fieldwork_end": "2026-05-05",
    "published_date": "2026-05-05",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -59131,7 +59621,7 @@
    "fieldwork_end": "2026-04-29",
    "published_date": "2026-04-29",
    "sample_size": 1200,
-   "margin_of_error": 2,
+   "margin_of_error": 2.8,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -59194,7 +59684,7 @@
    "fieldwork_end": "2026-04-29",
    "published_date": "2026-04-29",
    "sample_size": 1200,
-   "margin_of_error": 2,
+   "margin_of_error": 2.8,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -59227,7 +59717,7 @@
    "fieldwork_end": "2026-04-29",
    "published_date": "2026-04-29",
    "sample_size": 1200,
-   "margin_of_error": 2,
+   "margin_of_error": 2.8,
    "results": [
     {
      "candidate": "Ronaldo Caiado",
@@ -59260,7 +59750,7 @@
    "fieldwork_end": "2026-04-29",
    "published_date": "2026-04-29",
    "sample_size": 1200,
-   "margin_of_error": 2,
+   "margin_of_error": 2.8,
    "results": [
     {
      "candidate": "Zema",
@@ -63303,7 +63793,7 @@
    "fieldwork_end": "2026-04-25",
    "published_date": "2026-04-25",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Simone Tebet",
@@ -63376,7 +63866,7 @@
    "fieldwork_end": "2026-04-25",
    "published_date": "2026-04-25",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -63798,7 +64288,7 @@
    "fieldwork_end": "2026-04-25",
    "published_date": "2026-04-25",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -63856,7 +64346,7 @@
    "fieldwork_end": "2026-04-25",
    "published_date": "2026-04-25",
    "sample_size": 1480,
-   "margin_of_error": 2,
+   "margin_of_error": 2.55,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -65461,7 +65951,7 @@
    "fieldwork_end": "2026-04-14",
    "published_date": "2026-04-14",
    "sample_size": 1600,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -74599,13 +75089,22 @@
      "candidate": "Aldo Rebelo",
      "party": "DC",
      "pct": 0.6
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 41
     }
    ],
    "others_pct": null,
    "undecided_pct": 4.9,
    "blank_null_pct": 7,
    "tse_registration": "BR-04700/2026",
-   "incomplete": true
+   "repaired": {
+    "evidence": "Relatório do próprio instituto (Paraná Pesquisas, 1.400 eleitores em 59 municípios, presencial, margem ~2,7, 95%, campo 18-21/03/2026), p.8, 'Presidente Estimulada Cenário 1': Flávio Bolsonaro 41,0, Lula 38,3, Ratinho Junior 3,1, Tereza Cristina 2,4, Renan Santos 1,5, Romeu Zema 1,2, Aldo Rebelo 0,6, Nenhum/Branco/Nulo 7,0, Não sabe/não opinou 4,9 = 100,0. SEM 'outros' (o 'Outros nomes citados' 1,0 é da ESPONTÂNEA, p.7). Partido não impresso; PL vem da atestação do banco em centenas de linhas, como no reparo BR-01084. LIDO POR DOIS AGENTES ÀS CEGAS EM 18/08/2026, transcrições idênticas.",
+    "source": "https://static.poder360.com.br/2026/04/PA_Mar26-presidente.pdf",
+    "verified_at": "2026-08-18"
+   }
   },
   {
    "id": "p360-13357-2-0-e2d87fa67526",
@@ -77535,7 +78034,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77598,7 +78097,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77631,7 +78130,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77664,7 +78163,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77697,7 +78196,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77730,7 +78229,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77763,7 +78262,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77796,7 +78295,7 @@
    "fieldwork_end": "2026-03-11",
    "published_date": "2026-03-11",
    "sample_size": 1000,
-   "margin_of_error": 3,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Lula",
@@ -77829,7 +78328,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -77915,7 +78414,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78059,7 +78558,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78112,7 +78611,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78145,7 +78644,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78178,7 +78677,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78211,7 +78710,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78244,7 +78743,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -78277,7 +78776,7 @@
    "fieldwork_end": "2026-03-10",
    "published_date": "2026-03-10",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -79418,7 +79917,7 @@
    "fieldwork_end": "2026-03-06",
    "published_date": "2026-03-06",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -79471,7 +79970,7 @@
    "fieldwork_end": "2026-03-06",
    "published_date": "2026-03-06",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Flávio Bolsonaro",
@@ -79504,7 +80003,7 @@
    "fieldwork_end": "2026-03-06",
    "published_date": "2026-03-06",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Tarcísio",
@@ -80823,7 +81322,7 @@
    "fieldwork_end": "2026-02-25",
    "published_date": "2026-02-25",
    "sample_size": 2080,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -80856,7 +81355,7 @@
    "fieldwork_end": "2026-02-25",
    "published_date": "2026-02-25",
    "sample_size": 2080,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -80909,7 +81408,7 @@
    "fieldwork_end": "2026-02-25",
    "published_date": "2026-02-25",
    "sample_size": 2080,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -80942,7 +81441,7 @@
    "fieldwork_end": "2026-02-25",
    "published_date": "2026-02-25",
    "sample_size": 2080,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -83564,7 +84063,7 @@
    "others_pct": null,
    "undecided_pct": 3,
    "blank_null_pct": 6,
-   "tse_registration": "BR-06510/2026|SP-04745/2026"
+   "tse_registration": "BR-06510/2026"
   },
   {
    "id": "p360-13275-1-0-36021237a60b",
@@ -86116,7 +86615,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86149,7 +86648,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86182,7 +86681,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86215,7 +86714,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86268,7 +86767,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86301,7 +86800,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86334,7 +86833,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86367,7 +86866,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86400,7 +86899,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86433,7 +86932,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Lula",
@@ -86466,7 +86965,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Fernando Haddad",
@@ -86499,7 +86998,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Fernando Haddad",
@@ -86532,7 +87031,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 1500,
-   "margin_of_error": 2,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Fernando Haddad",
@@ -86853,7 +87352,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -86916,7 +87415,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -86949,7 +87448,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -86982,7 +87481,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -87015,7 +87514,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -87048,7 +87547,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -87081,7 +87580,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -87114,7 +87613,7 @@
    "fieldwork_end": "2026-02-02",
    "published_date": "2026-02-02",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.24,
    "results": [
     {
      "candidate": "Lula",
@@ -89090,7 +89589,7 @@
    "scenario": "1º turno",
    "pollster": "Futura",
    "contractor": "Apex",
-   "fieldwork_start": "2026-01-20",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-01-23",
    "published_date": "2026-01-23",
    "sample_size": 1200,
@@ -89135,7 +89634,7 @@
    "others_pct": null,
    "undecided_pct": 2.6,
    "blank_null_pct": 9.3,
-   "tse_registration": "SP-04679/2026|BR-03024/2026"
+   "tse_registration": "BR-03024/2026"
   },
   {
    "id": "p360-13191-2-0-aa32c50e0f4e",
@@ -89148,7 +89647,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Futura",
    "contractor": "Apex",
-   "fieldwork_start": "2026-01-20",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-01-23",
    "published_date": "2026-01-23",
    "sample_size": 1200,
@@ -89168,7 +89667,7 @@
    "others_pct": null,
    "undecided_pct": 0.9,
    "blank_null_pct": 10.5,
-   "tse_registration": "SP-04679/2026|BR-03024/2026"
+   "tse_registration": "BR-03024/2026"
   },
   {
    "id": "p360-13191-2-1-d28df22e88b3",
@@ -89181,7 +89680,7 @@
    "scenario": "2º turno: Ratinho Jr vs Lula",
    "pollster": "Futura",
    "contractor": "Apex",
-   "fieldwork_start": "2026-01-20",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-01-23",
    "published_date": "2026-01-23",
    "sample_size": 1200,
@@ -89201,7 +89700,7 @@
    "others_pct": null,
    "undecided_pct": 1.7,
    "blank_null_pct": 12.1,
-   "tse_registration": "SP-04679/2026|BR-03024/2026"
+   "tse_registration": "BR-03024/2026"
   },
   {
    "id": "p360-13191-2-2-2f9ca2b40dd9",
@@ -89214,7 +89713,7 @@
    "scenario": "2º turno: Tarcísio de Freitas vs Flávio Bolsonaro",
    "pollster": "Futura",
    "contractor": "Apex",
-   "fieldwork_start": "2026-01-20",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-01-23",
    "published_date": "2026-01-23",
    "sample_size": 1200,
@@ -89234,7 +89733,7 @@
    "others_pct": null,
    "undecided_pct": 2.1,
    "blank_null_pct": 24.6,
-   "tse_registration": "SP-04679/2026|BR-03024/2026"
+   "tse_registration": "BR-03024/2026"
   },
   {
    "id": "p360-13191-2-3-753f824e89ed",
@@ -89247,7 +89746,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Ratinho Jr",
    "pollster": "Futura",
    "contractor": "Apex",
-   "fieldwork_start": "2026-01-20",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-01-23",
    "published_date": "2026-01-23",
    "sample_size": 1200,
@@ -89267,12 +89766,12 @@
    "others_pct": null,
    "undecided_pct": 1.2,
    "blank_null_pct": 25.2,
-   "tse_registration": "SP-04679/2026|BR-03024/2026"
+   "tse_registration": "BR-03024/2026"
   },
   {
    "id": "p360-13193-1-1-5e8b254d8713",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89335,7 +89834,7 @@
   {
    "id": "p360-13193-2-0-c669ff758b34",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89368,7 +89867,7 @@
   {
    "id": "p360-13193-2-1-36b33f45c91f",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89401,7 +89900,7 @@
   {
    "id": "p360-13193-2-2-8a738d5b9f37",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89434,7 +89933,7 @@
   {
    "id": "p360-13193-2-3-0cbacc58aff3",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89467,7 +89966,7 @@
   {
    "id": "p360-13193-2-4-e3ee3f1b6acb",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89500,7 +89999,7 @@
   {
    "id": "p360-13193-2-5-f23664eefc7b",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89533,7 +90032,7 @@
   {
    "id": "p360-13193-2-6-3b3c9f32a164",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "governador",
    "state": "SP",
@@ -89566,7 +90065,7 @@
   {
    "id": "p360-13194-1-0-b0d11d35d0fc",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-327-e-flavio-314-dos-votos-em-sao-paulo-diz-futura/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/tarcisio-e-favorito-para-reeleicao-em-sao-paulo-diz-futura/",
    "integra_url": null,
    "race": "senador",
    "state": "SP",
@@ -91337,7 +91836,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91370,7 +91869,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91428,7 +91927,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91461,7 +91960,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91494,7 +91993,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91527,7 +92026,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91560,7 +92059,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91593,7 +92092,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91626,7 +92125,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -91659,7 +92158,7 @@
    "fieldwork_end": "2026-01-12",
    "published_date": "2026-01-12",
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",

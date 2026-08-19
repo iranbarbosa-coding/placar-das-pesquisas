@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **69 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **63 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -18,25 +18,6 @@ reparo em `data/repairs.json` (e a pesquisa volta para a média); se o instituto
 divulgou parte, ela fica fora.
 
 - [ ] revisadas todas
-
-## Presidente · Minas Gerais
-
-### Futura — 2026-07-24
-
-Soma **30.5%** · faltam **69.5 pontos** · 5 candidato(s) na tabela · amostra 1200 · registro BR-08054/2026
-
-| candidato | % |
-|---|---|
-| Romeu Zema | 12.4 |
-| Ronaldo Caiado | 5 |
-| Renan Santos | 2.6 |
-| Augusto Cury | 1.4 |
-| Cabo Daciolo | 0.8 |
-| *não sabe/não respondeu* | 8.3 |
-
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-rejeicao-de-486-ante-442-de-flavio-em-mg/
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
 ## Governador · Piauí
 
@@ -75,7 +56,7 @@ Soma **42.6%** · faltam **57.4 pontos** · 1 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Romeu Zema | 16 |
+| Zema | 16 |
 | *não sabe/não respondeu* | 26.6 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
@@ -93,28 +74,12 @@ Soma **42.7%** · faltam **57.3 pontos** · 6 candidato(s) na tabela · amostra 
 | Ronaldo Caiado | 11.7 |
 | Renan Santos | 3.3 |
 | Joaquim Barbosa | 1.5 |
-| Augusto Cury | 1.4 |
-| Romeu Zema | 1.4 |
+| Escritor Augusto Cury | 1.4 |
+| Zema | 1.4 |
 | Cabo Daciolo | 0.5 |
 | *não sabe/não respondeu* | 22.9 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/07/igape-presidente-df-21jul2026.png
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Alagoas
-
-### Falpe — 2026-03-01
-
-Soma **43%** · faltam **57 pontos** · 1 candidato(s) na tabela · amostra 1200 · registro AL-05611/2026
-
-| candidato | % |
-|---|---|
-| Renan Filho | 23.5 |
-| *branco/nulo* | 5.5 |
-| *não sabe/não respondeu* | 14 |
-
-- Publicação: https://static.poder360.com.br/2026/03/regiao-metropolitana-de-maceio-1pdf.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -128,7 +93,7 @@ Soma **43.7%** · faltam **56.3 pontos** · 4 candidato(s) na tabela · amostra 
 |---|---|
 | Lula | 18.9 |
 | Ronaldo Caiado | 2.9 |
-| Romeu Zema | 1.1 |
+| Zema | 1.1 |
 | Renan Santos | 0.3 |
 | *branco/nulo* | 7.6 |
 | *não sabe/não respondeu* | 12.9 |
@@ -145,31 +110,11 @@ Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 
 |---|---|
 | Lula | 27 |
 | Renan Santos | 2 |
-| Romeu Zema | 1 |
+| Zema | 1 |
 | *branco/nulo* | 7 |
 | *não sabe/não respondeu* | 7 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Rio Grande do Norte
-
-### Exatus — 2026-07-10
-
-Soma **45.6%** · faltam **54.4 pontos** · 5 candidato(s) na tabela · amostra 1500 · registro BR-07763/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 34.94 |
-| Augusto Cury | 0.75 |
-| Romeu Zema | 0.54 |
-| Cabo Daciolo | 0.34 |
-| Joaquim Barbosa | 0.34 |
-| *branco/nulo* | 5.17 |
-| *não sabe/não respondeu* | 3.52 |
-
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -220,22 +165,6 @@ Soma **48%** · faltam **52 pontos** · 1 candidato(s) na tabela · amostra 1200
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Alagoas
-
-### TDL — 2026-07-17
-
-Soma **49%** · faltam **51 pontos** · 1 candidato(s) na tabela · amostra 1200 · registro BR-00994/2026
-
-| candidato | % |
-|---|---|
-| Renan Filho | 36 |
-| *branco/nulo* | 5 |
-| *não sabe/não respondeu* | 8 |
-
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Pernambuco
 
 ### IRTB — 2026-08-07
@@ -252,6 +181,23 @@ Soma **49.1%** · faltam **50.9 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Alagoas
+
+### TDL — 2026-07-17
+
+Soma **50%** · faltam **50 pontos** · 2 candidato(s) na tabela · amostra 1200 · registro BR-00994/2026
+
+| candidato | % |
+|---|---|
+| Renan Filho | 36 |
+| Lenilda Luna | 1 |
+| *branco/nulo* | 5 |
+| *não sabe/não respondeu* | 8 |
+
+- Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Tocantins
 
 ### Lucro Ativo — 2026-04-12
@@ -260,7 +206,7 @@ Soma **51.1%** · faltam **48.9 pontos** · 5 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Dorinha Rezende | 12.38 |
+| Professora Dorinha | 12.38 |
 | Vicentinho Júnior | 7.79 |
 | Laurez Moreira | 6 |
 | Ataides de Oliveira | 1 |
@@ -351,48 +297,6 @@ Soma **58.4%** · faltam **41.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · Pará
-
-### Paraná Pesquisas — 2026-03-21
-
-Soma **59%** · faltam **41 pontos** · 6 candidato(s) na tabela · amostra 1400 · registro BR-04700/2026
-
-| candidato | % |
-|---|---|
-| Lula | 38.3 |
-| Ratinho Jr. | 3.1 |
-| Tereza Cristina | 2.4 |
-| Renan Santos | 1.5 |
-| Romeu Zema | 1.2 |
-| Aldo Rebelo | 0.6 |
-| *branco/nulo* | 7 |
-| *não sabe/não respondeu* | 4.9 |
-
-- Publicação: https://www.poder360.com.br/poder-eleicoes/flavio-lidera-disputa-pelo-planalto-no-pa-diz-pesquisa/
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Rio Grande do Norte
-
-### Data Capital — 2026-07-29
-
-Soma **60%** · faltam **40 pontos** · 6 candidato(s) na tabela · amostra 2050 · registro RN-06579/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 33 |
-| Ronaldo Caiado | 6 |
-| Romeu Zema | 5 |
-| Augusto Cury | 3 |
-| Renan Santos | 2 |
-| Cabo Daciolo | 2 |
-| *branco/nulo* | 5 |
-| *não sabe/não respondeu* | 4 |
-
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-data-capital-senador-rn-5ago2026-1.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Pernambuco
 
 ### Brada Comunicação — 2026-07-29
@@ -449,37 +353,16 @@ Soma **62.8%** · faltam **37.2 pontos** · 7 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Lula | 31.2 |
-| Tarcísio de Freitas | 8.4 |
+| Tarcísio | 8.4 |
 | Ratinho Jr | 2.5 |
 | Luciano Huck | 1.5 |
-| Romeu Zema | 1.3 |
+| Zema | 1.3 |
 | Aldo Rebelo | 0.5 |
 | Átila Maia | 0.3 |
 | *branco/nulo* | 7.3 |
 | *não sabe/não respondeu* | 9.8 |
 
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-presidente-6.fev_.2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Amapá
-
-### Real Time Big Data — 2026-07-23
-
-Soma **63%** · faltam **37 pontos** · 6 candidato(s) na tabela · amostra 1600 · registro BR-05542/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 31 |
-| Ronaldo Caiado | 8 |
-| Renan Santos | 7 |
-| Romeu Zema | 1 |
-| Joaquim Barbosa | 1 |
-| Augusto Cury | 1 |
-| *branco/nulo* | 9 |
-| *não sabe/não respondeu* | 5 |
-
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-aprovado-por-50-e-desaprovado-por-48-no-ap-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -529,11 +412,11 @@ Soma **65%** · faltam **35 pontos** · 6 candidato(s) na tabela · amostra 1600
 | candidato | % |
 |---|---|
 | Flávio Bolsonaro | 36 |
-| Romeu Zema | 6 |
+| Zema | 6 |
 | Renan Santos | 6 |
 | Ronaldo Caiado | 2 |
 | Joaquim Barbosa | 1 |
-| Augusto Cury | 1 |
+| Escritor Augusto Cury | 1 |
 | *branco/nulo* | 8 |
 | *não sabe/não respondeu* | 5 |
 
@@ -571,7 +454,7 @@ Soma **66.6%** · faltam **33.4 pontos** · 6 candidato(s) na tabela · amostra 
 | Lula | 42.41 |
 | Ronaldo Caiado | 2.35 |
 | Renan Santos | 1.65 |
-| Augusto Cury | 0.82 |
+| Escritor Augusto Cury | 0.82 |
 | Rui Costa Pimenta | 0 |
 | Hertz Dias | 0 |
 | *branco/nulo* | 10.24 |
@@ -613,6 +496,24 @@ Soma **69%** · faltam **31 pontos** · 3 candidato(s) na tabela · amostra 1509
 | *não sabe/não respondeu* | 2.2 |
 
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Sergipe
+
+### ECM Sergipe — 2026-08-12
+
+Soma **70.5%** · faltam **29.5 pontos** · 4 candidato(s) na tabela · amostra 1500
+
+| candidato | % |
+|---|---|
+| Fábio | 37 |
+| Valmir de Francisquinho | 23.8 |
+| Ricardo Marques | 7.6 |
+| Emanuel Cacho | 1 |
+| *outros* | 1.13 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -670,24 +571,6 @@ Soma **71.4%** · faltam **28.6 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Sergipe
-
-### IFP — 2026-08-12
-
-Soma **72%** · faltam **28 pontos** · 3 candidato(s) na tabela · amostra 2400
-
-| candidato | % |
-|---|---|
-| Fábio | 38.94 |
-| Valmir de Francisquinho | 28.76 |
-| Ricardo Marques | 4.28 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Goiás
-
 ### Instituto Gazeta de Pesquisas — 2026-07-27
 
 Soma **73.2%** · faltam **26.8 pontos** · 2 candidato(s) na tabela · amostra 600 · registro GO-01528/2026
@@ -728,9 +611,9 @@ Soma **74.6%** · faltam **25.4 pontos** · 5 candidato(s) na tabela · amostra 
 |---|---|
 | Flávio Bolsonaro | 47.4 |
 | Renan Santos | 7.2 |
-| Romeu Zema | 6.7 |
+| Zema | 6.7 |
 | Ronaldo Caiado | 5 |
-| Augusto Cury | 1.3 |
+| Escritor Augusto Cury | 1.3 |
 | *branco/nulo* | 2.9 |
 | *não sabe/não respondeu* | 4.1 |
 
@@ -1013,7 +896,7 @@ Soma **85.2%** · faltam **14.8 pontos** · 4 candidato(s) na tabela · amostra 
 |---|---|
 | Gustavo Mendanha | 5 |
 | Vanderlan Cardoso | 2.8 |
-| Zacharias Calil | 2.2 |
+| Dr. Zacharias Calil | 2.2 |
 | Telemaco Brandão | 1 |
 | *não sabe/não respondeu* | 74.2 |
 
@@ -1046,10 +929,10 @@ Soma **86%** · faltam **14 pontos** · 6 candidato(s) na tabela · amostra 1603
 | candidato | % |
 |---|---|
 | Lula | 39.3 |
-| Tarcísio de Freitas | 23.4 |
+| Tarcísio | 23.4 |
 | Luciano Huck | 13.1 |
 | Ratinho Jr | 5.8 |
-| Romeu Zema | 3.9 |
+| Zema | 3.9 |
 | Átila Maia | 0.5 |
 | *branco/nulo* | 0 |
 | *não sabe/não respondeu* | 0 |
@@ -1086,7 +969,7 @@ Soma **86.7%** · faltam **13.3 pontos** · 7 candidato(s) na tabela · amostra 
 | Flávio Bolsonaro | 27.3 |
 | Ratinho Jr | 3.1 |
 | Tereza Cristina | 1.7 |
-| Romeu Zema | 1.2 |
+| Zema | 1.2 |
 | Renan Santos | 0.9 |
 | Aldo Rebelo | 0.3 |
 
@@ -1159,7 +1042,7 @@ Soma **88%** · faltam **12 pontos** · 6 candidato(s) na tabela · amostra 600 
 | Flávio Bolsonaro | 24.8 |
 | Lula | 17.8 |
 | Ratinho Jr | 2 |
-| Romeu Zema | 1.3 |
+| Zema | 1.3 |
 | Renan Santos | 0.3 |
 
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente-24.fev_.2026.pdf

@@ -1974,6 +1974,12 @@
    ]
   },
   {
+   "nome": "Maurício Coelho",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
    "nome": "Max Russi",
    "partidos": [
     "PSB"
@@ -3491,6 +3497,12 @@
    "partidos": [
     "PCO"
    ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
   }
  ],
  "governador:RO": [
@@ -4887,6 +4899,12 @@
    ]
   },
   {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
    "nome": "Renan Santos",
    "partidos": [
     "Missão"
@@ -5974,9 +5992,21 @@
    ]
   },
   {
+   "nome": "Beny Godoy",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
    "nome": "Carlos Fávaro",
    "partidos": [
     "PSD"
+   ]
+  },
+  {
+   "nome": "Coronel Darwin",
+   "partidos": [
+    "Democrata"
    ]
   },
   {
@@ -6019,6 +6049,12 @@
    "nome": "Pedro Taques",
    "partidos": [
     "PSB"
+   ]
+  },
+  {
+   "nome": "Professor Nelson Ferreira",
+   "partidos": [
+    "Agir"
    ]
   },
   {
@@ -7203,9 +7239,21 @@
    ]
   },
   {
+   "nome": "Paulinho da União Tur",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Professor Iran Barbosa",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Renatinha",
+   "partidos": [
+    "DC"
    ]
   },
   {

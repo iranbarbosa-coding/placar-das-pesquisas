@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 413,
+  "exato": 422,
   "contencao": 160,
   "outra_disputa": 136,
   "ambiguo": 4,
-  "sem": 518
+  "sem": 519
  },
  "ambiguos": [
   {
@@ -424,6 +424,13 @@
     "partido": "REPUBLICANOS",
     "numero": "10",
     "origem": "outra-disputa"
+   },
+   "veterinario wilson grassi": {
+    "nome_urna": "Veterinário Wilson Grassi",
+    "sq_candidato": "280002548139",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
    },
    "wilson grassi": {
     "nome_urna": "Veterinário Wilson Grassi",
@@ -1629,6 +1636,13 @@
     "numero": "150",
     "origem": "outra-disputa"
    },
+   "mauricio coelho": {
+    "nome_urna": "Maurício Coelho",
+    "sq_candidato": "110002553058",
+    "partido": "MOBILIZA",
+    "numero": "33",
+    "origem": "exato"
+   },
    "natasha slhessarenko": {
     "nome_urna": "Doutora Natasha",
     "sq_candidato": "110002544985",
@@ -2657,6 +2671,13 @@
     "partido": "PCO",
     "numero": "29",
     "origem": "exato"
+   },
+   "samara martins": {
+    "nome_urna": "Samara",
+    "sq_candidato": "280002538811",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "contencao"
    }
   },
   "governador:RO": {
@@ -3581,6 +3602,13 @@
     "numero": "22",
     "origem": "exato"
    },
+   "lula": {
+    "nome_urna": "Lula",
+    "sq_candidato": "280002542548",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
    "renan santos": {
     "nome_urna": "Renan Santos",
     "sq_candidato": "280002540694",
@@ -4226,12 +4254,26 @@
     "numero": "700",
     "origem": "contencao"
    },
+   "beny godoy": {
+    "nome_urna": "Beny Godoy",
+    "sq_candidato": "110002553706",
+    "partido": "AGIR",
+    "numero": "365",
+    "origem": "exato"
+   },
    "carlos favaro": {
     "nome_urna": "Fávaro",
     "sq_candidato": "110002544986",
     "partido": "PSD",
     "numero": "555",
     "origem": "contencao"
+   },
+   "coronel darwin": {
+    "nome_urna": "Coronel Darwin",
+    "sq_candidato": "110002548042",
+    "partido": "DEMOCRATA",
+    "numero": "351",
+    "origem": "exato"
    },
    "janaina riva": {
     "nome_urna": "Janaína Riva",
@@ -4273,6 +4315,13 @@
     "sq_candidato": "110002544988",
     "partido": "PSB",
     "numero": "400",
+    "origem": "exato"
+   },
+   "professor nelson ferreira": {
+    "nome_urna": "Professor Nelson Ferreira",
+    "sq_candidato": "110002553701",
+    "partido": "AGIR",
+    "numero": "360",
     "origem": "exato"
    }
   },
@@ -4517,11 +4566,11 @@
     "origem": "exato"
    },
    "cristina graeml": {
-    "nome_urna": "Cristina Reis Graeml",
+    "nome_urna": "Cristina Graeml",
     "sq_candidato": "160002549555",
     "partido": "PSD",
     "numero": "555",
-    "origem": "contencao"
+    "origem": "exato"
    },
    "deltan dallagnol": {
     "nome_urna": "Deltan Dallagnol",
@@ -4971,12 +5020,26 @@
     "numero": "500",
     "origem": "exato"
    },
+   "paulinho da uniao tur": {
+    "nome_urna": "Paulinho da União Tur",
+    "sq_candidato": "260002543589",
+    "partido": "DC",
+    "numero": "270",
+    "origem": "exato"
+   },
    "professor iran barbosa": {
     "nome_urna": "Iran Barbosa",
     "sq_candidato": "260002545677",
     "partido": "PSOL",
     "numero": "500",
     "origem": "contencao"
+   },
+   "renatinha": {
+    "nome_urna": "Renatinha",
+    "sq_candidato": "260002543591",
+    "partido": "DC",
+    "numero": "277",
+    "origem": "exato"
    },
    "rodrigo valadares": {
     "nome_urna": "Rodrigo Valadares",
