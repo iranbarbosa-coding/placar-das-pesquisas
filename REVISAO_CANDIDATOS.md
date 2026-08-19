@@ -774,11 +774,11 @@ Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Q
 > Decidido em 19/08/2026. MDB nas duas grafias, período sobreposto, médias a 1,7 p.p., e os
 > mesmos institutos usam as duas — é o senador Álvaro Dias, do Paraná.
 >
-> ⚠ **NÃO implementado.** Medido em 19/08: `canonicalCandidate("Alvaro Dias","senador:PR")`
-> devolve "Alvaro Dias" e `canonicalCandidate("Álvaro Dias","senador:PR")` devolve
-> "Álvaro Dias" — o senador segue partido por acento no banco. Marcar esta caixa registra a
-> decisão para quem lê; não a aplica. O canal que aplica é uma ruling em
-> `data/candidate-rulings.json`, que `candidate-resolve.mjs` propaga para o grupo de alias.
+> **Já implementado.** A fonte ainda manda as duas grafias — `data/nomes-crus.json` traz
+> `["Alvaro Dias","Álvaro Dias"]` nesta disputa —, e o banco as dobra: uma única linha de
+> candidato, `c_5b56e8b6c963`, canônico "Álvaro Dias", com as duas como alias. Nas 26
+> pesquisas de `senador:PR`, 21 trazem o nome e nenhuma traz a forma sem acento; as duas
+> nunca aparecem na mesma pesquisa. A marcação registra o que o banco já faz.
 >
 > ⚠ E ESTE É OUTRO HOMEM, não o de `Governador · RN`. O senador do PR (MDB, Senado, Paraná)
 > não está no cadastro do TSE; o do RN é Álvaro Costa Dias (PL, governo, Rio Grande do Norte).
