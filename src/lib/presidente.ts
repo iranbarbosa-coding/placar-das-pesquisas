@@ -2,6 +2,7 @@ import { scenarioGroups, pollsFor } from "./data";
 import { registeredPresidentKeys } from "./home";
 import { candKey } from "./average";
 import { colorMap, colorOf, fixedColor, PALETTE_SIZE } from "./colors";
+import { shortName } from "./names";
 import { toBasis } from "./validos";
 import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
 import type { MapStatus } from "./home";
@@ -196,6 +197,103 @@ export function windowPollRows(limit = 10): PollRow[] {
     .filter((p) => inWindow.has(p.id))
     .slice(0, limit)
     .map(toPollRow);
+}
+
+// ── Section 2 (RCP matrix): the average + the 10 window polls, one column per
+//    named candidate ──────────────────────────────────────────────────────────
+
+export interface RcpColumn {
+  key: string;
+  name: string;
+  short: string;
+  color: string;
+}
+
+/** Leader (short name) + margin over the runner-up, for a SPREAD pill. */
+export interface RcpSpread {
+  leaderShort: string;
+  margin: number;
+}
+
+export interface RcpRow {
+  pollster: string;
+  date: string | null;
+  /** One value per column, in `candidates` order; null when not tested. */
+  values: (number | null)[];
+  spread: RcpSpread | null;
+}
+
+export interface RcpTable {
+  candidates: RcpColumn[];
+  average: { values: (number | null)[]; spread: RcpSpread | null };
+  rows: RcpRow[];
+}
+
+/** Leader + margin over the runner-up from a list of {name, value} pairs. */
+function spreadOf(pairs: { name: string; value: number }[]): RcpSpread | null {
+  if (pairs.length < 1) return null;
+  const sorted = [...pairs].sort((a, b) => b.value - a.value);
+  const margin = sorted.length > 1 ? round1(sorted[0].value - sorted[1].value) : round1(sorted[0].value);
+  return { leaderShort: shortName(sorted[0].name), margin };
+}
+
+/**
+ * The first-round average and its 10 newest window polls as an RCP-style MATRIX:
+ * one COLUMN per named candidate (the same roster and colours as `PresidentBars`
+ * — registered, avg ≥ `NAMED_MIN_PCT`, descending), a highlighted "Average" row,
+ * then one row per poll with that poll's votos-válidos number in each column
+ * (null where the poll did not test that candidate) and a SPREAD (leader +
+ * margin).
+ *
+ * Poll spread is computed over the poll's REGISTERED válidos values only, so the
+ * leader named in the pill is always a candidate the registered-filter rule
+ * allows to be named — never a hypothetical non-registered opponent.
+ */
+export function rcpTable(limit = 10): RcpTable {
+  const g = scenarioGroups("presidente", null, 1)[0];
+  const avg = g?.average ?? null;
+  if (!avg) return { candidates: [], average: { values: [], spread: null }, rows: [] };
+
+  const reg = registeredSet();
+  const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
+  const named = namedRoster(avg, reg);
+
+  const candidates: RcpColumn[] = named.map((c) => ({
+    key: candKey(c.candidate),
+    name: c.candidate,
+    short: shortName(c.candidate),
+    color: colorOf(cmap, c.candidate),
+  }));
+
+  const average = {
+    values: named.map((c) => round1(c.avg)),
+    spread: spreadOf(named.map((c) => ({ name: c.candidate, value: c.avg }))),
+  };
+
+  const inWindow = new Set(avg.windowPollIds);
+  const rows: RcpRow[] = (g?.polls ?? [])
+    .filter((p) => inWindow.has(p.id))
+    .slice(0, limit)
+    .map((raw) => {
+      const conv = toBasis(raw, "validos");
+      const byKey = new Map<string, number>();
+      for (const r of conv.results) byKey.set(candKey(r.candidate), r.pct);
+      // Spread over this poll's registered válidos values (leader must be nameable).
+      const registeredPairs = conv.results
+        .filter((r) => reg.has(candKey(r.candidate)))
+        .map((r) => ({ name: r.candidate, value: r.pct }));
+      return {
+        pollster: raw.pollster,
+        date: raw.fieldwork_end ?? raw.published_date ?? raw.fieldwork_start ?? null,
+        values: candidates.map((col) => {
+          const v = byKey.get(col.key);
+          return v == null ? null : round1(v);
+        }),
+        spread: spreadOf(registeredPairs),
+      };
+    });
+
+  return { candidates, average, rows };
 }
 
 // ── Section 3: the evolution chart (drives HeroInteractive) ─────────────────
@@ -438,15 +536,22 @@ const PIE_NAMED_MIN = 1;
  * registered candidate and every non-registered one folds into the grey "Outros"
  * slice, which then absorbs the tenths remainder so the pie sums to exactly 100.
  */
-export function statePies(limit = 6): StatePie[] {
+export function statePies(): StatePie[] {
   const reg = registeredSet();
   const withData = UFS.map((uf) => {
     const g = scenarioGroups("presidente", uf, 1)[0] ?? null;
     return { uf, group: g };
   })
-    .filter((s) => !!s.group?.average && s.group.average.candidates.length > 0)
-    .sort((a, b) => (b.group!.average!.pollCount - a.group!.average!.pollCount))
-    .slice(0, limit);
+    // Every state whose presidential subsample is solid enough to call — the SAME
+    // ≥ THIN_POLLS floor the map uses, so the pies cover exactly the states the
+    // map colours (thin 1–2-poll states are omitted here and greyed there).
+    .filter(
+      (s) =>
+        !!s.group?.average &&
+        s.group.average.candidates.length > 0 &&
+        s.group.average.pollCount >= THIN_POLLS,
+    )
+    .sort((a, b) => b.group!.average!.pollCount - a.group!.average!.pollCount);
 
   const norm = (s: string) => candKey(s);
 

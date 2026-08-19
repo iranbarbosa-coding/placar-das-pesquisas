@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PresidentBars from "@/components/PresidentBars";
-import PresidentLatestPolls from "@/components/PresidentLatestPolls";
+import RcpPollsTable from "@/components/RcpPollsTable";
 import PresidentEvolution from "@/components/PresidentEvolution";
 import RejectionPlaceholder from "@/components/RejectionPlaceholder";
 import RunoffSimChart from "@/components/RunoffSimChart";
@@ -11,7 +11,7 @@ import AllPollsTable from "@/components/AllPollsTable";
 import { loadDataset } from "@/lib/data";
 import {
   presidentBars,
-  windowPollRows,
+  rcpTable,
   presidentEvolution,
   runoffSim,
   presidentMapData,
@@ -47,11 +47,11 @@ function InfoGlyph() {
 
 export default function PresidentePage() {
   const bars = presidentBars();
-  const latest = windowPollRows(10);
+  const rcp = rcpTable(10);
   const evo = presidentEvolution();
   const runoff = runoffSim();
   const mapData = presidentMapData();
-  const pies = statePies(6);
+  const pies = statePies();
   const allPolls = allPresidentialPolls();
   const ds = loadDataset();
 
@@ -90,15 +90,15 @@ export default function PresidentePage() {
         </div>
       </header>
 
-      {/* Row 1 — two columns; default `stretch` keeps both cards the same height. */}
-      <div className="grid gap-6 lg:grid-cols-2">
-        <section className="card min-w-0 p-4 sm:p-6" aria-label="Média das pesquisas · 1º turno">
-          <PresidentBars data={bars} />
-        </section>
-        <section className="card min-w-0 p-4 sm:p-6" aria-label="Pesquisas que compõem a média">
-          <PresidentLatestPolls rows={latest} />
-        </section>
-      </div>
+      {/* Row 1a — bars, full width */}
+      <section className="card min-w-0 p-4 sm:p-6" aria-label="Média das pesquisas · 1º turno">
+        <PresidentBars data={bars} />
+      </section>
+
+      {/* Row 1b — RCP matrix of the polls in the average, full width */}
+      <section className="card min-w-0 p-4 sm:p-6" aria-label="Pesquisas que compõem a média">
+        <RcpPollsTable data={rcp} />
+      </section>
 
       {/* Row 2 — evolution */}
       <section className="card min-w-0 p-4 sm:p-6" aria-label="Evolução da média · 1º turno">
