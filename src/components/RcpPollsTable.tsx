@@ -35,21 +35,39 @@ const SPREAD_STYLE: Record<RcpSpread["status"], { bg: string; fg: string; dot: s
   empate: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
 };
 
+// SOLID fills for the "Média" band's pill (fixed hexes, since the band is a
+// fixed brand-blue in both themes): red below 50, green above, slate on a tie —
+// all dark enough for white text.
+const SPREAD_SOLID: Record<RcpSpread["status"], string> = {
+  acima: "#16a34a", // solid green — leader clinches the 1st round
+  abaixo: "#dc2626", // solid red — leader still below 50
+  empate: "#475569", // solid slate — technical tie with 50%
+};
+
 function SpreadChip({ spread, onDark = false }: { spread: RcpSpread | null; onDark?: boolean }) {
-  if (!spread) return <span style={{ color: onDark ? "rgba(255,255,255,0.5)" : "var(--text-muted)" }}>—</span>;
+  if (!spread) return <span style={{ color: onDark ? "rgba(255,255,255,0.6)" : "var(--text-muted)" }}>—</span>;
+
+  // The "Média" band gets a SOLID pill in the status colour with white text —
+  // same geometry as the soft chips (dot + gap), so it doesn't read smaller.
+  if (onDark) {
+    return (
+      <span
+        className="tabular inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold"
+        style={{ background: SPREAD_SOLID[spread.status], color: "#ffffff" }}
+      >
+        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#ffffff" }} />
+        {spread.leaderShort} {fmtSigned(spread.distTo50)}
+      </span>
+    );
+  }
+
   const s = SPREAD_STYLE[spread.status];
-  // On the navy "Média" band the tint backgrounds vanish, so use a translucent
-  // white chip; the status hue stays (green/red read on navy), and the grey
-  // "empate" lifts to a light slate that the dark theme's --text-muted can't give.
-  const bg = onDark ? "rgba(255,255,255,0.12)" : s.bg;
-  const hue = onDark && spread.status === "empate" ? "#cbd5e1" : s.fg;
-  const dot = onDark && spread.status === "empate" ? "#cbd5e1" : s.dot;
   return (
     <span
       className="tabular inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold"
-      style={{ background: bg, color: hue }}
+      style={{ background: s.bg, color: s.fg }}
     >
-      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: dot }} />
+      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: s.dot }} />
       {spread.leaderShort} {fmtSigned(spread.distTo50)}
     </span>
   );
