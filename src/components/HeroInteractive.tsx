@@ -239,7 +239,10 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
       {/* KPI row — significant candidates + "Outros" (+ bruto Brancos/Nulos/NR),
           elastic in size so a wider field never reformats the page. */}
       {buckets.length > 0 && (
-        <ul className={`flex flex-wrap ${gapCls}`}>
+        // Mobile: a fixed 2-column grid so the cells align in neat rows instead
+        // of the ragged widths a flex-wrap gives with names of different lengths.
+        // From `sm` up (where the whole field fits one row) it reverts to wrap.
+        <ul className={`grid grid-cols-2 sm:flex sm:flex-wrap ${gapCls}`}>
           {buckets.map((k) => (
             <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
               <span className={`tabular font-bold leading-none ${numCls}`} style={{ color: k.color }}>
