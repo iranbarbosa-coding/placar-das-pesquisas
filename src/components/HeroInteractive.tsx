@@ -9,7 +9,7 @@ import HeroChart, {
 } from "./HeroChart";
 import { candKey } from "@/lib/average";
 import { colorMap, colorOf, PALETTE_SIZE } from "@/lib/colors";
-import { shortName } from "@/lib/names";
+import { shortName, displayName } from "@/lib/names";
 import { fmtPct } from "@/lib/format";
 import type { RaceAverage } from "@/lib/types";
 
@@ -166,7 +166,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
 
   const sigBuckets = sigCands.map((c) => ({
     key: candKey(c.candidate),
-    name: c.candidate,
+    name: displayName(c.candidate), // text only; colour/key stay on the raw name
     party: c.party,
     color: colorFor(c.candidate),
   }));
@@ -278,7 +278,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
               {namedNonSig.map((c) => (
                 <li key={candKey(c.candidate)} className="flex items-baseline justify-between gap-3">
                   <span className="min-w-0 truncate">
-                    {c.candidate}
+                    {displayName(c.candidate)}
                     {c.party ? <span style={{ color: "var(--text-muted)" }}> ({c.party})</span> : null}
                   </span>
                   <span className="tabular shrink-0" style={{ color: "var(--text-muted)" }}>

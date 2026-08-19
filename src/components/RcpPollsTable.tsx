@@ -1,4 +1,4 @@
-import { fmtDate, fmtPct } from "@/lib/format";
+import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import type { RcpTable, RcpSpread } from "@/lib/presidente";
 
 /**
@@ -16,15 +16,35 @@ import type { RcpTable, RcpSpread } from "@/lib/presidente";
 const TH = "px-2 py-1.5 font-bold uppercase tracking-wide whitespace-nowrap";
 const TD = "px-2 py-1.5 whitespace-nowrap align-middle";
 
-/** The dark leader+margin pill, e.g. "Lula +7,1". */
-function SpreadPill({ spread }: { spread: RcpSpread | null }) {
+// The soft spread chip: the leader's distance to 50%, coloured by whether that
+// clears the margin of error — green above 50 (clinches the 1st round), red
+// below, grey when 50% sits inside the interval (no call). Backgrounds are a
+// faint tint of the status colour (color-mix over the card), so they read in
+// both themes; text/dot use the status colour itself.
+const SPREAD_STYLE: Record<RcpSpread["status"], { bg: string; fg: string; dot: string }> = {
+  acima: {
+    bg: "color-mix(in srgb, var(--series-3) 15%, var(--surface-1))",
+    fg: "var(--series-3)",
+    dot: "var(--series-3)",
+  },
+  abaixo: {
+    bg: "color-mix(in srgb, var(--cand-red) 15%, var(--surface-1))",
+    fg: "var(--cand-red)",
+    dot: "var(--cand-red)",
+  },
+  empate: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
+};
+
+function SpreadChip({ spread }: { spread: RcpSpread | null }) {
   if (!spread) return <span style={{ color: "var(--text-muted)" }}>—</span>;
+  const s = SPREAD_STYLE[spread.status];
   return (
     <span
-      className="tabular inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold"
-      style={{ background: "var(--text-primary)", color: "var(--surface-1)" }}
+      className="tabular inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-semibold"
+      style={{ background: s.bg, color: s.fg }}
     >
-      {spread.leaderShort} +{fmtPct(spread.margin)}
+      <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: s.dot }} />
+      {spread.leaderShort} {fmtSigned(spread.distTo50)}
     </span>
   );
 }
@@ -95,7 +115,7 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                 </td>
               ))}
               <td className={`${TD} text-right`}>
-                <SpreadPill spread={data.average.spread} />
+                <SpreadChip spread={data.average.spread} />
               </td>
             </tr>
 
@@ -120,7 +140,7 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
                     </td>
                   ))}
                   <td className={`${TD} text-right`}>
-                    <SpreadPill spread={r.spread} />
+                    <SpreadChip spread={r.spread} />
                   </td>
                 </tr>
               );

@@ -209,10 +209,14 @@ export interface RcpColumn {
   color: string;
 }
 
-/** Leader (short name) + margin over the runner-up, for a SPREAD pill. */
+/** Leader (short name) + signed distance to 50% + a status the pill colours by. */
 export interface RcpSpread {
   leaderShort: string;
-  margin: number;
+  /** The leader's signed distance to 50% (leaderPct − 50), e.g. −4,7. */
+  distTo50: number;
+  /** Above 50% beyond the margin of error (green), below it (red), or within it
+   *  (grey — 50% is inside the confidence interval, so no first-round call). */
+  status: "acima" | "abaixo" | "empate";
 }
 
 export interface RcpRow {
@@ -229,12 +233,22 @@ export interface RcpTable {
   rows: RcpRow[];
 }
 
-/** Leader + margin over the runner-up from a list of {name, value} pairs. */
-function spreadOf(pairs: { name: string; value: number }[]): RcpSpread | null {
+/** Fallback tie band (p.p.) when a poll carries no margin of error — the same
+ *  2-point technical-tie window the state map uses. */
+const RCP_TIE_BAND = 2.0;
+
+/**
+ * The leader's distance to 50% from a list of {name, value} pairs, plus a status
+ * the pill colours by: above 50% beyond `band` (the margin of error) → "acima"
+ * (green, clinches the 1st round); below it → "abaixo" (red); within it →
+ * "empate" (grey, 50% sits inside the interval so there is no call).
+ */
+function spreadTo50(pairs: { name: string; value: number }[], band: number): RcpSpread | null {
   if (pairs.length < 1) return null;
-  const sorted = [...pairs].sort((a, b) => b.value - a.value);
-  const margin = sorted.length > 1 ? round1(sorted[0].value - sorted[1].value) : round1(sorted[0].value);
-  return { leaderShort: shortName(sorted[0].name), margin };
+  const top = [...pairs].sort((a, b) => b.value - a.value)[0];
+  const b = band > 0 ? band : RCP_TIE_BAND;
+  const status = top.value - 50 > b ? "acima" : 50 - top.value > b ? "abaixo" : "empate";
+  return { leaderShort: shortName(top.name), distTo50: round1(top.value - 50), status };
 }
 
 /**
@@ -265,23 +279,32 @@ export function rcpTable(limit = 10): RcpTable {
     color: colorOf(cmap, c.candidate),
   }));
 
+  const inWindow = new Set(avg.windowPollIds);
+  const windowPolls = (g?.polls ?? []).filter((p) => inWindow.has(p.id));
+
+  // The average has no single margin of error, so the tie band for its row is the
+  // mean of the window polls' MoE (fallback 2 p.p.).
+  const moes = windowPolls
+    .map((p) => p.margin_of_error)
+    .filter((m): m is number => typeof m === "number" && Number.isFinite(m) && m > 0);
+  const avgBand = moes.length ? moes.reduce((a, b) => a + b, 0) / moes.length : RCP_TIE_BAND;
+
   const average = {
     values: named.map((c) => round1(c.avg)),
-    spread: spreadOf(named.map((c) => ({ name: c.candidate, value: c.avg }))),
+    spread: spreadTo50(named.map((c) => ({ name: c.candidate, value: c.avg })), avgBand),
   };
 
-  const inWindow = new Set(avg.windowPollIds);
-  const rows: RcpRow[] = (g?.polls ?? [])
-    .filter((p) => inWindow.has(p.id))
+  const rows: RcpRow[] = windowPolls
     .slice(0, limit)
     .map((raw) => {
       const conv = toBasis(raw, "validos");
       const byKey = new Map<string, number>();
       for (const r of conv.results) byKey.set(candKey(r.candidate), r.pct);
-      // Spread over this poll's registered válidos values (leader must be nameable).
+      // Distance-to-50 over this poll's registered válidos values (leader nameable).
       const registeredPairs = conv.results
         .filter((r) => reg.has(candKey(r.candidate)))
         .map((r) => ({ name: r.candidate, value: r.pct }));
+      const band = typeof raw.margin_of_error === "number" && raw.margin_of_error > 0 ? raw.margin_of_error : RCP_TIE_BAND;
       return {
         pollster: raw.pollster,
         date: raw.fieldwork_end ?? raw.published_date ?? raw.fieldwork_start ?? null,
@@ -289,7 +312,7 @@ export function rcpTable(limit = 10): RcpTable {
           const v = byKey.get(col.key);
           return v == null ? null : round1(v);
         }),
-        spread: spreadOf(registeredPairs),
+        spread: spreadTo50(registeredPairs, band),
       };
     });
 
