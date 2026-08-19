@@ -7,12 +7,48 @@
 // legacy validator, the diff history, and anything outside the repo.
 //
 // WHAT THIS DOES TO THE PARITY GATE, said plainly: once polls.json is derived,
-// `parity-check.mjs` compares the store against its own output and can no
-// longer fail. Its job is done — it existed to prove the migration lost
-// nothing, and it did that. From here the guards that carry weight are
-// `upsert-vs-migration.mjs` (the write path agrees with the migration),
-// `upsert-harness.mjs` (the ladder behaves), `validate-store.mjs`, and the
-// before/after diff of this file, which git keeps.
+// most of `parity-check.mjs` compares the store against its own output. This
+// file writes `projectPolls(store)` record for record, without transforming any
+// of them (it only sorts the array, and the gate indexes by id), so the
+// bijection, every field in FIELDS and the per-contest sets are tautological
+// from here.
+//
+// ⚠ O QUE ESTA LINHA DIZIA E NÃO ERA VERDADE: "…and can no longer fail. Its
+// job is done." Ele PODE falhar, e estava falhando quando isto foi escrito —
+// medido em 18/08/2026: 1 divergência, a linha de senador:PI da Ravenna.
+//
+// A comparação de RESULTADOS não é tautológica, porque `parity-check`
+// reconstrói o lado legado com `canonicalCandidate` e o partido com
+// `partyOverride` + `canonicalPartyAt`. Esses leem `candidate-rulings.json`,
+// `candidate-aliases.json`, `ballot-names.json` e `repairs.json` — NENHUM deles
+// sai do store, e o store guarda o nome já canonicalizado da rodada em que foi
+// gravado. O que o portão acusa, então, é DEFASAGEM: uma camada de identidade
+// mudou depois da última coleta e o nome gravado ainda é o de antes.
+//
+// ⚠ E A CAUSA NÃO É A QUE PARECE. A primeira versão desta correção culpou a
+// tabela de urna, por ver "ravenna castro" em `ballot-names.json`. Medido: essa
+// entrada está sob `governador:PI` e NÃO existe em `senador:PI`, e injetando um
+// registro de urna vazio por `usarRegistroDeUrna()` a renomeação SOBREVIVE —
+// `displayOrigin` responde "ruling". Quem renomeia é uma ruling do criador em
+// `data/candidate-rulings.json` (senador:PI, "MESMA", 18/08/2026), que vale no
+// instante em que é commitada enquanto o store só a absorve na coleta seguinte.
+//
+// As duas origens de defasagem coexistem e convém não confundi-las: a
+// estrutural, do casador que roda depois da coleta e cujo mapa vale para a
+// rodada seguinte (§6); e a editorial, de uma ruling escrita à mão. Esta foi a
+// segunda. Nomear a causa errada custa o mesmo que a promessa falsa que este
+// bloco corrige: faz a próxima pessoa consertar o casador por uma ruling.
+//
+// Superfície viva, para quem for reconferir: 1 de 11.681 linhas de resultado
+// tem `canonicalCandidate(nome, disputa) !== nome`, e 2 linhas passam por
+// reparo curado de partido (hoje concordando). Pequena, mas não vazia.
+//
+// Os guardas que carregam peso hoje são `upsert-harness.mjs` (a escada se
+// comporta), `validate-store.mjs` e o diff antes/depois deste arquivo, que o
+// git guarda. `upsert-vs-migration.mjs` NÃO está entre eles, e dizer que está
+// era o mesmo vício três parágrafos abaixo: desde a virada da Fase 3 ele
+// compararia o caminho de upsert consigo mesmo, por isso RECUSA rodar (§2), e
+// o workflow não o executa — só o menciona num comentário igualmente vencido.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
