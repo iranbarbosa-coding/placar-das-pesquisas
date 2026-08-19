@@ -128,6 +128,23 @@
   --map-abaixo: #cbdcfb;  /* light blue — leader below 50 (runoff) */
   --map-empate: #f2a6a6;  /* soft red — technical tie */
   --map-sem: #e5e7eb;     /* light grey — no recent poll */
+
+  /* ── PRESIDENTIAL STATE MAP — LEADER IDENTITY + INTENSITY (/presidente) ─────
+     The governor map above colours by a four-value STATUS. The presidential map
+     colours by WHO leads and HOW STRONGLY: a candidate's own colour at full
+     strength when they poll ≥50 in that state (an outright first-round win) and
+     a clearly paler tint of the same hue when they lead but sit below 50. STRONG
+     is the brand red/blue exactly (= --cand-red/--cand-blue); LIGHT is a pale
+     tint chosen to stay distinct from strong yet read as the same family. A
+     leader whose colour is neither brand red nor brand blue (e.g. Ronaldo Caiado
+     leads Goiás in teal) is derived generically in the component via color-mix,
+     so only the two realistic leaders need hand-tuned tokens here. `--pmap-tie`
+     greys a technical tie or a state too thinly polled to call. */
+  --pmap-red-strong: #ef4444;  /* = --cand-red, brand red (Lula ≥ 50) */
+  --pmap-red-light: #f6b0b0;   /* pale brand red (Lula < 50) */
+  --pmap-blue-strong: #2563eb; /* = --cand-blue, brand blue (Flávio ≥ 50) */
+  --pmap-blue-light: #b6cbf7;  /* pale brand blue (Flávio < 50) */
+  --pmap-tie: #cbd5e1;         /* grey — technical tie / too thin to call */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -204,6 +221,17 @@
     --map-abaixo: #274a86;  /* muted blue — leader below 50 (runoff) */
     --map-empate: #b84b4e;  /* muted red — technical tie */
     --map-sem: #2b3a55;     /* navy-grey — no recent poll */
+
+    /* Presidential state map, tuned for the navy page. STRONG is the lifted
+       brand red/blue (= --cand-red/--cand-blue in dark); LIGHT is a muted, deep
+       tint of the same hue that stays clearly separated from strong on navy.
+       All are lighter than the navy state stroke (--surface-1 #142038) so the
+       white-ish borders still read as separators. */
+    --pmap-red-strong: #f87171;  /* = --cand-red (dark), brand red (Lula ≥ 50) */
+    --pmap-red-light: #7f3336;   /* muted deep red (Lula < 50) */
+    --pmap-blue-strong: #3b82f6; /* = --cand-blue (dark), brand blue (Flávio ≥ 50) */
+    --pmap-blue-light: #2b4576;  /* muted deep blue (Flávio < 50) */
+    --pmap-tie: #2b3a55;         /* navy-grey — technical tie / too thin to call */
   }
 }
 
