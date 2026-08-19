@@ -11,6 +11,81 @@ Brazilian 2026 elections (president, 27 governors, senate), in pt-BR.
 
 ---
 
+## ★ PARA O SUCESSOR ORQUESTRADOR (escrito 19/08/2026)
+
+**Teu papel mudou: você é o HUB.** O criador centralizou a supervisão em ti. Você
+mantém o contexto principal do projeto, lidera as outras sessões, e as decisões
+passam TODAS por você: o par te traz a demanda → você despacha com o criador (ele
+decide o que é §12) → você envia a ordem/liberação de volta ao par. **Um par NÃO
+age sobre a palavra de outro par** — só sobre a liberação do criador RELATADA por
+você. A cadeia não carrega procedência: quando relatar "ele liberou X", é liberação
+dele, não tua inferência. Rotina entre pares (fronteira, ordem de execução, quem
+mede o quê) resolve-se direto, tua palavra basta (§12). Só o que é decisão do
+criador (escrever em zona de cuidado, ruling, mover dado publicado, disparar/religar
+a coleta) sobe a ele por ti.
+
+**As sessões vivas e suas frentes** (nomes = endereço de SendMessage; confira com
+ListAgents, os ids mudam):
+- **affectionate-cray-9b478b-b7** — FRENTE DE LINHAGEM/PESSOA. Está desenhando o
+  guarda novo (aprovado pelo criador): census §9 que avisa quando uma pessoa
+  observada é cunhada com o nome de uma registrada (NÃO reprova a rodada — a
+  defasagem de 1 rodada é legítima). Mede antes de escrever. Fronteira: `people.ndjson`
+  é dela; `candidate-rulings.json` e `candidates.ndjson` são ZONA DE CUIDADO
+  (coordena com o hub). Traz o desenho do guarda para o hub confirmar o eixo.
+- **dazzling-matsumoto-272d66-1f** — CATÁLOGO / candidaturas-nao-registradas. Commit
+  de comentário/fixture landou; emenda ao CONVENTIONS §1 landou. Próxima: a rodada
+  das **travas por COLUNA** (aprovada pelo criador para depois desta) — 21 mutações
+  passam verdes porque nenhuma asserção confere valor de coluna contra o catálogo.
+- **quizzical-solomon-d7756d-b1** — fez o reparo de amostra da Ideia (BR-04579),
+  landou. Provavelmente ociosa.
+- **silly-wilbur-30f4de-b0** — SRC / página `/presidente` (branch claude/silly-wilbur).
+  Precisa de dado que o hub deve curar: presidente:UF (mapa/pies) e rejeição
+  (placeholder). Campos que ela espera em `src/lib/presidente.ts`.
+- **gifted-bhaskara-b7963b-4d** — não interagi; confere a frente dela.
+
+**O QUE ESTÁ NA MESA AGORA (decisões esperando o criador, que você segura):**
+1. 🔴 **NÃO religar o agendamento da coleta.** A rodada de 19/08 (ver seção abaixo)
+   NÃO exercitou a retenção de elenco — a condição 1 do `update-polls.yml` continua
+   ABERTA. Disparar coleta manual (`gh workflow run "Atualizar pesquisas"`) é ação do
+   criador; você opera, mas com PUSH FREEZE (ninguém empurra em main com o job no ar,
+   senão o push do job é recusado e a coleta morre).
+2. **Curadoria de presidente:UF — DESTRAVADA, esperando o "vai".** O motivo de parar
+   (cunhar duplicatas de identidade) foi MEDIDO como auto-limpável: a órfã não nasce
+   na próxima coleta (build reconstrói do zero, entrada de urna já aprendida). Então
+   curar AM (ausente) + as UFs finas (AL/AP/MA/RO/SE) não acumula dívida permanente.
+   O último pedido meu ao criador foi "retomo a curadoria agora?" — sem resposta,
+   ele pediu este handoff. **Pergunta-lhe e, se sim, dispara pares de leitores cegos
+   (o método provado): 2 por relatório em diretórios separados, verificação por
+   agente DIFERENTE, `add_poll`/`add_results` em `data/repairs.json`.**
+3. **Fusão da Ravenna** (pessoa registrada gov:PI × observada senador:PI) — decisão
+   dele, deferida pela própria ruling. NÃO se auto-limpa (ballotCandidacy null).
+4. **Contradições só-por-grafia** (Álvaro Dias, Ciro, Michelle, Derrite, Ciro
+   Nogueira, Rui Costa, Simone Tebet, Gustavo Mendanha) — curadoria humana; não se
+   fundem sozinhas.
+5. **Features de parser da /presidente** (diagnóstico completo já no HANDOFF): rejeição
+   = GRANDE (só no PDF integra, precisa OCR+schema+validadores); presidente:UF
+   estrutural = fallback v1, grande (o barato é curadoria add_poll, item 2);
+   methodology = pequeno se o CSV do TSE tiver a coluna.
+6. **`integra_url`**: o conserto está em `86b5144` no main — passa a preencher os
+   1.010 ponteiros de PDF só na PRÓXIMA coleta (esta rodou com o upsert antigo).
+
+**A DISCIPLINA QUE SUSTENTOU A RODADA MAIS COORDENADA DA SÉRIE (mantém):**
+- **§1 leitura cega cruzada.** Todo número que sai de documento é lido por DOIS
+  agentes às cegas, em diretórios SEPARADOS, e comparado; log de coleta lido por 2-3
+  sessões com troca SIMULTÂNEA (o par manda só o skeleton factual "terminou ·
+  conclusão · SHA", nunca a interpretação, senão contamina a cega do outro).
+- **Medir antes de decidir, e "número verdadeiro só no dia em que foi medido".** Nesta
+  rodada, TODA afirmação não medida saiu errada e foi pega por leitura cruzada: a
+  previsão de placar 6→5 deu 6→12; "Lula/Flávio casam" deu 8 duplicatas; "consertar a
+  escada por grafia" era a armadilha do Álvaro Dias (partido errado); a fusão manual
+  violaria o §8. Cada uma corrigida com medida. Declarar o limite não basta se você
+  segue raciocinando por cima dele.
+- **§3 congelamento de artefato.** Push freeze com o job no ar; ao ler o commit de uma
+  Action, use `git show <sha>:data/…`, NÃO o working tree (`git fetch` não move o
+  working tree — quase custou uma leitura do estado pré-rodada).
+
+---
+
 ## 1. Status
 
 | | |
