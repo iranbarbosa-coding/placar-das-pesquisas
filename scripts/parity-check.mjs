@@ -34,6 +34,56 @@ function norm(v) {
   return v;
 }
 
+// ---------------------------------------------------------------------------
+// AS EXCEÇÕES DECLARADAS E O CINTO DOS CAMPOS EXATOS
+// ---------------------------------------------------------------------------
+//
+// Fora de `comparar` e EXPORTADAS para que o `--self-test` possa afirmar a
+// PREMISSA do cinto: nenhum portão de `DECLARED` pode incidir sobre campo de
+// `EXACT`. A assinatura de `comparar` não muda — subir uma constante pura não é
+// injetar dependência.
+//
+// Por que a premissa e não o caminho: o cinto `!EXACT.has(f)` FUNCIONA (um
+// portão largo demais não absolve o campo exato), mas uma regra declarada que
+// incida sobre campo exato fica SILENCIOSAMENTE INERTE — quem a escreveu pensa
+// ter declarado uma exceção, o cinto a mata, e nada avisa. Medido: acrescentar
+// um portão sobre `fieldwork_end` passa a bateria inteira VERDE.
+
+//
+// Some differences are structural consequences of the survey layer, not
+// migration bugs, and pretending otherwise would mean either waving them
+// through or corrupting the store to preserve them. They are DECLARED here,
+// counted, and everything outside the list is a hard failure. In particular
+// `fieldwork_end`, every result percentage and the institute name are held
+// to exact equality, because those are what the averages are computed from.
+export const DECLARED = {
+  // A survey has one fieldwork window; scenarios of the same survey that
+  // arrived from a source lacking the start date now inherit it.
+  fieldwork_start_backfilled: (f, l, p) => f === "fieldwork_start" && l == null && p != null,
+  // Registration is an identity key, so "BR -07845/2026" must normalise.
+  registration_whitespace: (f, l, p) =>
+    f === "tse_registration" && typeof l === "string" &&
+    l.replace(/\s+/g, "").toUpperCase() === String(p).replace(/\s+/g, "").toUpperCase(),
+  // published_date is likewise survey-level.
+  published_date_backfilled: (f, l, p) => f === "published_date" && l == null && p != null,
+  // Poder360 sometimes serves "" where it means "no registration".
+  empty_registration_to_null: (f, l, p) => f === "tse_registration" && l === "" && p == null,
+  // Two Poder360 records disagree with THEMSELVES on the fieldwork start
+  // across scenarios of one poll id (13050, 13369 — a month apart, clearly a
+  // source typo). A survey has one window, so one value wins and the other is
+  // logged. Bounded deliberately: if this ever exceeds a handful of fields the
+  // gate fails, because it would mean the grouping key had gone coarse again.
+  source_self_contradiction_on_start: (f, l, p) =>
+    f === "fieldwork_start" && l != null && p != null && l !== p,
+  // Two rows carried by BOTH Wikipedia pages. The survey now holds one
+  // article_url, and for a pt-BR site the Portuguese page is the right one.
+  // Capped: this must stay two known rows, not a drift in source priority.
+  wikipedia_en_to_pt: (f, l, p) =>
+    f === "source_url" && /en\.wikipedia\.org/.test(String(l)) && /pt\.wikipedia\.org/.test(String(p)),
+};
+export const DECLARED_CAPS = { source_self_contradiction_on_start: 6, wikipedia_en_to_pt: 2 };
+export const EXACT = new Set(["pollster", "race", "state", "round", "fieldwork_end", "sample_size", "margin_of_error"]);
+
 /**
  * A COMPARAÇÃO, SEM DISCO E SEM CONSOLE — os três níveis, sobre dois lados dados.
  *
@@ -67,42 +117,8 @@ export function comparar({ legacy, projected, canon = canonicalCandidate, overri
   linhas.push(`(a) bijeção: ${legacyById.size} legadas × ${projById.size} projetadas — ${errors.length ? "FALHA" : "ok"}`);
 
   // ---------------------------------------------------------------- (b)
-  //
-  // Some differences are structural consequences of the survey layer, not
-  // migration bugs, and pretending otherwise would mean either waving them
-  // through or corrupting the store to preserve them. They are DECLARED here,
-  // counted, and everything outside the list is a hard failure. In particular
-  // `fieldwork_end`, every result percentage and the institute name are held
-  // to exact equality, because those are what the averages are computed from.
-  const DECLARED = {
-    // A survey has one fieldwork window; scenarios of the same survey that
-    // arrived from a source lacking the start date now inherit it.
-    fieldwork_start_backfilled: (f, l, p) => f === "fieldwork_start" && l == null && p != null,
-    // Registration is an identity key, so "BR -07845/2026" must normalise.
-    registration_whitespace: (f, l, p) =>
-      f === "tse_registration" && typeof l === "string" &&
-      l.replace(/\s+/g, "").toUpperCase() === String(p).replace(/\s+/g, "").toUpperCase(),
-    // published_date is likewise survey-level.
-    published_date_backfilled: (f, l, p) => f === "published_date" && l == null && p != null,
-    // Poder360 sometimes serves "" where it means "no registration".
-    empty_registration_to_null: (f, l, p) => f === "tse_registration" && l === "" && p == null,
-    // Two Poder360 records disagree with THEMSELVES on the fieldwork start
-    // across scenarios of one poll id (13050, 13369 — a month apart, clearly a
-    // source typo). A survey has one window, so one value wins and the other is
-    // logged. Bounded deliberately: if this ever exceeds a handful of fields the
-    // gate fails, because it would mean the grouping key had gone coarse again.
-    source_self_contradiction_on_start: (f, l, p) =>
-      f === "fieldwork_start" && l != null && p != null && l !== p,
-    // Two rows carried by BOTH Wikipedia pages. The survey now holds one
-    // article_url, and for a pt-BR site the Portuguese page is the right one.
-    // Capped: this must stay two known rows, not a drift in source priority.
-    wikipedia_en_to_pt: (f, l, p) =>
-      f === "source_url" && /en\.wikipedia\.org/.test(String(l)) && /pt\.wikipedia\.org/.test(String(p)),
-  };
-  const DECLARED_CAPS = { source_self_contradiction_on_start: 6, wikipedia_en_to_pt: 2 };
   const declaredCounts = Object.fromEntries(Object.keys(DECLARED).map((k) => [k, 0]));
 
-  const EXACT = new Set(["pollster", "race", "state", "round", "fieldwork_end", "sample_size", "margin_of_error"]);
   const sameValue = (a, b) => {
     if (typeof a === "number" && typeof b === "number") return Math.abs(a - b) < 1e-6;
     return JSON.stringify(norm(a)) === JSON.stringify(norm(b));
@@ -445,6 +461,49 @@ function autoteste() {
     //   larga demais, e nenhuma mutação o avermelha porque nenhuma o executa.
     //   Alcançá-lo exigiria içar `DECLARED` para parâmetro, como as três funções
     //   de tabela — decisão de escopo, não descuido.
+  }
+
+  // 9b. ⚠ A PREMISSA DO CINTO: NENHUM PORTÃO DECLARADO INCIDE SOBRE CAMPO EXATO.
+  //
+  //     O cinto `!EXACT.has(f)` funciona — um portão largo demais não absolve um
+  //     campo exato, e as médias saem desses campos. O que ele NÃO faz é avisar.
+  //     Uma regra declarada que incida sobre campo exato fica SILENCIOSAMENTE
+  //     INERTE: quem a escreveu pensa ter declarado uma exceção, o cinto a mata,
+  //     e nada reprova. Medido antes desta asserção existir: acrescentar um
+  //     portão sobre `fieldwork_end` passava a bateria inteira VERDE.
+  //
+  //     Por isso o que se amarra aqui é a PREMISSA, não o caminho. O caminho
+  //     (`!EXACT.has(f)`) é inalcançável enquanto a premissa valer — testá-lo
+  //     exigiria uma regra que não existe. A premissa é o que quebra primeiro, e
+  //     é ela que denuncia a regra morta no dia em que alguém a escrever.
+  //
+  //     Os portões são funções, então a incidência não se lê por introspecção:
+  //     pergunta-se a cada um, para cada campo exato, com pares de valores que
+  //     maximizam a chance de ele dizer sim (nulo↔valor, vazio↔nulo, dois
+  //     valores diferentes). Todos os portões de hoje decidem no `f` logo na
+  //     primeira cláusula, então isso os cobre.
+  {
+    const AMOSTRAS = [
+      [null, "x"], ["x", null], ["", null], [null, ""],
+      ["a", "b"], [1, 2], ["BR-1/2026", "BR 1/2026"],
+      ["https://en.wikipedia.org/a", "https://pt.wikipedia.org/a"],
+    ];
+    let incidencias = 0;
+    for (const campo of EXACT) {
+      for (const [nome, portao] of Object.entries(DECLARED)) {
+        for (const [l, pr] of AMOSTRAS) {
+          if (portao(campo, l, pr)) {
+            incidencias++;
+            ok(false, `o portão declarado "${nome}" incide sobre o campo EXATO \`${campo}\` (com ${JSON.stringify(l)} ≠ ${JSON.stringify(pr)}) — ou a regra está larga demais, ou ela é letra morta, porque o cinto a mata em silêncio`);
+          }
+        }
+      }
+    }
+    ok(incidencias === 0, `nenhum portão declarado pode incidir sobre campo exato (incidências: ${incidencias})`);
+    // E as duas listas não podem estar vazias, senão a varredura acima não
+    // varre nada e a asserção vira decorativa — a degenerescência de sempre.
+    ok(EXACT.size > 0 && Object.keys(DECLARED).length > 0,
+      `as duas listas têm de ter conteúdo (EXACT ${EXACT.size}, DECLARED ${Object.keys(DECLARED).length})`);
   }
 
   // 10. (c) OS CONJUNTOS POR DISPUTA. É o nível que importa: (a) e (b) podem
