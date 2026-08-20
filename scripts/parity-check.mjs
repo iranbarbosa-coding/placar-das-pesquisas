@@ -82,6 +82,13 @@ export const DECLARED = {
     f === "source_url" && /en\.wikipedia\.org/.test(String(l)) && /pt\.wikipedia\.org/.test(String(p)),
 };
 export const DECLARED_CAPS = { source_self_contradiction_on_start: 6, wikipedia_en_to_pt: 2 };
+// Todo campo que o nível (b) compara. Exportada com as outras: é sobre ELA que o
+// autoteste varre a alcançabilidade dos portões declarados.
+export const FIELDS = ["pollster", "race", "state", "round", "fieldwork_start", "fieldwork_end",
+                "published_date", "sample_size", "margin_of_error", "others_pct",
+                "undecided_pct", "blank_null_pct", "source", "tse_registration",
+                "scenario", "source_url", "contractor"];
+
 export const EXACT = new Set(["pollster", "race", "state", "round", "fieldwork_end", "sample_size", "margin_of_error"]);
 
 /**
@@ -130,10 +137,6 @@ export function comparar({ legacy, projected, canon = canonicalCandidate, overri
   // here, which made them invisible to the gate even though two of the three
   // are rendered. They are compared now: a blind spot in a migration gate is
   // indistinguishable from a passing one until it ships.
-  const FIELDS = ["pollster", "race", "state", "round", "fieldwork_start", "fieldwork_end",
-                  "published_date", "sample_size", "margin_of_error", "others_pct",
-                  "undecided_pct", "blank_null_pct", "source", "tse_registration",
-                  "scenario", "source_url", "contractor"];
   for (const [id, lp] of legacyById) {
     const pp = projById.get(id);
     if (!pp) continue;
@@ -486,6 +489,12 @@ function autoteste() {
     const AMOSTRAS = [
       [null, "x"], ["x", null], ["", null], [null, ""],
       ["a", "b"], [1, 2], ["BR-1/2026", "BR 1/2026"],
+      // ⚠ WHITESPACE PURO. O par acima difere por hífen-vs-espaço, então a
+      //   normalização de espaço NÃO os iguala e `registration_whitespace` não
+      //   era alcançado por amostra nenhuma — medido. Sem este par, um portão
+      //   FUTURO sobre campo exato moldado como normalização-de-espaço escapava
+      //   da varredura inteira.
+      ["BR 1", "BR1"],
       ["https://en.wikipedia.org/a", "https://pt.wikipedia.org/a"],
     ];
     let incidencias = 0;
@@ -502,8 +511,19 @@ function autoteste() {
     ok(incidencias === 0, `nenhum portão declarado pode incidir sobre campo exato (incidências: ${incidencias})`);
     // E as duas listas não podem estar vazias, senão a varredura acima não
     // varre nada e a asserção vira decorativa — a degenerescência de sempre.
-    ok(EXACT.size > 0 && Object.keys(DECLARED).length > 0,
-      `as duas listas têm de ter conteúdo (EXACT ${EXACT.size}, DECLARED ${Object.keys(DECLARED).length})`);
+    ok(EXACT.size > 0, `EXACT tem de ter conteúdo, senão a varredura não varre nada (veio ${EXACT.size})`);
+    ok(Object.keys(DECLARED).length > 0, `DECLARED idem (veio ${Object.keys(DECLARED).length})`);
+    // ⚠ E A VARREDURA TEM DE SER CAPAZ DE DIZER SIM. Um portão que NENHUMA
+    //   amostra alcança nunca seria pego pela asserção acima, ainda que
+    //   incidisse sobre campo exato — a varredura passaria por ele em silêncio.
+    //   Foi o que aconteceu com `registration_whitespace` até esta rodada.
+    //   Aqui cada portão é exercitado contra TODOS os campos e TODAS as
+    //   amostras, e exige-se que diga sim ao menos uma vez. Assim a varredura se
+    //   mantém: um portão de forma nova reprova até ganhar a sua amostra.
+    for (const [nome, portao] of Object.entries(DECLARED)) {
+      const alcancado = FIELDS.some((campo) => AMOSTRAS.some(([l, pr]) => portao(campo, l, pr)));
+      ok(alcancado, `nenhuma amostra faz o portão "${nome}" dizer sim — a varredura passa por ele sem exercitá-lo, e ele escaparia mesmo incidindo sobre campo exato; acrescente uma amostra da forma dele`);
+    }
   }
 
   // 10. (c) OS CONJUNTOS POR DISPUTA. É o nível que importa: (a) e (b) podem
