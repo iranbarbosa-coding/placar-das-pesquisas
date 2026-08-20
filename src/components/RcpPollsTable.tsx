@@ -33,6 +33,8 @@ const SPREAD_STYLE: Record<RcpSpread["status"], { bg: string; fg: string; dot: s
     dot: "var(--cand-red)",
   },
   empate: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
+  // Senate ("leaderMargin"): a neutral chip — there is no above/below-50 meaning.
+  neutral: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
 };
 
 // SOLID fills for the "Média" band's pill (fixed hexes, since the band is a
@@ -42,6 +44,7 @@ const SPREAD_SOLID: Record<RcpSpread["status"], string> = {
   acima: "#16a34a", // solid green — leader clinches the 1st round
   abaixo: "#dc2626", // solid red — leader still below 50
   empate: "#475569", // solid slate — technical tie with 50%
+  neutral: "#475569", // solid slate — senate lead over the runner-up
 };
 
 function SpreadChip({ spread, onDark = false }: { spread: RcpSpread | null; onDark?: boolean }) {
@@ -56,7 +59,7 @@ function SpreadChip({ spread, onDark = false }: { spread: RcpSpread | null; onDa
         style={{ background: SPREAD_SOLID[spread.status], color: "#ffffff" }}
       >
         <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#ffffff" }} />
-        {spread.leaderShort} {fmtSigned(spread.distTo50)}
+        {spread.leaderShort} {fmtSigned(spread.value)}
       </span>
     );
   }
@@ -68,7 +71,7 @@ function SpreadChip({ spread, onDark = false }: { spread: RcpSpread | null; onDa
       style={{ background: s.bg, color: s.fg }}
     >
       <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: s.dot }} />
-      {spread.leaderShort} {fmtSigned(spread.distTo50)}
+      {spread.leaderShort} {fmtSigned(spread.value)}
     </span>
   );
 }
@@ -86,7 +89,15 @@ function leaderIndex(values: (number | null)[]): number {
   return idx;
 }
 
-export default function RcpPollsTable({ data }: { data: RcpTable }) {
+export default function RcpPollsTable({
+  data,
+  allPollsHref = "#todas-as-pesquisas",
+}: {
+  data: RcpTable;
+  /** Anchor for the "ver todas as pesquisas" footer link; null hides it (used on
+   *  pages without an all-polls section, e.g. the state pages' sample). */
+  allPollsHref?: string | null;
+}) {
   if (!data.candidates.length) {
     return (
       <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -175,15 +186,24 @@ export default function RcpPollsTable({ data }: { data: RcpTable }) {
         </table>
       </div>
 
-      <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
-        A coluna <span className="font-semibold" style={{ color: "var(--text-secondary)" }}>Resultado</span> aponta
-        quem lidera e quantos pontos faltam ao líder para vencer no 1º turno (atingir 50% dos votos válidos) — em
-        verde quando ele já passou dos 50%, vermelho quando ainda falta, e cinza no empate técnico com os 50%.
-      </p>
+      {data.spreadMode === "leaderMargin" ? (
+        <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+          A coluna <span className="font-semibold" style={{ color: "var(--text-secondary)" }}>Resultado</span> mostra
+          quem lidera e a vantagem sobre o 2º colocado, em pontos percentuais.
+        </p>
+      ) : (
+        <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+          A coluna <span className="font-semibold" style={{ color: "var(--text-secondary)" }}>Resultado</span> aponta
+          quem lidera e quantos pontos faltam ao líder para vencer no 1º turno (atingir 50% dos votos válidos) — em
+          verde quando ele já passou dos 50%, vermelho quando ainda falta, e cinza no empate técnico com os 50%.
+        </p>
+      )}
 
-      <a href="#todas-as-pesquisas" className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
-        Ver todas as pesquisas utilizadas na média <span aria-hidden="true">→</span>
-      </a>
+      {allPollsHref ? (
+        <a href={allPollsHref} className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
+          Ver todas as pesquisas utilizadas na média <span aria-hidden="true">→</span>
+        </a>
+      ) : null}
     </div>
   );
 }

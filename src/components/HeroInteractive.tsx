@@ -94,9 +94,18 @@ export interface HeroInteractiveProps {
    *  `h-[200px] sm:h-[240px]`; callers can pass a shorter pair for a compact card
    *  (e.g. the /presidente evolution card at half height). */
   chartHeightClass?: string;
+  /** Legend annotation for the dashed 50% reference line. Defaults to the
+   *  first-round-win wording; pass a neutral "50%" for races not decided at 50
+   *  (e.g. senate). */
+  fiftyLabel?: string;
+  /** Whether to show the aggregate "Outros" KPI (the share of everyone not drawn
+   *  individually). True for single-vote races (it's the remainder to 100). Pass
+   *  FALSE for a multi-vote ballot like the Senate, where shares don't partition
+   *  and "Outros" would be a meaningless ~90%+ sum. */
+  showOutros?: boolean;
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]" }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)", showOutros = true }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -161,7 +170,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   // The bucket STRUCTURE is fixed from the current values, so the row never
   // changes item-count on hover.
   const currentPcts = bucketPcts(null);
-  const hasOutros = (currentPcts.get("__outros") ?? 0) > 0;
+  const hasOutros = showOutros && (currentPcts.get("__outros") ?? 0) > 0;
   const hasBN = currentPcts.has("__bn") && (currentPcts.get("__bn") ?? 0) > 0;
 
   const sigBuckets = sigCands.map((c) => ({
@@ -410,7 +419,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
             them here is redundant. */}
         <div className="mt-2 flex items-center gap-1.5 text-[11px]" style={{ color: "var(--text-muted)" }}>
           <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
-          50% (vitória no 1º turno)
+          {fiftyLabel}
         </div>
       </div>
     </>

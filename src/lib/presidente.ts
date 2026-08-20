@@ -1,10 +1,10 @@
 import { scenarioGroups, pollsFor } from "./data";
-import { registeredPresidentKeys } from "./home";
+import { registeredPresidentKeys, registeredRaceKeys } from "./home";
 import { candKey } from "./average";
 import { colorMap, colorOf, fixedColor, PALETTE_SIZE } from "./colors";
 import { shortName } from "./names";
 import { toBasis } from "./validos";
-import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
+import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage, type RaceKind } from "./types";
 import type { MapStatus } from "./home";
 
 /**
@@ -41,6 +41,14 @@ export const NAMED_MIN_PCT = 1.0;
 /** The registered set as a `candKey`-folded `Set`, computed once per build. */
 function registeredSet(): Set<string> {
   return new Set(registeredPresidentKeys());
+}
+
+/** Registered candidates for ANY race: national for presidente, per-UF for
+ *  governador/senador. Used so state races (Senado/Governador) also name and
+ *  colour only actual registered candidates, folding hypotheticals into "Outros"
+ *  — the same rule the presidential race already enforces. */
+function registeredSetFor(race: RaceKind, state: UF | null): Set<string> {
+  return new Set(registeredRaceKeys(race, race === "presidente" ? null : state));
 }
 
 /**
@@ -246,14 +254,22 @@ export interface RcpColumn {
   color: string;
 }
 
-/** Leader (short name) + signed distance to 50% + a status the pill colours by. */
+/** How the "Resultado" chip is computed. `to50` = the leader's distance to the
+ *  50% a first round needs (president/governor). `leaderMargin` = the leader's
+ *  classic lead over the runner-up (senate, which is NOT decided at 50%). */
+export type RcpSpreadMode = "to50" | "leaderMargin";
+
+/** Leader (short name) + a value the pill shows, with a colour status. */
 export interface RcpSpread {
   leaderShort: string;
-  /** The leader's signed distance to 50% (leaderPct − 50), e.g. −4,7. */
-  distTo50: number;
-  /** Above 50% beyond the margin of error (green), below it (red), or within it
-   *  (grey — 50% is inside the confidence interval, so no first-round call). */
-  status: "acima" | "abaixo" | "empate";
+  mode: RcpSpreadMode;
+  /** The signed value after the name. `to50`: leaderPct − 50 (e.g. −4,7).
+   *  `leaderMargin`: the leader's lead over the runner-up (≥ 0). */
+  value: number;
+  /** `to50`: above 50 beyond the MoE (green), below it (red), or within it
+   *  (grey — 50 is inside the interval, no first-round call). `leaderMargin`:
+   *  always "neutral" — a plain chip, since senate has no above/below-50 sense. */
+  status: "acima" | "abaixo" | "empate" | "neutral";
 }
 
 export interface RcpRow {
@@ -268,6 +284,8 @@ export interface RcpTable {
   candidates: RcpColumn[];
   average: { values: (number | null)[]; spread: RcpSpread | null };
   rows: RcpRow[];
+  /** Which "Resultado" chip the rows carry, so the table can caption it right. */
+  spreadMode: RcpSpreadMode;
 }
 
 /** Fallback tie band (p.p.) when a poll carries no margin of error — the same
@@ -285,29 +303,62 @@ function spreadTo50(pairs: { name: string; value: number }[], band: number): Rcp
   const top = [...pairs].sort((a, b) => b.value - a.value)[0];
   const b = band > 0 ? band : RCP_TIE_BAND;
   const status = top.value - 50 > b ? "acima" : 50 - top.value > b ? "abaixo" : "empate";
-  return { leaderShort: shortName(top.name), distTo50: round1(top.value - 50), status };
+  return { leaderShort: shortName(top.name), mode: "to50", value: round1(top.value - 50), status };
+}
+
+/** The leader's classic lead over the runner-up — the senate "Resultado", which
+ *  is NOT decided at 50%, so the chip is neutral (no above/below-50 colouring). */
+function spreadLeaderMargin(pairs: { name: string; value: number }[]): RcpSpread | null {
+  if (pairs.length < 1) return null;
+  const sorted = [...pairs].sort((a, b) => b.value - a.value);
+  const value = sorted.length > 1 ? round1(sorted[0].value - sorted[1].value) : round1(sorted[0].value);
+  return { leaderShort: shortName(sorted[0].name), mode: "leaderMargin", value, status: "neutral" };
 }
 
 /**
- * The first-round average and its 10 newest window polls as an RCP-style MATRIX:
- * one COLUMN per named candidate (the same roster and colours as `PresidentBars`
- * — registered, avg ≥ `NAMED_MIN_PCT`, descending), a highlighted "Average" row,
- * then one row per poll with that poll's votos-válidos number in each column
- * (null where the poll did not test that candidate) and a SPREAD (leader +
- * margin).
+ * A first-round average and its newest window polls as an RCP-style MATRIX,
+ * for ANY race: one COLUMN per named candidate, a highlighted "Média" row, then
+ * one row per poll with that poll's votos-válidos number in each column (null
+ * where the poll did not test that candidate) and a SPREAD chip (the leader's
+ * distance to 50%, coloured by whether it clears the margin of error).
  *
- * Poll spread is computed over the poll's REGISTERED válidos values only, so the
- * leader named in the pill is always a candidate the registered-filter rule
- * allows to be named — never a hypothetical non-registered opponent.
+ * ── WHO GETS A COLUMN ──────────────────────────────────────────────────────
+ * PRESIDENTIAL: the registered field at avg ≥ `NAMED_MIN_PCT`, exactly the
+ * `PresidentBars` roster (same order, same colours), and the per-poll spread is
+ * taken over the poll's REGISTERED values so the pill never names a candidate the
+ * registered-filter rule forbids. NON-PRESIDENTIAL (governor/senate — no TSE
+ * registration): the top candidates by average at ≥ `NAMED_MIN_PCT`, capped at
+ * `PALETTE_SIZE`, coloured per candidate, and the spread is over the whole field.
+ *
+ * `spreadMode` picks the "Resultado" chip: `to50` (default — president/governor,
+ * distance to the 50% a first round needs) or `leaderMargin` (senate, lead over
+ * the runner-up, since senate is not decided at 50%).
+ *
+ * Defaults reproduce the original presidential call: `rcpTable()` = presidente /
+ * null / 1º turno / to50.
  */
-export function rcpTable(limit = 10): RcpTable {
-  const g = scenarioGroups("presidente", null, 1)[0];
+export function rcpTable(
+  race: RaceKind = "presidente",
+  state: UF | null = null,
+  round: 1 | 2 = 1,
+  limit = 10,
+  spreadMode: RcpSpreadMode = "to50",
+): RcpTable {
+  const g = scenarioGroups(race, state, round)[0];
   const avg = g?.average ?? null;
-  if (!avg) return { candidates: [], average: { values: [], spread: null }, rows: [] };
+  if (!avg) return { candidates: [], average: { values: [], spread: null }, rows: [], spreadMode };
 
-  const reg = registeredSet();
+  const mkSpread = (pairs: { name: string; value: number }[], band: number): RcpSpread | null =>
+    spreadMode === "leaderMargin" ? spreadLeaderMargin(pairs) : spreadTo50(pairs, band);
+
+  // Columns are the REGISTERED candidates above the named floor (per cargo + UF),
+  // capped at the palette — a hypothetical name a pollster tested is not a column
+  // and its share is not counted. Same rule for president and state races.
+  const reg = registeredSetFor(race, state);
   const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
-  const named = namedRoster(avg, reg);
+  const named = avg.candidates
+    .filter((c) => reg.has(candKey(c.candidate)) && c.avg >= NAMED_MIN_PCT)
+    .slice(0, PALETTE_SIZE);
 
   const candidates: RcpColumn[] = named.map((c) => ({
     key: candKey(c.candidate),
@@ -328,7 +379,7 @@ export function rcpTable(limit = 10): RcpTable {
 
   const average = {
     values: named.map((c) => round1(c.avg)),
-    spread: spreadTo50(named.map((c) => ({ name: c.candidate, value: c.avg })), avgBand),
+    spread: mkSpread(named.map((c) => ({ name: c.candidate, value: c.avg })), avgBand),
   };
 
   const rows: RcpRow[] = windowPolls
@@ -337,8 +388,9 @@ export function rcpTable(limit = 10): RcpTable {
       const conv = toBasis(raw, "validos");
       const byKey = new Map<string, number>();
       for (const r of conv.results) byKey.set(candKey(r.candidate), r.pct);
-      // Distance-to-50 over this poll's registered válidos values (leader nameable).
-      const registeredPairs = conv.results
+      // Spread over the REGISTERED field only, so the named leader is always an
+      // actual candidate (never a hypothetical the pollster tested).
+      const pairs = conv.results
         .filter((r) => reg.has(candKey(r.candidate)))
         .map((r) => ({ name: r.candidate, value: r.pct }));
       const band = typeof raw.margin_of_error === "number" && raw.margin_of_error > 0 ? raw.margin_of_error : RCP_TIE_BAND;
@@ -349,11 +401,11 @@ export function rcpTable(limit = 10): RcpTable {
           const v = byKey.get(col.key);
           return v == null ? null : round1(v);
         }),
-        spread: spreadTo50(registeredPairs, band),
+        spread: mkSpread(pairs, band),
       };
     });
 
-  return { candidates, average, rows };
+  return { candidates, average, rows, spreadMode };
 }
 
 // ── Section 3: the evolution chart (drives HeroInteractive) ─────────────────
@@ -367,29 +419,48 @@ export interface PresidentEvolutionData {
   significantKeys: string[];
 }
 
+/** Válidos share (out of 100) at or above which a NON-presidential candidate is
+ *  drawn in its own colour on the evolution chart; the rest fold into "Outros",
+ *  the home hero's own ≥5% rule. */
+const EVOLUTION_SIGNIFICANT_PCT = 5;
+
 /**
- * The R1 national average, plus the two key sets `HeroInteractive` needs. It
- * draws exactly the SAME named roster as the bar chart — registered candidates
- * at or above `NAMED_MIN_PCT`, passed as `significantKeys` so each is coloured —
- * and folds everyone else (registered sub-threshold and non-registered) into the
- * single grey "Outros" aggregate, the hero's own treatment of its off-roster
- * field. `registeredKeys` still gates who may be named at all; the page caps the
- * drawn lines to the named count so no sub-threshold grey lines scatter the plot.
+ * The average of any race, plus the two key sets `HeroInteractive` needs.
+ *
+ * PRESIDENTIAL: the drawn/coloured set is the SAME named roster as the bar chart
+ * (registered, avg ≥ `NAMED_MIN_PCT`), and `registeredKeys` gates who may be
+ * named at all — everyone off-roster folds into the grey "Outros" aggregate.
+ * NON-PRESIDENTIAL (governor/senate): there is no TSE registration, so
+ * `registeredKeys` is empty (no gate — `HeroInteractive` names whoever is polled)
+ * and the coloured set is the candidates at ≥ `EVOLUTION_SIGNIFICANT_PCT`, with
+ * the rest folding into "Outros" exactly as the presidential chart does. The page
+ * caps the drawn lines to the significant count so no grey tail scatters the plot.
  */
+export function raceEvolutionData(race: RaceKind, state: UF | null, round: 1 | 2): PresidentEvolutionData {
+  const avg = scenarioGroups(race, state, round)[0]?.average ?? null;
+  // Every race names/colours only REGISTERED candidates (per cargo + UF);
+  // hypotheticals a pollster tested fold into "Outros". President names the whole
+  // roster (≥1%); state races colour the ≥5% field.
+  const reg = registeredSetFor(race, state);
+  const threshold = race === "presidente" ? NAMED_MIN_PCT : EVOLUTION_SIGNIFICANT_PCT;
+  const significantKeys = avg
+    ? avg.candidates
+        .filter((c) => reg.has(candKey(c.candidate)) && c.avg >= threshold)
+        .map((c) => candKey(c.candidate))
+    : [];
+  return { average: avg, registeredKeys: [...reg], significantKeys };
+}
+
+/** The presidential first-round evolution data — the original default call. */
 export function presidentEvolution(): PresidentEvolutionData {
-  const g = scenarioGroups("presidente", null, 1)[0];
-  const avg = g?.average ?? null;
-  const reg = registeredSet();
-  const registeredKeys = [...reg];
-  const significantKeys = avg ? namedRoster(avg, reg).map((c) => candKey(c.candidate)) : [];
-  return { average: avg, registeredKeys, significantKeys };
+  return raceEvolutionData("presidente", null, 1);
 }
 
 // ── Section 5: the runoff simulation ────────────────────────────────────────
 
 export interface RunoffSimCard {
   challenger: string;
-  /** The challenger's fixed colour. The leader keeps his own (Lula = red). */
+  /** The challenger's own colour (`colorOf`); the leader keeps his own too. */
   challengerColor: string;
   /** Both candidates' second-round share at each measurement, over time. */
   points: { date: string; leader: number; challenger: number }[];
@@ -401,32 +472,47 @@ export interface RunoffSimCard {
 
 export interface RunoffSimData {
   leader: string;
-  /** The leader's fixed colour (Lula = red), shared by every card. */
+  /** The leader's line colour — a fixed contrasting red (`--dual-lead`), shared
+   *  by every card, so it always reads distinct from the challenger's own hue. */
   leaderColor: string;
   cards: RunoffSimCard[];
 }
 
 /**
  * One card per second-round matchup of the first-round LEADER against each of
- * the three registered candidates immediately behind him. For every such
- * challenger, find the head-to-head group (matched by the unordered candidate
- * pair, exactly as `runoffCards` does) and take BOTH candidates' trends inside
- * it — so each card can draw the leader's and the challenger's intention over
- * time as two area series. A challenger with no polled matchup is skipped.
+ * the (up to three) candidates immediately behind him. For every such challenger,
+ * find the head-to-head group (matched by the unordered candidate pair, exactly
+ * as `runoffCards` does) and take BOTH candidates' trends inside it — so each card
+ * draws the leader's and the challenger's intention over time as two area series.
+ * A challenger with no polled matchup is skipped.
+ *
+ * Race-agnostic. PRESIDENTIAL keeps the registered filter (leader + challengers
+ * must be registered president candidates). NON-PRESIDENTIAL (governor/senate has
+ * no TSE registration) ranks over the whole first-round field. Both colour the
+ * leader by their OWN `colorOf` — never a hardcoded hue — so e.g. Tarcísio's
+ * governor cards read magenta while Lula's stay red (his fixed colour is red).
+ *
+ * Defaults reproduce the original presidential call: `runoffSim()` = presidente /
+ * null.
  */
-export function runoffSim(): RunoffSimData {
-  const reg = registeredSet();
-  const first = scenarioGroups("presidente", null, 1)[0]?.average ?? null;
-  if (!first?.candidates.length) return { leader: "", leaderColor: "var(--cand-red)", cards: [] };
+export function runoffSim(race: RaceKind = "presidente", state: UF | null = null): RunoffSimData {
+  const reg = registeredSetFor(race, state);
+  const first = scenarioGroups(race, state, 1)[0]?.average ?? null;
+  if (!first?.candidates.length) return { leader: "", leaderColor: "var(--dual-lead)", cards: [] };
 
-  const registered = first.candidates.filter((c) => reg.has(candKey(c.candidate)));
-  const leaderCand = registered[0];
-  if (!leaderCand) return { leader: "", leaderColor: "var(--cand-red)", cards: [] };
+  // Leader + challengers are ranked among REGISTERED candidates only, so a
+  // hypothetical never seeds a runoff card.
+  const pool = first.candidates.filter((c) => reg.has(candKey(c.candidate)));
+  const leaderCand = pool[0];
+  if (!leaderCand) return { leader: "", leaderColor: "var(--dual-lead)", cards: [] };
   const leaderKey = candKey(leaderCand.candidate);
-  const leaderColor = colorOf(colorMap([leaderCand.candidate]), leaderCand.candidate);
-  const challengers = registered.slice(1, 4); // ranks 2, 3, 4 among registered
+  // The leader is drawn in a FIXED contrasting red (`--dual-lead`), never their
+  // own hue, so the leader line always reads distinct from the challenger's own
+  // colour. Presidential is unaffected — Lula's own colour is already this red.
+  const leaderColor = "var(--dual-lead)";
+  const challengers = pool.slice(1, 4); // the three ranked behind the leader
 
-  const groups = scenarioGroups("presidente", null, 2).filter(
+  const groups = scenarioGroups(race, state, 2).filter(
     (g) => g.average && g.average.candidates.length >= 2,
   );
   const byPair = new Map<string, (typeof groups)[number]>();

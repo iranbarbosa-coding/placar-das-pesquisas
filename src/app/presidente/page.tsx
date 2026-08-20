@@ -46,7 +46,7 @@ function InfoGlyph() {
 }
 
 export default function PresidentePage() {
-  const rcp = rcpTable(10);
+  const rcp = rcpTable();
   const evo = presidentEvolution();
   const runoff = runoffSim();
   const mapData = presidentMapData();
