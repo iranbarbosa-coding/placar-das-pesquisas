@@ -24,56 +24,63 @@ mede o quê) resolve-se direto, tua palavra basta (§12). Só o que é decisão 
 criador (escrever em zona de cuidado, ruling, mover dado publicado, disparar/religar
 a coleta) sobe a ele por ti.
 
+**⟳ ATUALIZADO após a sessão de curadoria+guardas (hub = pesquisas-2026-60).**
+main em `e08cc0a`.
+
 **As sessões vivas e suas frentes** (nomes = endereço de SendMessage; confira com
 ListAgents, os ids mudam):
-- **affectionate-cray-9b478b-b7** — FRENTE DE LINHAGEM/PESSOA. Está desenhando o
-  guarda novo (aprovado pelo criador): census §9 que avisa quando uma pessoa
-  observada é cunhada com o nome de uma registrada (NÃO reprova a rodada — a
-  defasagem de 1 rodada é legítima). Mede antes de escrever. Fronteira: `people.ndjson`
-  é dela; `candidate-rulings.json` e `candidates.ndjson` são ZONA DE CUIDADO
-  (coordena com o hub). Traz o desenho do guarda para o hub confirmar o eixo.
-- **dazzling-matsumoto-272d66-1f** — CATÁLOGO / candidaturas-nao-registradas. Commit
-  de comentário/fixture landou; emenda ao CONVENTIONS §1 landou. Próxima: a rodada
-  das **travas por COLUNA** (aprovada pelo criador para depois desta) — 21 mutações
-  passam verdes porque nenhuma asserção confere valor de coluna contra o catálogo.
-- **quizzical-solomon-d7756d-b1** — fez o reparo de amostra da Ideia (BR-04579),
-  landou. Provavelmente ociosa.
-- **silly-wilbur-30f4de-b0** — SRC / página `/presidente` (branch claude/silly-wilbur).
-  Precisa de dado que o hub deve curar: presidente:UF (mapa/pies) e rejeição
-  (placeholder). Campos que ela espera em `src/lib/presidente.ts`.
-- **gifted-bhaskara-b7963b-4d** — não interagi; confere a frente dela.
+- **affectionate-cray-9b478b-b7** — LINHAGEM/PESSOA. Guarda PARTIDA landou (`fec630b`).
+  Dossiê de linhagem MEDIDO e verificado por agente diferente. Álvaro Dias resolvido
+  (pessoas DIFERENTES: senador PR/MDB × governador RN/PL) e documentado no
+  `REVISAO_CANDIDATOS.md` (`23acfdd`). Frente num ponto de parada; os outros 11 pares
+  do balde parqueados esperando a decisão de escopo do criador (238-list).
+- **dazzling-matsumoto-272d66-1f** — CATÁLOGO/GUARDAS. Landou nesta sessão: travas por
+  COLUNA (`b0fddd4`), `--self-test` do `parity-check` (`ddb8b2f`), conserto do
+  `mesmaOperacao` + 3 confrontos AtlasIntel (`e08cc0a`). Agora na asserção
+  DECLARED∩EXACT=∅ do parity (follow-up barato). Candidata a próxima: desenho da
+  retenção (condição 1) — esperando o criador.
+- **quizzical-solomon-d7756d-b1** — reparo da Ideia landou (PR #6, `03efb23`). Ociosa.
+- **gifted-bhaskara-b7963b-4d** — GATE de amostra municipal gravada como estadual.
+  MEDIU: 21 municipal / 2 estadual (as 2 de MS rejeitadas). O gate muda placar
+  publicado e toca `src/average.ts` (P26_5, NÃO vivo) — espera decisão de timing do
+  criador. Ociosa. Flags de dado dela (s_d4d2, s_064f, AC ambíguo) anotados.
+- **silly-wilbur** e **P26_7** ENCERRARAM. silly-wilbur: `/segundo-turno` landou
+  (PR #5, `07d4552`). P26_7 era o hub anterior; passou o bastão (criador confirmou).
 
-**O QUE ESTÁ NA MESA AGORA (decisões esperando o criador, que você segura):**
-1. 🔴 **NÃO religar o agendamento da coleta.** A rodada de 19/08 (ver seção abaixo)
-   NÃO exercitou a retenção de elenco — a condição 1 do `update-polls.yml` continua
-   ABERTA. Disparar coleta manual (`gh workflow run "Atualizar pesquisas"`) é ação do
-   criador; você opera, mas com PUSH FREEZE (ninguém empurra em main com o job no ar,
-   senão o push do job é recusado e a coleta morre).
-2. **Curadoria de presidente:UF — DESTRAVADA, esperando o "vai".** O motivo de parar
-   (cunhar duplicatas de identidade) foi MEDIDO como auto-limpável: a órfã não nasce
-   na próxima coleta (build reconstrói do zero, entrada de urna já aprendida). Então
-   curar AM (ausente) + as UFs finas (AL/AP/MA/RO/SE) não acumula dívida permanente.
-   O último pedido meu ao criador foi "retomo a curadoria agora?" — sem resposta,
-   ele pediu este handoff. **Pergunta-lhe e, se sim, dispara pares de leitores cegos
-   (o método provado): 2 por relatório em diretórios separados, verificação por
-   agente DIFERENTE, `add_poll`/`add_results` em `data/repairs.json`.**
-3. **Fusão da Ravenna** (pessoa registrada gov:PI × observada senador:PI) —
-   **RATIFICADA ESTACIONADA pelo criador (19/08/2026):** fica partida, fusão
-   DIFERIDA, sem merge à mão (§8: fusão manual não é reproduzida pelo build).
-   Identidade confirmada por 3 eixos (mesmo estado, partido, unicidade no
-   registro); nome já correto na disputa de Senado via ruling. Nada publicado
-   está errado — a partida vive no balde de recusa do censo. Reabre só quando
-   existir mecanismo determinístico de fusão por pessoa. NÃO se auto-limpa
-   (ballotCandidacy null em senador:PI).
-4. **Contradições só-por-grafia** (Álvaro Dias, Ciro, Michelle, Derrite, Ciro
-   Nogueira, Rui Costa, Simone Tebet, Gustavo Mendanha) — curadoria humana; não se
-   fundem sozinhas.
-5. **Features de parser da /presidente** (diagnóstico completo já no HANDOFF): rejeição
-   = GRANDE (só no PDF integra, precisa OCR+schema+validadores); presidente:UF
-   estrutural = fallback v1, grande (o barato é curadoria add_poll, item 2);
-   methodology = pequeno se o CSV do TSE tiver a coluna.
-6. **`integra_url`**: o conserto está em `86b5144` no main — passa a preencher os
-   1.010 ponteiros de PDF só na PRÓXIMA coleta (esta rodou com o upsert antigo).
+**LANDOU NESTA SESSÃO** (cada um verificado por agente DIFERENTE antes de landar):
+- Guarda **PARTIDA** do censo (`fec630b`) + **ratificação da Ravenna** (`95f85f5`).
+- **PR #6 Ideia** BR-04579 (amostra 27.600→1.500, funde os 2 registros).
+- **Curadoria presidente:UF COMPLETA** — 12 `add_poll` por 2 leituras cegas por
+  relatório + build real: AM estreia presidencial, + AP/RO/SE/AtlasIntel. Os 9
+  primeiros em `1f862a1`; os 3 confrontos AtlasIntel em `e08cc0a`. MA e AP-13598-r1
+  já estavam completos; RO-13187 pulado (conflito de denominador valid×total%).
+- **parity-mensagem** (`d6f93f8`), **derive-comentario** (`f7cdf9c`), **travas por
+  COLUNA** (`b0fddd4`), **`--self-test` do parity-check** (`ddb8b2f`).
+- **conserto do `mesmaOperacao`** (`e08cc0a`): a inserção curada admite 2º turnos
+  DISTINTOS do mesmo registro (2º teste por `questionRostersMatch`, §5). ⚠ Limitação
+  conhecida e INERTE hoje: julga "mesma pergunta" só pelo elenco, então assume UM
+  cenário por par (medido 0 no banco de hoje). É o 1º lugar que quebra se a convenção
+  mudar.
+- **Álvaro Dias** documentado no `REVISAO_CANDIDATOS.md` (`23acfdd`, 4 caixas) — o
+  banco JÁ estava certo (não havia dado a consertar); as duas grafias já dobram.
+
+**DECISÕES ABERTAS (esperando o criador, que você segura):**
+1. 🔴 **NÃO religar o agendamento.** A condição 1 do `update-polls.yml` (retenção de
+   elenco nunca rodou contra encolhimento real) SEGUE ABERTA — o agendamento está
+   suspenso desde 17/08. NOVO: proposto ao criador que a dazzling **desenhe** um
+   caminho supervisionado que exercite a retenção contra dado real (read-only, SEM
+   religar — o religar é dele). PUSH FREEZE mantido.
+2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS. Gatear
+   muda o placar publicado e toca `src/average.ts` (P26_5, NÃO vivo). Espera a
+   decisão de timing do criador + a certificação por agente diferente das fichas.
+3. **238-list / os 11 pares de linhagem parqueados** — decisão de ESCOPO
+   (`REVISAO_CANDIDATOS.md` tem 238 pares, 4 caixas marcadas): sistematizar a lista
+   vs. seguir ad-hoc nos pares de alto valor.
+4. **Senado·RN Álvaro Dias** — opcional; disputa não examinada, rótulo MDB ambíguo
+   (§4 recusa por ora). Levantamento pequeno se ele quiser: 1×2, partido linha a linha.
+5. **Ravenna** — RATIFICADA ESTACIONADA (fica partida, fusão diferida, §8). E as
+   outras contradições só-por-grafia (Ciro, Michelle, Derrite, Ciro Nogueira, Rui
+   Costa, Simone Tebet, Gustavo Mendanha) seguem parqueadas — curadoria humana.
 
 **A DISCIPLINA QUE SUSTENTOU A RODADA MAIS COORDENADA DA SÉRIE (mantém):**
 - **§1 leitura cega cruzada.** Todo número que sai de documento é lido por DOIS
