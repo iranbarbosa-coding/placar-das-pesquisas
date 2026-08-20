@@ -29,7 +29,14 @@ import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
  * the 13 rows with `cargo === "presidente"` are the registered field. Read once
  * at build time (this module already reaches `node:fs` via `lib/data`).
  */
-export function registeredPresidentKeys(): string[] {
+/**
+ * The candKey-folded ballot names registered (TSE, `candidaturas.ndjson`) for a
+ * given cargo, optionally scoped to a UF. Presidential is national (`uf` null);
+ * governador/senador are per-state, so pass the UF. A hypothetical name a
+ * pollster tested but nobody registered for THAT race is absent, so callers can
+ * fold it into "Outros" rather than naming a non-candidate.
+ */
+export function registeredRaceKeys(cargo: string, uf?: string | null): string[] {
   const file = path.join(process.cwd(), "data", "candidaturas.ndjson");
   if (!fs.existsSync(file)) return [];
   const keys = new Set<string>();
@@ -37,14 +44,19 @@ export function registeredPresidentKeys(): string[] {
     const t = line.trim();
     if (!t) continue;
     try {
-      const r = JSON.parse(t) as { cargo?: string; nome_urna?: string };
-      if (r.cargo === "presidente" && r.nome_urna) keys.add(candKey(r.nome_urna));
+      const r = JSON.parse(t) as { cargo?: string; uf?: string; nome_urna?: string };
+      if (r.cargo === cargo && (uf == null || r.uf === uf) && r.nome_urna) keys.add(candKey(r.nome_urna));
     } catch {
-      // A malformed row is skipped, never fatal: the hero degrades to naming
-      // whoever the average holds rather than crashing the front page.
+      // A malformed row is skipped, never fatal: the page degrades to naming
+      // whoever the average holds rather than crashing.
     }
   }
   return [...keys];
+}
+
+/** The 13 registered presidential candidates (national). Thin wrapper. */
+export function registeredPresidentKeys(): string[] {
+  return registeredRaceKeys("presidente");
 }
 
 /** Leader plus distance from the 50% an outright first-round win requires. */

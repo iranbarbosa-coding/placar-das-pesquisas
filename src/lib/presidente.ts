@@ -1,5 +1,5 @@
 import { scenarioGroups, pollsFor } from "./data";
-import { registeredPresidentKeys } from "./home";
+import { registeredPresidentKeys, registeredRaceKeys } from "./home";
 import { candKey } from "./average";
 import { colorMap, colorOf, fixedColor, PALETTE_SIZE } from "./colors";
 import { shortName } from "./names";
@@ -41,6 +41,14 @@ export const NAMED_MIN_PCT = 1.0;
 /** The registered set as a `candKey`-folded `Set`, computed once per build. */
 function registeredSet(): Set<string> {
   return new Set(registeredPresidentKeys());
+}
+
+/** Registered candidates for ANY race: national for presidente, per-UF for
+ *  governador/senador. Used so state races (Senado/Governador) also name and
+ *  colour only actual registered candidates, folding hypotheticals into "Outros"
+ *  — the same rule the presidential race already enforces. */
+function registeredSetFor(race: RaceKind, state: UF | null): Set<string> {
+  return new Set(registeredRaceKeys(race, race === "presidente" ? null : state));
 }
 
 /**
@@ -343,12 +351,14 @@ export function rcpTable(
   const mkSpread = (pairs: { name: string; value: number }[], band: number): RcpSpread | null =>
     spreadMode === "leaderMargin" ? spreadLeaderMargin(pairs) : spreadTo50(pairs, band);
 
-  const filterReg = race === "presidente";
-  const reg = filterReg ? registeredSet() : null;
+  // Columns are the REGISTERED candidates above the named floor (per cargo + UF),
+  // capped at the palette — a hypothetical name a pollster tested is not a column
+  // and its share is not counted. Same rule for president and state races.
+  const reg = registeredSetFor(race, state);
   const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
-  const named = filterReg
-    ? namedRoster(avg, reg!)
-    : avg.candidates.filter((c) => c.avg >= NAMED_MIN_PCT).slice(0, PALETTE_SIZE);
+  const named = avg.candidates
+    .filter((c) => reg.has(candKey(c.candidate)) && c.avg >= NAMED_MIN_PCT)
+    .slice(0, PALETTE_SIZE);
 
   const candidates: RcpColumn[] = named.map((c) => ({
     key: candKey(c.candidate),
@@ -378,9 +388,10 @@ export function rcpTable(
       const conv = toBasis(raw, "validos");
       const byKey = new Map<string, number>();
       for (const r of conv.results) byKey.set(candKey(r.candidate), r.pct);
-      // Spread over the nameable field: registered values only for the
-      // presidential race (leader must be nameable), the whole field otherwise.
-      const pairs = (filterReg ? conv.results.filter((r) => reg!.has(candKey(r.candidate))) : conv.results)
+      // Spread over the REGISTERED field only, so the named leader is always an
+      // actual candidate (never a hypothetical the pollster tested).
+      const pairs = conv.results
+        .filter((r) => reg.has(candKey(r.candidate)))
         .map((r) => ({ name: r.candidate, value: r.pct }));
       const band = typeof raw.margin_of_error === "number" && raw.margin_of_error > 0 ? raw.margin_of_error : RCP_TIE_BAND;
       return {
@@ -427,21 +438,17 @@ const EVOLUTION_SIGNIFICANT_PCT = 5;
  */
 export function raceEvolutionData(race: RaceKind, state: UF | null, round: 1 | 2): PresidentEvolutionData {
   const avg = scenarioGroups(race, state, round)[0]?.average ?? null;
-  if (race === "presidente") {
-    const reg = registeredSet();
-    return {
-      average: avg,
-      registeredKeys: [...reg],
-      significantKeys: avg ? namedRoster(avg, reg).map((c) => candKey(c.candidate)) : [],
-    };
-  }
-  return {
-    average: avg,
-    registeredKeys: [],
-    significantKeys: avg
-      ? avg.candidates.filter((c) => c.avg >= EVOLUTION_SIGNIFICANT_PCT).map((c) => candKey(c.candidate))
-      : [],
-  };
+  // Every race names/colours only REGISTERED candidates (per cargo + UF);
+  // hypotheticals a pollster tested fold into "Outros". President names the whole
+  // roster (≥1%); state races colour the ≥5% field.
+  const reg = registeredSetFor(race, state);
+  const threshold = race === "presidente" ? NAMED_MIN_PCT : EVOLUTION_SIGNIFICANT_PCT;
+  const significantKeys = avg
+    ? avg.candidates
+        .filter((c) => reg.has(candKey(c.candidate)) && c.avg >= threshold)
+        .map((c) => candKey(c.candidate))
+    : [];
+  return { average: avg, registeredKeys: [...reg], significantKeys };
 }
 
 /** The presidential first-round evolution data — the original default call. */
@@ -489,12 +496,13 @@ export interface RunoffSimData {
  * null.
  */
 export function runoffSim(race: RaceKind = "presidente", state: UF | null = null): RunoffSimData {
-  const filterReg = race === "presidente";
-  const reg = filterReg ? registeredSet() : null;
+  const reg = registeredSetFor(race, state);
   const first = scenarioGroups(race, state, 1)[0]?.average ?? null;
   if (!first?.candidates.length) return { leader: "", leaderColor: "var(--dual-lead)", cards: [] };
 
-  const pool = filterReg ? first.candidates.filter((c) => reg!.has(candKey(c.candidate))) : first.candidates;
+  // Leader + challengers are ranked among REGISTERED candidates only, so a
+  // hypothetical never seeds a runoff card.
+  const pool = first.candidates.filter((c) => reg.has(candKey(c.candidate)));
   const leaderCand = pool[0];
   if (!leaderCand) return { leader: "", leaderColor: "var(--dual-lead)", cards: [] };
   const leaderKey = candKey(leaderCand.candidate);
