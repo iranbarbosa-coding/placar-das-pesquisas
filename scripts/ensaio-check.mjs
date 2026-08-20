@@ -120,12 +120,28 @@ function autoteste() {
     ok(real.destino === banco, `e o destino é o banco (veio ${real.destino})`);
 
     // (b) `--ensaio` puro dá um diretório temporário, NUNCA o banco.
-    const solto = resolverDestino({ argv: ["--ensaio"], root: raiz });
-    ok(solto.emEnsaio === true && solto.destino !== banco,
-      `--ensaio puro tem de dar destino fora do banco (veio ${solto.destino})`);
-    ok(solto.dataLeitura === path.join(banco, "polls.json"),
-      `e a ENTRADA vem sempre do banco real (veio ${solto.dataLeitura})`);
-    ok(solto.dataSaida === path.join(solto.destino, "polls.json"),
+    //
+    //     ⚠ O `try` NÃO É DEFENSIVIDADE DECORATIVA, e sem ele duas falhas
+    //     distintas viram o mesmo stack trace — porque a guarda de (c) LANÇA, e
+    //     o lançamento acontece antes de qualquer asserção daqui rodar:
+    //       · se `--ensaio` puro passar a apontar para o banco, a guarda o
+    //         recusa e o autoteste CAI em vez de dizer o que houve;
+    //       · e se a guarda ficar LARGA DEMAIS e recusar o modo padrão, a
+    //         ferramenta fica inutilizável — e o teste também cai, sem
+    //         diagnosticar.
+    //     Medidos, os dois. Capturando, cada um vira uma falha NOMEADA: a
+    //     primeira acusa o destino, a segunda acusa a recusa indevida. Red por
+    //     crash pega a mutação; red por asserção diz qual é.
+    let recusaIndevida = null, solto = null;
+    try { solto = resolverDestino({ argv: ["--ensaio"], root: raiz }); }
+    catch (e) { recusaIndevida = e; }
+    ok(!recusaIndevida,
+      `--ensaio puro (o modo padrão) NÃO pode ser recusado — a guarda ficou larga demais: ${recusaIndevida?.message ?? ""}`);
+    ok(solto?.emEnsaio === true && solto?.destino !== banco,
+      `--ensaio puro tem de dar destino fora do banco (veio ${solto?.destino})`);
+    ok(solto?.dataLeitura === path.join(banco, "polls.json"),
+      `e a ENTRADA vem sempre do banco real (veio ${solto?.dataLeitura})`);
+    ok(solto?.dataSaida === path.join(solto?.destino ?? "", "polls.json"),
       "e a SAÍDA vai para o destino");
 
     // (c) ⚠ E O DESTINO QUE É O BANCO É RECUSADO. Sem isto, `--ensaio=data`
@@ -138,10 +154,16 @@ function autoteste() {
       catch (e) { recusou = /RECUSADO/.test(e.message); }
       ok(recusou, `o destino ${alvo} tinha de ser recusado (é o banco, ou dentro dele)`);
     }
-    // E um destino de fora continua aceito, senão a guarda recusaria tudo.
+    // E um destino de fora continua aceito, senão a guarda recusaria tudo — e
+    // capturado pelo mesmo motivo de (b): uma guarda larga demais LANÇA aqui, e
+    // sem o `try` o autoteste cairia com stack trace em vez de dizer que a
+    // guarda passou a recusar destino legítimo. Medido.
     const fora = path.join(raiz, "ensaio-x");
-    ok(resolverDestino({ argv: [`--ensaio=${fora}`], root: raiz }).destino === fora,
-      "um destino fora do banco continua aceito");
+    let recusouFora = null, aceito = null;
+    try { aceito = resolverDestino({ argv: [`--ensaio=${fora}`], root: raiz }); }
+    catch (e) { recusouFora = e; }
+    ok(!recusouFora, `um destino FORA do banco não pode ser recusado — a guarda ficou larga demais: ${recusouFora?.message ?? ""}`);
+    ok(aceito?.destino === fora, `e ele é usado como destino (veio ${aceito?.destino})`);
 
     // (d) ⚠ A CÓPIA COPIA — comportamento, não presença da chamada.
     const destino = path.join(raiz, "ensaio-y");
