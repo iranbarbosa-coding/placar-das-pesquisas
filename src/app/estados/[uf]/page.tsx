@@ -152,6 +152,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
                 registeredKeys={senEvo.registeredKeys}
                 title="Evolução da média · Senado"
                 fiftyLabel="50%"
+                showOutros={false}
               />
             </div>
             <div className="card min-w-0 p-4 sm:p-6">

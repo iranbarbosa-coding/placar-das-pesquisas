@@ -98,9 +98,14 @@ export interface HeroInteractiveProps {
    *  first-round-win wording; pass a neutral "50%" for races not decided at 50
    *  (e.g. senate). */
   fiftyLabel?: string;
+  /** Whether to show the aggregate "Outros" KPI (the share of everyone not drawn
+   *  individually). True for single-vote races (it's the remainder to 100). Pass
+   *  FALSE for a multi-vote ballot like the Senate, where shares don't partition
+   *  and "Outros" would be a meaningless ~90%+ sum. */
+  showOutros?: boolean;
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)" }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)", showOutros = true }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -165,7 +170,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   // The bucket STRUCTURE is fixed from the current values, so the row never
   // changes item-count on hover.
   const currentPcts = bucketPcts(null);
-  const hasOutros = (currentPcts.get("__outros") ?? 0) > 0;
+  const hasOutros = showOutros && (currentPcts.get("__outros") ?? 0) > 0;
   const hasBN = currentPcts.has("__bn") && (currentPcts.get("__bn") ?? 0) > 0;
 
   const sigBuckets = sigCands.map((c) => ({

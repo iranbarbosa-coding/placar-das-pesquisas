@@ -75,6 +75,9 @@ export interface RaceEvolutionProps {
   /** Legend label for the dashed 50% line. Defaults to the first-round-win
    *  wording; pass a neutral "50%" for races not decided at 50 (e.g. senate). */
   fiftyLabel?: string;
+  /** Show the aggregate "Outros" KPI. True for single-vote races; pass false for
+   *  the Senate (2-vote ballot), where the shares don't sum to 100. */
+  showOutros?: boolean;
 }
 
 export default function RaceEvolution({
@@ -85,6 +88,7 @@ export default function RaceEvolution({
   title = "Evolução da média · 1º turno",
   chartHeightClass = "h-[100px] sm:h-[120px]",
   fiftyLabel,
+  showOutros = true,
 }: RaceEvolutionProps) {
   const [range, setRange] = useState<ChartRange>("2026");
   const cutoff = cutoffFor(range, average?.lastPollDate ?? null);
@@ -139,6 +143,7 @@ export default function RaceEvolution({
         significantKeys={significantKeys}
         registeredKeys={registeredKeys}
         chartHeightClass={chartHeightClass}
+        showOutros={showOutros}
         {...(fiftyLabel ? { fiftyLabel } : {})}
       />
     </div>
