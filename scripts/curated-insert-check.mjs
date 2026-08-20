@@ -585,6 +585,57 @@ function rodar({ mutacao = null } = {}) {
       `a recusa não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
   });
 
+  // ⚠ O PAR QUE O CONSERTO DO `mesmaOperacao` EXIGE (§2): a recusa de quase-igual
+  //   passou a ser DOIS testes — "mesma operação de campo?" E "mesma pergunta?".
+  //   Sozinho, o teste de operação recusava o segundo confronto de uma pesquisa
+  //   que já tinha o primeiro, e foi o que deixou de fora os três confrontos da
+  //   AtlasIntel. Os dois casos abaixo provam os DOIS lados: admite o confronto
+  //   distinto E continua recusando o mesmo confronto em data derivada. Um sem o
+  //   outro não vale — o primeiro sozinho passaria com o guarda desligado.
+  const CONFRONTO = (a, b, over = {}) => ({
+    id: `p360-90000${over.n ?? 4}-2-0-dddddddddddd`, source: "poder360",
+    pollster: INSTITUTO, race: "presidente", state: "PE", round: 2,
+    scenario: "2º turno", source_url: "https://exemplo/materia",
+    fieldwork_start: "2026-07-28", fieldwork_end: "2026-07-31", published_date: "2026-07-31",
+    sample_size: 1022, margin_of_error: 3, tse_registration: REGISTRO,
+    results: [{ candidate: a, party: "PT", pct: 55 }, { candidate: b, party: "PL", pct: 40 }],
+    others_pct: null, undecided_pct: 3, blank_null_pct: 2,
+    ...over,
+  });
+  const SEGUNDO_TURNO = {
+    match: { pollster: INSTITUTO, race: "presidente", state: "PE", round: 2, fieldwork_end: FIM },
+    poll: {
+      round: 2, scenario: "2º turno", fieldwork_end: FIM, published_date: FIM,
+      results: [{ candidate: "Alfa Insercao", party: "PT", pct: 55 }, { candidate: "Beta Insercao", party: "PL", pct: 40 }],
+      others_pct: null, undecided_pct: 3, blank_null_pct: 2,
+    },
+  };
+
+  caso("ADMITE um confronto DISTINTO da mesma operação de campo", ({ dir, afirma, opcoes }) => {
+    // Alfa × Gama já está na lista, na janela de 3 dias e fora da cláusula match.
+    // O reparo insere Alfa × Beta: MESMA operação, PERGUNTA diferente — os dois
+    // pares compartilham exatamente UM nome, que é o caso da AtlasIntel e o que
+    // torna o fixture não-degenerado (dois pares iguais provariam outra coisa).
+    const polls = [irma(), CONFRONTO("Alfa Insercao", "Gama Insercao")];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir, SEGUNDO_TURNO)));
+    afirma(rel.inserted.length === 1, `o confronto distinto tinha de entrar (inseridos: ${rel.inserted.length}; avisos: ${rel.warnings.join(" | ")})`);
+    afirma(polls.length === 3, `${polls.length} pesquisas na lista, esperado 3`);
+    afirma(!rel.warnings.some((w) => /janela de 3 dias/.test(w)), `não podia recusar por vizinho: ${rel.warnings.join(" | ")}`);
+  });
+
+  caso("RECUSA o MESMO confronto em data derivada", ({ dir, afirma, opcoes }) => {
+    // O contrafactual do caso acima, e a metade que impede o conserto de virar
+    // um buraco: Alfa × Beta já está na lista com a data um dia adiante. Mesma
+    // operação E mesma pergunta ⇒ duplicata, e duplicar conta a mesma amostra
+    // duas vezes na média. Tem de recusar, como antes do conserto.
+    const polls = [irma(), CONFRONTO("Alfa Insercao", "Beta Insercao")];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir, SEGUNDO_TURNO)));
+    afirma(rel.inserted.length === 0, `inseriu o mesmo confronto duas vezes (${rel.inserted.length})`);
+    afirma(polls.length === 2, `${polls.length} pesquisas na lista, esperado 2`);
+    afirma(rel.warnings.some((w) => /RECUSADO/.test(w) && /janela de 3 dias/.test(w)),
+      `a recusa não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
+  });
+
   caso("RECUSA add_poll misturado com ações de correção", ({ dir, afirma, opcoes }) => {
     // Misturar deixaria ambíguo se a correção se aplica à pesquisa inserida ou
     // às que a cláusula casou. Ambiguidade se recusa, não se resolve por
@@ -667,6 +718,11 @@ if (process.argv.includes("--self-test")) {
       "a inserção é PONTO FIXO COM O MAPA DE URNA PARADO: duas datas, a mesma entrada, o mesmo arquivo",
       "a inserção converge em DUAS rodadas quando estreia um nome de urna: move uma vez, depois fica",
       "a pesquisa REAL, quando a fonte sarar, ocupa a MESMA pergunta",
+      // Afirma que a inserção ACONTECE, então quem a derruba é a mutação que
+      // nunca insere. Sem estar aqui, ela passaria a ser cobertura incidental:
+      // continuaria verde no dia em que o segundo teste da recusa fosse
+      // desligado e voltasse a barrar o confronto distinto.
+      "ADMITE um confronto DISTINTO da mesma operação de campo",
       // "todo add_poll de data/repairs.json…" NÃO entra em nenhuma das duas
       // listas de propósito: ele roda a decisão REAL (ver a nota no caso) e
       // prova a própria capacidade de reprovar pelo controle negativo interno.
@@ -677,6 +733,11 @@ if (process.argv.includes("--self-test")) {
       "RECUSA sem fonte primária citada",
       "RECUSA quando a pesquisa não satisfaz a própria cláusula",
       "RECUSA um quase-igual na janela de 3 dias",
+      // A outra metade do par: afirma que a inserção NÃO acontece, então cai
+      // pela mutação que sempre insere. É ela que impede o conserto do
+      // `mesmaOperacao` de virar buraco — sem esta, admitir confronto distinto
+      // e admitir duplicata ficariam indistinguíveis.
+      "RECUSA o MESMO confronto em data derivada",
       "RECUSA add_poll misturado com ações de correção",
     ],
   };

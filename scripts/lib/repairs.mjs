@@ -17,7 +17,7 @@ import { pollId } from "./util.mjs";
 // que a usa. Sem ciclo: o fecho de imports de `store.mjs` (candidates,
 // canonicalize, candidaturas, ids, ndjson, nomes, parties, people) não alcança
 // este arquivo, e `canonicalize.mjs` acima já vem de dentro desse fecho.
-import { JANELA_OPERACAO_MS } from "./store.mjs";
+import { JANELA_OPERACAO_MS, questionRostersMatch } from "./store.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "repairs.json");
 
@@ -263,12 +263,44 @@ export function inserirPesquisaCurada(polls, rep, targets, label) {
     // coletor diz isso na linha `reparo sem efeito`.
     return { warnings: [], noop: `${label} (a fonte já serve esta pesquisa — ${targets.map((p) => p.id).join(", ")}; inserção dispensada)` };
   }
-  const vizinho = polls.find((p) => mesmaOperacao(p, nova));
+  // A RECUSA DE QUASE-IGUAL SÃO DOIS TESTES, E ELES PERGUNTAM COISAS DIFERENTES.
+  //
+  // `mesmaOperacao` responde "é a mesma operação de campo?" — pergunta de
+  // LEVANTAMENTO. Mas `polls` é a lista PLANA, onde cada linha é um par
+  // (levantamento, cenário): uma operação publica legitimamente várias linhas,
+  // e num 2º turno cada confronto é uma delas. Sozinho, o teste de operação
+  // recusava o segundo confronto de uma pesquisa que já tinha o primeiro — foi
+  // o que deixou de fora os três confrontos da AtlasIntel.
+  //
+  // O segundo teste pergunta "é a mesma PERGUNTA?", e quem responde é
+  // `questionRostersMatch`, a MESMA função que `resolveQuestion` usa no coletor
+  // (§5: uma regra, uma implementação). Recusa-se só quando as duas respostas
+  // são sim.
+  //
+  // ⚠ ISTO NÃO ALARGA TOLERÂNCIA (§10). A janela de ±3 dias fica intacta, e o
+  // padrão de recusar continua: `questionRostersMatch` exige 0,8 de sobreposição
+  // para chamar de IGUAL, então o caso ambíguo segue contando como igual, isto é,
+  // segue recusado. Medido em 19/08/2026 no caminho de NOMES, que é o único que
+  // a pesquisa curada tem (ela não carrega `candidate_id`):
+  //     Lula × Tarcísio vs Lula × Zema ....................... DIFERENTE → insere
+  //     Lula × Tarcísio vs Lula × Tarcísio de Freitas ........ IGUAL     → recusa
+  //     Lula × Tarcísio vs Luiz Inácio Lula da Silva × Tarcísio IGUAL     → recusa
+  // Ou seja, a variante de grafia — que é como uma duplicata real se disfarça —
+  // continua sendo pega pelo casador.
+  //
+  // E NÃO se usa o elenco para decidir LEVANTAMENTO, que é outra coisa e é
+  // proibida: ver `rosterContradicts` em `store.mjs`, que isenta o 2º turno de
+  // propósito porque julgar levantamento por elenco cunhou 485 que não existem.
+  const vizinho = polls.find((p) => {
+    if (!mesmaOperacao(p, nova)) return false;
+    const nomes = (nova.results ?? []).map((r) => r.name_raw ?? r.candidate);
+    return questionRostersMatch(p.results, nova.results, nomes);
+  });
   if (vizinho) {
     return recusa(
       `${vizinho.id} (${vizinho.pollster} ${vizinho.race}/${vizinho.state ?? "BR"} turno ${vizinho.round}, ` +
       `campo ${vizinho.fieldwork_end ?? vizinho.published_date ?? "?"}) está na janela de 3 dias mas fora da cláusula ` +
-      "match — a mesma operação de campo com outra data é ambígua, e nada foi inserido",
+      "match — a mesma operação de campo, com o MESMO confronto, em outra data é ambígua, e nada foi inserido",
     );
   }
   polls.push(nova);

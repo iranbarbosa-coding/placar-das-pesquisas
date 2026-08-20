@@ -960,17 +960,26 @@ function rosterOverlaps(stored, incoming) {
  * subset lets the matcher overrule that decision, which is precisely what the
  * candidate work removed its last word for.
  *
- * It bit: `sameCandidate` reads "Jair Bolsonaro" as a subset of "Michelle
- * Bolsonaro, com apoio do ex-presidente Jair Bolsonaro", so Paraná Pesquisas'
- * Lula × Michelle (43,4) was absorbed into Lula × Jair (32,2) and one of the
- * two runoffs stopped existing. Two rosters the curated table calls different
- * people are different questions, however alike the strings look.
+ * It bit, and the case is worth keeping because it is what bought the id path:
+ * `sameCandidate` read "Jair Bolsonaro" as a subset of "Michelle Bolsonaro, com
+ * apoio do ex-presidente Jair Bolsonaro", so Paraná Pesquisas' Lula × Michelle
+ * (43,4) was absorbed into Lula × Jair (32,2) and one of the two runoffs stopped
+ * existing. Two rosters the curated table calls different people are different
+ * questions, however alike the strings look.
+ *
+ * ⚠ THAT PARTICULAR BITE NO LONGER HAPPENS, and saying otherwise would be a
+ * comment lying about its own code. Measured 19/08/2026: `nomeSemClausula`
+ * strips the endorsement clause before matching, so
+ * `sameCandidate("Jair Bolsonaro", "Michelle Bolsonaro, com apoio…")` is now
+ * FALSE in both directions and the pair reads as two different questions —
+ * which is the right answer. The history stays because it explains why identity
+ * is compared by `candidate_id` first; the present tense does not.
  *
  * The name path remains for rosters that carry no ids (a store read from disk
  * before ids were assigned), and is the ONLY place the token matcher still
  * decides anything here.
  */
-function questionRostersMatch(storedResults, incomingResults, incomingNames) {
+export function questionRostersMatch(storedResults, incomingResults, incomingNames) {
   const ids = (rs) => (rs ?? []).map((r) => r.candidate_id).filter(Boolean);
   const a = ids(storedResults), b = ids(incomingResults);
   if (a.length === (storedResults ?? []).length && b.length === (incomingResults ?? []).length && a.length && b.length) {
