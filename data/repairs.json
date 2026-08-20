@@ -1718,6 +1718,138 @@
     "blank_null_pct": 6
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-03-28",
+    "has_candidate": "Jair Bolsonaro"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Lula vs Jair Bolsonaro não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1029, margem=3, campo 23 a 28/03/2026. 2º turno Lula×Jair Bolsonaro: Lula 40,2 · Jair Bolsonaro 50,0; branco/nulo 9,8. Soma 100,0.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Jair Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-23",
+    "fieldwork_end": "2026-03-28",
+    "published_date": "2026-04-01",
+    "sample_size": 1029,
+    "margin_of_error": 3,
+    "tse_registration": "BR-06808/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 40.2
+     },
+     {
+      "candidate": "Jair Bolsonaro",
+      "party": null,
+      "pct": 50
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 9.8
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-03-28",
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Lula vs Romeu Zema não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1029, margem=3, campo 23 a 28/03/2026. 2º turno Lula×Romeu Zema: Lula 39,2 · Romeu Zema 37,6; branco/nulo 23,1. Soma 99,9.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Romeu Zema",
+    "contractor": null,
+    "fieldwork_start": "2026-03-23",
+    "fieldwork_end": "2026-03-28",
+    "published_date": "2026-04-01",
+    "sample_size": 1029,
+    "margin_of_error": 3,
+    "tse_registration": "BR-06808/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 39.2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": null,
+      "pct": 37.6
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 23.1
+   },
+   "expect_sum": 99.9
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-03-28",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "AUSENTE: confronto de 2º turno Lula vs Ronaldo Caiado não estava no banco — recuperado por leitura cega dupla do relatório integra.",
+   "source": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
+   "evidence": "Duas leituras cegas independentes do relatório do instituto bateram na ficha e em todas as linhas; ficha técnica: n=1029, margem=3, campo 23 a 28/03/2026. 2º turno Lula×Ronaldo Caiado: Lula 39,1 · Ronaldo Caiado 35,1; branco/nulo 25,9. Soma 100,1.",
+   "verified_at": "2026-08-19",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Ronaldo Caiado",
+    "contractor": null,
+    "fieldwork_start": "2026-03-23",
+    "fieldwork_end": "2026-03-28",
+    "published_date": "2026-04-01",
+    "sample_size": 1029,
+    "margin_of_error": 3,
+    "tse_registration": "BR-06808/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 39.1
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 35.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 25.9
+   },
+   "expect_sum": 100.1
   }
  ]
 }
