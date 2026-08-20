@@ -60,17 +60,35 @@ export function periodoDeCampo(texto) {
   return { start: null, end: null };
 }
 
-/** "1.022 entrevistas" → 1022. O separador de milhar é ponto (pt-BR). */
+/**
+ * "1.022 entrevistas" → 1022. Duas armadilhas medidas em relatório real:
+ *   - o ANO vaza: "...de 2026. ENTREVISTAS E MARGEM..." casava "2026" como
+ *     amostra. Por isso o número é ou forma com separador de milhar (1.200,
+ *     2.685) ou 3–6 dígitos crus SEM ponto colado — "2026." não casa (o ponto
+ *     quebra o "\s+entrevistas").
+ *   - havendo alternativa, um valor que É um ano provável (2020–2035) é
+ *     descartado: instituto não faz 2026 entrevistas por acaso com o ano.
+ */
 export function amostra(texto) {
-  const m = texto.match(/\b([\d.]{2,7})\s+entrevistas/i);
-  if (!m) return null;
-  const n = Number(m[1].replace(/\./g, ""));
-  return Number.isFinite(n) && n >= 100 && n <= 200000 ? n : null;
+  const re = /(\d{1,3}(?:\.\d{3})+|\d{3,6})\s+entrevistas/gi;
+  const cands = [];
+  let m;
+  while ((m = re.exec(texto))) {
+    const n = Number(m[1].replace(/\./g, ""));
+    if (Number.isFinite(n) && n >= 100 && n <= 200000) cands.push(n);
+  }
+  const semAno = cands.filter((n) => !(n >= 2020 && n <= 2035));
+  const lista = semAno.length ? semAno : cands;
+  return lista.length ? lista[0] : null;
 }
 
-/** "margem de erro ... é de 3 pontos" → 3; "2,0 p.p." → 2. */
+/**
+ * "margem de erro ... é de 3 pontos" → 3; "2,0 p.p." → 2; "3% pontos
+ * percentuais" → 3 (o "%" entre o número e "pontos" aparece em relatório real,
+ * daí o "%?" opcional).
+ */
 export function margem(texto) {
-  const m = texto.match(/margem\s+de\s+erro[^0-9]{0,40}?(\d{1,2}(?:[.,]\d)?)\s*(?:pontos?|p\.?\s*p)/i);
+  const m = texto.match(/margem\s+de\s+erro[^0-9]{0,40}?(\d{1,2}(?:[.,]\d)?)\s*%?\s*(?:pontos?|p\.?\s*p)/i);
   if (!m) return null;
   const n = Number(m[1].replace(",", "."));
   return Number.isFinite(n) && n > 0 && n <= 20 ? n : null;
