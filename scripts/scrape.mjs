@@ -10,7 +10,7 @@ import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
 import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
-import { relatorioDeEnsaio } from "./lib/ensaio.mjs";
+import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
@@ -38,36 +38,9 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
  * `data/` nunca é aberto para escrita no ensaio: as três escritas deste arquivo
  * (nomes-crus, polls.json, store) passam todas por `DESTINO`.
  */
-const ensaioArg = process.argv.find((a) => a === "--ensaio" || a.startsWith("--ensaio="));
-export const EM_ENSAIO = Boolean(ensaioArg);
-/** O banco de verdade. No ensaio ele é SÓ LEITURA, e é lido inteiro. */
-const BANCO = path.join(ROOT, "data");
-const DESTINO = EM_ENSAIO
-  ? (ensaioArg.split("=").slice(1).join("=") || fs.mkdtempSync(path.join(os.tmpdir(), "placar-ensaio-")))
-  : BANCO;
-const DATA = path.join(DESTINO, "polls.json");
-/**
- * A ENTRADA É SEMPRE O BANCO DE VERDADE, mesmo no ensaio — e sem isto o ensaio
- * seria infiel de duas maneiras. `loadPrevious` alimenta as FONTES (é o
- * fallback delas quando uma busca falha), e `buildStoreFromPolls` lê o estado
- * anterior para a retenção e para a linhagem. Lidas de um destino vazio, as
- * fontes se comportariam como numa primeira coleta e a retenção nunca
- * dispararia: o ensaio mediria zero e pareceria são, que é o pior desfecho
- * possível para uma ferramenta cuja razão de existir é medir esse número.
- */
-const DATA_LEITURA = path.join(BANCO, "polls.json");
-
-/** Copia o banco para o destino do ensaio, para a rodada ter um ANTERIOR real. */
-function prepararEnsaio() {
-  if (!EM_ENSAIO) return;
-  fs.mkdirSync(DESTINO, { recursive: true });
-  for (const f of fs.readdirSync(BANCO)) {
-    if (f.endsWith(".ndjson") || f === "meta.json" || f === "polls.json") {
-      fs.copyFileSync(path.join(BANCO, f), path.join(DESTINO, f));
-    }
-  }
-  console.log(`ENSAIO: nada será escrito em data/. Destino: ${DESTINO}`);
-}
+const { emEnsaio: EM_ENSAIO_, banco: BANCO, destino: DESTINO, dataSaida: DATA, dataLeitura: DATA_LEITURA } =
+  resolverDestino({ argv: process.argv, root: ROOT });
+export const EM_ENSAIO = EM_ENSAIO_;
 
 function loadPrevious() {
   try {
@@ -301,7 +274,8 @@ async function runSource(name, fn, previous) {
 }
 
 async function main() {
-  prepararEnsaio();
+  const copiados = prepararEnsaio({ emEnsaio: EM_ENSAIO, banco: BANCO, destino: DESTINO });
+  if (EM_ENSAIO) console.log(`ENSAIO: nada será escrito em data/. Destino: ${DESTINO} (${copiados.length} arquivo(s) do banco copiados como ANTERIOR)`);
   const previous = loadPrevious();
   const now = new Date().toISOString();
 
@@ -547,7 +521,7 @@ async function main() {
   const tmp = DATA + ".tmp";
   fs.writeFileSync(tmp, JSON.stringify(dataset, null, 1));
   fs.renameSync(tmp, DATA);
-  console.log(`OK: ${polls.length} pesquisas gravadas em data/polls.json`);
+  console.log(`OK: ${polls.length} pesquisas gravadas em ${path.relative(ROOT, DATA)}`);
 
   persistStore(polls, dataset);
 }

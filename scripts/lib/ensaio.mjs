@@ -92,3 +92,76 @@ export function relatorioDeEnsaio(anterior, ensaio) {
   for (const t of trocaramLider) L.push(`      ${t.disputa} ${t.question_id}: ${t.era} → ${t.viraria}`);
   return { linhas: L, sumiram, encolheram, trocaramLider, porDisputa };
 }
+
+// ---------------------------------------------------------------------------
+// A FIAÇÃO DO ENSAIO — aqui, e não no coletor, para poder ser PROVADA.
+// ---------------------------------------------------------------------------
+//
+// Estava no `scrape.mjs`, e por isso só dava para conferi-la LENDO o fonte: o
+// coletor não se roda num teste. Ler o fonte confere TEXTO, e texto não é
+// comportamento — o autoteste afirmava que a cópia existe (`copyFileSync`
+// presente) sem nunca afirmar que ela COPIA. Medido: quebrar o filtro da cópia
+// para não copiar nada deixava o autoteste VERDE, e um ensaio sem `previous`
+// mede ZERO e parece são, que é exatamente o desfecho que este arquivo existe
+// para impedir. O ponto cego era o próprio defeito, escondido no teste dele.
+import fs from "node:fs";
+import path from "node:path";
+import os from "node:os";
+
+/**
+ * Onde esta rodada lê e onde escreve.
+ *
+ * ⚠ RECUSA UM DESTINO QUE SEJA O BANCO, OU DENTRO DELE. Sem isso,
+ * `--ensaio=data` resolve para o próprio banco e a rodada GRAVA nele — medido —,
+ * e a promessa "nada em data/" passaria a depender de quem digita a linha de
+ * comando. Quem vai rodar isto é o criador, uma vez, para decidir religar o
+ * agendamento: a segurança não pode ser dele.
+ */
+export function resolverDestino({ argv = [], root }) {
+  const banco = path.join(root, "data");
+  const arg = argv.find((a) => a === "--ensaio" || a.startsWith("--ensaio="));
+  const emEnsaio = Boolean(arg);
+  let destino = banco;
+  if (emEnsaio) {
+    const pedido = arg.split("=").slice(1).join("=");
+    destino = pedido
+      ? path.resolve(pedido)
+      : fs.mkdtempSync(path.join(os.tmpdir(), "placar-ensaio-"));
+    const rel = path.relative(banco, destino);
+    if (destino === banco || (rel && !rel.startsWith("..") && !path.isAbsolute(rel))) {
+      throw new Error(
+        `RECUSADO: o destino do ensaio (${destino}) é o banco, ou está dentro dele. ` +
+        "O ensaio existe para NÃO tocar em data/; apontá-lo para lá o transformaria numa coleta de verdade sem aviso.",
+      );
+    }
+  }
+  return {
+    emEnsaio, banco, destino,
+    // A saída vai para o destino; a ENTRADA vem sempre do banco real, senão as
+    // fontes agem como numa primeira coleta e a retenção não tem o que reter.
+    dataSaida: path.join(destino, "polls.json"),
+    dataLeitura: path.join(banco, "polls.json"),
+  };
+}
+
+/** Os arquivos que compõem um banco, e que o ensaio precisa ter como ANTERIOR. */
+const DO_BANCO = (f) => f.endsWith(".ndjson") || f === "meta.json" || f === "polls.json";
+
+/**
+ * Copia o banco para o destino, para o ensaio ter um estado ANTERIOR real.
+ *
+ * Devolve os nomes copiados — é o que o autoteste afirma. Uma cópia que não
+ * copia é indistinguível de uma que copia, se o teste só perguntar se a chamada
+ * existe.
+ */
+export function prepararEnsaio({ emEnsaio, banco, destino }) {
+  if (!emEnsaio) return [];
+  fs.mkdirSync(destino, { recursive: true });
+  const copiados = [];
+  for (const f of fs.readdirSync(banco)) {
+    if (!DO_BANCO(f)) continue;
+    fs.copyFileSync(path.join(banco, f), path.join(destino, f));
+    copiados.push(f);
+  }
+  return copiados;
+}

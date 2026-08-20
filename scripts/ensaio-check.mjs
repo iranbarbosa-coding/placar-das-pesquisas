@@ -15,7 +15,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { relatorioDeEnsaio } from "./lib/ensaio.mjs";
+import os from "node:os";
+import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -93,25 +94,89 @@ function autoteste() {
       "empate invertido de ordem não é troca de líder");
   }
 
-  // 6. ⚠ A FIAÇÃO DO DESTINO, conferida por LEITURA do fonte — é o que dá para
-  //    fazer sem executar o coletor, e é o que garante "zero escrita em data/".
+  // 6. ⚠ A FIAÇÃO, PELO COMPORTAMENTO — e não pelo texto do fonte.
+  //
+  //    A versão anterior deste bloco lia `scrape.mjs` e afirmava que a cópia
+  //    EXISTE (`copyFileSync` presente). Texto não é comportamento: a
+  //    conferência quebrou o FILTRO da cópia — copiando NADA, com a chamada
+  //    ainda lá — e este autoteste ficou VERDE. Um ensaio sem estado ANTERIOR
+  //    mede ZERO e parece são, que é o desfecho exato que o ensaio existe para
+  //    impedir. O ponto cego era o próprio defeito, escondido no teste dele.
+  //
+  //    Por isso a fiação mora em `lib/ensaio.mjs` e é EXERCITADA aqui, com
+  //    diretórios de mentira.
+  {
+    const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "ensaio-fiacao-"));
+    const banco = path.join(raiz, "data");
+    fs.mkdirSync(banco, { recursive: true });
+    fs.writeFileSync(path.join(banco, "questions.ndjson"), "{}\n");
+    fs.writeFileSync(path.join(banco, "meta.json"), "{}\n");
+    fs.writeFileSync(path.join(banco, "polls.json"), "{}\n");
+    fs.writeFileSync(path.join(banco, "leia-me.txt"), "não é do banco\n");
+
+    // (a) SEM `--ensaio`, nada muda: a rodada real escreve no banco, como sempre.
+    const real = resolverDestino({ argv: ["node", "scrape.mjs"], root: raiz });
+    ok(real.emEnsaio === false, "sem --ensaio não é ensaio");
+    ok(real.destino === banco, `e o destino é o banco (veio ${real.destino})`);
+
+    // (b) `--ensaio` puro dá um diretório temporário, NUNCA o banco.
+    const solto = resolverDestino({ argv: ["--ensaio"], root: raiz });
+    ok(solto.emEnsaio === true && solto.destino !== banco,
+      `--ensaio puro tem de dar destino fora do banco (veio ${solto.destino})`);
+    ok(solto.dataLeitura === path.join(banco, "polls.json"),
+      `e a ENTRADA vem sempre do banco real (veio ${solto.dataLeitura})`);
+    ok(solto.dataSaida === path.join(solto.destino, "polls.json"),
+      "e a SAÍDA vai para o destino");
+
+    // (c) ⚠ E O DESTINO QUE É O BANCO É RECUSADO. Sem isto, `--ensaio=data`
+    //     grava no banco real — medido — e a promessa "nada em data/" passaria
+    //     a depender de quem digita a linha de comando. Quem vai rodar isto é o
+    //     criador, uma vez, para decidir religar: a segurança não pode ser dele.
+    for (const alvo of [banco, path.join(banco, "sub")]) {
+      let recusou = false;
+      try { resolverDestino({ argv: [`--ensaio=${alvo}`], root: raiz }); }
+      catch (e) { recusou = /RECUSADO/.test(e.message); }
+      ok(recusou, `o destino ${alvo} tinha de ser recusado (é o banco, ou dentro dele)`);
+    }
+    // E um destino de fora continua aceito, senão a guarda recusaria tudo.
+    const fora = path.join(raiz, "ensaio-x");
+    ok(resolverDestino({ argv: [`--ensaio=${fora}`], root: raiz }).destino === fora,
+      "um destino fora do banco continua aceito");
+
+    // (d) ⚠ A CÓPIA COPIA — comportamento, não presença da chamada.
+    const destino = path.join(raiz, "ensaio-y");
+    const copiados = prepararEnsaio({ emEnsaio: true, banco, destino });
+    ok(copiados.length === 3, `os três arquivos do banco são copiados (veio ${copiados.length}: ${copiados.join(", ")})`);
+    for (const f of ["questions.ndjson", "meta.json", "polls.json"]) {
+      ok(fs.existsSync(path.join(destino, f)), `${f} tem de chegar ao destino, senão o ensaio roda sem ANTERIOR e mede zero`);
+    }
+    ok(!fs.existsSync(path.join(destino, "leia-me.txt")), "e o que não é do banco não é copiado");
+    // (e) E O BANCO NÃO É TOCADO — a promessa inteira desta ferramenta.
+    ok(fs.readdirSync(banco).sort().join(",") === "leia-me.txt,meta.json,polls.json,questions.ndjson",
+      "o banco não pode ganhar nem perder arquivo");
+    ok(fs.readFileSync(path.join(banco, "polls.json"), "utf-8") === "{}\n", "nem ter conteúdo alterado");
+    // (f) E sem ensaio a cópia não acontece.
+    const vazio = path.join(raiz, "ensaio-z");
+    ok(prepararEnsaio({ emEnsaio: false, banco, destino: vazio }).length === 0 && !fs.existsSync(vazio),
+      "fora do ensaio nada é copiado e nenhum diretório é criado");
+
+    fs.rmSync(raiz, { recursive: true, force: true });
+  }
+
+  // 7. E o coletor tem de USAR a fiação do módulo — se ele voltar a resolver o
+  //    destino por conta própria, tudo acima passa a testar código morto.
   {
     const src = fs.readFileSync(path.join(ROOT, "scripts", "scrape.mjs"), "utf-8");
-    const escritas = src.split("\n")
-      .map((l, i) => [i + 1, l])
+    ok(/resolverDestino\(\{ argv: process\.argv, root: ROOT \}\)/.test(src),
+      "o coletor resolve o destino pelo módulo, não por conta própria");
+    ok(/prepararEnsaio\(\{ emEnsaio: EM_ENSAIO, banco: BANCO, destino: DESTINO \}\)/.test(src),
+      "e prepara o ensaio pelo módulo");
+    const escritas = src.split("\n").map((l, i) => [i + 1, l])
       .filter(([, l]) => /fs\.writeFileSync\(|fs\.renameSync\(|writeStore\(/.test(l) && !/^\s*(\/\/|\*)/.test(l));
     ok(escritas.length > 0, "o coletor tem de ter escritas para esta conferência valer");
-    // Nenhuma escrita pode citar o banco direto: todas passam por DESTINO.
     for (const [n, l] of escritas) {
-      ok(!/DATA_DIR|ROOT,\s*"data"/.test(l),
-        `a escrita da linha ${n} do coletor aponta para o banco em vez de DESTINO: ${l.trim()}`);
+      ok(!/DATA_DIR|ROOT,\s*"data"/.test(l), `a escrita da linha ${n} aponta para o banco em vez de DESTINO: ${l.trim()}`);
     }
-    ok(/const DESTINO =/.test(src) && /const BANCO = path\.join\(ROOT, "data"\)/.test(src),
-      "o coletor tem de separar BANCO (leitura) de DESTINO (escrita)");
-    ok(/const DATA_LEITURA = path\.join\(BANCO, "polls\.json"\)/.test(src),
-      "e a ENTRADA tem de vir do banco real, senão o ensaio mede zero e parece são");
-    ok(/function prepararEnsaio\(\)/.test(src) && /copyFileSync/.test(src),
-      "e o ensaio tem de copiar o banco para o destino, senão a retenção não tem ANTERIOR e nunca dispara");
   }
 
   if (falhas.length) {
