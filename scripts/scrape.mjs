@@ -3,12 +3,14 @@
 // atomically replace data/polls.json. Any single source failing must not
 // take the site down — we keep the previous dataset's polls for that source.
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
-import { today, writeStore, DATA_DIR, JANELA_OPERACAO_MS } from "./lib/store.mjs";
+import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
+import { relatorioDeEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
@@ -17,11 +19,59 @@ import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DATA = path.join(ROOT, "data", "polls.json");
+/**
+ * O DESTINO DA RODADA — `data/` na coleta de verdade, um diretório descartável
+ * no ENSAIO.
+ *
+ * `node scripts/scrape.mjs --ensaio[=<dir>]` coleta de verdade (fonte real,
+ * encolhimento real) e escreve num diretório que não é o banco. É o que permite
+ * fechar a condição 1 do cabeçalho deste workflow — "a retenção nunca foi
+ * exercitada contra uma coleta de verdade" — sem apostar o banco: observar e
+ * escrever estavam SOLDADOS aqui, e é só essa solda que o ensaio desfaz.
+ *
+ * ⚠ O ENSAIO COPIA O BANCO PARA O DESTINO ANTES DE CONSTRUIR, e sem isso ele
+ * não provaria nada: `buildStoreFromPolls` lê o estado ANTERIOR do mesmo
+ * diretório em que escreve, então um destino vazio daria `previous` vazio — e a
+ * retenção, que é regra de RODADA CONTRA RODADA, nunca dispararia. O ensaio
+ * mediria zero e pareceria são.
+ *
+ * `data/` nunca é aberto para escrita no ensaio: as três escritas deste arquivo
+ * (nomes-crus, polls.json, store) passam todas por `DESTINO`.
+ */
+const ensaioArg = process.argv.find((a) => a === "--ensaio" || a.startsWith("--ensaio="));
+export const EM_ENSAIO = Boolean(ensaioArg);
+/** O banco de verdade. No ensaio ele é SÓ LEITURA, e é lido inteiro. */
+const BANCO = path.join(ROOT, "data");
+const DESTINO = EM_ENSAIO
+  ? (ensaioArg.split("=").slice(1).join("=") || fs.mkdtempSync(path.join(os.tmpdir(), "placar-ensaio-")))
+  : BANCO;
+const DATA = path.join(DESTINO, "polls.json");
+/**
+ * A ENTRADA É SEMPRE O BANCO DE VERDADE, mesmo no ensaio — e sem isto o ensaio
+ * seria infiel de duas maneiras. `loadPrevious` alimenta as FONTES (é o
+ * fallback delas quando uma busca falha), e `buildStoreFromPolls` lê o estado
+ * anterior para a retenção e para a linhagem. Lidas de um destino vazio, as
+ * fontes se comportariam como numa primeira coleta e a retenção nunca
+ * dispararia: o ensaio mediria zero e pareceria são, que é o pior desfecho
+ * possível para uma ferramenta cuja razão de existir é medir esse número.
+ */
+const DATA_LEITURA = path.join(BANCO, "polls.json");
+
+/** Copia o banco para o destino do ensaio, para a rodada ter um ANTERIOR real. */
+function prepararEnsaio() {
+  if (!EM_ENSAIO) return;
+  fs.mkdirSync(DESTINO, { recursive: true });
+  for (const f of fs.readdirSync(BANCO)) {
+    if (f.endsWith(".ndjson") || f === "meta.json" || f === "polls.json") {
+      fs.copyFileSync(path.join(BANCO, f), path.join(DESTINO, f));
+    }
+  }
+  console.log(`ENSAIO: nada será escrito em data/. Destino: ${DESTINO}`);
+}
 
 function loadPrevious() {
   try {
-    return JSON.parse(fs.readFileSync(DATA, "utf-8"));
+    return JSON.parse(fs.readFileSync(DATA_LEITURA, "utf-8"));
   } catch {
     return { generated_at: null, sources: [], polls: [] };
   }
@@ -251,6 +301,7 @@ async function runSource(name, fn, previous) {
 }
 
 async function main() {
+  prepararEnsaio();
   const previous = loadPrevious();
   const now = new Date().toISOString();
 
@@ -381,7 +432,7 @@ async function main() {
     }
   }
   fs.writeFileSync(
-    path.join(ROOT, "data", "nomes-crus.json"),
+    path.join(DESTINO, "nomes-crus.json"),
     JSON.stringify(
       Object.fromEntries(Object.entries(crus).map(([k, m]) => [
         k,
@@ -531,7 +582,7 @@ function persistStore(polls, dataset) {
   const runDate = today();
   const { store, report } = buildStoreFromPolls(polls, {
     runDate,
-    dir: DATA_DIR,
+    dir: DESTINO,
     meta: {
       generated_at: dataset.generated_at,
       sources: dataset.sources,
@@ -552,7 +603,7 @@ function persistStore(polls, dataset) {
     process.exit(1);
   }
 
-  const counts = writeStore(store, { dir: DATA_DIR });
+  const counts = writeStore(store, { dir: DESTINO });
   console.log(`store gravado pela escada: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
     `${counts.institutes} institutos · ${counts.people} pessoas · ${counts.candidates} candidatos · ` +
     `${counts.conflicts} conflitos`);
@@ -594,6 +645,19 @@ function persistStore(polls, dataset) {
       `ambiguidade · ${rel.ratified} encolhimento(s) ratificado(s) por reparo — tudo em conflicts.ndjson`);
   }
   console.log(`  resolução: ${JSON.stringify(report)}`);
+
+  // O RELATÓRIO DO ENSAIO — o que esta coleta FARIA com o banco, e que a rodada
+  // real não diz. `ELENCO RETIDO` acima só fala do que a retenção ALCANÇA;
+  // pergunta que some inteira não aparece em lugar nenhum, e o piso do
+  // validador tem 996 perguntas de folga (ver `lib/ensaio.mjs`).
+  if (EM_ENSAIO) {
+    const { linhas } = relatorioDeEnsaio(readStore({ dir: BANCO }), readStore({ dir: DESTINO }));
+    console.log("");
+    for (const l of linhas) console.log(l);
+    console.log("");
+    console.log(`ENSAIO CONCLUÍDO — data/ intocado. O que foi construído está em ${DESTINO}`);
+    console.log("Nada foi decidido: religar o agendamento é decisão do criador (CONVENTIONS §12).");
+  }
 }
 
 // Só executa quando chamado como programa. Importar este módulo NÃO pode
