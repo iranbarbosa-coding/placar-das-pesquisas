@@ -1369,9 +1369,14 @@ Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 17.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. Mesma decisão da seção "Álvaro Costa Dias × Álvaro Dias" desta
+> mesma disputa: é o mesmo fato com os nomes trocados de lado. Álvaro Costa Dias, PL, nº 22,
+> `sq_candidato` 200002534442 no cadastro do TSE, nome de urna "Álvaro Dias". Já implementado —
+> `canonicalCandidate` dobra as três grafias em "Álvaro Dias" em `governador:RN`.
 
 ### Alvaro Dias × Álvaro Dias
 
@@ -1390,9 +1395,14 @@ Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 21.8 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. Mesma decisão da seção "Álvaro Costa Dias × Álvaro Dias" desta
+> mesma disputa: é o mesmo fato com os nomes trocados de lado. Álvaro Costa Dias, PL, nº 22,
+> `sq_candidato` 200002534442 no cadastro do TSE, nome de urna "Álvaro Dias". Já implementado —
+> `canonicalCandidate` dobra as três grafias em "Álvaro Dias" em `governador:RN`.
 
 ### Álvaro Costa Dias × Álvaro Dias
 
