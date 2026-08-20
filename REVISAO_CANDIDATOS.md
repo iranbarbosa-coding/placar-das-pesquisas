@@ -594,9 +594,14 @@ Partidos: **coincidem (PL, REPUBLICANOS)** · diferença entre as médias: 4.1 p
 
 **Campo gêmeo — 3 ocorrência(s).** Data Capital: `2026-07-29` cita *Álvaro Costa Dias* (26%, 1º turno) e `2026-07-29` cita *Álvaro Dias* (47%, 2º turno).
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. Álvaro Costa Dias, PL, nº 22, `sq_candidato` 200002534442 no
+> cadastro do TSE (`data/candidaturas.ndjson`), nome de urna "Álvaro Dias". As duas grafias
+> são a mesma candidatura registrada. **Já implementado**: `canonicalCandidate` dobra as três
+> grafias em "Álvaro Dias" nesta disputa — a marcação registra o que o banco já faz.
 
 ### Felipe d'Avila × Luiz Felipe d'Avila
 
@@ -762,9 +767,23 @@ Partidos: **coincidem (MDB)** · diferença entre as médias: 1.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas, Quaest, IRG.
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. MDB nas duas grafias, período sobreposto, médias a 1,7 p.p., e os
+> mesmos institutos usam as duas — é o senador Álvaro Dias, do Paraná.
+>
+> **Já implementado.** A fonte ainda manda as duas grafias — `data/nomes-crus.json` traz
+> `["Alvaro Dias","Álvaro Dias"]` nesta disputa —, e o banco as dobra: uma única linha de
+> candidato, `c_5b56e8b6c963`, canônico "Álvaro Dias", com as duas como alias. Nas 26
+> pesquisas de `senador:PR`, 21 trazem o nome e nenhuma traz a forma sem acento; as duas
+> nunca aparecem na mesma pesquisa. A marcação registra o que o banco já faz.
+>
+> ⚠ E ESTE É OUTRO HOMEM, não o de `Governador · RN`. O senador do PR (MDB, Senado, Paraná)
+> não está no cadastro do TSE; o do RN é Álvaro Costa Dias (PL, governo, Rio Grande do Norte).
+> Partido, cargo e estado divergem com período sobreposto. Este documento não tem caixa para
+> um par que cruza disputas, então a distinção fica dita aqui.
 
 ### Jarir Pereira × Professor Jarir Pereira
 
@@ -1350,9 +1369,14 @@ Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 17.7 p.p.
 
 Institutos que usam **os dois** nomes (em datas distantes): Paraná Pesquisas.
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. Mesma decisão da seção "Álvaro Costa Dias × Álvaro Dias" desta
+> mesma disputa: é o mesmo fato com os nomes trocados de lado. Álvaro Costa Dias, PL, nº 22,
+> `sq_candidato` 200002534442 no cadastro do TSE, nome de urna "Álvaro Dias". Já implementado —
+> `canonicalCandidate` dobra as três grafias em "Álvaro Dias" em `governador:RN`.
 
 ### Alvaro Dias × Álvaro Dias
 
@@ -1371,9 +1395,14 @@ Partidos: **coincidem (REPUBLICANOS)** · diferença entre as médias: 21.8 p.p.
 
 Nenhum instituto usa os dois nomes — cada grafia vem de casas diferentes.
 
-- [ ] mesma pessoa → canônico: `________________`
+- [x] mesma pessoa → canônico: `Álvaro Dias`
 - [ ] pessoas diferentes
 - [ ] não sei — verificar em: `________________`
+
+> Decidido em 19/08/2026. Mesma decisão da seção "Álvaro Costa Dias × Álvaro Dias" desta
+> mesma disputa: é o mesmo fato com os nomes trocados de lado. Álvaro Costa Dias, PL, nº 22,
+> `sq_candidato` 200002534442 no cadastro do TSE, nome de urna "Álvaro Dias". Já implementado —
+> `canonicalCandidate` dobra as três grafias em "Álvaro Dias" em `governador:RN`.
 
 ### Álvaro Costa Dias × Álvaro Dias
 
