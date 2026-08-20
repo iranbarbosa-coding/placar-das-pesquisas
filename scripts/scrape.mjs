@@ -3,12 +3,14 @@
 // atomically replace data/polls.json. Any single source failing must not
 // take the site down — we keep the previous dataset's polls for that source.
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
-import { today, writeStore, DATA_DIR, JANELA_OPERACAO_MS } from "./lib/store.mjs";
+import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
+import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
@@ -17,11 +19,32 @@ import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DATA = path.join(ROOT, "data", "polls.json");
+/**
+ * O DESTINO DA RODADA — `data/` na coleta de verdade, um diretório descartável
+ * no ENSAIO.
+ *
+ * `node scripts/scrape.mjs --ensaio[=<dir>]` coleta de verdade (fonte real,
+ * encolhimento real) e escreve num diretório que não é o banco. É o que permite
+ * fechar a condição 1 do cabeçalho deste workflow — "a retenção nunca foi
+ * exercitada contra uma coleta de verdade" — sem apostar o banco: observar e
+ * escrever estavam SOLDADOS aqui, e é só essa solda que o ensaio desfaz.
+ *
+ * ⚠ O ENSAIO COPIA O BANCO PARA O DESTINO ANTES DE CONSTRUIR, e sem isso ele
+ * não provaria nada: `buildStoreFromPolls` lê o estado ANTERIOR do mesmo
+ * diretório em que escreve, então um destino vazio daria `previous` vazio — e a
+ * retenção, que é regra de RODADA CONTRA RODADA, nunca dispararia. O ensaio
+ * mediria zero e pareceria são.
+ *
+ * `data/` nunca é aberto para escrita no ensaio: as três escritas deste arquivo
+ * (nomes-crus, polls.json, store) passam todas por `DESTINO`.
+ */
+const { emEnsaio: EM_ENSAIO_, banco: BANCO, destino: DESTINO, dataSaida: DATA, dataLeitura: DATA_LEITURA } =
+  resolverDestino({ argv: process.argv, root: ROOT });
+export const EM_ENSAIO = EM_ENSAIO_;
 
 function loadPrevious() {
   try {
-    return JSON.parse(fs.readFileSync(DATA, "utf-8"));
+    return JSON.parse(fs.readFileSync(DATA_LEITURA, "utf-8"));
   } catch {
     return { generated_at: null, sources: [], polls: [] };
   }
@@ -251,6 +274,8 @@ async function runSource(name, fn, previous) {
 }
 
 async function main() {
+  const copiados = prepararEnsaio({ emEnsaio: EM_ENSAIO, banco: BANCO, destino: DESTINO });
+  if (EM_ENSAIO) console.log(`ENSAIO: nada será escrito em data/. Destino: ${DESTINO} (${copiados.length} arquivo(s) do banco copiados como ANTERIOR)`);
   const previous = loadPrevious();
   const now = new Date().toISOString();
 
@@ -381,7 +406,7 @@ async function main() {
     }
   }
   fs.writeFileSync(
-    path.join(ROOT, "data", "nomes-crus.json"),
+    path.join(DESTINO, "nomes-crus.json"),
     JSON.stringify(
       Object.fromEntries(Object.entries(crus).map(([k, m]) => [
         k,
@@ -496,7 +521,7 @@ async function main() {
   const tmp = DATA + ".tmp";
   fs.writeFileSync(tmp, JSON.stringify(dataset, null, 1));
   fs.renameSync(tmp, DATA);
-  console.log(`OK: ${polls.length} pesquisas gravadas em data/polls.json`);
+  console.log(`OK: ${polls.length} pesquisas gravadas em ${path.relative(ROOT, DATA)}`);
 
   persistStore(polls, dataset);
 }
@@ -531,7 +556,7 @@ function persistStore(polls, dataset) {
   const runDate = today();
   const { store, report } = buildStoreFromPolls(polls, {
     runDate,
-    dir: DATA_DIR,
+    dir: DESTINO,
     meta: {
       generated_at: dataset.generated_at,
       sources: dataset.sources,
@@ -552,7 +577,7 @@ function persistStore(polls, dataset) {
     process.exit(1);
   }
 
-  const counts = writeStore(store, { dir: DATA_DIR });
+  const counts = writeStore(store, { dir: DESTINO });
   console.log(`store gravado pela escada: ${counts.surveys} levantamentos · ${counts.questions} perguntas · ` +
     `${counts.institutes} institutos · ${counts.people} pessoas · ${counts.candidates} candidatos · ` +
     `${counts.conflicts} conflitos`);
@@ -594,6 +619,19 @@ function persistStore(polls, dataset) {
       `ambiguidade · ${rel.ratified} encolhimento(s) ratificado(s) por reparo — tudo em conflicts.ndjson`);
   }
   console.log(`  resolução: ${JSON.stringify(report)}`);
+
+  // O RELATÓRIO DO ENSAIO — o que esta coleta FARIA com o banco, e que a rodada
+  // real não diz. `ELENCO RETIDO` acima só fala do que a retenção ALCANÇA;
+  // pergunta que some inteira não aparece em lugar nenhum, e o piso do
+  // validador tem 996 perguntas de folga (ver `lib/ensaio.mjs`).
+  if (EM_ENSAIO) {
+    const { linhas } = relatorioDeEnsaio(readStore({ dir: BANCO }), readStore({ dir: DESTINO }));
+    console.log("");
+    for (const l of linhas) console.log(l);
+    console.log("");
+    console.log(`ENSAIO CONCLUÍDO — data/ intocado. O que foi construído está em ${DESTINO}`);
+    console.log("Nada foi decidido: religar o agendamento é decisão do criador (CONVENTIONS §12).");
+  }
 }
 
 // Só executa quando chamado como programa. Importar este módulo NÃO pode
