@@ -513,16 +513,40 @@ function autoteste() {
     // varre nada e a asserção vira decorativa — a degenerescência de sempre.
     ok(EXACT.size > 0, `EXACT tem de ter conteúdo, senão a varredura não varre nada (veio ${EXACT.size})`);
     ok(Object.keys(DECLARED).length > 0, `DECLARED idem (veio ${Object.keys(DECLARED).length})`);
-    // ⚠ E A VARREDURA TEM DE SER CAPAZ DE DIZER SIM. Um portão que NENHUMA
-    //   amostra alcança nunca seria pego pela asserção acima, ainda que
-    //   incidisse sobre campo exato — a varredura passaria por ele em silêncio.
-    //   Foi o que aconteceu com `registration_whitespace` até esta rodada.
-    //   Aqui cada portão é exercitado contra TODOS os campos e TODAS as
-    //   amostras, e exige-se que diga sim ao menos uma vez. Assim a varredura se
-    //   mantém: um portão de forma nova reprova até ganhar a sua amostra.
+    // ⚠ CADA PORTÃO INCIDE EM EXATAMENTE UM CAMPO — e isto é duas guardas numa.
+    //
+    //   ≥ 1 é a alcançabilidade: um portão que NENHUMA amostra alcança passaria
+    //   pela varredura acima sem ser exercitado. Aconteceu com
+    //   `registration_whitespace` até esta rodada, e é por isso que um portão de
+    //   forma nova reprova aqui até ganhar a sua amostra.
+    //
+    //   ≤ 1 é o acidental: um portão que casa por engano contra um campo alheio
+    //   passa a incidir em DOIS, e reprova. Fecha isso SEM precisar saber qual é
+    //   o campo próprio de cada portão — um mapa nome→campo aqui seria a segunda
+    //   declaração da mesma regra (§5) e sairia de sincronia em silêncio.
+    //
+    //   ⚠ O QUE ESTA GUARDA NÃO PEGA, medido, para ela não parecer cobrir mais
+    //   do que cobre — que é o defeito que este arquivo inteiro persegue:
+    //   uma cláusula MORTA sobre campo exato, isto é, com forma que nenhuma
+    //   amostra tem (`f === "fieldwork_end" && l === "ZZZ" && p === "YYY"`),
+    //   somada ao portão legítimo. Ela nunca dispara nas amostras, então não
+    //   conta como campo, e o portão segue incidindo em um só: PASSA VERDE aqui
+    //   e passa verde no cinto também. Medido em 19/08/2026.
+    //   É limite de QUALQUER guarda que decida por amostragem de valores, não
+    //   desta em particular. O que a estreita é a riqueza de `AMOSTRAS`, e ela é
+    //   incompleta por construção. Uma cláusula assim é inerte enquanto o dado
+    //   não tiver aquela forma — e no dia em que tiver, quem reprova é o cinto.
+    //
+    //   ⚠ SE UM PORTÃO DE DOIS CAMPOS FOR DELIBERADO, é aqui que se alarga a
+    //   asserção, em voz alta — mas pense duas vezes: exceção declarada
+    //   abrangendo dois campos é a "regra larga demais" que a premissa acima
+    //   existe para pegar, e merece olho humano antes de virar exceção.
     for (const [nome, portao] of Object.entries(DECLARED)) {
-      const alcancado = FIELDS.some((campo) => AMOSTRAS.some(([l, pr]) => portao(campo, l, pr)));
-      ok(alcancado, `nenhuma amostra faz o portão "${nome}" dizer sim — a varredura passa por ele sem exercitá-lo, e ele escaparia mesmo incidindo sobre campo exato; acrescente uma amostra da forma dele`);
+      const campos = FIELDS.filter((campo) => AMOSTRAS.some(([l, pr]) => portao(campo, l, pr)));
+      ok(campos.length === 1,
+        campos.length === 0
+          ? `nenhuma amostra faz o portão "${nome}" dizer sim — a varredura passa por ele sem exercitá-lo; acrescente uma amostra da forma dele`
+          : `o portão "${nome}" incide em ${campos.length} campos (${campos.join(", ")}) — um portão declarado deve gatilhar num campo só. Se os dois forem DELIBERADOS, alargue esta asserção aqui e diga por quê; se não, um deles é acidente e o cinto o mata em silêncio`);
     }
   }
 
