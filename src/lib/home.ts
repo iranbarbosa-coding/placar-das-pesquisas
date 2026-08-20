@@ -88,7 +88,7 @@ export { shortName, initials } from "./names";
  * BOTH CUTS are returned, already computed by `scenarioGroups` at build time.
  * The home page's basis toggle only chooses between these two objects — it
  * never converts or averages anything, which would be a second implementation
- * of `average.ts` living in the browser (§5). Same mechanism as `RaceView`.
+ * of `average.ts` living in the browser (§5). Same mechanism as the race charts (`RaceEvolution`).
  */
 export function heroRace() {
   const groups = scenarioGroups("presidente", null, 1);
