@@ -431,7 +431,7 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
           </span>
         </Link>
 
-        <nav ref={barNavRef} aria-label="Principal" className="hidden h-full lg:block">
+        <nav ref={barNavRef} aria-label="Principal" className="hidden h-full xl:block">
           <ul className="flex h-full items-stretch">
             {MENUS.map((menu) => (
               <DisclosureMenu
@@ -450,11 +450,11 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
 
         <div className="ml-auto flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
           {meta && (
-            <span className="hidden truncate text-xs xl:block" style={{ color: "var(--text-muted)" }}>
+            <span className="hidden truncate text-xs 2xl:block" style={{ color: "var(--text-muted)" }}>
               {meta}
             </span>
           )}
-          <div className="hidden w-40 sm:block md:w-52 lg:w-60">
+          <div className="hidden w-40 min-w-0 sm:block md:w-52 lg:w-64 xl:w-56">
             <SiteSearch index={searchIndex} />
           </div>
           {/* "Entrar" — a filled affordance on the right, matching the mockup.
@@ -475,7 +475,7 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
               setOpenKey(null);
               setMobileOpen((v) => !v);
             }}
-            className="rounded p-1.5 hover:bg-[var(--grid)] focus-visible:ring-2 focus-visible:outline-none lg:hidden"
+            className="rounded p-1.5 hover:bg-[var(--grid)] focus-visible:ring-2 focus-visible:outline-none xl:hidden"
             style={{ color: "var(--text-secondary)" }}
           >
             <BurgerGlyph open={mobileOpen} />
