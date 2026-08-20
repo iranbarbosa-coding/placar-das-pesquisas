@@ -99,3 +99,19 @@ Durante o redesign testou-se um rebranding para "Voto em Dados"; ele foi **rever
 
 1. Definir **`NEXT_PUBLIC_SITE_URL`** no Vercel com o domínio de produção (o sitemap/robots usam isso; o fallback aponta para `https://placar-das-pesquisas.vercel.app`).
 2. Nenhuma outra: a marca voltou a **Placar das Pesquisas**, então o repositório `placar-das-pesquisas` já casa com o nome. Header e rodapé usam ícone transparente + texto por token de tema (sem raster de fundo branco), então funcionam nos dois temas sem asset adicional.
+
+---
+
+## 10. Páginas construídas depois da home
+
+Detalhes de padrão no [GUIA_DE_DESIGN.md §9](GUIA_DE_DESIGN.md).
+
+- **`/presidente` (Disputa Presidencial 2026).** Matriz RCP das pesquisas (linha "Média" em faixa azul da marca, coluna "Resultado" = distância aos 50% com chips verde/vermelho/cinza), card de evolução (valores em cima + gráfico 120px), rejeição (placeholder "em breve" — **não há dado de rejeição no banco**), simulações de 2º turno em 3 cards de área (líder vs os 3 atrás), mapa presidencial por estado, arte de "Tendência" (toggle 60/30/15 dias), pies por estado (todos com ≥3 pesquisas, alfabético) e tabela geral com busca/filtros. "Modalidade" foi removida (`methodology` é null no banco).
+- **`/segundo-turno`.** Migrada ao padrão de cards; `MatchupCard` em paleta dual (líder vermelho/rival azul). A seção Presidente lista só confrontos **entre registrados**; Governadores por estado, alfabético.
+- **`/estados/[uf]`.** Passou a usar **os mesmos componentes da `/presidente`**: Governador 1º turno (evolução + RCP), 2º turno (simulações de área), Senado (evolução + RCP com "Resultado" = vantagem sobre o 2º, linha 50% neutra e sem "Outros", por ser cédula de 2 votos). `RaceSection`/`RaceView`/`AverageChart`/`RaceTable` ficaram órfãos (limpeza pendente).
+- **Regra de registrados generalizada** para toda corrida por cargo + UF (`registeredRaceKeys`), então Senado/Governador só nomeiam candidatos de fato registrados àquela disputa.
+- **Aba "2º turno"** no menu; **masthead** com nav completo só em ≥1280 (hambúrguer abaixo) para não estourar.
+
+### Pendências de dado (com o pipeline / P26_7)
+- **Presidencial nas pesquisas estaduais** é fino (só ~377 subamostras com UF; muitos estados com 1–2) — provável falha de parser (a subpergunta presidencial não vira question `presidente:UF`). Vários estados ficam cinza no mapa / fora dos pies.
+- **Rejeição** e **methodology (modalidade)** não existem no store — são features de parser a construir. Quando entrarem, a página consome sem mudança de código.

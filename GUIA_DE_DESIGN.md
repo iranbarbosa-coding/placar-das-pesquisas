@@ -163,3 +163,26 @@ Regra de bolso da migração: **todo `<h1/h2 text-2xl>` → cabeçalho de card e
 - [ ] Sem estouro horizontal em 320/375/390/1440, claro e escuro.
 - [ ] Interatividade só desktop; mobile mantém o valor atual.
 - [ ] `tsc --noEmit` limpo e `npm run build` passa.
+
+---
+
+## 9. Componentes de corrida reutilizáveis (presidente + estados)
+
+A `/presidente` virou a fonte dos componentes de corrida; a `/estados/[uf]` usa **os mesmos**, mudando só os dados. Toda a montagem que toca `node:fs` fica em `lib/presidente.ts` (servidor); os componentes cliente importam só tipos dele.
+
+- **Card de evolução — `RaceEvolution` (→ `HeroInteractive`).** Valores dos candidatos em cima (KPI row) + gráfico de linhas compacto (`chartHeightClass="h-[100px] sm:h-[120px]"`) + linha dos 50% + seletor `2026·Tudo·12m·6m·3m`. Alimente com `raceEvolutionData(race, uf, round)`. Props: `significantKeys` (linhas coloridas), `registeredKeys` (quem pode ser nomeado), `fiftyLabel` (rótulo da linha 50%), `showOutros` (ver Senado). `PresidentEvolution` é um wrapper fino dele.
+- **Tabela matriz RCP — `RcpPollsTable` (← `rcpTable(race, uf, round, limit, spreadMode)`).** Coluna por candidato (pontinho na cor), linha **"Média"** em faixa azul da marca (`--rcp-avg-band`) com texto branco, e coluna **"Resultado"** = pill de spread. `spreadMode`: `"to50"` (distância do líder aos 50% — verde acima/vermelho abaixo/cinza no empate técnico da margem) para corridas decididas em 50%; `"leaderMargin"` (vantagem sobre o 2º, chip neutro) para o Senado. `allPollsHref={null}` esconde o link do rodapé em páginas sem tabela geral.
+- **Simulações de 2º turno — `RunoffSimChart` (← `runoffSim(race, uf)`).** Um card por confronto (líder vs cada um dos 3 atrás), gráfico de **área** com as duas intenções ao longo do tempo; **líder sempre em vermelho** (`--dual-lead`), adversário na cor dele.
+
+### Regra de registrados — vale para TODA corrida, por cargo + UF
+`registeredRaceKeys(cargo, uf)` (em `lib/home.ts`) lê `candidaturas.ndjson` por cargo e UF. Só candidatos **registrados àquela corrida** são nomeados/coloridos; o resto entra em "Outros". Presidente = nacional (uf null); governador/senador = por UF. Isso evita nomear quem foi testado hipoteticamente (ex.: Haddad no Senado de SP, onde ele é candidato a governador, não senador).
+
+### Senado é cédula de 2 votos
+Os percentuais **somam ~200%, não 100**. Por isso: `showOutros={false}` (o "Outros = resto até 100" não faz sentido), `fiftyLabel="50%"` (referência neutra, não "vitória"), e `spreadMode="leaderMargin"` na tabela. Presidente/governador (voto único) mantêm o "Outros" e o "% para 50".
+
+### Header de página e navegação
+- **Header padrão:** breadcrumb (`Início › … ›`) + `<h1 text-2xl>` + subtítulo + link "Metodologia completa →" à direita.
+- **Masthead:** o nav completo aparece só no **`xl` (≥1280)**; abaixo disso, hambúrguer (busca e "Entrar" seguem na barra). Regra ao acrescentar aba: caber em ≥1280 ou colapsar antes.
+
+### Ordem alfabética de estados
+Listagens de estados (menu Estados, pies por estado, /segundo-turno, índice) usam `localeCompare(..., "pt-BR")` por `UF_NAMES`.
