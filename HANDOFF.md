@@ -526,6 +526,11 @@ linhas-guia), `AverageCaption`, `RaceTable` (primeira linha `Média do site`,
 depois as dez da média, resto em rolagem marcado `fora da média`), `RaceBadge`,
 `RaceView` (o alternador bruto/válidos), `RaceSection`.
 
+> **Nota (20/08/2026):** este é o estado de 16/08. As páginas de corrida foram
+> depois migradas para `RaceEvolution` + `RcpPollsTable` + `RunoffSimChart`, e
+> `AverageChart`/`RaceTable`/`RaceView`/`RaceSection` foram **removidos**
+> (branch `cleanup/orfaos-corrida`). Ver GUIA_DE_DESIGN §4/§9.
+
 **Votos válidos é o padrão** (`src/lib/validos.ts`): cada pesquisa é convertida
 individualmente e só então se tira a média — nunca o contrário. O Senado nunca é
 convertido, por identidade, para que nenhum chamador erre por esquecimento.

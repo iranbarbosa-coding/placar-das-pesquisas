@@ -14,7 +14,7 @@ export const SIGNIFICANT_PCT = 5;
  *
  * Server component on purpose — it is a picture of build-time data with no
  * hover, no range buttons and no state, so there is nothing for a client bundle
- * to do. `AverageChart` is the interactive one; this is deliberately NOT that
+ * to do. `HeroInteractive` is the interactive one; this is deliberately NOT that
  * component and must not grow into it.
  *
  * WHY OVERLAPPING AND NOT STACKED
@@ -31,11 +31,10 @@ export const SIGNIFICANT_PCT = 5;
  * slivers between two large bands. Areas are painted largest-first so the small
  * ones and their top strokes are never buried.
  *
- * NO COLOUR BY POSITION. Same rule, same algorithm as `AverageChart`: the slot
- * is hashed from the candidate's normalized name. The algorithm is duplicated
- * here rather than imported because `AverageChart` is a client component and
- * importing from it would drag this one across the client boundary; the two
- * copies must be edited together.
+ * NO COLOUR BY POSITION. The slot is hashed from the candidate's normalized
+ * name via the shared palette in `lib/colors` (`colorMap`/`colorOf`/`hashName`,
+ * the same module the interactive charts use), so a candidate keeps one colour
+ * everywhere and there is no second copy of the algorithm to drift.
  */
 
 // ── geometry ──────────────────────────────────────────────────────────────

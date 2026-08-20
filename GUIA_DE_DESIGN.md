@@ -58,16 +58,16 @@ Como manter o padrão da home ao construir o resto do site (`/estados/[uf]`, `/p
 | Página / seção | Componente | Cor |
 |---|---|---|
 | Home — herói presidencial | `HeroChart` + `HeroInteractive` (via `Hero`) | por RANK (`dualColor`) |
-| Estados/corridas (`/estados/[uf]`, `/presidente`, `/segundo-turno`) | `RaceSection → RaceView → AverageChart` + `RaceTable`, `RaceBadge`, `MatchupCard` | por NOME (`colorMap`/`colorOf`) |
+| Estados/corridas (`/estados/[uf]`, `/presidente`, `/segundo-turno`) | `RaceEvolution` (evolução) + `RcpPollsTable` (matriz RCP) + `RunoffSimChart` (2º turno), `RaceBadge`, `MatchupCard` | por NOME (`colorMap`/`colorOf`) |
 | Confronto 2º turno (barra bipolar) | `RunoffBars` | dual (líder/rival) |
 | Comparativo de nomes | `MatchupRows` | dual |
 | Tabela de pesquisas | `LatestPollsTable` | — |
 | Mapa | `BrasilMap` | tokens `--map-*` |
 
-⚠ **`HeroChart` é exclusivo da home** (comportamento dual-por-rank + KPIs do herói) — **não reuse** em páginas de estado. O motor das corridas é `RaceSection`/`RaceView` (usa `AverageChart` por dentro). Ao migrar uma página de estado, envolva cada `RaceSection` num `class="card"` e troque o `<h1 text-2xl>` pelo cabeçalho de card em caixa alta — veja §7-bis.
+⚠ **`HeroChart` é exclusivo da home** (comportamento dual-por-rank + KPIs do herói) — **não reuse** em páginas de estado. O motor das corridas são `RaceEvolution` (evolução: KPIs + gráfico compacto) e `RcpPollsTable` (matriz RCP), montados no servidor por `lib/presidente.ts`; simulações de 2º turno usam `RunoffSimChart`. Cada corrida vem embrulhada num `class="card"` com cabeçalho em caixa alta — veja §7-bis e §9.
 
 - **Cabeçalho de card:** título em caixa alta + (opcional) subtítulo pequeno; controles no canto superior direito (ex.: toggles do herói).
-- **Gráfico de séries (`AverageChart`, e `HeroChart` na home):** cor por RANK via `dualColor` na home (líder/rival/cinza) ou por nome (`colorMap`/`colorOf`) nas páginas de estado; grade y rotulada; linha dos 50% com selo; **escala consistente** (não deixe cada base derivar seu próprio topo). Interatividade só no desktop (`(hover: hover) and (pointer: fine)`), mobile mantém o valor atual.
+- **Gráfico de séries (`RaceEvolution` nas páginas de corrida; `HeroChart`/`HeroInteractive` na home):** cor por RANK via `dualColor` na home (líder/rival/cinza) ou por nome (`colorMap`/`colorOf`) nas páginas de estado; grade y rotulada; linha dos 50% com selo; **escala consistente** (não deixe cada base derivar seu próprio topo). Interatividade só no desktop (`(hover: hover) and (pointer: fine)`), mobile mantém o valor atual.
 - **Barra bipolar (`RunoffBars`):** líder vermelho / rival azul, margem por extenso, base nomeada.
 - **Barra de comparação (`MatchupRows`):** nome + partido ACIMA, barra fina, % à direita, linha tracejada dos 50%. **Não** desenhar nome dentro da barra.
 - **Tabela densa (`LatestPollsTable`):** `text-xs`, padding enxuto, dentro de `overflow-x-auto`; cabeçalho em caixa alta; datas de grupo em `--accent`; margem em `--series-3` (verde) para positivo; setas de tendência coloridas. Deve caber sem rolagem lateral no desktop.
@@ -100,7 +100,7 @@ Como manter o padrão da home ao construir o resto do site (`/estados/[uf]`, `/p
 
 ## 7. Ao construir outra página
 
-1. **Reuse os componentes** da home (`HeroChart`/`AverageChart`, `RunoffBars`, `MatchupRows`, `LatestPollsTable`, `BrasilMap`) em vez de recriar.
+1. **Reuse os componentes** existentes (nas corridas: `RaceEvolution`/`RcpPollsTable`/`RunoffSimChart`; na home: `HeroChart`/`HeroInteractive`, `RunoffBars`, `MatchupRows`, `LatestPollsTable`, `BrasilMap`) em vez de recriar.
 2. **Só tokens** — se precisar de uma cor nova, adicione o token em `globals.css` (claro **e** escuro) e documente aqui.
 3. **Fronteira cliente/servidor:** `lib/data`/`lib/home` alcançam `node:fs` e não cruzam para o cliente. Componentes cliente importam de `lib/format`, `lib/names`, `lib/colors`, `lib/average` (livres de fs). Erro típico ao errar: `UnhandledSchemeError: Reading from "node:fs"`.
 4. **Mantenha a densidade e o cabeçalho de card em caixa alta.** Uma página nova deve parecer parte do mesmo produto.
@@ -108,32 +108,32 @@ Como manter o padrão da home ao construir o resto do site (`/estados/[uf]`, `/p
 
 ---
 
-## 7-bis. Exemplo aplicado — migrar `/estados/[uf]`
+## 7-bis. Padrão aplicado — `/estados/[uf]` (referência de migração)
 
-Hoje a página é `<div className="space-y-12">` com `<h1 className="text-2xl font-bold">` e `<RaceSection>` soltos. Traduzindo para o padrão da home:
+A `/estados/[uf]` **já foi migrada** e serve de referência: ela usa `RaceEvolution` + `RcpPollsTable` + `RunoffSimChart`, cada corrida dentro de um `class="card"`. Use-a como molde ao migrar as páginas que ainda estão no estilo antigo (ex.: `/institutos`, `/metodologia`). Os padrões abaixo são o que a migração aplica.
 
-**Cabeçalho — antes → depois**
+**Cabeçalho — antigo → padrão**
 ```tsx
-// ANTES
+// ANTIGO (estilo a substituir)
 <h1 className="text-2xl font-bold">{UF_NAMES[UFU]} · Eleições 2026</h1>
 
-// DEPOIS — cabeçalho de card em caixa alta, separador "·"
+// PADRÃO — cabeçalho de card em caixa alta, separador "·"
 <h2 className="text-[15px] font-bold uppercase tracking-wide"
     style={{ color: "var(--text-secondary)" }}>
   {UF_NAMES[UFU]} · Eleições 2026
 </h2>
 ```
 
-**Cada corrida vira um card** (fundo `--surface-1`, borda, raio 8px) em vez de bloco solto:
+**Cada corrida é um card** (fundo `--surface-1`, borda, raio 8px), alimentado pelos montadores de `lib/presidente.ts`:
 ```tsx
-// ANTES: <RaceSection groups={gov1} heading="Governador — 1º turno" />
-// DEPOIS:
+// PADRÃO — evolução + matriz RCP dentro de um card
 <section className="card p-4">
-  <RaceSection groups={gov1} heading="Governador — 1º turno" />
+  <RaceEvolution {...raceEvolutionData("governador", uf, 1)} heading="Governador — 1º turno" />
+  <RcpPollsTable {...rcpTable("governador", uf, 1)} />
 </section>
 ```
 
-**Densidade:** troque `space-y-12` pelo ritmo dos cards (`gap-5`/`gap-6`); o container ganha `min-w-0` se tiver tabela larga (`RaceTable`) dentro.
+**Densidade:** ritmo dos cards (`gap-5`/`gap-6`), não `space-y-12`; o container ganha `min-w-0` se tiver tabela larga (`RcpPollsTable`) dentro.
 
 **Cor por nome** numa corrida de estado (não por rank):
 ```tsx

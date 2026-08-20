@@ -12,7 +12,7 @@ import type { Basis } from "@/lib/validos";
  * The front page's hero, with a basis control over IT AND NOTHING ELSE.
  *
  * ── IT SWITCHES BETWEEN TWO PRECOMPUTED AVERAGES ──────────────────────────
- * Exactly the mechanism `RaceView` uses, for exactly the same reason. Both cuts
+ * Exactly the mechanism the race charts (`RaceEvolution`) use, for exactly the same reason. Both cuts
  * are built server-side by `scenarioGroups` and shipped as props; this
  * component only chooses which object to hand `Hero`. Recomputing the
  * valid-vote conversion in the browser would be a second implementation of
