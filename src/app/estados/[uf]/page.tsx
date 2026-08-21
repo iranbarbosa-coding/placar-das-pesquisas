@@ -3,11 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import RaceBarsEvolution from "@/components/RaceBarsEvolution";
 import RcpPollsTable from "@/components/RcpPollsTable";
+import RunoffMain from "@/components/RunoffMain";
+import RunoffSims from "@/components/RunoffSims";
 import StateNav from "@/components/StateNav";
 import StateTrends from "@/components/StateTrends";
 import { candKey } from "@/lib/average";
 import { scenarioGroups } from "@/lib/data";
-import { stateTrends } from "@/lib/estado";
+import { stateRunoff, stateTrends } from "@/lib/estado";
 import { raceEvolutionData, rcpTable } from "@/lib/presidente";
 import { UFS, UF_NAMES, type UF } from "@/lib/types";
 
@@ -67,6 +69,12 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   const pres1Evo = raceEvolutionData("presidente", UFU, 1);
   const presColorKeys = namedColorKeys(pres1Evo);
   const hasPresidente = (pres1Evo.average?.candidates.length ?? 0) > 0;
+
+  // 2º turno — governor and president, each with the main matchup (+ evolution)
+  // and the top polled simulations (1st-vs-others first).
+  const govRunoff = stateRunoff("governador", UFU);
+  const presRunoff = stateRunoff("presidente", UFU);
+  const hasRunoff = !!(govRunoff.main || govRunoff.sims.length || presRunoff.main || presRunoff.sims.length);
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
@@ -178,10 +186,35 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
         </section>
       </div>
 
+      {/* 2º turno — Governador e Presidente, metade cada; cada metade com o
+          confronto principal (+ mini-evolução) e as principais simulações. */}
+      {hasRunoff && (
+        <div className="grid gap-6 xl:grid-cols-2">
+          <section id="segundo-turno-governador" className="flex scroll-mt-24 flex-col gap-4">
+            <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+              Governador · 2º turno
+            </h2>
+            <div className="grid min-w-0 gap-4 md:grid-cols-2">
+              <RunoffMain data={govRunoff.main} title="Confronto principal" />
+              <RunoffSims rows={govRunoff.sims} title="Todas as simulações" />
+            </div>
+          </section>
+
+          <section id="segundo-turno-presidente" className="flex scroll-mt-24 flex-col gap-4">
+            <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+              Presidente · 2º turno
+            </h2>
+            <div className="grid min-w-0 gap-4 md:grid-cols-2">
+              <RunoffMain data={presRunoff.main} title="Confronto principal" />
+              <RunoffSims rows={presRunoff.sims} title="Todas as simulações" />
+            </div>
+          </section>
+        </div>
+      )}
+
       {/*
-        PARTE 2 (restante) — OCULTA até validar: Governador 2º turno (simulações),
-        Senado/Presidente 2º turno e a tabela geral presidencial. O motor
-        (runoffSim / rcpTable / pollsFor) já aceita (race, uf, round). Ver
+        PARTE 2 (restante) — OCULTA até validar: a tabela geral presidencial.
+        O motor (rcpTable / pollsFor) já aceita (race, uf, round). Ver
         GUIA_DE_DESIGN §9 e o histórico desta página.
       */}
     </div>

@@ -1,5 +1,6 @@
 import { candKey } from "./average";
 import { colorMap, colorOf } from "./colors";
+import { scenarioGroups } from "./data";
 import { displayName } from "./names";
 import { candDelta, raceEvolutionData } from "./presidente";
 import type { CandidateAverage, RaceAverage, UF } from "./types";
@@ -174,4 +175,119 @@ export function stateTrends(uf: UF): StateTrendsData {
   const windows = TREND_WINDOWS.map((w) => moversFor(races, w));
 
   return { leaders, windows };
+}
+
+// ── 2º turno: main matchup + the top simulations ────────────────────────────
+
+/** A candidate side of a runoff pairing. */
+export interface RunoffSide {
+  name: string;
+  party: string | null;
+  pct: number;
+  /** The candidate's own identity colour (`colorOf`), never colour-by-position. */
+  color: string;
+}
+
+export interface RunoffSimRow {
+  a: RunoffSide; // matchup leader (left)
+  b: RunoffSide; // runner-up (right)
+  /** Leader minus runner-up, in points. */
+  spread: number;
+}
+
+export interface RunoffMainData {
+  a: RunoffSide; // matchup leader (left)
+  b: RunoffSide; // runner-up (right)
+  /** Both shares over time, for the embedded evolution line. */
+  points: { date: string; a: number; b: number }[];
+  pollCount: number;
+  lastDate: string | null;
+}
+
+export interface StateRunoffData {
+  /** The primary matchup (1st vs 2nd) with its evolution, or null if unpolled. */
+  main: RunoffMainData | null;
+  /** Up to `limit` pairings, 1st-vs-others first, then 2nd-vs-others, etc. */
+  sims: RunoffSimRow[];
+}
+
+type RunoffRace = "governador" | "presidente";
+
+/** The two distinct candidates of a runoff group, leader (higher avg) first. */
+function pairOf(avg: RaceAverage): [CandidateAverage, CandidateAverage] | null {
+  const seen = new Set<string>();
+  const uniq: CandidateAverage[] = [];
+  for (const c of avg.candidates) {
+    const k = candKey(c.candidate);
+    if (!seen.has(k)) {
+      seen.add(k);
+      uniq.push(c);
+    }
+  }
+  return uniq[0] && uniq[1] ? [uniq[0], uniq[1]] : null;
+}
+
+/**
+ * The state's 2º turno: the primary matchup (first-round leader vs runner-up)
+ * with its intention-over-time, plus up to `limit` polled pairings ranked
+ * 1st-vs-others first, then 2nd-vs-others, and so on — never inventing a matchup
+ * that was not polled. Colours are each candidate's own identity colour, shared
+ * with the first-round bars and chart. Server-only (reaches `node:fs`).
+ */
+export function stateRunoff(race: RunoffRace, uf: UF, limit = 5): StateRunoffData {
+  const evo = raceEvolutionData(race, uf, 1);
+  const firstAvg = evo.average;
+  if (!firstAvg?.candidates.length) return { main: null, sims: [] };
+
+  const reg = new Set(evo.registeredKeys);
+  const cmap = colorMap(firstAvg.candidates.map((c) => c.candidate));
+  const colorFor = (name: string) => colorOf(cmap, name);
+  const side = (c: CandidateAverage): RunoffSide => ({
+    name: displayName(c.candidate),
+    party: c.party,
+    pct: c.avg,
+    color: colorFor(c.candidate),
+  });
+
+  // First-round ranking (registered only), as candKeys.
+  const ranking = firstAvg.candidates
+    .filter((c) => reg.size === 0 || reg.has(candKey(c.candidate)))
+    .map((c) => candKey(c.candidate));
+
+  // Round-2 groups, one per unordered candidate pair (best-covered wins).
+  const groups = scenarioGroups(race, uf, 2).filter((g) => g.average && g.average.candidates.length >= 2);
+  const byPair = new Map<string, (typeof groups)[number]>();
+  for (const g of groups) {
+    const k = [...new Set(g.average!.candidates.map((c) => candKey(c.candidate)))].sort().join("|");
+    if (!byPair.has(k)) byPair.set(k, g);
+  }
+
+  // Prefer 1st-vs-others, then 2nd-vs-others, ... — take the first `limit` polled.
+  // The first pairing found (the top-priority polled matchup) is also the "main".
+  const sims: RunoffSimRow[] = [];
+  const seen = new Set<string>();
+  let main: RunoffMainData | null = null;
+  for (let i = 0; i < ranking.length && sims.length < limit; i++) {
+    for (let j = i + 1; j < ranking.length && sims.length < limit; j++) {
+      const key = [ranking[i]!, ranking[j]!].sort().join("|");
+      if (seen.has(key)) continue;
+      const g = byPair.get(key);
+      if (!g?.average) continue;
+      const pair = pairOf(g.average);
+      if (!pair) continue;
+      seen.add(key);
+      sims.push({ a: side(pair[0]), b: side(pair[1]), spread: round1(g.average.spread) });
+      if (!main) {
+        const [la, lb] = pair;
+        const bByDate = new Map<string, number>();
+        for (const p of lb.trend ?? []) if (typeof p.date === "string" && Number.isFinite(p.avg)) bByDate.set(p.date, p.avg);
+        const points = (la.trend ?? [])
+          .filter((p) => typeof p.date === "string" && Number.isFinite(p.avg))
+          .map((p) => ({ date: p.date, a: p.avg, b: bByDate.get(p.date) ?? 100 - p.avg }));
+        main = { a: side(la), b: side(lb), points, pollCount: g.average.pollCount, lastDate: g.average.lastPollDate };
+      }
+    }
+  }
+
+  return { main, sims };
 }
