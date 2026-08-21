@@ -1240,7 +1240,7 @@
     "published_date": null,
     "sample_size": 1200,
     "margin_of_error": 3,
-    "tse_registration": "BR-05945/2026",
+    "tse_registration": "AM-08042/2026",
     "results": [
      {
       "candidate": "Lula",
@@ -1282,7 +1282,8 @@
     "undecided_pct": 5,
     "blank_null_pct": 7
    },
-   "expect_sum": 100
+   "expect_sum": 100,
+   "_nota_registro": "O documento imprime DOIS registros do TSE: 'AM-08042/2026' (capa, ficha técnica e páginas estaduais) e 'BR-05945/2026' (só as páginas presidenciais 12-14, selo 'TSE: Nº BR-05945/2026'). Esta entrada guardava 'BR-05945/2026'; corrigido para 'AM-08042/2026' em 20/08/2026 (decisão do criador) pela mesma razão de mecanismo do reparo PE-04519: as linhas irmãs desta operação de campo JÁ CARREGAM 'AM-08042/2026' — medido em 20/08/2026 no polls.json: governador (3fffba8798d8) e senador (p360-13681) — e é por esse registro que o degrau 2 de resolveSurvey junta a pergunta presidencial ao levantamento existente em vez de cunhar um segundo levantamento para o mesmo campo ('um registro é um levantamento', decisão de 15/08/2026). Com 'BR-05945/2026' a mesma operação sairia PARTIDA em dois levantamentos na primeira rodada do pipeline — o defeito nunca chegou a materializar porque a coleta está suspensa desde 17/08. 'BR-05945/2026' fica registrado AQUI para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration, ver a nota do PE-04519)."
   },
   {
    "match": {
