@@ -2176,6 +2176,19 @@
     "blank_null_pct": 5
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "GO-01981/2026"
+   },
+   "defect": "Registro trocado. O banco guardava GO-01981/2026, que veio da listagem do agregador; o PDF do próprio instituto estampa GO-05001/2026 em TODAS as 22 páginas, duas vezes por página no rodapé, e uma vez no corpo. GO-05001/2026 não existia no banco antes deste reparo, então a correção não funde levantamento nenhum — apenas põe a chave certa no que já existe. A semente da survey é survey|ref|poder360:13290, por referência da fonte e não pelo registro, então o survey_id não se move e nenhum question_id é recunhado (CONVENTIONS §8).",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente.10.fev_.2026pdf.pdf",
+   "evidence": "Rodapé de todas as 22 páginas: \"Registro TSE GO-05001/2026\" e \"Registro TSE: GO-05001/2026\". p.4, no corpo: \"A pesquisa foi encomendada pela TV Atual Record/News e devidamente registrada no TSE sob numero: GO-05001/2026\". Nenhuma página traz GO-01981/2026. Estudo municipal de Senador Canedo (p.3 \"LOCAL: Senador Canedo\"), 500 entrevistas, margem 4,3 p.p. Lido às cegas por um agente sem a conclusão, e batendo com a ficha do conferente da certificação municipal, que já anotara \"PDF estampa GO-05001/2026, não GO-01981\".",
+   "verified_at": "2026-08-20",
+   "set": {
+    "tse_registration": "GO-05001/2026"
+   },
+   "_nota_nao_consertado": "O banco atribui este levantamento a \"Portal Goiás\"; o PDF é assinado por \"iGape\" e diz encomendado pela TV Atual Record/News. NÃO mexo nisso aqui: institute_names_raw guarda a grafia PUBLICADA pelo agregador, que é outra coisa do que a assinatura do relatório, e trocá-la sem decidir qual das duas é a fonte de verdade seria inventar. Anotado para o criador decidir."
   }
  ]
 }
