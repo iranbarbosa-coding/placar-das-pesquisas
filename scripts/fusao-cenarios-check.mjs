@@ -26,8 +26,20 @@
 // funções de verdade — e exige que cada modo derrube o SEU conjunto de casos
 // SEM derrubar controle nenhum e sem falha inesperada.
 //
+// TERCEIRO CONSERTO DA MESMA FRENTE (21/08/2026): o ESTÍMULO declarado.
+// senador:PR IRG 08–12/08 — a espontânea do Poder360 (p360-13833-1-1, Deltan
+// 7,6 · indecisos 71, intacta na fonte) caiu no slot da linha estimulada da
+// Wikipédia (9 candidatos, soma ~180, viva sob o teto de 260 do Senado) e,
+// sendo a mais cheia, a estimulada doou: a espontânea foi destruída na
+// construção e o legacy dela colado na pergunta estimulada. Perguntas de
+// estímulos declarados DIFERENTES nunca se fundem; sem marca declarada, a
+// regra de sempre (§4). A mutação honesta é `estimuloCompativel: () => true`
+// — a fusão cega a estímulo de antes — sobre `mergePolls` E sobre
+// `keepFullestRound1`, porque o funil de 1º turno desfazia a recusa uma
+// decisão adiante (a mais cheia engolia a espontânea por outra porta).
+//
 // Uso: node scripts/fusao-cenarios-check.mjs [--self-test] [--verbose]
-import { mergePolls } from "./scrape.mjs";
+import { mergePolls, keepFullestRound1 } from "./scrape.mjs";
 
 const VERBOSE = process.argv.includes("--verbose");
 
@@ -159,16 +171,58 @@ const acreWiki = () => base({
   undecided_pct: 3, blank_null_pct: 2,
 });
 
+// O par do caso senador:PR IRG 08–12/08, com as marcas DECLARADAS que os
+// parsers passam a carregar: a espontânea do Poder360 (oito nomes, soma 100,
+// 71 de indecisos) e a estimulada da Wikipédia (nove nomes, seis em comum —
+// 0,75 de sobreposição, acima do piso do `rostersMatch` —, soma ~180, que
+// SOBREVIVE ao teto de 260 do Senado e é a tabela mais cheia: sem o conserto
+// ela doa e a espontânea morre na construção, com o legacy colado nela).
+const irgEspontanea = () => base({
+  id: "p360-886001-1-1-abcabcabcabc", source: "poder360",
+  pollster: "Instituto do Estimulo", race: "senador", state: "PR",
+  fieldwork_end: "2026-08-12", published_date: "2026-08-12",
+  sample_size: 1350, margin_of_error: 2.67, tse_registration: "PR-90004/2026",
+  stimulus: "espontânea",
+  results: linhas(["Alfa Estimulo", 7.6], ["Beta Estimulo", 5.7], ["Gama Estimulo", 3.8],
+    ["Delta Estimulo", 2.8], ["Epsilon Estimulo", 1.5], ["Zeta Estimulo", 0.6],
+    ["Eta Estimulo", 1.6], ["Teta Estimulo", 0.1]),
+  undecided_pct: 71, blank_null_pct: 5.3,
+});
+const irgEstimulada = () => base({
+  pollster: "Instituto do Estimulo", race: "senador", state: "PR",
+  scenario: "1º turno — cenário único",
+  fieldwork_end: "2026-08-12", published_date: null,
+  stimulus: "estimulada",
+  results: linhas(["Alfa Estimulo", 32.1], ["Beta Estimulo", 29.2], ["Gama Estimulo", 29.4],
+    ["Delta Estimulo", 14.5], ["Epsilon Estimulo", 25.2], ["Zeta Estimulo", 18.2],
+    ["Iota Estimulo", 2.1], ["Capa Estimulo", 0.7], ["Lambda Estimulo", 0.3]),
+  undecided_pct: 28.3,
+});
+// A mesma estimulada relatada mais rala por outra página — para afirmar que
+// estimulada×estimulada do MESMO cenário segue fundindo e colapsando.
+const irgEstimuladaRala = () => {
+  const p = irgEstimulada();
+  p.results = p.results.slice(0, 6);
+  return p;
+};
+
 // ------------------------------------------------------------------ runner
 //
 // `mutacao` reverte UM conserto — e só ele — sobre as funções de verdade:
-//   passe-nulo   → mergePolls com dataNulaCasa: () => true
-//   cega-cenario → mergePolls com cenarioCompativel: () => true
+//   passe-nulo    → mergePolls com dataNulaCasa: () => true
+//   cega-cenario  → mergePolls com cenarioCompativel: () => true
+//   cega-estimulo → mergePolls E keepFullestRound1 com estimuloCompativel:
+//                   () => true (as duas portas do mesmo defeito: a fusão na
+//                   construção e o funil que desfaria a recusa uma decisão
+//                   adiante)
 function rodar({ mutacao = null } = {}) {
   const opts = mutacao === "passe-nulo" ? { dataNulaCasa: () => true }
     : mutacao === "cega-cenario" ? { cenarioCompativel: () => true }
+    : mutacao === "cega-estimulo" ? { estimuloCompativel: () => true }
     : {};
   const merge = (poder, wiki) => mergePolls([poder, wiki], opts);
+  const funil = (polls) => keepFullestRound1(polls,
+    mutacao === "cega-estimulo" ? { estimuloCompativel: () => true } : {});
 
   const falhas = [];
   let ok = 0;
@@ -260,6 +314,61 @@ function rodar({ mutacao = null } = {}) {
     afirma(depois[0]?.tse_registration === "AC-90003/2026", "o merge perdeu o registro TSE do Poder360");
   });
 
+  // ====================================================================
+  // D. O ESTÍMULO DECLARADO — o caso senador:PR IRG 08–12/08
+  // ====================================================================
+
+  caso("estímulo: espontânea declarada não funde com estimulada declarada, e o legacy fica na espontânea (o caso senador:PR IRG 08–12/08)", ({ afirma }) => {
+    const depois = merge([irgEspontanea()], [irgEstimulada()]);
+    afirma(depois.length === 2,
+      `${depois.length} registro(s), esperados 2 — a espontânea ${depois.length === 1 ? "foi destruída na construção (o defeito do IRG)" : "se multiplicou"}`);
+    const esp = depois.find((p) => p.id === "p360-886001-1-1-abcabcabcabc");
+    afirma(esp?.results.length === 8 && esp?.undecided_pct === 71 && esp?.results[0].pct === 7.6,
+      "a espontânea perdeu a própria tabela");
+    afirma(esp?.stimulus === "espontânea", "a marca declarada da espontânea se perdeu na passagem");
+    const est = depois.find((p) => p.id !== "p360-886001-1-1-abcabcabcabc");
+    afirma(est?.results.length === 9 && est?.undecided_pct === 28.3,
+      "a estimulada não ficou com registro próprio — o legacy da espontânea teria sido colado nela");
+  });
+
+  caso("estímulo: o funil de 1º turno não recolapsa espontânea e estimulada declaradas do mesmo dia", ({ afirma }) => {
+    // A recusa da fusão não vale nada se `keepFullestRound1` engolir a
+    // espontânea uma decisão adiante — a estimulada é a tabela mais cheia.
+    const finais = funil([irgEspontanea(), irgEstimulada()]);
+    afirma(finais.length === 2,
+      `${finais.length} registro(s), esperados 2 — o funil ${finais.length === 1 ? "desfez a recusa da fusão (a mais cheia engoliu a espontânea)" : "multiplicou"}`);
+    afirma(finais.some((p) => p.stimulus === "espontânea" && p.undecided_pct === 71),
+      "a espontânea não saiu do funil com a própria tabela");
+  });
+
+  caso("estímulo (controle): fragmento sem marca declarada segue fundindo pela regra atual (§4)", ({ afirma }) => {
+    // O estado REAL do caso IRG na coleta: o rótulo nativo do Poder360
+    // ("Senador - Cenário 2") não declara estímulo, então o fragmento chega
+    // NULO e a regra atual decide — funde, e a marca declarada do outro lado
+    // preenche o metadado. É o que documenta que este conserto NÃO desfaz o
+    // caso IRG sozinho: a declaração de espontânea daquele registro só existe
+    // no PDF do instituto.
+    const semMarca = irgEspontanea();
+    semMarca.stimulus = null;
+    const depois = merge([semMarca], [irgEstimulada()]);
+    afirma(depois.length === 1,
+      `${depois.length} registro(s), esperado 1 — sem marca declarada não há recusa (§4: não inferir do conteúdo)`);
+    afirma(depois[0]?.id === "p360-886001-1-1-abcabcabcabc", "a identidade do Poder360 se perdeu na fusão pela regra atual");
+    afirma(depois[0]?.stimulus === "estimulada", "a marca declarada de um lado não preencheu o metadado do registro fundido");
+  });
+
+  caso("estímulo (controle): estimulada×estimulada do mesmo cenário segue fundindo e colapsando", ({ afirma }) => {
+    const cheia = irgEstimulada();
+    cheia.id = "p360-886002-1-0-dededededede";
+    cheia.source = "poder360";
+    const depois = merge([cheia], [irgEstimuladaRala()]);
+    afirma(depois.length === 1, `${depois.length} registro(s), esperado 1 — o conserto separou a mesma pergunta estimulada relatada por duas fontes`);
+    afirma(depois[0]?.results.length === 9, "a tabela mais cheia não ficou na fusão legítima");
+    const finais = funil([irgEstimulada(), irgEstimuladaRala()]);
+    afirma(finais.length === 1 && finais[0].results.length === 9,
+      `o funil tinha de colapsar duas estimuladas do mesmo dia na mais cheia (veio ${finais.length} registro(s))`);
+  });
+
   return { ok, falhas };
 }
 
@@ -268,6 +377,8 @@ const CONTROLES = [
   "data nula (controle): o fragmento sem data ainda completa o irmão quando a chave forte liga (mesmo registro nativo)",
   "cenário (controle): a duplicata legítima entre fontes ainda funde (mesmo cenário, mesma data — o padrão SP 23/02)",
   "doação (controle): a tabela mais cheia ainda vence entre fontes, com os metadados da prioridade (o caso do Acre 6×3)",
+  "estímulo (controle): fragmento sem marca declarada segue fundindo pela regra atual (§4)",
+  "estímulo (controle): estimulada×estimulada do mesmo cenário segue fundindo e colapsando",
 ];
 
 if (process.argv.includes("--self-test")) {
@@ -282,6 +393,10 @@ if (process.argv.includes("--self-test")) {
     "cega-cenario": [
       "cenário: três \"cenário X/3\" do mesmo dia viram três registros, cada um com a própria tabela (o caso governador:SP 19/11)",
       "cenário: o registro que absorveu um cenário não vira ímã do cenário seguinte (a fusão em cadeia)",
+    ],
+    "cega-estimulo": [
+      "estímulo: espontânea declarada não funde com estimulada declarada, e o legacy fica na espontânea (o caso senador:PR IRG 08–12/08)",
+      "estímulo: o funil de 1º turno não recolapsa espontânea e estimulada declaradas do mesmo dia",
     ],
   };
   let ok = true;
@@ -307,4 +422,4 @@ if (falhas.length) {
   console.error("FUSÃO DE CENÁRIOS FALHOU — o merge ainda funde perguntas distintas ou deixou de fundir a duplicata legítima.");
   process.exit(1);
 }
-console.log("FUSÃO DE CENÁRIOS OK — data nula exige chave forte, cenários declarados distintos nunca fundem; duplicata legítima, irmão de registro e doação de tabela intactos.");
+console.log("FUSÃO DE CENÁRIOS OK — data nula exige chave forte, cenários declarados distintos nunca fundem, estímulos declarados distintos nunca fundem nem recolapsam; duplicata legítima, irmão de registro, doação de tabela e regra do sem-marca intactos.");

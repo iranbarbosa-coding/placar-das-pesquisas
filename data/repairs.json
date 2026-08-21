@@ -244,6 +244,15 @@
    "source": "https://pt.wikipedia.org/w/index.php?title=Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins&oldid=72853761",
    "evidence": "O 36,7 de Dorinha Rezende no banco (q_2ffcdd65051e, Brasmarketing, campo 29–31/07/2026, s_4c94981e391e) era typo da própria Wikipédia, em contradição com o título da fonte citada pela página ('Professora Dorinha com 36,3%'); corrigido pela revisão 72853761 da página do Tocantins (20/08/2026 22:49 UTC, 'nova pesquisa'). No snapshot desta rodada o cru da Wikipédia [675acbb31bfd] já traz 36,3, e a coleta consertada publica a gêmea corrigida q_59000ac05d8c (levantamento s_1c63e2e538c9, refs Poder360 13738/13741): Professora Dorinha 36,3 / Vicentinho Júnior 24,1 / Ataídes Oliveira 9,3 / Laurez Moreira 8,3, indecisos 12,4 vindos do nativo p360 13741 (o cru da wiki mantém 21,9). O conteúdo exato do banco (36,7; indecisos 21,9) não existe mais em nenhuma fonte do snapshot. Conferido em 21/08/2026 no banco (HEAD 8639f11) × replay out-fix × snapshot cru.",
    "verified_at": "2026-08-21"
+  },
+  {
+   "question_id": "q_2d349d71bb58",
+   "race": "senador",
+   "uf": "PR",
+   "defect": "COLISÃO ESPONTÂNEA×ESTIMULADA — a pergunta espontânea do IRG (senador:PR, campo 08-12/08/2026) está INTACTA na fonte (p360-13833-1-1: Deltan 7,6 · Gleisi 5,7 · Curi 3,8 · indecisos 71) mas é destruída na construção: a estimulada da wiki (9 candidatos) vence o mesmo slot do mergePolls e o legacy da espontânea é colado nela. Ratificada a perda ATÉ a curadoria da marca de estímulo (decisão do criador, 21/08/2026, opção A).",
+   "source": "https://static.poder360.com.br/uploads/2026/08/IRG-Parana-agosto.pdf",
+   "evidence": "A palavra 'espontânea' NÃO existe em nenhuma fonte legível por máquina para este registro: os rótulos do v2/cenarios do Poder360 para o 13833 são 'Senador - Cenário 1' e 'Senador - Cenário 2' (inventário vivo de 21/08: 540 rótulos, 59 dizem 'estimulada', ZERO dizem 'espontânea'), e a wiki só declara estímulo por página inteira ('Todos os cenários se referem a pesquisas estimuladas…'). A marca vive SÓ no PDF do instituto (OCR de 21/08: 'Pergunta 6 — ESPONTÂNEA', 'Senado - Cenário Espontâneo'). O conserto da colisão está no pipeline (estimulosCompativeis em mergePolls e keepFullestRound1, provado por mutação) e ARMA sozinho no dia em que a marca existir estruturada — dar a marca ao 13833 é curadoria com fonte primária, PARQUEADA junto com a decisão de paridade associada (com as duas perguntas vivas, polls.json carrega ambas e a projeção publica só a headline). Efeito editorial da perda: nenhum — a espontânea não é headline (markHeadlines promove uma pergunta por levantamento) e nunca entrou em média. Medido por três agentes independentes em 21/08: o investigador das 7 sumidas (cru intacto, slot ocupado, legacy colado), o implementador do conserto (par IRG segue fundindo porque o lado p360 tem stimulus nulo, §4 não inventa marca) e o conferente do conserto (API viva + OCR reconferidos).",
+   "verified_at": "2026-08-21"
   }
  ],
  "repairs": [

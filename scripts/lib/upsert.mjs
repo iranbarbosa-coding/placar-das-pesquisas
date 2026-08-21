@@ -29,7 +29,11 @@ const SURVEY_FIELDS = [
   "sample_size", "margin_of_error", "tse_registration", "article_url", "integra_url",
 ];
 const QUESTION_FIELDS = [
-  "scenario_label_raw", "results", "others_pct", "undecided_pct", "blank_null_pct",
+  // `stimulus` existia no store desde a migração e NUNCA foi alimentado (2.996
+  // perguntas com null): os parsers descartavam a marca declarada da fonte, e
+  // foi essa marca jogada fora que deixou espontânea fundir com estimulada
+  // (senador:PR IRG 08-12/08 — ver estimulosCompativeis em scrape.mjs).
+  "scenario_label_raw", "stimulus", "results", "others_pct", "undecided_pct", "blank_null_pct",
 ];
 
 /**
@@ -150,6 +154,7 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
     source_refs: nativeId == null ? [] : [{ source, native_id: `${nativeId}:${poll.race}:${poll.round}:${poll.scenario ?? ""}` }],
     race: poll.race, round: poll.round, uf: poll.state ?? null,
     scenario_label_raw: poll.scenario ?? null,
+    stimulus: poll.stimulus ?? null,
     legacy_id: poll.id ?? null,
     results,
     roster_seed: rosterSeed,
@@ -157,6 +162,7 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
 
   fillFields(store, question, {
     scenario_label_raw: poll.scenario ?? null,
+    stimulus: poll.stimulus ?? null,
     results,
     others_pct: poll.others_pct ?? null,
     undecided_pct: poll.undecided_pct ?? null,

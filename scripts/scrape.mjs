@@ -159,6 +159,33 @@ export function cenariosCompativeis(oa, ob) {
 }
 
 /**
+ * O ESTÍMULO DECLARADO (espontânea × estimulada) ENTRA NA COMPATIBILIDADE DE
+ * FUSÃO: perguntas de estímulos declarados DIFERENTES nunca são a mesma
+ * pergunta. O caso provado (investigação de 21/08/2026, senador:PR IRG
+ * 08–12/08): a espontânea do Poder360 (p360-13833-1-1 — Deltan 7,6 · Gleisi
+ * 5,7 · Curi 3,8 · indecisos 71, intacta na fonte) caiu no mesmo slot que a
+ * linha estimulada da Wikipédia (9 candidatos, soma ~180, que SOBREVIVE ao
+ * teto de 260 do Senado) e, sendo a tabela mais cheia, a estimulada doou: a
+ * espontânea foi destruída na construção e o legacy dela (q_2d349d71bb58)
+ * foi colado na pergunta estimulada resultante.
+ *
+ * Fragmento sem estímulo declarado segue a regra de sempre (§4: não inferir —
+ * 71% de indecisos é ASSINATURA de espontânea, não declaração, e assinatura
+ * não decide). Onde a marca vive, medido em 21/08/2026: o Poder360 só a
+ * publica dentro do rótulo `nomeCenario` (59 de 540 rótulos vivos dizem
+ * "estimulada"; NENHUM diz "espontânea" — o do caso IRG diz apenas "Senador -
+ * Cenário 2"), e a Wikipédia só declara na abertura das páginas estaduais
+ * ("Todos os cenários se referem a pesquisas estimuladas"). Este conserto
+ * portanto NÃO desfaz o caso IRG sozinho: a declaração de espontânea daquele
+ * registro existe só no PDF do instituto ("ESPONTÂNEA", pergunta 6), fora do
+ * alcance deste coletor — a regra fica pronta para a marca, e a marca do IRG
+ * é decisão de curadoria (§12).
+ */
+export function estimulosCompativeis(ea, eb) {
+  return !ea || !eb || ea === eb;
+}
+
+/**
  * `sobrevive` é parâmetro por UM motivo, o mesmo do `inserir` de
  * `applyRepairs`: o autoteste de `existencia-pos-guarda-check.mjs` precisa
  * provar que a bateria REPROVA quando a decisão volta a ignorar o guarda de
@@ -168,12 +195,14 @@ export function cenariosCompativeis(oa, ob) {
  */
 export function mergePolls(pollLists, {
   sobrevive = sobreviveAoGuardaDeSoma,
-  // Os dois abaixo são parâmetros pelo mesmo motivo do `sobrevive`: a mutação
+  // Os três abaixo são parâmetros pelo mesmo motivo do `sobrevive`: a mutação
   // honesta do autoteste de `fusao-cenarios-check.mjs` é `() => true`, que
   // reproduz exatamente o comportamento antigo (passe-nulo de data; fusão cega
-  // a cenário) sobre as funções de verdade. O coletor nunca os passa.
+  // a cenário; fusão cega a estímulo) sobre as funções de verdade. O coletor
+  // nunca os passa.
   dataNulaCasa = mesmoRegistroNativo,
   cenarioCompativel = cenariosCompativeis,
+  estimuloCompativel = estimulosCompativeis,
 } = {}) {
   // QUEM DOA A TABELA DE RESULTADOS TEM DE SOBREVIVER AO GUARDA DE SOMA.
   //
@@ -208,7 +237,11 @@ export function mergePolls(pollLists, {
       const existing = bucket.find((e) =>
         datesClose(e, p, dataNulaCasa) &&
         rostersMatch(e, p) &&
-        cenarioCompativel(ordinalAbsorvido.get(e) ?? null, ordinalDeCenario(p)));
+        cenarioCompativel(ordinalAbsorvido.get(e) ?? null, ordinalDeCenario(p)) &&
+        // Diferente do ordinal, o estímulo não precisa de Map à parte: ele vive
+        // num campo próprio que a doação de identidade não sobrescreve com
+        // rótulo sem a informação — e `META` abaixo o preserva na absorção.
+        estimuloCompativel(e.stimulus ?? null, p.stimulus ?? null));
       if (existing) {
         if (!ordinalAbsorvido.has(existing)) {
           const o = ordinalDeCenario(p);
@@ -216,7 +249,10 @@ export function mergePolls(pollLists, {
         }
         const oldPri = SOURCE_PRIORITY[existing.source] ?? 1;
         const newPri = SOURCE_PRIORITY[p.source] ?? 1;
-        const META = ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start"];
+        // `stimulus` viaja como metadado: só iguais ou nulos chegam aqui (o
+        // portão acima recusa declarados diferentes), então preencher o nulo
+        // com a marca do outro lado nunca inventa — só propaga o declarado.
+        const META = ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start", "stimulus"];
         // SOURCE PRIORITY DECIDES METADATA — NEVER THE RESULT TABLE.
         //
         // The winning source used to replace the record wholesale, results
@@ -267,11 +303,24 @@ export function mergePolls(pollLists, {
  * do fragmento morto perderia aqui e a pesquisa fechava a rodada ZERADA, o
  * mesmo desfecho do caso presidente:RO do ensaio de 20/08/2026, uma decisão
  * adiante. Quem sobrevive ao guarda vence quem não sobrevive; o tamanho segue
- * decidindo entre iguais. `sobrevive` é parâmetro pelo mesmo motivo do de
- * `mergePolls`: a mutação honesta do autoteste. O coletor nunca o passa.
+ * decidindo entre iguais. `sobrevive` e `estimuloCompativel` são parâmetros
+ * pelo mesmo motivo dos de `mergePolls`: a mutação honesta do autoteste. O
+ * coletor nunca os passa.
+ *
+ * ⚠ ESPONTÂNEA E ESTIMULADA DECLARADAS NÃO COMPETEM AQUI. "Mais cheio" é
+ * desempate entre ELENCOS ALTERNATIVOS da mesma pergunta; espontânea ×
+ * estimulada são perguntas diferentes postas à mesma amostra, e sem esta
+ * cláusula a recusa de fusão de `mergePolls` seria desfeita uma decisão
+ * adiante — a estimulada (via de regra a tabela mais cheia) engoliria a
+ * espontânea aqui, o mesmo desfecho do caso IRG por outra porta. Fragmento
+ * sem marca declarada segue competindo com tudo (§4), que é o comportamento
+ * de sempre.
  */
-export function keepFullestRound1(polls, { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
-  const best = new Map();
+export function keepFullestRound1(polls, {
+  sobrevive = sobreviveAoGuardaDeSoma,
+  estimuloCompativel = estimulosCompativeis,
+} = {}) {
+  const best = new Map(); // chave → sobreviventes (no máximo um por estímulo declarado)
   const rest = [];
   for (const p of polls) {
     if (p.round !== 1) {
@@ -279,19 +328,25 @@ export function keepFullestRound1(polls, { sobrevive = sobreviveAoGuardaDeSoma }
       continue;
     }
     const k = `${bucketKey(p)}:${pollDate(p) ?? "?"}`;
-    const cur = best.get(k);
-    if (!cur) {
-      best.set(k, p);
+    if (!best.has(k)) {
+      best.set(k, [p]);
       continue;
     }
+    const grupo = best.get(k);
+    const i = grupo.findIndex((cur) => estimuloCompativel(cur.stimulus ?? null, p.stimulus ?? null));
+    if (i === -1) {
+      grupo.push(p);
+      continue;
+    }
+    const cur = grupo[i];
     const vp = sobrevive(p);
     if (vp !== sobrevive(cur)) {
-      if (vp) best.set(k, p);
+      if (vp) grupo[i] = p;
       continue;
     }
-    if (p.results.length > cur.results.length) best.set(k, p);
+    if (p.results.length > cur.results.length) grupo[i] = p;
   }
-  return [...rest, ...best.values()];
+  return [...rest, ...[...best.values()].flat()];
 }
 
 /**

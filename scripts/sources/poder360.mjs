@@ -96,6 +96,20 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
           ? `2º turno: ${[...results].sort((a, b) => b.pct - a.pct).slice(0, 2).map((r) => r.candidate).join(" vs ")}`
           : "1º turno";
 
+      // O ESTÍMULO DECLARADO NO RÓTULO NATIVO, e só ele (§4). `nomeCenario`
+      // era descartado por inteiro — e é o ÚNICO lugar do agregador onde a
+      // marca de estímulo aparece ("Cenário 2 - estimulada - 1º turno"; 59 de
+      // 540 rótulos vivos diziam "estimulada" em 21/08/2026, e NENHUM dizia
+      // "espontânea": a espontânea do IRG senador:PR está arquivada como
+      // "Senador - Cenário 2", e a palavra só existe no PDF do instituto).
+      // Foi essa marca jogada fora que deixou `mergePolls` fundir espontânea
+      // com estimulada — ver `estimulosCompativeis` em scrape.mjs. Sem palavra
+      // declarada o campo fica NULO; 71% de indecisos é assinatura de
+      // espontânea, não declaração, e assinatura não cunha marca.
+      const rotulo = typeof sc.nomeCenario === "string" ? sc.nomeCenario : "";
+      const stimulus = /espont/i.test(rotulo) ? "espontânea"
+        : /estimulad/i.test(rotulo) ? "estimulada" : null;
+
       const poll = {
         id: "",
         source: "poder360",
@@ -109,6 +123,7 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
         state: uf,
         round,
         scenario,
+        stimulus,
         pollster: (sc.instituto ?? m.instituto ?? "").trim(),
         contractor: m.contratante?.trim() || null,
         fieldwork_start: null,
