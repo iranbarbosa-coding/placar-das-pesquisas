@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import RaceEvolution from "@/components/RaceEvolution";
+import RaceBarsEvolution from "@/components/RaceBarsEvolution";
 import RcpPollsTable from "@/components/RcpPollsTable";
-import RunoffSimChart from "@/components/RunoffSimChart";
+import StateNav from "@/components/StateNav";
+import StateTrends from "@/components/StateTrends";
+import { candKey } from "@/lib/average";
 import { scenarioGroups } from "@/lib/data";
-import { raceEvolutionData, rcpTable, runoffSim } from "@/lib/presidente";
+import { stateTrends } from "@/lib/estado";
+import { raceEvolutionData, rcpTable } from "@/lib/presidente";
 import { UFS, UF_NAMES, type UF } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -17,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ uf: strin
   const UFU = uf.toUpperCase() as UF;
   if (!UFS.includes(UFU)) return {};
   return {
-    title: `${UF_NAMES[UFU]} — Governador e Senado`,
-    description: `Pesquisas eleitorais 2026 em ${UF_NAMES[UFU]}: governador e senador, médias e tendências.`,
+    title: `${UF_NAMES[UFU]} — Eleições 2026`,
+    description: `Pesquisas eleitorais 2026 em ${UF_NAMES[UFU]}: governador, senador e presidente, médias e tendências.`,
   };
 }
 
@@ -27,34 +30,23 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   const UFU = uf.toUpperCase() as UF;
   if (!UFS.includes(UFU)) notFound();
 
-  const gov2 = scenarioGroups("governador", UFU, 2);
-
-  // Governor 1º turno now uses the presidential page's chart + table components
-  // (only the data differs). Assembled server-side; plain data crosses into the
-  // client evolution chart.
-  const gov1Evo = raceEvolutionData("governador", UFU, 1);
+  // Visão geral — the trends card (leaders + biggest movers of the state's races)
+  // and, below it, the governor first-round RCP table exactly as before.
+  const trends = stateTrends(UFU);
   const gov1Rcp = rcpTable("governador", UFU, 1);
-
-  // Governor 2º turno uses the same area-chart simulations as /presidente §5.
-  // Only render (and tab) it when the leader actually has polled matchups.
-  const gov2Runoff = runoffSim("governador", UFU);
-  const hasGov2 = gov2Runoff.cards.length > 0;
-
-  // Senado uses the same evolution card + RCP table (main scenario [0]). Senate
-  // is NOT decided at 50%, so the RCP spread shows the leader's margin over the
-  // runner-up and the chart's 50% line is a neutral reference, not a win line.
-  const senEvo = raceEvolutionData("senador", UFU, 1);
-  const senRcp = rcpTable("senador", UFU, 1, 10, "leaderMargin");
-
-  const tabs = [
-    { href: "#turno1", label: "Governador · 1º turno" },
-    ...(hasGov2 ? [{ href: "#turno2", label: "2º turno" }] : []),
-    { href: "#senado", label: "Senado" },
-  ];
+  const gov1Group = scenarioGroups("governador", UFU, 1)[0] ?? null;
+  const gov1Evo = raceEvolutionData("governador", UFU, 1);
+  // Colour EVERY named (registered) candidate — not just the ≥5% ones — so each
+  // gets its own hue in the bars and a visible line in the evolution chart.
+  // Derived from the válidos cut so colours stay fixed across the basis toggle.
+  const govColorKeys = (gov1Evo.average?.candidates ?? [])
+    .filter((c) => gov1Evo.registeredKeys.length === 0 || gov1Evo.registeredKeys.includes(candKey(c.candidate)))
+    .map((c) => candKey(c.candidate));
+  const hasGov1 = gov1Rcp.candidates.length > 0;
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
-      {/* Page header — breadcrumb + title + jump tabs, per the new pattern. */}
+      {/* Page header — breadcrumb + title + Visão geral nav. */}
       <header className="flex flex-col gap-3">
         <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>
           <Link href="/" className="hover:underline">Início</Link>
@@ -64,59 +56,41 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
           <span style={{ color: "var(--text-secondary)" }}>{UF_NAMES[UFU]}</span>
         </nav>
 
-        <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-          <div className="flex min-w-0 flex-col gap-1">
-            <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
-              {UF_NAMES[UFU]} · Eleições 2026
-            </h1>
-            <p className="max-w-[70ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-              Governador e Senado — a média das pesquisas e todas as pesquisas de cada disputa.
-            </p>
-          </div>
-          {gov2.length > 0 && (
-            <Link href="/segundo-turno#governadores" className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
-              Confrontos de 2º turno <span aria-hidden="true">→</span>
-            </Link>
-          )}
+        <div className="flex min-w-0 flex-col gap-1">
+          <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+            {UF_NAMES[UFU]} · Eleições 2026
+          </h1>
+          <p className="max-w-[70ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+            Acompanhe as médias das pesquisas e todas as disputas no estado.
+          </p>
         </div>
 
-        {/* In-page jump tabs. */}
-        <nav
-          aria-label="Disputas do estado"
-          className="inline-flex w-fit flex-wrap gap-1 rounded-lg p-1 text-sm"
-          style={{ border: "1px solid var(--ring)", background: "var(--surface-1)" }}
-        >
-          {tabs.map((t) => (
-            <a
-              key={t.href}
-              href={t.href}
-              className="rounded-md px-3 py-1 font-medium transition-colors hover:bg-[var(--grid)]"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              {t.label}
-            </a>
-          ))}
-        </nav>
+        <StateNav active="Visão geral" />
       </header>
 
-      {/* Governador · 1º turno — the presidential chart card + RCP matrix (SAMPLE:
-          same components as /presidente, governor data). */}
+      {/* TENDÊNCIAS · ÚLTIMOS 15 DIAS — líderes por cargo + maior alta / maior queda. */}
+      <StateTrends data={trends} />
+
+      {/* Governador · 1º turno — a matriz "10 últimas pesquisas", como já existe hoje. */}
       <section id="turno1" className="flex scroll-mt-24 flex-col gap-4">
         <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
           Governador · 1º turno
         </h2>
-        {gov1Evo.average ? (
+        {hasGov1 ? (
           <>
-            <div className="card min-w-0 p-4 sm:p-6">
-              <RaceEvolution
-                average={gov1Evo.average}
-                significantKeys={gov1Evo.significantKeys}
-                registeredKeys={gov1Evo.registeredKeys}
-              />
-            </div>
             <div className="card min-w-0 p-4 sm:p-6">
               <RcpPollsTable data={gov1Rcp} allPollsHref={null} />
             </div>
+            {/* Below the table: the average as bars (1/3) + the evolution line
+                chart (2/3), sharing a bruto/válidos toggle and the chart's hover
+                (the bar numbers follow the hovered date). */}
+            <RaceBarsEvolution
+              validos={gov1Evo.average}
+              bruto={gov1Group?.averageBruto ?? null}
+              significantKeys={govColorKeys}
+              registeredKeys={gov1Evo.registeredKeys}
+              pollCount={gov1Evo.average?.pollCount ?? null}
+            />
           </>
         ) : (
           <div className="card min-w-0 p-4 sm:p-6">
@@ -126,47 +100,15 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
           </div>
         )}
       </section>
-      {/* Governador · 2º turno — the presidential §5 runoff simulations (area
-          cards of the leader vs each challenger), only when the leader has polled
-          matchups. */}
-      {hasGov2 && (
-        <section id="turno2" className="flex scroll-mt-24 flex-col gap-4">
-          <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-            Governador · 2º turno
-          </h2>
-          <RunoffSimChart data={gov2Runoff} />
-        </section>
-      )}
-      {/* Senado — the same evolution card + RCP table as gov1. Senate is not
-          decided at 50%: neutral 50% reference line and a leader-margin spread. */}
-      <section id="senado" className="flex scroll-mt-24 flex-col gap-4">
-        <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-          Senado
-        </h2>
-        {senEvo.average ? (
-          <>
-            <div className="card min-w-0 p-4 sm:p-6">
-              <RaceEvolution
-                average={senEvo.average}
-                significantKeys={senEvo.significantKeys}
-                registeredKeys={senEvo.registeredKeys}
-                title="Evolução da média · Senado"
-                fiftyLabel="50%"
-                showOutros={false}
-              />
-            </div>
-            <div className="card min-w-0 p-4 sm:p-6">
-              <RcpPollsTable data={senRcp} allPollsHref={null} />
-            </div>
-          </>
-        ) : (
-          <div className="card min-w-0 p-4 sm:p-6">
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-              Ainda não há pesquisas para o Senado em {UF_NAMES[UFU]}.
-            </p>
-          </div>
-        )}
-      </section>
+
+      {/*
+        PARTE 2 — OCULTA até validarmos a Parte 1 (decisão do criador, 21/08).
+        Restaurar depois: evolução da média (1º turno), Governador 2º turno,
+        Senado (evolução + RCP), Presidente no estado e a tabela geral presidencial.
+        O motor (raceEvolutionData / runoffSim / rcpTable / pollsFor) já aceita
+        (race, uf, round); os componentes RaceEvolution / RunoffSimChart seguem
+        no repositório. Ver GUIA_DE_DESIGN §9 e o histórico desta página.
+      */}
     </div>
   );
 }

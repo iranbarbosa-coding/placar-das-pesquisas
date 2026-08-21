@@ -103,18 +103,25 @@ export interface PresidentBarsData {
  * tenths remainder — so the ruler sums to exactly 100,0 (the same reconciliation
  * `HeroInteractive` uses on the válidos cut).
  */
-export function presidentBars(): PresidentBarsData {
-  const g = scenarioGroups("presidente", null, 1)[0];
+/**
+ * The R1 average of ANY race as a bar per registered candidate — the general
+ * form of `presidentBars`. Pass `(race, state, round)`; the registered naming set
+ * is `registeredSetFor(race, state)` (national for president, per-UF otherwise),
+ * and when a seat has no registration data the set is empty, so the polled field
+ * itself is named (the same "no filter" fallback the evolution chart uses).
+ */
+export function raceBars(race: RaceKind, state: UF | null, round: 1 | 2): PresidentBarsData {
+  const g = scenarioGroups(race, state, round)[0];
   const avg = g?.average ?? null;
   if (!avg) return { rows: [], outros: 0, lastPollDate: null, pollCount: 0 };
 
-  const reg = registeredSet();
+  const reg = registeredSetFor(race, state);
   const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
 
   // Only registered candidates at or above the named floor get a bar; everyone
   // else — registered sub-threshold and every non-registered name — is absorbed
   // by "Outros" (below), which the tenths reconciliation fills to make 100,0.
-  const named = namedRoster(avg, reg);
+  const named = reg.size > 0 ? namedRoster(avg, reg) : avg.candidates.filter((c) => c.avg >= NAMED_MIN_PCT);
   const rowsT = named.map((c) => ({
     candidate: c.candidate,
     party: c.party,
@@ -137,6 +144,11 @@ export function presidentBars(): PresidentBarsData {
     lastPollDate: avg.lastPollDate,
     pollCount: avg.pollCount,
   };
+}
+
+/** The national R1 presidential average as bars — `raceBars` for president. */
+export function presidentBars(): PresidentBarsData {
+  return raceBars("presidente", null, 1);
 }
 
 // ── Momentum: each candidate's 30-day change ────────────────────────────────
