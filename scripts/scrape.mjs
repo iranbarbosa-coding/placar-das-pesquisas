@@ -77,11 +77,39 @@ function pollDate(p) {
 // A janela é a de `resolveSurvey` — uma implementação só (§5): se este lado e a
 // escada discordarem sobre o que é uma operação de campo, o coletor funde o que
 // o store separa (ou o contrário) e ninguém vê a divergência.
-function datesClose(a, b) {
+//
+// DATA NULA NÃO É CURINGA. Isto era `if (!da || !db) return true`, e um
+// fragmento sem data casava com QUALQUER data do bucket: a senador:AC de
+// dez/2025 (p360-13111, ano-typo "2005" anulado pela sanitização) foi absorvida
+// pela de 25/07/2026 (p360-13593) porque os elencos batiam — duas medições com
+// sete meses entre elas viraram um registro. A regra do §4 é recusar a
+// ambiguidade em vez de escolher: sem data dos dois lados, o que decide é uma
+// chave FORTE — os fragmentos provarem que saíram do MESMO registro nativo da
+// fonte. Contra o snapshot cru de 21/08/2026, nenhuma fusão legítima dependia
+// do passe-nulo (todas as que dependiam eram cenários distintos ou
+// indecidíveis), então o que esta recusa desfaz é só o defeito.
+//
+// `dataNulaCasa` é parâmetro pelo mesmo motivo do `sobrevive` de `mergePolls`:
+// a mutação honesta do autoteste (`() => true` reproduz o passe-nulo antigo).
+function datesClose(a, b, dataNulaCasa = mesmoRegistroNativo) {
   const da = pollDate(a);
   const db = pollDate(b);
-  if (!da || !db) return true; // undated: let the roster check decide
+  if (!da || !db) return dataNulaCasa(a, b);
   return Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS;
+}
+
+/**
+ * A chave forte que autoriza fundir fragmentos sem data: os dois carregarem o
+ * id do MESMO registro nativo do Poder360 (`p360-<id da fonte>-…`, cunhado em
+ * `poder360.mjs`). É a única ligação que os dados provam sem data — a
+ * Wikipédia não tem id nativo, então fragmento dela sem data nunca liga por
+ * aqui, e é assim que deve ser: a alternativa era o elenco decidir sozinho, e
+ * foi o elenco sozinho que somou dez/2025 a jul/2026 no caso do Acre.
+ */
+export function mesmoRegistroNativo(a, b) {
+  const ra = /^p360-(\d+)-/.exec(typeof a?.id === "string" ? a.id : "")?.[1];
+  const rb = /^p360-(\d+)-/.exec(typeof b?.id === "string" ? b.id : "")?.[1];
+  return ra != null && ra === rb;
 }
 
 function rostersMatch(a, b) {
@@ -95,6 +123,42 @@ function rostersMatch(a, b) {
 }
 
 /**
+ * O ordinal que a fonte DECLAROU no rótulo do cenário ("1º turno — cenário
+ * 2/5" → {n:2, de:5}). Rótulo sem ordinal ("1º turno", "cenário único",
+ * "2º turno: A vs B") devolve null — cenário não declarado.
+ *
+ * A comparação é pelo ordinal PARSEADO, não pelo rótulo inteiro, porque o
+ * prefixo varia entre páginas da Wikipédia sem mudar o que foi perguntado.
+ */
+export function ordinalDeCenario(p) {
+  const m = /cen[aá]rio\s*(\d+)\s*\/\s*(\d+)/i.exec(p?.scenario ?? "");
+  return m ? { n: +m[1], de: +m[2] } : null;
+}
+
+/**
+ * CENÁRIOS DECLARADOS DOS DOIS LADOS SÓ SÃO A MESMA PERGUNTA SE OS ORDINAIS
+ * FOREM IGUAIS — numerador E denominador. "cenário 1/3" e "cenário 2/3" são
+ * elencos diferentes postos à mesma amostra: fundi-los apaga uma pergunta e
+ * costura a tabela da outra na identidade da primeira (o registro final saía
+ * com id de um fragmento e resultados de outro — a classe inteira de fusões
+ * com identidade×tabela cruzadas da varredura de 21/08/2026).
+ *
+ * Igualdade estrita, e não "denominadores diferentes são comparáveis pelo
+ * elenco", pela doutrina do §4: "cenário 1/3" e "cenário 1/7" em páginas
+ * distintas PODEM ser o mesmo cenário — ou não —, e a alternativa branda,
+ * medida contra o snapshot cru, deixava fragmentos de cenários distintos se
+ * reagruparem por essa fresta (o registro só poderia vetar o que consegue
+ * comparar). Quando a recusa separa o que era o mesmo cenário, o custo é um
+ * registro a mais que `keepFullestRound1` colapsa adiante — a tabela publicada
+ * não muda; quando a fusão junta o que era distinto, o custo é uma pergunta
+ * que deixa de existir. Fragmento sem ordinal declarado (null de qualquer
+ * lado) segue a regra de sempre: data + elenco decidem.
+ */
+export function cenariosCompativeis(oa, ob) {
+  return !oa || !ob || (oa.n === ob.n && oa.de === ob.de);
+}
+
+/**
  * `sobrevive` é parâmetro por UM motivo, o mesmo do `inserir` de
  * `applyRepairs`: o autoteste de `existencia-pos-guarda-check.mjs` precisa
  * provar que a bateria REPROVA quando a decisão volta a ignorar o guarda de
@@ -102,7 +166,15 @@ function rostersMatch(a, b) {
  * comportamento antigo — sobre a função de verdade. O coletor nunca passa o
  * parâmetro.
  */
-export function mergePolls(pollLists, { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+export function mergePolls(pollLists, {
+  sobrevive = sobreviveAoGuardaDeSoma,
+  // Os dois abaixo são parâmetros pelo mesmo motivo do `sobrevive`: a mutação
+  // honesta do autoteste de `fusao-cenarios-check.mjs` é `() => true`, que
+  // reproduz exatamente o comportamento antigo (passe-nulo de data; fusão cega
+  // a cenário) sobre as funções de verdade. O coletor nunca os passa.
+  dataNulaCasa = mesmoRegistroNativo,
+  cenarioCompativel = cenariosCompativeis,
+} = {}) {
   // QUEM DOA A TABELA DE RESULTADOS TEM DE SOBREVIVER AO GUARDA DE SOMA.
   //
   // `richerRoster` sozinho decidia a doação, e "mais linhas" não é "tabela que
@@ -119,13 +191,29 @@ export function mergePolls(pollLists, { sobrevive = sobreviveAoGuardaDeSoma } = 
   };
   const buckets = new Map();
   const out = [];
+  // O CENÁRIO QUE O REGISTRO JÁ ABSORVEU, fora do objeto de propósito: o
+  // registro fundido herda o RÓTULO da fonte vencedora ("1º turno", sem
+  // ordinal), então guardar a restrição no próprio `scenario` a apagaria na
+  // primeira doação de identidade — e o segundo cenário da Wikipédia entraria
+  // no registro que o primeiro acabou de ocupar (era exatamente a mecânica da
+  // fusão em cadeia). Um Map à parte também não vaza para polls.json.
+  // Sob igualdade estrita todos os ordinais absorvidos são iguais, então um
+  // valor único basta — não é preciso guardar o conjunto.
+  const ordinalAbsorvido = new Map();
   for (const polls of pollLists) {
     for (const p of polls) {
       const k = bucketKey(p);
       if (!buckets.has(k)) buckets.set(k, []);
       const bucket = buckets.get(k);
-      const existing = bucket.find((e) => datesClose(e, p) && rostersMatch(e, p));
+      const existing = bucket.find((e) =>
+        datesClose(e, p, dataNulaCasa) &&
+        rostersMatch(e, p) &&
+        cenarioCompativel(ordinalAbsorvido.get(e) ?? null, ordinalDeCenario(p)));
       if (existing) {
+        if (!ordinalAbsorvido.has(existing)) {
+          const o = ordinalDeCenario(p);
+          if (o) ordinalAbsorvido.set(existing, o);
+        }
         const oldPri = SOURCE_PRIORITY[existing.source] ?? 1;
         const newPri = SOURCE_PRIORITY[p.source] ?? 1;
         const META = ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start"];
@@ -157,6 +245,8 @@ export function mergePolls(pollLists, { sobrevive = sobreviveAoGuardaDeSoma } = 
         }
       } else {
         const copy = { ...p };
+        const o = ordinalDeCenario(copy);
+        if (o) ordinalAbsorvido.set(copy, o);
         bucket.push(copy);
         out.push(copy);
       }
