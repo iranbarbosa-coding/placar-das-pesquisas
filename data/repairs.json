@@ -2176,6 +2176,33 @@
     "blank_null_pct": 5
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "tse_registration": "GO-04010/2026"
+   },
+   "defect": "Janela de campo ausente e fim errado. O banco guardava fieldwork_start null nos dois levantamentos deste registro e fieldwork_end 2026-01-01 num deles (s_1eed00d01f65) — 01/01, um mês antes do campo, sem fonte em lugar nenhum; o outro (s_c3ea7003b0c2) já trazia 2026-02-01, que é o fim certo. SEM CLÁUSULA DE RACE de propósito, pelo mesmo motivo do reparo de BA-03657/2026: o registro é um levantamento, as perguntas dividem a survey, e um reparo restrito a uma disputa não move a survey porque fillFields() só escreve em campo vazio — a survey nasce com o valor da PRIMEIRA pergunta processada, e um reparo que não alcança essa pergunta falha em silêncio com carimbo de sucesso.",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-direct-goias-presidente-4.fev_.2025.pdf",
+   "evidence": "p.5, literal: \"Foram utilizados 04 entrevistadores supervisionados, nos horários compreendidos entre 8h00 a 18h00, nos dias 30 de Janeiro a 01 de Fevereiro de 2026.\" Registro GO-04010/2026 estampado em 16 das 25 páginas (4, 9-21, 23, 24). Estudo municipal de Anápolis: p.4 \"em um universo estimado aproximado de 278.795 eleitores na cidade do Anápolis - Goiás (TSE / 2025)\", amostra 600, margem 4,0 p.p. Lido às cegas por um agente que não recebeu a conclusão, e confrontado depois com a ficha do conferente da certificação municipal, que registra o mesmo campo 30/01-01/02/2026.",
+   "verified_at": "2026-08-20",
+   "set": {
+    "fieldwork_start": "2026-01-30",
+    "fieldwork_end": "2026-02-01"
+   },
+   "_nota_registro_vizinho": "O MESMO PDF estampa TAMBÉM GO-03986/2026 nas p.14, 21 e 22 (blocos de rejeição ao Senado e de avaliação da gestão do governador), e esse registro é de OUTRO levantamento que o banco já tem, o s_9ed8a57cc880, da mesma Direct. O relatório reaproveita rodapé entre estudos. Nenhuma pergunta de intenção de voto do banco sob GO-04010/2026 vem dessas páginas, então este reparo não as alcança — mas fica anotado para quem for reabrir a questão de identidade deste par."
+  },
+  {
+   "match": {
+    "tse_registration": "GO-01981/2026"
+   },
+   "defect": "Registro trocado. O banco guardava GO-01981/2026, que veio da listagem do agregador; o PDF do próprio instituto estampa GO-05001/2026 em TODAS as 22 páginas, duas vezes por página no rodapé, e uma vez no corpo. GO-05001/2026 não existia no banco antes deste reparo, então a correção não funde levantamento nenhum — apenas põe a chave certa no que já existe. A semente da survey é survey|ref|poder360:13290, por referência da fonte e não pelo registro, então o survey_id não se move e nenhum question_id é recunhado (CONVENTIONS §8).",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente.10.fev_.2026pdf.pdf",
+   "evidence": "Rodapé de todas as 22 páginas: \"Registro TSE GO-05001/2026\" e \"Registro TSE: GO-05001/2026\". p.4, no corpo: \"A pesquisa foi encomendada pela TV Atual Record/News e devidamente registrada no TSE sob numero: GO-05001/2026\". Nenhuma página traz GO-01981/2026. Estudo municipal de Senador Canedo (p.3 \"LOCAL: Senador Canedo\"), 500 entrevistas, margem 4,3 p.p. Lido às cegas por um agente sem a conclusão, e batendo com a ficha do conferente da certificação municipal, que já anotara \"PDF estampa GO-05001/2026, não GO-01981\".",
+   "verified_at": "2026-08-20",
+   "set": {
+    "tse_registration": "GO-05001/2026"
+   },
+   "_nota_nao_consertado": "O banco atribui este levantamento a \"Portal Goiás\"; o PDF é assinado por \"iGape\" e diz encomendado pela TV Atual Record/News. NÃO mexo nisso aqui: institute_names_raw guarda a grafia PUBLICADA pelo agregador, que é outra coisa do que a assinatura do relatório, e trocá-la sem decidir qual das duas é a fonte de verdade seria inventar. Anotado para o criador decidir."
   }
  ]
 }
