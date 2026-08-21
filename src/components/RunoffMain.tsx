@@ -33,16 +33,22 @@ function MiniEvo({ points, a, b }: { points: { date: string; a: number; b: numbe
   const xs = pts.map((p) => isoMs(p.date));
   const x0 = Math.min(...xs);
   const x1 = Math.max(...xs);
-  // Standard site y-scale: 0 to the first fixed level that covers the data.
-  const dataMax = Math.max(...pts.flatMap((p) => [p.a, p.b]));
-  const yMax = [60, 80, 100].find((v) => v >= dataMax + 1) ?? 100;
-  const yMin = 0;
+  // Fit the scale to the data (both candidates sit around 50 in a runoff, so a
+  // 0-based axis would flatten them), while always keeping the 50% win line in
+  // view. Ticks are the round levels inside that fitted range.
+  const vals = pts.flatMap((p) => [p.a, p.b]);
+  const dmin = Math.min(...vals);
+  const dmax = Math.max(...vals);
+  const padV = Math.max(3, (dmax - dmin) * 0.25);
+  const yMin = Math.max(0, Math.min(dmin - padV, 45));
+  const yMax = Math.min(100, Math.max(dmax + padV, 55));
   const xf = (t: number) => (x1 > x0 ? ((t - x0) / (x1 - x0)) * (W - 2 * pad) + pad : W / 2);
   const yf = (v: number) => H - pad - ((v - yMin) / (yMax - yMin)) * (H - 2 * pad);
   const path = (sel: (p: { a: number; b: number }) => number) =>
     pts.map((p, i) => `${i ? "L" : "M"}${xf(xs[i]!).toFixed(1)} ${yf(sel(p)).toFixed(1)}`).join(" ");
 
-  const yTicks = [0, 20, 40, 60, 80].filter((v) => v <= yMax);
+  const yTicks: number[] = [];
+  for (let v = Math.ceil(yMin / 10) * 10; v <= yMax; v += 10) yTicks.push(v);
   const topPct = (v: number) => (yf(v) / H) * 100;
 
   const monthT: { leftPct: number; label: string }[] = [];
