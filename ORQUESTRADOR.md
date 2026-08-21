@@ -1,5 +1,12 @@
 # Prompt de kickoff — sessão ORQUESTRADORA (atualizado 20/08/2026)
 
+> ⚠ **ANTES DE FECHAR ESTA SESSÃO**: cumpra o PROTOCOLO DE PASSAGEM DE
+> BASTÃO do HANDOFF.md (confirmar com o criador → anunciar o sucessor a cada
+> par vivo → transferir o skeleton → só então desativar). Fechar sem anunciar
+> quebra a cadeia por morte; re-executar este kickoff numa janela nova cria um
+> hub fantasma — os dois aconteceram em 21/08/2026 e estão documentados lá.
+
+
 Cole o bloco abaixo ao spawnar a sessão sucessora. 3-D. Os endereços das sessões
 mudam — rode `ListAgents` no início e reconcilie por nome/frente.
 

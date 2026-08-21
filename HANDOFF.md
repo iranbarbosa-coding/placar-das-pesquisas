@@ -11,6 +11,43 @@ Brazilian 2026 elections (president, 27 governors, senate), in pt-BR.
 
 ---
 
+## ★ PROTOCOLO DE PASSAGEM DE BASTÃO (escrito 21/08/2026, por ordem do criador)
+
+**O bastão passa ANTES de o hub velho fechar, em quatro passos, nesta ordem —
+pular qualquer um custou caro (os defeitos estão abaixo):**
+
+1. **Designação**: o criador designa o sucessor (kickoff commitado ou palavra
+   direta). Kickoff sozinho NÃO fecha a cadeia — é intenção, não passagem.
+2. **Confirmação**: o hub DE SAÍDA confirma a designação DIRETO com o criador
+   (nunca pela palavra do hub de entrada, nem pela própria leitura do kickoff).
+3. **Anúncio**: o hub DE SAÍDA anuncia o sucessor A CADA PAR VIVO, pelo nome.
+   É o anúncio de quem sai que os pares aceitam — a palavra do hub de entrada
+   sobre si mesmo NUNCA basta, porque um par não distingue "o criador me
+   designou" de "eu li o kickoff e concluí que sou".
+4. **Transferência e só então desativação**: o hub de saída entrega o skeleton
+   do que está em voo (artefatos congelados com md5, decisões abertas,
+   compromissos com pares) e SÓ DEPOIS fecha. Fechar sem anunciar quebra a
+   cadeia POR MORTE — e aí não há quem confirme sucessor nenhum.
+
+**Regras para os pares** (que os desta série aplicaram bem em 21/08): não troque
+de hub pela palavra do hub de entrada; se o hub de saída morreu sem anunciar,
+ESCALE AO CRIADOR no seu próprio chat — nunca resolva por dedução; trabalho
+SÓ-LEITURA pode aceitar provisoriamente (risco zero, re-roteia na hora se
+aparecer procedência mais forte), escrita NUNCA.
+
+**Os defeitos que pagaram por este protocolo (21/08/2026, todos medidos):**
+- Um kickoff de orquestrador RE-EXECUTADO numa janela duplicada criou um hub
+  fantasma ("(2) Orquestrador") que roteou dois pares por ~1h e morreu sem
+  anunciar — três frentes recém-abertas pararam até o criador confirmar a
+  cadeia chat a chat.
+- **Nome de barramento é RECICLÁVEL e não é identidade**: o hub desta faixa
+  herdou o nome "pesquisas-2026-cb" da sessão-parser morta, e um par leu o
+  ORQUESTRADOR.md e concluiu que o hub era a frente do parser. Identidade se
+  fecha pela confirmação do criador NO CHAT DO PAR, nunca pelo nome.
+- O mesmo dia provou o protocolo funcionando quando seguido: em 20/08 a
+  pesquisas-2026-60 confirmou com o criador, anunciou aos seis pares vivos e
+  transferiu o skeleton antes de desativar — zero fila dupla, zero atrito.
+
 ## ★ PARA O SUCESSOR ORQUESTRADOR (escrito 19/08/2026)
 
 **Teu papel mudou: você é o HUB.** O criador centralizou a supervisão em ti. Você
