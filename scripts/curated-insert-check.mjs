@@ -363,7 +363,7 @@ function rodar({ mutacao = null } = {}) {
     // TSE, de propósito: um caso que dependesse do conteúdo de
     // `data/candidaturas.ndjson` quebraria quando o TSE republicasse o arquivo.
     // Só que essa escolha esconde exatamente o comportamento que a inserção tem
-    // no banco de verdade. `match-ballot-names.mjs` roda DEPOIS da coleta e o
+    // no banco de verdade. `match-ballot-names.mjs` roda ANTES da coleta (desde 21/08, crus da rodada anterior — era DEPOIS da coleta e o
     // mapa que ele gera vale para a rodada SEGUINTE — então a pesquisa inserida,
     // que estreia `Samara Martins` e `Edmilson Costa` em `presidente:PE`, não é
     // renomeada na rodada em que entra. Na rodada 2 o mapa já a alcança, o
@@ -912,18 +912,33 @@ function rodar({ mutacao = null } = {}) {
     // A MESMA CONFERÊNCIA PARA OS `drop_poll` DO ARQUIVO REAL: contra uma lista
     // vazia todo gate é noop dito (o alvo só emerge em rodada futura) — nunca
     // recusa, nunca órfão. E o controle negativo: sem citação, RECUSADO.
+    //
+    // ⚠ ZERO ENTRADAS É UM ESTADO LEGÍTIMO DESDE 21/08/2026. O único gate do
+    // arquivo (governador:SP 19/11/2024, Paraná Pesquisas) declarava a própria
+    // condição de saída — "vigente até o conserto do rostersMatch por cenário"
+    // — e ela foi cumprida (PR #19): no replay pós-lift os cenários 1/3 e 2/3
+    // emergem limpos, keepFullestRound1 publica um headline e o 3/3 morre no
+    // guarda de soma sozinho (148,2 > 130). A entrada foi aposentada por
+    // remoção (o registro histórico fica no git; o esquema não tem campo de
+    // desativação). Exigir `gates.length > 0` aqui transformaria toda
+    // aposentadoria legítima em vermelho permanente — o adubo da jogada
+    // proibida (§10). O que se exige no vazio é o espelho exato: ZERO noops de
+    // gate. Os controles por entrada, inclusive o negativo, rearmam sozinhos no
+    // dia em que alguém escrever um gate novo; o MECANISMO de recusa continua
+    // provado pelos fixtures do bloco E acima, que não dependem do arquivo.
     const gates = (spec.repairs ?? []).filter((r) => r.drop_poll);
-    afirma(gates.length > 0, "nenhuma entrada drop_poll em data/repairs.json — o gate não está conferindo nada");
     afirma(rel.noop.filter((n) => /gate drop_poll/.test(n)).length === gates.length,
       `${rel.noop.filter((n) => /gate drop_poll/.test(n)).length} noop de gate para ${gates.length} entradas drop_poll`);
-    const gatesMutilados = path.join(dir, "repairs-gate-sem-fonte.json");
-    fs.writeFileSync(gatesMutilados, JSON.stringify({
-      version: 1,
-      repairs: gates.map((r) => ({ ...r, source: undefined })),
-    }));
-    const relGates = applyRepairs([], { file: gatesMutilados });
-    afirma(relGates.warnings.filter((w) => /RECUSADO/.test(w)).length === gates.length,
-      `${relGates.warnings.filter((w) => /RECUSADO/.test(w)).length} recusas para ${gates.length} gates sem fonte`);
+    if (gates.length > 0) {
+      const gatesMutilados = path.join(dir, "repairs-gate-sem-fonte.json");
+      fs.writeFileSync(gatesMutilados, JSON.stringify({
+        version: 1,
+        repairs: gates.map((r) => ({ ...r, source: undefined })),
+      }));
+      const relGates = applyRepairs([], { file: gatesMutilados });
+      afirma(relGates.warnings.filter((w) => /RECUSADO/.test(w)).length === gates.length,
+        `${relGates.warnings.filter((w) => /RECUSADO/.test(w)).length} recusas para ${gates.length} gates sem fonte`);
+    }
   });
 
   return { ok, falhas };
