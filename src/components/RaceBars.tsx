@@ -125,28 +125,47 @@ export default function RaceBars({ average, significantKeys, registeredKeys = []
     <ul className="flex flex-col gap-2.5">
       {bars.map((b) => {
         const width = Math.max(0, Math.min(100, (b.value / AXIS_MAX) * 100));
-        const gridCols = compact
-          ? "grid-cols-[6rem_minmax(0,1fr)_3rem]"
-          : "grid-cols-[7rem_minmax(0,1fr)_3.5rem] sm:grid-cols-[8.5rem_minmax(0,1fr)_3.5rem]";
-        return (
-          <li key={b.key} className={`grid ${gridCols} items-center gap-x-2`}>
-            <div className="flex min-w-0 items-baseline gap-1">
-              <span className="truncate text-sm font-semibold" style={{ color: "var(--text-primary)" }} title={b.party ? `${b.name} (${b.party})` : b.name}>
-                {b.name}
+        const name = (
+          <div className="flex min-w-0 items-baseline gap-1">
+            <span className="truncate text-sm font-semibold" style={{ color: "var(--text-primary)" }} title={b.party ? `${b.name} (${b.party})` : b.name}>
+              {b.name}
+            </span>
+            {b.party ? (
+              <span className="shrink-0 text-[11px]" style={{ color: "var(--text-muted)" }}>
+                ({b.party})
               </span>
-              {b.party ? (
-                <span className="shrink-0 text-[11px]" style={{ color: "var(--text-muted)" }}>
-                  ({b.party})
-                </span>
-              ) : null}
-            </div>
-            <div className="relative h-5 min-w-0 rounded" style={{ background: "var(--surface-2)" }}>
-              <div className="absolute inset-y-0 left-0 rounded" style={{ width: `${width}%`, background: b.color }} />
-            </div>
-            <div className="tabular text-right text-base font-bold leading-none" style={{ color: "var(--text-primary)" }}>
-              {fmtPct(b.value)}
-              <span className="align-baseline text-[0.6em] font-bold">%</span>
-            </div>
+            ) : null}
+          </div>
+        );
+        const pct = (
+          <div className="tabular shrink-0 text-right text-base font-bold leading-none" style={{ color: "var(--text-primary)" }}>
+            {fmtPct(b.value)}
+            <span className="align-baseline text-[0.6em] font-bold">%</span>
+          </div>
+        );
+        const bar = (
+          <div className={`relative min-w-0 rounded ${compact ? "h-2.5" : "h-5"}`} style={{ background: "var(--surface-2)" }}>
+            <div className="absolute inset-y-0 left-0 rounded" style={{ width: `${width}%`, background: b.color }} />
+          </div>
+        );
+        // Narrow panels stack the name above a full-width bar; wide panels lay the
+        // name, bar and value out on one row.
+        if (compact) {
+          return (
+            <li key={b.key} className="flex flex-col gap-1">
+              <div className="flex items-baseline justify-between gap-2">
+                {name}
+                {pct}
+              </div>
+              {bar}
+            </li>
+          );
+        }
+        return (
+          <li key={b.key} className="grid grid-cols-[7rem_minmax(0,1fr)_3.5rem] items-center gap-x-2 sm:grid-cols-[8.5rem_minmax(0,1fr)_3.5rem]">
+            {name}
+            {bar}
+            {pct}
           </li>
         );
       })}
