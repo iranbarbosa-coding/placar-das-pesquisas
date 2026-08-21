@@ -363,7 +363,7 @@ function rodar({ mutacao = null } = {}) {
     // TSE, de propósito: um caso que dependesse do conteúdo de
     // `data/candidaturas.ndjson` quebraria quando o TSE republicasse o arquivo.
     // Só que essa escolha esconde exatamente o comportamento que a inserção tem
-    // no banco de verdade. `match-ballot-names.mjs` roda DEPOIS da coleta e o
+    // no banco de verdade. `match-ballot-names.mjs` roda ANTES da coleta (desde 21/08, crus da rodada anterior — era DEPOIS da coleta e o
     // mapa que ele gera vale para a rodada SEGUINTE — então a pesquisa inserida,
     // que estreia `Samara Martins` e `Edmilson Costa` em `presidente:PE`, não é
     // renomeada na rodada em que entra. Na rodada 2 o mapa já a alcança, o

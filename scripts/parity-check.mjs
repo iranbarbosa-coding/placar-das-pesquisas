@@ -487,8 +487,11 @@ function autoteste() {
     // mutação que este bloco existe para avermelhar.
     {
       const wf = fs.readFileSync(path.join(ROOT, ".github", "workflows", "update-polls.yml"), "utf-8");
-      const casador = wf.indexOf("scripts/match-ballot-names.mjs");
-      const coleta = wf.indexOf("scripts/scrape.mjs");
+      // Âncora no comando executável, não na string solta: um comentário do
+      // yml citando um script antes do outro enganaria o indexOf cru — verde
+      // falso se citasse o casador, vermelho espúrio se citasse o scrape.
+      const casador = wf.indexOf("run: node scripts/match-ballot-names.mjs");
+      const coleta = wf.indexOf("run: node scripts/scrape.mjs");
       ok(casador > 0 && coleta > 0, "o workflow tem de conter o casador e a coleta");
       ok(casador < coleta,
         "o casador tem de rodar ANTES da coleta no workflow — depois dela, ele reescreve a tabela de urna no meio da verificação da rodada e este portão mede com um estado que o store não consumiu (140 divergências em 21/08/2026)");

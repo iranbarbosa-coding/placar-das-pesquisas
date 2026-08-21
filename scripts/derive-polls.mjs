@@ -35,8 +35,9 @@
 // instante em que é commitada enquanto o store só a absorve na coleta seguinte.
 //
 // As duas origens de defasagem coexistem e convém não confundi-las: a
-// estrutural, do casador que roda depois da coleta e cujo mapa vale para a
-// rodada seguinte (§6); e a editorial, de uma ruling escrita à mão. Esta foi a
+// estrutural, do casador cujo mapa nasce dos nomes crus da rodada ANTERIOR e
+// só alcança o store na rodada seguinte (§6; desde 21/08 ele roda ANTES da
+// coleta — a defasagem é a mesma, só o instante da escrita mudou); e a editorial, de uma ruling escrita à mão. Esta foi a
 // segunda. Nomear a causa errada custa o mesmo que a promessa falsa que este
 // bloco corrige: faz a próxima pessoa consertar o casador por uma ruling.
 //

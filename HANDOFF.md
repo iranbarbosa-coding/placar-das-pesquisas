@@ -1033,7 +1033,7 @@ metadata cells change in the table columns.
     (`surveys/questions/candidates/people/institutes` e `polls[]`).
     **Causa: a defasagem de uma rodada do casador de nomes de urna (CONVENTIONS §6).** A
     inserção estreia `Samara Martins` e `Edmilson Costa` em `presidente:PE`;
-    `match-ballot-names.mjs` roda DEPOIS da coleta e o mapa que ele gera só vale para a
+    `match-ballot-names.mjs` roda ANTES da coleta desde 21/08 (sobre os nomes crus da rodada ANTERIOR — a defasagem de uma rodada continua; era DEPOIS até a falha de paridade da 1ª rodada religada) e o mapa que ele gera só vale para a
     rodada SEGUINTE. Então na rodada 2 `Samara Martins` vira `Samara`, o elenco canônico
     muda, e com ele a semente `question|…|<elenco canônico>` — id novo, e como
     `priorStamps` casa `created_at` POR ID, carimbo novo. Vale para QUALQUER pesquisa

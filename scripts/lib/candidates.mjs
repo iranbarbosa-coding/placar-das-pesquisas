@@ -41,7 +41,7 @@ const BALLOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..
 // `reterElencos` injetável de `build-store.mjs`: provar entre RODADAS uma coisa
 // que só existe entre rodadas.
 //
-// O casador roda DEPOIS da coleta e o mapa que ele gera vale para a rodada
+// O casador roda ANTES da coleta (desde 21/08, sobre os crus da rodada anterior — era DEPOIS da coleta e o mapa que ele gera vale para a rodada
 // SEGUINTE (CONVENTIONS §6). Então a defasagem de uma rodada — um nome que
 // estreia numa disputa não é renomeado na rodada em que estreia, e é na seguinte
 // — só se observa com DOIS estados deste arquivo. Sem esta porta, o único jeito
