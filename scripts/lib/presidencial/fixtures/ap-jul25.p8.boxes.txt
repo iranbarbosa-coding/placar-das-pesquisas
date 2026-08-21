@@ -1,0 +1,21 @@
+=== página 8 === 3000x2250
+1116	26	584	48	Pesquisa - Estado do Amapá
+2538	26	283	39	Julho de 2025
+44	244	1343	96	Situação Eleitoral - Presidente
+44	349	715	48	ESTIMULADA - Cenário 1
+2908	445	26	31	8
+737	575	850	100	Não sabe/ não opinou | 4,3%
+738	750	862	100	Nenhum/ Branco/ Nulo | 5,2%
+968	942	388	52	Jair Bolsonaro
+1640	938	183	78	39,0%
+1238	1116	118	52	Lula
+1596	1112	183	78	31,8%
+1029	1286	327	61	Ciro Gomes
+1487	1286	183	83	12,5%
+968	1465	397	57	Ratinho Junior
+1374	1461	214	83	3,7%
+913	1625	675	88	Ronaldo Caiado |2,6%
+1038	1813	323	58	Renan Filho
+1422	1805	157	87	0,9%
+39	1980	680	44	BASE: Eleitores do Estado do Amapá (1310)
+48	2076	2019	52	Se as eleições para Presidente do Brasil fossem hoje e os candidatos fossem esses, em quem o(a) Sr(a) votaria?

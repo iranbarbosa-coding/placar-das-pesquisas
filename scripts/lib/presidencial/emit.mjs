@@ -32,7 +32,7 @@ const iso = (s) => (s == null ? null : String(s).slice(0, 10));
  *   ainda é devolvida, marcada, para o rastro; o orquestrador a conta como
  *   rejeitada, nunca a emite como candidata limpa.
  */
-export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, legs, pareamento = null, totalImpresso = null, tolerancia = 0 }) {
+export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, legs, pareamento = null, cenarioRotulo = null, assinatura = null, totalImpresso = null, tolerancia = 0 }) {
   const sweepData = iso(rec?.data ?? rec?.dataOriginal ?? null);
 
   // Conferência de campo a campo: PDF manda no que é número de metodologia
@@ -97,7 +97,11 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     race: "presidente",
     state: uf,
     round: 1,
-    scenario: "1º turno",
+    // Documento com VÁRIOS cenários estimulados de 1º turno (Paraná AP testou
+    // Jair/Michelle/Tarcísio/Eduardo): o rótulo distingue por índice e página do
+    // relatório — descrição do impresso, nunca um nome inventado. Doc de cenário
+    // único fica "1º turno", a grafia das entradas curadas.
+    scenario: cenarioRotulo ?? "1º turno",
     contractor,
     fieldwork_start: ficha?.fieldwork_start ?? null,
     fieldwork_end,
@@ -135,9 +139,11 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     _parser: {
       status: "pendente-2a-leitura",
       confidence,
-      pareamento,                        // adjacente-inline | adjacente-interleaved | corroborado-visual | ocr-*
+      pareamento,                        // adjacente-inline | corroborado-visual | corroborado-geometrico | ocr-*
       legs,
       page: figuras.page,
+      assinatura_elenco: assinatura,     // identidade do cenário (dedupe §1)
+      coluna_resolvida: figuras.coluna_resolvida ?? null, // SPSS: a coluna-que-soma escolhida
       absent: figuras.absent,            // asterisco = ausência ≠ zero (§4)
       tse_todos: ficha?.tse_todos ?? [],
       total_impresso: totalImpresso,
