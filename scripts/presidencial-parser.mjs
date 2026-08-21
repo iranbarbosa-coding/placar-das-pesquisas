@@ -62,14 +62,22 @@ const VERBOSE = flag("verbose");
 // Leitura das pernas (shell-out ao binário Vision). Determinístico: a mesma
 // entrada dá a mesma saída; sem relógio, sem rede aqui dentro.
 // ---------------------------------------------------------------------------
-function lerPerna(pdfPath, texto) {
+function lerPerna(pdfPath, texto, first, last) {
   const args = texto ? ["--text", pdfPath] : [pdfPath];
+  if (first != null) { args.push(String(first)); if (last != null) args.push(String(last)); }
   try {
     return execFileSync(OCR_BIN, args, { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 });
   } catch (e) {
     return ""; // perna falha → string vazia; o chamador conta como perna ausente
   }
 }
+
+// Comprimento do texto útil (sem os cabeçalhos de página) — decide se a camada
+// de texto é substancial. Um PDF só-imagem devolve ~0 aqui.
+function textoUtilLen(raw) {
+  return raw.replace(/^===\s*página.*$/gm, "").replace(/\s+/g, "").length;
+}
+const TEXTO_SUBSTANCIAL = 800;
 
 /** Extrai as figuras por uma perna; devolve {ok, figuras|reason, detail}. */
 function figurasDaPerna(raw) {
@@ -128,38 +136,78 @@ async function baixarIntegra(url, cacheDir) {
 }
 
 // ---------------------------------------------------------------------------
+// O PORTÃO DE CORROBORAÇÃO (§1/§4, achado da leitura cega do AM-08042).
+//
+// A camada de texto entrega rótulos e valores como DUAS corridas cujas ORDENS
+// podem divergir — o PDF do Direto ao Ponto embaralhou o pareamento das quatro
+// figuras pequenas, e a soma seguia 100, então NENHUM guarda de soma pegou. Lição:
+// pareamento rótulo×valor da camada de texto SOZINHA não é confiável. Só emite
+// quando a perna VISUAL (OCR) respalda o pareamento:
+//   texto+OCR e concordam → emite (dígitos exatos da camada de texto)
+//   OCR sozinho (visual)   → emite (dígitos do OCR; confiança menor, §1 confere)
+//   texto sozinho          → NÃO emite → pendência "nao-corroborado" (leitura visual §1)
+//   texto+OCR divergem     → NÃO emite → pendência "nao-corroborado" (conflito)
+// ---------------------------------------------------------------------------
+function decidirEmissao(legs) {
+  if (legs.ocr && (legs.concordam || !legs.texto)) return "emitir";
+  if (legs.texto && legs.ocr && !legs.concordam) return "divergem";
+  if (legs.texto && !legs.ocr) return "texto-sozinho";
+  return "sem-perna";
+}
+
+// ---------------------------------------------------------------------------
 // Um registro → uma disposição: emitido | rejeitado | pendência(tipo).
 // ---------------------------------------------------------------------------
 function processarPDF({ pdfPath, sha256, uf, rec, integraUrl }) {
+  // Perna A (camada de texto) primeiro — é rápida (sem render/OCR). O OCR de
+  // documento inteiro (caro: renderiza cada página a 300dpi + Vision) só roda
+  // quando REALMENTE precisa: bloco em imagem sob cabeçalho de texto, ou PDF
+  // sem camada de texto. Um sem-bloco de camada de texto substancial NÃO paga
+  // OCR — se houvesse estimulada presidencial, estaria no texto.
   const textoRaw = lerPerna(pdfPath, true);
-  const ocrRaw = lerPerna(pdfPath, false);
-
   const rA = figurasDaPerna(textoRaw);
-  const rB = figurasDaPerna(ocrRaw);
+  const textoRico = textoUtilLen(textoRaw) >= TEXTO_SUBSTANCIAL;
 
-  // Escolhe a perna primária: texto embutido se leu; senão OCR.
-  const primaria = rA.ok ? rA : rB.ok ? rB : null;
-  if (!primaria) {
-    // Nenhuma perna extraiu bloco. Distinguir ilegível de sem-bloco:
-    const semTexto = !textoRaw.trim() && !ocrRaw.trim();
-    if (semTexto) return { tipo: "pendencia", subtipo: "ilegível", detalhe: "nenhuma perna produziu texto (PDF corrompido ou render falhou)" };
-    // Alguma perna leu texto mas nenhuma achou o bloco. Se ambas dizem sem-bloco
-    // → sem-bloco; se alguma diz ilegível (bloco achado, tabela não alinha) →
-    // ilegível (o bloco existe mas não se lê com segurança).
-    const razoes = [rA, rB].filter((r) => r && !r.ok).map((r) => r.reason);
-    const subtipo = razoes.includes("ilegível") ? "ilegível" : "sem-bloco";
-    const detalhe = [rA.detail, rB.detail].filter(Boolean).join(" | ") || "bloco presidencial estimulado de 1º turno não encontrado";
-    return { tipo: "pendencia", subtipo, detalhe };
+  let figuras, legs, ocrRaw = "";
+  if (rA.ok) {
+    // Confirmação barata: OCR SÓ da página do bloco (1 página), para o sinal
+    // texto+ocr. Não é a §1 — é confiança de emissão.
+    const ocrPagina = lerPerna(pdfPath, false, rA.figuras.page, rA.figuras.page);
+    const rBpg = figurasDaPerna(ocrPagina);
+    figuras = rA.figuras;
+    legs = { texto: true, ocr: rBpg.ok, concordam: rBpg.ok ? pernasConcordam(rA.figuras, rBpg.figuras) : false };
+  } else {
+    // Precisa de OCR do documento? Sim se o texto ACHOU o cabeçalho mas não a
+    // tabela (bloco em imagem, ex. Action), ou se a camada de texto é rala
+    // (PDF só-imagem). Um "sem-bloco" com texto rico é genuíno → pula o OCR.
+    const precisaOCR = rA.reason === "ilegível" || !textoRico;
+    if (!precisaOCR) {
+      return { tipo: "pendencia", subtipo: "sem-bloco", detalhe: rA.detail || "sem cabeçalho presidente+estimulada na camada de texto (substancial)" };
+    }
+    ocrRaw = lerPerna(pdfPath, false);
+    const rB = figurasDaPerna(ocrRaw);
+    if (!rB.ok) {
+      const semTexto = !textoRaw.trim() && !ocrRaw.trim();
+      if (semTexto) return { tipo: "pendencia", subtipo: "ilegível", detalhe: "nenhuma perna produziu texto (PDF corrompido ou render falhou)" };
+      const razoes = [rA, rB].filter((r) => r && !r.ok).map((r) => r.reason);
+      const subtipo = razoes.includes("ilegível") ? "ilegível" : "sem-bloco";
+      const detalhe = [rA.detail, rB.detail].filter(Boolean).join(" | ") || "bloco presidencial estimulado de 1º turno não encontrado";
+      return { tipo: "pendencia", subtipo, detalhe };
+    }
+    figuras = rB.figuras;
+    legs = { texto: false, ocr: true, concordam: false };
   }
 
-  const figuras = primaria.figuras;
-  const legs = {
-    texto: rA.ok,
-    ocr: rB.ok,
-    concordam: rA.ok && rB.ok ? pernasConcordam(rA.figuras, rB.figuras) : false,
-  };
+  // PORTÃO DE CORROBORAÇÃO antes de qualquer emissão.
+  const decisao = decidirEmissao(legs);
+  if (decisao !== "emitir") {
+    const detalhe = decisao === "divergem"
+      ? `p.${figuras.page}: bloco lido nas DUAS pernas mas texto×OCR DIVERGEM no pareamento/valores — conflito, leitura visual §1`
+      : `p.${figuras.page}: bloco lido só na camada de texto; pareamento rótulo×valor NÃO corroborado pela perna visual (OCR não leu o bloco) — camada de texto sozinha embaralha ordem, leitura visual §1`;
+    return { tipo: "pendencia", subtipo: "nao-corroborado", detalhe };
+  }
 
-  const paginasTexto = paginar(textoRaw.trim() ? textoRaw : ocrRaw);
+  const paginasTexto = paginar(textoRico ? textoRaw : (ocrRaw || textoRaw));
   const ficha = extrairFicha(paginasTexto, uf);
 
   const tol = toleranciaDerivada(figuras);
@@ -367,14 +415,38 @@ async function selfTest() {
   const desalinhado = extrairBlocoPresidencial(paginar("=== página 8 ===\nIntenção de voto para presidente | estimulada\nLula (PT)\nFlávio Bolsonaro (PL)\nCiro (PDT)\n57\n22\n"));
   afirma(!desalinhado.ok && desalinhado.reason === "ilegível", "recusa: 3 rótulos × 2 valores devia dar ilegível (não adivinhar pareamento)");
 
-  // ---- FIXTURE ↔ BINÁRIO (amarra o autoteste ao PDF-controle real) --------
+  // ---- POLÍTICA DE EMISSÃO (o portão de corroboração, achado do AM-08042) --
+  // Pareamento da camada de texto SOZINHA não emite; só com a perna visual.
+  afirma(decidirEmissao({ texto: true, ocr: false, concordam: false }) === "texto-sozinho", "política: texto SOZINHO não pode emitir (foi o bug do AM p.13)");
+  afirma(decidirEmissao({ texto: true, ocr: true, concordam: true }) === "emitir", "política: texto+OCR que concordam emitem");
+  afirma(decidirEmissao({ texto: false, ocr: true, concordam: false }) === "emitir", "política: OCR (visual) sozinho emite");
+  afirma(decidirEmissao({ texto: true, ocr: true, concordam: false }) === "divergem", "política: texto+OCR que divergem NÃO emitem");
+
+  // ---- BINÁRIO DO OCR: compila se faltar; AUSÊNCIA É FALHA EM VOZ ALTA -----
+  // (§2: nunca salto silencioso — o "mede zero e parece são" vale para o próprio
+  // autoteste. Sem swiftc/binário, o teste REPROVA, não pula.)
+  if (!fs.existsSync(OCR_BIN)) {
+    try {
+      execFileSync("swiftc", ["-O", "-o", OCR_BIN, path.join(RAIZ, "scripts", "ocr", "ocr.swift")], { stdio: "pipe" });
+    } catch (e) {
+      afirma(false, `binário do OCR ausente e o swiftc falhou/ausente (${String(e.message).split("\n")[0]}) — checkout limpo precisa compilar: swiftc -O -o scripts/ocr/ocr scripts/ocr/ocr.swift`);
+    }
+  }
+  const temBinario = fs.existsSync(OCR_BIN);
+  afirma(temBinario, "binário do OCR indisponível após tentar compilar — a perna PDF do autoteste NÃO pode rodar; isto é FALHA, não salto (§2)");
+
+  // ---- FIXTURE ↔ BINÁRIO + PORTÃO PONTA A PONTA no PDF-controle real -------
   const pdfCtrl = path.join(FIXTURES, "pe-04519.pdf");
-  if (fs.existsSync(pdfCtrl)) {
+  afirma(fs.existsSync(pdfCtrl), "PDF-controle fixtures/pe-04519.pdf ausente — fixture end-to-end não pode rodar (falha, não salto)");
+  if (temBinario && fs.existsSync(pdfCtrl)) {
     let saida = "";
-    try { saida = execFileSync(OCR_BIN, ["--text", pdfCtrl], { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 }); } catch { /* trata abaixo */ }
+    try { saida = execFileSync(OCR_BIN, ["--text", pdfCtrl], { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 }); } catch { /* saída vazia reprova abaixo */ }
     afirma(saida.trim() === fxTexto.trim(), "fixture: binário ocr --text NÃO reproduziu a fixture do PDF-controle (fixture obsoleta ou binário mudou)");
-  } else {
-    console.error("· nota: PDF-controle ausente de fixtures/; pulei a perna PDF↔fixture (não é sucesso, é salto anunciado)");
+    // PORTÃO ponta a ponta: o controle Datafolha lê certo na camada de texto,
+    // mas o OCR sai embaralhado → NÃO corrobora → tem de ir à pendência, não emitir.
+    const disp = processarPDF({ pdfPath: pdfCtrl, sha256: "test", uf: "PE", rec: {}, integraUrl: "x" });
+    afirma(disp.tipo === "pendencia" && disp.subtipo === "nao-corroborado",
+      `portão e2e: controle Datafolha (texto ok, OCR embaralhado) devia virar pendência nao-corroborado, veio ${disp.tipo}/${disp.subtipo ?? "-"}`);
   }
 
   // ---- INVARIANTE DO LEDGER (conta fecha) ---------------------------------

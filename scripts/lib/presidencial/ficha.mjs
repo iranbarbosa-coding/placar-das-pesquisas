@@ -101,6 +101,38 @@ export function confianca(texto) {
 }
 
 /**
+ * Contratante, LIDO DO RELATÓRIO — nunca do agregador (§4: a fonte do reparo é o
+ * PDF; puxar do sweep já mandou 'DCastro' num relatório cujo rodapé diz outra
+ * coisa). Nulo se não impresso. Dois padrões medidos:
+ *   "O DIRETO AO PONTO PESQUISAS FOI A CONTRATANTE..." → nome antes de "FOI A CONTRATANTE"
+ *   "Contratante: Nassau Editora..."                    → nome depois do rótulo
+ */
+export function contratante(texto) {
+  let m = texto.match(/\b([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60}?)\s+foi\s+(?:a|o)\s+contratante/i);
+  if (m) return limparOrg(m[1]);
+  m = texto.match(/contratante[\s(]*(?:da pesquisa|do estudo)?\s*[:\-]\s*([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60})/i);
+  if (m) return limparOrg(m[1]);
+  return null;
+}
+
+/**
+ * Instituto executor, LIDO DO RELATÓRIO. Nulo se não extraível — o chamador
+ * decide o fallback e MARCA a procedência (§4), nunca sourceia calado do sweep.
+ */
+export function instituto(texto) {
+  let m = texto.match(/\b([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60}?)\s+foi\s+a\s+contratante\s+e\s+executora/i);
+  if (m) return limparOrg(m[1]);
+  m = texto.match(/(?:realizada|executada|elaborada)\s+pel[ao]s?\s+([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60})/i);
+  if (m) return limparOrg(m[1]);
+  return null;
+}
+
+// Apara artigo/lixo comum de borda ("O ", "A ") e espaços.
+function limparOrg(s) {
+  return s.trim().replace(/^(o|a|os|as)\s+/i, "").replace(/\s+/g, " ").trim() || null;
+}
+
+/**
  * Reúne a ficha do texto plano de todas as páginas. `uf` é a UF alvo (para
  * escolher o registro do estado). Todo campo que não aparece com segurança fica
  * NULO — a ausência é registrada, não inventada.
@@ -118,6 +150,8 @@ export function extrairFicha(paginas, uf) {
     tse_registration: reg.escolhido,
     tse_registration_ambiguo: reg.ambiguo,
     tse_todos: reg.todos,
+    contractor: contratante(texto),
+    pollster: instituto(texto),
   };
 }
 

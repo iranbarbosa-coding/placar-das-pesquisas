@@ -61,8 +61,23 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     divergencias.push(`mais de um registro do estado ${uf} no PDF (${(ficha.tse_todos ?? []).join(", ")}) — §1 decide`);
   }
 
-  const pollster = (rec?.instituto ?? "").trim() || null;
-  const contractor = (rec?.contratante ?? "").trim() || null;
+  // PROCEDÊNCIA §4: dados do add_poll vêm do PDF. contratante NUNCA do sweep
+  // (foi assim que 'DCastro' — grafia do agregador — divergiu do rodapé do
+  // relatório). pollster do PDF; se não extraível, cai no sweep MAS com a
+  // procedência marcada em voz alta para a §1 conferir, nunca calado.
+  const contractor = ficha?.contractor ?? null;
+  const pollsterDoPDF = ficha?.pollster ?? null;
+  const pollster = pollsterDoPDF ?? ((rec?.instituto ?? "").trim() || null);
+  const procedencia = {
+    pollster: pollsterDoPDF ? "pdf" : (pollster ? "sweep(conferir no PDF §1)" : "ausente"),
+    contractor: contractor ? "pdf" : "ausente(não impresso)",
+    sample_size: ficha?.sample_size != null ? "pdf" : (rec?.entrevistas != null ? "sweep(conferir §1)" : "ausente"),
+    margin_of_error: ficha?.margin_of_error != null ? "pdf" : (rec?.margem != null ? "sweep(conferir §1)" : "ausente"),
+    tse_registration: ficha?.tse_registration ? "pdf" : (rec?.registro ? "sweep(conferir §1)" : "ausente"),
+    fieldwork_end: "sweep(alinhamento; confere fim de período do PDF)",
+  };
+  if (pollster && !pollsterDoPDF) divergencias.push(`pollster '${pollster}' veio do sweep — não extraído do PDF; §1 confere no relatório`);
+  if (!contractor) divergencias.push("contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)");
 
   const confidence = legs.texto && legs.ocr && legs.concordam ? "texto+ocr"
     : legs.texto ? "texto"
@@ -125,6 +140,7 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
       tse_todos: ficha?.tse_todos ?? [],
       total_impresso: totalImpresso,
       tolerancia_derivada: tolerancia,
+      procedencia,
       divergencias_sweep: divergencias,
       rejeitado,
       pdf_sha256: pdfHash,
