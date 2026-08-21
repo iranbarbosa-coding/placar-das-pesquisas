@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import AllPollsTable from "@/components/AllPollsTable";
 import RaceBarsEvolution from "@/components/RaceBarsEvolution";
 import RcpPollsTable from "@/components/RcpPollsTable";
 import RunoffMain from "@/components/RunoffMain";
 import RunoffSims from "@/components/RunoffSims";
-import StateNav from "@/components/StateNav";
+// StateNav (a toggle de navegação do estado) está omitida por ora — volta numa
+// etapa futura; o componente segue em `@/components/StateNav`.
 import StateTrends from "@/components/StateTrends";
 import { candKey } from "@/lib/average";
 import { scenarioGroups } from "@/lib/data";
 import { stateRunoff, stateTrends } from "@/lib/estado";
-import { raceEvolutionData, rcpTable } from "@/lib/presidente";
+import { allStatePolls, raceEvolutionData, rcpTable } from "@/lib/presidente";
 import { UFS, UF_NAMES, type UF } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -76,6 +78,10 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   const presRunoff = stateRunoff("presidente", UFU);
   const hasRunoff = !!(govRunoff.main || govRunoff.sims.length || presRunoff.main || presRunoff.sims.length);
 
+  // Every poll of the state — governor, senate and president — for the final
+  // searchable/filterable table, in the presidential page's pattern.
+  const allPolls = allStatePolls(UFU);
+
   return (
     <div className="flex min-w-0 flex-col gap-8">
       {/* Page header — breadcrumb + title + Visão geral nav. */}
@@ -97,7 +103,9 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
           </p>
         </div>
 
-        <StateNav active="Visão geral" />
+        {/* Toggle de navegação do estado (Visão geral · Governador · Senado ·
+            Presidente · Todas as pesquisas) OMITIDA por ora — volta numa etapa
+            futura de evolução do produto. Componente pronto em `StateNav.tsx`. */}
       </header>
 
       {/* TENDÊNCIAS · ÚLTIMOS 15 DIAS — líderes por cargo + maior alta / maior queda. */}
@@ -212,11 +220,11 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
         </div>
       )}
 
-      {/*
-        PARTE 2 (restante) — OCULTA até validar: a tabela geral presidencial.
-        O motor (rcpTable / pollsFor) já aceita (race, uf, round). Ver
-        GUIA_DE_DESIGN §9 e o histórico desta página.
-      */}
+      {/* Todas as pesquisas do estado — busca + filtros + paginação, no padrão
+          da página presidencial (AllPollsTable owns the heading + id). */}
+      <section className="card min-w-0 p-4 sm:p-6" aria-label={`Todas as pesquisas em ${UF_NAMES[UFU]}`}>
+        <AllPollsTable rows={allPolls} title={`Todas as pesquisas · ${UF_NAMES[UFU]}`} />
+      </section>
     </div>
   );
 }

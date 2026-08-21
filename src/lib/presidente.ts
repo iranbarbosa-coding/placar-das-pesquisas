@@ -224,7 +224,10 @@ function resultadoOf(poll: Poll, max = 6): string {
 }
 
 function toPollRow(poll: Poll): PollRow {
-  const disputa = `Presidente · ${poll.round === 2 ? "2º" : "1º"} turno`;
+  // Disputa reads from the poll's own race, so the same row works for governor,
+  // senate and president. Senate is one 2-seat election — no turno.
+  const cargo = poll.race === "governador" ? "Governador" : poll.race === "senador" ? "Senado" : "Presidente";
+  const disputa = poll.race === "senador" ? "Senado" : `${cargo} · ${poll.round === 2 ? "2º" : "1º"} turno`;
   const estado = poll.state ? UF_NAMES[poll.state] : "Brasil";
   const names = poll.results.map((r) => r.candidate).join(" ");
   return {
@@ -777,6 +780,20 @@ export function allPresidentialPolls(): PollRow[] {
   const all: Poll[] = [
     ...pollsFor("presidente", null),
     ...UFS.flatMap((uf) => pollsFor("presidente", uf)),
+  ];
+  const dateOf = (p: Poll) => p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? "0000";
+  return all
+    .sort((a, b) => dateOf(b).localeCompare(dateOf(a)) || String(a.id).localeCompare(String(b.id)))
+    .map(toPollRow);
+}
+
+/** Every poll of a STATE — governor, senate and president-in-state — newest
+ *  first, in the same `PollRow` shape as the presidential table. */
+export function allStatePolls(uf: UF): PollRow[] {
+  const all: Poll[] = [
+    ...pollsFor("governador", uf),
+    ...pollsFor("senador", uf),
+    ...pollsFor("presidente", uf),
   ];
   const dateOf = (p: Poll) => p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? "0000";
   return all

@@ -30,20 +30,25 @@ export default function RunoffSims({ rows, title = "Todas as simulações de 2º
       {rows.length ? (
         <ul className="mt-3 flex flex-col gap-3">
           {rows.map((r, i) => (
-            <li key={i} className="flex flex-col gap-1">
-              <div className="flex items-baseline justify-between gap-2">
-                <span className="min-w-0 truncate text-sm" style={{ color: "var(--text-primary)" }}>
-                  <span className="font-semibold">{r.a.name}</span>
-                  <span style={{ color: "var(--text-muted)" }}> vs </span>
-                  <span className="font-semibold">{r.b.name}</span>
+            <li key={i} className="flex flex-col gap-1.5">
+              {/* Full names on their own line so neither candidate is ever cut. */}
+              <div className="text-sm" style={{ color: "var(--text-primary)" }}>
+                <span className="font-semibold">{r.a.name}</span>
+                <span style={{ color: "var(--text-muted)" }}> vs </span>
+                <span className="font-semibold">{r.b.name}</span>
+              </div>
+              {/* Shares at the ends of the bar. */}
+              <div className="flex items-center gap-2">
+                <span className="tabular shrink-0 text-xs font-bold" style={{ color: r.a.color }}>
+                  {fmtPct(r.a.pct)}%
                 </span>
-                <span className="tabular shrink-0 text-sm font-bold">
-                  <span style={{ color: r.a.color }}>{fmtPct(r.a.pct)}%</span>
-                  <span style={{ color: "var(--text-muted)" }}> · </span>
-                  <span style={{ color: r.b.color }}>{fmtPct(r.b.pct)}%</span>
+                <div className="min-w-0 flex-1">
+                  <Bipolar a={r.a} b={r.b} />
+                </div>
+                <span className="tabular shrink-0 text-xs font-bold" style={{ color: r.b.color }}>
+                  {fmtPct(r.b.pct)}%
                 </span>
               </div>
-              <Bipolar a={r.a} b={r.b} />
             </li>
           ))}
         </ul>
