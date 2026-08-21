@@ -30,7 +30,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normNome, acentos, melhorGrafia, ufDaCandidatura, chaveDeDisputa } from "./lib/nomes.mjs";
+import { normNome, grafiaCompare, melhorGrafia, ufDaCandidatura, chaveDeDisputa } from "./lib/nomes.mjs";
 // O agrupamento do registro mora em `lib/candidaturas.mjs` desde que
 // `lib/people.mjs` passou a precisar do MESMO colapso de re-registros para
 // contar pessoas. Uma regra, uma implementação (CONVENTIONS §5).
@@ -421,11 +421,60 @@ function add(mapping, contest, nome, cand, how) {
   // ASCII sorts before accented, so the better spelling was written second — but
   // that is a dependency on sort order nobody stated, and CONVENTIONS §8 exists
   // because exactly this kind of accident is how output starts tracking
-  // something that is not the data. Resolve it on CONTENT: more diacritics wins,
-  // and a tie keeps what is already there.
+  // something that is not the data. Resolve it on CONTENT — a ordem de
+  // qualidade é a de `grafiaCompare` (acentos, depois siglas), a MESMA que
+  // `melhorGrafia` usa, e não uma cópia dela (CONVENTIONS §5) — and a tie
+  // keeps what is already there.
   const atual = mapping[contest][chave];
-  if (atual && acentos(atual.nome_urna) >= acentos(novo.nome_urna)) return;
+  if (atual && grafiaCompare(novo.nome_urna, atual.nome_urna) <= 0) return;
   mapping[contest][chave] = novo;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+/**
+ * §2: prova que a regra de grafia decide o que promete — cada caso é um defeito
+ * real, medido, e a mutação que reverte a proteção de caixa derruba SÓ o caso
+ * novo (os de acento e o de controle continuam verdes, provando que ela não
+ * regrediu nem alargou).
+ */
+function autoteste() {
+  const casos = [
+    // A PROTEÇÃO NOVA (caixa): o title-case do fetch esmagou a sigla do
+    // registro; a grafia publicada, mesmo nome sob normNome, vence.
+    ["sigla protegida", () => melhorGrafia("Joaquim do MLB", "Joaquim do Mlb") === "Joaquim do MLB"],
+    // A PROTEÇÃO VELHA (acento) não regrediu, nos dois sentidos.
+    ["acento protegido (pesquisa melhor)", () => melhorGrafia("Flávio Bolsonaro", "Flavio Bolsonaro") === "Flávio Bolsonaro"],
+    ["acento protegido (urna melhor)", () => melhorGrafia("Flavio Bolsonaro", "Flávio Bolsonaro") === "Flávio Bolsonaro"],
+    // ACENTO MANDA ANTES DA CAIXA: a ordem é lexicográfica, não uma soma.
+    ["acento antes de caixa", () => melhorGrafia("Pablo MARCAL", "Pablo Marçal") === "Pablo Marçal"],
+    // CONTROLE (§4): grafias realmente DIFERENTES seguem com o registro —
+    // isto decide exibição entre grafias da mesma pessoa, nunca identidade.
+    ["nomes diferentes: urna vence", () => melhorGrafia("Ricardo Salles", "Salles") === "Salles"],
+    // O INSTITUTO QUE GRITA NÃO VENCE: presidente:SE publica "RENAN SANTOS";
+    // caixa alta pura não é sigla, não carrega informação de caixa.
+    ["caixa alta pura não vence", () => melhorGrafia("RENAN SANTOS", "Renan Santos") === "Renan Santos"],
+    // A COLISÃO DE CHAVE NO add() É DECIDIDA POR CONTEÚDO, NAS DUAS ORDENS
+    // (CONVENTIONS §8): duas grafias cruas que dobram na mesma chave.
+    ["add() indiferente à ordem", () => {
+      const cand = { nome_urna: "Joaquim do Mlb", sq_candidato: "x", partido: "UP", numero: "800" };
+      const ab = {}, ba = {};
+      add(ab, "senador:PR", "Joaquim do MLB", cand, "exato");
+      add(ab, "senador:PR", "joaquim do mlb", cand, "exato");
+      add(ba, "senador:PR", "joaquim do mlb", cand, "exato");
+      add(ba, "senador:PR", "Joaquim do MLB", cand, "exato");
+      const na = ab["senador:PR"]["joaquim do mlb"].nome_urna;
+      const nb = ba["senador:PR"]["joaquim do mlb"].nome_urna;
+      return na === "Joaquim do MLB" && na === nb;
+    }],
+  ];
+  let falhas = 0;
+  for (const [nome, fn] of casos) {
+    const ok = fn();
+    if (!ok) falhas++;
+    console.log(`${ok ? "ok" : "FALHOU"} — ${nome}`);
+  }
+  if (falhas) { console.error(`autoteste: ${falhas} caso(s) falharam`); process.exit(1); }
+  console.log("autoteste: todos os casos passaram");
+}
+
+if (process.argv.includes("--self-test")) autoteste();
+else if (import.meta.url === `file://${process.argv[1]}`) main();
