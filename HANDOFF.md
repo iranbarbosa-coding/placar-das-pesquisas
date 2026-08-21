@@ -102,7 +102,22 @@ ListAgents, os ids mudam):
      na média É TETO SUPERIOR, pendente de re-medição com a regra averageable) e o
      datesClose aceita data nula (caso senador:AC confirmado na fonte viva: tabela de
      dez/2025 sob identidade de 25/07, fora da média pelo portão de dois votos).
-   O agendamento segue suspenso até 2 e 3 fecharem; religar é decisão do criador (§12).
+   **ESTADO EM 21/08/2026 à noite: as três condições estão FECHADAS.** A frente da
+   fusão de cenários também fechou (PR #19: conserto do mergePolls — data nula exige
+   chave forte, ordinal de cenário estrito — + 27 ratificações citadas; PR #20:
+   plumbing do estímulo espontânea×estimulada + 28ª ratificação, opção A do criador).
+   PROVA VERDE, medida em fixture (banco como HEAD × coleta consertada): o guarda de
+   delta dá exit 0 — 2.996→3.061 perguntas, 160 sumidas TODAS com prova (132
+   sucessoras + 28 ratificadas em voz alta), presidente:AM com 2 perguntas (a
+   curadoria materializa na primeira rodada). O agendamento segue suspenso; RELIGAR
+   é decisão do criador (§12) — não há mais bloqueio técnico conhecido, e o 1º run
+   pós-religar terá um churn one-shot de provenance.updated_at (~2,1 mil, mecânico,
+   explicado no PR #20). PARQUEADOS com dono futuro: curadoria da marca de estímulo
+   do IRG-13833 (PDF é a única fonte) + a decisão de paridade associada; a
+   instabilidade de identidade de levantamento entre reconstruções (religações sem
+   chave — 6 casos ratificados citam gêmeas); a degradação de registros nativos do
+   próprio Poder360 (13850/13851/13802, medida em 21/08); as 124 fusões (c)
+   indecidíveis; e o lote de reparos pequenos da certificação municipal.
 2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS **e
    CERTIFICADOS em 20/08** (releitura cega independente das 23 fontes: 23/23 vereditos
    coincidem; refinamentos do conferente repassados à sessão do gate, que os foldou no
