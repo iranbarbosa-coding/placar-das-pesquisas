@@ -182,7 +182,23 @@ Os percentuais **somam ~200%, não 100**. Por isso: `showOutros={false}` (o "Out
 
 ### Header de página e navegação
 - **Header padrão:** breadcrumb (`Início › … ›`) + `<h1 text-2xl>` + subtítulo + link "Metodologia completa →" à direita.
-- **Masthead:** o nav completo aparece só no **`xl` (≥1280)**; abaixo disso, hambúrguer (busca e "Entrar" seguem na barra). Regra ao acrescentar aba: caber em ≥1280 ou colapsar antes.
+- **Masthead:** o nav completo aparece só no **`xl` (≥1280)**; abaixo disso, hambúrguer (busca e "Entrar" seguem na barra). Regra ao acrescentar aba: caber em ≥1280 ou colapsar antes. **Itens atuais (21/08):** Presidente · Estados · Derivadas · Metodologia · Sobre (`MENUS` em `Masthead.tsx`); Governador/Senado/2º turno saíram — vivem na Visão geral de estado.
 
 ### Ordem alfabética de estados
 Listagens de estados (menu Estados, pies por estado, /segundo-turno, índice) usam `localeCompare(..., "pt-BR")` por `UF_NAMES`.
+
+---
+
+## 9-bis. Painel "Visão geral" de estado (`/estados/[uf]`) — componentes
+
+A `/estados/[uf]` é o painel **Visão geral** (São Paulo = template; ver [RELATORIO §11](RELATORIO_REDESIGN.md)). Componentes e montadores próprios, todos por UF:
+
+- **`StateTrends` ← `stateTrends(uf)` (`lib/estado`).** Card "Tendências · N dias": Líderes por cargo (foto atual) + Maior alta/queda (deltas por `candDelta`). Toggle 15/30/60d **cliente**; as 3 janelas são pré-computadas no servidor (§5 — nada recalculado no browser).
+- **`RaceBarsEvolution` (cliente).** O par **barras + evolução COORDENADO**: segura o estado de **base** (bruto/válidos, troca os dois cortes precomputados) e de **hover** (a data do gráfico alimenta as barras). Props: `half` (metade da largura → flex-1 preenche a altura da seção, dois boxes iguais), `showOutros`, `reconcileTo100` (false p/ Senado 2 votos → "Outros" = soma dos folded), `fiftyLabel`.
+  - **`RaceBars` (cliente)** — barras a partir da média na data em hover; só ≥2% (via `significantKeys`) viram barra, resto em "Outros"; **sem** marcador de 50% (design limpo); `compact` → nome ACIMA da barra (largura cheia) nos painéis estreitos.
+  - Gráfico: **`HeroInteractive`** (o mesmo do 1º turno), com `showKpis={false}` (as barras são os KPIs) e **`onHoverDate`** (reporta a data p/ as barras). Foi o que se adicionou a ele.
+- **`RunoffMain` / `RunoffSims` ← `stateRunoff(race, uf)` (`lib/estado`).** 2º turno: confronto principal (barra bipolar + **mini-evolução com escala AJUSTADA ao intervalo**, não 0-based) e a lista de simulações (bipolar; 1º-vs-outros primeiro; nome dos dois em linha própria). Barra bipolar leva um **corte na cor do card no ponto de divisão** p/ hues próximos (Lula/Zema) lerem distintos.
+- **Tabela geral:** `AllPollsTable` (o mesmo da `/presidente`) ← **`allStatePolls(uf)`**; `toPollRow` passou a ler a disputa do cargo do poll (Senado/Governador/Presidente). `AllPollsTable` ganhou prop `title`.
+- **`StateNav`** — a toggle de navegação do estado; **OMITIDA por ora** (não renderizada); volta numa etapa futura.
+
+**Cor:** sempre `colorMap` sobre o **campo do 1º turno** (não sobre o subconjunto do card) — `colorMap` faz collision-probing dependente do conjunto, então um candidato não-fixo muda de hue se o mapa for menor. Os assemblers já fazem isso; ao criar cards novos, herde o mesmo `colorFor`.

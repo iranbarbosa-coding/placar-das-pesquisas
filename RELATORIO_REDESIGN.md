@@ -108,10 +108,33 @@ Detalhes de padrão no [GUIA_DE_DESIGN.md §9](GUIA_DE_DESIGN.md).
 
 - **`/presidente` (Disputa Presidencial 2026).** Matriz RCP das pesquisas (linha "Média" em faixa azul da marca, coluna "Resultado" = distância aos 50% com chips verde/vermelho/cinza), card de evolução (valores em cima + gráfico 120px), rejeição (placeholder "em breve" — **não há dado de rejeição no banco**), simulações de 2º turno em 3 cards de área (líder vs os 3 atrás), mapa presidencial por estado, arte de "Tendência" (toggle 60/30/15 dias), pies por estado (todos com ≥3 pesquisas, alfabético) e tabela geral com busca/filtros. "Modalidade" foi removida (`methodology` é null no banco).
 - **`/segundo-turno`.** Migrada ao padrão de cards; `MatchupCard` em paleta dual (líder vermelho/rival azul). A seção Presidente lista só confrontos **entre registrados**; Governadores por estado, alfabético.
-- **`/estados/[uf]`.** Passou a usar **os mesmos componentes da `/presidente`**: Governador 1º turno (evolução + RCP), 2º turno (simulações de área), Senado (evolução + RCP com "Resultado" = vantagem sobre o 2º, linha 50% neutra e sem "Outros", por ser cédula de 2 votos). `RaceSection`/`RaceView`/`AverageChart`/`RaceTable` ficaram órfãos com a migração e **foram removidos** (branch `cleanup/orfaos-corrida`).
+- **`/estados/[uf]`.** _(Superada — ver §11.)_ Chegou a usar os mesmos componentes da `/presidente` (Governador 1º turno evolução + RCP, 2º turno, Senado); em 21/08 foi **reescrita no painel "Visão geral"** (§11). `RaceSection`/`RaceView`/`AverageChart`/`RaceTable` ficaram órfãos e **foram removidos** (PR #9).
 - **Regra de registrados generalizada** para toda corrida por cargo + UF (`registeredRaceKeys`), então Senado/Governador só nomeiam candidatos de fato registrados àquela disputa.
-- **Aba "2º turno"** no menu; **masthead** com nav completo só em ≥1280 (hambúrguer abaixo) para não estourar.
+- **Masthead (21/08):** nav reduzida a **Presidente · Estados · Derivadas · Metodologia · Sobre** (PR #25). Governador/Senado/2º turno saíram do topo — vivem na Visão geral; `/segundo-turno` segue como rota. "Derivadas" é categoria nova, stub `/derivadas` ("em breve"), conteúdo em etapa futura. Nav completa só em ≥1280 (hambúrguer abaixo).
 
 ### Pendências de dado (com o pipeline / P26_7)
 - **Presidencial nas pesquisas estaduais** é fino (só ~377 subamostras com UF; muitos estados com 1–2) — provável falha de parser (a subpergunta presidencial não vira question `presidente:UF`). Vários estados ficam cinza no mapa / fora dos pies.
 - **Rejeição** e **methodology (modalidade)** não existem no store — são features de parser a construir. Quando entrarem, a página consome sem mudança de código.
+
+---
+
+## 11. Painel "Visão geral" de estado — São Paulo é o template (21/08, PRs #24/#25)
+
+A `/estados/[uf]` foi reescrita num painel **Visão geral**, com **São Paulo como template**. A página é **dinâmica** (um só `[uf]`): as 27 UFs já geram com a MESMA estrutura, **repopulada pelos dados de cada estado** — não há página por estado a criar. Detalhe de componentes no [GUIA §9-bis](GUIA_DE_DESIGN.md).
+
+**Estrutura (de cima pra baixo):**
+1. **Cabeçalho** — título + subtítulo. A toggle de navegação do estado (`StateNav`: Visão geral · Governador · Senado · Presidente · Todas as pesquisas) está **OMITIDA por ora** (decisão do criador); componente pronto, volta numa etapa futura.
+2. **Tendências · 15/30/60 dias** — líderes por cargo (foto atual, independe da janela) + maior alta/queda (deltas por janela). Toggle cliente; janelas pré-computadas no servidor.
+3. **Governador · 1º turno** — tabela RCP "10 últimas" + **barras** (só ≥2%, resto em "Outros"; design limpo sem marcador de 50%) + **evolução**, com toggle **bruto/válidos** e **hover sincronizado** (o número da barra segue a data no gráfico). Barras e gráfico compartilham estado (base + data em hover).
+4. **Senado** e **Presidente no estado** (metade cada) — mesmo par barras+evolução; barras com **nome acima** nos painéis estreitos; alturas dos boxes padronizadas (flex-1 preenche a seção). **Senado = cédula de 2 votos:** sem bruto (válidos=bruto no store), "Outros" = soma dos <2% registrados (NÃO o resto até 100), 50% neutro.
+5. **2º turno** (Governador | Presidente, metade cada) — **confronto principal** (números grandes + barra bipolar com corte no ponto de divisão p/ hues próximos + mini-evolução com **escala ajustada ao intervalo**, não 0-based, senão achata) + **simulações** (1º-vs-outros primeiro, só cenários pesquisados; nomes em linha própria p/ não truncar).
+6. **Todas as pesquisas · UF** — `AllPollsTable` no padrão da `/presidente` (busca + filtros + paginação); `allStatePolls(uf)` reúne governador+senado+presidente.
+
+**Regras de dado carregadas no código:** cor por identidade (§5), sempre computada do corte **válidos** (estável ao alternar base); só registrados nomeados por cargo+UF; nunca inventa cenário não pesquisado.
+
+### Handoff para a sucessora (trabalho seguinte)
+- **Repopular/afinar por UF.** A estrutura serve as 27 UFs; conferir estados com **dado fino** (presidencial estadual raso, 2º turno sem confrontos pesquisados) — os componentes já degradam com "ainda não há…", mas vale revisar caso a caso.
+- **Restaurar a `StateNav`** quando o produto evoluir (componente pronto; hoje só não é renderizado).
+- **Conteúdo de `/derivadas` e `/sobre`** (ambos stubs "em breve") e da `/metodologia` — próximas sessões.
+- **Metodologia/rejeição** entram na tabela/consumo sem mudança de código quando o parser capturar (segue pendência de dado acima).
+- **Cor de não-fixos** (§5): `colorMap` faz "collision probing" dependente do conjunto — sempre popular o mapa com o campo do 1º turno (é o que os assemblers fazem), senão um candidato muda de cor entre cards.
