@@ -36,7 +36,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { writeStoreFromPolls } from "./lib/build-store.mjs";
-import { applyRepairs, inserirPesquisaCurada, montarPesquisaCurada } from "./lib/repairs.mjs";
+import { applyRepairs, gatearPesquisaCurada, inserirPesquisaCurada, montarPesquisaCurada } from "./lib/repairs.mjs";
 import { usarRegistroDeUrna } from "./lib/candidates.mjs";
 import { canonicalizeCandidates } from "./lib/canonicalize.mjs";
 import { agruparPorDisputa, lerCandidaturas } from "./lib/candidaturas.mjs";
@@ -158,26 +158,42 @@ const MUTACOES = {
   // registra). Aqui a decisão de verdade roda, com os seus avisos e o seu
   // `noop`, e só a pesquisa é retirada da lista — então caem exatamente os casos
   // que afirmam que ela ENTROU.
-  nunca: (polls, rep, targets, label) => {
-    const r = inserirPesquisaCurada(polls, rep, targets, label);
-    if (!r.poll) return r;
-    polls.pop();
-    return { warnings: r.warnings };
+  nunca: {
+    inserir: (polls, rep, targets, label) => {
+      const r = inserirPesquisaCurada(polls, rep, targets, label);
+      if (!r.poll) return r;
+      polls.pop();
+      return { warnings: r.warnings };
+    },
   },
   // A inserção acontece SEMPRE: sem citação, sem conferir se a pesquisa já
   // existe, sem conferir a própria cláusula. É o duplicado que conta a mesma
   // amostra duas vezes. Usa a construção de verdade — só a decisão é mutilada.
-  sempre: (polls, rep) => {
-    const p = montarPesquisaCurada(rep);
-    polls.push(p);
-    return { warnings: [], poll: p };
+  sempre: {
+    inserir: (polls, rep) => {
+      const p = montarPesquisaCurada(rep);
+      polls.push(p);
+      return { warnings: [], poll: p };
+    },
+  },
+  // O GATE NEUTRALIZADO: a decisão de verdade roda inteira — recusas, noop e a
+  // linha de log intactos — e só a REMOÇÃO é desfeita, devolvendo o alvo à
+  // lista. É o `nunca` do `drop_poll`: caem exatamente os casos que afirmam que
+  // o registro viciado SAIU, e nenhum outro (mutilar também as recusas
+  // reprovaria tudo de uma vez e não provaria nada sobre nenhuma metade).
+  semgate: {
+    dropar: (polls, rep, targets, label) => {
+      const r = gatearPesquisaCurada(polls, rep, targets, label);
+      for (const p of r.removed ?? []) polls.push(p);
+      return r;
+    },
   },
 };
 
 // ------------------------------------------------------------------ runner
 function rodar({ mutacao = null } = {}) {
-  const inserir = mutacao ? MUTACOES[mutacao] : undefined;
-  const opcoes = (file) => (inserir ? { file, inserir } : { file });
+  const mut = mutacao ? MUTACOES[mutacao] : {};
+  const opcoes = (file) => ({ file, ...mut });
   const falhas = [];
   let ok = 0;
 
@@ -711,7 +727,136 @@ function rodar({ mutacao = null } = {}) {
   });
 
   // ======================================================================
-  // E. O ARQUIVO CURADO DE VERDADE
+  // E. O GATE CURADO (`drop_poll`) — o registro que não pode ir ao ar
+  // ======================================================================
+  //
+  // O defeito guardado está em `gatearPesquisaCurada` (repairs.mjs): a
+  // governador:SP r1 que o `mergePolls` costurou de três cenários distintos —
+  // tabela de um cenário sob a identidade de outro, veredito SEM PROVA do
+  // conferente (21/08/2026). As metades aqui são as mesmas do `add_poll` com o
+  // sinal trocado: remover quando deve, dizer noop em voz alta quando o alvo
+  // não emergiu, e recusar sem fonte citada — remover sem prova é censura, e o
+  // registro sairia de uma média que o público vê.
+
+  const GATE_FIM = "2026-07-20";
+  const viciada = (over = {}) => ({
+    // A forma do caso real: linha de Wikipédia, sem registro do TSE, com o
+    // rótulo de cenário que carrega a identidade trocada.
+    id: "ffffffffffff", source: "wikipedia",
+    pollster: INSTITUTO, race: "governador", state: "PE", round: 1,
+    scenario: "1º turno — cenário 1/3", source_url: "https://exemplo/wiki",
+    fieldwork_start: "2026-07-16", fieldwork_end: GATE_FIM, published_date: null,
+    sample_size: 1600, margin_of_error: 2.4, tse_registration: null,
+    results: [
+      { candidate: "Eta Insercao", party: "MDB", pct: 27.2 },
+      { candidate: "Teta Insercao", party: "PRTB", pct: 28.3 },
+      { candidate: "Iota Insercao", party: "PSB", pct: 14.6 },
+    ],
+    others_pct: null, undecided_pct: 20.7, blank_null_pct: null,
+    ...over,
+  });
+  const CLAUSULA_GATE = { pollster: INSTITUTO, race: "governador", state: "PE", round: 1, fieldwork_end: GATE_FIM };
+  const specDeGate = (dir, { match = CLAUSULA_GATE, ...over } = {}) => {
+    const f = path.join(dir, "reparo-de-gate.json");
+    fs.writeFileSync(f, JSON.stringify({
+      version: 1,
+      repairs: [{
+        match,
+        defect: "fusão de cenários com identidade trocada: a tabela de um cenário publicada sob o rótulo de outro, sem prova de costura limpa.",
+        source: "https://exemplo/pagina-da-fonte",
+        evidence: "anatomia da costura conferida às cegas por leitor independente",
+        verified_at: "2026-08-21",
+        drop_poll: true,
+        ...over,
+      }],
+    }, null, 1));
+    return f;
+  };
+  const governadoras = (dir) => ler(dir, "questions").filter((q) => q.race === "governador");
+
+  caso("drop_poll casado remove o alvo e o diz em voz alta", ({ dir, construir, afirma, opcoes }) => {
+    const polls = [irma(), viciada()];
+    const rel = applyRepairs(polls, opcoes(specDeGate(dir)));
+    afirma(rel.dropped.length === 1, `dropped = ${rel.dropped.length}, esperado 1`);
+    afirma(rel.applied === 1, `applied = ${rel.applied}, esperado 1 — remover É aplicar`);
+    afirma(/id ffffffffffff/.test(rel.dropped[0] ?? ""), `a linha de gate não nomeia o registro removido: ${rel.dropped[0]}`);
+    afirma(/fusão de cenários/.test(rel.dropped[0] ?? ""), `a linha de gate não carrega o motivo curto: ${rel.dropped[0]}`);
+    afirma(!rel.warnings.length, `avisos: ${rel.warnings.join(" | ")}`);
+    afirma(!rel.noop.length, `noop indevido: ${rel.noop.join(" | ")}`);
+    afirma(!rel.unmatched.length, `o gate se declarou órfão: ${rel.unmatched.join(" | ")}`);
+    afirma(polls.length === 1, `${polls.length} pesquisas na lista, esperado 1 — o registro viciado não saiu`);
+    afirma(!polls.some((p) => p.race === "governador"), "o registro viciado continua na lista");
+    afirma(polls.some((p) => p.race === "senador"), "o gate levou junto a pesquisa irmã, fora da cláusula");
+    construir(polls, D0);
+    afirma(governadoras(dir).length === 0, `${governadoras(dir).length} perguntas de governador no store, esperado 0`);
+  });
+
+  caso("RECUSA drop_poll sem fonte primária citada", ({ dir, afirma, opcoes }) => {
+    // A mesma barra do add_poll, com o sinal trocado: inserir sem citação é
+    // invenção; remover sem citação é censura.
+    for (const campo of ["source", "evidence", "verified_at"]) {
+      const polls = [irma(), viciada()];
+      const rel = applyRepairs(polls, opcoes(specDeGate(dir, { [campo]: undefined })));
+      afirma(rel.dropped.length === 0, `removeu sem "${campo}"`);
+      afirma(polls.length === 2, `a lista encolheu sem "${campo}"`);
+      afirma(rel.warnings.some((w) => /RECUSADO/.test(w) && w.includes(campo)),
+        `a recusa por falta de "${campo}" não foi dita em voz alta: ${rel.warnings.join(" | ")}`);
+    }
+  });
+
+  caso("RECUSA drop_poll misturado com ações de correção", ({ dir, afirma, opcoes }) => {
+    // Corrigir um registro que a mesma entrada remove é contradição, não
+    // ambiguidade a resolver por convenção tácita (§4).
+    for (const mistura of [{ set: { sample_size: 1200 } }, { add_results: [{ candidate: "Kapa Insercao", pct: 1 }] }]) {
+      const polls = [irma(), viciada()];
+      const rel = applyRepairs(polls, opcoes(specDeGate(dir, mistura)));
+      afirma(rel.dropped.length === 0, `removeu numa entrada que mistura ações (${JSON.stringify(Object.keys(mistura))})`);
+      afirma(polls.length === 2, `a lista mudou com a entrada misturada (${polls.length})`);
+      afirma(rel.warnings.some((w) => /RECUSADO/.test(w) && /dropa OU corrige/.test(w)),
+        `a recusa não nomeia o motivo: ${rel.warnings.join(" | ")}`);
+    }
+  });
+
+  caso("sem alvo, o gate declara noop em voz alta — nunca silêncio, nunca órfão", ({ dir, afirma, opcoes }) => {
+    // O estado NORMAL do gate: o registro viciado só emerge numa rodada futura.
+    // Tem de ser `noop` dito (o coletor imprime "reparo sem efeito"), e NÃO
+    // `unmatched`, que significa "reparo órfão, defeito".
+    const polls = [irma()];
+    const rel = applyRepairs(polls, opcoes(specDeGate(dir)));
+    afirma(rel.dropped.length === 0, `dropped = ${rel.dropped.length}, esperado 0`);
+    afirma(rel.applied === 0, `applied = ${rel.applied}, esperado 0`);
+    afirma(rel.noop.length === 1, `noop = ${rel.noop.length}, esperado 1`);
+    afirma(/nenhum alvo/.test(rel.noop[0] ?? ""), `a linha de noop não diz o motivo: ${rel.noop[0]}`);
+    afirma(!rel.unmatched.length, `o gate sem alvo virou reparo órfão: ${rel.unmatched.join(" | ")}`);
+    afirma(polls.length === 1, `${polls.length} pesquisas na lista, esperado 1`);
+  });
+
+  caso("o alvo GATEADO não volta por nenhum caminho", ({ dir, construir, afirma, opcoes }) => {
+    // Os dois caminhos pelos quais um registro removido poderia ressuscitar:
+    // (a) a fonte volta a servi-lo na rodada seguinte — o gate tem de disparar
+    // de novo, porque os reparos são re-aplicados em toda rodada; (b) o
+    // fallback de fonte devolve as linhas PROJETADAS de polls.json — e a
+    // projeção não pode conter o que nunca entrou no store.
+    const rodada1 = [irma(), viciada()];
+    applyRepairs(rodada1, opcoes(specDeGate(dir)));
+    const { store: s1 } = construir(rodada1, D0);
+    afirma(governadoras(dir).length === 0, `${governadoras(dir).length} perguntas de governador após a rodada 1, esperado 0`);
+    const projetadas = projectPolls(s1);
+    afirma(!projetadas.some((p) => p.race === "governador"),
+      "o registro gateado saiu na projeção — o fallback de fonte o devolveria");
+
+    // Rodada 2: a fonte serve o registro DE NOVO, e o fallback devolve a
+    // projeção da rodada 1. O gate remove de novo; nada de governador entra.
+    const rodada2 = [irma(), viciada(), ...projetadas];
+    const rel2 = applyRepairs(rodada2, opcoes(specDeGate(dir)));
+    afirma(rel2.dropped.length === 1, `a rodada 2 não gateou de novo (dropped = ${rel2.dropped.length})`);
+    afirma(!rodada2.some((p) => p.race === "governador"), "o registro viciado sobreviveu à rodada 2");
+    construir(rodada2, D1);
+    afirma(governadoras(dir).length === 0, `${governadoras(dir).length} perguntas de governador após a rodada 2, esperado 0`);
+  });
+
+  // ======================================================================
+  // F. O ARQUIVO CURADO DE VERDADE
   // ======================================================================
 
   caso("todo add_poll de data/repairs.json passa pela barra probatória", ({ dir, afirma }) => {
@@ -763,6 +908,22 @@ function rodar({ mutacao = null } = {}) {
       `${relMutilado.inserted.length} entrada(s) real(is) inseridas mesmo sem "source" — a barra probatória não está sendo cobrada`);
     afirma(relMutilado.warnings.filter((w) => /RECUSADO/.test(w)).length === entradas.length,
       `${relMutilado.warnings.filter((w) => /RECUSADO/.test(w)).length} recusas para ${entradas.length} entradas sem fonte`);
+
+    // A MESMA CONFERÊNCIA PARA OS `drop_poll` DO ARQUIVO REAL: contra uma lista
+    // vazia todo gate é noop dito (o alvo só emerge em rodada futura) — nunca
+    // recusa, nunca órfão. E o controle negativo: sem citação, RECUSADO.
+    const gates = (spec.repairs ?? []).filter((r) => r.drop_poll);
+    afirma(gates.length > 0, "nenhuma entrada drop_poll em data/repairs.json — o gate não está conferindo nada");
+    afirma(rel.noop.filter((n) => /gate drop_poll/.test(n)).length === gates.length,
+      `${rel.noop.filter((n) => /gate drop_poll/.test(n)).length} noop de gate para ${gates.length} entradas drop_poll`);
+    const gatesMutilados = path.join(dir, "repairs-gate-sem-fonte.json");
+    fs.writeFileSync(gatesMutilados, JSON.stringify({
+      version: 1,
+      repairs: gates.map((r) => ({ ...r, source: undefined })),
+    }));
+    const relGates = applyRepairs([], { file: gatesMutilados });
+    afirma(relGates.warnings.filter((w) => /RECUSADO/.test(w)).length === gates.length,
+      `${relGates.warnings.filter((w) => /RECUSADO/.test(w)).length} recusas para ${gates.length} gates sem fonte`);
   });
 
   return { ok, falhas };
@@ -802,6 +963,14 @@ if (process.argv.includes("--self-test")) {
       "RECUSA o MESMO confronto em data derivada",
       "RECUSA add_poll misturado com ações de correção",
     ],
+    // O gate neutralizado devolve o registro viciado à lista — caem exatamente
+    // os casos que afirmam que ele SAIU. As recusas e o noop do gate ficam de
+    // fora de propósito: a mutação preserva a decisão e desfaz só a remoção,
+    // então continuar verde neles é o esperado (a mesma assimetria de `nunca`).
+    semgate: [
+      "drop_poll casado remove o alvo e o diz em voz alta",
+      "o alvo GATEADO não volta por nenhum caminho",
+    ],
   };
   let ok = true;
   for (const [modo, devemCair] of Object.entries(esperado)) {
@@ -825,4 +994,4 @@ if (falhas.length) {
   console.error("INSERÇÃO CURADA FALHOU — a disputa que a fonte apaga por inteiro não está guardada.");
   process.exit(1);
 }
-console.log("INSERÇÃO CURADA OK — insere o que a fonte apagou, não duplica quando ela volta, e recusa sem fonte citada.");
+console.log("INSERÇÃO CURADA OK — insere o que a fonte apagou, não duplica quando ela volta, gateia o registro viciado, e recusa sem fonte citada.");
