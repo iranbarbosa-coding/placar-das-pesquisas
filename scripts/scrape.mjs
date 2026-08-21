@@ -369,6 +369,13 @@ async function main() {
   // o dia em que a fonte sarou OU em que a inserção quebrou, e as duas coisas
   // precisam ser vistas. Ver `add_poll` em `scripts/lib/repairs.mjs`.
   for (const i of rep.inserted ?? []) console.log(`  PESQUISA INSERIDA (curada): ${i}`);
+  // O ESPELHO DA LINHA ACIMA: cada registro que um `drop_poll` removeu é um que
+  // a fonte SERVE e a rodada decidiu não publicar (o caso que motivou a ação: a
+  // governador:SP costurada de três cenários — ver `gatearPesquisaCurada` em
+  // `scripts/lib/repairs.mjs`). Remoção silenciosa seria indistinguível de
+  // perda de coleta, e é exatamente a classe de sumiço que o guarda de delta
+  // existe para acusar.
+  for (const d of rep.dropped ?? []) console.log(`  PESQUISA GATEADA (curada): ${d}`);
   for (const u of rep.unmatched) console.warn(`AVISO: reparo sem pesquisa correspondente — ${u}`);
   // A repair that matches a poll and then corrects nothing is either stale or
   // its source has healed. Both are worth a line: without one, the only trace
