@@ -17,10 +17,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import os from "node:os";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
 import { projectPolls } from "./lib/project.mjs";
 import { canonicalPartyAt } from "./lib/parties.mjs";
-import { canonicalCandidate } from "./lib/candidates.mjs";
+import { canonicalCandidate, usarRegistroDeUrna } from "./lib/candidates.mjs";
+import { canonicalizeCandidates } from "./lib/canonicalize.mjs";
 import { partyOverride } from "./lib/repairs.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -401,6 +403,101 @@ function autoteste() {
     }
   }
 
+  // 5e. ⚠ A CLASSE DOS NOMES NOVOS (rodada 32531108279, 21/08/2026, 140
+  //     divergências) — o portão medindo com um estado da tabela de urna que o
+  //     store NÃO consumiu. O casador reescrevia data/ballot-names.json ENTRE a
+  //     coleta e este portão: todo nome que ESTREAVA com candidatura casável
+  //     ganhava entrada nova, o lado legado era renomeado por ela e o store
+  //     ainda carregava a grafia da tabela velha. O conserto não é regra nova de
+  //     nome — é o workflow rodar o casador ANTES da coleta, para os dois lados
+  //     consumirem a MESMA tabela (§5; §3: artefato reescrito no meio da
+  //     verificação anula a verificação).
+  //
+  //     Este bloco usa o canonicalCandidate REAL (o default de `comparar`, não
+  //     um dublê) sobre registros de urna injetados por `usarRegistroDeUrna` —
+  //     a porta que existe exatamente para provar coisas que só existem ENTRE
+  //     estados do arquivo. A disputa é sintética (UF "ZZ"), então as tabelas
+  //     vivas de ruling/apelido, que `table()` sempre lê, não têm como opinar.
+  //     As três subclasses medidas na rodada real, reproduzidas uma a uma:
+  //       · SIGLA: o registro grava "JOAQUIM DO MLB", o titleCase do
+  //         fetch-candidaturas rende "Joaquim do Mlb", e o exato renomeia sem
+  //         mudar nada além da caixa — só o lado do portão vê;
+  //       · LONGA/CURTA: "Paulo Rubem" estreia, o agrupador escolhe a mais
+  //         curta vista 2× para o store, e a entrada nova por contenção manda
+  //         o lado do portão para "Paulo Rubem Santiago";
+  //       · CASCATA: os dois lados são ordenados por nomes DIFERENTES quando só
+  //         um deles renomeia ("Edjane" → "Policial Edjane"), e a comparação
+  //         posicional acusa par a par nomes e partidos que nada têm de errado.
+  {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "paridade-urna-"));
+    const T0 = path.join(dir, "t0.json"); // a tabela que o store consumiu
+    const T1 = path.join(dir, "t1.json"); // a tabela reescrita no meio da rodada
+    fs.writeFileSync(T0, JSON.stringify({ mapping: {} }));
+    fs.writeFileSync(T1, JSON.stringify({ mapping: { "senador:ZZ": {
+      "joaquim do mlb": { nome_urna: "Joaquim do Mlb", sq_candidato: "900000000001" },
+      "paulo rubem": { nome_urna: "Paulo Rubem Santiago", sq_candidato: "900000000002" },
+      "edjane": { nome_urna: "Policial Edjane", sq_candidato: "900000000003" },
+    } } }));
+    const linha = (candidate, pct, party = null) => ({ candidate, pct, party });
+    const rodada = () => [
+      pesquisa({ id: "pz-mlb", race: "senador", state: "ZZ", results: [linha("Joaquim do MLB", 1)] }),
+      pesquisa({ id: "pz-pr1", race: "senador", state: "ZZ", results: [linha("Paulo Rubem", 1)] }),
+      pesquisa({ id: "pz-pr2", race: "senador", state: "ZZ", results: [linha("Paulo Rubem", 2)] }),
+      pesquisa({ id: "pz-prs", race: "senador", state: "ZZ", results: [linha("Paulo Rubem Santiago", 3)] }),
+      pesquisa({ id: "pz-casc", race: "senador", state: "ZZ", results: [
+        linha("Edjane", 0.4), linha("Fernando Haddad", 33.8, "PT"), linha("Izadora Dias", 0.4),
+      ] }),
+    ];
+    try {
+      // O store da rodada: canonicalizado com T0 — o agrupador REAL decide.
+      usarRegistroDeUrna(T0);
+      const store = canonicalizeCandidates(rodada());
+      // O fixture não pode ser degenerado: a mais-curta-vista-2× tem de ter
+      // vencido de verdade, senão a subclasse longa/curta não está no jogo.
+      ok(store.find((p) => p.id === "pz-prs").results[0].candidate === "Paulo Rubem",
+        "a grafia mais curta vista 2× tem de renomear a longa no lado do store");
+      // polls.json é derivado da projeção, então os dois lados são o MESMO
+      // registro — exatamente a tautologia de derive-polls.mjs.
+      const legado = clonar(store);
+      const projetado = clonar(store);
+      const SEM_REPARO = { override: () => ({ has: false }), partido: (x) => x };
+      // A REPRODUÇÃO (a ordem antiga): o portão lê T1, o store consumiu T0.
+      usarRegistroDeUrna(T1);
+      const r = comparar({ legacy: { polls: legado }, projected: projetado, ...SEM_REPARO });
+      ok(r.errors.some((e) => /pz-mlb: Joaquim do Mlb \(cru "Joaquim do MLB"\) 1 ≠ Joaquim do MLB 1/.test(e)),
+        `a subclasse da SIGLA tem de acusar com o canônico e o cru (veio ${r.errors[0] ?? "nada"})`);
+      ok(r.errors.some((e) => /Paulo Rubem Santiago \(cru "Paulo Rubem"\)/.test(e)),
+        `a subclasse LONGA⁄CURTA tem de acusar a renomeação por contenção (veio ${r.errors.find((e) => /pz-pr/.test(e)) ?? "nada"})`);
+      ok(r.errors.some((e) => /pz-casc: Fernando Haddad 33.8 ≠ Edjane 0.4/.test(e)),
+        `a CASCATA posicional tem de desalinhar o par (veio ${r.errors.find((e) => /pz-casc/.test(e)) ?? "nada"})`);
+      ok(r.errors.some((e) => /pz-casc: partido de Fernando Haddad: .* ≠ projetado null/.test(e)),
+        "e o partido desalinhado sai acusado no par errado, como na rodada real");
+      // O CONSERTO: o portão lê a MESMA tabela que o store consumiu — verde.
+      usarRegistroDeUrna(T0);
+      const v = comparar({ legacy: { polls: clonar(legado) }, projected: clonar(projetado), ...SEM_REPARO });
+      ok(v.errors.length === 0,
+        `com a MESMA tabela dos dois lados não há divergência (veio ${v.errors.length}: ${v.errors[0] ?? ""})`);
+    } finally {
+      usarRegistroDeUrna();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+    // E A TRANCA DA ORDEM. O conserto vive na ordem dos passos do workflow —
+    // casador ANTES da coleta —, e é a ordem executada, não um comentário:
+    // o GitHub roda os passos na sequência do arquivo. Reverter a ordem é a
+    // mutação que este bloco existe para avermelhar.
+    {
+      const wf = fs.readFileSync(path.join(ROOT, ".github", "workflows", "update-polls.yml"), "utf-8");
+      // Âncora no comando executável, não na string solta: um comentário do
+      // yml citando um script antes do outro enganaria o indexOf cru — verde
+      // falso se citasse o casador, vermelho espúrio se citasse o scrape.
+      const casador = wf.indexOf("run: node scripts/match-ballot-names.mjs");
+      const coleta = wf.indexOf("run: node scripts/scrape.mjs");
+      ok(casador > 0 && coleta > 0, "o workflow tem de conter o casador e a coleta");
+      ok(casador < coleta,
+        "o casador tem de rodar ANTES da coleta no workflow — depois dela, ele reescreve a tabela de urna no meio da verificação da rodada e este portão mede com um estado que o store não consumiu (140 divergências em 21/08/2026)");
+    }
+  }
+
   // 6. (b) PERCENTUAL — a tolerância é 0,001, e ela tem de barrar dos dois lados.
   {
     const dentro = clonar(pesquisa()); dentro.results[0].pct = 40.0005;
@@ -591,7 +688,7 @@ function autoteste() {
     for (const f of falhas) console.error(`  ✗ ${f}`);
     process.exit(1);
   }
-  console.log("autoteste ok — bijeção nos dois sentidos e ids duplicados, campo exato, elenco encurtado, renomeação que o store não acompanhou (com o canônico na mensagem e o cru só quando difere), tolerância de percentual dos dois lados, partido e normalização por data, reparo curado casando pela grafia CRUA com contrafactual, exceção declarada contada e seu teto, e conjuntos por disputa");
+  console.log("autoteste ok — bijeção nos dois sentidos e ids duplicados, campo exato, elenco encurtado, renomeação que o store não acompanhou (com o canônico na mensagem e o cru só quando difere), a classe dos nomes novos (sigla, longa/curta e cascata posicional — vermelha com a tabela trocada no meio da rodada, verde com a mesma tabela, e o casador trancado ANTES da coleta no workflow), tolerância de percentual dos dois lados, partido e normalização por data, reparo curado casando pela grafia CRUA com contrafactual, exceção declarada contada e seu teto, e conjuntos por disputa");
 }
 
 function main() {

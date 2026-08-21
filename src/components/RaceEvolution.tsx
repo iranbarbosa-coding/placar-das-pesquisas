@@ -78,6 +78,9 @@ export interface RaceEvolutionProps {
   /** Show the aggregate "Outros" KPI. True for single-vote races; pass false for
    *  the Senate (2-vote ballot), where the shares don't sum to 100. */
   showOutros?: boolean;
+  /** Render the KPI values row above the chart. Default true; pass false to draw
+   *  only the framed line chart (e.g. when a bars panel beside it holds the KPIs). */
+  showKpis?: boolean;
 }
 
 export default function RaceEvolution({
@@ -89,6 +92,7 @@ export default function RaceEvolution({
   chartHeightClass = "h-[100px] sm:h-[120px]",
   fiftyLabel,
   showOutros = true,
+  showKpis = true,
 }: RaceEvolutionProps) {
   const [range, setRange] = useState<ChartRange>("2026");
   const cutoff = cutoffFor(range, average?.lastPollDate ?? null);
@@ -144,6 +148,7 @@ export default function RaceEvolution({
         registeredKeys={registeredKeys}
         chartHeightClass={chartHeightClass}
         showOutros={showOutros}
+        showKpis={showKpis}
         {...(fiftyLabel ? { fiftyLabel } : {})}
       />
     </div>

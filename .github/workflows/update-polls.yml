@@ -27,18 +27,19 @@ on:
   # (dispara quando deve, não dispara quando o elenco cresce) e o `--self-test`
   # prova que ele mesmo reprova.
   #
-  # O QUE FALTA ANTES DE RELIGAR, e é decisão do criador (CONVENTIONS §12):
-  #   1. uma rodada MANUAL supervisionada por `workflow_dispatch`, lendo a linha
-  #      `ELENCO RETIDO` e os conflitos — a retenção nunca foi exercitada contra
-  #      uma coleta de verdade, só contra o banco reconstruído em diretório
-  #      temporário;
-  #   2. o que fazer com as 41 disputas que o `v2` hoje não devolve INTEIRAS: a
-  #      retenção guarda pergunta a pergunta e não alcança uma pergunta que
-  #      desaparece por completo.
-  # Rodar sem os dois é apostar o banco a cada 12 horas.
-  #
-  # schedule:
-  #   - cron: "15 12,22 * * *"
+  # RELIGADO em 21/08/2026 por decisão do criador (CONVENTIONS §12), depois de
+  # as duas pendências acima terem fechado com guarda, não com promessa:
+  #   1. a retenção foi exercitada contra coleta real no ensaio de 20/08 (todas
+  #      as fontes ✓; ELENCO RETIDO 6 perguntas/11 linhas, 0 não absorvido);
+  #   2. pergunta que desaparece por completo agora é caso do guarda de delta
+  #      por disputa (disputa-delta-check + data/disputas-declaradas.json), que
+  #      REPROVA a rodada antes do commit salvo prova de sucessão ou ratificação
+  #      citada — provado verde contra a coleta consertada (160 sumidas, todas
+  #      com prova; PRs #15-#21).
+  # 1ª rodada pós-religar: esperar churn one-shot de provenance.updated_at
+  # (~2,1 mil registros — o campo stimulus passou a ser alimentado; PR #20).
+  schedule:
+    - cron: "15 12,22 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -90,15 +91,31 @@ jobs:
       - name: Atualizar o registro de candidaturas do TSE
         run: node scripts/fetch-candidaturas.mjs
 
-      - name: Coletar, normalizar e gravar o store
-        run: node scripts/scrape.mjs
-
-      # DEPOIS da coleta, não antes: o casador lê `data/nomes-crus.json`, que o
-      # coletor grava com os nomes como o instituto publicou, antes de
-      # canonicalizar. Lendo a saída canonicalizada ele encolheria a própria
-      # tabela a cada rodada. O mapa gerado aqui vale para a rodada seguinte.
+      # ANTES da coleta, sobre os nomes crus que a rodada ANTERIOR commitou —
+      # e isto mudou de lugar por um defeito medido, não por gosto (21/08/2026,
+      # run 32531108279): rodando ENTRE a coleta e os portões, o casador
+      # reescrevia data/ballot-names.json no meio da própria verificação da
+      # rodada. O store saía canonicalizado com a tabela velha, o parity-check
+      # media com a tabela recém-reescrita, e todo nome que estreava com
+      # candidatura casável virava divergência (140 naquela rodada) — um
+      # vermelho que NENHUMA rodada seguinte curava, porque a rodada vermelha
+      # não commita a tabela nova (CONVENTIONS §3: artefato que muda durante a
+      # verificação anula a verificação; §5: os dois lados têm de consumir a
+      # MESMA tabela).
+      #
+      # O que NÃO mudou: o casador continua lendo `data/nomes-crus.json` (os
+      # nomes como o instituto publicou, nunca a saída canonicalizada — senão
+      # ele come o próprio rabo e a tabela encolhe a cada rodada), e o mapa que
+      # os nomes de uma rodada geram continua valendo só para a rodada seguinte
+      # (a defasagem de uma rodada é decisão do criador, HANDOFF §6 item 7).
+      # Aqui ele apenas gera o mapa da rodada N com os nomes crus da N−1, de
+      # modo que coletor e portões consumam o MESMO estado da tabela, e o
+      # commit saia com store e tabela CONSISTENTES entre si.
       - name: Casar nomes de urna com os nomes das pesquisas
         run: node scripts/match-ballot-names.mjs
+
+      - name: Coletar, normalizar e gravar o store
+        run: node scripts/scrape.mjs
 
       - name: Derivar data/polls.json do store
         run: node scripts/derive-polls.mjs
@@ -134,6 +151,24 @@ jobs:
 
       - name: Retenção de elenco (encolhimento na fonte)
         run: node scripts/roster-retention-check.mjs
+
+      # A defesa-irmã da retenção: a retenção guarda a pergunta que CHEGA
+      # encolhida; o delta guarda a que NÃO CHEGA. Medido no ensaio de
+      # 20/08/2026: 56 perguntas sumiriam em 13 disputas com o total SUBINDO
+      # (2.996 → 3.029) — piso absoluto não vê (o banco tem ~996 perguntas de
+      # folga sobre ele, fraqueza observada duas vezes por sessões
+      # independentes), e delta de totais é cego a perda compensada por ganho
+      # alheio. presidente:AM terminou 0 → 0 com reparo curado no banco — isso
+      # nem delta vê: quem pega é a lista declarada (data/disputas-declaradas
+      # .json, disputa `exigida` reprova vazia mesmo partindo de zero). A
+      # tolerância é um predicado, nunca um K: sumida passa só com sucessora
+      # provada (legacy_ids ou elenco por linhagem DENTRO do mesmo
+      # levantamento) ou reparo allow_question_drop com fonte primária.
+      - name: Guarda de delta por disputa dispara
+        run: node scripts/disputa-delta-check.mjs --self-test
+
+      - name: Delta por disputa (perda silenciosa entre rodadas)
+        run: node scripts/disputa-delta-check.mjs
 
       # A recuperação de fonte caída prometia "mantendo dados anteriores desta
       # fonte" e, para a Wikipédia, guardava ZERO: filtrava por `p.source ===

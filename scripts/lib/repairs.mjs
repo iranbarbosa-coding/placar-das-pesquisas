@@ -13,6 +13,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sameCandidate } from "./canonicalize.mjs";
 import { pollId } from "./util.mjs";
+import { folgaDerivada, sobreviveAoGuardaDeSoma } from "./soma.mjs";
 // A janela de "mesma operação de campo" mora em `store.mjs`, ao lado da escada
 // que a usa. Sem ciclo: o fecho de imports de `store.mjs` (candidates,
 // canonicalize, candidaturas, ids, ndjson, nomes, parties, people) não alcança
@@ -97,8 +98,15 @@ function matches(poll, m) {
 // um lado só. Três estados, todos em voz alta:
 //
 //   sem alvo, sem vizinho  → INSERE (e o coletor imprime `PESQUISA INSERIDA`)
-//   com alvo               → NO-OP  (`noop`, que o coletor já imprime)
-//   vizinho fora do match  → RECUSA (`warnings`)
+//   com alvo VIVO          → NO-OP  (`noop`, que o coletor já imprime)
+//   vizinho VIVO fora do match → RECUSA (`warnings`)
+//
+// "VIVO" = sobreviveria ao guarda de soma do coletor (`veredictoDeSoma`,
+// lib/soma.mjs). Alvo ou vizinho que reprovaria na soma NÃO conta para
+// dispensar nem para recusar: ele morre no guarda logo depois, e contá-lo era
+// perder a pesquisa pelos dois caminhos ao mesmo tempo — o caso medido de
+// presidente:RO 1º turno no ensaio de 20/08/2026 ("a fonte já serve esta
+// pesquisa — p360-13645-…", que somava 16 e o guarda do coletor descartou).
 //
 // Duas travas que valem a leitura:
 //
@@ -148,11 +156,86 @@ function matches(poll, m) {
 // elenco, ela cai na MESMA pergunta e herda `question_id` e `created_at`.
 const FONTE_CURADA = "repair:curadoria";
 const PREFIXO_ID_CURADO = "curado-";
-const CITACAO = ["source", "evidence", "verified_at"];
+// Exportada: `lib/delta.mjs` exige a MESMA tríade nos reparos
+// `allow_question_drop`. Uma cópia lá passaria a exigir MENOS em silêncio no
+// dia em que esta barra ganhasse um quarto campo (§5, uma implementação).
+export const CITACAO = ["source", "evidence", "verified_at"];
 // Uma entrada insere OU corrige. Misturar as duas deixaria ambíguo se a correção
 // se aplica à pesquisa inserida ou às que a cláusula casou — e ambiguidade se
 // recusa (§4), não se resolve por convenção tácita.
 const ACOES_DE_CORRECAO = ["add_results", "set_party", "set", "allow_roster_shrink"];
+
+// ===========================================================================
+// `drop_poll` — O REGISTRO QUE NÃO PODE IR AO AR ENQUANTO O DEFEITO DE FUNDO
+// NÃO FOR CONSERTADO
+// ===========================================================================
+//
+// O caso que motivou a ação (21/08/2026): com a quarentena da condição 3, a
+// rodada seguinte faria emergir uma governador:SP r1 da Paraná Pesquisas (campo
+// fim 19/11/2024, Wikipédia) que o `mergePolls` COSTUROU de três cenários
+// DISTINTOS da mesma rodada — publica a TABELA do cenário 2/3 (Nunes/Marçal,
+// soma 100,0) sob a IDENTIDADE do cenário 1/3 (o com Tarcísio), tendo descartado
+// por desempate de 0,1 a tabela válida do 1/3 (Tarcísio 40,5); o fragmento 3/3
+// (soma 148,2) já cai na quarentena. Conferente independente examinou a anatomia
+// e vereditou SEM PROVA de costura limpa: identidade de um cenário com dados de
+// outro. Nenhum reparo de CORREÇÃO serve aqui — não há número certo a escrever,
+// porque o registro inteiro é uma quimera — e o defeito de fundo (o
+// `rostersMatch` de 0,6 fundindo cenários) é frente futura. Até lá, o registro
+// casado pela cláusula é REMOVIDO da lista, toda rodada, em voz alta.
+//
+// A barra probatória é a MESMA de `add_poll`, e pelo mesmo motivo com o sinal
+// trocado: inserir sem fonte citada é invenção; remover sem fonte citada é
+// censura. As duas mexem no que entra numa média, e as duas exigem a tríade.
+//
+// E uma entrada dropa OU corrige, nunca as duas — corrigir um registro que a
+// mesma entrada remove é contradição, não ambiguidade a resolver por convenção.
+
+/**
+ * Decide e executa o gate. Devolve `{warnings, removed, noop?}`.
+ *
+ * Exportada pelo mesmo motivo de `inserirPesquisaCurada`: o autoteste de
+ * `curated-insert-check.mjs` precisa provar que a bateria REPROVA quando o gate
+ * é neutralizado, e a única maneira honesta é rodar `applyRepairs` de verdade
+ * com esta função embrulhada (a mutação desfaz só a REMOÇÃO, mantendo recusas e
+ * noop intactos). O coletor nunca passa o parâmetro.
+ */
+export function gatearPesquisaCurada(polls, rep, targets, label) {
+  const recusa = (motivo) => ({ warnings: [`drop_poll ${label} RECUSADO — ${motivo}`], removed: [] });
+
+  // A BARRA PROBATÓRIA PRIMEIRO, como em `add_poll`: um registro removido sem
+  // fonte primária citada é uma exclusão editorial sem prova — e ele saía de
+  // uma média que o público vê.
+  const semCitacao = CITACAO.filter((f) => !String(rep[f] ?? "").trim());
+  if (semCitacao.length) {
+    return recusa(`falta ${semCitacao.join(", ")} — nenhuma pesquisa sai do banco sem fonte primária citada`);
+  }
+  const misturadas = [...ACOES_DE_CORRECAO, "add_poll"].filter((k) => rep[k] != null);
+  if (misturadas.length) {
+    return recusa(`combina drop_poll com ${misturadas.join(", ")} — uma entrada dropa OU corrige, nunca as duas`);
+  }
+  if (!targets.length) {
+    // O ESTADO NORMAL ENQUANTO O REGISTRO NÃO EMERGE — e ele é dito, nunca
+    // silêncio (§2): o gate existe para uma rodada FUTURA, e o dia em que esta
+    // linha sumir é o dia em que o registro apareceu e foi gateado.
+    return { warnings: [], removed: [], noop: `${label} (gate drop_poll: nenhum alvo no banco — nada a remover nesta rodada)` };
+  }
+  const alvo = new Set(targets);
+  const removed = [];
+  for (let i = polls.length - 1; i >= 0; i--) {
+    if (alvo.has(polls[i])) removed.unshift(polls.splice(i, 1)[0]);
+  }
+  return { warnings: [], removed };
+}
+
+// O motivo curto que acompanha cada linha `PESQUISA GATEADA (curada)`: a
+// primeira frase do `defect`, porque a linha da rodada precisa dizer POR QUE o
+// registro saiu sem obrigar quem lê o log a abrir data/repairs.json.
+const motivoCurto = (rep) => {
+  const d = String(rep.defect ?? rep.source ?? "").trim();
+  const fim = d.indexOf(". ");
+  const curto = fim > 0 ? d.slice(0, fim + 1) : d;
+  return curto.length > 200 ? `${curto.slice(0, 199)}…` : curto;
+};
 
 // A mesma normalização de instituto do `bucketKey` do coletor: acento e
 // pontuação fora. Mais severa que o `toLowerCase()` de `matches()` de propósito
@@ -237,7 +320,12 @@ export function montarPesquisaCurada(rep) {
  * executa (CONVENTIONS §2). Mesmo argumento do parâmetro `file` abaixo. O
  * coletor nunca passa o parâmetro.
  */
-export function inserirPesquisaCurada(polls, rep, targets, label) {
+export function inserirPesquisaCurada(polls, rep, targets, label,
+  { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+  // `sobrevive` é parâmetro pelo mesmo motivo do `file` e do `inserir` de
+  // `applyRepairs`: a mutação honesta do autoteste de
+  // `existencia-pos-guarda-check.mjs` é `() => true`, que reproduz exatamente
+  // a decisão antiga sobre a função de verdade. O coletor nunca o passa.
   const recusa = (motivo) => ({ warnings: [`add_poll ${label} RECUSADO — ${motivo}`] });
 
   // A BARRA PROBATÓRIA PRIMEIRO. Uma pesquisa inserida sem fonte primária
@@ -257,12 +345,28 @@ export function inserirPesquisaCurada(polls, rep, targets, label) {
   if (!matches(nova, rep.match ?? {})) {
     return recusa("a pesquisa montada não satisfaz a própria cláusula match — a chave de identidade não descreve o que seria inserido, e \"nenhum alvo casou\" deixaria de significar \"ainda não existe\"");
   }
-  if (targets.length) {
+  // SÓ ALVO QUE SOBREVIVE AO GUARDA DE SOMA DISPENSA A INSERÇÃO. "A fonte já
+  // serve esta pesquisa" era decidido pela mera existência do alvo, e um alvo
+  // pode existir AGORA e morrer no guarda do coletor logo depois — foi o que
+  // perdeu presidente:RO 1º turno no ensaio de 20/08/2026: a dispensa apontou
+  // para um registro somando 16, o guarda o descartou (16 < 30), e a pesquisa
+  // fechou a rodada sem existir por nenhum dos dois caminhos. Um alvo que vai
+  // morrer não serve a pesquisa; ele só a esconde.
+  const vivos = targets.filter((p) => sobrevive(p));
+  const mortos = targets.filter((p) => !sobrevive(p));
+  if (vivos.length) {
     // A fonte sarou (ou a rodada anterior já projetou a pesquisa de volta em
     // polls.json). Não é defeito e não é sucesso: é a inserção dispensada, e o
     // coletor diz isso na linha `reparo sem efeito`.
-    return { warnings: [], noop: `${label} (a fonte já serve esta pesquisa — ${targets.map((p) => p.id).join(", ")}; inserção dispensada)` };
+    return { warnings: [], noop: `${label} (a fonte já serve esta pesquisa — ${vivos.map((p) => p.id).join(", ")}; inserção dispensada)` };
   }
+  // Em voz alta, como toda decisão deste arquivo: a fonte serve um registro
+  // QUEBRADO da pesquisa, e a inserção segue de pé por causa disso. O dia em
+  // que esta linha sumir é o dia em que a fonte sarou — e as duas coisas
+  // precisam ser vistas.
+  const avisos = mortos.length
+    ? [`add_poll ${label}: alvo(s) ${mortos.map((p) => p.id).join(", ")} reprovaria(m) no guarda de soma — inserção MANTIDA`]
+    : [];
   // A RECUSA DE QUASE-IGUAL SÃO DOIS TESTES, E ELES PERGUNTAM COISAS DIFERENTES.
   //
   // `mesmaOperacao` responde "é a mesma operação de campo?" — pergunta de
@@ -292,19 +396,27 @@ export function inserirPesquisaCurada(polls, rep, targets, label) {
   // proibida: ver `rosterContradicts` em `store.mjs`, que isenta o 2º turno de
   // propósito porque julgar levantamento por elenco cunhou 485 que não existem.
   const vizinho = polls.find((p) => {
+    // Um vizinho que reprovaria no guarda de soma não torna nada ambíguo: ele
+    // vai morrer antes de a média existir. Recusar por causa dele perde a
+    // pesquisa do mesmo jeito que a dispensa cega perdia — no caso real de
+    // presidente:RO, o próprio alvo quebrado é também o vizinho que casa por
+    // elenco, e sem este filtro o conserto da dispensa só trocaria a dispensa
+    // por uma recusa.
+    if (!sobrevive(p)) return false;
     if (!mesmaOperacao(p, nova)) return false;
     const nomes = (nova.results ?? []).map((r) => r.name_raw ?? r.candidate);
     return questionRostersMatch(p.results, nova.results, nomes);
   });
   if (vizinho) {
-    return recusa(
+    const r = recusa(
       `${vizinho.id} (${vizinho.pollster} ${vizinho.race}/${vizinho.state ?? "BR"} turno ${vizinho.round}, ` +
       `campo ${vizinho.fieldwork_end ?? vizinho.published_date ?? "?"}) está na janela de 3 dias mas fora da cláusula ` +
       "match — a mesma operação de campo, com o MESMO confronto, em outra data é ambígua, e nada foi inserido",
     );
+    return { warnings: [...avisos, ...r.warnings] };
   }
   polls.push(nova);
-  return { warnings: [], poll: nova };
+  return { warnings: avisos, poll: nova };
 }
 
 /**
@@ -321,16 +433,17 @@ export function inserirPesquisaCurada(polls, rep, targets, label) {
  * de código que o coletor não executa (CONVENTIONS §2). `data/repairs.json` é
  * dado curado e não recebe entradas de teste. O coletor nunca passa o parâmetro.
  *
- * `inserir` existe pelo mesmo motivo, para a decisão de `add_poll`.
+ * `inserir` existe pelo mesmo motivo, para a decisão de `add_poll`; `dropar`,
+ * idem, para a decisão de `drop_poll`.
  */
-export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCurada } = {}) {
+export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCurada, dropar = gatearPesquisaCurada } = {}) {
   let spec;
   try {
     spec = JSON.parse(fs.readFileSync(file, "utf-8"));
   } catch {
     // Same shape on every path, `noop` and `inserted` included: a caller that
     // has to guard one branch's missing field is a caller that will forget to.
-    return { applied: 0, inserted: [], unmatched: [], noop: [], warnings: ["data/repairs.json ausente ou ilegível"] };
+    return { applied: 0, inserted: [], dropped: [], unmatched: [], noop: [], warnings: ["data/repairs.json ausente ou ilegível"] };
   }
 
   let applied = 0;
@@ -356,6 +469,11 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
   // é a lista das disputas que o `v2/cenarios` apagou por inteiro, e essa lista
   // não pode viver só dentro de um número.
   const inserted = [];
+  // PESQUISAS REMOVIDAS PELO GATE (`drop_poll`), nomeadas — o espelho de
+  // `inserted`, e pelo mesmo motivo: cada linha é um registro que a fonte SERVE
+  // e que a rodada decidiu não publicar. Essa decisão não pode viver só dentro
+  // de um número; o coletor imprime cada uma como `PESQUISA GATEADA (curada)`.
+  const dropped = [];
   const warnings = [];
 
   for (const rep of spec.repairs ?? []) {
@@ -396,6 +514,25 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
         `será aplicado a TODAS — ${targets.map((p) => `${p.race}/${p.state ?? "BR"} t${p.round} ` +
         `[${(p.results ?? []).map((r) => r.candidate).join(", ")}]`).join(" · ")}. ` +
         `Se a intenção era UMA, acrescente "has_candidate" ao match.`);
+    }
+
+    // ---- O GATE CURADO (`drop_poll`) ------------------------------------
+    //
+    // Antes do teste de `unmatched`, pela mesma razão de `add_poll` com o
+    // sinal trocado: o registro que este gate mira só EMERGE numa rodada
+    // futura (a costura de cenários de governador:SP descrita em
+    // `gatearPesquisaCurada`), então HOJE "nenhum alvo casou" é o estado
+    // normal — um noop dito em voz alta, nunca um reparo órfão.
+    if (rep.drop_poll) {
+      const r = dropar(polls, rep, targets, label);
+      for (const w of r.warnings ?? []) warnings.push(w);
+      if (r.noop) noop.push(r.noop);
+      for (const p of r.removed ?? []) {
+        dropped.push(`${p.pollster} ${p.race}/${p.state ?? "BR"} turno ${p.round} ` +
+          `campo ${p.fieldwork_end ?? p.published_date ?? "?"} — id ${p.id} · ${motivoCurto(rep)}`);
+        applied++;
+      }
+      continue;
     }
 
     // ---- A INSERÇÃO CURADA (`add_poll`) ---------------------------------
@@ -503,7 +640,7 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
     }
     if (!touched) noop.push(`${label} (${targets.length} pesquisa(s) casada(s), nada a corrigir)`);
   }
-  return { applied, inserted, unmatched, noop, warnings };
+  return { applied, inserted, dropped, unmatched, noop, warnings };
 }
 
 /**
@@ -515,16 +652,26 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
  */
 function conferirSoma(poll, rep, label, warnings) {
   if (rep.expect_sum == null) return;
-  const sum =
-    poll.results.reduce((a, r) => a + r.pct, 0) +
-    (poll.others_pct ?? 0) + (poll.blank_null_pct ?? 0) + (poll.undecided_pct ?? 0);
-  if (Math.abs(sum - rep.expect_sum) > 0.6) {
+  // A folga é DERIVADA das mesmas parcelas que entram na soma (§10), nunca um
+  // teto escolhido. O 0,6 fixo que morava aqui era a jogada proibida nas duas
+  // direções: numa tabela em décimos a folga merecida é 0,05 por figura, e o
+  // 0,6 engolia um dígito trocado de meio ponto — exatamente o erro mais
+  // provável numa transcrição à mão; numa tabela em inteiros (a PE de
+  // 58+33+8+2 = 101 merece 2,0) ele gritava contra arredondamento legítimo da
+  // fonte. E era a quarta cópia da regra — as outras três já derivavam.
+  const parcelas = [
+    ...poll.results.map((r) => r.pct),
+    poll.others_pct, poll.blank_null_pct, poll.undecided_pct,
+  ].filter((v) => typeof v === "number");
+  const sum = parcelas.reduce((a, v) => a + v, 0);
+  const folga = folgaDerivada(parcelas);
+  if (Math.abs(sum - rep.expect_sum) > folga) {
     warnings.push(
       // O rótulo cai para a cláusula inteira quando o reparo não casa por
       // registro. Nem toda pesquisa TEM registro — a do Paraná arquivada
       // como RS não tem, e o agregador serve `"registro": ""` — e um aviso
       // dizendo "reparo undefined" não diz de qual reparo se trata.
-      `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum}`,
+      `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum} (folga derivada ${folga.toFixed(2)})`,
     );
   }
 }

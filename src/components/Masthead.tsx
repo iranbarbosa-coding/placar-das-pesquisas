@@ -31,7 +31,7 @@ export interface MastheadProps {
   meta?: React.ReactNode;
 }
 
-type MenuKey = "sobre" | "presidente" | "segundo-turno" | "governadores" | "senado" | "estados" | "metodologia";
+type MenuKey = "sobre" | "presidente" | "estados" | "derivadas" | "metodologia";
 
 interface MenuLink {
   href: string;
@@ -57,9 +57,10 @@ const STATE_LINKS: MenuLink[] = UFS.map((uf) => ({
   tag: uf,
 })).sort((a, b) => a.label.localeCompare(b.label, "pt-BR"));
 
-// Order and labels mirror the redesign mockup: Presidente · Governadores ·
-// Senado · Estados · Metodologia · Sobre. Governadores and Senado have no
-// dedicated index yet, so they point at the states hub for now.
+// Current top-level set (owner's call, 21/08): Presidente · Estados · Derivadas
+// · Metodologia · Sobre. Governador, Senado and 2º turno moved INTO the state
+// "Visão geral" page, so they leave the masthead. "Derivadas" is new — its
+// content lands in a later session, so it points at a placeholder page for now.
 const MENUS: Menu[] = [
   {
     key: "presidente",
@@ -70,32 +71,17 @@ const MENUS: Menu[] = [
     ],
   },
   {
-    key: "segundo-turno",
-    label: "2º turno",
-    href: "/segundo-turno",
-    links: [
-      { href: "/segundo-turno#presidente", label: "Presidente", note: "Confrontos entre candidatos registrados" },
-      { href: "/segundo-turno#governadores", label: "Governadores", note: "Confrontos de 2º turno por estado" },
-    ],
-  },
-  {
-    key: "governadores",
-    label: "Governadores",
-    href: "/estados",
-    links: [{ href: "/estados", label: "Corridas de governador", note: "Por estado, a média de cada disputa" }],
-  },
-  {
-    key: "senado",
-    label: "Senado",
-    href: "/estados",
-    links: [{ href: "/estados", label: "Corridas ao Senado", note: "Por estado, em números brutos" }],
-  },
-  {
     key: "estados",
     label: "Estados",
     href: "/estados",
     mega: true,
     links: STATE_LINKS,
+  },
+  {
+    key: "derivadas",
+    label: "Derivadas",
+    href: "/derivadas",
+    links: [{ href: "/derivadas", label: "Análises derivadas", note: "Em breve" }],
   },
   {
     key: "metodologia",

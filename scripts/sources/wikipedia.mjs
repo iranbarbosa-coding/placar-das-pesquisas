@@ -42,6 +42,9 @@ export async function fetchWikipedia() {
       state: p.state ?? null,
       round: p.round === 2 ? 2 : 1,
       scenario: p.scenario ?? (p.round === 2 ? "2º turno" : "1º turno — cenário único"),
+      // O estímulo declarado pela página ("Todos os cenários se referem a
+      // pesquisas estimuladas" — ver wiki_parse.py); sem declaração, nulo (§4).
+      stimulus: p.stimulus ?? null,
       pollster: p.pollster.trim(),
       contractor: p.contractor ?? null,
       fieldwork_start: p.fieldwork_start ?? null,

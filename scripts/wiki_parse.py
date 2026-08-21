@@ -349,6 +349,19 @@ def parse_dates(text, year_hint):
 
 def extract(text, source_url, lang, race='presidente', state=None):
     lines = text.split('\n')
+    # O ESTÍMULO QUE A PÁGINA DECLARA, e só ele (§4 do CONVENTIONS). As páginas
+    # estaduais abrem com "Todos os cenários se referem a pesquisas
+    # estimuladas, quando uma lista de candidatos é apresentada ao
+    # entrevistado" — e NENHUMA linha de tabela carrega marca própria (medido
+    # em 21/08/2026: toda ocorrência de "espontânea" no corpo das 29 páginas é
+    # título de notícia dentro de <ref>). A frase declara TODOS os cenários da
+    # página, então a marca vale por página; página sem a frase fica sem marca
+    # — nunca deduzida do conteúdo das linhas. Foi a ausência desta marca que
+    # deixou a estimulada da Wikipédia fundir com a espontânea do Poder360 no
+    # caso senador:PR IRG 08-12/08 (ver estimulosCompativeis em scrape.mjs).
+    lead = text.split('\n==', 1)[0]
+    page_stimulus = 'estimulada' if re.search(
+        r'cen[áa]rios?\s+se\s+referem\s+a\s+pesquisas?\s+estimuladas?', lead, re.I) else None
     polls = []
     h2 = h3 = h4 = hidden = None
     last_year = None   # running year context in document order
@@ -393,6 +406,9 @@ def extract(text, source_url, lang, race='presidente', state=None):
                 i += 1
             polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state, last_year))
         i += 1
+    if page_stimulus:
+        for p in polls:
+            p['stimulus'] = page_stimulus
     return polls
 
 def _is_event_banner(row):

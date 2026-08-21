@@ -16,12 +16,41 @@
 // Assim o autoteste o exercita sem coleta, sem rede e sem tocar em `data/` — e
 // sem importar o coletor, que é justamente o que não se pode rodar para testar.
 
-/** A chave de disputa de uma pergunta, como o resto do repositório a escreve. */
-const disputaDe = (q) => `${q.race}:${q.uf ?? "BR"}`;
+/** A chave de disputa de uma pergunta, como o resto do repositório a escreve.
+ *  Exportada: `lib/delta.mjs` agrupa pelo MESMO recorte — uma segunda escrita
+ *  da chave divergiria na primeira mudança feita de um lado só (§5). */
+export const disputaDe = (q) => `${q.race}:${q.uf ?? "BR"}`;
 
 /** O nome exibível de um candidato, pela tabela do store em que ele vive. */
 const nomeDe = (store, id) =>
   (store.candidates ?? []).find((c) => c.candidate_id === id)?.canonical ?? id;
+
+/**
+ * A LINHAGEM DE UM `candidate_id`, através de `legacy_ids` → pessoa.
+ *
+ * Por que existe (o FATO 3 do ensaio de 20/08/2026): a rodada re-cunhou ids de
+ * candidato COM a tradução gravada (`legacy_ids`), e este relatório comparou os
+ * ids CRUS — saiu `⚠ trocariam de líder: presidente:AP q_966e66a7ff83: Lula →
+ * Lula`. Um alarme vermelho para uma linhagem preservada é adubo da jogada
+ * proibida (§10): quem convive com vermelho falso alarga a tolerância até o
+ * portão calar. A identidade que sobrevive à re-cunhagem é a PESSOA — é
+ * exatamente para isso que `person_id` existe (ver `mintPersonId` em ids.mjs)
+ * — então a comparação resolve id → pessoa antes de declarar troca.
+ *
+ * Devolve uma função id → chave estável: o `person_id` quando algum dos dois
+ * estados o conhece (pelo id atual ou por um `legacy_ids`), senão o próprio id
+ * — um store antigo sem pessoas continua sendo comparado por id cru, que era o
+ * comportamento anterior.
+ */
+export function chaveDeLinhagem(anterior, novo) {
+  const pessoa = new Map();
+  for (const c of [...(anterior.candidates ?? []), ...(novo.candidates ?? [])]) {
+    if (!c?.person_id) continue;
+    pessoa.set(c.candidate_id, c.person_id);
+    for (const l of c.legacy_ids ?? []) pessoa.set(l, c.person_id);
+  }
+  return (id) => pessoa.get(id) ?? id;
+}
 
 /**
  * Quem lidera uma pergunta. Empate NÃO tem líder: devolver o primeiro seria
@@ -67,12 +96,18 @@ export function relatorioDeEnsaio(anterior, ensaio) {
   // 3. TROCA DE LÍDER. É o dano concreto que suspendeu o agendamento em 17/08:
   //    o `v2` devolvendo dois nomes de uma presidencial de dez trocaria o líder
   //    e o vice "por nada". Vale para toda disputa, não só a presidencial.
+  //
+  //    ⚠ COMPARADA POR LINHAGEM, NÃO POR ID CRU. O ensaio de 20/08 acusou
+  //    "Lula → Lula" numa re-cunhagem de `candidate_id` com `legacy_ids`
+  //    traduzido — a linhagem estava preservada; o comparador é que era cego a
+  //    ela. Ver `chaveDeLinhagem`.
+  const chave = chaveDeLinhagem(anterior, ensaio);
   const trocaramLider = [];
   for (const [id, q] of depois) {
     const a = antes.get(id);
     if (!a) continue;
     const la = lider(a), ld = lider(q);
-    if (la && ld && la !== ld) {
+    if (la && ld && chave(la) !== chave(ld)) {
       trocaramLider.push({
         question_id: id, disputa: disputaDe(q),
         era: nomeDe(anterior, la), viraria: nomeDe(ensaio, ld),

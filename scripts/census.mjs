@@ -25,6 +25,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
 import { ballotCandidacy } from "./lib/candidates.mjs";
+import { folgaDerivada } from "./lib/soma.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -41,8 +42,10 @@ const is2026 = (s) => (dateOf(s) ?? "").startsWith("2026");
 const inst = (s) => s?.institute_names_raw?.[0] ?? "?";
 const where = (q, s) => `${inst(s)} · ${q.uf ?? "BR"} ${q.race}/t${q.round} · ${dateOf(s) ?? "sem data"}`;
 
-/** Rounding slack a poll has EARNED, from how its own figures are written. */
-const slackOf = (vals) => vals.reduce((a, v) => a + (Number.isInteger(v) ? 0.5 : 0.05), 0);
+// A folga merecida vem de `lib/soma.mjs` — era uma de quatro cópias da regra
+// do §10, e cópia de regra numérica diverge (§5: o esquema de cores existiu
+// três vezes com três conjuntos de chaves).
+const slackOf = folgaDerivada;
 
 const classes = [];
 const add = (id, titulo, nota, itens) => classes.push({ id, titulo, nota, itens });

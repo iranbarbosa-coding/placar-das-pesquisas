@@ -410,8 +410,14 @@ async function selfTest() {
 
       // Prova B (SOMA ADULTERADA reprova): mutila UM percentual sem mexer em
       // expect_sum — a slip de transcrição que conferirSoma existe para pegar.
+      //
+      // A adulteração tem de EXCEDER a folga derivada (§10): 13 figuras
+      // inteiras (11 candidatos + branco + não sabe) merecem 6,5 — um desvio
+      // de 3 nesta tabela é aritmeticamente indistinguível de arredondamento
+      // da fonte e pertence à linha de revisão do censo, não a este portão.
+      // (O +3 anterior só disparava porque conferirSoma cravava 0,6 fixo.)
       const adulterada = JSON.parse(JSON.stringify(pronta));
-      adulterada.add_poll.results[0].pct = 60; // Lula 57 → 60; soma 101 → 104, expect_sum segue 101
+      adulterada.add_poll.results[0].pct = 70; // Lula 57 → 70; soma 101 → 114, expect_sum segue 101
       const specAdul = path.join(dir, "adul.json");
       fs.writeFileSync(specAdul, JSON.stringify({ version: 1, repairs: [adulterada] }));
       const relAdul = applyRepairs([], { file: specAdul });

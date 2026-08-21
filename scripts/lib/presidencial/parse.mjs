@@ -19,8 +19,13 @@
 // separada exige a perna visual (OCR) corroborar. CONSERVADOR: qualquer dúvida
 // cai em corrida-separada (gated), nunca o contrário.
 //
-// Este módulo lê UMA perna. A reconciliação entre pernas e a 2ª leitura cega (§1)
-// moram fora daqui.
+// O QUE SE RECUSA DE PROPÓSITO: crosstab SEGMENTADO (ex.: Manaus/Interior/Total)
+// tem k valores por candidato e a coluna "Total" não se isola mecanicamente —
+// vira recusa tipada para leitura visual/§1, nunca um chute de qual barra é o total.
+//
+// Este módulo lê UMA perna. A reconciliação entre as duas pernas e a segunda
+// leitura cega (§1) moram fora daqui — no orquestrador e no hub, respectivamente.
+import { folgaDerivada } from "../soma.mjs";
 
 // ---------------------------------------------------------------------------
 // Reconhecedores. Deliberadamente conservadores; a rede de segurança é dupla:
@@ -250,13 +255,17 @@ export function extrairBlocoPresidencial(paginas) {
 }
 
 // ---------------------------------------------------------------------------
-// §10 — tolerância derivada. 0,5/inteiro, 0,05/décimo. (conferirSoma crava 0,6.)
+// §10 — TOLERÂNCIA DERIVADA, nunca escolhida. A redução (0,5 por inteiro, 0,05
+// por décimo) mora em `../soma.mjs`: era uma de quatro cópias da regra, e o
+// `conferirSoma` do repairs.mjs — que cravava 0,6 fixo — passou a derivar da
+// mesma função. O import não fura a pureza deste módulo: `soma.mjs` também é
+// livre de rede, relógio e fs.
 // ---------------------------------------------------------------------------
 export function toleranciaDerivada(figuras) {
-  const cells = [...figuras.results.map((r) => r.pct), figuras.blank_null_pct, figuras.undecided_pct, figuras.others_pct].filter((v) => v != null);
-  let tol = 0;
-  for (const v of cells) tol += Number.isInteger(v) ? 0.5 : 0.05;
-  return Number(tol.toFixed(2));
+  return folgaDerivada([
+    ...figuras.results.map((r) => r.pct),
+    figuras.blank_null_pct, figuras.undecided_pct, figuras.others_pct,
+  ]);
 }
 
 /** As duas pernas leram a MESMA tabela? Sinal de confiança, não a §1. */

@@ -103,9 +103,18 @@ export interface HeroInteractiveProps {
    *  FALSE for a multi-vote ballot like the Senate, where shares don't partition
    *  and "Outros" would be a meaningless ~90%+ sum. */
   showOutros?: boolean;
+  /** Whether to render the KPI values row (and the "Outros: N" expander) above
+   *  the chart. Default true. Pass false when the numbers live elsewhere (e.g. a
+   *  bars panel beside the chart), leaving just the framed plot and its 50% line. */
+  showKpis?: boolean;
+  /** Called with the hovered snapshot date (or null on leave) whenever the
+   *  chart's hover changes, so a sibling panel (e.g. bars) can mirror the same
+   *  date. The values themselves stay computed here — this only reports WHICH
+   *  date is active. */
+  onHoverDate?: (date: string | null) => void;
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)", showOutros = true }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)", showOutros = true, showKpis = true, onHoverDate }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -222,6 +231,12 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   const onLeave = () => setHovered(null);
 
   const hoveredDate = hovered != null && hovered < snapshots.length ? snapshots[hovered] : null;
+  // Report the active date up (for a sibling bars panel) — before any early
+  // return, so the hook order never changes. Only the date changes trigger it.
+  useEffect(() => {
+    onHoverDate?.(hoveredDate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hoveredDate]);
   const activePcts = hoveredDate != null ? bucketPcts(hoveredDate) : currentPcts;
   const showOverlay = interactive && hoveredDate != null;
   const hoverX = hoveredDate != null ? xPctOf(hoveredDate) : 0;
@@ -246,8 +261,9 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
   return (
     <>
       {/* KPI row — significant candidates + "Outros" (+ bruto Brancos/Nulos/NR),
-          elastic in size so a wider field never reformats the page. */}
-      {buckets.length > 0 && (
+          elastic in size so a wider field never reformats the page. Suppressed
+          when `showKpis` is false (the numbers live in a separate bars panel). */}
+      {showKpis && buckets.length > 0 && (
         // Mobile: a fixed 2-column grid so the cells align in neat rows instead
         // of the ragged widths a flex-wrap gives with names of different lengths.
         // From `sm` up (where the whole field fits one row) it reverts to wrap.
@@ -273,7 +289,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
       {/* Expandable "who is in Outros": the REGISTERED sub-5% candidates, each
           with their current-basis value. Non-registered names are NOT listed —
           only their share is inside the "Outros" total. Reflects basis, not hover. */}
-      {namedNonSig.length > 0 && (
+      {showKpis && namedNonSig.length > 0 && (
         <div className="text-xs">
           <button
             type="button"

@@ -121,8 +121,14 @@ entendido. Em 16/08/2026 aconteceu de novo com `match-ballot-names.mjs`: lendo
 "Zema", a tabela encolhia e os acentos restaurados eram perdidos.
 
 Por isso `scrape.mjs` grava `data/nomes-crus.json` **antes** de canonicalizar, e
-o casador lê de lá. **O casador roda DEPOIS da coleta**, e o mapa que ele gera
-vale para a rodada seguinte.
+o casador lê de lá. **O casador roda no COMEÇO da rodada, sobre os nomes crus
+que a rodada anterior commitou** — nunca sobre saída canonicalizada —, e o mapa
+que os nomes de uma rodada geram vale para a seguinte. Ele já rodou entre a
+coleta e os portões, e isso reescrevia a tabela de nomes no meio da verificação
+da própria rodada (§3): o store saía com a tabela velha, o `parity-check` media
+com a nova, e todo nome que estreava com candidatura casável era divergência —
+um vermelho que nenhuma rodada seguinte curava, porque rodada vermelha não
+commita a tabela (21/08/2026, 140 divergências).
 
 ## 7. Índice mantido é índice atualizado no write
 

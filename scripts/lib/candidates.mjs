@@ -31,7 +31,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normNome, chaveDeDisputa, acentos } from "./nomes.mjs";
+import { normNome, chaveDeDisputa, grafiaCompare } from "./nomes.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-aliases.json");
 const RULINGS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "candidate-rulings.json");
@@ -41,7 +41,7 @@ const BALLOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..
 // `reterElencos` injetável de `build-store.mjs`: provar entre RODADAS uma coisa
 // que só existe entre rodadas.
 //
-// O casador roda DEPOIS da coleta e o mapa que ele gera vale para a rodada
+// O casador roda ANTES da coleta (desde 21/08, sobre os crus da rodada anterior — era DEPOIS da coleta e o mapa que ele gera vale para a rodada
 // SEGUINTE (CONVENTIONS §6). Então a defasagem de uma rodada — um nome que
 // estreia numa disputa não é renomeado na rodada em que estreia, e é na seguinte
 // — só se observa com DOIS estados deste arquivo. Sem esta porta, o único jeito
@@ -240,11 +240,12 @@ function table() {
       continue;
     }
     // Mesmo nome sob grafias diferentes (o TSE grava 29 nomes de urna sem os
-    // acentos que o nome tem): ganha o mais acentuado, e o desempate é
+    // acentos que o nome tem, e o title-case do fetch esmaga sigla): ganha a
+    // ordem de `grafiaCompare` — acentos, depois siglas —, e o desempate é
     // lexicográfico, nunca a ordem do arquivo (CONVENTIONS §8). É a regra de
     // `melhorGrafia`/`melhorDisplay`, e não uma quarta cópia dela.
     dobrado.set(g, [...new Set(achados.map((a) => a.nome_urna))]
-      .sort((a, b) => acentos(b) - acentos(a) || (a < b ? -1 : a > b ? 1 : 0))[0]);
+      .sort((a, b) => grafiaCompare(b, a) || (a < b ? -1 : a > b ? 1 : 0))[0]);
   }
   // Fora de grupo (ou grupo recusado): o registro nomeia a grafia, como sempre.
   for (const [chave, nome_urna] of urnaPorChave) {

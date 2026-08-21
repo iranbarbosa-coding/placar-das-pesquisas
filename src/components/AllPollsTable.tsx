@@ -27,7 +27,7 @@ const TD = "px-2 py-1.5 whitespace-nowrap align-top";
 const CONTROL =
   "rounded-md border px-2 py-1.5 text-xs";
 
-export default function AllPollsTable({ rows }: { rows: PollRow[] }) {
+export default function AllPollsTable({ rows, title = "Todas as pesquisas presidenciais" }: { rows: PollRow[]; title?: string }) {
   const [q, setQ] = useState("");
   const [estado, setEstado] = useState("");
   const [instituto, setInstituto] = useState("");
@@ -84,7 +84,7 @@ export default function AllPollsTable({ rows }: { rows: PollRow[] }) {
   return (
     <div id="todas-as-pesquisas" className="flex min-w-0 scroll-mt-20 flex-col gap-3">
       <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-        Todas as pesquisas presidenciais
+        {title}
       </h2>
 
       {/* Controls */}

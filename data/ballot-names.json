@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 422,
+  "exato": 423,
   "contencao": 160,
   "outra_disputa": 136,
   "ambiguo": 4,
-  "sem": 519
+  "sem": 518
  },
  "ambiguos": [
   {
@@ -1665,11 +1665,11 @@
     "origem": "exato"
    },
    "sargento laudicerio": {
-    "nome_urna": "Sargento Laudicério (lau)",
-    "sq_candidato": "110002553937",
+    "nome_urna": "Sargento Laudicério",
+    "sq_candidato": "110002554073",
     "partido": "AGIR",
     "numero": "36",
-    "origem": "contencao"
+    "origem": "exato"
    },
    "wellington fagundes": {
     "nome_urna": "Wellington Fagundes",
@@ -4283,18 +4283,18 @@
     "origem": "exato"
    },
    "jose antonio medeiros": {
-    "nome_urna": "Jose Medeiros",
+    "nome_urna": "Zé Medeiros",
     "sq_candidato": "110002552693",
     "partido": "PL",
     "numero": "222",
     "origem": "contencao"
    },
    "jose medeiros": {
-    "nome_urna": "José Medeiros",
+    "nome_urna": "Zé Medeiros",
     "sq_candidato": "110002552693",
     "partido": "PL",
     "numero": "222",
-    "origem": "exato"
+    "origem": "contencao"
    },
    "margareth buzetti": {
     "nome_urna": "Margareth Buzetti",
@@ -4446,6 +4446,13 @@
     "partido": "MDB",
     "numero": "151",
     "origem": "contencao"
+   },
+   "livia noronha": {
+    "nome_urna": "Lívia Noronha",
+    "sq_candidato": "140002553952",
+    "partido": "SOLIDARIEDADE",
+    "numero": "777",
+    "origem": "exato"
    },
    "marcelino conti": {
     "nome_urna": "Conti",

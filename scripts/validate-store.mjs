@@ -17,9 +17,14 @@ import { readStore, DATA_DIR, headlineGroupKey, PEOPLE_SCHEMA_VERSION } from "./
 import { serializeRecord, FIELD_ORDER, SORT } from "./lib/ndjson.mjs";
 import { selfTest as partySelfTest, partyExistedAt } from "./lib/parties.mjs";
 import { sqsRegistrados } from "./lib/candidaturas.mjs";
+import { folgaDerivada } from "./lib/soma.mjs";
 
-const RACES = new Set(["presidente", "governador", "senador"]);
-const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
+// Exportados porque `lib/delta.mjs` valida as chaves de `data/disputas-declaradas.json`
+// contra ESTES domínios — uma segunda lista de UFs divergiria na primeira correção
+// feita de um lado só (§5), e o guarda de delta passaria a aceitar uma disputa que
+// este validador reprova.
+export const RACES = new Set(["presidente", "governador", "senador"]);
+export const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
 const PUB_STATES = new Set(["results_held","published_not_obtained","scheduled_future","not_located","unchecked"]);
 const XT_STATUS = new Set(["verified","unverified","rejected"]);
 const DIMENSIONS = new Set(["sexo","faixa_etaria","escolaridade","renda","religiao","regiao","cor_raca","pea","capital_interior","voto_2022","desconhecida"]);
@@ -301,7 +306,8 @@ export function validateStore(store, { minSurveys = 1, minQuestions = 1, sqsConh
       if (q.race !== "senador" && (q.results ?? []).length) {
         const vals = q.results.map((r) => r.pct).filter((v) => typeof v === "number");
         const rows = vals.reduce((a, v) => a + v, 0);
-        const slack = vals.reduce((a, v) => a + (Number.isInteger(v) ? 0.5 : 0.05), 0);
+        // A redução mora em `lib/soma.mjs` (§5) — esta era uma de quatro cópias.
+        const slack = folgaDerivada(vals);
         if (rows > 100 + slack + 1) {
           E(`${at}: candidatos somam ${rows.toFixed(1)} numa disputa de vaga única ` +
             `(máximo 100 + ${slack.toFixed(2)} de arredondamento) — linha a mais no elenco?`);

@@ -65,14 +65,65 @@ ListAgents, os ids mudam):
   banco JÁ estava certo (não havia dado a consertar); as duas grafias já dobram.
 
 **DECISÕES ABERTAS (esperando o criador, que você segura):**
-1. 🔴 **NÃO religar o agendamento.** A condição 1 do `update-polls.yml` (retenção de
-   elenco nunca rodou contra encolhimento real) SEGUE ABERTA — o agendamento está
-   suspenso desde 17/08. NOVO: proposto ao criador que a dazzling **desenhe** um
-   caminho supervisionado que exercite a retenção contra dado real (read-only, SEM
-   religar — o religar é dele). PUSH FREEZE mantido.
-2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS. Gatear
-   muda o placar publicado e toca `src/average.ts` (P26_5, NÃO vivo). Espera a
-   decisão de timing do criador + a certificação por agente diferente das fichas.
+1. 🔴 **NÃO religar o agendamento — TRÊS condições, estado em 20/08/2026 à noite:**
+   - **Condição 1 (retenção exercitada contra encolhimento real): SATISFEITA.** O
+     criador rodou `scrape.mjs --ensaio` em 20/08 (saída inteira arquivada com sha256
+     `f34cf990…`, leitura cruzada por dois leitores independentes): TODAS as fontes ✓,
+     ELENCO RETIDO 6 pergunta(s)/11 linha(s), 0 recusas por ambiguidade, 0 encolhimento
+     não absorvido. ⚠ "Limpo" só vale com todas as fontes ✓ — um ✗ faz os zeros da
+     fonte não significarem nada.
+   - **Condição 2 (guarda de delta por disputa + lista declarada): LANDADA em main
+     (PR #16, 21/08).** Guarda `disputa-delta-check.mjs` no workflow (bloco schedule:
+     intocado); lista `data/disputas-declaradas.json` (81 exigidas / 1 pendente).
+     ⚠ O guarda REPROVA o banco atual de propósito (presidente:AM exigida e vazia)
+     até a primeira rodada com o conserto da condição 3. Motivação medida no ensaio: 2.996→3.029
+     perguntas com **56 sumindo em 13 disputas** — crescimento total esconde perda por
+     disputa, e o piso absoluto (500/2000) é cego a isso por construção (fraqueza já
+     documentada 2× de forma independente; ver o comentário de PERTENCE_A_FONTE em
+     `scrape.mjs`).
+   - **Condição 3 (RATIFICADA pelo criador em 20/08): conserto do defeito de
+     composição dedupe/"já-serve" × guarda de soma.** Medido no artefato do ensaio, e
+     a ordem confirmada no código (applyRepairs em scrape.mjs:307 e dropExactDuplicates
+     na :440 decidem ANTES do guarda de soma das :468-484; mergePolls na :301 é outro
+     dedupe pré-guarda): as decisões de existência podem preferir um registro que
+     depois morre no guarda. Dois casos, cada um por um mecanismo: em presidente:AM a
+     DEDUPE entre marcas manteve o registro nativo quebrado (soma 21) sobre a curada do
+     Direto, e ele morreu em seguida — a coleta ensaiada terminou com **presidente:AM
+     ZERO**; em presidente:RO r1 foi a DISPENSA "a fonte já serve" que cedeu a vez a um
+     registro que morreu por soma 16. Religar antes do conserto perpetuaria a ausência
+     do AM (a curadoria presidencial de lá nunca materializaria numa rodada).
+     **LANDADA em main (PR #15, 21/08)**: as quatro decisões de existência (mergePolls,
+     keepFullestRound1, dropExactDuplicates, dispensa "já-serve") só contam registros
+     que sobrevivem ao guarda de soma (regra única em lib/soma.mjs). Junto landou o
+     PR #17: ação `drop_poll` + gate da governador:SP 19/11/2024 (fusão de cenários
+     com identidade trocada — SEM PROVA; gate até o conserto do rostersMatch por
+     cenário). ⚠ FRENTE ABERTA descoberta na sequência: o mergePolls funde cenários
+     distintos da wiki em escala (varredura de 21/08: 369 fusões provadas; exposição
+     na média É TETO SUPERIOR, pendente de re-medição com a regra averageable) e o
+     datesClose aceita data nula (caso senador:AC confirmado na fonte viva: tabela de
+     dez/2025 sob identidade de 25/07, fora da média pelo portão de dois votos).
+   **ESTADO EM 21/08/2026 à noite: as três condições estão FECHADAS.** A frente da
+   fusão de cenários também fechou (PR #19: conserto do mergePolls — data nula exige
+   chave forte, ordinal de cenário estrito — + 27 ratificações citadas; PR #20:
+   plumbing do estímulo espontânea×estimulada + 28ª ratificação, opção A do criador).
+   PROVA VERDE, medida em fixture (banco como HEAD × coleta consertada): o guarda de
+   delta dá exit 0 — 2.996→3.061 perguntas, 160 sumidas TODAS com prova (132
+   sucessoras + 28 ratificadas em voz alta), presidente:AM com 2 perguntas (a
+   curadoria materializa na primeira rodada). O agendamento segue suspenso; RELIGAR
+   é decisão do criador (§12) — não há mais bloqueio técnico conhecido, e o 1º run
+   pós-religar terá um churn one-shot de provenance.updated_at (~2,1 mil, mecânico,
+   explicado no PR #20). PARQUEADOS com dono futuro: curadoria da marca de estímulo
+   do IRG-13833 (PDF é a única fonte) + a decisão de paridade associada; a
+   instabilidade de identidade de levantamento entre reconstruções (religações sem
+   chave — 6 casos ratificados citam gêmeas); a degradação de registros nativos do
+   próprio Poder360 (13850/13851/13802, medida em 21/08); as 124 fusões (c)
+   indecidíveis; e o lote de reparos pequenos da certificação municipal.
+2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS **e
+   CERTIFICADOS em 20/08** (releitura cega independente das 23 fontes: 23/23 vereditos
+   coincidem; refinamentos do conferente repassados à sessão do gate, que os foldou no
+   dossiê). Gatear muda o placar publicado e toca `src/average.ts` — espera a decisão
+   de timing do criador, coordenada com a fronteira da frente de UI (sucessora do
+   P26_5 como dona de `src/average.ts`).
 3. **238-list / os 11 pares de linhagem parqueados** — decisão de ESCOPO
    (`REVISAO_CANDIDATOS.md` tem 238 pares, 4 caixas marcadas): sistematizar a lista
    vs. seguir ad-hoc nos pares de alto valor.
@@ -148,19 +199,32 @@ you should run after any change:
 
 ```bash
 node scripts/fetch-candidaturas.mjs   # registro TSE → data/candidaturas.ndjson
+node scripts/match-ballot-names.mjs   # nomes crus DA RODADA ANTERIOR × registro → data/ballot-names.json
 node scripts/scrape.mjs               # fontes → normaliza → reparos → store (via upsertPoll)
-node scripts/match-ballot-names.mjs   # nomes crus × registro → data/ballot-names.json
 node scripts/derive-polls.mjs         # store → polls.json (projeção)
 ```
 
-⚠ **ORDER MATTERS AND IS COUNTER-INTUITIVE.** `match-ballot-names.mjs` runs
-AFTER the scrape, because it reads `data/nomes-crus.json` — the names exactly as
-the institutes published them, which `scrape.mjs` dumps just before it
-canonicalises. Reading the canonicalised output instead makes the generator eat
-its own tail: once "Romeu Zema" has been renamed to "Zema" it is no longer in
-the input, the mapping shrinks on every run, and restored accents are lost. The
-map generated by a run applies to the NEXT run. This is the same defect
-`candidate-resolve.mjs` documents hitting twice; it bit again on 2026-08-16.
+⚠ **ORDER MATTERS AND IS COUNTER-INTUITIVE.** `match-ballot-names.mjs` reads
+`data/nomes-crus.json` — the names exactly as the institutes published them,
+which `scrape.mjs` dumps just before it canonicalises. Reading the canonicalised
+output instead makes the generator eat its own tail: once "Romeu Zema" has been
+renamed to "Zema" it is no longer in the input, the mapping shrinks on every
+run, and restored accents are lost. The map generated from one round's names
+applies to the NEXT round. This is the same defect `candidate-resolve.mjs`
+documents hitting twice; it bit again on 2026-08-16.
+
+⚠ **E ELE RODA NO COMEÇO DA RODADA, ANTES DA COLETA (mudado em 21/08/2026, por
+defeito medido).** Até então rodava entre a coleta e os portões, reescrevendo
+`data/ballot-names.json` no meio da verificação da própria rodada: o store saía
+canonicalizado com a tabela velha, `parity-check` media com a recém-reescrita, e
+todo nome que ESTREAVA com candidatura casável virava divergência — 140 na
+rodada 32531108279, a primeira pós-religar, expostas pelos nomes que o conserto
+da fusão (PR #19) desengoliu. E o vermelho era um beco: rodada vermelha não
+commita a tabela nova, então a rodada seguinte repetia tudo. Rodando ANTES da
+coleta, sobre os nomes crus commitados pela rodada anterior, coletor e portões
+consomem o MESMO estado da tabela e o commit sai com store e tabela consistentes
+(CONVENTIONS §3 e §5). A defasagem de uma rodada para nomes que estreiam
+continua a mesma de sempre — item 7 de §6, decisão do criador.
 
 
 
@@ -969,7 +1033,7 @@ metadata cells change in the table columns.
     (`surveys/questions/candidates/people/institutes` e `polls[]`).
     **Causa: a defasagem de uma rodada do casador de nomes de urna (CONVENTIONS §6).** A
     inserção estreia `Samara Martins` e `Edmilson Costa` em `presidente:PE`;
-    `match-ballot-names.mjs` roda DEPOIS da coleta e o mapa que ele gera só vale para a
+    `match-ballot-names.mjs` roda ANTES da coleta desde 21/08 (sobre os nomes crus da rodada ANTERIOR — a defasagem de uma rodada continua; era DEPOIS até a falha de paridade da 1ª rodada religada) e o mapa que ele gera só vale para a
     rodada SEGUINTE. Então na rodada 2 `Samara Martins` vira `Samara`, o elenco canônico
     muda, e com ele a semente `question|…|<elenco canônico>` — id novo, e como
     `priorStamps` casa `created_at` POR ID, carimbo novo. Vale para QUALQUER pesquisa
@@ -1102,8 +1166,9 @@ válido porque as duas rodadas dele partem do MESMO diretório.
 
 ⚠️ **"MESMA ENTRADA" INCLUI O MAPA DE NOMES DE URNA — e ele muda entre a rodada
 que estreia um nome e a seguinte.** `data/ballot-names.json` é saída de
-`match-ballot-names.mjs`, que roda DEPOIS da coleta e vale para a rodada seguinte
-(CONVENTIONS §6). Uma rodada que traga para uma disputa um nome que o mapa
+`match-ballot-names.mjs`, que roda no COMEÇO da rodada sobre os nomes crus que a
+rodada anterior commitou (CONVENTIONS §6; ordem mudada em 21/08/2026 — ver §0).
+Uma rodada que traga para uma disputa um nome que o mapa
 reescreva não é ponto fixo: na rodada seguinte o elenco canônico muda, a semente
 `question|…|<elenco canônico>` muda com ele e o `question_id` é recunhado UMA
 vez, levando o `created_at` junto. Depois disso estabiliza. Foi o que aconteceu

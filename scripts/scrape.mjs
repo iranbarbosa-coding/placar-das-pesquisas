@@ -12,6 +12,7 @@ import { applyRepairs } from "./lib/repairs.mjs";
 import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
+import { sobreviveAoGuardaDeSoma, veredictoDeSoma } from "./lib/soma.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
@@ -76,11 +77,39 @@ function pollDate(p) {
 // A janela é a de `resolveSurvey` — uma implementação só (§5): se este lado e a
 // escada discordarem sobre o que é uma operação de campo, o coletor funde o que
 // o store separa (ou o contrário) e ninguém vê a divergência.
-function datesClose(a, b) {
+//
+// DATA NULA NÃO É CURINGA. Isto era `if (!da || !db) return true`, e um
+// fragmento sem data casava com QUALQUER data do bucket: a senador:AC de
+// dez/2025 (p360-13111, ano-typo "2005" anulado pela sanitização) foi absorvida
+// pela de 25/07/2026 (p360-13593) porque os elencos batiam — duas medições com
+// sete meses entre elas viraram um registro. A regra do §4 é recusar a
+// ambiguidade em vez de escolher: sem data dos dois lados, o que decide é uma
+// chave FORTE — os fragmentos provarem que saíram do MESMO registro nativo da
+// fonte. Contra o snapshot cru de 21/08/2026, nenhuma fusão legítima dependia
+// do passe-nulo (todas as que dependiam eram cenários distintos ou
+// indecidíveis), então o que esta recusa desfaz é só o defeito.
+//
+// `dataNulaCasa` é parâmetro pelo mesmo motivo do `sobrevive` de `mergePolls`:
+// a mutação honesta do autoteste (`() => true` reproduz o passe-nulo antigo).
+function datesClose(a, b, dataNulaCasa = mesmoRegistroNativo) {
   const da = pollDate(a);
   const db = pollDate(b);
-  if (!da || !db) return true; // undated: let the roster check decide
+  if (!da || !db) return dataNulaCasa(a, b);
   return Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS;
+}
+
+/**
+ * A chave forte que autoriza fundir fragmentos sem data: os dois carregarem o
+ * id do MESMO registro nativo do Poder360 (`p360-<id da fonte>-…`, cunhado em
+ * `poder360.mjs`). É a única ligação que os dados provam sem data — a
+ * Wikipédia não tem id nativo, então fragmento dela sem data nunca liga por
+ * aqui, e é assim que deve ser: a alternativa era o elenco decidir sozinho, e
+ * foi o elenco sozinho que somou dez/2025 a jul/2026 no caso do Acre.
+ */
+export function mesmoRegistroNativo(a, b) {
+  const ra = /^p360-(\d+)-/.exec(typeof a?.id === "string" ? a.id : "")?.[1];
+  const rb = /^p360-(\d+)-/.exec(typeof b?.id === "string" ? b.id : "")?.[1];
+  return ra != null && ra === rb;
 }
 
 function rostersMatch(a, b) {
@@ -93,19 +122,137 @@ function rostersMatch(a, b) {
   return hits / small.results.length >= 0.6;
 }
 
-function mergePolls(pollLists) {
+/**
+ * O ordinal que a fonte DECLAROU no rótulo do cenário ("1º turno — cenário
+ * 2/5" → {n:2, de:5}). Rótulo sem ordinal ("1º turno", "cenário único",
+ * "2º turno: A vs B") devolve null — cenário não declarado.
+ *
+ * A comparação é pelo ordinal PARSEADO, não pelo rótulo inteiro, porque o
+ * prefixo varia entre páginas da Wikipédia sem mudar o que foi perguntado.
+ */
+export function ordinalDeCenario(p) {
+  const m = /cen[aá]rio\s*(\d+)\s*\/\s*(\d+)/i.exec(p?.scenario ?? "");
+  return m ? { n: +m[1], de: +m[2] } : null;
+}
+
+/**
+ * CENÁRIOS DECLARADOS DOS DOIS LADOS SÓ SÃO A MESMA PERGUNTA SE OS ORDINAIS
+ * FOREM IGUAIS — numerador E denominador. "cenário 1/3" e "cenário 2/3" são
+ * elencos diferentes postos à mesma amostra: fundi-los apaga uma pergunta e
+ * costura a tabela da outra na identidade da primeira (o registro final saía
+ * com id de um fragmento e resultados de outro — a classe inteira de fusões
+ * com identidade×tabela cruzadas da varredura de 21/08/2026).
+ *
+ * Igualdade estrita, e não "denominadores diferentes são comparáveis pelo
+ * elenco", pela doutrina do §4: "cenário 1/3" e "cenário 1/7" em páginas
+ * distintas PODEM ser o mesmo cenário — ou não —, e a alternativa branda,
+ * medida contra o snapshot cru, deixava fragmentos de cenários distintos se
+ * reagruparem por essa fresta (o registro só poderia vetar o que consegue
+ * comparar). Quando a recusa separa o que era o mesmo cenário, o custo é um
+ * registro a mais que `keepFullestRound1` colapsa adiante — a tabela publicada
+ * não muda; quando a fusão junta o que era distinto, o custo é uma pergunta
+ * que deixa de existir. Fragmento sem ordinal declarado (null de qualquer
+ * lado) segue a regra de sempre: data + elenco decidem.
+ */
+export function cenariosCompativeis(oa, ob) {
+  return !oa || !ob || (oa.n === ob.n && oa.de === ob.de);
+}
+
+/**
+ * O ESTÍMULO DECLARADO (espontânea × estimulada) ENTRA NA COMPATIBILIDADE DE
+ * FUSÃO: perguntas de estímulos declarados DIFERENTES nunca são a mesma
+ * pergunta. O caso provado (investigação de 21/08/2026, senador:PR IRG
+ * 08–12/08): a espontânea do Poder360 (p360-13833-1-1 — Deltan 7,6 · Gleisi
+ * 5,7 · Curi 3,8 · indecisos 71, intacta na fonte) caiu no mesmo slot que a
+ * linha estimulada da Wikipédia (9 candidatos, soma ~180, que SOBREVIVE ao
+ * teto de 260 do Senado) e, sendo a tabela mais cheia, a estimulada doou: a
+ * espontânea foi destruída na construção e o legacy dela (q_2d349d71bb58)
+ * foi colado na pergunta estimulada resultante.
+ *
+ * Fragmento sem estímulo declarado segue a regra de sempre (§4: não inferir —
+ * 71% de indecisos é ASSINATURA de espontânea, não declaração, e assinatura
+ * não decide). Onde a marca vive, medido em 21/08/2026: o Poder360 só a
+ * publica dentro do rótulo `nomeCenario` (59 de 540 rótulos vivos dizem
+ * "estimulada"; NENHUM diz "espontânea" — o do caso IRG diz apenas "Senador -
+ * Cenário 2"), e a Wikipédia só declara na abertura das páginas estaduais
+ * ("Todos os cenários se referem a pesquisas estimuladas"). Este conserto
+ * portanto NÃO desfaz o caso IRG sozinho: a declaração de espontânea daquele
+ * registro existe só no PDF do instituto ("ESPONTÂNEA", pergunta 6), fora do
+ * alcance deste coletor — a regra fica pronta para a marca, e a marca do IRG
+ * é decisão de curadoria (§12).
+ */
+export function estimulosCompativeis(ea, eb) {
+  return !ea || !eb || ea === eb;
+}
+
+/**
+ * `sobrevive` é parâmetro por UM motivo, o mesmo do `inserir` de
+ * `applyRepairs`: o autoteste de `existencia-pos-guarda-check.mjs` precisa
+ * provar que a bateria REPROVA quando a decisão volta a ignorar o guarda de
+ * soma, e a única mutação honesta é `() => true` — que reproduz exatamente o
+ * comportamento antigo — sobre a função de verdade. O coletor nunca passa o
+ * parâmetro.
+ */
+export function mergePolls(pollLists, {
+  sobrevive = sobreviveAoGuardaDeSoma,
+  // Os três abaixo são parâmetros pelo mesmo motivo do `sobrevive`: a mutação
+  // honesta do autoteste de `fusao-cenarios-check.mjs` é `() => true`, que
+  // reproduz exatamente o comportamento antigo (passe-nulo de data; fusão cega
+  // a cenário; fusão cega a estímulo) sobre as funções de verdade. O coletor
+  // nunca os passa.
+  dataNulaCasa = mesmoRegistroNativo,
+  cenarioCompativel = cenariosCompativeis,
+  estimuloCompativel = estimulosCompativeis,
+} = {}) {
+  // QUEM DOA A TABELA DE RESULTADOS TEM DE SOBREVIVER AO GUARDA DE SOMA.
+  //
+  // `richerRoster` sozinho decidia a doação, e "mais linhas" não é "tabela que
+  // vive": uma tabela pode ser a mais cheia e ainda assim reprovar na soma — e
+  // aí a decisão de existência preferia um registro que o guarda de soma, mais
+  // adiante no coletor, matava — levando a pesquisa inteira junto (o defeito de
+  // composição medido no ensaio de 20/08/2026; ver `veredictoDeSoma`). Quando
+  // exatamente um dos lados sobreviveria, ele doa; a riqueza segue desempatando
+  // o resto.
+  const doaTabela = (a, b) => {
+    const va = sobrevive(a);
+    if (va !== sobrevive(b)) return va;
+    return richerRoster(a, b);
+  };
   const buckets = new Map();
   const out = [];
+  // O CENÁRIO QUE O REGISTRO JÁ ABSORVEU, fora do objeto de propósito: o
+  // registro fundido herda o RÓTULO da fonte vencedora ("1º turno", sem
+  // ordinal), então guardar a restrição no próprio `scenario` a apagaria na
+  // primeira doação de identidade — e o segundo cenário da Wikipédia entraria
+  // no registro que o primeiro acabou de ocupar (era exatamente a mecânica da
+  // fusão em cadeia). Um Map à parte também não vaza para polls.json.
+  // Sob igualdade estrita todos os ordinais absorvidos são iguais, então um
+  // valor único basta — não é preciso guardar o conjunto.
+  const ordinalAbsorvido = new Map();
   for (const polls of pollLists) {
     for (const p of polls) {
       const k = bucketKey(p);
       if (!buckets.has(k)) buckets.set(k, []);
       const bucket = buckets.get(k);
-      const existing = bucket.find((e) => datesClose(e, p) && rostersMatch(e, p));
+      const existing = bucket.find((e) =>
+        datesClose(e, p, dataNulaCasa) &&
+        rostersMatch(e, p) &&
+        cenarioCompativel(ordinalAbsorvido.get(e) ?? null, ordinalDeCenario(p)) &&
+        // Diferente do ordinal, o estímulo não precisa de Map à parte: ele vive
+        // num campo próprio que a doação de identidade não sobrescreve com
+        // rótulo sem a informação — e `META` abaixo o preserva na absorção.
+        estimuloCompativel(e.stimulus ?? null, p.stimulus ?? null));
       if (existing) {
+        if (!ordinalAbsorvido.has(existing)) {
+          const o = ordinalDeCenario(p);
+          if (o) ordinalAbsorvido.set(existing, o);
+        }
         const oldPri = SOURCE_PRIORITY[existing.source] ?? 1;
         const newPri = SOURCE_PRIORITY[p.source] ?? 1;
-        const META = ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start"];
+        // `stimulus` viaja como metadado: só iguais ou nulos chegam aqui (o
+        // portão acima recusa declarados diferentes), então preencher o nulo
+        // com a marca do outro lado nunca inventa — só propaga o declarado.
+        const META = ["sample_size", "margin_of_error", "tse_registration", "contractor", "fieldwork_start", "stimulus"];
         // SOURCE PRIORITY DECIDES METADATA — NEVER THE RESULT TABLE.
         //
         // The winning source used to replace the record wholesale, results
@@ -122,19 +269,20 @@ function mergePolls(pollLists) {
         // mesmo desfecho se for respondida errado — a tabela completa
         // sobrescrita por um fragmento. Duas cópias divergiriam na primeira
         // correção feita de um lado só (CONVENTIONS §5).
-        const richer = richerRoster;
         const RESULTS = ["results", "others_pct", "blank_null_pct", "undecided_pct"];
         if (newPri > oldPri) {
           const keep = { ...p };
           for (const f of META) if (keep[f] == null && existing[f] != null) keep[f] = existing[f];
-          if (richer(existing, p)) for (const f of RESULTS) keep[f] = existing[f];
+          if (doaTabela(existing, p)) for (const f of RESULTS) keep[f] = existing[f];
           Object.assign(existing, keep);
         } else {
           for (const f of META) if (existing[f] == null && p[f] != null) existing[f] = p[f];
-          if (richer(p, existing)) for (const f of RESULTS) existing[f] = p[f];
+          if (doaTabela(p, existing)) for (const f of RESULTS) existing[f] = p[f];
         }
       } else {
         const copy = { ...p };
+        const o = ordinalDeCenario(copy);
+        if (o) ordinalAbsorvido.set(copy, o);
         bucket.push(copy);
         out.push(copy);
       }
@@ -147,9 +295,32 @@ function mergePolls(pollLists) {
  * Round-1 polls where an institute tested several line-ups arrive as several
  * rows (Wikipedia cenários). The per-race average must count each poll once:
  * keep the fullest roster per (pollster, race, state, date).
+ *
+ * ⚠ QUARTA DECISÃO DE EXISTÊNCIA DA MESMA FAMÍLIA (ver `veredictoDeSoma`):
+ * "mais cheio" podia eleger um fragmento que reprova na soma — e no empate de
+ * tamanho ficava o PRIMEIRO da lista, que é o nativo, nunca a curada que
+ * `applyRepairs` acabou de acrescentar no fim. Uma curada de elenco igual ao
+ * do fragmento morto perderia aqui e a pesquisa fechava a rodada ZERADA, o
+ * mesmo desfecho do caso presidente:RO do ensaio de 20/08/2026, uma decisão
+ * adiante. Quem sobrevive ao guarda vence quem não sobrevive; o tamanho segue
+ * decidindo entre iguais. `sobrevive` e `estimuloCompativel` são parâmetros
+ * pelo mesmo motivo dos de `mergePolls`: a mutação honesta do autoteste. O
+ * coletor nunca os passa.
+ *
+ * ⚠ ESPONTÂNEA E ESTIMULADA DECLARADAS NÃO COMPETEM AQUI. "Mais cheio" é
+ * desempate entre ELENCOS ALTERNATIVOS da mesma pergunta; espontânea ×
+ * estimulada são perguntas diferentes postas à mesma amostra, e sem esta
+ * cláusula a recusa de fusão de `mergePolls` seria desfeita uma decisão
+ * adiante — a estimulada (via de regra a tabela mais cheia) engoliria a
+ * espontânea aqui, o mesmo desfecho do caso IRG por outra porta. Fragmento
+ * sem marca declarada segue competindo com tudo (§4), que é o comportamento
+ * de sempre.
  */
-function keepFullestRound1(polls) {
-  const best = new Map();
+export function keepFullestRound1(polls, {
+  sobrevive = sobreviveAoGuardaDeSoma,
+  estimuloCompativel = estimulosCompativeis,
+} = {}) {
+  const best = new Map(); // chave → sobreviventes (no máximo um por estímulo declarado)
   const rest = [];
   for (const p of polls) {
     if (p.round !== 1) {
@@ -157,10 +328,25 @@ function keepFullestRound1(polls) {
       continue;
     }
     const k = `${bucketKey(p)}:${pollDate(p) ?? "?"}`;
-    const cur = best.get(k);
-    if (!cur || p.results.length > cur.results.length) best.set(k, p);
+    if (!best.has(k)) {
+      best.set(k, [p]);
+      continue;
+    }
+    const grupo = best.get(k);
+    const i = grupo.findIndex((cur) => estimuloCompativel(cur.stimulus ?? null, p.stimulus ?? null));
+    if (i === -1) {
+      grupo.push(p);
+      continue;
+    }
+    const cur = grupo[i];
+    const vp = sobrevive(p);
+    if (vp !== sobrevive(cur)) {
+      if (vp) grupo[i] = p;
+      continue;
+    }
+    if (p.results.length > cur.results.length) grupo[i] = p;
   }
-  return [...rest, ...best.values()];
+  return [...rest, ...[...best.values()].flat()];
 }
 
 /**
@@ -169,7 +355,9 @@ function keepFullestRound1(polls) {
  * match with IDENTICAL percentages (and compatible sample sizes) are the same
  * poll published under two brandings. Keep the higher-priority source's copy.
  */
-function dropExactDuplicates(polls) {
+export function dropExactDuplicates(polls, { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+  // `sobrevive` é parâmetro pelo mesmo motivo do de `mergePolls`: a mutação
+  // honesta do autoteste. O coletor nunca o passa.
   const groups = new Map();
   for (const p of polls) {
     const k = `${p.race}:${p.state ?? "BR"}:${p.round}`;
@@ -207,9 +395,21 @@ function dropExactDuplicates(polls) {
           matched >= 3 ||
           (matched === 2 && da && da === db && a.sample_size && a.sample_size === b.sample_size);
         if (matched / small.results.length >= 0.9 && identical === matched && strongEnough) {
-          const loser = (SOURCE_PRIORITY[a.source] ?? 1) >= (SOURCE_PRIORITY[b.source] ?? 1) ? b : a;
+          // A PRIORIDADE SÓ DESEMPATA ENTRE REGISTROS QUE SOBREVIVEM AO GUARDA
+          // DE SOMA. Escolher por prioridade cega manteve, no ensaio de
+          // 20/08/2026, o nativo "Direito ao Ponto" (soma 21) contra a curada
+          // "Direto ao Ponto Pesquisas" da MESMA pesquisa — o vencedor morreu
+          // no guarda logo depois e presidente:AM fechou a coleta ZERADA.
+          // Quando exatamente um dos dois sobrevive, ele fica, qualquer que
+          // seja a fonte; prioridade decide o resto, como sempre.
+          const va = sobrevive(a);
+          const soUmVive = va !== sobrevive(b);
+          const loser = soUmVive
+            ? (va ? b : a)
+            : (SOURCE_PRIORITY[a.source] ?? 1) >= (SOURCE_PRIORITY[b.source] ?? 1) ? b : a;
           dropped.add(loser);
-          console.warn(`duplicata entre marcas: ${a.pollster} ≡ ${b.pollster} (${a.race}/${a.state ?? "BR"} ${da ?? "?"}) — mantida a de maior prioridade`);
+          console.warn(`duplicata entre marcas: ${a.pollster} ≡ ${b.pollster} (${a.race}/${a.state ?? "BR"} ${da ?? "?"}) — ` +
+            (soUmVive ? "mantida a que sobrevive ao guarda de soma" : "mantida a de maior prioridade"));
         }
       }
     }
@@ -314,6 +514,13 @@ async function main() {
   // o dia em que a fonte sarou OU em que a inserção quebrou, e as duas coisas
   // precisam ser vistas. Ver `add_poll` em `scripts/lib/repairs.mjs`.
   for (const i of rep.inserted ?? []) console.log(`  PESQUISA INSERIDA (curada): ${i}`);
+  // O ESPELHO DA LINHA ACIMA: cada registro que um `drop_poll` removeu é um que
+  // a fonte SERVE e a rodada decidiu não publicar (o caso que motivou a ação: a
+  // governador:SP costurada de três cenários — ver `gatearPesquisaCurada` em
+  // `scripts/lib/repairs.mjs`). Remoção silenciosa seria indistinguível de
+  // perda de coleta, e é exatamente a classe de sumiço que o guarda de delta
+  // existe para acusar.
+  for (const d of rep.dropped ?? []) console.log(`  PESQUISA GATEADA (curada): ${d}`);
   for (const u of rep.unmatched) console.warn(`AVISO: reparo sem pesquisa correspondente — ${u}`);
   // A repair that matches a poll and then corrects nothing is either stale or
   // its source has healed. Both are worth a line: without one, the only trace
@@ -463,20 +670,16 @@ async function main() {
 
   // Drop individually broken polls (over-cap sums, malformed results) with a
   // log line instead of failing the whole run; the strict validator remains
-  // the final gate on what's left.
+  // the final gate on what's left. O veredicto mora em `lib/soma.mjs` (§5)
+  // porque as decisões de existência acima — dedupe, doação de tabela,
+  // dispensa de add_poll — passaram a consultá-lo ANTES de este filtro rodar:
+  // preferir aqui um registro que morre ali era perder a pesquisa inteira
+  // (ensaio de 20/08/2026, presidente:AM e presidente:RO).
   const before = polls.length;
   polls = polls.filter((p) => {
-    let sum = p.results.reduce((a, r) => a + r.pct, 0);
-    sum += (p.undecided_pct ?? 0) + (p.blank_null_pct ?? 0) + (p.others_pct ?? 0);
-    const cap = p.race === "senador" ? 260 : 130;
-    if (sum > cap) {
-      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — soma ${sum.toFixed(1)} > ${cap}`);
-      return false;
-    }
-    // Sums far below 100 are mis-parsed fragments (rejection questions,
-    // segment cuts), not vote-intention tables — they'd poison averages.
-    if (sum < 30) {
-      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — soma ${sum.toFixed(1)} < 30`);
+    const v = veredictoDeSoma(p);
+    if (!v.ok) {
+      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — ${v.motivo}`);
       return false;
     }
     return true;
