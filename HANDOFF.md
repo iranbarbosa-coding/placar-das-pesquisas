@@ -65,14 +65,38 @@ ListAgents, os ids mudam):
   banco JÁ estava certo (não havia dado a consertar); as duas grafias já dobram.
 
 **DECISÕES ABERTAS (esperando o criador, que você segura):**
-1. 🔴 **NÃO religar o agendamento.** A condição 1 do `update-polls.yml` (retenção de
-   elenco nunca rodou contra encolhimento real) SEGUE ABERTA — o agendamento está
-   suspenso desde 17/08. NOVO: proposto ao criador que a dazzling **desenhe** um
-   caminho supervisionado que exercite a retenção contra dado real (read-only, SEM
-   religar — o religar é dele). PUSH FREEZE mantido.
-2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS. Gatear
-   muda o placar publicado e toca `src/average.ts` (P26_5, NÃO vivo). Espera a
-   decisão de timing do criador + a certificação por agente diferente das fichas.
+1. 🔴 **NÃO religar o agendamento — TRÊS condições, estado em 20/08/2026 à noite:**
+   - **Condição 1 (retenção exercitada contra encolhimento real): SATISFEITA.** O
+     criador rodou `scrape.mjs --ensaio` em 20/08 (saída inteira arquivada com sha256
+     `f34cf990…`, leitura cruzada por dois leitores independentes): TODAS as fontes ✓,
+     ELENCO RETIDO 6 pergunta(s)/11 linha(s), 0 recusas por ambiguidade, 0 encolhimento
+     não absorvido. ⚠ "Limpo" só vale com todas as fontes ✓ — um ✗ faz os zeros da
+     fonte não significarem nada.
+   - **Condição 2 (guarda de delta por disputa + lista declarada): DESENHADA, não
+     implementada.** Proposta em verificação; motivação medida no ensaio: 2.996→3.029
+     perguntas com **56 sumindo em 13 disputas** — crescimento total esconde perda por
+     disputa, e o piso absoluto (500/2000) é cego a isso por construção (fraqueza já
+     documentada 2× de forma independente; ver o comentário de PERTENCE_A_FONTE em
+     `scrape.mjs`).
+   - **Condição 3 (RATIFICADA pelo criador em 20/08): conserto do defeito de
+     composição dedupe/"já-serve" × guarda de soma.** Medido no artefato do ensaio, e
+     a ordem confirmada no código (applyRepairs em scrape.mjs:307 e dropExactDuplicates
+     na :440 decidem ANTES do guarda de soma das :468-484; mergePolls na :301 é outro
+     dedupe pré-guarda): as decisões de existência podem preferir um registro que
+     depois morre no guarda. Dois casos, cada um por um mecanismo: em presidente:AM a
+     DEDUPE entre marcas manteve o registro nativo quebrado (soma 21) sobre a curada do
+     Direto, e ele morreu em seguida — a coleta ensaiada terminou com **presidente:AM
+     ZERO**; em presidente:RO r1 foi a DISPENSA "a fonte já serve" que cedeu a vez a um
+     registro que morreu por soma 16. Religar antes do conserto perpetuaria a ausência
+     do AM (a curadoria presidencial de lá nunca materializaria numa rodada). Direção
+     recomendada: dedupe/já-serve só contam registros que SOBREVIVEM aos guardas.
+   O agendamento segue suspenso até 2 e 3 fecharem; religar é decisão do criador (§12).
+2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS **e
+   CERTIFICADOS em 20/08** (releitura cega independente das 23 fontes: 23/23 vereditos
+   coincidem; refinamentos do conferente repassados à sessão do gate, que os foldou no
+   dossiê). Gatear muda o placar publicado e toca `src/average.ts` — espera a decisão
+   de timing do criador, coordenada com a fronteira da frente de UI (sucessora do
+   P26_5 como dona de `src/average.ts`).
 3. **238-list / os 11 pares de linhagem parqueados** — decisão de ESCOPO
    (`REVISAO_CANDIDATOS.md` tem 238 pares, 4 caixas marcadas): sistematizar a lista
    vs. seguir ad-hoc nos pares de alto valor.
