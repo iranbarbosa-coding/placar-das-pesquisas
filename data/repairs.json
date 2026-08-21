@@ -1850,6 +1850,77 @@
     "blank_null_pct": 25.9
    },
    "expect_sum": 100.1
+  },
+  {
+   "match": {
+    "tse_registration": "AM-00163/2026",
+    "race": "presidente",
+    "round": 1
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Action Instituto de Pesquisa (AM, campo 06-10/07/2026, AM-00163/2026) e AUSENTE do banco: o levantamento existe com governador e senador (p360-13843/13844) e SEM a presidencial — o bloco da p.29 é gráfico em IMAGEM (a camada de texto da página não carrega os valores), então nem o agregador nem o parser presidencial o alcançam mecanicamente (classificado 'ilegível' na fila de pendência §1 do lote AM de 20/08, classificação auditada e confirmada). Transcrito por leitura visual, duas leituras cegas independentes. A UF vem do poll estadual; a série guardada é o TOTAL Amazonas, não os recortes.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/V4_Action_Pesquisa-de-Opiniao-Eleitoral_Amazonas_Julho_AM00163-2026.pdf",
+   "evidence": "p.29, título impresso 'INT.VOTO P/PRESIDENTE ESTIMULADA', pergunta 'Vou lhe apresentar um disco com nomes de possíveis candidatos [...] Se as eleições fossem hoje, em quem votaria para Presidente desses nomes? (Resposta Estimulada e Única)'. Gráfico de barras agrupadas em TRÊS séries por candidato — Manaus, Interior e TOTAL (legenda impressa; TOTAL é o total geral) — em IMAGEM: a camada de texto da p.29 (621 caracteres) só tem título, pergunta e rodapé; nenhum valor. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE, por leitura visual da página renderizada (leitura 1: rasterização de todas as 32 páginas + inspeção; leitura 2: renderização 4x com zoom 8x em três recortes do gráfico), em diretórios separados, em 20/08/2026 — as duas batem nas DEZ figuras da série TOTAL, na ordem impressa: Lula 46 · Flávio Bolsonaro 37 · Renan Santos 2 · Augusto Cury 2 · Ronaldo Caiado 1 · Romeu Zema 1 · Joaquim Barbosa 1 · Aldo Rebelo 1, e os baldes SEPARADOS 'Branco/ Nulo' 5 e 'Não sabe' 4 (rótulos exatos). NÃO HÁ linha de 'Outros' no bloco estimulado; a armadilha vizinha está identificada e não pode vazar para cá: a ESPONTÂNEA da p.28 TEM 'Outros' 1, e é de outra pergunta. O bloco não imprime PARTIDO de candidato algum — party NULO em todas as linhas (§4). Os RECORTES Manaus/Interior NÃO são guardados (crosstab segmentado, fora do escopo v1) e só a série TOTAL tem dupla leitura. SOMA: 46+37+2+2+1+1+1+1 = 91; com 5 de branco/nulo e 4 de não sabe, 100 exatos; não há total impresso na página — expect_sum 100 pela aritmética das duas leituras concordantes. FICHA TÉCNICA com dupla leitura cega própria (as duas leituras da ficha batem campo a campo, sha256 idêntico): 2.685 entrevistas presenciais em 33 municípios da zona urbana (Manaus 1.410 = 52,5%; interior 1.275), margem de erro 1,9 p.p., nível de confiança 95% (sem campo no esquema plano; fica só aqui), campo de 06 a 10/07/2026, estatístico João Caldas do Lago Neto CONRE 7117, universo declarado 2.802.090 eleitores aptos (TSE 02/07/2026). CONTRATANTE E PAGANTE: 'NORTE COMUNICAÇÃO E PARTICIPAÇÕES LTDA' – CNPJ 51.059.300/0001-87 (p.6, itens 6-7), transcrito como impresso. INSTITUTO: impresso 'Action Instituto de Pesquisa'; guardado 'Action', a grafia que as linhas irmãs do banco (p360-13843 governador, p360-13844 senador, mesma AM-00163/2026, mesma ficha 2.685/1,9) já carregam — o registro junta a pergunta ao levantamento existente. ⚠ DIVERGÊNCIA INTERNA DO DOCUMENTO, achada pelas DUAS leituras independentemente: os rodapés dizem 'registrada no TSE sob o Nº AM-00163/2026' e o item 8 da p.6 diz 'registrada no TRE-AM sob o Nº AM-00163/2026', mesmo número e mesma data (08/07/2026) — anotada, sem efeito no dado. NÃO CONFUNDIR com AM-05601/2026, que também aparece no documento (p.6 item 9 e notas das p.11-19): é a pesquisa de MAIO/2026 do mesmo instituto, citada só para comparação evolutiva, e não é este levantamento. sha256 do PDF, conferido IDÊNTICO nas três cópias baixadas independentemente (as duas leituras do bloco e a da ficha): 3f910a77b2cd94426d2cdf8fab0433e328c3e24a621eacaac1a26830a46fef20. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-20",
+   "add_poll": {
+    "pollster": "Action",
+    "race": "presidente",
+    "state": "AM",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "NORTE COMUNICAÇÃO E PARTICIPAÇÕES LTDA",
+    "fieldwork_start": "2026-07-06",
+    "fieldwork_end": "2026-07-10",
+    "published_date": null,
+    "sample_size": 2685,
+    "margin_of_error": 1.9,
+    "tse_registration": "AM-00163/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 46
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": null,
+      "pct": 37
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": null,
+      "pct": 2
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": null,
+      "pct": 2
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 1
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": null,
+      "pct": 1
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": null,
+      "pct": 1
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": null,
+      "pct": 1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 4,
+    "blank_null_pct": 5
+   },
+   "expect_sum": 100
   }
  ]
 }
