@@ -13,6 +13,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sameCandidate } from "./canonicalize.mjs";
 import { pollId } from "./util.mjs";
+import { folgaDerivada } from "./soma.mjs";
 // A janela de "mesma operação de campo" mora em `store.mjs`, ao lado da escada
 // que a usa. Sem ciclo: o fecho de imports de `store.mjs` (candidates,
 // canonicalize, candidaturas, ids, ndjson, nomes, parties, people) não alcança
@@ -515,16 +516,26 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
  */
 function conferirSoma(poll, rep, label, warnings) {
   if (rep.expect_sum == null) return;
-  const sum =
-    poll.results.reduce((a, r) => a + r.pct, 0) +
-    (poll.others_pct ?? 0) + (poll.blank_null_pct ?? 0) + (poll.undecided_pct ?? 0);
-  if (Math.abs(sum - rep.expect_sum) > 0.6) {
+  // A folga é DERIVADA das mesmas parcelas que entram na soma (§10), nunca um
+  // teto escolhido. O 0,6 fixo que morava aqui era a jogada proibida nas duas
+  // direções: numa tabela em décimos a folga merecida é 0,05 por figura, e o
+  // 0,6 engolia um dígito trocado de meio ponto — exatamente o erro mais
+  // provável numa transcrição à mão; numa tabela em inteiros (a PE de
+  // 58+33+8+2 = 101 merece 2,0) ele gritava contra arredondamento legítimo da
+  // fonte. E era a quarta cópia da regra — as outras três já derivavam.
+  const parcelas = [
+    ...poll.results.map((r) => r.pct),
+    poll.others_pct, poll.blank_null_pct, poll.undecided_pct,
+  ].filter((v) => typeof v === "number");
+  const sum = parcelas.reduce((a, v) => a + v, 0);
+  const folga = folgaDerivada(parcelas);
+  if (Math.abs(sum - rep.expect_sum) > folga) {
     warnings.push(
       // O rótulo cai para a cláusula inteira quando o reparo não casa por
       // registro. Nem toda pesquisa TEM registro — a do Paraná arquivada
       // como RS não tem, e o agregador serve `"registro": ""` — e um aviso
       // dizendo "reparo undefined" não diz de qual reparo se trata.
-      `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum}`,
+      `reparo ${label}: soma ${sum.toFixed(1)} ≠ esperada ${rep.expect_sum} (folga derivada ${folga.toFixed(2)})`,
     );
   }
 }

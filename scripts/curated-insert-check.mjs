@@ -649,7 +649,69 @@ function rodar({ mutacao = null } = {}) {
   });
 
   // ======================================================================
-  // D. O ARQUIVO CURADO DE VERDADE
+  // D. A FOLGA DA SOMA É DERIVADA (§10) — nas duas direções
+  // ======================================================================
+  //
+  // O `conferirSoma` cravava 0,6 fixo, e um teto escolhido erra dos dois
+  // lados: numa tabela em décimos a folga merecida é 0,05 por figura, então o
+  // 0,6 engolia meio ponto de dígito trocado — o erro MAIS provável numa
+  // transcrição à mão; numa tabela em inteiros ele gritava contra
+  // arredondamento legítimo (a PE de 58+33+8+2 = 101 merece 2,0 de folga).
+  // Os dois casos abaixo REPROVAM contra o 0,6 fixo, um por cada direção —
+  // sem eles, reintroduzir o teto passaria a bateria inteira em verde.
+  //
+  // Caminho de correção, não de inserção, de propósito: a conferência de soma
+  // roda mesmo num casamento no-op, e assim as mutações do autoteste (que
+  // mutilam só a DECISÃO DE INSERIR) não alcançam estes casos.
+
+  const specSoma = (dir, expect_sum) => {
+    const f = path.join(dir, "reparo-soma.json");
+    fs.writeFileSync(f, JSON.stringify({
+      version: 1,
+      repairs: [{
+        match: CLAUSULA,
+        defect: "só a conferência de soma — reparo deliberadamente sem ação",
+        source: "https://exemplo/relatorio-do-instituto.pdf",
+        evidence: "p.8, total impresso pelo instituto",
+        verified_at: "2026-08-18",
+        expect_sum,
+      }],
+    }, null, 1));
+    return f;
+  };
+
+  caso("AVISA meio ponto de sobra numa tabela em décimos (o 0,6 fixo engolia)", ({ dir, afirma, opcoes }) => {
+    // 41,3+30,2+6,1+2,4 + indecisos 9,3 + branco 11,2 = 100,5 contra esperada
+    // 100. Seis figuras em décimos merecem 0,30 de folga — meio ponto é dígito
+    // trocado, não arredondamento.
+    const polls = [daFonte({
+      results: [
+        { candidate: "Alfa Insercao", party: "PT", pct: 41.3 },
+        { candidate: "Beta Insercao", party: "PL", pct: 30.2 },
+        { candidate: "Gama Insercao", party: "PSD", pct: 6.1 },
+        { candidate: "Delta Insercao", party: "Novo", pct: 2.4 },
+      ],
+      undecided_pct: 9.3, blank_null_pct: 11.2,
+    })];
+    const rel = applyRepairs(polls, opcoes(specSoma(dir, 100)));
+    afirma(!rel.unmatched.length, `o reparo ficou órfão: ${rel.unmatched.join(" | ")}`);
+    afirma(rel.warnings.some((w) => /soma 100.5/.test(w) && /folga derivada 0.30/.test(w)),
+      `soma 100,5 ≠ 100 em tabela de décimos passou calada (avisos: ${rel.warnings.join(" | ") || "nenhum"})`);
+  });
+
+  caso("NÃO avisa arredondamento de inteiros dentro da folga merecida (o 0,6 fixo gritava)", ({ dir, afirma, opcoes }) => {
+    // O elenco padrão soma 100 em seis figuras inteiras — 3,0 de folga
+    // merecida. Esperada 102 é a sobra da PE (58+33+8+2 = 101 contra 100):
+    // arredondamento da fonte, não defeito.
+    const polls = [daFonte()];
+    const rel = applyRepairs(polls, opcoes(specSoma(dir, 102)));
+    afirma(!rel.unmatched.length, `o reparo ficou órfão: ${rel.unmatched.join(" | ")}`);
+    afirma(!rel.warnings.some((w) => /soma/.test(w)),
+      `arredondamento legítimo de inteiros virou aviso: ${rel.warnings.filter((w) => /soma/.test(w)).join(" | ")}`);
+  });
+
+  // ======================================================================
+  // E. O ARQUIVO CURADO DE VERDADE
   // ======================================================================
 
   caso("todo add_poll de data/repairs.json passa pela barra probatória", ({ dir, afirma }) => {

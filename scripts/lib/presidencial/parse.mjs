@@ -23,6 +23,7 @@
 //
 // Este módulo lê UMA perna. A reconciliação entre as duas pernas e a segunda
 // leitura cega (§1) moram fora daqui — no orquestrador e no hub, respectivamente.
+import { folgaDerivada } from "../soma.mjs";
 
 // ---------------------------------------------------------------------------
 // Reconhecedores. Deliberadamente conservadores; a rede de segurança é a
@@ -241,17 +242,17 @@ export function extrairBlocoPresidencial(paginas) {
 }
 
 // ---------------------------------------------------------------------------
-// §10 — TOLERÂNCIA DERIVADA, nunca escolhida. 0,5 por figura inteira, 0,05 por
-// décimo. (conferirSoma do repairs.mjs crava 0,6; este gate é mais estrito.)
+// §10 — TOLERÂNCIA DERIVADA, nunca escolhida. A redução (0,5 por inteiro, 0,05
+// por décimo) mora em `../soma.mjs`: era uma de quatro cópias da regra, e o
+// `conferirSoma` do repairs.mjs — que cravava 0,6 fixo — passou a derivar da
+// mesma função. O import não fura a pureza deste módulo: `soma.mjs` também é
+// livre de rede, relógio e fs.
 // ---------------------------------------------------------------------------
 export function toleranciaDerivada(figuras) {
-  const cells = [
+  return folgaDerivada([
     ...figuras.results.map((r) => r.pct),
     figuras.blank_null_pct, figuras.undecided_pct, figuras.others_pct,
-  ].filter((v) => v != null);
-  let tol = 0;
-  for (const v of cells) tol += Number.isInteger(v) ? 0.5 : 0.05;
-  return Number(tol.toFixed(2));
+  ]);
 }
 
 /** As duas pernas leram a MESMA tabela? Sinal de confiança, não a §1. */
