@@ -429,11 +429,19 @@ export function dropExactDuplicates(polls, { sobrevive = sobreviveAoGuardaDeSoma
  * também tem registro do Poder360 projeta `source: "poder360"`. Medido no banco:
  * a projeção emite `null` (1.039) e `poder360` (1.933) e **nunca** `wikipedia`.
  *
- * Ou seja: o ramo de recuperação da Wikipédia era CÓDIGO MORTO. Numa falha de
+ * Ou seja: o ramo de recuperação da Wikipédia ERA CÓDIGO MORTO. Numa falha de
  * coleta ele guardava ZERO linhas e a mensagem dizia "mantendo dados anteriores
- * desta fonte" enquanto **apagava as 1.039**. Hoje o piso de `minQuestions`
- * ainda barra isso — por 58 perguntas. Quando o banco passar de ~3.040
- * perguntas, o piso para de pegar e a exclusão fica silenciosa.
+ * desta fonte" enquanto apagava tudo o que era dela.
+ *
+ * O piso de `minQuestions` do validador chegou a ser a rede que segurava isso,
+ * mas nunca foi proteção: a margem dele é a diferença entre o tamanho do banco
+ * e o piso, e as duas pontas se movem a cada coleta — quando a soma cruzar, ele
+ * para de pegar e a exclusão fica silenciosa, sem nada mudar de lugar. Não se
+ * escreve o número dele aqui de propósito: número de banco envelhece dentro do
+ * comentário e a próxima pessoa mede a folga errada. Quem quiser a folga de um
+ * dia, MEÇA — o valor do dia em que isto foi escrito está no corpo do commit.
+ *
+ * A proteção que vale é a de baixo, e é por isso que ela existe:
  *
  * Então a pertinência passa a ser pelo ESPAÇO DE ID, que a projeção preserva:
  * o Poder360 cunha `p360-…` em `poder360.mjs`, a inserção curada cunha
