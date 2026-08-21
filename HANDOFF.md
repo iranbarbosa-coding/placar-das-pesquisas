@@ -72,8 +72,11 @@ ListAgents, os ids mudam):
      ELENCO RETIDO 6 pergunta(s)/11 linha(s), 0 recusas por ambiguidade, 0 encolhimento
      não absorvido. ⚠ "Limpo" só vale com todas as fontes ✓ — um ✗ faz os zeros da
      fonte não significarem nada.
-   - **Condição 2 (guarda de delta por disputa + lista declarada): DESENHADA, não
-     implementada.** Proposta em verificação; motivação medida no ensaio: 2.996→3.029
+   - **Condição 2 (guarda de delta por disputa + lista declarada): LANDADA em main
+     (PR #16, 21/08).** Guarda `disputa-delta-check.mjs` no workflow (bloco schedule:
+     intocado); lista `data/disputas-declaradas.json` (81 exigidas / 1 pendente).
+     ⚠ O guarda REPROVA o banco atual de propósito (presidente:AM exigida e vazia)
+     até a primeira rodada com o conserto da condição 3. Motivação medida no ensaio: 2.996→3.029
      perguntas com **56 sumindo em 13 disputas** — crescimento total esconde perda por
      disputa, e o piso absoluto (500/2000) é cego a isso por construção (fraqueza já
      documentada 2× de forma independente; ver o comentário de PERTENCE_A_FONTE em
@@ -88,8 +91,17 @@ ListAgents, os ids mudam):
      Direto, e ele morreu em seguida — a coleta ensaiada terminou com **presidente:AM
      ZERO**; em presidente:RO r1 foi a DISPENSA "a fonte já serve" que cedeu a vez a um
      registro que morreu por soma 16. Religar antes do conserto perpetuaria a ausência
-     do AM (a curadoria presidencial de lá nunca materializaria numa rodada). Direção
-     recomendada: dedupe/já-serve só contam registros que SOBREVIVEM aos guardas.
+     do AM (a curadoria presidencial de lá nunca materializaria numa rodada).
+     **LANDADA em main (PR #15, 21/08)**: as quatro decisões de existência (mergePolls,
+     keepFullestRound1, dropExactDuplicates, dispensa "já-serve") só contam registros
+     que sobrevivem ao guarda de soma (regra única em lib/soma.mjs). Junto landou o
+     PR #17: ação `drop_poll` + gate da governador:SP 19/11/2024 (fusão de cenários
+     com identidade trocada — SEM PROVA; gate até o conserto do rostersMatch por
+     cenário). ⚠ FRENTE ABERTA descoberta na sequência: o mergePolls funde cenários
+     distintos da wiki em escala (varredura de 21/08: 369 fusões provadas; exposição
+     na média É TETO SUPERIOR, pendente de re-medição com a regra averageable) e o
+     datesClose aceita data nula (caso senador:AC confirmado na fonte viva: tabela de
+     dez/2025 sob identidade de 25/07, fora da média pelo portão de dois votos).
    O agendamento segue suspenso até 2 e 3 fecharem; religar é decisão do criador (§12).
 2. **Gate de amostra municipal** (gifted): 21 municipal / 2 estadual MEDIDOS **e
    CERTIFICADOS em 20/08** (releitura cega independente das 23 fontes: 23/23 vereditos
