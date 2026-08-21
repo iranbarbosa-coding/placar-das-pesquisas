@@ -32,13 +32,11 @@ import { questionRostersMatch } from "./store.mjs";
 import { mintConflictId, normalizeRegistration } from "./ids.mjs";
 import { relatorioDeEnsaio, chaveDeLinhagem, disputaDe } from "./ensaio.mjs";
 import { RACES, UFS } from "../validate-store.mjs";
-
-// A barra probatória de todo reparo, a mesma tríade que `repairs.mjs` exige
-// (`CITACAO`). Redigitada aqui — e não importada — porque `repairs.mjs` não a
-// exporta e está, nesta rodada, sob outra frente de trabalho (fronteira de
-// arquivos); se os dois divergirem um dia, é para o lado de EXIGIR MAIS, nunca
-// menos, e o autoteste do caso 8 é quem grita primeiro.
-const CITACAO = ["source", "evidence", "verified_at"];
+// A barra probatória de todo reparo é a MESMA tríade de `repairs.mjs`,
+// importada (§5): uma cópia aqui passaria a exigir MENOS em silêncio no dia em
+// que a barra de lá ganhasse um quarto campo — a conferência independente
+// pegou exatamente essa dupla escrita na primeira versão.
+import { CITACAO } from "./repairs.mjs";
 
 const ESTADOS = new Set(["exigida", "pendente", "desativada"]);
 

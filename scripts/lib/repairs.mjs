@@ -149,7 +149,10 @@ function matches(poll, m) {
 // elenco, ela cai na MESMA pergunta e herda `question_id` e `created_at`.
 const FONTE_CURADA = "repair:curadoria";
 const PREFIXO_ID_CURADO = "curado-";
-const CITACAO = ["source", "evidence", "verified_at"];
+// Exportada: `lib/delta.mjs` exige a MESMA tríade nos reparos
+// `allow_question_drop`. Uma cópia lá passaria a exigir MENOS em silêncio no
+// dia em que esta barra ganhasse um quarto campo (§5, uma implementação).
+export const CITACAO = ["source", "evidence", "verified_at"];
 // Uma entrada insere OU corrige. Misturar as duas deixaria ambíguo se a correção
 // se aplica à pesquisa inserida ou às que a cláusula casou — e ambiguidade se
 // recusa (§4), não se resolve por convenção tácita.
