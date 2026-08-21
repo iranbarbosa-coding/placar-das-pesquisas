@@ -103,18 +103,25 @@ export interface PresidentBarsData {
  * tenths remainder — so the ruler sums to exactly 100,0 (the same reconciliation
  * `HeroInteractive` uses on the válidos cut).
  */
-export function presidentBars(): PresidentBarsData {
-  const g = scenarioGroups("presidente", null, 1)[0];
+/**
+ * The R1 average of ANY race as a bar per registered candidate — the general
+ * form of `presidentBars`. Pass `(race, state, round)`; the registered naming set
+ * is `registeredSetFor(race, state)` (national for president, per-UF otherwise),
+ * and when a seat has no registration data the set is empty, so the polled field
+ * itself is named (the same "no filter" fallback the evolution chart uses).
+ */
+export function raceBars(race: RaceKind, state: UF | null, round: 1 | 2): PresidentBarsData {
+  const g = scenarioGroups(race, state, round)[0];
   const avg = g?.average ?? null;
   if (!avg) return { rows: [], outros: 0, lastPollDate: null, pollCount: 0 };
 
-  const reg = registeredSet();
+  const reg = registeredSetFor(race, state);
   const cmap = colorMap(avg.candidates.slice(0, PALETTE_SIZE).map((c) => c.candidate));
 
   // Only registered candidates at or above the named floor get a bar; everyone
   // else — registered sub-threshold and every non-registered name — is absorbed
   // by "Outros" (below), which the tenths reconciliation fills to make 100,0.
-  const named = namedRoster(avg, reg);
+  const named = reg.size > 0 ? namedRoster(avg, reg) : avg.candidates.filter((c) => c.avg >= NAMED_MIN_PCT);
   const rowsT = named.map((c) => ({
     candidate: c.candidate,
     party: c.party,
@@ -137,6 +144,11 @@ export function presidentBars(): PresidentBarsData {
     lastPollDate: avg.lastPollDate,
     pollCount: avg.pollCount,
   };
+}
+
+/** The national R1 presidential average as bars — `raceBars` for president. */
+export function presidentBars(): PresidentBarsData {
+  return raceBars("presidente", null, 1);
 }
 
 // ── Momentum: each candidate's 30-day change ────────────────────────────────
@@ -212,7 +224,10 @@ function resultadoOf(poll: Poll, max = 6): string {
 }
 
 function toPollRow(poll: Poll): PollRow {
-  const disputa = `Presidente · ${poll.round === 2 ? "2º" : "1º"} turno`;
+  // Disputa reads from the poll's own race, so the same row works for governor,
+  // senate and president. Senate is one 2-seat election — no turno.
+  const cargo = poll.race === "governador" ? "Governador" : poll.race === "senador" ? "Senado" : "Presidente";
+  const disputa = poll.race === "senador" ? "Senado" : `${cargo} · ${poll.round === 2 ? "2º" : "1º"} turno`;
   const estado = poll.state ? UF_NAMES[poll.state] : "Brasil";
   const names = poll.results.map((r) => r.candidate).join(" ");
   return {
@@ -765,6 +780,20 @@ export function allPresidentialPolls(): PollRow[] {
   const all: Poll[] = [
     ...pollsFor("presidente", null),
     ...UFS.flatMap((uf) => pollsFor("presidente", uf)),
+  ];
+  const dateOf = (p: Poll) => p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? "0000";
+  return all
+    .sort((a, b) => dateOf(b).localeCompare(dateOf(a)) || String(a.id).localeCompare(String(b.id)))
+    .map(toPollRow);
+}
+
+/** Every poll of a STATE — governor, senate and president-in-state — newest
+ *  first, in the same `PollRow` shape as the presidential table. */
+export function allStatePolls(uf: UF): PollRow[] {
+  const all: Poll[] = [
+    ...pollsFor("governador", uf),
+    ...pollsFor("senador", uf),
+    ...pollsFor("presidente", uf),
   ];
   const dateOf = (p: Poll) => p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? "0000";
   return all
