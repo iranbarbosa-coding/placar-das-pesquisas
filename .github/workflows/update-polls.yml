@@ -27,18 +27,19 @@ on:
   # (dispara quando deve, não dispara quando o elenco cresce) e o `--self-test`
   # prova que ele mesmo reprova.
   #
-  # O QUE FALTA ANTES DE RELIGAR, e é decisão do criador (CONVENTIONS §12):
-  #   1. uma rodada MANUAL supervisionada por `workflow_dispatch`, lendo a linha
-  #      `ELENCO RETIDO` e os conflitos — a retenção nunca foi exercitada contra
-  #      uma coleta de verdade, só contra o banco reconstruído em diretório
-  #      temporário;
-  #   2. o que fazer com as 41 disputas que o `v2` hoje não devolve INTEIRAS: a
-  #      retenção guarda pergunta a pergunta e não alcança uma pergunta que
-  #      desaparece por completo.
-  # Rodar sem os dois é apostar o banco a cada 12 horas.
-  #
-  # schedule:
-  #   - cron: "15 12,22 * * *"
+  # RELIGADO em 21/08/2026 por decisão do criador (CONVENTIONS §12), depois de
+  # as duas pendências acima terem fechado com guarda, não com promessa:
+  #   1. a retenção foi exercitada contra coleta real no ensaio de 20/08 (todas
+  #      as fontes ✓; ELENCO RETIDO 6 perguntas/11 linhas, 0 não absorvido);
+  #   2. pergunta que desaparece por completo agora é caso do guarda de delta
+  #      por disputa (disputa-delta-check + data/disputas-declaradas.json), que
+  #      REPROVA a rodada antes do commit salvo prova de sucessão ou ratificação
+  #      citada — provado verde contra a coleta consertada (160 sumidas, todas
+  #      com prova; PRs #15-#21).
+  # 1ª rodada pós-religar: esperar churn one-shot de provenance.updated_at
+  # (~2,1 mil registros — o campo stimulus passou a ser alimentado; PR #20).
+  schedule:
+    - cron: "15 12,22 * * *"
   workflow_dispatch: {}
 
 permissions:
