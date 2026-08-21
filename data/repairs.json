@@ -2176,20 +2176,6 @@
     "blank_null_pct": 5
    },
    "expect_sum": 100
-  },
-  {
-   "match": {
-    "pollster": "Paraná Pesquisas",
-    "race": "governador",
-    "state": "SP",
-    "round": 1,
-    "fieldwork_end": "2024-11-19"
-   },
-   "defect": "FUSÃO DE CENÁRIOS COM IDENTIDADE TROCADA — registro costurado, não publicável. Com a quarentena da condição 3, a rodada faz emergir da Wikipédia uma governador:SP 1º turno da Paraná Pesquisas (campo 15–19/11/2024) que o mergePolls COSTUROU de três cenários DISTINTOS da mesma rodada: ele publica a TABELA do cenário 2/3 (o confronto Nunes/Marçal — Ricardo Nunes 27,2 · Pablo Marçal 28,3 · Márcio França 14,6 · Alexandre Padilha 7,7 · Sabará 1,5 · indecisos 20,7, soma 100,0) sob a IDENTIDADE (id/rótulo '1º turno — cenário 1/3') do cenário 1/3, que é o cenário COM Tarcísio; a tabela válida do próprio 1/3 (Tarcísio 40,5) foi descartada por um desempate de 0,1; e o fragmento 3/3 (soma 148,2, quebrado) cai na quarentena do conserto. Não há reparo de correção possível: o registro inteiro é identidade de um cenário com dados de outro. O defeito de fundo é o rostersMatch de 0,6 do mergePolls fundindo cenários distintos da mesma rodada — frente futura; este gate impede a publicação do registro viciado até esse conserto.",
-   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "evidence": "Anatomia conferida no replay do ensaio da condição 3 (21/08/2026), registro wiki d9efafb239c0: a tabela publicada é a do cenário 2/3 (Nunes 27,2 · Marçal 28,3 · França 14,6 · Padilha 7,7 · Sabará 1,5 + indecisos 20,7 = 100,0), servida sob o rótulo e a identidade do cenário 1/3 — o cenário com Tarcísio —, cuja tabela válida (Tarcísio 40,5) o desempate de 0,1 do mergePolls descartou; o fragmento 3/3 soma 148,2 e é quarentenado pelo conserto da condição 3. Conferente independente examinou a anatomia em 21/08/2026 e vereditou SEM PROVA de costura limpa: identidade de um cenário com dados de outro. Gate vigente até o conserto do rostersMatch por cenário no mergePolls. A cláusula match (campo fim 2024-11-19, igualdade exata) NÃO alcança a pesquisa legítima vizinha de 23/02/2025 (Poder360, p360-13059-1-5, provada por três testemunhas) nem nenhuma outra da série.",
-   "verified_at": "2026-08-21",
-   "drop_poll": true
   }
  ]
 }
