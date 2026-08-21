@@ -21,9 +21,6 @@ import type { RaceAverage } from "@/lib/types";
  */
 
 const AXIS_MAX = 60;
-const FIFTY_LEFT = (50 / AXIS_MAX) * 100;
-/** Registered candidates below this fold into "Outros" instead of their own bar. */
-const BAR_MIN = 1;
 
 type Pt = { date: string; avg: number };
 
@@ -61,11 +58,18 @@ export interface RaceBarsProps {
   registeredKeys?: string[];
   /** Read values at this ISO date; null = current averages. */
   atDate?: string | null;
-  /** Show the aggregate "Outros" bar. Pass false for the Senate (2-vote ballot). */
+  /** Show the aggregate "Outros" bar. */
   showOutros?: boolean;
+  /** Single-vote reconciliation: "Outros" fills the remainder to 100. Pass false
+   *  for a 2-vote ballot (Senate), where shares don't sum to 100 and "Outros" is
+   *  simply the sum of the candidates not drawn individually. */
+  reconcileTo100?: boolean;
+  /** Narrower name/value columns for tight half-width panels, so the bar keeps a
+   *  usable width instead of being squeezed to a sliver. */
+  compact?: boolean;
 }
 
-export default function RaceBars({ average, significantKeys, registeredKeys = [], atDate = null, showOutros = true }: RaceBarsProps) {
+export default function RaceBars({ average, significantKeys, registeredKeys = [], atDate = null, showOutros = true, reconcileTo100 = true, compact = false }: RaceBarsProps) {
   if (!average || !average.candidates.length) {
     return (
       <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -85,24 +89,33 @@ export default function RaceBars({ average, significantKeys, registeredKeys = []
   const isSig = (c: { candidate: string }) => displayable(c) && sigSet.has(candKey(c.candidate));
   const val = (c: { avg: number; trend: Pt[] }) => valueAt(cleanTrend(c.trend), atDate, c.avg);
 
-  // Coloured significant candidates + registered sub-5% (≥1%) drawn grey.
-  const named = cands.filter((c) => displayable(c) && (isSig(c) || c.avg >= BAR_MIN));
-  const rows: BarRow[] = named
+  // Individual bars for the "principais" only (registered ≥ threshold, in
+  // `significantKeys`); everyone below folds into "Outros". All shown bars are
+  // significant, so each takes its own fixed colour.
+  const shownCands = cands.filter((c) => isSig(c));
+  const rows: BarRow[] = shownCands
     .map((c) => ({
       key: candKey(c.candidate),
       name: displayName(c.candidate),
       party: c.party,
-      color: isSig(c) ? colorOf(cmap, c.candidate) : "var(--series-muted)",
+      color: colorOf(cmap, c.candidate),
       value: val(c),
     }))
     .sort((a, b) => b.value - a.value);
 
-  // "Outros" is the remainder to 100 on válidos; on bruto it is the non-named
-  // candidate share, and a separate Brancos/Nulos/NR bar takes the rest.
-  const namedSum = rows.reduce((s, r) => s + r.value, 0);
+  // "Outros": single-vote válidos → the remainder to 100; a 2-vote ballot (Senate,
+  // reconcileTo100=false) → the sum of the registered candidates below the bar
+  // threshold (not the meaningless full non-shown mass); bruto → the non-shown
+  // candidate share, with a separate Brancos/Nulos/NR bar for the rest.
+  const shownSum = rows.reduce((s, r) => s + r.value, 0);
   const allSum = cands.reduce((s, c) => s + val(c), 0);
-  const outros = Math.max(0, validos ? 100 - namedSum : allSum - namedSum);
-  const bn = validos ? null : Math.max(0, 100 - allSum);
+  const foldedNamedSum = cands.filter((c) => displayable(c) && !isSig(c)).reduce((s, c) => s + val(c), 0);
+  // Senate (reconcileTo100=false) keys off the ballot type, NOT the basis: its
+  // "Outros" is only the folded REGISTERED field (never the full 2-vote mass).
+  // Single-vote válidos → remainder to 100; bruto → non-shown share + a
+  // Brancos/Nulos/NR bar.
+  const outros = Math.max(0, !reconcileTo100 ? foldedNamedSum : validos ? 100 - shownSum : allSum - shownSum);
+  const bn = !reconcileTo100 || validos ? null : Math.max(0, 100 - allSum);
 
   const bars: BarRow[] = [...rows];
   if (showOutros && outros > 0.05) bars.push({ key: "__outros", name: "Outros", party: null, color: "var(--series-muted)", value: outros });
@@ -112,8 +125,11 @@ export default function RaceBars({ average, significantKeys, registeredKeys = []
     <ul className="flex flex-col gap-2.5">
       {bars.map((b) => {
         const width = Math.max(0, Math.min(100, (b.value / AXIS_MAX) * 100));
+        const gridCols = compact
+          ? "grid-cols-[6rem_minmax(0,1fr)_3rem]"
+          : "grid-cols-[7rem_minmax(0,1fr)_3.5rem] sm:grid-cols-[8.5rem_minmax(0,1fr)_3.5rem]";
         return (
-          <li key={b.key} className="grid grid-cols-[7rem_minmax(0,1fr)_3.5rem] items-center gap-x-2 sm:grid-cols-[8.5rem_minmax(0,1fr)_3.5rem]">
+          <li key={b.key} className={`grid ${gridCols} items-center gap-x-2`}>
             <div className="flex min-w-0 items-baseline gap-1">
               <span className="truncate text-sm font-semibold" style={{ color: "var(--text-primary)" }} title={b.party ? `${b.name} (${b.party})` : b.name}>
                 {b.name}
@@ -126,7 +142,6 @@ export default function RaceBars({ average, significantKeys, registeredKeys = []
             </div>
             <div className="relative h-5 min-w-0 rounded" style={{ background: "var(--surface-2)" }}>
               <div className="absolute inset-y-0 left-0 rounded" style={{ width: `${width}%`, background: b.color }} />
-              <span aria-hidden="true" className="absolute inset-y-[-3px] w-0 border-l border-dashed" style={{ left: `${FIFTY_LEFT}%`, borderColor: "var(--axis)" }} />
             </div>
             <div className="tabular text-right text-base font-bold leading-none" style={{ color: "var(--text-primary)" }}>
               {fmtPct(b.value)}

@@ -25,6 +25,23 @@ export async function generateMetadata({ params }: { params: Promise<{ uf: strin
   };
 }
 
+/** Below this (válidos average), a candidate folds into "Outros" instead of
+ *  getting its own bar and line — the owner's threshold for "principais". */
+const BAR_MIN_PCT = 2;
+
+/**
+ * The `candKey`s of the registered candidates AT OR ABOVE `BAR_MIN_PCT` — the
+ * ones drawn individually (their own colour + bar + line); everyone below folds
+ * into "Outros". Read from the válidos cut so the set stays fixed across the
+ * basis toggle.
+ */
+function namedColorKeys(evo: { average: { candidates: { candidate: string; avg: number }[] } | null; registeredKeys: string[] }): string[] {
+  const reg = new Set(evo.registeredKeys);
+  return (evo.average?.candidates ?? [])
+    .filter((c) => (reg.size === 0 || reg.has(candKey(c.candidate))) && c.avg >= BAR_MIN_PCT)
+    .map((c) => candKey(c.candidate));
+}
+
 export default async function EstadoPage({ params }: { params: Promise<{ uf: string }> }) {
   const { uf } = await params;
   const UFU = uf.toUpperCase() as UF;
@@ -36,13 +53,20 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   const gov1Rcp = rcpTable("governador", UFU, 1);
   const gov1Group = scenarioGroups("governador", UFU, 1)[0] ?? null;
   const gov1Evo = raceEvolutionData("governador", UFU, 1);
-  // Colour EVERY named (registered) candidate — not just the ≥5% ones — so each
-  // gets its own hue in the bars and a visible line in the evolution chart.
-  // Derived from the válidos cut so colours stay fixed across the basis toggle.
-  const govColorKeys = (gov1Evo.average?.candidates ?? [])
-    .filter((c) => gov1Evo.registeredKeys.length === 0 || gov1Evo.registeredKeys.includes(candKey(c.candidate)))
-    .map((c) => candKey(c.candidate));
+  const govColorKeys = namedColorKeys(gov1Evo);
   const hasGov1 = gov1Rcp.candidates.length > 0;
+
+  // Senado — 2-vote ballot: no bruto cut, "Outros" is the sum of the rest (not a
+  // remainder to 100), and 50% is a neutral reference, not a win line (GUIA §9).
+  const sen1Evo = raceEvolutionData("senador", UFU, 1);
+  const senColorKeys = namedColorKeys(sen1Evo);
+  const hasSenado = (sen1Evo.average?.candidates.length ?? 0) > 0;
+
+  // Presidente no estado — single-vote like governador (bruto toggle, 50% win line).
+  const pres1Group = scenarioGroups("presidente", UFU, 1)[0] ?? null;
+  const pres1Evo = raceEvolutionData("presidente", UFU, 1);
+  const presColorKeys = namedColorKeys(pres1Evo);
+  const hasPresidente = (pres1Evo.average?.candidates.length ?? 0) > 0;
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
@@ -101,13 +125,64 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
         )}
       </section>
 
+      {/* Senado + Presidente (1º turno) — half-width each, same bars + evolution
+          pattern as governor. Senate is a 2-vote ballot (no bruto, sum-of-rest
+          "Outros", neutral 50%); the presidential-in-state race is single-vote. */}
+      <div className="grid gap-6 xl:grid-cols-2">
+        <section id="senado" className="flex scroll-mt-24 flex-col gap-4">
+          <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+            Senado
+          </h2>
+          {hasSenado ? (
+            <RaceBarsEvolution
+              half
+              validos={sen1Evo.average}
+              bruto={null}
+              significantKeys={senColorKeys}
+              registeredKeys={sen1Evo.registeredKeys}
+              pollCount={sen1Evo.average?.pollCount ?? null}
+              barsTitle="Média das pesquisas · Senado"
+              reconcileTo100={false}
+              fiftyLabel="50%"
+            />
+          ) : (
+            <div className="card min-w-0 p-4 sm:p-6">
+              <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                Ainda não há pesquisas para o Senado em {UF_NAMES[UFU]}.
+              </p>
+            </div>
+          )}
+        </section>
+
+        <section id="presidente" className="flex scroll-mt-24 flex-col gap-4">
+          <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+            Presidente no estado · 1º turno
+          </h2>
+          {hasPresidente ? (
+            <RaceBarsEvolution
+              half
+              validos={pres1Evo.average}
+              bruto={pres1Group?.averageBruto ?? null}
+              significantKeys={presColorKeys}
+              registeredKeys={pres1Evo.registeredKeys}
+              pollCount={pres1Evo.average?.pollCount ?? null}
+              barsTitle="Média das pesquisas · Presidente"
+            />
+          ) : (
+            <div className="card min-w-0 p-4 sm:p-6">
+              <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                Ainda não há pesquisas presidenciais em {UF_NAMES[UFU]}.
+              </p>
+            </div>
+          )}
+        </section>
+      </div>
+
       {/*
-        PARTE 2 — OCULTA até validarmos a Parte 1 (decisão do criador, 21/08).
-        Restaurar depois: evolução da média (1º turno), Governador 2º turno,
-        Senado (evolução + RCP), Presidente no estado e a tabela geral presidencial.
-        O motor (raceEvolutionData / runoffSim / rcpTable / pollsFor) já aceita
-        (race, uf, round); os componentes RaceEvolution / RunoffSimChart seguem
-        no repositório. Ver GUIA_DE_DESIGN §9 e o histórico desta página.
+        PARTE 2 (restante) — OCULTA até validar: Governador 2º turno (simulações),
+        Senado/Presidente 2º turno e a tabela geral presidencial. O motor
+        (runoffSim / rcpTable / pollsFor) já aceita (race, uf, round). Ver
+        GUIA_DE_DESIGN §9 e o histórico desta página.
       */}
     </div>
   );
