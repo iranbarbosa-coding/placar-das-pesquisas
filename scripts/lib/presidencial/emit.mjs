@@ -32,7 +32,7 @@ const iso = (s) => (s == null ? null : String(s).slice(0, 10));
  *   ainda é devolvida, marcada, para o rastro; o orquestrador a conta como
  *   rejeitada, nunca a emite como candidata limpa.
  */
-export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, legs, totalImpresso = null, tolerancia = 0 }) {
+export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, legs, pareamento = null, totalImpresso = null, tolerancia = 0 }) {
   const sweepData = iso(rec?.data ?? rec?.dataOriginal ?? null);
 
   // Conferência de campo a campo: PDF manda no que é número de metodologia
@@ -79,9 +79,10 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
   if (pollster && !pollsterDoPDF) divergencias.push(`pollster '${pollster}' veio do sweep — não extraído do PDF; §1 confere no relatório`);
   if (!contractor) divergencias.push("contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)");
 
-  const confidence = legs.texto && legs.ocr && legs.concordam ? "texto+ocr"
-    : legs.texto ? "texto"
-    : "ocr";
+  // Confiança agora reflete o MODO DE PAREAMENTO (§1 precisa saber o que confere):
+  // adjacente-* = pareamento estruturalmente inequívoco (o valor cola no rótulo);
+  // corroborado-visual = corrida-separada que a perna visual/OCR confirmou.
+  const confidence = pareamento ?? (legs.texto && legs.ocr && legs.concordam ? "texto+ocr" : legs.texto ? "texto" : "ocr");
 
   // Gate aritmético interno (§10 derivada). Só REPROVA quando há um total
   // IMPRESSO independente para conferir; sem ele, a soma é auto-consistente e a
@@ -134,6 +135,7 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     _parser: {
       status: "pendente-2a-leitura",
       confidence,
+      pareamento,                        // adjacente-inline | adjacente-interleaved | corroborado-visual | ocr-*
       legs,
       page: figuras.page,
       absent: figuras.absent,            // asterisco = ausência ≠ zero (§4)

@@ -1,104 +1,106 @@
 // O CORAÇÃO PURO DO PARSER PRESIDENCIAL — texto de página → figuras, ou RECUSA.
 //
 // Recebe as linhas que uma perna de extração (camada de texto embutida OU OCR
-// Vision) produziu para um relatório, acha o bloco presidencial ESTIMULADO de 1º
-// turno e devolve as figuras estruturadas — candidato/partido/percentual e os
-// DOIS baldes separados (branco/nulo × não sabe). Nada de rede, nada de relógio,
-// nada de aleatório: a MESMA entrada dá a MESMA saída (§8). E o modo de falha é
-// sempre uma RECUSA TIPADA (`sem-bloco` / `ilegível`), nunca um palpite (§4):
-// tabela que não alinha não vira número inventado, vira pendência.
+// Vision) produziu, acha o bloco presidencial ESTIMULADO de 1º turno e devolve
+// as figuras — candidato/partido/percentual, DOIS baldes separados (branco/nulo
+// × não sabe) — MAIS o MODO DE PAREAMENTO, que diz se o pareamento rótulo×valor
+// é estruturalmente inequívoco. Determinístico (§8); falha sempre como RECUSA
+// TIPADA (§4), nunca palpite.
 //
-// FORMATOS COBERTOS (medidos em relatórios reais de governador estadual):
-//   - Datafolha: "Nome (PARTIDO)" em coluna, valores um por linha, baldes na
-//     própria corrida de rótulos.
-//   - Direto ao Ponto: "Nome" SEM partido, valores VÁRIOS por linha ("44% 35%
-//     3%"), baldes como pares rótulo→valor DEPOIS da corrida de candidatos.
-// A trava comum: o N-ésimo rótulo casa com o N-ésimo valor, e contagens que não
-// batem RECUSAM. Um formato novo que a heurística leia torto quase sempre
-// desalinha a contagem — e então cai na fila, não no banco.
+// ★ O MODO DE PAREAMENTO (achado da leitura cega do AM-08042) — a classe de
+// defeito que reprovou o AM foi AMBIGUIDADE DE ORDEM entre CORRIDAS SEPARADAS: o
+// PDF entrega todos os rótulos, depois todos os valores, e a ordem dos valores
+// pode não seguir a dos rótulos (some 100 e engana todo guarda de soma). Onde o
+// valor está ESTRUTURALMENTE COLADO ao rótulo essa ambiguidade não existe:
+//   adjacente-inline       — cada linha é "rótulo ... valor" (o valor na linha do rótulo)
+//   adjacente-interleaved  — alternância estrita rótulo / valor / rótulo / valor
+//   corridas-separadas     — corrida de rótulos, depois corrida de valores  ← AMBÍGUO
+// O parser CLASSIFICA e o orquestrador DECIDE: adjacente emite do texto; corrida
+// separada exige a perna visual (OCR) corroborar. CONSERVADOR: qualquer dúvida
+// cai em corrida-separada (gated), nunca o contrário.
 //
-// O QUE SE RECUSA DE PROPÓSITO: crosstab SEGMENTADO (ex.: Manaus/Interior/Total)
-// tem k valores por candidato e a coluna "Total" não se isola mecanicamente —
-// vira recusa tipada para leitura visual/§1, nunca um chute de qual barra é o total.
-//
-// Este módulo lê UMA perna. A reconciliação entre as duas pernas e a segunda
-// leitura cega (§1) moram fora daqui — no orquestrador e no hub, respectivamente.
+// Este módulo lê UMA perna. A reconciliação entre pernas e a 2ª leitura cega (§1)
+// moram fora daqui.
 
 // ---------------------------------------------------------------------------
-// Reconhecedores. Deliberadamente conservadores; a rede de segurança é a
-// contagem: rótulo que a heurística pegue errado desalinha e RECUSA (§4).
+// Reconhecedores. Deliberadamente conservadores; a rede de segurança é dupla:
+// a contagem (rótulos≠valores recusa) e o modo (dúvida ⇒ corrida-separada).
 // ---------------------------------------------------------------------------
-
-// "Lula (PT)", "Augusto Cury (AVANTE)". Partido = último grupo entre parênteses.
-const CANDIDATO_COM_PARTIDO = /^(.+?)\s*\(([A-Za-zÀ-ú][A-Za-zÀ-ú0-9.\/ ]{0,14}?)\)\s*$/;
-
-// Uma LINHA só de valores: um ou mais tokens de célula, cada um inteiro/décimo/
-// asterisco, com "%" opcional. "44% 35% 3% 1% 1%" e "57" e "*" batem; um nome não.
+const CANDIDATO_COM_PARTIDO = /^(.+?)\s*[\(\-–]\s*([A-Za-zÀ-ú][A-Za-zÀ-ú0-9.\/ ]{0,18}?)\)?\s*$/;
 const LINHA_SO_VALORES = /^(?:\s*(?:\*|\d{1,3}(?:[.,]\d)?)\s*%?\s*)+$/;
 const TOKEN_VALOR = /(\*|\d{1,3}(?:[.,]\d)?)/g;
 
-// Os DOIS baldes, separados de propósito: o agregador funde, o relatório separa.
 const BALDE_BRANCO_NULO = /(branco|nulo|nenhum)/i;
 const BALDE_NAO_SABE = /(n[aã]o\s*sabe|n[aã]o\s*respond|ns\/?nr|indecis)/i;
 const LINHA_OUTROS = /^outros?\s*:?\s*$/i;
 
-// Âncora do bloco: cabeçalho que fala de PRESIDENTE e de estimulada. Exige
-// `presidente` para não pegar o bloco de governador do MESMO relatório.
 const ANCORA_PRESIDENTE = /presidente/i;
-const ANCORA_ESTIMULADA = /estimulad/i;
-const MARCA_ESPONTANEA = /espont[âa]nea/i;
+// Marcadores de ESTIMULADA por ENUNCIADO — nem todo instituto usa a palavra
+// "estimulada"; distinguem mostrando a lista de nomes. Medidos em relatório real.
+const MARCADORES_ESTIMULADA = [
+  /estimulad/i,
+  /candidatos?\s+(fossem|sejam|s[ãa]o|forem)\s+es[st]es/i,   // "candidatos fossem estes/esses"
+  /es[st]es\s+fossem\s+os\s+candidatos/i,                     // "estes fossem os candidatos" (Veritá)
+  /(destes|desses)\s+(candidatos|nomes)/i,
+  /em\s+qual\s+dest/i,
+  /mostr\w*\s+(o\s+)?cart[ãa]o/i,
+  /disco\s+com\s+(os\s+)?nomes/i,
+];
+// Espontânea NÃO se guarda (decisão do criador). Exclusão DURA: qualquer sinal de
+// espontaneidade no contexto do cabeçalho descarta — errar para "não detecto" é
+// uma pendência; detectar espontânea como estimulada seria dado errado.
+const MARCA_ESPONTANEA = /espont|sem\s+(apresentar|citar|mostrar)|n[ãa]o\s+cit/i;
 const MARCA_SEGUNDO_TURNO = /2[ºo°]?\s*turno|segundo\s*turno/i;
-// Marcas de crosstab segmentado por recorte geográfico/demográfico: mais de uma
-// coluna de resultado, e a coluna "total" não é isolável sem ler a geometria.
 const MARCA_SEGMENTO = /\b(manaus|interior|capital)\b/i;
 
-// Palavras que um rótulo de candidato JAMAIS contém — barram prosa, ficha
-// técnica, rodapé e legenda de sendo lidos como nome (a corrida sem partido é
-// permissiva, então a lista de bloqueio faz o trabalho que o "(PARTIDO)" fazia).
-// SUBSTRING, não \b…\b: as palavras são PREFIXOS ("estimulad" tem de pegar
-// "ESTIMULADA", "registr" tem de pegar "registrada") — e \b no fim falha
-// justamente aí, deixando o cabeçalho vazar como se fosse nome de candidato.
-const RUIDO = /(tse|registr|pesquisa|fonte|p[áa]gina|inten[çc][ãa]o|estimulad|espont|contratante|executora|margem|amostra|per[íi]odo|n[úu]mero|estat[íi]stico|respons|tribunal|intervalo|confian|coleta|disco|nomes|candidatos|total|manaus|interior|capital|prefeito|governador|senador|\bvoto|elei[çc]|conre|reg\.)/i;
+const RUIDO = /(tse|registr|pesquisa|fonte|p[áa]gina|inten[çc][ãa]o|estimulad|espont|contratante|executora|margem|amostra|per[íi]odo|n[úu]mero|estat[íi]stico|respons|tribunal|intervalo|confian|coleta|disco|nomes|candidatos|resultado|geral|cen[áa]rio|total|manaus|interior|capital|prefeito|governador|senador|\bvoto|elei[çc]|conre|reg\.|frequ[êe]ncia|porcent|percent|v[áa]lid|acumulat|ausente|base:)/i;
 
-// Uma linha só de valores — inclui a linha que é apenas "*" (asterisco = célula
-// de ausência, §4). O `.length` já garante ≥1 token; exigir dígito perderia o "*".
 const ehLinhaSoValores = (l) => { const t = l.trim(); return t.length > 0 && LINHA_SO_VALORES.test(t); };
 const ehBalde = (l) => (BALDE_BRANCO_NULO.test(l) || BALDE_NAO_SABE.test(l)) && !ehLinhaSoValores(l);
 
-/** Um nome de candidato provável (sem partido). A rede de contagem cobre o resto. */
 function nomeProvavel(s) {
   const t = s.trim();
   if (t.length < 2 || t.length > 40) return false;
   if (!/^[A-ZÀ-Ú]/.test(t)) return false;
-  // Só letras (com acento), espaços, ponto, hífen e apóstrofo.
   if (!/^[A-Za-zÀ-úçÇ .'\-]+$/.test(t)) return false;
   if (/\d/.test(t)) return false;
   if (RUIDO.test(t)) return false;
   if (t.split(/\s+/).length > 5) return false;
-  // "J U N H O" — letras isoladas separadas por espaço não são nome.
   if (/^(?:\S\s){2,}\S$/.test(t) && t.replace(/\s/g, "").length <= 8) return false;
   return true;
 }
 
-/** Classifica um rótulo → {tipo, candidate?, party?}. Baldes ANTES de candidato. */
+/** Classifica um rótulo (sem valor) → {tipo, candidate?, party?}. Baldes ANTES. */
 function classificarRotulo(l) {
   const t = l.trim();
   if (ehBalde(t)) return { tipo: BALDE_BRANCO_NULO.test(t) ? "branco_nulo" : "nao_sabe" };
   if (LINHA_OUTROS.test(t)) return { tipo: "outros" };
   const mp = t.match(CANDIDATO_COM_PARTIDO);
-  if (mp && !RUIDO.test(mp[1])) return { tipo: "candidato", candidate: mp[1].trim(), party: mp[2].trim() };
+  if (mp && !RUIDO.test(mp[1]) && nomeProvavel(mp[1])) return { tipo: "candidato", candidate: mp[1].trim(), party: (mp[2] || "").trim() || null };
   if (nomeProvavel(t)) return { tipo: "candidato", candidate: t, party: null };
   return null;
 }
 const ehRotulo = (l) => classificarRotulo(l) != null;
 
-/** Todos os valores de uma linha, em ordem. "*" → null. */
 function valoresDaLinha(l) {
   const m = l.trim().match(TOKEN_VALOR) ?? [];
   return m.map((v) => (v === "*" ? null : Number(v.replace(",", "."))));
 }
 
-/** Quebra a saída do binário `ocr` (`=== página N ===`) em páginas. */
+/**
+ * Uma linha INLINE "rótulo ... valor(es)" → {rotulo, valores}, ou null. O rótulo
+ * tem de terminar em caractere que NÃO é de valor (evita partir "2026" e afins),
+ * e os valores são a corrida final de tokens numéricos.
+ */
+function separarRotuloValores(linha) {
+  const t = linha.trim();
+  const m = t.match(/^(.*?[^\d.,%\s])\s+((?:\*|\d{1,3}(?:[.,]\d)?\s*%?\s*)+)$/);
+  if (!m) return null;
+  const vs = valoresDaLinha(m[2]);
+  if (!vs.length) return null;
+  return { rotulo: m[1].trim(), valores: vs };
+}
+
 export function paginar(texto) {
   const paginas = [];
   let atual = null;
@@ -110,145 +112,148 @@ export function paginar(texto) {
   return paginas;
 }
 
-/** Acha o cabeçalho do bloco presidencial ESTIMULADO de 1º turno. */
+/**
+ * Acha o cabeçalho do bloco presidencial ESTIMULADO de 1º turno POR ENUNCIADO,
+ * com exclusão DURA de espontânea e 2º turno. Contexto = 4 linhas (o enunciado
+ * às vezes cai uma ou duas linhas abaixo do "presidente").
+ */
 function acharCabecalho(paginas) {
   let viuSegundoTurno = false, viuEspontanea = false;
   for (const pg of paginas) {
     for (let i = 0; i < pg.lines.length; i++) {
       if (!ANCORA_PRESIDENTE.test(pg.lines[i])) continue;
-      const contexto = [pg.lines[i], pg.lines[i + 1] ?? "", pg.lines[i + 2] ?? ""].join("  ");
-      if (!ANCORA_ESTIMULADA.test(contexto)) { if (MARCA_ESPONTANEA.test(contexto)) viuEspontanea = true; continue; }
-      if (MARCA_SEGUNDO_TURNO.test(contexto)) { viuSegundoTurno = true; continue; }
+      const ctx = [pg.lines[i], pg.lines[i + 1] ?? "", pg.lines[i + 2] ?? "", pg.lines[i + 3] ?? ""].join("  ");
+      if (MARCA_ESPONTANEA.test(ctx)) { viuEspontanea = true; continue; }
+      if (MARCA_SEGUNDO_TURNO.test(ctx)) { viuSegundoTurno = true; continue; }
+      if (!MARCADORES_ESTIMULADA.some((m) => m.test(ctx))) continue;
       return { pg, i, viuSegundoTurno, viuEspontanea };
     }
   }
   return { pg: null, i: -1, viuSegundoTurno, viuEspontanea };
 }
 
+/** É início plausível de tabela: rótulo inline (com valor) ou rótulo puro. */
+function inicioDeTabela(linha) {
+  const inline = separarRotuloValores(linha);
+  if (inline && classificarRotulo(inline.rotulo)) return true;
+  return ehRotulo(linha) && !ehLinhaSoValores(linha);
+}
+
 /**
- * Do cabeçalho para a frente: corrida de rótulos, corrida de valores (posicional),
- * e pares rótulo→valor à frente (baldes de layout interleaved). Devolve uma lista
- * ordenada de {rotulo, valor}, ou null se nada casar.
+ * Colhe a tabela e CLASSIFICA O MODO. Devolve {pares, modo} ou {desalinhado}/null.
+ *   modo ∈ "adjacente-inline" | "adjacente-interleaved" | "corridas-separadas"
+ *   (e "inline-multi" quando cada linha tem VÁRIOS valores — coluna ambígua, §1)
  */
 function colherTabela(pg, iCabecalho) {
   const linhas = pg.lines;
-  let i = iCabecalho + 1;
-  // Pula prosa até o primeiro rótulo de candidato, com teto (não corre o doc).
-  let saltos = 0;
-  while (i < linhas.length && saltos < 25) {
-    const c = classificarRotulo(linhas[i]);
-    if (c && c.tipo === "candidato") break;
-    if (ehLinhaSoValores(linhas[i]) && linhas[i].trim()) return null; // valor antes de rótulo: não abre tabela
-    i++; saltos++;
-  }
+  let i = iCabecalho + 1, saltos = 0;
+  // Pula prosa E números soltos (número de página, ano) entre o cabeçalho e a
+  // tabela — abortar em qualquer valor solto matava blocos legítimos (o "8" da
+  // p.8 do Paraná ficava entre o cabeçalho e a tabela interleaved). Se não houver
+  // rótulo depois, as corridas saem vazias e o colher devolve null mesmo assim.
+  while (i < linhas.length && saltos < 25 && !inicioDeTabela(linhas[i])) { i++; saltos++; }
   if (i >= linhas.length) return null;
 
-  // Corrida de rótulos (candidatos e, no estilo Datafolha, baldes juntos).
+  const primeira = separarRotuloValores(linhas[i]);
+  // ---- MODO INLINE: a primeira linha da tabela já tem valor colado ----------
+  if (primeira && classificarRotulo(primeira.rotulo)) {
+    const pares = [];
+    let multi = false;
+    while (i < linhas.length) {
+      const sv = separarRotuloValores(linhas[i]);
+      if (!sv || !classificarRotulo(sv.rotulo)) break;
+      if (sv.valores.length > 1) multi = true;
+      pares.push({ rotulo: sv.rotulo, valores: sv.valores });
+      i++;
+    }
+    if (pares.length < 2) return null;
+    return { pares, modo: multi ? "inline-multi" : "adjacente-inline" };
+  }
+
+  // ---- primeira linha é rótulo PURO: interleaved ou corridas-separadas ------
+  const proxima = linhas[i + 1] ?? "";
+  const proxValores = ehLinhaSoValores(proxima) ? valoresDaLinha(proxima) : null;
+  if (proxValores && proxValores.length === 1) {
+    // ALTERNÂNCIA ESTRITA rótulo/valor/rótulo/valor.
+    const pares = [];
+    while (i + 1 < linhas.length && ehRotulo(linhas[i]) && !ehLinhaSoValores(linhas[i])) {
+      const vs = ehLinhaSoValores(linhas[i + 1]) ? valoresDaLinha(linhas[i + 1]) : null;
+      if (!vs || vs.length !== 1) break;
+      pares.push({ rotulo: linhas[i].trim(), valores: vs });
+      i += 2;
+    }
+    if (pares.length < 2) return null;
+    return { pares, modo: "adjacente-interleaved" };
+  }
+
+  // ---- CORRIDAS SEPARADAS (ambíguo por ordem) ------------------------------
   const rotulos = [];
-  while (i < linhas.length && ehRotulo(linhas[i]) && !ehLinhaSoValores(linhas[i])) {
-    rotulos.push(linhas[i].trim()); i++;
-  }
-  // Corrida de valores (posicional).
+  while (i < linhas.length && ehRotulo(linhas[i]) && !ehLinhaSoValores(linhas[i])) { rotulos.push(linhas[i].trim()); i++; }
   const valores = [];
-  while (i < linhas.length && ehLinhaSoValores(linhas[i])) {
-    valores.push(...valoresDaLinha(linhas[i])); i++;
-  }
+  while (i < linhas.length && ehLinhaSoValores(linhas[i])) { valores.push(...valoresDaLinha(linhas[i])); i++; }
   if (!rotulos.length || !valores.length) return null;
-  if (rotulos.length !== valores.length) {
-    // Pode ser layout interleaved puro (rótulo,valor,rótulo,valor…): tenta.
-    const inter = colherInterleaved(pg, iCabecalho);
-    if (inter) return inter;
-    return { desalinhado: { nr: rotulos.length, nv: valores.length } };
-  }
-  const pares = rotulos.map((r, k) => ({ rotulo: r, valor: valores[k] }));
-  // Pares rótulo→valor à frente (baldes/outros no estilo Direto ao Ponto).
-  while (i + 1 < linhas.length) {
-    if (!ehRotulo(linhas[i]) || ehLinhaSoValores(linhas[i])) break;
-    if (!ehLinhaSoValores(linhas[i + 1])) break;
+  if (rotulos.length !== valores.length) return { desalinhado: { nr: rotulos.length, nv: valores.length } };
+  const pares = rotulos.map((r, k) => ({ rotulo: r, valores: [valores[k]] }));
+  // pares rótulo→valor à frente (baldes soltos no fim)
+  while (i + 1 < linhas.length && ehRotulo(linhas[i]) && !ehLinhaSoValores(linhas[i]) && ehLinhaSoValores(linhas[i + 1])) {
     const vs = valoresDaLinha(linhas[i + 1]);
     if (vs.length !== 1) break;
-    pares.push({ rotulo: linhas[i].trim(), valor: vs[0] });
+    pares.push({ rotulo: linhas[i].trim(), valores: vs });
     i += 2;
   }
-  return { pares };
-}
-
-/** Layout estritamente interleaved: rótulo, valor, rótulo, valor… */
-function colherInterleaved(pg, iCabecalho) {
-  const linhas = pg.lines;
-  let i = iCabecalho + 1, saltos = 0;
-  while (i < linhas.length && saltos < 25) {
-    const c = classificarRotulo(linhas[i]);
-    if (c && c.tipo === "candidato" && ehLinhaSoValores(linhas[i + 1] ?? "")) break;
-    i++; saltos++;
-  }
-  const pares = [];
-  while (i + 1 < linhas.length && ehRotulo(linhas[i]) && !ehLinhaSoValores(linhas[i])) {
-    const vs = valoresDaLinha(linhas[i + 1]);
-    if (!ehLinhaSoValores(linhas[i + 1]) || vs.length !== 1) break;
-    pares.push({ rotulo: linhas[i].trim(), valor: vs[0] });
-    i += 2;
-  }
-  return pares.length >= 2 ? { pares } : null;
+  return { pares, modo: "corridas-separadas" };
 }
 
 /**
- * Acha, alinha e classifica. Devolve
- *   { ok:true, figuras:{ page, results, blank_null_pct, undecided_pct,
- *                        others_pct, absent, expect_sum } }
- * ou { ok:false, reason:"sem-bloco"|"ilegível", detail }.
+ * Acha, alinha, classifica. Devolve {ok:true, figuras} (com figuras.pareamento)
+ * ou {ok:false, reason:"sem-bloco"|"ilegível", detail}.
  */
 export function extrairBlocoPresidencial(paginas) {
   const { pg, i, viuSegundoTurno, viuEspontanea } = acharCabecalho(paginas);
   if (!pg) {
-    const nota = viuSegundoTurno ? "; um bloco de 2º turno foi visto (tarefa própria, fora do v1)"
-      : viuEspontanea ? "; só bloco ESPONTÂNEO presente (não se guarda, decisão do criador)" : "";
-    return { ok: false, reason: "sem-bloco", detail: `nenhum cabeçalho de presidente + estimulada de 1º turno${nota}` };
+    const nota = viuSegundoTurno ? "; um 2º turno foi visto (fora do v1)"
+      : viuEspontanea ? "; só bloco ESPONTÂNEO (não se guarda)" : "";
+    return { ok: false, reason: "sem-bloco", detail: `nenhum cabeçalho de presidente estimulada de 1º turno${nota}` };
   }
-
-  // Guarda de segmentação: crosstab por recorte não tem coluna total isolável.
   const regiao = pg.lines.slice(i, i + 45).join("  ");
   if (MARCA_SEGMENTO.test(regiao) && /\btotal\b/i.test(regiao)) {
-    return { ok: false, reason: "ilegível", detail: `p.${pg.page}: bloco presidencial SEGMENTADO (recorte Manaus/Interior/Total) — a coluna total não se isola mecanicamente; leitura visual/§1` };
+    return { ok: false, reason: "ilegível", detail: `p.${pg.page}: bloco SEGMENTADO (Manaus/Interior/Total) — coluna total não isolável; leitura visual/§1` };
   }
-
   const t = colherTabela(pg, i);
-  if (!t) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: cabeçalho presidencial sem corrida rótulo/valor legível abaixo (bloco em imagem ou layout não coberto)` };
-  if (t.desalinhado) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: ${t.desalinhado.nr} rótulos × ${t.desalinhado.nv} valores não alinham — pareamento ambíguo, recusado (§4)` };
+  if (!t) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)` };
+  if (t.desalinhado) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: ${t.desalinhado.nr} rótulos × ${t.desalinhado.nv} valores não alinham — recusado (§4)` };
+  if (t.modo === "inline-multi") return { ok: false, reason: "ilegível", detail: `p.${pg.page}: tabela inline multi-coluna (ex. SPSS freq) — coluna de % ambígua, leitura §1` };
 
   const results = [];
   const absent = [];
   let blank_null_pct = null, undecided_pct = null, others_pct = null;
-
-  for (const { rotulo, valor } of t.pares) {
+  for (const { rotulo, valores } of t.pares) {
     const c = classificarRotulo(rotulo);
-    if (!c) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: rótulo não classificável "${rotulo}" dentro do bloco` };
-    if (c.tipo === "branco_nulo") { blank_null_pct = valor; continue; }
-    if (c.tipo === "nao_sabe") { undecided_pct = valor; continue; }
-    if (c.tipo === "outros") { others_pct = valor; continue; }
-    if (valor === null) { absent.push({ candidate: c.candidate, party: c.party }); continue; } // asterisco: ausência ≠ zero
-    results.push({ candidate: c.candidate, party: c.party, pct: valor });
+    if (!c) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: rótulo não classificável "${rotulo}"` };
+    const v = valores[0]; // modos não-multi têm 1 valor por par
+    if (c.tipo === "branco_nulo") { blank_null_pct = v; continue; }
+    if (c.tipo === "nao_sabe") { undecided_pct = v; continue; }
+    if (c.tipo === "outros") { others_pct = v; continue; }
+    if (v === null) { absent.push({ candidate: c.candidate, party: c.party }); continue; }
+    results.push({ candidate: c.candidate, party: c.party, pct: v });
   }
-
-  if (results.length < 2) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: menos de 2 candidatos com valor — não é uma tabela de intenção` };
+  if (results.length < 2) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: menos de 2 candidatos com valor` };
+  // ≥3 candidatos = 1º turno estimulada com o campo cheio; exatamente 2 é suspeito
+  // de ser confronto de 2º turno mal-rotulado → recusa em vez de arriscar.
+  if (results.length === 2) return { ok: false, reason: "ilegível", detail: `p.${pg.page}: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1` };
 
   const soma = (a, b) => a + b;
   const expect_sum = Number(
     (results.map((r) => r.pct).reduce(soma, 0) + (blank_null_pct ?? 0) + (undecided_pct ?? 0) + (others_pct ?? 0)).toFixed(1),
   );
-
-  return { ok: true, figuras: { page: pg.page, results, blank_null_pct, undecided_pct, others_pct, absent, expect_sum } };
+  return { ok: true, figuras: { page: pg.page, pareamento: t.modo, results, blank_null_pct, undecided_pct, others_pct, absent, expect_sum } };
 }
 
 // ---------------------------------------------------------------------------
-// §10 — TOLERÂNCIA DERIVADA, nunca escolhida. 0,5 por figura inteira, 0,05 por
-// décimo. (conferirSoma do repairs.mjs crava 0,6; este gate é mais estrito.)
+// §10 — tolerância derivada. 0,5/inteiro, 0,05/décimo. (conferirSoma crava 0,6.)
 // ---------------------------------------------------------------------------
 export function toleranciaDerivada(figuras) {
-  const cells = [
-    ...figuras.results.map((r) => r.pct),
-    figuras.blank_null_pct, figuras.undecided_pct, figuras.others_pct,
-  ].filter((v) => v != null);
+  const cells = [...figuras.results.map((r) => r.pct), figuras.blank_null_pct, figuras.undecided_pct, figuras.others_pct].filter((v) => v != null);
   let tol = 0;
   for (const v of cells) tol += Number.isInteger(v) ? 0.5 : 0.05;
   return Number(tol.toFixed(2));
@@ -264,7 +269,10 @@ export function pernasConcordam(figA, figB) {
     if (Math.abs(figA.results[k].pct - figB.results[k].pct) > tol) return false;
   }
   const bal = (a, b) => (a == null && b == null) || (a != null && b != null && Math.abs(a - b) <= 0.6);
-  return bal(figA.blank_null_pct, figB.blank_null_pct)
-    && bal(figA.undecided_pct, figB.undecided_pct)
-    && bal(figA.others_pct, figB.others_pct);
+  return bal(figA.blank_null_pct, figB.blank_null_pct) && bal(figA.undecided_pct, figB.undecided_pct) && bal(figA.others_pct, figB.others_pct);
+}
+
+// Pareamento estruturalmente inequívoco? (o orquestrador usa para decidir emissão)
+export function pareamentoConfiavel(modo) {
+  return modo === "adjacente-inline" || modo === "adjacente-interleaved";
 }

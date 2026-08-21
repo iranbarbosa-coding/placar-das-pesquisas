@@ -28,7 +28,7 @@ import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
-import { paginar, extrairBlocoPresidencial, pernasConcordam, toleranciaDerivada } from "./lib/presidencial/parse.mjs";
+import { paginar, extrairBlocoPresidencial, pernasConcordam, toleranciaDerivada, pareamentoConfiavel } from "./lib/presidencial/parse.mjs";
 import { extrairFicha } from "./lib/presidencial/ficha.mjs";
 import { montarCandidato } from "./lib/presidencial/emit.mjs";
 
@@ -136,88 +136,101 @@ async function baixarIntegra(url, cacheDir) {
 }
 
 // ---------------------------------------------------------------------------
-// O PORTÃO DE CORROBORAÇÃO (§1/§4, achado da leitura cega do AM-08042).
+// O PORTÃO DE PAREAMENTO (§1/§4, achado da leitura cega do AM-08042).
 //
-// A camada de texto entrega rótulos e valores como DUAS corridas cujas ORDENS
-// podem divergir — o PDF do Direto ao Ponto embaralhou o pareamento das quatro
-// figuras pequenas, e a soma seguia 100, então NENHUM guarda de soma pegou. Lição:
-// pareamento rótulo×valor da camada de texto SOZINHA não é confiável. Só emite
-// quando a perna VISUAL (OCR) respalda o pareamento:
-//   texto+OCR e concordam → emite (dígitos exatos da camada de texto)
-//   OCR sozinho (visual)   → emite (dígitos do OCR; confiança menor, §1 confere)
-//   texto sozinho          → NÃO emite → pendência "nao-corroborado" (leitura visual §1)
-//   texto+OCR divergem     → NÃO emite → pendência "nao-corroborado" (conflito)
-// ---------------------------------------------------------------------------
-function decidirEmissao(legs) {
-  if (legs.ocr && (legs.concordam || !legs.texto)) return "emitir";
-  if (legs.texto && legs.ocr && !legs.concordam) return "divergem";
-  if (legs.texto && !legs.ocr) return "texto-sozinho";
-  return "sem-perna";
-}
-
-// ---------------------------------------------------------------------------
-// Um registro → uma disposição: emitido | rejeitado | pendência(tipo).
+// A classe de defeito que reprovou o AM foi AMBIGUIDADE DE ORDEM entre CORRIDAS
+// SEPARADAS: o Direto embaralhou 4 figuras e a soma seguia 100. Onde o valor está
+// ESTRUTURALMENTE COLADO ao rótulo (adjacente-inline / adjacente-interleaved) essa
+// ambiguidade NÃO EXISTE — o parse.mjs classifica o modo e aqui se decide:
+//   adjacente-*            → emite do texto (pareamento inequívoco, dígitos exatos)
+//   corrida-separada       → só emite se a perna VISUAL (OCR) corroborar (concordam)
+//   OCR-sozinho            → emite SÓ se o pareamento do OCR for adjacente; corrida
+//                            separada de OCR embaralha igual (Action) → gated
+// Conservador por construção: qualquer dúvida cai em gated/pendência. A §1 humana
+// segue sendo a barreira do repairs.json; isto só decide o que VAI À §1 como emissão.
 // ---------------------------------------------------------------------------
 function processarPDF({ pdfPath, sha256, uf, rec, integraUrl }) {
-  // Perna A (camada de texto) primeiro — é rápida (sem render/OCR). O OCR de
-  // documento inteiro (caro: renderiza cada página a 300dpi + Vision) só roda
-  // quando REALMENTE precisa: bloco em imagem sob cabeçalho de texto, ou PDF
-  // sem camada de texto. Um sem-bloco de camada de texto substancial NÃO paga
-  // OCR — se houvesse estimulada presidencial, estaria no texto.
   const textoRaw = lerPerna(pdfPath, true);
   const rA = figurasDaPerna(textoRaw);
   const textoRico = textoUtilLen(textoRaw) >= TEXTO_SUBSTANCIAL;
 
-  let figuras, legs, ocrRaw = "";
+  let figuras, legs, pareamentoModo, paginasFicha;
+
   if (rA.ok) {
-    // Confirmação barata: OCR SÓ da página do bloco (1 página), para o sinal
-    // texto+ocr. Não é a §1 — é confiança de emissão.
-    const ocrPagina = lerPerna(pdfPath, false, rA.figuras.page, rA.figuras.page);
-    const rBpg = figurasDaPerna(ocrPagina);
     figuras = rA.figuras;
-    legs = { texto: true, ocr: rBpg.ok, concordam: rBpg.ok ? pernasConcordam(rA.figuras, rBpg.figuras) : false };
-  } else {
-    // Precisa de OCR do documento? Sim se o texto ACHOU o cabeçalho mas não a
-    // tabela (bloco em imagem, ex. Action), ou se a camada de texto é rala
-    // (PDF só-imagem). Um "sem-bloco" com texto rico é genuíno → pula o OCR.
-    const precisaOCR = rA.reason === "ilegível" || !textoRico;
-    if (!precisaOCR) {
-      return { tipo: "pendencia", subtipo: "sem-bloco", detalhe: rA.detail || "sem cabeçalho presidente+estimulada na camada de texto (substancial)" };
+    paginasFicha = paginar(textoRaw);
+    if (pareamentoConfiavel(figuras.pareamento)) {
+      // Adjacente: confia no texto. OCR de 1 página só REGISTRA corroboração.
+      const rBpg = figurasDaPerna(lerPerna(pdfPath, false, figuras.page, figuras.page));
+      legs = { texto: true, ocr: rBpg.ok, concordam: rBpg.ok ? pernasConcordam(figuras, rBpg.figuras) : false };
+      pareamentoModo = figuras.pareamento;
+    } else {
+      // Corrida-separada: ambígua por ordem → exige OCR corroborar.
+      const rBpg = figurasDaPerna(lerPerna(pdfPath, false, figuras.page, figuras.page));
+      if (rBpg.ok && pernasConcordam(figuras, rBpg.figuras)) {
+        legs = { texto: true, ocr: true, concordam: true };
+        pareamentoModo = "corroborado-visual";
+      } else {
+        return { tipo: "pendencia", subtipo: "nao-corroborado", detalhe: `p.${figuras.page}: corrida-separada (ordem ambígua) e OCR ${rBpg.ok ? "DIVERGE" : "não corrobora"} — leitura visual §1` };
+      }
     }
-    ocrRaw = lerPerna(pdfPath, false);
+  } else {
+    const precisaOCR = rA.reason === "ilegível" || !textoRico;
+    if (!precisaOCR) return { tipo: "pendencia", subtipo: "sem-bloco", detalhe: rA.detail || "sem cabeçalho presidente+estimulada na camada de texto (substancial)" };
+    const ocrRaw = lerPerna(pdfPath, false);
     const rB = figurasDaPerna(ocrRaw);
     if (!rB.ok) {
       const semTexto = !textoRaw.trim() && !ocrRaw.trim();
       if (semTexto) return { tipo: "pendencia", subtipo: "ilegível", detalhe: "nenhuma perna produziu texto (PDF corrompido ou render falhou)" };
       const razoes = [rA, rB].filter((r) => r && !r.ok).map((r) => r.reason);
-      const subtipo = razoes.includes("ilegível") ? "ilegível" : "sem-bloco";
-      const detalhe = [rA.detail, rB.detail].filter(Boolean).join(" | ") || "bloco presidencial estimulado de 1º turno não encontrado";
-      return { tipo: "pendencia", subtipo, detalhe };
+      return { tipo: "pendencia", subtipo: razoes.includes("ilegível") ? "ilegível" : "sem-bloco", detalhe: [rA.detail, rB.detail].filter(Boolean).join(" | ") || "bloco presidencial estimulado de 1º turno não encontrado" };
+    }
+    // OCR achou bloco: emite só se o pareamento do OCR for adjacente.
+    if (!pareamentoConfiavel(rB.figuras.pareamento)) {
+      return { tipo: "pendencia", subtipo: "nao-corroborado", detalhe: `p.${rB.figuras.page}: bloco só em OCR com pareamento corrida-separada (embaralha) — leitura visual §1` };
     }
     figuras = rB.figuras;
+    paginasFicha = paginar(ocrRaw);
     legs = { texto: false, ocr: true, concordam: false };
+    pareamentoModo = "ocr-" + rB.figuras.pareamento;
   }
 
-  // PORTÃO DE CORROBORAÇÃO antes de qualquer emissão.
-  const decisao = decidirEmissao(legs);
-  if (decisao !== "emitir") {
-    const detalhe = decisao === "divergem"
-      ? `p.${figuras.page}: bloco lido nas DUAS pernas mas texto×OCR DIVERGEM no pareamento/valores — conflito, leitura visual §1`
-      : `p.${figuras.page}: bloco lido só na camada de texto; pareamento rótulo×valor NÃO corroborado pela perna visual (OCR não leu o bloco) — camada de texto sozinha embaralha ordem, leitura visual §1`;
-    return { tipo: "pendencia", subtipo: "nao-corroborado", detalhe };
-  }
-
-  const paginasTexto = paginar(textoRico ? textoRaw : (ocrRaw || textoRaw));
-  const ficha = extrairFicha(paginasTexto, uf);
-
+  const ficha = extrairFicha(paginasFicha, uf);
   const tol = toleranciaDerivada(figuras);
   const { entry, rejeitado } = montarCandidato({
-    figuras, ficha, rec, uf, integraUrl, pdfHash: sha256, legs,
+    figuras, ficha, rec, uf, integraUrl, pdfHash: sha256, legs, pareamento: pareamentoModo,
     totalImpresso: null, tolerancia: tol,
   });
-
   if (rejeitado) return { tipo: "rejeitado", detalhe: rejeitado, entry };
   return { tipo: "emitido", entry };
+}
+
+// ---------------------------------------------------------------------------
+// DEDUPE contra o repairs.json JÁ LANDADO. A lista de trabalho (sweep) não
+// desconta os add_poll já curados, então sem isto o parser re-emite para sempre
+// um bloco que a §1 já curou à mão (ex.: Direto AM-08042, entrada 54).
+//
+// Fonte da verdade = origin/main, NÃO o working tree: o tree compartilhado fica
+// para trás depois que um PR remoto landa (ninguém faz pull local — regra 4). Lê
+// via `git show origin/main:...`, sem tocar o tree. `fetch` é seguro.
+// ---------------------------------------------------------------------------
+const normInst = (s) => (s ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+const chaveCurado = (pollster, state, round, fe) => [normInst(pollster), state ?? "", round ?? "", fe ?? ""].join("|");
+
+function lerCuradosPresidenciais(ref) {
+  try { execFileSync("git", ["fetch", "origin", "--quiet"], { cwd: RAIZ, stdio: "pipe", timeout: 30_000 }); } catch { /* offline: usa o que houver em cache do fetch anterior */ }
+  let raw;
+  try { raw = execFileSync("git", ["show", `${ref}:data/repairs.json`], { cwd: RAIZ, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 }); }
+  catch (e) { return { ok: false, erro: `não consegui ler ${ref}:data/repairs.json (${String(e.message).split("\n")[0]})`, index: new Map() }; }
+  let spec;
+  try { spec = JSON.parse(raw); } catch { return { ok: false, erro: `${ref}:data/repairs.json ilegível`, index: new Map() }; }
+  const index = new Map();
+  for (const rep of spec.repairs ?? []) {
+    const ap = rep.add_poll;
+    if (!ap || ap.race !== "presidente") continue;
+    index.set(chaveCurado(ap.pollster, ap.state, ap.round, ap.fieldwork_end), true);
+  }
+  return { ok: true, index, total: index.size };
 }
 
 // ---------------------------------------------------------------------------
@@ -231,6 +244,11 @@ async function main() {
   const cacheDir = opc("cache", path.join(RAIZ, "data-research", "integra-cache"));
   const outPath = opc("out", path.join(RAIZ, "data-research", "presidencial-candidatos.json"));
   const pendPath = opc("pend", path.join(RAIZ, "data-research", "presidencial-pendencias.json"));
+  const repairsRef = opc("repairs-ref", "origin/main");
+
+  // DEDUPE: o que o repairs.json LANDADO já cobre não se re-emite.
+  const curados = lerCuradosPresidenciais(repairsRef);
+  if (!curados.ok) console.error(`⚠ DEDUPE INDISPONÍVEL — ${curados.erro}. Emissões marcadas "dedupe:indisponível" e NÃO suprimidas; a §1 confere duplicata. (nunca silêncio, §2)`);
 
   const sweep = lerSweep(sweepPath);
   let registros = registrosGovernador(sweep, estados);
@@ -249,12 +267,25 @@ async function main() {
 
   const entradas = registros.length;
   const emitidos = [];
+  const jaCurados = [];
   const rejeitados = [];
   const pendencias = [];
 
+  const isoDate = (s) => (s ? String(s).slice(0, 10) : null);
   for (const { uf, rec } of registros) {
     const integraUrl = rec.integra;
     const rotulo = `${uf} ${rec.instituto ?? "?"} #${rec.id ?? "?"}`;
+
+    // DEDUPE NO NÍVEL DO REGISTRO, antes de baixar/parsear: se o repairs.json
+    // LANDADO já cobre esta operação (pollster/UF/turno/fim-de-campo), o bloco já
+    // foi curado à mão pela §1 — não se re-processa nem entra na fila como
+    // pendência ruidosa. Pega o Direto AM-08042 (entrada 54) seja qual for o modo.
+    if (curados.ok && curados.index.has(chaveCurado(rec.instituto, uf, 1, isoDate(rec.data)))) {
+      jaCurados.push({ uf, pollster: rec.instituto ?? null, id: rec.id ?? null, detalhe: `presidente:${uf} campo ${isoDate(rec.data)} já curado em ${repairsRef}:data/repairs.json`, pdf_url: integraUrl });
+      if (VERBOSE) console.error(`≈ ${rotulo}: JÁ-CURADO (dedupe)`);
+      continue;
+    }
+
     if (!integraUrl) {
       pendencias.push({ uf, pollster: rec.instituto ?? null, id: rec.id ?? null, subtipo: "sem-integra", detalhe: "registro do sweep sem link de integra", pdf_url: null });
       if (VERBOSE) console.error(`· ${rotulo}: PENDÊNCIA sem-integra`);
@@ -269,7 +300,11 @@ async function main() {
       continue;
     }
     const r = processarPDF({ pdfPath: baixado.path, sha256: baixado.sha256, uf, rec, integraUrl });
-    if (r.tipo === "emitido") { emitidos.push(r.entry); if (VERBOSE) console.error(`✓ ${rotulo}: EMITIDO (${r.entry._parser.confidence}) — ${r.entry.add_poll.results.length} cand, soma ${r.entry.expect_sum}`); }
+    if (r.tipo === "emitido") {
+      if (!curados.ok) r.entry._parser.dedupe = "indisponível";
+      emitidos.push(r.entry);
+      if (VERBOSE) console.error(`✓ ${rotulo}: EMITIDO (${r.entry._parser.confidence}) — ${r.entry.add_poll.results.length} cand, soma ${r.entry.expect_sum}`);
+    }
     else if (r.tipo === "rejeitado") { rejeitados.push({ uf, pollster: rec.instituto ?? null, id: rec.id ?? null, detalhe: r.detalhe, pdf_url: integraUrl, entry: r.entry }); if (VERBOSE) console.error(`✗ ${rotulo}: REJEITADO — ${r.detalhe}`); }
     else { pendencias.push({ uf, pollster: rec.instituto ?? null, id: rec.id ?? null, subtipo: r.subtipo, detalhe: r.detalhe, pdf_url: integraUrl }); if (VERBOSE) console.error(`· ${rotulo}: PENDÊNCIA ${r.subtipo} — ${r.detalhe}`); }
   }
@@ -280,16 +315,19 @@ async function main() {
     || String(a.match.fieldwork_end).localeCompare(String(b.match.fieldwork_end));
   emitidos.sort(ordEntry);
 
+  const contagem = { entradas, emitidos: emitidos.length, ja_curados: jaCurados.length, rejeitados: rejeitados.length, pendencias: pendencias.length };
   const saidaCand = {
-    _sobre: "Candidatos add_poll presidente:UF gerados pelo parser presidencial. verified_at NULO = pendente de 2ª leitura cega (§1). NÃO é repairs.json; o merge é passo do hub. Não editar à mão sem relê-lo do PDF.",
+    _sobre: "Candidatos add_poll presidente:UF gerados pelo parser presidencial. verified_at NULO = pendente de 2ª leitura cega (§1). _parser.pareamento diz o modo (adjacente-* = valor colado ao rótulo, inequívoco; corroborado-visual = corrida-separada que o OCR confirmou). NÃO é repairs.json; o merge é passo do hub.",
     gerado_por: "scripts/presidencial-parser.mjs",
     estados,
-    contagem: { entradas, emitidos: emitidos.length, rejeitados: rejeitados.length, pendencias: pendencias.length },
+    dedupe: curados.ok ? { fonte: `${repairsRef}:data/repairs.json`, add_poll_presidenciais_existentes: curados.total } : { fonte: repairsRef, indisponivel: curados.erro },
+    contagem,
     candidatos: emitidos,
   };
   const saidaPend = {
-    _sobre: "Fila de pendência do parser presidencial. Subtipos: sem-integra / ilegível / sem-bloco. NUNCA silêncio: todo PDF que não vira candidato aparece aqui.",
-    contagem: { entradas, emitidos: emitidos.length, rejeitados: rejeitados.length, pendencias: pendencias.length },
+    _sobre: "Fila do parser presidencial. Disposições: ja-curado (repairs.json já cobre) / sem-integra / ilegível / sem-bloco / nao-corroborado. NUNCA silêncio: todo PDF que não vira candidato aparece aqui.",
+    contagem,
+    ja_curados: jaCurados,
     rejeitados,
     pendencias,
   };
@@ -298,19 +336,21 @@ async function main() {
   fs.writeFileSync(pendPath, JSON.stringify(saidaPend, null, 1) + "\n");
 
   // O LEDGER, e a invariante que TEM de fechar (§2).
-  const soma = emitidos.length + rejeitados.length + pendencias.length;
+  const soma = emitidos.length + jaCurados.length + rejeitados.length + pendencias.length;
   const fecha = soma === entradas;
   console.log("── Parser presidencial ──────────────────────────────");
   console.log(`estados        : ${estados.join(", ")}`);
+  console.log(`dedupe         : ${curados.ok ? `${curados.total} add_poll presidenciais em ${repairsRef}` : `INDISPONÍVEL (${curados.erro})`}`);
   console.log(`entradas (PDFs): ${entradas}`);
   console.log(`  emitidos     : ${emitidos.length}   → ${path.relative(RAIZ, outPath)}`);
+  console.log(`  já-curados   : ${jaCurados.length}   (repairs.json já cobre)`);
   console.log(`  rejeitados   : ${rejeitados.length}`);
   console.log(`  pendências   : ${pendencias.length}   → ${path.relative(RAIZ, pendPath)}`);
   const porSub = pendencias.reduce((a, p) => ((a[p.subtipo] = (a[p.subtipo] ?? 0) + 1), a), {});
   if (pendencias.length) console.log(`     por tipo  : ${Object.entries(porSub).map(([k, v]) => `${k}=${v}`).join(", ")}`);
   const porConf = emitidos.reduce((a, e) => ((a[e._parser.confidence] = (a[e._parser.confidence] ?? 0) + 1), a), {});
-  if (emitidos.length) console.log(`  confiança    : ${Object.entries(porConf).map(([k, v]) => `${k}=${v}`).join(", ")}`);
-  console.log(`invariante     : ${emitidos.length}+${rejeitados.length}+${pendencias.length} = ${soma} ${fecha ? "= entradas ✓" : `≠ ${entradas} ✗ A CONTA NÃO FECHOU`}`);
+  if (emitidos.length) console.log(`  pareamento   : ${Object.entries(porConf).map(([k, v]) => `${k}=${v}`).join(", ")}`);
+  console.log(`invariante     : ${emitidos.length}+${jaCurados.length}+${rejeitados.length}+${pendencias.length} = ${soma} ${fecha ? "= entradas ✓" : `≠ ${entradas} ✗ A CONTA NÃO FECHOU`}`);
   console.log("─────────────────────────────────────────────────────");
   if (!fecha) process.exit(1);
 }
@@ -415,12 +455,41 @@ async function selfTest() {
   const desalinhado = extrairBlocoPresidencial(paginar("=== página 8 ===\nIntenção de voto para presidente | estimulada\nLula (PT)\nFlávio Bolsonaro (PL)\nCiro (PDT)\n57\n22\n"));
   afirma(!desalinhado.ok && desalinhado.reason === "ilegível", "recusa: 3 rótulos × 2 valores devia dar ilegível (não adivinhar pareamento)");
 
-  // ---- POLÍTICA DE EMISSÃO (o portão de corroboração, achado do AM-08042) --
-  // Pareamento da camada de texto SOZINHA não emite; só com a perna visual.
-  afirma(decidirEmissao({ texto: true, ocr: false, concordam: false }) === "texto-sozinho", "política: texto SOZINHO não pode emitir (foi o bug do AM p.13)");
-  afirma(decidirEmissao({ texto: true, ocr: true, concordam: true }) === "emitir", "política: texto+OCR que concordam emitem");
-  afirma(decidirEmissao({ texto: false, ocr: true, concordam: false }) === "emitir", "política: OCR (visual) sozinho emite");
-  afirma(decidirEmissao({ texto: true, ocr: true, concordam: false }) === "divergem", "política: texto+OCR que divergem NÃO emitem");
+  // ---- MODO DE PAREAMENTO — CASOS ADVERSARIAIS POR FORMATO (condição §1) ---
+  // O núcleo do portão (B): uma CORRIDA-SEPARADA nunca pode ser classificada
+  // como adjacente, e uma adjacente tem de ser reconhecida. Fixtures sintéticas
+  // de cada formato, provando a classificação.
+  afirma(pareamentoConfiavel("adjacente-inline") && pareamentoConfiavel("adjacente-interleaved"), "modo: adjacente-* é confiável");
+  afirma(!pareamentoConfiavel("corridas-separadas") && !pareamentoConfiavel("corroborado-visual") && !pareamentoConfiavel("inline-multi"), "modo: corrida-separada/inline-multi NÃO são confiáveis (gated)");
+
+  // ADVERSARIAL 1: o controle Datafolha (corrida-separada real) TEM de sair como
+  // "corridas-separadas", NUNCA adjacente — é a classe de defeito que reprovou o AM.
+  afirma(rA.ok && rA.figuras.pareamento === "corridas-separadas", `adversarial: Datafolha (rótulos e depois valores) devia ser corridas-separadas, veio ${rA.ok ? rA.figuras.pareamento : rA.reason}`);
+
+  // ADJACENTE-INLINE: cada linha "rótulo valor".
+  const inl = extrairBlocoPresidencial(paginar("=== página 5 ===\nIntenção de voto para presidente estimulada\nLula 40\nFlávio Bolsonaro 30\nCiro Gomes 10\nBranco/Nulo 15\nNão sabe 5\n"));
+  afirma(inl.ok && inl.figuras.pareamento === "adjacente-inline", `inline: devia ser adjacente-inline, veio ${inl.ok ? inl.figuras.pareamento : inl.reason}`);
+  afirma(inl.ok && inl.figuras.results.length === 3 && inl.figuras.blank_null_pct === 15 && inl.figuras.undecided_pct === 5, "inline: figuras/baldes divergiram");
+
+  // ADJACENTE-INTERLEAVED: rótulo, valor, rótulo, valor… (âncora por enunciado, sem a palavra "estimulada").
+  const itl = extrairBlocoPresidencial(paginar("=== página 6 ===\nPresidente — se os candidatos fossem estes\nLula\n40\nFlávio Bolsonaro\n30\nCiro Gomes\n10\nBranco\n15\nNão sabe\n5\n"));
+  afirma(itl.ok && itl.figuras.pareamento === "adjacente-interleaved", `interleaved: devia ser adjacente-interleaved, veio ${itl.ok ? itl.figuras.pareamento : itl.reason}`);
+
+  // EXCLUSÃO DURA — ESPONTÂNEA nunca detectada.
+  const esp = extrairBlocoPresidencial(paginar("=== página 4 ===\nIntenção de voto para presidente espontânea\nem quem votaria\nLula\n40\nFlávio\n30\nCiro\n10\n"));
+  afirma(!esp.ok && esp.reason === "sem-bloco", `exclusão: espontânea NÃO pode virar bloco, veio ${esp.ok ? "OK("+esp.figuras.pareamento+")" : esp.reason}`);
+
+  // EXCLUSÃO DURA — 2º TURNO nunca detectado como 1º.
+  const t2 = extrairBlocoPresidencial(paginar("=== página 10 ===\nPresidente 2º turno estimulada\nLula (PT)\n55\nFlávio Bolsonaro (PL)\n45\n"));
+  afirma(!t2.ok, `exclusão: 2º turno NÃO pode virar 1º turno, veio ${t2.ok ? "OK" : t2.reason}`);
+
+  // GUARDA DE 2 CANDIDATOS — possível confronto, recusa.
+  const dois = extrairBlocoPresidencial(paginar("=== página 11 ===\nPresidente estimulada destes candidatos\nLula 55\nFlávio Bolsonaro 45\n"));
+  afirma(!dois.ok && dois.reason === "ilegível", `guarda: 2 candidatos devia recusar (possível 2º turno), veio ${dois.ok ? "OK" : dois.reason}`);
+
+  // DEDUPE — chave estável e normalização de instituto (acento/pontuação fora).
+  afirma(chaveCurado("Direto ao Ponto Pesquisas", "AM", 1, "2026-06-20") === chaveCurado("DIRETO AO PONTO PESQUISAS", "AM", 1, "2026-06-20"), "dedupe: normalização de instituto tem de bater grafias");
+  afirma(chaveCurado("Datafolha", "PE", 1, "2026-07-30") !== chaveCurado("Datafolha", "PE", 1, "2026-07-29"), "dedupe: datas diferentes NÃO colidem");
 
   // ---- BINÁRIO DO OCR: compila se faltar; AUSÊNCIA É FALHA EM VOZ ALTA -----
   // (§2: nunca salto silencioso — o "mede zero e parece são" vale para o próprio

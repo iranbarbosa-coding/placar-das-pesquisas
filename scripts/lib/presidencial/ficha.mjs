@@ -70,16 +70,26 @@ export function periodoDeCampo(texto) {
  *     descartado: instituto não faz 2026 entrevistas por acaso com o ano.
  */
 export function amostra(texto) {
-  const re = /(\d{1,3}(?:\.\d{3})+|\d{3,6})\s+entrevistas/gi;
+  const num = (s) => Number(s.replace(/\./g, ""));
+  const plaus = (n) => Number.isFinite(n) && n >= 100 && n <= 200000 && !(n >= 2020 && n <= 2035);
+  // 1) A palavra "amostra" manda: "amostra de 1310 eleitores", "amostra ... de N".
+  //    O guarda de plausibilidade descarta "para o total da amostra é de 3 pontos"
+  //    (isso é MARGEM, n<100), então não se confunde amostra com margem.
+  for (const m of texto.matchAll(/amostra[^.\n]{0,40}?\bde\s+([\d.]{2,7})\b/gi)) {
+    const n = num(m[1]); if (plaus(n)) return n;
+  }
+  // 2) "N entrevistas/eleitores/entrevistados" — EXCLUINDO contexto de controle
+  //    de qualidade ("no mínimo 262 entrevistas foram validadas" é auditoria, não
+  //    a amostra), que já mandou 262 no lugar de 1310.
+  const re = /(\d{1,3}(?:\.\d{3})+|\d{3,6})\s+(?:entrevistas|entrevistados|eleitores)/gi;
   const cands = [];
   let m;
   while ((m = re.exec(texto))) {
-    const n = Number(m[1].replace(/\./g, ""));
-    if (Number.isFinite(n) && n >= 100 && n <= 200000) cands.push(n);
+    const antes = texto.slice(Math.max(0, m.index - 45), m.index);
+    if (/no\s+m[íi]nimo|pelo\s+menos|ao\s+menos|validad|auditad|checad|recontat|conferid|refeit/i.test(antes)) continue;
+    const n = num(m[1]); if (plaus(n)) cands.push(n);
   }
-  const semAno = cands.filter((n) => !(n >= 2020 && n <= 2035));
-  const lista = semAno.length ? semAno : cands;
-  return lista.length ? lista[0] : null;
+  return cands.length ? cands[0] : null;
 }
 
 /**
