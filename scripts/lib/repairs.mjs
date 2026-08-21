@@ -13,7 +13,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sameCandidate } from "./canonicalize.mjs";
 import { pollId } from "./util.mjs";
-import { folgaDerivada } from "./soma.mjs";
+import { folgaDerivada, sobreviveAoGuardaDeSoma } from "./soma.mjs";
 // A janela de "mesma operação de campo" mora em `store.mjs`, ao lado da escada
 // que a usa. Sem ciclo: o fecho de imports de `store.mjs` (candidates,
 // canonicalize, candidaturas, ids, ndjson, nomes, parties, people) não alcança
@@ -98,8 +98,15 @@ function matches(poll, m) {
 // um lado só. Três estados, todos em voz alta:
 //
 //   sem alvo, sem vizinho  → INSERE (e o coletor imprime `PESQUISA INSERIDA`)
-//   com alvo               → NO-OP  (`noop`, que o coletor já imprime)
-//   vizinho fora do match  → RECUSA (`warnings`)
+//   com alvo VIVO          → NO-OP  (`noop`, que o coletor já imprime)
+//   vizinho VIVO fora do match → RECUSA (`warnings`)
+//
+// "VIVO" = sobreviveria ao guarda de soma do coletor (`veredictoDeSoma`,
+// lib/soma.mjs). Alvo ou vizinho que reprovaria na soma NÃO conta para
+// dispensar nem para recusar: ele morre no guarda logo depois, e contá-lo era
+// perder a pesquisa pelos dois caminhos ao mesmo tempo — o caso medido de
+// presidente:RO 1º turno no ensaio de 20/08/2026 ("a fonte já serve esta
+// pesquisa — p360-13645-…", que somava 16 e o guarda do coletor descartou).
 //
 // Duas travas que valem a leitura:
 //
@@ -238,7 +245,12 @@ export function montarPesquisaCurada(rep) {
  * executa (CONVENTIONS §2). Mesmo argumento do parâmetro `file` abaixo. O
  * coletor nunca passa o parâmetro.
  */
-export function inserirPesquisaCurada(polls, rep, targets, label) {
+export function inserirPesquisaCurada(polls, rep, targets, label,
+  { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+  // `sobrevive` é parâmetro pelo mesmo motivo do `file` e do `inserir` de
+  // `applyRepairs`: a mutação honesta do autoteste de
+  // `existencia-pos-guarda-check.mjs` é `() => true`, que reproduz exatamente
+  // a decisão antiga sobre a função de verdade. O coletor nunca o passa.
   const recusa = (motivo) => ({ warnings: [`add_poll ${label} RECUSADO — ${motivo}`] });
 
   // A BARRA PROBATÓRIA PRIMEIRO. Uma pesquisa inserida sem fonte primária
@@ -258,12 +270,28 @@ export function inserirPesquisaCurada(polls, rep, targets, label) {
   if (!matches(nova, rep.match ?? {})) {
     return recusa("a pesquisa montada não satisfaz a própria cláusula match — a chave de identidade não descreve o que seria inserido, e \"nenhum alvo casou\" deixaria de significar \"ainda não existe\"");
   }
-  if (targets.length) {
+  // SÓ ALVO QUE SOBREVIVE AO GUARDA DE SOMA DISPENSA A INSERÇÃO. "A fonte já
+  // serve esta pesquisa" era decidido pela mera existência do alvo, e um alvo
+  // pode existir AGORA e morrer no guarda do coletor logo depois — foi o que
+  // perdeu presidente:RO 1º turno no ensaio de 20/08/2026: a dispensa apontou
+  // para um registro somando 16, o guarda o descartou (16 < 30), e a pesquisa
+  // fechou a rodada sem existir por nenhum dos dois caminhos. Um alvo que vai
+  // morrer não serve a pesquisa; ele só a esconde.
+  const vivos = targets.filter((p) => sobrevive(p));
+  const mortos = targets.filter((p) => !sobrevive(p));
+  if (vivos.length) {
     // A fonte sarou (ou a rodada anterior já projetou a pesquisa de volta em
     // polls.json). Não é defeito e não é sucesso: é a inserção dispensada, e o
     // coletor diz isso na linha `reparo sem efeito`.
-    return { warnings: [], noop: `${label} (a fonte já serve esta pesquisa — ${targets.map((p) => p.id).join(", ")}; inserção dispensada)` };
+    return { warnings: [], noop: `${label} (a fonte já serve esta pesquisa — ${vivos.map((p) => p.id).join(", ")}; inserção dispensada)` };
   }
+  // Em voz alta, como toda decisão deste arquivo: a fonte serve um registro
+  // QUEBRADO da pesquisa, e a inserção segue de pé por causa disso. O dia em
+  // que esta linha sumir é o dia em que a fonte sarou — e as duas coisas
+  // precisam ser vistas.
+  const avisos = mortos.length
+    ? [`add_poll ${label}: alvo(s) ${mortos.map((p) => p.id).join(", ")} reprovaria(m) no guarda de soma — inserção MANTIDA`]
+    : [];
   // A RECUSA DE QUASE-IGUAL SÃO DOIS TESTES, E ELES PERGUNTAM COISAS DIFERENTES.
   //
   // `mesmaOperacao` responde "é a mesma operação de campo?" — pergunta de
@@ -293,19 +321,27 @@ export function inserirPesquisaCurada(polls, rep, targets, label) {
   // proibida: ver `rosterContradicts` em `store.mjs`, que isenta o 2º turno de
   // propósito porque julgar levantamento por elenco cunhou 485 que não existem.
   const vizinho = polls.find((p) => {
+    // Um vizinho que reprovaria no guarda de soma não torna nada ambíguo: ele
+    // vai morrer antes de a média existir. Recusar por causa dele perde a
+    // pesquisa do mesmo jeito que a dispensa cega perdia — no caso real de
+    // presidente:RO, o próprio alvo quebrado é também o vizinho que casa por
+    // elenco, e sem este filtro o conserto da dispensa só trocaria a dispensa
+    // por uma recusa.
+    if (!sobrevive(p)) return false;
     if (!mesmaOperacao(p, nova)) return false;
     const nomes = (nova.results ?? []).map((r) => r.name_raw ?? r.candidate);
     return questionRostersMatch(p.results, nova.results, nomes);
   });
   if (vizinho) {
-    return recusa(
+    const r = recusa(
       `${vizinho.id} (${vizinho.pollster} ${vizinho.race}/${vizinho.state ?? "BR"} turno ${vizinho.round}, ` +
       `campo ${vizinho.fieldwork_end ?? vizinho.published_date ?? "?"}) está na janela de 3 dias mas fora da cláusula ` +
       "match — a mesma operação de campo, com o MESMO confronto, em outra data é ambígua, e nada foi inserido",
     );
+    return { warnings: [...avisos, ...r.warnings] };
   }
   polls.push(nova);
-  return { warnings: [], poll: nova };
+  return { warnings: avisos, poll: nova };
 }
 
 /**

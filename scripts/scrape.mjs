@@ -12,6 +12,7 @@ import { applyRepairs } from "./lib/repairs.mjs";
 import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
+import { sobreviveAoGuardaDeSoma, veredictoDeSoma } from "./lib/soma.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
@@ -93,7 +94,29 @@ function rostersMatch(a, b) {
   return hits / small.results.length >= 0.6;
 }
 
-function mergePolls(pollLists) {
+/**
+ * `sobrevive` é parâmetro por UM motivo, o mesmo do `inserir` de
+ * `applyRepairs`: o autoteste de `existencia-pos-guarda-check.mjs` precisa
+ * provar que a bateria REPROVA quando a decisão volta a ignorar o guarda de
+ * soma, e a única mutação honesta é `() => true` — que reproduz exatamente o
+ * comportamento antigo — sobre a função de verdade. O coletor nunca passa o
+ * parâmetro.
+ */
+export function mergePolls(pollLists, { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+  // QUEM DOA A TABELA DE RESULTADOS TEM DE SOBREVIVER AO GUARDA DE SOMA.
+  //
+  // `richerRoster` sozinho decidia a doação, e "mais linhas" não é "tabela que
+  // vive": uma tabela pode ser a mais cheia e ainda assim reprovar na soma — e
+  // aí a decisão de existência preferia um registro que o guarda de soma, mais
+  // adiante no coletor, matava — levando a pesquisa inteira junto (o defeito de
+  // composição medido no ensaio de 20/08/2026; ver `veredictoDeSoma`). Quando
+  // exatamente um dos lados sobreviveria, ele doa; a riqueza segue desempatando
+  // o resto.
+  const doaTabela = (a, b) => {
+    const va = sobrevive(a);
+    if (va !== sobrevive(b)) return va;
+    return richerRoster(a, b);
+  };
   const buckets = new Map();
   const out = [];
   for (const polls of pollLists) {
@@ -122,16 +145,15 @@ function mergePolls(pollLists) {
         // mesmo desfecho se for respondida errado — a tabela completa
         // sobrescrita por um fragmento. Duas cópias divergiriam na primeira
         // correção feita de um lado só (CONVENTIONS §5).
-        const richer = richerRoster;
         const RESULTS = ["results", "others_pct", "blank_null_pct", "undecided_pct"];
         if (newPri > oldPri) {
           const keep = { ...p };
           for (const f of META) if (keep[f] == null && existing[f] != null) keep[f] = existing[f];
-          if (richer(existing, p)) for (const f of RESULTS) keep[f] = existing[f];
+          if (doaTabela(existing, p)) for (const f of RESULTS) keep[f] = existing[f];
           Object.assign(existing, keep);
         } else {
           for (const f of META) if (existing[f] == null && p[f] != null) existing[f] = p[f];
-          if (richer(p, existing)) for (const f of RESULTS) existing[f] = p[f];
+          if (doaTabela(p, existing)) for (const f of RESULTS) existing[f] = p[f];
         }
       } else {
         const copy = { ...p };
@@ -147,8 +169,18 @@ function mergePolls(pollLists) {
  * Round-1 polls where an institute tested several line-ups arrive as several
  * rows (Wikipedia cenários). The per-race average must count each poll once:
  * keep the fullest roster per (pollster, race, state, date).
+ *
+ * ⚠ QUARTA DECISÃO DE EXISTÊNCIA DA MESMA FAMÍLIA (ver `veredictoDeSoma`):
+ * "mais cheio" podia eleger um fragmento que reprova na soma — e no empate de
+ * tamanho ficava o PRIMEIRO da lista, que é o nativo, nunca a curada que
+ * `applyRepairs` acabou de acrescentar no fim. Uma curada de elenco igual ao
+ * do fragmento morto perderia aqui e a pesquisa fechava a rodada ZERADA, o
+ * mesmo desfecho do caso presidente:RO do ensaio de 20/08/2026, uma decisão
+ * adiante. Quem sobrevive ao guarda vence quem não sobrevive; o tamanho segue
+ * decidindo entre iguais. `sobrevive` é parâmetro pelo mesmo motivo do de
+ * `mergePolls`: a mutação honesta do autoteste. O coletor nunca o passa.
  */
-function keepFullestRound1(polls) {
+export function keepFullestRound1(polls, { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
   const best = new Map();
   const rest = [];
   for (const p of polls) {
@@ -158,7 +190,16 @@ function keepFullestRound1(polls) {
     }
     const k = `${bucketKey(p)}:${pollDate(p) ?? "?"}`;
     const cur = best.get(k);
-    if (!cur || p.results.length > cur.results.length) best.set(k, p);
+    if (!cur) {
+      best.set(k, p);
+      continue;
+    }
+    const vp = sobrevive(p);
+    if (vp !== sobrevive(cur)) {
+      if (vp) best.set(k, p);
+      continue;
+    }
+    if (p.results.length > cur.results.length) best.set(k, p);
   }
   return [...rest, ...best.values()];
 }
@@ -169,7 +210,9 @@ function keepFullestRound1(polls) {
  * match with IDENTICAL percentages (and compatible sample sizes) are the same
  * poll published under two brandings. Keep the higher-priority source's copy.
  */
-function dropExactDuplicates(polls) {
+export function dropExactDuplicates(polls, { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+  // `sobrevive` é parâmetro pelo mesmo motivo do de `mergePolls`: a mutação
+  // honesta do autoteste. O coletor nunca o passa.
   const groups = new Map();
   for (const p of polls) {
     const k = `${p.race}:${p.state ?? "BR"}:${p.round}`;
@@ -207,9 +250,21 @@ function dropExactDuplicates(polls) {
           matched >= 3 ||
           (matched === 2 && da && da === db && a.sample_size && a.sample_size === b.sample_size);
         if (matched / small.results.length >= 0.9 && identical === matched && strongEnough) {
-          const loser = (SOURCE_PRIORITY[a.source] ?? 1) >= (SOURCE_PRIORITY[b.source] ?? 1) ? b : a;
+          // A PRIORIDADE SÓ DESEMPATA ENTRE REGISTROS QUE SOBREVIVEM AO GUARDA
+          // DE SOMA. Escolher por prioridade cega manteve, no ensaio de
+          // 20/08/2026, o nativo "Direito ao Ponto" (soma 21) contra a curada
+          // "Direto ao Ponto Pesquisas" da MESMA pesquisa — o vencedor morreu
+          // no guarda logo depois e presidente:AM fechou a coleta ZERADA.
+          // Quando exatamente um dos dois sobrevive, ele fica, qualquer que
+          // seja a fonte; prioridade decide o resto, como sempre.
+          const va = sobrevive(a);
+          const soUmVive = va !== sobrevive(b);
+          const loser = soUmVive
+            ? (va ? b : a)
+            : (SOURCE_PRIORITY[a.source] ?? 1) >= (SOURCE_PRIORITY[b.source] ?? 1) ? b : a;
           dropped.add(loser);
-          console.warn(`duplicata entre marcas: ${a.pollster} ≡ ${b.pollster} (${a.race}/${a.state ?? "BR"} ${da ?? "?"}) — mantida a de maior prioridade`);
+          console.warn(`duplicata entre marcas: ${a.pollster} ≡ ${b.pollster} (${a.race}/${a.state ?? "BR"} ${da ?? "?"}) — ` +
+            (soUmVive ? "mantida a que sobrevive ao guarda de soma" : "mantida a de maior prioridade"));
         }
       }
     }
@@ -463,20 +518,16 @@ async function main() {
 
   // Drop individually broken polls (over-cap sums, malformed results) with a
   // log line instead of failing the whole run; the strict validator remains
-  // the final gate on what's left.
+  // the final gate on what's left. O veredicto mora em `lib/soma.mjs` (§5)
+  // porque as decisões de existência acima — dedupe, doação de tabela,
+  // dispensa de add_poll — passaram a consultá-lo ANTES de este filtro rodar:
+  // preferir aqui um registro que morre ali era perder a pesquisa inteira
+  // (ensaio de 20/08/2026, presidente:AM e presidente:RO).
   const before = polls.length;
   polls = polls.filter((p) => {
-    let sum = p.results.reduce((a, r) => a + r.pct, 0);
-    sum += (p.undecided_pct ?? 0) + (p.blank_null_pct ?? 0) + (p.others_pct ?? 0);
-    const cap = p.race === "senador" ? 260 : 130;
-    if (sum > cap) {
-      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — soma ${sum.toFixed(1)} > ${cap}`);
-      return false;
-    }
-    // Sums far below 100 are mis-parsed fragments (rejection questions,
-    // segment cuts), not vote-intention tables — they'd poison averages.
-    if (sum < 30) {
-      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — soma ${sum.toFixed(1)} < 30`);
+    const v = veredictoDeSoma(p);
+    if (!v.ok) {
+      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — ${v.motivo}`);
       return false;
     }
     return true;
