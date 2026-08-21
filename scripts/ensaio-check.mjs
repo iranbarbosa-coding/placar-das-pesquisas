@@ -94,6 +94,36 @@ function autoteste() {
       "empate invertido de ordem não é troca de líder");
   }
 
+  // 5b. ⚠ RE-CUNHAGEM COM LINHAGEM NÃO É TROCA DE LÍDER — o FATO 3 do ensaio de
+  //     20/08/2026 em miniatura. A rodada re-cunhou `candidate_id` com
+  //     `legacy_ids` traduzido e o relatório acusou `presidente:AP
+  //     q_966e66a7ff83: Lula → Lula` — mesma pessoa, id novo, comparado cru.
+  //     Vermelho falso é o adubo da jogada proibida (§10). A comparação passa a
+  //     resolver id → `legacy_ids` → pessoa; e a metade simétrica é obrigatória:
+  //     uma troca REAL entre pessoas diferentes CONTINUA acusada, senão o
+  //     conserto seria um comparador que dorme.
+  {
+    const CANDS_ANTES = [
+      { candidate_id: "c_a", canonical: "Alfa", person_id: "p_alfa" },
+      { candidate_id: "c_b", canonical: "Beta", person_id: "p_beta" },
+    ];
+    const CANDS_DEPOIS = [
+      { candidate_id: "c_a2", canonical: "Alfa", person_id: "p_alfa", legacy_ids: ["c_a"] },
+      { candidate_id: "c_b2", canonical: "Beta", person_id: "p_beta", legacy_ids: ["c_b"] },
+    ];
+    const antes = store([q("q1", "presidente", null, [r("c_a", 40), r("c_b", 30)])], CANDS_ANTES);
+    // Mesma pessoa na frente, ids re-cunhados: NÃO é troca.
+    const recunhada = store([q("q1", "presidente", null, [r("c_a2", 40), r("c_b2", 30)])], CANDS_DEPOIS);
+    const rel1 = relatorioDeEnsaio(antes, recunhada);
+    ok(rel1.trocaramLider.length === 0,
+      `re-cunhagem com legacy_ids traduzido não pode acusar troca de líder (veio ${JSON.stringify(rel1.trocaramLider)})`);
+    // Outra pessoa na frente, mesmos ids re-cunhados: a troca REAL ainda conta.
+    const trocada = store([q("q1", "presidente", null, [r("c_a2", 25), r("c_b2", 30)])], CANDS_DEPOIS);
+    const rel2 = relatorioDeEnsaio(antes, trocada);
+    ok(rel2.trocaramLider.length === 1 && rel2.trocaramLider[0].era === "Alfa" && rel2.trocaramLider[0].viraria === "Beta",
+      `a troca real através da re-cunhagem tem de continuar acusada (veio ${JSON.stringify(rel2.trocaramLider)})`);
+  }
+
   // 6. ⚠ A FIAÇÃO, PELO COMPORTAMENTO — e não pelo texto do fonte.
   //
   //    A versão anterior deste bloco lia `scrape.mjs` e afirmava que a cópia
@@ -206,7 +236,7 @@ function autoteste() {
     for (const f of falhas) console.error(`  ✗ ${f}`);
     process.exit(1);
   }
-  console.log("autoteste ok — coleta idêntica não acusa, desaparecimento agrupado por disputa, encolhimento com os dois tamanhos, troca de líder pelos nomes, empate sem líder, e a fiação do destino (BANCO só leitura, DESTINO única escrita, entrada real, cópia do banco antes de construir)");
+  console.log("autoteste ok — coleta idêntica não acusa, desaparecimento agrupado por disputa, encolhimento com os dois tamanhos, troca de líder pelos nomes (por linhagem: re-cunhagem com legacy_ids não é troca, troca real continua sendo), empate sem líder, e a fiação do destino (BANCO só leitura, DESTINO única escrita, entrada real, cópia do banco antes de construir)");
 }
 
 if (process.argv.includes("--self-test")) autoteste();

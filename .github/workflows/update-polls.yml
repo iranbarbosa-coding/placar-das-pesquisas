@@ -135,6 +135,24 @@ jobs:
       - name: Retenção de elenco (encolhimento na fonte)
         run: node scripts/roster-retention-check.mjs
 
+      # A defesa-irmã da retenção: a retenção guarda a pergunta que CHEGA
+      # encolhida; o delta guarda a que NÃO CHEGA. Medido no ensaio de
+      # 20/08/2026: 56 perguntas sumiriam em 13 disputas com o total SUBINDO
+      # (2.996 → 3.029) — piso absoluto não vê (o banco tem ~996 perguntas de
+      # folga sobre ele, fraqueza observada duas vezes por sessões
+      # independentes), e delta de totais é cego a perda compensada por ganho
+      # alheio. presidente:AM terminou 0 → 0 com reparo curado no banco — isso
+      # nem delta vê: quem pega é a lista declarada (data/disputas-declaradas
+      # .json, disputa `exigida` reprova vazia mesmo partindo de zero). A
+      # tolerância é um predicado, nunca um K: sumida passa só com sucessora
+      # provada (legacy_ids ou elenco por linhagem DENTRO do mesmo
+      # levantamento) ou reparo allow_question_drop com fonte primária.
+      - name: Guarda de delta por disputa dispara
+        run: node scripts/disputa-delta-check.mjs --self-test
+
+      - name: Delta por disputa (perda silenciosa entre rodadas)
+        run: node scripts/disputa-delta-check.mjs
+
       # A recuperação de fonte caída prometia "mantendo dados anteriores desta
       # fonte" e, para a Wikipédia, guardava ZERO: filtrava por `p.source ===
       # "wikipedia"`, rótulo que a projeção nunca emite. Uma falha de coleta
