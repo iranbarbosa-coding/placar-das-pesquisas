@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "nota": "Gerado deterministicamente do banco de 2026-08-21 (2.996 perguntas): disputa com N>0 => exigida; presidente:AM => exigida pelo FATO 1; o resto do dominio (race x UF de validate-store) => pendente. Promocao/rebaixamento e sempre decisao do criador, num diff de uma linha.",
+  "disputas": {
+    "governador:AC": {
+      "estado": "exigida"
+    },
+    "governador:AL": {
+      "estado": "exigida"
+    },
+    "governador:AM": {
+      "estado": "exigida"
+    },
+    "governador:AP": {
+      "estado": "exigida"
+    },
+    "governador:BA": {
+      "estado": "exigida"
+    },
+    "governador:CE": {
+      "estado": "exigida"
+    },
+    "governador:DF": {
+      "estado": "exigida"
+    },
+    "governador:ES": {
+      "estado": "exigida"
+    },
+    "governador:GO": {
+      "estado": "exigida"
+    },
+    "governador:MA": {
+      "estado": "exigida"
+    },
+    "governador:MG": {
+      "estado": "exigida"
+    },
+    "governador:MS": {
+      "estado": "exigida"
+    },
+    "governador:MT": {
+      "estado": "exigida"
+    },
+    "governador:PA": {
+      "estado": "exigida"
+    },
+    "governador:PB": {
+      "estado": "exigida"
+    },
+    "governador:PE": {
+      "estado": "exigida"
+    },
+    "governador:PI": {
+      "estado": "exigida"
+    },
+    "governador:PR": {
+      "estado": "exigida"
+    },
+    "governador:RJ": {
+      "estado": "exigida"
+    },
+    "governador:RN": {
+      "estado": "exigida"
+    },
+    "governador:RO": {
+      "estado": "exigida"
+    },
+    "governador:RR": {
+      "estado": "exigida"
+    },
+    "governador:RS": {
+      "estado": "exigida"
+    },
+    "governador:SC": {
+      "estado": "exigida"
+    },
+    "governador:SE": {
+      "estado": "exigida"
+    },
+    "governador:SP": {
+      "estado": "exigida"
+    },
+    "governador:TO": {
+      "estado": "exigida"
+    },
+    "presidente:AC": {
+      "estado": "exigida"
+    },
+    "presidente:AL": {
+      "estado": "exigida"
+    },
+    "presidente:AM": {
+      "estado": "exigida",
+      "motivo": "reparo curado-80690cd778ab existe; zerar aqui é o FATO 1 do ensaio de 20/08",
+      "declarado_em": "2026-08-21"
+    },
+    "presidente:AP": {
+      "estado": "exigida"
+    },
+    "presidente:BA": {
+      "estado": "exigida"
+    },
+    "presidente:BR": {
+      "estado": "exigida"
+    },
+    "presidente:CE": {
+      "estado": "exigida"
+    },
+    "presidente:DF": {
+      "estado": "exigida"
+    },
+    "presidente:ES": {
+      "estado": "exigida"
+    },
+    "presidente:GO": {
+      "estado": "exigida"
+    },
+    "presidente:MA": {
+      "estado": "exigida"
+    },
+    "presidente:MG": {
+      "estado": "exigida"
+    },
+    "presidente:MS": {
+      "estado": "exigida"
+    },
+    "presidente:MT": {
+      "estado": "exigida"
+    },
+    "presidente:PA": {
+      "estado": "exigida"
+    },
+    "presidente:PB": {
+      "estado": "exigida"
+    },
+    "presidente:PE": {
+      "estado": "exigida"
+    },
+    "presidente:PI": {
+      "estado": "exigida"
+    },
+    "presidente:PR": {
+      "estado": "exigida"
+    },
+    "presidente:RJ": {
+      "estado": "exigida"
+    },
+    "presidente:RN": {
+      "estado": "exigida"
+    },
+    "presidente:RO": {
+      "estado": "exigida"
+    },
+    "presidente:RR": {
+      "estado": "pendente",
+      "motivo": "fonte nunca serviu; promover quando a inserção curada cobrir",
+      "declarado_em": "2026-08-21"
+    },
+    "presidente:RS": {
+      "estado": "exigida"
+    },
+    "presidente:SC": {
+      "estado": "exigida"
+    },
+    "presidente:SE": {
+      "estado": "exigida"
+    },
+    "presidente:SP": {
+      "estado": "exigida"
+    },
+    "presidente:TO": {
+      "estado": "exigida"
+    },
+    "senador:AC": {
+      "estado": "exigida"
+    },
+    "senador:AL": {
+      "estado": "exigida"
+    },
+    "senador:AM": {
+      "estado": "exigida"
+    },
+    "senador:AP": {
+      "estado": "exigida"
+    },
+    "senador:BA": {
+      "estado": "exigida"
+    },
+    "senador:CE": {
+      "estado": "exigida"
+    },
+    "senador:DF": {
+      "estado": "exigida"
+    },
+    "senador:ES": {
+      "estado": "exigida"
+    },
+    "senador:GO": {
+      "estado": "exigida"
+    },
+    "senador:MA": {
+      "estado": "exigida"
+    },
+    "senador:MG": {
+      "estado": "exigida"
+    },
+    "senador:MS": {
+      "estado": "exigida"
+    },
+    "senador:MT": {
+      "estado": "exigida"
+    },
+    "senador:PA": {
+      "estado": "exigida"
+    },
+    "senador:PB": {
+      "estado": "exigida"
+    },
+    "senador:PE": {
+      "estado": "exigida"
+    },
+    "senador:PI": {
+      "estado": "exigida"
+    },
+    "senador:PR": {
+      "estado": "exigida"
+    },
+    "senador:RJ": {
+      "estado": "exigida"
+    },
+    "senador:RN": {
+      "estado": "exigida"
+    },
+    "senador:RO": {
+      "estado": "exigida"
+    },
+    "senador:RR": {
+      "estado": "exigida"
+    },
+    "senador:RS": {
+      "estado": "exigida"
+    },
+    "senador:SC": {
+      "estado": "exigida"
+    },
+    "senador:SE": {
+      "estado": "exigida"
+    },
+    "senador:SP": {
+      "estado": "exigida"
+    },
+    "senador:TO": {
+      "estado": "exigida"
+    }
+  }
+}

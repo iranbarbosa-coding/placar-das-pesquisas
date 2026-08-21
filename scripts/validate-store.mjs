@@ -19,8 +19,12 @@ import { selfTest as partySelfTest, partyExistedAt } from "./lib/parties.mjs";
 import { sqsRegistrados } from "./lib/candidaturas.mjs";
 import { folgaDerivada } from "./lib/soma.mjs";
 
-const RACES = new Set(["presidente", "governador", "senador"]);
-const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
+// Exportados porque `lib/delta.mjs` valida as chaves de `data/disputas-declaradas.json`
+// contra ESTES domínios — uma segunda lista de UFs divergiria na primeira correção
+// feita de um lado só (§5), e o guarda de delta passaria a aceitar uma disputa que
+// este validador reprova.
+export const RACES = new Set(["presidente", "governador", "senador"]);
+export const UFS = new Set(["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"]);
 const PUB_STATES = new Set(["results_held","published_not_obtained","scheduled_future","not_located","unchecked"]);
 const XT_STATUS = new Set(["verified","unverified","rejected"]);
 const DIMENSIONS = new Set(["sexo","faixa_etaria","escolaridade","renda","religiao","regiao","cor_raca","pea","capital_interior","voto_2022","desconhecida"]);
