@@ -91,15 +91,31 @@ jobs:
       - name: Atualizar o registro de candidaturas do TSE
         run: node scripts/fetch-candidaturas.mjs
 
-      - name: Coletar, normalizar e gravar o store
-        run: node scripts/scrape.mjs
-
-      # DEPOIS da coleta, não antes: o casador lê `data/nomes-crus.json`, que o
-      # coletor grava com os nomes como o instituto publicou, antes de
-      # canonicalizar. Lendo a saída canonicalizada ele encolheria a própria
-      # tabela a cada rodada. O mapa gerado aqui vale para a rodada seguinte.
+      # ANTES da coleta, sobre os nomes crus que a rodada ANTERIOR commitou —
+      # e isto mudou de lugar por um defeito medido, não por gosto (21/08/2026,
+      # run 32531108279): rodando ENTRE a coleta e os portões, o casador
+      # reescrevia data/ballot-names.json no meio da própria verificação da
+      # rodada. O store saía canonicalizado com a tabela velha, o parity-check
+      # media com a tabela recém-reescrita, e todo nome que estreava com
+      # candidatura casável virava divergência (140 naquela rodada) — um
+      # vermelho que NENHUMA rodada seguinte curava, porque a rodada vermelha
+      # não commita a tabela nova (CONVENTIONS §3: artefato que muda durante a
+      # verificação anula a verificação; §5: os dois lados têm de consumir a
+      # MESMA tabela).
+      #
+      # O que NÃO mudou: o casador continua lendo `data/nomes-crus.json` (os
+      # nomes como o instituto publicou, nunca a saída canonicalizada — senão
+      # ele come o próprio rabo e a tabela encolhe a cada rodada), e o mapa que
+      # os nomes de uma rodada geram continua valendo só para a rodada seguinte
+      # (a defasagem de uma rodada é decisão do criador, HANDOFF §6 item 7).
+      # Aqui ele apenas gera o mapa da rodada N com os nomes crus da N−1, de
+      # modo que coletor e portões consumam o MESMO estado da tabela, e o
+      # commit saia com store e tabela CONSISTENTES entre si.
       - name: Casar nomes de urna com os nomes das pesquisas
         run: node scripts/match-ballot-names.mjs
+
+      - name: Coletar, normalizar e gravar o store
+        run: node scripts/scrape.mjs
 
       - name: Derivar data/polls.json do store
         run: node scripts/derive-polls.mjs
