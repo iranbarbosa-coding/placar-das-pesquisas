@@ -46,7 +46,7 @@
 // `person|obs|senador|PR|...` e chaveia o índice de grafias pela race errada,
 // re-fundindo em silêncio exatamente o que este corte separa. Um campo não pode
 // ser mal-parseado.
-import { normNome, acentos } from "./nomes.mjs";
+import { normNome, grafiaCompare } from "./nomes.mjs";
 import { mintPersonId } from "./ids.mjs";
 import { colapsarReRegistros, lerCandidaturas, ordemSq } from "./candidaturas.mjs";
 
@@ -111,14 +111,15 @@ export function melhorDisplay(atual, novo) {
   const ra = rank(atual.display_from);
   const rn = rank(novo.display_from);
   if (rn !== ra) return rn < ra ? novo : atual;
-  // MESMO NOME, ACENTOS DIFERENTES: ganha o mais acentuado. É a regra de
-  // `melhorGrafia` (lib/nomes.mjs), aplicada aqui pelo mesmo motivo — o TSE
-  // grava 29 nomes de urna sem os acentos que o nome tem, e sem esta linha 17
-  // pessoas registradas sairiam de `people.ndjson` como "Flavio Bolsonaro"
-  // enquanto o site publica "Flávio Bolsonaro": a mesma pessoa sob dois nomes,
-  // que é exatamente o defeito de `senador:AL` um nível acima.
+  // MESMO NOME, GRAFIAS DIFERENTES: ganha a de `grafiaCompare` (lib/nomes.mjs)
+  // — mais acentos, depois mais siglas —, a MESMA ordem de `melhorGrafia`,
+  // aplicada aqui pelo mesmo motivo: o TSE grava 29 nomes de urna sem os
+  // acentos que o nome tem (e o title-case do fetch esmaga "MLB" em "Mlb"), e
+  // sem esta linha pessoas registradas sairiam de `people.ndjson` como "Flavio
+  // Bolsonaro" ou "Joaquim do Mlb" enquanto o site publica a grafia certa: a
+  // mesma pessoa sob dois nomes, o defeito de `senador:AL` um nível acima.
   if (normNome(novo.display) === normNome(atual.display)) {
-    return acentos(novo.display) > acentos(atual.display) ? novo : atual;
+    return grafiaCompare(novo.display, atual.display) > 0 ? novo : atual;
   }
   // Empate real entre nomes diferentes: desempata em campo estável, nunca na
   // ordem em que os registros aparecem no disco (CONVENTIONS §8).

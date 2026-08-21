@@ -36,6 +36,43 @@ export const normNome = (s) =>
 export const acentos = (s) => (String(s ?? "").normalize("NFD").match(/[̀-ͯ]/g) ?? []).length;
 
 /**
+ * Quantas SIGLAS uma grafia carrega — o segundo desempate, pelo mesmo motivo
+ * do primeiro.
+ *
+ * O registro do TSE vem em CAIXA ALTA e `fetch-candidaturas.mjs` o rebaixa por
+ * title-case, que não sabe o que é sigla: "JOAQUIM DO MLB" vira "Joaquim do
+ * Mlb". Medido na 1ª rodada religada (senador:PR): sem esta contagem, a rodada
+ * seguinte adotaria "Joaquim do Mlb" como nome exibido — publicar isso não é
+ * adotar o nome oficial, é grafá-lo errado, exatamente como "Flavio Bolsonaro".
+ *
+ * Sigla = corrida de 2+ maiúsculas (MLB, ACM, JHC) numa grafia que TEM
+ * minúsculas. A guarda das minúsculas não é enfeite: presidente:SE publica
+ * nomes inteiros em caixa alta ("RENAN SANTOS"), e uma contagem crua de
+ * maiúsculas faria o instituto que grita vencer o registro — o site não grita.
+ * Uma grafia toda em caixa alta não carrega informação de caixa nenhuma.
+ */
+export const siglas = (s) => {
+  const str = String(s ?? "");
+  if (!/\p{Ll}/u.test(str)) return 0;
+  return (str.match(/\p{Lu}{2,}/gu) ?? []).length;
+};
+
+/**
+ * A ordem de qualidade entre DUAS GRAFIAS DO MESMO NOME (> 0 ⟺ `a` é melhor):
+ * mais acentos primeiro, mais siglas depois. É UMA ordem com quatro leitores —
+ * `melhorGrafia` aqui, a colisão de chave do casador, `melhorDisplay` em
+ * `lib/people.mjs` e o dobrado de grupo em `lib/candidates.mjs`. Antes desta
+ * função cada um carregava sua comparação de `acentos`; estender a regra num
+ * deles e não nos outros republicaria a mesma pessoa sob dois nomes, o defeito
+ * de `senador:AL` (CONVENTIONS §5).
+ *
+ * Só EXIBIÇÃO entre grafias já identificadas como a mesma pessoa (§4): quem
+ * chama compara strings iguais sob `normNome`, e nada aqui toca identidade.
+ */
+export const grafiaCompare = (a, b) =>
+  (acentos(a) - acentos(b)) || (siglas(a) - siglas(b));
+
+/**
  * The register's diacritics are not reliable, and dropping ours would look like
  * a typo on every page.
  *
@@ -50,6 +87,13 @@ export const acentos = (s) => (String(s ?? "").normalize("NFD").match(/[̀-ͯ]/g
  * it is safe. When the two differ as names ("Allyson Bezerra" vs "Allyson"),
  * the ballot name wins outright, accents or not.
  *
+ * A CAIXA tem a mesma proteção pela mesma mecânica (ver `siglas`): o title-case
+ * do fetch esmaga sigla ("JOAQUIM DO MLB" → "Joaquim do Mlb"), e quando as duas
+ * grafias são o mesmo nome sob `normNome`, a grafia publicada com a sigla
+ * inteira vence a forma title-case do registro. A decisão mora AQUI e não no
+ * `titleCase` do fetch: ele serve à leitura do registro, esta função é a única
+ * regra de exibição (CONVENTIONS §5).
+ *
  * Mora aqui, e não em `match-ballot-names.mjs`, desde que `people.ndjson`
  * passou a precisar da MESMA decisão para escolher o `display` de uma pessoa
  * vista sob várias grafias. Uma cópia teria feito o site publicar "Flávio
@@ -58,7 +102,7 @@ export const acentos = (s) => (String(s ?? "").normalize("NFD").match(/[̀-ͯ]/g
  */
 export function melhorGrafia(nomePesquisa, nomeUrna) {
   if (normNome(nomePesquisa) !== normNome(nomeUrna)) return nomeUrna;
-  return acentos(nomePesquisa) > acentos(nomeUrna) ? nomePesquisa : nomeUrna;
+  return grafiaCompare(nomePesquisa, nomeUrna) > 0 ? nomePesquisa : nomeUrna;
 }
 
 /**
