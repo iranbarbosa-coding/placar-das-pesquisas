@@ -2189,6 +2189,416 @@
     "tse_registration": "GO-05001/2026"
    },
    "_nota_nao_consertado": "O banco atribui este levantamento a \"Portal Goiás\"; o PDF é assinado por \"iGape\" e diz encomendado pela TV Atual Record/News. NÃO mexo nisso aqui: institute_names_raw guarda a grafia PUBLICADA pelo agregador, que é outra coisa do que a assinatura do relatório, e trocá-la sem decidir qual das duas é a fonte de verdade seria inventar. Anotado para o criador decidir."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 1,
+    "fieldwork_end": "2026-04-04"
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.27, PERGUNTA 13 (estimulada principal, 1º turno): 'Se a eleição fosse hoje e estes fossem os candidatos em quem o(a) sr(a) votaria para Presidente do Brasil?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Flávio Bolsonaro - PL 618 = 60,0 (72,6) · Lula – PT 164 = 16,0 (19,3) · Pablo Marçal – União Brasil 17 = 1,6 (1,9) · Renan Santos – Missão 15 = 1,5 (1,8) · Ronaldo Caiado – PSD 15 = 1,5 (1,8) · Ratinho Júnior – PSD 11 = 1,0 (1,3) · Romeu Zema – Novo 7 = 0,6 (0,8) · Aldo Rebelo - DC 5 = 0,5 (0,6); Total válido 852 = 82,7. Seção 'Ausente', rótulos exatos: 'NS/NR' 153 = 14,9 · 'Branco/nulo' 25 = 2,4; Total 178 = 17,3; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 100,0 EXATOS — expect_sum 100. ⚠ NÃO HÁ linha de 'Outros' na P13 — others_pct NULO; a armadilha vizinha está identificada e não pode vazar para cá: a ESPONTÂNEA P12 tem lista própria (e espontânea não se guarda, decisão da casa). ⚠ O separador nome-partido VARIA dentro da própria tabela (hífen em 'Flávio Bolsonaro - PL' e 'Aldo Rebelo - DC', travessão nas demais linhas) — inconsistência tipográfica da fonte, anotada; o PARTIDO foi transcrito como impresso e o separador não é dado. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 60.0
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 16.0
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 1.6
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1.5
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.5
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 1.0
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.6
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.5
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 14.9,
+    "blank_null_pct": 2.4
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Flávio Bolsonaro",
+     "Lula"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.33, PERGUNTA 16 (confronto de 2º turno Flávio Bolsonaro × Lula): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Flávio Bolsonaro – PL 679 = 65,9 (78,5) · Lula – PT 186 = 18,1 (21,5); Total válido 865 = 84,0. Seção 'Ausente', rótulos exatos: 'NS/NR' 144 = 13,9 · 'Branco/nulo' 21 = 2,0; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 99,9 — expect_sum 99,9, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. ⚠ Aqui 'Flávio Bolsonaro – PL' sai com TRAVESSÃO onde a P13 usa hífen — inconsistência tipográfica da fonte, anotada (consolidado §1). LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 65.9
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 18.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 13.9,
+    "blank_null_pct": 2.0
+   },
+   "expect_sum": 99.9,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Ratinho Júnior",
+     "Lula"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.35, PERGUNTA 17 (confronto de 2º turno Ratinho Júnior × Lula): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Ratinho Júnior – PSD 496 = 48,1 (71,2) · Lula – PT 200 = 19,4 (28,8); Total válido 696 = 67,6. Seção 'Ausente', rótulos exatos: 'NS/NR' 251 = 24,3 · 'Branco/nulo' 83 = 8,1; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 99,9 — expect_sum 99,9, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Ratinho Júnior vs Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 48.1
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 19.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 24.3,
+    "blank_null_pct": 8.1
+   },
+   "expect_sum": 99.9,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Flávio Bolsonaro",
+     "Ratinho Júnior"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.37, PERGUNTA 18 (confronto de 2º turno Flávio Bolsonaro × Ratinho Júnior): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Flávio Bolsonaro - PL 676 = 65,6 (88,0) · Ratinho Júnior – PSD 92 = 9,0 (12,0); Total válido 768 = 74,6. Seção 'Ausente', rótulos exatos: 'NS/NR' 183 = 17,8 · 'Branco/nulo' 79 = 7,7; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 100,1 — expect_sum 100,1, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. expect_sum 100,1 é a SOMA IMPRESSA desta tabela (65,6+9,0+17,8+7,7), décimo de arredondamento da fonte — guardar 100 exigiria mexer num dígito impresso (CONVENTIONS §10, folga derivada de tabela em décimos). LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Flávio Bolsonaro vs Ratinho Júnior",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 65.6
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 9.0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 17.8,
+    "blank_null_pct": 7.7
+   },
+   "expect_sum": 100.1,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Pablo Marçal",
+     "Lula"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.39, PERGUNTA 19 (confronto de 2º turno Pablo Marçal × Lula): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Pablo Marçal – União Brasil 469 = 45,5 (69,6) · Lula – PT 205 = 19,9 (30,4); Total válido 674 = 65,4. Seção 'Ausente', rótulos exatos: 'NS/NR' 286 = 27,7 · 'Branco/nulo' 71 = 6,8; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 99,9 — expect_sum 99,9, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. ⚠ Inconsistência interna DESTA página, achada pelas duas leituras (ver contexto adverso, item 2): as frequências somam 1.031 (286+71 = 357 vs 'Total' Ausente 356 impresso) e 27,7+6,8 = 34,5 vs 34,6 impresso — NÃO toca a coluna Porcentual armazenada, cuja soma com os candidatos fecha 99,9. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Pablo Marçal vs Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 45.5
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 19.9
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 27.7,
+    "blank_null_pct": 6.8
+   },
+   "expect_sum": 99.9,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Flávio Bolsonaro",
+     "Pablo Marçal"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.41, PERGUNTA 20 (confronto de 2º turno Flávio Bolsonaro × Pablo Marçal): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Flávio Bolsonaro - PL 671 = 65,1 (91,6) · Pablo Marçal – União Brasil 61 = 5,9 (8,4); Total válido 732 = 71,1. Seção 'Ausente', rótulos exatos: 'NS/NR' 203 = 19,7 · 'Branco/nulo' 95 = 9,2; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 99,9 — expect_sum 99,9, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Flávio Bolsonaro vs Pablo Marçal",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 65.1
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 5.9
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 19.7,
+    "blank_null_pct": 9.2
+   },
+   "expect_sum": 99.9,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Pablo Marçal",
+     "Ratinho Júnior"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.43, PERGUNTA 21 (confronto de 2º turno Pablo Marçal × Ratinho Júnior): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Pablo Marçal – União Brasil 324 = 31,5 (63,1) · Ratinho Júnior – PSD 190 = 18,4 (36,9); Total válido 514 = 49,9. Seção 'Ausente', rótulos exatos: 'NS/NR' 362 = 35,1 · 'Branco/nulo' 154 = 15,0; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 100,0 — expect_sum 100,0, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Pablo Marçal vs Ratinho Júnior",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 31.5
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 18.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 35.1,
+    "blank_null_pct": 15.0
+   },
+   "expect_sum": 100.0,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": [
+     "Ronaldo Caiado",
+     "Lula"
+    ]
+   },
+   "defect": "ESTREIA de presidente:RR no banco — nenhuma fonte serve o bloco presidencial da Veritá em Roraima (a Wikipédia serve só governador e senador desta operação de campo; o agregador não serve RR presidencial), então nenhum reparo de correção o alcança. Transcrito do relatório-integra do instituto (79 p.), resgatado via Wayback, por DUAS leituras cegas independentes comparadas pelo hub (§1). Inserção aprovada pelo criador em 21/08/2026 COM o contexto adverso íntegro na evidência.",
+   "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
+   "evidence": "p.45, PERGUNTA 22 (confronto de 2º turno Ronaldo Caiado × Lula): 'Se a eleição fosse hoje e estes fossem os candidatos a Presidente do Brasil, em quem o(a) sr(a) votaria?'. Colunas impressas: Frequência | Porcentual | Porcentagem válida | Porcentagem acumulativa. A COLUNA ARMAZENÁVEL É 'Porcentual' (base = amostra inteira de 1.030): é a única que fecha ~100 somada aos baldes NS/NR e Branco/nulo, impressos na seção 'Ausente' da mesma tabela — a 'Porcentagem válida' é calculada só sobre os válidos e soma 100,0 sozinha (regra da coluna-que-soma, formato SPSS, aprovada na comparação §1 do hub). ⚠ É a coluna '% válida' que a matéria do Roraima 1 citava — ver o contexto adverso. Linhas 'Válido', na ordem impressa (frequência = Porcentual (Porcentagem válida)): Ronaldo Caiado – PSD 380 = 36,9 (65,3) · Lula - PT 202 = 19,6 (34,7); Total válido 582 = 56,6. Seção 'Ausente', rótulos exatos: 'NS/NR' 321 = 31,2 · 'Branco/nulo' 126 = 12,3; Total geral 1030 = 100,0. Soma da coluna Porcentual + baldes = 100,0 — expect_sum 100,0, a soma da tabela do consolidado (tabela em décimos, folga derivada). Partidos como impressos, iguais aos da P13. ⚠ Aqui 'Lula - PT' sai com HÍFEN onde o resto do documento usa travessão — inconsistência tipográfica da fonte, anotada (consolidado §1). E inconsistência interna DESTA página (ver contexto adverso, item 2): as frequências somam 1.029 e 31,2+12,3 = 43,5 vs 43,4 impresso — NÃO toca a coluna Porcentual armazenada, cuja soma com os candidatos fecha 100,0. LIDO DUAS VEZES, ÀS CEGAS E DE FORMA INDEPENDENTE (leitura 1: texto+visual; leitura 2: texto+visual com renders próprios), e as duas leituras foram comparadas pelo hub em 21-22/08/2026 (comparação §1): elas CONCORDAM em toda figura armazenável desta tabela e da ficha técnica. FONTE CITÁVEL: o PDF morreu no host original (storage Supabase); a fonte é o snapshot do Wayback Machine 20260429140132 da URL original, citado no campo source — sha256 do PDF d267198961464d3d76ddc1abb2b7938839cb8db42dc68cce523ce455042e4bf3 (idêntico nas duas leituras e reconferido nesta autoria), 79 páginas. FICHA TÉCNICA (p.2 do PDF; ATESTADA pelo PesqEle nos DOIS registros): realização impressa 'INSTITUTO VERITA LTDA' (CNPJ 00654576000172 no PesqEle), apresentação 'O Instituto Veritá'. GUARDADO pollster 'Veritá' — a grafia que o banco já usa nas linhas irmãs governador/senador desta MESMA operação de campo (polls 7716d385fbce e 5e8b090574e3, levantamento s_703c16333da4, medido em 21/08/2026) — para o clustering de instituto não partir; a divergência de grafia com o impresso fica anotada AQUI. Contratante 'Iniciativa própria do Instituto', como impresso na p.2 (PesqEle: contratante e pagante = o próprio instituto; R$ 79.310, recursos próprios). Universo: moradores do Estado de Roraima há pelo menos 1 ano, 16+; abrangência Estado de Roraima. n = 1.030 · margem 3,5 p.p. · confiança 95% · campo 29/03 a 04/04/2026. Coleta por unidade automatizada com reconhecimento de voz e transcrição de áudio para texto (IVR/voz→texto); plano amostral por quotas (Censo TSE 2024, Censo 2022, PNAD/PNADC); 20% das entrevistas auditadas; estatístico (PesqEle): Guilherme Alvarenga Laia, CONRE 10699. ⚠ published_date 2026-04-03 vem da DIVULGAÇÃO declarada no registro do PesqEle (consulta de 21/08/2026), NÃO do PDF — o PDF não imprime data de divulgação. Registros impressos SÓ na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026' — a escolha da chave tse_registration está em _nota_registro. CONTEXTO ADVERSO — BLOCO ÍNTEGRO DO CONSOLIDADO §1 (decisão do criador, 21/08/2026: inserir COM o contexto na evidência): (1) O instituto teve pesquisa SUSPENSA pela Justiça Eleitoral noutro estado (TRE/MS, 06/04/2026, registro MS-03077/2026, multa diária de R$ 5.000; fundamento: não apresentou DRE, o que 'impede a aferição da capacidade econômico-operacional'; vícios alegados: divergências com o IBGE e falta de nomes relevantes) — dois dias após o fim DESTE campo. Outro estado e outro registro: contexto, não desqualificação. (2) Inconsistências internas do PDF, medidas pelas duas leituras: P12 com frequências somando 299 vs total impresso 300; P14 somando 1.029; P19 somando 1.031 (e 27,7+6,8 = 34,5 vs 34,6 impresso); P22 somando 1.029 (43,5 vs 43,4 impresso); arredondamentos que não reproduzem (P13 Marçal 17/852 = 2,0 vs 1,9 impresso; P15 2,1; etc.). NENHUMA dessas inconsistências toca a soma-100 da coluna Porcentual dos blocos armazenados. (3) Coleta por IVR automatizado; pesquisa AUTOCONTRATADA; a rejeição (P15) usa cédula de 6 nomes ≠ estimulada de 8; alta não-resposta demográfica. (4) A matéria do Roraima 1 — única fonte pública secundária — ERROU o campo e a margem (13-19/03 e 1% vs oficiais 29/03-04/04 e 3,5 p.p.), e os percentuais que ela cita são a coluna '% válida'; a matéria NÃO é fonte desta entrada — o PDF (via snapshot do Wayback) e o PesqEle são. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador (nenhum serve esta presidencial — é a razão do reparo); os valores armazenados são os do consolidado §1 do hub, e a camada de texto do PDF local confere com eles linha a linha (reconferido nesta autoria, sem divergência).",
+   "verified_at": "2026-08-21",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RR",
+    "round": 2,
+    "scenario": "2º turno: Ronaldo Caiado vs Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": "2026-04-03",
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 36.9
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 19.6
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 31.2,
+    "blank_null_pct": 12.3
+   },
+   "expect_sum": 100.0,
+   "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
   }
  ]
 }
