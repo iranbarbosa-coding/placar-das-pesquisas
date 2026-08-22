@@ -2886,6 +2886,748 @@
    "set": {
     "fieldwork_start": "2026-01-30"
    }
+  },
+  {
+   "match": {
+    "pollster": "Soluções",
+    "race": "presidente",
+    "state": "RN",
+    "round": 1,
+    "fieldwork_end": "2026-07-25"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra da tsdois pesquisas/TCM (RN, campo 22-25/07/2026) e AUSENTE do banco: o levantamento existe com governador e senador (p360-13787/13788, survey s_22ae787e3a1c) e SEM a presidencial — o nativo p360 13786 (o bloco presidencial) é lacuna classe I da enumeração (LACUNAS_PODER360.md, linha do nativo 13786: o v2/cenarios perde linhas e a soma servida não fecha). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf",
+   "evidence": "p.13 do relatório (13 pp, 100% imagem — transcrição por leitura visual da página renderizada), intenção de voto ESTIMULADA para presidente, 1º turno, com CONTAGENS impressas por candidato, na ordem impressa: Lula (Pt) 49,0 · Flávio Bolsonaro (Pl) 28,4 · Renan Santos (Missão) 2,4 · Ronaldo Caiado (Psd) 1,9 · Romeu Zema (Novo) 0,7 · Augusto Cury (Avante) 0,7 · Samara Martins (Up) 0,7 · Cabo Daciolo (Mobiliza) 0,5 · Joaquim Barbosa (Dc) 0,4 · Edmilson Costa (Pcb) 0,1 · Heró Bezerra (Prtb) 0,1. BALDES, mapeamento decidido nesta entrada: 'Branco/Nulo/Nenhum' 8,5 → blank_null_pct; 'NS/NR' 6,6 → undecided_pct; SEM linha de 'Outros' na estimulada → others_pct NULO. Soma 100,0 EXATOS e contagens fechando n=1800 exatos — expect_sum 100. SEM 2º turno presidencial no documento. PARTIDOS COMO IMPRESSOS, em caixa mista ('Pt', 'Pl', 'Psd', 'Missão', …) — a canonicalização de sigla é do pipeline, não desta transcrição. LIDO POR duas leituras cegas independentes (diretórios cega-w1-A e cega-w1-A2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF 292cacbfbbaf90627ca3e50d988cfa416d1b446bbdcb341692ab764c380fcea6, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS EM TODAS AS PÁGINAS: BR-06751/2026 e RN-02277/2026 — a escolha da chave está em _nota_registro. FICHA TÉCNICA: realização tsdois pesquisas (marca 'TCM PESQUISA' no cabeçalho); contratante impresso 'SISTEMA OESTE DE COMUNICACAO LTDA / TCM TV CABO MOSSORO' (CNPJ 00713377000198, recursos próprios); campo 22 a 25/07/2026; 1.800 entrevistas em 70 municípios; margem 2,3 p.p.; confiança 95% (sem campo no esquema plano; fica só aqui); estatística Izabelly Cristina Mendes Tinoco, CONRE 10820 (idem). GRAFIA DO INSTITUTO: guardado pollster 'Soluções' — a grafia que as linhas IRMÃS desta mesma operação de campo já carregam no banco (p360-13787 governador e p360-13788 senador, levantamento s_22ae787e3a1c, medido em 22/08/2026), vinda do agregador (PesqEle: TS2 SOLUCOES EMPRESARIAL LTDA, fantasia TS2 SOLUCOES, protocolo BR-06751/2026); o documento imprime 'tsdois pesquisas'/'TCM PESQUISA' e a Wikipédia grafou 'TCM/TSDois' (poll f6728e059319, senador) — DIVERGÊNCIA DE GRAFIA ANOTADA, e a operação já está PARTIDA em dois levantamentos no banco por essa divergência de instituto (s_22ae787e3a1c com registro × s_01dda9bfe8b3 de semente nat, medido em 22/08/2026): defeito PRÉ-EXISTENTE que esta entrada não causa nem conserta (ela se pendura no lado com registro). ANOMALIA DO CONSOLIDADO, ÍNTEGRA: a pergunta ESPONTÂNEA do mesmo relatório soma 1.794 contagens ≠ 1.800 do total — espontânea NÃO se guarda (decisão da casa), a inconsistência fica anotada aqui; e o relatório imprime nota de arredondamento. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Soluções",
+    "race": "presidente",
+    "state": "RN",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "SISTEMA OESTE DE COMUNICACAO LTDA / TCM TV CABO MOSSORO",
+    "fieldwork_start": "2026-07-22",
+    "fieldwork_end": "2026-07-25",
+    "published_date": null,
+    "sample_size": 1800,
+    "margin_of_error": 2.3,
+    "tse_registration": "RN-02277/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "Pt",
+      "pct": 49.0
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "Pl",
+      "pct": 28.4
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 2.4
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "Psd",
+      "pct": 1.9
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.7
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct": 0.7
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "Up",
+      "pct": 0.7
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 0.5
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "Dc",
+      "pct": 0.4
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "Pcb",
+      "pct": 0.1
+     },
+     {
+      "candidate": "Heró Bezerra",
+      "party": "Prtb",
+      "pct": 0.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 6.6,
+    "blank_null_pct": 8.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS em todas as páginas: BR-06751/2026 e RN-02277/2026. Guardado 'RN-02277/2026' por MECÂNICA, medida em 22/08/2026 (o método da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_22ae787e3a1c, que carrega EXATAMENTE 'RN-02277/2026' (semente 'survey|ref|poder360:13787', inalterável por esta entrada) — com esta chave a pergunta alcança esse levantamento pelo degrau 2 de resolveSurvey (registro), sem escrever nada de identidade; a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu exatamente essa junção, com zero id preexistente movido. 'BR-06751/2026' (o gêmeo TSE de cargo Presidente: PesqEle BR-06751/2026 = TS2 SOLUCOES, cargo Presidente, campo declarado 22-27/07, n=1800, snapshot em data-research/cobertura-presidencial/registros-pres-br.json; é também o registro que a enumeração de lacunas dá ao nativo 13786) fica registrado AQUI para não se perder — escrevê-lo no campo partiria a operação, porque o degrau 3 recusa registros exatos divergentes (efeito MEDIDO em ensaio de 22/08/2026: com BR-06751/2026 na entrada, o build cunha o levantamento s_3f1a64d93af9, semente 'survey|reg|BR-06751/2026', ao lado do s_22ae787e3a1c). A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "tse_registration": "BR-05225/2026",
+    "race": "presidente",
+    "state": "RN",
+    "round": 1,
+    "fieldwork_end": "2026-07-26"
+   },
+   "defect": "ESTREIA do Instituto Perfil no banco e bloco presidencial (1º turno, RN, campo 23-26/07/2026) AUSENTE por inteiro: nenhuma fonte serve esta pesquisa (o nativo p360 13762 é lacuna classe I da enumeração — LACUNAS_PODER360.md, linha do nativo 13762) e não há linha irmã de governador/senador deste instituto no banco (medido em 22/08/2026). Transcrito de captura de matéria do portal 96fm (29/07/2026) que reproduz o gráfico e a ficha do registro, por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026), COM o contexto adverso íntegro na evidência.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-bg-midia-perfil-rn-1.pdf",
+   "evidence": "Captura de matéria do portal 96fm de 29/07/2026 (o PDF citado na fonte é o arquivo que o agregador guarda para o nativo 13762): gráfico-imagem na p.2, ficha na p.3. ESTIMULADA, na ordem impressa (partidos NÃO impressos → party NULO em todas as linhas, §4; nomes transcritos como impressos, em caixa alta): LULA 55,24 · FLAVIO BOLSONARO 20,56 · RONALDO CAIADO 1,94 · RENAN SANTOS 1,38 · AUGUSTO CURY 0,94 · ROMEU ZEMA 0,56 · JOAQUIM BARBOSA 0,38 · CABO DACIOLO 0,31. BALDES, mapeamento decidido nesta entrada: 'INDECISO' 10,06 → undecided_pct; 'BRANCO/NULO' 8,63 → blank_null_pct; SEM linha de 'Outros' → others_pct NULO. Soma 100,00 EXATOS — expect_sum 100. LIDO POR duas leituras cegas independentes (diretórios cega-w1-A e cega-w1-A2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF fba67f01a14086e91333317167ee6e788e65c4476de7e9c2d643dfef0895ced9, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.3: BR-05225/2026 / RN-00337/2026 — a escolha da chave está em _nota_registro. FICHA: pollster impresso 'Instituto Perfil' (parceria com o Blog do BG); campo 23 a 26/07/2026; margem 2,45 p.p.; confiança 95% (sem campo no esquema plano; fica só aqui). ⚠ n NÃO IMPRESSO NO DOCUMENTO: sample_size 1600 vem da ATESTAÇÃO DO REGISTRO no PesqEle — protocolo BR-05225/2026, PERFIL PESQUISAS TECNICAS LTDA (fantasia PERFIL PESQUISAS TECNICAS, CNPJ 40808743000107), cargo Presidente, campo 23-26/07/2026, QT_ENTREVISTADO 1600 (snapshot de 12/08 em data-research/cobertura-presidencial/registros-pres-br.json e faltantes.csv, linha RN/BR052252026) — MARCADO COMO VINDO DO REGISTRO, não do documento. Contratante formal NÃO impresso → contractor NULO (§4); o PesqEle declara contratante 'BG MIDIAS E ASSESSORIA DIGITAL LTDA / BG MIDIAS', registrado só aqui. CONTEXTO ADVERSO ÍNTEGRO (consolidado §1): a fonte é captura de matéria de rádio — 2ª MÃO, mesma classe do s_064f —, sem n, sem metodologia, sem universo e sem contratante impressos; ANOTADA como tal; o registro existe e os campos que o documento imprime (campo, margem, registros) BATEM com o PesqEle. GRAFIA DO INSTITUTO: guardado 'Instituto Perfil', como impresso — não há irmã no banco para herdar grafia (medido em 22/08/2026; 'Perfil/ES Hoje' é outro instituto, ES/RO); a enumeração de lacunas chama o nativo 13762 de 'BG Mídias e Assessoria' e o PesqEle de 'PERFIL PESQUISAS TECNICAS' — divergências de grafia ANOTADAS. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta pesquisa — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Instituto Perfil",
+    "race": "presidente",
+    "state": "RN",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-26",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2.45,
+    "tse_registration": "BR-05225/2026",
+    "results": [
+     {
+      "candidate": "LULA",
+      "party": null,
+      "pct": 55.24
+     },
+     {
+      "candidate": "FLAVIO BOLSONARO",
+      "party": null,
+      "pct": 20.56
+     },
+     {
+      "candidate": "RONALDO CAIADO",
+      "party": null,
+      "pct": 1.94
+     },
+     {
+      "candidate": "RENAN SANTOS",
+      "party": null,
+      "pct": 1.38
+     },
+     {
+      "candidate": "AUGUSTO CURY",
+      "party": null,
+      "pct": 0.94
+     },
+     {
+      "candidate": "ROMEU ZEMA",
+      "party": null,
+      "pct": 0.56
+     },
+     {
+      "candidate": "JOAQUIM BARBOSA",
+      "party": null,
+      "pct": 0.38
+     },
+     {
+      "candidate": "CABO DACIOLO",
+      "party": null,
+      "pct": 0.31
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 10.06,
+    "blank_null_pct": 8.63
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.3): 'BR-05225/2026 / RN-00337/2026'. Guardado 'BR-05225/2026' por MECÂNICA, medida em 22/08/2026: NÃO HÁ irmã desta operação no banco (nenhum levantamento a alcançar, nenhuma identidade a mover — o levantamento é cunhado novo, de semente reg, e isso é o esperado numa estreia), e BR-05225/2026 é (a) o protocolo cuja atestação no PesqEle é de cargo PRESIDENTE — exatamente a pergunta desta entrada — e a origem do n=1600 usado acima, e (b) a chave com que a enumeração serve o nativo 13762: se o agregador passar a servir a pesquisa, ela chega com este registro e cai NESTE levantamento pelo degrau 2, em vez de cunhar um segundo (o levantamento cunhado, medido na prova base×branch de 22/08/2026: s_f8d7480c5d7a, semente 'survey|reg|BR-05225/2026' — a ÚNICA cunhagem de survey do lote, esperada numa estreia). 'RN-00337/2026' (o gêmeo TRE-RN) fica registrado AQUI para não se perder. A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PI",
+    "round": 1,
+    "fieldwork_end": "2026-07-13"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Real Time Big Data (PI, campo 11-13/07/2026) e AUSENTE do banco: o levantamento existe com governador (1º e 2º turnos) e senador (p360-13649/13651, survey s_9bb4207d5bca) e SEM a presidencial — o nativo p360 13646 é lacuna classe I da enumeração (LACUNAS_PODER360.md). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/RealTimeBigData-Piaui-presidente.pdf",
+   "evidence": "p.7 do relatório (16 pp), intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (PT) 65 · Flávio Bolsonaro (PL) 20 · Ronaldo Caiado (PSD) 2 · Renan Santos (Missão) 2 · Romeu Zema (Novo) 1 · Aécio Neves (PSDB) 1 · Joaquim Barbosa (DC) 1. BALDES, mapeamento decidido nesta entrada: 'Outros' 1 → others_pct 1 — com a NOTA IMPRESSA do instituto de que a linha agrega 6 candidatos, citada aqui como o consolidado manda; 'Nulo/Branco' 3 → blank_null_pct; 'NS/NR' 4 → undecided_pct. Soma 100 EXATOS — expect_sum 100. LIDO POR duas leituras cegas independentes (diretórios cega-w1-A e cega-w1-A2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF a5eec2d39494dae1218fc99053c66e695cabecdd7f4d063a033826a7c30f0924, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTRO COMO IMPRESSO: só 'PI-00773/2026' na capa — a decisão da chave está em _nota_registro. FICHA E ANOMALIAS DO CONSOLIDADO, ÍNTEGRAS: ficha SEM contratante, SEM CNPJ e SEM estatístico (contractor NULO, §4); margem grafada '2.0' (ponto decimal) — guardada 2; confiança 95% (sem campo no esquema plano); n=1600; divulgação 14/07 (published_date 2026-07-14; o PesqEle do protocolo BR-00773/2026 declara a mesma divulgação — ver _nota_registro). GRAFIA DO INSTITUTO: 'Real Time Big Data', a grafia das linhas irmãs do banco. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PI",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-07-11",
+    "fieldwork_end": "2026-07-13",
+    "published_date": "2026-07-14",
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 65
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 20
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Aécio Neves",
+      "party": "PSDB",
+      "pct": 1
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "DC",
+      "pct": 1
+     }
+    ],
+    "others_pct": 1,
+    "undecided_pct": 4,
+    "blank_null_pct": 3
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ REGISTRO IMPRESSO SÓ NA CAPA E SÓ UM: 'PI-00773/2026' (sem BR- no documento). tse_registration fica NULO por MECÂNICA, medida em 22/08/2026 (o método da nota do Veritá/RR): as linhas irmãs governador/senador desta MESMA operação de campo (p360-13649/13651) vivem no levantamento s_9bb4207d5bca com registro 'PI-06473/2026' — um TERCEIRO protocolo, vindo do agregador. Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data + n; o elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele — a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção ao s_9bb4207d5bca com o registro PI-06473/2026 dele intacto e zero id movido. Escrever 'PI-00773/2026' partiria a operação: o degrau 3 recusa registros exatos divergentes e a entrada cunharia um segundo levantamento de semente reg (efeito MEDIDO em ensaio de 22/08/2026: com PI-00773/2026 nas duas entradas, o build cunha o levantamento s_a3ea0c5a7b75, semente 'survey|reg|PI-00773/2026', ao lado do s_9bb4207d5bca). TRÊS grafias do protocolo em circulação, todas anotadas AQUI e nenhuma escrita no campo: 'PI-00773/2026' (capa do PDF), 'BR-00773/2026' (PesqEle: REAL TIME MIDIA LTDA, cargo Presidente, campo 11-13/07, n=1600, divulgação 14/07 — snapshot em data-research/cobertura-presidencial/registros-pres-br.json; e faltantes.csv) e 'PI-00773/2026' de novo na enumeração de lacunas (nativo 13646) — a divergência de PREFIXO entre a capa e o PesqEle (PI- × BR-, mesmo número 00773) fica anotada como impressa, sem resolução (§4); e a divergência com o 'PI-06473/2026' das irmãs é inter-fontes, também sem resolução aqui."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PI",
+    "round": 2,
+    "fieldwork_end": "2026-07-13"
+   },
+   "defect": "Cenário de 2º turno presidencial (Lula × Flávio Bolsonaro) presente no relatório-integra do Real Time Big Data (PI, campo 11-13/07/2026) e AUSENTE do banco, pela mesma lacuna classe I do 1º turno desta operação (nativo p360 13646). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/RealTimeBigData-Piaui-presidente.pdf",
+   "evidence": "p.12 do relatório (16 pp), 2º turno presidencial, rótulo impresso 'CENÁRIO 01': Lula (PT) 67 × Flávio Bolsonaro (PL) 24. BALDES, mapeamento decidido nesta entrada: 'Nulo/Branco' 4 → blank_null_pct; 'NS/NR' 5 → undecided_pct; sem linha de 'Outros' → others_pct NULO. Soma 100 EXATOS — expect_sum 100. scenario guardado '2º turno: Lula vs Flávio Bolsonaro', o formato das linhas de 2º turno do banco. LIDO POR duas leituras cegas independentes (diretórios cega-w1-A e cega-w1-A2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF a5eec2d39494dae1218fc99053c66e695cabecdd7f4d063a033826a7c30f0924, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTRO COMO IMPRESSO: só 'PI-00773/2026' na capa — decisão da chave em _nota_registro (a mesma da entrada do 1º turno desta operação). ANOMALIAS DO CONSOLIDADO, ÍNTEGRAS (valem para o documento inteiro): ficha sem contratante/CNPJ/estatístico; margem grafada '2.0'; divulgação 14/07. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PI",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-07-11",
+    "fieldwork_end": "2026-07-13",
+    "published_date": "2026-07-14",
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 67
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 24
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5,
+    "blank_null_pct": 4
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ REGISTRO IMPRESSO SÓ NA CAPA E SÓ UM: 'PI-00773/2026' (sem BR- no documento). tse_registration fica NULO por MECÂNICA, medida em 22/08/2026 (o método da nota do Veritá/RR): as linhas irmãs governador/senador desta MESMA operação de campo (p360-13649/13651) vivem no levantamento s_9bb4207d5bca com registro 'PI-06473/2026' — um TERCEIRO protocolo, vindo do agregador. Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data + n; o elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele — a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção ao s_9bb4207d5bca com o registro PI-06473/2026 dele intacto e zero id movido. Escrever 'PI-00773/2026' partiria a operação: o degrau 3 recusa registros exatos divergentes e a entrada cunharia um segundo levantamento de semente reg (efeito MEDIDO em ensaio de 22/08/2026: com PI-00773/2026 nas duas entradas, o build cunha o levantamento s_a3ea0c5a7b75, semente 'survey|reg|PI-00773/2026', ao lado do s_9bb4207d5bca). TRÊS grafias do protocolo em circulação, todas anotadas AQUI e nenhuma escrita no campo: 'PI-00773/2026' (capa do PDF), 'BR-00773/2026' (PesqEle: REAL TIME MIDIA LTDA, cargo Presidente, campo 11-13/07, n=1600, divulgação 14/07 — snapshot em data-research/cobertura-presidencial/registros-pres-br.json; e faltantes.csv) e 'PI-00773/2026' de novo na enumeração de lacunas (nativo 13646) — a divergência de PREFIXO entre a capa e o PesqEle (PI- × BR-, mesmo número 00773) fica anotada como impressa, sem resolução (§4); e a divergência com o 'PI-06473/2026' das irmãs é inter-fontes, também sem resolução aqui."
+  },
+  {
+   "match": {
+    "pollster": "Vetor3",
+    "race": "presidente",
+    "state": "PI",
+    "round": 1,
+    "fieldwork_end": "2026-08-02"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) do Instituto Vetor3 (PI, campo 28/07-02/08/2026) AUSENTE do banco: o levantamento existe com governador e senador (polls d1c4d585d168 e b8ce2f6dc696, via Wikipédia; irmã de senador no levantamento s_a9dde7a8b2ac) e SEM a presidencial — o nativo p360 13729 é lacuna classe I da enumeração (LACUNAS_PODER360.md). Transcrito de captura de matéria do Conecta Piauí (06/08/2026) que reproduz a tabela completa com partidos e os dois registros, por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026), COM o contexto adverso íntegro na evidência.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-piaui-rafael-lula.pdf",
+   "evidence": "Captura de matéria do Conecta Piauí de 06/08/2026 (o PDF citado na fonte é o arquivo que o agregador guarda para o nativo 13729); blocos na p.3, registros na p.1. ESTIMULADA, na ordem impressa (nomes e partidos COMO IMPRESSOS, em caixa alta, separador nome-partido VARIANDO na própria tabela — o separador não é dado): LULA-PT 67,79 · FLAVIO BOLSONARO-PL 18,35 · RENAN SANTOS-MISSAO 1,81 · RONALDO CAIADO-UNIAO BRASIL 1 · AUGUSTO CURY-AVANTE 0,95 · SAMARA MARTINS-UP 0,5 · ROMEU ZEMA-NOVO 0,31 · EDMILSON COSTA-PCB 0,19 · ALDO REBELO-DEMOCRACIA CRISTÃ 0,12 · RUI COSTA PIMENTA-PCO 0,12 · HERTZ DIAS-PSTU 0,12 · CABO DACIOLO-MOBILIZA 0,06. BALDES, mapeamento decidido nesta entrada: 'Não Sabe/Não Opina' 5,93 → undecided_pct; 'NULO-BRANCO' 2,75 → blank_null_pct; SEM linha de 'Outros' → others_pct NULO. Soma 100,00 EXATOS — expect_sum 100. SEM 2º turno presidencial. LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF 9406f90fac48679324fac818ba0c90ef189d136919b18ea2e05ff16cc05f6b6c, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.1: PI-02509/2026 (TRE-PI) e BR-01894/2026 (TSE) — a decisão da chave está em _nota_registro. FICHA: campo 28/07 a 02/08/2026; n=1602 em 60 municípios; margem 2,45 p.p.; confiança 95% (sem campo no esquema plano); contratante NÃO informado no documento → contractor NULO (§4; o PesqEle do BR-01894/2026 declara contratante CONECTA PIAUI PRODUTORA E COMUNICACAO LTDA — registrado só aqui). CONTEXTO ADVERSO ÍNTEGRO (consolidado §1): (1) fonte é captura de matéria — 2ª MÃO, classe s_064f — mas com a tabela completa COM partidos e os dois registros; (2) ⚠ CAIADO IMPRESSO 'UNIAO BRASIL' AQUI, contra 'PSD'/'Psd' nos demais institutos desta onda — transcrito como impresso, e a DIVERGÊNCIA INTER-INSTITUTOS fica anotada (nenhum lado é corrigido, §4); (3) o bloco de votos válidos do documento tem inconsistência interna 20,01 × 20,1 — votos válidos NÃO se guardam, a inconsistência fica anotada. GRAFIA DO INSTITUTO: guardado 'Vetor3', a grafia das linhas irmãs do banco (medido em 22/08/2026); o documento imprime 'Instituto Vetor3', o PesqEle 'A J TECH LTDA' (fantasia VETOR TECNOLOGIA E PESQUISAS) e a enumeração de lacunas 'Vetor' — divergências de grafia ANOTADAS. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Vetor3",
+    "race": "presidente",
+    "state": "PI",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-02",
+    "published_date": null,
+    "sample_size": 1602,
+    "margin_of_error": 2.45,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "LULA",
+      "party": "PT",
+      "pct": 67.79
+     },
+     {
+      "candidate": "FLAVIO BOLSONARO",
+      "party": "PL",
+      "pct": 18.35
+     },
+     {
+      "candidate": "RENAN SANTOS",
+      "party": "MISSAO",
+      "pct": 1.81
+     },
+     {
+      "candidate": "RONALDO CAIADO",
+      "party": "UNIAO BRASIL",
+      "pct": 1
+     },
+     {
+      "candidate": "AUGUSTO CURY",
+      "party": "AVANTE",
+      "pct": 0.95
+     },
+     {
+      "candidate": "SAMARA MARTINS",
+      "party": "UP",
+      "pct": 0.5
+     },
+     {
+      "candidate": "ROMEU ZEMA",
+      "party": "NOVO",
+      "pct": 0.31
+     },
+     {
+      "candidate": "EDMILSON COSTA",
+      "party": "PCB",
+      "pct": 0.19
+     },
+     {
+      "candidate": "ALDO REBELO",
+      "party": "DEMOCRACIA CRISTÃ",
+      "pct": 0.12
+     },
+     {
+      "candidate": "RUI COSTA PIMENTA",
+      "party": "PCO",
+      "pct": 0.12
+     },
+     {
+      "candidate": "HERTZ DIAS",
+      "party": "PSTU",
+      "pct": 0.12
+     },
+     {
+      "candidate": "CABO DACIOLO",
+      "party": "MOBILIZA",
+      "pct": 0.06
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5.93,
+    "blank_null_pct": 2.75
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.1): PI-02509/2026 (TRE-PI) e BR-01894/2026 (TSE; PesqEle: A J TECH LTDA/VETOR TECNOLOGIA E PESQUISAS, cargo Presidente, campo 28/07-02/08, n=1602, divulgação 06/08 — snapshot em data-research/cobertura-presidencial/registros-pres-br.json). tse_registration fica NULO por MECÂNICA, medida em 22/08/2026 (o método da nota do Veritá/RR): as linhas irmãs desta operação vivem em levantamento de semente nat com registro NULO (no store commitado, irmã de senador no s_a9dde7a8b2ac, semente 'survey|nat|i_93bd3778917b|PI|2026-08-02|1602|…', via Wikipédia). Com registro nulo, esta pergunta alcança o levantamento das irmãs pelo degrau 3 (instituto + UF + data + n; o elenco não contradiz porque não há pergunta presidencial lá) e NÃO escreve nada no registro dele — a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção ao levantamento nat da operação no rebuild (s_93598eb56504, que carrega senador e governador; o id difere do commitado porque o rebuild acentua o elenco da semente — divergência PRÉ-EXISTENTE de rebuild, idêntica na base e no branch) com o registro dele intacto e zero id movido. Escrever qualquer um dos dois registros faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural que o CONVENTIONS §8b marca (a dos 500 candidatos ao defeito do GO-04010); efeito MEDIDO em ensaio de 22/08/2026: com BR-01894/2026 na entrada o campo tse_registration do levantamento sai do build preenchido (null → BR-01894/2026), com PI-02509/2026 idem (null → PI-02509/2026), e com nulo sai nulo. Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 1,
+    "fieldwork_end": "2026-07-27"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra da Quaest/Genial (BA, campo 23-27/07/2026) e AUSENTE do banco: o levantamento existe com governador (1º e 2º turnos) e senador (p360-13643/13644, survey s_38959be19e77) e SEM a presidencial — o nativo p360 13642 é lacuna classe I da enumeração (LACUNAS_PODER360.md). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "evidence": "p.78 do relatório, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (PT) 52 · Flávio Bolsonaro (PL) 18 · Ronaldo Caiado (PSD) 3 · Cabo Daciolo (Mobiliza) 1 · Escritor Augusto Cury (Avante) 1 · Renan Santos (Missão) 1 · Romeu Zema (Novo) 1 · Samara Martins (UP) 1 · Edmilson Costa (PCB) 0 · Leonardo Avalanche (PRTB) 0. ⚠ HERTZ DIAS (PSTU): CÉLULA EM BRANCO nas DUAS leituras cegas, confirmada por zoom nas duas — AUSÊNCIA, NÃO ZERO, e a linha NÃO é incluída (doutrina Hertz do PE-04519: o zero é uma medição, a célula em branco é a ausência dela; escrever 0 seria inferir um valor que o instituto não publicou, §4). BALDES, mapeamento decidido nesta entrada: 'Indecisos' 13 → undecided_pct; 'Branco/Nulo/Não vai votar' 9 → blank_null_pct; SEM linha de 'Outros' na estimulada → others_pct NULO. Soma dos impressos 100 EXATOS — expect_sum 100. LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável (valores do relatório em IMAGEM — transcrição por leitura visual com zoom); sha256 do PDF 2b5a235f89dee6830fec6292c42c66d6d3b3c4422adc58ca1d7f158f0adc4158 (122 pp), idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.5: BR-05856/2026 e BA-02331/2026 — a decisão da chave está em _nota_registro. FICHA (p.5): Quaest, CONTRATADA PELA GENIAL INVESTIMENTOS (contractor 'Genial Investimentos' como impresso; as linhas irmãs do banco guardam contractor_raw 'Banco Genial', vindo do agregador/PesqEle 'BANCO GENIAL S.A.' — pelo primeiro-escritor-vence do fillFields o levantamento MANTÉM a grafia do agregador e a discordância fica em conflicts.ndjson, visível e não silenciosa); campo 23 a 27/07/2026; n=1200 em 61 municípios; margem 3 p.p.; confiança 95% (sem campo no esquema plano). GRAFIA DO INSTITUTO: 'Quaest', a grafia das linhas irmãs do banco (p360-13643/13644, levantamento s_38959be19e77, medido em 22/08/2026). ⚠ CONTRADIÇÃO INTERNA DE DATAS DO DOCUMENTO, ÍNTEGRA E COM A RESOLUÇÃO (consolidado §1): a p.3 imprime campo '23 A 27/ABRIL' e a p.5 imprime '23 e 27 de julho' — as duas leituras cegas acharam a contradição independentemente. RESOLVIDA POR JULHO com prova interna ao documento e ao registro: a p.5 (ficha com os registros BR-05856/2026 e BA-02331/2026) diz julho, e o protocolo BR-05856/2026 foi REGISTRADO em 23/07/2026 no PesqEle (cargo Presidente, campo declarado 23-27/07, snapshot em data-research/cobertura-presidencial/registros-pres-br.json) — um documento de campo em abril não teria protocolo cunhado em julho. Anota-se, sem uso probatório, que o banco guarda a operação de ABRIL da Quaest na Bahia como levantamento separado (BR-08703/2026, campo fim 28/04): a resolução por julho não a toca. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3,
+    "tse_registration": "BA-02331/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 52
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 18
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 3
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 1
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct": 1
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0
+     },
+     {
+      "candidate": "Leonardo Avalanche",
+      "party": "PRTB",
+      "pct": 0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 13,
+    "blank_null_pct": 9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.5): BR-05856/2026 e BA-02331/2026. Guardado 'BA-02331/2026' por MECÂNICA, medida em 22/08/2026 (o método da nota do PE-04519: a chave é a que não parte a operação nem recunha): no store commitado as linhas irmãs governador/senador desta operação vivem no levantamento s_38959be19e77, que carrega EXATAMENTE 'BA-02331/2026' (semente 'survey|ref|poder360:13643') — com esta chave a pergunta alcança o levantamento da operação pelo degrau 2 de resolveSurvey; a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção das cinco perguntas ao levantamento de semente reg da MESMA operação no rebuild (s_e50f79e5d12e, reg BA-02331/2026, que carrega governador 1º/2º turnos e senador; o id difere do commitado por divergência PRÉ-EXISTENTE de rebuild, idêntica na base e no branch) com zero id movido. 'BR-05856/2026' (o gêmeo TSE de cargo Presidente, registrado em 23/07/2026 — o mesmo protocolo que resolve a contradição abril/julho; é também o registro que a enumeração de lacunas dá ao nativo 13642) fica registrado AQUI para não se perder — escrevê-lo partiria a operação (efeito MEDIDO em ensaio de 22/08/2026: com BR-05856/2026 nas cinco entradas, o build cunha o levantamento s_a1cbc4b4007c, semente 'survey|reg|BR-05856/2026', ao lado do levantamento das irmãs). A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Cenário I de 2º turno presidencial (Lula × Flávio Bolsonaro) presente no relatório-integra da Quaest/Genial (BA, campo 23-27/07/2026) e AUSENTE do banco, pela mesma lacuna classe I do 1º turno desta operação (nativo p360 13642). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "evidence": "p.89 do relatório, 2º turno presidencial, rótulo impresso 'Cenário I': Lula (PT) 56 × Flávio Bolsonaro (PL) 23. BALDES, mapeamento decidido nesta entrada: 'Indecisos' 9 → undecided_pct; 'Branco/Nulo/Não vai votar' 12 → blank_null_pct; sem linha de 'Outros' → others_pct NULO. Soma 100 EXATOS — expect_sum 100. OS QUATRO CENÁRIOS DE 2º TURNO desta operação entram como QUATRO entradas com rótulos scenario DISTINTOS — a admissão de cenários declarados distintos (criador, 22/08/2026) exige declaração bilateral, e é o rótulo distinto + o elenco diferindo em ≥1 candidato que impede a fusão no store e a dispensa mútua entre as entradas (cada cláusula match carrega has_candidate com o adversário, exclusivo daquele cenário). ⚠ RÓTULOS IMPRESSOS FORA DE ORDEM na p.89 — a página imprime Cenário I, IV, II, III nessa sequência; o número do cenário guardado é o do RÓTULO IMPRESSO, não o da posição na página (achado pelas duas leituras independentemente). LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável (valores do relatório em IMAGEM — transcrição por leitura visual com zoom); sha256 do PDF 2b5a235f89dee6830fec6292c42c66d6d3b3c4422adc58ca1d7f158f0adc4158 (122 pp), idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.5: BR-05856/2026 e BA-02331/2026 — a decisão da chave está em _nota_registro. FICHA (p.5): Quaest, CONTRATADA PELA GENIAL INVESTIMENTOS (contractor 'Genial Investimentos' como impresso; as linhas irmãs do banco guardam contractor_raw 'Banco Genial', vindo do agregador/PesqEle 'BANCO GENIAL S.A.' — pelo primeiro-escritor-vence do fillFields o levantamento MANTÉM a grafia do agregador e a discordância fica em conflicts.ndjson, visível e não silenciosa); campo 23 a 27/07/2026; n=1200 em 61 municípios; margem 3 p.p.; confiança 95% (sem campo no esquema plano). GRAFIA DO INSTITUTO: 'Quaest', a grafia das linhas irmãs do banco (p360-13643/13644, levantamento s_38959be19e77, medido em 22/08/2026). ⚠ CONTRADIÇÃO INTERNA DE DATAS DO DOCUMENTO, ÍNTEGRA E COM A RESOLUÇÃO (consolidado §1): a p.3 imprime campo '23 A 27/ABRIL' e a p.5 imprime '23 e 27 de julho' — as duas leituras cegas acharam a contradição independentemente. RESOLVIDA POR JULHO com prova interna ao documento e ao registro: a p.5 (ficha com os registros BR-05856/2026 e BA-02331/2026) diz julho, e o protocolo BR-05856/2026 foi REGISTRADO em 23/07/2026 no PesqEle (cargo Presidente, campo declarado 23-27/07, snapshot em data-research/cobertura-presidencial/registros-pres-br.json) — um documento de campo em abril não teria protocolo cunhado em julho. Anota-se, sem uso probatório, que o banco guarda a operação de ABRIL da Quaest na Bahia como levantamento separado (BR-08703/2026, campo fim 28/04): a resolução por julho não a toca. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro (Cenário I)",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3,
+    "tse_registration": "BA-02331/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 56
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 23
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 12
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.5): BR-05856/2026 e BA-02331/2026. Guardado 'BA-02331/2026' por MECÂNICA, medida em 22/08/2026 (o método da nota do PE-04519: a chave é a que não parte a operação nem recunha): no store commitado as linhas irmãs governador/senador desta operação vivem no levantamento s_38959be19e77, que carrega EXATAMENTE 'BA-02331/2026' (semente 'survey|ref|poder360:13643') — com esta chave a pergunta alcança o levantamento da operação pelo degrau 2 de resolveSurvey; a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção das cinco perguntas ao levantamento de semente reg da MESMA operação no rebuild (s_e50f79e5d12e, reg BA-02331/2026, que carrega governador 1º/2º turnos e senador; o id difere do commitado por divergência PRÉ-EXISTENTE de rebuild, idêntica na base e no branch) com zero id movido. 'BR-05856/2026' (o gêmeo TSE de cargo Presidente, registrado em 23/07/2026 — o mesmo protocolo que resolve a contradição abril/julho; é também o registro que a enumeração de lacunas dá ao nativo 13642) fica registrado AQUI para não se perder — escrevê-lo partiria a operação (efeito MEDIDO em ensaio de 22/08/2026: com BR-05856/2026 nas cinco entradas, o build cunha o levantamento s_a1cbc4b4007c, semente 'survey|reg|BR-05856/2026', ao lado do levantamento das irmãs). A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "Cenário II de 2º turno presidencial (Lula × Romeu Zema) presente no relatório-integra da Quaest/Genial (BA, campo 23-27/07/2026) e AUSENTE do banco, pela mesma lacuna classe I do 1º turno desta operação (nativo p360 13642). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "evidence": "p.89 do relatório, 2º turno presidencial, rótulo impresso 'Cenário II': Lula 57 × Romeu Zema (Novo) 14. BALDES, mapeamento decidido nesta entrada: 'Indecisos' 12 → undecided_pct; 'Branco/Nulo/Não vai votar' 17 → blank_null_pct; sem linha de 'Outros' → others_pct NULO. Soma 100 EXATOS — expect_sum 100. ⚠ PARTIDO DE LULA NÃO REGISTRADO NESTE CENÁRIO: o consolidado §1 só imprime o partido de Lula no Cenário I ('Lula (PT) 56'); nos Cenários II, III e IV imprime 'Lula 57' sem partido — party fica NULO em vez de inferido (§4). OS QUATRO CENÁRIOS DE 2º TURNO desta operação entram como QUATRO entradas com rótulos scenario DISTINTOS — a admissão de cenários declarados distintos (criador, 22/08/2026) exige declaração bilateral, e é o rótulo distinto + o elenco diferindo em ≥1 candidato que impede a fusão no store e a dispensa mútua entre as entradas (cada cláusula match carrega has_candidate com o adversário, exclusivo daquele cenário). ⚠ RÓTULOS IMPRESSOS FORA DE ORDEM na p.89 — a página imprime Cenário I, IV, II, III nessa sequência; o número do cenário guardado é o do RÓTULO IMPRESSO, não o da posição na página (achado pelas duas leituras independentemente). LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável (valores do relatório em IMAGEM — transcrição por leitura visual com zoom); sha256 do PDF 2b5a235f89dee6830fec6292c42c66d6d3b3c4422adc58ca1d7f158f0adc4158 (122 pp), idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.5: BR-05856/2026 e BA-02331/2026 — a decisão da chave está em _nota_registro. FICHA (p.5): Quaest, CONTRATADA PELA GENIAL INVESTIMENTOS (contractor 'Genial Investimentos' como impresso; as linhas irmãs do banco guardam contractor_raw 'Banco Genial', vindo do agregador/PesqEle 'BANCO GENIAL S.A.' — pelo primeiro-escritor-vence do fillFields o levantamento MANTÉM a grafia do agregador e a discordância fica em conflicts.ndjson, visível e não silenciosa); campo 23 a 27/07/2026; n=1200 em 61 municípios; margem 3 p.p.; confiança 95% (sem campo no esquema plano). GRAFIA DO INSTITUTO: 'Quaest', a grafia das linhas irmãs do banco (p360-13643/13644, levantamento s_38959be19e77, medido em 22/08/2026). ⚠ CONTRADIÇÃO INTERNA DE DATAS DO DOCUMENTO, ÍNTEGRA E COM A RESOLUÇÃO (consolidado §1): a p.3 imprime campo '23 A 27/ABRIL' e a p.5 imprime '23 e 27 de julho' — as duas leituras cegas acharam a contradição independentemente. RESOLVIDA POR JULHO com prova interna ao documento e ao registro: a p.5 (ficha com os registros BR-05856/2026 e BA-02331/2026) diz julho, e o protocolo BR-05856/2026 foi REGISTRADO em 23/07/2026 no PesqEle (cargo Presidente, campo declarado 23-27/07, snapshot em data-research/cobertura-presidencial/registros-pres-br.json) — um documento de campo em abril não teria protocolo cunhado em julho. Anota-se, sem uso probatório, que o banco guarda a operação de ABRIL da Quaest na Bahia como levantamento separado (BR-08703/2026, campo fim 28/04): a resolução por julho não a toca. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Romeu Zema (Cenário II)",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3,
+    "tse_registration": "BA-02331/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 57
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 14
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 12,
+    "blank_null_pct": 17
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.5): BR-05856/2026 e BA-02331/2026. Guardado 'BA-02331/2026' por MECÂNICA, medida em 22/08/2026 (o método da nota do PE-04519: a chave é a que não parte a operação nem recunha): no store commitado as linhas irmãs governador/senador desta operação vivem no levantamento s_38959be19e77, que carrega EXATAMENTE 'BA-02331/2026' (semente 'survey|ref|poder360:13643') — com esta chave a pergunta alcança o levantamento da operação pelo degrau 2 de resolveSurvey; a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção das cinco perguntas ao levantamento de semente reg da MESMA operação no rebuild (s_e50f79e5d12e, reg BA-02331/2026, que carrega governador 1º/2º turnos e senador; o id difere do commitado por divergência PRÉ-EXISTENTE de rebuild, idêntica na base e no branch) com zero id movido. 'BR-05856/2026' (o gêmeo TSE de cargo Presidente, registrado em 23/07/2026 — o mesmo protocolo que resolve a contradição abril/julho; é também o registro que a enumeração de lacunas dá ao nativo 13642) fica registrado AQUI para não se perder — escrevê-lo partiria a operação (efeito MEDIDO em ensaio de 22/08/2026: com BR-05856/2026 nas cinco entradas, o build cunha o levantamento s_a1cbc4b4007c, semente 'survey|reg|BR-05856/2026', ao lado do levantamento das irmãs). A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Cenário III de 2º turno presidencial (Lula × Renan Santos) presente no relatório-integra da Quaest/Genial (BA, campo 23-27/07/2026) e AUSENTE do banco, pela mesma lacuna classe I do 1º turno desta operação (nativo p360 13642). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "evidence": "p.89 do relatório, 2º turno presidencial, rótulo impresso 'Cenário III': Lula 57 × Renan Santos (Missão) 13. BALDES, mapeamento decidido nesta entrada: 'Indecisos' 11 → undecided_pct; 'Branco/Nulo/Não vai votar' 19 → blank_null_pct; sem linha de 'Outros' → others_pct NULO. Soma 100 EXATOS — expect_sum 100. ⚠ PARTIDO DE LULA NÃO REGISTRADO NESTE CENÁRIO: o consolidado §1 só imprime o partido de Lula no Cenário I; aqui imprime 'Lula 57' sem partido — party fica NULO em vez de inferido (§4). OS QUATRO CENÁRIOS DE 2º TURNO desta operação entram como QUATRO entradas com rótulos scenario DISTINTOS — a admissão de cenários declarados distintos (criador, 22/08/2026) exige declaração bilateral, e é o rótulo distinto + o elenco diferindo em ≥1 candidato que impede a fusão no store e a dispensa mútua entre as entradas (cada cláusula match carrega has_candidate com o adversário, exclusivo daquele cenário). ⚠ RÓTULOS IMPRESSOS FORA DE ORDEM na p.89 — a página imprime Cenário I, IV, II, III nessa sequência; o número do cenário guardado é o do RÓTULO IMPRESSO, não o da posição na página (achado pelas duas leituras independentemente). LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável (valores do relatório em IMAGEM — transcrição por leitura visual com zoom); sha256 do PDF 2b5a235f89dee6830fec6292c42c66d6d3b3c4422adc58ca1d7f158f0adc4158 (122 pp), idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.5: BR-05856/2026 e BA-02331/2026 — a decisão da chave está em _nota_registro. FICHA (p.5): Quaest, CONTRATADA PELA GENIAL INVESTIMENTOS (contractor 'Genial Investimentos' como impresso; as linhas irmãs do banco guardam contractor_raw 'Banco Genial', vindo do agregador/PesqEle 'BANCO GENIAL S.A.' — pelo primeiro-escritor-vence do fillFields o levantamento MANTÉM a grafia do agregador e a discordância fica em conflicts.ndjson, visível e não silenciosa); campo 23 a 27/07/2026; n=1200 em 61 municípios; margem 3 p.p.; confiança 95% (sem campo no esquema plano). GRAFIA DO INSTITUTO: 'Quaest', a grafia das linhas irmãs do banco (p360-13643/13644, levantamento s_38959be19e77, medido em 22/08/2026). ⚠ CONTRADIÇÃO INTERNA DE DATAS DO DOCUMENTO, ÍNTEGRA E COM A RESOLUÇÃO (consolidado §1): a p.3 imprime campo '23 A 27/ABRIL' e a p.5 imprime '23 e 27 de julho' — as duas leituras cegas acharam a contradição independentemente. RESOLVIDA POR JULHO com prova interna ao documento e ao registro: a p.5 (ficha com os registros BR-05856/2026 e BA-02331/2026) diz julho, e o protocolo BR-05856/2026 foi REGISTRADO em 23/07/2026 no PesqEle (cargo Presidente, campo declarado 23-27/07, snapshot em data-research/cobertura-presidencial/registros-pres-br.json) — um documento de campo em abril não teria protocolo cunhado em julho. Anota-se, sem uso probatório, que o banco guarda a operação de ABRIL da Quaest na Bahia como levantamento separado (BR-08703/2026, campo fim 28/04): a resolução por julho não a toca. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Renan Santos (Cenário III)",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3,
+    "tse_registration": "BA-02331/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 57
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 13
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 11,
+    "blank_null_pct": 19
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.5): BR-05856/2026 e BA-02331/2026. Guardado 'BA-02331/2026' por MECÂNICA, medida em 22/08/2026 (o método da nota do PE-04519: a chave é a que não parte a operação nem recunha): no store commitado as linhas irmãs governador/senador desta operação vivem no levantamento s_38959be19e77, que carrega EXATAMENTE 'BA-02331/2026' (semente 'survey|ref|poder360:13643') — com esta chave a pergunta alcança o levantamento da operação pelo degrau 2 de resolveSurvey; a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção das cinco perguntas ao levantamento de semente reg da MESMA operação no rebuild (s_e50f79e5d12e, reg BA-02331/2026, que carrega governador 1º/2º turnos e senador; o id difere do commitado por divergência PRÉ-EXISTENTE de rebuild, idêntica na base e no branch) com zero id movido. 'BR-05856/2026' (o gêmeo TSE de cargo Presidente, registrado em 23/07/2026 — o mesmo protocolo que resolve a contradição abril/julho; é também o registro que a enumeração de lacunas dá ao nativo 13642) fica registrado AQUI para não se perder — escrevê-lo partiria a operação (efeito MEDIDO em ensaio de 22/08/2026: com BR-05856/2026 nas cinco entradas, o build cunha o levantamento s_a1cbc4b4007c, semente 'survey|reg|BR-05856/2026', ao lado do levantamento das irmãs). A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Cenário IV de 2º turno presidencial (Lula × Ronaldo Caiado) presente no relatório-integra da Quaest/Genial (BA, campo 23-27/07/2026) e AUSENTE do banco, pela mesma lacuna classe I do 1º turno desta operação (nativo p360 13642). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "evidence": "p.89 do relatório, 2º turno presidencial, rótulo impresso 'Cenário IV': Lula 57 × Ronaldo Caiado (PSD) 16. BALDES, mapeamento decidido nesta entrada: 'Indecisos' 10 → undecided_pct; 'Branco/Nulo/Não vai votar' 17 → blank_null_pct; sem linha de 'Outros' → others_pct NULO. Soma 100 EXATOS — expect_sum 100. ⚠ PARTIDO DE LULA NÃO REGISTRADO NESTE CENÁRIO: o consolidado §1 só imprime o partido de Lula no Cenário I; aqui imprime 'Lula 57' sem partido — party fica NULO em vez de inferido (§4). OS QUATRO CENÁRIOS DE 2º TURNO desta operação entram como QUATRO entradas com rótulos scenario DISTINTOS — a admissão de cenários declarados distintos (criador, 22/08/2026) exige declaração bilateral, e é o rótulo distinto + o elenco diferindo em ≥1 candidato que impede a fusão no store e a dispensa mútua entre as entradas (cada cláusula match carrega has_candidate com o adversário, exclusivo daquele cenário). ⚠ RÓTULOS IMPRESSOS FORA DE ORDEM na p.89 — a página imprime Cenário I, IV, II, III nessa sequência; o número do cenário guardado é o do RÓTULO IMPRESSO, não o da posição na página (achado pelas duas leituras independentemente). LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável (valores do relatório em IMAGEM — transcrição por leitura visual com zoom); sha256 do PDF 2b5a235f89dee6830fec6292c42c66d6d3b3c4422adc58ca1d7f158f0adc4158 (122 pp), idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTROS IMPRESSOS na p.5: BR-05856/2026 e BA-02331/2026 — a decisão da chave está em _nota_registro. FICHA (p.5): Quaest, CONTRATADA PELA GENIAL INVESTIMENTOS (contractor 'Genial Investimentos' como impresso; as linhas irmãs do banco guardam contractor_raw 'Banco Genial', vindo do agregador/PesqEle 'BANCO GENIAL S.A.' — pelo primeiro-escritor-vence do fillFields o levantamento MANTÉM a grafia do agregador e a discordância fica em conflicts.ndjson, visível e não silenciosa); campo 23 a 27/07/2026; n=1200 em 61 municípios; margem 3 p.p.; confiança 95% (sem campo no esquema plano). GRAFIA DO INSTITUTO: 'Quaest', a grafia das linhas irmãs do banco (p360-13643/13644, levantamento s_38959be19e77, medido em 22/08/2026). ⚠ CONTRADIÇÃO INTERNA DE DATAS DO DOCUMENTO, ÍNTEGRA E COM A RESOLUÇÃO (consolidado §1): a p.3 imprime campo '23 A 27/ABRIL' e a p.5 imprime '23 e 27 de julho' — as duas leituras cegas acharam a contradição independentemente. RESOLVIDA POR JULHO com prova interna ao documento e ao registro: a p.5 (ficha com os registros BR-05856/2026 e BA-02331/2026) diz julho, e o protocolo BR-05856/2026 foi REGISTRADO em 23/07/2026 no PesqEle (cargo Presidente, campo declarado 23-27/07, snapshot em data-research/cobertura-presidencial/registros-pres-br.json) — um documento de campo em abril não teria protocolo cunhado em julho. Anota-se, sem uso probatório, que o banco guarda a operação de ABRIL da Quaest na Bahia como levantamento separado (BR-08703/2026, campo fim 28/04): a resolução por julho não a toca. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Ronaldo Caiado (Cenário IV)",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3,
+    "tse_registration": "BA-02331/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 57
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 16
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 10,
+    "blank_null_pct": 17
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ O DOCUMENTO IMPRIME DOIS REGISTROS (p.5): BR-05856/2026 e BA-02331/2026. Guardado 'BA-02331/2026' por MECÂNICA, medida em 22/08/2026 (o método da nota do PE-04519: a chave é a que não parte a operação nem recunha): no store commitado as linhas irmãs governador/senador desta operação vivem no levantamento s_38959be19e77, que carrega EXATAMENTE 'BA-02331/2026' (semente 'survey|ref|poder360:13643') — com esta chave a pergunta alcança o levantamento da operação pelo degrau 2 de resolveSurvey; a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção das cinco perguntas ao levantamento de semente reg da MESMA operação no rebuild (s_e50f79e5d12e, reg BA-02331/2026, que carrega governador 1º/2º turnos e senador; o id difere do commitado por divergência PRÉ-EXISTENTE de rebuild, idêntica na base e no branch) com zero id movido. 'BR-05856/2026' (o gêmeo TSE de cargo Presidente, registrado em 23/07/2026 — o mesmo protocolo que resolve a contradição abril/julho; é também o registro que a enumeração de lacunas dá ao nativo 13642) fica registrado AQUI para não se perder — escrevê-lo partiria a operação (efeito MEDIDO em ensaio de 22/08/2026: com BR-05856/2026 nas cinco entradas, o build cunha o levantamento s_a1cbc4b4007c, semente 'survey|reg|BR-05856/2026', ao lado do levantamento das irmãs). A forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "BA",
+    "round": 1,
+    "fieldwork_end": "2026-08-10"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Real Time Big Data (BA, campo 06-10/08/2026) e AUSENTE do banco: o levantamento existe com governador (1º e 2º turnos) e senador (via Wikipédia, survey s_65457792573e) e SEM a presidencial — o nativo p360 13811 é lacuna classe I da enumeração (LACUNAS_PODER360.md). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
+   "evidence": "p.7 do relatório (17 pp), intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (PT) 56 · Flávio Bolsonaro (PL) 23 · Renan Santos (Missão) 5 · Ronaldo Caiado (PSD) 3 · Romeu Zema (Novo) 1 · Escritor Augusto Cury (Avante) 1. BALDES, mapeamento decidido nesta entrada: 'Outros' 2 → others_pct 2; 'Nulo/Branco' 5 → blank_null_pct; 'NS/NR' 4 → undecided_pct. Soma 100 EXATOS — expect_sum 100. ⚠ ANOMALIA DO CONSOLIDADO, ÍNTEGRA: NOTA IMPRESSA do instituto diz que 6 candidatos 'somados atingiram 1%' — INCOERÊNCIA INTERNA DE 1 PONTO com a barra 'Outros 2' da tabela; guardado o IMPRESSO DA TABELA (others_pct 2) e a nota fica anotada aqui, sem resolução (§4; achada pelas duas leituras). LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF d3d623329cf0aab5466946ffaf4e88a6f110ab2a992ae71328b27337234a7106, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTRO COMO IMPRESSO: só 'BR-05205/2026' na capa — decisão da chave em _nota_registro. FICHA: contratante NÃO impresso → contractor NULO (§4); campo 06 a 10/08/2026; n=1600; margem 2,0 p.p.; confiança 95% (sem campo no esquema plano). GRAFIA DO INSTITUTO: 'Real Time Big Data', a grafia das linhas irmãs do banco. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "BA",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-08-06",
+    "fieldwork_end": "2026-08-10",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 56
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 23
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 5
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 3
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     }
+    ],
+    "others_pct": 2,
+    "undecided_pct": 4,
+    "blank_null_pct": 5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ REGISTRO IMPRESSO SÓ NA CAPA E SÓ UM: 'BR-05205/2026' (sem TRE-BA no documento; PesqEle: REAL TIME MIDIA LTDA, cargo Presidente, campo 06-10/08, n=1600, divulgação 11/08 — snapshot em data-research/cobertura-presidencial/registros-pres-br.json). tse_registration fica NULO por MECÂNICA, medida em 22/08/2026 (o método da nota do Veritá/RR): as linhas irmãs governador/senador desta operação (76e8d420233e, cec977465251, fa1312d5c1ed, via Wikipédia) vivem no levantamento s_65457792573e, de semente nat ('survey|nat|i_963e1bb83cc4|BA|2026-08-10|1600|…') com registro NULO. Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 (instituto + UF + data + n; o elenco não contradiz porque não há pergunta presidencial lá) e NÃO escreve nada no registro dele — a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção ao s_65457792573e com o registro nulo dele intacto e zero id movido. Escrever 'BR-05205/2026' faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, a classe estrutural do CONVENTIONS §8b; efeito MEDIDO em ensaio de 22/08/2026: com BR-05205/2026 nas duas entradas, o campo tse_registration do s_65457792573e sai do build preenchido (null → BR-05205/2026); com nulo, sai nulo. ⚠ E a enumeração de lacunas dá ao nativo 13811 um TERCEIRO protocolo, 'BA-00277/2026' — divergência entre a capa (BR-05205) e a enumeração (BA-00277) anotada AQUI, como impressa, sem resolução (§4)."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "fieldwork_end": "2026-08-10"
+   },
+   "defect": "Cenário de 2º turno presidencial (Lula × Flávio Bolsonaro) presente no relatório-integra do Real Time Big Data (BA, campo 06-10/08/2026) e AUSENTE do banco, pela mesma lacuna classe I do 1º turno desta operação (nativo p360 13811). Transcrito do relatório do próprio instituto por duas leituras cegas independentes comparadas pelo hub (§1, onda 1, 22/08/2026).",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
+   "evidence": "p.12 do relatório (17 pp), 2º turno presidencial, rótulo impresso 'CENÁRIO 01': Lula (PT) 59 × Flávio Bolsonaro (PL) 30. ⚠ ANOMALIA DO CONSOLIDADO, ÍNTEGRA: a CAMADA DE TEXTO da p.12 INVERTE a ordem dos valores — o 59 É DE LULA, confirmado VISUALMENTE pelas duas leituras cegas independentemente (a transcrição é da página renderizada, não da camada de texto); anotado para que a divergência não se perca. BALDES, mapeamento decidido nesta entrada: 'Nulo/Branco' 6 → blank_null_pct; 'NS/NR' 5 → undecided_pct; sem linha de 'Outros' → others_pct NULO. Soma 100 EXATOS — expect_sum 100. scenario guardado '2º turno: Lula vs Flávio Bolsonaro', o formato das linhas de 2º turno do banco. LIDO POR duas leituras cegas independentes (diretórios cega-w1-B e cega-w1-B2 do scratchpad da sessão), comparadas pelo hub em 22/08/2026 (CONSOLIDADO §1 da onda 1) e CONCORDANTES em toda figura armazenável; sha256 do PDF d3d623329cf0aab5466946ffaf4e88a6f110ab2a992ae71328b27337234a7106, idêntico nas cópias das duas leituras e RECONFERIDO nesta autoria contra a URL citada (download de 22/08/2026, byte a byte). REGISTRO COMO IMPRESSO: só 'BR-05205/2026' na capa — decisão da chave em _nota_registro (a mesma da entrada do 1º turno desta operação). FICHA: contratante NÃO impresso → contractor NULO; campo 06 a 10/08/2026; n=1600; margem 2,0 p.p.; confiança 95%. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador: o Poder360 não serve esta presidencial — é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "BA",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-08-06",
+    "fieldwork_end": "2026-08-10",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 59
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 30
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5,
+    "blank_null_pct": 6
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ REGISTRO IMPRESSO SÓ NA CAPA E SÓ UM: 'BR-05205/2026' (sem TRE-BA no documento; PesqEle: REAL TIME MIDIA LTDA, cargo Presidente, campo 06-10/08, n=1600, divulgação 11/08 — snapshot em data-research/cobertura-presidencial/registros-pres-br.json). tse_registration fica NULO por MECÂNICA, medida em 22/08/2026 (o método da nota do Veritá/RR): as linhas irmãs governador/senador desta operação (76e8d420233e, cec977465251, fa1312d5c1ed, via Wikipédia) vivem no levantamento s_65457792573e, de semente nat ('survey|nat|i_963e1bb83cc4|BA|2026-08-10|1600|…') com registro NULO. Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 (instituto + UF + data + n; o elenco não contradiz porque não há pergunta presidencial lá) e NÃO escreve nada no registro dele — a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção ao s_65457792573e com o registro nulo dele intacto e zero id movido. Escrever 'BR-05205/2026' faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, a classe estrutural do CONVENTIONS §8b; efeito MEDIDO em ensaio de 22/08/2026: com BR-05205/2026 nas duas entradas, o campo tse_registration do s_65457792573e sai do build preenchido (null → BR-05205/2026); com nulo, sai nulo. ⚠ E a enumeração de lacunas dá ao nativo 13811 um TERCEIRO protocolo, 'BA-00277/2026' — divergência entre a capa (BR-05205) e a enumeração (BA-00277) anotada AQUI, como impressa, sem resolução (§4)."
   }
  ]
 }
