@@ -253,15 +253,6 @@
    "source": "https://static.poder360.com.br/uploads/2026/08/IRG-Parana-agosto.pdf",
    "evidence": "A palavra 'espontânea' NÃO existe em nenhuma fonte legível por máquina para este registro: os rótulos do v2/cenarios do Poder360 para o 13833 são 'Senador - Cenário 1' e 'Senador - Cenário 2' (inventário vivo de 21/08: 540 rótulos, 59 dizem 'estimulada', ZERO dizem 'espontânea'), e a wiki só declara estímulo por página inteira ('Todos os cenários se referem a pesquisas estimuladas…'). A marca vive SÓ no PDF do instituto (OCR de 21/08: 'Pergunta 6 — ESPONTÂNEA', 'Senado - Cenário Espontâneo'). O conserto da colisão está no pipeline (estimulosCompativeis em mergePolls e keepFullestRound1, provado por mutação) e ARMA sozinho no dia em que a marca existir estruturada — dar a marca ao 13833 é curadoria com fonte primária, PARQUEADA junto com a decisão de paridade associada (com as duas perguntas vivas, polls.json carrega ambas e a projeção publica só a headline). Efeito editorial da perda: nenhum — a espontânea não é headline (markHeadlines promove uma pergunta por levantamento) e nunca entrou em média. Medido por três agentes independentes em 21/08: o investigador das 7 sumidas (cru intacto, slot ocupado, legacy colado), o implementador do conserto (par IRG segue fundindo porque o lado p360 tem stimulus nulo, §4 não inventa marca) e o conferente do conserto (API viva + OCR reconferidos).",
    "verified_at": "2026-08-21"
-  },
-  {
-   "question_id": "q_b63af3883a1f",
-   "race": "governador",
-   "uf": "DF",
-   "defect": "DUPLICATA ENTRE MARCAS — mesma operação de campo (governador:DF, 30/07–01/08/2026) chega por Wikipédia (Correio/Opinião, esta) e por Poder360 (nativo 13712, Opinião Consultoria). Após a desambiguação de rótulo de 2º turno (PR #43), dropExactDuplicates funde as duas e mantém a de maior prioridade (Poder360). A pergunta sobrevive como q_a339d4c0fe5b, tabela idêntica dígito a dígito — perda de identidade redundante, não de dado. Ratificação por rodada (opção 1B do criador, 22/08); a fusão de linhagem durável (1A) é follow-up.",
-   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "evidence": "Fonte primária ainda lista a linha: seção 'Celina Leão e José Roberto Arruda', Correio/Opinião, 30 Jul–1 Ago, amostra 1109, ±3,3 — Celina Leão 43,6% / José Roberto Arruda 40,1% / indecisos 16,3%. Idêntica ao sobrevivente q_a339d4c0fe5b (Opinião Consultoria, campo 2026-08-01, Celina 43,6 / Arruda 40,1). O baseline commitado continha AMBAS — a fusão de duplicata é o conserto, não a perda. Medido em 2026-08-22 contra a coleta ao vivo.",
-   "verified_at": "2026-08-22"
   }
  ],
  "repairs": [
