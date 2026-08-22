@@ -152,9 +152,9 @@
       "estado": "exigida"
     },
     "presidente:RR": {
-      "estado": "pendente",
-      "motivo": "fonte nunca serviu; promover quando a inserção curada cobrir",
-      "declarado_em": "2026-08-21"
+      "estado": "exigida",
+      "motivo": "Promovida com os 8 add_poll do Veritá RR (PR #32, 22/08/2026) — a regra R2 do desenho da condição 2: add_poll exige promoção no mesmo land; esta chegou um PR atrasada, pega pelo próprio guarda (errosPromocao) antes de qualquer rodada falhar.",
+      "desde": "2026-08-22"
     },
     "presidente:RS": {
       "estado": "exigida"
