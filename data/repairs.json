@@ -2809,6 +2809,18 @@
    },
    "expect_sum": 100,
    "_nota_datas": "⚠ SWEEP 2026-03-19 × PDF 2026-03-24, e o PDF manda nas DUAS pontas desta entrada. O lote congelado trazia match.fieldwork_end = 2026-03-19 (a data do sweep, para alinhamento às linhas irmãs) e add_poll = 2026-03-24 (a ficha do PDF, §4) — combinação que a trava de inserirPesquisaCurada RECUSA por construção, medido em 22/08/2026 no applyRepairs offline: para add_poll a cláusula match é a IDENTIDADE da pesquisa inserida (a mesma semântica dos modelos PE-04519 e AM-00163), e uma cláusula que não descreve a montada faz 'nenhum alvo casou' deixar de significar 'ainda não existe'. Ratificado pelo hub em 22/08/2026: match.fieldwork_end = 2026-03-24; o racional 'match pelo sweep' vale para reparo de CORREÇÃO (que mira linha existente), não para inserção. Sonda da mesma data: com 24/03 a inserção sai limpa e SEM vizinho na janela de 3 dias — 19→24 são 5 dias, e as linhas irmãs gov/sen do sweep são outra race, fora do alcance de mesmaOperacao. As irmãs, datadas 19/03 pelo sweep, ficam como estão; a divergência segue registrada em _parser.divergencias_sweep do lote congelado, e o dia em que a fonte corrigir a data será visível como field_disagreement, não como duplicata."
+  },
+  {
+   "match": {
+    "tse_registration": "GO-04010/2026"
+   },
+   "defect": "fieldwork_start nulo nas TRÊS pesquisas do registro (presidente, governador e senador — Direct, Anápolis-GO), com o período de campo impresso no PDF. SEM CLÁUSULA DE RACE de propósito: um registro é um levantamento e campo de survey se repara sem race (HANDOFF; o aviso de multi-alvo só vale para campo de pergunta). E SÓ O INÍCIO, de propósito: o fieldwork_end=2026-01-01 do lado do senador (s_1eed00d01f65) está errado e RETIDO — corrigi-lo FUNDE os dois levantamentos do par de Anápolis, medido em 20/08/2026 ('só fieldwork_end corrigido → 1.049 → 1.048, FUNDE'; ANOTACOES_DE_FONTE.md, Identidade de levantamento — retenções medidas). A metade retida fica anotada, não consertada (§8b, liberação do criador em 22/08/2026, item a item).",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-direct-goias-presidente-4.fev_.2025.pdf (relatório Direct/Anápolis; ficha técnica nas pp. 4–5 — 'REGISTRO TSE : 04010/2026' na p. 4, período de campo na p. 5, seção '4) Coleta de Informações')",
+   "evidence": "PDF, p. 5: 'Foram utilizados 04 entrevistadores supervisionados, nos horários compreendidos entre 8h00 a 18h00, nos dias 30 de Janeiro a 01 de Fevereiro de 2026.' Duas leituras cegas independentes na certificação municipal de 20–21/08/2026 (data/universe-verdicts.json: s_1eed00d01f65 e s_c3ea7003b0c2, 'leitura cega independente + comparação de terceiro, 23/23'; a citação do s_1eed já registra 'campo 30/01–01/02/2026'). EFEITO MEDIDO em 21/08/2026, por poll: aplica INTEIRO em p360-13236 (presidente) e p360-13237 (governador), cujo end=2026-02-01 está certo — o levantamento s_c3ea7003b0c2 sai com start=2026-01-30. No p360-13238 (senador) o end retido é 2026-01-01, então start=2026-01-30 cria início>fim e o guarda de datas do scrape descarta o início, com a linha 'início posterior ao fim: Direct Pesquisas senador/GO 2026-01-30>2026-01-01 — início descartado' — nesse lado o reparo é parcialmente inerte-e-barulhento (o carimbo repaired permanece na pesquisa; o start, não), em toda rodada, nunca em silêncio. §8b, store base × branch: survey_id 1.049 = 1.049, question_id 3.087 = 3.087 — zero movimento de id.",
+   "verified_at": "2026-08-21",
+   "set": {
+    "fieldwork_start": "2026-01-30"
+   }
   }
  ]
 }
