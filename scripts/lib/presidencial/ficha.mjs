@@ -57,6 +57,20 @@ export function periodoDeCampo(texto) {
     const m1 = MESES[m[2].toLowerCase()], m2 = MESES[m[4].toLowerCase()];
     if (m1 && m2) return { start: `${m[5]}-${dois(m1)}-${dois(m[1])}`, end: `${m[5]}-${dois(m2)}-${dois(m[3])}` };
   }
+  // "Período: 18 a 24/03/2026" — a forma NUMÉRICA (Veritá imprime as duas; um
+  // relatório que só traga esta não pode ficar sem período). Depois das formas
+  // por extenso, de propósito: onde as duas coexistem a leitura não muda.
+  m = texto.match(/\b(\d{1,2})\s*a\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\b/);
+  if (m) {
+    const mes = Number(m[3]);
+    if (mes >= 1 && mes <= 12) return { start: `${m[4]}-${dois(mes)}-${dois(m[1])}`, end: `${m[4]}-${dois(mes)}-${dois(m[2])}` };
+  }
+  // "Período: 18/03 a 24/03/2026" — variação com o mês repetido.
+  m = texto.match(/\b(\d{1,2})\/(\d{1,2})\s*a\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\b/);
+  if (m) {
+    const m1 = Number(m[2]), m2 = Number(m[4]);
+    if (m1 >= 1 && m1 <= 12 && m2 >= 1 && m2 <= 12) return { start: `${m[5]}-${dois(m1)}-${dois(m[1])}`, end: `${m[5]}-${dois(m2)}-${dois(m[3])}` };
+  }
   return { start: null, end: null };
 }
 

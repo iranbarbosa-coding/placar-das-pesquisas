@@ -50,12 +50,19 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
   const tse_registration = campo("tse_registration", ficha?.tse_registration,
     rec?.registro ? String(rec.registro).replace(/\s+/g, "").toUpperCase() : null);
 
-  // fieldwork_end é CRÍTICO para o match (alinha ao levantamento estadual). Usa
-  // o do sweep, que é o que as linhas irmãs carregam, e confere contra o fim de
-  // período lido do PDF; divergência é sinalizada, não silenciada.
-  const fieldwork_end = sweepData ?? ficha?.fieldwork_end ?? null;
-  if (ficha?.fieldwork_end && sweepData && ficha.fieldwork_end !== sweepData) {
-    divergencias.push(`fieldwork_end: PDF=${ficha.fieldwork_end} × sweep=${sweepData} — match usa o do sweep (alinhamento)`);
+  // PERÍODO DE CAMPO: quando o PDF imprime o período e ele DIVERGE do sweep, o
+  // add_poll carrega o do PDF — §4, a fonte do reparo é o relatório. Foi a
+  // reprovação §1 do MA Veritá (lote v2): o PDF imprime "18 a 24 de março", o
+  // sweep dizia 19, e a regra antiga (sweep ?? PDF) punha 18→19 no add_poll — a
+  // ficha tinha lido 24 CERTO e a preferência jogava a leitura fora. O MATCH
+  // continua com a data do sweep: é ela que as linhas irmãs do levantamento
+  // estadual carregam no banco (alinhamento), e a divergência fica anotada.
+  const fimPDF = ficha?.fieldwork_end ?? null;
+  const divergeFim = fimPDF != null && sweepData != null && fimPDF !== sweepData;
+  const fieldwork_end = divergeFim ? fimPDF : (sweepData ?? fimPDF ?? null);
+  const matchFieldworkEnd = sweepData ?? fimPDF ?? null;
+  if (divergeFim) {
+    divergencias.push(`fieldwork_end: PDF=${fimPDF} × sweep=${sweepData} — add_poll usa o do PDF (§4); match usa o do sweep (alinhamento)`);
   }
   if (ficha?.tse_registration_ambiguo) {
     divergencias.push(`mais de um registro do estado ${uf} no PDF (${(ficha.tse_todos ?? []).join(", ")}) — §1 decide`);
@@ -74,7 +81,9 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     sample_size: ficha?.sample_size != null ? "pdf" : (rec?.entrevistas != null ? "sweep(conferir §1)" : "ausente"),
     margin_of_error: ficha?.margin_of_error != null ? "pdf" : (rec?.margem != null ? "sweep(conferir §1)" : "ausente"),
     tse_registration: ficha?.tse_registration ? "pdf" : (rec?.registro ? "sweep(conferir §1)" : "ausente"),
-    fieldwork_end: "sweep(alinhamento; confere fim de período do PDF)",
+    fieldwork_end: divergeFim ? "pdf(diverge do sweep; match alinha pelo sweep — §1)"
+      : sweepData ? "sweep(alinhamento; confere fim de período do PDF)"
+      : fimPDF ? "pdf" : "ausente",
   };
   if (pollster && !pollsterDoPDF) divergencias.push(`pollster '${pollster}' veio do sweep — não extraído do PDF; §1 confere no relatório`);
   if (!contractor) divergencias.push("contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)");
@@ -120,7 +129,7 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     race: "presidente",
     state: uf,
     round: 1,
-    fieldwork_end,
+    fieldwork_end: matchFieldworkEnd,
   };
 
   const entry = {

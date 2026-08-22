@@ -698,6 +698,44 @@ async function selfTest() {
   afirma(chaveCurado("Direto ao Ponto Pesquisas", "AM", 1, "2026-06-20") === chaveCurado("DIRETO AO PONTO PESQUISAS", "AM", 1, "2026-06-20"), "dedupe: normalização de instituto tem de bater grafias");
   afirma(chaveCurado("Datafolha", "PE", 1, "2026-07-30") !== chaveCurado("Datafolha", "PE", 1, "2026-07-29"), "dedupe: datas diferentes NÃO colidem");
 
+  // ---- PERÍODO DE CAMPO — reprovação §1 do MA Veritá (lote v2) -------------
+  // O PDF imprime "Período de campo 18 a 24 de março de 2026" E
+  // "Período: 18 a 24/03/2026". As DUAS formas têm de ler 18→24:
+  {
+    const { periodoDeCampo } = await import("./lib/presidencial/ficha.mjs");
+    const porExtenso = periodoDeCampo("Período de campo 18 a 24 de março de 2026");
+    afirma(porExtenso.start === "2026-03-18" && porExtenso.end === "2026-03-24", `período: forma por extenso devia ler 18→24, veio ${porExtenso.start}→${porExtenso.end}`);
+    const numerica = periodoDeCampo("Período: 18 a 24/03/2026");
+    afirma(numerica.start === "2026-03-18" && numerica.end === "2026-03-24", `período: forma numérica devia ler 18→24, veio ${numerica.start}→${numerica.end}`);
+    const ambas = periodoDeCampo("Período de campo 18 a 24 de março de 2026\nPeríodo: 18 a 24/03/2026");
+    afirma(ambas.start === "2026-03-18" && ambas.end === "2026-03-24", "período: as duas formas juntas não podem mudar a leitura");
+  }
+  // E a REGRA DE PREFERÊNCIA (o defeito real da reprovação): a ficha leu 24
+  // CERTO e a emissão punha o 19 do sweep no add_poll. PDF divergente MANDA no
+  // add_poll (§4); o match segue o sweep (alinhamento às linhas irmãs).
+  if (rA.ok) {
+    const fichaMA = { ...extrairFicha(paginar(fxTexto), "PE"), fieldwork_start: "2026-03-18", fieldwork_end: "2026-03-24" };
+    const { entry: eMA } = montarCandidato({
+      figuras: rA.figuras, ficha: fichaMA, rec: { instituto: "Veritá", data: "2026-03-19T00:00:00.000Z" },
+      uf: "MA", integraUrl: "x", pdfHash: "t", legs: { texto: true, ocr: false, concordam: false },
+      totalImpresso: null, tolerancia: toleranciaDerivada(rA.figuras),
+    });
+    afirma(eMA.add_poll.fieldwork_start === "2026-03-18" && eMA.add_poll.fieldwork_end === "2026-03-24",
+      `período: PDF divergente manda no add_poll (esperado 18→24, veio ${eMA.add_poll.fieldwork_start}→${eMA.add_poll.fieldwork_end})`);
+    afirma(eMA.match.fieldwork_end === "2026-03-19", `período: o match segue o sweep (alinhamento), veio ${eMA.match.fieldwork_end}`);
+    afirma(eMA._parser.divergencias_sweep.some((d) => /add_poll usa o do PDF/.test(d)), "período: a divergência PDF×sweep tem de ficar anotada para a §1");
+    afirma(eMA._parser.procedencia.fieldwork_end.startsWith("pdf(diverge"), "período: procedência do campo divergente marca pdf");
+    // Concordância NÃO muda byte nenhum: mesmo valor e a MESMA string de
+    // procedência de sempre (as 4 emissões aprovadas na §1 saem idênticas).
+    const { entry: eOK } = montarCandidato({
+      figuras: rA.figuras, ficha: { ...fichaMA, fieldwork_end: "2026-03-19" }, rec: { instituto: "Veritá", data: "2026-03-19T00:00:00.000Z" },
+      uf: "MA", integraUrl: "x", pdfHash: "t", legs: { texto: true, ocr: false, concordam: false },
+      totalImpresso: null, tolerancia: toleranciaDerivada(rA.figuras),
+    });
+    afirma(eOK.add_poll.fieldwork_end === "2026-03-19" && eOK._parser.procedencia.fieldwork_end === "sweep(alinhamento; confere fim de período do PDF)",
+      "período: PDF=sweep concordando mantém valor e procedência de sempre (byte-estável)");
+  }
+
   // ---- GEOMETRIA (caixas delimitadoras) — fixtures congeladas de --boxes ----
   // Caso CORRETO: Paraná AP p.8 (o slide interleaved que reprovou o lote 3) —
   // o pareamento por posição reproduz as figuras da camada de texto.
