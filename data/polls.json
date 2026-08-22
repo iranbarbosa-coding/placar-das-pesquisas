@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-08-22T17:18:19.316Z",
+ "generated_at": "2026-08-22T22:36:18.164Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-22T17:18:19.316Z"
+   "last_ok": "2026-08-22T22:36:18.164Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-22T17:18:19.316Z"
+   "last_ok": "2026-08-22T22:36:18.164Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-22T17:18:19.316Z"
+   "last_ok": "2026-08-22T22:36:18.164Z"
   }
  ],
  "polls": [
@@ -235,6 +235,64 @@
    ],
    "others_pct": null,
    "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "36607d6b92ae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-08-18",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 826,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 16
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 16
+    },
+    {
+     "candidate": "Júlio César",
+     "party": "PSD",
+     "pct": 14
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 4
+    },
+    {
+     "candidate": "Francinaldo Leão",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Pedro Laurentino",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Jorge Lopes",
+     "party": "PSDB",
+     "pct": 2
+    }
+   ],
+   "others_pct": 11,
+   "undecided_pct": 34,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -466,6 +524,54 @@
     }
    ],
    "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d6cac6182463",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-08-18",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 826,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rafael Fonteles",
+     "party": "PT",
+     "pct": 56
+    },
+    {
+     "candidate": "Joel Rodrigues",
+     "party": "PP",
+     "pct": 21
+    },
+    {
+     "candidate": "Elizeu Aguiar",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Professor Gisvaldo",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Dra. Lúcia Santos",
+     "party": "PSDB",
+     "pct": 2
+    }
+   ],
+   "others_pct": 6,
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
@@ -1304,7 +1410,7 @@
      "pct": 4
     },
     {
-     "candidate": "Marco Antônio Costa",
+     "candidate": "Marco Antônio Superman",
      "party": "Novo",
      "pct": 3
     },
@@ -6541,7 +6647,50 @@
    "incomplete": true
   },
   {
-   "id": "69f01c75ad92",
+   "id": "76e8d420233e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-06",
+   "fieldwork_end": "2026-08-10",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 25
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 15
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 15
+    }
+   ],
+   "others_pct": 8,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "97df782031b6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
    "integra_url": null,
@@ -6585,49 +6734,6 @@
    ],
    "others_pct": 0.8,
    "undecided_pct": 32,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "76e8d420233e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-06",
-   "fieldwork_end": "2026-08-10",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 25
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 15
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 15
-    }
-   ],
-   "others_pct": 8,
-   "undecided_pct": 17,
    "blank_null_pct": null,
    "tse_registration": null
   },

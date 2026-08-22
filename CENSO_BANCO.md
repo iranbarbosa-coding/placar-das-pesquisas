@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1076 levantamentos · 3567 perguntas · 141 institutos · 1175 candidatos**.
+Banco: **1077 levantamentos · 3569 perguntas · 141 institutos · 1175 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -200,20 +200,20 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_69bf17c316c8 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
-- person_id_orphaned · p_9db3b8520a61 · person_id: "p_9db3b8520a61" × null
-- person_id_orphaned · p_0df77d73654b · person_id: "p_0df77d73654b" × null
-- person_id_orphaned · p_04c1cae08116 · person_id: "p_04c1cae08116" × null
-- person_id_orphaned · p_ce7b1f3a0624 · person_id: "p_ce7b1f3a0624" × null
-- person_id_orphaned · p_b00f55b2649b · person_id: "p_b00f55b2649b" × null
-- person_id_orphaned · p_25c8a14a6cf7 · person_id: "p_25c8a14a6cf7" × null
-- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
-- person_id_orphaned · p_83148ed4814f · person_id: "p_83148ed4814f" × null
-- person_id_orphaned · p_810e744e9441 · person_id: "p_810e744e9441" × null
-- person_id_orphaned · p_a93e4437e934 · person_id: "p_a93e4437e934" × null
-- person_id_orphaned · p_5b68629046a8 · person_id: "p_5b68629046a8" × null
-- person_id_orphaned · p_0f60bd6eb110 · person_id: "p_0f60bd6eb110" × null
-- person_id_orphaned · p_ad1729f208bd · person_id: "p_ad1729f208bd" × null
-- person_id_orphaned · p_4c5bed645c61 · person_id: "p_4c5bed645c61" × null
+- person_id_orphaned · p_d5428757615f · person_id: "p_d5428757615f" × null
+- person_id_orphaned · p_323994772f08 · person_id: "p_323994772f08" × null
+- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
+- person_id_orphaned · p_55f646657c2c · person_id: "p_55f646657c2c" × null
+- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
+- person_id_orphaned · p_108ab8796cc1 · person_id: "p_108ab8796cc1" × null
+- person_id_orphaned · p_6b71c0d7e999 · person_id: "p_6b71c0d7e999" × null
+- person_id_orphaned · p_143379e4ef75 · person_id: "p_143379e4ef75" × null
+- person_id_orphaned · p_da6c5c2946ee · person_id: "p_da6c5c2946ee" × null
+- person_id_orphaned · p_1262d23f73d4 · person_id: "p_1262d23f73d4" × null
+- person_id_orphaned · p_ec251a15a8cf · person_id: "p_ec251a15a8cf" × null
+- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
+- person_id_orphaned · p_8628635825fd · person_id: "p_8628635825fd" × null
+- person_id_orphaned · p_aa9ef8d0a493 · person_id: "p_aa9ef8d0a493" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
 
