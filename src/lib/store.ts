@@ -17,6 +17,27 @@ import type { Poll, PollDataset, RaceKind, UF } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
+// ── Universe ledger ─────────────────────────────────────────────────────────
+// KEEP IN LOCKSTEP WITH `scripts/lib/project.mjs`. The cited, blind-certified
+// ledger `data/universe-verdicts.json` says which surveys are a single
+// MUNICIPALITY though filed under a state contest. Its `municipal` subset is the
+// gate's allowlist; a poll of one of those surveys is stamped `municipal` here
+// and kept out of the state/national average by `geographyAverageable` (see
+// src/lib/universe.ts and src/lib/average.ts). Read once, by survey_id.
+function loadMunicipalLedger(dir: string = DATA_DIR): Map<string, string | null> {
+  const file = path.join(dir, "universe-verdicts.json");
+  const m = new Map<string, string | null>();
+  if (!fs.existsSync(file)) return m;
+  const doc = JSON.parse(fs.readFileSync(file, "utf-8")) as {
+    certified?: { survey_id: string; verdict: string; municipio: string | null }[];
+  };
+  for (const e of doc.certified ?? []) {
+    if (e.verdict === "municipal") m.set(e.survey_id, e.municipio ?? null);
+  }
+  return m;
+}
+const MUNICIPAL_LEDGER = loadMunicipalLedger();
+
 // ── Store record shapes ────────────────────────────────────────────────────
 // Only the fields the projection reads are typed. The store carries many more
 // (provenance, crosstab status, mint seeds); leaving them out here keeps this
@@ -198,6 +219,9 @@ export function projectPolls(store: Store): Poll[] {
       blank_null_pct: q.blank_null_pct ?? null,
       tse_registration: normalizeRegistration(s.tse_registration),
       ...(incompleteFlag(q) ? { incomplete: true } : {}),
+      ...(MUNICIPAL_LEDGER.has(q.survey_id)
+        ? { municipal: { municipio: MUNICIPAL_LEDGER.get(q.survey_id) ?? null } }
+        : {}),
       ...(q.parse_warnings?.length ? { parse_warnings: q.parse_warnings.join("; ") } : {}),
       ...(q.repaired ? { repaired: q.repaired } : {}),
     });

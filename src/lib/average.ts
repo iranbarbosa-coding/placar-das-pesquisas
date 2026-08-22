@@ -6,6 +6,7 @@ import type {
 } from "./types";
 import { type Basis, setAside, toBasis } from "./validos";
 import { averageable } from "./senado";
+import { geographyAverageable } from "./universe";
 
 // RCP-style average: for each contest (seat + scenario), the mean of each
 // candidate's numbers across the LATEST_N most recent polls of that contest,
@@ -164,7 +165,14 @@ export function computeAverage(
   //     2026-08-16); mixing the two conventions made 24 of 27 senate averages
   //     meaningless. Both kinds still appear in the table, marked, below the
   //     average.
-  const usable = polls.filter((p) => !p.incomplete && averageable(p));
+  //   `geographyAverageable` — the sample must cover the contest's geography. A
+  //     municipal survey (one city) certified into the ledger measures a town's
+  //     electorate, not the state's, so it is a null statistic for the state
+  //     race (Iran, 2026-08-18). Same treatment: kept in the DB and table below,
+  //     marked. See `./universe`.
+  const usable = polls.filter(
+    (p) => !p.incomplete && averageable(p) && geographyAverageable(p),
+  );
   if (!usable.length) return null;
   // CONVERT EACH POLL, THEN AVERAGE — never the reverse. Done here, once, so
   // every number downstream (window, trendline, spread, badge) is on one basis
