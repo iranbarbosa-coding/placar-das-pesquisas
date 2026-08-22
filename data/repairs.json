@@ -3628,6 +3628,1445 @@
    },
    "expect_sum": 100,
    "_nota_registro": "⚠ REGISTRO IMPRESSO SÓ NA CAPA E SÓ UM: 'BR-05205/2026' (sem TRE-BA no documento; PesqEle: REAL TIME MIDIA LTDA, cargo Presidente, campo 06-10/08, n=1600, divulgação 11/08 — snapshot em data-research/cobertura-presidencial/registros-pres-br.json). tse_registration fica NULO por MECÂNICA, medida em 22/08/2026 (o método da nota do Veritá/RR): as linhas irmãs governador/senador desta operação (76e8d420233e, cec977465251, fa1312d5c1ed, via Wikipédia) vivem no levantamento s_65457792573e, de semente nat ('survey|nat|i_963e1bb83cc4|BA|2026-08-10|1600|…') com registro NULO. Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 (instituto + UF + data + n; o elenco não contradiz porque não há pergunta presidencial lá) e NÃO escreve nada no registro dele — a prova base×branch desta rodada (rebuild integral, 22/08/2026) mediu a junção ao s_65457792573e com o registro nulo dele intacto e zero id movido. Escrever 'BR-05205/2026' faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, a classe estrutural do CONVENTIONS §8b; efeito MEDIDO em ensaio de 22/08/2026: com BR-05205/2026 nas duas entradas, o campo tse_registration do s_65457792573e sai do build preenchido (null → BR-05205/2026); com nulo, sai nulo. ⚠ E a enumeração de lacunas dá ao nativo 13811 um TERCEIRO protocolo, 'BA-00277/2026' — divergência entre a capa (BR-05205) e a enumeração (BA-00277) anotada AQUI, como impressa, sem resolução (§4)."
+  },
+  {
+   "match": {
+    "pollster": "Badra",
+    "race": "presidente",
+    "state": "DF",
+    "round": 1,
+    "fieldwork_end": "2026-07-31"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (cenário único) do relatório-integra Instituto Badra (DF, 41 pp), AUSENTE do banco. Cenário: 1º turno (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/brada-comunicacao-df-presidente-6ago2026.pdf",
+   "evidence": "p.16 (gráfico) e p.17 (crosstab 'ESTIMULADO - CENÁRIO ÚNICO') concordantes; único cenário presidencial (espontânea/alternativos do doc são de Senador). Baldes: 'Não sei dizer' 10,2→undecided; 'Branco/Nulo' 4,2 + 'Ninguém/Nenhum' 6,9 = 11,1→blank_null (combinado, como RN); sem 'Outros'→others NULO. Partido NÃO impresso por candidato→party null (fiel). LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Badra",
+    "race": "presidente",
+    "state": "DF",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-07-29",
+    "fieldwork_end": "2026-07-31",
+    "published_date": null,
+    "sample_size": 1060,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-08246/2026",
+    "results": [
+     {
+      "candidate": "Flavio Bolsonaro",
+      "party": null,
+      "pct": 33.8
+     },
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 29.3
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 11.0
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": null,
+      "pct": 2.1
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": null,
+      "pct": 2.0
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": null,
+      "pct": 0.3
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": null,
+      "pct": 0.1
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": null,
+      "pct": 0.1
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": null,
+      "pct": 0.1
+     },
+     {
+      "candidate": "Clariana Barão",
+      "party": null,
+      "pct": 0.0
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": null,
+      "pct": 0.0
+     },
+     {
+      "candidate": "Heró Bezerra",
+      "party": null,
+      "pct": 0.0
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": null,
+      "pct": 0.0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 10.2,
+    "blank_null_pct": 11.1
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Doc imprime BR-08246/2026 (presidencial) e DF-09433/2026 (estadual); guardado BR-08246/2026. Sem irmão no banco → minta 1 survey novo. [JOIN: MINT (nenhum survey Badra:DF no banco 2fac296); irmão gov/sen desta operação também ausente.]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PE",
+    "round": 1,
+    "fieldwork_end": "2026-07-30"
+   },
+   "defect": "Bloco presidencial (estimulada cen01 + 2º turno) do relatório-integra RTBD/PE (17 pp), AUSENTE do banco (operação já tem gov+sen). Cenário: 1º turno — cenário 01 (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-presidente-pe-31jul2026.pdf",
+   "evidence": "p.7 'CENARIO 01'. 'Nulo/Branco' 3→blank_null; 'NS/NR' 3→undecided; 'Outros' 1→others (rodapé 6 nomes=1%). LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PE",
+    "round": 1,
+    "scenario": "1º turno — cenário 01",
+    "contractor": null,
+    "fieldwork_start": "2026-07-27",
+    "fieldwork_end": "2026-07-30",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2.0,
+    "tse_registration": "PE-08413/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 58
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 22
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 5
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 4
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 2
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 1
+     }
+    ],
+    "others_pct": 1,
+    "undecided_pct": 3,
+    "blank_null_pct": 3
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Gêmeo presidencial é BR-08354/2026 (TSE); guardá-lo PARTIRIA a operação (degrau-3 recusa reg divergente). Guardado PE-08413/2026 (do irmão) p/ juntar por degrau-2. BR-08354/2026 anotado. [JOIN: JOIN s_7b8ec1919b (RTBD/PE gov+sen 27-30/07, PE-08413/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PE",
+    "round": 2,
+    "fieldwork_end": "2026-07-30",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Bloco presidencial (estimulada cen01 + 2º turno) do relatório-integra RTBD/PE (17 pp), AUSENTE do banco (operação já tem gov+sen). Cenário: 2º turno — Lula x Flávio Bolsonaro (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-presidente-pe-31jul2026.pdf",
+   "evidence": "p.12 2º turno. 'Nulo/Branco' 3→blank_null; 'NS/NR' 3→undecided. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PE",
+    "round": 2,
+    "scenario": "2º turno — Lula x Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-07-27",
+    "fieldwork_end": "2026-07-30",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2.0,
+    "tse_registration": "PE-08413/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 61
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 33
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 3,
+    "blank_null_pct": 3
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Gêmeo presidencial é BR-08354/2026 (TSE); guardá-lo PARTIRIA a operação (degrau-3 recusa reg divergente). Guardado PE-08413/2026 (do irmão) p/ juntar por degrau-2. BR-08354/2026 anotado. [JOIN: JOIN s_7b8ec1919b (RTBD/PE gov+sen 27-30/07, PE-08413/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "MS",
+    "round": 1,
+    "fieldwork_end": "2026-08-05"
+   },
+   "defect": "Bloco presidencial (estimulada + 2º turno) do relatório-integra RTBD/MS (17 pp), AUSENTE do banco. Instituto não impresso no PDF (vem do registro). Cenário: 1º turno (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/presidente-mato-grosso-do-sul-real-time-big-data-6ago.pdf",
+   "evidence": "p. estimulada. 'Nulo/Branco' 5→blank_null; 'NS/NR' 3→undecided; 'Outros' 1→others (rodapé 6 nomes=1%). LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "MS",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-08-01",
+    "fieldwork_end": "2026-08-05",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-01784/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 42
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 34
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 7
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 6
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     }
+    ],
+    "others_pct": 1,
+    "undecided_pct": 3,
+    "blank_null_pct": 5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Irmão sem registro → guardar BR-01784/2026 não gera contradição; degrau-3 junta e fillFields grava o reg sem mover id (medido no §8b da sub-batch 1). [JOIN: JOIN s_e6f38e7e9c (RTBD/MS gov+sen 01-05/08, SEM reg) por chave natural; fillFields faz backfill de BR-01784/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "MS",
+    "round": 2,
+    "fieldwork_end": "2026-08-05",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Bloco presidencial (estimulada + 2º turno) do relatório-integra RTBD/MS (17 pp), AUSENTE do banco. Instituto não impresso no PDF (vem do registro). Cenário: 2º turno — Flávio Bolsonaro x Lula (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/presidente-mato-grosso-do-sul-real-time-big-data-6ago.pdf",
+   "evidence": "p.12 2º turno (texto cru embaralhou; render confirma Lula 38 / Flávio 50). 'Nulo/Branco' 7→blank_null; 'NS/NR' 5→undecided. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "MS",
+    "round": 2,
+    "scenario": "2º turno — Flávio Bolsonaro x Lula",
+    "contractor": null,
+    "fieldwork_start": "2026-08-01",
+    "fieldwork_end": "2026-08-05",
+    "published_date": null,
+    "sample_size": 1600,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-01784/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 50
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 38
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5,
+    "blank_null_pct": 7
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Irmão sem registro → guardar BR-01784/2026 não gera contradição; degrau-3 junta e fillFields grava o reg sem mover id (medido no §8b da sub-batch 1). [JOIN: JOIN s_e6f38e7e9c (RTBD/MS gov+sen 01-05/08, SEM reg) por chave natural; fillFields faz backfill de BR-01784/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "fieldwork_end": "2026-02-03",
+    "has_candidate": "Ratinho Jr"
+   },
+   "defect": "Bloco presidencial (espontânea + 3 estimuladas) do relatório-integra RTBD/PA (26 pp). Espontânea NÃO se guarda; as 3 estimuladas (cen1/2/3) diferem só no 3º nome PSD e são cenários distintos declarados. Cenário: 1º turno — cenário 01 (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-realtimebigdata-para-presidente-5.fev_.2026.pdf",
+   "evidence": "p. estimulada C1. 'Nulo/Branco' 9→blank_null; 'NS/NR' 13→undecided. Inteiros. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "scenario": "1º turno — cenário 01",
+    "contractor": null,
+    "fieldwork_start": "2026-02-02",
+    "fieldwork_end": "2026-02-03",
+    "published_date": null,
+    "sample_size": 2000,
+    "margin_of_error": 2.0,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 43
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 25
+     },
+     {
+      "candidate": "Ratinho Jr",
+      "party": "PSD",
+      "pct": 7
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 1
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 13,
+    "blank_null_pct": 9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ Irmão tem reg em PIPE 'BR-06815/2026|PA-04089/2026' — guardar 'BR-06815/2026' PARTE a operação (a guarda de contradição do degrau-3 vê reg divergente; medido no §8b: mintava survey duplicado). Guardado reg NULO → junta por chave natural (pollster+uf+campo), sem contradição; o irmão já carrega o reg. PDF presidencial diz campo 02-03/02 (fiel); irmão diz 03-04/02 — discrepância de 1 dia anotada, resolve dentro da janela ±3d. [JOIN: JOIN o irmão RTBD/PA gov+sen (reg 'BR-06815/2026|PA-04089/2026', campo 03-04/02) por CHAVE NATURAL, reg NULO.]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "fieldwork_end": "2026-02-03",
+    "has_candidate": "Eduardo Leite"
+   },
+   "defect": "Bloco presidencial (espontânea + 3 estimuladas) do relatório-integra RTBD/PA (26 pp). Espontânea NÃO se guarda; as 3 estimuladas (cen1/2/3) diferem só no 3º nome PSD e são cenários distintos declarados. Cenário: 1º turno — cenário 02 (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-realtimebigdata-para-presidente-5.fev_.2026.pdf",
+   "evidence": "C2 (3º nome PSD = Eduardo Leite). 'Nulo/Branco' 9→blank_null; 'NS/NR' 14→undecided. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "scenario": "1º turno — cenário 02",
+    "contractor": null,
+    "fieldwork_start": "2026-02-02",
+    "fieldwork_end": "2026-02-03",
+    "published_date": null,
+    "sample_size": 2000,
+    "margin_of_error": 2.0,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 46
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 27
+     },
+     {
+      "candidate": "Eduardo Leite",
+      "party": "PSD",
+      "pct": 1
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 1
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 14,
+    "blank_null_pct": 9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ Irmão tem reg em PIPE 'BR-06815/2026|PA-04089/2026' — guardar 'BR-06815/2026' PARTE a operação (a guarda de contradição do degrau-3 vê reg divergente; medido no §8b: mintava survey duplicado). Guardado reg NULO → junta por chave natural (pollster+uf+campo), sem contradição; o irmão já carrega o reg. PDF presidencial diz campo 02-03/02 (fiel); irmão diz 03-04/02 — discrepância de 1 dia anotada, resolve dentro da janela ±3d. [JOIN: JOIN o irmão RTBD/PA gov+sen (reg 'BR-06815/2026|PA-04089/2026', campo 03-04/02) por CHAVE NATURAL, reg NULO.]"
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "fieldwork_end": "2026-02-03",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Bloco presidencial (espontânea + 3 estimuladas) do relatório-integra RTBD/PA (26 pp). Espontânea NÃO se guarda; as 3 estimuladas (cen1/2/3) diferem só no 3º nome PSD e são cenários distintos declarados. Cenário: 1º turno — cenário 03 (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/2026/02/pesquisa-realtimebigdata-para-presidente-5.fev_.2026.pdf",
+   "evidence": "C3 (3º nome PSD = Ronaldo Caiado). 'Nulo/Branco' 9→blank_null; 'NS/NR' 13→undecided. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "scenario": "1º turno — cenário 03",
+    "contractor": null,
+    "fieldwork_start": "2026-02-02",
+    "fieldwork_end": "2026-02-03",
+    "published_date": null,
+    "sample_size": 2000,
+    "margin_of_error": 2.0,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 44
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 26
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 5
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 1
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 13,
+    "blank_null_pct": 9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "⚠ Irmão tem reg em PIPE 'BR-06815/2026|PA-04089/2026' — guardar 'BR-06815/2026' PARTE a operação (a guarda de contradição do degrau-3 vê reg divergente; medido no §8b: mintava survey duplicado). Guardado reg NULO → junta por chave natural (pollster+uf+campo), sem contradição; o irmão já carrega o reg. PDF presidencial diz campo 02-03/02 (fiel); irmão diz 03-04/02 — discrepância de 1 dia anotada, resolve dentro da janela ±3d. [JOIN: JOIN o irmão RTBD/PA gov+sen (reg 'BR-06815/2026|PA-04089/2026', campo 03-04/02) por CHAVE NATURAL, reg NULO.]"
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 1,
+    "fieldwork_end": "2026-08-01"
+   },
+   "defect": "Bloco presidencial (Q15 estimulada + Q16-Q19 quatro 2º turnos) do relatório-integra Veritá/PR (37 pp, SPSS). SEM espontânea presidencial. REGRA SPSS: guardado a coluna PORCENTUAL (base = amostra inteira n=2010), NÃO a 'porcentagem válida' (precedente RR Veritá): é a que fecha ~100 com os baldes NS/NR e Branco/nulo. Cenário: 1º turno (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
+   "evidence": "Q15 (p.27). Coluna PORCENTUAL. 'Branco/nulo' 2,5→blank_null; 'NS/NR' 26,8→undecided. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "sample_size": 2010,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-02249/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 38.3
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 20.7
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 3.3
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 3.2
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2.5
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 1.1
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 0.6
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "DC",
+      "pct": 0.5
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0.3
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct": 0.2
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 26.8,
+    "blank_null_pct": 2.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Presidencial e senador (ofícios federais) sob BR-02249/2026 (TSE); governador (estadual) sob PR-03910/2026 — split de jurisdição pré-existente, não causado aqui. Guardado BR-02249/2026 → junta ao lado senador. [JOIN: JOIN s_aa49a39941 (Veritá/PR SENADOR, BR-02249/2026, 28/07-01/08). Governador está separado em s_9ed78342b7 (PR-03910) — split federal×estadual pré-existente.]"
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "fieldwork_end": "2026-08-01",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Bloco presidencial (Q15 estimulada + Q16-Q19 quatro 2º turnos) do relatório-integra Veritá/PR (37 pp, SPSS). SEM espontânea presidencial. REGRA SPSS: guardado a coluna PORCENTUAL (base = amostra inteira n=2010), NÃO a 'porcentagem válida' (precedente RR Veritá): é a que fecha ~100 com os baldes NS/NR e Branco/nulo. Cenário: 2º turno — Ronaldo Caiado x Lula (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
+   "evidence": "Q16. PORCENTUAL. NS/NR 40,5→undecided; Branco/nulo 11,5→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "scenario": "2º turno — Ronaldo Caiado x Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "sample_size": 2010,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-02249/2026",
+    "results": [
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 25.4
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 22.6
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 40.5,
+    "blank_null_pct": 11.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Presidencial e senador (ofícios federais) sob BR-02249/2026 (TSE); governador (estadual) sob PR-03910/2026 — split de jurisdição pré-existente, não causado aqui. Guardado BR-02249/2026 → junta ao lado senador. [JOIN: JOIN s_aa49a39941 (Veritá/PR SENADOR, BR-02249/2026, 28/07-01/08). Governador está separado em s_9ed78342b7 (PR-03910) — split federal×estadual pré-existente.]"
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "fieldwork_end": "2026-08-01",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Bloco presidencial (Q15 estimulada + Q16-Q19 quatro 2º turnos) do relatório-integra Veritá/PR (37 pp, SPSS). SEM espontânea presidencial. REGRA SPSS: guardado a coluna PORCENTUAL (base = amostra inteira n=2010), NÃO a 'porcentagem válida' (precedente RR Veritá): é a que fecha ~100 com os baldes NS/NR e Branco/nulo. Cenário: 2º turno — Flávio Bolsonaro x Lula (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
+   "evidence": "Q17. PORCENTUAL. NS/NR 26,7→undecided; Branco/nulo 4,5→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "scenario": "2º turno — Flávio Bolsonaro x Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "sample_size": 2010,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-02249/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 45.3
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 23.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 26.7,
+    "blank_null_pct": 4.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Presidencial e senador (ofícios federais) sob BR-02249/2026 (TSE); governador (estadual) sob PR-03910/2026 — split de jurisdição pré-existente, não causado aqui. Guardado BR-02249/2026 → junta ao lado senador. [JOIN: JOIN s_aa49a39941 (Veritá/PR SENADOR, BR-02249/2026, 28/07-01/08). Governador está separado em s_9ed78342b7 (PR-03910) — split federal×estadual pré-existente.]"
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "fieldwork_end": "2026-08-01",
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "Bloco presidencial (Q15 estimulada + Q16-Q19 quatro 2º turnos) do relatório-integra Veritá/PR (37 pp, SPSS). SEM espontânea presidencial. REGRA SPSS: guardado a coluna PORCENTUAL (base = amostra inteira n=2010), NÃO a 'porcentagem válida' (precedente RR Veritá): é a que fecha ~100 com os baldes NS/NR e Branco/nulo. Cenário: 2º turno — Romeu Zema x Lula (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
+   "evidence": "Q18. PORCENTUAL. NS/NR 37,2→undecided; Branco/nulo 10,4→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "scenario": "2º turno — Romeu Zema x Lula",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "sample_size": 2010,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-02249/2026",
+    "results": [
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 29.3
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 23.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 37.2,
+    "blank_null_pct": 10.4
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Presidencial e senador (ofícios federais) sob BR-02249/2026 (TSE); governador (estadual) sob PR-03910/2026 — split de jurisdição pré-existente, não causado aqui. Guardado BR-02249/2026 → junta ao lado senador. [JOIN: JOIN s_aa49a39941 (Veritá/PR SENADOR, BR-02249/2026, 28/07-01/08). Governador está separado em s_9ed78342b7 (PR-03910) — split federal×estadual pré-existente.]"
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "fieldwork_end": "2026-08-01",
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Bloco presidencial (Q15 estimulada + Q16-Q19 quatro 2º turnos) do relatório-integra Veritá/PR (37 pp, SPSS). SEM espontânea presidencial. REGRA SPSS: guardado a coluna PORCENTUAL (base = amostra inteira n=2010), NÃO a 'porcentagem válida' (precedente RR Veritá): é a que fecha ~100 com os baldes NS/NR e Branco/nulo. Cenário: 2º turno — Lula x Renan Santos (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
+   "evidence": "Q19. PORCENTUAL. NS/NR 39,2→undecided; Branco/nulo 16,5→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PR",
+    "round": 2,
+    "scenario": "2º turno — Lula x Renan Santos",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "sample_size": 2010,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-02249/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 23.1
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 21.2
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 39.2,
+    "blank_null_pct": 16.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Presidencial e senador (ofícios federais) sob BR-02249/2026 (TSE); governador (estadual) sob PR-03910/2026 — split de jurisdição pré-existente, não causado aqui. Guardado BR-02249/2026 → junta ao lado senador. [JOIN: JOIN s_aa49a39941 (Veritá/PR SENADOR, BR-02249/2026, 28/07-01/08). Governador está separado em s_9ed78342b7 (PR-03910) — split federal×estadual pré-existente.]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 1,
+    "fieldwork_end": "2026-07-25"
+   },
+   "defect": "Bloco presidencial (estimulada p102 + 4×2º turno p113) do integra Genial/Quaest RJ (146 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) impresso VAZIO (sem nº, sem barra) → OMITIDO (≠ 0). Cenário: 1º turno (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "evidence": "p.102. Indecisos 13→undecided; 'Branco/Nulo/Não vai votar' 15→blank_null. Hertz Dias omitido (célula vazia). Inteiros. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-21",
+    "fieldwork_end": "2026-07-25",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3.0,
+    "tse_registration": "RJ-02671/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 32
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 30
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 3
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 2
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 1
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct": 1
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0
+     },
+     {
+      "candidate": "Leonardo Avalanche",
+      "party": "PRTB",
+      "pct": 0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 13,
+    "blank_null_pct": 15
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro TSE; faltante dá BR-07670/2026 (gêmeo presidencial). Guardar BR-07670 PARTIRIA a operação (irmão tem RJ-02671). Guardado RJ-02671/2026 p/ juntar. BR-07670/2026 anotado. [JOIN: JOIN s_d9ef3a6663 (Quaest/RJ gov+sen 21-25/07, RJ-02671/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "fieldwork_end": "2026-07-25",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Bloco presidencial (estimulada p102 + 4×2º turno p113) do integra Genial/Quaest RJ (146 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) impresso VAZIO (sem nº, sem barra) → OMITIDO (≠ 0). Cenário: 2º turno — Flávio Bolsonaro x Lula (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "evidence": "p.113 Cenário I. Indecisos 8→undecided; Branco/Nulo 19→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "scenario": "2º turno — Flávio Bolsonaro x Lula",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-21",
+    "fieldwork_end": "2026-07-25",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3.0,
+    "tse_registration": "RJ-02671/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 38
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 8,
+    "blank_null_pct": 19
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro TSE; faltante dá BR-07670/2026 (gêmeo presidencial). Guardar BR-07670 PARTIRIA a operação (irmão tem RJ-02671). Guardado RJ-02671/2026 p/ juntar. BR-07670/2026 anotado. [JOIN: JOIN s_d9ef3a6663 (Quaest/RJ gov+sen 21-25/07, RJ-02671/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "fieldwork_end": "2026-07-25",
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "Bloco presidencial (estimulada p102 + 4×2º turno p113) do integra Genial/Quaest RJ (146 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) impresso VAZIO (sem nº, sem barra) → OMITIDO (≠ 0). Cenário: 2º turno — Lula x Romeu Zema (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "evidence": "p.113 Cenário II. Indecisos 9→undecided; Branco/Nulo 33→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "scenario": "2º turno — Lula x Romeu Zema",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-21",
+    "fieldwork_end": "2026-07-25",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3.0,
+    "tse_registration": "RJ-02671/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 36
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 22
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 33
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro TSE; faltante dá BR-07670/2026 (gêmeo presidencial). Guardar BR-07670 PARTIRIA a operação (irmão tem RJ-02671). Guardado RJ-02671/2026 p/ juntar. BR-07670/2026 anotado. [JOIN: JOIN s_d9ef3a6663 (Quaest/RJ gov+sen 21-25/07, RJ-02671/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "fieldwork_end": "2026-07-25",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Bloco presidencial (estimulada p102 + 4×2º turno p113) do integra Genial/Quaest RJ (146 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) impresso VAZIO (sem nº, sem barra) → OMITIDO (≠ 0). Cenário: 2º turno — Lula x Ronaldo Caiado (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "evidence": "p.113 Cenário III. Indecisos 9→undecided; Branco/Nulo 33→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "scenario": "2º turno — Lula x Ronaldo Caiado",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-21",
+    "fieldwork_end": "2026-07-25",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3.0,
+    "tse_registration": "RJ-02671/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 36
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 22
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 33
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro TSE; faltante dá BR-07670/2026 (gêmeo presidencial). Guardar BR-07670 PARTIRIA a operação (irmão tem RJ-02671). Guardado RJ-02671/2026 p/ juntar. BR-07670/2026 anotado. [JOIN: JOIN s_d9ef3a6663 (Quaest/RJ gov+sen 21-25/07, RJ-02671/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "fieldwork_end": "2026-07-25",
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Bloco presidencial (estimulada p102 + 4×2º turno p113) do integra Genial/Quaest RJ (146 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) impresso VAZIO (sem nº, sem barra) → OMITIDO (≠ 0). Cenário: 2º turno — Lula x Renan Santos (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "evidence": "p.113 Cenário IV. Indecisos 9→undecided; Branco/Nulo 37→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "RJ",
+    "round": 2,
+    "scenario": "2º turno — Lula x Renan Santos",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-21",
+    "fieldwork_end": "2026-07-25",
+    "published_date": null,
+    "sample_size": 1200,
+    "margin_of_error": 3.0,
+    "tse_registration": "RJ-02671/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 19
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 37
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro TSE; faltante dá BR-07670/2026 (gêmeo presidencial). Guardar BR-07670 PARTIRIA a operação (irmão tem RJ-02671). Guardado RJ-02671/2026 p/ juntar. BR-07670/2026 anotado. [JOIN: JOIN s_d9ef3a6663 (Quaest/RJ gov+sen 21-25/07, RJ-02671/2026).]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 1,
+    "fieldwork_end": "2026-07-27"
+   },
+   "defect": "Bloco presidencial (estimulada p72 + 4×2º turno p83) do integra Genial/Quaest SP (116 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) VAZIO → OMITIDO. Cenário: 1º turno (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "evidence": "p.72. Indecisos 10→undecided; 'Branco/Nulo/Não vai votar' 13→blank_null. Hertz Dias omitido. Inteiros. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1650,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-09998/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 34
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 30
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 3
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 3
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 3
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 2
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 1
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct": 1
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0
+     },
+     {
+      "candidate": "Leonardo Avalanche",
+      "party": "PRTB",
+      "pct": 0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 10,
+    "blank_null_pct": 13
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro; irmão sem reg. Guardar BR-09998/2026 (faltante) não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_4d5a968743 (Quaest/SP gov+sen 23-27/07, SEM reg) por chave natural; fillFields backfilla BR-09998/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Bloco presidencial (estimulada p72 + 4×2º turno p83) do integra Genial/Quaest SP (116 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) VAZIO → OMITIDO. Cenário: 2º turno — Flávio Bolsonaro x Lula (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "evidence": "p.83 Cenário I. Indecisos 7→undecided; Branco/Nulo 18→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "scenario": "2º turno — Flávio Bolsonaro x Lula",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1650,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-09998/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 40
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 7,
+    "blank_null_pct": 18
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro; irmão sem reg. Guardar BR-09998/2026 (faltante) não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_4d5a968743 (Quaest/SP gov+sen 23-27/07, SEM reg) por chave natural; fillFields backfilla BR-09998/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "Bloco presidencial (estimulada p72 + 4×2º turno p83) do integra Genial/Quaest SP (116 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) VAZIO → OMITIDO. Cenário: 2º turno — Lula x Romeu Zema (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "evidence": "p.83 Cenário II. Indecisos 9→undecided; Branco/Nulo 23→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "scenario": "2º turno — Lula x Romeu Zema",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1650,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-09998/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 33
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 23
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro; irmão sem reg. Guardar BR-09998/2026 (faltante) não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_4d5a968743 (Quaest/SP gov+sen 23-27/07, SEM reg) por chave natural; fillFields backfilla BR-09998/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Bloco presidencial (estimulada p72 + 4×2º turno p83) do integra Genial/Quaest SP (116 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) VAZIO → OMITIDO. Cenário: 2º turno — Lula x Ronaldo Caiado (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "evidence": "p.83 Cenário III. Indecisos 9→undecided; Branco/Nulo 22→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "scenario": "2º turno — Lula x Ronaldo Caiado",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1650,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-09998/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 34
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 22
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro; irmão sem reg. Guardar BR-09998/2026 (faltante) não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_4d5a968743 (Quaest/SP gov+sen 23-27/07, SEM reg) por chave natural; fillFields backfilla BR-09998/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "fieldwork_end": "2026-07-27",
+    "has_candidate": "Renan Santos"
+   },
+   "defect": "Bloco presidencial (estimulada p72 + 4×2º turno p83) do integra Genial/Quaest SP (116 pp). Espontânea NÃO se guarda. Hertz Dias (PSTU) VAZIO → OMITIDO. Cenário: 2º turno — Lula x Renan Santos (round 2). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "evidence": "p.83 Cenário IV. Indecisos 9→undecided; Branco/Nulo 25→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": "SP",
+    "round": 2,
+    "scenario": "2º turno — Lula x Renan Santos",
+    "contractor": "Genial Investimentos",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "sample_size": 1650,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-09998/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 36
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 30
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 9,
+    "blank_null_pct": 25
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Deck NÃO imprime registro; irmão sem reg. Guardar BR-09998/2026 (faltante) não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_4d5a968743 (Quaest/SP gov+sen 23-27/07, SEM reg) por chave natural; fillFields backfilla BR-09998/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "ES",
+    "round": 1,
+    "fieldwork_end": "2025-08-17",
+    "has_candidate": "Michelle Bolsonaro"
+   },
+   "defect": "Bloco presidencial estimulado cenários 2 e 3 do relatório Paraná Pesquisas/ES (18 pp, campo 13-17/08/2025). Cenário 1 JÁ está no banco (s_f3508f583e). Espontânea não se guarda. party não impresso→null. Cenário: 1º turno — cenário 2 (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
+   "evidence": "p.10 (cen 2, com Michelle). 'Nenhum/Branco/Nulo' 7,9→blank_null; 'Não sabe/não opinou' 5,0→undecided. (o cen1 já no banco combinou os dois em undecided; aqui mapeio separado, fiel). LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "ES",
+    "round": 1,
+    "scenario": "1º turno — cenário 2",
+    "contractor": null,
+    "fieldwork_start": "2025-08-13",
+    "fieldwork_end": "2025-08-17",
+    "published_date": null,
+    "sample_size": 1510,
+    "margin_of_error": 2.6,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Michelle Bolsonaro",
+      "party": null,
+      "pct": 34.7
+     },
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 33.0
+     },
+     {
+      "candidate": "Ciro Gomes",
+      "party": null,
+      "pct": 9.4
+     },
+     {
+      "candidate": "Ratinho Junior",
+      "party": null,
+      "pct": 4.7
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 4.2
+     },
+     {
+      "candidate": "Renan Filho",
+      "party": null,
+      "pct": 1.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5.0,
+    "blank_null_pct": 7.9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Doc SEM registro TSE (pesquisa ago/2025, intenção Executivo Federal 2026). Junta por chave natural ao s_f3508f583e existente (Paraná/ES, campo end 2025-08-17). sha256 do PDF confere. Escopo aprovado pelo criador. FORA do contador de cobertura (campo 2025). [JOIN: JOIN s_f3508f583e (Paraná/ES 2025, SEM reg; JÁ tem presidente cen1) por chave natural. Só cen2+cen3 novos (cen1 já no banco; espontânea não se guarda).]"
+  },
+  {
+   "match": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "ES",
+    "round": 1,
+    "fieldwork_end": "2025-08-17",
+    "has_candidate": "Tarcísio de Freitas"
+   },
+   "defect": "Bloco presidencial estimulado cenários 2 e 3 do relatório Paraná Pesquisas/ES (18 pp, campo 13-17/08/2025). Cenário 1 JÁ está no banco (s_f3508f583e). Espontânea não se guarda. party não impresso→null. Cenário: 1º turno — cenário 3 (round 1). §1 Onda 2, 2026-08-22.",
+   "source": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
+   "evidence": "p.12 (cen 3, com Tarcísio). 'Nenhum/Branco/Nulo' 9,8→blank_null; 'Não sabe/não opinou' 6,1→undecided. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-22 (CONSOLIDADO §1 da Onda 2) e CONCORDANTES em toda figura armazenável.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "ES",
+    "round": 1,
+    "scenario": "1º turno — cenário 3",
+    "contractor": null,
+    "fieldwork_start": "2025-08-13",
+    "fieldwork_end": "2025-08-17",
+    "published_date": null,
+    "sample_size": 1510,
+    "margin_of_error": 2.6,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 33.0
+     },
+     {
+      "candidate": "Tarcísio de Freitas",
+      "party": null,
+      "pct": 28.2
+     },
+     {
+      "candidate": "Ciro Gomes",
+      "party": null,
+      "pct": 10.0
+     },
+     {
+      "candidate": "Ratinho Junior",
+      "party": null,
+      "pct": 6.4
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 3.9
+     },
+     {
+      "candidate": "Renan Filho",
+      "party": null,
+      "pct": 2.5
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 6.1,
+    "blank_null_pct": 9.8
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Doc SEM registro TSE (pesquisa ago/2025, intenção Executivo Federal 2026). Junta por chave natural ao s_f3508f583e existente (Paraná/ES, campo end 2025-08-17). sha256 do PDF confere. Escopo aprovado pelo criador. FORA do contador de cobertura (campo 2025). [JOIN: JOIN s_f3508f583e (Paraná/ES 2025, SEM reg; JÁ tem presidente cen1) por chave natural. Só cen2+cen3 novos (cen1 já no banco; espontânea não se guarda).]"
   }
  ]
 }
