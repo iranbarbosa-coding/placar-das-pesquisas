@@ -344,6 +344,49 @@ function rodar({ mutacao = null } = {}) {
       "o guarda a ignora EM VOZ ALTA — uma linha de aviso por rodada");
   });
 
+  caso("10 PASSA: duplicata entre marcas — sucessão por tabela idêntica, durável sob deriva de id", ({ delta, afirma }) => {
+    // O caso governador:DF (Correio/Opinião pela Wikipédia ≡ Opinião Consultoria
+    // pelo Poder360, 30/07–01/08): `dropExactDuplicates` funde as duas e mantém a
+    // de maior prioridade; a perdedora SOME do banco e precisa provar sucessão.
+    // A perdedora (commit) e a sobrevivente (rodada) NÃO partilham nada de id —
+    // sem legacy em comum, sem ref nativo, sem registro — e os ids de pergunta
+    // DIFEREM, que é o que a desambiguação de rótulo do PR #43 provocou e o que
+    // reprovou a ponte por id-cunhado. O que casa é a TABELA IDÊNTICA: mesma
+    // data, mesma amostra, pcts dígito a dígito. É a garantia durável.
+    const tabela = () => [r("c_ce", 43.6, "Celina Sintetica"), r("c_ar", 40.1, "Arruda Sintetico")];
+    const anterior = banco(
+      [q("q_marcaA", "governador", "DF", tabela(), { round: 2, survey_id: "s_marcaA" })],
+      [],
+      [{ survey_id: "s_marcaA", legacy_ids: ["wiki-df-velho"], fieldwork_end: "2026-08-01", sample_size: 1109 }]);
+    const novo = banco(
+      [q("q_marcaB", "governador", "DF", tabela(), { round: 2, survey_id: "s_marcaB" })],
+      [],
+      [{ survey_id: "s_marcaB", legacy_ids: ["p360-13712-novo"],
+        source_refs: [{ source: "poder360", native_id: "13712" }],
+        fieldwork_end: "2026-08-01", sample_size: 1109 }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok, `a duplicata entre marcas tinha de provar sucessão (veio ${v.linhas.join(" | ")})`);
+    afirma(v.toleradas.sucessoras === 1, `1 sucessora (veio ${v.toleradas.sucessoras})`);
+    const c = v.conflitos.find((x) => x.type === "question_sumida_com_sucessora");
+    afirma(/via duplicata/.test(c?.note ?? ""), `a via é a duplicata (veio: ${c?.note})`);
+
+    // SEGURANÇA — a metade que impede a trava e o desastre de senador:MT. Elenco
+    // igual não basta: é PCT idêntico que faz de duas marcas a mesma pesquisa.
+    const novoPct = structuredClone(novo);
+    novoPct.questions[0].results[0].pct = 44.0;
+    const vp = delta({ anterior, novo: novoPct });
+    afirma(!vp.ok && vp.semProva === 1,
+      `pct diferente não é a mesma tabela — não pode provar (ok=${vp.ok}, semProva=${vp.semProva})`);
+
+    // E o topline de 2 nomes exige a chave FORTE — mesma amostra — porque dois
+    // institutos coincidem em 2 nomes por acaso (o mesmo recorte de dropExactDuplicates).
+    const novoAmostra = structuredClone(novo);
+    novoAmostra.surveys[0].sample_size = 1500;
+    const va = delta({ anterior, novo: novoAmostra });
+    afirma(!va.ok && va.semProva === 1,
+      `amostra diferente derruba a chave forte do topline de 2 nomes (ok=${va.ok}, semProva=${va.semProva})`);
+  });
+
   // ======================================================================
   // C. O VALIDADOR DA LISTA E A TRAVA DE PROMOÇÃO (fora das mutações: não
   //    passam pelo juiz — mutilá-lo não os alcança, e está certo assim)
@@ -407,6 +450,7 @@ function autoteste() {
       "7b PASSA: sucessão por elenco via linhagem de pessoa — e o líder não troca",
       "8 PASSA: perda ratificada por reparo com fonte; sem fonte, RECUSA",
       "9 PASSA: disputa desativada vazia, com aviso",
+      "10 PASSA: duplicata entre marcas — sucessão por tabela idêntica, durável sob deriva de id",
     ],
   };
   let okGeral = true;

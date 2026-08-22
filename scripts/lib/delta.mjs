@@ -28,7 +28,8 @@
 // veredito por disputa + as linhas do relatório + os rastros de conflito. Assim
 // o autoteste o exercita sem git, sem rede e sem tocar em `data/` — a fiação
 // (git show, arquivos, exit code) mora toda em `disputa-delta-check.mjs`.
-import { questionRostersMatch } from "./store.mjs";
+import { questionRostersMatch, JANELA_OPERACAO_MS } from "./store.mjs";
+import { sameCandidate } from "./canonicalize.mjs";
 import { mintConflictId, normalizeRegistration } from "./ids.mjs";
 import { relatorioDeEnsaio, chaveDeLinhagem, disputaDe } from "./ensaio.mjs";
 import { RACES, UFS } from "../validate-store.mjs";
@@ -267,6 +268,28 @@ export function deltaPorDisputa({
     return false;
   };
 
+  // Duas tabelas são a MESMA medição publicada por duas marcas? Elenco por
+  // LINHAGEM (o `traduzir` acima, para o candidato re-cunhado casar) e pcts
+  // dígito a dígito (o mesmo 0,05 de `dropExactDuplicates`). Cobertura TOTAL do
+  // menor elenco: uma marca com um nome a menos não é a mesma tabela. Devolve
+  // `matched` para o chamador exigir a chave forte nos toplines de 2 nomes.
+  const tabelaIdentica = (ra, rb) => {
+    const A = traduzir(ra ?? []), B = traduzir(rb ?? []);
+    const [menor, maior] = A.length <= B.length ? [A, B] : [B, A];
+    if (menor.length < 2) return { ok: false, matched: 0 };
+    const casa = (r, x) =>
+      (r.candidate_id && x.candidate_id && r.candidate_id === x.candidate_id) ||
+      (r.name_raw && x.name_raw && sameCandidate(r.name_raw, x.name_raw));
+    let matched = 0, identicos = 0;
+    for (const r of menor) {
+      const x = maior.find((y) => casa(r, y));
+      if (!x) continue;
+      matched++;
+      if (r.pct != null && x.pct != null && Math.abs(r.pct - x.pct) <= 0.05) identicos++;
+    }
+    return { ok: matched === menor.length && identicos === matched, matched };
+  };
+
   const acharSucessora = (q) => {
     // NO NÍVEL DA PERGUNTA, NUNCA DO LEVANTAMENTO SOZINHO. Identidade de
     // levantamento é NECESSÁRIA (o recorte acima) mas nunca SUFICIENTE: um
@@ -290,6 +313,55 @@ export function deltaPorDisputa({
       if (questionRostersMatch(traduzir(q.results), traduzir(cand.results), nomes)) {
         return { sucessora: cand.question_id, via: "elenco" };
       }
+    }
+    // TERCEIRO DEGRAU — A DUPLICATA ENTRE MARCAS, DURÁVEL SOB DERIVA DE ID.
+    //
+    // `dropExactDuplicates` (scrape.mjs) descarta a cópia de menor prioridade de
+    // uma pesquisa que chega por DUAS marcas (o backstop de "Data Index ≡
+    // Indexa", e o caso medido governador:DF 30/07–01/08: Correio/Opinião pela
+    // Wikipédia ≡ Opinião Consultoria pelo Poder360). A descartada é uma pergunta
+    // do banco que SOME, e precisa provar sucessão aqui — do contrário toda
+    // fusão de duplicata exigiria um `allow_question_drop` por rodada.
+    //
+    // Por que ELENCO+levantamento não basta, e por que ISTO é durável: o delta
+    // compara o COMMIT (git HEAD, congelado) com a coleta desta rodada. Toda
+    // identidade cunhada da fonte carrega o RÓTULO do cenário — `pollId`
+    // (util.mjs) resume `scenario`, e o id da pergunta semeia em
+    // scenario_ordinal+elenco. Quando um conserto de rótulo muda esses ids (foi
+    // o PR #43 no 2º turno), a marca sobrevivente desta rodada guarda o id NOVO
+    // e o levantamento perdedor do commit guarda o VELHO — nenhum degrau de id
+    // (legacy_ids, source_ref, registro) casa através dessa fronteira, e a ponte
+    // por id-cunhado quebra por UMA rodada. Foi exatamente o que reprovou a
+    // tentativa anterior. O CONTEÚDO não muda com o rótulo: a perdedora é a mesma
+    // pesquisa, com os mesmos números; só o endereço se moveu. Então a ponte
+    // durável é por conteúdo — o espelho, no nível do store, do predicado de
+    // `dropExactDuplicates`.
+    //
+    // ⚠ POR QUE NÃO É O DESASTRE DE senador:MT (caso 5b): ali UMA sobrevivente
+    // "provava" 5 sumidas de pesquisas DIFERENTES porque numa disputa estadual
+    // todos partilham o elenco — mas os PCTS diferem. Este degrau exige a TABELA
+    // IDÊNTICA (elenco por linhagem E pcts dígito a dígito), que é o que faz de
+    // duas marcas a MESMA pesquisa, não uma coincidência de elenco. Toplines de
+    // 2º turno (2 nomes) coincidem por acaso entre institutos, então aí a chave
+    // FORTE — mesma data E mesma amostra — é exigida, o mesmo recorte de
+    // `dropExactDuplicates`. Cobertura total do menor elenco, não 0,8: o delta
+    // erra para o lado seguro (uma perda que ele não prova pede reparo visível,
+    // nunca some calada).
+    const dataDe = (s) => s?.fieldwork_end ?? s?.published_date ?? null;
+    for (const cand of grupo) {
+      if (cand.survey_id === q.survey_id) continue; // mesma pesquisa: já decidida acima
+      const sa = surveysAnt.get(q.survey_id);
+      const sn = surveysNov.get(cand.survey_id);
+      const da = dataDe(sa), db = dataDe(sn);
+      if (da && db && Math.abs(+new Date(da) - +new Date(db)) > JANELA_OPERACAO_MS) continue;
+      const amostraA = sa?.sample_size ?? null, amostraB = sn?.sample_size ?? null;
+      if (amostraA != null && amostraB != null && amostraA !== amostraB) continue;
+      const t = tabelaIdentica(q.results, cand.results);
+      if (!t.ok) continue;
+      const forte = t.matched >= 3
+        || (t.matched === 2 && da && da === db && amostraA != null && amostraA === amostraB);
+      if (!forte) continue;
+      return { sucessora: cand.question_id, via: "duplicata" };
     }
     return null;
   };
