@@ -146,6 +146,36 @@ de semente registrada e **nunca** recomputados.
 `provenance.updated_at` só muda quando o conteúdo muda — sem isso, reconstruir
 noutro dia reescrevia 2.954 perguntas só com carimbo diferente.
 
+## 8b. Reparo prova que a identidade não se move (ratificado pelo criador, 21/08/2026)
+
+"O campo é escrito?" e "a identidade se move?" são DUAS perguntas, e provar a
+primeira não responde a segunda. O defeito que pagou por esta regra: um reparo
+que só preenchia datas de campo (GO-04010) fazia, de lado, dois levantamentos
+passarem a compartilhar (registro, instituto, janela) — a escada de resolução
+os FUNDIA, um `survey_id` sumia e uma pergunta era recunhada. O autor provou
+que o reparo APLICAVA e o tratou como seguro; a fusão só apareceu construindo
+o store e comparando os conjuntos de id.
+
+E a classe é estrutural, não azar: **dar registro a um levantamento cunhado sem
+registro troca a CLASSE da semente** (`nat` → `reg`, o degrau do registro
+atende antes) e recunha por construção. Medido em 21/08: **500 dos 1.049
+levantamentos** têm semente `nat` e registro nulo — metade do banco é candidata
+ao mesmo efeito em qualquer varredura futura de "(sem registro)".
+
+As regras:
+- Todo lote de reparo carrega a PROVA DE IDENTIDADE: store construído base ×
+  branch, conjuntos de `survey_id` e `question_id` comparados. A base é o main
+  COM os reparos existentes — a primeira medição desta série usou base vazia e
+  os 67 reparos alheios entraram na conta (4 recunhagens falsas onde havia 1).
+- Reparo que move identidade é RECUSADO por padrão. A liberação é do criador,
+  item a item, com o custo medido — e o custo tem dois tamanhos que não se
+  confundem: RECUNHAR um id (perde `created_at`, quebra o casamento do
+  `priorStamps`) é diferente de FUNDIR dois levantamentos (muda o que a média
+  conta).
+- O que não pode ser reparado sem mover identidade fica ANOTADO
+  (`ANOTACOES_DE_FONTE.md`, §9), com o custo medido escrito — para a próxima
+  sessão não "consertar" de novo por acidente.
+
 ## 9. O censo é a definição de "normalizado"
 
 `CENSO_BANCO.md`, gerado por `scripts/census.mjs`, tem classes **fixas em
