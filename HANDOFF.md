@@ -187,6 +187,23 @@ ListAgents, os ids mudam):
 
 ---
 
+## ★ FRENTE ABERTA: COBERTURA PRESIDENCIAL POR UF (22/08/2026, criador aprovou)
+
+O banco captura **113 de 473** pesquisas presidenciais registradas com abrangência
+de uma UF (24%; snapshot PesqEle de 12/08 — janela cega 13-21/08 ≈ 25-35 registros).
+**360 faltantes: 41 classe-i** (Poder360 serve a pesquisa ou a integra da irmã —
+parser/curadoria mecânica) e **319 classe-ii** (só imprensa local/instituto — o
+método RR: caça → duas leituras cegas → add_poll; 142 têm contratante de rede de
+imprensa como pista). A lista completa com classes e pistas está em
+`data-research/cobertura-presidencial/faltantes.csv` (+ tabela-uf.json e
+registros-pres-br.json). Prioridade por cobertura: AL (0/7) · RR · AM · RN (4/48!)
+· RO · PI (4/38) · MA · SE · BA · AP. Top-10 fáceis (classe-i em UF fraca): RN TS2
+e Perfil, PI Vetor e RTBD, BA Quaest e RTBD, MS Ranking, MA Paraná, AP RTBD+Veritá,
+MT Instituto Mais. Método/critérios da enumeração: no CSV (o critério de
+abrangência é estrito — plano nacional NÃO conta; foi ele que corrigiu o falso
+"AP=13" para AP=10). Fora do denominador: presidenciais sob protocolo estadual
+sem BR (~15 ops já no banco) e pesquisas de campo 2025.
+
 ## 1. Status
 
 | | |
