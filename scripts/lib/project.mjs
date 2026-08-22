@@ -8,7 +8,28 @@
 // Only HEADLINE, non-retracted questions are projected — that is the store's
 // non-destructive replacement for the old keepFullestRound1, which deleted the
 // alternate line-ups outright.
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { normalizeRegistration } from "./ids.mjs";
+
+// ── Universe ledger ─────────────────────────────────────────────────────────
+// KEEP IN LOCKSTEP WITH `src/lib/store.ts`. The cited, blind-certified ledger
+// `data/universe-verdicts.json` names the surveys that sample a single
+// MUNICIPALITY though filed under a state contest; its `municipal` subset is the
+// gate's allowlist. A poll of one of those surveys is stamped `municipal` and
+// kept out of the state/national average by `geographyAverageable`. Read once.
+function loadMunicipalLedger() {
+  const file = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "universe-verdicts.json");
+  const m = new Map();
+  if (!fs.existsSync(file)) return m;
+  const doc = JSON.parse(fs.readFileSync(file, "utf-8"));
+  for (const e of doc.certified ?? []) {
+    if (e.verdict === "municipal") m.set(e.survey_id, e.municipio ?? null);
+  }
+  return m;
+}
+const MUNICIPAL_LEDGER = loadMunicipalLedger();
 
 
 /**
@@ -74,6 +95,9 @@ export function projectPolls(store) {
       blank_null_pct: q.blank_null_pct ?? null,
       tse_registration: normalizeRegistration(s.tse_registration),
       ...(incompleteFlag(q) ? { incomplete: true } : {}),
+      ...(MUNICIPAL_LEDGER.has(q.survey_id)
+        ? { municipal: { municipio: MUNICIPAL_LEDGER.get(q.survey_id) ?? null } }
+        : {}),
       ...(q.parse_warnings?.length ? { parse_warnings: q.parse_warnings.join("; ") } : {}),
       ...(q.repaired ? { repaired: q.repaired } : {}),
     });

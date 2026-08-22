@@ -163,6 +163,42 @@ const add = (id, titulo, nota, itens) => classes.push({ id, titulo, nota, itens 
     "primária ou de uma decisão editorial.", itens);
 }
 
+// ── 7. State poll that may be a municipal sample (detector, ledger-filtered) ─
+// The continuous half of the municipal gate. The gate itself runs off a cited,
+// blind-certified ledger (data/universe-verdicts.json); this class SURFACES new
+// candidates for that certification and NEVER gates on its own — the scan
+// `universe=uf & n<800` provably over-catches (it flagged 26, of which 2 are
+// legitimate small STATE polls, IPR/MS). Both verdicts in the ledger are
+// excluded, so a certified poll — municipal OR estadual — never re-appears here.
+// A report, never a gate: exits 0 by design, so the known false-positive can
+// never red-light the twice-daily Action (which `validate-store` would).
+{
+  const ledgerFile = path.join(ROOT, "data", "universe-verdicts.json");
+  const certified = fs.existsSync(ledgerFile)
+    ? new Set((JSON.parse(fs.readFileSync(ledgerFile, "utf-8")).certified ?? []).map((e) => e.survey_id))
+    : new Set();
+  const stateRaceSurveys = new Set();
+  for (const q of store.questions) {
+    if (q.race === "governador" || q.race === "senador") stateRaceSurveys.add(q.survey_id);
+  }
+  const itens = [];
+  for (const s of store.surveys) {
+    if ((s.universe?.level ?? null) !== "uf") continue;
+    const n = s.sample_size;
+    if (typeof n !== "number" || n >= 800) continue;
+    if (!stateRaceSurveys.has(s.survey_id)) continue;
+    if (certified.has(s.survey_id)) continue;
+    itens.push({ s, texto: `${s.survey_id} · ${inst(s)} · ${s.universe?.uf ?? "?"} · n=${n} · registro ${s.tse_registration ?? "—"}` });
+  }
+  add("UNIVERSO", "Pesquisa estadual com amostra possivelmente municipal (não certificada)",
+    "Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 que ainda NÃO está no ledger " +
+    "de vereditos (data/universe-verdicts.json). Amostra pequena NÃO prova municipal — muitas estaduais legítimas " +
+    "são pequenas — então cada uma exige leitura de fonte (cega) antes de gatear. Ponto cego conhecido: um " +
+    "municipal com n ≥ 800 escapa desta varredura; o gate é por veredito no ledger, não por este limiar. " +
+    "Confirmada municipal, entra no ledger e sai das médias estaduais; confirmada estadual, entra como estadual e " +
+    "para de aparecer aqui. É triagem, não porta.", itens);
+}
+
 // ───────────────────────────────────────────────────────────── saída
 // ── 7. A mesma pessoa partida em duas linhas ────────────────────────────────
 //

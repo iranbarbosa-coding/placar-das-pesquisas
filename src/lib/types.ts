@@ -53,6 +53,16 @@ export interface Poll {
   parse_warnings?: string;
   /** Published numbers account for <90% of the sample — kept out of averages. */
   incomplete?: boolean;
+  /**
+   * The sample is a single MUNICIPALITY, certified by blind reading, even though
+   * the record sits under a state contest (governador/senador/presidente). Such
+   * a poll measures a city electorate, not the state, so it is kept out of the
+   * state/national average — but stays in the database and in the table, marked,
+   * exactly like `incomplete` and the single-vote senate polls. Presence carries
+   * the municipality name for the table's exclusion note. Set at projection time
+   * from the cited ledger `data/universe-verdicts.json`; see `./universe`.
+   */
+  municipal?: { municipio: string | null };
 }
 
 export interface PollDataset {

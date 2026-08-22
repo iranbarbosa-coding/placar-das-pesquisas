@@ -16,6 +16,7 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SEMDATA** — Levantamentos sem data utilizável | 8 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 8 | 6 |
 | **CONFLITO** — Conflitos registrados aguardando decisão | 14 | 3 |
+| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 0 | 0 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
 | **total** | **33** | **12** |
 
@@ -117,6 +118,12 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - candidate_id_orphaned · c_d1537945365e · candidate_id: "c_d1537945365e" × null
 - roster_encolhido_na_fonte · q_69bf17c316c8 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
+
+## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (0)
+
+Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 que ainda NÃO está no ledger de vereditos (data/universe-verdicts.json). Amostra pequena NÃO prova municipal — muitas estaduais legítimas são pequenas — então cada uma exige leitura de fonte (cega) antes de gatear. Ponto cego conhecido: um municipal com n ≥ 800 escapa desta varredura; o gate é por veredito no ledger, não por este limiar. Confirmada municipal, entra no ledger e sai das médias estaduais; confirmada estadual, entra como estadual e para de aparecer aqui. É triagem, não porta.
+
+*Nada a reportar.*
 
 ## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (2)
 
