@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **69 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **72 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -36,6 +36,33 @@ Soma **31.5%** · faltam **68.5 pontos** · 5 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-ideia-presidente-governo-senado-19ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-ideia-presidente-governo-senado-19ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Piauí
+
+### Vetor3 — 2026-08-02
+
+Soma **32.2%** · faltam **67.8 pontos** · 11 candidato(s) na tabela · amostra 1602
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 18.35 |
+| Renan Santos | 1.81 |
+| Ronaldo Caiado | 1 |
+| Escritor Augusto Cury | 0.95 |
+| Samara | 0.5 |
+| Zema | 0.31 |
+| Edmilson Costa | 0.19 |
+| Aldo Rebelo | 0.12 |
+| Rui Costa Pimenta | 0.12 |
+| Hertz Dias | 0.12 |
+| Cabo Daciolo | 0.06 |
+| *branco/nulo* | 2.75 |
+| *não sabe/não respondeu* | 5.93 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-piaui-rafael-lula.pdf
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -160,6 +187,29 @@ Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Rio Grande do Norte
+
+### Instituto Perfil — 2026-07-26
+
+Soma **44.8%** · faltam **55.2 pontos** · 7 candidato(s) na tabela · amostra 1600 · registro BR-05225/2026
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 20.56 |
+| Ronaldo Caiado | 1.94 |
+| Renan Santos | 1.38 |
+| Escritor Augusto Cury | 0.94 |
+| Zema | 0.56 |
+| Joaquim Barbosa | 0.38 |
+| Cabo Daciolo | 0.31 |
+| *branco/nulo* | 8.63 |
+| *não sabe/não respondeu* | 10.06 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-bg-midia-perfil-rn-1.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-bg-midia-perfil-rn-1.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -591,6 +641,22 @@ Soma **66.7%** · faltam **33.3 pontos** · 3 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Pará
+
+### Veritá — 2026-03-30
+
+Soma **68.2%** · faltam **31.8 pontos** · 2 candidato(s) na tabela · amostra 1525
+
+| candidato | % |
+|---|---|
+| Dr. Daniel | 18.7 |
+| Hana Ghassan | 12.7 |
+| *outros* | 36.8 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Presidente · Goiás
 
 ### DataRD — 2026-08-04
@@ -669,7 +735,7 @@ Soma **71.1%** · faltam **28.9 pontos** · 4 candidato(s) na tabela · amostra 
 
 ### Portal Goiás — 2026-02-03
 
-Soma **71.4%** · faltam **28.6 pontos** · 4 candidato(s) na tabela · amostra 500 · registro GO-01981/2026
+Soma **71.4%** · faltam **28.6 pontos** · 4 candidato(s) na tabela · amostra 500 · registro GO-05001/2026
 
 | candidato | % |
 |---|---|
