@@ -2606,9 +2606,10 @@
     "race": "presidente",
     "state": "AP",
     "round": 1,
-    "fieldwork_end": "2025-07-15"
+    "fieldwork_end": "2025-07-15",
+    "has_candidate": "Jair Bolsonaro"
    },
-   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (AP, campo 2025-07-15) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial (lote v2.1) para presidente:AP. A UF vem do poll estadual, não do BR- do bloco. FATO SOBRE A PESQUISA, não defeito de transcrição: o campo é de JULHO DE 2025 e o cenário 1 traz Jair Bolsonaro — cenário anterior à definição das candidaturas de 2026; entra como o instituto publicou. O documento publica QUATRO cenários estimulados (resolução do hub de 22/08/2026; consistente com os quatro crosstabs segmentados que o parser pulou, p.9/11/13/15, um por cenário): este reparo insere SÓ o cenário 1, e o cenário 3 (Tarcísio de Freitas, p.12, também aprovado na §1) fica PARQUEADO fora deste lote com os demais, aguardando decisão de método do criador (§12) — a inserção curada recusa cenários estimulados quase-iguais da mesma operação de campo, e a recusa foi medida em 22/08/2026 com as funções reais: os cenários 1 e 3 compartilham 5 dos 6 nomes e questionRostersMatch os lê como a MESMA pergunta (0,833 ≥ 0,8, nas duas direções). O limiar não se alarga para o lote passar (§10).",
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (AP, campo 2025-07-15) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial (lote v2.1) para presidente:AP. A UF vem do poll estadual, não do BR- do bloco. FATO SOBRE A PESQUISA, não defeito de transcrição: o campo é de JULHO DE 2025 e o cenário 1 traz Jair Bolsonaro — cenário anterior à definição das candidaturas de 2026; entra como o instituto publicou. O documento publica QUATRO cenários estimulados (resolução do hub de 22/08/2026; consistente com os quatro crosstabs segmentados que o parser pulou, p.9/11/13/15, um por cenário): este reparo insere o cenário 1; o cenário 3 (Tarcísio de Freitas, p.12, também aprovado na §1) entra pela entrada IRMÃ seguinte deste arquivo — a decisão do criador de 22/08/2026 (§12) admitiu cenários estimulados de 1º turno DISTINTOS da mesma operação quando os dois lados declaram rótulos distintos E o elenco difere em ≥1 candidato (os cenários 1 e 3 compartilham 5 dos 6 nomes, 0,833 ≥ 0,8 no questionRostersMatch; o limiar 0,8 fica intacto, §10). O has_candidate do match discrimina os dois cenários da mesma operação: sem ele, a cláusula de um descreveria a pesquisa inserida do outro e a dispensa 'a fonte já serve' apagaria uma das duas conforme a ordem das entradas.",
    "source": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
    "evidence": "p.8 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Jair Bolsonaro 39 · Lula 31,8 · Ciro Gomes 12,5 · Ratinho Junior 3,7 · Ronaldo Caiado 2,6 · Renan Filho 0,9. Baldes SEPARADOS (o relatório separa, o agregador funde): 'Em branco/nulo/nenhum' 5,2 e 'Não sabe' 4,3. others_pct NULO — sem linha de 'Outros' na estimulada (não confundir com 'Outras respostas' da espontânea). DUAS LEITURAS DA §1, CONCORDANTES: (1) a mecânica do parser presidencial — camada de texto embutida E OCR Vision batem, pareados por caixa delimitadora (confiança 'corroborado-geometrico' do _parser) — no lote v2.1 CONGELADO (HEAD 470e2fd, md5 1d11dd0919c7a2483498bc09241a8c32, conferido antes do merge); (2) leitura cega independente de outro agente na §1 de 21/08/2026, contra a leitura arquivada de 20/08, batendo dígito a dígito em todas as figuras. Valores copiados do lote congelado, não retranscritos do PDF. PROCEDÊNCIA E CONTEXTO ADVERSO: o documento NÃO imprime registro do TSE (tse_todos vazio no parser) — tse_registration NULO como no lote, nada puxado do sweep (§4); nenhum partido impresso no bloco — party NULO em todas as linhas; contratante não impresso — NULO, não puxado do sweep (§4); sample_size 1310 lido do PDF; margem 2,8 veio do SWEEP (ficha do PDF não lida pelo parser — divergência registrada em _parser.divergencias_sweep; a leitura cega da §1 conferiu a ficha no relatório), assim como o nome do instituto e o fim de campo (alinhamento; confere o fim de período do PDF). Crosstabs segmentados das p.9/11/13/15 pulados (fora do escopo v1). sha256 do PDF: bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
    "verified_at": "2026-08-22",
@@ -2662,6 +2663,70 @@
     "blank_null_pct": 5.2
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2025-07-15",
+    "has_candidate": "Tarcísio de Freitas"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno), CENÁRIO 3, presente no relatório-integra do Paraná Pesquisas (AP, campo 2025-07-15) mas ausente do banco: o mesmo defeito da entrada do cenário 1 (o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem). Transcrito do PDF pelo parser presidencial (lote v2.1) para presidente:AP. A UF vem do poll estadual, não do BR- do bloco. FATO SOBRE A PESQUISA, não defeito de transcrição: o campo é de JULHO DE 2025 — cenário anterior à definição das candidaturas de 2026; entra como o instituto publicou. ADMITIDO POR DECISÃO DO CRIADOR (22/08/2026, §12): a inserção curada admite cenários estimulados de 1º turno DISTINTOS da mesma operação quando os dois lados declaram rótulos distintos (scenario) E o elenco difere em ≥1 candidato — aqui o cenário 3 troca a cabeça de chapa (Tarcísio de Freitas no lugar de Jair Bolsonaro) e compartilha 5 dos 6 nomes com o cenário 1 (0,833 ≥ 0,8; o limiar do questionRostersMatch fica intacto, §10). O has_candidate do match discrimina os dois cenários da mesma operação — sem ele, a cláusula de um descreveria a pesquisa inserida do outro e a dispensa apagaria uma das duas.",
+   "source": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+   "evidence": "p.12 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, CENÁRIO 3, na ordem impressa: Lula 33,4 · Tarcísio de Freitas 20,6 · Ciro Gomes 17,6 · Ratinho Junior 6,0 · Ronaldo Caiado 3,1 · Renan Filho 1,4. Baldes SEPARADOS (o relatório separa, o agregador funde): 'Não sabe/não opinou' 7,0 e 'Nenhum/Branco/Nulo' 10,8. others_pct NULO — sem linha de 'Outros' na estimulada (não confundir com 'Outras respostas' da espontânea). DUAS LEITURAS DA §1, CONCORDANTES: (1) a mecânica do parser presidencial — camada de texto embutida E OCR Vision batem, pareados por caixa delimitadora (confiança 'corroborado-geometrico' do _parser) — no lote v2.1 CONGELADO (HEAD 470e2fd, md5 1d11dd0919c7a2483498bc09241a8c32, conferido); (2) a leitura cega arquivada de 20/08/2026 (dump da camada de texto do PDF, p.12), batendo dígito a dígito em todas as figuras, inclusive a BASE 1310. Valores copiados do lote congelado, não retranscritos do PDF. ADMISSÃO: entrada IRMÃ do cenário 1 (p.8) da MESMA operação de campo — os dois compartilham 5 dos 6 nomes (0,833 ≥ 0,8 no questionRostersMatch) e entram como cenários DECLARADOS DISTINTOS pela decisão do criador de 22/08/2026 (§12), como confrontos distintos de 2º turno já entravam; o limiar 0,8 não foi alargado (§10). PROCEDÊNCIA E CONTEXTO ADVERSO: o documento NÃO imprime registro do TSE (tse_todos vazio no parser) — tse_registration NULO, nada puxado do sweep (§4); e o rodapé corrido do PDF é FANTASMA — estampa 'Pesquisa – município de Piraquara Junho de 2018', reaproveitado de outro estudo (a mesma doença de rodapé do caso Anápolis em ANOTACOES_DE_FONTE.md) — mais um motivo para não inferir registro dele; nenhum partido impresso no bloco — party NULO em todas as linhas; contratante não impresso — NULO, não puxado do sweep (§4); sample_size 1310 lido do PDF; margem 2,8 veio do SWEEP (ficha do PDF não lida pelo parser — divergência registrada em _parser.divergencias_sweep; a ficha na p.3 do relatório confirma amostra 1310, margem 2,8 p.p., confiança 95,0%, campo 11 a 15 de julho de 2025), assim como o nome do instituto e o fim de campo (alinhamento; confere o fim de período do PDF). Crosstabs segmentados das p.9/11/13/15 pulados (fora do escopo v1). sha256 do PDF: bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "scenario": "1º turno — cenário 3 (p.12)",
+    "contractor": null,
+    "fieldwork_start": null,
+    "fieldwork_end": "2025-07-15",
+    "published_date": null,
+    "sample_size": 1310,
+    "margin_of_error": 2.8,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 33.4
+     },
+     {
+      "candidate": "Tarcísio de Freitas",
+      "party": null,
+      "pct": 20.6
+     },
+     {
+      "candidate": "Ciro Gomes",
+      "party": null,
+      "pct": 17.6
+     },
+     {
+      "candidate": "Ratinho Junior",
+      "party": null,
+      "pct": 6
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 3.1
+     },
+     {
+      "candidate": "Renan Filho",
+      "party": null,
+      "pct": 1.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 7,
+    "blank_null_pct": 10.8
+   },
+   "expect_sum": 99.9
   },
   {
    "match": {
