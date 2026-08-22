@@ -343,6 +343,55 @@ function lerCuradosPresidenciais(ref) {
 }
 
 // ---------------------------------------------------------------------------
+// DEDUPE CONTRA O BANCO (o caso INOP, lote 1 da classe-i): o dedupe acima só
+// olha repairs.json — mas uma presidencial pode já estar em polls.json POR
+// OUTRA FONTE (a INOP do MA chegou pela coleta; re-emitir criaria a duplicata
+// que a §1 teria de pescar à mão). Regra: cenário emitível cuja pesquisa já
+// está no polls.json LANDADO com as MESMAS FIGURAS (UF + turno + instituto
+// normalizado + vetor de percentuais idêntico, com o mesmo nº de candidatos)
+// sai como JA-NO-BANCO, não emite. Instituto com grafia divergente ainda casa
+// se a ASSINATURA DE ELENCO bater (mesma régua do dedupe de repairs). Vetor de
+// figuras idêntico é a evidência; nomes sozinhos não bastam (§4 — o casador de
+// urna renomeia, "Romeu Zema" → "Zema").
+// Fonte da verdade = origin/main, como no dedupe de repairs (regra 4 do tree).
+// ---------------------------------------------------------------------------
+const vetorPcts = (results) => (results ?? []).map((r) => Number(r.pct)).sort((a, b) => a - b).join("|");
+
+function lerBancoPresidencial(ref) {
+  let raw;
+  try { raw = execFileSync("git", ["show", `${ref}:data/polls.json`], { cwd: RAIZ, encoding: "utf8", maxBuffer: 256 * 1024 * 1024 }); }
+  catch (e) { return { ok: false, erro: `não consegui ler ${ref}:data/polls.json (${String(e.message).split("\n")[0]})`, porUf: new Map() }; }
+  let spec;
+  try { spec = JSON.parse(raw); } catch { return { ok: false, erro: `${ref}:data/polls.json ilegível`, porUf: new Map() }; }
+  const porUf = new Map(); // "UF|round" → [{pcts, n, inst, sig, id, pollster, fim}]
+  let total = 0;
+  for (const p of spec.polls ?? []) {
+    if (p.race !== "presidente" || !p.state) continue;
+    const chave = `${p.state}|${p.round ?? 1}`;
+    if (!porUf.has(chave)) porUf.set(chave, []);
+    porUf.get(chave).push({
+      pcts: vetorPcts(p.results), n: (p.results ?? []).length, inst: normInst(p.pollster),
+      sig: assinaturaElenco((p.results ?? []).map((r) => r.candidate)),
+      id: p.id ?? null, pollster: p.pollster ?? null, fim: p.fieldwork_end ?? null,
+    });
+    total++;
+  }
+  return { ok: true, porUf, total };
+}
+
+/** Devolve o poll do banco que já carrega estas figuras, ou null. */
+function jaNoBanco(banco, entry) {
+  if (!banco.ok) return null;
+  const ap = entry.add_poll;
+  const candidatos = banco.porUf.get(`${ap.state}|${ap.round ?? 1}`) ?? [];
+  const pcts = vetorPcts(ap.results);
+  const inst = normInst(entry.match.pollster);
+  const sig = assinaturaElenco(ap.results.map((r) => r.candidate));
+  return candidatos.find((b) => b.pcts === pcts && b.n === ap.results.length
+    && (b.inst === inst || b.sig === sig)) ?? null;
+}
+
+// ---------------------------------------------------------------------------
 // Execução principal
 // ---------------------------------------------------------------------------
 async function main() {
@@ -358,6 +407,10 @@ async function main() {
   // DEDUPE: o que o repairs.json LANDADO já cobre não se re-emite.
   const curados = lerCuradosPresidenciais(repairsRef);
   if (!curados.ok) console.error(`⚠ DEDUPE INDISPONÍVEL — ${curados.erro}. Emissões marcadas "dedupe:indisponível" e NÃO suprimidas; a §1 confere duplicata. (nunca silêncio, §2)`);
+
+  // DEDUPE CONTRA O BANCO (caso INOP): pesquisa já em polls.json por outra fonte.
+  const banco = lerBancoPresidencial(repairsRef);
+  if (!banco.ok) console.error(`⚠ DEDUPE-BANCO INDISPONÍVEL — ${banco.erro}. Emissões marcadas "dedupe_banco:indisponível" e NÃO suprimidas; a §1 confere duplicata. (nunca silêncio, §2)`);
 
   const sweep = lerSweep(sweepPath);
   let registros = registrosGovernador(sweep, estados);
@@ -378,6 +431,7 @@ async function main() {
   let entradas = 0; // POR CENÁRIO: cada documento contribui com seus cenários (mínimo 1)
   const emitidos = [];
   const jaCurados = [];
+  const jaNoBancoLista = [];
   const rejeitados = [];
   const pendencias = [];
 
@@ -420,7 +474,29 @@ async function main() {
     entradas += disposicoes.length;
     for (const r of disposicoes) {
       if (r.tipo === "emitido") {
+        // Dedupe de repairs pela DATA DO PDF: a chave da operação segue o sweep,
+        // mas o add_poll curado carrega o fim de campo do PDF — quando divergem
+        // (MA Veritá, sweep 19/03 × PDF 24/03, achado do lote 1 da classe-i), a
+        // chave do sweep não acha a curada. A segunda consulta usa a data que o
+        // próprio candidato emitiria.
+        const curadasPeloPdf = curados.ok && r.entry.add_poll.fieldwork_end !== isoDate(rec.data)
+          ? curados.index.get(chaveCurado(r.entry.match.pollster, uf, r.entry.add_poll.round ?? 1, r.entry.add_poll.fieldwork_end))
+          : null;
+        if (curadasPeloPdf && curadasPeloPdf.has(r.assinatura)) {
+          jaCurados.push({ ...meta, detalhe: `cenário ${r.entry.add_poll.scenario} (elenco já curado em repairs.json sob fim de campo ${r.entry.add_poll.fieldwork_end} do PDF; o sweep diz ${isoDate(rec.data)}) — dedupe pela data do PDF`, assinatura: r.assinatura });
+          if (VERBOSE) console.error(`≈ ${rotulo}: JÁ-CURADO (pela data do PDF)`);
+          continue;
+        }
+        // Caso INOP: a pesquisa já está no polls.json landado com as mesmas
+        // figuras (chegou por outra fonte) — marca ja-no-banco, não emite.
+        const noBanco = jaNoBanco(banco, r.entry);
+        if (noBanco) {
+          jaNoBancoLista.push({ ...meta, detalhe: `figuras idênticas já em ${repairsRef}:data/polls.json — poll ${noBanco.id} (${noBanco.pollster}, fim de campo ${noBanco.fim}); cenário ${r.entry.add_poll.scenario}, ${r.entry.add_poll.results.length} cand`, assinatura: r.assinatura });
+          if (VERBOSE) console.error(`≈ ${rotulo}: JA-NO-BANCO — poll ${noBanco.id}`);
+          continue;
+        }
         if (!curados.ok) r.entry._parser.dedupe = "indisponível";
+        if (!banco.ok) r.entry._parser.dedupe_banco = "indisponível";
         if (curadasDaOp && !jaCurada(r.assinatura)) {
           r.entry._parser.divergencias_sweep.push("a operação já tem add_poll curado com OUTRO elenco — §1 confira que este cenário não é duplicata com grafia divergente");
         }
@@ -447,19 +523,21 @@ async function main() {
     || (a._parser.page ?? 0) - (b._parser.page ?? 0);
   emitidos.sort(ordEntry);
 
-  const contagem = { documentos, entradas_cenarios: entradas, emitidos: emitidos.length, ja_curados: jaCurados.length, rejeitados: rejeitados.length, pendencias: pendencias.length };
+  const contagem = { documentos, entradas_cenarios: entradas, emitidos: emitidos.length, ja_curados: jaCurados.length, ja_no_banco: jaNoBancoLista.length, rejeitados: rejeitados.length, pendencias: pendencias.length };
   const saidaCand = {
     _sobre: "Candidatos add_poll presidente:UF gerados pelo parser presidencial, POR CENÁRIO estimulado de 1º turno (um doc de 4 estimuladas conta 4). verified_at NULO = pendente de 2ª leitura cega (§1). _parser.pareamento diz o modo (adjacente-inline = valor colado na linha do rótulo, inclui coluna-que-soma SPSS; corroborado-visual = gated que o OCR linha a linha confirmou; corroborado-geometrico = gated que o pareamento por caixa delimitadora confirmou; ocr-* = documento sem camada de texto). NÃO é repairs.json; o merge é passo do hub.",
     gerado_por: "scripts/presidencial-parser.mjs",
     estados,
     dedupe: curados.ok ? { fonte: `${repairsRef}:data/repairs.json`, add_poll_presidenciais_existentes: curados.total } : { fonte: repairsRef, indisponivel: curados.erro },
+    dedupe_banco: banco.ok ? { fonte: `${repairsRef}:data/polls.json`, presidenciais_uf_existentes: banco.total } : { fonte: repairsRef, indisponivel: banco.erro },
     contagem,
     candidatos: emitidos,
   };
   const saidaPend = {
-    _sobre: "Fila do parser presidencial, POR CENÁRIO. Disposições: ja-curado (repairs.json já cobre o elenco/a operação) / sem-integra / ilegível / sem-bloco / nao-corroborado. NUNCA silêncio: todo cenário que não vira candidato aparece aqui.",
+    _sobre: "Fila do parser presidencial, POR CENÁRIO. Disposições: ja-curado (repairs.json já cobre o elenco/a operação) / ja-no-banco (polls.json landado já tem a pesquisa com as mesmas figuras — o caso INOP) / sem-integra / ilegível / sem-bloco / nao-corroborado. NUNCA silêncio: todo cenário que não vira candidato aparece aqui.",
     contagem,
     ja_curados: jaCurados,
+    ja_no_banco: jaNoBancoLista,
     rejeitados,
     pendencias,
   };
@@ -468,22 +546,24 @@ async function main() {
   fs.writeFileSync(pendPath, JSON.stringify(saidaPend, null, 1) + "\n");
 
   // O LEDGER, e a invariante que TEM de fechar (§2) — POR CENÁRIO.
-  const soma = emitidos.length + jaCurados.length + rejeitados.length + pendencias.length;
+  const soma = emitidos.length + jaCurados.length + jaNoBancoLista.length + rejeitados.length + pendencias.length;
   const fecha = soma === entradas;
   console.log("── Parser presidencial ──────────────────────────────");
   console.log(`estados        : ${estados.join(", ")}`);
   console.log(`dedupe         : ${curados.ok ? `${curados.total} add_poll presidenciais em ${repairsRef}` : `INDISPONÍVEL (${curados.erro})`}`);
+  console.log(`dedupe-banco   : ${banco.ok ? `${banco.total} presidenciais de UF em ${repairsRef}:data/polls.json` : `INDISPONÍVEL (${banco.erro})`}`);
   console.log(`documentos     : ${documentos}`);
   console.log(`entradas (cen.): ${entradas}   (cada doc contribui com seus cenários; mínimo 1)`);
   console.log(`  emitidos     : ${emitidos.length}   → ${path.relative(RAIZ, outPath)}`);
   console.log(`  já-curados   : ${jaCurados.length}   (repairs.json já cobre)`);
+  console.log(`  já-no-banco  : ${jaNoBancoLista.length}   (polls.json já tem as figuras — caso INOP)`);
   console.log(`  rejeitados   : ${rejeitados.length}`);
   console.log(`  pendências   : ${pendencias.length}   → ${path.relative(RAIZ, pendPath)}`);
   const porSub = pendencias.reduce((a, p) => ((a[p.subtipo] = (a[p.subtipo] ?? 0) + 1), a), {});
   if (pendencias.length) console.log(`     por tipo  : ${Object.entries(porSub).map(([k, v]) => `${k}=${v}`).join(", ")}`);
   const porConf = emitidos.reduce((a, e) => ((a[e._parser.confidence] = (a[e._parser.confidence] ?? 0) + 1), a), {});
   if (emitidos.length) console.log(`  pareamento   : ${Object.entries(porConf).map(([k, v]) => `${k}=${v}`).join(", ")}`);
-  console.log(`invariante     : ${emitidos.length}+${jaCurados.length}+${rejeitados.length}+${pendencias.length} = ${soma} ${fecha ? "= entradas ✓" : `≠ ${entradas} ✗ A CONTA NÃO FECHOU`}`);
+  console.log(`invariante     : ${emitidos.length}+${jaCurados.length}+${jaNoBancoLista.length}+${rejeitados.length}+${pendencias.length} = ${soma} ${fecha ? "= entradas ✓" : `≠ ${entradas} ✗ A CONTA NÃO FECHOU`}`);
   console.log("─────────────────────────────────────────────────────");
   if (!fecha) process.exit(1);
 }
@@ -698,6 +778,47 @@ async function selfTest() {
   afirma(chaveCurado("Direto ao Ponto Pesquisas", "AM", 1, "2026-06-20") === chaveCurado("DIRETO AO PONTO PESQUISAS", "AM", 1, "2026-06-20"), "dedupe: normalização de instituto tem de bater grafias");
   afirma(chaveCurado("Datafolha", "PE", 1, "2026-07-30") !== chaveCurado("Datafolha", "PE", 1, "2026-07-29"), "dedupe: datas diferentes NÃO colidem");
 
+  // DEDUPE PELA DATA DO PDF — quando sweep e PDF divergem no fim de campo, a
+  // curada (que guarda a data do PDF) tem de ser achada pela SEGUNDA consulta
+  // (MA Veritá 19×24/03: a chave do sweep erra, a do PDF acha).
+  {
+    const idx = new Map([[chaveCurado("Veritá", "MA", 1, "2026-03-24"), new Set([assinaturaElenco(["Lula", "Flávio Bolsonaro"])])]]);
+    afirma(!idx.get(chaveCurado("Veritá", "MA", 1, "2026-03-19")), "dedupe-pdf: a chave do sweep (19/03) NÃO acha a curada gravada sob a data do PDF");
+    const hit = idx.get(chaveCurado("Veritá", "MA", 1, "2026-03-24"));
+    afirma(!!hit && hit.has(assinaturaElenco(["LULA", "Flavio Bolsonaro"])), "dedupe-pdf: a chave pela data do PDF acha a curada e a assinatura casa por cima de caixa/acento");
+  }
+
+  // DEDUPE-BANCO (caso INOP) — o guarda DISPARA com figuras idênticas e NÃO
+  // dispara com um percentual diferente (§2: prova positiva E negativa).
+  {
+    const mkBanco = (polls) => {
+      const porUf = new Map();
+      for (const p of polls) {
+        const chave = `${p.state}|${p.round}`;
+        if (!porUf.has(chave)) porUf.set(chave, []);
+        porUf.get(chave).push({ pcts: vetorPcts(p.results), n: p.results.length, inst: normInst(p.pollster), sig: assinaturaElenco(p.results.map((r) => r.candidate)), id: p.id, pollster: p.pollster, fim: p.fieldwork_end });
+      }
+      return { ok: true, porUf, total: polls.length };
+    };
+    const resMA = [{ candidate: "Lula", pct: 55.28 }, { candidate: "Flávio Bolsonaro", pct: 19.94 }, { candidate: "Tarcísio de Freitas", pct: 4.72 }];
+    const noBanco = mkBanco([{ id: "abc", state: "MA", round: 1, pollster: "INOP", fieldwork_end: "2026-05-10", results: resMA }]);
+    const entryINOP = { match: { pollster: "INOP INSTITUTO DE PESQUISA" }, add_poll: { state: "MA", round: 1, results: resMA } };
+    afirma(jaNoBanco(noBanco, entryINOP)?.id === "abc", "dedupe-banco: figuras idênticas + instituto normalizado batendo devia casar (o caso INOP)");
+    const entryOutroPct = { match: { pollster: "INOP" }, add_poll: { state: "MA", round: 1, results: [{ candidate: "Lula", pct: 56 }, ...resMA.slice(1)] } };
+    afirma(jaNoBanco(noBanco, entryOutroPct) === null, "dedupe-banco: um percentual diferente NÃO pode casar (pesquisa nova não se suprime)");
+    const entryOutraUf = { match: { pollster: "INOP" }, add_poll: { state: "PI", round: 1, results: resMA } };
+    afirma(jaNoBanco(noBanco, entryOutraUf) === null, "dedupe-banco: outra UF NÃO casa");
+    // Grafia de instituto divergente casa SE o elenco (assinatura) bater — o
+    // banco canonicaliza nomes de urna, mas aqui o elenco impresso coincide.
+    const entryGrafia = { match: { pollster: "Instituto Nacional de Opinião Pública" }, add_poll: { state: "MA", round: 1, results: resMA } };
+    afirma(jaNoBanco(noBanco, entryGrafia)?.id === "abc", "dedupe-banco: instituto com grafia divergente casa pela assinatura de elenco + figuras");
+    // Grafia divergente E elenco renomeado pelo casador de urna: NÃO casa (fica
+    // para a §1) — melhor um duplicado apontado à mão que uma supressão errada.
+    const resRenom = [{ candidate: "Lula", pct: 55.28 }, { candidate: "Flávio", pct: 19.94 }, { candidate: "Tarcísio", pct: 4.72 }];
+    const bancoRenom = mkBanco([{ id: "ren", state: "MA", round: 1, pollster: "Outro Nome Qualquer", fieldwork_end: "2026-05-10", results: resRenom }]);
+    afirma(jaNoBanco(bancoRenom, entryINOP) === null, "dedupe-banco: instituto E elenco divergentes NÃO casam (conservador, §4)");
+  }
+
   // ---- PERÍODO DE CAMPO — reprovação §1 do MA Veritá (lote v2) -------------
   // O PDF imprime "Período de campo 18 a 24 de março de 2026" E
   // "Período: 18 a 24/03/2026". As DUAS formas têm de ler 18→24:
@@ -811,7 +932,7 @@ async function selfTest() {
   const entradas = 4, e = 2, jc = 1, r = 0, p = 1;
   afirma(e + jc + r + p === entradas, "invariante: o exemplo de contagem por cenário não fecha (bug no próprio teste)");
 
-  if (ok) console.log(`AUTOTESTE OK — controle PE-04519 reproduzido, soma adulterada reprovada, recusas tipadas, enumeração por cenário (4=4, crosstab pulado), interleaved gated, coluna-que-soma SPSS, geometria (pareia AP p.8 / recusa PE p.8 e ambíguo), assinatura de elenco, gate interno e invariante por cenário verdes.`);
+  if (ok) console.log(`AUTOTESTE OK — controle PE-04519 reproduzido, soma adulterada reprovada, recusas tipadas, enumeração por cenário (4=4, crosstab pulado), interleaved gated, coluna-que-soma SPSS, geometria (pareia AP p.8 / recusa PE p.8 e ambíguo), assinatura de elenco, dedupe-contra-banco (INOP: dispara/não dispara/conservador), gate interno e invariante por cenário verdes.`);
   else { console.error("AUTOTESTE FALHOU:"); for (const p of problemas) console.error(`  ✗ ${p}`); }
   process.exit(ok ? 0 : 1);
 }

@@ -1,12 +1,13 @@
 {
- "_sobre": "Fila do parser presidencial, POR CENÁRIO. Disposições: ja-curado (repairs.json já cobre o elenco/a operação) / sem-integra / ilegível / sem-bloco / nao-corroborado. NUNCA silêncio: todo cenário que não vira candidato aparece aqui.",
+ "_sobre": "Fila do parser presidencial, POR CENÁRIO. Disposições: ja-curado (repairs.json já cobre o elenco/a operação) / ja-no-banco (polls.json landado já tem a pesquisa com as mesmas figuras — o caso INOP) / sem-integra / ilegível / sem-bloco / nao-corroborado. NUNCA silêncio: todo cenário que não vira candidato aparece aqui.",
  "contagem": {
-  "documentos": 47,
-  "entradas_cenarios": 66,
-  "emitidos": 5,
-  "ja_curados": 4,
+  "documentos": 214,
+  "entradas_cenarios": 281,
+  "emitidos": 2,
+  "ja_curados": 17,
+  "ja_no_banco": 3,
   "rejeitados": 0,
-  "pendencias": 57
+  "pendencias": 259
  },
  "ja_curados": [
   {
@@ -24,6 +25,98 @@
    "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.29: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
   },
   {
+   "uf": "AP",
+   "pollster": "Paraná Pesquisas",
+   "id": 12977,
+   "pdf_url": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+   "detalhe": "cenário p.8 (elenco já curado em repairs.json) — dedupe por assinatura"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Paraná Pesquisas",
+   "id": 12977,
+   "pdf_url": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+   "detalhe": "cenário p.12 (elenco já curado em repairs.json) — dedupe por assinatura"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "cenário p.29 (elenco já curado em repairs.json) — dedupe por assinatura"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.35: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.37: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.39: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.41: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.43: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.45: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.47: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "detalhe": "cenário 1º turno (elenco já curado em repairs.json sob fim de campo 2026-03-24 do PDF; o sweep diz 2026-03-19) — dedupe pela data do PDF",
+   "assinatura": "aldo rebelo§flavio bolsonaro§lula§pablo marcal§ratinho junior§renan santos§romeu zema§ronaldo caiado"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Datafolha",
+   "id": 13722,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/datafolha-pe-governador-5ago2026.pdf",
+   "detalhe": "operação já coberta por add_poll curado; o parser não leu nenhum cenário deste documento (nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)) — anotado para a §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Datafolha",
+   "id": 13753,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pernambuco-datafolha-30jul.pdf",
+   "detalhe": "operação já coberta por add_poll curado; o parser não leu nenhum cenário deste documento (nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)) — anotado para a §1"
+  },
+  {
    "uf": "RO",
    "pollster": "Real Time Big Data",
    "id": 13638,
@@ -38,8 +131,122 @@
    "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.7: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
   }
  ],
+ "ja_no_banco": [
+  {
+   "uf": "ES",
+   "pollster": "Paraná Pesquisas",
+   "id": 12994,
+   "pdf_url": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
+   "detalhe": "figuras idênticas já em origin/main:data/polls.json — poll p360-12993-1-0-7aa48d212b56 (Paraná Pesquisas, fim de campo 2025-08-17); cenário 1º turno — cenário 1 (p.8), 6 cand",
+   "assinatura": "ciro gomes§jair bolsonaro§lula§ratinho junior§renan filho§ronaldo caiado"
+  },
+  {
+   "uf": "MA",
+   "pollster": "INOP",
+   "id": 13203,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-inop-maranhao-presidente-26.jan_.2026.pdf",
+   "detalhe": "figuras idênticas já em origin/main:data/polls.json — poll p360-13202-1-0-1d7c27cdc6fc (INOP, fim de campo 2026-01-28); cenário 1º turno, 6 cand",
+   "assinatura": "flavio bolsonaro§lula§ratinho junior§romeu zema§ronaldo caiado§tarcisio de freitas"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "detalhe": "figuras idênticas já em origin/main:data/polls.json — poll p360-13365-1-0-3026a5ca212a (Veritá, fim de campo 2026-03-30); cenário 1º turno, 8 cand",
+   "assinatura": "aldo rebelo§flavio bolsonaro§lula§pablo marcal§ratinho junior§renan santos§romeu zema§ronaldo caiado"
+  }
+ ],
  "rejeitados": [],
  "pendencias": [
+  {
+   "uf": "AC",
+   "pollster": "Real Time Big Data",
+   "id": 13110,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-acre-governador-12.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AC",
+   "pollster": "Instituto Phoenix",
+   "id": 13260,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-governador-6.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AC",
+   "pollster": "Data Control",
+   "id": 13262,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-datacontrol-acre-governador-8.fev_.2026pdf.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.21: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "AC",
+   "pollster": "Paraná Pesquisas",
+   "id": 13486,
+   "pdf_url": "https://static.poder360.com.br/2026/06/AC_Jun26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AC",
+   "pollster": "Real Time Big Data",
+   "id": 13613,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/real-time-big-data-acre-estadual-27jul.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AC",
+   "pollster": "AtlasIntel",
+   "id": 13684,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.34: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "AC",
+   "pollster": "AtlasIntel",
+   "id": 13684,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.35: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "AC",
+   "pollster": "AtlasIntel",
+   "id": 13684,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.36: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "AC",
+   "pollster": "AtlasIntel",
+   "id": 13684,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.37: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "AC",
+   "pollster": "Instituto Travessia",
+   "id": 13805,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "download falhou: HTTP 404"
+  },
+  {
+   "uf": "AC",
+   "pollster": "Delta Agência de Pesquisa",
+   "id": 13808,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
   {
    "uf": "AL",
    "pollster": "Real Time Big Data",
@@ -162,62 +369,6 @@
   },
   {
    "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.35: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.37: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.39: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.41: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.43: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.45: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
-   "pollster": "Veritá",
-   "id": 13359,
-   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "subtipo": "ilegível",
-   "detalhe": "p.47: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
-  },
-  {
-   "uf": "AP",
    "pollster": "Paraná Pesquisas",
    "id": 13513,
    "pdf_url": "https://static.poder360.com.br/uploads/2026/06/AP_Jun26-1.pdf",
@@ -245,6 +396,342 @@
    "pollster": "Veritá",
    "id": 13795,
    "pdf_url": "https://static.poder360.com.br/uploads/2026/08/verita-estadual-APjul2026-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Quaest",
+   "id": 13002,
+   "pdf_url": "https://static.poder360.com.br/2025/08/quaest-governadores-ago2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Real Time Big Data",
+   "id": 13082,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-bahia-governador-25nov2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Paraná Pesquisas",
+   "id": 13134,
+   "pdf_url": "https://static.poder360.com.br/2025/07/Bahia_Jul25-Midia-Estadual-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Paraná Pesquisas",
+   "id": 13223,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-bahia-governador-24.mar_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Instituto TML",
+   "id": 13304,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-institutotml-bahia-governador-24.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "",
+   "id": 13331,
+   "pdf_url": "https://static.poder360.com.br/2026/03/realtime_big_data_MAR2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Quaest",
+   "id": 13431,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Pesquisa-GenialQuaest-Bahia-abr-2026.pdf?_gl=1*1980a8s*_ga*ODY2OTQ5MDcwLjE3NzI1NzQ3MjU.*_ga_HGJJJTZ4BN*czE3Nzc5Mzg0MzckbzckZzEkdDE3Nzc5NDYyMDUkajYwJGwwJGgw",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Paraná Pesquisas",
+   "id": 13553,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/BA_Jun26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Quaest",
+   "id": 13643,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.78: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Quaest",
+   "id": 13643,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.82: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Quaest",
+   "id": 13643,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/quaest-ba-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.84: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "BA",
+   "pollster": "100% Cidades Participações",
+   "id": 13692,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Relatorio_BA_2026jul_Poder-360.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.20: adjacente-interleaved (ordem ambígua — classe gated) e nenhuma perna independente corrobora (OCR linha a linha não corrobora; geometria: caixa com 2 valores (\"Poder 3 27%\") — multi-coluna não é pareável por geometria) — leitura visual §1"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Paraná Pesquisas",
+   "id": 13743,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/parana-pesquisas-ba-6ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "BA",
+   "pollster": "Real Time Big Data",
+   "id": 13812,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-senador-realtimebigdata-bahia-11go2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Paraná Pesquisas",
+   "id": 12953,
+   "pdf_url": "https://static.poder360.com.br/2025/05/parana-pesquisas-governador-do-estado-ceara-mai2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Ipec",
+   "id": 13120,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-ipsos-ceara-governador-16.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13141,
+   "pdf_url": "https://static.poder360.com.br/2025/12/parana-pesquisas-ceara-governo-dezembro.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13178,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-paranapesquisas-ceara-governador-22.jan_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Real Time Big Data",
+   "id": 13227,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-realtimebigdata-ceara-governador-4.fev_.2026pdf.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13309,
+   "pdf_url": "https://static.poder360.com.br/2026/03/parana_pesquisa_08478.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "",
+   "id": 13343,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Eleicoes-2026_-Pesquisa_-RedeANC_-Ceara.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Datafolha",
+   "id": 13358,
+   "pdf_url": "https://static.poder360.com.br/2026/04/pesquisa_Datafolha_Ceara_MAR2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Quaest",
+   "id": 13404,
+   "pdf_url": "https://static.poder360.com.br/2026/04/genial-quaest-ceara-abr2026.pdf?_gl=1*1v31lb*_ga*MTM5NjIyMzY1My4xNzc2OTY4MzI4*_ga_HGJJJTZ4BN*czE3Nzc2NjM0MzUkbzIxJGcxJHQxNzc3NjY4MDk3JGo1MiRsMCRoMA..",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Real Time Big Data",
+   "id": 13456,
+   "pdf_url": "https://static.poder360.com.br/2026/05/real-time-big-data-ceara-governador-senado-maio-2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "AtlasIntel",
+   "id": 13512,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pesquisa-Atlas_Focus-Eleicoes-Ceara-2026-150626-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Real Time Big Data",
+   "id": 13639,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/realtimebigdata-ceara-15jul.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Quaest",
+   "id": 13658,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.73: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Quaest",
+   "id": 13658,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.77: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Quaest",
+   "id": 13658,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.79: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Quaest",
+   "id": 13658,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.82: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Ipec",
+   "id": 13777,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/ipsos-ipec-gov-senado-ce-7ago2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.61: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "CE",
+   "pollster": "AtlasIntel",
+   "id": 13825,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-atlasintel-governo-ce-12ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "CE",
+   "pollster": "Datafolha",
+   "id": 13829,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/datafolha-CE-10-12ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Paraná Pesquisas",
+   "id": 12962,
+   "pdf_url": "https://static.poder360.com.br/2025/06/ES_Jun25-Pesquisa-Opiniao-2-jun-2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Real Time Big Data",
+   "id": 13097,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-espiritosanto-governador-8.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Real Time Big Data",
+   "id": 13334,
+   "pdf_url": "https://static.poder360.com.br/2026/03/pesquisa-realtimebigdata-estadual-es-16-mar-2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Instituto França",
+   "id": 13475,
+   "pdf_url": "https://static.poder360.com.br/2026/05/PESQUISA-FRANCA_ESPIRITO-SANTO_MAIO_TSE.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.8: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Instituto França",
+   "id": 13475,
+   "pdf_url": "https://static.poder360.com.br/2026/05/PESQUISA-FRANCA_ESPIRITO-SANTO_MAIO_TSE.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.9: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Real Time Big Data",
+   "id": 13506,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Espirito-Santo-ES-066982026-Jun-26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Quaest",
+   "id": 13559,
+   "pdf_url": "",
+   "subtipo": "sem-integra",
+   "detalhe": "registro do sweep sem link de integra"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Real Time Big Data",
+   "id": 13612,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/espirito-santo-estadual-22jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "ES",
+   "pollster": "Quaest",
+   "id": 13630,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/quaest-tvgazeta-ES-16-jul-2026.pdf",
    "subtipo": "sem-bloco",
    "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
   },
@@ -377,6 +864,70 @@
    "detalhe": "download falhou: resposta não é PDF"
   },
   {
+   "uf": "MS",
+   "pollster": "Paraná Pesquisas",
+   "id": 12950,
+   "pdf_url": "https://static.poder360.com.br/2025/05/pesquisa-parana-pesquisas-executivo-estadual-mai.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Real Time Big Data",
+   "id": 13064,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-matogrossodosul-governador-28nov2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Ranking Brasil",
+   "id": 13268,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-rankingbrasil-matogrossodosul-presidente-8.fev_.2026pdf.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.16: bloco só em OCR com pareamento adjacente-interleaved (embaralha) e a geometria não corrobora (valor \"35.00%\" com 2 rótulos na mesma linha visual — ambíguo, recusa (§4)) — leitura visual §1"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Real Time Big Data",
+   "id": 13436,
+   "pdf_url": "https://static.poder360.com.br/2026/05/Mato-Grosso-do-Sul-MS-064122026-MAI26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Ranking Brasil",
+   "id": 13676,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Ranking-Brasil-MS-Julho-.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Real Time Big Data",
+   "id": 13726,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/governo-mato-grosso-do-sul.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Ranking Brasil",
+   "id": 13793,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/ranking-ms-gov-7ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MS",
+   "pollster": "Ranking Brasil",
+   "id": 13828,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-ranking-brasil-governador-ms-13ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
    "uf": "MT",
    "pollster": "Paraná Pesquisas",
    "id": 12958,
@@ -449,6 +1000,926 @@
    "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
   },
   {
+   "uf": "PB",
+   "pollster": "Real Time Big Data",
+   "id": 13075,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-paraiba-governador-01dez2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Anova",
+   "id": 13200,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-anova-paraiba-presidente-28.jan_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.12: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Anova",
+   "id": 13200,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-anova-paraiba-presidente-28.jan_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.13: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Falcão Pesquisas e Publicidade",
+   "id": 13205,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-falcaopesquisas-paraiba-governador-30.jan_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Seta",
+   "id": 13219,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-seta-paraiba-presidente-2.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Anova",
+   "id": 13346,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Anova_Pesquisa_MAR2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Real Time Big Data",
+   "id": 13484,
+   "pdf_url": "https://static.poder360.com.br/2026/05/Paraiba_Maio_Governo_PB-037482026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "DataTrends",
+   "id": 13674,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/DataTrends-PB-junho-2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "DataTrends",
+   "id": 13724,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PB",
+   "pollster": "Seta",
+   "id": 13764,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/datatrends-gov-pb-7ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Paraná Pesquisas",
+   "id": 12988,
+   "pdf_url": "https://static.poder360.com.br/2025/08/Parana-Pesquisas-Pernambuco-governo-Senado-agosto-2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Quaest",
+   "id": 13003,
+   "pdf_url": "https://static.poder360.com.br/2025/08/Quaest-Pesquisa-Pernambuco.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13102,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-pernambuco-governador-10.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13147,
+   "pdf_url": "https://static.poder360.com.br/2025/12/Parana-Pesquisas-PE-Dez25.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Real Time Big Data",
+   "id": 13149,
+   "pdf_url": "https://static.poder360.com.br/2025/12/Pernambuco-Dez2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13222,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-pernambuco-governador-14.mar_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Datafolha",
+   "id": 13239,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-datafolha-pernambuco-5.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Real Time Big Data",
+   "id": 13253,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-realtimebigdata-pernambuco-governador-11.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Instituto Múltipla ",
+   "id": 13272,
+   "pdf_url": "https://static.poder360.com.br/2026/02/Pesquisa-Institutomultipla-pernambuco-presidente-12.fev_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.28: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Instituto Múltipla ",
+   "id": 13272,
+   "pdf_url": "https://static.poder360.com.br/2026/02/Pesquisa-Institutomultipla-pernambuco-presidente-12.fev_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.30: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.34: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.36: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.38: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.40: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.42: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.44: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Veritá",
+   "id": 13363,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Relatorio-Verita-Pernambuco-24-30-marco-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.46: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Real Time Big Data",
+   "id": 13393,
+   "pdf_url": "https://static.poder360.com.br/2026/04/pesquisa-realtime-bigdata-estadual-pe-7-abr-2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Quaest",
+   "id": 13408,
+   "pdf_url": "https://static.poder360.com.br/2026/04/genial-quaest-PE-abr2026.pdf?_gl=1*14xvmcl*_ga*ODY2OTQ5MDcwLjE3NzI1NzQ3MjU.*_ga_HGJJJTZ4BN*czE3Nzc5MjMyNTkkbzUkZzAkdDE3Nzc5MjMyNTkkajYwJGwwJGgw",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Real Time Big Data",
+   "id": 13499,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pernambuco-PE09426_2026_JUN26_-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Ipespe",
+   "id": 13522,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pesquisa-Folha_IPESPE_-JUN_2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Paraná Pesquisas",
+   "id": 13582,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/paranapesquisas-pernambuco-10jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Quaest",
+   "id": 13615,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-Pernambuco-28-jul-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.76: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Quaest",
+   "id": 13615,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-Pernambuco-28-jul-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.80: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Quaest",
+   "id": 13615,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-Pernambuco-28-jul-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.82: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Real Time Big Data",
+   "id": 13669,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/realtimebigdata-pe-31jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Brada Comunicação",
+   "id": 13772,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "Ipespe",
+   "id": 13781,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PE",
+   "pollster": "IRTB (Instituto Revista Total Brasil)",
+   "id": 13834,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-PE-revista-total-9ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PI",
+   "pollster": "Real Time Big Data",
+   "id": 13068,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-piaui-governador-27nov2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13328,
+   "pdf_url": "https://static.poder360.com.br/2026/03/Pesquisa-AtlasIntel-Eleicoes-Piaui-2026-260317-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.20: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13328,
+   "pdf_url": "https://static.poder360.com.br/2026/03/Pesquisa-AtlasIntel-Eleicoes-Piaui-2026-260317-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.21: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13462,
+   "pdf_url": " https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Piaui-2026-260519.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.19: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13462,
+   "pdf_url": " https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Piaui-2026-260519.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.20: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13462,
+   "pdf_url": " https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Piaui-2026-260519.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.21: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13534,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pesquisa-Atlas-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.21: 2 rótulos × 1 valores não alinham — recusado (§4)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13534,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pesquisa-Atlas-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.22: bloco só em OCR com pareamento adjacente-interleaved (embaralha) e a geometria não corrobora (rótulo(s) sem valor pareado: \"Lula (PT)\", \"Flávio Bolsonaro (PL)\", \"Renan Santos (Missão)\", \"Ronaldo Caiado (PSD)\", \"Augusto Cury (Avante)\", \"Joaquim Barbosa (DC)\", \"Romeu Zema (Novo)\", \"Samara Martins (UP)\" — leitura visual incompleta, recusa (§4)) — leitura visual §1"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13534,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pesquisa-Atlas-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.23: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13605,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-ATLAS_MEIONORTE-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.21: 2 rótulos × 1 valores não alinham — recusado (§4)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13605,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-ATLAS_MEIONORTE-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.22: bloco só em OCR com pareamento adjacente-interleaved (embaralha) e a geometria não corrobora (rótulo(s) sem valor pareado: \"Lula (PT)\", \"Flávio Bolsonaro (PL)\", \"Renan Santos (Missão)\", \"Augusto Cury (Avante)\", \"Ronaldo Caiado (PSD)\", \"Joaquim Barbosa (DC)\", \"Romeu Zema (Novo)\", \"Samara Martins (UP)\" — leitura visual incompleta, recusa (§4)) — leitura visual §1"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13605,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-ATLAS_MEIONORTE-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.23: 22 rótulos × 5 valores não alinham — recusado (§4)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "AtlasIntel",
+   "id": 13605,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-ATLAS_MEIONORTE-Piaui-Eleicoes-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.24: 21 rótulos × 9 valores não alinham — recusado (§4)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "Real Time Big Data",
+   "id": 13649,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtime-governo-piaui-14jul26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PI",
+   "pollster": "Data AZ",
+   "id": 13720,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/PI-079102026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.6: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "Vetor",
+   "id": 13728,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-piaui-rafael-lula.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.3: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PI",
+   "pollster": "Intenção Instituto de Pesquisa",
+   "id": 13768,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/intencao-pesquisa-vilanovapiaui-PI-22-24jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PI",
+   "pollster": "Credibilidade",
+   "id": 13779,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Paraná Pesquisas",
+   "id": 12972,
+   "pdf_url": "https://static.poder360.com.br/2025/07/parana-pesquisas-cenario-governador-PR-jul2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Paraná Pesquisas",
+   "id": 12985,
+   "pdf_url": "https://static.poder360.com.br/2025/08/Parana-pesquisas-governador-Curitiba-senador.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Quaest",
+   "id": 12999,
+   "pdf_url": "https://static.poder360.com.br/2025/08/GENIALQUAESTESTADOSAGO25-1-compactado.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Real Time Big Data",
+   "id": 13088,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-parana-governador-26nov2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Paraná Pesquisas",
+   "id": 13181,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-paranapesquisa-parana-governador-23.jan_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Futura Inteligência",
+   "id": 13213,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-futuraapex-parana-presidente-29.jan_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "só blocos SEGMENTADOS (crosstab geográfico/demográfico, p. 6) — coluna total não isolável; leitura visual/§1"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Paraná Pesquisas",
+   "id": 13389,
+   "pdf_url": "https://static.poder360.com.br/2026/04/parana-pesquisas-governo-senado-parana-abr2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Quaest",
+   "id": 13397,
+   "pdf_url": "https://static.poder360.com.br/2026/04/GENIALQUAESTPARANAABR26-1-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Paraná Pesquisas",
+   "id": 13504,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/PR_Jun26-2.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Paraná Pesquisas",
+   "id": 13571,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/PR_Jul26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Quaest",
+   "id": 13601,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/genial-quaest-Parana-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.125: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Quaest",
+   "id": 13601,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/genial-quaest-Parana-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.129: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Quaest",
+   "id": 13601,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/genial-quaest-Parana-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.131: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Ranking Brasil",
+   "id": 13719,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-ranking-brasil-governador-pr-5ago.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)"
+  },
+  {
+   "uf": "PR",
+   "pollster": "IRG",
+   "id": 13774,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/irg-governador-pr-7ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Índice",
+   "id": 13799,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-indice-gov-pr-10ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "Neokemp",
+   "id": 13827,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-neokemp-governador-pr-13ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "PR",
+   "pollster": "IRG",
+   "id": 13832,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/IRG-Parana-agosto.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Paraná Pesquisas",
+   "id": 12956,
+   "pdf_url": "https://static.poder360.com.br/2025/05/Parana-Pesquisas-Governo-RJ-Mai-2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "AtlasIntel",
+   "id": 13015,
+   "pdf_url": "https://static.poder360.com.br/2025/09/Atlas-RJ-pesquisa-ago2025-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.22: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Futura Inteligência",
+   "id": 13248,
+   "pdf_url": "https://static.poder360.com.br/2026/02/R_RJ_Janeiro_2026_Poder360-2-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Prefab Future",
+   "id": 13293,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-prefabfuture-riodejaneiro-governador-17.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; só bloco ESPONTÂNEO (não se guarda)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Real Time Big Data",
+   "id": 13324,
+   "pdf_url": "https://static.poder360.com.br/2026/03/RealBigData-Governo-Senado-RiodeJaneiro-BR-043672026-Mar26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Quaest",
+   "id": 13399,
+   "pdf_url": "https://static.poder360.com.br/2026/04/GENIALQUAESTRIOABR26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Paraná Pesquisas",
+   "id": 13413,
+   "pdf_url": "https://static.poder360.com.br/2026/04/RJ_Abr26.pdf?_gl=1*16cu8gx*_ga*ODY2OTQ5MDcwLjE3NzI1NzQ3MjU.*_ga_HGJJJTZ4BN*czE3Nzc5MjU4MzMkbzYkZzEkdDE3Nzc5MzE2MjUkajYwJGwwJGgw",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Paraná Pesquisas",
+   "id": 13515,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/RJ_Jun26-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Prefab Future",
+   "id": 13562,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/PrefabQuantiEstadualJulho2026_Imprensa.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; só bloco ESPONTÂNEO (não se guarda)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Quaest",
+   "id": 13594,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.102: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Quaest",
+   "id": 13594,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.106: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Quaest",
+   "id": 13594,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.108: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Quaest",
+   "id": 13594,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-governo-rj-quaest-27jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.111: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Real Time Big Data",
+   "id": 13618,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/realtime-big-data-governo-rj-28jul26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Paraná Pesquisas",
+   "id": 13672,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/RJ_Jul26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Prefab Future",
+   "id": 13703,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/PrefabEstadualImprensa2026-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; só bloco ESPONTÂNEO (não se guarda)"
+  },
+  {
+   "uf": "RJ",
+   "pollster": "Gerp",
+   "id": 13732,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Gerp-eleicoes-governo-presidente-RJ-julho-2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.25: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Agora Sei Pesquisas",
+   "id": 13025,
+   "pdf_url": "https://static.poder360.com.br/2025/09/AgoraSei-pesquisas-eleitorais-opiniao-set2025.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.24: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Datavero Instituto De Pesquisas",
+   "id": 13171,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-datavero-riograndedonorte-3-4-governador-20.jan_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Affare Institute",
+   "id": 13209,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-affare-riograndedonorte-governador-22.jan_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Paraná Pesquisas",
+   "id": 13221,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-riograndedonorte-5.mar_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Instituto Potiguar",
+   "id": 13241,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-institutopotiguar-riograndedosul-governador-13.jan_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.15: 9 rótulos × 2 valores não alinham — recusado (§4)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "AtlasIntel",
+   "id": 13491,
+   "pdf_url": "https://static.poder360.com.br/2026/06/Pesquisa-Atlas_94FM-Eleicoes-Rio-Grande-do-Norte-2026-260529.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.28: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "AtlasIntel",
+   "id": 13491,
+   "pdf_url": "https://static.poder360.com.br/2026/06/Pesquisa-Atlas_94FM-Eleicoes-Rio-Grande-do-Norte-2026-260529.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.29: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "AtlasIntel",
+   "id": 13491,
+   "pdf_url": "https://static.poder360.com.br/2026/06/Pesquisa-Atlas_94FM-Eleicoes-Rio-Grande-do-Norte-2026-260529.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.30: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "AtlasIntel",
+   "id": 13625,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Atlas_94FM-Julho-Eleicoes-Rio-Grande-do-Norte.pdf?",
+   "subtipo": "ilegível",
+   "detalhe": "p.27: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "AtlasIntel",
+   "id": 13625,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Atlas_94FM-Julho-Eleicoes-Rio-Grande-do-Norte.pdf?",
+   "subtipo": "ilegível",
+   "detalhe": "p.28: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "AtlasIntel",
+   "id": 13625,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Atlas_94FM-Julho-Eleicoes-Rio-Grande-do-Norte.pdf?",
+   "subtipo": "ilegível",
+   "detalhe": "p.29: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Data Capital",
+   "id": 13713,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/data-capital-governador-rn-5ago.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RN",
+   "pollster": "BG Mídias e Assessoria",
+   "id": 13760,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/persquisa-perfil-rio-grande-do-norte-26jul.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.8: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "BG Mídias e Assessoria",
+   "id": 13760,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/persquisa-perfil-rio-grande-do-norte-26jul.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.9: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "BG Mídias e Assessoria",
+   "id": 13760,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/persquisa-perfil-rio-grande-do-norte-26jul.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.10: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "BG Mídias e Assessoria",
+   "id": 13760,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/persquisa-perfil-rio-grande-do-norte-26jul.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.11: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "BG Mídias e Assessoria",
+   "id": 13760,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/persquisa-perfil-rio-grande-do-norte-26jul.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.12: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "BG Mídias e Assessoria",
+   "id": 13760,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/persquisa-perfil-rio-grande-do-norte-26jul.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.13: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Instituto Media",
+   "id": 13780,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Soluções",
+   "id": 13787,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.13: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Item",
+   "id": 13790,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/item-gov-senado-rn-7ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RN",
+   "pollster": "Data Census",
+   "id": 13837,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-Data-Census-RN-14ago2026-scaled.jpg",
+   "subtipo": "ilegível",
+   "detalhe": "download falhou: resposta não é PDF"
+  },
+  {
+   "uf": "RN",
+   "pollster": "consult pesquisas",
+   "id": 13838,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-governo-rn-14ago2206.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
    "uf": "RO",
    "pollster": "Paraná Pesquisas",
    "id": 12992,
@@ -493,6 +1964,270 @@
    "pollster": "Inor - Instituto Nordeste ",
    "id": 13776,
    "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-INOR-governo-SE-jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 12976,
+   "pdf_url": "https://static.poder360.com.br/2025/07/parana-pesquisas-cenarios-2026-SP.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13056,
+   "pdf_url": "https://static.poder360.com.br/2025/10/parana-pesquisas-sao-paulo-cenarios-executivo-federa2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Real Time Big Data",
+   "id": 13057,
+   "pdf_url": "https://static.poder360.com.br/2025/10/realtime-bigdata-SP-out2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Quaest",
+   "id": 13058,
+   "pdf_url": "https://static.poder360.com.br/2025/02/quaest-aprovacao-governos-estaduais-fev2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13059,
+   "pdf_url": "https://static.poder360.com.br/2025/02/parana-pesquisa-governo-SP-fev2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13061,
+   "pdf_url": "https://static.poder360.com.br/2025/05/parana-pesquisa-SP-6mai2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Real Time Big Data",
+   "id": 13072,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtime-saopaulo-governador-1.dez2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13108,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-paranapesquisa-saopaulo-governador-10.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13132,
+   "pdf_url": null,
+   "subtipo": "sem-integra",
+   "detalhe": "registro do sweep sem link de integra"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Futura Inteligência",
+   "id": 13193,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-futuraapex-saopaulo-presidente-28.jan_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno; um 2º turno foi visto (fora do v1)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "",
+   "id": 13217,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-saopaulo-governador-25.fev_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13263,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-saopaulo-governador-11.fev_.2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Ipespe",
+   "id": 13270,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-ipespe-saopaulo-presidente-11.fev_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.24: tabela inline multi-coluna sem coluna-que-soma (nenhuma coluna fecha em 100 dentro da folga derivada) — gated, leitura §1"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Ipespe",
+   "id": 13270,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-ipespe-saopaulo-presidente-11.fev_.2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.31: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13298,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-saopaulo-governador-6.mai_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Real Time Big Data",
+   "id": 13316,
+   "pdf_url": "https://static.poder360.com.br/2026/03/real_time_big_data_SP007052026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13383,
+   "pdf_url": "https://static.poder360.com.br/2026/04/parana-pesquisa-SP-16abr2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Quaest",
+   "id": 13429,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Genial-Quaest-SP-29abr2026.pdf?_gl=1*1prkzgd*_ga*ODY2OTQ5MDcwLjE3NzI1NzQ3MjU.*_ga_HGJJJTZ4BN*czE3Nzc5Mzg0MzckbzckZzEkdDE3Nzc5NDYyODIkajYwJGwwJGgw",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13460,
+   "pdf_url": "https://static.poder360.com.br/2026/05/SP_Mai26-Estadual.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Vox Brasil",
+   "id": 13482,
+   "pdf_url": "https://static.poder360.com.br/2026/05/pesquisa-voxbrasil-saopaulo-30mai2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.14: 11 rótulos × 24 valores não alinham — recusado (§4)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Real Time Big Data",
+   "id": 13517,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/pesquisa-realtimebigdata-sp-governo-16jun26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13529,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/SP_Jun26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Vox Brasil",
+   "id": 13546,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/Pesquisa-VoxBrasil-governo-senado-SaoPaulo-28-jun-2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Datafolha",
+   "id": 13567,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/DatafolhaSP-governo-5jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13633,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/parana-pesquisas-SP-29jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Quaest",
+   "id": 13635,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.72: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Quaest",
+   "id": 13635,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.76: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Quaest",
+   "id": 13635,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.78: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Quaest",
+   "id": 13635,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/SP-quaest-29jul2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.81: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Vox Brasil",
+   "id": 13695,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-vox-brasil-sp-3ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Pimentel e Carpentieri ",
+   "id": 13758,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/governador-senado-presidente-santos-30jul.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SP",
+   "pollster": "Instituto Ideia",
+   "id": 13803,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/integra-meioideia-10ago.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.8: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "SP",
+   "pollster": "American Analytics",
+   "id": 13817,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-senador-times-brasil-analytics-sao-paulo.pdf",
    "subtipo": "sem-bloco",
    "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
   }
