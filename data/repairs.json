@@ -2599,6 +2599,216 @@
    },
    "expect_sum": 100.0,
    "_nota_registro": "⚠ O PDF imprime DOIS registros, só na p.2: 'TRE: RR-06328/2026 / TSE: BR-01469/2026'. PesqEle (consulta de 21/08/2026): RR-06328/2026 = cargos Governador, Senador, Deputado Federal e Deputado Estadual; BR-01469/2026 = cargo PRESIDENTE (somente), abrangência declarada 'Estado de Roraima' — gêmeo administrativo exato (mesma data de registro 28/03, mesmo campo 29/03-04/04, mesma divulgação 03/04, mesmo n = 1030, mesmo valor, mesmo estatístico), padrão de duplo registro presidencial-BR + estadual-UF com 71 precedentes medidos no banco. tse_registration fica NULO por MECÂNICA, medida em 21/08/2026 (o método é o da nota do PE-04519: a chave é a que não parte a operação nem recunha): as linhas irmãs governador/senador desta operação vivem no levantamento s_703c16333da4 com registro NULO e semente nat ('survey|nat|i_db7984a34609|RR|2026-04-04|1030|…', vindas da Wikipédia). Com registro nulo, esta pergunta alcança esse levantamento pelo degrau 3 de resolveSurvey (instituto + UF + data ±3d + n; elenco não contradiz porque o levantamento não tem pergunta presidencial) e NÃO escreve nada no registro dele. Escrever 'RR-06328/2026' ou 'BR-01469/2026' aqui faria fillFields preencher o registro nulo do levantamento de semente nat — nat→reg, exatamente a classe estrutural dos 500 que o CONVENTIONS §8b marca (efeito medido em ensaio de 21/08/2026: com registro na entrada, o campo tse_registration do s_703c16333da4 sai preenchido do build; com nulo, sai nulo e os conjuntos de survey_id/question_id ficam idênticos aos da base fora as 8 perguntas novas). Os DOIS registros ficam NESTA nota para não se perder; a forma com barra vertical não é usada (não suportada por normalizeRegistration — ver a nota do PE-04519)."
+  },
+  {
+   "match": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2025-07-15"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (AP, campo 2025-07-15) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial (lote v2.1) para presidente:AP. A UF vem do poll estadual, não do BR- do bloco. FATO SOBRE A PESQUISA, não defeito de transcrição: o campo é de JULHO DE 2025 e o cenário 1 traz Jair Bolsonaro — cenário anterior à definição das candidaturas de 2026; entra como o instituto publicou. O documento publica QUATRO cenários estimulados (resolução do hub de 22/08/2026; consistente com os quatro crosstabs segmentados que o parser pulou, p.9/11/13/15, um por cenário): este reparo insere SÓ o cenário 1, e o cenário 3 (Tarcísio de Freitas, p.12, também aprovado na §1) fica PARQUEADO fora deste lote com os demais, aguardando decisão de método do criador (§12) — a inserção curada recusa cenários estimulados quase-iguais da mesma operação de campo, e a recusa foi medida em 22/08/2026 com as funções reais: os cenários 1 e 3 compartilham 5 dos 6 nomes e questionRostersMatch os lê como a MESMA pergunta (0,833 ≥ 0,8, nas duas direções). O limiar não se alarga para o lote passar (§10).",
+   "source": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+   "evidence": "p.8 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Jair Bolsonaro 39 · Lula 31,8 · Ciro Gomes 12,5 · Ratinho Junior 3,7 · Ronaldo Caiado 2,6 · Renan Filho 0,9. Baldes SEPARADOS (o relatório separa, o agregador funde): 'Em branco/nulo/nenhum' 5,2 e 'Não sabe' 4,3. others_pct NULO — sem linha de 'Outros' na estimulada (não confundir com 'Outras respostas' da espontânea). DUAS LEITURAS DA §1, CONCORDANTES: (1) a mecânica do parser presidencial — camada de texto embutida E OCR Vision batem, pareados por caixa delimitadora (confiança 'corroborado-geometrico' do _parser) — no lote v2.1 CONGELADO (HEAD 470e2fd, md5 1d11dd0919c7a2483498bc09241a8c32, conferido antes do merge); (2) leitura cega independente de outro agente na §1 de 21/08/2026, contra a leitura arquivada de 20/08, batendo dígito a dígito em todas as figuras. Valores copiados do lote congelado, não retranscritos do PDF. PROCEDÊNCIA E CONTEXTO ADVERSO: o documento NÃO imprime registro do TSE (tse_todos vazio no parser) — tse_registration NULO como no lote, nada puxado do sweep (§4); nenhum partido impresso no bloco — party NULO em todas as linhas; contratante não impresso — NULO, não puxado do sweep (§4); sample_size 1310 lido do PDF; margem 2,8 veio do SWEEP (ficha do PDF não lida pelo parser — divergência registrada em _parser.divergencias_sweep; a leitura cega da §1 conferiu a ficha no relatório), assim como o nome do instituto e o fim de campo (alinhamento; confere o fim de período do PDF). Crosstabs segmentados das p.9/11/13/15 pulados (fora do escopo v1). sha256 do PDF: bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Paraná Pesquisas",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "scenario": "1º turno — cenário 1 (p.8)",
+    "contractor": null,
+    "fieldwork_start": null,
+    "fieldwork_end": "2025-07-15",
+    "published_date": null,
+    "sample_size": 1310,
+    "margin_of_error": 2.8,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Jair Bolsonaro",
+      "party": null,
+      "pct": 39
+     },
+     {
+      "candidate": "Lula",
+      "party": null,
+      "pct": 31.8
+     },
+     {
+      "candidate": "Ciro Gomes",
+      "party": null,
+      "pct": 12.5
+     },
+     {
+      "candidate": "Ratinho Junior",
+      "party": null,
+      "pct": 3.7
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": null,
+      "pct": 2.6
+     },
+     {
+      "candidate": "Renan Filho",
+      "party": null,
+      "pct": 0.9
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 4.3,
+    "blank_null_pct": 5.2
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2026-03-24"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Veritá (AP, campo 2026-03-24) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial (lote v2.1) para presidente:AP. A UF vem do poll estadual, não do BR- do bloco — e este documento nem imprime um BR-.",
+   "source": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "evidence": "p.29 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Flávio Bolsonaro (PL) 25 · Lula (PT) 17,5 · Pablo Marçal (União Brasil) 2,1 · Ratinho Júnior (PSD) 1,4 · Renan Santos (Missão) 0,9 · Romeu Zema (Novo) 0,3 · Ronaldo Caiado (PSD) 0,1 · Aldo Rebelo (DC) 0,1. Baldes SEPARADOS: 'Em branco/nulo/nenhum' 4,9 e 'Não sabe' 47,7. others_pct NULO (sem linha de 'Outros' na estimulada). MODO DE PAREAMENTO: adjacente-inline no layout SPSS de duas colunas, decidido pela COLUNA-QUE-SOMA — coluna registrada no _parser: índice 1 de 2, soma 100. Camada de texto embutida; OCR não corroborou porque a camada de texto É a leitura exata do gerador do PDF. DUAS LEITURAS DA §1, CONCORDANTES: (1) a mecânica do parser no lote v2.1 CONGELADO (HEAD 470e2fd, md5 1d11dd0919c7a2483498bc09241a8c32, conferido antes do merge); (2) leitura cega independente na §1 de 21/08/2026 — todas as 8 linhas da coluna Porcentual, os baldes 47,7/4,9 e a ficha 1030 / 3,5 / 18–24 de março / AP-02183, dígito a dígito. Valores copiados do lote congelado, não retranscritos do PDF. FICHA (lida do PDF): 1030 entrevistas, margem 3,5 p.p., campo 2026-03-18 a 2026-03-24, registro AP-02183/2026, contratante 'Iniciativa própria do Instituto', partidos impressos linha a linha (transcritos como impressos). CONTEXTO ADVERSO, anotado pelo coordenador na §1 (notas de merge do lote): off-by-one INTERNO do relatório — as frequências válidas somam 489 contra um total impresso de 488, e os ausentes 543 contra 542 (a mesma doença Veritá do caso RR); sem efeito nos percentuais transcritos, que são a coluna que soma 100. E NENHUM registro BR- no PDF apesar do bloco presidencial — prática inconsistente do Veritá entre estados (em RR imprime BR-01469; em AP e MA não). O nome 'Veritá' veio do sweep; a §1 o conferiu no relatório. sha256 do PDF: 9be1376dc494c618803b8423f74306b988456b1281cc9e8ffd46d9633cca5a8d. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-18",
+    "fieldwork_end": "2026-03-24",
+    "published_date": null,
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": "AP-02183/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 25
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 17.5
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 2.1
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 1.4
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 0.9
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.3
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 0.1
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 47.7,
+    "blank_null_pct": 4.9
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MA",
+    "round": 1,
+    "fieldwork_end": "2026-03-24"
+   },
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Veritá (MA, campo 2026-03-24) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial (lote v2.1) para presidente:MA. A UF vem do poll estadual, não do BR- do bloco — e este documento nem imprime um BR-.",
+   "source": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "evidence": "p.28 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (PT) 35,6 · Flávio Bolsonaro (PL) 34,4 · Renan Santos (Missão) 1,3 · Romeu Zema (Novo) 1,2 · Ronaldo Caiado (PSD) 1,2 · Pablo Marçal (União Brasil) 1,2 · Ratinho Júnior (PSD) 0,9 · Aldo Rebelo (DC) 0,3. Baldes SEPARADOS: 'Em branco/nulo/nenhum' 4,5 e 'Não sabe' 19,4. others_pct NULO (sem linha de 'Outros' na estimulada). MODO DE PAREAMENTO: adjacente-inline no layout SPSS de duas colunas, decidido pela COLUNA-QUE-SOMA — coluna registrada no _parser: índice 1 de 2, soma 100. Camada de texto embutida; OCR não corroborou porque a camada de texto É a leitura exata do gerador do PDF. DUAS LEITURAS DA §1, CONCORDANTES NAS FIGURAS — E FOI A §1 QUE PEGOU A DATA: a leitura cega de 21/08/2026 REPROVOU a emissão v2 desta entrada porque a regra de preferência punha o fim de campo do sweep (19/03, errado) por cima da ficha CORRETA do PDF; o parser foi corrigido (PDF divergente manda no add_poll, §4) e o lote v2.1 CONGELADO (HEAD 470e2fd, md5 1d11dd0919c7a2483498bc09241a8c32, conferido antes do merge) é a emissão com a regra consertada. As figuras bateram nas duas leituras — a mecânica do parser e a cega. Valores copiados do lote congelado, não retranscritos do PDF. FICHA (lida do PDF): 1525 entrevistas, margem 3 p.p., campo 2026-03-18 a 2026-03-24 (o PDF imprime '18 a 24 de março de 2026' e 'Período: 18 a 24/03/2026', p.2), registro MA-03916/2026, contratante 'Iniciativa própria do Instituto', partidos impressos linha a linha. CONTEXTO ADVERSO: a divergência de data com o sweep está na _nota_datas abaixo; NENHUM registro BR- no PDF apesar do bloco presidencial (mesma inconsistência do Veritá anotada no reparo de AP); o nome 'Veritá' veio do sweep e a §1 o conferiu no relatório. sha256 do PDF: 390b1b9fae23d83bd3cf4a66fcec81b694ff99eff81b0bec2df2ef48300f443f. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
+   "verified_at": "2026-08-22",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MA",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Iniciativa própria do Instituto",
+    "fieldwork_start": "2026-03-18",
+    "fieldwork_end": "2026-03-24",
+    "published_date": null,
+    "sample_size": 1525,
+    "margin_of_error": 3,
+    "tse_registration": "MA-03916/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35.6
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 34.4
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1.3
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1.2
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.2
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 1.2
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 0.9
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.3
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 19.4,
+    "blank_null_pct": 4.5
+   },
+   "expect_sum": 100,
+   "_nota_datas": "⚠ SWEEP 2026-03-19 × PDF 2026-03-24, e o PDF manda nas DUAS pontas desta entrada. O lote congelado trazia match.fieldwork_end = 2026-03-19 (a data do sweep, para alinhamento às linhas irmãs) e add_poll = 2026-03-24 (a ficha do PDF, §4) — combinação que a trava de inserirPesquisaCurada RECUSA por construção, medido em 22/08/2026 no applyRepairs offline: para add_poll a cláusula match é a IDENTIDADE da pesquisa inserida (a mesma semântica dos modelos PE-04519 e AM-00163), e uma cláusula que não descreve a montada faz 'nenhum alvo casou' deixar de significar 'ainda não existe'. Ratificado pelo hub em 22/08/2026: match.fieldwork_end = 2026-03-24; o racional 'match pelo sweep' vale para reparo de CORREÇÃO (que mira linha existente), não para inserção. Sonda da mesma data: com 24/03 a inserção sai limpa e SEM vizinho na janela de 3 dias — 19→24 são 5 dias, e as linhas irmãs gov/sen do sweep são outra race, fora do alcance de mesmaOperacao. As irmãs, datadas 19/03 pelo sweep, ficam como estão; a divergência segue registrada em _parser.divergencias_sweep do lote congelado, e o dia em que a fonte corrigir a data será visível como field_disagreement, não como duplicata."
   }
  ]
 }
