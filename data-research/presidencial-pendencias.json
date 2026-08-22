@@ -1,0 +1,500 @@
+{
+ "_sobre": "Fila do parser presidencial, POR CENÁRIO. Disposições: ja-curado (repairs.json já cobre o elenco/a operação) / sem-integra / ilegível / sem-bloco / nao-corroborado. NUNCA silêncio: todo cenário que não vira candidato aparece aqui.",
+ "contagem": {
+  "documentos": 47,
+  "entradas_cenarios": 66,
+  "emitidos": 5,
+  "ja_curados": 4,
+  "rejeitados": 0,
+  "pendencias": 57
+ },
+ "ja_curados": [
+  {
+   "uf": "AM",
+   "pollster": "Direto ao Ponto Pesquisas",
+   "id": 13667,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/relatorio_AM-08042-2026_Amazonia-TI.pdf",
+   "detalhe": "cenário p.13 (elenco já curado em repairs.json) — dedupe por assinatura"
+  },
+  {
+   "uf": "AM",
+   "pollster": "Action",
+   "id": 13843,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/V4_Action_Pesquisa-de-Opiniao-Eleitoral_Amazonas_Julho_AM00163-2026.pdf?",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.29: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "RO",
+   "pollster": "Real Time Big Data",
+   "id": 13638,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "detalhe": "operação já coberta por add_poll curado; o parser não leu nenhum cenário deste documento (nenhum cabeçalho de presidente estimulada de 1º turno) — anotado para a §1"
+  },
+  {
+   "uf": "SE",
+   "pollster": "Instituto França",
+   "id": 13675,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf",
+   "detalhe": "operação já coberta por add_poll curado; recusa do parser nesta página fica anotada para a §1: p.7: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  }
+ ],
+ "rejeitados": [],
+ "pendencias": [
+  {
+   "uf": "AL",
+   "pollster": "Real Time Big Data",
+   "id": 13066,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-alagoas-24nov2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AL",
+   "pollster": "Paraná Pesquisas",
+   "id": 13122,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-paranapesquisa-alagoas-governador-11.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AL",
+   "pollster": "TDL Pesquisa & Marketing",
+   "id": 13196,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-tdl-alagoas-presidente-29.jan_.2026.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.11: corridas-separadas (ordem ambígua — classe gated) e nenhuma perna independente corrobora (OCR linha a linha não corrobora; geometria: rótulo(s) sem valor pareado: \"Marketing\" — leitura visual incompleta, recusa (§4)) — leitura visual §1"
+  },
+  {
+   "uf": "AL",
+   "pollster": "Instituto Falpe",
+   "id": 13306,
+   "pdf_url": "https://static.poder360.com.br/2026/03/regiao-metropolitana-de-maceio-1pdf.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AL",
+   "pollster": "Paraná Pesquisas",
+   "id": 13565,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/AL_Jul26-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AL",
+   "pollster": "Ranking Brasil",
+   "id": 13709,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/AL-064882026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AL",
+   "pollster": "TDL Pesquisa & Marketing",
+   "id": 13814,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AM",
+   "pollster": "Real Time Big Data",
+   "id": 13115,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-amazonas-governadores-12.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AM",
+   "pollster": "Perspectiva",
+   "id": 13123,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-perspectiva-amazonas-governador-28.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AM",
+   "pollster": "Projeta",
+   "id": 13707,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Projeta-260724_074017.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Paraná Pesquisas",
+   "id": 12977,
+   "pdf_url": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.10: adjacente-interleaved (ordem ambígua — classe gated) e nenhuma perna independente corrobora (OCR linha a linha não corrobora; geometria: rótulo(s) sem valor pareado: \"Renan Filho\" — leitura visual incompleta, recusa (§4)) — leitura visual §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Paraná Pesquisas",
+   "id": 12977,
+   "pdf_url": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+   "subtipo": "nao-corroborado",
+   "detalhe": "p.14: adjacente-interleaved (ordem ambígua — classe gated) e nenhuma perna independente corrobora (OCR linha a linha não corrobora; geometria: rótulo(s) sem valor pareado: \"Renan Filho\" — leitura visual incompleta, recusa (§4)) — leitura visual §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Real Time Big Data",
+   "id": 13093,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-amapa-governador-8.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Real Time Big Data",
+   "id": 13251,
+   "pdf_url": "https://static.poder360.com.br/2026/02/pesquisa-realtimebigdata-governador-10.fev_.2026pdf.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "",
+   "id": 13327,
+   "pdf_url": "https://static.poder360.com.br/2026/03/AP_Mar26-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.35: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.37: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.39: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.41: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.43: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.45: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13359,
+   "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.47: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13513,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/06/AP_Jun26-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Real Time Big Data",
+   "id": 13608,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/realtime-amapa-24.jul-estadual.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Paraná Pesquisas",
+   "id": 13784,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-AP-1o-e-2o-turno-Jul.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "AP",
+   "pollster": "Veritá",
+   "id": 13795,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/verita-estadual-APjul2026-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Paraná Pesquisas",
+   "id": 12987,
+   "pdf_url": "https://static.poder360.com.br/2025/08/Maranhao_Ago25-Midia.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Real Time Big Data",
+   "id": 13080,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-maranhao-governador-28nov25.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Datailha",
+   "id": 13107,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-datailha-maranhao-governador-6.dez_.2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Econométrica",
+   "id": 13207,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-econometrica-maranhao-governador-20.jan_.2026pdf.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "",
+   "id": 13319,
+   "pdf_url": "https://static.poder360.com.br/2026/03/MA_Mar26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.34: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.36: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.38: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.40: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.42: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.44: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13342,
+   "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.46: só 2 candidatos — possível confronto de 2º turno, não 1º estimulada; leitura §1"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Real Time Big Data",
+   "id": 13579,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Maranhao-MA-04311_2026-Jul-26-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "INOP",
+   "id": 13718,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-ma-inop-10ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "IPPI - Pesquisas e Consultorias",
+   "id": 13820,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-ippi-governo-ma-12ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MA",
+   "pollster": "Veritá",
+   "id": 13840,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-governador-maranhao-13ago2026.png",
+   "subtipo": "ilegível",
+   "detalhe": "download falhou: resposta não é PDF"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Paraná Pesquisas",
+   "id": 12958,
+   "pdf_url": "https://static.poder360.com.br/2025/05/pesquisa-governo-matogrosso-paranapesquisas-maio2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Real Time Big Data",
+   "id": 13073,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-matogrosso-governador-27nov25.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Real Time Big Data",
+   "id": 13351,
+   "pdf_url": "https://static.poder360.com.br/2026/04/MT-Mar-26-RealTimeBigData.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Real Time Big Data",
+   "id": 13488,
+   "pdf_url": "https://static.poder360.com.br/2026/06/Mato-Grosso-MT-01755-2026-Jun-26.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MT",
+   "pollster": "MT Dados",
+   "id": 13599,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/MTDados-governador-15-21jul-2026-2.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Percent Brasil",
+   "id": 13664,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.84: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Percent Brasil",
+   "id": 13664,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.88: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Percent Brasil",
+   "id": 13664,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
+   "subtipo": "ilegível",
+   "detalhe": "p.90: cabeçalho presidencial sem tabela legível abaixo (bloco em imagem ou layout não coberto)"
+  },
+  {
+   "uf": "MT",
+   "pollster": "Real Time Big Data",
+   "id": 13822,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RO",
+   "pollster": "Paraná Pesquisas",
+   "id": 12992,
+   "pdf_url": "https://static.poder360.com.br/2025/08/RO_Ago25-Midia.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "RO",
+   "pollster": "Real Time Big Data",
+   "id": 13112,
+   "pdf_url": null,
+   "subtipo": "sem-integra",
+   "detalhe": "registro do sweep sem link de integra"
+  },
+  {
+   "uf": "RO",
+   "pollster": "Instituto Phoenix",
+   "id": 13188,
+   "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-institutophoenix-rondonia-20.jan_.2026presidente-.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SE",
+   "pollster": "Real Time Big Data",
+   "id": 13070,
+   "pdf_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-sergipe-governador-26.nov2025.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SE",
+   "pollster": "Real Time Big Data",
+   "id": 13688,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/Sergipe-SE-07327_2026_Ago26-1.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  },
+  {
+   "uf": "SE",
+   "pollster": "Inor - Instituto Nordeste ",
+   "id": 13776,
+   "pdf_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-INOR-governo-SE-jul2026.pdf",
+   "subtipo": "sem-bloco",
+   "detalhe": "nenhum cabeçalho de presidente estimulada de 1º turno"
+  }
+ ]
+}
