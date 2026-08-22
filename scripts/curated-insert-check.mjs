@@ -176,6 +176,18 @@ const MUTACOES = {
       return { warnings: [], poll: p };
     },
   },
+  // A ADMISSÃO DE CENÁRIO NEUTRALIZADA: a decisão de verdade roda com
+  // `cenariosDistintos: () => false` — exatamente a decisão de ANTES de
+  // 22/08/2026 sobre as funções reais (a mesma honestidade do `sobrevive` de
+  // `existencia-pos-guarda-check.mjs`). Tem de cair SÓ o caso que a admissão
+  // comprou — o cenário declarado distinto que entra. Toda recusa, dispensa e
+  // confronto de 2º turno continua verde; o autoteste exige a exatidão (ver
+  // EXATOS abaixo), porque uma mutação da admissão que derrubasse mais que o
+  // caso dela provaria que a "admissão" carrega outra coisa junto (§10).
+  semadmissao: {
+    inserir: (polls, rep, targets, label) =>
+      inserirPesquisaCurada(polls, rep, targets, label, { cenariosDistintos: () => false }),
+  },
   // O GATE NEUTRALIZADO: a decisão de verdade roda inteira — recusas, noop e a
   // linha de log intactos — e só a REMOÇÃO é desfeita, devolvendo o alvo à
   // lista. É o `nunca` do `drop_poll`: caem exatamente os casos que afirmam que
@@ -652,6 +664,157 @@ function rodar({ mutacao = null } = {}) {
       `a recusa não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
   });
 
+  // ⚠ O QUARTETO DA ADMISSÃO DE CENÁRIO DECLARADO DISTINTO (criador,
+  //   22/08/2026). O caso real que a comprou: AP Paraná jul/2025 publica
+  //   quatro cenários estimulados de 1º turno; os cenários 1 (Jair) e 3
+  //   (Tarcísio) compartilham 5 dos 6 nomes — 0,833 ≥ 0,8, então
+  //   `questionRostersMatch` os lê como a MESMA pergunta e o cenário 3, uma
+  //   pesquisa REAL aprovada na §1, era recusado como quase-igual. A admissão
+  //   exige DECLARAÇÃO dos dois lados (rótulos de cenário distintos) E o dado
+  //   corroborando (elenco diferindo em ≥1 candidato); fora disso a recusa
+  //   fica de pé — é ela que impede a re-inserção da MESMA pesquisa. O limiar
+  //   0,8 não se toca (§10). O fixture reproduz a forma exata do caso real:
+  //   seis nomes, cinco compartilhados, a cabeça de chapa trocada.
+  const ELENCO_CEN1 = [
+    { candidate: "Alfa Insercao", party: null, pct: 39 },
+    { candidate: "Beta Insercao", party: null, pct: 31.8 },
+    { candidate: "Gama Insercao", party: null, pct: 12.5 },
+    { candidate: "Delta Insercao", party: null, pct: 3.7 },
+    { candidate: "Epsilon Insercao", party: null, pct: 2.6 },
+    { candidate: "Zeta Insercao", party: null, pct: 0.9 },
+  ];
+  const ELENCO_CEN3 = [
+    { candidate: "Lambda Insercao", party: null, pct: 20.6 }, // a cabeça trocada
+    { candidate: "Beta Insercao", party: null, pct: 33.4 },
+    { candidate: "Gama Insercao", party: null, pct: 17.6 },
+    { candidate: "Delta Insercao", party: null, pct: 6 },
+    { candidate: "Epsilon Insercao", party: null, pct: 3.1 },
+    { candidate: "Zeta Insercao", party: null, pct: 1.4 },
+  ];
+  // Soma 90,5 + 4,3 + 5,2 = 100: o cenário existente SOBREVIVE ao guarda de
+  // soma — um vizinho morto não recusa nada e o caso testaria outra coisa.
+  const cenario1 = (over = {}) => daFonte({
+    id: "p360-900006-1-0-999999999999",
+    scenario: "1º turno — cenário 1 (p.8)",
+    results: structuredClone(ELENCO_CEN1),
+    undecided_pct: 4.3, blank_null_pct: 5.2,
+    ...over,
+  });
+  // Como na entrada real: o `has_candidate` mira a cabeça trocada, então o
+  // cenário existente fica FORA da cláusula match (não dispensa) e a decisão
+  // cai no teste de vizinho — que é onde a admissão vive.
+  const CENARIO3 = {
+    match: { ...CLAUSULA, has_candidate: "Lambda Insercao" },
+    poll: {
+      scenario: "1º turno — cenário 3 (p.12)",
+      results: structuredClone(ELENCO_CEN3),
+      others_pct: null, undecided_pct: 7, blank_null_pct: 10.8,
+    },
+    expect_sum: 99.9,
+  };
+
+  caso("ADMITE um cenário estimulado de 1º turno DISTINTO, declarado dos dois lados", ({ dir, construir, afirma, opcoes }) => {
+    // O cenário 1 já está na lista, VIVO, na janela de 3 dias e fora da
+    // cláusula match. Elenco 5/6 — o casador diz MESMA pergunta — mas os dois
+    // lados declaram cenários distintos e o elenco corrobora: é outra pergunta
+    // da mesma operação de campo, e ela ENTRA.
+    const polls = [irma(), cenario1()];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir, CENARIO3)));
+    afirma(rel.inserted.length === 1, `o cenário declarado distinto tinha de entrar (inseridos: ${rel.inserted.length}; avisos: ${rel.warnings.join(" | ")})`);
+    afirma(polls.length === 3, `${polls.length} pesquisas na lista, esperado 3`);
+    afirma(!rel.warnings.some((w) => /janela de 3 dias/.test(w)), `não podia recusar por vizinho: ${rel.warnings.join(" | ")}`);
+    // E O STORE NÃO PODE FUNDIR O QUE A INSERÇÃO ADMITIU. A primeira versão da
+    // admissão parava na lista: `resolveQuestion` casa elenco no MESMO 0,8, e o
+    // cenário novo era engolido pela pergunta do outro — MEDIDO no caso real
+    // antes do conserto: 3.087 perguntas nos dois lados, os números do cenário
+    // 3 descartados em quatro field_disagreement. As duas perguntas têm de
+    // existir, no MESMO levantamento (a operação de campo é uma só).
+    construir(polls, D0);
+    const qs = presidencial(dir);
+    afirma(qs.length === 2, `${qs.length} perguntas presidenciais no store, esperado 2 — o store fundiu os cenários declarados distintos`);
+    afirma(ler(dir, "surveys").length === 1, `${ler(dir, "surveys").length} levantamentos, esperado 1 — os cenários partiram a operação de campo`);
+    const rotulos = qs.map((q) => q.scenario_label_raw).sort();
+    afirma(rotulos.join(" · ") === "1º turno — cenário 1 (p.8) · 1º turno — cenário 3 (p.12)",
+      `rótulos no store: ${rotulos.join(" · ")}`);
+  });
+
+  caso("RECUSA o quase-igual quando falta a declaração de UM dos lados", ({ dir, afirma, opcoes }) => {
+    // A proteção que a admissão não pode corroer: a declaração é DOS DOIS
+    // LADOS. Sem rótulo na entrada nova, ou sem rótulo na pesquisa existente,
+    // o quase-igual segue ambíguo e nada entra.
+    // `spec` é preguiçoso de propósito: `specDeTeste` escreve sempre o MESMO
+    // arquivo, e escrever os dois antes do primeiro `applyRepairs` faria a
+    // primeira rodada ler o spec da segunda — foi exatamente assim que a
+    // primeira versão deste caso passou a testar outra coisa.
+    for (const [lado, polls, spec] of [
+      ["entrada sem rótulo", [irma(), cenario1()],
+        () => specDeTeste(dir, { ...CENARIO3, poll: { ...CENARIO3.poll, scenario: null } })],
+      ["existente sem rótulo", [irma(), cenario1({ scenario: null })],
+        () => specDeTeste(dir, CENARIO3)],
+    ]) {
+      const rel = applyRepairs(polls, opcoes(spec()));
+      afirma(rel.inserted.length === 0, `inseriu com ${lado} (${rel.inserted.length})`);
+      afirma(polls.length === 2, `${polls.length} pesquisas na lista com ${lado}, esperado 2`);
+      afirma(rel.warnings.some((w) => /RECUSADO/.test(w) && /janela de 3 dias/.test(w)),
+        `a recusa (${lado}) não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
+    }
+  });
+
+  caso("RECUSA rótulos IGUAIS mesmo com o elenco 5/6", ({ dir, afirma, opcoes }) => {
+    // O mesmo rótulo dos dois lados não declara distinção nenhuma — é a cara
+    // de uma re-inserção com um nome trocado por erro de transcrição, e
+    // ambiguidade se recusa (§4).
+    const polls = [irma(), cenario1({ scenario: CENARIO3.poll.scenario })];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir, CENARIO3)));
+    afirma(rel.inserted.length === 0, `inseriu com rótulos iguais (${rel.inserted.length})`);
+    afirma(polls.length === 2, `${polls.length} pesquisas na lista, esperado 2`);
+    afirma(rel.warnings.some((w) => /RECUSADO/.test(w) && /janela de 3 dias/.test(w)),
+      `a recusa não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
+  });
+
+  caso("RECUSA rótulo distinto com o MESMO elenco — declaração sem dado não admite", ({ dir, afirma, opcoes }) => {
+    // A outra metade da exigência dupla: o rótulo sozinho não abre a porta. Um
+    // curador que relabelasse a MESMA pesquisa entraria por aqui — e o elenco,
+    // por ser o mesmo, não difere em candidato nenhum, então a recusa fica.
+    // O existente entra datado um dia antes (dentro da janela, fora da
+    // cláusula exata) para a decisão cair no teste de vizinho.
+    const polls = [irma(), cenario1({
+      id: "p360-900007-1-0-888888888888",
+      fieldwork_end: "2026-07-29", published_date: "2026-07-29",
+    })];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir, {
+      ...CENARIO3,
+      match: { ...CLAUSULA, has_candidate: "Alfa Insercao" },
+      poll: {
+        scenario: "1º turno — cenário 3 (p.12)",
+        results: structuredClone(ELENCO_CEN1),
+        others_pct: null, undecided_pct: 4.3, blank_null_pct: 5.2,
+      },
+      expect_sum: 100,
+    })));
+    afirma(rel.inserted.length === 0, `inseriu a mesma pesquisa sob rótulo trocado (${rel.inserted.length})`);
+    afirma(polls.length === 2, `${polls.length} pesquisas na lista, esperado 2`);
+    afirma(rel.warnings.some((w) => /RECUSADO/.test(w) && /janela de 3 dias/.test(w)),
+      `a recusa não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
+  });
+
+  caso("re-inserção do cenário declarado é DISPENSADA quando ele já está na lista", ({ dir, afirma, opcoes }) => {
+    // O quarto estado do §2 da decisão: a mesma entrada, com a pesquisa já na
+    // lista (a projeção da rodada anterior a devolveu). O alvo casa a cláusula
+    // — has_candidate incluído — e a inserção vira dispensa dita, como sempre.
+    const polls = [irma(), cenario1({
+      scenario: CENARIO3.poll.scenario,
+      results: structuredClone(ELENCO_CEN3),
+      undecided_pct: 7, blank_null_pct: 10.8,
+    })];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir, CENARIO3)));
+    afirma(rel.inserted.length === 0, `inseriu de novo sobre uma lista que já tinha o cenário (${rel.inserted.length})`);
+    afirma(rel.noop.length === 1, `noop = ${rel.noop.length}, esperado 1`);
+    afirma(/já serve/.test(rel.noop[0] ?? ""), `a linha de no-op não diz o motivo: ${rel.noop[0]}`);
+    afirma(polls.length === 2, `${polls.length} pesquisas na lista, esperado 2`);
+    afirma(!polls.some((p) => String(p.id).startsWith("curado-")), "entrou uma pesquisa curada ao lado da que a lista já tinha");
+  });
+
   caso("RECUSA add_poll misturado com ações de correção", ({ dir, afirma, opcoes }) => {
     // Misturar deixaria ambíguo se a correção se aplica à pesquisa inserida ou
     // às que a cláusula casou. Ambiguidade se recusa, não se resolve por
@@ -961,6 +1124,9 @@ if (process.argv.includes("--self-test")) {
       // continuaria verde no dia em que o segundo teste da recusa fosse
       // desligado e voltasse a barrar o confronto distinto.
       "ADMITE um confronto DISTINTO da mesma operação de campo",
+      // Pelo mesmo motivo do confronto distinto: afirma que a inserção
+      // ACONTECE, então cai quando ela nunca acontece.
+      "ADMITE um cenário estimulado de 1º turno DISTINTO, declarado dos dois lados",
       // "todo add_poll de data/repairs.json…" NÃO entra em nenhuma das duas
       // listas de propósito: ele roda a decisão REAL (ver a nota no caso) e
       // prova a própria capacidade de reprovar pelo controle negativo interno.
@@ -976,7 +1142,22 @@ if (process.argv.includes("--self-test")) {
       // `mesmaOperacao` de virar buraco — sem esta, admitir confronto distinto
       // e admitir duplicata ficariam indistinguíveis.
       "RECUSA o MESMO confronto em data derivada",
+      // As quatro proteções em volta da admissão de cenário: todas afirmam que
+      // a inserção NÃO acontece, então caem pela mutação que sempre insere —
+      // sem elas, admitir cenário declarado distinto e admitir qualquer coisa
+      // ficariam indistinguíveis.
+      "RECUSA o quase-igual quando falta a declaração de UM dos lados",
+      "RECUSA rótulos IGUAIS mesmo com o elenco 5/6",
+      "RECUSA rótulo distinto com o MESMO elenco — declaração sem dado não admite",
+      "re-inserção do cenário declarado é DISPENSADA quando ele já está na lista",
       "RECUSA add_poll misturado com ações de correção",
+    ],
+    // A admissão desligada tem de derrubar SÓ o caso que ela comprou. Está em
+    // EXATOS: se esta mutação derrubar qualquer outro caso, a bateria reprova
+    // — uma "admissão" cuja ausência muda mais que a admissão é outra coisa
+    // usando o nome dela.
+    semadmissao: [
+      "ADMITE um cenário estimulado de 1º turno DISTINTO, declarado dos dois lados",
     ],
     // O gate neutralizado devolve o registro viciado à lista — caem exatamente
     // os casos que afirmam que ele SAIU. As recusas e o noop do gate ficam de
@@ -987,6 +1168,12 @@ if (process.argv.includes("--self-test")) {
       "o alvo GATEADO não volta por nenhum caminho",
     ],
   };
+  // Modos em que a mutação tem de derrubar EXATAMENTE a sua lista — nem um
+  // caso a mais. Só para `semadmissao` de propósito: `nunca` e `sempre` mutilam
+  // a decisão inteira e o transbordo deles é esperado; a admissão é uma porta
+  // estreita, e a prova de que ela é estreita é a mutação dela não alcançar
+  // mais nada.
+  const EXATOS = new Set(["semadmissao"]);
   let ok = true;
   for (const [modo, devemCair] of Object.entries(esperado)) {
     const { falhas } = rodar({ mutacao: modo });
@@ -995,6 +1182,13 @@ if (process.argv.includes("--self-test")) {
       ok = false;
       console.error(`AUTOTESTE FALHOU (${modo}): a bateria PASSOU em ${faltando.length} caso(s) que a mutação quebra — ela não confere o que existe para conferir:`);
       for (const n of faltando) console.error(`  não reprovou → ${n}`);
+      continue;
+    }
+    const demais = EXATOS.has(modo) ? falhas.filter((n) => !devemCair.includes(n)) : [];
+    if (demais.length) {
+      ok = false;
+      console.error(`AUTOTESTE FALHOU (${modo}): a mutação derrubou ${demais.length} caso(s) FORA da lista dela — a admissão está carregando outra coisa junto:`);
+      for (const n of demais) console.error(`  caiu indevidamente → ${n}`);
       continue;
     }
     console.log(`autoteste (${modo}): a bateria REPROVA ${falhas.length} caso(s) quando a inserção é mutilada`);
