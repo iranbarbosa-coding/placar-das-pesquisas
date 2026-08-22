@@ -32,7 +32,7 @@ const iso = (s) => (s == null ? null : String(s).slice(0, 10));
  *   ainda é devolvida, marcada, para o rastro; o orquestrador a conta como
  *   rejeitada, nunca a emite como candidata limpa.
  */
-export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, legs, totalImpresso = null, tolerancia = 0 }) {
+export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, legs, pareamento = null, cenarioRotulo = null, assinatura = null, totalImpresso = null, tolerancia = 0 }) {
   const sweepData = iso(rec?.data ?? rec?.dataOriginal ?? null);
 
   // Conferência de campo a campo: PDF manda no que é número de metodologia
@@ -50,23 +50,48 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
   const tse_registration = campo("tse_registration", ficha?.tse_registration,
     rec?.registro ? String(rec.registro).replace(/\s+/g, "").toUpperCase() : null);
 
-  // fieldwork_end é CRÍTICO para o match (alinha ao levantamento estadual). Usa
-  // o do sweep, que é o que as linhas irmãs carregam, e confere contra o fim de
-  // período lido do PDF; divergência é sinalizada, não silenciada.
-  const fieldwork_end = sweepData ?? ficha?.fieldwork_end ?? null;
-  if (ficha?.fieldwork_end && sweepData && ficha.fieldwork_end !== sweepData) {
-    divergencias.push(`fieldwork_end: PDF=${ficha.fieldwork_end} × sweep=${sweepData} — match usa o do sweep (alinhamento)`);
+  // PERÍODO DE CAMPO: quando o PDF imprime o período e ele DIVERGE do sweep, o
+  // add_poll carrega o do PDF — §4, a fonte do reparo é o relatório. Foi a
+  // reprovação §1 do MA Veritá (lote v2): o PDF imprime "18 a 24 de março", o
+  // sweep dizia 19, e a regra antiga (sweep ?? PDF) punha 18→19 no add_poll — a
+  // ficha tinha lido 24 CERTO e a preferência jogava a leitura fora. O MATCH
+  // continua com a data do sweep: é ela que as linhas irmãs do levantamento
+  // estadual carregam no banco (alinhamento), e a divergência fica anotada.
+  const fimPDF = ficha?.fieldwork_end ?? null;
+  const divergeFim = fimPDF != null && sweepData != null && fimPDF !== sweepData;
+  const fieldwork_end = divergeFim ? fimPDF : (sweepData ?? fimPDF ?? null);
+  const matchFieldworkEnd = sweepData ?? fimPDF ?? null;
+  if (divergeFim) {
+    divergencias.push(`fieldwork_end: PDF=${fimPDF} × sweep=${sweepData} — add_poll usa o do PDF (§4); match usa o do sweep (alinhamento)`);
   }
   if (ficha?.tse_registration_ambiguo) {
     divergencias.push(`mais de um registro do estado ${uf} no PDF (${(ficha.tse_todos ?? []).join(", ")}) — §1 decide`);
   }
 
-  const pollster = (rec?.instituto ?? "").trim() || null;
-  const contractor = (rec?.contratante ?? "").trim() || null;
+  // PROCEDÊNCIA §4: dados do add_poll vêm do PDF. contratante NUNCA do sweep
+  // (foi assim que 'DCastro' — grafia do agregador — divergiu do rodapé do
+  // relatório). pollster do PDF; se não extraível, cai no sweep MAS com a
+  // procedência marcada em voz alta para a §1 conferir, nunca calado.
+  const contractor = ficha?.contractor ?? null;
+  const pollsterDoPDF = ficha?.pollster ?? null;
+  const pollster = pollsterDoPDF ?? ((rec?.instituto ?? "").trim() || null);
+  const procedencia = {
+    pollster: pollsterDoPDF ? "pdf" : (pollster ? "sweep(conferir no PDF §1)" : "ausente"),
+    contractor: contractor ? "pdf" : "ausente(não impresso)",
+    sample_size: ficha?.sample_size != null ? "pdf" : (rec?.entrevistas != null ? "sweep(conferir §1)" : "ausente"),
+    margin_of_error: ficha?.margin_of_error != null ? "pdf" : (rec?.margem != null ? "sweep(conferir §1)" : "ausente"),
+    tse_registration: ficha?.tse_registration ? "pdf" : (rec?.registro ? "sweep(conferir §1)" : "ausente"),
+    fieldwork_end: divergeFim ? "pdf(diverge do sweep; match alinha pelo sweep — §1)"
+      : sweepData ? "sweep(alinhamento; confere fim de período do PDF)"
+      : fimPDF ? "pdf" : "ausente",
+  };
+  if (pollster && !pollsterDoPDF) divergencias.push(`pollster '${pollster}' veio do sweep — não extraído do PDF; §1 confere no relatório`);
+  if (!contractor) divergencias.push("contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)");
 
-  const confidence = legs.texto && legs.ocr && legs.concordam ? "texto+ocr"
-    : legs.texto ? "texto"
-    : "ocr";
+  // Confiança agora reflete o MODO DE PAREAMENTO (§1 precisa saber o que confere):
+  // adjacente-* = pareamento estruturalmente inequívoco (o valor cola no rótulo);
+  // corroborado-visual = corrida-separada que a perna visual/OCR confirmou.
+  const confidence = pareamento ?? (legs.texto && legs.ocr && legs.concordam ? "texto+ocr" : legs.texto ? "texto" : "ocr");
 
   // Gate aritmético interno (§10 derivada). Só REPROVA quando há um total
   // IMPRESSO independente para conferir; sem ele, a soma é auto-consistente e a
@@ -81,7 +106,11 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     race: "presidente",
     state: uf,
     round: 1,
-    scenario: "1º turno",
+    // Documento com VÁRIOS cenários estimulados de 1º turno (Paraná AP testou
+    // Jair/Michelle/Tarcísio/Eduardo): o rótulo distingue por índice e página do
+    // relatório — descrição do impresso, nunca um nome inventado. Doc de cenário
+    // único fica "1º turno", a grafia das entradas curadas.
+    scenario: cenarioRotulo ?? "1º turno",
     contractor,
     fieldwork_start: ficha?.fieldwork_start ?? null,
     fieldwork_end,
@@ -100,7 +129,7 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     race: "presidente",
     state: uf,
     round: 1,
-    fieldwork_end,
+    fieldwork_end: matchFieldworkEnd,
   };
 
   const entry = {
@@ -119,12 +148,16 @@ export function montarCandidato({ figuras, ficha, rec, uf, integraUrl, pdfHash, 
     _parser: {
       status: "pendente-2a-leitura",
       confidence,
+      pareamento,                        // adjacente-inline | corroborado-visual | corroborado-geometrico | ocr-*
       legs,
       page: figuras.page,
+      assinatura_elenco: assinatura,     // identidade do cenário (dedupe §1)
+      coluna_resolvida: figuras.coluna_resolvida ?? null, // SPSS: a coluna-que-soma escolhida
       absent: figuras.absent,            // asterisco = ausência ≠ zero (§4)
       tse_todos: ficha?.tse_todos ?? [],
       total_impresso: totalImpresso,
       tolerancia_derivada: tolerancia,
+      procedencia,
       divergencias_sweep: divergencias,
       rejeitado,
       pdf_sha256: pdfHash,

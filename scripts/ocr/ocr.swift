@@ -19,7 +19,17 @@
 // linha de texto), de propósito: quem lê a saída não precisa saber qual perna a
 // produziu.
 //
-// Usage: ocr [--text] <file.pdf> [firstPage] [lastPage]   (1-based, inclusive)
+// `--boxes` é a TERCEIRA saída: o MESMO OCR Vision do modo padrão, mas com a
+// caixa delimitadora de cada linha reconhecida — é o que permite parear rótulo×
+// valor por COORDENADA em vez de por ordem de emissão (a ordem foi exatamente a
+// classe de defeito que reprovou o AM-08042 e o lote 3: corridas separadas somam
+// 100 e enganam todo guarda de soma; a posição no papel não mente). Formato por
+// página: `=== página N === wxh` e depois uma linha por observação,
+// `x<TAB>y<TAB>w<TAB>h<TAB>texto` em pixels do bitmap renderizado, origem no
+// CANTO SUPERIOR ESQUERDO (Vision devolve normalizado com origem embaixo; a
+// conversão mora aqui para o consumidor JS não repetir a conta — §5).
+//
+// Usage: ocr [--text|--boxes] <file.pdf> [firstPage] [lastPage]   (1-based, inclusive)
 import Foundation
 import PDFKit
 import Vision
@@ -30,7 +40,8 @@ var args = Array(CommandLine.arguments.dropFirst())
 // A perna é escolhida por flag, não por ordem de argumento: `--text` pode vir
 // antes do caminho sem deslocar `firstPage`/`lastPage`.
 let textLayer = args.contains("--text")
-args.removeAll { $0 == "--text" }
+let withBoxes = args.contains("--boxes")
+args.removeAll { $0 == "--text" || $0 == "--boxes" }
 
 guard args.count >= 1, let doc = PDFDocument(url: URL(fileURLWithPath: args[0])) else {
     FileHandle.standardError.write("uso: ocr [--text] <arquivo.pdf> [pagInicial] [pagFinal]\n".data(using: .utf8)!)
@@ -87,7 +98,25 @@ for index in (first - 1)..<last {
         FileHandle.standardError.write("página \(index + 1): \(error)\n".data(using: .utf8)!)
         continue
     }
-    let lines = (request.results ?? []).compactMap { $0.topCandidates(1).first?.string }
+    let obs = request.results ?? []
+    if withBoxes {
+        // Cabeçalho carrega as dimensões do bitmap: quem paireia por distância
+        // precisa da escala para normalizar limiares (altura de linha etc.).
+        print("=== página \(index + 1) === \(width)x\(height)")
+        for o in obs {
+            guard let s = o.topCandidates(1).first?.string else { continue }
+            let bb = o.boundingBox   // normalizado, origem no canto INFERIOR esquerdo
+            let x = bb.minX * CGFloat(width)
+            let y = (1.0 - bb.maxY) * CGFloat(height)   // → origem no canto SUPERIOR
+            let w = bb.width * CGFloat(width)
+            let h = bb.height * CGFloat(height)
+            // Texto vai por último e sem escape: TAB dentro do texto do Vision não
+            // acontece (linha reconhecida), e o consumidor divide em 5 campos no máximo.
+            print("\(Int(x.rounded()))\t\(Int(y.rounded()))\t\(Int(w.rounded()))\t\(Int(h.rounded()))\t\(s)")
+        }
+        continue
+    }
+    let lines = obs.compactMap { $0.topCandidates(1).first?.string }
     print("=== página \(index + 1) ===")
     for line in lines { print(line) }
 }

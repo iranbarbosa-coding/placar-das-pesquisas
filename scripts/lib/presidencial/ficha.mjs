@@ -57,6 +57,20 @@ export function periodoDeCampo(texto) {
     const m1 = MESES[m[2].toLowerCase()], m2 = MESES[m[4].toLowerCase()];
     if (m1 && m2) return { start: `${m[5]}-${dois(m1)}-${dois(m[1])}`, end: `${m[5]}-${dois(m2)}-${dois(m[3])}` };
   }
+  // "Período: 18 a 24/03/2026" — a forma NUMÉRICA (Veritá imprime as duas; um
+  // relatório que só traga esta não pode ficar sem período). Depois das formas
+  // por extenso, de propósito: onde as duas coexistem a leitura não muda.
+  m = texto.match(/\b(\d{1,2})\s*a\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\b/);
+  if (m) {
+    const mes = Number(m[3]);
+    if (mes >= 1 && mes <= 12) return { start: `${m[4]}-${dois(mes)}-${dois(m[1])}`, end: `${m[4]}-${dois(mes)}-${dois(m[2])}` };
+  }
+  // "Período: 18/03 a 24/03/2026" — variação com o mês repetido.
+  m = texto.match(/\b(\d{1,2})\/(\d{1,2})\s*a\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\b/);
+  if (m) {
+    const m1 = Number(m[2]), m2 = Number(m[4]);
+    if (m1 >= 1 && m1 <= 12 && m2 >= 1 && m2 <= 12) return { start: `${m[5]}-${dois(m1)}-${dois(m[1])}`, end: `${m[5]}-${dois(m2)}-${dois(m[3])}` };
+  }
   return { start: null, end: null };
 }
 
@@ -70,16 +84,26 @@ export function periodoDeCampo(texto) {
  *     descartado: instituto não faz 2026 entrevistas por acaso com o ano.
  */
 export function amostra(texto) {
-  const re = /(\d{1,3}(?:\.\d{3})+|\d{3,6})\s+entrevistas/gi;
+  const num = (s) => Number(s.replace(/\./g, ""));
+  const plaus = (n) => Number.isFinite(n) && n >= 100 && n <= 200000 && !(n >= 2020 && n <= 2035);
+  // 1) A palavra "amostra" manda: "amostra de 1310 eleitores", "amostra ... de N".
+  //    O guarda de plausibilidade descarta "para o total da amostra é de 3 pontos"
+  //    (isso é MARGEM, n<100), então não se confunde amostra com margem.
+  for (const m of texto.matchAll(/amostra[^.\n]{0,40}?\bde\s+([\d.]{2,7})\b/gi)) {
+    const n = num(m[1]); if (plaus(n)) return n;
+  }
+  // 2) "N entrevistas/eleitores/entrevistados" — EXCLUINDO contexto de controle
+  //    de qualidade ("no mínimo 262 entrevistas foram validadas" é auditoria, não
+  //    a amostra), que já mandou 262 no lugar de 1310.
+  const re = /(\d{1,3}(?:\.\d{3})+|\d{3,6})\s+(?:entrevistas|entrevistados|eleitores)/gi;
   const cands = [];
   let m;
   while ((m = re.exec(texto))) {
-    const n = Number(m[1].replace(/\./g, ""));
-    if (Number.isFinite(n) && n >= 100 && n <= 200000) cands.push(n);
+    const antes = texto.slice(Math.max(0, m.index - 45), m.index);
+    if (/no\s+m[íi]nimo|pelo\s+menos|ao\s+menos|validad|auditad|checad|recontat|conferid|refeit/i.test(antes)) continue;
+    const n = num(m[1]); if (plaus(n)) cands.push(n);
   }
-  const semAno = cands.filter((n) => !(n >= 2020 && n <= 2035));
-  const lista = semAno.length ? semAno : cands;
-  return lista.length ? lista[0] : null;
+  return cands.length ? cands[0] : null;
 }
 
 /**
@@ -101,6 +125,38 @@ export function confianca(texto) {
 }
 
 /**
+ * Contratante, LIDO DO RELATÓRIO — nunca do agregador (§4: a fonte do reparo é o
+ * PDF; puxar do sweep já mandou 'DCastro' num relatório cujo rodapé diz outra
+ * coisa). Nulo se não impresso. Dois padrões medidos:
+ *   "O DIRETO AO PONTO PESQUISAS FOI A CONTRATANTE..." → nome antes de "FOI A CONTRATANTE"
+ *   "Contratante: Nassau Editora..."                    → nome depois do rótulo
+ */
+export function contratante(texto) {
+  let m = texto.match(/\b([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60}?)\s+foi\s+(?:a|o)\s+contratante/i);
+  if (m) return limparOrg(m[1]);
+  m = texto.match(/contratante[\s(]*(?:da pesquisa|do estudo)?\s*[:\-]\s*([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60})/i);
+  if (m) return limparOrg(m[1]);
+  return null;
+}
+
+/**
+ * Instituto executor, LIDO DO RELATÓRIO. Nulo se não extraível — o chamador
+ * decide o fallback e MARCA a procedência (§4), nunca sourceia calado do sweep.
+ */
+export function instituto(texto) {
+  let m = texto.match(/\b([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60}?)\s+foi\s+a\s+contratante\s+e\s+executora/i);
+  if (m) return limparOrg(m[1]);
+  m = texto.match(/(?:realizada|executada|elaborada)\s+pel[ao]s?\s+([A-ZÀ-Ú][A-Za-zÀ-ú0-9&.\- ]{2,60})/i);
+  if (m) return limparOrg(m[1]);
+  return null;
+}
+
+// Apara artigo/lixo comum de borda ("O ", "A ") e espaços.
+function limparOrg(s) {
+  return s.trim().replace(/^(o|a|os|as)\s+/i, "").replace(/\s+/g, " ").trim() || null;
+}
+
+/**
  * Reúne a ficha do texto plano de todas as páginas. `uf` é a UF alvo (para
  * escolher o registro do estado). Todo campo que não aparece com segurança fica
  * NULO — a ausência é registrada, não inventada.
@@ -118,6 +174,8 @@ export function extrairFicha(paginas, uf) {
     tse_registration: reg.escolhido,
     tse_registration_ambiguo: reg.ambiguo,
     tse_todos: reg.todos,
+    contractor: contratante(texto),
+    pollster: instituto(texto),
   };
 }
 

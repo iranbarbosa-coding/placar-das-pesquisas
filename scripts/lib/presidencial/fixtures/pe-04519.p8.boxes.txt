@@ -1,0 +1,29 @@
+=== página 8 === 4000x2250
+105	87	3087	134	Intenção de voto para presidente 2026 | estimulada
+116	279	785	35	Resposta estimulada e única por cenário, em %
+692	384	2610	70	Se a eleição para presidente fosse hoje e os candidatos fossem estes, em quem você votaria?
+1616	558	215	47	Lula (PT)|
+1366	651	459	47	Flávio Bolsonaro (PL)
+1291	750	640	52	Augusto Cury (AVANTE) 2
+1297	843	634	52	Renan Santos (MISSÃO) | 2
+1337	936	593	58	Ronaldo Caiado (PSD) [ 2
+1343	1035	570	58	Romeu Zema (NOVO) | 1
+1267	1134	645	58	Cabo Daciolo (MOBILIZA) | 1
+1366	1233	547	58	Samara Martins (UP) | 1
+1273	1326	640	58	Rui Costa Pimenta (PCO) | 1
+1349	1424	465	47	Edmilson Costa (PCB)
+1221	1523	593	47	Leonardo Avalanhce (PRTB)
+1424	1622	390	52	Hertz Dias (PSTU)
+1291	1715	523	47	Em branco/nulo/nenhum
+1866	1622	35	35	*
+1599	1813	210	48	Não sabe
+2174	645	87	64	22
+1913	1814	35	41	3
+1802	1942	360	47	• 28 a 30/07/2026
+3174	1936	733	47	* O pré-candidato Hertz Dias (PSTU)
+3174	1994	587	35	foi estimulado e não foi citado
+105	2110	52	64	8
+331	2093	3157	41	Fonte: Alguns nomes já estão sendo cogitados como candidatos a presidente. Se a eleição para presidente fosse hoje e os candidatos fossem estes (MOSTRE CARTÃO), em quem você votaria?
+331	2134	884	41	E se a os candidatos fossem estes (MOSTRE CARTÃO)?
+331	2186	378	35	Base: Total da amostra
+3651	2134	326	64	Datafolha
