@@ -567,6 +567,32 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
             out.append(poll)
     return out
 
+
+def desambigua_2t(polls):
+    """Resolve colisoes de id no 2o turno vindas de rotulo por legenda de secao.
+    O pollId (scrape.mjs) hasheia pollster|race|state|round|fieldwork|scenario e
+    NAO inclui o elenco; a legenda de subsecao da Wikipedia (h3) as vezes rotula
+    pesquisas de PARES DIFERENTES com a mesma legenda (medido: governador:MG,
+    Cleitinho x Kalil e Cleitinho x Patrus Ananias sob 'Cleitinho e Alexandre
+    Kalil'), cunhando UM id para dois confrontos distintos e abortando o scrape.
+    Agrupa por TODA a chave do id; so quando um grupo tem >1 elenco distinto
+    (colisao real) reescreve o scenario pelo par real. Blast minimo: toca apenas
+    as linhas que de fato colidiriam."""
+    from collections import defaultdict
+    groups = defaultdict(list)
+    for p in polls:
+        if p.get('round') == 2 and len(p.get('results') or []) >= 2:
+            key = (p.get('pollster'), p.get('race'), p.get('state'),
+                   p.get('fieldwork_end') or p.get('published_date'), p.get('scenario'))
+            groups[key].append(p)
+    for ps in groups.values():
+        rosters = {tuple(sorted(r['candidate'] for r in p['results'])) for p in ps}
+        if len(rosters) > 1:
+            for p in ps:
+                cands = [r['candidate'] for r in p['results']]
+                p['scenario'] = "2º turno: " + " vs ".join(cands)
+    return polls
+
 def main():
     import urllib.request
     cfg_path = sys.argv[1]
@@ -588,6 +614,7 @@ def main():
             print(f"  wiki FAIL {pg['raw_url']}: {e}", file=sys.stderr)
     if failures and not all_polls:
         sys.exit('all wiki pages failed: ' + '; '.join(failures))
+    all_polls = desambigua_2t(all_polls)
     json.dump(all_polls, sys.stdout, ensure_ascii=False)
 
 if __name__ == '__main__':
