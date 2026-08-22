@@ -33,7 +33,7 @@ Medido em 20/08/2026, por build do store comparando os conjuntos de id (base =
 | `s_e98976871872` (João Pessoa-PB, Fonte83) | registro `PB-00353/2026` | recunha o survey e 2 perguntas |
 | `s_a7c7dee21767` (MS, 22 municípios, IPR) | registro `BR-01165/2026` **ou** `MS-06319/2026` | recunha o survey e 2 perguntas, em qualquer das duas |
 | `s_a0a23c8e8c0f` + `s_ede5df4e92eb` (Campina Grande-PB, Ranking) | registro `PB-01373/2026` nos dois | **FUNDE os dois** e recunha tudo |
-| `s_1eed00d01f65` + `s_c3ea7003b0c2` (Anápolis-GO, Direct) | preencher `fieldwork_start` | **FUNDE os dois** e recunha 1 pergunta |
+| `s_1eed00d01f65` + `s_c3ea7003b0c2` (Anápolis-GO, Direct) | corrigir `fieldwork_end` para `2026-02-01` | **FUNDE os dois** e recunha 1 pergunta |
 
 **A causa é estrutural, não caso a caso.** A semente troca de CLASSE quando o
 registro chega:
@@ -42,7 +42,21 @@ registro chega:
                    depois: survey|reg|PA-02789/2026
 
 O degrau do registro atende antes do degrau da chave natural, então o
-levantamento é cunhado de outra semente e o id se move. **Escala medida em
+levantamento é cunhado de outra semente e o id se move.
+
+O caso de Anápolis tem mecanismo DIFERENTE dos outros quatro, e a diferença
+importa para quem for mexer: ali não é a semente que troca de classe — é o
+degrau do registro que passa a casar dois levantamentos que antes não casavam.
+Ele compara `fieldwork_end ?? published_date` contra a janela da operação
+(`store.mjs:788`), então **é o `fieldwork_end` que decide**. Medido em
+20/08/2026, um campo de cada vez:
+
+    só `fieldwork_start` corrigido → 1.049 → 1.049, não funde
+    só `fieldwork_end` corrigido   → 1.049 → 1.048, FUNDE
+    os dois                        → 1.049 → 1.048, FUNDE
+
+Ou seja, preencher a data de INÍCIO é inócuo aqui; quem funde é a data de FIM.
+O reparo que foi retirado deste lote corrigia os dois campos, e por isso fundia. **Escala medida em
 20/08/2026: 500 dos 1.049 levantamentos têm semente `nat` e registro nulo, com
 1.112 perguntas penduradas neles.** Todos recunham se receberem registro. Dar
 registro a quem foi cunhado sem registro é, nesta base, uma operação de
@@ -108,6 +122,11 @@ Itens em que a "fonte" apontada não sustenta o dado. Nenhum virou reparo.
 
 - **MT #13664** — o link aponta um levantamento **Quaest do RS**, não de MT.
 - **`AL-064882026.pdf`** — é print de blog, não documento do instituto.
-- **MTDados** — print de site (webflow), sem ficha técnica.
+- **MTDados** — print de site (Webflow). ⚠ NÃO é caso de ficha ausente: o print
+  TRAZ amostra 2.800, margem 3 p.p., confiança 95% e registro `MT-04879/2026`.
+  O defeito é o veículo — captura de tela de site no lugar do documento do
+  instituto —, não a falta de dados técnicos.
 
-Verificado pela certificação municipal; anotado aqui em 20/08/2026.
+Procedência: estes três NÃO vêm das fichas da certificação municipal. Vêm da
+auditoria da fila do lote 3 do parser e da varredura de lacunas. Anotado aqui em
+20/08/2026.
