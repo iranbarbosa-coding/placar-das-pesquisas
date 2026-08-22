@@ -333,7 +333,15 @@ export function keepFullestRound1(polls, {
       continue;
     }
     const grupo = best.get(k);
-    const i = grupo.findIndex((cur) => estimuloCompativel(cur.stimulus ?? null, p.stimulus ?? null));
+    // Cenários com ORDINAL DECLARADO distinto ("cenário 1/3" × "2/3") NÃO
+    // competem aqui, pelo mesmo motivo de `mergePolls` (cenariosCompativeis):
+    // são elencos alternativos postos à mesma amostra, perguntas distintas —
+    // sem esta cláusula, keepFullestRound1 colapsava-os no mais cheio uma
+    // decisão adiante (medido: presidente:PA da Onda 2, cen1/2/3 → 1). Ordinal
+    // null de qualquer lado segue competindo com tudo — comportamento de sempre.
+    const i = grupo.findIndex((cur) =>
+      estimuloCompativel(cur.stimulus ?? null, p.stimulus ?? null) &&
+      cenariosCompativeis(ordinalDeCenario(cur), ordinalDeCenario(p)));
     if (i === -1) {
       grupo.push(p);
       continue;
