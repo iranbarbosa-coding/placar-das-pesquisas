@@ -1,0 +1,204 @@
+{
+ "RS": {
+  "registradas": 14,
+  "falt_ii": 11,
+  "ii-imprensa": 11,
+  "capturadas": 3
+ },
+ "ES": {
+  "registradas": 17,
+  "capturadas": 5,
+  "falt_ii": 10,
+  "ii-imprensa": 10,
+  "falt_i": 2,
+  "i-p360-irma": 1,
+  "i-p360-irma-integra": 1
+ },
+ "SP": {
+  "registradas": 32,
+  "falt_ii": 16,
+  "ii-imprensa": 16,
+  "capturadas": 13,
+  "falt_i": 3,
+  "i-p360-uf": 2,
+  "i-p360-irma-integra": 1
+ },
+ "MS": {
+  "registradas": 24,
+  "falt_i": 3,
+  "i-p360-uf": 3,
+  "capturadas": 5,
+  "falt_ii": 16,
+  "ii-imprensa": 16
+ },
+ "PI": {
+  "registradas": 38,
+  "falt_ii": 32,
+  "ii-imprensa": 32,
+  "capturadas": 4,
+  "falt_i": 2,
+  "i-p360-uf": 2
+ },
+ "CE": {
+  "registradas": 22,
+  "falt_ii": 11,
+  "ii-imprensa": 11,
+  "falt_i": 3,
+  "i-p360-irma-integra": 2,
+  "capturadas": 8,
+  "i-p360-uf": 1
+ },
+ "RO": {
+  "registradas": 11,
+  "falt_ii": 10,
+  "ii-imprensa": 10,
+  "capturadas": 1
+ },
+ "SE": {
+  "registradas": 19,
+  "falt_ii": 16,
+  "ii-imprensa": 16,
+  "capturadas": 3
+ },
+ "MT": {
+  "registradas": 14,
+  "capturadas": 3,
+  "falt_ii": 9,
+  "ii-imprensa": 9,
+  "falt_i": 2,
+  "i-p360-irma-integra": 1,
+  "i-p360-uf": 1
+ },
+ "AL": {
+  "registradas": 7,
+  "falt_ii": 7,
+  "ii-imprensa": 7
+ },
+ "SC": {
+  "registradas": 13,
+  "falt_ii": 10,
+  "ii-imprensa": 10,
+  "capturadas": 3
+ },
+ "PE": {
+  "registradas": 31,
+  "falt_ii": 15,
+  "ii-imprensa": 15,
+  "capturadas": 11,
+  "falt_i": 5,
+  "i-p360-irma-integra": 4,
+  "i-p360-uf": 1
+ },
+ "BA": {
+  "registradas": 12,
+  "falt_ii": 8,
+  "ii-imprensa": 8,
+  "capturadas": 2,
+  "falt_i": 2,
+  "i-p360-uf": 2
+ },
+ "RJ": {
+  "registradas": 15,
+  "capturadas": 7,
+  "falt_ii": 5,
+  "ii-imprensa": 5,
+  "falt_i": 3,
+  "i-p360-irma-integra": 2,
+  "i-p360-uf": 1
+ },
+ "PA": {
+  "registradas": 19,
+  "falt_ii": 12,
+  "ii-imprensa": 12,
+  "capturadas": 6,
+  "falt_i": 1,
+  "i-p360-uf": 1
+ },
+ "GO": {
+  "registradas": 18,
+  "capturadas": 6,
+  "falt_ii": 12,
+  "ii-imprensa": 12
+ },
+ "PR": {
+  "registradas": 18,
+  "falt_ii": 10,
+  "ii-imprensa": 10,
+  "capturadas": 5,
+  "falt_i": 3,
+  "i-p360-irma-integra": 1,
+  "i-p360-uf": 2
+ },
+ "DF": {
+  "registradas": 9,
+  "falt_ii": 6,
+  "ii-imprensa": 6,
+  "capturadas": 2,
+  "falt_i": 1,
+  "i-p360-uf": 1
+ },
+ "AM": {
+  "registradas": 14,
+  "falt_ii": 13,
+  "ii-imprensa": 13,
+  "capturadas": 1
+ },
+ "TO": {
+  "registradas": 7,
+  "capturadas": 2,
+  "falt_ii": 5,
+  "ii-imprensa": 5
+ },
+ "AC": {
+  "registradas": 18,
+  "falt_ii": 11,
+  "ii-imprensa": 11,
+  "falt_i": 2,
+  "i-p360-irma-integra": 2,
+  "capturadas": 5
+ },
+ "MG": {
+  "registradas": 15,
+  "falt_ii": 8,
+  "ii-imprensa": 8,
+  "capturadas": 7
+ },
+ "MA": {
+  "registradas": 8,
+  "falt_ii": 6,
+  "ii-imprensa": 6,
+  "falt_i": 1,
+  "i-p360-irma-integra": 1,
+  "capturadas": 1
+ },
+ "AP": {
+  "registradas": 10,
+  "falt_ii": 5,
+  "ii-imprensa": 5,
+  "capturadas": 2,
+  "falt_i": 3,
+  "i-p360-irma-integra": 3
+ },
+ "RN": {
+  "registradas": 48,
+  "falt_ii": 41,
+  "ii-imprensa": 41,
+  "falt_i": 3,
+  "i-p360-irma-integra": 1,
+  "i-p360-uf": 2,
+  "capturadas": 4
+ },
+ "RR": {
+  "registradas": 3,
+  "falt_ii": 3,
+  "ii-imprensa": 3
+ },
+ "PB": {
+  "registradas": 17,
+  "falt_ii": 11,
+  "ii-imprensa": 11,
+  "capturadas": 4,
+  "falt_i": 2,
+  "i-p360-irma-integra": 2
+ }
+}
