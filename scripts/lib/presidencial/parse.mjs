@@ -79,7 +79,10 @@ const MARCA_REJEICAO = /rejei[çc]|n[ãa]o\s+votaria/i;
 // quebrado por segmento — não é um cenário novo e a coluna do total não se isola
 // mecanicamente. Exigem-se DOIS acertos de marcador na região (um só pode ser
 // prosa; "Masculino" e "Feminino" juntos são a assinatura da tabela de perfil).
-const MARCA_SEGMENTO = /\b(manaus|interior|capital|masculino|feminino|escolaridade|renda\s+familiar|religi[ãoõe]|ensino\s+(fundamental|m[ée]dio|superior)|de\s+\d{1,2}\s+a\s+\d{1,2}\s+anos|\d{1,2}\s+anos\s+ou\s+mais|faixa\s+et[áa]ria|PEA|sal[áa]rios?[\s-]m[íi]nimos|cor\s+ou\s+ra[çc]a)\b/gi;
+const MARCA_SEGMENTO = /\b(manaus|interior|capital|masculino|feminino|escolaridade|renda\s+familiar|religi[ãoõe]|ensino\s+(fundamental|m[ée]dio|superior)|de\s+\d{1,2}\s+a\s+\d{1,2}\s+anos|\d{1,2}\s+anos\s+ou\s+mais|faixa\s+et[áa]ria|PEA|sal[áa]rios?[\s-]m[íi]nimos|cor\s+ou\s+ra[çc]a|sexo)\b/gi;
+// "Região" NÃO entra: aparece como ABRANGÊNCIA no título de pesquisa legítima
+// ("Região Metropolitana de Maceió") — marcá-la pularia um bloco total em
+// silêncio, que é pior do que deixar um crosstab virar pendência tipada.
 
 const RUIDO = /(tse|registr|pesquisa|fonte|p[áa]gina|inten[çc][ãa]o|estimulad|espont|contratante|executora|margem|amostra|per[íi]odo|n[úu]mero|estat[íi]stico|respons|tribunal|intervalo|confian|coleta|disco|nomes|candidatos|resultado|geral|cen[áa]rio|total|manaus|interior|capital|prefeito|governador|senador|\bvoto|elei[çc]|conre|reg\.|frequ[êe]ncia|porcent|percent|v[áa]lid|acumulat|ausente|base:|[óo]tima|\bboa\b|regular|ruim|p[ée]ssima|aprova|desaprova|avalia|situa[çc]|sim\b|perfil|sexo|ocupa[çc]|janeiro|fevereiro|mar[çc]o|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)/i;
 
@@ -374,9 +377,14 @@ export function extrairBlocosPresidenciais(paginas) {
         else notas.rejeicao++;
         i++; continue;
       }
+      // Crosstab por TÍTULO ("…para presidente (1º turno) | Sexo", Quaest MT):
+      // UM marcador no próprio cabeçalho já nomeia a segmentação. No corpo
+      // (região de 45 linhas) exigem-se DOIS acertos — um só pode ser prosa.
+      const ctx = [pg.lines[i], pg.lines[i + 1] ?? "", pg.lines[i + 2] ?? "", pg.lines[i + 3] ?? ""].join("  ");
       const regiao = pg.lines.slice(i, i + 45).join("  ");
-      const hitsSegmento = regiao.match(MARCA_SEGMENTO)?.length ?? 0;
-      if (hitsSegmento >= 2) {
+      const hitsTitulo = ctx.match(MARCA_SEGMENTO)?.length ?? 0;
+      const hitsRegiao = regiao.match(MARCA_SEGMENTO)?.length ?? 0;
+      if (hitsTitulo >= 1 || hitsRegiao >= 2) {
         if (!crosstabs.includes(pg.page)) crosstabs.push(pg.page);
         i++; continue;
       }

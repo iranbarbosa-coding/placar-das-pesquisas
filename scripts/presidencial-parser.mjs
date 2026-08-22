@@ -211,14 +211,22 @@ function processarDocumento({ pdfPath, sha256, uf, rec, integraUrl, jaCurada, te
 
   const { cenarios, crosstabs, notas } = enumAtiva;
   if (!cenarios.length) {
+    // Documento sem NENHUM desfecho de cenário. Se a operação já tem add_poll
+    // curado, a §1 já leu este documento à mão — sai ja-curado (com o motivo da
+    // recusa anotado), não pendência ruidosa (é o RO Real Time 2026-07-15).
+    let pend;
     if (!textoRaw.trim() && ocrRaw != null && !ocrRaw.trim()) {
-      return [{ tipo: "pendencia", subtipo: "ilegível", detalhe: "nenhuma perna produziu texto (PDF corrompido ou render falhou)" }];
+      pend = { subtipo: "ilegível", detalhe: "nenhuma perna produziu texto (PDF corrompido ou render falhou)" };
+    } else if (crosstabs.length) {
+      pend = { subtipo: "ilegível", detalhe: `só blocos SEGMENTADOS (crosstab geográfico/demográfico, p. ${crosstabs.join(", ")}) — coluna total não isolável; leitura visual/§1` };
+    } else {
+      const nota = notas?.segundoTurno ? "; um 2º turno foi visto (fora do v1)" : notas?.espontanea ? "; só bloco ESPONTÂNEO (não se guarda)" : "";
+      pend = { subtipo: "sem-bloco", detalhe: `nenhum cabeçalho de presidente estimulada de 1º turno${nota}` };
     }
-    if (crosstabs.length) {
-      return [{ tipo: "pendencia", subtipo: "ilegível", detalhe: `só blocos SEGMENTADOS (crosstab geográfico/demográfico, p. ${crosstabs.join(", ")}) — coluna total não isolável; leitura visual/§1` }];
+    if (temCuradaDaOperacao) {
+      return [{ tipo: "ja-curado", detalhe: `operação já coberta por add_poll curado; o parser não leu nenhum cenário deste documento (${pend.detalhe}) — anotado para a §1` }];
     }
-    const nota = notas?.segundoTurno ? "; um 2º turno foi visto (fora do v1)" : notas?.espontanea ? "; só bloco ESPONTÂNEO (não se guarda)" : "";
-    return [{ tipo: "pendencia", subtipo: "sem-bloco", detalhe: `nenhum cabeçalho de presidente estimulada de 1º turno${nota}` }];
+    return [{ tipo: "pendencia", ...pend }];
   }
 
   const paginasFicha = paginar(fonte === "texto" ? textoRaw : ocrRaw);
