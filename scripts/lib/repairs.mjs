@@ -18,7 +18,7 @@ import { folgaDerivada, sobreviveAoGuardaDeSoma } from "./soma.mjs";
 // que a usa. Sem ciclo: o fecho de imports de `store.mjs` (candidates,
 // canonicalize, candidaturas, ids, ndjson, nomes, parties, people) não alcança
 // este arquivo, e `canonicalize.mjs` acima já vem de dentro desse fecho.
-import { JANELA_OPERACAO_MS, questionRostersMatch } from "./store.mjs";
+import { JANELA_OPERACAO_MS, cenariosDeclaradosDistintos, questionRostersMatch } from "./store.mjs";
 
 const FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "repairs.json");
 
@@ -257,6 +257,15 @@ function mesmaOperacao(a, b) {
   return Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS;
 }
 
+// A admissão de cenários DECLARADOS DISTINTOS da mesma operação (criador,
+// 22/08/2026) mora em `cenariosDeclaradosDistintos`, importada de `store.mjs` —
+// a MESMA função que `resolveQuestion` usa (§5: uma regra, uma implementação).
+// Não é cortesia: a primeira versão desta admissão vivia só aqui, o cenário
+// entrava na lista e o store o fundia de volta na pergunta do outro cenário,
+// com os números descartados em field_disagreement. O caso motivador e a
+// mecânica (rótulo declarado distinto dos DOIS lados + elenco diferindo em ≥1
+// candidato; limiar 0,8 intacto, §10) estão documentados lá.
+
 /**
  * A pesquisa curada, montada do `add_poll` e SÓ dele.
  *
@@ -321,11 +330,15 @@ export function montarPesquisaCurada(rep) {
  * coletor nunca passa o parâmetro.
  */
 export function inserirPesquisaCurada(polls, rep, targets, label,
-  { sobrevive = sobreviveAoGuardaDeSoma } = {}) {
+  { sobrevive = sobreviveAoGuardaDeSoma, cenariosDistintos = cenariosDeclaradosDistintos } = {}) {
   // `sobrevive` é parâmetro pelo mesmo motivo do `file` e do `inserir` de
   // `applyRepairs`: a mutação honesta do autoteste de
   // `existencia-pos-guarda-check.mjs` é `() => true`, que reproduz exatamente
   // a decisão antiga sobre a função de verdade. O coletor nunca o passa.
+  // `cenariosDistintos`, idem: a mutação `semadmissao` de
+  // `curated-insert-check.mjs` é `() => false`, que reproduz exatamente a
+  // decisão de antes da admissão de 22/08/2026 sobre a função de verdade — e o
+  // autoteste exige que ela derrube SÓ o caso que a admissão comprou.
   const recusa = (motivo) => ({ warnings: [`add_poll ${label} RECUSADO — ${motivo}`] });
 
   // A BARRA PROBATÓRIA PRIMEIRO. Uma pesquisa inserida sem fonte primária
@@ -379,7 +392,10 @@ export function inserirPesquisaCurada(polls, rep, targets, label,
   // O segundo teste pergunta "é a mesma PERGUNTA?", e quem responde é
   // `questionRostersMatch`, a MESMA função que `resolveQuestion` usa no coletor
   // (§5: uma regra, uma implementação). Recusa-se só quando as duas respostas
-  // são sim.
+  // são sim — e, desde 22/08/2026, quando também NÃO há declaração de cenário
+  // distinto dos dois lados (ver `cenariosDeclaradosDistintos`): um cenário
+  // estimulado de 1º turno que troca um nome só parece a mesma pergunta ao
+  // casador, e a declaração corroborada pelo elenco é o que o separa.
   //
   // ⚠ ISTO NÃO ALARGA TOLERÂNCIA (§10). A janela de ±3 dias fica intacta, e o
   // padrão de recusar continua: `questionRostersMatch` exige 0,8 de sobreposição
@@ -404,6 +420,13 @@ export function inserirPesquisaCurada(polls, rep, targets, label,
     // por uma recusa.
     if (!sobrevive(p)) return false;
     if (!mesmaOperacao(p, nova)) return false;
+    // A ADMISSÃO DE CENÁRIO DECLARADO DISTINTO (criador, 22/08/2026 — ver
+    // `cenariosDeclaradosDistintos` acima): quando os DOIS lados declaram
+    // rótulos de cenário distintos E o elenco corrobora com ≥1 candidato
+    // diferente, o vizinho não é ambíguo — é outra pergunta da mesma operação,
+    // como um segundo confronto de 2º turno. O caso medido: AP Paraná
+    // jul/2025, cenários 1 e 3 a 5/6 nomes (0,833 ≥ 0,8), e o 3 ficava fora.
+    if (cenariosDistintos(p, nova)) return false;
     const nomes = (nova.results ?? []).map((r) => r.name_raw ?? r.candidate);
     return questionRostersMatch(p.results, nova.results, nomes);
   });

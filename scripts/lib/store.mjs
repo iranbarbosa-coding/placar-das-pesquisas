@@ -993,6 +993,62 @@ export function questionRostersMatch(storedResults, incomingResults, incomingNam
   return hits / incomingNames.length >= 0.8;
 }
 
+/**
+ * Duas linhas são cenários DECLARADOS DISTINTOS da mesma operação? A admissão
+ * ratificada pelo criador em 22/08/2026 (§12), usada nos DOIS lugares que
+ * decidem "é a mesma pergunta" — a recusa de quase-igual da inserção curada
+ * (`inserirPesquisaCurada`, repairs.mjs) e `resolveQuestion` logo abaixo. UMA
+ * implementação, importada dos dois lados (§5): uma cópia divergiria na
+ * primeira correção feita de um lado só, e aí a inserção admitiria o cenário
+ * que o store em seguida fundiria — que foi exatamente o defeito medido na
+ * primeira versão desta admissão (o cenário 3 entrava na lista e sumia dentro
+ * da pergunta do cenário 1, com os números descartados em field_disagreement).
+ *
+ * O caso que a comprou (medido em 22/08/2026, com as funções reais): o Paraná
+ * Pesquisas de AP jul/2025 publica QUATRO cenários estimulados de 1º turno
+ * para presidente; os cenários 1 (com Jair Bolsonaro, p.8) e 3 (com Tarcísio
+ * de Freitas, p.12) compartilham 5 dos 6 nomes, então `questionRostersMatch`
+ * os lê como a MESMA pergunta (0,833 ≥ 0,8, nas duas direções) e o cenário 3 —
+ * pesquisa REAL, aprovada na §1 — era recusado na inserção como quase-igual. O
+ * 2º turno nunca teve esse problema porque confrontos distintos compartilham
+ * UM nome só e o casador os separa sozinho; num cenário estimulado de 1º turno
+ * a troca é de um nome, o casador não separa, e quem separa é a DECLARAÇÃO —
+ * corroborada pelo dado.
+ *
+ * ⚠ ISTO NÃO ALARGA O LIMIAR (§10): o 0,8 fica intacto. A admissão exige prova
+ * positiva DOS DOIS LADOS — ambos carregam rótulo de cenário e os rótulos são
+ * DISTINTOS, E os elencos diferem em ≥1 candidato. A diferença de elenco é
+ * julgada pela identidade DECIDIDA (`candidate_id`) quando os dois lados a
+ * carregam por inteiro, e por `sameCandidate` no caminho de nomes — os MESMOS
+ * dois caminhos, na mesma ordem, de `questionRostersMatch` acima, pelo motivo
+ * documentado lá. Sem rótulo de um dos lados, com rótulos iguais, ou com o
+ * MESMO elenco sob rótulo trocado, nada muda: o quase-igual segue recusado e o
+ * roster segue casando — é isso que impede a re-inserção da MESMA pesquisa,
+ * cujo elenco, por ser o mesmo, não difere em candidato nenhum.
+ *
+ * Os dois chamadores entregam o rótulo em campos diferentes (`scenario` na
+ * pesquisa plana, `scenario_label_raw` na pergunta), então a assinatura recebe
+ * `{scenario, results}` e cada lado adapta — o rótulo é dado declarado nos
+ * dois, só muda o nome do campo.
+ */
+export function cenariosDeclaradosDistintos(a, b) {
+  const la = String(a.scenario ?? "").trim();
+  const lb = String(b.scenario ?? "").trim();
+  if (!la || !lb || la === lb) return false;
+  const ids = (rs) => (rs ?? []).map((r) => r.candidate_id).filter(Boolean);
+  const ia = ids(a.results), ib = ids(b.results);
+  if (ia.length === (a.results ?? []).length && ib.length === (b.results ?? []).length && ia.length && ib.length) {
+    const sa = new Set(ia), sb = new Set(ib);
+    return ia.some((id) => !sb.has(id)) || ib.some((id) => !sa.has(id));
+  }
+  const nomes = (rs) => (rs ?? []).map((r) => r.name_raw ?? r.candidate).filter(Boolean);
+  const na = nomes(a.results), nb = nomes(b.results);
+  // Simétrico de propósito, pela mesma lição de `rosterOverlaps`: julgar por um
+  // dos lados só faria a resposta depender de quem chegou primeiro.
+  const faltaEm = (uns, outros) => uns.some((n) => !outros.some((o) => sameCandidate(o, n)));
+  return faltaEm(na, nb) || faltaEm(nb, na);
+}
+
 export function resolveQuestion(store, survey, incoming) {
   const existing = store._indexes.questionsBySurvey.get(survey.survey_id) ?? [];
   for (const ref of incoming.source_refs ?? []) {
@@ -1003,6 +1059,18 @@ export function resolveQuestion(store, survey, incoming) {
   const roster = (incoming.results ?? []).map((r) => r.name_raw ?? r.candidate);
   for (const q of existing) {
     if (q.race !== incoming.race || q.round !== incoming.round) continue;
+    // A ADMISSÃO DE CENÁRIO DECLARADO DISTINTO (criador, 22/08/2026 — ver
+    // `cenariosDeclaradosDistintos` acima): dois cenários estimulados que se
+    // declaram distintos e cujo elenco corrobora (≥1 candidato diferente) são
+    // duas PERGUNTAS da mesma operação, por mais que o casador os leia como
+    // uma (AP Paraná jul/2025: cenários 1 e 3 a 5/6 nomes, 0,833 ≥ 0,8). Sem
+    // esta linha, a inserção curada admitia o cenário e ESTE laço o fundia de
+    // volta na pergunta do outro — os números caíam em field_disagreement e a
+    // pesquisa inteira sumia da projeção, rodada após rodada.
+    if (cenariosDeclaradosDistintos(
+      { scenario: q.scenario_label_raw, results: q.results },
+      { scenario: incoming.scenario_label_raw, results: incoming.results },
+    )) continue;
     if (questionRostersMatch(q.results, incoming.results, roster)) {
       return { question: q, matched_by: "roster" };
     }
