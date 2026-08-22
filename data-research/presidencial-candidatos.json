@@ -2,87 +2,104 @@
  "_sobre": "Candidatos add_poll presidente:UF gerados pelo parser presidencial, POR CENÁRIO estimulado de 1º turno (um doc de 4 estimuladas conta 4). verified_at NULO = pendente de 2ª leitura cega (§1). _parser.pareamento diz o modo (adjacente-inline = valor colado na linha do rótulo, inclui coluna-que-soma SPSS; corroborado-visual = gated que o OCR linha a linha confirmou; corroborado-geometrico = gated que o pareamento por caixa delimitadora confirmou; ocr-* = documento sem camada de texto). NÃO é repairs.json; o merge é passo do hub.",
  "gerado_por": "scripts/presidencial-parser.mjs",
  "estados": [
-  "AM",
-  "SE",
+  "AC",
   "AL",
+  "AM",
   "AP",
-  "MT",
+  "BA",
+  "CE",
+  "ES",
   "MA",
-  "RO"
+  "MS",
+  "MT",
+  "PB",
+  "PE",
+  "PI",
+  "PR",
+  "RJ",
+  "RN",
+  "RO",
+  "SE",
+  "SP"
  ],
  "dedupe": {
   "fonte": "origin/main:data/repairs.json",
-  "add_poll_presidenciais_existentes": 14
+  "add_poll_presidenciais_existentes": 26
+ },
+ "dedupe_banco": {
+  "fonte": "origin/main:data/polls.json",
+  "presidenciais_uf_existentes": 395
  },
  "contagem": {
-  "documentos": 47,
-  "entradas_cenarios": 66,
-  "emitidos": 5,
-  "ja_curados": 4,
+  "documentos": 214,
+  "entradas_cenarios": 281,
+  "emitidos": 2,
+  "ja_curados": 17,
+  "ja_no_banco": 3,
   "rejeitados": 0,
-  "pendencias": 57
+  "pendencias": 259
  },
  "candidatos": [
   {
    "match": {
     "pollster": "Paraná Pesquisas",
     "race": "presidente",
-    "state": "AP",
+    "state": "ES",
     "round": 1,
-    "fieldwork_end": "2025-07-15"
+    "fieldwork_end": "2025-08-17"
    },
-   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (AP, campo 2025-07-15) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:AP. A UF vem do poll estadual, não do BR- do bloco.",
-   "source": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
-   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.8 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Jair Bolsonaro (?) 39 · Lula (?) 31.8 · Ciro Gomes (?) 12.5 · Ratinho Junior (?) 3.7 · Ronaldo Caiado (?) 2.6 · Renan Filho (?) 0.9. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 5.2, \"Não sabe\" 4.3. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: 1310 entrevistas, margem ? p.p., confiança ?%, campo ? a ?, registro do estado ? (todos no PDF: —; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto E OCR Vision batem. Confiança do parser: corroborado-geometrico. sha256 do PDF: bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (ES, campo 2025-08-17) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:ES. A UF vem do poll estadual, não do BR- do bloco.",
+   "source": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
+   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.10 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Michelle Bolsonaro (?) 34.7 · Lula (?) 33 · Ciro Gomes (?) 9.4 · Ratinho Junior (?) 4.7 · Ronaldo Caiado (?) 4.2 · Renan Filho (?) 1.1. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 7.9, \"Não sabe\" 5. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: 1510 entrevistas, margem ? p.p., confiança ?%, campo ? a ?, registro do estado ? (todos no PDF: —; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto E OCR Vision batem. Confiança do parser: corroborado-geometrico. sha256 do PDF: f80b27f9ed93a341962ae3517d6f1aeddd00b9c42eb78e141655a085dbfba2b9. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
    "verified_at": null,
    "add_poll": {
     "pollster": "Paraná Pesquisas",
     "race": "presidente",
-    "state": "AP",
+    "state": "ES",
     "round": 1,
-    "scenario": "1º turno — cenário 1 (p.8)",
+    "scenario": "1º turno — cenário 2 (p.10)",
     "contractor": null,
     "fieldwork_start": null,
-    "fieldwork_end": "2025-07-15",
+    "fieldwork_end": "2025-08-17",
     "published_date": null,
-    "sample_size": 1310,
-    "margin_of_error": 2.8,
+    "sample_size": 1510,
+    "margin_of_error": 2,
     "tse_registration": null,
     "results": [
      {
-      "candidate": "Jair Bolsonaro",
+      "candidate": "Michelle Bolsonaro",
       "party": null,
-      "pct": 39
+      "pct": 34.7
      },
      {
       "candidate": "Lula",
       "party": null,
-      "pct": 31.8
+      "pct": 33
      },
      {
       "candidate": "Ciro Gomes",
       "party": null,
-      "pct": 12.5
+      "pct": 9.4
      },
      {
       "candidate": "Ratinho Junior",
       "party": null,
-      "pct": 3.7
+      "pct": 4.7
      },
      {
       "candidate": "Ronaldo Caiado",
       "party": null,
-      "pct": 2.6
+      "pct": 4.2
      },
      {
       "candidate": "Renan Filho",
       "party": null,
-      "pct": 0.9
+      "pct": 1.1
      }
     ],
     "others_pct": null,
-    "undecided_pct": 4.3,
-    "blank_null_pct": 5.2
+    "undecided_pct": 5,
+    "blank_null_pct": 7.9
    },
    "expect_sum": 100,
    "_parser": {
@@ -94,13 +111,13 @@
      "ocr": true,
      "concordam": true
     },
-    "page": 8,
-    "assinatura_elenco": "ciro gomes§jair bolsonaro§lula§ratinho junior§renan filho§ronaldo caiado",
+    "page": 10,
+    "assinatura_elenco": "ciro gomes§lula§michelle bolsonaro§ratinho junior§renan filho§ronaldo caiado",
     "coluna_resolvida": null,
     "absent": [],
     "tse_todos": [],
     "total_impresso": null,
-    "tolerancia_derivada": 0.85,
+    "tolerancia_derivada": 1.3,
     "procedencia": {
      "pollster": "sweep(conferir no PDF §1)",
      "contractor": "ausente(não impresso)",
@@ -110,19 +127,18 @@
      "fieldwork_end": "sweep(alinhamento; confere fim de período do PDF)"
     },
     "divergencias_sweep": [
-     "margin_of_error: ficha do PDF não lida; usado valor do sweep (2.8)",
+     "margin_of_error: ficha do PDF não lida; usado valor do sweep (2)",
      "pollster 'Paraná Pesquisas' veio do sweep — não extraído do PDF; §1 confere no relatório",
      "contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)"
     ],
     "rejeitado": null,
-    "pdf_sha256": "bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7",
-    "pdf_url": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+    "pdf_sha256": "f80b27f9ed93a341962ae3517d6f1aeddd00b9c42eb78e141655a085dbfba2b9",
+    "pdf_url": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
     "generated_by": "presidencial-parser",
     "crosstabs_pulados": [
      9,
      11,
-     13,
-     15
+     13
     ]
    }
   },
@@ -130,62 +146,62 @@
    "match": {
     "pollster": "Paraná Pesquisas",
     "race": "presidente",
-    "state": "AP",
+    "state": "ES",
     "round": 1,
-    "fieldwork_end": "2025-07-15"
+    "fieldwork_end": "2025-08-17"
    },
-   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (AP, campo 2025-07-15) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:AP. A UF vem do poll estadual, não do BR- do bloco.",
-   "source": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
-   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.12 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (?) 33.4 · Tarcísio de Freitas (?) 20.6 · Ciro Gomes (?) 17.6 · Ratinho Junior (?) 6 · Ronaldo Caiado (?) 3.1 · Renan Filho (?) 1.4. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 10.8, \"Não sabe\" 7. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: 1310 entrevistas, margem ? p.p., confiança ?%, campo ? a ?, registro do estado ? (todos no PDF: —; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto E OCR Vision batem. Confiança do parser: corroborado-geometrico. sha256 do PDF: bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
+   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Paraná Pesquisas (ES, campo 2025-08-17) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:ES. A UF vem do poll estadual, não do BR- do bloco.",
+   "source": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
+   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.12 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (?) 33 · Tarcísio de Freitas (?) 28.2 · Ciro Gomes (?) 10 · Ratinho Junior (?) 6.4 · Ronaldo Caiado (?) 3.9 · Renan Filho (?) 2.5. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 9.8, \"Não sabe\" 6.1. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: 1510 entrevistas, margem ? p.p., confiança ?%, campo ? a ?, registro do estado ? (todos no PDF: —; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto E OCR Vision batem. Confiança do parser: corroborado-geometrico. sha256 do PDF: f80b27f9ed93a341962ae3517d6f1aeddd00b9c42eb78e141655a085dbfba2b9. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
    "verified_at": null,
    "add_poll": {
     "pollster": "Paraná Pesquisas",
     "race": "presidente",
-    "state": "AP",
+    "state": "ES",
     "round": 1,
     "scenario": "1º turno — cenário 3 (p.12)",
     "contractor": null,
     "fieldwork_start": null,
-    "fieldwork_end": "2025-07-15",
+    "fieldwork_end": "2025-08-17",
     "published_date": null,
-    "sample_size": 1310,
-    "margin_of_error": 2.8,
+    "sample_size": 1510,
+    "margin_of_error": 2,
     "tse_registration": null,
     "results": [
      {
       "candidate": "Lula",
       "party": null,
-      "pct": 33.4
+      "pct": 33
      },
      {
       "candidate": "Tarcísio de Freitas",
       "party": null,
-      "pct": 20.6
+      "pct": 28.2
      },
      {
       "candidate": "Ciro Gomes",
       "party": null,
-      "pct": 17.6
+      "pct": 10
      },
      {
       "candidate": "Ratinho Junior",
       "party": null,
-      "pct": 6
+      "pct": 6.4
      },
      {
       "candidate": "Ronaldo Caiado",
       "party": null,
-      "pct": 3.1
+      "pct": 3.9
      },
      {
       "candidate": "Renan Filho",
       "party": null,
-      "pct": 1.4
+      "pct": 2.5
      }
     ],
     "others_pct": null,
-    "undecided_pct": 7,
-    "blank_null_pct": 10.8
+    "undecided_pct": 6.1,
+    "blank_null_pct": 9.8
    },
    "expect_sum": 99.9,
    "_parser": {
@@ -213,350 +229,19 @@
      "fieldwork_end": "sweep(alinhamento; confere fim de período do PDF)"
     },
     "divergencias_sweep": [
-     "margin_of_error: ficha do PDF não lida; usado valor do sweep (2.8)",
+     "margin_of_error: ficha do PDF não lida; usado valor do sweep (2)",
      "pollster 'Paraná Pesquisas' veio do sweep — não extraído do PDF; §1 confere no relatório",
      "contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)"
     ],
     "rejeitado": null,
-    "pdf_sha256": "bcb9923c0bc2f454c4b09b3790e5c33c24106bc00e3acedff69c1bfff6770aa7",
-    "pdf_url": "https://static.poder360.com.br/2025/08/AP_Jul25-Midia-Federal.pdf",
+    "pdf_sha256": "f80b27f9ed93a341962ae3517d6f1aeddd00b9c42eb78e141655a085dbfba2b9",
+    "pdf_url": "https://static.poder360.com.br/2025/08/parana-pesquisas-presidente-espirito-santo-ago2025.pdf",
     "generated_by": "presidencial-parser",
     "crosstabs_pulados": [
      9,
      11,
-     13,
-     15
+     13
     ]
-   }
-  },
-  {
-   "match": {
-    "pollster": "Veritá",
-    "race": "presidente",
-    "state": "AP",
-    "round": 1,
-    "fieldwork_end": "2026-03-24"
-   },
-   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Veritá (AP, campo 2026-03-24) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:AP. A UF vem do poll estadual, não do BR- do bloco.",
-   "source": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.29 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Flávio Bolsonaro (PL) 25 · Lula (PT) 17.5 · Pablo Marçal (União Brasil) 2.1 · Ratinho Júnior (PSD) 1.4 · Renan Santos (Missão) 0.9 · Romeu Zema (Novo) 0.3 · Ronaldo Caiado (PSD) 0.1 · Aldo Rebelo (DC) 0.1. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 4.9, \"Não sabe\" 47.7. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: 1030 entrevistas, margem 3.5 p.p., confiança ?%, campo 2026-03-18 a 2026-03-24, registro do estado AP-02183/2026 (todos no PDF: AP-02183/2026; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto embutida (OCR não corroborou — texto é a leitura exata do gerador do PDF). Confiança do parser: adjacente-inline. sha256 do PDF: 9be1376dc494c618803b8423f74306b988456b1281cc9e8ffd46d9633cca5a8d. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
-   "verified_at": null,
-   "add_poll": {
-    "pollster": "Veritá",
-    "race": "presidente",
-    "state": "AP",
-    "round": 1,
-    "scenario": "1º turno",
-    "contractor": "Iniciativa própria do Instituto",
-    "fieldwork_start": "2026-03-18",
-    "fieldwork_end": "2026-03-24",
-    "published_date": null,
-    "sample_size": 1030,
-    "margin_of_error": 3.5,
-    "tse_registration": "AP-02183/2026",
-    "results": [
-     {
-      "candidate": "Flávio Bolsonaro",
-      "party": "PL",
-      "pct": 25
-     },
-     {
-      "candidate": "Lula",
-      "party": "PT",
-      "pct": 17.5
-     },
-     {
-      "candidate": "Pablo Marçal",
-      "party": "União Brasil",
-      "pct": 2.1
-     },
-     {
-      "candidate": "Ratinho Júnior",
-      "party": "PSD",
-      "pct": 1.4
-     },
-     {
-      "candidate": "Renan Santos",
-      "party": "Missão",
-      "pct": 0.9
-     },
-     {
-      "candidate": "Romeu Zema",
-      "party": "Novo",
-      "pct": 0.3
-     },
-     {
-      "candidate": "Ronaldo Caiado",
-      "party": "PSD",
-      "pct": 0.1
-     },
-     {
-      "candidate": "Aldo Rebelo",
-      "party": "DC",
-      "pct": 0.1
-     }
-    ],
-    "others_pct": null,
-    "undecided_pct": 47.7,
-    "blank_null_pct": 4.9
-   },
-   "expect_sum": 100,
-   "_parser": {
-    "status": "pendente-2a-leitura",
-    "confidence": "adjacente-inline",
-    "pareamento": "adjacente-inline",
-    "legs": {
-     "texto": true,
-     "ocr": false,
-     "concordam": false
-    },
-    "page": 29,
-    "assinatura_elenco": "aldo rebelo§flavio bolsonaro§lula§pablo marcal§ratinho junior§renan santos§romeu zema§ronaldo caiado",
-    "coluna_resolvida": {
-     "indice": 1,
-     "colunas": 2,
-     "soma": 100
-    },
-    "absent": [],
-    "tse_todos": [
-     "AP-02183/2026"
-    ],
-    "total_impresso": null,
-    "tolerancia_derivada": 0.95,
-    "procedencia": {
-     "pollster": "sweep(conferir no PDF §1)",
-     "contractor": "pdf",
-     "sample_size": "pdf",
-     "margin_of_error": "pdf",
-     "tse_registration": "pdf",
-     "fieldwork_end": "sweep(alinhamento; confere fim de período do PDF)"
-    },
-    "divergencias_sweep": [
-     "pollster 'Veritá' veio do sweep — não extraído do PDF; §1 confere no relatório"
-    ],
-    "rejeitado": null,
-    "pdf_sha256": "9be1376dc494c618803b8423f74306b988456b1281cc9e8ffd46d9633cca5a8d",
-    "pdf_url": "https://static.poder360.com.br/2026/04/amapa-MAR2026-instituto-verita.pdf",
-    "generated_by": "presidencial-parser",
-    "crosstabs_pulados": []
-   }
-  },
-  {
-   "match": {
-    "pollster": "INOP",
-    "race": "presidente",
-    "state": "MA",
-    "round": 1,
-    "fieldwork_end": "2026-01-28"
-   },
-   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do INOP (MA, campo 2026-01-28) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:MA. A UF vem do poll estadual, não do BR- do bloco.",
-   "source": "https://static.poder360.com.br/2026/01/pesquisa-inop-maranhao-presidente-26.jan_.2026.pdf",
-   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.7 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (?) 55.28 · Flavio Bolsonaro (?) 19.94 · Tarcisio de Freitas (?) 4.72 · Ratinho Junior (?) 2.04 · Ronaldo Caiado (?) 1.88 · Romeu Zema (?) 1. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 6.55, \"Não sabe\" 8.59. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: ? entrevistas, margem ? p.p., confiança ?%, campo ? a ?, registro do estado MA-02561/2026 (todos no PDF: MA-02561/2026; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto embutida (OCR não corroborou — texto é a leitura exata do gerador do PDF). Confiança do parser: adjacente-inline. sha256 do PDF: 2f490baf05fa3a580ec93029d06ae530959b4f417a93d93913774f76cea34157. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
-   "verified_at": null,
-   "add_poll": {
-    "pollster": "INOP",
-    "race": "presidente",
-    "state": "MA",
-    "round": 1,
-    "scenario": "1º turno",
-    "contractor": null,
-    "fieldwork_start": null,
-    "fieldwork_end": "2026-01-28",
-    "published_date": null,
-    "sample_size": 2502,
-    "margin_of_error": 2,
-    "tse_registration": "MA-02561/2026",
-    "results": [
-     {
-      "candidate": "Lula",
-      "party": null,
-      "pct": 55.28
-     },
-     {
-      "candidate": "Flavio Bolsonaro",
-      "party": null,
-      "pct": 19.94
-     },
-     {
-      "candidate": "Tarcisio de Freitas",
-      "party": null,
-      "pct": 4.72
-     },
-     {
-      "candidate": "Ratinho Junior",
-      "party": null,
-      "pct": 2.04
-     },
-     {
-      "candidate": "Ronaldo Caiado",
-      "party": null,
-      "pct": 1.88
-     },
-     {
-      "candidate": "Romeu Zema",
-      "party": null,
-      "pct": 1
-     }
-    ],
-    "others_pct": null,
-    "undecided_pct": 8.59,
-    "blank_null_pct": 6.55
-   },
-   "expect_sum": 100,
-   "_parser": {
-    "status": "pendente-2a-leitura",
-    "confidence": "adjacente-inline",
-    "pareamento": "adjacente-inline",
-    "legs": {
-     "texto": true,
-     "ocr": false,
-     "concordam": false
-    },
-    "page": 7,
-    "assinatura_elenco": "flavio bolsonaro§lula§ratinho junior§romeu zema§ronaldo caiado§tarcisio de freitas",
-    "coluna_resolvida": {
-     "indice": 1,
-     "colunas": 2,
-     "soma": 100
-    },
-    "absent": [],
-    "tse_todos": [
-     "MA-02561/2026"
-    ],
-    "total_impresso": null,
-    "tolerancia_derivada": 0.85,
-    "procedencia": {
-     "pollster": "sweep(conferir no PDF §1)",
-     "contractor": "ausente(não impresso)",
-     "sample_size": "sweep(conferir §1)",
-     "margin_of_error": "sweep(conferir §1)",
-     "tse_registration": "pdf",
-     "fieldwork_end": "sweep(alinhamento; confere fim de período do PDF)"
-    },
-    "divergencias_sweep": [
-     "sample_size: ficha do PDF não lida; usado valor do sweep (2502)",
-     "margin_of_error: ficha do PDF não lida; usado valor do sweep (2)",
-     "pollster 'INOP' veio do sweep — não extraído do PDF; §1 confere no relatório",
-     "contratante não impresso no PDF (ou não extraído) — nulo, NÃO puxado do sweep (§4)"
-    ],
-    "rejeitado": null,
-    "pdf_sha256": "2f490baf05fa3a580ec93029d06ae530959b4f417a93d93913774f76cea34157",
-    "pdf_url": "https://static.poder360.com.br/2026/01/pesquisa-inop-maranhao-presidente-26.jan_.2026.pdf",
-    "generated_by": "presidencial-parser",
-    "crosstabs_pulados": []
-   }
-  },
-  {
-   "match": {
-    "pollster": "Veritá",
-    "race": "presidente",
-    "state": "MA",
-    "round": 1,
-    "fieldwork_end": "2026-03-19"
-   },
-   "defect": "Bloco presidencial ESTIMULADO (1º turno) presente no relatório-integra do Veritá (MA, campo 2026-03-24) mas ausente do banco: o v2/cenarios do Poder360 serve o bloco presidencial estadual como registro nacional e as linhas se perdem. Transcrito do PDF pelo parser presidencial para presidente:MA. A UF vem do poll estadual, não do BR- do bloco.",
-   "source": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
-   "evidence": "⚠ RASCUNHO GERADO PELO PARSER PRESIDENCIAL — PENDENTE DE 2ª LEITURA CEGA (§1). verified_at NULO de propósito: esta entrada NÃO entra em repairs.json até um agente DIFERENTE reler o PDF às cegas e bater em todas as figuras. p.28 do relatório-integra, intenção de voto ESTIMULADA para presidente, 1º turno, na ordem impressa: Lula (PT) 35.6 · Flávio Bolsonaro (PL) 34.4 · Renan Santos (Missão) 1.3 · Romeu Zema (Novo) 1.2 · Ronaldo Caiado (PSD) 1.2 · Pablo Marçal (União Brasil) 1.2 · Ratinho Júnior (PSD) 0.9 · Aldo Rebelo (DC) 0.3. Baldes SEPARADOS (o relatório separa, o agregador funde): \"Em branco/nulo/nenhum\" 4.5, \"Não sabe\" 19.4. others_pct NULO (sem linha de 'Outros' na estimulada; não confundir com 'Outras respostas' da espontânea). Ficha lida do PDF: 1525 entrevistas, margem 3 p.p., confiança ?%, campo 2026-03-18 a 2026-03-24, registro do estado MA-03916/2026 (todos no PDF: MA-03916/2026; o BR- do bloco fica AQUI, não vira a chave). Perna de leitura: camada de texto embutida (OCR não corroborou — texto é a leitura exata do gerador do PDF). Confiança do parser: adjacente-inline. sha256 do PDF: 390b1b9fae23d83bd3cf4a66fcec81b694ff99eff81b0bec2df2ef48300f443f. Nada aqui foi conferido contra pesquisa vizinha nem contra o agregador — o Poder360 não serve esta pesquisa presidencial, é a razão do reparo.",
-   "verified_at": null,
-   "add_poll": {
-    "pollster": "Veritá",
-    "race": "presidente",
-    "state": "MA",
-    "round": 1,
-    "scenario": "1º turno",
-    "contractor": "Iniciativa própria do Instituto",
-    "fieldwork_start": "2026-03-18",
-    "fieldwork_end": "2026-03-24",
-    "published_date": null,
-    "sample_size": 1525,
-    "margin_of_error": 3,
-    "tse_registration": "MA-03916/2026",
-    "results": [
-     {
-      "candidate": "Lula",
-      "party": "PT",
-      "pct": 35.6
-     },
-     {
-      "candidate": "Flávio Bolsonaro",
-      "party": "PL",
-      "pct": 34.4
-     },
-     {
-      "candidate": "Renan Santos",
-      "party": "Missão",
-      "pct": 1.3
-     },
-     {
-      "candidate": "Romeu Zema",
-      "party": "Novo",
-      "pct": 1.2
-     },
-     {
-      "candidate": "Ronaldo Caiado",
-      "party": "PSD",
-      "pct": 1.2
-     },
-     {
-      "candidate": "Pablo Marçal",
-      "party": "União Brasil",
-      "pct": 1.2
-     },
-     {
-      "candidate": "Ratinho Júnior",
-      "party": "PSD",
-      "pct": 0.9
-     },
-     {
-      "candidate": "Aldo Rebelo",
-      "party": "DC",
-      "pct": 0.3
-     }
-    ],
-    "others_pct": null,
-    "undecided_pct": 19.4,
-    "blank_null_pct": 4.5
-   },
-   "expect_sum": 100,
-   "_parser": {
-    "status": "pendente-2a-leitura",
-    "confidence": "adjacente-inline",
-    "pareamento": "adjacente-inline",
-    "legs": {
-     "texto": true,
-     "ocr": false,
-     "concordam": false
-    },
-    "page": 28,
-    "assinatura_elenco": "aldo rebelo§flavio bolsonaro§lula§pablo marcal§ratinho junior§renan santos§romeu zema§ronaldo caiado",
-    "coluna_resolvida": {
-     "indice": 1,
-     "colunas": 2,
-     "soma": 100
-    },
-    "absent": [],
-    "tse_todos": [
-     "MA-03916/2026"
-    ],
-    "total_impresso": null,
-    "tolerancia_derivada": 0.5,
-    "procedencia": {
-     "pollster": "sweep(conferir no PDF §1)",
-     "contractor": "pdf",
-     "sample_size": "pdf",
-     "margin_of_error": "pdf",
-     "tse_registration": "pdf",
-     "fieldwork_end": "pdf(diverge do sweep; match alinha pelo sweep — §1)"
-    },
-    "divergencias_sweep": [
-     "fieldwork_end: PDF=2026-03-24 × sweep=2026-03-19 — add_poll usa o do PDF (§4); match usa o do sweep (alinhamento)",
-     "pollster 'Veritá' veio do sweep — não extraído do PDF; §1 confere no relatório"
-    ],
-    "rejeitado": null,
-    "pdf_sha256": "390b1b9fae23d83bd3cf4a66fcec81b694ff99eff81b0bec2df2ef48300f443f",
-    "pdf_url": "https://static.poder360.com.br/2026/04/Verita_Relatorio_Maranhao_2026.pdf",
-    "generated_by": "presidencial-parser",
-    "crosstabs_pulados": []
    }
   }
  ]
