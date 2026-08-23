@@ -14,7 +14,8 @@ export default function InstitutosPage() {
       <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
         Todos os institutos com pesquisas no banco de dados, ordenados por volume publicado.
       </p>
-      <div className="card mt-6 overflow-x-auto">
+      {/* Desktop (≥md): the full table, unchanged. */}
+      <div className="card mt-6 hidden overflow-x-auto md:block">
         <table className="w-full min-w-[480px] text-sm">
           <thead>
             <tr className="border-b text-left text-xs uppercase tracking-wide" style={{ borderColor: "var(--ring)", color: "var(--text-muted)" }}>
@@ -38,6 +39,31 @@ export default function InstitutosPage() {
           </tbody>
         </table>
       </div>
+
+      {/* Mobile (<md): one card per instituto — name on top, the three figures
+          as labelled pairs, so nothing clips off the right edge. */}
+      <ul className="mt-6 flex flex-col gap-2 md:hidden">
+        {list.map((p) => (
+          <li key={p.name} className="card p-3">
+            <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{p.name}</p>
+            <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: "var(--text-muted)" }}>
+              <div className="flex items-baseline gap-1">
+                <dt className="uppercase tracking-wide">Pesquisas</dt>
+                <dd className="tabular" style={{ color: "var(--text-secondary)" }}>{p.count}</dd>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <dt className="uppercase tracking-wide">Disputas</dt>
+                <dd className="tabular" style={{ color: "var(--text-secondary)" }}>{p.races}</dd>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <dt className="uppercase tracking-wide">Mais recente</dt>
+                <dd className="tabular" style={{ color: "var(--text-secondary)" }}>{fmtDate(p.latest)}</dd>
+              </div>
+            </dl>
+          </li>
+        ))}
+      </ul>
+
       <p className="mt-4 text-xs" style={{ color: "var(--text-muted)" }}>
         Registro oficial de todas as pesquisas eleitorais: sistema PesqEle do TSE. Pesquisas
         divulgadas sem registro violam a legislação eleitoral (Lei 9.504/1997, art. 33).
