@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import MatchupCard from "@/components/MatchupCard";
+import StateJumpNav, { type JumpTarget } from "@/components/StateJumpNav";
 import { scenarioGroups, fmtDate } from "@/lib/data";
 import { UFS, UF_NAMES } from "@/lib/types";
 import { displayName } from "@/lib/names";
@@ -63,6 +64,13 @@ export default function SegundoTurnoPage() {
     .filter((s) => s.groups.length > 0)
     .sort((a, b) => UF_NAMES[a.uf].localeCompare(UF_NAMES[b.uf], "pt-BR"));
 
+  // Jump index: the presidential block first, then one chip per state that has
+  // a runoff. Each entry points at an id already rendered on its section below.
+  const jumpTargets: JumpTarget[] = [
+    ...(presCurrent.length ? [{ id: "presidente", label: "Presidente", short: "Pres." }] : []),
+    ...states.map(({ uf }) => ({ id: `uf-${uf.toLowerCase()}`, label: UF_NAMES[uf], short: uf })),
+  ];
+
   return (
     <div className="flex min-w-0 flex-col gap-8">
       {/* Page header — breadcrumb + title, per the new pattern. */}
@@ -89,8 +97,11 @@ export default function SegundoTurnoPage() {
         </div>
       </header>
 
+      {/* In-page jump index — reach any state without scrolling the whole wall. */}
+      {jumpTargets.length > 1 && <StateJumpNav targets={jumpTargets} />}
+
       {/* Presidente */}
-      <section id="presidente" className="flex min-w-0 scroll-mt-24 flex-col gap-4" aria-label="Presidente · 2º turno">
+      <section id="presidente" className="flex min-w-0 scroll-mt-28 flex-col gap-4" aria-label="Presidente · 2º turno">
         <SectionTitle>Presidente · 2º turno</SectionTitle>
         {presCurrent.length ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,7 +136,7 @@ export default function SegundoTurnoPage() {
       </section>
 
       {/* Governadores */}
-      <section id="governadores" className="flex min-w-0 scroll-mt-24 flex-col gap-4" aria-label="Governadores · 2º turno">
+      <section id="governadores" className="flex min-w-0 scroll-mt-28 flex-col gap-4" aria-label="Governadores · 2º turno">
         <div className="flex flex-col gap-1">
           <SectionTitle>Governadores · 2º turno</SectionTitle>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
@@ -135,7 +146,7 @@ export default function SegundoTurnoPage() {
         </div>
         <div className="flex flex-col gap-6">
           {states.map(({ uf, groups }) => (
-            <div key={uf} className="flex min-w-0 flex-col gap-3">
+            <div key={uf} id={`uf-${uf.toLowerCase()}`} className="flex min-w-0 scroll-mt-28 flex-col gap-3">
               <h3 className="text-xs font-bold uppercase tracking-[0.14em]" style={{ color: "var(--text-secondary)" }}>
                 {UF_NAMES[uf]}
               </h3>
