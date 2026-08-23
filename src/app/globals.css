@@ -142,8 +142,8 @@
      saturation. Legend dots (HomeSidebar) read the same four. */
   --map-acima: #6f9bf0;   /* brand blue — leader above 50 */
   --map-abaixo: #cbdcfb;  /* light blue — leader below 50 (runoff) */
-  --map-empate: #f2a6a6;  /* soft red — technical tie */
-  --map-sem: #e5e7eb;     /* light grey — no recent poll */
+  --map-empate: #cbd5e1;  /* grey — technical tie (mirrors --pmap-tie) */
+  --map-sem: #1f2937;     /* preto/carvão — no recent poll (mirrors --pmap-sem) */
 
   /* ── PRESIDENTIAL STATE MAP — LEADER IDENTITY + INTENSITY (/presidente) ─────
      The governor map above colours by a four-value STATUS. The presidential map
@@ -243,8 +243,8 @@
        distinct from abaixo (muted blue). */
     --map-acima: #3f6fd0;   /* strong brand blue — leader above 50 */
     --map-abaixo: #274a86;  /* muted blue — leader below 50 (runoff) */
-    --map-empate: #b84b4e;  /* muted red — technical tie */
-    --map-sem: #2b3a55;     /* navy-grey — no recent poll */
+    --map-empate: #2b3a55;  /* navy-grey — technical tie (mirrors --pmap-tie) */
+    --map-sem: #0b0d12;     /* quase-preto — no recent poll (mirrors --pmap-sem) */
 
     /* Presidential state map, tuned for the navy page. STRONG is the lifted
        brand red/blue (= --cand-red/--cand-blue in dark); LIGHT is a muted, deep
