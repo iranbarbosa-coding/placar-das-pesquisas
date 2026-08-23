@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1077 levantamentos · 3569 perguntas · 141 institutos · 1175 candidatos**.
+Banco: **1083 levantamentos · 3594 perguntas · 141 institutos · 1186 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -13,12 +13,12 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SOMA** — Elenco de vaga única somando mais de 100 | 2 | 2 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
-| **SEMDATA** — Levantamentos sem data utilizável | 13 | 0 |
+| **SEMDATA** — Levantamentos sem data utilizável | 15 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 22 | 13 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 21 | 3 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 7 | 3 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 0 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **59** | **18** |
+| **total** | **47** | **18** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -44,13 +44,14 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 
 *Nada a reportar.*
 
-## SEMDATA — Levantamentos sem data utilizável (13)
+## SEMDATA — Levantamentos sem data utilizável (15)
 
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
 - s_0c06f21e0a31 · Delta · AC · registro —
 - s_1f6d83b34792 · Real Time Big Data · RR · registro —
 - s_2fe68fa4575e · Real Time Big Data · RR · registro —
+- s_3cf3b1b8f214 · INOR · SE · registro —
 - s_474cbe67ada8 · Delta · AC · registro —
 - s_4b18e5197551 · Opinar · PI · registro PI-02052/2026
 - s_58d742edadc1 · Real Time Big Data · RR · registro —
@@ -59,6 +60,7 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_824da0368472 · Delta · AC · registro —
 - s_a3b6d8cdc27d · Delta · AC · registro —
 - s_b24aba3bbef0 · Delta · AC · registro —
+- s_bf961f8039e4 · INOR · SE · registro —
 - s_c5446eaf6c82 · Doxa · PA · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 
@@ -189,7 +191,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
   s_f974da273cc9: Lula 48 · Tarcísio de Freitas 39
 
-## CONFLITO — Conflitos registrados aguardando decisão (21)
+## CONFLITO — Conflitos registrados aguardando decisão (7)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -200,20 +202,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_69bf17c316c8 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Jayme Campos","Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
-- person_id_orphaned · p_d5428757615f · person_id: "p_d5428757615f" × null
-- person_id_orphaned · p_323994772f08 · person_id: "p_323994772f08" × null
-- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
-- person_id_orphaned · p_55f646657c2c · person_id: "p_55f646657c2c" × null
-- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
-- person_id_orphaned · p_108ab8796cc1 · person_id: "p_108ab8796cc1" × null
-- person_id_orphaned · p_6b71c0d7e999 · person_id: "p_6b71c0d7e999" × null
-- person_id_orphaned · p_143379e4ef75 · person_id: "p_143379e4ef75" × null
-- person_id_orphaned · p_da6c5c2946ee · person_id: "p_da6c5c2946ee" × null
-- person_id_orphaned · p_1262d23f73d4 · person_id: "p_1262d23f73d4" × null
-- person_id_orphaned · p_ec251a15a8cf · person_id: "p_ec251a15a8cf" × null
-- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
-- person_id_orphaned · p_8628635825fd · person_id: "p_8628635825fd" × null
-- person_id_orphaned · p_aa9ef8d0a493 · person_id: "p_aa9ef8d0a493" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
 

@@ -451,7 +451,19 @@
    ]
   },
   {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
    "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
    "partidos": [
     "PSD"
    ]
@@ -4125,6 +4137,18 @@
    ]
   },
   {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
    "nome": "Renan Santos",
    "partidos": [
     "Missão"
@@ -4943,6 +4967,12 @@
  ],
  "presidente:RO": [
   {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Átila Maia",
    "partidos": [
     "Agir"
@@ -5009,7 +5039,19 @@
    ]
   },
   {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
    "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
    "partidos": [
     "PSD"
    ]
@@ -5046,6 +5088,12 @@
    "partidos": []
   },
   {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Augusto Cury",
    "partidos": [
     "Avante"
@@ -5078,6 +5126,18 @@
   {
    "nome": "MINISTRO JOAQUIM BARBOSA",
    "partidos": []
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
   },
   {
    "nome": "Renan Santos",
@@ -5252,6 +5312,125 @@
    ]
   }
  ],
+ "presidente:AM": [
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
+ ],
+ "presidente:AL": [
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
+ ],
  "senador:AC": [
   {
    "nome": "Coronel Ulysses",
@@ -5412,56 +5591,6 @@
    ]
   }
  ],
- "presidente:AL": [
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Ratinho Jr",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Tarcísio de Freitas",
-   "partidos": [
-    "Republicanos"
-   ]
-  }
- ],
  "senador:AM": [
   {
    "nome": "Capitão Alberto Neto",
@@ -5507,50 +5636,6 @@
    "nome": "Wilson Miranda Lima",
    "partidos": [
     "União Brasil"
-   ]
-  }
- ],
- "presidente:AM": [
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": []
-  },
-  {
-   "nome": "Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": []
-  },
-  {
-   "nome": "Joaquim Barbosa",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": []
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD"
    ]
   }
  ],

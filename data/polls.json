@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-08-22T22:36:18.164Z",
+ "generated_at": "2026-08-23T12:59:35.444Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-22T22:36:18.164Z"
+   "last_ok": "2026-08-23T12:59:35.444Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-22T22:36:18.164Z"
+   "last_ok": "2026-08-23T12:59:35.444Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-22T22:36:18.164Z"
+   "last_ok": "2026-08-23T12:59:35.444Z"
   }
  ],
  "polls": [
@@ -297,6 +297,64 @@
    "tse_registration": null
   },
   {
+   "id": "4839653c9d49",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CTAS",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1224,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Delegado André David",
+     "party": "Republicanos",
+     "pct": 11.69
+    },
+    {
+     "candidate": "André Moura",
+     "party": "União Brasil",
+     "pct": 12.2
+    },
+    {
+     "candidate": "Eduardo Amorim",
+     "party": "Republicanos",
+     "pct": 7.91
+    },
+    {
+     "candidate": "Delegado Alessandro",
+     "party": "MDB",
+     "pct": 5.8
+    },
+    {
+     "candidate": "Rogério Carvalho",
+     "party": "PT",
+     "pct": 7.76
+    },
+    {
+     "candidate": "Rodrigo Valadares",
+     "party": "PL",
+     "pct": 5.75
+    },
+    {
+     "candidate": "Edvaldo",
+     "party": "PDT",
+     "pct": 7.09
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "6bbce9926f17",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
@@ -356,6 +414,49 @@
    ],
    "others_pct": 11,
    "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6f67cde2676e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CTAS",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1224,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 44.4
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 25.5
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 3.7
+    },
+    {
+     "candidate": "Emanuel Cacho",
+     "party": "PSDB",
+     "pct": 0
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 26.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1719,6 +1820,39 @@
    "tse_registration": null
   },
   {
+   "id": "20d58c04fbcb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Sandro Alex",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 45.31
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 37.92
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.77,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2de3fb3c2b0f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -1811,6 +1945,241 @@
    ],
    "others_pct": 0.2,
    "undecided_pct": 8.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5c17ead8ee60",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-08-15",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 56.1
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 35.8
+    },
+    {
+     "candidate": "Ronaldo Mansur",
+     "party": "PSOL",
+     "pct": 1.2
+    }
+   ],
+   "others_pct": 1.5,
+   "undecided_pct": 5.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "66bc5a1813f2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 33.43
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 28.84
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 32.31
+    },
+    {
+     "candidate": "Cristina Graeml",
+     "party": "PSD",
+     "pct": 15.04
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 26.04
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 17.06
+    },
+    {
+     "candidate": "Karen Guerreiro",
+     "party": "Missão",
+     "pct": 2.04
+    },
+    {
+     "candidate": "Joaquim do MLB",
+     "party": "UP",
+     "pct": 0.52
+    },
+    {
+     "candidate": "Marcelo Marcelino",
+     "party": "PCO",
+     "pct": 0.04
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 44.68,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6962d0265ce6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 36.81
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 21.02
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 28.55
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 0.61
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0.33
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0.06
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.11
+    },
+    {
+     "candidate": "Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0.05
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.46,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "be53291cb11a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "BA",
+   "round": 2,
+   "scenario": "2º turno: ACM Neto e Jerônimo Rodrigues",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-08-15",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 57.2
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 36.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c7d31894d416",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Requião Filho",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 55.22
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 30.16
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14.62,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -9389,7 +9758,7 @@
     {
      "candidate": "Sandro Alex",
      "party": "PSD",
-     "pct": 26.6
+     "pct": 27.6
     },
     {
      "candidate": "Samuel de Mattos",
@@ -30472,12 +30841,12 @@
    "results": [
     {
      "candidate": "Lula",
-     "party": null,
+     "party": "PT",
      "pct": 46
     },
     {
      "candidate": "Flávio Bolsonaro",
-     "party": null,
+     "party": "PL",
      "pct": 37
     },
     {
@@ -30507,7 +30876,7 @@
     },
     {
      "candidate": "Aldo Rebelo",
-     "party": null,
+     "party": "DC",
      "pct": 1
     }
    ],
@@ -35970,7 +36339,7 @@
    "id": "9d1c50781df0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
    "race": "governador",
    "state": "AL",
    "round": 1,
@@ -35979,7 +36348,7 @@
    "contractor": null,
    "fieldwork_start": "2026-06-29",
    "fieldwork_end": "2026-06-30",
-   "published_date": null,
+   "published_date": "2026-07-01",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -35997,7 +36366,7 @@
    "others_pct": null,
    "undecided_pct": 8,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07801/2026"
   },
   {
    "id": "a67250fd6347",
@@ -36043,10 +36412,118 @@
    "tse_registration": null
   },
   {
+   "id": "curado-353e749d5471",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
+   "race": "presidente",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-06-29",
+   "fieldwork_end": "2026-06-30",
+   "published_date": "2026-07-01",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 54
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-07801/2026",
+   "repaired": {
+    "evidence": "n=1600, margem=2,0 (IC 95%), campo 29–30/06/2026, divulgação 01/07/2026, universo eleitores do estado de Alagoas. 2º turno (Cenário 01), resolvido por coordenadas: LULA-PT 54 · FLÁVIO BOLSONARO-PL 37; Nulo/Branco 5; NS/NR 4. Soma 100. Duas leituras cegas independentes do relatório do próprio instituto (reads/al-rtbd/A e /B), comparadas pelo hub em 2026-08-23 (§1). O 2º turno foi resolvido por checagem de coordenadas do PDF (54% sob LULA à esquerda, 37% sob FLÁVIO à direita → Lula 54 × Flávio 37; consistente com a liderança de 1º turno 51–30). Mini-onda 'estados finos' (cobertura presidencial de AL).",
+    "inserted": true,
+    "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
+   "id": "curado-e00752d97d88",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
+   "race": "presidente",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-06-29",
+   "fieldwork_end": "2026-06-30",
+   "published_date": "2026-07-01",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 51
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 30
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 4
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 2
+    },
+    {
+     "candidate": "Aécio Neves",
+     "party": "PSDB",
+     "pct": 2
+    },
+    {
+     "candidate": "Joaquim Barbosa",
+     "party": "DC",
+     "pct": 2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 1
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 3,
+   "blank_null_pct": 3,
+   "tse_registration": "BR-07801/2026",
+   "repaired": {
+    "evidence": "n=1600, margem=2,0 (IC 95%), campo 29–30/06/2026, divulgação 01/07/2026, universo eleitores do estado de Alagoas. Estimulada 1º turno: LULA-PT 51 · FLÁVIO BOLSONARO-PL 30 · RENAN SANTOS-Missão 4 · RONALDO CAIADO-PSD 2 · AÉCIO NEVES-PSDB 2 · JOAQUIM BARBOSA-DC 2 · ROMEU ZEMA-Novo 1 · AUGUSTO CURY-Avante 1; Outros 1 (Cabo Daciolo/Rui Costa Pimenta/Samara Martins/Hertz Dias/Edmilson Costa, rodapé); Nulo/Branco 3; NS/NR 3. Soma 100. Duas leituras cegas independentes do relatório do próprio instituto (reads/al-rtbd/A e /B), comparadas pelo hub em 2026-08-23 (§1). O 2º turno foi resolvido por checagem de coordenadas do PDF (54% sob LULA à esquerda, 37% sob FLÁVIO à direita → Lula 54 × Flávio 37; consistente com a liderança de 1º turno 51–30). Mini-onda 'estados finos' (cobertura presidencial de AL).",
+    "inserted": true,
+    "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
    "id": "ee534c7877e1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
    "race": "senador",
    "state": "AL",
    "round": 1,
@@ -36055,7 +36532,7 @@
    "contractor": null,
    "fieldwork_start": "2026-06-29",
    "fieldwork_end": "2026-06-30",
-   "published_date": null,
+   "published_date": "2026-07-01",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -36088,7 +36565,7 @@
    "others_pct": 1,
    "undecided_pct": 12,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07801/2026"
   },
   {
    "id": "fbf870bbe3ba",
@@ -39710,12 +40187,12 @@
    "results": [
     {
      "candidate": "Lula",
-     "party": null,
+     "party": "PT",
      "pct": 44
     },
     {
      "candidate": "Flávio Bolsonaro",
-     "party": null,
+     "party": "PL",
      "pct": 35
     },
     {
@@ -58401,7 +58878,7 @@
    "id": "2aa4bf96787d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
@@ -58428,7 +58905,7 @@
    "others_pct": null,
    "undecided_pct": 9.3,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "6a30e3cddcf3",
@@ -58545,7 +59022,7 @@
    "id": "769ab1921da5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "senador",
    "state": "AM",
    "round": 1,
@@ -58592,13 +59069,13 @@
    "others_pct": 6.1,
    "undecided_pct": 11,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "946921e4b709",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
@@ -58625,13 +59102,13 @@
    "others_pct": null,
    "undecided_pct": 30.7,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "a62560d8ea8d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
@@ -58658,13 +59135,13 @@
    "others_pct": null,
    "undecided_pct": 30.7,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "c2f4952e0e82",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
@@ -58691,13 +59168,194 @@
    "others_pct": null,
    "undecided_pct": 25,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03812/2026"
+  },
+  {
+   "id": "curado-0d82d0f97705",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "presidente",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno — Lula x Ronaldo Caiado",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42.2
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 36.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": 21.2,
+   "tse_registration": "BR-03812/2026",
+   "repaired": {
+    "evidence": "p.30. 'Branco/Nulo/Não sei' 21,2 (combinado)→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+    "inserted": true,
+    "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
+   "id": "curado-10a58efb3ae3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "presidente",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno — Lula x Flávio Bolsonaro",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": 10.5,
+   "tse_registration": "BR-03812/2026",
+   "repaired": {
+    "evidence": "p.30 2º turno. 'Branco/Nulo/Não sei' 10,5 (combinado)→blank_null; válidos inalterados. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+    "inserted": true,
+    "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
+   "id": "curado-4db5d4ef6593",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "presidente",
+   "state": "AM",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 43.9
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 40.9
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 4.5
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 2.8
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 1.8
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Aldo Rebelo",
+     "party": "DC",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.2,
+   "blank_null_pct": 2.4,
+   "tse_registration": "BR-03812/2026",
+   "repaired": {
+    "evidence": "p.26 estimulada (RESULTADO GERAL). 'Voto branco/nulo' 2,4→blank_null; 'Não sei' 2,2→undecided. Aldo Rebelo impresso 0%. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+    "inserted": true,
+    "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
+   "id": "curado-ae9bb40999e0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "presidente",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno — Lula x Romeu Zema",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 40.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": 17.6,
+   "tse_registration": "BR-03812/2026",
+   "repaired": {
+    "evidence": "p.30. 'Branco/Nulo/Não sei' 17,6 (combinado)→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+    "inserted": true,
+    "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+    "verified_at": "2026-08-23"
+   }
   },
   {
    "id": "e7fba8c26fb5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "governador",
    "state": "AM",
    "round": 1,
@@ -58734,7 +59392,7 @@
    "others_pct": 2.2,
    "undecided_pct": 6.5,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "p360-13445-1-1-bcc885ace5ae",
@@ -74050,7 +74708,7 @@
    "id": "04df02c3e695",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "governador",
    "state": "SC",
    "round": 1,
@@ -74087,7 +74745,7 @@
    "others_pct": 1.7,
    "undecided_pct": 15.8,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-01798/2026"
   },
   {
    "id": "2f47d3e0469c",
@@ -74275,7 +74933,7 @@
    "id": "799a82681040",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
    "race": "governador",
    "state": "SE",
    "round": 1,
@@ -74312,7 +74970,7 @@
    "others_pct": 3.6,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-01637/2026"
   },
   {
    "id": "a0f1fbb5978d",
@@ -74404,7 +75062,7 @@
    "id": "afecab67ed9e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
    "race": "senador",
    "state": "SE",
    "round": 1,
@@ -74456,7 +75114,7 @@
    "others_pct": 18.8,
    "undecided_pct": 46.6,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-01637/2026"
   },
   {
    "id": "b2f51372038d",
@@ -74515,7 +75173,7 @@
    "id": "cbf1cb992dcc",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "senador",
    "state": "SC",
    "round": 1,
@@ -74572,7 +75230,7 @@
    "others_pct": 7.3,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-01798/2026"
   },
   {
    "id": "curado-0d08c7bf1301",
@@ -74653,6 +75311,75 @@
    }
   },
   {
+   "id": "curado-27be4191624f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "race": "presidente",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-29",
+   "fieldwork_end": "2026-04-04",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 43.3
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 33
+    },
+    {
+     "candidate": "Ratinho Júnior",
+     "party": "PSD",
+     "pct": 2.8
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 2.2
+    },
+    {
+     "candidate": "Pablo Marçal",
+     "party": "União Brasil",
+     "pct": 1.8
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 0.7
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Aldo Rebelo",
+     "party": "DC",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.8,
+   "blank_null_pct": 3.8,
+   "tse_registration": "BR-01637/2026",
+   "repaired": {
+    "evidence": "n=1220, margem=3,0 (IC 95%), campo 29/03 a 04/04/2026, coleta por URA, iniciativa própria do Instituto Veritá. Estimulada 1º turno (Porcentual): LULA-PT 43,3 · FLÁVIO BOLSONARO-PL 33,0 · RATINHO JÚNIOR-PSD 2,8 · RONALDO CAIADO-PSD 2,2 · PABLO MARÇAL-União Brasil 1,8 · RENAN SANTOS-Missão 0,7 · ROMEU ZEMA-Novo 0,4 · ALDO REBELO-DC 0,1; NS/NR 11,8; branco/nulo 3,8. Soma 99,9. Duas leituras cegas independentes do relatório do próprio instituto (reads/se-verita/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
    "id": "curado-39d13002c0c4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Roraima",
@@ -74689,6 +75416,75 @@
     "inserted": true,
     "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
     "verified_at": "2026-08-21"
+   }
+  },
+  {
+   "id": "curado-5031eb7d4c15",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "presidente",
+   "state": "SC",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-29",
+   "fieldwork_end": "2026-04-04",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 56.3
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 19.5
+    },
+    {
+     "candidate": "Ratinho Júnior",
+     "party": "PSD",
+     "pct": 5.2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 3.8
+    },
+    {
+     "candidate": "Pablo Marçal",
+     "party": "União Brasil",
+     "pct": 2.3
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2.1
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1.6
+    },
+    {
+     "candidate": "Aldo Rebelo",
+     "party": "DC",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.9,
+   "blank_null_pct": 1.2,
+   "tse_registration": "BR-01798/2026",
+   "repaired": {
+    "evidence": "Ficha: n=1525, margem=2,5 (IC95), campo 29/03–04/04/2026, universo eleitores de Santa Catarina, iniciativa própria; registro presidencial BR-01798/2026 (capa exibe TRE SC-08607/2026). Estimulada 1º turno (Porcentual): Flávio Bolsonaro-PL 56,3 · Lula-PT 19,5 · Ratinho Júnior-PSD 5,2 · Romeu Zema-Novo 3,8 · Pablo Marçal-UB 2,3 · Renan Santos-Missão 2,1 · Ronaldo Caiado-PSD 1,6 · Aldo Rebelo-DC 0,1; NS/NR 7,9; branco/nulo 1,2. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-sc/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+    "verified_at": "2026-08-23"
    }
   },
   {
@@ -74839,6 +75635,45 @@
    }
   },
   {
+   "id": "curado-bcc2ade89d7e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "race": "presidente",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-29",
+   "fieldwork_end": "2026-04-04",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 38.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.7,
+   "blank_null_pct": 3.2,
+   "tse_registration": "BR-01637/2026",
+   "repaired": {
+    "evidence": "n=1220, margem=3,0 (IC 95%), campo 29/03 a 04/04/2026, coleta por URA, iniciativa própria do Instituto Veritá. 2º turno Lula×Flávio Bolsonaro (Porcentual): LULA-PT 48,0 · FLÁVIO BOLSONARO-PL 38,1; NS/NR 10,7; branco/nulo 3,2. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/se-verita/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
    "id": "curado-c8e13ff4a4bf",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Roraima",
@@ -74875,6 +75710,45 @@
     "inserted": true,
     "source": "https://web.archive.org/web/20260429140132/https://lgjdbpskgjfbmlffbntx.supabase.co/storage/v1/object/public/pesquisas/pdfs/1775685997115_Relatorio_Roraima_2026.pdf",
     "verified_at": "2026-08-21"
+   }
+  },
+  {
+   "id": "curado-e6def64e3509",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "presidente",
+   "state": "SC",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-29",
+   "fieldwork_end": "2026-04-04",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 23.5
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 66.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": 2.7,
+   "tse_registration": "BR-01798/2026",
+   "repaired": {
+    "evidence": "2º turno (Q16, Porcentual): Flávio Bolsonaro-PL 66,8 · Lula-PT 23,5; NS/NR 7,0; branco/nulo 2,7. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-sc/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+    "verified_at": "2026-08-23"
    }
   },
   {
@@ -79756,7 +80630,7 @@
    "id": "90a7e0c12bd8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "governador",
    "state": "AC",
    "round": 1,
@@ -79793,7 +80667,7 @@
    "others_pct": null,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03183/2026"
   },
   {
    "id": "93941f440a94",
@@ -80093,6 +80967,114 @@
    }
   },
   {
+   "id": "curado-75e460bbac8b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "presidente",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-18",
+   "fieldwork_end": "2026-03-24",
+   "published_date": null,
+   "sample_size": 1030,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 28.2
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 54
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.4,
+   "blank_null_pct": 4.4,
+   "tse_registration": "BR-03183/2026",
+   "repaired": {
+    "evidence": "2º turno (P16, Porcentual): Flávio Bolsonaro-PL 54,0 · Lula-PT 28,2; NS/NR 13,4; branco/nulo 4,4. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ac/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
+   "id": "curado-db49459f62c3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "presidente",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-18",
+   "fieldwork_end": "2026-03-24",
+   "published_date": null,
+   "sample_size": 1030,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46.9
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 24.5
+    },
+    {
+     "candidate": "Ratinho Jr",
+     "party": "PSD",
+     "pct": 2.6
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 2.2
+    },
+    {
+     "candidate": "Pablo Marçal",
+     "party": "União Brasil",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 1
+    },
+    {
+     "candidate": "Aldo Rebelo",
+     "party": "DC",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.6,
+   "blank_null_pct": 2.8,
+   "tse_registration": "BR-03183/2026",
+   "repaired": {
+    "evidence": "Ficha: n=1030, margem=3,5 (IC95), campo 18–24/03/2026, universo eleitores do Acre, iniciativa própria; registro presidencial BR-03183/2026 (capa exibe AC-08882/2026). Estimulada 1º turno (Porcentual): Flávio Bolsonaro-PL 46,9 · Lula-PT 24,5 · Ratinho Júnior-PSD 2,6 · Ronaldo Caiado-PSD 2,2 · Pablo Marçal-UB 1,5 · Renan Santos-Missão 1,0 · Aldo Rebelo-DC 0,4 · Romeu Zema-Novo 0,4; NS/NR 17,6; branco/nulo 2,8. Soma 99,9. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ac/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
    "id": "d610d414ce5a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -80149,7 +81131,7 @@
    "id": "ef0284ec17bc",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "senador",
    "state": "AC",
    "round": 1,
@@ -80196,7 +81178,7 @@
    "others_pct": 29.6,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03183/2026"
   },
   {
    "id": "f9cc3349a675",
@@ -82063,7 +83045,7 @@
    "id": "20f4e82d671c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "governador",
    "state": "RO",
    "round": 1,
@@ -82110,7 +83092,7 @@
    "others_pct": null,
    "undecided_pct": 18.1,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-09692/2026"
   },
   {
    "id": "41eb91065f04",
@@ -82265,7 +83247,7 @@
    "id": "8d2461a3f9a2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
-   "integra_url": null,
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "senador",
    "state": "RO",
    "round": 1,
@@ -82327,7 +83309,115 @@
    "others_pct": null,
    "undecided_pct": 46.9,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-09692/2026"
+  },
+  {
+   "id": "curado-8703b54c376c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "presidente",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-13",
+   "fieldwork_end": "2026-03-19",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48.7
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 18.1
+    },
+    {
+     "candidate": "Ratinho Jr",
+     "party": "PSD",
+     "pct": 3.7
+    },
+    {
+     "candidate": "Pablo Marçal",
+     "party": "União Brasil",
+     "pct": 2.3
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2.2
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1.3
+    },
+    {
+     "candidate": "Aldo Rebelo",
+     "party": "DC",
+     "pct": 0.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19.1,
+   "blank_null_pct": 2.6,
+   "tse_registration": "BR-09692/2026",
+   "repaired": {
+    "evidence": "Ficha: n=1220, margem=3,0 (IC95), campo 13–19/03/2026, universo eleitores de Rondônia, iniciativa própria; registro presidencial BR-09692/2026 (capa exibe RO-05454/2026). Estimulada 1º turno (Porcentual): Flávio Bolsonaro-PL 48,7 · Lula-PT 18,1 · Ratinho Júnior-PSD 3,7 · Pablo Marçal-UB 2,3 · Renan Santos-Missão 2,2 · Ronaldo Caiado-PSD 2,0 · Romeu Zema-Novo 1,3 · Aldo Rebelo-DC 0,2; NS/NR 19,1; branco/nulo 2,6. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ro/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+    "verified_at": "2026-08-23"
+   }
+  },
+  {
+   "id": "curado-bcfb049d8375",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "presidente",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-13",
+   "fieldwork_end": "2026-03-19",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 22
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 58.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": 3.7,
+   "tse_registration": "BR-09692/2026",
+   "repaired": {
+    "evidence": "2º turno (Q16, Porcentual): Flávio Bolsonaro-PL 58,2 · Lula-PT 22,0; NS/NR 16,0; branco/nulo 3,7. Soma 99,9. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ro/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+    "inserted": true,
+    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+    "verified_at": "2026-08-23"
+   }
   },
   {
    "id": "fa20d74b8dff",
@@ -132813,6 +133903,49 @@
    "tse_registration": null
   },
   {
+   "id": "0e319c95f1f4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2024-08-15",
+   "fieldwork_end": "2024-08-19",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 22.9
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 33
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 35.5
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 37.3
+    }
+   ],
+   "others_pct": 15.5,
+   "undecided_pct": 56.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5d5db3fad28c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -135613,6 +136746,84 @@
    "tse_registration": null
   },
   {
+   "id": "7a2139ab38ab",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "INOR",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": null,
+   "published_date": null,
+   "sample_size": 1070,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Delegado André David",
+     "party": "Republicanos",
+     "pct": 31.41
+    },
+    {
+     "candidate": "André Moura",
+     "party": "União Brasil",
+     "pct": 21.49
+    },
+    {
+     "candidate": "Eduardo Amorim",
+     "party": "Republicanos",
+     "pct": 25.52
+    },
+    {
+     "candidate": "Delegado Alessandro",
+     "party": "MDB",
+     "pct": 18.51
+    },
+    {
+     "candidate": "Rogério Carvalho",
+     "party": "PT",
+     "pct": 14.67
+    },
+    {
+     "candidate": "Rodrigo Valadares",
+     "party": "PL",
+     "pct": 9.99
+    },
+    {
+     "candidate": "Edvaldo",
+     "party": "PDT",
+     "pct": 12.53
+    },
+    {
+     "candidate": "Coronel Rocha",
+     "party": "PL",
+     "pct": 1.68
+    },
+    {
+     "candidate": "Iran Barbosa",
+     "party": "PSOL",
+     "pct": 4.39
+    },
+    {
+     "candidate": "Paulinho da União Tur",
+     "party": "DC",
+     "pct": 0.38
+    },
+    {
+     "candidate": "Renatinha",
+     "party": "DC",
+     "pct": 1.02
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 58.41,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "947aa42faa65",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -135690,6 +136901,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a45731cdc316",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "INOR",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": null,
+   "published_date": null,
+   "sample_size": 1070,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 31.59
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 46.73
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 7.76
+    },
+    {
+     "candidate": "Emanuel Cacho",
+     "party": "PSDB",
+     "pct": 1.21
+    }
+   ],
+   "others_pct": 1.49,
+   "undecided_pct": 11.22,
    "blank_null_pct": null,
    "tse_registration": null
   },
