@@ -4937,6 +4937,210 @@
    },
    "expect_sum": 100,
    "_nota_registro": "Deck NÃO imprime registro; irmão sem reg. Guardar BR-09998/2026 (faltante) não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_4d5a968743 (Quaest/SP gov+sen 23-27/07, SEM reg) por chave natural; fillFields backfilla BR-09998/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 1,
+    "fieldwork_end": "2026-05-14"
+   },
+   "defect": "Bloco presidencial (1 estimulada + 3×2º turno) da integra AtlasIntel/AM (48 pp), AUSENTE do banco. Estado FINO (2 pesquisas presidenciais) — este +1 leva AM a 3 e tira do cinza. Campo corrigido: fonte diz 08–14/05 (declarado tinha ..13). Cenário: 1º turno (round 1). §1, 2026-08-23.",
+   "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "evidence": "p.26 estimulada (RESULTADO GERAL). 'Voto branco/nulo' 2,4→blank_null; 'Não sei' 2,2→undecided. Aldo Rebelo impresso 0%. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-05-08",
+    "fieldwork_end": "2026-05-14",
+    "published_date": null,
+    "sample_size": 1244,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-03812/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 43.9
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 40.9
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 4.5
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 2.8
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.5
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 2.2,
+    "blank_null_pct": 2.4
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Duas chaves impressas: BR-03812/2026 (presidencial) e AM-09404/2026 (estadual). Irmão AtlasIntel/AM 08-14/05 (gov/sen) já no banco SEM reg → guardar BR-03812 não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_945cc575a64d (AtlasIntel/AM 08-14/05, SEM reg) por chave natural; fillFields backfilla BR-03812/2026. Doc estadual (eleitorado do AM, n=1244); reg estadual gêmeo AM-09404/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 2,
+    "fieldwork_end": "2026-05-14",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "Bloco presidencial (1 estimulada + 3×2º turno) da integra AtlasIntel/AM (48 pp), AUSENTE do banco. Estado FINO (2 pesquisas presidenciais) — este +1 leva AM a 3 e tira do cinza. Campo corrigido: fonte diz 08–14/05 (declarado tinha ..13). Cenário: 2º turno — Lula x Flávio Bolsonaro (round 2). §1, 2026-08-23.",
+   "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "evidence": "p.30 2º turno. 'Branco/Nulo/Não sei' 10,5 (combinado)→blank_null; válidos inalterados. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 2,
+    "scenario": "2º turno — Lula x Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-05-08",
+    "fieldwork_end": "2026-05-14",
+    "published_date": null,
+    "sample_size": 1244,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-03812/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 41.7
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 47.8
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 10.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Duas chaves impressas: BR-03812/2026 (presidencial) e AM-09404/2026 (estadual). Irmão AtlasIntel/AM 08-14/05 (gov/sen) já no banco SEM reg → guardar BR-03812 não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_945cc575a64d (AtlasIntel/AM 08-14/05, SEM reg) por chave natural; fillFields backfilla BR-03812/2026. Doc estadual (eleitorado do AM, n=1244); reg estadual gêmeo AM-09404/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 2,
+    "fieldwork_end": "2026-05-14",
+    "has_candidate": "Romeu Zema"
+   },
+   "defect": "Bloco presidencial (1 estimulada + 3×2º turno) da integra AtlasIntel/AM (48 pp), AUSENTE do banco. Estado FINO (2 pesquisas presidenciais) — este +1 leva AM a 3 e tira do cinza. Campo corrigido: fonte diz 08–14/05 (declarado tinha ..13). Cenário: 2º turno — Lula x Romeu Zema (round 2). §1, 2026-08-23.",
+   "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "evidence": "p.30. 'Branco/Nulo/Não sei' 17,6 (combinado)→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 2,
+    "scenario": "2º turno — Lula x Romeu Zema",
+    "contractor": null,
+    "fieldwork_start": "2026-05-08",
+    "fieldwork_end": "2026-05-14",
+    "published_date": null,
+    "sample_size": 1244,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-03812/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 41.9
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 40.5
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 17.6
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Duas chaves impressas: BR-03812/2026 (presidencial) e AM-09404/2026 (estadual). Irmão AtlasIntel/AM 08-14/05 (gov/sen) já no banco SEM reg → guardar BR-03812 não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_945cc575a64d (AtlasIntel/AM 08-14/05, SEM reg) por chave natural; fillFields backfilla BR-03812/2026. Doc estadual (eleitorado do AM, n=1244); reg estadual gêmeo AM-09404/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 2,
+    "fieldwork_end": "2026-05-14",
+    "has_candidate": "Ronaldo Caiado"
+   },
+   "defect": "Bloco presidencial (1 estimulada + 3×2º turno) da integra AtlasIntel/AM (48 pp), AUSENTE do banco. Estado FINO (2 pesquisas presidenciais) — este +1 leva AM a 3 e tira do cinza. Campo corrigido: fonte diz 08–14/05 (declarado tinha ..13). Cenário: 2º turno — Lula x Ronaldo Caiado (round 2). §1, 2026-08-23.",
+   "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "evidence": "p.30. 'Branco/Nulo/Não sei' 21,2 (combinado)→blank_null. LIDO por duas leituras cegas independentes (reads/<doc>/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": "AM",
+    "round": 2,
+    "scenario": "2º turno — Lula x Ronaldo Caiado",
+    "contractor": null,
+    "fieldwork_start": "2026-05-08",
+    "fieldwork_end": "2026-05-14",
+    "published_date": null,
+    "sample_size": 1244,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-03812/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 42.2
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 36.7
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": null,
+    "blank_null_pct": 21.2
+   },
+   "expect_sum": 100,
+   "_nota_registro": "Duas chaves impressas: BR-03812/2026 (presidencial) e AM-09404/2026 (estadual). Irmão AtlasIntel/AM 08-14/05 (gov/sen) já no banco SEM reg → guardar BR-03812 não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_945cc575a64d (AtlasIntel/AM 08-14/05, SEM reg) por chave natural; fillFields backfilla BR-03812/2026. Doc estadual (eleitorado do AM, n=1244); reg estadual gêmeo AM-09404/2026.]"
   }
  ]
 }
