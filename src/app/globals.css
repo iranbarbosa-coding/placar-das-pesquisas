@@ -64,6 +64,14 @@
      --text-primary outside it. */
   --on-fill: #0b0b0b;
 
+  /* Ink for a label/badge sitting on a BRAND-RED fill (--cand-red / --dual-lead
+     / --pmap-red-strong). White on the brand red #EF4444 is only ~3,4:1 — a
+     FAIL against AA's 4,5:1 (the exact trap the dormant `--cand-red-ink` note
+     below flags). This near-black clears it comfortably: #0b0b0b on #EF4444 =
+     5,23:1 (light theme), and on the lifted dark red #F87171 it is higher
+     still. Use this — never white — whenever text must land on a red fill. */
+  --on-red: #0b0b0b;
+
   /* ── PER-FILL INK OVERRIDES (CURRENTLY DORMANT) ────────────────────────
      ⚠ NOTHING PAINTS TEXT ON A COLOURED FILL ANY MORE. These tokens fed
      `inkOn()`, which the matchup bars used to colour a candidate NAME drawn
@@ -80,7 +88,7 @@
      first. The numbers are left as historical, explicitly not a live claim. */
   --cand-blue-ink: #000000; /* was 4,76:1 on old #2a78d6 — re-measure before use */
   --series-1-ink: #000000;
-  --cand-red-ink: #ffffff; /* was 4,83:1 on old #d92d20; white on #EF4444 ≈ 3,4:1 (would fail) */
+  --cand-red-ink: #0b0b0b; /* near-black = --on-red; #0b0b0b on #EF4444 = 5,23:1 (was #ffffff ≈ 3,4:1, a fail) */
   --cand-purple-ink: #ffffff;
   --cand-brown-ink: #ffffff;
   --cand-slate-ink: #ffffff;
@@ -204,6 +212,11 @@
     /* Unchanged between themes — see the note above. */
     --on-fill: #0b0b0b;
 
+    /* On the lifted dark red --cand-red #F87171 this near-black reads ~7,5:1 —
+       kept identical to the light theme so a red-fill label is accessible in
+       both. */
+    --on-red: #0b0b0b;
+
     /* Dark-theme ink overrides — DORMANT, same as the light block: `inkOn()` has
        no caller, so these are never read. Historical ratios were measured against
        the dark fills; re-measure before any reuse. */
@@ -264,6 +277,41 @@ body {
   background: var(--page);
   color: var(--text-primary);
   font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ── GLOBAL KEYBOARD FOCUS RING (a11y, 2026-08) ────────────────────────────
+   Before this, only the masthead nav and the search box drew a focus style;
+   tables, cards, filter chips, map links, and every other interactive control
+   showed nothing when tabbed to. A single site-wide :focus-visible outline in
+   the brand accent covers them all. :focus-visible (not :focus) means mouse
+   clicks don't draw it — only keyboard/AT focus does — so it's invisible to
+   pointer users. The 2px offset lifts the ring clear of the element's own
+   border. Elements that already ship a Tailwind focus ring opt out with
+   `focus-visible:outline-none` (which sets a transparent outline that wins by
+   specificity), so this never doubles up with the existing nav/search styles. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── REDUCED MOTION (a11y, 2026-08) ────────────────────────────────────────
+   Honour the OS "reduce motion" setting. The map fills transition on
+   `fill`, charts/bars animate width/opacity, and several controls have
+   transition-* utilities; for a reader who asked for less motion these are
+   non-essential. Collapse all animations and transitions to a near-instant
+   duration (not 0s, so animation `end` events still fire) and drop smooth
+   scrolling. Kept broad on purpose — nothing here conveys meaning through
+   motion alone, so there's no essential animation to preserve. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .card {
