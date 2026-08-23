@@ -131,7 +131,10 @@ const entradaOK = (over = {}) => ({
 caso("(a) a bruta de um estado semente atravessa o loader e a projeção", ({ dir }) => {
   // Roda o ARQUIVO REAL: AC · Lula rejeição bruta = 46,4 (lido do PDF, §1).
   const { rejections, warnings } = loadRejection({ file: ARQUIVO_REAL });
-  afirmaGlobal(rejections.length === 6, `carregou ${rejections.length} rejeições, esperado 6`);
+  // Conta contra a FONTE (não um número fixo): toda entrada com citação válida
+  // tem de atravessar — pega uma perda silenciosa sem quebrar a cada semente nova.
+  const naFonte = JSON.parse(fs.readFileSync(ARQUIVO_REAL, "utf-8")).add_rejection.length;
+  afirmaGlobal(rejections.length === naFonte, `carregou ${rejections.length} rejeições, esperado ${naFonte} (todas as entradas da fonte)`);
   afirmaGlobal(!warnings.length, `avisos inesperados no arquivo real: ${warnings.join(" | ")}`);
   const ac = rejections.find((p) => p.state === "AC");
   afirmaGlobal(!!ac, "AC não carregou");
