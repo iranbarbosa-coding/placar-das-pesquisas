@@ -133,6 +133,18 @@ const POLLSTER_ALIASES = new Map([
   // and wrong before any of this: "Diagnóstico/Acieg" was labelling 2 Acre
   // polls alongside 3 Goiás ones, i.e. one name for two unrelated institutes.
   ["travessiadiagnostico", "Instituto Travessia"],
+  // Datamax (Wikipedia, PI) e "Data Max" (Poder360, PI) são o mesmo instituto: a
+  // MESMA disputa (senador/PI), o MESMO início de campo (2026-07-28), e o próprio
+  // PDF de origem do Poder360 se chama `pesquisa-datamax-senador-pi-13ago2026.pdf`.
+  // O tokenizador não os une — "data" é genérica (POLLSTER_STOP), sobrando {max}
+  // contra {datamax}, disjuntos. `pollsterKeyOf` ignora o espaço, então esta
+  // única entrada casa as duas grafias. Sobrevivente = "Datamax".
+  ["datamax", "Datamax"],
+  // DataCensus e "Data Census", os dois de Wikipedia e do RN (estadual), mesma
+  // ficha metodológica (amostra 2000, margem 2,1). Mesma cisão concatenado-vs-
+  // dois-tokens que o tokenizador não resolve. Sobrevivente = "Data Census" (o
+  // lado com mais pesquisas: 4 contra 1).
+  ["datacensus", "Data Census"],
 ]);
 
 /** Remove wikitext leakage, regional qualifiers and noise from an institute name. */
