@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import { shortName } from "@/lib/names";
 import type { MapStatus } from "@/lib/home";
+import { UF_NAMES } from "@/lib/types";
 import type { UF } from "@/lib/types";
 
 /**
@@ -37,14 +39,44 @@ const STATUS_FILL: Record<MapStatus, string> = {
 };
 
 /** A paintable state: a `status` (governor map) and/or an explicit token `fill`
- *  (presidential map). `fill` overrides `status` when both are present. */
+ *  (presidential map). `fill` overrides `status` when both are present.
+ *
+ *  The remaining fields are OPTIONAL and feed only the screen-reader table
+ *  (below) — they never affect the drawn SVG. Both callers already carry them at
+ *  runtime (`StateMapDatum` has `name`/`leader`; `PresidentMapDatum` adds
+ *  `leaderPct`/`reason`), so the accessible table is built from the very same
+ *  data that colours the map, and cannot drift out of sync. */
 export interface MapDatum {
   uf: UF;
   status: MapStatus;
   fill?: string;
+  name?: string;
+  leader?: string | null;
+  leaderPct?: number | null;
+  reason?: "sem-dados" | "empate" | null;
 }
 
-export default function BrasilMap({ map }: { map: MapDatum[] }) {
+/** One state's situation as a short pt-BR phrase, from whichever descriptive
+ *  fields the datum carries. Mirrors the colour logic: technical tie, missing/
+ *  thin data, leader above 50, or leader below 50 (runoff). */
+function situacao(d: MapDatum): string {
+  if (d.reason === "sem-dados") return "Sem dados suficientes";
+  if (d.reason === "empate" || d.status === "empate") return "Empate técnico";
+  if (!d.leader) return "Sem dados suficientes";
+  if (d.status === "acima") return "Líder acima de 50%";
+  if (d.status === "abaixo") return "Líder abaixo de 50% (2º turno)";
+  return "—";
+}
+
+export default function BrasilMap({
+  map,
+  label = "Mapa do Brasil: situação do líder por estado.",
+}: {
+  map: MapDatum[];
+  /** Accessible name (role="img" label) describing what the choropleth shows.
+   *  Defaults to the governor-map summary; the presidential caller overrides it. */
+  label?: string;
+}) {
   const rules = map
     .map((d) => {
       const fill = d.fill ?? STATUS_FILL[d.status];
@@ -58,6 +90,44 @@ export default function BrasilMap({ map }: { map: MapDatum[] }) {
     rules +
     `</style>` +
     SVG;
-  // The SVG is a trusted local asset committed to the repo, not user input.
-  return <div id="brasil-map" dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <>
+      {/* role="img" + aria-label gives the choropleth a single accessible name
+          and prunes the decorative raw SVG paths from the accessibility tree, so
+          a screen reader announces the summary, not hundreds of <path> nodes.
+          The SVG is a trusted local asset committed to the repo, not user input. */}
+      <div
+        id="brasil-map"
+        role="img"
+        aria-label={label}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      {/* Visually hidden, screen-reader-available equivalent of the map, built
+          from the same `map` data that colours it. `sr-only` is Tailwind's
+          built-in utility (used elsewhere in the app). */}
+      <table className="sr-only">
+        <caption>{label}</caption>
+        <thead>
+          <tr>
+            <th scope="col">Estado</th>
+            <th scope="col">Líder</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {map.map((d) => (
+            <tr key={d.uf}>
+              <th scope="row">{d.name ?? UF_NAMES[d.uf]}</th>
+              <td>
+                {d.leader
+                  ? shortName(d.leader) + (d.leaderPct != null ? ` — ${d.leaderPct}%` : "")
+                  : "—"}
+              </td>
+              <td>{situacao(d)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
 }

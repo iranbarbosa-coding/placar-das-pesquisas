@@ -57,7 +57,10 @@ export default function PresidentStateMap({ data }: { data: PresidentMapDatum[] 
       </h2>
 
       <div className="mx-auto w-full max-w-[420px]">
-        <BrasilMap map={data} />
+        {/* `data` (PresidentMapDatum) carries leader/leaderPct/reason, so BrasilMap's
+            screen-reader table describes the presidential race; the label overrides
+            the default governor summary. */}
+        <BrasilMap map={data} label="Mapa: candidato à frente em cada estado no 1º turno." />
       </div>
 
       <ul className="grid grid-cols-1 gap-y-1 text-xs sm:grid-cols-2" style={{ color: "var(--text-secondary)" }}>
