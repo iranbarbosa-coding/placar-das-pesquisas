@@ -24,7 +24,8 @@ export default function PresidentStateMap({ data }: { data: PresidentMapDatum[] 
     { label: `${red} abaixo de 50%`, color: "var(--pmap-red-light)" },
     { label: `${blue} acima de 50%`, color: "var(--pmap-blue-strong)" },
     { label: `${blue} abaixo de 50%`, color: "var(--pmap-blue-light)" },
-    { label: "Empate técnico / sem dado", color: "var(--pmap-tie)" },
+    { label: "Empate técnico", color: "var(--pmap-tie)" },
+    { label: "Sem dados suficientes", color: "var(--pmap-sem)" },
   ];
 
   return (
@@ -48,7 +49,7 @@ export default function PresidentStateMap({ data }: { data: PresidentMapDatum[] 
 
       <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
         Cores mais intensas indicam liderança acima de 50%. Baseado na subamostra presidencial de cada
-        estado; estados com poucas pesquisas aparecem em cinza.
+        estado; empate técnico aparece em cinza, e estados sem dados suficientes em preto.
       </p>
 
       <Link href="/estados" className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
