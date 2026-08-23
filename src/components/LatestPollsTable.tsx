@@ -64,6 +64,54 @@ function TrendArrow({ trend }: { trend: PollTrend | null }) {
   return <span style={{ color: "var(--text-muted)" }}>—</span>;
 }
 
+/** The "líder X vice" result string — shared by the desktop cell and the mobile
+ *  card, so both read the same leader/runner-up numbers off the row. */
+function Result({ r }: { r: LatestTableRow }) {
+  if (!r.leader) return <span style={{ color: "var(--text-muted)" }}>—</span>;
+  return (
+    <>
+      <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>
+        {shortName(r.leader.candidate)} {n1(r.leader.pct)}%
+      </strong>
+      {r.runnerUp ? (
+        <>
+          <span style={{ color: "var(--text-muted)" }}> x </span>
+          <span style={{ color: "var(--text-secondary)" }}>
+            {shortName(r.runnerUp.candidate)} {n1(r.runnerUp.pct)}%
+          </span>
+        </>
+      ) : null}
+    </>
+  );
+}
+
+/** The pollster name plus its optional "encomendada por" asterisk — shared. */
+function Pollster({ r }: { r: LatestTableRow }) {
+  return (
+    <>
+      {r.poll.pollster}
+      {r.commissionedBy ? (
+        <>
+          <span aria-hidden="true">*</span>
+          <span className="sr-only"> — encomendada por {r.commissionedBy}</span>
+        </>
+      ) : null}
+    </>
+  );
+}
+
+/** The signed margin (líder sobre o 2º), coloured like the desktop column. */
+function Margin({ spread }: { spread: number | null | undefined }) {
+  return (
+    <span
+      className="tabular font-semibold"
+      style={{ color: spread == null || spread === 0 ? "var(--text-muted)" : "var(--series-3)" }}
+    >
+      {spread == null ? "—" : `+${n1(spread)}`}
+    </span>
+  );
+}
+
 const SELECT_CLASS = "rounded-md border px-2.5 py-1.5 text-sm";
 const selectStyle = { borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-secondary)" } as const;
 
@@ -148,7 +196,8 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
         </select>
       </div>
 
-      <div className="card overflow-x-auto">
+      {/* Desktop (≥md): the full dense matrix, unchanged. */}
+      <div className="card hidden overflow-x-auto md:block">
         <table className="w-full min-w-[560px] text-xs">
           <caption className="sr-only">
             Pesquisas publicadas mais recentes, agrupadas por dia: data, disputa, estado, instituto, amostra, resultado, margem e tendência.
@@ -183,39 +232,16 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
                     </td>
                     <td className="px-1.5 py-2" style={{ color: "var(--text-secondary)" }}>{estadoLabel(r.poll)}</td>
                     <th scope="row" className="whitespace-nowrap px-1.5 py-2 text-left font-medium">
-                      {r.poll.pollster}
-                      {r.commissionedBy ? (
-                        <>
-                          <span aria-hidden="true">*</span>
-                          <span className="sr-only"> — encomendada por {r.commissionedBy}</span>
-                        </>
-                      ) : null}
+                      <Pollster r={r} />
                     </th>
                     <td className="tabular px-1.5 py-2 text-right" style={{ color: "var(--text-secondary)" }}>
                       {r.poll.sample_size ? r.poll.sample_size.toLocaleString("pt-BR") : "—"}
                     </td>
                     <td className="whitespace-nowrap px-1.5 py-2 text-xs" style={{ color: "var(--text-secondary)" }}>
-                      {r.leader ? (
-                        <>
-                          <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>
-                            {shortName(r.leader.candidate)} {n1(r.leader.pct)}%
-                          </strong>
-                          {r.runnerUp ? (
-                            <>
-                              <span style={{ color: "var(--text-muted)" }}> x </span>
-                              <span style={{ color: "var(--text-secondary)" }}>
-                                {shortName(r.runnerUp.candidate)} {n1(r.runnerUp.pct)}%
-                              </span>
-                            </>
-                          ) : null}
-                        </>
-                      ) : "—"}
+                      <Result r={r} />
                     </td>
-                    <td
-                      className="tabular px-1.5 py-2 text-right font-semibold"
-                      style={{ color: r.spread == null || r.spread === 0 ? "var(--text-muted)" : "var(--series-3)" }}
-                    >
-                      {r.spread == null ? "—" : `+${n1(r.spread)}`}
+                    <td className="px-1.5 py-2 text-right">
+                      <Margin spread={r.spread} />
                     </td>
                     <td className="px-1.5 py-2 text-center"><TrendArrow trend={r.trend} /></td>
                   </tr>
@@ -225,6 +251,59 @@ export default function LatestPollsTable({ rows, limit }: { rows: LatestTableRow
           </tbody>
         </table>
       </div>
+
+      {/* Mobile (<md): one card per poll, led by the RESULT so the poll numbers
+          are never scrolled off-screen. Day dividers mirror the table's groups.
+          `aria-hidden` on the label chip keeps the divider text out of the
+          reading order; each card carries its own date. */}
+      <ul className="flex flex-col gap-3 md:hidden">
+        {days.map((day) => (
+          <li key={day.key || "sem-data"}>
+            <p
+              className="mb-2 text-[11px] font-bold uppercase tracking-wide"
+              style={{ color: "var(--accent)" }}
+            >
+              {day.key ? dayLabel(day.key) : "SEM DATA DE CAMPO"}
+            </p>
+            <ul className="flex flex-col gap-2">
+              {day.rows.map((r) => (
+                <li key={r.poll.id} className="card p-3">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <Link href={href(r.poll)} className="text-sm font-semibold hover:underline" style={{ color: "var(--accent)" }}>
+                      {raceLabel(r.poll)}
+                    </Link>
+                    <span className="tabular whitespace-nowrap text-xs" style={{ color: "var(--text-muted)" }}>
+                      {day.key ? shortDate(day.key) : "—"}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                    {estadoLabel(r.poll)} · <Pollster r={r} />
+                  </p>
+                  <p className="mt-2 text-sm leading-snug" style={{ color: "var(--text-secondary)" }}>
+                    <Result r={r} />
+                  </p>
+                  <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+                    <div className="flex items-baseline gap-1">
+                      <dt className="uppercase tracking-wide">Amostra</dt>
+                      <dd className="tabular" style={{ color: "var(--text-secondary)" }}>
+                        {r.poll.sample_size ? r.poll.sample_size.toLocaleString("pt-BR") : "—"}
+                      </dd>
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <dt className="uppercase tracking-wide">Margem</dt>
+                      <dd><Margin spread={r.spread} /></dd>
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <dt className="uppercase tracking-wide">Tendência</dt>
+                      <dd><TrendArrow trend={r.trend} /></dd>
+                    </div>
+                  </dl>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
         <Link href="/institutos" className="text-sm font-semibold" style={{ color: "var(--accent)" }}>
