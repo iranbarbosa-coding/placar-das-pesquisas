@@ -27,6 +27,11 @@ const TD = "px-2 py-1.5 whitespace-nowrap align-top";
 const CONTROL =
   "rounded-md border px-2 py-1.5 text-xs";
 
+// Shared value formatters, so the desktop table and the mobile cards read the
+// SAME numbers off each row — never a divergence between layouts.
+const fmtSample = (sample: number | null) => (sample != null ? sample.toLocaleString("pt-BR") : "—");
+const fmtMargem = (moe: number | null) => (moe != null ? `± ${fmtPct(moe)}` : "—");
+
 export default function AllPollsTable({ rows, title = "Todas as pesquisas presidenciais" }: { rows: PollRow[]; title?: string }) {
   const [q, setQ] = useState("");
   const [estado, setEstado] = useState("");
@@ -125,19 +130,23 @@ export default function AllPollsTable({ rows, title = "Todas as pesquisas presid
         </button>
       </div>
 
-      {/* Table */}
-      <div className="min-w-0 overflow-x-auto">
+      {/* Desktop (≥md): the full eight-column table, unchanged — it scrolls
+          inside its own overflow-x-auto, never the page. */}
+      <div className="hidden min-w-0 overflow-x-auto md:block">
         <table className="w-full border-collapse text-xs">
+          <caption className="sr-only">
+            Todas as pesquisas encontradas: data, disputa, estado, instituto, amostra, resultado, margem e registro no TSE.
+          </caption>
           <thead style={{ color: "var(--text-muted)" }}>
             <tr style={{ borderBottom: "1px solid var(--ring)" }}>
-              <th className={TH}>Data</th>
-              <th className={TH}>Disputa</th>
-              <th className={TH}>Estado</th>
-              <th className={TH}>Instituto</th>
-              <th className={`${TH} text-right`}>Amostra</th>
-              <th className={TH}>Resultado</th>
-              <th className={`${TH} text-right`}>Margem</th>
-              <th className={TH}>Registro</th>
+              <th scope="col" className={TH}>Data</th>
+              <th scope="col" className={TH}>Disputa</th>
+              <th scope="col" className={TH}>Estado</th>
+              <th scope="col" className={TH}>Instituto</th>
+              <th scope="col" className={`${TH} text-right`}>Amostra</th>
+              <th scope="col" className={TH}>Resultado</th>
+              <th scope="col" className={`${TH} text-right`}>Margem</th>
+              <th scope="col" className={TH}>Registro</th>
             </tr>
           </thead>
           <tbody>
@@ -147,9 +156,9 @@ export default function AllPollsTable({ rows, title = "Todas as pesquisas presid
                 <td className={TD} style={{ color: "var(--text-secondary)" }}>{r.disputa}</td>
                 <td className={TD} style={{ color: "var(--text-secondary)" }}>{r.estado}</td>
                 <td className={TD} style={{ color: "var(--text-primary)" }}>{r.pollster}</td>
-                <td className={`${TD} tabular text-right`} style={{ color: "var(--text-secondary)" }}>{r.sample != null ? r.sample.toLocaleString("pt-BR") : "—"}</td>
+                <td className={`${TD} tabular text-right`} style={{ color: "var(--text-secondary)" }}>{fmtSample(r.sample)}</td>
                 <td className={`${TD} tabular`} style={{ color: "var(--text-secondary)" }}>{r.resultado || "—"}</td>
-                <td className={`${TD} tabular text-right`} style={{ color: "var(--text-secondary)" }}>{r.moe != null ? `± ${fmtPct(r.moe)}` : "—"}</td>
+                <td className={`${TD} tabular text-right`} style={{ color: "var(--text-secondary)" }}>{fmtMargem(r.moe)}</td>
                 <td className={`${TD} tabular`} style={{ color: "var(--text-muted)" }}>{r.registro}</td>
               </tr>
             ))}
@@ -163,6 +172,51 @@ export default function AllPollsTable({ rows, title = "Todas as pesquisas presid
           </tbody>
         </table>
       </div>
+
+      {/* Mobile (<md): one card per poll, LED BY THE RESULT so the numbers are
+          never sliced off-screen by a horizontal scroll. Pollster and date head
+          the card; disputa · estado sit under it; amostra, margem and registro
+          are labelled <dt>/<dd> pairs reading the same values as the table. */}
+      {pageRows.length === 0 ? (
+        <p className="px-2 py-6 text-center text-sm md:hidden" style={{ color: "var(--text-muted)" }}>
+          Nenhuma pesquisa encontrada com esses filtros.
+        </p>
+      ) : (
+        <ul className="flex flex-col gap-2 md:hidden">
+          {pageRows.map((r) => (
+            <li key={r.id} className="card p-3">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                  {r.pollster}
+                </span>
+                <span className="tabular whitespace-nowrap text-xs" style={{ color: "var(--accent)" }}>
+                  {fmtDate(r.date)}
+                </span>
+              </div>
+              <p className="mt-0.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                {r.disputa} · {r.estado}
+              </p>
+              <p className="tabular mt-2 text-sm leading-snug" style={{ color: "var(--text-secondary)" }}>
+                {r.resultado || "—"}
+              </p>
+              <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+                <div className="flex items-baseline gap-1">
+                  <dt className="uppercase tracking-wide">Amostra</dt>
+                  <dd className="tabular" style={{ color: "var(--text-secondary)" }}>{fmtSample(r.sample)}</dd>
+                </div>
+                <div className="flex items-baseline gap-1">
+                  <dt className="uppercase tracking-wide">Margem</dt>
+                  <dd className="tabular" style={{ color: "var(--text-secondary)" }}>{fmtMargem(r.moe)}</dd>
+                </div>
+                <div className="flex items-baseline gap-1">
+                  <dt className="uppercase tracking-wide">Registro</dt>
+                  <dd className="tabular" style={{ color: "var(--text-muted)" }}>{r.registro}</dd>
+                </div>
+              </dl>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* Pagination */}
       <div className="flex flex-wrap items-center justify-between gap-2 text-xs" style={{ color: "var(--text-secondary)" }}>
