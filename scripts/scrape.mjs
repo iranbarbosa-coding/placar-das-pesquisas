@@ -581,10 +581,29 @@ async function main() {
   const isPartyRow = (r) =>
     PARTY_NAMES.has(normName(r.candidate)) ||
     /^[A-Z]{2,6}(?: ?d[oa][BC])?$/.test(r.candidate.trim()); // PT, PL, PSOL, PCdoB…
+  // ⚠ A LIMPEZA DE ARTEFATO DE FONTE NÃO TOCA PESQUISA CURADA (`add_poll`).
+  //
+  // Este filtro existe para o LIXO QUE AS FONTES DERRAMAM — linha de partido nas
+  // tabelas de preferência da Wikipédia, "Poderia votar em todos" do Ceará,
+  // opção de abstenção. Uma pesquisa curada não vem de fonte: é transcrita à mão
+  // do PDF do instituto por leitura cega dupla e conferida por `expect_sum`
+  // (repairs.mjs), então não há artefato de fonte nela para limpar — e passá-la
+  // por aqui só DESTRÓI dado verificado. Era o que acontecia: as íntegras que
+  // imprimem o elenco em CAIXA ALTA (Instituto França/SE, Vetor3/PI, Instituto
+  // Perfil/RN) traziam "LULA", e o teste de sigla de partido — qualquer token de
+  // 2 a 6 maiúsculas — o confundia com um partido e apagava a linha do LÍDER. A
+  // pesquisa caía a 9 linhas (soma ~47,5), a completude a marcava INCOMPLETA
+  // (< 90) e ela ficava fora da média de 1º turno: presidente:SE fechava com 2
+  // pesquisas averageáveis e ia ao cinza. `inserted` (o carimbo de add_poll,
+  // repairs.mjs) é exatamente "esta pesquisa não veio de fonte", então é ele que
+  // isenta. O elenco cru da fonte segue passando pelo filtro como antes — este
+  // conserto não mexe em nenhuma linha coletada.
   for (const p of polls) {
+    const curada = p.repaired?.inserted === true;
     p.results = p.results
       .map((r) => ({ ...r, candidate: r.candidate.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim() }))
-      .filter((r) => r.candidate && !JUNK.test(r.candidate) && !JUNK_PHRASE.test(r.candidate) && !isPartyRow(r));
+      .filter((r) => r.candidate &&
+        (curada || (!JUNK.test(r.candidate) && !JUNK_PHRASE.test(r.candidate) && !isPartyRow(r))));
   }
   polls = polls.filter((p) => p.results.length > 0);
 
