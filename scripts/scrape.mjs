@@ -16,6 +16,9 @@ import { richerRoster } from "./lib/roster.mjs";
 import { sobreviveAoGuardaDeSoma, veredictoDeSoma } from "./lib/soma.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
+import { lerCandidaturas, agruparPorDisputa, contestOf } from "./lib/candidaturas.mjs";
+import { CANONICAL_LABELS, NOT_MERGED, DEFUNCT } from "./lib/parties.mjs";
+import { normNome } from "./lib/nomes.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
 import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
@@ -323,6 +326,24 @@ export function keepFullestRound1(polls, {
 } = {}) {
   const best = new Map(); // chave → sobreviventes (no máximo um por estímulo declarado)
   const rest = [];
+  // O ORDINAL QUE CADA SLOT JÁ ABSORVEU, fora do objeto — mesma mecânica e
+  // mesmo motivo do `ordinalAbsorvido` de `mergePolls` (ver ali). Um SLOT de
+  // rótulo SEM ordinal ("1º turno") tem `ordinalDeCenario` null, e sem esta
+  // trava o `cenariosCompativeis(null, …)` o deixava compatível com TODO
+  // cenário declarado: um único registro sem ordinal — quando é a tabela mais
+  // cheia — reabsorvia cenário 1/2 E 2/2 no funil, e o candidato exclusivo do
+  // cenário engolido sumia da disputa inteira. Medido: governador:AL 08/12,
+  // topline sem ordinal do Poder360 [Renan, JHC] × Wikipédia cenário 1/2 e 2/2
+  // — quando `JHC` volta a ser coletado (o outro conserto desta leva), o
+  // topline vira o mais cheio, imanta os dois cenários e **Alfredo Gaspar**
+  // (só no cenário 2/2) desaparece. Travado no PRIMEIRO ordinal declarado que o
+  // slot absorve, o slot deixa de ser ímã do cenário seguinte — exatamente o
+  // conserto da fusão em cadeia de `mergePolls`, uma decisão atrás, que o funil
+  // desfazia. Ordinal null dos DOIS lados segue competindo (comportamento de
+  // sempre: sem nenhum ordinal declarado, o tamanho decide).
+  const ordinalTravado = new Map();
+  const efetivo = (obj) => ordinalTravado.get(obj) ?? ordinalDeCenario(obj);
+  const travar = (obj, o) => { if (o) ordinalTravado.set(obj, o); };
   for (const p of polls) {
     if (p.round !== 1) {
       rest.push(p);
@@ -331,6 +352,7 @@ export function keepFullestRound1(polls, {
     const k = `${bucketKey(p)}:${pollDate(p) ?? "?"}`;
     if (!best.has(k)) {
       best.set(k, [p]);
+      travar(p, ordinalDeCenario(p));
       continue;
     }
     const grupo = best.get(k);
@@ -338,22 +360,33 @@ export function keepFullestRound1(polls, {
     // competem aqui, pelo mesmo motivo de `mergePolls` (cenariosCompativeis):
     // são elencos alternativos postos à mesma amostra, perguntas distintas —
     // sem esta cláusula, keepFullestRound1 colapsava-os no mais cheio uma
-    // decisão adiante (medido: presidente:PA da Onda 2, cen1/2/3 → 1). Ordinal
-    // null de qualquer lado segue competindo com tudo — comportamento de sempre.
+    // decisão adiante (medido: presidente:PA da Onda 2, cen1/2/3 → 1). O ordinal
+    // EFETIVO do slot é o que ele já travou, não só o do próprio rótulo: é isso
+    // que impede o slot sem ordinal de imantar o segundo cenário declarado.
     const i = grupo.findIndex((cur) =>
       estimuloCompativel(cur.stimulus ?? null, p.stimulus ?? null) &&
-      cenariosCompativeis(ordinalDeCenario(cur), ordinalDeCenario(p)));
+      cenariosCompativeis(efetivo(cur), ordinalDeCenario(p)));
     if (i === -1) {
       grupo.push(p);
+      travar(p, ordinalDeCenario(p));
       continue;
     }
     const cur = grupo[i];
+    // O ordinal a que este slot fica preso na absorção: o que ele já tinha
+    // travado, ou — primeira absorção de um lado declarado — o primeiro ordinal
+    // declarado entre os dois. Calculado ANTES do swap, porque o vencedor herda
+    // a trava (o objeto no slot muda, a restrição não).
+    const oTravado = efetivo(cur) ?? ordinalDeCenario(p);
     const vp = sobrevive(p);
+    let vencedor = cur;
     if (vp !== sobrevive(cur)) {
-      if (vp) grupo[i] = p;
-      continue;
+      if (vp) vencedor = p;
+    } else if (p.results.length > cur.results.length) {
+      vencedor = p;
     }
-    if (p.results.length > cur.results.length) grupo[i] = p;
+    grupo[i] = vencedor;
+    ordinalTravado.delete(cur);
+    travar(vencedor, oTravado);
   }
   return [...rest, ...[...best.values()].flat()];
 }
@@ -461,6 +494,40 @@ export const PERTENCE_A_FONTE = {
   poder360: (p) => typeof p.id === "string" && p.id.startsWith("p360-"),
   wikipedia: (p) => typeof p.id === "string" && !p.id.startsWith("p360-") && !p.id.startsWith("curado-"),
 };
+
+/**
+ * O REGISTRO DE SIGLAS QUE O BANCO RECONHECE COMO PARTIDO.
+ *
+ * Repo-native e dirigido a dado, as duas fontes de verdade que o repositório já
+ * mantém: as siglas com CANDIDATURA no registro do TSE
+ * (`data/candidaturas.ndjson`) e os rótulos que `lib/parties.mjs` canoniza —
+ * vivos (`CANONICAL_LABELS`), extintos (`DEFUNCT`) e não-fundidos
+ * (`NOT_MERGED`), porque uma sigla extinta ainda aparece numa tabela de
+ * preferência. É a metade "isto É um partido" do teste de artefato; a outra
+ * metade (não ser candidatura) é `nomesDeUrnaPorDisputa`. Fora deste conjunto
+ * nenhum token é apagado por ser "sigla-forma" — o custo seguro do §4.
+ */
+export function siglasDePartidoConhecidas({ cands = lerCandidaturas() } = {}) {
+  const set = new Set();
+  for (const c of cands) if (c.partido) set.add(normNome(c.partido));
+  for (const s of [...CANONICAL_LABELS, ...NOT_MERGED, ...Object.keys(DEFUNCT)]) set.add(normNome(s));
+  return set;
+}
+
+/**
+ * NOME DE URNA → DISPUTA: o domínio que PROVA que um token é candidato, não
+ * sigla. Lê o mesmo registro colapsado de `agruparPorDisputa` (uma linha por
+ * candidatura real) e devolve, por `race:UF`, o conjunto de nomes de urna
+ * normalizados. É o portão que isenta "JHC" em governador:AL — sigla-forma, mas
+ * candidatura registrada — sem citar nenhum nome no código.
+ */
+export function nomesDeUrnaPorDisputa({ cands = lerCandidaturas() } = {}) {
+  const porDisputa = new Map();
+  for (const [contest, lista] of agruparPorDisputa(cands)) {
+    porDisputa.set(contest, new Set(lista.map((c) => normNome(c.nome_urna_raw))));
+  }
+  return porDisputa;
+}
 
 async function runSource(name, fn, previous) {
   try {
@@ -576,11 +643,37 @@ async function main() {
     "avante", "solidariedade", "novo", "missao", "mobiliza", "agir",
     "democracia crista", "partido social democratico",
   ]);
-  const normName = (s) =>
-    s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
-  const isPartyRow = (r) =>
-    PARTY_NAMES.has(normName(r.candidate)) ||
-    /^[A-Z]{2,6}(?: ?d[oa][BC])?$/.test(r.candidate.trim()); // PT, PL, PSOL, PCdoB…
+  const normName = (s) => normNome(s);
+  // A SIGLA SÓ É ARTEFATO SE FOR PARTIDO CONHECIDO **E** NÃO FOR CANDIDATURA.
+  //
+  // O teto de antes — `/^[A-Z]{2,6}…$/`, "qualquer token de 2 a 6 maiúsculas é
+  // sigla" — não distinguia partido de NOME DE URNA em caixa alta: apagava de
+  // fonte crua "JHC" (João Henrique Caldas, nome de urna oficial do candidato a
+  // governador de AL no registro do TSE) e "CIRO" junto com um "PT" de linha de
+  // preferência. O candidato sumia da média daquela disputa (o defeito irmão do
+  // caso curado da LULA que o PR #53 isentou — mas para a LINHA COLETADA, que o
+  // #53 não alcançou). O conserto do #53 (isenção de `add_poll`) fica intacto
+  // abaixo; este fecha a CLASSE para a linha de fonte.
+  //
+  // O teste agora tem as duas metades, e nenhuma sozinha:
+  //   · PARTIDO CONHECIDO — a sigla existe no registro (siglas com candidatura
+  //     no TSE) ou entre os rótulos que `lib/parties.mjs` canoniza (vivos,
+  //     extintos, não-fundidos). Não "toda sigla curta": só as que o banco
+  //     reconhece como partido. Uma sigla de partido sem candidatura e
+  //     desconhecida de `parties.mjs` PASSA — o custo seguro é deixar uma linha
+  //     de sigla rara, nunca apagar uma pessoa.
+  //   · NÃO É CANDIDATURA — o nome de urna não está no registro do TSE desta
+  //     disputa (`race:UF`). É o portão que salva "JHC": ele é sigla-forma, mas
+  //     é candidatura registrada em governador:AL, então é pessoa. Bare "PT"
+  //     numa disputa onde ninguém tem nome de urna "PT" segue caindo.
+  const SIGLAS_CONHECIDAS = siglasDePartidoConhecidas();
+  const URNAS_POR_DISPUTA = nomesDeUrnaPorDisputa();
+  const isPartyRow = (r, contest) => {
+    const nome = normName(r.candidate);
+    if (!nome) return false;
+    if (URNAS_POR_DISPUTA.get(contest)?.has(nome)) return false; // candidatura registrada = pessoa
+    return PARTY_NAMES.has(nome) || SIGLAS_CONHECIDAS.has(nome);
+  };
   // ⚠ A LIMPEZA DE ARTEFATO DE FONTE NÃO TOCA PESQUISA CURADA (`add_poll`).
   //
   // Este filtro existe para o LIXO QUE AS FONTES DERRAMAM — linha de partido nas
@@ -600,10 +693,11 @@ async function main() {
   // conserto não mexe em nenhuma linha coletada.
   for (const p of polls) {
     const curada = p.repaired?.inserted === true;
+    const contest = contestOf(p.race, p.state);
     p.results = p.results
       .map((r) => ({ ...r, candidate: r.candidate.replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim() }))
       .filter((r) => r.candidate &&
-        (curada || (!JUNK.test(r.candidate) && !JUNK_PHRASE.test(r.candidate) && !isPartyRow(r))));
+        (curada || (!JUNK.test(r.candidate) && !JUNK_PHRASE.test(r.candidate) && !isPartyRow(r, contest))));
   }
   polls = polls.filter((p) => p.results.length > 0);
 
