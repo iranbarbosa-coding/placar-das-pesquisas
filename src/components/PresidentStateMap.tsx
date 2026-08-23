@@ -8,9 +8,11 @@ import type { PresidentMapDatum } from "@/lib/presidente";
  * identity and intensity (see `presidentMapData`), via the per-datum `fill`
  * `BrasilMap` now accepts. Server component; the map SVG is inlined at build.
  *
- * The two realistic leaders (brand red, brand blue) drive the five-entry legend;
+ * The two realistic leaders (brand red, brand blue) drive the fixed legend rows;
  * their names are read off the data rather than hardcoded, so the key follows
- * whoever actually leads.
+ * whoever actually leads. Any OTHER registered leader (e.g. Ronaldo Caiado in
+ * teal) paints its own hue on the map, so the legend grows a dynamic row per such
+ * leader — otherwise a coloured state would carry a swatch the key never explains.
  */
 
 export default function PresidentStateMap({ data }: { data: PresidentMapDatum[] }) {
@@ -19,11 +21,31 @@ export default function PresidentStateMap({ data }: { data: PresidentMapDatum[] 
   const red = shortName(redName);
   const blue = shortName(blueName);
 
+  // Third-party leaders actually on the map: any coloured (non-greyed) state whose
+  // fill is neither the red nor the blue brand tint. De-dupe by leader, colour each
+  // row with that datum's own `fill`, and order by how many states the leader
+  // carries (ties broken alphabetically) so the key is stable across builds. Empty
+  // when nobody but red/blue leads, leaving the legend exactly as before.
+  const thirdParty = (() => {
+    const seen = new Map<string, { label: string; color: string; count: number }>();
+    for (const d of data) {
+      if (d.greyed || !d.leader) continue;
+      if (d.fill.includes("pmap-red") || d.fill.includes("pmap-blue")) continue;
+      const cur = seen.get(d.leader);
+      if (cur) cur.count += 1;
+      else seen.set(d.leader, { label: `${shortName(d.leader)} à frente`, color: d.fill, count: 1 });
+    }
+    return [...seen.values()]
+      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "pt-BR"))
+      .map(({ label, color }) => ({ label, color }));
+  })();
+
   const legend: { label: string; color: string }[] = [
     { label: `${red} acima de 50%`, color: "var(--pmap-red-strong)" },
     { label: `${red} abaixo de 50%`, color: "var(--pmap-red-light)" },
     { label: `${blue} acima de 50%`, color: "var(--pmap-blue-strong)" },
     { label: `${blue} abaixo de 50%`, color: "var(--pmap-blue-light)" },
+    ...thirdParty,
     { label: "Empate técnico", color: "var(--pmap-tie)" },
     { label: "Sem dados suficientes", color: "var(--pmap-sem)" },
   ];
