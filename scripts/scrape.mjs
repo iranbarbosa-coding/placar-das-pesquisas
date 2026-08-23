@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { validate } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
+import { loadRejection, writeRejectionProjection } from "./lib/rejection.mjs";
 import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
@@ -838,6 +839,25 @@ function persistStore(polls, dataset) {
       `ambiguidade · ${rel.ratified} encolhimento(s) ratificado(s) por reparo — tudo em conflicts.ndjson`);
   }
   console.log(`  resolução: ${JSON.stringify(report)}`);
+
+  // A REJEIÇÃO — TABELA SEPARADA, projetada pelo MESMO DESTINO do store de voto.
+  //
+  // Estruturalmente isolada de `polls`: `loadRejection` lê a fonte curada
+  // `data/rejection.json`, aplica a barra probatória de `add_rejection` e NUNCA
+  // toca na lista de voto. A projeção vai para `<DESTINO>/rejection.ndjson` —
+  // então sob `--ensaio` ela cai no diretório descartável, e `data/` fica
+  // intocado, exatamente como o store de voto. Cada inserção é impressa nomeada,
+  // espelhando `PESQUISA INSERIDA (curada)`: numa rodada sã é a lista das
+  // rejeições curadas que compõem a tabela; o dia em que uma parar de aparecer é
+  // o dia em que a fonte curada quebrou.
+  const rej = loadRejection();
+  for (const w of rej.warnings) console.warn(`AVISO (rejeição): ${w}`);
+  const nRej = writeRejectionProjection(DESTINO, rej.rejections);
+  console.log(`✓ rejeição projetada: ${nRej} pesquisa(s) em rejection.ndjson`);
+  for (const p of rej.rejections) {
+    console.log(`  REJEIÇÃO INSERIDA (curada): ${p.pollster} ${p.race}/${p.state ?? "BR"} ` +
+      `campo ${p.fieldwork_end ?? "?"} — ${p.results.length} candidato(s), id ${p.id}`);
+  }
 
   // O RELATÓRIO DO ENSAIO — o que esta coleta FARIA com o banco, e que a rodada
   // real não diz. `ELENCO RETIDO` acima só fala do que a retenção ALCANÇA;

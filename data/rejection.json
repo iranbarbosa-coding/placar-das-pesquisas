@@ -1,0 +1,177 @@
+{
+ "version": 1,
+ "note": "Fonte-de-verdade CURADA da rejeição presidencial (\"NÃO votaria de jeito nenhum\", P15). Espelha a barra probatória de add_poll em data/repairs.json: cada entrada exige source/evidence/verified_at e é RECUSADA sem eles. Tabela SEPARADA — nunca entra em PollDataset.polls. bruta = coluna Porcentual (base amostra plena). Veritá é MENÇÃO ÚNICA (multi_mention=false) e não imprime 'conhece' por candidato, então conhece_pct=null e a rejeição não precisa somar 100 (expect_sum é informativo, não é portão). Projeção construída pela coleta em data/rejection.ndjson.",
+ "add_rejection": [
+  {
+   "match": { "pollster": "Veritá", "race": "presidente", "state": "AC", "round": 1, "fieldwork_end": "2026-03-24" },
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "evidence": "P15 rejeição, leitura cega dupla §1, coluna Porcentual",
+   "verified_at": "2026-08-23",
+   "multi_mention": false,
+   "add_rejection": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AC",
+    "round": 1,
+    "fieldwork_start": "2026-03-18",
+    "fieldwork_end": "2026-03-24",
+    "published_date": null,
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": "AC-08882/2026",
+    "results": [
+     { "candidate": "Lula", "party": "PT", "pct_bruta": 46.4, "conhece_pct": null },
+     { "candidate": "Flávio Bolsonaro", "party": "PL", "pct_bruta": 24.7, "conhece_pct": null },
+     { "candidate": "Aldo Rebelo", "party": "DC", "pct_bruta": 5.6, "conhece_pct": null },
+     { "candidate": "Pablo Marçal", "party": "União Brasil", "pct_bruta": 1.2, "conhece_pct": null },
+     { "candidate": "Renan Santos", "party": "Missão", "pct_bruta": 0.6, "conhece_pct": null },
+     { "candidate": "Ratinho Júnior", "party": "PSD", "pct_bruta": 0.3, "conhece_pct": null },
+     { "candidate": "Ronaldo Caiado", "party": "PSD", "pct_bruta": 0.1, "conhece_pct": null },
+     { "candidate": "Romeu Zema", "party": "Novo", "pct_bruta": 0.0, "conhece_pct": null }
+    ]
+   }
+  },
+  {
+   "match": { "pollster": "Veritá", "race": "presidente", "state": "RO", "round": 1, "fieldwork_end": "2026-03-19" },
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "evidence": "P15 rejeição, leitura cega dupla §1, coluna Porcentual",
+   "verified_at": "2026-08-23",
+   "multi_mention": false,
+   "add_rejection": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RO",
+    "round": 1,
+    "fieldwork_start": "2026-03-13",
+    "fieldwork_end": "2026-03-19",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "RO-05454/2026",
+    "results": [
+     { "candidate": "Lula", "party": "PT", "pct_bruta": 57.1, "conhece_pct": null },
+     { "candidate": "Flávio Bolsonaro", "party": "PL", "pct_bruta": 20.2, "conhece_pct": null },
+     { "candidate": "Aldo Rebelo", "party": "DC", "pct_bruta": 1.0, "conhece_pct": null },
+     { "candidate": "Pablo Marçal", "party": "União Brasil", "pct_bruta": 0.6, "conhece_pct": null },
+     { "candidate": "Renan Santos", "party": "Missão", "pct_bruta": 0.5, "conhece_pct": null },
+     { "candidate": "Romeu Zema", "party": "Novo", "pct_bruta": 0.3, "conhece_pct": null },
+     { "candidate": "Ronaldo Caiado", "party": "PSD", "pct_bruta": 0.2, "conhece_pct": null },
+     { "candidate": "Ratinho Júnior", "party": "PSD", "pct_bruta": 0.1, "conhece_pct": null }
+    ]
+   }
+  },
+  {
+   "match": { "pollster": "Veritá", "race": "presidente", "state": "MT", "round": 1, "fieldwork_end": "2026-03-24" },
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "evidence": "P15 rejeição, leitura cega dupla §1, coluna Porcentual",
+   "verified_at": "2026-08-23",
+   "multi_mention": false,
+   "add_rejection": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MT",
+    "round": 1,
+    "fieldwork_start": "2026-03-18",
+    "fieldwork_end": "2026-03-24",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "MT-02322/2026",
+    "results": [
+     { "candidate": "Lula", "party": "PT", "pct_bruta": 35.7, "conhece_pct": null },
+     { "candidate": "Flávio Bolsonaro", "party": "PL", "pct_bruta": 14.0, "conhece_pct": null },
+     { "candidate": "Aldo Rebelo", "party": "DC", "pct_bruta": 1.6, "conhece_pct": null },
+     { "candidate": "Pablo Marçal", "party": "União Brasil", "pct_bruta": 1.0, "conhece_pct": null },
+     { "candidate": "Ronaldo Caiado", "party": "PSD", "pct_bruta": 0.4, "conhece_pct": null },
+     { "candidate": "Renan Santos", "party": "Missão", "pct_bruta": 0.2, "conhece_pct": null },
+     { "candidate": "Ratinho Júnior", "party": "PSD", "pct_bruta": 0.1, "conhece_pct": null }
+    ]
+   }
+  },
+  {
+   "match": { "pollster": "Veritá", "race": "presidente", "state": "DF", "round": 1, "fieldwork_end": "2026-03-19" },
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Distrito_Federal",
+   "evidence": "P15 rejeição, leitura cega dupla §1, coluna Porcentual",
+   "verified_at": "2026-08-23",
+   "multi_mention": false,
+   "add_rejection": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "DF",
+    "round": 1,
+    "fieldwork_start": "2026-03-13",
+    "fieldwork_end": "2026-03-19",
+    "published_date": null,
+    "sample_size": 1221,
+    "margin_of_error": 3.0,
+    "tse_registration": "DF-00559/2026",
+    "results": [
+     { "candidate": "Lula", "party": "PT", "pct_bruta": 46.8, "conhece_pct": null },
+     { "candidate": "Flávio Bolsonaro", "party": "PL", "pct_bruta": 34.3, "conhece_pct": null },
+     { "candidate": "Pablo Marçal", "party": "União Brasil", "pct_bruta": 2.1, "conhece_pct": null },
+     { "candidate": "Aldo Rebelo", "party": "DC", "pct_bruta": 1.7, "conhece_pct": null },
+     { "candidate": "Ronaldo Caiado", "party": "PSD", "pct_bruta": 0.4, "conhece_pct": null },
+     { "candidate": "Renan Santos", "party": "Missão", "pct_bruta": 0.3, "conhece_pct": null },
+     { "candidate": "Ratinho Júnior", "party": "PSD", "pct_bruta": 0.1, "conhece_pct": null },
+     { "candidate": "Romeu Zema", "party": "Novo", "pct_bruta": 0.1, "conhece_pct": null }
+    ]
+   }
+  },
+  {
+   "match": { "pollster": "Veritá", "race": "presidente", "state": "SC", "round": 1, "fieldwork_end": "2026-04-04" },
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "evidence": "P15 rejeição, leitura cega dupla §1, coluna Porcentual",
+   "verified_at": "2026-08-23",
+   "multi_mention": false,
+   "add_rejection": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "SC",
+    "round": 1,
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": null,
+    "sample_size": 1525,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-01798/2026",
+    "results": [
+     { "candidate": "Lula", "party": "PT", "pct_bruta": 62.5, "conhece_pct": null },
+     { "candidate": "Flávio Bolsonaro", "party": "PL", "pct_bruta": 23.5, "conhece_pct": null },
+     { "candidate": "Aldo Rebelo", "party": "DC", "pct_bruta": 1.8, "conhece_pct": null },
+     { "candidate": "Renan Santos", "party": "Missão", "pct_bruta": 0.4, "conhece_pct": null },
+     { "candidate": "Pablo Marçal", "party": "União Brasil", "pct_bruta": 0.3, "conhece_pct": null },
+     { "candidate": "Romeu Zema", "party": "Novo", "pct_bruta": 0.3, "conhece_pct": null },
+     { "candidate": "Ronaldo Caiado", "party": "PSD", "pct_bruta": 0.1, "conhece_pct": null }
+    ]
+   }
+  },
+  {
+   "match": { "pollster": "Veritá", "race": "presidente", "state": "SE", "round": 1, "fieldwork_end": "2026-04-04" },
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "evidence": "P15 rejeição, leitura cega dupla §1, coluna Porcentual",
+   "verified_at": "2026-08-23",
+   "multi_mention": false,
+   "add_rejection": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "SE",
+    "round": 1,
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-01637/2026",
+    "results": [
+     { "candidate": "Flávio Bolsonaro", "party": "PL", "pct_bruta": 40.6, "conhece_pct": null },
+     { "candidate": "Lula", "party": "PT", "pct_bruta": 34.4, "conhece_pct": null },
+     { "candidate": "Aldo Rebelo", "party": "DC", "pct_bruta": 2.9, "conhece_pct": null },
+     { "candidate": "Pablo Marçal", "party": "União Brasil", "pct_bruta": 2.3, "conhece_pct": null },
+     { "candidate": "Ratinho Júnior", "party": "PSD", "pct_bruta": 0.9, "conhece_pct": null },
+     { "candidate": "Renan Santos", "party": "Missão", "pct_bruta": 0.2, "conhece_pct": null },
+     { "candidate": "Ronaldo Caiado", "party": "PSD", "pct_bruta": 0.1, "conhece_pct": null }
+    ]
+   }
+  }
+ ]
+}

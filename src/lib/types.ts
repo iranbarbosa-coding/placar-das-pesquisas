@@ -120,3 +120,85 @@ export interface RaceAverage {
    */
   setAside: { blankNull: number | null; undecided: number | null; combined: number | null };
 }
+
+// ── Rejection ("NÃO votaria de jeito nenhum") ───────────────────────────────
+//
+// A SEPARATE table, never mixed into `Poll`/`PollDataset.polls`. Rejection is a
+// different statistic from vote intention — it does not convert to votos
+// válidos, a single-mention poll need not sum to 100, and a multi-mention poll
+// sums to whatever the respondents named — so it gets its own model, its own
+// store table (`data/rejection.ndjson`) and its own average, structurally
+// isolated from the vote averages. Additive: nothing above changes.
+
+export interface RejectionResult {
+  candidate: string;
+  party: string | null;
+  /** Rejection as a share of the FULL sample — the report's "Porcentual" column. */
+  pct_bruta: number;
+  /**
+   * Share of the sample that KNOWS the candidate, when the report prints a
+   * per-candidate "conhece". Rejeição líquida = pct_bruta ÷ conhece_pct. Null
+   * when the institute does not print it (e.g. Veritá) — the display then reads
+   * "sem base" for líquida.
+   */
+  conhece_pct: number | null;
+}
+
+export interface RejectionPoll {
+  /** Stable id, minted `rej-<sha1(...)>`; a namespace that CANNOT collide with a
+   *  vote poll id (which are `p360-…`, `curado-…`, `q_…` or a Wikipedia hash). */
+  id: string;
+  source: string; // curated source label / url of record
+  source_url: string;
+  race: RaceKind;
+  state: UF | null;
+  round: 1 | 2;
+  pollster: string;
+  contractor?: string | null;
+  fieldwork_start: string | null;
+  fieldwork_end: string | null;
+  published_date?: string | null;
+  sample_size: number | null;
+  margin_of_error: number | null;
+  tse_registration?: string | null;
+  /**
+   * Single-mention (one rejected name per respondent — the shares are a
+   * partition, though NOT of 100 since many name nobody) vs multi-mention (each
+   * candidate asked separately — the shares are independent and never sum to
+   * 100). Multi-mention polls are averaged among THEMSELVES, never summed.
+   */
+  multi_mention: boolean;
+  results: RejectionResult[];
+  evidence: string;
+  verified_at: string;
+}
+
+export interface RejectionCandidateAverage {
+  candidate: string;
+  party: string | null;
+  /** Mean rejeição bruta over the window. */
+  avgBruta: number;
+  /** Mean rejeição líquida (bruta ÷ conhece) over the window polls that print a
+   *  base; null when NONE of them do. */
+  avgLiquida: number | null;
+  nPolls: number;
+  latestBruta: number;
+}
+
+export interface RejectionAverage {
+  key: RaceKey;
+  candidates: RejectionCandidateAverage[]; // sorted desc by avgBruta
+  /** The "latest N" window size and per-institute cap, reused from `average.ts`. */
+  windowSize: number;
+  maxPerPollster: number;
+  pollCount: number;
+  windowPollIds: string[];
+  lastPollDate: string | null;
+  /** True when every window poll is multi_mention (shares do not sum to 100). */
+  multiMention: boolean;
+}
+
+export interface RejectionDataset {
+  generated_at: string; // inherited from the poll store's meta
+  polls: RejectionPoll[];
+}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import RcpPollsTable from "@/components/RcpPollsTable";
 import PresidentEvolution from "@/components/PresidentEvolution";
-import RejectionPlaceholder from "@/components/RejectionPlaceholder";
+import RejectionChart from "@/components/RejectionChart";
 import RunoffSimChart from "@/components/RunoffSimChart";
 import PresidentStateMap from "@/components/PresidentStateMap";
 import PresidentMomentum from "@/components/PresidentMomentum";
@@ -17,6 +17,7 @@ import {
   presidentMomentum,
   statePies,
   allPresidentialPolls,
+  presidentRejection,
 } from "@/lib/presidente";
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function PresidentePage() {
   const momentum = presidentMomentum();
   const pies = statePies();
   const allPolls = allPresidentialPolls();
+  const rejection = presidentRejection();
   const ds = loadDataset();
 
   return (
@@ -100,9 +102,10 @@ export default function PresidentePage() {
         <PresidentEvolution average={evo.average} registeredKeys={evo.registeredKeys} significantKeys={evo.significantKeys} />
       </section>
 
-      {/* Row 3 — rejection (placeholder) */}
+      {/* Row 3 — rejection (real chart; falls back to the empty-state placeholder
+          while national rejection data is still absent) */}
       <section className="card min-w-0 p-4 sm:p-6" aria-label="Rejeição dos candidatos">
-        <RejectionPlaceholder />
+        <RejectionChart data={rejection} />
       </section>
 
       {/* Row 4 — runoff simulations (three matchup cards, each its own card) */}

@@ -1,4 +1,5 @@
 import { scenarioGroups, pollsFor } from "./data";
+import { rejectionAverage } from "./rejection";
 import { registeredPresidentKeys, registeredRaceKeys } from "./home";
 import { candKey } from "./average";
 import { colorMap, colorOf, fixedColor, PALETTE_SIZE } from "./colors";
@@ -785,6 +786,74 @@ export function allPresidentialPolls(): PollRow[] {
   return all
     .sort((a, b) => dateOf(b).localeCompare(dateOf(a)) || String(a.id).localeCompare(String(b.id)))
     .map(toPollRow);
+}
+
+// ── Section 4: rejection ("NÃO votaria de jeito nenhum") ─────────────────────
+//
+// A SEPARATE statistic, read from the SEPARATE rejection store (never the vote
+// polls). One bar per REGISTERED presidential candidate — the same registered
+// filter the rest of the page applies — sorted by rejeição bruta descending. No
+// "Outros" bucket and no reconciliation to 100: rejection is not a partition of
+// the sample (many respondents reject nobody, or several candidates), so the
+// bars simply read the measured share.
+
+export interface RejectionBarRow {
+  candidate: string;
+  short: string;
+  party: string | null;
+  color: string;
+  /** Rejeição bruta — % of the full sample. Always present. */
+  bruta: number;
+  /** Rejeição líquida (bruta ÷ conhece) — null when the poll prints no base, so
+   *  the display reads "sem base" for this row's líquida. */
+  liquida: number | null;
+}
+
+export interface PresidentRejectionData {
+  rows: RejectionBarRow[];
+  lastPollDate: string | null;
+  pollCount: number;
+  /** True when the window is all multi-mention (each name asked separately). */
+  multiMention: boolean;
+  /** True when ANY row carries a líquida base — gates whether the líquida toggle
+   *  is offered at all. */
+  hasLiquida: boolean;
+}
+
+/**
+ * The NATIONAL presidential rejection average as bars, ready for the client
+ * chart. Registered candidates only (folding hypotheticals out, like every other
+ * section); empty rows when there is no national rejection data yet — the page
+ * then keeps the honest placeholder empty-state.
+ *
+ * State-level rejection (the Veritá per-UF seed) is modelled and stored the same
+ * way (`rejectionAverage("presidente", uf, 1)`); surfacing it per state is a
+ * fast-follow.
+ */
+export function presidentRejection(): PresidentRejectionData {
+  const avg = rejectionAverage("presidente", null, 1);
+  if (!avg) return { rows: [], lastPollDate: null, pollCount: 0, multiMention: false, hasLiquida: false };
+
+  const reg = registeredSet();
+  const named = avg.candidates.filter((c) => reg.has(candKey(c.candidate)));
+  const cmap = colorMap(named.slice(0, PALETTE_SIZE).map((c) => c.candidate));
+
+  const rows: RejectionBarRow[] = named.map((c) => ({
+    candidate: c.candidate,
+    short: shortName(c.candidate),
+    party: c.party,
+    color: fixedColor(c.candidate) ?? colorOf(cmap, c.candidate),
+    bruta: round1(c.avgBruta),
+    liquida: c.avgLiquida == null ? null : round1(c.avgLiquida),
+  }));
+
+  return {
+    rows,
+    lastPollDate: avg.lastPollDate,
+    pollCount: avg.pollCount,
+    multiMention: avg.multiMention,
+    hasLiquida: rows.some((r) => r.liquida != null),
+  };
 }
 
 /** Every poll of a STATE — governor, senate and president-in-state — newest
