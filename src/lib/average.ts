@@ -18,11 +18,27 @@ import { geographyAverageable } from "./universe";
 // the cap: in a thinly polled seat (e.g. four polls, all from one institute)
 // the cap would leave a two-poll average or less, so it yields and the board
 // says so rather than silently showing a capped-but-tiny base.
-const LATEST_N = 10;
-const MAX_PER_POLLSTER = 2;
+export const LATEST_N = 10;
+export const MAX_PER_POLLSTER = 2;
 const MIN_POLLS = 3;
 
-function pollDate(p: Poll): string | null {
+/**
+ * The minimum a record needs for the window rules: a stable id, an institute,
+ * and the three candidate dates. `Poll` satisfies it, and so does
+ * `RejectionPoll` — the rejection average reuses `sortPollsDesc`/`selectWindow`
+ * VERBATIM (one rule, one implementation) rather than copying the "latest N,
+ * cap per institute" walk into a second module that would drift the day someone
+ * tuned the real one. Generic, so each caller keeps its own record type back.
+ */
+export type WindowRecord = {
+  id: string;
+  pollster: string;
+  fieldwork_end?: string | null;
+  published_date?: string | null;
+  fieldwork_start?: string | null;
+};
+
+function pollDate(p: WindowRecord): string | null {
   return p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? null;
 }
 
@@ -36,7 +52,7 @@ function pollDate(p: Poll): string | null {
  * decided by the order records happen to sit in on disk. The scraper rewrites
  * that file twice a day. Ordering must depend on the data, not on its storage.
  */
-export function sortPollsDesc(polls: Poll[]): Poll[] {
+export function sortPollsDesc<T extends WindowRecord>(polls: T[]): T[] {
   return [...polls].sort((x, y) => {
     const dx = pollDate(x) ?? "0000";
     const dy = pollDate(y) ?? "0000";
@@ -44,7 +60,7 @@ export function sortPollsDesc(polls: Poll[]): Poll[] {
   });
 }
 
-function pollsterKey(p: Poll): string {
+function pollsterKey(p: WindowRecord): string {
   return p.pollster.toLowerCase().trim();
 }
 
@@ -55,9 +71,9 @@ function pollsterKey(p: Poll): string {
  * than MIN_POLLS, backfill the skipped polls (newest first) up to that floor
  * and report it via `capRelaxed`.
  */
-function selectWindow(sorted: Poll[]): { window: Poll[]; capRelaxed: boolean } {
-  const picked: Poll[] = [];
-  const skipped: Poll[] = [];
+export function selectWindow<T extends WindowRecord>(sorted: T[]): { window: T[]; capRelaxed: boolean } {
+  const picked: T[] = [];
+  const skipped: T[] = [];
   const held = new Map<string, number>();
 
   for (const p of sorted) {
