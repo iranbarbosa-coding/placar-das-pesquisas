@@ -5973,6 +5973,859 @@
    },
    "expect_sum": 100,
    "_nota_registro": "JOIN s_607a8224cfe6 (Veritá/DF 2026-03-13..2026-03-19, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + DF + fieldwork_end 2026-03-19); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-03093/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2026-07-05"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/AP, ausente do banco (o survey s_422bee7d21f8 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=1030, margem=3,5 (IC95), campo 01–05/07/2026, universo eleitores do Amapá, iniciativa própria; registro presidencial BR-04779/2026 (capa exibe AP-09815/2026). Estimulada 1º turno P06 (Porcentual): Lula-PT 41,3 · Flávio Bolsonaro-PL 39,5 · Renan Santos-Missão 3,1 · Augusto Cury-Avante 2,0 · Ronaldo Caiado-PSD 2,0 · Romeu Zema-Novo 1,6 · Joaquim Barbosa-DC 1,4 · Samara Martins-UP 0,9 · Edmilson Costa-PCB 0,5 · Hertz Dias-PSTU 0,3 · Cabo Daciolo-Mobiliza 0,2 · Heró Bezerra-PRTB 0,1; NS/NR 5,0; branco/nulo 2,3. Soma 100,2 (arredondamento). Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ap/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AP",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-05",
+    "published_date": null,
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": "BR-04779/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 41.3
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 39.5
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 3.1
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct": 2.0
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2.0
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1.6
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "DC",
+      "pct": 1.4
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct": 0.9
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0.5
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": "PSTU",
+      "pct": 0.3
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct": 0.2
+     },
+     {
+      "candidate": "Heró Bezerra",
+      "party": "PRTB",
+      "pct": 0.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5.0,
+    "blank_null_pct": 2.3
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_422bee7d21f8 (Veritá/AP 2026-07-01..2026-07-05, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + AP + fieldwork_end 2026-07-05); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04779/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-07-05",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/AP, ausente do banco (o survey s_422bee7d21f8 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P07 (Porcentual): Lula-PT 43,2 · Flávio Bolsonaro-PL 42,1 (empate técnico); NS/NR 6,4; branco/nulo 8,3. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ap/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-05",
+    "published_date": null,
+    "sample_size": 1030,
+    "margin_of_error": 3.5,
+    "tse_registration": "BR-04779/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 43.2
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 42.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 6.4,
+    "blank_null_pct": 8.3
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_422bee7d21f8 (Veritá/AP 2026-07-01..2026-07-05, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + AP + fieldwork_end 2026-07-05); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04779/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PB",
+    "round": 1,
+    "fieldwork_end": "2026-03-30"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/PB, ausente do banco (o survey s_98b9f44d9df6 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=1220, margem=3,0 (IC95), campo 24–30/03/2026, universo eleitores da Paraíba, iniciativa própria; registro presidencial BR-04275/2026 (capa exibe PB-08799/2026). Estimulada 1º turno P13 (Porcentual): Lula-PT 35,8 · Flávio Bolsonaro-PL 30,1 · Ratinho Júnior-PSD 1,2 · Renan Santos-Missão 1,0 · Ronaldo Caiado-PSD 0,6 · Romeu Zema-Novo 0,5 · Aldo Rebelo-DC 0,4 · Pablo Marçal-UB 0,3; NS/NR 24,9; branco/nulo 5,1. Soma 99,9. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-pb/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PB",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-04275/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35.8
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 30.1
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 1.2
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1.0
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 0.6
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.5
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.4
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 0.3
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 24.9,
+    "blank_null_pct": 5.1
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_98b9f44d9df6 (Veritá/PB 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + PB + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04275/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PB",
+    "round": 2,
+    "fieldwork_end": "2026-03-30",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/PB, ausente do banco (o survey s_98b9f44d9df6 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P16 (Porcentual): Lula-PT 38,5 · Flávio Bolsonaro-PL 33,6; NS/NR 23,0; branco/nulo 4,9. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-pb/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PB",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-04275/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 38.5
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 33.6
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 23.0,
+    "blank_null_pct": 4.9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_98b9f44d9df6 (Veritá/PB 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + PB + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04275/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MS",
+    "round": 1,
+    "fieldwork_end": "2026-03-30"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/MS, ausente do banco (o survey s_c0072ffbad12 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=1220, margem=3,0 (IC95), campo 24–30/03/2026, universo eleitores de Mato Grosso do Sul, iniciativa própria; registro presidencial BR-04594/2026 (capa exibe MS-03077/2026). Estimulada 1º turno P13 (Porcentual): Flávio Bolsonaro-PL 44,9 · Lula-PT 25,9 · Ratinho Júnior-PSD 3,6 · Pablo Marçal-UB 3,6 · Renan Santos-Missão 2,2 · Romeu Zema-Novo 1,8 · Ronaldo Caiado-PSD 1,5 · Aldo Rebelo-DC 0,4; NS/NR 13,1; branco/nulo 3,0. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ms/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MS",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-04594/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 44.9
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 25.9
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 3.6
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 3.6
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 2.2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.5
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 13.1,
+    "blank_null_pct": 3.0
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_c0072ffbad12 (Veritá/MS 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + MS + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04594/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MS",
+    "round": 2,
+    "fieldwork_end": "2026-03-30",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/MS, ausente do banco (o survey s_c0072ffbad12 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P16 (Porcentual): Flávio Bolsonaro-PL 52,8 · Lula-PT 30,7; NS/NR 11,5; branco/nulo 5,0. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ms/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MS",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-04594/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 30.7
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 52.8
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 11.5,
+    "blank_null_pct": 5.0
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_c0072ffbad12 (Veritá/MS 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + MS + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04594/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "fieldwork_end": "2026-03-30"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/PA, ausente do banco (o survey s_6aa0e4061efa só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=1525, margem=3,0 (IC95), campo 24–30/03/2026, universo eleitores do Pará, iniciativa própria; registro presidencial BR-04567/2026 (capa exibe PA-03725/2026). Estimulada 1º turno P13 (Porcentual): Flávio Bolsonaro-PL 46,4 · Lula-PT 31,6 · Pablo Marçal-UB 1,6 · Renan Santos-Missão 1,2 · Ratinho Júnior-PSD 1,1 · Ronaldo Caiado-PSD 1,0 · Romeu Zema-Novo 0,7 · Aldo Rebelo-DC 0,6; NS/NR 11,8; branco/nulo 4,2. Soma 100,2 (arredondamento). NOTA: forte efeito-casa Veritá (Flávio à frente no PA, oposto ao consenso Lula-líder). Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-pa/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PA",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 1525,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-04567/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 46.4
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 31.6
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 1.6
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1.2
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 1.1
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.0
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.7
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.6
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 11.8,
+    "blank_null_pct": 4.2
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_6aa0e4061efa (Veritá/PA 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + PA + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04567/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PA",
+    "round": 2,
+    "fieldwork_end": "2026-03-30",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/PA, ausente do banco (o survey s_6aa0e4061efa só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P16 (Porcentual): Flávio Bolsonaro-PL 51,3 · Lula-PT 37,1; NS/NR 8,8; branco/nulo 2,7. Soma 99,9. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-pa/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "PA",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 1525,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-04567/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 37.1
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 51.3
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 8.8,
+    "blank_null_pct": 2.7
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_6aa0e4061efa (Veritá/PA 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + PA + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-04567/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RS",
+    "round": 1,
+    "fieldwork_end": "2026-04-04"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/RS, ausente do banco (o survey s_ed26d76f9f82 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=2020, margem=2,5 (IC95), campo 29/03–04/04/2026, universo eleitores do Rio Grande do Sul, iniciativa própria; registro presidencial BR-03461/2026 (capa exibe RS-09008/2026). Estimulada 1º turno P13 (Porcentual): Lula-PT 37,1 · Flávio Bolsonaro-PL 36,7 (empate técnico) · Ratinho Júnior-PSD 3,5 · Ronaldo Caiado-PSD 2,6 · Romeu Zema-Novo 1,8 · Renan Santos-Missão 1,8 · Pablo Marçal-UB 1,4 · Aldo Rebelo-DC 0,4; NS/NR 12,6; branco/nulo 2,1. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-rs/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RS",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": null,
+    "sample_size": 2020,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-03461/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 37.1
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 36.7
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 3.5
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2.6
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 1.4
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 12.6,
+    "blank_null_pct": 2.1
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_ed26d76f9f82 (Veritá/RS 2026-03-29..2026-04-04, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + RS + fieldwork_end 2026-04-04); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-03461/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RS",
+    "round": 2,
+    "fieldwork_end": "2026-04-04",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/RS, ausente do banco (o survey s_ed26d76f9f82 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P16 (Porcentual): Flávio Bolsonaro-PL 45,7 · Lula-PT 42,9; NS/NR 8,5; branco/nulo 2,9. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-rs/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "RS",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": null,
+    "sample_size": 2020,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-03461/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 42.9
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 45.7
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 8.5,
+    "blank_null_pct": 2.9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_ed26d76f9f82 (Veritá/RS 2026-03-29..2026-04-04, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + RS + fieldwork_end 2026-04-04); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-03461/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "CE",
+    "round": 1,
+    "fieldwork_end": "2026-03-24"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/CE, ausente do banco (o survey s_cf4f5e32b13f só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=1525, margem=3,0 (IC95), campo 18–24/03/2026, universo eleitores do Ceará, iniciativa própria; registro presidencial BR-03583/2026 (capa exibe CE-06477/2026). Estimulada 1º turno P13 (Porcentual): Lula-PT 35,6 · Flávio Bolsonaro-PL 34,1 · Renan Santos-Missão 2,1 · Ratinho Júnior-PSD 1,8 · Pablo Marçal-UB 1,8 · Ronaldo Caiado-PSD 1,1 · Aldo Rebelo-DC 0,7 · Romeu Zema-Novo 0,4; NS/NR 16,7; branco/nulo 5,7. Soma 100,0. NOTA: forte efeito-casa Veritá (quase-empate no CE, muito distante do consenso Lula-dominante). Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ce/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "CE",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-18",
+    "fieldwork_end": "2026-03-24",
+    "published_date": null,
+    "sample_size": 1525,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-03583/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35.6
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 34.1
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 2.1
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.1
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.7
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 16.7,
+    "blank_null_pct": 5.7
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_cf4f5e32b13f (Veritá/CE 2026-03-18..2026-03-24, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + CE + fieldwork_end 2026-03-24); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-03583/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "CE",
+    "round": 2,
+    "fieldwork_end": "2026-03-24",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/CE, ausente do banco (o survey s_cf4f5e32b13f só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P16 (Porcentual): Flávio Bolsonaro-PL 39,4 · Lula-PT 39,0 (empate); NS/NR 16,2; branco/nulo 5,4. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-ce/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "CE",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-18",
+    "fieldwork_end": "2026-03-24",
+    "published_date": null,
+    "sample_size": 1525,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-03583/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 39.0
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 39.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 16.2,
+    "blank_null_pct": 5.4
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_cf4f5e32b13f (Veritá/CE 2026-03-18..2026-03-24, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + CE + fieldwork_end 2026-03-24); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-03583/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MG",
+    "round": 1,
+    "fieldwork_end": "2026-03-30"
+   },
+   "defect": "AUSENTE: bloco presidencial (1º turno) da íntegra Veritá/MG, ausente do banco (o survey s_32118df9b0b3 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 1. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "Ficha: n=2030, margem=2,5 (IC95), campo 24–30/03/2026, universo eleitores de Minas Gerais, iniciativa própria; registro presidencial BR-01443/2026 (capa exibe MG-09927/2026, com typo '20226'). Estimulada 1º turno P13 (Porcentual): Flávio Bolsonaro-PL 35,5 · Lula-PT 33,2 · Romeu Zema-Novo 5,9 (governador de MG) · Pablo Marçal-UB 2,4 · Ratinho Júnior-PSD 1,9 · Renan Santos-Missão 1,4 · Ronaldo Caiado-PSD 1,3 · Aldo Rebelo-DC 0,1; NS/NR 16,4; branco/nulo 1,9. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-mg/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MG",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 2030,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-01443/2026",
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 35.5
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 33.2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 5.9
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 2.4
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 1.9
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 1.4
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.3
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 16.4,
+    "blank_null_pct": 1.9
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_32118df9b0b3 (Veritá/MG 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + MG + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-01443/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MG",
+    "round": 2,
+    "fieldwork_end": "2026-03-30",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (2º turno: Lula vs Flávio Bolsonaro) da íntegra Veritá/MG, ausente do banco (o survey s_32118df9b0b3 só tinha gov+sen). Cobertura presidencial de estado fino. Cenário round 2. §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "evidence": "2º turno P16 (Porcentual): Flávio Bolsonaro-PL 47,3 · Lula-PT 35,8; NS/NR 14,4; branco/nulo 2,5. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/verita-mg/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Lote 'colheita Veritá' (cobertura presidencial de estados finos a partir das íntegras públicas).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "MG",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-24",
+    "fieldwork_end": "2026-03-30",
+    "published_date": null,
+    "sample_size": 2030,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-01443/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 35.8
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 47.3
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 14.4,
+    "blank_null_pct": 2.5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_32118df9b0b3 (Veritá/MG 2026-03-24..2026-03-30, gov/sen, SEM reg) por chave natural (instituto 'Veritá' + MG + fieldwork_end 2026-03-30); o upsert acrescenta o bloco presidente ao survey existente. Backfill de BR-01443/2026 (registro cargo=Presidente do TSE) não gera contradição se o survey tinha reg null. Abrangência estadual; registro presidencial confere no registro TSE (registros-pres-br.json)."
   }
  ]
 }
