@@ -5259,6 +5259,125 @@
    },
    "expect_sum": 100,
    "_nota_registro": "JOIN s_704d98016bf2 (Veritá/SE 29/03–04/04, gov+sen, SEM reg) por chave natural (instituto 'Veritá' + SE + fieldwork_end 2026-04-04); o degrau de upsert acrescenta o bloco presidente ao survey existente. Survey tem tse_registration null → backfill de BR-01637/2026 não gera contradição. Registro impresso no PDF (TRE SE-01233/2026 / TSE BR-01637/2026) apesar do nome de arquivo 'noreg'. Abrangência ESTADUAL Sergipe, iniciativa própria do Instituto."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "AL",
+    "round": 1,
+    "fieldwork_end": "2026-06-30"
+   },
+   "defect": "AUSENTE: bloco presidencial (estimulada 1º turno + 2º turno Lula×Flávio) da íntegra Real Time Big Data/AL, ausente do banco (o survey s_f16ae96b18ff só tinha estadual). AL é estado fino sem cobertura presidencial pública suficiente; este +1 leva presidente:AL a 2 pesquisas de 1º turno averageáveis (ainda cinza; falta 1). Cenário: 1º turno (round 1). §1, 2026-08-23.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
+   "evidence": "n=1600, margem=2,0 (IC 95%), campo 29–30/06/2026, divulgação 01/07/2026, universo eleitores do estado de Alagoas. Estimulada 1º turno: LULA-PT 51 · FLÁVIO BOLSONARO-PL 30 · RENAN SANTOS-Missão 4 · RONALDO CAIADO-PSD 2 · AÉCIO NEVES-PSDB 2 · JOAQUIM BARBOSA-DC 2 · ROMEU ZEMA-Novo 1 · AUGUSTO CURY-Avante 1; Outros 1 (Cabo Daciolo/Rui Costa Pimenta/Samara Martins/Hertz Dias/Edmilson Costa, rodapé); Nulo/Branco 3; NS/NR 3. Soma 100. Duas leituras cegas independentes do relatório do próprio instituto (reads/al-rtbd/A e /B), comparadas pelo hub em 2026-08-23 (§1). O 2º turno foi resolvido por checagem de coordenadas do PDF (54% sob LULA à esquerda, 37% sob FLÁVIO à direita → Lula 54 × Flávio 37; consistente com a liderança de 1º turno 51–30). Mini-onda 'estados finos' (cobertura presidencial de AL).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "AL",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-06-29",
+    "fieldwork_end": "2026-06-30",
+    "published_date": "2026-07-01",
+    "sample_size": 1600,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-07801/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 51
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 30
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 4
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2
+     },
+     {
+      "candidate": "Aécio Neves",
+      "party": "PSDB",
+      "pct": 2
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "DC",
+      "pct": 2
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 1
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct": 1
+     }
+    ],
+    "others_pct": 1,
+    "undecided_pct": 3,
+    "blank_null_pct": 3
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_f16ae96b18ff (Real Time Big Data/AL 29–30/06, SEM reg) por chave natural (instituto 'Real Time Big Data' + AL + fieldwork_end 2026-06-30); o upsert acrescenta o bloco presidente ao survey existente. Survey tem tse_registration null → backfill de BR-07801/2026 não gera contradição. Íntegra pública no Poder360 (metadado do PDF: 'Alagoas_Presidente BR 07801/2026'); abrangência ESTADUAL Alagoas (universo 'ELEITORES DO ESTADO DE ALAGOAS', n=1600). Contratante não impresso."
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "AL",
+    "round": 2,
+    "fieldwork_end": "2026-06-30",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: bloco presidencial (estimulada 1º turno + 2º turno Lula×Flávio) da íntegra Real Time Big Data/AL, ausente do banco (o survey s_f16ae96b18ff só tinha estadual). AL é estado fino sem cobertura presidencial pública suficiente; este +1 leva presidente:AL a 2 pesquisas de 1º turno averageáveis (ainda cinza; falta 1). Cenário: 2º turno: Lula vs Flávio Bolsonaro (round 2). §1, 2026-08-23.",
+   "source": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-alagoas-1jun26.pdf",
+   "evidence": "n=1600, margem=2,0 (IC 95%), campo 29–30/06/2026, divulgação 01/07/2026, universo eleitores do estado de Alagoas. 2º turno (Cenário 01), resolvido por coordenadas: LULA-PT 54 · FLÁVIO BOLSONARO-PL 37; Nulo/Branco 5; NS/NR 4. Soma 100. Duas leituras cegas independentes do relatório do próprio instituto (reads/al-rtbd/A e /B), comparadas pelo hub em 2026-08-23 (§1). O 2º turno foi resolvido por checagem de coordenadas do PDF (54% sob LULA à esquerda, 37% sob FLÁVIO à direita → Lula 54 × Flávio 37; consistente com a liderança de 1º turno 51–30). Mini-onda 'estados finos' (cobertura presidencial de AL).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": "AL",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-06-29",
+    "fieldwork_end": "2026-06-30",
+    "published_date": "2026-07-01",
+    "sample_size": 1600,
+    "margin_of_error": 2.0,
+    "tse_registration": "BR-07801/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 54
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 37
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 4,
+    "blank_null_pct": 5
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_f16ae96b18ff (Real Time Big Data/AL 29–30/06, SEM reg) por chave natural (instituto 'Real Time Big Data' + AL + fieldwork_end 2026-06-30); o upsert acrescenta o bloco presidente ao survey existente. Survey tem tse_registration null → backfill de BR-07801/2026 não gera contradição. Íntegra pública no Poder360 (metadado do PDF: 'Alagoas_Presidente BR 07801/2026'); abrangência ESTADUAL Alagoas (universo 'ELEITORES DO ESTADO DE ALAGOAS', n=1600). Contratante não impresso."
   }
  ]
 }
