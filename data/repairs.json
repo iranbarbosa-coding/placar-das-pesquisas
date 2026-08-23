@@ -5141,6 +5141,124 @@
    },
    "expect_sum": 100,
    "_nota_registro": "Duas chaves impressas: BR-03812/2026 (presidencial) e AM-09404/2026 (estadual). Irmão AtlasIntel/AM 08-14/05 (gov/sen) já no banco SEM reg → guardar BR-03812 não gera contradição; degrau-3 junta e fillFields grava. [JOIN: JOIN s_945cc575a64d (AtlasIntel/AM 08-14/05, SEM reg) por chave natural; fillFields backfilla BR-03812/2026. Doc estadual (eleitorado do AM, n=1244); reg estadual gêmeo AM-09404/2026.]"
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "SE",
+    "round": 1,
+    "fieldwork_end": "2026-04-04"
+   },
+   "defect": "AUSENTE: bloco presidencial (estimulada 1º turno + 2º turno Lula×Flávio) da íntegra Veritá/SE, ausente do banco (o survey só tinha gov+sen). Estado FINO — este +1 leva presidente:SE a 3 pesquisas de 1º turno averageáveis e tira do cinza. Cenário: 1º turno (round 1). §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "evidence": "n=1220, margem=3,0 (IC 95%), campo 29/03 a 04/04/2026, coleta por URA, iniciativa própria do Instituto Veritá. Estimulada 1º turno (Porcentual): LULA-PT 43,3 · FLÁVIO BOLSONARO-PL 33,0 · RATINHO JÚNIOR-PSD 2,8 · RONALDO CAIADO-PSD 2,2 · PABLO MARÇAL-União Brasil 1,8 · RENAN SANTOS-Missão 0,7 · ROMEU ZEMA-Novo 0,4 · ALDO REBELO-DC 0,1; NS/NR 11,8; branco/nulo 3,8. Soma 99,9. Duas leituras cegas independentes do relatório do próprio instituto (reads/se-verita/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "SE",
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-01637/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 43.3
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 33.0
+     },
+     {
+      "candidate": "Ratinho Júnior",
+      "party": "PSD",
+      "pct": 2.8
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 2.2
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "União Brasil",
+      "pct": 1.8
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 0.7
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct": 0.4
+     },
+     {
+      "candidate": "Aldo Rebelo",
+      "party": "DC",
+      "pct": 0.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 11.8,
+    "blank_null_pct": 3.8
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_704d98016bf2 (Veritá/SE 29/03–04/04, gov+sen, SEM reg) por chave natural (instituto 'Veritá' + SE + fieldwork_end 2026-04-04); o degrau de upsert acrescenta o bloco presidente ao survey existente. Survey tem tse_registration null → backfill de BR-01637/2026 não gera contradição. Registro impresso no PDF (TRE SE-01233/2026 / TSE BR-01637/2026) apesar do nome de arquivo 'noreg'. Abrangência ESTADUAL Sergipe, iniciativa própria do Instituto."
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "SE",
+    "round": 2,
+    "fieldwork_end": "2026-04-04"
+   },
+   "defect": "AUSENTE: bloco presidencial (estimulada 1º turno + 2º turno Lula×Flávio) da íntegra Veritá/SE, ausente do banco (o survey só tinha gov+sen). Estado FINO — este +1 leva presidente:SE a 3 pesquisas de 1º turno averageáveis e tira do cinza. Cenário: 2º turno: Lula vs Flávio Bolsonaro (round 2). §1, 2026-08-23.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "evidence": "n=1220, margem=3,0 (IC 95%), campo 29/03 a 04/04/2026, coleta por URA, iniciativa própria do Instituto Veritá. 2º turno Lula×Flávio Bolsonaro (Porcentual): LULA-PT 48,0 · FLÁVIO BOLSONARO-PL 38,1; NS/NR 10,7; branco/nulo 3,2. Soma 100,0. Duas leituras cegas independentes do relatório do próprio instituto (reads/se-verita/A e /B), comparadas pelo hub em 2026-08-23 (§1) e CONCORDANTES em toda figura armazenável. Coluna armazenada = Porcentual (base amostra total), conforme precedente Veritá. Mini-onda 'estados finos' (destravar cinza do mapa presidencial).",
+   "verified_at": "2026-08-23",
+   "add_poll": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": "SE",
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-03-29",
+    "fieldwork_end": "2026-04-04",
+    "published_date": null,
+    "sample_size": 1220,
+    "margin_of_error": 3.0,
+    "tse_registration": "BR-01637/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 48.0
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 38.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 10.7,
+    "blank_null_pct": 3.2
+   },
+   "expect_sum": 100,
+   "_nota_registro": "JOIN s_704d98016bf2 (Veritá/SE 29/03–04/04, gov+sen, SEM reg) por chave natural (instituto 'Veritá' + SE + fieldwork_end 2026-04-04); o degrau de upsert acrescenta o bloco presidente ao survey existente. Survey tem tse_registration null → backfill de BR-01637/2026 não gera contradição. Registro impresso no PDF (TRE SE-01233/2026 / TSE BR-01637/2026) apesar do nome de arquivo 'noreg'. Abrangência ESTADUAL Sergipe, iniciativa própria do Instituto."
   }
  ]
 }
