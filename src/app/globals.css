@@ -148,7 +148,8 @@
   --pmap-red-light: #f6b0b0;   /* pale brand red (Lula < 50) */
   --pmap-blue-strong: #2563eb; /* = --cand-blue, brand blue (Flávio ≥ 50) */
   --pmap-blue-light: #b6cbf7;  /* pale brand blue (Flávio < 50) */
-  --pmap-tie: #cbd5e1;         /* grey — technical tie / too thin to call */
+  --pmap-tie: #cbd5e1;         /* grey — technical tie (dado suficiente, margem < 2) */
+  --pmap-sem: #1f2937;         /* preto/carvão — SEM informação (sem dado / fino demais para chamar) */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -236,7 +237,8 @@
     --pmap-red-light: #7f3336;   /* muted deep red (Lula < 50) */
     --pmap-blue-strong: #3b82f6; /* = --cand-blue (dark), brand blue (Flávio ≥ 50) */
     --pmap-blue-light: #2b4576;  /* muted deep blue (Flávio < 50) */
-    --pmap-tie: #2b3a55;         /* navy-grey — technical tie / too thin to call */
+    --pmap-tie: #2b3a55;         /* navy-grey — technical tie (dado suficiente, margem < 2) */
+    --pmap-sem: #0b0d12;         /* quase-preto — SEM informação (borda clara ainda separa o estado) */
   }
 }
 
