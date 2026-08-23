@@ -72,6 +72,51 @@ export function validate(ds, { minPolls = 50 } = {}) {
   return { errors: errors.slice(0, 40), warn: warn.slice(0, 20), total: ds.polls.length };
 }
 
+/** Qual das duas cópias colididas fica: a mais COMPLETA (mais linhas) e, no
+ * empate, a mais ANTIGA (menor data), com desempate estável para não depender
+ * da ordem de entrada. Retorna true quando `a` deve ser mantida em vez de `b`. */
+function preferKeep(a, b) {
+  const ra = a.results?.length ?? 0;
+  const rb = b.results?.length ?? 0;
+  if (ra !== rb) return ra > rb;
+  const da = a.fieldwork_end ?? a.published_date ?? "9999-99-99";
+  const db = b.fieldwork_end ?? b.published_date ?? "9999-99-99";
+  if (da !== db) return da < db;
+  return JSON.stringify(a) <= JSON.stringify(b);
+}
+
+/**
+ * DROP-AND-WARN em id duplicado — mesma filosofia dos guardas de soma do
+ * coletor, e o retrato do backstop deste módulo: um único id colidido (um
+ * cenário rotulado igual por engano, dois elencos no mesmo dia) NÃO pode
+ * CONGELAR a ingestão inteira via `validate`, que ABORTA o dataset todo num id
+ * repetido. Aqui a colisão é resolvida ANTES do portão estrito: mantém a
+ * pesquisa mais completa/antiga por id, descarta a(s) outra(s), e devolve a
+ * lista limpa com o registro do que caiu para o chamador gritar nominalmente.
+ * O `validate` continua julgando — estrito — o que sobra.
+ *
+ * A desambiguação por elenco no coletor (`disambiguateCollidingIds` em
+ * scrape.mjs) já separa elencos DIFERENTES antes daqui, de modo que o que chega
+ * a este descarte são duplicatas de fato (mesmo id, mesma pesquisa) — mas o
+ * backstop existe porque um `validate` que só sabe abortar deixa uma colisão
+ * qualquer, de qualquer origem, derrubar a rodada.
+ */
+export function dedupeById(polls) {
+  if (!Array.isArray(polls)) return { polls, dropped: [] };
+  const winner = new Map();
+  const dropped = [];
+  for (const p of polls) {
+    if (!p || !p.id) continue; // sem id: o guarda de `validate` cuida
+    const cur = winner.get(p.id);
+    if (!cur) { winner.set(p.id, p); continue; }
+    if (preferKeep(cur, p)) dropped.push(p);
+    else { dropped.push(cur); winner.set(p.id, p); }
+  }
+  if (!dropped.length) return { polls, dropped };
+  const drop = new Set(dropped);
+  return { polls: polls.filter((p) => !drop.has(p)), dropped };
+}
+
 function selfTest() {
   const good = {
     generated_at: new Date().toISOString(),
@@ -107,6 +152,43 @@ function selfTest() {
     console.error(`${failed} self-test case(s) did not behave as expected`);
     process.exit(1);
   }
+
+  // O BACKSTOP DE `dedupeById` TAMBÉM REPROVA (CONVENTIONS §2): um drop-and-warn
+  // que nunca dispara não prova que a ingestão deixou de congelar. Aqui um
+  // dataset com um id colidido (uma cópia curta, uma cheia) tem de: (1) fazer
+  // `validate` sozinho REPROVAR — o portão estrito continua abortando em id
+  // repetido, que é o backstop-do-backstop; e (2) sair LIMPO e VÁLIDO depois de
+  // `dedupeById`, mantida a mais completa e descartada exatamente uma.
+  {
+    const colidido = {
+      ...good,
+      polls: [
+        { ...good.polls[0], id: "colide", results: [{ candidate: "A", party: null, pct: 40 }] },
+        { ...good.polls[1], id: "colide", results: [{ candidate: "A", party: null, pct: 40 }, { candidate: "B", party: null, pct: 35 }] },
+        ...good.polls.slice(2),
+      ],
+    };
+    const antesErra = validate(colidido).errors.some((e) => /duplicate id/.test(e));
+    const { polls: limpo, dropped } = dedupeById(colidido.polls);
+    const caiuOMenor = dropped.length === 1 && (dropped[0].results?.length ?? 0) === 1;
+    const ficouOMaior = limpo.find((p) => p.id === "colide")?.results.length === 2;
+    const depoisPassa = validate({ ...colidido, polls: limpo }).errors.length === 0;
+    for (const [cond, name] of [
+      [antesErra, "validate ainda ABORTA em id duplicado (backstop estrito intacto)"],
+      [caiuOMenor, "dedupeById descarta exatamente a cópia menos completa"],
+      [ficouOMaior, "dedupeById mantém a cópia mais completa"],
+      [depoisPassa, "o que sobra passa no validate estrito"],
+    ]) {
+      const ok = !!cond;
+      if (!ok) failed++;
+      console.log(`${ok ? "✓" : "✗ SELF-TEST FAILURE"}: dedupeById — ${name}`);
+    }
+    if (failed) {
+      console.error(`${failed} self-test case(s) did not behave as expected`);
+      process.exit(1);
+    }
+  }
+
   console.log("self-test: all guards fire correctly");
 }
 
@@ -116,12 +198,24 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   } else {
     const file = process.argv[2] ?? "data/polls.json";
     const ds = JSON.parse(fs.readFileSync(file, "utf-8"));
-    const { errors, warn, total } = validate(ds);
+    // DROP-AND-WARN antes do portão estrito: um id colidido não congela a
+    // ingestão (ver `dedupeById`). Descarta a duplicata, grita nominalmente, e
+    // valida o que sobra — em vez de abortar o dataset inteiro num único id.
+    const { polls, dropped } = dedupeById(ds.polls);
+    for (const d of dropped) {
+      console.warn(
+        `WARN: id duplicado descartado (mantida a mais completa/antiga) — ${d.id} ` +
+        `${d.pollster ?? "?"} ${d.race ?? "?"}/${d.state ?? "BR"} ` +
+        `${d.fieldwork_end ?? d.published_date ?? "?"} "${d.scenario ?? ""}"`,
+      );
+    }
+    const alvo = dropped.length ? { ...ds, polls } : ds;
+    const { errors, warn, total } = validate(alvo);
     for (const w of warn) console.warn(`WARN: ${w}`);
     if (errors.length) {
       for (const e of errors) console.error(`ERROR: ${e}`);
       process.exit(1);
     }
-    console.log(`OK: ${total} polls valid`);
+    console.log(`OK: ${total} polls valid${dropped.length ? ` (${dropped.length} duplicata(s) de id descartada(s))` : ""}`);
   }
 }
