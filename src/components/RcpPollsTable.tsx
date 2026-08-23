@@ -32,9 +32,9 @@ const SPREAD_STYLE: Record<RcpSpread["status"], { bg: string; fg: string; dot: s
     fg: "var(--cand-red)",
     dot: "var(--cand-red)",
   },
-  empate: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
+  empate: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--dot)" },
   // Senate ("leaderMargin"): a neutral chip — there is no above/below-50 meaning.
-  neutral: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--text-muted)" },
+  neutral: { bg: "var(--surface-2)", fg: "var(--text-secondary)", dot: "var(--dot)" },
 };
 
 // SOLID fills for the "Média" band's pill (fixed hexes, since the band is a

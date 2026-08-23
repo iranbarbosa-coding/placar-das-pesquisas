@@ -23,8 +23,20 @@
   --surface-1: #ffffff;
   --surface-2: #f1f5f9; /* a second, faintly-tinted surface for nested/zebra rows */
   --text-primary: #0b1020;
-  --text-secondary: #64748b;
-  --text-muted: #94a3b8;
+  /* WCAG AA text tokens (2026-08 contrast fix). Both are real body-sized text
+     everywhere (card subtitles, dates, captions, glossary sub-text), so both
+     must clear 4.5:1 on --page (#f8fafc). The guide's slate #64748B measured
+     ~4.55:1 — a pass, but it was the OLD --text-muted's neighbour, so muted is
+     raised to it and secondary nudged one step darker to keep the hierarchy and
+     a comfortable margin. Ratios on #f8fafc: secondary #5b6472 ≈ 5.72:1,
+     muted #64748b ≈ 4.55:1. The old pale #94a3b8 (~2.5:1) now lives only in
+     --dot, for decorative dots where the 4.5:1 text rule does not apply. */
+  --text-secondary: #5b6472;
+  --text-muted: #64748b;
+  /* Decorative-only: small status/legend dots that used to read --text-muted.
+     Not text, so it keeps the pale brand slate; darkening it would over-weight
+     the dots. Referenced by RcpPollsTable and HeroInteractive. */
+  --dot: #94a3b8;
   --grid: #e5e7eb;
   --axis: #cbd5e1;
   --ring: #e5e7eb;
@@ -164,8 +176,14 @@
     --surface-1: #142038;
     --surface-2: #1b2540; /* nested/zebra surface, one step up from the card */
     --text-primary: #f8fafc;
+    /* Dark-theme mirror of the AA text tokens on the navy page (#0b1020).
+       Secondary #94a3b8 already clears it at ~7.39:1. The OLD dark muted
+       #64748b measured only ~3.98:1 on navy (a FAIL), so muted is lightened to
+       #737f96 ≈ 4.69:1 — a clean pass that stays below secondary. --dot keeps
+       the old pale muted value for decorative dots. */
     --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-muted: #737f96;
+    --dot: #64748b;
     --grid: #23304a;
     --axis: #334155;
     --ring: rgba(255, 255, 255, 0.1);

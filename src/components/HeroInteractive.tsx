@@ -401,7 +401,7 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
                     ))}
                     {tooltipBN != null && (
                       <li key="tt-bn" className="flex items-center gap-1.5">
-                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--text-muted)" }} />
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--dot)" }} />
                         <span style={{ color: "var(--text-secondary)" }}>Brancos/Nulos/NR</span>
                         <span className="tabular ml-auto pl-2 font-semibold" style={{ color: "var(--text-primary)" }}>
                           {fmtPct(tooltipBN)}%
