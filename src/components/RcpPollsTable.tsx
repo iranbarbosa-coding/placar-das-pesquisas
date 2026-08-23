@@ -89,6 +89,20 @@ function leaderIndex(values: (number | null)[]): number {
   return idx;
 }
 
+/** A candidate's colour dot — shared by the desktop column header and the
+ *  mobile card's <dt>, so a reader ties a number to the same bar by its colour
+ *  in both layouts. */
+function CandidateDot({ color }: { color: string }) {
+  return <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />;
+}
+
+/** A votos-válidos cell value: the pt-BR percent, or "—" when the poll did not
+ *  test that candidate. Shared so the desktop matrix and the mobile cards read
+ *  identical numbers off the same row. */
+function fmtValue(v: number | null): string {
+  return v == null ? "—" : `${fmtPct(v)}%`;
+}
+
 export default function RcpPollsTable({
   data,
   allPollsHref = "#todas-as-pesquisas",
@@ -114,17 +128,22 @@ export default function RcpPollsTable({
         10 últimas pesquisas que compõem a média
       </h2>
 
-      <div className="min-w-0 overflow-x-auto">
+      {/* Desktop (≥md): the full dense matrix, unchanged — it scrolls inside its
+          own overflow-x-auto, never the page. */}
+      <div className="hidden min-w-0 overflow-x-auto md:block">
         <table className="w-full border-collapse text-xs">
+          <caption className="sr-only">
+            Média do 1º turno e as 10 pesquisas que a compõem: instituto, data, resultado e o percentual de votos válidos de cada candidato.
+          </caption>
           <thead style={{ color: "var(--text-muted)" }}>
             <tr style={{ borderBottom: "1px solid var(--ring)" }}>
-              <th className={`${TH} text-left`}>Instituto</th>
-              <th className={`${TH} text-left`}>Data</th>
-              <th className={`${TH} text-left`}>Resultado</th>
+              <th scope="col" className={`${TH} text-left`}>Instituto</th>
+              <th scope="col" className={`${TH} text-left`}>Data</th>
+              <th scope="col" className={`${TH} text-left`}>Resultado</th>
               {data.candidates.map((c) => (
-                <th key={c.key} className={`${TH} text-right`}>
+                <th key={c.key} scope="col" className={`${TH} text-right`}>
                   <span className="inline-flex items-center gap-1">
-                    <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: c.color }} />
+                    <CandidateDot color={c.color} />
                     {c.short}
                   </span>
                 </th>
@@ -151,7 +170,7 @@ export default function RcpPollsTable({
                   className={`${TD} tabular text-right`}
                   style={{ color: i === avgLeader ? "#ffffff" : "rgba(255,255,255,0.78)" }}
                 >
-                  {v == null ? "—" : `${fmtPct(v)}%`}
+                  {fmtValue(v)}
                 </td>
               ))}
             </tr>
@@ -176,7 +195,7 @@ export default function RcpPollsTable({
                       className={`${TD} tabular text-right ${i === rowLeader ? "font-bold" : ""}`}
                       style={{ color: v == null ? "var(--text-muted)" : i === rowLeader ? "var(--text-primary)" : "var(--text-secondary)" }}
                     >
-                      {v == null ? "—" : `${fmtPct(v)}%`}
+                      {fmtValue(v)}
                     </td>
                   ))}
                 </tr>
@@ -185,6 +204,70 @@ export default function RcpPollsTable({
           </tbody>
         </table>
       </div>
+
+      {/* Mobile (<md): one card per poll, LED BY THE RESULT so the numbers are
+          never sliced off-screen by a horizontal scroll. The "Média" headline
+          becomes the first card, on the same band as the desktop row; every
+          candidate's votos-válidos value is a labelled <dt>/<dd> pair carrying
+          the same coloured dot as the desktop column header. */}
+      <ul className="flex flex-col gap-2 md:hidden">
+        {/* Média card — the table's headline, on the deep band with light text. */}
+        <li className="card p-3" style={{ background: "var(--rcp-avg-band)" }}>
+          <div className="flex items-baseline justify-between gap-2">
+            <span className="text-sm font-bold" style={{ color: "#ffffff" }}>Média</span>
+            <SpreadChip spread={data.average.spread} onDark />
+          </div>
+          <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]">
+            {data.average.values.map((v, i) => (
+              <div key={data.candidates[i].key} className="flex items-baseline gap-1">
+                <dt className="inline-flex items-center gap-1 uppercase tracking-wide" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  <CandidateDot color={data.candidates[i].color} />
+                  {data.candidates[i].short}
+                </dt>
+                <dd className="tabular font-bold" style={{ color: i === avgLeader ? "#ffffff" : "rgba(255,255,255,0.78)" }}>
+                  {fmtValue(v)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </li>
+
+        {/* One card per poll. */}
+        {data.rows.map((r, ri) => {
+          const rowLeader = leaderIndex(r.values);
+          return (
+            <li key={`${r.pollster}-${r.date}-${ri}`} className="card p-3">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                  {r.pollster}
+                </span>
+                <span className="tabular whitespace-nowrap text-xs" style={{ color: "var(--accent)" }}>
+                  {fmtDate(r.date)}
+                </span>
+              </div>
+              <div className="mt-2">
+                <SpreadChip spread={r.spread} />
+              </div>
+              <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+                {r.values.map((v, i) => (
+                  <div key={data.candidates[i].key} className="flex items-baseline gap-1">
+                    <dt className="inline-flex items-center gap-1 uppercase tracking-wide">
+                      <CandidateDot color={data.candidates[i].color} />
+                      {data.candidates[i].short}
+                    </dt>
+                    <dd
+                      className={`tabular ${i === rowLeader ? "font-bold" : ""}`}
+                      style={{ color: v == null ? "var(--text-muted)" : i === rowLeader ? "var(--text-primary)" : "var(--text-secondary)" }}
+                    >
+                      {fmtValue(v)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </li>
+          );
+        })}
+      </ul>
 
       {data.spreadMode === "leaderMargin" ? (
         <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
