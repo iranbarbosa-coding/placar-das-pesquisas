@@ -2,11 +2,12 @@
 // Daily scrape: fetch every source, normalize, merge, dedupe, validate,
 // atomically replace data/polls.json. Any single source failing must not
 // take the site down — we keep the previous dataset's polls for that source.
+import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { validate } from "./validate-data.mjs";
+import { validate, dedupeById } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
 import { loadRejection, writeRejectionProjection } from "./lib/rejection.mjs";
@@ -459,6 +460,62 @@ export function dropExactDuplicates(polls, { sobrevive = sobreviveAoGuardaDeSoma
   return polls.filter((p) => !dropped.has(p));
 }
 
+/** Assinatura do ELENCO — os nomes (já canônicos neste ponto do pipeline)
+ * normalizados e ordenados. Dois elencos genuinamente diferentes dão
+ * assinaturas diferentes; o mesmo elenco com grafias que a canonicalização já
+ * uniu dá a mesma. É o que separa uma COLISÃO DE RÓTULO de uma duplicata real. */
+function rosterSig(p) {
+  return (p.results ?? [])
+    .map((r) => normNome(r.candidate))
+    .sort()
+    .join("~");
+}
+
+/**
+ * DESAMBIGUAÇÃO DE `id` NA COLISÃO — e SÓ na colisão (§1: o id fica ESTÁVEL para
+ * toda pesquisa que não colide).
+ *
+ * `pollId` chaveia por (instituto, disputa, UF, turno, data, CENÁRIO) e IGNORA
+ * o elenco. Quando a fonte emite dois cenários do mesmo dia com o MESMO rótulo
+ * mas ELENCOS diferentes — um 2º turno rotulado errado, medido uma vez em
+ * governador:MG 29/07/2026, ambos "2º turno: Cleitinho e Alexandre Kalil" mas um
+ * com [Cleitinho, Patrus Ananias] — os dois recebem o MESMO id. Eles não fundem
+ * (`rostersMatch` 0.5 < 0.6), não são duplicata exata (elencos distintos), e
+ * chegam ao `validate`, que ABORTA o dataset inteiro num id repetido — CONGELANDO
+ * toda a ingestão até alguém corrigir o rótulo lá na fonte.
+ *
+ * Aqui, quando dois ids colidem e os ELENCOS diferem, um discriminador do elenco
+ * (4 hex do `rosterSig`) é anexado ao id de cada um do grupo, tornando-os
+ * distintos de forma determinística e independente da ordem. Como não há traço
+ * em nenhum `pollId` legítimo, o sufixo vive num espaço de nome limpo e não
+ * colide com id de p360/curada. Pesquisas com id ÚNICO nunca são tocadas — logo,
+ * numa rodada sem colisão, o store sai byte a byte idêntico. Dois ids colididos
+ * com o MESMO elenco (duplicata de fato) recebem o mesmo sufixo e continuam
+ * iguais — é o `dedupeById` (backstop) que os resolve com drop-and-warn.
+ */
+export function disambiguateCollidingIds(polls) {
+  const byId = new Map();
+  for (const p of polls) {
+    if (!p.id) continue;
+    if (!byId.has(p.id)) byId.set(p.id, []);
+    byId.get(p.id).push(p);
+  }
+  for (const group of byId.values()) {
+    if (group.length < 2) continue;
+    if (new Set(group.map(rosterSig)).size < 2) continue; // mesmo elenco → não é colisão de rótulo
+    for (const p of group) {
+      const disc = crypto.createHash("sha1").update(rosterSig(p)).digest("hex").slice(0, 4);
+      const novo = `${p.id}-${disc}`;
+      console.warn(
+        `id em colisão desambiguado por elenco: ${p.pollster} ${p.race}/${p.state ?? "BR"} ` +
+        `${pollDate(p) ?? "?"} "${p.scenario ?? ""}" (${p.results.length} nome(s)) — ${p.id} → ${novo}`,
+      );
+      p.id = novo;
+    }
+  }
+  return polls;
+}
+
 /**
  * Quais pesquisas JÁ GRAVADAS pertencem a uma fonte, quando essa fonte falha.
  *
@@ -826,6 +883,27 @@ async function main() {
       if (!p.sample_size && reg.sample) p.sample_size = reg.sample;
       if (!p.contractor && reg.pollster) p.contractor = p.contractor ?? null;
     }
+  }
+
+  // RESILIÊNCIA A `id` COLIDIDO (§1 + §4): duas defesas em série para que um
+  // único cenário mal-rotulado NUNCA congele a rodada. Primeiro a desambiguação
+  // por elenco separa cenários do mesmo dia rotulados igual com elencos
+  // diferentes (o id passa a distingui-los, e a distinção viaja ao store via
+  // `legacy_id`, que a projeção usa como id do polls.json derivado). Depois o
+  // drop-and-warn colhe qualquer duplicata de fato que reste, mantendo a mais
+  // completa/antiga — de modo que o `validate` abaixo julga um conjunto sem id
+  // repetido em vez de abortar nele. Sem colisão, ambos são no-op e o store sai
+  // byte a byte idêntico.
+  polls = disambiguateCollidingIds(polls);
+  {
+    const { polls: unicos, dropped } = dedupeById(polls);
+    for (const d of dropped) {
+      console.warn(
+        `descartada por id duplicado (mantida a mais completa/antiga): ${d.pollster} ` +
+        `${d.race}/${d.state ?? "BR"} ${pollDate(d) ?? "?"} "${d.scenario ?? ""}" — id ${d.id}`,
+      );
+    }
+    polls = unicos;
   }
 
   polls.sort((a, b) =>
