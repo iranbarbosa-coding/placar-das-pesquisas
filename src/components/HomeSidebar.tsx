@@ -17,8 +17,8 @@ import type { StateHighlight, Mover, StateMapDatum, MapStatus, NewestPoll } from
 const STATUS_COLOR: Record<MapStatus, string> = {
   acima: "var(--map-acima)", // brand blue — leader above 50
   abaixo: "var(--map-abaixo)", // light blue — leader below 50 (runoff)
-  empate: "var(--map-empate)", // red — technical tie
-  sem: "var(--map-sem)", // grey — no recent poll
+  empate: "var(--map-empate)", // grey — technical tie (matches president map)
+  sem: "var(--map-sem)", // black — no recent poll (matches president map)
 };
 
 const STATUS_LABEL: { key: MapStatus; label: string }[] = [
