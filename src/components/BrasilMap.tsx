@@ -80,7 +80,18 @@ export default function BrasilMap({
   const rules = map
     .map((d) => {
       const fill = d.fill ?? STATUS_FILL[d.status];
-      return `#brasil-map .uf-${d.uf},#brasil-map .uf-${d.uf} path{fill:${fill};}`;
+      // A no-data ("sem-dados") state is drawn near-black; in dark mode that fill
+      // is ~invisible against the navy card and its default border matches the
+      // card, so outline JUST these states in --map-sem-outline (= the card colour
+      // in light, so light mode is unchanged; a visible grey in dark). Detected
+      // the same way `situacao()` labels "Sem dados suficientes": the president
+      // datum carries `reason`; the governor datum has none and marks no-data with
+      // status "sem" (its técnico tie is a distinct "empate" status, not caught).
+      const isSemDados = d.reason === "sem-dados" || (d.reason == null && d.status === "sem");
+      const stroke = isSemDados
+        ? `stroke:var(--map-sem-outline);stroke-width:var(--map-sem-outline-width);`
+        : "";
+      return `#brasil-map .uf-${d.uf},#brasil-map .uf-${d.uf} path{fill:${fill};${stroke}}`;
     })
     .join("");
   const html =
