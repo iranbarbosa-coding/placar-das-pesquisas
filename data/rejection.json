@@ -71,7 +71,7 @@
      {
       "candidate": "Romeu Zema",
       "party": "Novo",
-      "pct_bruta": 0.0,
+      "pct_bruta": 0,
       "conhece_pct": null
      }
     ]
@@ -98,7 +98,7 @@
     "fieldwork_end": "2026-03-19",
     "published_date": null,
     "sample_size": 1220,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "RO-05454/2026",
     "results": [
      {
@@ -116,7 +116,7 @@
      {
       "candidate": "Aldo Rebelo",
       "party": "DC",
-      "pct_bruta": 1.0,
+      "pct_bruta": 1,
       "conhece_pct": null
      },
      {
@@ -173,7 +173,7 @@
     "fieldwork_end": "2026-03-24",
     "published_date": null,
     "sample_size": 1220,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "MT-02322/2026",
     "results": [
      {
@@ -185,7 +185,7 @@
      {
       "candidate": "Flávio Bolsonaro",
       "party": "PL",
-      "pct_bruta": 14.0,
+      "pct_bruta": 14,
       "conhece_pct": null
      },
      {
@@ -197,7 +197,7 @@
      {
       "candidate": "Pablo Marçal",
       "party": "União Brasil",
-      "pct_bruta": 1.0,
+      "pct_bruta": 1,
       "conhece_pct": null
      },
      {
@@ -242,7 +242,7 @@
     "fieldwork_end": "2026-03-19",
     "published_date": null,
     "sample_size": 1221,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "DF-00559/2026",
     "results": [
      {
@@ -386,7 +386,7 @@
     "fieldwork_end": "2026-04-04",
     "published_date": null,
     "sample_size": 1220,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "BR-01637/2026",
     "results": [
      {
@@ -455,7 +455,7 @@
     "fieldwork_end": "2026-08-20",
     "published_date": null,
     "sample_size": 3840,
-    "margin_of_error": 2.0,
+    "margin_of_error": 2,
     "tse_registration": "BR-04006/2026",
     "results": [
      {
@@ -560,7 +560,7 @@
     "fieldwork_end": "2026-03-24",
     "published_date": null,
     "sample_size": 1220,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "AM-04742/2026",
     "results": [
      {
@@ -578,7 +578,7 @@
      {
       "candidate": "Aldo Rebelo",
       "party": "DC",
-      "pct_bruta": 2.0,
+      "pct_bruta": 2,
       "conhece_pct": null
      },
      {
@@ -647,7 +647,7 @@
      {
       "candidate": "Pablo Marçal",
       "party": "União Brasil",
-      "pct_bruta": 1.0,
+      "pct_bruta": 1,
       "conhece_pct": null
      },
      {
@@ -773,7 +773,7 @@
     "fieldwork_end": "2026-03-24",
     "published_date": null,
     "sample_size": 1525,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "CE-06477/2026",
     "results": [
      {
@@ -923,7 +923,7 @@
     "fieldwork_end": "2026-03-30",
     "published_date": null,
     "sample_size": 1220,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": "MS-03077/2026",
     "results": [
      {
@@ -947,7 +947,7 @@
      {
       "candidate": "Pablo Marçal",
       "party": "União Brasil",
-      "pct_bruta": 1.0,
+      "pct_bruta": 1,
       "conhece_pct": null
      },
      {
@@ -998,19 +998,19 @@
     "fieldwork_end": "2026-03-30",
     "published_date": null,
     "sample_size": 1525,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": null,
     "results": [
      {
       "candidate": "Lula",
       "party": "PT",
-      "pct_bruta": 45.0,
+      "pct_bruta": 45,
       "conhece_pct": null
      },
      {
       "candidate": "Flávio Bolsonaro",
       "party": "PL",
-      "pct_bruta": 33.0,
+      "pct_bruta": 33,
       "conhece_pct": null
      },
      {
@@ -1073,7 +1073,7 @@
     "fieldwork_end": "2026-03-30",
     "published_date": null,
     "sample_size": 1220,
-    "margin_of_error": 3.0,
+    "margin_of_error": 3,
     "tse_registration": null,
     "results": [
      {
@@ -1115,13 +1115,13 @@
      {
       "candidate": "Ronaldo Caiado",
       "party": "PSD",
-      "pct_bruta": 0.0,
+      "pct_bruta": 0,
       "conhece_pct": null
      },
      {
       "candidate": "Renan Santos",
       "party": "Missão",
-      "pct_bruta": 0.0,
+      "pct_bruta": 0,
       "conhece_pct": null
      }
     ]
@@ -1430,7 +1430,7 @@
     "fieldwork_end": "2026-03-19",
     "published_date": null,
     "sample_size": 3025,
-    "margin_of_error": 2.0,
+    "margin_of_error": 2,
     "tse_registration": "SP-00106/2026",
     "results": [
      {
@@ -1479,6 +1479,914 @@
       "candidate": "Romeu Zema",
       "party": "Novo",
       "pct_bruta": 0.1,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Datafolha",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-08-20"
+   },
+   "source": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/datafolha-flavio-bolsonaro-tem-46-de-rejeicao-ante-45-de-lula/",
+   "evidence": "Rejeição presidencial nacional 1º turno ('não votariam de jeito nenhum'). Números confirmados em duas fontes primárias (Jornal de Brasília e Tribuna de Jundiaí). Soma >100% => lista estimulada de rejeição múltipla.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Datafolha",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-08-18",
+    "fieldwork_end": "2026-08-20",
+    "published_date": "2026-08-21",
+    "sample_size": 2058,
+    "margin_of_error": 2,
+    "tse_registration": "BR-04496/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 46,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 45,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Pablo Marçal",
+      "party": "PRTB",
+      "pct_bruta": 22,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 16,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 14,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 14,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-08-13"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/quaest-pesquisa-presidente-agosto-2026/",
+   "evidence": "Quaest 'conhece e não votaria' (per-candidate, conhece condicionado); nacional presidente 1º turno; soma >100% => menção múltipla; base conhece não impressa.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-08-10",
+    "fieldwork_end": "2026-08-13",
+    "published_date": null,
+    "sample_size": 2004,
+    "margin_of_error": 2,
+    "tse_registration": "BR-06773/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 54,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 52,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 35,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 34,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 21,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct_bruta": 19,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct_bruta": 16,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct_bruta": 11,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct_bruta": 10,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": "PSTU",
+      "pct_bruta": 9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Leonardo Avalanche",
+      "party": "PRTB",
+      "pct_bruta": 9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Wilson Grassi",
+      "party": "Democrata",
+      "pct_bruta": 9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Clariana Barão",
+      "party": "DC",
+      "pct_bruta": 6,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-08-03"
+   },
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-bolsonaro-e-rejeitado-por-54-e-lula-por-52-diz-quaest/",
+   "evidence": "Quaest 'conhece e não votaria'; nacional presidente 1º turno; artigo imprimiu só Flávio e Lula; menção múltipla; registro BR-06591/2026 (onda distinta da de 10-13/08).",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Quaest",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-07-31",
+    "fieldwork_end": "2026-08-03",
+    "published_date": "2026-08-05",
+    "sample_size": 2004,
+    "margin_of_error": 2,
+    "tse_registration": "BR-06591/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 54,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 52,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "CNT/MDA",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-08-09"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/cnt-mda-presidente-agosto-2026/",
+   "evidence": "Bateria estimulada por candidato 'não votaria nele para presidente de jeito nenhum'; soma ~211% => menção múltipla. Distinta da rejeição espontânea (Flávio 42,1/Lula 39,8) da mesma pesquisa.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "CNT/MDA",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-08-05",
+    "fieldwork_end": "2026-08-09",
+    "published_date": null,
+    "sample_size": 2002,
+    "margin_of_error": 2.2,
+    "tse_registration": "BR-06935/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 54.5,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 46.2,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 30.4,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 29.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 27.3,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct_bruta": 22.4,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Futura",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-08-07"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/futura-inteligencia-presidente-agosto-2026/",
+   "evidence": "Rejeição múltipla 'em qual pré-candidato não votaria de jeito nenhum'; opções 'rejeita todos'/'não rejeita nenhum'; soma >100% => menção múltipla. Futura Inteligência, nacional.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Futura",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-08-03",
+    "fieldwork_end": "2026-08-07",
+    "published_date": null,
+    "sample_size": 2000,
+    "margin_of_error": 2.2,
+    "tse_registration": "BR-08109/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 47.1,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 45.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 16.3,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct_bruta": 15.8,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 15,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 13.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct_bruta": 12,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct_bruta": 11.5,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct_bruta": 9.8,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct_bruta": 9.5,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": "PSTU",
+      "pct_bruta": 9,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Ideia",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-08-03"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/meio-ideia-presidente-agosto-2026/",
+   "evidence": "Ideia Big Data / Instituto Ideia (pub. 'Meio/Ideia'). 'em quem não votariam de jeito nenhum para presidente', resposta múltipla; soma >100% => menção múltipla. NÃO é Real Time Big Data.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Ideia",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-07-31",
+    "fieldwork_end": "2026-08-03",
+    "published_date": "2026-08-05",
+    "sample_size": 1500,
+    "margin_of_error": 2.5,
+    "tse_registration": "BR-04579/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 48,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 47.4,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 14.6,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 13.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct_bruta": 13.7,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 13.5,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct_bruta": 12.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct_bruta": 10.7,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": "PSTU",
+      "pct_bruta": 10.1,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct_bruta": 9.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct_bruta": 9.8,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-07-27"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/atlasintel-presidente-julho-2026-2/",
+   "evidence": "AtlasIntel 'em qual dos políticos não votariam de jeito nenhum'. Números por candidato (Gazeta do Povo; Poder360 confirma o topo). Soma ~326% => menção múltipla. conhece não impresso.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-07-22",
+    "fieldwork_end": "2026-07-27",
+    "published_date": "2026-07-29",
+    "sample_size": 5021,
+    "margin_of_error": 1,
+    "tse_registration": "BR-08602/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 52.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 49.4,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Jair Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 42.6,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Michelle Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 39.2,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 38,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 37.7,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 33.3,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Fernando Haddad",
+      "party": "PT",
+      "pct_bruta": 32.6,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-02-24"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/atlasintel-presidente-fevereiro-2026/",
+   "evidence": "AtlasIntel 'em quem não votaria de jeito nenhum'. Números por candidato (Gazeta do Povo e InfoMoney, iguais). Soma >100% => menção múltipla. Onda de fevereiro (histórica).",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-02-19",
+    "fieldwork_end": "2026-02-24",
+    "published_date": null,
+    "sample_size": 4986,
+    "margin_of_error": 1,
+    "tse_registration": "BR-07600/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 48.2,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 46.4,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Jair Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 44.2,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 43.9,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Nikolas Ferreira",
+      "party": "PL",
+      "pct_bruta": 42.2,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Michelle Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 40.8,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Eduardo Leite",
+      "party": "PSD",
+      "pct_bruta": 38.3,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 36.6,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 36.4,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ratinho Junior",
+      "party": "PSD",
+      "pct_bruta": 35.7,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Tarcísio de Freitas",
+      "party": "Republicanos",
+      "pct_bruta": 35.5,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ciro Gomes",
+      "party": "PSDB",
+      "pct_bruta": 34.4,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Fernando Haddad",
+      "party": "PT",
+      "pct_bruta": 33.8,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-07-20"
+   },
+   "source": "https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/real-time-big-data-presidente-julho-2026/",
+   "evidence": "RTBD 'em quem não votariam de jeito nenhum'; 'Cada entrevistado poderia citar mais de um pré-candidato' => menção múltipla. Números por candidato (Gazeta do Povo). conhece não impresso.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Real Time Big Data",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-07-18",
+    "fieldwork_end": "2026-07-20",
+    "published_date": "2026-07-21",
+    "sample_size": 2000,
+    "margin_of_error": 2,
+    "tse_registration": "BR-09247/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 50,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 48,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 39,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 37,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct_bruta": 37,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 33,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": "DC",
+      "pct_bruta": 31,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct_bruta": 31,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Leonardo Avalanche",
+      "party": "PRTB",
+      "pct_bruta": 30,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Samara Martins",
+      "party": "UP",
+      "pct_bruta": 29,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": "PSTU",
+      "pct_bruta": 28,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct_bruta": 27,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct_bruta": 25,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "Nexus",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-07-12"
+   },
+   "source": "https://www.correiobraziliense.com.br/politica/2026/07/7460097-quem-sao-os-presidenciaveis-mais-rejeitados-segundo-a-nexus.html",
+   "evidence": "BTG/Nexus bateria por candidato 'não votaria nele de jeito nenhum ou não conhece'; independente por candidato, soma >100% => menção múltipla. Onda 10-12/jul (lista completa).",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "Nexus",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2026-07-10",
+    "fieldwork_end": "2026-07-12",
+    "published_date": "2026-07-13",
+    "sample_size": 2003,
+    "margin_of_error": 2,
+    "tse_registration": "BR-07981/2026",
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Aécio Neves",
+      "party": "PSDB",
+      "pct_bruta": 61,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 50,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 46,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Cabo Daciolo",
+      "party": "Mobiliza",
+      "pct_bruta": 44,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 36,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Joaquim Barbosa",
+      "party": null,
+      "pct_bruta": 33,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct_bruta": 33,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct_bruta": 33,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Augusto Cury",
+      "party": "Avante",
+      "pct_bruta": 30,
+      "conhece_pct": null
+     }
+    ]
+   }
+  },
+  {
+   "match": {
+    "pollster": "IPEC",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2025-12-08"
+   },
+   "source": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-12/Eleição 2026 - Pesquisa Ipsos-Ipec.pdf",
+   "evidence": "PDF do próprio instituto. Cabeçalho 'Rejeição (candidatos no(s) qual(is) não votaria de jeito nenhum)' — plural => menção múltipla. Campo dez/2025 (histórica; onda ago/2026 não publicou rejeição por candidato). Sem nº TSE nas páginas.",
+   "verified_at": "2026-08-24",
+   "multi_mention": true,
+   "add_rejection": {
+    "pollster": "IPEC",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_start": "2025-12-04",
+    "fieldwork_end": "2025-12-08",
+    "published_date": "2025-12-09",
+    "sample_size": 2000,
+    "margin_of_error": 2,
+    "tse_registration": null,
+    "multi_mention": true,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct_bruta": 44,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 35,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Eduardo Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 32,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Michelle Bolsonaro",
+      "party": "PL",
+      "pct_bruta": 30,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ratinho Junior",
+      "party": "PSD",
+      "pct_bruta": 13,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Romeu Zema",
+      "party": "Novo",
+      "pct_bruta": 13,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Tarcísio de Freitas",
+      "party": "Republicanos",
+      "pct_bruta": 11,
+      "conhece_pct": null
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "União",
+      "pct_bruta": 10,
       "conhece_pct": null
      }
     ]

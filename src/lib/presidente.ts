@@ -1,5 +1,5 @@
 import { scenarioGroups, pollsFor } from "./data";
-import { rejectionAverage } from "./rejection";
+import { rejectionFor, rejectionTrack } from "./rejection";
 import { registeredPresidentKeys, registeredRaceKeys } from "./home";
 import { candKey } from "./average";
 import { colorMap, colorOf, fixedColor, PALETTE_SIZE } from "./colors";
@@ -818,63 +818,62 @@ export function allPresidentialPolls(): PollRow[] {
 // the sample (many respondents reject nobody, or several candidates), so the
 // bars simply read the measured share.
 
-export interface RejectionBarRow {
+export interface RejectionSeriesRow {
   candidate: string;
   short: string;
   party: string | null;
   color: string;
-  /** Rejeição bruta — % of the full sample. Always present. */
-  bruta: number;
-  /** Rejeição líquida (bruta ÷ conhece) — null when the poll prints no base, so
-   *  the display reads "sem base" for this row's líquida. */
-  liquida: number | null;
+  /** Latest rolling rejection value (%) — the line's endpoint / KPI. */
+  current: number;
+  /** Rolling rejection over time — the line drawn for this candidate. A
+   *  single-poll track has one point (rendered as a marker). */
+  points: { date: string; pct: number }[];
 }
 
-export interface PresidentRejectionData {
-  rows: RejectionBarRow[];
-  lastPollDate: string | null;
+export interface RejectionTrack {
+  rows: RejectionSeriesRow[]; // sorted desc by current
   pollCount: number;
-  /** True when the window is all multi-mention (each name asked separately). */
-  multiMention: boolean;
-  /** True when ANY row carries a líquida base — gates whether the líquida toggle
-   *  is offered at all. */
-  hasLiquida: boolean;
+  lastPollDate: string | null;
 }
 
 /**
- * The NATIONAL presidential rejection average as bars, ready for the client
- * chart. Registered candidates only (folding hypotheticals out, like every other
- * section); empty rows when there is no national rejection data yet — the page
- * then keeps the honest placeholder empty-state.
- *
- * State-level rejection (the Veritá per-UF seed) is modelled and stored the same
- * way (`rejectionAverage("presidente", uf, 1)`); surfacing it per state is a
- * fast-follow.
+ * Rejection is measured in two INCOMPATIBLE forms that must never be averaged
+ * together: `single` (menção única — one rejection per elector, sums ~100%,
+ * today just the Veritá seed) and `multi` (menção múltipla — each candidate
+ * rated independently / "name all", sums past 100%, how most institutes ask).
+ * Each is its own trend; the chart toggles between them.
+ */
+export interface PresidentRejectionData {
+  single: RejectionTrack | null;
+  multi: RejectionTrack | null;
+}
+
+/**
+ * The NATIONAL presidential rejection TRENDS, one per mention-mode, ready for the
+ * client evolution chart. Registered candidates only (folding hypotheticals out,
+ * like every other section). Each track is null when it has no polls; both null
+ * ⇒ the page keeps the honest placeholder empty-state.
  */
 export function presidentRejection(): PresidentRejectionData {
-  const avg = rejectionAverage("presidente", null, 1);
-  if (!avg) return { rows: [], lastPollDate: null, pollCount: 0, multiMention: false, hasLiquida: false };
-
   const reg = registeredSet();
-  const named = avg.candidates.filter((c) => reg.has(candKey(c.candidate)));
-  const cmap = colorMap(named.slice(0, PALETTE_SIZE).map((c) => c.candidate));
-
-  const rows: RejectionBarRow[] = named.map((c) => ({
-    candidate: c.candidate,
-    short: shortName(c.candidate),
-    party: c.party,
-    color: fixedColor(c.candidate) ?? colorOf(cmap, c.candidate),
-    bruta: round1(c.avgBruta),
-    liquida: c.avgLiquida == null ? null : round1(c.avgLiquida),
-  }));
-
-  return {
-    rows,
-    lastPollDate: avg.lastPollDate,
-    pollCount: avg.pollCount,
-    multiMention: avg.multiMention,
-    hasLiquida: rows.some((r) => r.liquida != null),
+  const build = (multi: boolean): RejectionTrack | null => {
+    const polls = rejectionFor("presidente", null, 1).filter((p) => Boolean(p.multi_mention) === multi);
+    const track = rejectionTrack(polls);
+    if (!track) return null;
+    const named = track.series.filter((s) => reg.has(candKey(s.candidate)));
+    if (!named.length) return null;
+    const cmap = colorMap(named.slice(0, PALETTE_SIZE).map((s) => s.candidate));
+    const rows: RejectionSeriesRow[] = named.map((s) => ({
+      candidate: s.candidate,
+      short: shortName(s.candidate),
+      party: s.party,
+      color: fixedColor(s.candidate) ?? colorOf(cmap, s.candidate),
+      current: s.current,
+      points: s.points,
+    }));
+    return { rows, pollCount: track.pollCount, lastPollDate: track.lastPollDate };
   };
+  return { single: build(false), multi: build(true) };
 }
 
 /** Every poll of a STATE — governor, senate and president-in-state — newest
