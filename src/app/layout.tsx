@@ -16,13 +16,38 @@ const inter = Inter({
   display: "swap",
 });
 
+/* The production host. Reads NEXT_PUBLIC_SITE_URL first (set on Vercel), falling
+   back to the custom domain so a local build still emits absolute, correct URLs.
+   metadataBase lets Next resolve the relative canonical/OG URLs below per-route. */
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://placardaspesquisas.com.br";
+
+const SITE_TITLE = `${SITE_NAME} — Eleições ${SITE_YEAR}`;
+const SITE_DESCRIPTION =
+  "Agregador de pesquisas eleitorais das eleições brasileiras de 2026: presidente, governadores e senadores. Médias, tendências e todas as pesquisas publicadas, atualizado diariamente.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE),
   title: {
-    default: `${SITE_NAME} — Eleições ${SITE_YEAR}`,
+    default: SITE_TITLE,
     template: `%s · ${SITE_NAME} ${SITE_YEAR}`,
   },
-  description:
-    "Agregador de pesquisas eleitorais das eleições brasileiras de 2026: presidente, governadores e senadores. Médias, tendências e todas as pesquisas publicadas, atualizado diariamente.",
+  description: SITE_DESCRIPTION,
+  // "./" resolves per-route against metadataBase, so every page gets its own
+  // canonical without touching individual page files.
+  alternates: { canonical: "./" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "pt_BR",
+    url: "/",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 const MES_LONGO = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
