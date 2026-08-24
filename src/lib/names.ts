@@ -45,7 +45,22 @@ const PROFESSION = new Set([
 const bare = (w: string) =>
   w.replace(/\.$/, "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
+/**
+ * People the public knows by a token that is NOT their first name — the
+ * single-name form used in headlines and on the ballot. "Ronaldo Caiado" is
+ * "Caiado", never "Ronaldo", the same way the surname wins for Lula/Bolsonaro/
+ * Tarcísio. Keyed by the accent-folded full name.
+ */
+const KNOWN_AS = new Map<string, string>([
+  ["ronaldo caiado", "Caiado"],
+]);
+
+const foldFull = (name: string) =>
+  (name ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim().replace(/\s+/g, " ");
+
 export function shortName(name: string): string {
+  const known = KNOWN_AS.get(foldFull(name));
+  if (known) return known;
   let parts = (name ?? "").trim().split(/\s+/).filter(Boolean);
   // Drop leading occupation labels first (they name nobody), then keep a branding
   // honorific if that is what leads.
