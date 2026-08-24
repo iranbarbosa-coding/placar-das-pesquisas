@@ -31,11 +31,21 @@ export default function RunoffSims({ rows, title = "Todas as simulações de 2º
         <ul className="mt-3 flex flex-col gap-3">
           {rows.map((r, i) => (
             <li key={i} className="flex flex-col gap-1.5">
-              {/* Full names on their own line so neither candidate is ever cut. */}
-              <div className="text-sm" style={{ color: "var(--text-primary)" }}>
-                <span className="font-semibold">{r.a.name}</span>
-                <span style={{ color: "var(--text-muted)" }}> vs </span>
-                <span className="font-semibold">{r.b.name}</span>
+              {/* Each name kept to its OWN half — left name left-aligned, right
+                  name right-aligned, "vs" centred — so neither ever crosses the
+                  middle and reads as bleeding onto the rival's side. Long names
+                  WRAP within their half (never truncated, so the full name always
+                  shows). Mirrors the bar and the shares row below it. */}
+              <div className="flex items-start gap-2 text-sm" style={{ color: "var(--text-primary)" }}>
+                <span className="min-w-0 flex-1 break-words font-semibold">
+                  {r.a.name}
+                </span>
+                <span className="shrink-0" style={{ color: "var(--text-muted)" }}>
+                  vs
+                </span>
+                <span className="min-w-0 flex-1 break-words text-right font-semibold">
+                  {r.b.name}
+                </span>
               </div>
               {/* Shares at the ends of the bar. */}
               <div className="flex items-center gap-2">
