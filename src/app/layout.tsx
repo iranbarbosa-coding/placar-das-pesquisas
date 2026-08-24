@@ -19,7 +19,7 @@ const inter = Inter({
 /* The production host. Reads NEXT_PUBLIC_SITE_URL first (set on Vercel), falling
    back to the custom domain so a local build still emits absolute, correct URLs.
    metadataBase lets Next resolve the relative canonical/OG URLs below per-route. */
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://placardaspesquisas.com.br";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.placardaspesquisas.com.br";
 
 const SITE_TITLE = `${SITE_NAME} — Eleições ${SITE_YEAR}`;
 const SITE_DESCRIPTION =

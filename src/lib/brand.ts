@@ -12,7 +12,7 @@
  * prefixes in the check scripts.
  *
  * ⚠ `NEXT_PUBLIC_SITE_URL` is NOT derived from this. layout.tsx, sitemap.ts and
- * robots.ts fall back to a hardcoded host (`https://placardaspesquisas.com.br`),
+ * robots.ts fall back to a hardcoded host (`https://www.placardaspesquisas.com.br`),
  * and that host must match the production domain. Changing the brand here without
  * setting that variable (or updating the fallback) publishes a sitemap pointing
  * at the wrong domain — an error no build step catches and search engines act on.

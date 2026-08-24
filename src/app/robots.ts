@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://placardaspesquisas.com.br";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.placardaspesquisas.com.br";
 
 /* Explicit allow-list. The aggregate is a public good under CC-BY 4.0, so we
    welcome search crawlers, the major AI answer engines, and the training/index
