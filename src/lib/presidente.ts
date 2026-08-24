@@ -2,7 +2,7 @@ import { scenarioGroups, pollsFor } from "./data";
 import { rejectionFor, rejectionTrack } from "./rejection";
 import { registeredPresidentKeys, registeredRaceKeys } from "./home";
 import { candKey } from "./average";
-import { colorMap, colorOf, fixedColor, PALETTE_SIZE } from "./colors";
+import { colorMap, colorOf, ensureDistinct, fixedColor, PALETTE_SIZE } from "./colors";
 import { shortName } from "./names";
 import { toBasis } from "./validos";
 import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage, type RaceKind } from "./types";
@@ -559,7 +559,7 @@ export function runoffSim(race: RaceKind = "presidente", state: UF | null = null
 
     cards.push({
       challenger: ch.candidate,
-      challengerColor: colorOf(colorMap([ch.candidate]), ch.candidate),
+      challengerColor: ensureDistinct(leaderColor, colorOf(colorMap([ch.candidate]), ch.candidate)),
       points: pts.map((p) => ({
         date: p.date,
         leader: p.avg,
