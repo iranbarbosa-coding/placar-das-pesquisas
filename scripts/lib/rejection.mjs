@@ -107,14 +107,16 @@ function canonicalizarNomes(rejeicoes) {
   }));
   canonicalizeCandidates(shims);
   for (let i = 0; i < rejeicoes.length; i++) {
-    const canon = new Map(shims[i].results.map((r) => [r.pct, r]));
-    for (const r of rejeicoes[i].results) {
-      // Casa por valor (pct_bruta é único dentro de uma pesquisa de rejeição, e
-      // mesmo empatado o par candidato/valor não importa para o rótulo). Se por
-      // acaso o shim colapsou (não deveria), mantém o nome original.
-      const c = canon.get(r.pct_bruta);
+    // Casa PELA POSIÇÃO (o shim é montado 1:1 a partir de `results`, e
+    // `canonicalizeCandidates` só reescreve nome/partido — não reordena nem
+    // remove linhas). Casar por `pct_bruta` COLAPSA empates: numa pesquisa
+    // nacional vários candidatos de nicho ficam em 0,1% e um Map por valor
+    // guarda só o último, reetiquetando todos os empatados com um único nome.
+    const canon = shims[i].results;
+    rejeicoes[i].results.forEach((r, k) => {
+      const c = canon[k];
       if (c) { r.candidate = c.candidate; if (c.party) r.party = c.party; }
-    }
+    });
   }
   return rejeicoes;
 }
