@@ -152,6 +152,14 @@
   --map-abaixo: #cbdcfb;  /* light blue — leader below 50 (runoff) */
   --map-empate: #cbd5e1;  /* grey — technical tie (mirrors --pmap-tie) */
   --map-sem: #1f2937;     /* preto/carvão — no recent poll (mirrors --pmap-sem) */
+  /* Outline drawn on no-data (sem-dados) states only. In light it is exactly the
+     card/surface colour the state borders already use (var(--surface-1)), so the
+     charcoal no-data states look pixel-identical to today. Dark overrides it to a
+     visible grey so the near-black no-data fill no longer vanishes on the navy
+     card. See --map-sem-outline in the dark block below. The width matches the
+     base state stroke (1.2) here so light stays pixel-identical; dark widens it. */
+  --map-sem-outline: var(--surface-1);
+  --map-sem-outline-width: 1.2;
 
   /* ── PRESIDENTIAL STATE MAP — LEADER IDENTITY + INTENSITY (/presidente) ─────
      The governor map above colours by a four-value STATUS. The presidential map
@@ -258,6 +266,12 @@
     --map-abaixo: #274a86;  /* muted blue — leader below 50 (runoff) */
     --map-empate: #2b3a55;  /* navy-grey — technical tie (mirrors --pmap-tie) */
     --map-sem: #0b0d12;     /* quase-preto — no recent poll (mirrors --pmap-sem) */
+    /* The quase-preto no-data fill (#0b0d12) sits at ~1.16:1 against the navy card
+       (#142038) and its default border is the card colour too — effectively
+       invisible. Outline those states in a clearly visible mid grey so they read
+       as distinct shapes. Only sem-dados states get this stroke (see BrasilMap). */
+    --map-sem-outline: #737f96;    /* = --text-muted family; visible on the navy card */
+    --map-sem-outline-width: 1.6;  /* a touch wider than the 1.2 base so it reads crisp */
 
     /* Presidential state map, tuned for the navy page. STRONG is the lifted
        brand red/blue (= --cand-red/--cand-blue in dark); LIGHT is a muted, deep
