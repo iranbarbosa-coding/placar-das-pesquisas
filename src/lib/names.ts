@@ -53,6 +53,7 @@ const bare = (w: string) =>
  */
 const KNOWN_AS = new Map<string, string>([
   ["ronaldo caiado", "Caiado"],
+  ["cleitinho azevedo", "Cleitinho"],
 ]);
 
 const foldFull = (name: string) =>
@@ -74,8 +75,14 @@ export function shortName(name: string): string {
  * ("Escritor Augusto Cury" → "Augusto Cury"). Unlike `shortName` it keeps the
  * surname; unlike the raw ballot name it drops the profession. Use it for text
  * display only — never as a colour/identity key (`candKey` must see the original).
+ *
+ * A `KNOWN_AS` person is the exception: someone the public knows by a single
+ * token (Caiado, Cleitinho) is shown by that token even here — writing the full
+ * name would be the odd form, not the informative one.
  */
 export function displayName(name: string): string {
+  const known = KNOWN_AS.get(foldFull(name));
+  if (known) return known;
   let parts = (name ?? "").trim().split(/\s+/).filter(Boolean);
   while (parts.length > 1 && PROFESSION.has(bare(parts[0]))) parts = parts.slice(1);
   return parts.join(" ") || (name ?? "");
