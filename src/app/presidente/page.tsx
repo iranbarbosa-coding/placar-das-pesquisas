@@ -8,7 +8,9 @@ import PresidentStateMap from "@/components/PresidentStateMap";
 import PresidentMomentum from "@/components/PresidentMomentum";
 import StatePies from "@/components/StatePies";
 import AllPollsTable from "@/components/AllPollsTable";
-import { loadDataset } from "@/lib/data";
+import { loadDataset, scenarioGroups } from "@/lib/data";
+import { displayName } from "@/lib/names";
+import { fmtPct, fmtDate } from "@/lib/format";
 import {
   rcpTable,
   presidentEvolution,
@@ -57,6 +59,18 @@ export default function PresidentePage() {
   const rejection = presidentRejection();
   const ds = loadDataset();
 
+  // Answer-first lede: leader, runner-up, spread, N pesquisas and as-of date,
+  // all from the SAME `rcpTable()` matrix the page's first card renders. The
+  // named columns are already the registered field at ≥ NAMED_MIN_PCT, so the
+  // top two here match the table's "Média" row exactly. Poll count and last poll
+  // date come from the average this table was computed over.
+  const presAvg = scenarioGroups("presidente", null, 1)[0]?.average ?? null;
+  const rcpLead = rcp.candidates[0];
+  const rcpRunner = rcp.candidates[1];
+  const rcpLeadPct = rcp.average.values[0];
+  const rcpRunnerPct = rcp.average.values[1];
+  const hasLede = !!(rcpLead && rcpRunner && rcpLeadPct != null && rcpRunnerPct != null && presAvg);
+
   return (
     <div className="flex min-w-0 flex-col gap-6">
       {/* Page header */}
@@ -91,6 +105,16 @@ export default function PresidentePage() {
           </div>
         </div>
       </header>
+
+      {hasLede && (
+        <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+          No 1º turno da disputa presidencial de 2026, a média do Placar das Pesquisas em votos válidos aponta{" "}
+          <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(rcpLead!.name)}</strong>{" "}
+          com {fmtPct(rcpLeadPct)}%, à frente de {displayName(rcpRunner!.name)} com {fmtPct(rcpRunnerPct)}% —
+          diferença de {fmtPct(Math.abs(rcpLeadPct! - rcpRunnerPct!))} pontos. Média de {presAvg!.pollCount}{" "}
+          {presAvg!.pollCount === 1 ? "pesquisa" : "pesquisas"}, atualizada em {fmtDate(presAvg!.lastPollDate)}.
+        </p>
+      )}
 
       {/* Row 1 — RCP matrix of the polls in the average, full width */}
       <section className="card min-w-0 p-4 sm:p-6" aria-label="Pesquisas que compõem a média">

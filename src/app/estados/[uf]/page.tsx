@@ -11,6 +11,8 @@ import RunoffSims from "@/components/RunoffSims";
 import StateTrends from "@/components/StateTrends";
 import { candKey } from "@/lib/average";
 import { scenarioGroups } from "@/lib/data";
+import { fmtPct, fmtDate } from "@/lib/format";
+import { displayName } from "@/lib/names";
 import { stateRunoff, stateTrends } from "@/lib/estado";
 import { allStatePolls, raceEvolutionData, rcpTable } from "@/lib/presidente";
 import { UFS, UF_NAMES, type UF } from "@/lib/types";
@@ -82,6 +84,15 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   // searchable/filterable table, in the presidential page's pattern.
   const allPolls = allStatePolls(UFU);
 
+  // Answer-first lede: the leading governor race for this UF — leader, average
+  // and as-of date, taken from the SAME `rcpTable("governador", …)` matrix the
+  // Governador card renders (its first named column is the top registered
+  // candidate). Governor is the marquee state race, so it heads the lede.
+  const govLead = gov1Rcp.candidates[0];
+  const govLeadPct = gov1Rcp.average.values[0];
+  const govDate = gov1Group?.average?.lastPollDate ?? null;
+  const hasGovLede = hasGov1 && !!govLead && govLeadPct != null;
+
   return (
     <div className="flex min-w-0 flex-col gap-8">
       {/* Page header — breadcrumb + title + Visão geral nav. */}
@@ -107,6 +118,14 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
             Presidente · Todas as pesquisas) OMITIDA por ora — volta numa etapa
             futura de evolução do produto. Componente pronto em `StateNav.tsx`. */}
       </header>
+
+      {hasGovLede && (
+        <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+          Na corrida para governador de {UF_NAMES[UFU]} em 2026, a média do Placar das Pesquisas em votos válidos tem{" "}
+          <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(govLead!.name)}</strong>{" "}
+          na liderança com {fmtPct(govLeadPct)}%, atualizada em {fmtDate(govDate)}.
+        </p>
+      )}
 
       {/* TENDÊNCIAS · ÚLTIMOS 15 DIAS — líderes por cargo + maior alta / maior queda. */}
       <StateTrends data={trends} />

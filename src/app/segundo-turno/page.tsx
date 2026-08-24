@@ -3,6 +3,7 @@ import Link from "next/link";
 import MatchupCard from "@/components/MatchupCard";
 import StateJumpNav, { type JumpTarget } from "@/components/StateJumpNav";
 import { scenarioGroups, fmtDate } from "@/lib/data";
+import { fmtPct } from "@/lib/format";
 import { UFS, UF_NAMES } from "@/lib/types";
 import { displayName } from "@/lib/names";
 import { registeredPresidentKeys } from "@/lib/home";
@@ -71,6 +72,12 @@ export default function SegundoTurnoPage() {
     ...states.map(({ uf }) => ({ id: `uf-${uf.toLowerCase()}`, label: UF_NAMES[uf], short: uf })),
   ];
 
+  // Answer-first lede: the marquee presidential runoff is the freshest current
+  // matchup (`presCurrent` is already sorted newest-first), summarised straight
+  // from its own moving average — the same numbers its MatchupCard renders.
+  const marquee = presCurrent[0]?.average ?? null;
+  const [marqueeA, marqueeB] = marquee?.candidates ?? [];
+
   return (
     <div className="flex min-w-0 flex-col gap-8">
       {/* Page header — breadcrumb + title, per the new pattern. */}
@@ -96,6 +103,15 @@ export default function SegundoTurnoPage() {
           </Link>
         </div>
       </header>
+
+      {marquee && marqueeA && marqueeB && (
+        <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+          No confronto de 2º turno mais recente entre presidenciáveis registrados, a média do Placar das Pesquisas mostra{" "}
+          <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(marqueeA.candidate)}</strong>{" "}
+          com {fmtPct(marqueeA.avg)}% contra {displayName(marqueeB.candidate)} com {fmtPct(marqueeB.avg)}% — vantagem de{" "}
+          {fmtPct(Math.abs(marqueeA.avg - marqueeB.avg))} pontos, atualizada em {fmtDate(marquee.lastPollDate)}.
+        </p>
+      )}
 
       {/* In-page jump index — reach any state without scrolling the whole wall. */}
       {jumpTargets.length > 1 && <StateJumpNav targets={jumpTargets} />}
