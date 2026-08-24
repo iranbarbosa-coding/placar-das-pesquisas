@@ -1,5 +1,5 @@
 import { candKey } from "./average";
-import { colorMap, colorOf, ensureDistinct } from "./colors";
+import { colorMap, colorOf, ensureDistinctFromAll } from "./colors";
 import { scenarioGroups } from "./data";
 import { displayName } from "./names";
 import { candDelta, raceEvolutionData } from "./presidente";
@@ -240,22 +240,6 @@ export function stateRunoff(race: RunoffRace, uf: UF, limit = 5): StateRunoffDat
   if (!firstAvg?.candidates.length) return { main: null, sims: [] };
 
   const reg = new Set(evo.registeredKeys);
-  const cmap = colorMap(firstAvg.candidates.map((c) => c.candidate));
-  const colorFor = (name: string) => colorOf(cmap, name);
-  const side = (c: CandidateAverage): RunoffSide => ({
-    name: displayName(c.candidate),
-    party: c.party,
-    pct: c.avg,
-    color: colorFor(c.candidate),
-  });
-  // The two sides of ONE matchup, with the rival's colour forced distinct from
-  // the leader's — identity colours can collide (a round-2-only challenger is
-  // hashed without seeing the leader's slot), which reads as a single-colour bar.
-  const pairSides = (x: CandidateAverage, y: CandidateAverage): { a: RunoffSide; b: RunoffSide } => {
-    const a = side(x);
-    const b = side(y);
-    return { a, b: { ...b, color: ensureDistinct(a.color, b.color) } };
-  };
 
   // First-round ranking (registered only), as candKeys.
   const ranking = firstAvg.candidates
@@ -269,6 +253,49 @@ export function stateRunoff(race: RunoffRace, uf: UF, limit = 5): StateRunoffDat
     const k = [...new Set(g.average!.candidates.map((c) => candKey(c.candidate)))].sort().join("|");
     if (!byPair.has(k)) byPair.set(k, g);
   }
+
+  // Give EVERY runoff participant one fixed colour, used in every bar they appear
+  // in (so a candidate never changes colour between simulations) and mutually
+  // distinct (so no bar shows two near-identical sides). The participants — only
+  // those who actually appear in a matchup, not the full first-round field — are
+  // coloured in ranking order: the leader keeps their identity colour, and each
+  // later candidate is bumped to the pool colour farthest from everyone already
+  // assigned only if its identity hue collides. Colouring over just the first
+  // round left a round-2-only name (e.g. Mateus Simões) hashed onto a rival's hue,
+  // and per-bar recolouring then flipped it between bars; assigning up front fixes
+  // both at the source.
+  const round2Keys = new Set<string>();
+  for (const g of groups) for (const c of g.average!.candidates) round2Keys.add(candKey(c.candidate));
+  const participantKeys = [
+    ...ranking.filter((k) => round2Keys.has(k)),
+    ...[...round2Keys].filter((k) => !ranking.includes(k)),
+  ];
+  const nameByKey = new Map<string, string>();
+  for (const g of groups)
+    for (const c of g.average!.candidates)
+      if (!nameByKey.has(candKey(c.candidate))) nameByKey.set(candKey(c.candidate), c.candidate);
+  const identityCmap = colorMap(firstAvg.candidates.map((c) => c.candidate));
+  const colorByKey = new Map<string, string>();
+  const takenColors: string[] = [];
+  for (const k of participantKeys) {
+    const name = nameByKey.get(k) ?? k;
+    const col = ensureDistinctFromAll(takenColors, colorOf(identityCmap, name));
+    colorByKey.set(k, col);
+    takenColors.push(col);
+  }
+  const colorFor = (name: string) => colorByKey.get(candKey(name)) ?? colorOf(identityCmap, name);
+  const side = (c: CandidateAverage): RunoffSide => ({
+    name: displayName(c.candidate),
+    party: c.party,
+    pct: c.avg,
+    color: colorFor(c.candidate),
+  });
+  // Colours are already mutually distinct across the whole field, so a matchup is
+  // just its two sides — no per-bar recolouring (which is what caused the flip).
+  const pairSides = (x: CandidateAverage, y: CandidateAverage): { a: RunoffSide; b: RunoffSide } => ({
+    a: side(x),
+    b: side(y),
+  });
 
   // Prefer 1st-vs-others, then 2nd-vs-others, ... — take the first `limit` polled.
   // The first pairing found (the top-priority polled matchup) is also the "main".

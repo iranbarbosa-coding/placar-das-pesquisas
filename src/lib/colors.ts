@@ -268,3 +268,24 @@ export function ensureDistinct(base: string, cand: string, threshold = 48): stri
   }
   return best;
 }
+
+/**
+ * Like `ensureDistinct`, but against MANY already-taken colours at once — used to
+ * give every candidate in a runoff field ONE colour that is distinct from all the
+ * others (so a candidate's colour is the same in every matchup bar AND no bar has
+ * two near-identical sides). Returns `cand` when its own hue already clears every
+ * base; otherwise the pool colour whose MINIMUM distance to the bases is largest.
+ */
+export function ensureDistinctFromAll(bases: string[], cand: string, threshold = 48): string {
+  const c = hexOf(cand);
+  if (!c) return cand;
+  const baseHex = bases.map(hexOf).filter((h): h is [number, number, number] => !!h);
+  if (!baseHex.some((b) => rgbDist(b, c) < threshold)) return cand; // identity already clears all
+  let best = cand, bestScore = -1;
+  for (const v of DISTINCT_POOL) {
+    const hex = MATCHUP_HEX[v]!;
+    const score = baseHex.length ? Math.min(...baseHex.map((b) => rgbDist(b, hex))) : Infinity;
+    if (score > bestScore) { bestScore = score; best = `var(${v})`; }
+  }
+  return best;
+}
