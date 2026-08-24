@@ -150,3 +150,92 @@ export function rejectionAverage(
 ): RejectionAverage | null {
   return computeRejectionAverage({ race, state, round }, rejectionFor(race, state, round));
 }
+
+const rejDate = (p: RejectionPoll): string | null =>
+  p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? null;
+
+export interface RejectionSeries {
+  candidate: string;
+  party: string | null;
+  /** Latest rolling rejection value (%). */
+  current: number;
+  /** Rolling rejection over sampled dates — the same LATEST_N rule as the vote
+   *  trendline, applied to `pct_bruta`. A single-poll track yields one point. */
+  points: { date: string; pct: number }[];
+}
+
+export interface RejectionTrackData {
+  series: RejectionSeries[]; // sorted desc by current
+  pollCount: number; // polls in the current window
+  lastPollDate: string | null;
+}
+
+/**
+ * A rejection TREND for one mention-mode — the twin of the vote `buildTrends`,
+ * on `pct_bruta`. The caller MUST pass polls of a single `multi_mention` value:
+ * single-choice (~100%) and per-candidate (>100%) rejection are different scales
+ * and are never mixed. Returns null when the group is empty.
+ */
+export function rejectionTrack(polls: RejectionPoll[]): RejectionTrackData | null {
+  if (!polls.length) return null;
+  const sorted = sortPollsDesc(polls);
+  const { window } = selectWindow(sorted);
+  if (!window.length) return null;
+
+  // Roster = anyone in the current window.
+  const roster = new Map<string, { candidate: string; party: string | null }>();
+  for (const p of window)
+    for (const r of p.results) {
+      const k = candKey(r.candidate);
+      if (!roster.has(k)) roster.set(k, { candidate: r.candidate, party: r.party });
+      else if (!roster.get(k)!.party && r.party) roster.get(k)!.party = r.party;
+    }
+
+  const dated = sorted.filter((p) => rejDate(p) !== null);
+  const lastDay = dated.length ? rejDate(dated[0]) : null;
+
+  // Sampled days (every 3 days), always ending on the last poll's date — same
+  // shape as the vote trendline so both charts read consistently.
+  const points = new Map<string, { date: string; pct: number }[]>();
+  if (lastDay) {
+    const firstT = +new Date(rejDate(dated[dated.length - 1])!);
+    const lastT = +new Date(lastDay);
+    const days: string[] = [];
+    for (let t = firstT; t <= lastT; t += 3 * 86_400_000) days.push(new Date(t).toISOString().slice(0, 10));
+    if (days[days.length - 1] !== lastDay) days.push(lastDay);
+    for (const day of days) {
+      const { window: w } = selectWindow(dated.filter((p) => rejDate(p)! <= day));
+      if (!w.length) continue;
+      for (const k of roster.keys()) {
+        const vals = w
+          .map((p) => p.results.find((r) => candKey(r.candidate) === k)?.pct_bruta)
+          .filter((v): v is number => v != null);
+        if (!vals.length) continue;
+        if (!points.has(k)) points.set(k, []);
+        points.get(k)!.push({ date: day, pct: round1(mean(vals)) });
+      }
+    }
+  }
+
+  const series: RejectionSeries[] = [];
+  for (const [k, meta] of roster) {
+    const pts = points.get(k) ?? [];
+    const windowAvg = round1(
+      mean(
+        window
+          .map((p) => p.results.find((r) => candKey(r.candidate) === k)?.pct_bruta)
+          .filter((v): v is number => v != null),
+      ),
+    );
+    const current = pts.length ? pts[pts.length - 1].pct : windowAvg;
+    if (!pts.length && !Number.isFinite(current)) continue;
+    series.push({
+      candidate: meta.candidate,
+      party: meta.party,
+      current,
+      points: pts.length ? pts : [{ date: lastDay ?? "", pct: current }],
+    });
+  }
+  series.sort((a, b) => b.current - a.current);
+  return { series, pollCount: window.length, lastPollDate: lastDay };
+}
