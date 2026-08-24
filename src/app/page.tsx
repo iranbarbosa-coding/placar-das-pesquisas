@@ -14,6 +14,9 @@ import {
   newestPoll,
   registeredPresidentKeys,
 } from "@/lib/home";
+import { candKey } from "@/lib/average";
+import { displayName } from "@/lib/names";
+import { fmtPct, fmtDate } from "@/lib/format";
 
 /**
  * The front page — a two-column electoral dashboard (2026-08-17 redesign).
@@ -38,11 +41,28 @@ export default function Home() {
   const newPoll = newestPoll();
   const registeredKeys = registeredPresidentKeys();
 
+  // Answer-first lede: a single crawlable, quotable sentence stating the current
+  // presidential 1st-round standing, derived from the SAME `heroRace()` average
+  // the hero card renders (votos válidos). Only registered candidates may be
+  // named (owner's rule), so the top two are taken from the registered field —
+  // the same set the hero folds everyone else into "Outros" behind.
+  const heroReg = new Set(registeredKeys);
+  const heroNamed = (hero?.average?.candidates ?? []).filter((c) => heroReg.has(candKey(c.candidate)));
+  const [heroLead, heroRunner] = heroNamed;
+
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_336px]">
       {/* LEFT: the main stack. `min-w-0` keeps the wide table from forcing the
           track past the viewport on phones (a documented overflow fix). */}
       <div className="flex min-w-0 flex-col gap-6">
+        {heroLead && heroRunner && hero?.average && (
+          <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+            Na média do Placar das Pesquisas para o 1º turno da eleição presidencial de 2026,{" "}
+            <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(heroLead.candidate)}</strong>{" "}
+            lidera com {fmtPct(heroLead.avg)}%, à frente de {displayName(heroRunner.candidate)} com {fmtPct(heroRunner.avg)}% —
+            média em votos válidos, atualizada em {fmtDate(hero.average.lastPollDate)}.
+          </p>
+        )}
         <section className="card p-4 sm:p-6" aria-label="Corrida presidencial">
           <HeroBasisSwitch
             average={hero?.average ?? null}
