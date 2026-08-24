@@ -1,5 +1,5 @@
 import { candKey } from "./average";
-import { colorMap, colorOf } from "./colors";
+import { colorMap, colorOf, ensureDistinct } from "./colors";
 import { scenarioGroups } from "./data";
 import { displayName } from "./names";
 import { candDelta, raceEvolutionData } from "./presidente";
@@ -248,6 +248,14 @@ export function stateRunoff(race: RunoffRace, uf: UF, limit = 5): StateRunoffDat
     pct: c.avg,
     color: colorFor(c.candidate),
   });
+  // The two sides of ONE matchup, with the rival's colour forced distinct from
+  // the leader's — identity colours can collide (a round-2-only challenger is
+  // hashed without seeing the leader's slot), which reads as a single-colour bar.
+  const pairSides = (x: CandidateAverage, y: CandidateAverage): { a: RunoffSide; b: RunoffSide } => {
+    const a = side(x);
+    const b = side(y);
+    return { a, b: { ...b, color: ensureDistinct(a.color, b.color) } };
+  };
 
   // First-round ranking (registered only), as candKeys.
   const ranking = firstAvg.candidates
@@ -276,15 +284,17 @@ export function stateRunoff(race: RunoffRace, uf: UF, limit = 5): StateRunoffDat
       const pair = pairOf(g.average);
       if (!pair) continue;
       seen.add(key);
-      sims.push({ a: side(pair[0]), b: side(pair[1]), spread: round1(g.average.spread) });
+      const simSides = pairSides(pair[0], pair[1]);
+      sims.push({ a: simSides.a, b: simSides.b, spread: round1(g.average.spread) });
       if (!main) {
         const [la, lb] = pair;
+        const mainSides = pairSides(la, lb);
         const bByDate = new Map<string, number>();
         for (const p of lb.trend ?? []) if (typeof p.date === "string" && Number.isFinite(p.avg)) bByDate.set(p.date, p.avg);
         const points = (la.trend ?? [])
           .filter((p) => typeof p.date === "string" && Number.isFinite(p.avg))
           .map((p) => ({ date: p.date, a: p.avg, b: bByDate.get(p.date) ?? 100 - p.avg }));
-        main = { a: side(la), b: side(lb), points, pollCount: g.average.pollCount, lastDate: g.average.lastPollDate };
+        main = { a: mainSides.a, b: mainSides.b, points, pollCount: g.average.pollCount, lastDate: g.average.lastPollDate };
       }
     }
   }

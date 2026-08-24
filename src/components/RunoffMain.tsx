@@ -131,20 +131,22 @@ export default function RunoffMain({ data, title = "2º turno" }: { data: Runoff
         {title}
       </h3>
 
-      <div className="mt-1 text-sm" style={{ color: "var(--text-primary)" }}>
-        <span className="font-semibold">{a.name}</span>
-        <span style={{ color: "var(--text-muted)" }}> vs </span>
-        <span className="font-semibold">{b.name}</span>
-      </div>
-
-      <div className="mt-3 flex items-end justify-between gap-2">
-        <div className="tabular text-3xl font-bold leading-none" style={{ color: a.color }}>
-          {fmtPct(a.pct)}
-          <span className="align-baseline text-[0.55em] font-bold">%</span>
+      {/* Each candidate's name over their own % and colour, truncating within its
+          half so a long name never bleeds across the centre into the other side. */}
+      <div className="mt-2 flex items-end justify-between gap-3">
+        <div className="min-w-0">
+          <div className="truncate text-sm font-semibold" title={a.name} style={{ color: "var(--text-primary)" }}>{a.name}</div>
+          <div className="tabular text-3xl font-bold leading-none" style={{ color: a.color }}>
+            {fmtPct(a.pct)}
+            <span className="align-baseline text-[0.55em] font-bold">%</span>
+          </div>
         </div>
-        <div className="tabular text-3xl font-bold leading-none" style={{ color: b.color }}>
-          {fmtPct(b.pct)}
-          <span className="align-baseline text-[0.55em] font-bold">%</span>
+        <div className="min-w-0 text-right">
+          <div className="truncate text-sm font-semibold" title={b.name} style={{ color: "var(--text-primary)" }}>{b.name}</div>
+          <div className="tabular text-3xl font-bold leading-none" style={{ color: b.color }}>
+            {fmtPct(b.pct)}
+            <span className="align-baseline text-[0.55em] font-bold">%</span>
+          </div>
         </div>
       </div>
       <div className="mt-2 relative h-2.5 w-full overflow-hidden rounded-full" role="img" aria-hidden="true" style={{ background: "var(--grid)" }}>

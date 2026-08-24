@@ -227,3 +227,44 @@ export function inkOn(fill: string): string {
   const token = /^var\(\s*(--[a-z0-9-]+)\s*\)$/i.exec(fill.trim());
   return token ? `var(${token[1]}-ink, var(--on-fill))` : "var(--on-fill)";
 }
+
+/**
+ * Keep the two sides of a MATCHUP visually distinct.
+ *
+ * Colours are assigned by candidate identity (the hash + fixed map above), and
+ * two candidates in a head-to-head can land on the same or a near-identical hue
+ * — most often a round-2-only challenger whose colour is hashed WITHOUT seeing
+ * the leader's slot, so they collide (Cleitinho vs Mateus, both `--series-1`).
+ * A bipolar bar then reads as one solid block. Given `base` (the leader's
+ * colour), this returns `cand` unchanged when it is far enough away, else the
+ * pool colour MOST distant from `base` — so the rival always separates. Identity
+ * yields to legibility here, exactly as the home runoff bars already accept.
+ *
+ * Distance is RGB-Euclidean over the LIGHT palette. The relative gaps hold in
+ * the dark theme too (every hue lifts together), so one table is enough; unknown
+ * colours (not our tokens) are left untouched rather than guessed at.
+ */
+const MATCHUP_HEX: Record<string, [number, number, number]> = {
+  "--series-1": [42, 120, 214], "--series-2": [235, 104, 52], "--series-3": [27, 175, 122], "--series-4": [237, 161, 0],
+  "--series-5": [232, 123, 164], "--series-6": [0, 131, 0], "--series-7": [74, 58, 167], "--series-8": [227, 73, 72],
+  "--cand-red": [239, 68, 68], "--cand-blue": [37, 99, 235], "--cand-orange": [226, 98, 15], "--cand-green": [26, 143, 76],
+  "--cand-purple": [123, 63, 191], "--cand-teal": [13, 143, 146], "--cand-pink": [214, 76, 143], "--cand-brown": [138, 90, 43],
+  "--cand-slate": [90, 102, 117], "--cand-magenta": [181, 23, 158], "--dual-lead": [239, 68, 68], "--dual-rival": [37, 99, 235],
+};
+/** A small mutually-distinct pool to draw a replacement rival hue from. */
+const DISTINCT_POOL = ["--cand-red", "--cand-blue", "--cand-orange", "--cand-green", "--cand-purple", "--cand-teal"];
+const hexOf = (c: string): [number, number, number] | null => MATCHUP_HEX[(/--[\w-]+/.exec(c) ?? [""])[0]] ?? null;
+const rgbDist = (a: [number, number, number], b: [number, number, number]): number => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+
+export function ensureDistinct(base: string, cand: string, threshold = 48): string {
+  const b = hexOf(base);
+  const c = hexOf(cand);
+  if (!b || !c) return cand; // not our tokens → leave as-is
+  if (rgbDist(b, c) >= threshold) return cand; // already distinct enough
+  let best = cand, bestD = -1;
+  for (const v of DISTINCT_POOL) {
+    const d = rgbDist(b, MATCHUP_HEX[v]!);
+    if (d > bestD) { bestD = d; best = `var(${v})`; }
+  }
+  return best;
+}
