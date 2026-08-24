@@ -1,0 +1,137 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { SITE_NAME } from "@/lib/brand";
+
+export const metadata: Metadata = {
+  title: "Sobre",
+  description:
+    "Quem faz o Placar das Pesquisas, com que dados e por quê: um agregador independente das pesquisas eleitorais registradas para as Eleições 2026.",
+};
+
+export default function SobrePage() {
+  return (
+    <article className="prose-sm mx-auto max-w-3xl space-y-6">
+      <header className="space-y-1">
+        <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+          Sobre o {SITE_NAME}
+        </h1>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Quem faz, com que dados e por quê.
+        </p>
+      </header>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">O que é</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O {SITE_NAME} é um agregador independente das pesquisas eleitorais registradas
+          para as <strong>Eleições 2026</strong>. Reunimos, em um só lugar, as pesquisas de
+          intenção de voto para <strong>presidente</strong>, <strong>governadores</strong> e{" "}
+          <strong>senadores</strong>, e delas calculamos a <strong>média do {SITE_NAME}</strong>{" "}
+          — um número único por disputa que resume o conjunto das pesquisas mais recentes,
+          reduzindo o peso de qualquer levantamento isolado.
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Não somos um instituto de pesquisa: não vamos a campo nem produzimos dados
+          próprios. O que fazemos é organizar, padronizar e dar contexto ao que já foi
+          publicado, sempre com link para a fonte original de cada número.
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Independência e neutralidade</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O projeto é <strong>independente</strong> e não é ligado a nenhuma candidatura,
+          partido, instituto ou veículo de imprensa. Não realizamos pesquisas próprias e não
+          favorecemos nenhum candidato: <strong>todos os candidatos</strong> testados em cada
+          disputa aparecem, na mesma média e nas mesmas tabelas, sob os mesmos critérios.
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          As regras de cálculo são fixas, públicas e aplicadas igualmente a todas as
+          disputas — das mais pesquisadas às menos pesquisadas. Nenhum número é estimado ou
+          inventado: quando um dado não foi publicado, aparece como &ldquo;—&rdquo;.
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Fontes</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Os números vêm de fontes públicas e verificáveis:
+        </p>
+        <ul className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          <li>
+            • As <strong>pesquisas registradas no TSE</strong> pelo sistema PesqEle, cada uma
+            identificada por seu número de registro (formato BR-…/2026).
+          </li>
+          <li>
+            • Os <strong>relatórios e divulgações dos próprios institutos</strong>, com as
+            informações metodológicas que acompanham cada levantamento.
+          </li>
+          <li>
+            • A <strong>agregação pública</strong> de tabelas de pesquisas de fontes abertas,
+            de onde partem a normalização de nomes e a remoção de duplicatas.
+          </li>
+        </ul>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Cada pesquisa no banco carrega o link para sua fonte. Os detalhes de coleta,
+          padronização e validação estão descritos na{" "}
+          <Link href="/metodologia" className="underline">metodologia</Link>.
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Como calculamos</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          A média de cada disputa é a média das pesquisas mais recentes daquela disputa, com
+          um limite por instituto para que nenhuma casa carregue o resultado sozinha. O
+          método completo — janela de pesquisas, limite por instituto, base mínima e linha do
+          tempo — está descrito em detalhe na{" "}
+          <Link href="/metodologia" className="underline">página de metodologia</Link>.
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Política de correções</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Erros acontecem — um valor digitado errado, uma pesquisa atribuída à disputa
+          errada, um nome não unificado entre fontes. Quando um erro é identificado,{" "}
+          <strong>corrigimos a fonte do dado</strong> e a correção passa a valer na próxima
+          atualização automática do site, refletindo em todas as médias e tabelas afetadas.
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          A data e a hora da última atualização aparecem no topo de todas as páginas, de modo
+          que é sempre possível saber a que versão dos dados um número se refere. Se você
+          encontrou uma divergência em relação à fonte original, avise pelo canal de contato
+          abaixo.
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Como citar</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O uso dos dados é livre, desde que citada a fonte. Sugestão de atribuição:
+        </p>
+        <p
+          className="rounded border px-3 py-2 text-sm"
+          style={{ borderColor: "var(--ring)", background: "var(--grid)", color: "var(--text-secondary)" }}
+        >
+          Fonte: {SITE_NAME} — placardaspesquisas.com.br
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Ao reproduzir uma média ou uma pesquisa específica, recomendamos indicar também a
+          data da atualização, já que os números mudam a cada novo levantamento.
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Contato</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Correções, dúvidas sobre metodologia e pedidos de imprensa são bem-vindos.
+        </p>
+        {/* TODO: preencher identidade/contato do responsável */}
+        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+          TODO: contato — canal de contato a preencher pelo responsável.
+        </p>
+      </section>
+    </article>
+  );
+}
