@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { UFS } from "@/lib/types";
 import { loadDataset, statesWithPolls } from "@/lib/data";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://placardaspesquisas.com.br";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.placardaspesquisas.com.br";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const ds = loadDataset();
