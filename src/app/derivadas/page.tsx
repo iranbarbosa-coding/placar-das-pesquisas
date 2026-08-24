@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Derivadas",
   description: "Análises derivadas das médias e pesquisas — em breve.",
+  robots: { index: false, follow: true },
 };
 
 /**
