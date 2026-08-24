@@ -126,28 +126,28 @@ export default function PresidentePage() {
         <PresidentEvolution average={evo.average} registeredKeys={evo.registeredKeys} significantKeys={evo.significantKeys} />
       </section>
 
-      {/* Row 3 — rejection (real chart; falls back to the empty-state placeholder
-          while national rejection data is still absent) */}
-      <section className="card min-w-0 p-4 sm:p-6" aria-label="Rejeição dos candidatos">
-        <RejectionChart data={rejection} />
-      </section>
+      {/* Row 3 — tendência (1/3) beside rejection (2/3). Rejection is the real
+          chart; it falls back to the empty-state placeholder while national
+          rejection data is still absent. Stacks on mobile: tendência then rejeição. */}
+      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+        <section className="card min-w-0 p-4 sm:p-6" aria-label="Tendência · 30 dias">
+          <PresidentMomentum rows={momentum} />
+        </section>
+        <section className="card min-w-0 p-4 sm:p-6" aria-label="Rejeição dos candidatos">
+          <RejectionChart data={rejection} />
+        </section>
+      </div>
 
       {/* Row 4 — runoff simulations (three matchup cards, each its own card) */}
       <section className="min-w-0" aria-label="Simulações de 2º turno">
         <RunoffSimChart data={runoff} />
       </section>
 
-      {/* Row 5 — two columns: map + pies */}
+      {/* Row 5 — two columns: map + pies (tendência moved up beside rejeição) */}
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
-        <div className="flex min-w-0 flex-col gap-6">
-          <section className="card min-w-0 p-4 sm:p-6" aria-label="Disputa por estado · 1º turno">
-            <PresidentStateMap data={mapData} />
-          </section>
-          {/* Momentum art, directly under the map. */}
-          <section className="card min-w-0 p-4 sm:p-6" aria-label="Tendência · 30 dias">
-            <PresidentMomentum rows={momentum} />
-          </section>
-        </div>
+        <section className="card min-w-0 p-4 sm:p-6" aria-label="Disputa por estado · 1º turno">
+          <PresidentStateMap data={mapData} />
+        </section>
         <section className="card min-w-0 p-4 sm:p-6" aria-label="Pesquisas por estado · 1º turno">
           <StatePies pies={pies} />
         </section>
