@@ -79,7 +79,7 @@ export default function Home() {
           />
         </section>
 
-        <HouseEffects data={house} compact maxRows={8} title="Efeito casa dos institutos" />
+        <HouseEffects data={house} compact maxRows={10} title="Efeito casa dos institutos" />
 
         {cards.length ? (
           <section className="card p-4 sm:p-6">

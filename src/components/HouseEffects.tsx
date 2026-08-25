@@ -170,9 +170,13 @@ export default function HouseEffects({
   href?: string;
 }) {
   if (!data.pollsters.length) return null;
-  const rows = typeof maxRows === "number" ? data.pollsters.slice(0, maxRows) : data.pollsters;
 
   if (compact) {
+    // Home: os institutos MAIS ATIVOS (maior nº de pesquisas), não os de maior
+    // desvio — a ordem da análise completa fica em /institutos.
+    const rows = [...data.pollsters]
+      .sort((a, b) => b.nPolls - a.nPolls || b.magnitude - a.magnitude)
+      .slice(0, maxRows ?? 10);
     return (
       <section className="card p-4 sm:p-6" aria-label="Efeito casa dos institutos">
         <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
@@ -224,7 +228,7 @@ export default function HouseEffects({
           demais pesquisas, em pontos percentuais. Corrida presidencial, 1º turno.
         </p>
 
-        <MatrixTable candidates={data.candidates} pollsters={rows} />
+        <MatrixTable candidates={data.candidates} pollsters={data.pollsters} />
 
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
           <CellLegend />
