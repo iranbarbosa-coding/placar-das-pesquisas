@@ -11,6 +11,7 @@ import { validate, dedupeById } from "./validate-data.mjs";
 import { canonicalizeCandidates, canonicalizeParties, canonicalizePollsters, sameCandidate } from "./lib/canonicalize.mjs";
 import { applyRepairs } from "./lib/repairs.mjs";
 import { loadRejection, writeRejectionProjection } from "./lib/rejection.mjs";
+import { writeCalendarProjection } from "./lib/calendar.mjs";
 import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mjs";
 import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
@@ -1049,6 +1050,15 @@ function persistStore(polls, dataset) {
     console.log(`  REJEIÇÃO INSERIDA (curada): ${p.pollster} ${p.race}/${p.state ?? "BR"} ` +
       `campo ${p.fieldwork_end ?? "?"} — ${p.results.length} candidato(s), id ${p.id}`);
   }
+
+  // O CALENDÁRIO — projeção do feed do TSE (PesqEle), tabela separada como a
+  // rejeição. `tse.records` é o snapshot diário de TODA pesquisa registrada;
+  // `writeCalendarProjection` deriva o status (agendada / já publicada) por diff
+  // com `polls` e escreve `<DESTINO>/calendar.ndjson`. Se o feed do TSE falhou
+  // nesta rodada, `tse.records` é vazio e a projeção sai vazia — sem inventar.
+  const cal = writeCalendarProjection(DESTINO, tse.records ?? [], polls, today());
+  console.log(`✓ calendário projetado: ${cal.count} registro(s) em calendar.ndjson ` +
+    `(${cal.upcoming} agendada(s) · ${cal.released} já publicada(s))`);
 
   // O RELATÓRIO DO ENSAIO — o que esta coleta FARIA com o banco, e que a rodada
   // real não diz. `ELENCO RETIDO` acima só fala do que a retenção ALCANÇA;
