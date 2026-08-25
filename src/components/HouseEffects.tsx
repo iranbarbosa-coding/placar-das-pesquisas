@@ -15,7 +15,7 @@ function tint(effect: number): { bg: string; fg: string; weight: string } {
   if (Math.abs(effect) < 0.5) return { bg: "transparent", fg: "var(--text-muted)", weight: "400" };
   const mag = Math.min(Math.abs(effect), 4) / 4; // satura em 4 p.p.
   const a = (0.08 + mag * 0.24).toFixed(2);
-  const rgb = effect > 0 ? "37,99,235" /* azul */ : "226,98,15" /* laranja */;
+  const rgb = effect > 0 ? "26,143,76" /* verde */ : "226,98,15" /* laranja */;
   return { bg: `rgba(${rgb},${a})`, fg: "var(--text-primary)", weight: "600" };
 }
 
@@ -42,7 +42,7 @@ function DivergingBars({
         {rows.map((r) => {
           const w = (Math.min(Math.abs(r.effect), maxAbs) / maxAbs) * 50;
           const pos = r.effect >= 0;
-          const color = pos ? "rgb(37,99,235)" : "rgb(226,98,15)";
+          const color = pos ? "var(--cand-green)" : "rgb(226,98,15)";
           return (
             <div key={r.pollster} className="flex items-center gap-2">
               <div className="w-[84px] shrink-0 truncate text-right text-xs" style={{ color: "var(--text-secondary)" }} title={r.pollster}>
@@ -117,7 +117,7 @@ export default function HouseEffects({ data, title = "Efeito casa" }: { data: Ho
   const CellLegend = () => (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
       <span className="inline-flex items-center gap-1.5">
-        <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(37,99,235,0.32)" }} /> superestima
+        <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(26,143,76,0.32)" }} /> superestima
       </span>
       <span className="inline-flex items-center gap-1.5">
         <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(226,98,15,0.32)" }} /> subestima
