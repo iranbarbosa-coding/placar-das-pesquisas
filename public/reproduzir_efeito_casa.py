@@ -22,6 +22,14 @@ conversão, quem espreme mais indeciso parece superestimar TODOS os candidatos).
 Isto espelha `houseEffects.ts`, cuja 1ª linha agora é
 `pollsFor(...).map(p => toBasis(p, "validos"))`.
 
+CAMPO COMPARÁVEL (correção 25/08/2026). Uma pesquisa só entra no cálculo se testa
+os DOIS primeiros colocados atuais (âncoras = as 2 colunas de maior média) E tem
+elenco ≥ MIN_FIELD (5) candidatos. Isso restringe à corrida atual e de campo cheio,
+excluindo hipotéticos reduzidos e cenários de eras passadas — onde o % em válidos de
+um minoritário incha conforme o campo encolhe (o −8,7 do Marçal era esse artefato de
+agregação de cenários, não viés real). Colunas 100% vazias são podadas: um candidato
+sem base comparável (ex.: Marçal) NÃO vira coluna — é dado insuficiente, não omissão.
+
 MÉTODO (leave-one-out). Para cada pesquisa p do instituto J na data d testando o
 candidato c, com pct JÁ em votos válidos:
 
@@ -56,6 +64,7 @@ MIN_POLLS_PER_POLLSTER = 3  # instituto precisa de ≥ isto de pesquisas na disp
 MIN_OBS_PER_CELL = 2        # célula (J,c) precisa de ≥ isto de resíduos
 MIN_CONSENSUS_POLLS = 3     # consenso só conta com ≥ isto de valores na janela
 MAX_COLUMNS = 6             # nº de colunas (candidatos) exibidas
+MIN_FIELD = 5               # elenco mínimo p/ uma pesquisa contar (campo comparável)
 
 # t de Student, bicaudal 95% (t_{df, 0.975}). Para df ausente usa 1,960.
 T95 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
@@ -357,19 +366,54 @@ def find_polls_json(argv):
     return "data/polls.json"
 
 
+def comparable_field(validos_polls, columns):
+    """CAMPO COMPARÁVEL — só a corrida ATUAL e de campo cheio. Uma pesquisa só
+    conta se (a) testa os DOIS primeiros colocados atuais (âncoras = as 2 colunas
+    de maior média: Lula e Flávio) E (b) tem elenco ≥ MIN_FIELD candidatos. Exclui
+    hipotéticos reduzidos (2–4 nomes) e cenários de eras passadas (ex.:
+    Lula×Bolsonaro antes do Flávio), onde o % em válidos de um nome incha conforme
+    o campo encolhe — artefato do tamanho do campo, não viés do instituto. Espelha
+    o bloco `comparable` de houseEffects.ts."""
+    anchors = [k for (k, _d) in columns[:2]]
+    if len(anchors) != 2:
+        return validos_polls
+    out = []
+    for p in validos_polls:
+        if len(p["results"]) < MIN_FIELD:
+            continue
+        keys = {cand_key(r["candidate"]) for r in p["results"]}
+        if all(a in keys for a in anchors):
+            out.append(p)
+    return out
+
+
+def prune_empty_columns(columns, rows):
+    """Poda colunas 100% vazias (nenhuma célula preenchida em nenhum instituto) —
+    ex.: um minoritário testado só em cenários reduzidos, agora excluídos.
+    Espelha o `keep` de houseEffects.ts. Muta as linhas in-place."""
+    keep = [i for i in range(len(columns))
+            if any(r["cells"][i] is not None for r in rows)]
+    columns = [columns[i] for i in keep]
+    for r in rows:
+        r["cells"] = [r["cells"][i] for i in keep]
+    return columns, rows
+
+
 def build(path):
     """Carrega, filtra a disputa presidencial 1º turno e devolve (colunas, linhas,
-    n_pesquisas). Fonte única de verdade também para o verificador de fidelidade."""
+    n_pesquisas_comparáveis). Fonte única de verdade também para o verificador."""
     data_dir = os.path.dirname(os.path.abspath(path))
     dataset = json.load(open(path, encoding="utf-8"))
     raw = [p for p in dataset["polls"]
            if p.get("race") == "presidente" and p.get("state") is None
            and p.get("round") == 1]
     reg = registered_keys(data_dir)
-    columns = compute_columns(raw, reg)               # colunas: converte internamente
+    columns = compute_columns(raw, reg)               # colunas: top-6 registrados
     validos = [to_validos(p) for p in raw]            # base VÁLIDOS p/ os resíduos
-    rows = house_effects(validos, columns)
-    return columns, rows, len(raw)
+    comparable = comparable_field(validos, columns)   # campo comparável (âncoras + ≥5)
+    rows = house_effects(comparable, columns)
+    columns, rows = prune_empty_columns(columns, rows)  # poda colunas vazias
+    return columns, rows, len(comparable)
 
 
 def main():
@@ -379,8 +423,8 @@ def main():
     columns, rows, npolls = build(path)
     col_disp = [disp for (_k, disp) in columns]
 
-    print(f"\nEFEITO CASA — presidencial, 1º turno · VOTOS VÁLIDOS "
-          f"({npolls} pesquisas na disputa)\n")
+    print(f"\nEFEITO CASA — presidencial, 1º turno · VOTOS VÁLIDOS · CAMPO COMPARÁVEL "
+          f"({npolls} pesquisas comparáveis)\n")
     header = ["Instituto".ljust(20), "n".rjust(3)] + [d[:8].rjust(8) for d in col_disp]
     print("  ".join(header))
     print("-" * (26 + 10 * len(col_disp)))
