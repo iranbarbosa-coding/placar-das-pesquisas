@@ -54,6 +54,8 @@ const bare = (w: string) =>
 const KNOWN_AS = new Map<string, string>([
   ["ronaldo caiado", "Caiado"],
   ["cleitinho azevedo", "Cleitinho"],
+  // Chave em forma FOLDADA (foldFull remove o cedilha): "marçal" → "marcal".
+  ["pablo marcal", "Marçal"],
 ]);
 
 const foldFull = (name: string) =>
