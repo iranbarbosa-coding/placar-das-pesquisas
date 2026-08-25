@@ -32,6 +32,10 @@ const MIN_OBS_PER_CELL = 2;
 const MIN_CONSENSUS_POLLS = 3;
 /** Quantos candidatos (colunas) exibir — os primeiros por média. */
 const MAX_COLUMNS = 6;
+/** Elenco mínimo para uma pesquisa contar: exclui hipotéticos reduzidos (2–4
+ *  nomes), onde o % em válidos de cada candidato incha por causa do tamanho do
+ *  campo, não do viés do instituto. */
+const MIN_FIELD = 5;
 
 const pollDate = (p: Poll): string | null =>
   p.fieldwork_end ?? p.published_date ?? p.fieldwork_start ?? null;
@@ -104,9 +108,26 @@ export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1)
 
   if (!polls.length || !columns.length) return { candidates: [], pollsters: [], pollCount: 0 };
 
-  // Institutos com pesquisas suficientes na disputa.
+  // CAMPO COMPARÁVEL — só a corrida ATUAL e de campo cheio. Uma pesquisa só conta
+  // se testa os DOIS primeiros colocados (as âncoras da corrida atual) e tem
+  // elenco ≥ MIN_FIELD. Isso exclui hipotéticos reduzidos (2–3 nomes) e cenários
+  // de eras passadas (ex.: Lula×Bolsonaro antes do Flávio) — onde o % em válidos
+  // de um nome depende do tamanho/composição do campo, não do viés do instituto.
+  // Sem isso, um instituto que testa um minoritário num campo pequeno o infla e
+  // contamina o consenso (o -8,7 do Marçal era isso, não viés real).
+  const anchors = columns.slice(0, 2).map((c) => c.key);
+  const comparable =
+    anchors.length === 2
+      ? polls.filter((p) => {
+          if (p.results.length < MIN_FIELD) return false;
+          const keys = new Set(p.results.map((r) => candKey(r.candidate)));
+          return anchors.every((a) => keys.has(a));
+        })
+      : polls;
+
+  // Institutos com pesquisas suficientes na disputa (no campo comparável).
   const byPollster = new Map<string, Poll[]>();
-  for (const p of polls) {
+  for (const p of comparable) {
     const k = pollsterKey(p.pollster);
     if (!byPollster.has(k)) byPollster.set(k, []);
     byPollster.get(k)!.push(p);
@@ -115,7 +136,7 @@ export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1)
   const pollsters: PollsterEffect[] = [];
   for (const [k, own] of byPollster) {
     if (own.length < MIN_POLLS_PER_POLLSTER) continue;
-    const others = polls.filter((p) => pollsterKey(p.pollster) !== k);
+    const others = comparable.filter((p) => pollsterKey(p.pollster) !== k);
     if (!others.length) continue; // sem consenso externo, não há contra o quê medir
 
     const cells: (HouseEffectCell | null)[] = columns.map((col) => {
@@ -147,9 +168,13 @@ export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1)
 
   pollsters.sort((a, b) => b.magnitude - a.magnitude || b.nPolls - a.nPolls);
 
+  // Poda colunas 100% vazias: um candidato sem NENHUMA célula com base comparável
+  // (ex.: um minoritário testado só em cenários reduzidos, agora excluídos) não
+  // vira uma coluna inteira de "—".
+  const keep = columns.map((_, i) => i).filter((i) => pollsters.some((p) => p.cells[i] !== null));
   return {
-    candidates: columns.map((c) => ({ candidate: c.candidate, party: c.party })),
-    pollsters,
-    pollCount: polls.length,
+    candidates: keep.map((i) => ({ candidate: columns[i].candidate, party: columns[i].party })),
+    pollsters: pollsters.map((p) => ({ ...p, cells: keep.map((i) => p.cells[i]) })),
+    pollCount: comparable.length,
   };
 }
