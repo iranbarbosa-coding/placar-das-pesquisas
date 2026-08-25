@@ -39,11 +39,22 @@ function Icon({ name, className = "h-6 w-6" }: { name: IconName; className?: str
 }
 type IconName = "house" | "scale" | "microscope" | "chart" | "repeat" | "users" | "shield" | "compass";
 
-/** Badge circular com ícone de linha, no estilo do mockup. */
-function Badge({ name, size = "h-12 w-12", icon = "h-6 w-6" }: { name: IconName; size?: string; icon?: string }) {
+/** Badge com ícone de linha, no estilo do mockup — círculo por padrão, ou
+ *  quadrado de cantos arredondados (`square`). */
+function Badge({
+  name,
+  size = "h-12 w-12",
+  icon = "h-6 w-6",
+  square = false,
+}: {
+  name: IconName;
+  size?: string;
+  icon?: string;
+  square?: boolean;
+}) {
   return (
     <div
-      className={`flex ${size} shrink-0 items-center justify-center rounded-full`}
+      className={`flex ${size} shrink-0 items-center justify-center ${square ? "rounded-2xl" : "rounded-full"}`}
       style={{ background: "rgba(37,99,235,0.10)", color: "var(--accent)" }}
     >
       <Icon name={name} className={icon} />
@@ -190,20 +201,25 @@ export default function InstitutosPage() {
           </div>
         </div>
 
-        {/* 4 · Cuidados para não medir ruído */}
+        {/* 4 · Cuidados para não medir ruído — três seções iguais, divididas por
+            uma linha, com o conteúdo centralizado verticalmente em cada uma. */}
         <div className="card flex flex-col p-6">
           <h3 className="text-center text-[17px] font-bold leading-tight" style={{ color: "var(--text-primary)" }}>
             Cuidados para não medir ruído
           </h3>
-          <ul className="mt-5 space-y-4">
-            {GUARDS.map((g) => (
-              <li key={g.label} className="flex items-center gap-3">
-                <Badge name={g.icon} size="h-11 w-11" icon="h-5 w-5" />
+          <ul className="mt-2 flex flex-1 flex-col">
+            {GUARDS.map((g, i) => (
+              <li
+                key={g.label}
+                className="flex flex-1 items-center gap-4 py-4"
+                style={i > 0 ? { borderTop: "1px solid var(--grid)" } : undefined}
+              >
+                <Badge name={g.icon} size="h-14 w-14" icon="h-7 w-7" square />
                 <div className="min-w-0">
-                  <div className="tabular text-xl font-bold leading-none" style={{ color: "var(--text-primary)" }}>
+                  <div className="tabular text-2xl font-bold leading-none" style={{ color: "var(--text-primary)" }}>
                     {g.n}
                   </div>
-                  <div className="mt-1 text-xs leading-snug" style={{ color: "var(--text-secondary)" }}>
+                  <div className="mt-1.5 text-sm leading-snug" style={{ color: "var(--text-secondary)" }}>
                     {g.label}
                   </div>
                 </div>
