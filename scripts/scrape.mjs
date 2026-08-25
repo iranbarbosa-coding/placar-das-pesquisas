@@ -935,7 +935,7 @@ async function main() {
   fs.renameSync(tmp, DATA);
   console.log(`OK: ${polls.length} pesquisas gravadas em ${path.relative(ROOT, DATA)}`);
 
-  persistStore(polls, dataset);
+  persistStore(polls, dataset, tse);
 }
 
 /**
@@ -964,7 +964,7 @@ async function main() {
  * cruzadas — registrando a divergência em conflicts.ndjson em vez de escolher
  * em silêncio.
  */
-function persistStore(polls, dataset) {
+function persistStore(polls, dataset, tse) {
   const runDate = today();
   const { store, report } = buildStoreFromPolls(polls, {
     runDate,
