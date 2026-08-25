@@ -16,6 +16,8 @@ import {
 } from "@/lib/home";
 import { candKey } from "@/lib/average";
 import { upcomingPolls } from "@/lib/calendar";
+import { houseEffects } from "@/lib/houseEffects";
+import HouseEffects from "@/components/HouseEffects";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 
@@ -41,6 +43,7 @@ export default function Home() {
   const map = stateMapData();
   const newPoll = newestPoll();
   const upcoming = upcomingPolls(6);
+  const house = houseEffects("presidente", null, 1);
   const registeredKeys = registeredPresidentKeys();
 
   // Answer-first lede: a single crawlable, quotable sentence stating the current
@@ -75,6 +78,8 @@ export default function Home() {
             registeredKeys={registeredKeys}
           />
         </section>
+
+        <HouseEffects data={house} compact maxRows={8} title="Efeito casa dos institutos" />
 
         {cards.length ? (
           <section className="card p-4 sm:p-6">
