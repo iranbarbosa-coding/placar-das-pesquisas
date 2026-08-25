@@ -101,20 +101,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               wordmark + tagline, rendered as themed text so it adapts to both
               themes natively (no white-box raster to card off). */}
           <div className="mb-5 flex flex-col items-center gap-2">
-            <div className="flex items-center gap-2.5">
+            {/* Mesma proporção/estilo do lockup do cabeçalho (Masthead). */}
+            <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/placar-icon.png" alt="" aria-hidden="true" className="h-10 w-10 sm:h-12 sm:w-12" />
-              <span className="text-left leading-[0.9]">
-                <span className="block text-lg font-extrabold uppercase tracking-tight sm:text-xl" style={{ color: "var(--text-primary)" }}>
+              <img src="/brand/placar-icon.png" alt="" aria-hidden="true" className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+              <span className="text-left leading-[0.92]">
+                <span className="block text-[17px] font-extrabold uppercase tracking-tight" style={{ color: "var(--text-primary)" }}>
                   Placar
                 </span>
-                <span className="block text-lg font-extrabold uppercase tracking-tight sm:text-xl">
-                  <span className="align-top text-[11px]" style={{ color: "var(--text-muted)" }}>das </span>
+                <span className="block text-[17px] font-extrabold uppercase tracking-tight">
+                  <span className="align-top text-[10px]" style={{ color: "var(--text-muted)" }}>das </span>
                   <span style={{ color: "var(--accent)" }}>Pesquisas</span>
                 </span>
               </span>
             </div>
-            <p className="text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--text-muted)" }}>{SITE_TAGLINE}</p>
+            <p className="mt-1 text-[11px] uppercase tracking-[0.14em]" style={{ color: "var(--text-muted)" }}>{SITE_TAGLINE}</p>
           </div>
           <p className="mx-auto max-w-2xl px-4">
             Dados compilados de fontes públicas (Wikipédia, registros do TSE/PesqEle e divulgações dos

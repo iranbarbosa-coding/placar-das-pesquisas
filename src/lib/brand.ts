@@ -19,4 +19,4 @@
  */
 export const SITE_NAME = "Placar das Pesquisas";
 export const SITE_YEAR = "2026";
-export const SITE_TAGLINE = "A média que você pode refazer";
+export const SITE_TAGLINE = "A média que revela o padrão";
