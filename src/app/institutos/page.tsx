@@ -203,7 +203,8 @@ export default function InstitutosPage() {
             uma linha, com o conteúdo centralizado verticalmente em cada uma. */}
         <div className="card flex flex-col p-6">
           <h3 className="text-center text-[17px] font-bold leading-tight" style={{ color: "var(--text-primary)" }}>
-            Cuidados para não medir ruído
+            Cuidados para não{" "}
+            <span className="whitespace-nowrap">medir ruído</span>
           </h3>
           <ul className="mt-2 flex flex-1 flex-col">
             {GUARDS.map((g, i) => (
