@@ -118,23 +118,25 @@ export default function InstitutosPage() {
 
         {/* 2 · Não é erro nem fraude */}
         <div className="card flex flex-col p-6">
-          <div className="relative mb-4 flex items-center justify-center">
-            <div className="absolute left-0">
-              <Badge name="scale" />
+          {/* Cabeçalho: ícone à ESQUERDA, com o título + a pill agrupados ao lado
+              (em paralelo) — o ícone nunca sobrepõe o texto. */}
+          <div className="mb-4 flex items-center gap-3">
+            <Badge name="scale" size="h-11 w-11" icon="h-6 w-6" square />
+            <div className="min-w-0 flex-1 text-center">
+              <h3 className="text-base font-bold leading-tight" style={{ color: "var(--text-primary)" }}>
+                Não é erro nem fraude
+              </h3>
+              <div className="mt-2 flex justify-center">
+                <span
+                  className="inline-flex whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold"
+                  style={{ background: "var(--surface-2)", color: "var(--text-secondary)" }}
+                >
+                  Efeito casa ≠ fraude
+                </span>
+              </div>
             </div>
-            <h3 className="text-center text-[17px] font-bold leading-tight" style={{ color: "var(--text-primary)" }}>
-              Não é erro nem fraude
-            </h3>
           </div>
-          <div className="flex justify-center">
-            <span
-              className="inline-flex rounded-full px-3 py-1 text-xs font-semibold"
-              style={{ background: "var(--surface-2)", color: "var(--text-secondary)" }}
-            >
-              Efeito casa ≠ fraude
-            </span>
-          </div>
-          <p className="mt-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             O efeito casa pode refletir <strong style={{ color: "var(--text-primary)" }}>diferenças legítimas</strong>{" "}
             na metodologia entre os institutos.
           </p>
