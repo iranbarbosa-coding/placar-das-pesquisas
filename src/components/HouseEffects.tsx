@@ -159,6 +159,7 @@ export default function HouseEffects({
   compact = false,
   maxRows,
   href = "/institutos",
+  hideLegendNote = false,
 }: {
   data: HouseEffectsData;
   title?: string;
@@ -168,6 +169,9 @@ export default function HouseEffects({
   maxRows?: number;
   /** Destino do "análise completa" no modo compacto. */
   href?: string;
+  /** Oculta a legenda de cor + a nota de método na matriz — quando a página já
+   *  as mostra em outro lugar (ex.: a faixa "Como ler"). */
+  hideLegendNote?: boolean;
 }) {
   if (!data.pollsters.length) return null;
 
@@ -230,14 +234,18 @@ export default function HouseEffects({
 
         <MatrixTable candidates={data.candidates} pollsters={data.pollsters} />
 
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
-          <CellLegend />
-          <span>— = sem base suficiente</span>
-        </div>
-        <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
-          Desvio sistemático pode refletir metodologia legítima (amostragem, modo de coleta), não fraude. Média
-          excluindo o próprio instituto (leave-one-out), pela mesma regra de janela do site.
-        </p>
+        {!hideLegendNote && (
+          <>
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+              <CellLegend />
+              <span>— = sem base suficiente</span>
+            </div>
+            <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
+              Desvio sistemático pode refletir metodologia legítima (amostragem, modo de coleta), não fraude. Média
+              excluindo o próprio instituto (leave-one-out), pela mesma regra de janela do site.
+            </p>
+          </>
+        )}
       </section>
 
       {charts.length > 0 && (
