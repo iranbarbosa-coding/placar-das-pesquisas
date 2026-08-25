@@ -89,6 +89,27 @@ export default function InstitutosPage() {
         O <strong style={{ color: "var(--text-primary)" }}>efeito casa</strong> de cada instituto — o quanto
         tende a super ou subestimar cada candidato ante a média das demais pesquisas.
       </p>
+      <p className="mt-3">
+        <a
+          href="/comprovacao-efeito-casa.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-semibold"
+          style={{ color: "var(--accent)" }}
+        >
+          Comprovação matemática e reprodução independente (PDF) <span aria-hidden="true">→</span>
+        </a>
+      </p>
+      <p className="mt-1 text-xs" style={{ color: "var(--text-muted)" }}>
+        Verifique você mesmo:{" "}
+        <a href="/reproduzir_efeito_casa.py" className="underline" style={{ color: "var(--text-secondary)" }}>
+          script Python
+        </a>{" "}
+        ·{" "}
+        <a href="/matriz_efeito_casa.csv" className="underline" style={{ color: "var(--text-secondary)" }}>
+          CSV da matriz
+        </a>
+      </p>
 
       {/* Explicação — quatro cards (conforme o design aprovado). */}
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

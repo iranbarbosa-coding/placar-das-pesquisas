@@ -1,0 +1,97 @@
+instituto,n_pesquisas,candidato,efeito,n_observacoes,erro_padrao,erro_padrao_bloco,gl,t,significativo_95
+AtlasIntel,25,Lula,5.6,24,0.66,0.87,23,6.4,sim
+AtlasIntel,25,Flávio Bolsonaro,-2.4,10,0.61,0.56,9,4.4,sim
+AtlasIntel,25,Renan Santos,2.8,7,0.44,0.52,6,5.4,sim
+AtlasIntel,25,Ronaldo Caiado,-0.5,21,0.53,0.61,20,0.9,nao
+AtlasIntel,25,Pablo Marçal,-8.7,6,1.24,1.23,5,7.1,sim
+AtlasIntel,25,Zema,-1.5,20,0.24,0.25,19,6.2,sim
+Gerp,19,Lula,-4.6,16,0.74,0.98,15,4.7,sim
+Gerp,19,Flávio Bolsonaro,4.8,10,0.92,0.91,9,5.2,sim
+Gerp,19,Renan Santos,-0.6,9,0.45,0.45,8,1.3,nao
+Gerp,19,Ronaldo Caiado,-0.8,19,0.33,0.41,18,2.1,nao
+Gerp,19,Pablo Marçal,-4.1,5,0.68,,4,6.0,sim
+Gerp,19,Zema,-0.3,18,0.29,0.32,17,0.9,nao
+Alfa/TMC,3,Lula,0.2,3,1.20,,2,0.1,nao
+Alfa/TMC,3,Flávio Bolsonaro,-4.8,3,0.35,,2,13.7,sim
+Alfa/TMC,3,Renan Santos,-1.5,3,0.18,,2,8.5,sim
+Alfa/TMC,3,Ronaldo Caiado,2.7,2,0.23,,1,11.9,nao
+Alfa/TMC,3,Pablo Marçal,,0,,,,,
+Alfa/TMC,3,Zema,2.5,3,0.85,,2,3.0,nao
+Futura,18,Lula,-1.8,14,0.90,0.83,13,2.2,sim
+Futura,18,Flávio Bolsonaro,6.3,8,1.69,1.98,7,3.2,sim
+Futura,18,Renan Santos,-0.1,9,0.31,0.33,8,0.3,nao
+Futura,18,Ronaldo Caiado,1.8,16,0.62,0.60,15,2.9,sim
+Futura,18,Pablo Marçal,,0,,,,,
+Futura,18,Zema,0.4,14,0.51,0.58,13,0.7,nao
+Paraná Pesquisas,20,Lula,-1.4,12,0.78,0.71,11,2.0,nao
+Paraná Pesquisas,20,Flávio Bolsonaro,5.8,3,2.06,,2,2.8,nao
+Paraná Pesquisas,20,Renan Santos,-0.8,3,0.15,,2,5.4,sim
+Paraná Pesquisas,20,Ronaldo Caiado,-0.2,10,0.55,0.46,9,0.5,nao
+Paraná Pesquisas,20,Pablo Marçal,,0,,,,,
+Paraná Pesquisas,20,Zema,-0.1,6,0.73,0.58,5,0.1,nao
+Real Time Big Data,7,Lula,-0.4,6,1.14,1.16,5,0.3,nao
+Real Time Big Data,7,Flávio Bolsonaro,-2.0,6,1.14,1.24,5,1.6,nao
+Real Time Big Data,7,Renan Santos,1.9,5,1.20,,4,1.6,nao
+Real Time Big Data,7,Ronaldo Caiado,2.0,5,0.81,,4,2.4,nao
+Real Time Big Data,7,Pablo Marçal,,0,,,,,
+Real Time Big Data,7,Zema,2.3,7,2.12,1.53,6,1.5,nao
+Veritá,4,Lula,-3.3,4,0.82,,3,4.0,sim
+Veritá,4,Flávio Bolsonaro,3.4,4,0.73,,3,4.7,sim
+Veritá,4,Renan Santos,-0.3,4,0.27,,3,1.0,nao
+Veritá,4,Ronaldo Caiado,-1.3,4,0.13,,3,9.9,sim
+Veritá,4,Pablo Marçal,,0,,,,,
+Veritá,4,Zema,0.1,4,1.08,,3,0.1,nao
+MDA,8,Lula,-0.8,8,1.78,2.08,7,0.4,nao
+MDA,8,Flávio Bolsonaro,-3.9,3,0.23,,2,16.7,sim
+MDA,8,Renan Santos,-1.1,3,0.53,,2,2.1,nao
+MDA,8,Ronaldo Caiado,-0.6,7,0.40,0.41,6,1.5,nao
+MDA,8,Pablo Marçal,,0,,,,,
+MDA,8,Zema,-1.1,7,0.79,0.61,6,1.8,nao
+Data Index,3,Lula,3.0,3,0.31,,2,9.6,sim
+Data Index,3,Flávio Bolsonaro,-2.0,3,0.75,,2,2.7,nao
+Data Index,3,Renan Santos,-0.6,3,0.38,,2,1.6,nao
+Data Index,3,Ronaldo Caiado,1.6,3,0.32,,2,5.0,sim
+Data Index,3,Pablo Marçal,,0,,,,,
+Data Index,3,Zema,-0.4,3,0.42,,2,1.0,nao
+Quaest,20,Lula,0.7,20,0.85,0.97,19,0.7,nao
+Quaest,20,Flávio Bolsonaro,-0.5,10,0.80,0.98,9,0.5,nao
+Quaest,20,Renan Santos,-0.4,8,0.16,0.16,7,2.5,sim
+Quaest,20,Ronaldo Caiado,-0.8,17,0.35,0.37,16,2.1,nao
+Quaest,20,Pablo Marçal,3.4,2,1.71,,1,2.0,nao
+Quaest,20,Zema,-0.6,17,0.30,0.29,16,2.2,sim
+Ideia,8,Lula,0.8,8,0.74,0.68,7,1.2,nao
+Ideia,8,Flávio Bolsonaro,1.0,6,1.36,0.87,5,1.1,nao
+Ideia,8,Renan Santos,-0.7,8,0.35,0.27,7,2.5,sim
+Ideia,8,Ronaldo Caiado,1.4,6,0.69,0.48,5,2.9,sim
+Ideia,8,Pablo Marçal,,0,,,,,
+Ideia,8,Zema,0.1,8,0.39,0.28,7,0.5,nao
+PoderData,5,Lula,-1.6,5,0.46,,4,3.6,sim
+PoderData,5,Flávio Bolsonaro,0.8,5,0.71,,4,1.1,nao
+PoderData,5,Renan Santos,0.5,5,0.64,,4,0.8,nao
+PoderData,5,Ronaldo Caiado,-0.9,5,0.25,,4,3.6,sim
+PoderData,5,Pablo Marçal,,0,,,,,
+PoderData,5,Zema,0.0,5,0.26,,4,0.1,nao
+100% Cidades Participações,4,Lula,-1.4,3,2.88,,2,0.5,nao
+100% Cidades Participações,4,Flávio Bolsonaro,0.5,4,1.59,,3,0.3,nao
+100% Cidades Participações,4,Renan Santos,-0.2,4,0.64,,3,0.3,nao
+100% Cidades Participações,4,Ronaldo Caiado,0.1,3,0.37,,2,0.3,nao
+100% Cidades Participações,4,Pablo Marçal,,0,,,,,
+100% Cidades Participações,4,Zema,1.7,4,1.97,,3,0.9,nao
+Datafolha,12,Lula,0.7,11,0.76,0.58,10,1.2,nao
+Datafolha,12,Flávio Bolsonaro,-1.1,8,0.86,0.92,7,1.3,nao
+Datafolha,12,Renan Santos,0.0,7,0.32,0.26,6,0.2,nao
+Datafolha,12,Ronaldo Caiado,0.7,11,0.58,0.66,10,1.0,nao
+Datafolha,12,Pablo Marçal,,0,,,,,
+Datafolha,12,Zema,0.9,12,0.64,0.83,11,1.1,nao
+Vox,5,Lula,-0.4,5,1.59,,4,0.2,nao
+Vox,5,Flávio Bolsonaro,-0.6,5,1.01,,4,0.6,nao
+Vox,5,Renan Santos,-1.2,5,0.33,,4,3.6,sim
+Vox,5,Ronaldo Caiado,1.2,5,0.64,,4,1.9,nao
+Vox,5,Pablo Marçal,,0,,,,,
+Vox,5,Zema,-0.2,5,0.49,,4,0.3,nao
+Nexus,10,Lula,-0.8,10,0.39,0.30,9,2.6,sim
+Nexus,10,Flávio Bolsonaro,0.5,10,0.62,0.57,9,0.9,nao
+Nexus,10,Renan Santos,0.4,10,0.26,0.27,9,1.4,nao
+Nexus,10,Ronaldo Caiado,0.1,9,0.30,0.15,8,0.7,nao
+Nexus,10,Pablo Marçal,,0,,,,,
+Nexus,10,Zema,0.1,10,0.37,0.37,9,0.2,nao
