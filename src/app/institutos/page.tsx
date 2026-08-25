@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { pollsters, fmtDate } from "@/lib/data";
+import { houseEffects } from "@/lib/houseEffects";
 import InstitutosSearch from "@/components/InstitutosSearch";
+import HouseEffects from "@/components/HouseEffects";
 
 export const metadata: Metadata = {
   title: "Institutos",
@@ -16,12 +18,15 @@ export default function InstitutosPage() {
     races: p.races,
     latest: fmtDate(p.latest),
   }));
+  const house = houseEffects("presidente", null, 1);
   return (
     <div>
       <h1 className="text-2xl font-bold">Institutos de pesquisa</h1>
       <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
         Todos os institutos com pesquisas no banco de dados, ordenados por volume publicado.
       </p>
+
+      <HouseEffects data={house} />
 
       <InstitutosSearch list={list} />
 
