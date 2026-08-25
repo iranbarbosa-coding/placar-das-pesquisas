@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import HeroChart, {
   heroSeries,
   heroChartModel,
@@ -112,9 +112,12 @@ export interface HeroInteractiveProps {
    *  date. The values themselves stay computed here — this only reports WHICH
    *  date is active. */
   onHoverDate?: (date: string | null) => void;
+  /** Nota curta ("Última pesquisa em …") mostrada à direita da legenda do 50%,
+   *  dentro do quadro do gráfico — economiza a linha separada abaixo dele. */
+  lastPollNote?: ReactNode;
 }
 
-export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)", showOutros = true, showKpis = true, onHoverDate }: HeroInteractiveProps) {
+export default function HeroInteractive({ average, maxSeries = 6, cutoff = null, significantKeys = [], registeredKeys = [], chartHeightClass = "h-[200px] sm:h-[240px]", fiftyLabel = "50% (vitória no 1º turno)", showOutros = true, showKpis = true, onHoverDate, lastPollNote }: HeroInteractiveProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
   const [outrosOpen, setOutrosOpen] = useState(false);
@@ -268,55 +271,60 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
         // of the ragged widths a flex-wrap gives with names of different lengths.
         // From `sm` up (where the whole field fits one row) it reverts to wrap.
         <ul className={`grid grid-cols-2 sm:flex sm:flex-wrap ${gapCls}`}>
-          {buckets.map((k) => (
-            <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
-              <span className={`tabular font-bold leading-none ${numCls}`} style={{ color: k.color }}>
-                {fmtPct(activePcts.get(k.key) ?? 0)}
-                <span className="text-[0.55em] font-bold align-baseline">%</span>
-              </span>
-              <span className="flex items-center gap-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
-                <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
-                <span className="truncate">
-                  {k.name}
-                  {k.party ? <span style={{ color: "var(--text-muted)" }}> ({k.party})</span> : null}
+          {buckets.map((k) => {
+            // A célula "Outros" É o próprio expansor: mostra "Outros · N ▾" e
+            // abre a lista abaixo. Só vira botão quando há sub-5% nomeados.
+            const isOutrosToggle = showKpis && k.key === "__outros" && namedNonSig.length > 0;
+            return (
+              <li key={k.key} className="flex min-w-0 flex-col gap-0.5">
+                <span className={`tabular font-bold leading-none ${numCls}`} style={{ color: k.color }}>
+                  {fmtPct(activePcts.get(k.key) ?? 0)}
+                  <span className="text-[0.55em] font-bold align-baseline">%</span>
                 </span>
+                {isOutrosToggle ? (
+                  <button
+                    type="button"
+                    onClick={() => setOutrosOpen((o) => !o)}
+                    aria-expanded={outrosOpen}
+                    className="flex items-center gap-1 text-[11px]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
+                    <span className="truncate">{k.name}</span>
+                    <span style={{ color: "var(--text-muted)" }}>· {namedNonSig.length}</span>
+                    <span aria-hidden="true" style={{ color: "var(--text-muted)" }}>{outrosOpen ? "▴" : "▾"}</span>
+                  </button>
+                ) : (
+                  <span className="flex items-center gap-1 text-[11px]" style={{ color: "var(--text-secondary)" }}>
+                    <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: k.color }} />
+                    <span className="truncate">
+                      {k.name}
+                      {k.party ? <span style={{ color: "var(--text-muted)" }}> ({k.party})</span> : null}
+                    </span>
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
+      {/* A lista expandida de quem está em "Outros": os sub-5% REGISTRADOS, com
+          seu valor na base atual. Aberta pelo próprio KPI "Outros" acima. */}
+      {showKpis && namedNonSig.length > 0 && outrosOpen && (
+        <ul className="flex flex-col gap-0.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+          {namedNonSig.map((c) => (
+            <li key={candKey(c.candidate)} className="flex items-baseline justify-between gap-3">
+              <span className="min-w-0 truncate">
+                {displayName(c.candidate)}
+                {c.party ? <span style={{ color: "var(--text-muted)" }}> ({c.party})</span> : null}
+              </span>
+              <span className="tabular shrink-0" style={{ color: "var(--text-muted)" }}>
+                {fmtPct(fin(c.avg))}%
               </span>
             </li>
           ))}
         </ul>
-      )}
-
-      {/* Expandable "who is in Outros": the REGISTERED sub-5% candidates, each
-          with their current-basis value. Non-registered names are NOT listed —
-          only their share is inside the "Outros" total. Reflects basis, not hover. */}
-      {showKpis && namedNonSig.length > 0 && (
-        <div className="text-xs">
-          <button
-            type="button"
-            onClick={() => setOutrosOpen((o) => !o)}
-            aria-expanded={outrosOpen}
-            className="inline-flex items-center gap-1"
-            style={{ color: "var(--text-muted)" }}
-          >
-            Outros: {namedNonSig.length} candidato{namedNonSig.length === 1 ? "" : "s"}
-            <span aria-hidden="true">{outrosOpen ? "▴" : "▾"}</span>
-          </button>
-          {outrosOpen && (
-            <ul className="mt-1 flex flex-col gap-0.5" style={{ color: "var(--text-secondary)" }}>
-              {namedNonSig.map((c) => (
-                <li key={candKey(c.candidate)} className="flex items-baseline justify-between gap-3">
-                  <span className="min-w-0 truncate">
-                    {displayName(c.candidate)}
-                    {c.party ? <span style={{ color: "var(--text-muted)" }}> ({c.party})</span> : null}
-                  </span>
-                  <span className="tabular shrink-0" style={{ color: "var(--text-muted)" }}>
-                    {fmtPct(fin(c.avg))}%
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
       )}
 
       {/* The framed chart. */}
@@ -433,9 +441,12 @@ export default function HeroInteractive({ average, maxSeries = 6, cutoff = null,
         {/* Only the 50% line needs a legend: the candidates are already colour-
             coded with their values in the KPI row above the chart, so repeating
             them here is redundant. */}
-        <div className="mt-2 flex items-center gap-1.5 text-[11px]" style={{ color: "var(--text-muted)" }}>
-          <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
-          {fiftyLabel}
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+          <span className="inline-flex items-center gap-1.5">
+            <span aria-hidden="true" className="inline-block h-0 w-3.5 border-t border-dashed" style={{ borderColor: "var(--axis)" }} />
+            {fiftyLabel}
+          </span>
+          {lastPollNote ? <span className="text-right">{lastPollNote}</span> : null}
         </div>
       </div>
     </>

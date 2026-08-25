@@ -120,7 +120,6 @@ export default function Hero({
   const series = heroSeries(average, maxSeries);
   const validos = average?.basis === "validos";
   const basisLabel = validos ? "votos válidos" : "total da amostra";
-  const hidden = average ? Math.max(0, average.candidates.length - series.length) : 0;
   const hasChart = series.length > 0;
   const cutoff = cutoffFor(range, average?.lastPollDate ?? null);
 
@@ -185,16 +184,25 @@ export default function Hero({
             )}
           </div>
 
-          {/* The reactive core: KPI row + framed, hoverable chart. */}
-          <HeroInteractive average={average} maxSeries={maxSeries} cutoff={cutoff} significantKeys={significantKeys} registeredKeys={registeredKeys} />
-
-          {average && hasChart && (
-            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              Última pesquisa em {fmtDate(average.lastPollDate)}
-              {scenario ? ` · ${scenario}` : ""}
-              {hidden > 0 ? ` · ${hidden} candidato${hidden === 1 ? "" : "s"} fora do gráfico` : ""}
-            </p>
-          )}
+          {/* The reactive core: KPI row + framed, hoverable chart. The
+              "última pesquisa" note rides inside the chart's 50% legend row now
+              (space-saving), sem a contagem de candidatos — já atacada no KPI
+              "Outros" acima. */}
+          <HeroInteractive
+            average={average}
+            maxSeries={maxSeries}
+            cutoff={cutoff}
+            significantKeys={significantKeys}
+            registeredKeys={registeredKeys}
+            lastPollNote={
+              average && hasChart ? (
+                <>
+                  Última pesquisa em {fmtDate(average.lastPollDate)}
+                  {scenario ? ` · ${scenario}` : ""}
+                </>
+              ) : undefined
+            }
+          />
 
           {!headline && (
             <p className="max-w-[64ch] text-sm" style={{ color: "var(--text-secondary)" }}>
