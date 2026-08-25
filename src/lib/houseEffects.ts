@@ -19,6 +19,7 @@
 import { candKey, selectWindow, sortPollsDesc } from "./average";
 import { pollsFor } from "./data";
 import { raceEvolutionData } from "./presidente";
+import { toBasis } from "./validos";
 import type { Poll, RaceKind, UF } from "./types";
 
 /** Instituto precisa de ao menos isto de pesquisas na disputa para ter efeito. */
@@ -84,7 +85,14 @@ export interface HouseEffectsData {
  * Server-only (alcança `node:fs`).
  */
 export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1): HouseEffectsData {
-  const polls = pollsFor(race, state, round);
+  // Medimos o viés em VOTOS VÁLIDOS, não na base bruta. Os institutos alocam
+  // indecisos de forma diferente, então a base bruta não é comparável entre
+  // eles: um instituto que "força" a escolha (menos indeciso, base bruta mais
+  // alta) apareceria superestimando TODOS os candidatos — um artefato de base,
+  // não um viés por candidato. Converter cada pesquisa a válidos ANTES de
+  // qualquer conta (regra 1 de `toBasis`) coloca instituto e consenso na mesma
+  // base e isola o desvio real por candidato.
+  const polls = pollsFor(race, state, round).map((p) => toBasis(p, "validos"));
   const evo = raceEvolutionData(race, state, round);
   const reg = new Set(evo.registeredKeys);
 
