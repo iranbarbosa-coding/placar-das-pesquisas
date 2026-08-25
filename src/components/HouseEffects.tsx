@@ -114,18 +114,30 @@ export default function HouseEffects({ data, title = "Efeito casa" }: { data: Ho
     Math.ceil(Math.max(0, ...charts.flatMap((c) => c.rows.map((r) => Math.abs(r.effect))))),
   );
 
-  return (
-    <section className="card mt-6 p-4 sm:p-6" aria-label="Efeito casa dos institutos">
-      <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-        {title}
-      </h2>
-      <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
-        Quanto cada instituto tende a <strong style={{ color: "var(--text-primary)" }}>super</strong> ou{" "}
-        <strong style={{ color: "var(--text-primary)" }}>subestimar</strong> cada candidato ante a média das
-        demais pesquisas, em pontos percentuais. Corrida presidencial, 1º turno.
-      </p>
+  const CellLegend = () => (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+      <span className="inline-flex items-center gap-1.5">
+        <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(37,99,235,0.32)" }} /> superestima
+      </span>
+      <span className="inline-flex items-center gap-1.5">
+        <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(226,98,15,0.32)" }} /> subestima
+      </span>
+    </div>
+  );
 
-      <div className="mt-3 overflow-x-auto">
+  return (
+    <>
+      <section className="card mt-6 p-4 sm:p-6" aria-label="Efeito casa dos institutos">
+        <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+          {title}
+        </h2>
+        <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+          Quanto cada instituto tende a <strong style={{ color: "var(--text-primary)" }}>super</strong> ou{" "}
+          <strong style={{ color: "var(--text-primary)" }}>subestimar</strong> cada candidato ante a média das
+          demais pesquisas, em pontos percentuais. Corrida presidencial, 1º turno.
+        </p>
+
+        <div className="mt-3 overflow-x-auto">
         <table className="w-full min-w-[520px] border-collapse text-sm">
           <thead>
             <tr style={{ color: "var(--text-muted)" }}>
@@ -157,32 +169,35 @@ export default function HouseEffects({ data, title = "Efeito casa" }: { data: Ho
         </table>
       </div>
 
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+          <CellLegend />
+          <span>— = sem base suficiente</span>
+        </div>
+        <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
+          Desvio sistemático pode refletir metodologia legítima (amostragem, modo de coleta), não fraude. Média
+          excluindo o próprio instituto (leave-one-out), pela mesma regra de janela do site.
+        </p>
+      </section>
+
       {charts.length > 0 && (
-        <>
-          <h3 className="mt-6 text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
-            Por candidato líder
-          </h3>
-          <div className="mt-2 grid gap-6 sm:grid-cols-2">
+        <section className="card mt-6 p-4 sm:p-6" aria-label="Efeito casa por candidato líder">
+          <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+            Efeito casa · por candidato líder
+          </h2>
+          <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+            O quanto cada instituto desvia da média nos dois primeiros colocados. Barra à direita superestima, à
+            esquerda subestima; escala compartilhada entre os dois.
+          </p>
+          <div className="mt-4 grid gap-6 sm:grid-cols-2">
             {charts.map((c) => (
               <DivergingBars key={c.candidate} candidate={c.candidate} rows={c.rows} maxAbs={chartMax} />
             ))}
           </div>
-        </>
+          <div className="mt-3">
+            <CellLegend />
+          </div>
+        </section>
       )}
-
-      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
-        <span className="inline-flex items-center gap-1.5">
-          <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(37,99,235,0.32)" }} /> superestima
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(226,98,15,0.32)" }} /> subestima
-        </span>
-        <span>— = sem base suficiente</span>
-      </div>
-      <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
-        Desvio sistemático pode refletir metodologia legítima (amostragem, modo de coleta), não fraude. Média
-        excluindo o próprio instituto (leave-one-out), pela mesma regra de janela do site.
-      </p>
-    </section>
+    </>
   );
 }
