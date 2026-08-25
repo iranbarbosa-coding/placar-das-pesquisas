@@ -81,7 +81,9 @@ const MENUS: Menu[] = [
     key: "derivadas",
     label: "Derivadas",
     href: "/derivadas",
-    links: [{ href: "/derivadas", label: "Análises derivadas", note: "Em breve" }],
+    links: [
+      { href: "/institutos", label: "Viés dos Institutos", note: "Efeito casa: quanto cada instituto desvia da média" },
+    ],
   },
   {
     key: "metodologia",
@@ -89,7 +91,6 @@ const MENUS: Menu[] = [
     href: "/metodologia",
     links: [
       { href: "/metodologia", label: "Como a média é calculada", note: "Janela, limite por instituto, base mínima" },
-      { href: "/institutos", label: "Institutos", note: "Todas as casas com pesquisas no banco" },
     ],
   },
   {
