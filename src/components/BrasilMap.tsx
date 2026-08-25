@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import Link from "next/link";
+import MapInteractive from "./MapInteractive";
 import { shortName } from "@/lib/names";
 import type { MapStatus } from "@/lib/home";
 import { UF_NAMES } from "@/lib/types";
@@ -133,22 +135,18 @@ export default function BrasilMap({
     `<style>` +
     `#brasil-map svg{width:100%;height:auto;display:block}` +
     `#brasil-map path{stroke:var(--surface-1);stroke-width:1.2;stroke-linejoin:round;transition:fill .2s}` +
-    `#brasil-map .estado{cursor:default}` +
+    `#brasil-map .estado{cursor:pointer}` +
+    `#brasil-map .estado:hover path,#brasil-map .estado:hover{opacity:.85}` +
     rules +
     `</style>` +
     svgWithTitles;
   return (
     <>
-      {/* role="img" + aria-label gives the choropleth a single accessible name
-          and prunes the decorative raw SVG paths from the accessibility tree, so
-          a screen reader announces the summary, not hundreds of <path> nodes.
-          The SVG is a trusted local asset committed to the repo, not user input. */}
-      <div
-        id="brasil-map"
-        role="img"
-        aria-label={label}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      {/* Casca client que torna cada estado clicável (navega para /estados/UF).
+          role="img" + aria-label dá ao choropleth um nome acessível único e poda
+          os paths decorativos da árvore de acessibilidade; o teclado/leitor de
+          tela usa a tabela com LINKS abaixo. SVG é asset local confiável. */}
+      <MapInteractive html={html} id="brasil-map" label={label} />
       {/* Visually hidden, screen-reader-available equivalent of the map, built
           from the same `map` data that colours it. `sr-only` is Tailwind's
           built-in utility (used elsewhere in the app). */}
@@ -164,7 +162,9 @@ export default function BrasilMap({
         <tbody>
           {map.map((d) => (
             <tr key={d.uf}>
-              <th scope="row">{d.name ?? UF_NAMES[d.uf]}</th>
+              <th scope="row">
+                <Link href={`/estados/${d.uf.toLowerCase()}`}>{d.name ?? UF_NAMES[d.uf]}</Link>
+              </th>
               <td>
                 {d.leader
                   ? shortName(d.leader) + (d.leaderPct != null ? ` — ${d.leaderPct}%` : "")

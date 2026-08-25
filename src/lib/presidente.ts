@@ -601,6 +601,10 @@ export interface PresidentMapDatum {
   leader: string | null;
   leaderPct: number | null;
   spread: number | null;
+  /** = spread; alimenta o tooltip de hover do BrasilMap (distância ao 2º). */
+  margin?: number | null;
+  /** Nome do 2º colocado (tooltip de hover). */
+  runnerUp?: string | null;
   /** True when the state is not called (either a technical tie or missing/thin data). */
   greyed: boolean;
   /** Por que não foi chamado: "sem-dados" (PRETO — dado ausente/sem líder
@@ -626,23 +630,27 @@ export function presidentMapData(): PresidentMapDatum[] {
     // (pollCount < THIN_POLLS) — é PRETO; EMPATE TÉCNICO — dado suficiente, mas
     // a margem cai dentro de TIE_SPREAD — é cinza. Antes os dois colapsavam na
     // mesma cor e o mapa não separava "não sei" de "está empatado".
-    const semDados = (leader: string | null, leaderPct: number | null, spread: number | null): PresidentMapDatum => ({
+    const semDados = (leader: string | null, leaderPct: number | null, spread: number | null, runnerUp: string | null = null): PresidentMapDatum => ({
       ...base,
       status: "sem",
       fill: "var(--pmap-sem)",
       leader,
       leaderPct,
       spread,
+      margin: spread,
+      runnerUp,
       greyed: true,
       reason: "sem-dados",
     });
-    const empate = (leader: string | null, leaderPct: number | null, spread: number | null): PresidentMapDatum => ({
+    const empate = (leader: string | null, leaderPct: number | null, spread: number | null, runnerUp: string | null = null): PresidentMapDatum => ({
       ...base,
       status: "sem",
       fill: "var(--pmap-tie)",
       leader,
       leaderPct,
       spread,
+      margin: spread,
+      runnerUp,
       greyed: true,
       reason: "empate",
     });
@@ -654,8 +662,9 @@ export function presidentMapData(): PresidentMapDatum[] {
     const second = registered[1];
     const spread = second ? round1(top.avg - second.avg) : round1(top.avg);
 
-    if (avg.pollCount < THIN_POLLS) return semDados(top.candidate, round1(top.avg), spread);
-    if (Math.abs(spread) < TIE_SPREAD) return empate(top.candidate, round1(top.avg), spread);
+    const runnerUp = second ? second.candidate : null;
+    if (avg.pollCount < THIN_POLLS) return semDados(top.candidate, round1(top.avg), spread, runnerUp);
+    if (Math.abs(spread) < TIE_SPREAD) return empate(top.candidate, round1(top.avg), spread, runnerUp);
 
     const strong = top.avg >= 50;
     const leaderColor = fixedColor(top.candidate) ?? colorOf(colorMap([top.candidate]), top.candidate);
@@ -666,6 +675,8 @@ export function presidentMapData(): PresidentMapDatum[] {
       leader: top.candidate,
       leaderPct: round1(top.avg),
       spread,
+      margin: spread,
+      runnerUp,
       greyed: false,
       reason: null,
     };
