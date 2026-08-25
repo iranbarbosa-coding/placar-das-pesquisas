@@ -314,6 +314,43 @@ export function deltaPorDisputa({
         return { sucessora: cand.question_id, via: "elenco" };
       }
     }
+    // ADIÇÃO PURA NO MESMO LEVANTAMENTO — a linhagem sob RE-CUNHAGEM POR ELENCO.
+    //
+    // O `question_id` semeia em elenco (survey|disputa|turno|ordinal|elenco), então
+    // ACRESCENTAR um candidato ao MESMO levantamento re-cunha a pergunta sem que
+    // nada tenha saído: `[Renan Filho]` → `[JHC, Renan Filho]` quando o coletor
+    // parou de apagar candidatos cujo nome de urna parece sigla de partido (JHC =
+    // João Henrique Caldas, governador AL; CIRO) — o conserto do commit cb100ae.
+    // A pergunta velha some do banco com um id que o novo elenco não reproduz, e
+    // `questionRostersMatch` a lê como PERDA: 1-de-2 adicionado pontua 0,5, abaixo
+    // da barra de 0,8.
+    //
+    // ⚠ NÃO ENFRAQUECE O GUARDA, e é NO-OP em dado limpo. A ponte só vale quando o
+    // elenco velho é SUBCONJUNTO ESTRITO do novo dentro do MESMO levantamento
+    // (`mesmoLevantamento`, o mesmo recorte da regra de elenco acima): TODO nome
+    // velho segue presente e ao menos um foi acrescentado — ZERO partidas. Se
+    // QUALQUER candidato de fato SAIU, não é subconjunto e a perda reprova como
+    // antes. Um superset não tem candidato ausente para esconder; não há número
+    // para afrouxar (§10). Comparação por LINHAGEM DE PESSOA (o `traduzir`), com o
+    // mesmo recorte de id de `questionRostersMatch`: só decide por id quando os
+    // DOIS lados têm id em todas as linhas — um elenco sem id não prova adição pura.
+    const elencoSubconjuntoEstrito = (qVelha, qNova) => {
+      const rv = traduzir(qVelha.results ?? []), rn = traduzir(qNova.results ?? []);
+      const idsV = rv.map((r) => r?.candidate_id).filter(Boolean);
+      const idsN = rn.map((r) => r?.candidate_id).filter(Boolean);
+      if (!(idsV.length === rv.length && idsN.length === rn.length && idsV.length && idsN.length)) return false;
+      const setV = new Set(idsV), setN = new Set(idsN);
+      if (setV.size >= setN.size) return false;        // nada foi acrescentado
+      for (const id of setV) if (!setN.has(id)) return false; // alguém SAIU → não é subconjunto
+      return true;
+    };
+    for (const cand of grupo) {
+      if (cand.question_id === q.question_id) continue;
+      if (!mesmoLevantamento(q, cand)) continue;
+      if (elencoSubconjuntoEstrito(q, cand)) {
+        return { sucessora: cand.question_id, via: "adicao" };
+      }
+    }
     // TERCEIRO DEGRAU — A DUPLICATA ENTRE MARCAS, DURÁVEL SOB DERIVA DE ID.
     //
     // `dropExactDuplicates` (scrape.mjs) descarta a cópia de menor prioridade de
