@@ -15,6 +15,7 @@ import {
   registeredPresidentKeys,
 } from "@/lib/home";
 import { candKey } from "@/lib/average";
+import { upcomingPolls } from "@/lib/calendar";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 
@@ -39,6 +40,7 @@ export default function Home() {
   const movers = recentMovers(4);
   const map = stateMapData();
   const newPoll = newestPoll();
+  const upcoming = upcomingPolls(6);
   const registeredKeys = registeredPresidentKeys();
 
   // Answer-first lede: a single crawlable, quotable sentence stating the current
@@ -90,7 +92,7 @@ export default function Home() {
       </div>
 
       {/* RIGHT: the dashboard sidebar. Stacks under the content on phones. */}
-      <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} />
+      <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} upcoming={upcoming} />
     </div>
   );
 }
