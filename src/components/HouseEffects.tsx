@@ -19,6 +19,62 @@ function tint(effect: number): { bg: string; fg: string; weight: string } {
   return { bg: `rgba(${rgb},${a})`, fg: "var(--text-primary)", weight: "600" };
 }
 
+// ── Gráfico de barras divergentes (por candidato) ───────────────────────────
+// O padrão de efeito casa: cada instituto uma barra saindo do zero, azul para a
+// direita (superestima) / laranja para a esquerda (subestima), comprimento ~
+// magnitude. Escala COMPARTILHADA entre os dois gráficos, para que "quem desvia
+// mais" seja comparável entre candidatos, não achatado por candidato.
+function DivergingBars({
+  candidate,
+  rows,
+  maxAbs,
+}: {
+  candidate: string;
+  rows: { pollster: string; effect: number }[];
+  maxAbs: number;
+}) {
+  return (
+    <div className="min-w-0">
+      <div className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+        {shortName(candidate)}
+      </div>
+      <div className="mt-2 flex flex-col gap-1">
+        {rows.map((r) => {
+          const w = (Math.min(Math.abs(r.effect), maxAbs) / maxAbs) * 50;
+          const pos = r.effect >= 0;
+          const color = pos ? "rgb(37,99,235)" : "rgb(226,98,15)";
+          return (
+            <div key={r.pollster} className="flex items-center gap-2">
+              <div className="w-[84px] shrink-0 truncate text-right text-xs" style={{ color: "var(--text-secondary)" }} title={r.pollster}>
+                {r.pollster}
+              </div>
+              <div className="relative h-3.5 flex-1 rounded-sm" style={{ background: "var(--grid)" }}>
+                <div
+                  className="absolute top-0 bottom-0"
+                  style={pos ? { left: "50%", width: `${w}%`, background: color } : { right: "50%", width: `${w}%`, background: color }}
+                />
+                <div className="absolute inset-y-0 left-1/2 w-px" style={{ background: "var(--text-muted)", opacity: 0.5 }} />
+              </div>
+              <div className="w-9 shrink-0 text-right text-xs tabular" style={{ color: "var(--text-secondary)" }}>
+                {Math.abs(r.effect) < 0.5 ? "≈0" : fmtSigned(r.effect)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="mt-1 flex items-center gap-2 text-[10px]" style={{ color: "var(--text-muted)" }}>
+        <span className="w-[84px] shrink-0" />
+        <span className="flex flex-1 justify-between">
+          <span>−{maxAbs}</span>
+          <span>0</span>
+          <span>+{maxAbs}</span>
+        </span>
+        <span className="w-9 shrink-0" />
+      </div>
+    </div>
+  );
+}
+
 function Cell({ cell }: { cell: HouseEffectCell | null }) {
   if (!cell) {
     return (
@@ -41,6 +97,23 @@ function Cell({ cell }: { cell: HouseEffectCell | null }) {
 
 export default function HouseEffects({ data, title = "Efeito casa" }: { data: HouseEffectsData; title?: string }) {
   if (!data.pollsters.length) return null;
+
+  // Gráficos divergentes para os dois primeiros candidatos (os líderes por
+  // média), com escala compartilhada para serem comparáveis entre si.
+  const chartCols = data.candidates.slice(0, 2);
+  const charts = chartCols.map((col, i) => ({
+    candidate: col.candidate,
+    rows: data.pollsters
+      .map((p) => ({ pollster: p.pollster, cell: p.cells[i] }))
+      .filter((r): r is { pollster: string; cell: HouseEffectCell } => r.cell !== null)
+      .map((r) => ({ pollster: r.pollster, effect: r.cell.effect }))
+      .sort((a, b) => b.effect - a.effect),
+  })).filter((c) => c.rows.length > 0);
+  const chartMax = Math.max(
+    2,
+    Math.ceil(Math.max(0, ...charts.flatMap((c) => c.rows.map((r) => Math.abs(r.effect))))),
+  );
+
   return (
     <section className="card mt-6 p-4 sm:p-6" aria-label="Efeito casa dos institutos">
       <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
@@ -84,7 +157,20 @@ export default function HouseEffects({ data, title = "Efeito casa" }: { data: Ho
         </table>
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+      {charts.length > 0 && (
+        <>
+          <h3 className="mt-6 text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+            Por candidato líder
+          </h3>
+          <div className="mt-2 grid gap-6 sm:grid-cols-2">
+            {charts.map((c) => (
+              <DivergingBars key={c.candidate} candidate={c.candidate} rows={c.rows} maxAbs={chartMax} />
+            ))}
+          </div>
+        </>
+      )}
+
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
         <span className="inline-flex items-center gap-1.5">
           <span className="inline-block h-3 w-3 rounded-sm" style={{ background: "rgba(37,99,235,0.32)" }} /> superestima
         </span>
