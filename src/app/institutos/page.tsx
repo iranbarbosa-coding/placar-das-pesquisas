@@ -94,11 +94,9 @@ export default function InstitutosPage() {
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {/* 1 · O que é */}
         <div className="card flex flex-col p-6">
-          <div className="relative mb-4 flex items-center justify-center">
-            <div className="absolute left-0">
-              <Badge name="house" />
-            </div>
-            <h3 className="text-[17px] font-bold" style={{ color: "var(--text-primary)" }}>
+          <div className="mb-4 flex items-center gap-3">
+            <Badge name="house" size="h-11 w-11" icon="h-6 w-6" square />
+            <h3 className="min-w-0 flex-1 text-center text-base font-bold" style={{ color: "var(--text-primary)" }}>
               O que é
             </h3>
           </div>
@@ -169,11 +167,9 @@ export default function InstitutosPage() {
 
         {/* 3 · Como medimos */}
         <div className="card flex flex-col p-6">
-          <div className="relative mb-4 flex items-center justify-center">
-            <div className="absolute left-0">
-              <Badge name="microscope" />
-            </div>
-            <h3 className="text-[17px] font-bold" style={{ color: "var(--text-primary)" }}>
+          <div className="mb-4 flex items-center gap-3">
+            <Badge name="microscope" size="h-11 w-11" icon="h-6 w-6" square />
+            <h3 className="min-w-0 flex-1 text-center text-base font-bold" style={{ color: "var(--text-primary)" }}>
               Como medimos
             </h3>
           </div>
@@ -190,14 +186,14 @@ export default function InstitutosPage() {
             <p>É a mesma regra de janela do site.</p>
           </div>
           <div
-            className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1.5 rounded-lg border p-3 text-xs"
+            className="mt-4 flex items-center justify-center gap-1 whitespace-nowrap rounded-lg border px-2 py-2.5 text-[10px]"
             style={{ borderColor: "var(--grid)", background: "var(--surface-2)" }}
           >
             <span style={{ color: "var(--text-secondary)" }}>pesquisa do instituto</span>
             <span className="font-bold" style={{ color: "var(--text-muted)" }}>−</span>
             <span style={{ color: "var(--text-secondary)" }}>média dos outros</span>
             <span className="font-bold" style={{ color: "var(--text-muted)" }}>=</span>
-            <span className="rounded-md px-2.5 py-1 font-bold" style={{ background: "var(--accent)", color: "#fff" }}>
+            <span className="rounded-md px-1.5 py-0.5 font-bold" style={{ background: "var(--accent)", color: "#fff" }}>
               viés
             </span>
           </div>
@@ -234,7 +230,7 @@ export default function InstitutosPage() {
       {/* Como ler — faixa com a legenda de cor (que sai da matriz). */}
       <div className="card mt-4 flex flex-col gap-4 p-5 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
         <div className="flex items-start gap-3">
-          <Badge name="compass" size="h-11 w-11" icon="h-5 w-5" />
+          <Badge name="compass" size="h-11 w-11" icon="h-6 w-6" square />
           <p className="max-w-[80ch] text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             <strong style={{ color: "var(--text-primary)" }}>Como ler:</strong> um instituto perto de{" "}
             <strong style={{ color: "var(--text-primary)" }}>zero</strong> está perto do consenso; quanto maior a
