@@ -229,16 +229,7 @@ export default function HouseEffects({
         <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
           Quanto cada instituto tende a <strong style={{ color: "var(--text-primary)" }}>super</strong> ou{" "}
           <strong style={{ color: "var(--text-primary)" }}>subestimar</strong> cada candidato ante a média das
-          demais pesquisas, em pontos percentuais. Corrida presidencial, 1º turno.{" "}
-          <a
-            href="/comprovacao-efeito-casa.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whitespace-nowrap font-semibold"
-            style={{ color: "var(--accent)" }}
-          >
-            Comprovação matemática (PDF) <span aria-hidden="true">→</span>
-          </a>
+          demais pesquisas, em pontos percentuais. Corrida presidencial, 1º turno.
         </p>
 
         <MatrixTable candidates={data.candidates} pollsters={data.pollsters} />
@@ -255,6 +246,17 @@ export default function HouseEffects({
             </p>
           </>
         )}
+        <p className="mt-4 border-t pt-3 text-sm" style={{ borderColor: "var(--grid)" }}>
+          <a
+            href="/comprovacao-efeito-casa.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold"
+            style={{ color: "var(--accent)" }}
+          >
+            Comprovação matemática e reprodução independente (PDF) <span aria-hidden="true">→</span>
+          </a>
+        </p>
       </section>
 
       {charts.length > 0 && (
