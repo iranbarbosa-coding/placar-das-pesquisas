@@ -383,6 +383,12 @@ export interface StateMapDatum {
   name: string;
   leader: string | null;
   status: MapStatus;
+  /** % do líder na média (governador, 1º turno). */
+  leaderPct?: number | null;
+  /** Distância do líder para o 2º colocado, em p.p. */
+  margin?: number | null;
+  /** Nome do 2º colocado. */
+  runnerUp?: string | null;
 }
 
 export function stateMapData(): StateMapDatum[] {
@@ -390,9 +396,18 @@ export function stateMapData(): StateMapDatum[] {
     const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
     const top = avg?.candidates[0];
     if (!avg || !top) return { uf, name: UF_NAMES[uf], leader: null, status: "sem" as const };
+    const second = avg.candidates[1];
     const status: MapStatus =
       Math.abs(avg.spread) < 2 ? "empate" : top.avg >= 50 ? "acima" : "abaixo";
-    return { uf, name: UF_NAMES[uf], leader: top.candidate, status };
+    return {
+      uf,
+      name: UF_NAMES[uf],
+      leader: top.candidate,
+      status,
+      leaderPct: top.avg,
+      margin: second ? round1(top.avg - second.avg) : null,
+      runnerUp: second ? second.candidate : null,
+    };
   });
 }
 
