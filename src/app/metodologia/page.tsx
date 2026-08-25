@@ -4,6 +4,7 @@ import path from "node:path";
 import Link from "next/link";
 import { loadDataset } from "@/lib/data";
 import { candKey } from "@/lib/average";
+import Icon, { type IconName } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Metodologia",
@@ -17,12 +18,15 @@ function countLines(file: string): number {
   return fs.readFileSync(p, "utf-8").split("\n").filter((l) => l.trim()).length;
 }
 
-/** Cartão de número — para o teste de 6 segundos. */
-function Stat({ value, label, accent = false }: { value: string; label: string; accent?: boolean }) {
+/** Cartão de número — para o teste de 6 segundos. Ícone acima, centralizado. */
+function Stat({ icon, value, label, accent = false }: { icon: IconName; value: string; label: string; accent?: boolean }) {
   return (
-    <div className="card flex flex-col justify-center p-4 sm:p-5">
+    <div className="card flex flex-col items-center p-4 text-center sm:p-5">
+      <span style={{ color: "var(--accent)" }}>
+        <Icon name={icon} className="h-6 w-6" />
+      </span>
       <div
-        className="tabular text-3xl font-extrabold leading-none sm:text-4xl"
+        className="tabular mt-2 text-3xl font-extrabold leading-none sm:text-4xl"
         style={{ color: accent ? "var(--accent)" : "var(--text-primary)" }}
       >
         {value}
@@ -34,17 +38,57 @@ function Stat({ value, label, accent = false }: { value: string; label: string; 
   );
 }
 
-/** Capacidade de engenharia — título forte + uma linha. */
-function Cap({ title, children }: { title: string; children: React.ReactNode }) {
+/** Capacidade — ícone, título forte, uma linha. */
+function Cap({ icon, title, children }: { icon: IconName; title: string; children: React.ReactNode }) {
   return (
     <div className="card p-5">
-      <h3 className="text-base font-bold" style={{ color: "var(--text-primary)" }}>
+      <span style={{ color: "var(--accent)" }}>
+        <Icon name={icon} className="h-6 w-6" />
+      </span>
+      <h3 className="mt-3 text-base font-bold" style={{ color: "var(--text-primary)" }}>
         {title}
       </h3>
       <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
         {children}
       </p>
     </div>
+  );
+}
+
+/** Ilustração do hero: alvo com flecha + mini gráfico de tendência. */
+function HeroArt() {
+  return (
+    <svg viewBox="0 0 340 236" className="h-auto w-full max-w-[400px]" role="img" aria-label="Alvo acertado e tendência de alta">
+      {/* alvo */}
+      <circle cx="118" cy="122" r="84" fill="rgba(37,99,235,0.05)" />
+      <circle cx="118" cy="122" r="84" fill="none" stroke="var(--accent)" strokeOpacity="0.22" strokeWidth="2" />
+      <circle cx="118" cy="122" r="56" fill="rgba(37,99,235,0.09)" />
+      <circle cx="118" cy="122" r="56" fill="none" stroke="var(--accent)" strokeOpacity="0.34" strokeWidth="2" />
+      <circle cx="118" cy="122" r="29" fill="rgba(37,99,235,0.16)" />
+      <circle cx="118" cy="122" r="29" fill="none" stroke="var(--accent)" strokeOpacity="0.5" strokeWidth="2" />
+      <circle cx="118" cy="122" r="9" fill="var(--accent)" />
+      {/* flecha */}
+      <line x1="214" y1="40" x2="126" y2="114" stroke="var(--accent)" strokeWidth="4" strokeLinecap="round" />
+      <path d="M118 122 l16 -3 -4 -13 z" fill="var(--accent)" />
+      <g stroke="var(--accent)" strokeWidth="3" strokeLinecap="round">
+        <line x1="214" y1="40" x2="206" y2="36" />
+        <line x1="214" y1="40" x2="210" y2="30" />
+        <line x1="214" y1="40" x2="222" y2="44" />
+      </g>
+      {/* mini gráfico */}
+      <g transform="translate(206,128)">
+        <rect x="0" y="0" width="128" height="96" rx="12" fill="var(--surface-1)" stroke="var(--grid)" strokeWidth="1.5" />
+        <g fill="rgba(37,99,235,0.22)">
+          <rect x="16" y="54" width="13" height="28" rx="2" />
+          <rect x="38" y="42" width="13" height="40" rx="2" />
+          <rect x="60" y="48" width="13" height="34" rx="2" />
+          <rect x="82" y="32" width="13" height="50" rx="2" />
+          <rect x="104" y="24" width="13" height="58" rx="2" />
+        </g>
+        <polyline points="22,58 44,50 66,44 88,34 110,24" fill="none" stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="110" cy="24" r="3.5" fill="var(--accent)" />
+      </g>
+    </svg>
   );
 }
 
@@ -101,37 +145,51 @@ export default function MetodologiaPage() {
   return (
     <div className="space-y-10">
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <header className="max-w-4xl">
-        <p className="text-[13px] font-bold uppercase tracking-[0.16em]" style={{ color: "var(--accent)" }}>
-          Metodologia &amp; Integridade
-        </p>
-        <h1 className="mt-2 text-3xl font-extrabold leading-tight sm:text-[42px]" style={{ color: "var(--text-primary)" }}>
-          A média não opina.<br />Ela revela o padrão.
-        </h1>
-        <p className="mt-4 max-w-3xl text-base leading-relaxed sm:text-lg" style={{ color: "var(--text-secondary)" }}>
-          <B>{fmt(polls.length)} pesquisas</B> de <B>{institutos} institutos</B>, coletadas de fontes
-          públicas, normalizadas por inteligência artificial, validadas linha a linha e agregadas por uma
-          regra fixa. Sem achismo. Sem número inventado. <B>Todo dado é rastreável até a fonte original.</B>
-        </p>
+      <header className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_auto]">
+        <div className="max-w-2xl">
+          <p className="text-[13px] font-bold uppercase tracking-[0.16em]" style={{ color: "var(--accent)" }}>
+            Metodologia &amp; Integridade
+          </p>
+          <h1 className="mt-2 text-3xl font-extrabold leading-tight sm:text-[42px]" style={{ color: "var(--text-primary)" }}>
+            A média não opina.<br />Ela revela o padrão.
+          </h1>
+          <p className="mt-4 text-base leading-relaxed sm:text-lg" style={{ color: "var(--text-secondary)" }}>
+            <B>{fmt(polls.length)} pesquisas</B> de <B>{institutos} institutos</B>, coletadas de fontes
+            públicas, normalizadas por inteligência artificial, validadas linha a linha e agregadas por uma
+            regra fixa. Sem achismo. Sem número inventado. <B>Todo dado é rastreável até a fonte original.</B>
+          </p>
+        </div>
+        <div className="hidden justify-self-end lg:block">
+          <HeroArt />
+        </div>
       </header>
 
       {/* ── STAT CARDS · teste de 6 segundos ─────────────────────────────── */}
       <section aria-label="Números do banco">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          <Stat value={fmt(polls.length)} label="pesquisas catalogadas" accent />
-          <Stat value={String(institutos)} label="institutos de pesquisa" />
-          <Stat value={String(estados)} label="estados + Brasil" />
-          <Stat value={fmt(candidatos)} label="candidatos acompanhados" />
-          <Stat value={fmt(conflitos)} label="divergências entre fontes reconciliadas" accent />
-          <Stat value="2×/dia" label="atualização automática" />
+          <Stat icon="file-text" value={fmt(polls.length)} label="pesquisas catalogadas" accent />
+          <Stat icon="landmark" value={String(institutos)} label="institutos de pesquisa" />
+          <Stat icon="globe" value={String(estados)} label="estados + Brasil" />
+          <Stat icon="users" value={fmt(candidatos)} label="candidatos acompanhados" />
+          <Stat icon="filter" value={fmt(conflitos)} label="divergências entre fontes reconciliadas" accent />
+          <Stat icon="refresh" value="2×/dia" label="atualização automática" />
         </div>
         <div
           className="card mt-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 p-3 text-center text-sm font-semibold"
           style={{ color: "var(--text-secondary)" }}
         >
-          <span><B>0</B> números estimados</span>
-          <span><B>100%</B> com link à fonte primária</span>
-          <span><B>CC-BY</B> — dado aberto e reproduzível</span>
+          <span className="inline-flex items-center gap-2">
+            <span style={{ color: "var(--accent)" }}><Icon name="ban" className="h-4 w-4" /></span>
+            <span><B>0</B> números estimados</span>
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <span style={{ color: "var(--accent)" }}><Icon name="link" className="h-4 w-4" /></span>
+            <span><B>100%</B> com link à fonte primária</span>
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <span style={{ color: "var(--accent)" }}><Icon name="badge-check" className="h-4 w-4" /></span>
+            <span><B>CC-BY</B> — dado aberto e reproduzível</span>
+          </span>
         </div>
       </section>
 
@@ -159,22 +217,22 @@ export default function MetodologiaPage() {
           O método da média
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Cap title="10 mais recentes, no máximo 2 por instituto">
+          <Cap icon="trending-up" title="10 mais recentes, no máximo 2 por instituto">
             A média de cada disputa usa as <B>10 pesquisas mais recentes</B>, com <B>no máximo 2 por
             instituto</B> — para que uma casa que publica toda semana não carregue a média sozinha, com o próprio
             viés. É um número fixo de pesquisas, não uma janela de dias: todas as disputas usam a mesma base.
           </Cap>
-          <Cap title="Piso de 3, sempre transparente">
+          <Cap icon="shield" title="Piso de 3, sempre transparente">
             Em disputas pouco pesquisadas o limite cede até completar <B>3 pesquisas</B>, e a média avisa. A
             quantidade usada aparece sempre ao lado do número, e a tabela abaixo mostra <B>todas</B> as pesquisas
             — inclusive as que ficaram fora da janela.
           </Cap>
-          <Cap title="2º turno nunca é misturado">
+          <Cap icon="split" title="2º turno nunca é misturado">
             Cada confronto (par de candidatos) é uma disputa própria, com suas 10 pesquisas. No 1º turno, a média
             de cada candidato usa as pesquisas que <B>testaram aquele candidato</B> — sem inventar cenário que
             ninguém pesquisou.
           </Cap>
-          <Cap title="Nomes unificados entre fontes">
+          <Cap icon="merge" title="Nomes unificados entre fontes">
             &ldquo;Lula&rdquo; e &ldquo;Luiz Inácio Lula da Silva&rdquo; são a mesma série. A canonização une as
             grafias antes de qualquer conta — a base de todos os <B>{fmt(candidatos)} candidatos</B> que
             acompanhamos.
@@ -195,28 +253,28 @@ export default function MetodologiaPage() {
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Cap title="Coleta multi-fonte + desduplicação">
+          <Cap icon="share" title="Coleta multi-fonte + desduplicação">
             Poder360, Wikipédia e o registro oficial <B>PesqEle/TSE</B> entram por uma escada de resolução com
             prioridade de fonte. A mesma operação de campo vinda de dois lugares é unida por <B>chave de registro
             do TSE</B> — uma pesquisa, não duas.
           </Cap>
-          <Cap title="Normalização por IA">
+          <Cap icon="code" title="Normalização por IA">
             Nomes de urna, apelidos, partidos e grafias divergentes são canonizados em séries únicas — o que
             permite comparar o incomparável entre {institutos} institutos e {fmt(polls.length)} pesquisas.
           </Cap>
-          <Cap title="Leitura cega dupla de PDFs">
+          <Cap icon="scan" title="Leitura cega dupla de PDFs">
             As íntegras dos institutos são lidas <B>duas vezes, de forma independente</B> (texto + visual) e
             comparadas máquina a máquina. Divergência entre as leituras vira <B>revisão</B> — nunca um chute.
           </Cap>
-          <Cap title="Validação linha a linha">
+          <Cap icon="shield-check" title="Validação linha a linha">
             Constraints e baterias de teste guardam o banco: um dado que quebra uma regra <B>barra a
             publicação</B> e o site mantém o último banco válido. Nada quebrado vai ao ar.
           </Cap>
-          <Cap title={`${fmt(conflitos)} divergências registradas`}>
+          <Cap icon="arrow-up-down" title={`${fmt(conflitos)} divergências registradas`}>
             Quando duas fontes discordam de uma mesma pesquisa, a divergência é <B>anotada</B>, não escolhida em
             silêncio. Integridade é mostrar onde os dados brigam — não esconder.
           </Cap>
-          <Cap title="Cruzamentos matemáticos">
+          <Cap icon="sigma" title="Cruzamentos matemáticos">
             Sobre a base rodam análises derivadas: <Link href="/institutos" className="underline" style={{ color: "var(--accent)" }}>viés dos institutos</Link>{" "}
             (efeito casa, leave-one-out), rejeição bruta e líquida isolada do voto, tendências retroativas e
             simulações de 2º turno par a par.
@@ -272,15 +330,15 @@ export default function MetodologiaPage() {
           Integridade, sem asterisco
         </h2>
         <div className="grid gap-4 sm:grid-cols-3">
-          <Cap title="Buscar e citar, ou nada">
+          <Cap icon="ban" title="Buscar e citar, ou nada">
             Nenhum número é estimado. Se o instituto não publicou, aparece <B>&ldquo;—&rdquo;</B>. Preferimos um
             buraco honesto a um chute confortável.
           </Cap>
-          <Cap title="Rastreável até a origem">
+          <Cap icon="link" title="Rastreável até a origem">
             Cada linha carrega o <B>link da fonte</B> — íntegra, matéria ou registro do TSE. Nada aqui pede que
             você confie na nossa palavra.
           </Cap>
-          <Cap title="Aberto e reproduzível">
+          <Cap icon="badge-check" title="Aberto e reproduzível">
             Licença <B>CC-BY 4.0</B>: os dados podem ser citados e reusados. A regra é pública, o código é
             determinístico, os números batem quando recalculados.
           </Cap>
