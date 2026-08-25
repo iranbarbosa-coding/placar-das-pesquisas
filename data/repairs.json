@@ -253,6 +253,24 @@
    "source": "https://static.poder360.com.br/uploads/2026/08/IRG-Parana-agosto.pdf",
    "evidence": "A palavra 'espontânea' NÃO existe em nenhuma fonte legível por máquina para este registro: os rótulos do v2/cenarios do Poder360 para o 13833 são 'Senador - Cenário 1' e 'Senador - Cenário 2' (inventário vivo de 21/08: 540 rótulos, 59 dizem 'estimulada', ZERO dizem 'espontânea'), e a wiki só declara estímulo por página inteira ('Todos os cenários se referem a pesquisas estimuladas…'). A marca vive SÓ no PDF do instituto (OCR de 21/08: 'Pergunta 6 — ESPONTÂNEA', 'Senado - Cenário Espontâneo'). O conserto da colisão está no pipeline (estimulosCompativeis em mergePolls e keepFullestRound1, provado por mutação) e ARMA sozinho no dia em que a marca existir estruturada — dar a marca ao 13833 é curadoria com fonte primária, PARQUEADA junto com a decisão de paridade associada (com as duas perguntas vivas, polls.json carrega ambas e a projeção publica só a headline). Efeito editorial da perda: nenhum — a espontânea não é headline (markHeadlines promove uma pergunta por levantamento) e nunca entrou em média. Medido por três agentes independentes em 21/08: o investigador das 7 sumidas (cru intacto, slot ocupado, legacy colado), o implementador do conserto (par IRG segue fundindo porque o lado p360 tem stimulus nulo, §4 não inventa marca) e o conferente do conserto (API viva + OCR reconferidos).",
    "verified_at": "2026-08-21"
+  },
+  {
+   "question_id": "q_5cb60ac582a5",
+   "race": "governador",
+   "uf": "RS",
+   "defect": "CHAVE NATURAL DO LEVANTAMENTO MOVIDA POR CANONICALIZAÇÃO DE NOME — o survey_id é semeado do elenco canônico, e a canonicalização de 'Zucco' → 'Luciano Zucco' moveu a chave natural do levantamento (s_421556d78559 → s_b373977230c4). O levantamento perdedor (commit) não partilha legacy_ids, source_ref nativo nem registro TSE com o sucessor re-cunhado, e o elenco casa 3/5 (abaixo de 0,8), então nenhum degrau da escada de sucessão o alcança. Perda de ENDEREÇO, não de dado: a mesma medição segue publicada.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-e-juliana-brizola-empatam-pelo-governo-do-rs-diz-pesquisa/",
+   "evidence": "O levantamento governador:RS (campo 2026-08-20, amostra 1504, elenco Zucco/Juliana Brizola/Gabriel Souza/Marcelo Maranata) re-entrou nesta rodada pelo Poder360 (native 13884, first_seen 2026-08-25) com o survey_id re-cunhado pela canonicalização de 'Zucco' → 'Luciano Zucco'. Medido em 2026-08-25 contra o store COMITADO (git HEAD): mesmo campo e amostra, sem legacy/source_ref/registro em comum, elenco 3/5. Ratificação UMA vez; o seguimento (não implementado aqui) é tornar o survey_id independente do nome canônico do candidato.",
+   "verified_at": "2026-08-25"
+  },
+  {
+   "question_id": "q_d9fbca907c30",
+   "race": "senador",
+   "uf": "BA",
+   "defect": "CHAVE NATURAL DO LEVANTAMENTO MOVIDA POR CANONICALIZAÇÃO DE NOME — o survey_id é semeado do elenco canônico; a canonicalização de nome de candidato (p.ex. 'Ângelo' → 'Ângelo Coronel') moveu a chave natural do levantamento senador:BA (s_65457792573e, campo 2026-08-10). Sem legacy_ids, source_ref nativo ou registro TSE em comum entre o levantamento perdedor (commit) e o sucessor re-cunhado, e com elenco casando abaixo de 0,8, nenhum degrau da escada de sucessão o alcança. Perda de ENDEREÇO, não de dado.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
+   "evidence": "O levantamento senador:BA (campo 2026-08-10, amostra 1600, elenco Rui Costa/Jaques Wagner/João Roma/Ângelo Coronel) carrega o survey_id s_65457792573e que a canonicalização de nome re-cunha, movendo a chave natural sem que a medição mude. Medido em 2026-08-25 contra o store COMITADO (git HEAD). Ratificação UMA vez; o seguimento (não implementado aqui) é tornar o survey_id independente do nome canônico do candidato.",
+   "verified_at": "2026-08-25"
   }
  ],
  "repairs": [
