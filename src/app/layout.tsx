@@ -122,6 +122,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             institutos). Médias calculadas conforme a <Link href="/metodologia" className="underline">metodologia</Link>.
             Este site não realiza pesquisas; números pertencem aos institutos citados.
           </p>
+          <p className="mx-auto mt-3 max-w-2xl px-4">
+            <Link href="/sobre" className="underline">Sobre o projeto</Link>
+            {" · "}
+            Contato: <a href="mailto:contato@placardaspesquisas.com.br" className="underline">contato@placardaspesquisas.com.br</a>
+          </p>
         </footer>
       </body>
     </html>
