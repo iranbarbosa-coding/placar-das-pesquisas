@@ -1,0 +1,268 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import CopyText from "@/components/CopyText";
+import { loadDataset, pollsters, statesWithPolls } from "@/lib/data";
+import { SITE_NAME } from "@/lib/brand";
+import { BASE, LICENSE_NAME, LICENSE_URL } from "@/lib/jsonld";
+
+export const metadata: Metadata = {
+  title: "Imprensa",
+  description:
+    "Sala de imprensa do Placar das Pesquisas: como citar, dados abertos (CC BY 4.0), widgets para incorporar e contato para jornalistas.",
+};
+
+const BOILERPLATE = `O Placar das Pesquisas (placardaspesquisas.com.br) é um agregador independente e aberto das pesquisas eleitorais registradas para as Eleições 2026, que calcula a "média do Placar das Pesquisas" para presidente, governadores e senadores a partir das pesquisas mais recentes de cada disputa. Os dados são atualizados automaticamente duas vezes por dia, publicados sob licença Creative Commons (CC BY 4.0) e acompanhados da metodologia e da comprovação matemática do cálculo. O projeto não realiza pesquisas próprias.`;
+
+const CITATION = `Fonte: Placar das Pesquisas — a média do Placar das Pesquisas (placardaspesquisas.com.br), sob licença CC BY 4.0.`;
+
+const EMBED_MEDIA = `<iframe
+  src="${BASE}/embed/presidente"
+  title="Média — Presidente 2026 · ${SITE_NAME}"
+  width="100%" height="510" loading="lazy"
+  style="max-width:480px;border:0"></iframe>`;
+
+const EMBED_EVOLUCAO = `<iframe
+  src="${BASE}/embed/evolucao"
+  title="Evolução — Presidente 2026 · ${SITE_NAME}"
+  width="100%" height="510" loading="lazy"
+  style="max-width:520px;border:0"></iframe>`;
+
+const ERROS: Record<string, string> = {
+  validacao: "Confira os campos: nome, um e-mail válido e a mensagem são obrigatórios.",
+  config: "O envio está temporariamente indisponível. Se puder, escreva direto para o e-mail abaixo.",
+  envio: "Não foi possível enviar agora. Tente novamente em instantes ou use o e-mail abaixo.",
+};
+
+const nfmt = (n: number) => n.toLocaleString("pt-BR");
+
+export default async function ImprensaPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ enviado?: string; erro?: string }>;
+}) {
+  const sp = await searchParams;
+  const sucesso = sp.enviado === "1";
+  const erro = sp.erro ? (ERROS[sp.erro] ?? ERROS.envio) : null;
+
+  const ds = loadDataset();
+  const nPolls = ds.polls.length;
+  const nPollsters = pollsters().length;
+  const nStates = statesWithPolls().length;
+
+  return (
+    <article className="prose-sm mx-auto max-w-3xl space-y-6">
+      <header className="space-y-1">
+        <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>
+          <Link href="/" className="hover:underline">Início</Link>
+          <span aria-hidden="true"> › </span>
+          <span style={{ color: "var(--text-secondary)" }}>Imprensa</span>
+        </nav>
+        <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+          Sala de imprensa
+        </h1>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Uma fonte aberta, independente e citável das pesquisas de 2026 — com a conta à mostra e os
+          dados livres para reusar. Jornalistas e veículos são bem-vindos.
+        </p>
+      </header>
+
+      {/* Resumo para citar */}
+      <section className="card space-y-3 p-4">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Resumo para citar</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Texto pronto para uma matéria, um crédito ou um &ldquo;sobre a fonte&rdquo;:
+        </p>
+        <CopyText text={BOILERPLATE} />
+      </section>
+
+      {/* Números */}
+      <section className="card space-y-3 p-4">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>O projeto em números</h2>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[
+            { v: nfmt(nPolls), k: "pesquisas catalogadas" },
+            { v: nfmt(nPollsters), k: "institutos distintos" },
+            { v: String(nStates), k: "estados cobertos" },
+            { v: "2×", k: "atualizações por dia" },
+          ].map((s) => (
+            <div key={s.k} className="rounded-lg border p-3" style={{ borderColor: "var(--ring)", background: "var(--surface-1)" }}>
+              <div className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>{s.v}</div>
+              <div className="mt-1 text-xs" style={{ color: "var(--text-muted)" }}>{s.k}</div>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+          Presidente, governadores e senadores. Cada pesquisa carrega o link para sua fonte e, quando
+          há, o registro no TSE (formato BR-…/2026). Os números crescem a cada atualização.
+        </p>
+      </section>
+
+      {/* Por que é diferente */}
+      <section className="card space-y-3 p-4">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Por que é diferente</h2>
+        <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+          <li><strong style={{ color: "var(--text-primary)" }}>Mostra a conta.</strong> A média é reproduzível: regras fixas e públicas, com comprovação matemática — qualquer pessoa refaz o cálculo a partir das fontes.</li>
+          <li><strong style={{ color: "var(--text-primary)" }}>Aberto para reusar.</strong> Os dados agregados saem sob {LICENSE_NAME}: pode republicar, inclusive comercialmente, bastando creditar.</li>
+          <li><strong style={{ color: "var(--text-primary)" }}>Legível por máquina.</strong> Feeds em JSON, CSV e RSS, com a proveniência embutida em cada número.</li>
+          <li><strong style={{ color: "var(--text-primary)" }}>Fresco e datado.</strong> Reconstruído duas vezes por dia, com data e hora no topo de cada página.</li>
+        </ul>
+      </section>
+
+      {/* Como citar */}
+      <section className="card space-y-3 p-4">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Como citar</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O uso é livre sob{" "}
+          <a href={LICENSE_URL} target="_blank" rel="noopener noreferrer" className="underline">{LICENSE_NAME}</a>,
+          desde que citada a fonte. Atribuição sugerida:
+        </p>
+        <CopyText text={CITATION} oneline />
+        <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+          Ao reproduzir uma média ou uma pesquisa específica, indique também a <strong>data da
+          atualização</strong>. Detalhes na página de{" "}
+          <Link href="/licenca" className="underline">licença</Link> e na{" "}
+          <Link href="/metodologia" className="underline">metodologia</Link>.
+        </p>
+      </section>
+
+      {/* Dados para reuso */}
+      <section className="card space-y-3 p-4">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Dados para reuso</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Endpoints estáticos, com proveniência e licença embutidas:
+        </p>
+        <ul className="space-y-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+          <li><a href="/api/averages.json" className="underline">/api/averages.json</a> — todas as médias (presidente 1º/2º, governador e senador por estado).</li>
+          <li><a href="/api/presidente.json" className="underline">/api/presidente.json</a> · <a href="/api/segundo-turno.json" className="underline">/api/segundo-turno.json</a> — média + as pesquisas que a compõem.</li>
+          <li><a href="/api/polls.json" className="underline">/api/polls.json</a> — catálogo completo, com fonte e registro TSE.</li>
+          <li><a href="/data/averages.csv" className="underline">/data/averages.csv</a> · <a href="/data/polls.csv" className="underline">/data/polls.csv</a> — em CSV, para planilha.</li>
+          <li><a href="/feed.xml" className="underline">/feed.xml</a> — RSS das pesquisas mais recentes.</li>
+        </ul>
+      </section>
+
+      {/* Widgets */}
+      <section className="card space-y-4 p-4">
+        <div className="space-y-1">
+          <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Widgets para incorporar</h2>
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+            Blocos leves que se atualizam sozinhos e trazem um link de volta para a fonte. Cole no seu
+            site — grátis, sob {LICENSE_NAME}. Veja também a página{" "}
+            <Link href="/incorporar" className="underline">incorporar</Link>.
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>A média atual</h3>
+            <iframe
+              src="/embed/presidente"
+              title={`Média — Presidente 2026 · ${SITE_NAME}`}
+              loading="lazy"
+              className="w-full"
+              style={{ maxWidth: 480, height: 510, border: 0, colorScheme: "auto" }}
+            />
+            <CopyText text={EMBED_MEDIA} />
+          </div>
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold" style={{ color: "var(--text-secondary)" }}>A evolução (gráfico)</h3>
+            <iframe
+              src="/embed/evolucao"
+              title={`Evolução — Presidente 2026 · ${SITE_NAME}`}
+              loading="lazy"
+              className="w-full"
+              style={{ maxWidth: 520, height: 510, border: 0, colorScheme: "auto" }}
+            />
+            <CopyText text={EMBED_EVOLUCAO} />
+          </div>
+        </div>
+      </section>
+
+      {/* Quem faz */}
+      <section className="card space-y-2 p-4">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Quem faz</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O {SITE_NAME} é um projeto independente, sem vínculo com candidatura, partido, instituto ou
+          veículo, idealizado e desenvolvido por Iran Barbosa com uso intensivo de inteligência
+          artificial. Não realiza pesquisas próprias. A trajetória e a política de correções estão em{" "}
+          <Link href="/sobre" className="underline">Sobre o projeto</Link>.
+        </p>
+      </section>
+
+      {/* Contato / Fale com a imprensa */}
+      <section className="card space-y-3 p-4" id="contato">
+        <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Fale com a imprensa</h2>
+
+        {sucesso && (
+          <div
+            className="rounded border px-4 py-3 text-sm"
+            role="status"
+            style={{ borderColor: "var(--cand-green)", background: "color-mix(in srgb, var(--cand-green) 12%, transparent)", color: "var(--text-primary)" }}
+          >
+            Mensagem enviada. Obrigado — responderemos no e-mail informado.
+          </div>
+        )}
+        {erro && (
+          <div
+            className="rounded border px-4 py-3 text-sm"
+            role="alert"
+            style={{ borderColor: "rgb(226,98,15)", background: "rgba(226,98,15,0.10)", color: "var(--text-primary)" }}
+          >
+            {erro}
+          </div>
+        )}
+
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          Pedidos de imprensa, checagem de método, entrevistas, correções e dados sob demanda. Use o
+          formulário ou escreva para{" "}
+          <a href="mailto:contato@placardaspesquisas.com.br" className="underline">contato@placardaspesquisas.com.br</a>.
+        </p>
+
+        <form action="/api/contato" method="post" className="space-y-3">
+          {/* Campo-armadilha (honeypot): oculto para humanos; bots costumam preencher. */}
+          <input type="text" name="empresa" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="block text-sm">
+              <span className="mb-1 block font-medium" style={{ color: "var(--text-secondary)" }}>Nome</span>
+              <input
+                type="text" name="nome" required autoComplete="name"
+                className="w-full rounded border px-3 py-2 text-sm"
+                style={{ borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-primary)" }}
+              />
+            </label>
+            <label className="block text-sm">
+              <span className="mb-1 block font-medium" style={{ color: "var(--text-secondary)" }}>E-mail</span>
+              <input
+                type="email" name="email" required autoComplete="email"
+                className="w-full rounded border px-3 py-2 text-sm"
+                style={{ borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-primary)" }}
+              />
+            </label>
+          </div>
+          <label className="block text-sm">
+            <span className="mb-1 block font-medium" style={{ color: "var(--text-secondary)" }}>Assunto</span>
+            <input
+              type="text" name="assunto" defaultValue="Imprensa"
+              className="w-full rounded border px-3 py-2 text-sm"
+              style={{ borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-primary)" }}
+            />
+          </label>
+          <label className="block text-sm">
+            <span className="mb-1 block font-medium" style={{ color: "var(--text-secondary)" }}>Mensagem</span>
+            <textarea
+              name="mensagem" required rows={6}
+              className="w-full rounded border px-3 py-2 text-sm"
+              style={{ borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-primary)" }}
+            />
+          </label>
+          <button
+            type="submit"
+            className="rounded px-4 py-2 text-sm font-semibold"
+            style={{ background: "var(--accent)", color: "var(--surface-1)" }}
+          >
+            Enviar
+          </button>
+        </form>
+      </section>
+    </article>
+  );
+}
