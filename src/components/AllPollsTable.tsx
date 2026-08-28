@@ -155,7 +155,22 @@ export default function AllPollsTable({ rows, title = "Todas as pesquisas presid
                 <td className={`${TD} tabular`} style={{ color: "var(--accent)" }}>{fmtDate(r.date)}</td>
                 <td className={TD} style={{ color: "var(--text-secondary)" }}>{r.disputa}</td>
                 <td className={TD} style={{ color: "var(--text-secondary)" }}>{r.estado}</td>
-                <td className={TD} style={{ color: "var(--text-primary)" }}>{r.pollster}</td>
+                <td className={TD}>
+                  {r.source_url ? (
+                    <a
+                      href={r.source_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                      style={{ color: "var(--accent)" }}
+                      title="Abrir a pesquisa na fonte"
+                    >
+                      {r.pollster}
+                    </a>
+                  ) : (
+                    <span style={{ color: "var(--text-primary)" }}>{r.pollster}</span>
+                  )}
+                </td>
                 <td className={`${TD} tabular text-right`} style={{ color: "var(--text-secondary)" }}>{fmtSample(r.sample)}</td>
                 <td className={`${TD} tabular`} style={{ color: "var(--text-secondary)" }}>{r.resultado || "—"}</td>
                 <td className={`${TD} tabular text-right`} style={{ color: "var(--text-secondary)" }}>{fmtMargem(r.moe)}</td>
@@ -186,9 +201,22 @@ export default function AllPollsTable({ rows, title = "Todas as pesquisas presid
           {pageRows.map((r) => (
             <li key={r.id} className="card p-3">
               <div className="flex items-baseline justify-between gap-2">
-                <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-                  {r.pollster}
-                </span>
+                {r.source_url ? (
+                  <a
+                    href={r.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold hover:underline"
+                    style={{ color: "var(--accent)" }}
+                    title="Abrir a pesquisa na fonte"
+                  >
+                    {r.pollster}
+                  </a>
+                ) : (
+                  <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                    {r.pollster}
+                  </span>
+                )}
                 <span className="tabular whitespace-nowrap text-xs" style={{ color: "var(--accent)" }}>
                   {fmtDate(r.date)}
                 </span>
