@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **72 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **66 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -39,33 +39,6 @@ Soma **31.5%** · faltam **68.5 pontos** · 5 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · Piauí
-
-### Vetor3 — 2026-08-02
-
-Soma **32.2%** · faltam **67.8 pontos** · 11 candidato(s) na tabela · amostra 1602
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 18.35 |
-| Renan Santos | 1.81 |
-| Ronaldo Caiado | 1 |
-| Escritor Augusto Cury | 0.95 |
-| Samara | 0.5 |
-| Zema | 0.31 |
-| Edmilson Costa | 0.19 |
-| Aldo Rebelo | 0.12 |
-| Rui Costa Pimenta | 0.12 |
-| Hertz Dias | 0.12 |
-| Cabo Daciolo | 0.06 |
-| *branco/nulo* | 2.75 |
-| *não sabe/não respondeu* | 5.93 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-piaui-rafael-lula.pdf
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Piauí
 
 ### Credibilidade — 2026-07-19
@@ -80,6 +53,25 @@ Soma **33.2%** · faltam **66.8 pontos** · 1 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · São Paulo
+
+### Quaest — 2026-08-24
+
+Soma **36%** · faltam **64 pontos** · 4 candidato(s) na tabela · amostra 1800 · registro BR-02096/2026
+
+| candidato | % |
+|---|---|
+| Ronaldo Caiado | 4 |
+| Zema | 3 |
+| Renan Santos | 3 |
+| Rui Costa Pimenta | 1 |
+| *não sabe/não respondeu* | 25 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-sp-25ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-30-e-lula-29-dos-votos-no-1o-turno-em-sp/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -154,25 +146,6 @@ Soma **43.7%** · faltam **56.3 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · Sergipe · 2º turno
-
-### Instituto França — 2026-07-02
-
-Soma **43.8%** · faltam **56.2 pontos** · 1 candidato(s) na tabela · amostra 1116 · registro BR-09714/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 25.84 |
-| *branco/nulo* | 11.91 |
-| *não sabe/não respondeu* | 6 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Acre
-
 ### Instituto Travessia — 2026-08-06
 
 Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 · registro BR-03113/2026
@@ -187,29 +160,6 @@ Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Rio Grande do Norte
-
-### Instituto Perfil — 2026-07-26
-
-Soma **44.8%** · faltam **55.2 pontos** · 7 candidato(s) na tabela · amostra 1600 · registro BR-05225/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 20.56 |
-| Ronaldo Caiado | 1.94 |
-| Renan Santos | 1.38 |
-| Escritor Augusto Cury | 0.94 |
-| Zema | 0.56 |
-| Joaquim Barbosa | 0.38 |
-| Cabo Daciolo | 0.31 |
-| *branco/nulo* | 8.63 |
-| *não sabe/não respondeu* | 10.06 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-bg-midia-perfil-rn-1.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-bg-midia-perfil-rn-1.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -230,31 +180,6 @@ Soma **45.7%** · faltam **54.3 pontos** · 1 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · Sergipe
-
-### Instituto França — 2026-07-02
-
-Soma **47.5%** · faltam **52.5 pontos** · 9 candidato(s) na tabela · amostra 1116 · registro BR-09714/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 23.54 |
-| Samara | 1.14 |
-| Renan Santos | 1.04 |
-| Ronaldo Caiado | 0.74 |
-| Escritor Augusto Cury | 0.56 |
-| AÉCIO NEVES | 0.3 |
-| MINISTRO JOAQUIM BARBOSA | 0.21 |
-| Cabo Daciolo | 0.17 |
-| Zema | 0.06 |
-| *branco/nulo* | 11.93 |
-| *não sabe/não respondeu* | 7.83 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Maranhão
 
 ### Veritá — 2026-08-11
@@ -271,20 +196,21 @@ Soma **47.6%** · faltam **52.4 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Alagoas · 2º turno
+## Presidente · Tocantins
 
-### TDL — 2026-06-22
+### Real Time Big Data — 2026-08-25
 
-Soma **48%** · faltam **52 pontos** · 1 candidato(s) na tabela · amostra 1200 · registro AL-04608/2026
+Soma **49%** · faltam **51 pontos** · 3 candidato(s) na tabela · amostra 1600 · registro BR-06708/2026
 
 | candidato | % |
 |---|---|
-| Renan Filho | 37 |
-| *branco/nulo* | 7 |
-| *não sabe/não respondeu* | 4 |
+| Flávio Bolsonaro | 36 |
+| Ronaldo Caiado | 6 |
+| Zema | 1 |
+| *não sabe/não respondeu* | 6 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/06/pesquisa-tdl-alagados-26jun2026.pdf
-- Publicação: https://www.poder360.com.br/poder-pesquisas/jhc-tem-52-das-intencoes-de-voto-e-renan-filho-37-em-al/
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-tocantins-presidente-26ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-39-de-lula-no-2o-turno-no-to-diz-big-data/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -302,24 +228,6 @@ Soma **49.1%** · faltam **50.9 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-PE-revista-total-9ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-PE-revista-total-9ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Alagoas
-
-### TDL — 2026-07-17
-
-Soma **50%** · faltam **50 pontos** · 2 candidato(s) na tabela · amostra 1200 · registro BR-00994/2026
-
-| candidato | % |
-|---|---|
-| Renan Filho | 36 |
-| Lenilda Luna | 1 |
-| *branco/nulo* | 5 |
-| *não sabe/não respondeu* | 8 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-AL-jul-TDL.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -343,23 +251,6 @@ Soma **51.1%** · faltam **48.9 pontos** · 5 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Alagoas · 2º turno
-
-### Paraná Pesquisas — 2026-07-01
-
-Soma **52.5%** · faltam **47.5 pontos** · 1 candidato(s) na tabela · amostra 1400 · registro AL-04491/2026
-
-| candidato | % |
-|---|---|
-| Renan Filho | 42 |
-| *branco/nulo* | 6.1 |
-| *não sabe/não respondeu* | 4.4 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/AL_Jul26-1.pdf
-- Publicação: https://www.poder360.com.br/poder-pesquisas/jhc-tem-475-e-renan-filho-42-em-eventual-2o-turno-em-al-diz-pesquisa/
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Presidente · Acre
 
 ### Real Time Big Data — 2026-07-25
@@ -373,24 +264,6 @@ Soma **53%** · faltam **47 pontos** · 1 candidato(s) na tabela · amostra 1600
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-acre-27jul26.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-57-contra-34-de-lula-no-2o-turno-no-acre-diz-pesquisa/
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Alagoas
-
-### Paraná Pesquisas — 2026-07-01
-
-Soma **54.2%** · faltam **45.8 pontos** · 2 candidato(s) na tabela · amostra 1400 · registro AL-04491/2026
-
-| candidato | % |
-|---|---|
-| Renan Filho | 41 |
-| Lenilda Luna | 1.4 |
-| *branco/nulo* | 5.4 |
-| *não sabe/não respondeu* | 6.4 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/AL_Jul26-1.pdf
-- Publicação: https://www.poder360.com.br/poder-pesquisas/jhc-tem-475-e-renan-filho-42-em-eventual-2o-turno-em-al-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -408,23 +281,6 @@ Soma **55%** · faltam **45 pontos** · 2 candidato(s) na tabela · amostra 1500
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-ideia-presidente-governo-senado-19ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-ideia-presidente-governo-senado-19ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Alagoas
-
-### Real Time Big Data — 2025-11-24
-
-Soma **55%** · faltam **45 pontos** · 1 candidato(s) na tabela · amostra 1200
-
-| candidato | % |
-|---|---|
-| Renan Filho | 48 |
-| *branco/nulo* | 4 |
-| *não sabe/não respondeu* | 3 |
-
-- PDF do instituto: https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-alagoas-24nov2025.pdf
-- Publicação: https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-alagoas-24nov2025.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -460,23 +316,6 @@ Soma **60.9%** · faltam **39.1 pontos** · 1 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Alagoas
-
-### TDL — 2026-01-25
-
-Soma **61%** · faltam **39 pontos** · 1 candidato(s) na tabela · amostra 1200 · registro AL-03974/2026
-
-| candidato | % |
-|---|---|
-| Renan Filho | 30 |
-| *branco/nulo* | 9 |
-| *não sabe/não respondeu* | 22 |
-
-- PDF do instituto: https://static.poder360.com.br/2026/01/pesquisa-tdl-alagoas-presidente-29.jan_.2026.pdf
-- Publicação: https://static.poder360.com.br/2026/01/pesquisa-tdl-alagoas-presidente-29.jan_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -943,6 +782,26 @@ Soma **77.6%** · faltam **22.4 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Paraíba
+
+### Real Time Big Data — 2026-08-22
+
+Soma **78%** · faltam **22 pontos** · 4 candidato(s) na tabela · amostra 1600 · registro PB-07790/2026
+
+| candidato | % |
+|---|---|
+| Lucas Ribeiro | 35 |
+| Cícero Lucena | 25 |
+| Camilo Duarte | 1 |
+| Yuri Ezequiel | 1 |
+| *branco/nulo* | 9 |
+| *não sabe/não respondeu* | 7 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/realtime-big-data-paraiba-governador-presidente-24ago.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/ribeiro-tem-42-contra-35-de-lucena-no-2o-turno-na-pb-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Piauí · 2º turno
 
 ### AtlasIntel — 2026-03-15
@@ -1303,6 +1162,22 @@ Soma **88%** · faltam **12 pontos** · 5 candidato(s) na tabela · amostra 1200
 | *não sabe/não respondeu* | 22 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rio Grande do Norte
+
+### DataCapital — 2026-08-18
+
+Soma **88.4%** · faltam **11.6 pontos** · 3 candidato(s) na tabela · amostra 2100
+
+| candidato | % |
+|---|---|
+| Allyson | 41.8 |
+| Álvaro Dias | 26.3 |
+| Cadu de Lula | 20.3 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
