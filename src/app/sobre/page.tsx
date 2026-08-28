@@ -48,7 +48,11 @@ export default function SobrePage() {
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
           As regras de cálculo são fixas, públicas e aplicadas igualmente a todas as
           disputas — das mais pesquisadas às menos pesquisadas. Nenhum número é estimado ou
-          inventado: quando um dado não foi publicado, aparece como &ldquo;—&rdquo;.
+          inventado: quando um dado não foi publicado, aparece como &ldquo;—&rdquo;. Como o
+          site agrega pesquisas já publicadas segundo essas regras e disponibiliza os dados
+          de forma aberta e reproduzível, os resultados não dependem de avaliação pessoal:
+          nenhuma pesquisa é incluída ou excluída manualmente, e qualquer pessoa pode refazer
+          os cálculos a partir das fontes.
         </p>
       </section>
 
@@ -100,8 +104,8 @@ export default function SobrePage() {
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
           A data e a hora da última atualização aparecem no topo de todas as páginas, de modo
           que é sempre possível saber a que versão dos dados um número se refere. Se você
-          encontrou uma divergência em relação à fonte original, avise pelo canal de contato
-          abaixo.
+          encontrou uma divergência em relação à fonte original, avise pela{" "}
+          <Link href="/contato" className="underline">página de contato</Link>.
         </p>
       </section>
 
@@ -122,14 +126,50 @@ export default function SobrePage() {
         </p>
       </section>
 
+      {/* ── QUEM CONSTRUIU — depois das seções do produto (produto na frente,
+          autor curto). Tom neutro-institucional: a experiência/qualificação
+          deram a base para uma ferramenta IMPARCIAL; o objetivo é o leitor se
+          informar com menos viés. Trajetória detalhada fica no LinkedIn. ── */}
       <section className="card space-y-2 p-4">
+        <h2 className="font-semibold">Quem construiu</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O {SITE_NAME} foi idealizado e desenvolvido por <strong>Iran Barbosa</strong>, com
+          uso intensivo de inteligência artificial em todas as etapas — da coleta e
+          padronização das pesquisas ao cálculo das médias, aos mapas e às análises derivadas.
+          O objetivo é reunir em um só lugar, de forma aberta e com método descrito, o que as
+          pesquisas de fato mostram — para que cada pessoa possa acompanhar as Eleições 2026
+          com menos ruído e menos viés.
+        </p>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          A experiência em mandatos públicos — vereador de Belo Horizonte (2009–2015) e
+          deputado estadual de Minas Gerais (2015–2019) — e na gestão de empresas em setores
+          regulados, somada à formação em Administração (PUC Minas) e a certificações pela
+          Harvard Business School Online, pelo MIT Sloan School of Management e pela IBM
+          (Python para Ciência de Dados, IA e Desenvolvimento), deu a base para construir uma
+          ferramenta de análise que, esperamos, seja a mais imparcial do processo eleitoral.
+          Ele não ocupa cargo eletivo atualmente e não é candidato nas Eleições 2026. A
+          trajetória completa está no{" "}
+          <a
+            href="https://www.linkedin.com/in/iranbarbosamg/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            LinkedIn
+          </a>
+          .
+        </p>
+      </section>
+
+      <section className="card space-y-2 p-4" id="contato">
         <h2 className="font-semibold">Contato</h2>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-          Correções, dúvidas sobre metodologia e pedidos de imprensa são bem-vindos.
-        </p>
-        {/* TODO: preencher identidade/contato do responsável */}
-        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-          TODO: contato — canal de contato a preencher pelo responsável.
+          Correções, dúvidas sobre metodologia e pedidos de imprensa são bem-vindos — use a{" "}
+          <Link href="/contato" className="underline">página de contato</Link> ou escreva para{" "}
+          <a href="mailto:contato@placardaspesquisas.com.br" className="underline">
+            contato@placardaspesquisas.com.br
+          </a>
+          .
         </p>
       </section>
     </article>

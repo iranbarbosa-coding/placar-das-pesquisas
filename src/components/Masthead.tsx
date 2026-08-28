@@ -31,7 +31,7 @@ export interface MastheadProps {
   meta?: React.ReactNode;
 }
 
-type MenuKey = "sobre" | "presidente" | "estados" | "derivadas" | "metodologia";
+type MenuKey = "sobre" | "presidente" | "estados" | "derivadas" | "metodologia" | "contato";
 
 interface MenuLink {
   href: string;
@@ -98,6 +98,12 @@ const MENUS: Menu[] = [
     label: "Sobre",
     href: "/sobre",
     links: [{ href: "/sobre", label: "O projeto", note: "Quem faz, com que dados e por quê" }],
+  },
+  {
+    key: "contato",
+    label: "Contato",
+    href: "/contato",
+    links: [{ href: "/contato", label: "Fale com o projeto", note: "Correções, dúvidas de metodologia e imprensa" }],
   },
 ];
 
