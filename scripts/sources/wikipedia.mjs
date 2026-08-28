@@ -14,7 +14,11 @@ export async function fetchWikipedia() {
     [path.join(HERE, "..", "wiki_parse.py"), path.join(HERE, "..", "wiki-pages.json")],
     { maxBuffer: 128 * 1024 * 1024, timeout: 10 * 60_000, encoding: "utf-8" },
   );
-  const raw = JSON.parse(out);
+  // wiki_parse.py passou a emitir { polls, pages }; aceita ainda o array cru
+  // (forma antiga) para não quebrar se um clone rodar um parser mais velho.
+  const parsed = JSON.parse(out);
+  const raw = Array.isArray(parsed) ? parsed : (parsed.polls ?? []);
+  const fetchLog = Array.isArray(parsed) ? [] : (parsed.pages ?? []);
 
   const polls = [];
   const seen = new Set();
@@ -65,5 +69,5 @@ export async function fetchWikipedia() {
     norm.id = pollId(norm);
     polls.push(norm);
   }
-  return { polls };
+  return { polls, fetchLog };
 }

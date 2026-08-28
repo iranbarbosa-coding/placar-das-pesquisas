@@ -175,20 +175,37 @@ export async function fetchPoder360() {
   }
 
   const polls = [];
+  // OBSERVABILIDADE: cada combo é NOMEADO no log de fetch — o que buscou
+  // (cargo:UF turno) e, se falhou, por quê; combos que voltam ZERO registros
+  // entram como suspeitos (`fetched: 0`, sem `error`). Era esta lista que
+  // faltava: "N combo(s) failed, last: …" contava sem dizer QUAIS, e um lote
+  // que sumia (Quaest presidencial nacional) ficava invisível.
+  const fetchLog = [];
+  const rotulo = (j) => `${j.race}:${j.uf ?? "BR"} t${j.round}`;
   let failures = 0;
   let lastErr = null;
   for (const job of jobs) {
     try {
-      polls.push(...(await fetchCombo(job)));
+      const got = await fetchCombo(job);
+      polls.push(...got);
+      fetchLog.push({ source: "poder360", alvo: rotulo(job), fetched: got.length });
+      if (!got.length) console.warn(`poder360: combo ZERO registros (suspeito) — ${rotulo(job)}`);
     } catch (e) {
       failures++;
       lastErr = e;
+      fetchLog.push({ source: "poder360", alvo: rotulo(job), fetched: 0, error: e.message });
+      console.warn(`poder360: combo FALHOU — ${rotulo(job)} — ${e.message}`);
       if (failures > jobs.length / 4) {
-        throw new Error(`poder360: too many failures (${failures}/${jobs.length}); last: ${lastErr.message}`);
+        // Antes de abortar, deixa a lista NOMEADA do que falhou — não só o total.
+        const nomes = fetchLog.filter((e) => e.error).map((e) => `${e.alvo} (${e.error})`);
+        throw new Error(`poder360: too many failures (${failures}/${jobs.length}); combos: ${nomes.join(" | ")}`);
       }
     }
     await sleep(300); // ~85 combos × 2 calls — polite pacing
   }
-  if (failures) console.warn(`poder360: ${failures} combo(s) failed, continuing (last: ${lastErr?.message})`);
-  return { polls };
+  if (failures) {
+    const nomes = fetchLog.filter((e) => e.error).map((e) => `${e.alvo} (${e.error})`);
+    console.warn(`poder360: ${failures} combo(s) falharam, continuando — ${nomes.join(" | ")}`);
+  }
+  return { polls, fetchLog };
 }

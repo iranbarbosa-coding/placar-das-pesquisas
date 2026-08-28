@@ -605,7 +605,13 @@ def main():
     with open(cfg_path, encoding='utf-8') as f:
         pages = json.load(f)
     all_polls, failures = [], []
+    # OBSERVABILIDADE: um registro NOMEADO por página (o que buscou, quantas
+    # trouxe e, se falhou, por quê). Antes isto só ia para stderr; agora volta
+    # estruturado ao Node, que o consolida no RESUMO DE COBERTURA — uma página
+    # que zera (ou falha) deixa de ser invisível.
+    page_log = []
     for pg in pages:
+        alvo = f"{pg.get('race', 'presidente')}:{pg.get('state') or 'BR'} ({pg.get('lang', 'pt')})"
         try:
             req = urllib.request.Request(pg['raw_url'], headers={
                 'User-Agent': 'PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)'})
@@ -614,14 +620,16 @@ def main():
             polls = extract(text, pg['url'], pg.get('lang', 'pt'),
                             pg.get('race', 'presidente'), pg.get('state'))
             all_polls.extend(polls)
-            print(f"  wiki: {pg.get('race')}/{pg.get('state') or 'BR'} ({pg.get('lang')}): {len(polls)} polls", file=sys.stderr)
+            page_log.append({'source': 'wikipedia', 'alvo': alvo, 'fetched': len(polls)})
+            print(f"  wiki: {alvo}: {len(polls)} polls", file=sys.stderr)
         except Exception as e:
             failures.append(f"{pg['raw_url']}: {e}")
+            page_log.append({'source': 'wikipedia', 'alvo': alvo, 'fetched': 0, 'error': str(e)})
             print(f"  wiki FAIL {pg['raw_url']}: {e}", file=sys.stderr)
     if failures and not all_polls:
         sys.exit('all wiki pages failed: ' + '; '.join(failures))
     all_polls = desambigua_2t(all_polls)
-    json.dump(all_polls, sys.stdout, ensure_ascii=False)
+    json.dump({'polls': all_polls, 'pages': page_log}, sys.stdout, ensure_ascii=False)
 
 if __name__ == '__main__':
     main()

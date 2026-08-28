@@ -8,4 +8,5 @@ next-env.d.ts
 .vercel
 data-research/
 scripts/ocr/ocr
+logs/
 .claude/settings.local.json

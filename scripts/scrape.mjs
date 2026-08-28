@@ -24,6 +24,7 @@ import { normNome } from "./lib/nomes.mjs";
 import { fetchPoder360 } from "./sources/poder360.mjs";
 import { fetchWikipedia } from "./sources/wikipedia.mjs";
 import { fetchTseRegistry } from "./sources/tse.mjs";
+import { novoRelatorioCobertura } from "./lib/coverage.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 /**
@@ -631,10 +632,24 @@ async function main() {
         return { ok: true, ...r };
       } catch (e) {
         console.error(`✗ tse FALHOU: ${e.message} — enriquecimento pulado`);
-        return { ok: false, records: [] };
+        return { ok: false, records: [], error: String(e.message) };
       }
     })(),
   ]);
+
+  // OBSERVABILIDADE DE COLETA: o coletor de cobertura acumula falhas/zeros de
+  // fetch e descartes nomeados, e imprime o RESUMO DE COBERTURA no fim. É
+  // observabilidade PURA — não toca no que é coletado, filtrado ou mantido; o
+  // store sai byte a byte idêntico. Os logs de fetch de cada fonte já chegam
+  // nomeados; uma fonte que falhou INTEIRA (runSource caiu no catch e devolveu
+  // o banco anterior) não traz fetchLog — então é registrada aqui como falha
+  // total, para que "kept > fetched" (servindo dado anterior) salte no resumo.
+  const cov = novoRelatorioCobertura();
+  cov.registrarFetch(poder.fetchLog ?? (poder.ok ? [] : [{ source: "poder360", alvo: "(fonte inteira)", fetched: 0, error: poder.error ?? "falha desconhecida" }]));
+  cov.registrarFetch(wiki.fetchLog ?? (wiki.ok ? [] : [{ source: "wikipedia", alvo: "(fonte inteira)", fetched: 0, error: wiki.error ?? "falha desconhecida" }]));
+  cov.registrarFetch([tse.ok
+    ? { source: "tse", alvo: "registro PesqEle (metadados)", fetched: tse.count ?? (tse.records?.length ?? 0) }
+    : { source: "tse", alvo: "registro PesqEle (metadados)", fetched: 0, error: tse.error ?? "falha desconhecida" }]);
 
   // Unify institute names BEFORE merging so "Quaest" and "Genial/Quaest"
   // land in the same dedupe bucket.
@@ -644,6 +659,9 @@ async function main() {
     allRaw.filter((p) => p.source === "poder360"),
     allRaw.filter((p) => p.source !== "poder360"),
   ]);
+  // Registros crus que a fusão entre fontes uniu (mesma operação de campo vinda
+  // pelas duas fontes) — contagem para o resumo. Não é perda: é unificação.
+  cov.fundidas(Math.max(0, allRaw.length - polls.length));
 
   // Curated repairs from primary sources, replayed every run (data/repairs.json).
   const rep = applyRepairs(polls);
@@ -656,6 +674,8 @@ async function main() {
   // o dia em que a fonte sarou OU em que a inserção quebrou, e as duas coisas
   // precisam ser vistas. Ver `add_poll` em `scripts/lib/repairs.mjs`.
   for (const i of rep.inserted ?? []) console.log(`  PESQUISA INSERIDA (curada): ${i}`);
+  cov.curadaInserida((rep.inserted ?? []).length);
+  cov.curadaGateada((rep.dropped ?? []).length);
   // O ESPELHO DA LINHA ACIMA: cada registro que um `drop_poll` removeu é um que
   // a fonte SERVE e a rodada decidiu não publicar (o caso que motivou a ação: a
   // governador:SP costurada de três cenários — ver `gatearPesquisaCurada` em
@@ -757,9 +777,23 @@ async function main() {
       .filter((r) => r.candidate &&
         (curada || (!JUNK.test(r.candidate) && !JUNK_PHRASE.test(r.candidate) && !isPartyRow(r, contest))));
   }
-  polls = polls.filter((p) => p.results.length > 0);
+  polls = polls.filter((p) => {
+    if (p.results.length > 0) return true;
+    // Sobrou sem nenhum candidato após a limpeza de artefato de fonte (linha de
+    // partido, opção de abstenção, "Cen."): descarte NOMEADO no canal único.
+    console.warn(cov.descartar("sem_candidato_pos_limpeza", p));
+    return false;
+  });
 
-  polls = keepFullestRound1(polls);
+  {
+    // keepFullestRound1 colapsa cenários alternativos de 1º turno no mais cheio
+    // (mesma pergunta, elencos alternativos). O colapsado não é publicado —
+    // registra-se por diferença de referência (a função preserva os objetos).
+    const antes = polls;
+    polls = keepFullestRound1(polls);
+    const mantidos = new Set(polls);
+    for (const p of antes) if (!mantidos.has(p)) console.warn(cov.descartar("cenario_colapsado_round1", p));
+  }
   polls = canonicalizeParties(polls);
 
   // THE RAW NAMES, SAVED BEFORE WE TOUCH THEM.
@@ -832,7 +866,15 @@ async function main() {
   }
 
   polls = canonicalizeCandidates(polls);
-  polls = dropExactDuplicates(polls);
+  {
+    // dropExactDuplicates já loga "duplicata entre marcas" ao decidir; aqui só
+    // registramos o descarte para o resumo, por diferença de referência (a
+    // função preserva os objetos que mantém).
+    const antes = polls;
+    polls = dropExactDuplicates(polls);
+    const mantidos = new Set(polls);
+    for (const p of antes) if (!mantidos.has(p)) cov.descartar("duplicata_exata_entre_marcas", p);
+  }
 
   // Null future dates (upstream typos like "2026-08-29" published on Aug 12):
   // a future anchor would corrupt every rolling-average window.
@@ -867,7 +909,10 @@ async function main() {
   polls = polls.filter((p) => {
     const v = veredictoDeSoma(p);
     if (!v.ok) {
-      console.warn(`descartada: ${p.pollster} ${p.race}/${p.state ?? "BR"} ${p.fieldwork_end ?? "?"} — ${v.motivo}`);
+      // Motivo padronizado para a quebra do resumo (soma<30 × soma>teto); o
+      // detalhe numérico (`v.motivo`, ex. "soma 21.0 < 30") fica na linha.
+      const codigo = v.soma < 30 ? "soma<30" : "soma>teto";
+      console.warn(cov.descartar(codigo, p, v.motivo));
       return false;
     }
     return true;
@@ -899,10 +944,7 @@ async function main() {
   {
     const { polls: unicos, dropped } = dedupeById(polls);
     for (const d of dropped) {
-      console.warn(
-        `descartada por id duplicado (mantida a mais completa/antiga): ${d.pollster} ` +
-        `${d.race}/${d.state ?? "BR"} ${pollDate(d) ?? "?"} "${d.scenario ?? ""}" — id ${d.id}`,
-      );
+      console.warn(cov.descartar("id_duplicado", d, `mantida a mais completa/antiga · "${d.scenario ?? ""}"`));
     }
     polls = unicos;
   }
@@ -935,7 +977,40 @@ async function main() {
   fs.renameSync(tmp, DATA);
   console.log(`OK: ${polls.length} pesquisas gravadas em ${path.relative(ROOT, DATA)}`);
 
+  emitirCobertura(cov, polls);
+
   persistStore(polls, dataset, tse);
+}
+
+/**
+ * O RESUMO DE COBERTURA — o cabeçalho alto e auditável que faltava, impresso no
+ * console (portanto visível no log do GitHub Actions) sobre a lista FINAL de
+ * pesquisas ingeridas.
+ *
+ * PERSISTÊNCIA FORA DE data/ DE PROPÓSITO. O relatório legível por máquina vai
+ * para `logs/fetch-report.json`, NÃO para `data/`: o passo de commit do workflow
+ * faz `git add data/` e `git diff --quiet data/`, então um relatório dentro de
+ * data/ (que muda a cada rodada, com timestamps e variação de rede) faria a
+ * rodada COMMITAR mesmo sem pesquisa nova e poluiria todo commit de dados — além
+ * de arriscar `idempotence-check`/`validate-store`, que varrem o diretório do
+ * store. `logs/` é git-ignorado; o console é o entregável obrigatório e o
+ * arquivo é o extra que um passo do workflow pode publicar como artefato.
+ */
+function emitirCobertura(cov, polls) {
+  console.log("");
+  for (const linha of cov.resumo(polls)) console.log(linha);
+  console.log("");
+  try {
+    const dir = path.join(ROOT, "logs");
+    fs.mkdirSync(dir, { recursive: true });
+    const alvo = path.join(dir, "fetch-report.json");
+    fs.writeFileSync(alvo, JSON.stringify({ generated_at: new Date().toISOString(), ...cov.paraJson(polls) }, null, 1) + "\n");
+    console.log(`relatório de cobertura legível por máquina: ${path.relative(ROOT, alvo)} (git-ignorado)`);
+  } catch (e) {
+    // O arquivo é OPCIONAL; o console é o que não pode faltar. Uma falha de
+    // escrita (disco cheio, permissão) não pode derrubar a coleta.
+    console.warn(`AVISO: não foi possível gravar logs/fetch-report.json — ${e.message}`);
+  }
 }
 
 /**
