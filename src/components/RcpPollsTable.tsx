@@ -180,8 +180,21 @@ export default function RcpPollsTable({
               const rowLeader = leaderIndex(r.values);
               return (
                 <tr key={`${r.pollster}-${r.date}-${ri}`} style={{ borderBottom: "1px solid var(--grid)" }}>
-                  <td className={`${TD} text-left`} style={{ color: "var(--text-primary)" }}>
-                    {r.pollster}
+                  <td className={`${TD} text-left`}>
+                    {r.source_url ? (
+                      <a
+                        href={r.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                        style={{ color: "var(--accent)" }}
+                        title="Abrir a pesquisa na fonte"
+                      >
+                        {r.pollster}
+                      </a>
+                    ) : (
+                      <span style={{ color: "var(--text-primary)" }}>{r.pollster}</span>
+                    )}
                   </td>
                   <td className={`${TD} tabular text-left`} style={{ color: "var(--accent)" }}>
                     {fmtDate(r.date)}
@@ -238,9 +251,22 @@ export default function RcpPollsTable({
           return (
             <li key={`${r.pollster}-${r.date}-${ri}`} className="card p-3">
               <div className="flex items-baseline justify-between gap-2">
-                <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-                  {r.pollster}
-                </span>
+                {r.source_url ? (
+                  <a
+                    href={r.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold hover:underline"
+                    style={{ color: "var(--accent)" }}
+                    title="Abrir a pesquisa na fonte"
+                  >
+                    {r.pollster}
+                  </a>
+                ) : (
+                  <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                    {r.pollster}
+                  </span>
+                )}
                 <span className="tabular whitespace-nowrap text-xs" style={{ color: "var(--accent)" }}>
                   {fmtDate(r.date)}
                 </span>

@@ -209,6 +209,8 @@ export interface PollRow {
   resultado: string;
   /** The poll's TSE registration id, or "—". */
   registro: string;
+  /** URL da fonte publicada da pesquisa (artigo/íntegra), ou null se ausente. */
+  source_url: string | null;
   /** Lowercased pollster + state + candidate names, for the text search. */
   haystack: string;
 }
@@ -243,6 +245,7 @@ function toPollRow(poll: Poll): PollRow {
     round: poll.round,
     resultado: resultadoOf(poll),
     registro: poll.tse_registration ?? "—",
+    source_url: poll.source_url || null,
     haystack: `${poll.pollster} ${estado} ${names}`.toLowerCase(),
   };
 }
@@ -294,6 +297,8 @@ export interface RcpRow {
   /** One value per column, in `candidates` order; null when not tested. */
   values: (number | null)[];
   spread: RcpSpread | null;
+  /** URL da fonte publicada da pesquisa (artigo/íntegra), ou null se ausente. */
+  source_url: string | null;
 }
 
 export interface RcpTable {
@@ -418,6 +423,7 @@ export function rcpTable(
           return v == null ? null : round1(v);
         }),
         spread: mkSpread(pairs, band),
+        source_url: raw.source_url || null,
       };
     });
 
