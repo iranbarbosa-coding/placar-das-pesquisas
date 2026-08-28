@@ -3,15 +3,24 @@ import Link from "next/link";
 import { SITE_NAME } from "@/lib/brand";
 import { BASE, LICENSE_NAME, LICENSE_URL } from "@/lib/jsonld";
 
-/* The exact <iframe> a publisher copies. Inline-styled and self-contained so it
-   drops into any page — including plain CMS HTML — with no stylesheet of ours. */
-const SNIPPET = `<iframe
+/* The exact <iframe>s a publisher copies. Inline-styled and self-contained so
+   they drop into any page — including plain CMS HTML — with no stylesheet of ours. */
+const SNIPPET_MEDIA = `<iframe
   src="${BASE}/embed/presidente"
   title="Média — Presidente 2026 · ${SITE_NAME}"
   width="100%"
   height="320"
   loading="lazy"
   style="max-width:480px;border:0"
+></iframe>`;
+
+const SNIPPET_EVOLUCAO = `<iframe
+  src="${BASE}/embed/evolucao"
+  title="Evolução — Presidente 2026 · ${SITE_NAME}"
+  width="100%"
+  height="360"
+  loading="lazy"
+  style="max-width:520px;border:0"
 ></iframe>`;
 
 export const metadata: Metadata = {
@@ -32,29 +41,45 @@ export default function IncorporarPage() {
           Incorporar a média no seu site
         </h1>
         <p className="max-w-[70ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-          Um widget leve com a média das pesquisas para presidente em 2026. Ele se atualiza sozinho
-          quando atualizamos os dados — você cola uma vez e não precisa mexer mais.
+          Widgets leves com as pesquisas para presidente em 2026. Eles se atualizam sozinhos quando
+          atualizamos os dados — você cola uma vez e não precisa mexer mais.
         </p>
       </header>
 
-      <section className="card min-w-0 p-4 sm:p-6" aria-label="Código para incorporar">
+      <section className="card min-w-0 p-4 sm:p-6" aria-label="Widget da média">
         <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>
-          Código
+          Média atual
         </h2>
         <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
-          Copie e cole este trecho onde quiser que o widget apareça:
+          A média por candidato (1º turno). Copie e cole este trecho onde quiser que apareça:
         </p>
         <pre
           className="mt-3 overflow-x-auto rounded-lg border p-4 text-xs leading-relaxed"
           style={{ borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-primary)" }}
         >
-          <code>{SNIPPET}</code>
+          <code>{SNIPPET_MEDIA}</code>
         </pre>
         <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
-          O widget aponta para{" "}
-          <Link href="/embed/presidente" className="underline">/embed/presidente</Link>{" "}
-          e traz um link de volta para a página completa em{" "}
-          <Link href="/presidente" className="underline">/presidente</Link>.
+          Aponta para <Link href="/embed/presidente" className="underline">/embed/presidente</Link>.
+        </p>
+      </section>
+
+      <section className="card min-w-0 p-4 sm:p-6" aria-label="Widget da evolução">
+        <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>
+          Evolução (gráfico)
+        </h2>
+        <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+          A tendência da média ao longo do tempo, como um gráfico de linhas:
+        </p>
+        <pre
+          className="mt-3 overflow-x-auto rounded-lg border p-4 text-xs leading-relaxed"
+          style={{ borderColor: "var(--ring)", background: "var(--surface-1)", color: "var(--text-primary)" }}
+        >
+          <code>{SNIPPET_EVOLUCAO}</code>
+        </pre>
+        <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
+          Aponta para <Link href="/embed/evolucao" className="underline">/embed/evolucao</Link>. Ambos
+          trazem um link de volta para <Link href="/presidente" className="underline">/presidente</Link>.
         </p>
       </section>
 
