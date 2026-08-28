@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Masthead from "@/components/Masthead";
+import JsonLd from "@/components/JsonLd";
 import { loadDataset } from "@/lib/data";
 import { buildSearchIndex } from "@/lib/search-index";
+import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 import { SITE_NAME, SITE_YEAR, SITE_TAGLINE } from "@/lib/brand";
 import "./globals.css";
 
@@ -69,6 +71,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body className="min-h-screen antialiased">
+        {/* Site-wide structured data: the publisher identity + the site node
+            every Dataset block references by @id. */}
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         {/* Full-bleed: it must NOT sit inside the centred container. */}
         <Masthead searchIndex={buildSearchIndex()} />
 

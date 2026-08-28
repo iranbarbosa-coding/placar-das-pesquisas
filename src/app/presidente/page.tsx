@@ -8,7 +8,9 @@ import PresidentStateMap from "@/components/PresidentStateMap";
 import PresidentMomentum from "@/components/PresidentMomentum";
 import StatePies from "@/components/StatePies";
 import AllPollsTable from "@/components/AllPollsTable";
+import JsonLd from "@/components/JsonLd";
 import { loadDataset, scenarioGroups } from "@/lib/data";
+import { datasetSchema } from "@/lib/jsonld";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 import {
@@ -73,6 +75,29 @@ export default function PresidentePage() {
 
   return (
     <div className="flex min-w-0 flex-col gap-6">
+      <JsonLd
+        data={datasetSchema({
+          path: "/presidente",
+          name: "Média das pesquisas — Presidente da República, Brasil 2026",
+          description:
+            "Média agregada das pesquisas de intenção de voto para presidente da República nas eleições brasileiras de 2026, em votos válidos, com todas as pesquisas que compõem cada média e a data da última pesquisa. Atualizado automaticamente a partir de fontes públicas (registros do TSE/PesqEle, Wikipédia e divulgações dos institutos).",
+          dateModified: ds.generated_at,
+          distributionPath: "/api/presidente.json",
+          keywords: [
+            "pesquisas eleitorais",
+            "eleições 2026",
+            "intenção de voto",
+            "presidente",
+            "agregador de pesquisas",
+            "média das pesquisas",
+          ],
+          measures: [
+            "intenção de voto (%) por candidato",
+            "média agregada em votos válidos",
+            "tendência da média",
+          ],
+        })}
+      />
       {/* Page header */}
       <header className="flex flex-col gap-2">
         <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>
