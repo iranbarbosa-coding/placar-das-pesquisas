@@ -126,7 +126,24 @@ function restaurarReferencias(store, previous, results) {
   const candAnteriores = new Map((previous.candidates ?? []).map((c) => [c.candidate_id, c]));
   const pessoasAnteriores = new Map((previous.people ?? []).map((p) => [p.person_id, p]));
   for (const r of results) {
-    if (idx.candidateById.has(r.candidate_id)) continue;
+    if (idx.candidateById.has(r.candidate_id)) {
+      // A GRAFIA DOADA PELA RETENÇÃO É UMA GRAFIA PUBLICADA LEGÍTIMA. Quando a
+      // fonte troca o nome de um candidato (ex.: "Antônio Galvan" → "Galvan",
+      // adotando o nome de urna) E encolhe o elenco na mesma rodada, a retenção
+      // devolve a pergunta anterior — com o `name_raw` antigo — para uma linha
+      // de candidato recunhada nesta rodada só com a grafia nova. Sem esta
+      // linha, `candidate-review.mjs assertRawInput` acusa a grafia antiga como
+      // "desconhecida" e reprova o cron (upsert-harness (c)), por uma grafia que
+      // a própria rodada anterior publicou. A linha JÁ existe, então só falta o
+      // alias — a identidade não muda.
+      const cand = idx.candidateById.get(r.candidate_id);
+      const nm = String(r.name_raw ?? "").trim();
+      if (nm && !(cand.aliases ?? []).includes(nm)) {
+        cand.aliases = [...new Set([...(cand.aliases ?? []), nm])].sort();
+        idx.candidateByAlias.set(`${cand.contest}|${nameKey(nm)}`, cand);
+      }
+      continue;
+    }
     const velho = candAnteriores.get(r.candidate_id);
     if (!velho) return `candidato ${r.candidate_id} não existe nem nesta rodada nem na anterior`;
     if (velho.person_id != null && !idx.personById.has(velho.person_id)) {
