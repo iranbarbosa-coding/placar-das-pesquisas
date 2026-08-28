@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import MatchupCard from "@/components/MatchupCard";
 import StateJumpNav, { type JumpTarget } from "@/components/StateJumpNav";
-import { scenarioGroups, fmtDate } from "@/lib/data";
+import { loadDataset, scenarioGroups, fmtDate } from "@/lib/data";
 import { fmtPct } from "@/lib/format";
 import { UFS, UF_NAMES } from "@/lib/types";
 import { displayName } from "@/lib/names";
 import { registeredPresidentKeys } from "@/lib/home";
 import { candKey } from "@/lib/average";
+import JsonLd from "@/components/JsonLd";
+import { datasetSchema } from "@/lib/jsonld";
 import type { ScenarioGroup } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -80,6 +82,18 @@ export default function SegundoTurnoPage() {
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
+      <JsonLd
+        data={datasetSchema({
+          path: "/segundo-turno",
+          name: "Simulações de 2º turno — Eleições Brasil 2026",
+          description:
+            "Médias das simulações de segundo turno para presidente e governadores nas eleições brasileiras de 2026, por confronto testado pelas pesquisas, em votos válidos.",
+          dateModified: loadDataset().generated_at,
+          distributionPath: "/api/segundo-turno.json",
+          keywords: ["segundo turno", "eleições 2026", "intenção de voto", "presidente", "governador", "média das pesquisas"],
+          measures: ["intenção de voto (%) por candidato em 2º turno", "média agregada em votos válidos"],
+        })}
+      />
       {/* Page header — breadcrumb + title, per the new pattern. */}
       <header className="flex flex-col gap-2">
         <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>

@@ -10,7 +10,9 @@ import RunoffSims from "@/components/RunoffSims";
 // etapa futura; o componente segue em `@/components/StateNav`.
 import StateTrends from "@/components/StateTrends";
 import { candKey } from "@/lib/average";
-import { scenarioGroups } from "@/lib/data";
+import { loadDataset, scenarioGroups } from "@/lib/data";
+import JsonLd from "@/components/JsonLd";
+import { datasetSchema } from "@/lib/jsonld";
 import { fmtPct, fmtDate } from "@/lib/format";
 import { displayName } from "@/lib/names";
 import { stateRunoff, stateTrends } from "@/lib/estado";
@@ -95,6 +97,17 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
+      <JsonLd
+        data={datasetSchema({
+          path: `/estados/${UFU.toLowerCase()}`,
+          name: `Pesquisas eleitorais 2026 — ${UF_NAMES[UFU]}`,
+          description: `Médias das pesquisas de intenção de voto para governador, senador e presidente em ${UF_NAMES[UFU]} nas eleições brasileiras de 2026, com as pesquisas que compõem cada média.`,
+          dateModified: loadDataset().generated_at,
+          distributionPath: "/api/averages.json",
+          keywords: ["pesquisas eleitorais", "eleições 2026", UF_NAMES[UFU], "governador", "senador", "intenção de voto"],
+          measures: ["intenção de voto (%) por candidato", "média agregada por disputa"],
+        })}
+      />
       {/* Page header — breadcrumb + title + Visão geral nav. */}
       <header className="flex flex-col gap-3">
         <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>

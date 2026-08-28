@@ -10,9 +10,10 @@ import StatePies from "@/components/StatePies";
 import AllPollsTable from "@/components/AllPollsTable";
 import JsonLd from "@/components/JsonLd";
 import { loadDataset, scenarioGroups } from "@/lib/data";
-import { datasetSchema } from "@/lib/jsonld";
+import { datasetSchema, faqSchema } from "@/lib/jsonld";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
+import { SITE_NAME } from "@/lib/brand";
 import {
   rcpTable,
   presidentEvolution,
@@ -73,6 +74,25 @@ export default function PresidentePage() {
   const rcpRunnerPct = rcp.average.values[1];
   const hasLede = !!(rcpLead && rcpRunner && rcpLeadPct != null && rcpRunnerPct != null && presAvg);
 
+  // FAQPage — answer-first Q&A derived from the SAME numbers the page shows, so
+  // the extracted answers can never disagree with the rendered figures.
+  const faqItems = hasLede
+    ? [
+        {
+          q: "Quem lidera a média das pesquisas para presidente em 2026?",
+          a: `Na média do ${SITE_NAME} em votos válidos, ${displayName(rcpLead!.name)} lidera o 1º turno com ${fmtPct(rcpLeadPct)}%, à frente de ${displayName(rcpRunner!.name)} com ${fmtPct(rcpRunnerPct)}% — diferença de ${fmtPct(Math.abs(rcpLeadPct! - rcpRunnerPct!))} pontos. Média de ${presAvg!.pollCount} ${presAvg!.pollCount === 1 ? "pesquisa" : "pesquisas"}, atualizada em ${fmtDate(presAvg!.lastPollDate)}.`,
+        },
+        {
+          q: "O que significa a média em votos válidos?",
+          a: "É a intenção de voto recalculada sobre o total de votos em candidatos, excluindo brancos, nulos e indecisos — a base comparável entre pesquisas de institutos diferentes.",
+        },
+        {
+          q: "Com que frequência a média é atualizada?",
+          a: `O ${SITE_NAME} atualiza automaticamente duas vezes por dia a partir de fontes públicas (registros do TSE/PesqEle, Wikipédia e divulgações dos institutos). Última atualização: ${longDate(ds.generated_at)}.`,
+        },
+      ]
+    : [];
+
   return (
     <div className="flex min-w-0 flex-col gap-6">
       <JsonLd
@@ -98,6 +118,7 @@ export default function PresidentePage() {
           ],
         })}
       />
+      {faqItems.length > 0 && <JsonLd data={faqSchema(faqItems)} />}
       {/* Page header */}
       <header className="flex flex-col gap-2">
         <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>

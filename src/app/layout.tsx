@@ -35,8 +35,12 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   // "./" resolves per-route against metadataBase, so every page gets its own
-  // canonical without touching individual page files.
-  alternates: { canonical: "./" },
+  // canonical without touching individual page files. The RSS alternate makes
+  // the "pesquisas recentes" feed auto-discoverable by readers and crawlers.
+  alternates: {
+    canonical: "./",
+    types: { "application/rss+xml": `${BASE}/feed.xml` },
+  },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

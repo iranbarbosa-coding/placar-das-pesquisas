@@ -79,15 +79,34 @@ export default function LicencaPage() {
         </p>
         <ul className="list-disc space-y-1 pl-5 text-sm" style={{ color: "var(--text-secondary)" }}>
           <li>
-            <a href="/api/presidente.json" className="underline">
-              /api/presidente.json
-            </a>{" "}
+            <a href="/api/averages.json" className="underline">/api/averages.json</a>{" "}
+            — todas as médias (presidente 1º e 2º turno, governador e senador de cada estado).
+          </li>
+          <li>
+            <a href="/api/presidente.json" className="underline">/api/presidente.json</a>{" "}
             — média presidencial (1º turno, votos válidos) e as pesquisas que a compõem.
+          </li>
+          <li>
+            <a href="/api/segundo-turno.json" className="underline">/api/segundo-turno.json</a>{" "}
+            — simulações de 2º turno para presidente, por confronto.
+          </li>
+          <li>
+            <a href="/api/polls.json" className="underline">/api/polls.json</a>{" "}
+            — catálogo completo das pesquisas, com fonte e registro TSE.
+          </li>
+          <li>
+            <a href="/data/averages.csv" className="underline">/data/averages.csv</a> e{" "}
+            <a href="/data/polls.csv" className="underline">/data/polls.csv</a>{" "}
+            — os mesmos dados em CSV, para planilha.
+          </li>
+          <li>
+            <a href="/feed.xml" className="underline">/feed.xml</a>{" "}
+            — RSS das pesquisas mais recentes.
           </li>
         </ul>
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-          Mais feeds por disputa (governador, senador, 2º turno) e formatos (CSV) serão adicionados.
-          Precisa de algo específico? Escreva para{" "}
+          Todos os feeds trazem a proveniência e a licença embutidas. Precisa de um recorte
+          específico? Escreva para{" "}
           <a href="mailto:contato@placardaspesquisas.com.br" className="underline">
             contato@placardaspesquisas.com.br
           </a>

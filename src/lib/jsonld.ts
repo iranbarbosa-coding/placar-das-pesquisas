@@ -51,6 +51,20 @@ export function organizationSchema() {
   return { "@context": "https://schema.org", ...organization() };
 }
 
+/** FAQPage — the question→one-line-factual-answer shape LLMs and AI Overviews
+ *  extract from. Feed answer-first sentences derived from the live data. */
+export function faqSchema(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+}
+
 export interface DatasetOpts {
   /** Absolute-from-root path of the page the dataset describes, e.g. "/presidente". */
   path: string;
