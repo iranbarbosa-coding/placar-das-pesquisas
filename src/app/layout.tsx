@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import Masthead from "@/components/Masthead";
+import JsonLd from "@/components/JsonLd";
 import { loadDataset } from "@/lib/data";
 import { buildSearchIndex } from "@/lib/search-index";
+import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 import { SITE_NAME, SITE_YEAR, SITE_TAGLINE } from "@/lib/brand";
 import "./globals.css";
 
@@ -33,8 +35,12 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   // "./" resolves per-route against metadataBase, so every page gets its own
-  // canonical without touching individual page files.
-  alternates: { canonical: "./" },
+  // canonical without touching individual page files. The RSS alternate makes
+  // the "pesquisas recentes" feed auto-discoverable by readers and crawlers.
+  alternates: {
+    canonical: "./",
+    types: { "application/rss+xml": `${BASE}/feed.xml` },
+  },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
@@ -47,6 +53,20 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
+  },
+  // Ownership-verification gates for the webmaster consoles. Each is emitted
+  // ONLY when its token is set on Vercel, so no empty meta tag ships before the
+  // creator pastes the code. This is the no-DNS path: set the env var → redeploy
+  // → click "Verify" in the console.
+  //   • Google Search Console → NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+  //   • Bing Webmaster Tools   → NEXT_PUBLIC_BING_SITE_VERIFICATION (the msvalidate.01 code)
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
   },
 };
 
@@ -69,6 +89,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body className="min-h-screen antialiased">
+        {/* Site-wide structured data: the publisher identity + the site node
+            every Dataset block references by @id. */}
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         {/* Full-bleed: it must NOT sit inside the centred container. */}
         <Masthead searchIndex={buildSearchIndex()} />
 
