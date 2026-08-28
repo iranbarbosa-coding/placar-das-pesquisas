@@ -385,18 +385,50 @@ export function deltaPorDisputa({
     // erra para o lado seguro (uma perda que ele não prova pede reparo visível,
     // nunca some calada).
     const dataDe = (s) => s?.fieldwork_end ?? s?.published_date ?? null;
+
+    // MESMO INSTANTE DE CAMPO — a janela de operação (±3 dias, `JANELA_OPERACAO_MS`,
+    // o mesmo recorte de `dropExactDuplicates`) OU o BUG DE ANO DA WIKIPÉDIA.
+    //
+    // Uma pesquisa listada na Wikipédia às vezes chega com o ANO errado: o parse
+    // lê a data da LINHA mas herda o ano do cabeçalho da seção, e uma pesquisa de
+    // 2º turno de 2026 aparece datada de 2025. Medido em governador:MT 28/08/2026 —
+    // 9 toplines de 2º turno (Wellington Fagundes × Jayme Campos / Natasha) que o
+    // Poder360 nativo trouxe com o ano CERTO: o `survey|nat` da Wikipédia (2025)
+    // e o `survey|ref` do Poder360 (2026) são a MESMA medição — MESMO
+    // `institute_id`, MESMA amostra, MESMOS pcts dígito a dígito — mas a diferença
+    // de um ano inteiro cai fora da janela e a ponte de duplicata dormia sobre a
+    // re-cunhagem, acusando 9 perdas que não existem.
+    //
+    // ⚠ NÃO AFROUXA O GUARDA. O salto de ano só conta com PROVA COMPENSATÓRIA que
+    // a duplicata entre marcas do MESMO dia NÃO exige: o MESMO `institute_id`. A
+    // duplicata normal (mesmo dia) une DUAS MARCAS distintas medindo a mesma
+    // pesquisa; o salto de ano é a MESMA casa re-datada, então exigir o mesmo
+    // instituto é natural e fecha a colisão (dois institutos diferentes com
+    // toplines de 2 nomes coincidentes em anos diferentes não passam). Espelha a
+    // doutrina de `resolveSurvey` em store.mjs (institute_id + data na janela).
+    const mmdd = (d) => (d ? String(d).slice(5) : null);
+    const anoTrocadoMesmoInstituto = (da, db, sa, sn) =>
+      !!da && !!db && da !== db && mmdd(da) === mmdd(db)
+      && !!sa?.institute_id && sa.institute_id === sn?.institute_id;
+    const mesmoInstante = (da, db, sa, sn) =>
+      Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS
+      || anoTrocadoMesmoInstituto(da, db, sa, sn);
+
     for (const cand of grupo) {
       if (cand.survey_id === q.survey_id) continue; // mesma pesquisa: já decidida acima
       const sa = surveysAnt.get(q.survey_id);
       const sn = surveysNov.get(cand.survey_id);
       const da = dataDe(sa), db = dataDe(sn);
-      if (da && db && Math.abs(+new Date(da) - +new Date(db)) > JANELA_OPERACAO_MS) continue;
+      if (da && db && !mesmoInstante(da, db, sa, sn)) continue;
       const amostraA = sa?.sample_size ?? null, amostraB = sn?.sample_size ?? null;
       if (amostraA != null && amostraB != null && amostraA !== amostraB) continue;
       const t = tabelaIdentica(q.results, cand.results);
       if (!t.ok) continue;
+      // Topline de 2 nomes coincide por acaso entre institutos: exige a chave
+      // FORTE (mesma amostra E mesma data, ou o salto de ano do MESMO instituto).
       const forte = t.matched >= 3
-        || (t.matched === 2 && da && da === db && amostraA != null && amostraA === amostraB);
+        || (t.matched === 2 && amostraA != null && amostraA === amostraB
+            && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn)));
       if (!forte) continue;
       return { sucessora: cand.question_id, via: "duplicata" };
     }

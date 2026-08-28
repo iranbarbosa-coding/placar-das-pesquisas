@@ -429,6 +429,53 @@ function rodar({ mutacao = null } = {}) {
     afirma(vd.toleradas.sucessoras === 0, `e não inventa sucessora (veio ${vd.toleradas.sucessoras})`);
   });
 
+  caso("12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM", ({ delta, afirma }) => {
+    // O caso governador:MT (28/08/2026): a Wikipédia listou 9 toplines de 2º
+    // turno com o ANO errado (2025) — o parse herdou o ano do cabeçalho da
+    // seção —, e o Poder360 nativo trouxe a MESMA pesquisa com o ano certo
+    // (2026). O `survey|nat` velho e o `survey|ref` novo são a mesma medição:
+    // MESMO institute_id, MESMA amostra, MESMOS pcts. A diferença de um ano cai
+    // fora da janela de operação (±3 dias), então a ponte de duplicata não os
+    // ligava e as 9 saíam SEM PROVA — perda inventada onde só houve correção de
+    // ano. O salto de ano é durável e estrito: só vale com o MESMO instituto.
+    const tabela = () => [r("c_wf", 50, "Wagner Fictício"), r("c_jc", 26, "Joana Cenário")];
+    const anterior = banco(
+      [q("q_wiki25", "governador", "MT", tabela(), { round: 2, survey_id: "s_wiki25" })],
+      [],
+      [{ survey_id: "s_wiki25", institute_id: "i_teste", legacy_ids: ["wiki-mt-2025"],
+         fieldwork_end: "2025-03-23", sample_size: 1600 }]);
+    const novo = banco(
+      [q("q_p360_26", "governador", "MT", tabela(), { round: 2, survey_id: "s_p360_26" })],
+      [],
+      [{ survey_id: "s_p360_26", institute_id: "i_teste", legacy_ids: ["p360-99999-novo"],
+         source_refs: [{ source: "poder360", native_id: "99999" }],
+         fieldwork_end: "2026-03-23", sample_size: 1600 }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok, `o year-shift do mesmo instituto tinha de provar sucessão (veio ${v.linhas.join(" | ")})`);
+    afirma(v.toleradas.sucessoras === 1, `1 sucessora (veio ${v.toleradas.sucessoras})`);
+    const c = v.conflitos.find((x) => x.type === "question_sumida_com_sucessora");
+    afirma(/via duplicata/.test(c?.note ?? ""), `a via é a duplicata (veio: ${c?.note})`);
+
+    // SEGURANÇA 1 — a metade que impede a trava e prova que o fix é estrito: um
+    // salto de ano de OUTRO instituto NÃO é a mesma casa re-datada; sem a prova
+    // compensatória do institute_id, a perda REPROVA (é o que cai se o fix for
+    // revertido para exigir apenas mesmo dia/amostra).
+    const novoOutroInst = structuredClone(novo);
+    novoOutroInst.surveys[0].institute_id = "i_outro";
+    const vi = delta({ anterior, novo: novoOutroInst });
+    afirma(!vi.ok && vi.semProva === 1,
+      `year-shift de instituto diverso não é a mesma pesquisa — tem de reprovar (ok=${vi.ok}, semProva=${vi.semProva})`);
+
+    // SEGURANÇA 2 — mesmo instituto, mesmo ano trocado, mas um candidato SAIU:
+    // a tabela não é idêntica, a duplicata não cobre, e a perda REPROVA. O salto
+    // de ano não pode esconder uma saída de candidato.
+    const novoDepart = structuredClone(novo);
+    novoDepart.questions[0].results = [r("c_wf", 50, "Wagner Fictício"), r("c_novo", 26, "Terceiro Nome")];
+    const vd = delta({ anterior, novo: novoDepart });
+    afirma(!vd.ok && vd.semProva === 1,
+      `candidato que SAIU sob year-shift tem de reprovar (ok=${vd.ok}, semProva=${vd.semProva})`);
+  });
+
   // ======================================================================
   // C. O VALIDADOR DA LISTA E A TRAVA DE PROMOÇÃO (fora das mutações: não
   //    passam pelo juiz — mutilá-lo não os alcança, e está certo assim)
@@ -494,6 +541,7 @@ function autoteste() {
       "9 PASSA: disputa desativada vazia, com aviso",
       "10 PASSA: duplicata entre marcas — sucessão por tabela idêntica, durável sob deriva de id",
       "11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA",
+      "12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM",
     ],
   };
   let okGeral = true;
