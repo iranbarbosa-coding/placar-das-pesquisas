@@ -2,9 +2,9 @@ import { loadDataset } from "@/lib/data";
 import { presidentEvolution } from "@/lib/presidente";
 import { candKey } from "@/lib/average";
 import { displayName } from "@/lib/names";
-import { fmtPct } from "@/lib/format";
+import { fmtPct, fmtDate } from "@/lib/format";
 import { SITE_NAME } from "@/lib/brand";
-import { EMBED_CSS, candClass, embedFooter, winPill, esc } from "@/lib/embed";
+import { EMBED_CSS, ICON_CLOCK, candClass, embedFooter, winPill, esc } from "@/lib/embed";
 
 // The embeddable EVOLUTION widget — a self-contained HTML document with an
 // inline SVG line chart of how the presidential average moved over time. Served
@@ -117,7 +117,7 @@ export function GET() {
   .w{max-width:520px}
   .etitle{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:0;line-height:1.12}
   .esub{margin:5px 0 0;font-size:13px;color:var(--muted)}
-  .chart{margin:14px 0 2px;flex:1 1 auto;min-height:0;display:flex}
+  .chart{margin:14px 0 2px;flex:1 1 0;min-height:120px;display:flex}
   .chart svg{display:block;width:100%;height:100%;overflow:visible}
   .chart .grid{stroke:var(--line);stroke-width:1}
   .chart .ylab{fill:var(--soft);font-size:10px}
@@ -133,6 +133,11 @@ export function GET() {
     <p class="esub">1º turno · votos válidos · últimos 6 meses</p>
     ${chart}
     ${avg && avg.candidates.length ? winPill(avg.candidates[0].avg) : ""}
+    ${
+      avg
+        ? `<div class="callout meta">${ICON_CLOCK}<span>Evolução da média de ${avg.pollCount} ${avg.pollCount === 1 ? "pesquisa" : "pesquisas"} · atualizado em ${esc(ds.generated_at ? fmtDate(ds.generated_at.split("T")[0]) : "—")}</span></div>`
+        : ""
+    }
     ${embedFooter()}
   </div>
 </body>
