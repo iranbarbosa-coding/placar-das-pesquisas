@@ -387,6 +387,48 @@ function rodar({ mutacao = null } = {}) {
       `amostra diferente derruba a chave forte do topline de 2 nomes (ok=${va.ok}, semProva=${va.semProva})`);
   });
 
+  caso("11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA", ({ delta, afirma }) => {
+    // O caso JHC/CIRO (commit cb100ae): o coletor PAROU de apagar candidatos
+    // cujo nome de urna parece sigla de partido — JHC = João Henrique Caldas,
+    // nome de urna oficial do governador de AL. Des-apagá-lo ACRESCENTA um nome
+    // ao MESMO levantamento (`[Renan Filho]` → `[JHC, Renan Filho]`), e como o
+    // question_id semeia em elenco, a pergunta é re-cunhada sem que nada tenha
+    // saído. `questionRostersMatch` lê 1-de-2 adicionado como 0,5 (abaixo de
+    // 0,8) e a pergunta velha sairia SEM PROVA — uma perda inventada onde só
+    // houve crescimento de elenco.
+    const anterior = banco(
+      [q("q_al1", "governador", "AL", [r("c_renan", 44, "Renan Filho")], { survey_id: "s_al" })],
+      [],
+      [{ survey_id: "s_al" }]);
+    const novo = banco(
+      [q("q_al2", "governador", "AL", [r("c_jhc", 20, "JHC"), r("c_renan", 44, "Renan Filho")], { survey_id: "s_al" })],
+      [],
+      [{ survey_id: "s_al" }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok, `adição pura no mesmo levantamento tinha de provar linhagem (veio ${v.linhas.join(" | ")})`);
+    afirma(v.toleradas.sucessoras === 1, `1 sucessora (veio ${v.toleradas.sucessoras})`);
+    const c = v.conflitos.find((x) => x.type === "question_sumida_com_sucessora");
+    afirma(/via adicao/.test(c?.note ?? ""), `a via é a adição (veio: ${c?.note})`);
+
+    // ⚠ SEGURANÇA — a metade que impede a trava: a ponte SÓ vale para superset.
+    // Se um candidato de fato SAIU (aqui c_x sai e c_jhc entra — troca, não
+    // adição), não é subconjunto: o overlap de elenco cai abaixo de 0,8 E a
+    // regra de adição recusa (há partida), então a perda REPROVA como antes. É
+    // o que prova que a regra não afrouxa nada — superset não esconde ausente.
+    const antDepart = banco(
+      [q("q_al1b", "governador", "AL", [r("c_renan", 44, "Renan Filho"), r("c_x", 12, "Xi Cobaia")], { survey_id: "s_al2" })],
+      [],
+      [{ survey_id: "s_al2" }]);
+    const novDepart = banco(
+      [q("q_al2b", "governador", "AL", [r("c_jhc", 20, "JHC"), r("c_renan", 44, "Renan Filho")], { survey_id: "s_al2" })],
+      [],
+      [{ survey_id: "s_al2" }]);
+    const vd = delta({ anterior: antDepart, novo: novDepart });
+    afirma(!vd.ok && vd.semProva === 1,
+      `um candidato que SAIU não é subconjunto — tem de reprovar (ok=${vd.ok}, semProva=${vd.semProva})`);
+    afirma(vd.toleradas.sucessoras === 0, `e não inventa sucessora (veio ${vd.toleradas.sucessoras})`);
+  });
+
   // ======================================================================
   // C. O VALIDADOR DA LISTA E A TRAVA DE PROMOÇÃO (fora das mutações: não
   //    passam pelo juiz — mutilá-lo não os alcança, e está certo assim)
@@ -451,6 +493,7 @@ function autoteste() {
       "8 PASSA: perda ratificada por reparo com fonte; sem fonte, RECUSA",
       "9 PASSA: disputa desativada vazia, com aviso",
       "10 PASSA: duplicata entre marcas — sucessão por tabela idêntica, durável sob deriva de id",
+      "11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA",
     ],
   };
   let okGeral = true;

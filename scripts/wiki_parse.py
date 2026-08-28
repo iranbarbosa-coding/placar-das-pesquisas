@@ -261,6 +261,12 @@ def parse_pct(text):
     t = text.strip().rstrip('%').strip()
     t = t.replace(',', '.')
     if t in ('', '-', '–', '—', '?'): return None, False
+    # Marcador "menor que" ("<4", "≤4", "&lt;4"): o candidato ficou ABAIXO do
+    # limiar de reporte e a página não deu figura exata. Ler o N como valor
+    # infla a linha — três "<4%" viravam 12 pontos-fantasma e estouravam a soma
+    # da disputa de assento único (validate-store). Piso em 0,0, como os
+    # minoritários sub-limiar já são guardados no banco; `False` mantém o aviso.
+    if re.match(r'^(?:<|≤|&lt;)\s*\d', t): return 0.0, False
     m = re.match(r'^-?\d+(\.\d+)?$', t)
     if m: return float(t), True
     m = re.search(r'\d+(\.\d+)?', t)
