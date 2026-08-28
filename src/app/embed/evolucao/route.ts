@@ -20,6 +20,10 @@ const LINE = ["#2A78D6", "#EB6834", "#1BAF7A", "#EDA100"];
 const W = 480, H = 300, PADL = 12, PADR = 96, PADT = 38, PADB = 26;
 const PW = W - PADL - PADR, PH = H - PADT - PADB;
 const MES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+// The trend series spans the WHOLE polling history (years). A tracker of the
+// current race must show the recent movement, not a flat line squeezed to the
+// right edge — so the chart is limited to the last N days of fieldwork.
+const WINDOW_DAYS = 180;
 
 function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -40,10 +44,18 @@ export function GET() {
 
   // The lines to draw: the significant candidates (fallback to top-4), each with
   // its rolling-average trend, capped at 4 so a sidebar-sized chart stays legible.
-  const series = (avg?.candidates ?? [])
+  const raw = (avg?.candidates ?? [])
     .filter((c) => (sig.size === 0 || sig.has(candKey(c.candidate))) && (c.trend?.length ?? 0) >= 2)
     .slice(0, 4)
     .map((c, i) => ({ name: c.candidate, color: LINE[i], trend: c.trend }));
+
+  // Clip to the recent window so the chart reads the CURRENT race, not the full
+  // multi-year history. Cutoff is measured from the freshest point we hold.
+  const maxTs = Math.max(0, ...raw.flatMap((s) => s.trend.map((p) => ts(p.date))));
+  const cutoff = maxTs - WINDOW_DAYS * 86_400_000;
+  const series = raw
+    .map((s) => ({ ...s, trend: s.trend.filter((p) => ts(p.date) >= cutoff) }))
+    .filter((s) => s.trend.length >= 2);
 
   const allPts = series.flatMap((s) => s.trend);
   const hasChart = series.length > 0 && allPts.length >= 2;
@@ -70,12 +82,17 @@ export function GET() {
       })
       .join("");
 
-    // X (month) labels — a few evenly spaced ticks across the range.
+    // X (month) labels — a few evenly spaced ticks across the range. When the
+    // window crosses a year boundary, append the 2-digit year so two different
+    // years never both read as e.g. "set".
+    const crossYear = new Date(xMin).getUTCFullYear() !== new Date(xMax).getUTCFullYear();
     const nTicks = 4;
     const xlabs = Array.from({ length: nTicks }, (_, i) => {
       const t = xMin + (xSpan * i) / (nTicks - 1);
       const anchor = i === 0 ? "start" : i === nTicks - 1 ? "end" : "middle";
-      return `<text x="${xOf(t).toFixed(1)}" y="${H - 8}" class="xlab" text-anchor="${anchor}">${monthLabel(t)}</text>`;
+      const d = new Date(t);
+      const lab = crossYear ? `${monthLabel(t)}/${String(d.getUTCFullYear()).slice(2)}` : monthLabel(t);
+      return `<text x="${xOf(t).toFixed(1)}" y="${H - 8}" class="xlab" text-anchor="${anchor}">${lab}</text>`;
     }).join("");
 
     // One polyline per candidate.
@@ -144,7 +161,7 @@ export function GET() {
 <body>
   <div class="w">
     <h1>Evolução — Presidente 2026</h1>
-    <p class="cap">Média das pesquisas · 1º turno · votos válidos · atualizado em ${esc(asOf)}</p>
+    <p class="cap">Média das pesquisas · 1º turno · votos válidos · últimos 6 meses · atual. ${esc(asOf)}</p>
     ${svg}
     <p class="src"><a href="${BASE}/presidente" target="_blank" rel="noopener">Fonte: ${esc(SITE_NAME)} ↗</a></p>
   </div>
