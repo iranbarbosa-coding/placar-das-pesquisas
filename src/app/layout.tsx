@@ -54,6 +54,20 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
+  // Ownership-verification gates for the webmaster consoles. Each is emitted
+  // ONLY when its token is set on Vercel, so no empty meta tag ships before the
+  // creator pastes the code. This is the no-DNS path: set the env var → redeploy
+  // → click "Verify" in the console.
+  //   • Google Search Console → NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+  //   • Bing Webmaster Tools   → NEXT_PUBLIC_BING_SITE_VERIFICATION (the msvalidate.01 code)
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
+  },
 };
 
 const MES_LONGO = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
