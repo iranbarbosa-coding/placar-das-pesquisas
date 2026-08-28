@@ -3,6 +3,7 @@
 // card, the same identity colours, the same "Fonte" footer.
 import { SITE_NAME } from "./brand";
 import { BASE } from "./jsonld";
+import { fmtPct } from "./format";
 
 export function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -46,7 +47,8 @@ export const EMBED_CSS = `
     font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   .w{max-width:460px;margin:0 auto;background:var(--card);border:1px solid var(--line);
     border-radius:18px;padding:22px 22px 18px;
-    box-shadow:0 1px 2px rgba(15,23,42,.04),0 6px 20px rgba(15,23,42,.05)}
+    box-shadow:0 1px 2px rgba(15,23,42,.04),0 6px 20px rgba(15,23,42,.05);
+    display:flex;flex-direction:column;min-height:540px}
   .hd{display:flex;align-items:center;gap:12px}
   .hd .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);
     display:grid;place-items:center;flex:none}
@@ -67,7 +69,7 @@ export const EMBED_CSS = `
   .callout.info b{font-weight:700}
   .callout.meta{background:var(--pill);color:var(--muted);margin-top:9px}
   .callout.meta svg{color:var(--soft)}
-  .ft{margin-top:16px;padding-top:15px;border-top:1px solid var(--line)}
+  .ft{margin-top:auto;padding-top:15px;border-top:1px solid var(--line)}
   .ft a{display:inline-flex;align-items:center;gap:9px;color:var(--accent);
     font-weight:700;font-size:14.5px;text-decoration:none}
   .ft a:hover{text-decoration:underline}
@@ -77,4 +79,16 @@ export const EMBED_CSS = `
 
 export function embedFooter(): string {
   return `<div class="ft"><a href="${BASE}/presidente" target="_blank" rel="noopener">${ICON_EXT}Fonte: ${esc(SITE_NAME)} <span aria-hidden="true">↗</span></a></div>`;
+}
+
+// The "distance to a 1st-round win" callout. In valid votes a candidate wins in
+// the first round with more than 50%, so the gap the leader still needs is
+// 50 − leader. Shared by both widgets.
+export function winPill(leaderPct: number): string {
+  const gap = 50 - leaderPct;
+  const inner =
+    gap <= 0
+      ? `Líder já passa de <b>50%</b> dos votos válidos`
+      : `Líder a <b>${fmtPct(gap)} pt</b> de vencer no 1º turno`;
+  return `<div class="callout info">${ICON_INFO}<span>${inner}</span></div>`;
 }

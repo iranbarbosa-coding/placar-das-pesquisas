@@ -2,7 +2,7 @@ import { loadDataset, scenarioGroups } from "@/lib/data";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 import { SITE_NAME } from "@/lib/brand";
-import { EMBED_CSS, ICON_BAR, ICON_INFO, ICON_CLOCK, candClass, embedFooter, esc } from "@/lib/embed";
+import { EMBED_CSS, ICON_BAR, ICON_CLOCK, candClass, embedFooter, winPill, esc } from "@/lib/embed";
 
 // The embeddable "média" widget — a self-contained HTML document other sites
 // drop into an <iframe>. Served from a ROUTE HANDLER (not a page) so it does not
@@ -26,7 +26,7 @@ export function GET() {
               }</span><span class="pc ${candClass(c.candidate)}">${fmtPct(c.avg)}%</span></div>`,
           )
           .join("")}</div>
-      <div class="callout info">${ICON_INFO}<span>Diferença do líder para o 2º: <b>${fmtPct(avg.spread)} pt</b></span></div>
+      ${winPill(avg.candidates[0].avg)}
       <div class="callout meta">${ICON_CLOCK}<span>Média de ${avg.pollCount} ${avg.pollCount === 1 ? "pesquisa" : "pesquisas"} · atualizado em ${esc(updated)}</span></div>`
       : `<p class="na">Dados indisponíveis.</p>`;
 
