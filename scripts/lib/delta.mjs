@@ -23,6 +23,16 @@
 // carregar reparo ratificador com fonte primária citada. Zero prova, zero
 // tolerância — não existe número para alargar quando o portão incomodar.
 //
+// A REDE DE SEGURANÇA (QUARENTENA) age DEPOIS da prova, nunca no lugar dela
+// (28/08/2026). O que a sucessão/ratificação não provou continua sendo PERDA no
+// veredito (`ok`, `semProva`, `linhas` NÃO mudam). Mas em vez de travar a rodada
+// inteira por causa de UMA disputa churny, o núcleo particiona as disputas
+// reprovadas em QUARENTENÁVEIS (têm dado no commit anterior a restaurar) e
+// RESIDUAIS (0→0 exigida — nada a restaurar), e expõe `podeQuarentenar` +
+// `restaurarDisputas` para a fiação congelar a churny no dado do commit anterior
+// e comitar o resto. A barra probatória fica intocada: a quarentena só alcança o
+// resíduo que a prova já não cobriu, e um resíduo insalvável reprova a rodada.
+//
 // Este módulo é PURO de propósito, no molde de `lib/ensaio.mjs`: recebe os dois
 // estados (ANTERIOR e NOVO), a lista declarada e os reparos, e devolve o
 // veredito por disputa + as linhas do relatório + os rastros de conflito. Assim
@@ -547,6 +557,44 @@ export function deltaPorDisputa({
 
   const ok = !errosLista.length && !errosPromocao.length && !falhas.length;
 
+  // ---- a partição da QUARENTENA (rede de segurança, decidida no núcleo) -----
+  //
+  // O veredito acima (`ok`, `semProva`, `linhas`) NÃO muda — ele continua
+  // dizendo a verdade sobre a coleta: houve perda sem prova. O que a partição
+  // decide é OUTRA pergunta, que a fiação usa para não travar a rodada inteira
+  // por causa de UMA disputa churny: das disputas que reprovaram, quais dá para
+  // CONGELAR no dado do commit anterior (restaurável) e quais não (residual).
+  //
+  // RESTAURÁVEL = a disputa tinha perguntas no COMMIT anterior (`nAntes > 0`).
+  // Restaurar o commit devolve o dado da rodada passada e resolve tanto a perda
+  // sem prova quanto uma `exigida` que ficou vazia por perda. RESIDUAL = a
+  // disputa reprova por algo que restaurar o commit NÃO conserta: `exigida`
+  // vazia dos DOIS lados (o FATO 1, presidente:AM 0→0 — não há dado anterior a
+  // repor). Lista malformada e promoção pendente são erros de CONFIGURAÇÃO, não
+  // de disputa: nunca entram na quarentena, sempre reprovam (a rede de segurança
+  // é para perda, jamais para afrouxar a prova — §10/contrato 6).
+  //
+  // A quarentena NÃO altera a barra probatória: só age sobre o RESÍDUO que a
+  // sucessão/ratificação já não cobriu (as toleradas nem chegam a `perdas`).
+  const quarentena = [];
+  const residuais = [];
+  for (const [d, r] of falhas) {
+    const nA = nAntes.get(d) ?? 0;
+    const nD = nDepois.get(d) ?? 0;
+    if (nA > 0) {
+      quarentena.push({
+        disputa: d, nAntes: nA, nDepois: nD,
+        sumidas: r.perdas.map((p) => p.q.question_id),
+        exigidaVazia: !!r.exigidaVazia,
+      });
+    } else {
+      residuais.push({
+        disputa: d,
+        motivo: r.exigidaVazia ? "exigida e vazia dos dois lados (0 → 0); nada a restaurar" : "sem dado no commit anterior",
+      });
+    }
+  }
+
   const L = [];
   const larg = Math.max(12, ...falhas.map(([d]) => d.length));
   if (errosLista.length) {
@@ -599,9 +647,173 @@ export function deltaPorDisputa({
   return {
     ok, linhas: L, porDisputa, falhas, conflitos, avisos,
     errosLista, errosPromocao,
+    quarentena, residuais,
     toleradas: { sucessoras: totSuc, ratificadas: totRat, desativadas: totDes },
     semProva: totPerda,
     trocaramLider: ensaio.trocaramLider,
     contagens: { antes: antes.size, depois: depois.size },
   };
+}
+
+/**
+ * A rede de segurança PODE agir? — a decisão pura que a fiação consulta.
+ *
+ * Sim quando há disputa restaurável E não há resíduo que a restauração não
+ * cobre: nenhuma disputa residual (0→0 exigida), nenhuma lista malformada,
+ * nenhuma promoção pendente. Se qualquer um desses existe, a rodada REPROVA
+ * inteira como antes — a quarentena não papelona erro de configuração nem
+ * inventa dado para uma disputa que nunca teve nenhum (o FATO 1 segue duro).
+ */
+export function podeQuarentenar(v) {
+  return (v?.quarentena?.length ?? 0) > 0
+    && (v?.residuais?.length ?? 0) === 0
+    && (v?.errosLista?.length ?? 0) === 0
+    && (v?.errosPromocao?.length ?? 0) === 0;
+}
+
+/**
+ * A MUTAÇÃO DA QUARENTENA, pura: dado o commit anterior, a coleta desta rodada e
+ * as disputas a congelar, devolve um store NOVO em que essas disputas voltam ao
+ * dado do commit anterior e TODO o resto fica fresco — mais os conflitos a
+ * gravar. Não toca em `data/`, não chama git: a fiação faz o `writeStore` e o
+ * `git show`. Assim o autoteste a exercita sobre fixtures (contrato §2).
+ *
+ * A RESTAURAÇÃO É TRANSITIVA para manter a integridade referencial que
+ * `validate-store` exige: uma pergunta restaurada do commit anterior cita
+ * `survey_id`, `candidate_id` (e, por ele, `person_id`) e um `institute_id` que
+ * a coleta fresca pode ter re-cunhado ou deixado cair. Cada entidade que a
+ * pergunta reposta referencia e que sumiu do store fresco é trazida de volta do
+ * commit anterior — e as perguntas frescas da disputa (e seus recortes) saem,
+ * para não deixar órfão nem elenco cruzado. O que não puder ser fechado com o
+ * commit anterior vira `faltando`, e a fiação trata como fallback seguro
+ * (reprova) depois de `validate-store` confirmar.
+ *
+ * `disputas` são as entradas de `v.quarentena`. `anterior`/`novo` são stores com
+ * as tabelas como arrays (o formato de `readStore`); só as tabelas de dado são
+ * lidas — índices e `_report` são ignorados.
+ */
+export function restaurarDisputas({ anterior, novo, disputas, runDate = "1970-01-01", carimbos = new Map() } = {}) {
+  const entradas = (disputas ?? []).map((d) => (typeof d === "string" ? { disputa: d, sumidas: [] } : d));
+  const alvo = new Set(entradas.map((e) => e.disputa));
+  const sumidasDe = new Map(entradas.map((e) => [e.disputa, e.sumidas ?? []]));
+
+  const TABELAS = ["questions", "surveys", "candidates", "people", "crosstabs", "institutes", "registry", "searches", "conflicts"];
+  const store = { dir: novo.dir, meta: novo.meta };
+  for (const t of TABELAS) store[t] = [...(novo[t] ?? [])];
+
+  const antQ = anterior?.questions ?? [];
+  const novQ = novo?.questions ?? [];
+
+  // 1. as perguntas FRESCAS das disputas congeladas saem; seus recortes também.
+  const removidasIds = new Set(novQ.filter((q) => alvo.has(disputaDe(q))).map((q) => q.question_id));
+  store.questions = store.questions.filter((q) => !alvo.has(disputaDe(q)));
+  store.crosstabs = store.crosstabs.filter((x) => !removidasIds.has(x.question_id));
+
+  // 2. as perguntas do COMMIT anterior voltam.
+  const restaurar = antQ.filter((q) => alvo.has(disputaDe(q)));
+  const jaTem = new Set(store.questions.map((q) => q.question_id));
+  const restauradasIds = new Set();
+  for (const q of restaurar) {
+    if (jaTem.has(q.question_id)) continue;
+    store.questions.push(q);
+    restauradasIds.add(q.question_id);
+  }
+
+  // 3. o fecho referencial, trazido do commit anterior quando o fresco não tem.
+  const idxDe = (arr, k) => new Map((arr ?? []).map((r) => [r[k], r]));
+  const antSurveys = idxDe(anterior?.surveys, "survey_id");
+  const antCandidates = idxDe(anterior?.candidates, "candidate_id");
+  const antPeople = idxDe(anterior?.people, "person_id");
+  const antInstitutes = idxDe(anterior?.institutes, "institute_id");
+
+  const temSurvey = new Set(store.surveys.map((s) => s.survey_id));
+  const temCand = new Set(store.candidates.map((c) => c.candidate_id));
+  const temPessoa = new Set(store.people.map((p) => p.person_id));
+  const temInst = new Set(store.institutes.map((i) => i.institute_id));
+  const faltando = [];
+
+  const ensurePessoa = (pid) => {
+    if (pid == null || temPessoa.has(pid)) return;
+    const p = antPeople.get(pid);
+    if (!p) { faltando.push(`person ${pid}`); return; }
+    store.people.push(p); temPessoa.add(pid);
+  };
+  const ensureCand = (cid) => {
+    if (temCand.has(cid)) return;
+    const c = antCandidates.get(cid);
+    if (!c) { faltando.push(`candidate ${cid}`); return; }
+    store.candidates.push(c); temCand.add(cid);
+    ensurePessoa(c.person_id);
+  };
+  const ensureInst = (iid) => {
+    if (iid == null || temInst.has(iid)) return;
+    const i = antInstitutes.get(iid);
+    if (!i) { faltando.push(`institute ${iid}`); return; }
+    store.institutes.push(i); temInst.add(iid);
+  };
+  const ensureSurvey = (sid) => {
+    if (temSurvey.has(sid)) return;
+    const s = antSurveys.get(sid);
+    if (!s) { faltando.push(`survey ${sid}`); return; }
+    store.surveys.push(s); temSurvey.add(sid);
+    ensureInst(s.institute_id);
+  };
+
+  for (const q of restaurar) {
+    ensureSurvey(q.survey_id);
+    for (const r of q.results ?? []) if (r?.candidate_id) ensureCand(r.candidate_id);
+  }
+  // os recortes do commit anterior das perguntas repostas voltam junto.
+  for (const x of anterior?.crosstabs ?? []) {
+    if (restauradasIds.has(x.question_id)) store.crosstabs.push(x);
+  }
+
+  // 4. o rastro ALTO E VISÍVEL — uma linha por disputa congelada em
+  // conflicts.ndjson (o mecanismo que o site já conta). A semente do id é
+  // ESTÁVEL por disputa (§8): re-quarentenar a mesma disputa numa rodada
+  // seguinte regrava a MESMA linha, sem churn, e o `at` é preservado pelos
+  // carimbos do commit anterior.
+  const conflitos = [];
+  for (const d of [...alvo].sort()) {
+    const nA = antQ.filter((q) => disputaDe(q) === d).length;
+    const nN = novQ.filter((q) => disputaDe(q) === d).length;
+    const sumidas = sumidasDe.get(d) ?? [];
+    const c = {
+      type: "disputa_em_quarentena", table: "questions",
+      record_id: d, field: "quarentena",
+      stored: nA, incoming: nN,
+      source: "disputa-delta", severity: "review",
+      note: `${d}: CONGELADA no dado do commit anterior — ${sumidas.length} pergunta(s) sumiram sem prova` +
+        (sumidas.length ? ` (${sumidas.slice(0, 20).join(", ")}${sumidas.length > 20 ? " …" : ""})` : "") +
+        `; ${nA} pergunta(s) restauradas do commit anterior, ${nN} da coleta desta rodada descartada(s)`,
+    };
+    const seed = [c.type, c.table, c.record_id, c.field, c.source].join("|");
+    const conflict_id = mintConflictId(seed);
+    conflitos.push({ conflict_id, at: carimbos.get(conflict_id) ?? runDate, run_id: runDate, ...c });
+  }
+
+  return {
+    store, conflitos, faltando,
+    restauradasIds: [...restauradasIds], removidasIds: [...removidasIds],
+    disputas: [...alvo].sort(),
+  };
+}
+
+/** As linhas do relatório de quarentena — puras, para a fiação imprimir. */
+export function linhasDeQuarentena(v) {
+  const qs = v?.quarentena ?? [];
+  const L = [];
+  const larg = Math.max(12, ...qs.map((q) => q.disputa.length));
+  L.push(`DELTA POR DISPUTA — QUARENTENA: ${qs.length} disputa(s) com perda sem prova CONGELADA(s) no dado do commit anterior; todo o resto comita fresco.`);
+  L.push("");
+  for (const q of qs) {
+    L.push(`  ${q.disputa.padEnd(larg)} ${String(q.nAntes).padStart(3)} → ${String(q.nDepois).padEnd(3)} ` +
+      `${q.sumidas.length} sem prova — restaurada(s) ao commit anterior`);
+    for (const id of q.sumidas.slice(0, 5)) L.push(`  ${"".padEnd(larg)}   ${id}`);
+    if (q.sumidas.length > 5) L.push(`  ${"".padEnd(larg)}   … e mais ${q.sumidas.length - 5}`);
+  }
+  L.push("");
+  L.push("A rodada SUCEDE: comita o resto fresco + a(s) disputa(s) acima no estado do commit anterior.");
+  L.push("Cada disputa congelada deixa uma linha em data/conflicts.ndjson (type=disputa_em_quarentena) e conta no painel de conflitos do site.");
+  return L;
 }
