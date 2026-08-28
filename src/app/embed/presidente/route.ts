@@ -40,8 +40,8 @@ export function GET() {
 <style>${EMBED_CSS}
   .rows{margin-top:14px}
   .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-    padding:15px 0;border-top:1px solid var(--line)}
-  .row:first-child{border-top:none;padding-top:6px}
+    padding:11px 0;border-top:1px solid var(--line)}
+  .row:first-child{border-top:none;padding-top:4px}
   .nm{font-size:18px;font-weight:700;color:var(--ink);min-width:0}
   .nm .pt{font-size:14px;font-weight:500;color:var(--soft);margin-left:7px}
   .pc{flex:none;font-size:26px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}

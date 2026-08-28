@@ -48,7 +48,7 @@ export const EMBED_CSS = `
   .w{max-width:460px;margin:0 auto;background:var(--card);border:1px solid var(--line);
     border-radius:18px;padding:22px 22px 18px;
     box-shadow:0 1px 2px rgba(15,23,42,.04),0 6px 20px rgba(15,23,42,.05);
-    display:flex;flex-direction:column;min-height:540px}
+    display:flex;flex-direction:column;min-height:500px}
   .hd{display:flex;align-items:center;gap:12px}
   .hd .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);
     display:grid;place-items:center;flex:none}
