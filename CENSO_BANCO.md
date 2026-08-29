@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 13 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 43 | 25 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 37 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 22 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 2 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **98** | **33** |
+| **total** | **83** | **33** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -292,7 +292,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (37)
+## CONFLITO — Conflitos registrados aguardando decisão (22)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -311,25 +311,10 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_f6f883c79f82 · results: ["ACM Neto","Aroldo Félix","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
 - roster_encolhido_na_fonte · q_b609b001b4c2 · results: ["Eduardo Riedel","Fábio Trad","João Henrique Catan","Lucien Rezende"] × ["Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
-- person_id_orphaned · p_25c8a14a6cf7 · person_id: "p_25c8a14a6cf7" × null
-- person_id_orphaned · p_64faf1e21236 · person_id: "p_64faf1e21236" × null
-- person_id_orphaned · p_3cdd9c4a0186 · person_id: "p_3cdd9c4a0186" × null
-- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
+- person_id_orphaned · p_7d29801e3cd2 · person_id: "p_7d29801e3cd2" × null
+- person_id_orphaned · p_323994772f08 · person_id: "p_323994772f08" × null
+- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
 - **[2026]** registration_dates_contradict · s_5995d129ff44 · fieldwork_end: "2026-08-25" × "2025-08-25"
-- person_id_orphaned · p_37a0805074fb · person_id: "p_37a0805074fb" × null
-- person_id_orphaned · p_dedf0fc8a09c · person_id: "p_dedf0fc8a09c" × null
-- person_id_orphaned · p_8c48ef988925 · person_id: "p_8c48ef988925" × null
-- person_id_orphaned · p_09676548e28c · person_id: "p_09676548e28c" × null
-- person_id_orphaned · p_64426258ee84 · person_id: "p_64426258ee84" × null
-- person_id_orphaned · p_5bc1416707f2 · person_id: "p_5bc1416707f2" × null
-- person_id_orphaned · p_0b83b701bd7f · person_id: "p_0b83b701bd7f" × null
-- person_id_orphaned · p_800918d066c7 · person_id: "p_800918d066c7" × null
-- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
-- institute_id_orphaned · i_f5f4ff657e70 · institute_id: "i_f5f4ff657e70" × ["i_294f8c7d6ed3","i_4211218b89eb"]
-- person_id_orphaned · p_5c076786daaf · person_id: "p_5c076786daaf" × null
-- person_id_orphaned · p_df538afbe8a5 · person_id: "p_df538afbe8a5" × null
-- person_id_orphaned · p_b2a1cfe9a852 · person_id: "p_b2a1cfe9a852" × null
-- person_id_orphaned · p_061b6ad32f0b · person_id: "p_061b6ad32f0b" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 24
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 16
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 52
