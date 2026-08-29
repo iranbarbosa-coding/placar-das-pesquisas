@@ -32,6 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/metodologia`, lastModified: generated, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/licenca`, lastModified: generated, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/incorporar`, lastModified: generated, changeFrequency: "monthly", priority: 0.4 },
-    { url: `${BASE}/contato`, lastModified: generated, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${BASE}/imprensa`, lastModified: generated, changeFrequency: "monthly", priority: 0.5 },
   ];
 }

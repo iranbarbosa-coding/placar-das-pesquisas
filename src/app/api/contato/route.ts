@@ -9,7 +9,7 @@ const TO = process.env.CONTACT_TO ?? "contato@placardaspesquisas.com.br";
 const FROM = process.env.CONTACT_FROM ?? "Placar das Pesquisas <contato@placardaspesquisas.com.br>";
 
 function back(req: NextRequest, query: string) {
-  return NextResponse.redirect(new URL(`/contato?${query}`, req.nextUrl.origin), 303);
+  return NextResponse.redirect(new URL(`/imprensa?${query}#contato`, req.nextUrl.origin), 303);
 }
 
 export async function POST(req: NextRequest) {

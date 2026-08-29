@@ -9,7 +9,7 @@ const SNIPPET_MEDIA = `<iframe
   src="${BASE}/embed/presidente"
   title="Média — Presidente 2026 · ${SITE_NAME}"
   width="100%"
-  height="320"
+  height="510"
   loading="lazy"
   style="max-width:480px;border:0"
 ></iframe>`;
@@ -18,7 +18,7 @@ const SNIPPET_EVOLUCAO = `<iframe
   src="${BASE}/embed/evolucao"
   title="Evolução — Presidente 2026 · ${SITE_NAME}"
   width="100%"
-  height="360"
+  height="510"
   loading="lazy"
   style="max-width:520px;border:0"
 ></iframe>`;
