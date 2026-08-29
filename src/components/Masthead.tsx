@@ -413,7 +413,7 @@ export default function Masthead({ searchIndex, meta }: MastheadProps) {
           {/* Stacked wordmark from the logo: PLACAR over DAS PESQUISAS, uppercase.
               Theme tokens make PLACAR invert to white on the dark header while
               PESQUISAS stays the brand blue and DAS the slate grey. */}
-          <span className="hidden leading-[0.92] sm:block">
+          <span className="block leading-[0.92]">
             <span className="block text-[17px] font-extrabold uppercase tracking-tight" style={{ color: "var(--text-primary)" }}>
               Placar
             </span>
