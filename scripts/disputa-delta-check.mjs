@@ -19,6 +19,20 @@
 // carrega a bateria do `--self-test`, que exercita o núcleo sem git, sem rede e
 // sem tocar em `data/`.
 //
+// ⚠ A REDE DE SEGURANÇA (QUARENTENA), 28/08/2026. Antes, UMA disputa com perda
+// sem prova REPROVAVA a rodada inteira — e uma disputa churny (governador:MT na
+// semana anterior) deixou o site 7 dias parado, mesmo com presidente + 26
+// estados frescos e válidos. Agora, quando toda a falha é RESTAURÁVEL (a
+// disputa tinha dado no commit anterior), a fiação CONGELA só essa disputa no
+// dado do commit anterior, CONFERE o store congelado no `validate-store` e
+// comita o resto fresco; a rodada SUCEDE e grava um conflito visível
+// (`disputa_em_quarentena`) que o site conta. A DECISÃO ("quais disputas") é
+// pura, no núcleo; a APLICAÇÃO (reescrever `data/`, re-derivar `polls.json`) é
+// aqui. O que NÃO é restaurável — `exigida` vazia dos dois lados (o FATO 1),
+// lista malformada, promoção pendente — segue REPROVANDO a rodada inteira: a
+// rede é para perda, jamais para afrouxar a prova. Se a restauração não passa no
+// validador, é fallback seguro: reprova, sem comitar nada.
+//
 // Uso: node scripts/disputa-delta-check.mjs [--self-test] [--verbose]
 //                                           [--raiz=DIR] [--data=AAAA-MM-DD]
 //
@@ -29,8 +43,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { deltaPorDisputa, validarLista } from "./lib/delta.mjs";
-import { today } from "./lib/store.mjs";
+import { deltaPorDisputa, validarLista, podeQuarentenar, restaurarDisputas, linhasDeQuarentena } from "./lib/delta.mjs";
+import { today, readStore, writeStore } from "./lib/store.mjs";
+import { disputaDe } from "./lib/ensaio.mjs";
+import { validateStore, contagem } from "./validate-store.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const VERBOSE = process.argv.includes("--verbose");
@@ -513,6 +529,153 @@ function rodar({ mutacao = null } = {}) {
   return { ok, falhas };
 }
 
+// ===========================================================================
+// A BATERIA DA QUARENTENA (--self-test) — a rede de segurança, em fixtures
+// ===========================================================================
+//
+// A metade "reprova" da bateria acima prova que a perda sem prova é VISTA; esta
+// prova que ela é CONTIDA — que uma disputa churny é congelada no dado do commit
+// anterior sem travar a rodada, com integridade referencial e rastro visível.
+//
+// AS MUTAÇÕES SÃO OBRIGATÓRIAS (contrato §2/e): a `revertida` desliga a rede (a
+// fiação de antes, que trava e não restaura), e a bateria TEM de derrubar os
+// casos (a) e (c) sob ela — senão um teste que passasse com e sem a feature não
+// provaria nada sobre a feature.
+
+const instF = (id, nome) => ({ institute_id: id, legacy_ids: [], canonical: nome, aliases: [nome], cnpj: null, merged_into: null, first_seen: D });
+const survF = (id, uf) => ({
+  survey_id: id, legacy_ids: [], tse_registration: null, tse_registration_status: "none",
+  institute_id: "i_1", institute_names_raw: [], contractor_raw: null,
+  universe: { level: uf ? "estadual" : "nacional", uf: uf ?? null },
+  fieldwork_start: "2026-08-01", fieldwork_end: "2026-08-03", published_date: null,
+  sample_size: 2000, source_refs: [], integra_url: null, article_url: null,
+  crosstabs_status: "pending", crosstabs_unavailable_reason: null, retracted: null,
+  provenance: { created_at: D, updated_at: D, field_sources: {} },
+});
+const candF = (id, contest, nome) => ({ candidate_id: id, legacy_ids: [], person_id: null, contest, canonical: nome, aliases: [nome], party: "PT" });
+const qF = (id, survey, race, uf, results) => ({
+  question_id: id, survey_id: survey, race, round: 1, uf: uf ?? null,
+  scenario_ordinal: 0, is_headline: true, results,
+  provenance: { created_at: D, updated_at: D, field_sources: {} },
+});
+const storeF = ({ questions, surveys, candidates, institutes = [instF("i_1", "Quaest")] }) =>
+  ({ meta: { schema_version: 1 }, questions, surveys, candidates, institutes,
+     people: [], crosstabs: [], registry: [], searches: [], conflicts: [] });
+
+// O COMMIT anterior: disputa A (governador:SP) intacta + disputa B
+// (governador:MG), cada pergunta no seu levantamento (um headline por grupo).
+function anteriorFixture() {
+  return storeF({
+    surveys: [survF("s_a1", "SP"), survF("s_a2", "SP"), survF("s_b1", "MG"), survF("s_b2", "MG")],
+    candidates: [
+      candF("c_a1", "governador:SP", "Alfa Testeira"), candF("c_a2", "governador:SP", "Beta Provador"),
+      candF("c_b1", "governador:MG", "Gama Ensaio"), candF("c_b2", "governador:MG", "Delta Amostra"),
+    ],
+    questions: [
+      qF("q_a1", "s_a1", "governador", "SP", [r("c_a1", 40), r("c_a2", 30)]),
+      qF("q_a2", "s_a2", "governador", "SP", [r("c_a1", 41), r("c_a2", 29)]),
+      qF("q_b1", "s_b1", "governador", "MG", [r("c_b1", 40), r("c_b2", 30)]),
+      qF("q_b2", "s_b2", "governador", "MG", [r("c_b1", 42), r("c_b2", 28)]),
+    ],
+  });
+}
+
+// A coleta desta rodada com a disputa B CHURNY: as duas perguntas de MG sumiram
+// sem sucessora, e a fonte deixou cair seus levantamentos e candidatos (é o que
+// o v2/cenarios faz). A disputa A segue fresca.
+function novoChurny() {
+  return storeF({
+    surveys: [survF("s_a1", "SP"), survF("s_a2", "SP")],
+    candidates: [candF("c_a1", "governador:SP", "Alfa Testeira"), candF("c_a2", "governador:SP", "Beta Provador")],
+    questions: [
+      qF("q_a1", "s_a1", "governador", "SP", [r("c_a1", 40), r("c_a2", 30)]),
+      qF("q_a2", "s_a2", "governador", "SP", [r("c_a1", 41), r("c_a2", 29)]),
+    ],
+  });
+}
+
+const FEATURE = {
+  real: { pode: (v) => podeQuarentenar(v), restaurar: (a) => restaurarDisputas(a) },
+  // A fiação de ANTES da rede: nada é restaurado e a rodada não passa. Prova que
+  // (a) e (c) dependem da feature — some a feature, caem os casos.
+  revertida: {
+    pode: () => false,
+    restaurar: ({ novo }) => ({ store: novo, conflitos: [], faltando: [], restauradasIds: [], removidasIds: [], disputas: [] }),
+  },
+};
+
+function rodarQuarentena({ feature = "real" } = {}) {
+  const F = FEATURE[feature];
+  const falhas = [];
+  let ok = 0;
+  const caso = (nome, fn) => {
+    const problemas = [];
+    const afirma = (cond, detalhe) => { if (!cond) problemas.push(detalhe); };
+    try { fn({ afirma }); }
+    catch (e) { problemas.push(`exceção: ${e.stack?.split("\n").slice(0, 3).join(" | ") ?? e.message}`); }
+    if (problemas.length) {
+      falhas.push(nome);
+      if (feature === "real" || VERBOSE) { console.log(`✗ ${nome}`); for (const p of problemas) console.log(`    ${p}`); }
+    } else { ok++; if (feature === "real") console.log(`✓ ${nome}`); }
+  };
+  const delta = (anterior, novo) => deltaPorDisputa({ anterior, novo, lista: LISTA0, reparos: {}, runDate: D });
+
+  caso("a QUARENTENA: perda sem prova é congelada e a rodada NÃO trava", ({ afirma }) => {
+    const anterior = anteriorFixture();
+    const novo = novoChurny();
+    const v = delta(anterior, novo);
+    afirma(!v.ok, "a coleta perdeu MG sem prova — o veredito do delta continua reprovando (não afrouxa)");
+    afirma(F.pode(v), "mas a rede PODE agir: a disputa é restaurável (nAntes > 0)");
+    const { store } = F.restaurar({ anterior, novo, disputas: v.quarentena, runDate: D });
+    const val = validateStore(store, { minSurveys: 1, minQuestions: 1 });
+    afirma(val.errorsTotal === 0, `o store congelado passa no validador (veio: ${val.errors[0] ?? ""})`);
+    const ids = new Set(store.questions.map((q) => q.question_id));
+    afirma(ids.has("q_b1") && ids.has("q_b2"), "as perguntas de MG voltaram ao dado do commit anterior");
+    afirma(ids.has("q_a1") && ids.has("q_a2"), "e a disputa fresca (SP) segue comitando fresca");
+  });
+
+  caso("b NO-OP: rodada limpa não quarentena nada", ({ afirma }) => {
+    const anterior = anteriorFixture();
+    const novo = structuredClone(anterior);
+    const v = delta(anterior, novo);
+    afirma(v.ok, `coleta idêntica não reprova (veio ${v.linhas.join(" | ")})`);
+    afirma(v.quarentena.length === 0, "nada a quarentenar");
+    afirma(!F.pode(v), "a rede não age numa rodada limpa");
+  });
+
+  caso("c RASTRO: o conflito de quarentena nomeia cargo:UF, contagem e os ids", ({ afirma }) => {
+    const anterior = anteriorFixture();
+    const novo = novoChurny();
+    const v = delta(anterior, novo);
+    const { conflitos } = F.restaurar({ anterior, novo, disputas: v.quarentena, runDate: D });
+    const c = conflitos.find((x) => x.type === "disputa_em_quarentena");
+    afirma(!!c, "há um conflito de quarentena gravado");
+    afirma(c?.record_id === "governador:MG", `nomeia a disputa cargo:UF (veio: ${c?.record_id})`);
+    afirma(c?.stored === 2, `traz a contagem restaurada (veio: ${c?.stored})`);
+    afirma(/2 pergunta\(s\) sumiram sem prova/.test(c?.note ?? ""), "diz quantas sumiram sem prova");
+    afirma(/q_b1/.test(c?.note ?? "") && /q_b2/.test(c?.note ?? ""), `e lista os question_ids (veio: ${c?.note})`);
+  });
+
+  caso("d FALLBACK: restauração inconsistente reprova (não comita)", ({ afirma }) => {
+    // A coleta re-usou o id c_b1 para OUTRA disputa (governador:SP). Restaurar a
+    // pergunta de MG que cita c_b1 acha o id já presente (dedupe) mas com contest
+    // trocado — o store fica inconsistente, e `validate-store` reprova. É o
+    // fallback seguro do contrato §4.
+    const anterior = anteriorFixture();
+    const novo = novoChurny();
+    novo.candidates.push(candF("c_b1", "governador:SP", "Gama Ensaio"));  // id reciclado noutra disputa
+    const v = delta(anterior, novo);
+    afirma(F.pode(v), "a decisão diz restaurável (o resíduo está na APLICAÇÃO, não na decisão)");
+    const { store } = F.restaurar({ anterior, novo, disputas: v.quarentena, runDate: D });
+    const val = validateStore(store, { minSurveys: 1, minQuestions: 1 });
+    afirma(val.errorsTotal > 0, "a restauração inconsistente é PEGA pelo validador — a fiação reprova");
+    afirma(val.errors.some((e) => /governador:SP/.test(e) && /governador:MG/.test(e)),
+      `o erro é o elenco cruzado (veio: ${val.errors[0] ?? ""})`);
+  });
+
+  return { ok, falhas };
+}
+
 // ---------------------------------------------------------------- self-test
 function autoteste() {
   console.log("— bateria com o juiz REAL —");
@@ -557,6 +720,29 @@ function autoteste() {
     console.log(`autoteste (${modo}): a bateria REPROVA ${falhas.length} caso(s) quando o juiz é mutilado`);
     for (const n of falhas.slice(0, 5)) console.log(`  detectado → ${n}`);
   }
+
+  // ── a rede de segurança (quarentena) ─────────────────────────────────────
+  console.log("\n— bateria da QUARENTENA com a rede REAL —");
+  const q = rodarQuarentena({ feature: "real" });
+  if (q.falhas.length) {
+    console.error(`\nAUTOTESTE FALHOU: ${q.falhas.length} caso(s) de quarentena com a rede real: ${q.falhas.join("; ")}`);
+    okGeral = false;
+  }
+  // A mutação obrigatória: sem a rede, (a) e (c) TÊM de cair (contrato §2/e).
+  const devemCairSemRede = [
+    "a QUARENTENA: perda sem prova é congelada e a rodada NÃO trava",
+    "c RASTRO: o conflito de quarentena nomeia cargo:UF, contagem e os ids",
+  ];
+  const semRede = rodarQuarentena({ feature: "revertida" });
+  const naoCairam = devemCairSemRede.filter((n) => !semRede.falhas.includes(n));
+  if (naoCairam.length) {
+    okGeral = false;
+    console.error(`AUTOTESTE FALHOU (revertida): a bateria PASSOU em ${naoCairam.length} caso(s) que a reversão da rede quebra:`);
+    for (const n of naoCairam) console.error(`  não caiu → ${n}`);
+  } else {
+    console.log(`autoteste (revertida): sem a rede, a bateria derruba ${semRede.falhas.length} caso(s) — (a) e (c) dependem da feature`);
+  }
+
   process.exit(okGeral ? 0 : 1);
 }
 
@@ -573,19 +759,33 @@ function lerJson(arq) {
   return JSON.parse(fs.readFileSync(arq, "utf-8"));
 }
 
+/** Lê uma tabela do COMMIT (git show HEAD:…), tolerando ausência como vazia. */
+function ndjsonDoCommit(raiz, rel) {
+  try { return ndjson(gitShow(raiz, rel)); } catch { return []; }
+}
+
 function real() {
   const raiz = argVal("raiz") ? path.resolve(argVal("raiz")) : ROOT;
   const runDate = argVal("data") ?? today();
+  const dataDir = path.join(raiz, "data");
+  const dado = (f) => path.join(dataDir, f);
 
-  // ANTERIOR: o commit. Falhar em lê-lo é defeito, nunca "primeiro dia": o
-  // banco é comitado desde a Fase 1, e um HEAD sem data/ significa que o
-  // checkout não trouxe o que este guarda compara.
+  // ANTERIOR: o commit, tabela por tabela. A quarentena RESTAURA a disputa
+  // churny para este estado, então o comparador precisa das tabelas de fecho
+  // referencial (people/institutes/crosstabs) além de questions/surveys/
+  // candidates. As três primeiras são obrigatórias — falhar em lê-las é defeito,
+  // nunca "primeiro dia": o banco é comitado desde a Fase 1. As de fecho são
+  // toleradas vazias (crosstabs hoje é vazio) porque sua ausência não cega o
+  // delta, só limita o que a restauração alcança — e aí o validador reprova.
   let anterior, carimbos = new Map();
   try {
     anterior = {
       questions: ndjson(gitShow(raiz, "data/questions.ndjson")),
       surveys: ndjson(gitShow(raiz, "data/surveys.ndjson")),
       candidates: ndjson(gitShow(raiz, "data/candidates.ndjson")),
+      people: ndjsonDoCommit(raiz, "data/people.ndjson"),
+      institutes: ndjsonDoCommit(raiz, "data/institutes.ndjson"),
+      crosstabs: ndjsonDoCommit(raiz, "data/crosstabs.ndjson"),
     };
   } catch (e) {
     console.error(`ERRO: não li o banco COMITADO (git show HEAD:data/…): ${e.message.split("\n")[0]}`);
@@ -601,13 +801,16 @@ function real() {
   }
 
   // NOVO: a working tree — que, no ponto do workflow em que este guarda roda,
-  // JÁ é a coleta desta rodada.
-  const dado = (f) => path.join(raiz, "data", f);
-  const novo = {
-    questions: ndjson(fs.readFileSync(dado("questions.ndjson"), "utf-8")),
-    surveys: ndjson(fs.readFileSync(dado("surveys.ndjson"), "utf-8")),
-    candidates: ndjson(fs.readFileSync(dado("candidates.ndjson"), "utf-8")),
-  };
+  // JÁ é a coleta desta rodada. Lido como STORE COMPLETO (readStore) porque a
+  // fiação da quarentena precisa reescrevê-lo inteiro, com integridade
+  // referencial, e não só as três tabelas do delta.
+  let novo;
+  try {
+    novo = readStore({ dir: dataDir, runDate });
+  } catch (e) {
+    console.error(`ERRO: não li o store da working tree (${e.message.split("\n")[0]}).`);
+    process.exit(1);
+  }
 
   let lista;
   try {
@@ -636,24 +839,86 @@ function real() {
   }
 
   const v = deltaPorDisputa({ anterior, novo, lista, reparos, fontesFalhadas, runDate, carimbos });
-  for (const l of v.linhas) console.log(l);
 
-  // Os rastros só são gravados quando a rodada PASSA: numa reprovada nada é
-  // comitado (o data/ sujo morre com o runner) e sujar conflicts.ndjson só
-  // atrapalharia o diagnóstico local. Na aprovada, a linha entra se ainda não
-  // existe — o id vem do conteúdo, então a regravação é idêntica (§8).
-  if (v.ok && v.conflitos.length) {
+  // ── CAMINHO LIMPO (ou tudo tolerado) — byte-idêntico ao comportamento
+  //    anterior (contrato §5). Nenhuma linha aqui mudou.
+  if (v.ok) {
+    for (const l of v.linhas) console.log(l);
+    if (v.conflitos.length) {
+      const arq = dado("conflicts.ndjson");
+      const existentes = new Set(
+        fs.existsSync(arq) ? ndjson(fs.readFileSync(arq, "utf-8")).map((c) => c.conflict_id) : []);
+      const novos = v.conflitos.filter((c) => !existentes.has(c.conflict_id));
+      if (novos.length) {
+        fs.appendFileSync(arq, novos.map((c) => JSON.stringify(c)).join("\n") + "\n");
+        console.log(`  rastro: ${novos.length} conflito(s) de tolerância gravado(s) em conflicts.ndjson`);
+      }
+    }
+    process.exit(0);
+  }
+
+  // ── HÁ FALHA. A rede de segurança age SÓ quando toda falha é restaurável
+  //    (nenhum resíduo 0→0, nenhuma lista malformada, nenhuma promoção
+  //    pendente). Do contrário, reprova inteira como antes — a mensagem do
+  //    núcleo ("Nada foi comitado…") está correta e sai como estava.
+  if (!podeQuarentenar(v)) {
+    for (const l of v.linhas) console.log(l);
+    process.exit(1);
+  }
+
+  // ── QUARENTENA. O núcleo decide a lista; a fiação aplica: restaura o dado do
+  //    commit anterior das disputas churny, CONFERE no validador do store, e só
+  //    então reescreve data/. Se a restauração não fecha, é fallback seguro:
+  //    reprova (nada é comitado).
+  const { store: resultado, conflitos: qConf, faltando } =
+    restaurarDisputas({ anterior, novo, disputas: v.quarentena, runDate, carimbos });
+
+  const val = validateStore(resultado, { minSurveys: 500, minQuestions: 2000 });
+  if (val.errorsTotal) {
+    console.error("DELTA POR DISPUTA — QUARENTENA ABORTADA (fallback seguro): a restauração não passou no validador do store.");
+    console.error(`  disputas tentadas: ${v.quarentena.map((q) => q.disputa).join(", ")}`);
+    if (faltando.length) {
+      console.error(`  referências que o commit anterior não fechou: ${faltando.slice(0, 10).join(", ")}${faltando.length > 10 ? " …" : ""}`);
+    }
+    for (const e of val.errors.slice(0, 10)) console.error(`  ${e}`);
+    console.error(`  ${contagem(val.errorsTotal, val.errors.length)} — nada foi comitado; a rodada reprova.`);
+    process.exit(1);
+  }
+
+  writeStore(resultado, { dir: dataDir });
+
+  // polls.json é DERIVADO do store (o site lê o store; polls.json serve o
+  // validador legado, a paridade e o histórico). Congelamos o store, então
+  // re-derivamos por UMA implementação só (§5): rodar o próprio derive-polls.
+  try {
+    execFileSync("node", [path.join(raiz, "scripts", "derive-polls.mjs")], { stdio: "inherit" });
+  } catch (e) {
+    console.error(`ERRO ao re-derivar data/polls.json após a quarentena: ${e.message.split("\n")[0]}`);
+    process.exit(1);
+  }
+
+  // Rastros: as tolerâncias das disputas NÃO congeladas (as das congeladas
+  // apontam para sucessoras que acabaram de sair) + as linhas de quarentena.
+  const alvo = new Set(v.quarentena.map((q) => q.disputa));
+  const antQById = new Map(anterior.questions.map((q) => [q.question_id, q]));
+  const tolerancias = v.conflitos.filter((c) => {
+    const q = antQById.get(c.record_id);
+    return !q || !alvo.has(disputaDe(q));
+  });
+  const rastros = [...tolerancias, ...qConf];
+  if (rastros.length) {
     const arq = dado("conflicts.ndjson");
     const existentes = new Set(
       fs.existsSync(arq) ? ndjson(fs.readFileSync(arq, "utf-8")).map((c) => c.conflict_id) : []);
-    const novos = v.conflitos.filter((c) => !existentes.has(c.conflict_id));
+    const novos = rastros.filter((c) => !existentes.has(c.conflict_id));
     if (novos.length) {
       fs.appendFileSync(arq, novos.map((c) => JSON.stringify(c)).join("\n") + "\n");
-      console.log(`  rastro: ${novos.length} conflito(s) de tolerância gravado(s) em conflicts.ndjson`);
+      console.log(`  rastro: ${novos.length} conflito(s) gravado(s) em conflicts.ndjson (${qConf.length} de quarentena)`);
     }
   }
 
-  process.exit(v.ok ? 0 : 1);
+  for (const l of linhasDeQuarentena(v)) console.log(l);
+  process.exit(0);
 }
 
 if (process.argv.includes("--self-test")) autoteste();
