@@ -150,7 +150,13 @@ export default function BrasilMap({
       {/* Visually hidden, screen-reader-available equivalent of the map, built
           from the same `map` data that colours it. `sr-only` is Tailwind's
           built-in utility (used elsewhere in the app). */}
-      <table className="sr-only">
+      {/* O `sr-only` vai no WRAPPER, não na <table>: uma tabela não encolhe
+          abaixo do seu min-content, então `sr-only` direto nela ficava ~514px e
+          gerava scroll horizontal na página no mobile. Como div, o wrapper
+          encolhe a 1px e o overflow-hidden clipa a tabela — segue lida por
+          leitores de tela, sem estourar a largura. */}
+      <div className="sr-only">
+      <table>
         <caption>{label}</caption>
         <thead>
           <tr>
@@ -175,6 +181,7 @@ export default function BrasilMap({
           ))}
         </tbody>
       </table>
+      </div>
     </>
   );
 }
