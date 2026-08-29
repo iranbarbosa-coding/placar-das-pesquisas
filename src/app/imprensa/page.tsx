@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Sala de imprensa do Placar das Pesquisas: como citar, dados abertos (CC BY 4.0), widgets para incorporar e contato para jornalistas.",
 };
 
-const BOILERPLATE = `O Placar das Pesquisas (placardaspesquisas.com.br) é um agregador independente e aberto das pesquisas eleitorais registradas para as Eleições 2026, que calcula a "média do Placar das Pesquisas" para presidente, governadores e senadores a partir das pesquisas mais recentes de cada disputa. Os dados são atualizados automaticamente duas vezes por dia, publicados sob licença Creative Commons (CC BY 4.0) e acompanhados da metodologia e da comprovação matemática do cálculo. O projeto não realiza pesquisas próprias.`;
+const BOILERPLATE = `O Placar das Pesquisas (placardaspesquisas.com.br) é um agregador independente das pesquisas eleitorais registradas para as Eleições 2026, que calcula a "média do Placar das Pesquisas" para presidente, governadores e senadores a partir das pesquisas mais recentes de cada disputa. Diferente dos agregadores fechados ou pagos, é aberto, reproduzível e licenciado sob Creative Commons (CC BY 4.0): a metodologia é pública, cada média tem comprovação matemática, e os dados podem ser reusados e citados livremente. Atualizado automaticamente duas vezes por dia. O projeto não realiza pesquisas próprias.`;
 
 const CITATION = `Fonte: Placar das Pesquisas — a média do Placar das Pesquisas (placardaspesquisas.com.br), sob licença CC BY 4.0.`;
 
@@ -86,6 +86,10 @@ export default function ImprensaPage() {
       {/* Por que é diferente */}
       <section className="card space-y-3 p-4">
         <h2 className="font-semibold" style={{ color: "var(--text-primary)" }}>Por que é diferente</h2>
+        <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
+          O diferencial não é o tamanho — é ser <strong style={{ color: "var(--text-primary)" }}>aberto e
+          verificável</strong>, onde os agregadores fechados ou pagos não são:
+        </p>
         <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
           <li><strong style={{ color: "var(--text-primary)" }}>Mostra a conta.</strong> A média é reproduzível: regras fixas e públicas, com comprovação matemática — qualquer pessoa refaz o cálculo a partir das fontes.</li>
           <li><strong style={{ color: "var(--text-primary)" }}>Aberto para reusar.</strong> Os dados agregados saem sob {LICENSE_NAME}: pode republicar, inclusive comercialmente, bastando creditar.</li>
