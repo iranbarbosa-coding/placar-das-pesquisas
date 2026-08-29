@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { UFS } from "@/lib/types";
 import { loadDataset, statesWithPolls } from "@/lib/data";
+import { pollsterPages } from "@/lib/pollster-pages";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.placardaspesquisas.com.br";
 
@@ -28,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     { url: `${BASE}/institutos`, lastModified: generated, changeFrequency: "weekly", priority: 0.5 },
+    ...pollsterPages().map((p) => ({
+      url: `${BASE}/institutos/${p.slug}`,
+      lastModified: p.latest ? new Date(p.latest) : generated,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    })),
     { url: `${BASE}/sobre`, lastModified: generated, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/metodologia`, lastModified: generated, changeFrequency: "monthly", priority: 0.4 },
     { url: `${BASE}/licenca`, lastModified: generated, changeFrequency: "monthly", priority: 0.4 },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pollsters, fmtDate } from "@/lib/data";
 import { houseEffects } from "@/lib/houseEffects";
+import { pollsterPages } from "@/lib/pollster-pages";
 import InstitutosSearch from "@/components/InstitutosSearch";
 import HouseEffects from "@/components/HouseEffects";
 
@@ -72,11 +73,16 @@ const GUARDS: { icon: IconName; n: string; label: string }[] = [
 export default function InstitutosPage() {
   // Dates are formatted here, on the server, so the client filter stays a pure
   // presentation component with no dependency on the data layer.
+  // Institutes with their own long-tail page get a link from the list; the slug
+  // comes from the page set itself so a link never points at a page that a
+  // slug-collision handed to a different name.
+  const pageSlug = new Map(pollsterPages().map((pp) => [pp.name, pp.slug]));
   const list = pollsters().map((p) => ({
     name: p.name,
     count: p.count,
     races: p.races,
     latest: fmtDate(p.latest),
+    slug: pageSlug.get(p.name),
   }));
   const house = houseEffects("presidente", null, 1);
 
