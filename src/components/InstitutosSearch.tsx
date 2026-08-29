@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 /**
  * Reader-side filter for the ~150-row institutes list.
@@ -22,6 +23,18 @@ export interface InstitutoRow {
   races: number;
   /** Preformatted date string ("—" when null), computed on the server. */
   latest: string;
+  /** Slug of this institute's own page, when it has one (enough polls). */
+  slug?: string;
+}
+
+/** The institute name, linked to its page when it has one. */
+function NameCell({ row }: { row: InstitutoRow }) {
+  if (!row.slug) return <>{row.name}</>;
+  return (
+    <Link href={`/institutos/${row.slug}`} className="hover:underline" style={{ color: "var(--accent)" }}>
+      {row.name}
+    </Link>
+  );
 }
 
 /** Accent- and case-insensitive folding, matching the SiteSearch idiom. */
@@ -83,7 +96,7 @@ export default function InstitutosSearch({ list }: { list: readonly InstitutoRow
               <tbody>
                 {visible.map((p) => (
                   <tr key={p.name} className="border-b last:border-0" style={{ borderColor: "var(--grid)" }}>
-                    <td className="px-3 py-2 font-medium">{p.name}</td>
+                    <td className="px-3 py-2 font-medium"><NameCell row={p} /></td>
                     <td className="px-3 py-2 text-right tabular">{p.count}</td>
                     <td className="px-3 py-2 text-right tabular">{p.races}</td>
                     <td className="px-3 py-2 text-right text-xs" style={{ color: "var(--text-secondary)" }}>
@@ -100,7 +113,7 @@ export default function InstitutosSearch({ list }: { list: readonly InstitutoRow
           <ul className="mt-4 flex flex-col gap-2 md:hidden">
             {visible.map((p) => (
               <li key={p.name} className="card p-3">
-                <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{p.name}</p>
+                <p className="font-semibold" style={{ color: "var(--text-primary)" }}><NameCell row={p} /></p>
                 <dl className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: "var(--text-muted)" }}>
                   <div className="flex items-baseline gap-1">
                     <dt className="uppercase tracking-wide">Pesquisas</dt>
