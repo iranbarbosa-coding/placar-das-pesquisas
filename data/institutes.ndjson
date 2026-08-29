@@ -14,6 +14,7 @@
 {"institute_id":"i_200a5815d687","legacy_ids":[],"canonical":"Positiva Pesquisas","aliases":["Positiva Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_20aea9d7f14e","legacy_ids":[],"canonical":"MDA","aliases":["MDA"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_221ff08b8e7f","legacy_ids":[],"canonical":"Simetria","aliases":["Simetria"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_294f8c7d6ed3","legacy_ids":[],"canonical":"Direto ao Ponto","aliases":["Direto ao Ponto"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-29"}
 {"institute_id":"i_2a4d9a59569a","legacy_ids":[],"canonical":"IPPI","aliases":["IPPI"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_2a738568ec17","legacy_ids":[],"canonical":"Índice","aliases":["Índice"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_2cd48f8a0257","legacy_ids":[],"canonical":"Badra","aliases":["Badra"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -114,6 +115,7 @@
 {"institute_id":"i_d0269ac54b04","legacy_ids":[],"canonical":"Item","aliases":["Item"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d027ac4093f7","legacy_ids":[],"canonical":"Datailha","aliases":["Datailha"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d073295ee58b","legacy_ids":[],"canonical":"DataControl","aliases":["DataControl"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
+{"institute_id":"i_d1a5d61823cd","legacy_ids":[],"canonical":"Eipe","aliases":["Eipe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-29"}
 {"institute_id":"i_d3fb89b58879","legacy_ids":[],"canonical":"Opinar","aliases":["Opinar"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d4186917c469","legacy_ids":[],"canonical":"Lupa","aliases":["Lupa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d4e261ec92fc","legacy_ids":[],"canonical":"Colectta","aliases":["Colectta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -137,7 +139,6 @@
 {"institute_id":"i_f1cff6fb14cb","legacy_ids":[],"canonical":"Data Capital","aliases":["Data Capital"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f41a6a906cf5","legacy_ids":[],"canonical":"Vox","aliases":["Vox"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f543bcf5a729","legacy_ids":[],"canonical":"Ranking","aliases":["Ranking"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_f5f4ff657e70","legacy_ids":[],"canonical":"Direito ao Ponto","aliases":["Direito ao Ponto"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f98c78295598","legacy_ids":[],"canonical":"TCM/TSDois","aliases":["TCM/TSDois"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fad3232f047e","legacy_ids":[],"canonical":"ECM Sergipe","aliases":["ECM Sergipe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fb6c9eaa83af","legacy_ids":[],"canonical":"Ipems/JD1","aliases":["Ipems/JD1"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

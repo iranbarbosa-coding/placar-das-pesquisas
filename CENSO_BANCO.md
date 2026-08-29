@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1173 levantamentos · 4073 perguntas · 145 institutos · 1221 candidatos**.
+Banco: **1192 levantamentos · 4108 perguntas · 146 institutos · 1225 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 13 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 43 | 25 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 22 | 3 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 37 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 2 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **83** | **32** |
+| **total** | **98** | **33** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -292,7 +292,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (22)
+## CONFLITO — Conflitos registrados aguardando decisão (37)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -304,20 +304,35 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_69bf17c316c8 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_96895a2c5e7b · results: ["Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_cdab98c6acbd · results: ["Antônio Galvan","Beny Godoy","Carlos Fávaro","Janaína Riva","José Antonio Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques","Professor Nelson Ferreira"] × ["Carlos Fávaro","Galvan","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"]
-- candidate_id_orphaned · c_cc1b184f63b8 · candidate_id: "c_cc1b184f63b8" × null
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_cb46acb84d35 · results: ["Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_fa8f8d30b5f3 · results: ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Delcídio do Amaral","Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
-- candidate_id_orphaned · c_6ea7807f4247 · candidate_id: "c_6ea7807f4247" × null
 - roster_encolhido_na_fonte · q_26ca7f89a6ea · results: ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Eduardo Riedel","Fábio Trad","Jefferson Bezzerra","João Henrique Catan","Lucien Rezende","Renato Gomes"]
-- institute_id_orphaned · i_e3134c0d1d93 · institute_id: "i_e3134c0d1d93" × null
 - roster_encolhido_na_fonte · q_f6f883c79f82 · results: ["ACM Neto","Aroldo Félix","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
-- institute_id_orphaned · i_2e8106a94dfc · institute_id: "i_2e8106a94dfc" × null
 - roster_encolhido_na_fonte · q_b609b001b4c2 · results: ["Eduardo Riedel","Fábio Trad","João Henrique Catan","Lucien Rezende"] × ["Eduardo Riedel","Fábio Trad","João Henrique Catan"]
-- person_id_orphaned · p_3eea63aaa563 · person_id: "p_3eea63aaa563" × null
-- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
-- candidate_id_orphaned · c_ac3e7fad297e · candidate_id: "c_ac3e7fad297e" × null
+- person_id_orphaned · p_25c8a14a6cf7 · person_id: "p_25c8a14a6cf7" × null
+- person_id_orphaned · p_64faf1e21236 · person_id: "p_64faf1e21236" × null
+- person_id_orphaned · p_3cdd9c4a0186 · person_id: "p_3cdd9c4a0186" × null
+- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
+- **[2026]** registration_dates_contradict · s_5995d129ff44 · fieldwork_end: "2026-08-25" × "2025-08-25"
+- person_id_orphaned · p_37a0805074fb · person_id: "p_37a0805074fb" × null
+- person_id_orphaned · p_dedf0fc8a09c · person_id: "p_dedf0fc8a09c" × null
+- person_id_orphaned · p_8c48ef988925 · person_id: "p_8c48ef988925" × null
+- person_id_orphaned · p_09676548e28c · person_id: "p_09676548e28c" × null
+- person_id_orphaned · p_64426258ee84 · person_id: "p_64426258ee84" × null
+- person_id_orphaned · p_5bc1416707f2 · person_id: "p_5bc1416707f2" × null
+- person_id_orphaned · p_0b83b701bd7f · person_id: "p_0b83b701bd7f" × null
+- person_id_orphaned · p_800918d066c7 · person_id: "p_800918d066c7" × null
+- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
+- institute_id_orphaned · i_f5f4ff657e70 · institute_id: "i_f5f4ff657e70" × ["i_294f8c7d6ed3","i_4211218b89eb"]
+- person_id_orphaned · p_5c076786daaf · person_id: "p_5c076786daaf" × null
+- person_id_orphaned · p_df538afbe8a5 · person_id: "p_df538afbe8a5" × null
+- person_id_orphaned · p_b2a1cfe9a852 · person_id: "p_b2a1cfe9a852" × null
+- person_id_orphaned · p_061b6ad32f0b · person_id: "p_061b6ad32f0b" × null
+- disputa_em_quarentena · governador:AL · quarentena: 23 × 24
+- disputa_em_quarentena · governador:AP · quarentena: 16 × 16
+- disputa_em_quarentena · governador:MT · quarentena: 52 × 52
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 

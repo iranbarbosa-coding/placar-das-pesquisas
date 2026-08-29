@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **66 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **73 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -56,6 +56,45 @@ Soma **33.2%** · faltam **66.8 pontos** · 1 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Santa Catarina
+
+### Quaest — 2026-08-23
+
+Soma **34%** · faltam **66 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-0716/2026
+
+| candidato | % |
+|---|---|
+| Renan Santos | 4 |
+| Zema | 3 |
+| Escritor Augusto Cury | 3 |
+| Ronaldo Caiado | 3 |
+| Rui Costa Pimenta | 0 |
+| *não sabe/não respondeu* | 21 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-sc-25ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-20-de-lula-no-1o-turno-em-sc-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Rio Grande do Sul
+
+### Quaest — 2026-08-23
+
+Soma **36%** · faltam **64 pontos** · 4 candidato(s) na tabela · amostra 900 · registro BR-08612/2026
+
+| candidato | % |
+|---|---|
+| Ronaldo Caiado | 3 |
+| Renan Santos | 2 |
+| Pablo Marçal | 2 |
+| Escritor Augusto Cury | 1 |
+| *não sabe/não respondeu* | 28 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-rs-25ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-no-rs-diz-quaest/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Presidente · São Paulo
 
 ### Quaest — 2026-08-24
@@ -72,6 +111,64 @@ Soma **36%** · faltam **64 pontos** · 4 candidato(s) na tabela · amostra 1800
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-sp-25ago2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-30-e-lula-29-dos-votos-no-1o-turno-em-sp/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Mato Grosso do Sul
+
+### Quaest — 2026-08-24
+
+Soma **37%** · faltam **63 pontos** · 2 candidato(s) na tabela · amostra 804 · registro BR-04312/2026
+
+| candidato | % |
+|---|---|
+| Lula | 27 |
+| Rui Costa Pimenta | 0 |
+| *não sabe/não respondeu* | 10 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Minas Gerais
+
+### Quaest — 2026-08-24
+
+Soma **38%** · faltam **62 pontos** · 5 candidato(s) na tabela · amostra 1506 · registro BR-09818/2026
+
+| candidato | % |
+|---|---|
+| Zema | 6 |
+| Pablo Marçal | 3 |
+| Renan Santos | 3 |
+| Ronaldo Caiado | 2 |
+| Escritor Augusto Cury | 1 |
+| *não sabe/não respondeu* | 23 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-minas-gerais-26ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-31-ante-30-de-lula-no-1o-turno-em-mg-diz-quaest/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Distrito Federal
+
+### Quaest — 2026-08-24
+
+Soma **41%** · faltam **59 pontos** · 6 candidato(s) na tabela · amostra 1104 · registro BR-02403/2026
+
+| candidato | % |
+|---|---|
+| Ronaldo Caiado | 11 |
+| Renan Santos | 3 |
+| Escritor Augusto Cury | 2 |
+| Pablo Marçal | 2 |
+| Zema | 2 |
+| Hertz Dias | 0 |
+| *não sabe/não respondeu* | 21 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-df-25ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-em-1o-turno-no-df-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -160,6 +257,23 @@ Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Amazonas
+
+### Real Time Big Data — 2026-08-25
+
+Soma **45%** · faltam **55 pontos** · 1 candidato(s) na tabela · amostra 1600 · registro BR-09140/2026
+
+| candidato | % |
+|---|---|
+| Lula | 40 |
+| *branco/nulo* | 3 |
+| *não sabe/não respondeu* | 2 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1-1.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -372,6 +486,23 @@ Soma **63.4%** · faltam **36.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Pernambuco
+
+### Quaest — 2026-08-24
+
+Soma **64%** · faltam **36 pontos** · 2 candidato(s) na tabela · amostra 1302 · registro BR-04281/2026
+
+| candidato | % |
+|---|---|
+| Lula | 54 |
+| Escritor Augusto Cury | 1 |
+| *não sabe/não respondeu* | 9 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
