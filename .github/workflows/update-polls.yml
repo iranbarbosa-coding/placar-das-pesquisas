@@ -223,6 +223,18 @@ jobs:
           else
             git add data/ PESQUISAS_INCOMPLETAS.md CENSO_BANCO.md
             git commit -m "dados: atualização automática $(date -u +%F' '%H:%M) UTC"
-            git push
+            # Push resiliente a corrida: se o remoto avançou durante a rodada (ex.:
+            # um merge de código concorrente), rebaseia por cima e tenta de novo,
+            # até 5 vezes. O rebase é seguro — a rodada só toca data/ + os 2 .md;
+            # código concorrente mexe em OUTROS arquivos e aplica limpo. Conflito
+            # real (outra escrita em data/) aborta em voz alta, sem forçar.
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              if git push; then pushed=1; echo "push ok (tentativa $attempt)"; break; fi
+              echo "push rejeitado (tentativa $attempt) — git pull --rebase e retry"
+              git pull --rebase origin main || { echo "ERRO: rebase falhou (conflito real em data/) — abortando"; exit 1; }
+              sleep $((attempt * 3))
+            done
+            [ "$pushed" = "1" ] || { echo "ERRO: esgotou as 5 tentativas de push"; exit 1; }
           fi
       # O push em data/ dispara o rebuild automático no Vercel (site é 100% estático).
