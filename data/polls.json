@@ -1,24 +1,213 @@
 {
- "generated_at": "2026-08-29T16:41:10.491Z",
+ "generated_at": "2026-08-30T00:17:19.926Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-29T16:41:10.491Z"
+   "last_ok": "2026-08-30T00:17:19.926Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-29T16:41:10.491Z"
+   "last_ok": "2026-08-30T00:17:19.926Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-29T16:41:10.491Z"
+   "last_ok": "2026-08-30T00:17:19.926Z"
   }
  ],
  "polls": [
+  {
+   "id": "055b30829056",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-25",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Helder",
+     "party": "MDB",
+     "pct": 23
+    },
+    {
+     "candidate": "Delegado Éder Mauro",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Zequinha Marinho",
+     "party": "Podemos",
+     "pct": 11
+    },
+    {
+     "candidate": "Chicão",
+     "party": "União Brasil",
+     "pct": 5
+    },
+    {
+     "candidate": "Celso Sabino",
+     "party": "PDT",
+     "pct": 7
+    },
+    {
+     "candidate": "Lívia Noronha",
+     "party": "Solidariedade",
+     "pct": 1
+    },
+    {
+     "candidate": "Gizelle Freitas",
+     "party": "PSOL",
+     "pct": 2
+    },
+    {
+     "candidate": "Conti",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Fernanda Lopes",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Breno Guimarães",
+     "party": "Mobiliza",
+     "pct": 0
+    },
+    {
+     "candidate": "Edlaine Rodrigues",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Coronel Jonildo",
+     "party": "DC",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2a37d2627a8d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-26",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 1080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rayssa Furlan",
+     "party": "Podemos",
+     "pct": 56
+    },
+    {
+     "candidate": "Lucas Barreto",
+     "party": "PSD",
+     "pct": 38.1
+    },
+    {
+     "candidate": "Randolfe",
+     "party": "PT",
+     "pct": 36.6
+    },
+    {
+     "candidate": "Alliny Serrão",
+     "party": "União Brasil",
+     "pct": 18.4
+    },
+    {
+     "candidate": "Acácio Favacho",
+     "party": "MDB",
+     "pct": 16.2
+    },
+    {
+     "candidate": "Capi",
+     "party": "PSB",
+     "pct": 6.3
+    }
+   ],
+   "others_pct": 2.8,
+   "undecided_pct": 8.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ce8786f51b9a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-25",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Hana Ghassan",
+     "party": "MDB",
+     "pct": 27
+    },
+    {
+     "candidate": "Dr. Daniel",
+     "party": "Podemos",
+     "pct": 28
+    },
+    {
+     "candidate": "Araceli",
+     "party": "PSOL",
+     "pct": 2
+    },
+    {
+     "candidate": "Well Macêdo",
+     "party": "PSTU",
+     "pct": 2
+    },
+    {
+     "candidate": "Gal Leite",
+     "party": "UP",
+     "pct": 2
+    },
+    {
+     "candidate": "José Moita",
+     "party": "Democrata",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 38,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "004ac461a8ba",
    "source": null,
@@ -360,8 +549,66 @@
      "pct": 1
     }
    ],
-   "others_pct": 1,
+   "others_pct": 0,
    "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "4606fe89aef0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-08-25",
+   "fieldwork_end": "2026-08-27",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 29
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 24
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 21
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 19
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 11
+    },
+    {
+     "candidate": "Carlos Sant Anna",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
+     "candidate": "Paulo Rubem Santiago",
+     "party": "Rede",
+     "pct": 2
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 46,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1646,18 +1893,18 @@
   },
   {
    "id": "35d489e89ca5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/acm-neto-e-jeronimo-empatam-no-2o-turno-na-bahia-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-bahia-27ago2026.pdf",
    "race": "governador",
    "state": "BA",
    "round": 2,
    "scenario": "2º turno: ACM Neto e Jerônimo Rodrigues",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "Globo",
    "fieldwork_start": "2026-08-23",
    "fieldwork_end": "2026-08-26",
-   "published_date": null,
+   "published_date": "2026-08-26",
    "sample_size": 900,
    "margin_of_error": 3,
    "results": [
@@ -1675,7 +1922,7 @@
    "others_pct": null,
    "undecided_pct": 15,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BA-06206/2026"
   },
   {
    "id": "47496a6321be",
@@ -2220,44 +2467,6 @@
    ],
    "others_pct": 0,
    "undecided_pct": 27,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "dd63c07f006d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "governador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "ACM Neto",
-     "party": "União Brasil",
-     "pct": 39
-    },
-    {
-     "candidate": "Jerônimo Rodrigues",
-     "party": "PT",
-     "pct": 37
-    },
-    {
-     "candidate": "Ronaldo Mansur",
-     "party": "PSOL",
-     "pct": 1
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3220,6 +3429,44 @@
    "tse_registration": "MG-07972/2026"
   },
   {
+   "id": "p360-13968-1-0-ae765a6a31bd",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/acm-neto-e-jeronimo-empatam-no-2o-turno-na-bahia-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-bahia-27ago2026.pdf",
+   "race": "governador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 39
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 37
+    },
+    {
+     "candidate": "Ronaldo Mansur",
+     "party": "PSOL",
+     "pct": 1
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "BA-06206/2026"
+  },
+  {
    "id": "0633819bb21c",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
@@ -3441,44 +3688,6 @@
    ],
    "others_pct": 2.2,
    "undecided_pct": 14.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "75fe55f0bab2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "governador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-25",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "ACM Neto",
-     "party": "União Brasil",
-     "pct": 48.6
-    },
-    {
-     "candidate": "Jerônimo Rodrigues",
-     "party": "PT",
-     "pct": 40.1
-    },
-    {
-     "candidate": "Ronaldo Mansur",
-     "party": "PSOL",
-     "pct": 0.4
-    }
-   ],
-   "others_pct": 1.2,
-   "undecided_pct": 9.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3760,39 +3969,6 @@
    ],
    "others_pct": 1.9,
    "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d6c5b52bf983",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "governador",
-   "state": "BA",
-   "round": 2,
-   "scenario": "2º turno: ACM Neto e Jerônimo Rodrigues",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-25",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "ACM Neto",
-     "party": "União Brasil",
-     "pct": 49.3
-    },
-    {
-     "candidate": "Jerônimo Rodrigues",
-     "party": "PT",
-     "pct": 41
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 9.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -4133,6 +4309,77 @@
    "blank_null_pct": 3,
    "tse_registration": "BR-09140/2026",
    "incomplete": true
+  },
+  {
+   "id": "p360-13967-1-0-0a09a4ecffdf",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/acm-tem-493-contra-41-de-jeronimo-no-2o-turno-na-bahia-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-parana-pesquisas-governador-bahia-27ago2026.pdf",
+   "race": "governador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Bahia Notícias",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 48.6
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 40.1
+    },
+    {
+     "candidate": "Ronaldo Mansur",
+     "party": "PSOL",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": 1.2,
+   "undecided_pct": 9.6,
+   "blank_null_pct": null,
+   "tse_registration": "BA-07628/2026"
+  },
+  {
+   "id": "p360-13967-2-0-49eec5f48beb",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/acm-tem-493-contra-41-de-jeronimo-no-2o-turno-na-bahia-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-parana-pesquisas-governador-bahia-27ago2026.pdf",
+   "race": "governador",
+   "state": "BA",
+   "round": 2,
+   "scenario": "2º turno: ACM Neto vs Jerônimo Rodrigues",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Bahia Notícias",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 49.3
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.7,
+   "blank_null_pct": 6,
+   "tse_registration": "BA-07628/2026"
   },
   {
    "id": "01c90935f0ff",
@@ -147524,6 +147771,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 36,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5e53f8dbb34d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PA",
+   "round": 2,
+   "scenario": "2º turno: Daniel Santos x Hana Ghassan",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2024-08-25",
+   "fieldwork_end": "2024-08-28",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Daniel",
+     "party": "Podemos",
+     "pct": 36
+    },
+    {
+     "candidate": "Hana Ghassan",
+     "party": "MDB",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 28,
    "blank_null_pct": null,
    "tse_registration": null
   },

@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1195 levantamentos · 4114 perguntas · 146 institutos · 1225 candidatos**.
+Banco: **1198 levantamentos · 4119 perguntas · 146 institutos · 1226 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -313,7 +313,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - **[2026]** registration_dates_contradict · s_5995d129ff44 · fieldwork_end: "2026-08-25" × "2025-08-25"
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 24
-- disputa_em_quarentena · governador:AP · quarentena: 16 × 16
+- disputa_em_quarentena · governador:AP · quarentena: 16 × 17
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 52
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
