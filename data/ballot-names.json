@@ -2,7 +2,7 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 507,
+  "exato": 508,
   "contencao": 181,
   "outra_disputa": 147,
   "ambiguo": 5,
@@ -1977,6 +1977,13 @@
     "sq_candidato": "140002551357",
     "partido": "DEMOCRATA",
     "numero": "35",
+    "origem": "exato"
+   },
+   "well macedo": {
+    "nome_urna": "Well Macêdo",
+    "sq_candidato": "140002554108",
+    "partido": "PSTU",
+    "numero": "16",
     "origem": "exato"
    }
   },
