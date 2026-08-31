@@ -2,7 +2,7 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 508,
+  "exato": 510,
   "contencao": 181,
   "outra_disputa": 147,
   "ambiguo": 5,
@@ -1408,6 +1408,13 @@
     "sq_candidato": "280002551932",
     "partido": "PSD",
     "numero": "55",
+    "origem": "exato"
+   },
+   "rui costa pimenta": {
+    "nome_urna": "Rui Costa Pimenta",
+    "sq_candidato": "280002552487",
+    "partido": "PCO",
+    "numero": "29",
     "origem": "exato"
    },
    "samara martins": {
@@ -4448,6 +4455,13 @@
     "sq_candidato": "50002534774",
     "partido": "REDE",
     "numero": "180",
+    "origem": "exato"
+   },
+   "marcelo millet": {
+    "nome_urna": "Marcelo Millet",
+    "sq_candidato": "50002553643",
+    "partido": "PCO",
+    "numero": "290",
     "origem": "exato"
    },
    "marcelo santtana": {

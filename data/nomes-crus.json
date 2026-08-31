@@ -7997,6 +7997,68 @@
    ]
   }
  ],
+ "governador:RR": [
+  {
+   "nome": "Arthur Henrique",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Clébio Genuíno",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Doutor Raposo",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Edilson Damião",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Farah Mesquita",
+   "partidos": [
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Juscelino Kubitschek Pereira",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Romero Jucá",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Rosi Aires",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Soldado Sampaio",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Teresa Surita",
+   "partidos": [
+    "MDB"
+   ]
+  }
+ ],
  "senador:RS": [
   {
    "nome": "Eduardo Leite",
@@ -8613,68 +8675,6 @@
    "nome": "Wanderlei Barbosa",
    "partidos": [
     "Republicanos"
-   ]
-  }
- ],
- "governador:RR": [
-  {
-   "nome": "Arthur Henrique",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Clébio Genuíno",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Doutor Raposo",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Edilson Damião",
-   "partidos": [
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Farah Mesquita",
-   "partidos": [
-    "Solidariedade"
-   ]
-  },
-  {
-   "nome": "Juscelino Kubitschek Pereira",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Romero Jucá",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Rosi Aires",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Soldado Sampaio",
-   "partidos": [
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Teresa Surita",
-   "partidos": [
-    "MDB"
    ]
   }
  ],
