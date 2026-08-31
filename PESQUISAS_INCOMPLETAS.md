@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **73 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **75 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -169,6 +169,26 @@ Soma **41%** · faltam **59 pontos** · 6 candidato(s) na tabela · amostra 1104
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-df-25ago2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-em-1o-turno-no-df-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Goiás
+
+### Quaest — 2026-08-26
+
+Soma **41%** · faltam **59 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-07810/2026
+
+| candidato | % |
+|---|---|
+| Ronaldo Caiado | 32 |
+| Renan Santos | 2 |
+| Zema | 2 |
+| Escritor Augusto Cury | 1 |
+| Rui Costa Pimenta | 0 |
+| *não sabe/não respondeu* | 4 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1200,6 +1220,22 @@ Soma **86.7%** · faltam **13.3 pontos** · 7 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/2026/03/paranapesquisas-ceara-3mar2026.pdf
 - Publicação: https://www.poder360.com.br/poder-governo/lula-e-aprovado-por-57-e-desaprovado-por-40-no-ceara/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Sergipe · 2º turno
+
+### IFP — 2026-08-21
+
+Soma **86.8%** · faltam **13.2 pontos** · 2 candidato(s) na tabela · amostra 1314
+
+| candidato | % |
+|---|---|
+| Fábio | 43.45 |
+| Valmir de Francisquinho | 32.16 |
+| *não sabe/não respondeu* | 11.19 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

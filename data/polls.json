@@ -1,24 +1,125 @@
 {
- "generated_at": "2026-08-30T16:37:54.766Z",
+ "generated_at": "2026-08-31T00:33:48.333Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-08-30T16:37:54.766Z"
+   "last_ok": "2026-08-31T00:33:48.333Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-08-30T16:37:54.766Z"
+   "last_ok": "2026-08-31T00:33:48.333Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-08-30T16:37:54.766Z"
+   "last_ok": "2026-08-31T00:33:48.333Z"
   }
  ],
  "polls": [
+  {
+   "id": "05ab8a6d40bf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-08-25",
+   "fieldwork_end": "2026-08-29",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 35.4
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 24.5
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 10.7
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 3.8
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 4.8
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 2.5
+    }
+   ],
+   "others_pct": 3.8,
+   "undecided_pct": 14.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e1ac2ebc191e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "senador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-08-25",
+   "fieldwork_end": "2026-08-29",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Michelle Bolsonaro",
+     "party": "PL",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 22.4
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 15.7
+    },
+    {
+     "candidate": "Bia Kicis",
+     "party": "PL",
+     "pct": 18.9
+    },
+    {
+     "candidate": "Sebastião Coelho",
+     "party": "Novo",
+     "pct": 6.3
+    }
+   ],
+   "others_pct": 18.4,
+   "undecided_pct": 74.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "055b30829056",
    "source": null,
@@ -1815,18 +1916,18 @@
   },
   {
    "id": "23d7f037238b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
    "scenario": "2º turno: Daniel Vilela e Marconi Perillo",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "Globo",
    "fieldwork_start": "2026-08-23",
    "fieldwork_end": "2026-08-26",
-   "published_date": null,
+   "published_date": "2026-08-26",
    "sample_size": 804,
    "margin_of_error": 3,
    "results": [
@@ -1844,7 +1945,7 @@
    "others_pct": null,
    "undecided_pct": 19,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07810/2026"
   },
   {
    "id": "24263a08bccd",
@@ -1934,64 +2035,6 @@
    ],
    "others_pct": 2,
    "undecided_pct": 28,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "264102218e48",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "senador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Gracinha Caiado",
-     "party": "União Brasil",
-     "pct": 21
-    },
-    {
-     "candidate": "Gustavo Gayer",
-     "party": "PL",
-     "pct": 12
-    },
-    {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 9
-    },
-    {
-     "candidate": "Dr. Zacharias Calil",
-     "party": "MDB",
-     "pct": 9
-    },
-    {
-     "candidate": "Gustavo Mendanha",
-     "party": "PRD",
-     "pct": 6
-    },
-    {
-     "candidate": "Oséias Varão",
-     "party": "PL",
-     "pct": 3
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 0
-    }
-   ],
-   "others_pct": 6,
-   "undecided_pct": 34,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -2343,18 +2386,18 @@
   },
   {
    "id": "7fca57b2f4cd",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
    "scenario": "2º turno: Daniel Vilela e Wilder Morais",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "Globo",
    "fieldwork_start": "2026-08-23",
    "fieldwork_end": "2026-08-26",
-   "published_date": null,
+   "published_date": "2026-08-26",
    "sample_size": 804,
    "margin_of_error": 3,
    "results": [
@@ -2372,7 +2415,7 @@
    "others_pct": null,
    "undecided_pct": 26,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07810/2026"
   },
   {
    "id": "8def04c1498a",
@@ -2477,18 +2520,18 @@
   },
   {
    "id": "b8a3980d6f6e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-espirito-santo-27ago2026.pdf",
    "race": "governador",
    "state": "ES",
    "round": 2,
    "scenario": "2º turno: Lorenzo Pazolini e Ricardo Ferraço",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "TV Gazeta",
    "fieldwork_start": "2026-08-23",
    "fieldwork_end": "2026-08-26",
-   "published_date": null,
+   "published_date": "2026-08-26",
    "sample_size": 804,
    "margin_of_error": 3,
    "results": [
@@ -2506,7 +2549,7 @@
    "others_pct": null,
    "undecided_pct": 20,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "ES-04444/2026"
   },
   {
    "id": "bd72cb87de08",
@@ -2543,18 +2586,18 @@
   },
   {
    "id": "cfb2ed69aeb9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-espirito-santo-27ago2026.pdf",
    "race": "governador",
    "state": "ES",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "TV Gazeta",
    "fieldwork_start": "2026-08-23",
    "fieldwork_end": "2026-08-26",
-   "published_date": null,
+   "published_date": "2026-08-26",
    "sample_size": 804,
    "margin_of_error": 3,
    "results": [
@@ -2577,22 +2620,22 @@
    "others_pct": 3,
    "undecided_pct": 24,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "ES-04444/2026"
   },
   {
    "id": "d369eb4ddfef",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "Globo",
    "fieldwork_start": "2026-08-23",
    "fieldwork_end": "2026-08-26",
-   "published_date": null,
+   "published_date": "2026-08-26",
    "sample_size": 804,
    "margin_of_error": 3,
    "results": [
@@ -2620,7 +2663,7 @@
    "others_pct": 0,
    "undecided_pct": 27,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07810/2026"
   },
   {
    "id": "ebbd66919e9f",
@@ -2778,74 +2821,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fd81b2cfd8a8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
-   "integra_url": null,
-   "race": "senador",
-   "state": "ES",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Renato Casagrande",
-     "party": "PSB",
-     "pct": 28
-    },
-    {
-     "candidate": "Sérgio Meneguelli",
-     "party": "PSD",
-     "pct": 10
-    },
-    {
-     "candidate": "Rose de Freitas",
-     "party": "MDB",
-     "pct": 9
-    },
-    {
-     "candidate": "Fabiano Contarato",
-     "party": "PT",
-     "pct": 9
-    },
-    {
-     "candidate": "Maguinha Malta",
-     "party": "PL",
-     "pct": 6
-    },
-    {
-     "candidate": "Evair de Melo",
-     "party": "Republicanos",
-     "pct": 5
-    },
-    {
-     "candidate": "Marcos do Val",
-     "party": "Avante",
-     "pct": 4
-    },
-    {
-     "candidate": "Callegari",
-     "party": "DC",
-     "pct": 1
-    },
-    {
-     "candidate": "Leonardo Monjardim",
-     "party": "Novo",
-     "pct": 1
-    }
-   ],
-   "others_pct": 4,
-   "undecided_pct": 23,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3617,6 +3592,229 @@
    "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": "BA-06206/2026"
+  },
+  {
+   "id": "p360-13970-1-0-74046192abf0",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/acm-neto-e-jeronimo-empatam-no-2o-turno-na-bahia-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-bahia-27ago2026.pdf",
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 23
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 17
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 7
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 5
+    },
+    {
+     "candidate": "Marcelo Millet",
+     "party": "PCO",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 42,
+   "blank_null_pct": null,
+   "tse_registration": "BA-06206/2026"
+  },
+  {
+   "id": "p360-13971-1-0-888226da73ab",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
+   "race": "presidente",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 32
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 1
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07810/2026",
+   "incomplete": true
+  },
+  {
+   "id": "p360-13972-1-0-9e04ac3a8cf0",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-goias-27ago2026.pdf",
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 21
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 12
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 9
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 9
+    },
+    {
+     "candidate": "Gustavo Mendanha",
+     "party": "PRD",
+     "pct": 6
+    },
+    {
+     "candidate": "Oséias Varão",
+     "party": "PL",
+     "pct": 3
+    },
+    {
+     "candidate": "Iure Castro",
+     "party": "Cidadania",
+     "pct": 0
+    }
+   ],
+   "others_pct": 6,
+   "undecided_pct": 34,
+   "blank_null_pct": null,
+   "tse_registration": "GO-06186/2026"
+  },
+  {
+   "id": "p360-13973-1-0-36f21143222a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-espirito-santo-27ago2026.pdf",
+   "race": "senador",
+   "state": "ES",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "TV Gazeta",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Renato Casagrande",
+     "party": "PSB",
+     "pct": 28
+    },
+    {
+     "candidate": "Sérgio Meneguelli",
+     "party": "PSD",
+     "pct": 10
+    },
+    {
+     "candidate": "Rose de Freitas",
+     "party": "MDB",
+     "pct": 9
+    },
+    {
+     "candidate": "Fabiano Contarato",
+     "party": "PT",
+     "pct": 9
+    },
+    {
+     "candidate": "Maguinha Malta",
+     "party": "PL",
+     "pct": 6
+    },
+    {
+     "candidate": "Evair de Melo",
+     "party": "Republicanos",
+     "pct": 5
+    },
+    {
+     "candidate": "Marcos do Val",
+     "party": "Avante",
+     "pct": 4
+    },
+    {
+     "candidate": "Callegari",
+     "party": "DC",
+     "pct": 1
+    },
+    {
+     "candidate": "Leonardo Monjardim",
+     "party": "Novo",
+     "pct": 1
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": "ES-04444/2026"
   },
   {
    "id": "0633819bb21c",
@@ -10465,6 +10663,49 @@
    "tse_registration": null
   },
   {
+   "id": "6915e85c85d5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1314,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 39.69
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 28.43
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 4.46
+    },
+    {
+     "candidate": "Emanuel Cacho",
+     "party": "PSDB",
+     "pct": 1.47
+    }
+   ],
+   "others_pct": 1.35,
+   "undecided_pct": 24.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "6f67cde2676e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -10834,6 +11075,40 @@
    "undecided_pct": 14.91,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "fdcc6c980389",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri e Valmir de Franscisquinho",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1314,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 43.45
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 32.16
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.19,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
   },
   {
    "id": "p360-13891-1-0-a1d0db5ee17a",
