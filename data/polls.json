@@ -1,24 +1,180 @@
 {
- "generated_at": "2026-09-01T01:16:39.160Z",
+ "generated_at": "2026-09-01T16:35:37.184Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-01T01:16:39.160Z"
+   "last_ok": "2026-09-01T16:35:37.184Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-01T01:16:39.160Z"
+   "last_ok": "2026-09-01T16:35:37.184Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-01T01:16:39.160Z"
+   "last_ok": "2026-09-01T16:35:37.184Z"
   }
  ],
  "polls": [
+  {
+   "id": "1c5278125a31",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Vox",
+   "contractor": null,
+   "fieldwork_start": "2026-08-29",
+   "fieldwork_end": "2026-08-31",
+   "published_date": null,
+   "sample_size": 1480,
+   "margin_of_error": 2.55,
+   "results": [
+    {
+     "candidate": "Simone Tebet",
+     "party": "PSB",
+     "pct": 25.3
+    },
+    {
+     "candidate": "Marina Silva",
+     "party": "Rede",
+     "pct": 27.7
+    },
+    {
+     "candidate": "André do Prado",
+     "party": "PL",
+     "pct": 26.5
+    },
+    {
+     "candidate": "Guilherme Derrite",
+     "party": "PP",
+     "pct": 18.1
+    },
+    {
+     "candidate": "Salles",
+     "party": "Novo",
+     "pct": 17.5
+    },
+    {
+     "candidate": "Soninha Francine",
+     "party": "CID",
+     "pct": 4.9
+    },
+    {
+     "candidate": "Guto Schiavetto",
+     "party": "Missão",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Geraldo Rufino",
+     "party": "Podemos",
+     "pct": 1.9
+    },
+    {
+     "candidate": "Maíra de Souza",
+     "party": "UP",
+     "pct": 2.3
+    },
+    {
+     "candidate": "Marcio Alves",
+     "party": "UP",
+     "pct": 1.1
+    },
+    {
+     "candidate": "Dr.ª",
+     "party": "PSTU",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Weller Gonçalves",
+     "party": "PSTU",
+     "pct": 2.1
+    },
+    {
+     "candidate": "Petter Maahs",
+     "party": "PCB",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Ednelson Cesaretti",
+     "party": "PCO",
+     "pct": 0.1
+    },
+    {
+     "candidate": "William Teixeira",
+     "party": "Agir",
+     "pct": 0.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 60.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3206cccfefe4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Vox",
+   "contractor": null,
+   "fieldwork_start": "2026-08-29",
+   "fieldwork_end": "2026-08-31",
+   "published_date": null,
+   "sample_size": 1480,
+   "margin_of_error": 2.55,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 55.3
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 35.1
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "PSTU",
+     "pct": 0.7
+    },
+    {
+     "candidate": "Carlos Machado",
+     "party": "PCB",
+     "pct": 1.1
+    },
+    {
+     "candidate": "Vivian Mendes",
+     "party": "UP",
+     "pct": 0.5
+    },
+    {
+     "candidate": "Izadora Dias",
+     "party": null,
+     "pct": 0.3
+    },
+    {
+     "candidate": "Policial Edjane",
+     "party": null,
+     "pct": 0.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "13bc94c1a731",
    "source": null,
@@ -135,7 +291,7 @@
      "pct": 23.53
     },
     {
-     "candidate": "Helio Bolsonaro",
+     "candidate": "Helio Fernando Barbosa Lopes",
      "party": "PL",
      "pct": 7.25
     },
@@ -3123,7 +3279,7 @@
      "pct": 17
     },
     {
-     "candidate": "Helio Bolsonaro",
+     "candidate": "Helio Fernando Barbosa Lopes",
      "party": "PL",
      "pct": 5
     },
@@ -9043,11 +9199,6 @@
      "pct": 0
     },
     {
-     "candidate": "Robertinho",
-     "party": "PRTB",
-     "pct": 0
-    },
-    {
      "candidate": "José Moita",
      "party": "Democrata",
      "pct": 0
@@ -14274,14 +14425,14 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 21
-    },
-    {
      "candidate": "Cid Gomes",
      "party": "PSB",
      "pct": 27
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 21
     },
     {
      "candidate": "Luizianne",
@@ -14480,14 +14631,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 19
-    },
-    {
      "candidate": "Cid Gomes",
      "party": "PSB",
      "pct": 26
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 19
     },
     {
      "candidate": "Luizianne",
@@ -18056,14 +18207,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 22
-    },
-    {
      "candidate": "Cid Gomes",
      "party": "PSB",
      "pct": 26
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 22
     },
     {
      "candidate": "Luizianne",
@@ -19551,14 +19702,14 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 21.7
-    },
-    {
      "candidate": "Cid Gomes",
      "party": "PSB",
      "pct": 23.7
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 21.7
     },
     {
      "candidate": "Luizianne",
@@ -31883,14 +32034,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 24
-    },
-    {
      "candidate": "Cid Gomes",
      "party": "PSB",
      "pct": 22
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 24
     },
     {
      "candidate": "Luizianne",
@@ -41308,14 +41459,14 @@
    "tse_registration": null
   },
   {
-   "id": "8625fe668a6e",
+   "id": "a636af400ad1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
    "race": "senador",
    "state": "CE",
    "round": 1,
-   "scenario": "1º turno — cenário 2/2",
+   "scenario": "1º turno — cenário 1/2",
    "pollster": "Real Time Big Data",
    "contractor": null,
    "fieldwork_start": "2026-07-13",
@@ -41325,24 +41476,24 @@
    "margin_of_error": 2,
    "results": [
     {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 26
+    },
+    {
      "candidate": "Capitão Wagner",
      "party": "União Brasil",
-     "pct": 23
+     "pct": 22
     },
     {
      "candidate": "Luizianne",
      "party": "Rede",
-     "pct": 16
-    },
-    {
-     "candidate": "Júnior Mano",
-     "party": "PSB",
-     "pct": 17
+     "pct": 14
     },
     {
      "candidate": "Alcides Fernandes",
      "party": "PL",
-     "pct": 15
+     "pct": 14
     },
     {
      "candidate": "General Theóphilo",
@@ -41352,16 +41503,16 @@
     {
      "candidate": "Cândido Albuquerque",
      "party": "PSDB",
-     "pct": 4
+     "pct": 3
     },
     {
      "candidate": "Anna Karina",
      "party": "PSOL",
-     "pct": 6
+     "pct": 4
     }
    ],
    "others_pct": 0,
-   "undecided_pct": 14,
+   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -48737,7 +48888,7 @@
      "pct": 0.56
     },
     {
-     "candidate": "AÉCIO NEVES",
+     "candidate": "Aécio Neves",
      "party": null,
      "pct": 0.3
     },
@@ -57068,6 +57219,11 @@
    "margin_of_error": 3,
    "results": [
     {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 20.5
+    },
+    {
      "candidate": "Capitão Wagner",
      "party": "União Brasil",
      "pct": 18.7
@@ -57076,11 +57232,6 @@
      "candidate": "Eunício Oliveira",
      "party": "MDB",
      "pct": 4.7
-    },
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 20.5
     },
     {
      "candidate": "Luizianne",
@@ -66929,6 +67080,69 @@
    "tse_registration": null
   },
   {
+   "id": "5f7a18f30720",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-05-22",
+   "fieldwork_end": "2026-05-26",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 20.3
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 23
+    },
+    {
+     "candidate": "Eunício Oliveira",
+     "party": "MDB",
+     "pct": 6.6
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 10
+    },
+    {
+     "candidate": "Júnior Mano",
+     "party": "PSB",
+     "pct": 1.3
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 13.1
+    },
+    {
+     "candidate": "General Theóphilo",
+     "party": "Novo",
+     "pct": 2.5
+    },
+    {
+     "candidate": "Anna Karina",
+     "party": "PSOL",
+     "pct": 2.2
+    }
+   ],
+   "others_pct": 0.1,
+   "undecided_pct": 20.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "77fe407b61d5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -67155,69 +67369,6 @@
    ],
    "others_pct": 1.5,
    "undecided_pct": 32.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b7c0c841c297",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário 2/2",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-05-22",
-   "fieldwork_end": "2026-05-26",
-   "published_date": null,
-   "sample_size": 1525,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 14.9
-    },
-    {
-     "candidate": "Eunício Oliveira",
-     "party": "MDB",
-     "pct": 6.7
-    },
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 23.9
-    },
-    {
-     "candidate": "Luizianne",
-     "party": "Rede",
-     "pct": 16
-    },
-    {
-     "candidate": "Júnior Mano",
-     "party": "PSB",
-     "pct": 2.8
-    },
-    {
-     "candidate": "Priscila Costa",
-     "party": "PL",
-     "pct": 2.6
-    },
-    {
-     "candidate": "General Theóphilo",
-     "party": "Novo",
-     "pct": 2.3
-    },
-    {
-     "candidate": "Anna Karina",
-     "party": "PSOL",
-     "pct": 2.8
-    }
-   ],
-   "others_pct": 0.4,
-   "undecided_pct": 26.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -79505,6 +79656,11 @@
    "margin_of_error": 3,
    "results": [
     {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 17
+    },
+    {
      "candidate": "Capitão Wagner",
      "party": "União Brasil",
      "pct": 17
@@ -79513,11 +79669,6 @@
      "candidate": "Eunício Oliveira",
      "party": "MDB",
      "pct": 6
-    },
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 17
     },
     {
      "candidate": "Luizianne",
@@ -82292,6 +82443,11 @@
    "margin_of_error": 2.5,
    "results": [
     {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 40.6
+    },
+    {
      "candidate": "Capitão Wagner",
      "party": "União Brasil",
      "pct": 46
@@ -82300,11 +82456,6 @@
      "candidate": "Eunício Oliveira",
      "party": "MDB",
      "pct": 13.1
-    },
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 40.6
     },
     {
      "candidate": "Luizianne",
@@ -88560,7 +88711,7 @@
      "pct": 44.6
     },
     {
-     "candidate": "Helio Bolsonaro",
+     "candidate": "Helio Fernando Barbosa Lopes",
      "party": "PL",
      "pct": 18.8
     }
@@ -120997,7 +121148,7 @@
      "pct": 13
     },
     {
-     "candidate": "Helio Bolsonaro",
+     "candidate": "Helio Fernando Barbosa Lopes",
      "party": "PL",
      "pct": 13
     },
@@ -125694,7 +125845,7 @@
      "pct": 14
     },
     {
-     "candidate": "Helio Bolsonaro",
+     "candidate": "Helio Fernando Barbosa Lopes",
      "party": "PL",
      "pct": 10
     },
@@ -147769,7 +147920,7 @@
      "pct": 4.1
     },
     {
-     "candidate": "Sérgio Moro",
+     "candidate": "Sergio Moro",
      "party": "União Brasil",
      "pct": 3.3
     },
@@ -148737,7 +148888,7 @@
      "pct": 6.2
     },
     {
-     "candidate": "Sérgio Moro",
+     "candidate": "Sergio Moro",
      "party": "União Brasil",
      "pct": 4.6
     },
@@ -149515,7 +149666,7 @@
      "pct": 1.4
     },
     {
-     "candidate": "Sérgio Moro",
+     "candidate": "Sergio Moro",
      "party": "União Brasil",
      "pct": 4
     }
@@ -152406,7 +152557,7 @@
      "pct": 6.3
     },
     {
-     "candidate": "Sérgio Moro",
+     "candidate": "Sergio Moro",
      "party": "União Brasil",
      "pct": 6.7
     },

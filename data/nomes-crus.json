@@ -788,6 +788,12 @@
    ]
   },
   {
+   "nome": "Capitão Wagner",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
    "nome": "Ciro Gomes",
    "partidos": [
     "PSDB"
@@ -824,12 +830,6 @@
    ]
   },
   {
-   "nome": "Jarir Pereira",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
    "nome": "Luis Eduardo Girão",
    "partidos": [
     "Novo",
@@ -847,6 +847,12 @@
    "partidos": [
     "PDT",
     "União Brasil"
+   ]
+  },
+  {
+   "nome": "Serley Leal",
+   "partidos": [
+    "UP"
    ]
   },
   {
@@ -1608,12 +1614,6 @@
    ]
   },
   {
-   "nome": "Rui Costa Pimenta",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
    "nome": "Samara Martins",
    "partidos": [
     "UP"
@@ -2186,18 +2186,6 @@
    ]
   },
   {
-   "nome": "Rafaell Milas",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Sargento Laudicério",
-   "partidos": [
-    "Agir"
-   ]
-  },
-  {
    "nome": "Wellington Fagundes",
    "partidos": [
     "PL"
@@ -2459,12 +2447,6 @@
    "nome": "Raquel Brício",
    "partidos": [
     "UP"
-   ]
-  },
-  {
-   "nome": "Robertinho",
-   "partidos": [
-    "PRTB"
    ]
   },
   {

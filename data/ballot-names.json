@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 510,
-  "contencao": 181,
-  "outra_disputa": 147,
+  "exato": 512,
+  "contencao": 180,
+  "outra_disputa": 160,
   "ambiguo": 5,
-  "sem": 570
+  "sem": 553
  },
  "ambiguos": [
   {
@@ -59,15 +59,6 @@
   {
    "contest": "presidente:BR",
    "nome": "Sergio Moro",
-   "urna": "Sergio Moro",
-   "pesquisa": [
-    "União Brasil"
-   ],
-   "registro": "PL"
-  },
-  {
-   "contest": "presidente:BR",
-   "nome": "Sérgio Moro",
    "urna": "Sergio Moro",
    "pesquisa": [
     "União Brasil"
@@ -260,6 +251,13 @@
  ],
  "mapping": {
   "presidente:BR": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -415,7 +413,7 @@
     "origem": "contencao"
    },
    "sergio moro": {
-    "nome_urna": "Sérgio Moro",
+    "nome_urna": "Sergio Moro",
     "sq_candidato": "160002540833",
     "partido": "PL",
     "numero": "22",
@@ -441,13 +439,6 @@
     "partido": "DEMOCRATA",
     "numero": "35",
     "origem": "exato"
-   },
-   "wilson grassi": {
-    "nome_urna": "Veterinário Wilson Grassi",
-    "sq_candidato": "280002548139",
-    "partido": "DEMOCRATA",
-    "numero": "35",
-    "origem": "contencao"
    }
   },
   "governador:AC": {
@@ -1024,6 +1015,13 @@
    }
   },
   "presidente:DF": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -1161,6 +1159,13 @@
    }
   },
   "presidente:ES": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -1333,6 +1338,13 @@
    }
   },
   "presidente:GO": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -1491,6 +1503,13 @@
    }
   },
   "presidente:MA": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -2118,6 +2137,13 @@
    }
   },
   "presidente:PB": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "ciro gomes": {
     "nome_urna": "Ciro Gomes",
     "sq_candidato": "60002531351",
@@ -2206,6 +2232,13 @@
    }
   },
   "presidente:PE": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -2406,6 +2439,13 @@
    }
   },
   "presidente:PI": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -3073,6 +3113,13 @@
    }
   },
   "presidente:RS": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -3382,6 +3429,13 @@
    }
   },
   "presidente:SP": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -3561,6 +3615,13 @@
    }
   },
   "presidente:TO": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "ciro gomes": {
     "nome_urna": "Ciro Gomes",
     "sq_candidato": "60002531351",
@@ -3828,6 +3889,13 @@
    }
   },
   "presidente:SE": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -3882,6 +3950,13 @@
     "sq_candidato": "280002551932",
     "partido": "PSD",
     "numero": "55",
+    "origem": "exato"
+   },
+   "rui costa pimenta": {
+    "nome_urna": "Rui Costa Pimenta",
+    "sq_candidato": "280002552487",
+    "partido": "PCO",
+    "numero": "29",
     "origem": "exato"
    },
    "samara martins": {
@@ -4102,6 +4177,13 @@
    }
   },
   "presidente:AL": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -4160,6 +4242,13 @@
    }
   },
   "presidente:MT": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -4877,6 +4966,13 @@
    }
   },
   "senador:MG": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "exato"
+   },
    "ana luiza do mlb": {
     "nome_urna": "Ana Luiza do MLB",
     "sq_candidato": "130002547884",
@@ -5995,7 +6091,7 @@
     "origem": "exato"
    },
    "helio lopes": {
-    "nome_urna": "Helio Bolsonaro",
+    "nome_urna": "Helio Fernando Barbosa Lopes",
     "sq_candidato": "230002534806",
     "partido": "PL",
     "numero": "222",
