@@ -5,8 +5,8 @@
 {"institute_id":"i_0a7de44776d9","legacy_ids":[],"canonical":"Datamax","aliases":["Datamax"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0b39ae1059b8","legacy_ids":[],"canonical":"Affare","aliases":["Affare"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0e525a98c799","legacy_ids":[],"canonical":"IGAPE","aliases":["IGAPE"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_11d4e8d0af4c","legacy_ids":[],"canonical":"Perfil/ES Hoje","aliases":["Perfil/ES Hoje"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_19c429d364ba","legacy_ids":[],"canonical":"Opnus/BNews","aliases":["Opnus/BNews"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
+{"institute_id":"i_1ae8b5b1dba3","legacy_ids":["i_9e5fed13d517"],"canonical":"Census","aliases":["Census"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_1bbbb98e80ab","legacy_ids":[],"canonical":"Ipec","aliases":["Ipec"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_1c30ec4f160f","legacy_ids":[],"canonical":"Lucro Ativo","aliases":["Lucro Ativo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_1d90e1af89c4","legacy_ids":[],"canonical":"DataTrends","aliases":["DataTrends"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -34,6 +34,7 @@
 {"institute_id":"i_3d21d6a0cb1d","legacy_ids":[],"canonical":"Véritas","aliases":["Véritas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3dc359bc2250","legacy_ids":[],"canonical":"AtlasIntel","aliases":["AtlasIntel"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3e4a4fce5cfa","legacy_ids":[],"canonical":"Novo Ibrape","aliases":["Novo Ibrape"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_3e7de26951f3","legacy_ids":["i_5b70f03d36f5"],"canonical":"American Analytics Times Brasil/CNBC","aliases":["American Analytics Times Brasil/CNBC"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3f1da752cbbb","legacy_ids":[],"canonical":"TN/Consult","aliases":["TN/Consult"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3f5a8bd8d7d5","legacy_ids":[],"canonical":"Falpe","aliases":["Falpe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3f6dbb724844","legacy_ids":[],"canonical":"Amostragem","aliases":["Amostragem"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -49,6 +50,7 @@
 {"institute_id":"i_4d49caa697c5","legacy_ids":[],"canonical":"Ipespe","aliases":["Ipespe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_503423488257","legacy_ids":[],"canonical":"Projeta","aliases":["Projeta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_53d43b18599b","legacy_ids":[],"canonical":"Instituto Gazeta de Pesquisas","aliases":["Instituto Gazeta de Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-15"}
+{"institute_id":"i_5628816bfef0","legacy_ids":[],"canonical":"Mensury/Blog do Barreto","aliases":["Mensury/Blog do Barreto"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_5b70f03d36f5","legacy_ids":[],"canonical":"American Analytics","aliases":["American Analytics"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_5e4e168f081e","legacy_ids":[],"canonical":"IPSensus","aliases":["IPSensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-21"}
 {"institute_id":"i_5e898c6af2a6","legacy_ids":[],"canonical":"Data Povo","aliases":["Data Povo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -69,6 +71,7 @@
 {"institute_id":"i_79c686f5eb4a","legacy_ids":[],"canonical":"Contextto","aliases":["Contextto"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
 {"institute_id":"i_7a6e62988e8a","legacy_ids":[],"canonical":"Gerp","aliases":["Gerp"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7aa6036e0c6c","legacy_ids":[],"canonical":"DataVero","aliases":["DataVero"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_7bce6b2ef32d","legacy_ids":[],"canonical":"Novo Perfil","aliases":["Novo Perfil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_7c89bec393b4","legacy_ids":[],"canonical":"IPR","aliases":["IPR"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7e29b216ff0d","legacy_ids":[],"canonical":"IPSsensus","aliases":["IPSsensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8054cae80e13","legacy_ids":[],"canonical":"Veritate","aliases":["Veritate"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -90,7 +93,6 @@
 {"institute_id":"i_9b0d8b2047a4","legacy_ids":[],"canonical":"Exata GO","aliases":["Exata GO"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9e3952be383e","legacy_ids":[],"canonical":"W1","aliases":["W1"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9e4d28f9bf36","legacy_ids":[],"canonical":"Simplex","aliases":["Simplex"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_9e5fed13d517","legacy_ids":[],"canonical":"Data Census","aliases":["Data Census"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9eb8e7d3b29a","legacy_ids":[],"canonical":"Palver","aliases":["Palver"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_a19e32a844e5","legacy_ids":[],"canonical":"CTAS","aliases":["CTAS"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_a1a4759f14ff","legacy_ids":[],"canonical":"Instituto TML","aliases":["Instituto TML"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

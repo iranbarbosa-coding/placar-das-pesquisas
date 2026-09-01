@@ -26,12 +26,6 @@
    ]
   },
   {
-   "nome": "Camilo Santana",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
    "nome": "Ciro",
    "partidos": [
     "PDT"
@@ -98,12 +92,6 @@
    ]
   },
   {
-   "nome": "Flávio Dino",
-   "partidos": [
-    "Sem partido"
-   ]
-  },
-  {
    "nome": "Geraldo Alckmin",
    "partidos": [
     "PSB"
@@ -111,9 +99,7 @@
   },
   {
    "nome": "Gusttavo Lima",
-   "partidos": [
-    "Sem partido"
-   ]
+   "partidos": []
   },
   {
    "nome": "Helder Barbalho",
@@ -124,7 +110,9 @@
   },
   {
    "nome": "Heró Bezerra",
-   "partidos": []
+   "partidos": [
+    "PRTB"
+   ]
   },
   {
    "nome": "Hertz Dias",
@@ -154,6 +142,7 @@
   {
    "nome": "Joaquim Barbosa",
    "partidos": [
+    "Avante",
     "DC"
    ]
   },
@@ -196,6 +185,7 @@
   {
    "nome": "Michelle Bolsonaro",
    "partidos": [
+    "Liberal Party (Brazil, 2006)",
     "PL"
    ]
   },
@@ -208,6 +198,7 @@
   {
    "nome": "Pablo Marçal",
    "partidos": [
+    "Brazilian Labour Renewal Party",
     "PRTB"
    ]
   },
@@ -289,12 +280,6 @@
    ]
   },
   {
-   "nome": "Sérgio Moro",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
    "nome": "Simone Tebet",
    "partidos": [
     "Brazilian Democratic Movement",
@@ -329,12 +314,6 @@
   {
    "nome": "Veterinário Wilson Grassi",
    "partidos": []
-  },
-  {
-   "nome": "Wilson Grassi",
-   "partidos": [
-    "Democrata"
-   ]
   }
  ],
  "governador:AC": [
@@ -5340,6 +5319,7 @@
   {
    "nome": "Pablo Marçal",
    "partidos": [
+    "PRTB",
     "União Brasil"
    ]
   },
@@ -5378,6 +5358,12 @@
   {
    "nome": "RONALDO CAIADO",
    "partidos": []
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
   },
   {
    "nome": "SAMARA MARTINS",

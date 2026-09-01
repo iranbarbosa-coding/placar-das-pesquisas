@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **76 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **77 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -814,7 +814,7 @@ Soma **73.9%** · faltam **26.1 pontos** · 2 candidato(s) na tabela · amostra 
 
 ## Presidente · Santa Catarina
 
-### Data Povo — 2026-07-23
+### Correio/Opinião — 2026-07-23
 
 Soma **74.6%** · faltam **25.4 pontos** · 5 candidato(s) na tabela · amostra 1008 · registro BR-05953/2026
 
@@ -1329,6 +1329,23 @@ Soma **88%** · faltam **12 pontos** · 6 candidato(s) na tabela · amostra 600 
 
 - PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente-24.fev_.2026.pdf
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente-24.fev_.2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Mato Grosso do Sul · 2º turno
+
+### Quaest — 2026-08-24
+
+Soma **88%** · faltam **12 pontos** · 2 candidato(s) na tabela · amostra 804 · registro 00793/2026
+
+| candidato | % |
+|---|---|
+| Eduardo Riedel | 61 |
+| João Henrique Catan | 13 |
+| *não sabe/não respondeu* | 14 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Governador-MS-24.ago_.2026-Quaest-G1.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-MS-24.ago_.2026-Quaest-G1.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

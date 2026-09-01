@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1210 levantamentos · 4153 perguntas · 147 institutos · 1228 candidatos**.
+Banco: **1252 levantamentos · 4161 perguntas · 149 institutos · 1228 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 13 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 43 | 25 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 21 | 4 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 44 | 26 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 63 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 2 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **82** | **33** |
+| **total** | **125** | **34** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -62,9 +62,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_c5446eaf6c82 · Doxa · PA · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (43)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (44)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (5 de 43) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (5 de 44) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - cenários separados — Real Time Big Data · BA governador/t1 · 2025-11-25 — 2 levantamentos
   s_03edeccebbee: ACM Neto 42 · Rui Costa 43 · Kleber Rosa 1 · José Carlos Aleluia 3
@@ -250,6 +250,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_ff4eb12c8552: Luiz Inácio Lula da Silva 39 · Flávio Bolsonaro 34 · Eduardo Leite 3 · Romeu Zema 4 · Renan Santos 3 · Aldo Rebelo 2
   s_ff4eb12c8552: Luiz Inácio Lula da Silva 38 · Flávio Bolsonaro 32 · Ratinho Júnior 7 · Romeu Zema 4 · Renan Santos 3 · Aldo Rebelo 2
   s_ff4eb12c8552: Luiz Inácio Lula da Silva 39 · Tarcísio de Freitas 21 · Ratinho Júnior 11 · Romeu Zema 5 · Renan Santos 3 · Aldo Rebelo 2
+- **[2026]** cenários separados — Quaest · MS governador/t2 · 2026-08-24 — 2 levantamentos
+  s_9a35fbf62e3e: Eduardo Riedel 61 · João Henrique Catan 13
+  s_c91e7484e3ea: Eduardo Riedel 59 · Fábio Trad 22
 - **[2026]** cenários separados — Real Time Big Data · GO governador/t1 · 2026-05-12 — 2 levantamentos
   s_9e8551e8656b: Daniel Vilela 38 · Marconi Perillo 22 · Wilder Morais 14 · Adriana Accorsi 13 · Telemaco Brandão 1
   s_bd3f70c87aa1: Daniel Vilela 40 · Marconi Perillo 25 · Wilder Morais 14 · Luis Cesar Bueno 2 · Telêmaco Brandão 1
@@ -292,7 +295,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (21)
+## CONFLITO — Conflitos registrados aguardando decisão (63)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -312,11 +315,53 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_b609b001b4c2 · results: ["Eduardo Riedel","Fábio Trad","João Henrique Catan","Lucien Rezende"] × ["Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - **[2026]** registration_dates_contradict · s_5995d129ff44 · fieldwork_end: "2026-08-25" × "2025-08-25"
-- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
-- person_id_orphaned · p_cdff4311a263 · person_id: "p_cdff4311a263" × null
+- roster_encolhido_na_fonte · q_59e527c4170a · results: ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_encolhido_na_fonte · q_85ccbc3cf19e · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_shrink_ambiguo · q_646eafe44ae3 · results: ["q_9745e25c8eb2"] × ["Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Romeu Zema"]
+- roster_encolhido_na_fonte · q_c71c58aac8ec · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_022ce592ec36 · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Aécio Neves","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_0927afb01163 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_encolhido_na_fonte · q_f203af681286 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_shrink_ambiguo · q_513f0f532d75 · results: ["q_5d221765a46e","q_6148bab1aa60","q_852e6a297018","q_9745e25c8eb2"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Romeu Zema"]
+- roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
+- roster_shrink_ambiguo · q_d4f6ea4de35e · results: ["q_5d221765a46e"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Romeu Zema"]
+- roster_encolhido_na_fonte · q_475520df954a · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_encolhido_na_fonte · q_b651c35964d3 · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_shrink_ambiguo · q_3630fa2eb41b · results: ["q_5d221765a46e","q_fee9e700bba4"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior"]
+- roster_encolhido_na_fonte · q_a60a9006c3e0 · results: ["Aldo Rebelo","Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema"] × ["Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Romeu Zema"]
+- institute_id_orphaned · i_11d4e8d0af4c · institute_id: "i_11d4e8d0af4c" × ["i_72cdcf74d7f1","i_7bce6b2ef32d"]
+- roster_encolhido_na_fonte · q_4a1dce856a81 · results: ["Aldo Rebelo","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Renan Santos","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"] × ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"]
+- roster_encolhido_na_fonte · q_ee442f75ac27 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_shrink_ambiguo · q_dd4a57184991 · results: ["q_852e6a297018"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Romeu Zema","Ronaldo Caiado"]
+- institute_id_orphaned · i_5e898c6af2a6 · institute_id: "i_5e898c6af2a6" × null
+- roster_encolhido_na_fonte · q_05854287d739 · results: ["Augusto Cury","Cabo Daciolo","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_79bc3e6f6b9a · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_a011d6a79a57 · results: ["Aldo Rebelo","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Lula","Ratinho Jr","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_a226e0b5d0ec · results: ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- candidate_id_orphaned · c_aa28d8a1d466 · candidate_id: "c_aa28d8a1d466" × null
+- roster_shrink_ambiguo · q_ae3fd492adc0 · results: ["q_852e6a297018","q_867fb8765356"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_2b8785167d22 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- person_id_orphaned · p_3ec449980942 · person_id: "p_3ec449980942" × null
+- roster_encolhido_na_fonte · q_59fd4f91bb9f · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Heró Bezerra","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Heró Bezerra","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_encolhido_na_fonte · q_4779a05c944e · results: ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_encolhido_na_fonte · q_a1509a0fce55 · results: ["Aldo Rebelo","Ciro Gomes","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Ciro Gomes","Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_e138f5f79366 · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_shrink_ambiguo · q_716a9fdad013 · results: ["q_9745e25c8eb2","q_b523d9b0a0ab"] × ["Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva"]
+- roster_encolhido_na_fonte · q_b8970a4d0952 · results: ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_f0e55c3f775c · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_6959dca8ed81 · results: ["Aldo Rebelo","Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Eduardo Leite","Flávio Bolsonaro","Lula","Ratinho Jr","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_fa68d0e2ebf9 · results: ["Aldo Rebelo","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"] × ["Luiz Inácio Lula da Silva","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"]
+- roster_encolhido_na_fonte · q_a4dea6760f5a · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- person_id_orphaned · p_b974903539a3 · person_id: "p_b974903539a3" × null
+- roster_encolhido_na_fonte · q_e08d95960fdf · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- roster_encolhido_na_fonte · q_5bd0cc57c68d · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
+- roster_encolhido_na_fonte · q_74083d560ffe · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
+- candidate_id_orphaned · c_d4b1c0f38483 · candidate_id: "c_d4b1c0f38483" × null
+- roster_encolhido_na_fonte · q_2b078b9f117c · results: ["Aldo Rebelo","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Renan Santos","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"] × ["Flávio Bolsonaro","Lula","Ratinho Jr","Renan Santos","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"]
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 26
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 17
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 52
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1115
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
