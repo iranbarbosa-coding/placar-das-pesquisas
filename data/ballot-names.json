@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 512,
+  "exato": 510,
   "contencao": 180,
-  "outra_disputa": 160,
+  "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 553
+  "sem": 551
  },
  "ambiguos": [
   {
@@ -83,6 +83,15 @@
     "PDT"
    ],
    "registro": "PSDB"
+  },
+  {
+   "contest": "governador:CE",
+   "nome": "Capitão Wagner",
+   "urna": "Capitão Wagner",
+   "pesquisa": [
+    "União Brasil"
+   ],
+   "registro": "UNIÃO"
   },
   {
    "contest": "presidente:DF",
@@ -827,6 +836,13 @@
    }
   },
   "governador:CE": {
+   "capitao wagner": {
+    "nome_urna": "Capitão Wagner",
+    "sq_candidato": "60002540753",
+    "partido": "UNIÃO",
+    "numero": "445",
+    "origem": "outra-disputa"
+   },
    "ciro gomes": {
     "nome_urna": "Ciro Gomes",
     "sq_candidato": "60002531351",
@@ -854,6 +870,13 @@
     "partido": "PT",
     "numero": "13",
     "origem": "contencao"
+   },
+   "serley leal": {
+    "nome_urna": "Serley Leal",
+    "sq_candidato": "60002533729",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
    },
    "vera lucia": {
     "nome_urna": "Vera Lúcia",
@@ -1422,13 +1445,6 @@
     "numero": "55",
     "origem": "exato"
    },
-   "rui costa pimenta": {
-    "nome_urna": "Rui Costa Pimenta",
-    "sq_candidato": "280002552487",
-    "partido": "PCO",
-    "numero": "29",
-    "origem": "exato"
-   },
    "samara martins": {
     "nome_urna": "Samara",
     "sq_candidato": "280002538811",
@@ -1852,20 +1868,6 @@
     "sq_candidato": "110002551480",
     "partido": "REPUBLICANOS",
     "numero": "10",
-    "origem": "exato"
-   },
-   "rafaell milas": {
-    "nome_urna": "Rafaell Milas",
-    "sq_candidato": "110002543953",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
-   "sargento laudicerio": {
-    "nome_urna": "Sargento Laudicério",
-    "sq_candidato": "110002554073",
-    "partido": "AGIR",
-    "numero": "36",
     "origem": "exato"
    },
    "wellington fagundes": {

@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **77 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **81 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -437,6 +437,46 @@ Soma **55%** · faltam **45 pontos** · 2 candidato(s) na tabela · amostra 1500
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Acre
+
+### Quaest — 2026-08-26
+
+Soma **57%** · faltam **43 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-07015/2026
+
+| candidato | % |
+|---|---|
+| Lula | 25 |
+| Ronaldo Caiado | 5 |
+| Renan Santos | 2 |
+| Escritor Augusto Cury | 2 |
+| Zema | 2 |
+| *não sabe/não respondeu* | 21 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Rio de Janeiro
+
+### AtlasIntel — 2026-08-31
+
+Soma **58%** · faltam **42 pontos** · 4 candidato(s) na tabela · amostra 1784 · registro BR-05901/2026
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 36.9 |
+| Escritor Augusto Cury | 9.1 |
+| Renan Santos | 7.4 |
+| Zema | 1.1 |
+| *branco/nulo* | 1.8 |
+| *não sabe/não respondeu* | 1.7 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas-Eleicoes-Rio-de-Janeiro-2026-260901-1.pdff
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-411-contra-369-de-flavio-no-rj-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Rio Grande do Norte
 
 ### Potengi/Media — 2026-07-24
@@ -525,23 +565,6 @@ Soma **63.4%** · faltam **36.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/TMC-pesquisa-RN-22-25jul2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Pernambuco
-
-### Quaest — 2026-08-24
-
-Soma **64%** · faltam **36 pontos** · 2 candidato(s) na tabela · amostra 1302 · registro BR-04281/2026
-
-| candidato | % |
-|---|---|
-| Lula | 54 |
-| Escritor Augusto Cury | 1 |
-| *não sabe/não respondeu* | 9 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -952,6 +975,22 @@ Soma **77.6%** · faltam **22.4 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Rio de Janeiro · 2º turno
+
+### AtlasIntel — 2026-08-31
+
+Soma **77.6%** · faltam **22.4 pontos** · 2 candidato(s) na tabela · amostra 1784 · registro BR-05901/2026
+
+| candidato | % |
+|---|---|
+| Lula | 44.7 |
+| Renan Santos | 32.9 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas-Eleicoes-Rio-de-Janeiro-2026-260901-1.pdff
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-411-contra-369-de-flavio-no-rj-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Paraíba
 
 ### Real Time Big Data — 2026-08-22
@@ -1258,6 +1297,26 @@ Soma **86.8%** · faltam **13.2 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · São Paulo
+
+### AtlasIntel — 2026-08-31
+
+Soma **87.1%** · faltam **12.9 pontos** · 4 candidato(s) na tabela · amostra 1810 · registro BR-02563/2026
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 39.9 |
+| Lula | 36 |
+| Renan Santos | 6.8 |
+| Zema | 1.6 |
+| *branco/nulo* | 0.6 |
+| *não sabe/não respondeu* | 2.2 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas_Estadao-Eleicoes-Sao-Paulo-2026-260901-1.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-468-e-lula-433-em-2o-turno-em-sp-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Sergipe
 
 ### JR Comunicações, Serviços a Pesquisas — 2026-04-27
@@ -1397,6 +1456,20 @@ Soma **89%** · faltam **11 pontos** · 2 candidato(s) na tabela · amostra 1000
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-futura-riodejaneiro-jul2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-em-2o-turno-no-rj-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+### AtlasIntel — 2026-08-31
+
+Soma **89.6%** · faltam **10.4 pontos** · 2 candidato(s) na tabela · amostra 1784 · registro BR-05901/2026
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 45.2 |
+| Lula | 44.4 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas-Eleicoes-Rio-de-Janeiro-2026-260901-1.pdff
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-411-contra-369-de-flavio-no-rj-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

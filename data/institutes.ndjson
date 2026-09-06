@@ -71,7 +71,6 @@
 {"institute_id":"i_79c686f5eb4a","legacy_ids":[],"canonical":"Contextto","aliases":["Contextto"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
 {"institute_id":"i_7a6e62988e8a","legacy_ids":[],"canonical":"Gerp","aliases":["Gerp"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7aa6036e0c6c","legacy_ids":[],"canonical":"DataVero","aliases":["DataVero"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_7bce6b2ef32d","legacy_ids":[],"canonical":"Novo Perfil","aliases":["Novo Perfil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_7c89bec393b4","legacy_ids":[],"canonical":"IPR","aliases":["IPR"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7e29b216ff0d","legacy_ids":[],"canonical":"IPSsensus","aliases":["IPSsensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8054cae80e13","legacy_ids":[],"canonical":"Veritate","aliases":["Veritate"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -114,6 +113,7 @@
 {"institute_id":"i_ca24c8f8cec3","legacy_ids":[],"canonical":"Visão","aliases":["Visão"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cbe60b523ce8","legacy_ids":[],"canonical":"Voz e Pesquisa","aliases":["Voz e Pesquisa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cc62c2780454","legacy_ids":[],"canonical":"IFP","aliases":["IFP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_cd57f254cabe","legacy_ids":[],"canonical":"Qualitta","aliases":["Qualitta"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-06"}
 {"institute_id":"i_cec8aef68e73","legacy_ids":[],"canonical":"Direct Pesquisas","aliases":["Direct Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d0269ac54b04","legacy_ids":[],"canonical":"Item","aliases":["Item"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d027ac4093f7","legacy_ids":[],"canonical":"Datailha","aliases":["Datailha"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -134,6 +134,7 @@
 {"institute_id":"i_e2daa49c78bd","legacy_ids":[],"canonical":"Exatus","aliases":["Exatus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_e672fddbfc68","legacy_ids":[],"canonical":"Futura","aliases":["Futura"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_e6d715380b93","legacy_ids":[],"canonical":"Bahia Notícia/Séculus","aliases":["Bahia Notícia/Séculus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_e7faf8929a11","legacy_ids":[],"canonical":"BG/Perfil","aliases":["BG/Perfil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-06"}
 {"institute_id":"i_ec0964259418","legacy_ids":[],"canonical":"Soluções","aliases":["Soluções"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ec0e1c7ba5ac","legacy_ids":[],"canonical":"Brada Comunicação","aliases":["Brada Comunicação"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ed5bdcfcef65","legacy_ids":[],"canonical":"Eficaz","aliases":["Eficaz"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
