@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Masthead from "@/components/Masthead";
 import JsonLd from "@/components/JsonLd";
 import { loadDataset } from "@/lib/data";
@@ -157,6 +158,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             dados pessoais) e registra as visualizações de página. Só reporta
             quando servido pela Vercel; em dev/preview fica inerte. */}
         <Analytics />
+        {/* Vercel Speed Insights: mede os Core Web Vitals reais dos visitantes
+            (campo, não lab). Mesmo padrão do Analytics — só reporta na Vercel. */}
+        <SpeedInsights />
       </body>
     </html>
   );
