@@ -145,6 +145,21 @@ const POLLSTER_ALIASES = new Map([
   // dois-tokens que o tokenizador não resolve. Sobrevivente = "Data Census" (o
   // lado com mais pesquisas: 4 contra 1).
   ["datacensus", "Data Census"],
+  // "Real Time" é a forma curta de "Real Time Big Data" — a fonte publica as
+  // duas grafias. O nome de EXIBIÇÃO do cluster é o membro atestado mais curto
+  // (canonicalizePollsters), então, quando a forma curta "Real Time" passa a
+  // aparecer ≥2 vezes numa rodada, o cluster INTEIRO era rerrotulado de "Real
+  // Time Big Data" para "Real Time" — flip dependente de contagem, exatamente o
+  // que o resto desta função evita no SEED. Isso tem dois danos: (1) `pollId` e
+  // `bucketKey` chaveiam pela string do instituto, então o rótulo que muda
+  // re-cunha o survey_id da rodada; (2) o reparo curado de amostra da
+  // governador/RO (data/repairs.json, campo 2025-12-10) casa por
+  // `pollster: "Real Time Big Data"` e deixa de casar — a amostra volta a
+  // chegar 1.2 (separador de milhar colapsado pelo Poder360) e o validador
+  // ABORTA a rodada. Foi o que congelou o coletor de 02→06/09/2026 (runs 37–45).
+  // Fixar a grafia no sanitize, ANTES do clustering, mantém o rótulo estável em
+  // "Real Time Big Data" e o survey_id/reparo consistentes rodada a rodada.
+  ["realtime", "Real Time Big Data"],
 ]);
 
 /** Remove wikitext leakage, regional qualifiers and noise from an institute name. */
