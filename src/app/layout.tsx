@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Masthead from "@/components/Masthead";
 import JsonLd from "@/components/JsonLd";
 import { loadDataset } from "@/lib/data";
@@ -152,6 +153,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             Contato: <a href="mailto:contato@placardaspesquisas.com.br" className="underline">contato@placardaspesquisas.com.br</a>
           </p>
         </footer>
+        {/* Vercel Web Analytics: injeta o script de coleta (cookieless, sem
+            dados pessoais) e registra as visualizações de página. Só reporta
+            quando servido pela Vercel; em dev/preview fica inerte. */}
+        <Analytics />
       </body>
     </html>
   );
