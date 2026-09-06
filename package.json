@@ -12,6 +12,7 @@
     "validate-data": "node scripts/validate-data.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "^15.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
