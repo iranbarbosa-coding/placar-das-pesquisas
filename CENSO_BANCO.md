@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1353 levantamentos · 4297 perguntas · 150 institutos · 1269 candidatos**.
+Banco: **1355 levantamentos · 4299 perguntas · 150 institutos · 1267 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 14 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 44 | 26 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 125 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 152 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
-| **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 4 | 3 |
-| **total** | **193** | **38** |
+| **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
+| **total** | **218** | **37** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -296,7 +296,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (125)
+## CONFLITO — Conflitos registrados aguardando decisão (152)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -383,12 +383,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_26224cd635bb · results: ["Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_b97a498bf688 · results: ["Fernando Dueire","Humberto Costa","Jô Cavalcanti","Marília Arraes","Mendonça Filho","Miguel Coelho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Humberto Costa","Marília Arraes","Mendonça Filho","Miguel Coelho","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_8559174b7766 · results: ["Anderson Ferreira","Armando Monteiro Neto","Eduardo da Fonte","Fernando Dueire","Gilson Machado Neto","Humberto Costa","Jô Cavalcanti","Marília Arraes","Miguel Coelho","Silvio Costa Filho"] × ["Anderson Ferreira","Armando Monteiro Neto","Eduardo da Fonte","Gilson Machado Neto","Humberto Costa","Marília Arraes","Miguel Coelho","Silvio Costa Filho"]
-- person_id_orphaned · p_a725a60a9f29 · person_id: "p_a725a60a9f29" × null
 - roster_encolhido_na_fonte · q_47a8841a7dcc · results: ["Eduardo da Fonte","Fernando Dueire","Humberto Costa","Jô Cavalcanti","Marília Arraes","Miguel Coelho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Eduardo da Fonte","Humberto Costa","Marília Arraes","Miguel Coelho","Túlio Gadêlha"]
-- person_id_orphaned · p_fbfd3a4c4753 · person_id: "p_fbfd3a4c4753" × null
 - roster_encolhido_na_fonte · q_d1834e01cb39 · results: ["Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
 - roster_encolhido_na_fonte · q_e42bb347515f · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
-- roster_shrink_ambiguo · q_c6c1775e240a · results: ["q_28b52fac2314","q_bbfa8063e87e"] × ["Daniel Vilela","Marconi Perillo","Wilder Morais"]
 - roster_encolhido_na_fonte · q_6b34a9d1699e · results: ["Anderson Ferreira","Humberto Costa","Jô Cavalcanti","Marília Arraes","Miguel Coelho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Anderson Ferreira","Humberto Costa","Marília Arraes","Miguel Coelho","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_6a0acfe7dc92 · results: ["Daniel Vilela","Luis Cesar Bueno","Marconi Perillo","Telêmaco Brandão","Wilder Morais"] × ["Daniel Vilela","Luis Cesar Bueno","Marconi Perillo","Wilder Morais"]
 - roster_encolhido_na_fonte · q_8e4754dc4822 · results: ["Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
@@ -407,7 +404,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_1b1f82e34031 · results: ["Eduardo da Fonte","Fernando Dueire","Humberto Costa","Marília Arraes","Mendonça Filho","Túlio Gadêlha"] × ["Eduardo da Fonte","Humberto Costa","Marília Arraes","Mendonça Filho","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_88ff84559c7c · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_2008e41fa341 · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
-- institute_id_orphaned · i_7bce6b2ef32d · institute_id: "i_7bce6b2ef32d" × ["i_3e4a4fce5cfa","i_72cdcf74d7f1","i_e7faf8929a11"]
 - roster_encolhido_na_fonte · q_cb1b2c2da61e · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_encolhido_na_fonte · q_955640f20f29 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_shrink_ambiguo · q_de40b60095b7 · results: ["q_1a32af6eb72d"] × ["Anderson Ferreira","Armando Monteiro Neto","Eduardo da Fonte","Gilson Machado Neto","Humberto Costa","Marília Arraes","Miguel Coelho","Silvio Costa Filho"]
@@ -415,6 +411,37 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_3ac45303b59e · results: ["Ciro Gomes","Delegado Huggo Leonardo","Elmano de Freitas","Zé Batista"] × ["Ciro Gomes","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_4a260d2e7803 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_encolhido_na_fonte · q_c830a7966bec · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
+- person_id_orphaned · p_55f1a6280245 · person_id: "p_55f1a6280245" × null
+- person_id_orphaned · p_890708c42fde · person_id: "p_890708c42fde" × null
+- person_id_orphaned · p_267a02436955 · person_id: "p_267a02436955" × null
+- person_id_orphaned · p_9ce12d46c851 · person_id: "p_9ce12d46c851" × null
+- person_id_orphaned · p_ffa2690c8816 · person_id: "p_ffa2690c8816" × null
+- roster_encolhido_na_fonte · q_85ccbc3cf19e · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"]
+- person_id_orphaned · p_d5704c30edf4 · person_id: "p_d5704c30edf4" × null
+- person_id_orphaned · p_a56f1ab28616 · person_id: "p_a56f1ab28616" × null
+- person_id_orphaned · p_aa221ed966df · person_id: "p_aa221ed966df" × null
+- person_id_orphaned · p_462a92374592 · person_id: "p_462a92374592" × null
+- roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
+- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
+- person_id_orphaned · p_d7ae8c3fa160 · person_id: "p_d7ae8c3fa160" × null
+- person_id_orphaned · p_fc14dcefd766 · person_id: "p_fc14dcefd766" × null
+- person_id_orphaned · p_172f34ba14db · person_id: "p_172f34ba14db" × null
+- person_id_orphaned · p_3cdd9c4a0186 · person_id: "p_3cdd9c4a0186" × null
+- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
+- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
+- person_id_orphaned · p_306a6e3e513e · person_id: "p_306a6e3e513e" × null
+- person_id_orphaned · p_01142ad655f7 · person_id: "p_01142ad655f7" × null
+- person_id_orphaned · p_45dbe1123acd · person_id: "p_45dbe1123acd" × null
+- person_id_orphaned · p_4095b8e6284d · person_id: "p_4095b8e6284d" × null
+- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
+- person_id_orphaned · p_26ce172a8ca6 · person_id: "p_26ce172a8ca6" × null
+- person_id_orphaned · p_5238de72558c · person_id: "p_5238de72558c" × null
+- person_id_orphaned · p_23323f918548 · person_id: "p_23323f918548" × null
+- person_id_orphaned · p_f577210ef970 · person_id: "p_f577210ef970" × null
+- person_id_orphaned · p_a63e35a389c7 · person_id: "p_a63e35a389c7" × null
+- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
+- person_id_orphaned · p_c38d67adcd2a · person_id: "p_c38d67adcd2a" × null
+- person_id_orphaned · p_2ede8a181bee · person_id: "p_2ede8a181bee" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 31
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 78
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 17
@@ -424,7 +451,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1149
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 42
-- disputa_em_quarentena · senador:PE · quarentena: 58 × 57
+- disputa_em_quarentena · senador:PE · quarentena: 58 × 58
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (4)
 
@@ -435,12 +462,10 @@ Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 
 - **[2026]** s_10efbc0a473f · Ranking · PB · n=782 · registro —
 - **[2026]** s_52118f05f979 · IPR · MS · n=784 · registro —
 
-## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (4)
+## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (2)
 
 Uma pessoa observada cuja grafia ALCANÇA, na disputa dela, a candidatura de uma pessoa registrada: são a mesma pessoa, gravada duas vezes. O caso normal é a estreia de um nome numa disputa nova e se resolve na coleta seguinte sem intervenção (§6) — o que importa aqui é o que PERSISTIR de uma rodada para a outra.
 
-- **[2026]** "Gustavo pelo Piauí" `p_306a6e3e513e` (observada, governador:PI) é `p_294f3c233ccd` "Gustavo Pelo Piauí Ou Gustavo" (registrada, sq 180002550421) — a grafia "Gustavo Henrique" alcança a candidatura, mas a linha ficou na observada
-- "Wilson Grassi" `p_9ce12d46c851` (observada, presidente:BR) é `p_609754b0a5a9` "Veterinário Wilson Grassi" (registrada, sq 280002548139) — a grafia "Veterinário Wilson Grassi" alcança a candidatura, mas a linha ficou na observada
 - **[2026]** "Aécio Neves" `p_f04ff3c640fe` (observada, presidente:BR) é `p_1eafadee7ec7` "Aécio Neves" (registrada, sq 130002554332) — a grafia "AÉCIO NEVES" alcança a candidatura, mas a linha ficou na observada
 - **[2026]** "Aécio Neves" `p_f04ff3c640fe` (observada, presidente:GO) é `p_1eafadee7ec7` "Aécio Neves" (registrada, sq 130002554332) — a grafia "AÉCIO NEVES" alcança a candidatura, mas a linha ficou na observada
 
