@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1355 levantamentos · 4299 perguntas · 150 institutos · 1267 candidatos**.
+Banco: **1359 levantamentos · 4307 perguntas · 150 institutos · 1267 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 14 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 44 | 26 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 152 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 123 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **218** | **37** |
+| **total** | **189** | **37** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -296,7 +296,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (152)
+## CONFLITO — Conflitos registrados aguardando decisão (123)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -411,37 +411,8 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_3ac45303b59e · results: ["Ciro Gomes","Delegado Huggo Leonardo","Elmano de Freitas","Zé Batista"] × ["Ciro Gomes","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_4a260d2e7803 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_encolhido_na_fonte · q_c830a7966bec · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
-- person_id_orphaned · p_55f1a6280245 · person_id: "p_55f1a6280245" × null
-- person_id_orphaned · p_890708c42fde · person_id: "p_890708c42fde" × null
-- person_id_orphaned · p_267a02436955 · person_id: "p_267a02436955" × null
-- person_id_orphaned · p_9ce12d46c851 · person_id: "p_9ce12d46c851" × null
-- person_id_orphaned · p_ffa2690c8816 · person_id: "p_ffa2690c8816" × null
 - roster_encolhido_na_fonte · q_85ccbc3cf19e · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"]
-- person_id_orphaned · p_d5704c30edf4 · person_id: "p_d5704c30edf4" × null
-- person_id_orphaned · p_a56f1ab28616 · person_id: "p_a56f1ab28616" × null
-- person_id_orphaned · p_aa221ed966df · person_id: "p_aa221ed966df" × null
-- person_id_orphaned · p_462a92374592 · person_id: "p_462a92374592" × null
 - roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
-- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
-- person_id_orphaned · p_d7ae8c3fa160 · person_id: "p_d7ae8c3fa160" × null
-- person_id_orphaned · p_fc14dcefd766 · person_id: "p_fc14dcefd766" × null
-- person_id_orphaned · p_172f34ba14db · person_id: "p_172f34ba14db" × null
-- person_id_orphaned · p_3cdd9c4a0186 · person_id: "p_3cdd9c4a0186" × null
-- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
-- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
-- person_id_orphaned · p_306a6e3e513e · person_id: "p_306a6e3e513e" × null
-- person_id_orphaned · p_01142ad655f7 · person_id: "p_01142ad655f7" × null
-- person_id_orphaned · p_45dbe1123acd · person_id: "p_45dbe1123acd" × null
-- person_id_orphaned · p_4095b8e6284d · person_id: "p_4095b8e6284d" × null
-- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
-- person_id_orphaned · p_26ce172a8ca6 · person_id: "p_26ce172a8ca6" × null
-- person_id_orphaned · p_5238de72558c · person_id: "p_5238de72558c" × null
-- person_id_orphaned · p_23323f918548 · person_id: "p_23323f918548" × null
-- person_id_orphaned · p_f577210ef970 · person_id: "p_f577210ef970" × null
-- person_id_orphaned · p_a63e35a389c7 · person_id: "p_a63e35a389c7" × null
-- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
-- person_id_orphaned · p_c38d67adcd2a · person_id: "p_c38d67adcd2a" × null
-- person_id_orphaned · p_2ede8a181bee · person_id: "p_2ede8a181bee" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 31
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 78
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 17

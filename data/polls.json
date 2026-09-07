@@ -1,24 +1,77 @@
 {
- "generated_at": "2026-09-06T23:50:28.341Z",
+ "generated_at": "2026-09-07T17:44:03.325Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-06T23:50:28.341Z"
+   "last_ok": "2026-09-07T17:44:03.325Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-06T23:50:28.341Z"
+   "last_ok": "2026-09-07T17:44:03.325Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-06T23:50:28.341Z"
+   "last_ok": "2026-09-07T17:44:03.325Z"
   }
  ],
  "polls": [
+  {
+   "id": "2993cbc2e04b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Instituto Travessia",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Gladson Camelí",
+     "party": "PP",
+     "pct": 38
+    },
+    {
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 33
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 34
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 24
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 15
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 11
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 41,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "883c78c1e21d",
    "source": null,
@@ -64,6 +117,49 @@
    ],
    "others_pct": 20.1,
    "undecided_pct": 68.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a82d724007ee",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Instituto Travessia",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 36
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 32
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 14
+    },
+    {
+     "candidate": "Thor Dantas",
+     "party": "PSB",
+     "pct": 6
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1213,6 +1309,64 @@
    ],
    "others_pct": null,
    "undecided_pct": 13.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "53cd1de39f19",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IPPI",
+   "contractor": null,
+   "fieldwork_start": "2026-08-29",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Roseana Sarney",
+     "party": "MDB",
+     "pct": 35.4
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 21.8
+    },
+    {
+     "candidate": "Lahesio Bonfim",
+     "party": "Novo",
+     "pct": 19.1
+    },
+    {
+     "candidate": "Fufuca",
+     "party": "PP",
+     "pct": 20.3
+    },
+    {
+     "candidate": "Eliziane Gama",
+     "party": "PT",
+     "pct": 7
+    },
+    {
+     "candidate": "Cidônio Gonçalves",
+     "party": "PL",
+     "pct": 3.8
+    },
+    {
+     "candidate": "Dr.hilton Gonçalo",
+     "party": "Mobiliza",
+     "pct": 6
+    }
+   ],
+   "others_pct": 3.5,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -2437,6 +2591,92 @@
    "tse_registration": "AL-05121/2026"
   },
   {
+   "id": "2631d1330d93",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Arruda",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-27",
+   "fieldwork_end": "2026-09-01",
+   "published_date": null,
+   "sample_size": 1141,
+   "margin_of_error": 2.9,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 38.37
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 30.23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "40006903ecbc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-27",
+   "fieldwork_end": "2026-09-01",
+   "published_date": null,
+   "sample_size": 1141,
+   "margin_of_error": 2.9,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 34.5
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 20.93
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 12.02
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 1.55
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 3.49
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 1.94
+    }
+   ],
+   "others_pct": 0.78,
+   "undecided_pct": 24.81,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4120feaee9d2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -2652,6 +2892,39 @@
    "tse_registration": null
   },
   {
+   "id": "6cecc73225af",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Leandro Grass",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-27",
+   "fieldwork_end": "2026-09-01",
+   "published_date": null,
+   "sample_size": 1141,
+   "margin_of_error": 2.9,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 48.06
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 20.93
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31.01,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "8c1db9bb0907",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -2845,6 +3118,54 @@
    ],
    "others_pct": 0.27,
    "undecided_pct": 26.69,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d2ce262bbea9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "senador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-27",
+   "fieldwork_end": "2026-09-01",
+   "published_date": null,
+   "sample_size": 1141,
+   "margin_of_error": 2.9,
+   "results": [
+    {
+     "candidate": "Michelle Bolsonaro",
+     "party": "PL",
+     "pct": 37.59
+    },
+    {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 27.13
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 21.71
+    },
+    {
+     "candidate": "Bia Kicis",
+     "party": "PL",
+     "pct": 22.87
+    },
+    {
+     "candidate": "Sebastião Coelho",
+     "party": "Novo",
+     "pct": 4.26
+    }
+   ],
+   "others_pct": 0.87,
+   "undecided_pct": 84.88,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -9348,6 +9669,74 @@
    "undecided_pct": 27,
    "blank_null_pct": null,
    "tse_registration": "BR-07810/2026"
+  },
+  {
+   "id": "ddb65a9e29c4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+   "integra_url": null,
+   "race": "senador",
+   "state": "ES",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-26",
+   "published_date": null,
+   "sample_size": 1326,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Renato Casagrande",
+     "party": "PSB",
+     "pct": 39.36
+    },
+    {
+     "candidate": "Sérgio Meneguelli",
+     "party": "PSD",
+     "pct": 12.44
+    },
+    {
+     "candidate": "Rose de Freitas",
+     "party": "MDB",
+     "pct": 7.24
+    },
+    {
+     "candidate": "Fabiano Contarato",
+     "party": "PT",
+     "pct": 20.59
+    },
+    {
+     "candidate": "Maguinha Malta",
+     "party": "PL",
+     "pct": 17.42
+    },
+    {
+     "candidate": "Evair de Melo",
+     "party": "Republicanos",
+     "pct": 9.05
+    },
+    {
+     "candidate": "Marcos do Val",
+     "party": "Avante",
+     "pct": 14.71
+    },
+    {
+     "candidate": "Callegari",
+     "party": "DC",
+     "pct": 1.36
+    },
+    {
+     "candidate": "Leonardo Monjardim",
+     "party": "Novo",
+     "pct": 0.9
+    }
+   ],
+   "others_pct": 2.85,
+   "undecided_pct": 73.08,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "e9076476fcbd",
