@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-07T17:44:03.325Z",
+ "generated_at": "2026-09-08T00:20:56.034Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-07T17:44:03.325Z"
+   "last_ok": "2026-09-08T00:20:56.034Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-07T17:44:03.325Z"
+   "last_ok": "2026-09-08T00:20:56.034Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-07T17:44:03.325Z"
+   "last_ok": "2026-09-08T00:20:56.034Z"
   }
  ],
  "polls": [
@@ -217,6 +217,203 @@
    "tse_registration": null
   },
   {
+   "id": "2fdce153d7c6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-09-02",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 35.3
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 20.1
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 30.6
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 0.5
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Doutor Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "4a9da5776bed",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Sandro Alex",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-09-02",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 39.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f4f7d4e54c6c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Requião Filho",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-09-02",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 50.1
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 28.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f7055d02a459",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-09-02",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 31.2
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 27.3
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 32.1
+    },
+    {
+     "candidate": "Cristina Graeml",
+     "party": "PSD",
+     "pct": 14.7
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 30.4
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 17.2
+    },
+    {
+     "candidate": "Karen Guerreiro",
+     "party": "Missão",
+     "pct": 2.4
+    },
+    {
+     "candidate": "Joaquim do MLB",
+     "party": "UP",
+     "pct": 0.6
+    },
+    {
+     "candidate": "Marcelo Marcelino",
+     "party": "PCO",
+     "pct": 0.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 43.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-14050-1-0-0fbf503b0335",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa/",
@@ -390,6 +587,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "348f4427fc26",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Brasil Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-03",
+   "published_date": null,
+   "sample_size": 1060,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Fernando Máximo",
+     "party": "PL",
+     "pct": 20
+    },
+    {
+     "candidate": "Bruno Bolsonaro Scheid",
+     "party": "PL",
+     "pct": 13
+    },
+    {
+     "candidate": "Sílvia Cristina",
+     "party": "PP",
+     "pct": 16
+    },
+    {
+     "candidate": "Mariana Carvalho",
+     "party": "União Brasil",
+     "pct": 15
+    },
+    {
+     "candidate": "Acir Gurgacz",
+     "party": "PDT",
+     "pct": 6
+    }
+   ],
+   "others_pct": 6,
+   "undecided_pct": 24,
    "blank_null_pct": null,
    "tse_registration": null
   },
