@@ -1,24 +1,454 @@
 {
- "generated_at": "2026-09-08T00:20:56.034Z",
+ "generated_at": "2026-09-08T16:35:09.434Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-08T00:20:56.034Z"
+   "last_ok": "2026-09-08T16:35:09.434Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-08T00:20:56.034Z"
+   "last_ok": "2026-09-08T16:35:09.434Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-08T00:20:56.034Z"
+   "last_ok": "2026-09-08T16:35:09.434Z"
   }
  ],
  "polls": [
+  {
+   "id": "018736cc622e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Patrus",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 43
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 41
+    }
+   ],
+   "others_pct": 16,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0265a188cdb4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Mateus",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 43
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 35
+    }
+   ],
+   "others_pct": 22,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "050d50f24ef8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 31
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 17
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 12
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 11
+    },
+    {
+     "candidate": "Gabriel",
+     "party": "MDB",
+     "pct": 8
+    },
+    {
+     "candidate": "Flávio Roscoe",
+     "party": "PL",
+     "pct": 7
+    },
+    {
+     "candidate": "Ben Mendes",
+     "party": "Missão",
+     "pct": 2
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "22a6a49619c9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 44
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "49eea6304dc6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marília Campos",
+     "party": "PT",
+     "pct": 21
+    },
+    {
+     "candidate": "Carlos Viana",
+     "party": "PSD",
+     "pct": 13
+    },
+    {
+     "candidate": "Aécio Neves",
+     "party": "PSDB",
+     "pct": 14
+    },
+    {
+     "candidate": "Domingos Sávio",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Marcelo Aro",
+     "party": "PP",
+     "pct": 9
+    },
+    {
+     "candidate": "Marco Antônio Superman",
+     "party": "Novo",
+     "pct": 6
+    },
+    {
+     "candidate": "Áurea Carolina",
+     "party": "PSOL",
+     "pct": 6
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "50ac6108f3c1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Kalil e Patrus",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 39
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 38
+    }
+   ],
+   "others_pct": 23,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "64dcac2ca76a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Kalil e Mateus",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 34
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 37
+    }
+   ],
+   "others_pct": 29,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "8ff9717aa65a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Helder",
+     "party": "MDB",
+     "pct": 36
+    },
+    {
+     "candidate": "Delegado Éder Mauro",
+     "party": "PL",
+     "pct": 17
+    },
+    {
+     "candidate": "Zequinha Marinho",
+     "party": "Podemos",
+     "pct": 12
+    },
+    {
+     "candidate": "Chicão",
+     "party": "União Brasil",
+     "pct": 12
+    },
+    {
+     "candidate": "Celso Sabino",
+     "party": "PDT",
+     "pct": 12
+    },
+    {
+     "candidate": "Lívia Noronha",
+     "party": "Solidariedade",
+     "pct": 3
+    },
+    {
+     "candidate": "Gizelle Freitas",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Conti",
+     "party": "PSOL",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b13b474da6ae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rayssa Furlan",
+     "party": "Podemos",
+     "pct": 30
+    },
+    {
+     "candidate": "Lucas Barreto",
+     "party": "PSD",
+     "pct": 14
+    },
+    {
+     "candidate": "Randolfe",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "Alliny Serrão",
+     "party": "União Brasil",
+     "pct": 9
+    },
+    {
+     "candidate": "Acácio Favacho",
+     "party": "MDB",
+     "pct": 5
+    },
+    {
+     "candidate": "Capi",
+     "party": "PSB",
+     "pct": 6
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d286be136378",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Patrus e Mateus",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 35
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 35
+    }
+   ],
+   "others_pct": 30,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "2993cbc2e04b",
    "source": null,
@@ -217,6 +647,39 @@
    "tse_registration": null
   },
   {
+   "id": "29e7bf1118ef",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Patrus",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-08-30",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1804,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 53.4
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 39.3
+    }
+   ],
+   "others_pct": 7.2,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2fdce153d7c6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -309,6 +772,97 @@
    ],
    "others_pct": null,
    "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "632a9f99234c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-08-30",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1804,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 41
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 30
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 9.2
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 4
+    },
+    {
+     "candidate": "Gabriel",
+     "party": "MDB",
+     "pct": 4.7
+    },
+    {
+     "candidate": "Flávio Roscoe",
+     "party": "PL",
+     "pct": 4
+    },
+    {
+     "candidate": "Ben Mendes",
+     "party": "Missão",
+     "pct": 4
+    }
+   ],
+   "others_pct": 0.5,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9b2b348f9c9a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-08-30",
+   "fieldwork_end": "2026-09-04",
+   "published_date": null,
+   "sample_size": 1804,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 53.3
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 35.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -12611,6 +13165,39 @@
    "tse_registration": "BR-04281/2026"
   },
   {
+   "id": "12ac49788e1e",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-vence-todos-os-candidatos-em-2o-turno-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-mg-25ago2026.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Patrus",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 51
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 26
+    }
+   ],
+   "others_pct": 23,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": "MG-04060/2026"
+  },
+  {
    "id": "1cb6d6e8c017",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -12874,6 +13461,39 @@
    "tse_registration": null
   },
   {
+   "id": "44234267bd79",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-vence-todos-os-candidatos-em-2o-turno-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-mg-25ago2026.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 48
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": "MG-04060/2026"
+  },
+  {
    "id": "48f1b6a36bc7",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/juliana-brizola-lidera-disputa-ao-governo-do-rs-diz-pesquisa-2/",
@@ -12915,39 +13535,6 @@
    "undecided_pct": 6,
    "blank_null_pct": null,
    "tse_registration": "RS-09460/2026"
-  },
-  {
-   "id": "4dadeab52668",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-vence-todos-os-candidatos-em-2o-turno-em-mg-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-mg-25ago2026.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho vs Patrus Ananias",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 1506,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 51
-    },
-    {
-     "candidate": "Patrus Ananias",
-     "party": "PT",
-     "pct": 26
-    }
-   ],
-   "others_pct": 23,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": "MG-04060/2026"
   },
   {
    "id": "4db63845819f",
@@ -13350,39 +13937,6 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "TO-02161/2026"
-  },
-  {
-   "id": "84aff2ad35af",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-vence-todos-os-candidatos-em-2o-turno-em-mg-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governador-mg-25ago2026.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho vs Alexandre Kalil",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 1506,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 48
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": "MG-04060/2026"
   },
   {
    "id": "8694fc73cecc",
@@ -33871,6 +34425,39 @@
    "tse_registration": "PE-04519/2026"
   },
   {
+   "id": "029960cd61e5",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-de-1o-e-2o-turno-em-mg-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/Minas-Gerais-MG-06475_2026-Jul26-3-2.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Patrus",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-25",
+   "fieldwork_end": "2026-07-29",
+   "published_date": "2026-07-29",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 48
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 36
+    }
+   ],
+   "others_pct": 16,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": "MG-06475/2026"
+  },
+  {
    "id": "21100bb2d44a",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-de-1o-e-2o-turno-em-mg-diz-pesquisa/",
@@ -33995,39 +34582,6 @@
    "tse_registration": null
   },
   {
-   "id": "5fdfab21e4a2",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-de-1o-e-2o-turno-em-mg-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/07/Minas-Gerais-MG-06475_2026-Jul26-3-2.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho vs Alexandre Kalil",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-07-25",
-   "fieldwork_end": "2026-07-29",
-   "published_date": "2026-07-29",
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 47
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "MG-06475/2026"
-  },
-  {
    "id": "6338adf5bda2",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-de-1o-e-2o-turno-em-mg-diz-pesquisa/",
@@ -34127,39 +34681,6 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "RJ-02770/2026"
-  },
-  {
-   "id": "77acb98a1146",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-de-1o-e-2o-turno-em-mg-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/07/Minas-Gerais-MG-06475_2026-Jul26-3-2.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho vs Patrus Ananias",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-07-25",
-   "fieldwork_end": "2026-07-29",
-   "published_date": "2026-07-29",
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 48
-    },
-    {
-     "candidate": "Patrus Ananias",
-     "party": "PT",
-     "pct": 36
-    }
-   ],
-   "others_pct": 16,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": "MG-06475/2026"
   },
   {
    "id": "7d99f85ed9cb",
@@ -34347,6 +34868,39 @@
    "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "e8213e043e4b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-de-1o-e-2o-turno-em-mg-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/Minas-Gerais-MG-06475_2026-Jul26-3-2.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-25",
+   "fieldwork_end": "2026-07-29",
+   "published_date": "2026-07-29",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 47
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "MG-06475/2026"
   },
   {
    "id": "p360-13647-1-0-eaf80c6cf7fe",
@@ -48381,6 +48935,54 @@
    "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": "BR-07181/2026"
+  },
+  {
+   "id": "90fbd25be4de",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-07-11",
+   "fieldwork_end": "2026-07-13",
+   "published_date": null,
+   "sample_size": 1100,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rayssa Furlan",
+     "party": "Podemos",
+     "pct": 61.5
+    },
+    {
+     "candidate": "Lucas Barreto",
+     "party": "PSD",
+     "pct": 46.9
+    },
+    {
+     "candidate": "Randolfe",
+     "party": "PT",
+     "pct": 40.4
+    },
+    {
+     "candidate": "Teles Junior",
+     "party": "PDT",
+     "pct": 9.5
+    },
+    {
+     "candidate": "Acácio Favacho",
+     "party": "MDB",
+     "pct": 16.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.4,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "93de783b3feb",
@@ -64709,7 +65311,7 @@
    "scenario": "1º turno",
    "pollster": "Paraná Pesquisas",
    "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2026-06-11",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-13",
    "published_date": "2026-06-13",
    "sample_size": 1100,
@@ -64742,7 +65344,7 @@
    "scenario": "2º turno: Dr. Furlan vs Clécio Luís",
    "pollster": "Paraná Pesquisas",
    "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2026-06-11",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-13",
    "published_date": "2026-06-13",
    "sample_size": 1100,
@@ -64775,7 +65377,7 @@
    "scenario": "1º turno",
    "pollster": "Paraná Pesquisas",
    "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2026-06-11",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-13",
    "published_date": "2026-06-13",
    "sample_size": 1100,
@@ -84161,39 +84763,6 @@
    "tse_registration": null
   },
   {
-   "id": "370b46c5e4d1",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho e Alexandre Kalil",
-   "pollster": "Doxa",
-   "contractor": null,
-   "fieldwork_start": "2026-05-01",
-   "fieldwork_end": "2026-05-03",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 37
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5afc1cb734fc",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -84349,6 +84918,39 @@
    ],
    "others_pct": 1,
    "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "8809e0e49acf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "Doxa",
+   "contractor": null,
+   "fieldwork_start": "2026-05-01",
+   "fieldwork_end": "2026-05-03",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 37
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 29,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -97960,39 +98562,6 @@
    "tse_registration": null
   },
   {
-   "id": "ce989eb6e2c9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho e Alexandre Kalil",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-03-25",
-   "fieldwork_end": "2026-03-30",
-   "published_date": null,
-   "sample_size": 2195,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 51
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "curado-35d1c8817bbd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
@@ -98535,6 +99104,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 10.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f73129f30eb6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-03-25",
+   "fieldwork_end": "2026-03-30",
+   "published_date": null,
+   "sample_size": 2195,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 51
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -99445,14 +100047,14 @@
    "tse_registration": null
   },
   {
-   "id": "34f8d94e96e9",
+   "id": "2a09eea93bcd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
    "integra_url": null,
    "race": "governador",
    "state": "MG",
    "round": 2,
-   "scenario": "2º turno: Cleitinho e Alexandre Kalil",
+   "scenario": "2º turno: Cleitinho e Kalil",
    "pollster": "Futura",
    "contractor": null,
    "fieldwork_start": "2026-03-24",
@@ -105492,6 +106094,39 @@
    "tse_registration": null
   },
   {
+   "id": "a302525ebba5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "DataTempo",
+   "contractor": null,
+   "fieldwork_start": "2026-03-14",
+   "fieldwork_end": "2026-03-18",
+   "published_date": null,
+   "sample_size": 2030,
+   "margin_of_error": 2.19,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 42.4
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 31.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "b10bd67cad9a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -105559,39 +106194,6 @@
    ],
    "others_pct": 1.65,
    "undecided_pct": 31.59,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "bc94546255f9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho e Alexandre Kalil",
-   "pollster": "DataTempo",
-   "contractor": null,
-   "fieldwork_start": "2026-03-14",
-   "fieldwork_end": "2026-03-18",
-   "published_date": null,
-   "sample_size": 2030,
-   "margin_of_error": 2.19,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 42.4
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 31.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25.2,
    "blank_null_pct": null,
    "tse_registration": null
   },

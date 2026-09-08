@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1362 levantamentos · 4312 perguntas · 151 institutos · 1267 candidatos**.
+Banco: **1368 levantamentos · 4327 perguntas · 151 institutos · 1268 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -326,12 +326,10 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_shrink_ambiguo · q_513f0f532d75 · results: ["q_5d221765a46e","q_6148bab1aa60","q_852e6a297018","q_9745e25c8eb2"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Romeu Zema"]
 - roster_encolhido_na_fonte · q_8a59dbce8257 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_shrink_ambiguo · q_d4f6ea4de35e · results: ["q_5d221765a46e"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Romeu Zema"]
-- roster_encolhido_na_fonte · q_d7099edc1aef · results: ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","José Moita","Robertinho"] × ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","José Moita"]
 - roster_encolhido_na_fonte · q_475520df954a · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_encolhido_na_fonte · q_b651c35964d3 · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_shrink_ambiguo · q_3630fa2eb41b · results: ["q_5d221765a46e","q_fee9e700bba4"] × ["Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior"]
 - roster_encolhido_na_fonte · q_a60a9006c3e0 · results: ["Aldo Rebelo","Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema"] × ["Eduardo Leite","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Romeu Zema"]
-- roster_encolhido_na_fonte · q_be281198ddba · results: ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","José Moita","Robertinho"] × ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","José Moita"]
 - roster_encolhido_na_fonte · q_4a1dce856a81 · results: ["Aldo Rebelo","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Ratinho Júnior","Renan Santos","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"] × ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado","Tarcísio de Freitas"]
 - roster_encolhido_na_fonte · q_ee442f75ac27 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - person_id_orphaned · p_f04ff3c640fe · person_id: "p_f04ff3c640fe" × null
@@ -413,13 +411,15 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_c830a7966bec · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_85ccbc3cf19e · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"]
 - roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
+- candidate_id_orphaned · c_b6f446547f22 · candidate_id: "c_b6f446547f22" × null
+- person_id_orphaned · p_dd7f23cebe52 · person_id: "p_dd7f23cebe52" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 31
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 78
-- disputa_em_quarentena · governador:AP · quarentena: 16 × 17
+- disputa_em_quarentena · governador:AP · quarentena: 16 × 18
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 69
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 57
-- disputa_em_quarentena · governador:PA · quarentena: 73 × 80
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1156
+- disputa_em_quarentena · governador:PA · quarentena: 73 × 82
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1163
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 42
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 58
