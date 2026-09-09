@@ -4,6 +4,7 @@
 {"institute_id":"i_0a06315ea0e7","legacy_ids":[],"canonical":"Comunidados","aliases":["Comunidados"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0a7de44776d9","legacy_ids":[],"canonical":"Datamax","aliases":["Datamax"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0b39ae1059b8","legacy_ids":[],"canonical":"Affare","aliases":["Affare"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_0bad5e1c9dae","legacy_ids":[],"canonical":"VK Skala","aliases":["VK Skala"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-09"}
 {"institute_id":"i_0e525a98c799","legacy_ids":[],"canonical":"IGAPE","aliases":["IGAPE"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_19c429d364ba","legacy_ids":[],"canonical":"Opnus/BNews","aliases":["Opnus/BNews"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
 {"institute_id":"i_1ae8b5b1dba3","legacy_ids":["i_9e5fed13d517"],"canonical":"Census","aliases":["Census"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -124,7 +125,6 @@
 {"institute_id":"i_d3fb89b58879","legacy_ids":[],"canonical":"Opinar","aliases":["Opinar"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d4186917c469","legacy_ids":[],"canonical":"Lupa","aliases":["Lupa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d4e261ec92fc","legacy_ids":[],"canonical":"Colectta","aliases":["Colectta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_d510dc358e88","legacy_ids":[],"canonical":"VK","aliases":["VK"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-09"}
 {"institute_id":"i_d5341abd3fac","legacy_ids":[],"canonical":"Delta","aliases":["Delta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d5fe81673d96","legacy_ids":[],"canonical":"Datafolha","aliases":["Datafolha"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d796d22d8e47","legacy_ids":[],"canonical":"MT Dados","aliases":["MT Dados"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **82 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **83 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -1097,6 +1097,24 @@ Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Sergipe
+
+### TWS — 2026-09-02
+
+Soma **82.9%** · faltam **17.1 pontos** · 4 candidato(s) na tabela · amostra 1500
+
+| candidato | % |
+|---|---|
+| Fábio | 46.13 |
+| Valmir de Francisquinho | 24.87 |
+| Ricardo Marques | 10.07 |
+| Emanuel Cacho | 1.8 |
+| *outros* | 0 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

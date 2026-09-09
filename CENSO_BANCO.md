@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1386 levantamentos · 4364 perguntas · 153 institutos · 1269 candidatos**.
+Banco: **1394 levantamentos · 4381 perguntas · 153 institutos · 1269 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -413,14 +413,14 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - candidate_id_orphaned · c_b6f446547f22 · candidate_id: "c_b6f446547f22" × null
 - person_id_orphaned · p_dd7f23cebe52 · person_id: "p_dd7f23cebe52" × null
-- person_id_orphaned · p_a6fbdd8ea593 · person_id: "p_a6fbdd8ea593" × null
+- institute_id_orphaned · i_d510dc358e88 · institute_id: "i_d510dc358e88" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 31
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 78
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 19
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 71
-- disputa_em_quarentena · governador:MT · quarentena: 52 × 57
+- disputa_em_quarentena · governador:MT · quarentena: 52 × 59
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 83
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1162
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1177
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 43
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 59
