@@ -52,6 +52,7 @@
 {"institute_id":"i_53d43b18599b","legacy_ids":[],"canonical":"Instituto Gazeta de Pesquisas","aliases":["Instituto Gazeta de Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-15"}
 {"institute_id":"i_5628816bfef0","legacy_ids":[],"canonical":"Mensury/Blog do Barreto","aliases":["Mensury/Blog do Barreto"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_5b70f03d36f5","legacy_ids":[],"canonical":"American Analytics","aliases":["American Analytics"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_5d74f275e3b9","legacy_ids":[],"canonical":"TWS","aliases":["TWS"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-09"}
 {"institute_id":"i_5e4e168f081e","legacy_ids":[],"canonical":"IPSensus","aliases":["IPSensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-21"}
 {"institute_id":"i_5e898c6af2a6","legacy_ids":[],"canonical":"Data Povo","aliases":["Data Povo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_609e1b050026","legacy_ids":[],"canonical":"Potengi/Media","aliases":["Potengi/Media"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -123,6 +124,7 @@
 {"institute_id":"i_d3fb89b58879","legacy_ids":[],"canonical":"Opinar","aliases":["Opinar"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d4186917c469","legacy_ids":[],"canonical":"Lupa","aliases":["Lupa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d4e261ec92fc","legacy_ids":[],"canonical":"Colectta","aliases":["Colectta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_d510dc358e88","legacy_ids":[],"canonical":"VK","aliases":["VK"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-09"}
 {"institute_id":"i_d5341abd3fac","legacy_ids":[],"canonical":"Delta","aliases":["Delta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d5fe81673d96","legacy_ids":[],"canonical":"Datafolha","aliases":["Datafolha"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d796d22d8e47","legacy_ids":[],"canonical":"MT Dados","aliases":["MT Dados"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

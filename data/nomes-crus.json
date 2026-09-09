@@ -612,6 +612,115 @@
    ]
   }
  ],
+ "presidente:AP": [
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": []
+  },
+  {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Heró Bezerra",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": []
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Junior",
+   "partidos": []
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": []
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
+  }
+ ],
  "governador:BA": [
   {
    "nome": "ACM Neto",
@@ -883,6 +992,12 @@
    ]
   },
   {
+   "nome": "Vera Lúcia",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
    "nome": "Vera Lúcia Salgado",
    "partidos": [
     "Novo"
@@ -954,6 +1069,7 @@
   {
    "nome": "Pablo Marçal",
    "partidos": [
+    "PRTB",
     "União Brasil"
    ]
   },
@@ -5322,114 +5438,6 @@
    ]
   }
  ],
- "presidente:AP": [
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Cabo Daciolo",
-   "partidos": [
-    "Mobiliza"
-   ]
-  },
-  {
-   "nome": "Ciro Gomes",
-   "partidos": []
-  },
-  {
-   "nome": "Edmilson Costa",
-   "partidos": [
-    "PCB"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Heró Bezerra",
-   "partidos": [
-    "PRTB"
-   ]
-  },
-  {
-   "nome": "Hertz Dias",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
-   "nome": "Jair Bolsonaro",
-   "partidos": []
-  },
-  {
-   "nome": "Joaquim Barbosa",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Pablo Marçal",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Ratinho Junior",
-   "partidos": []
-  },
-  {
-   "nome": "Ratinho Júnior",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Filho",
-   "partidos": []
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Samara Martins",
-   "partidos": [
-    "UP"
-   ]
-  }
- ],
  "presidente:RO": [
   {
    "nome": "Aldo Rebelo",
@@ -6393,6 +6401,12 @@
    ]
   },
   {
+   "nome": "Guilherme Teóphilo",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
    "nome": "Guimarães do PT",
    "partidos": [
     "PT"
@@ -6598,7 +6612,7 @@
    ]
   },
   {
-   "nome": "Érica kokay",
+   "nome": "Erika Kokay",
    "partidos": [
     "PT"
    ]
