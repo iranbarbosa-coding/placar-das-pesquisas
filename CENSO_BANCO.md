@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1400 levantamentos · 4403 perguntas · 153 institutos · 1308 candidatos**.
+Banco: **1420 levantamentos · 4438 perguntas · 153 institutos · 1307 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 14 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 27 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 124 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 155 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **191** | **38** |
+| **total** | **222** | **38** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -299,7 +299,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (124)
+## CONFLITO — Conflitos registrados aguardando decisão (155)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -416,15 +416,46 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - candidate_id_orphaned · c_b6f446547f22 · candidate_id: "c_b6f446547f22" × null
 - person_id_orphaned · p_dd7f23cebe52 · person_id: "p_dd7f23cebe52" × null
-- disputa_em_quarentena · governador:AL · quarentena: 23 × 31
+- person_id_orphaned · p_f6fba4147aa1 · person_id: "p_f6fba4147aa1" × null
+- person_id_orphaned · p_a83840bbf842 · person_id: "p_a83840bbf842" × null
+- person_id_orphaned · p_890708c42fde · person_id: "p_890708c42fde" × null
+- person_id_orphaned · p_356a89628927 · person_id: "p_356a89628927" × null
+- roster_encolhido_na_fonte · q_510cff0a523a · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
+- person_id_orphaned · p_28485b4a551e · person_id: "p_28485b4a551e" × null
+- person_id_orphaned · p_b365037b6cca · person_id: "p_b365037b6cca" × null
+- person_id_orphaned · p_8e0184a25789 · person_id: "p_8e0184a25789" × null
+- person_id_orphaned · p_e23d55638430 · person_id: "p_e23d55638430" × null
+- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
+- roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
+- person_id_orphaned · p_bf17820b7aaf · person_id: "p_bf17820b7aaf" × null
+- person_id_orphaned · p_3cdd9c4a0186 · person_id: "p_3cdd9c4a0186" × null
+- person_id_orphaned · p_5a5c10f9523e · person_id: "p_5a5c10f9523e" × null
+- person_id_orphaned · p_1778588951eb · person_id: "p_1778588951eb" × null
+- person_id_orphaned · p_5f72c142fc7b · person_id: "p_5f72c142fc7b" × null
+- person_id_orphaned · p_63f806b4ea8e · person_id: "p_63f806b4ea8e" × null
+- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
+- person_id_orphaned · p_ee8af8f33251 · person_id: "p_ee8af8f33251" × null
+- person_id_orphaned · p_6d57f885a0da · person_id: "p_6d57f885a0da" × null
+- person_id_orphaned · p_108ab8796cc1 · person_id: "p_108ab8796cc1" × null
+- person_id_orphaned · p_2527d557e498 · person_id: "p_2527d557e498" × null
+- person_id_orphaned · p_3063a4b2a229 · person_id: "p_3063a4b2a229" × null
+- person_id_orphaned · p_3aaaa1a060e9 · person_id: "p_3aaaa1a060e9" × null
+- person_id_orphaned · p_8bc56b532f3f · person_id: "p_8bc56b532f3f" × null
+- person_id_orphaned · p_b9255afee3b0 · person_id: "p_b9255afee3b0" × null
+- person_id_orphaned · p_f7a944fb73b4 · person_id: "p_f7a944fb73b4" × null
+- roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
+- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
+- person_id_orphaned · p_95af03a6445f · person_id: "p_95af03a6445f" × null
+- disputa_em_quarentena · governador:AL · quarentena: 23 × 33
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 79
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 19
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 71
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 59
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 83
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1177
+- disputa_em_quarentena · governador:RS · quarentena: 55 × 57
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1180
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
-- disputa_em_quarentena · senador:GO · quarentena: 41 × 43
+- disputa_em_quarentena · senador:GO · quarentena: 41 × 44
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 59
 - disputa_em_quarentena · senador:SP · quarentena: 60 × 60
 
