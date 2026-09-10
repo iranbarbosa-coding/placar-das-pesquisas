@@ -5897,18 +5897,18 @@
     "origem": "exato"
    },
    "bruno bolsonaro scheid": {
-    "nome_urna": "Bruno Bolsonaro Scheid",
-    "sq_candidato": "220002539995",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "exato"
-   },
-   "bruno scheid": {
-    "nome_urna": "Bruno Bolsonaro Scheid",
+    "nome_urna": "Bruno Scheid",
     "sq_candidato": "220002539995",
     "partido": "PL",
     "numero": "222",
     "origem": "contencao"
+   },
+   "bruno scheid": {
+    "nome_urna": "Bruno Scheid",
+    "sq_candidato": "220002539995",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "exato"
    },
    "fernando maximo": {
     "nome_urna": "Dr. Fernando Máximo",

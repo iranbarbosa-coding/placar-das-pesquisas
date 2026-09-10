@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **83 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **84 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -704,6 +704,32 @@ Soma **69%** · faltam **31 pontos** · 3 candidato(s) na tabela · amostra 1509
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · São Paulo
+
+### Quaest — 2026-09-07
+
+Soma **69%** · faltam **31 pontos** · 11 candidato(s) na tabela · amostra 1800 · registro BR-04705/2026
+
+| candidato | % |
+|---|---|
+| Lula | 30 |
+| Escritor Augusto Cury | 7 |
+| Pablo Marçal | 4 |
+| Ronaldo Caiado | 3 |
+| Renan Santos | 2 |
+| Zema | 1 |
+| Samara | 0 |
+| Edmilson Costa | 0 |
+| Hertz Dias | 0 |
+| Clariana Barão | 0 |
+| Rui Costa Pimenta | 0 |
+| *não sabe/não respondeu* | 22 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/quaest-sp-presidencial-set.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-em-sp-diz-quaest/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

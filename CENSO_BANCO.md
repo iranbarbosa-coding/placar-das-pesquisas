@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1394 levantamentos · 4381 perguntas · 153 institutos · 1269 candidatos**.
+Banco: **1400 levantamentos · 4403 perguntas · 153 institutos · 1308 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 14 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 44 | 26 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 27 |
 | **CONFLITO** — Conflitos registrados aguardando decisão | 124 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **190** | **37** |
+| **total** | **191** | **38** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -63,9 +63,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_c5446eaf6c82 · Doxa · PA · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (44)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (45)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (5 de 44) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (5 de 45) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - cenários separados — Real Time Big Data · BA governador/t1 · 2025-11-25 — 2 levantamentos
   s_03edeccebbee: ACM Neto 42 · Rui Costa 43 · Kleber Rosa 1 · José Carlos Aleluia 3
@@ -261,6 +261,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_a06cc00947e0: Marília Arraes 27 · Miguel Coelho 20 · Anderson Ferreira 18 · Humberto Costa 17 · Mendonça Filho 12
   s_b8267f8e8ffc: Marília Arraes 28 · Humberto Costa 17 · Miguel Coelho 21 · Túlio Gadêlha 8 · Anderson Ferreira 19
   s_b8267f8e8ffc: Marília Arraes 29 · Humberto Costa 17 · Eduardo da Fonte 11 · Anderson Ferreira 19 · Mendonça Filho 15
+- **[2026]** cenários separados — Quaest · SP governador/t1 · 2026-09-07 — 2 levantamentos
+  s_a1da9ab4ab5d: Tarcísio de Freitas 42 · Fernando Haddad 27 · Policial Edjane 1 · Vera Lúcia Salgado 1 · Carlos Machado 1 · Vivian Mendes 0
+  s_dbe900cbe0e6: Tarcísio de Freitas 42 · Fernando Haddad 27 · Vera Lúcia 1 · Carlos Machado 1 · Vivian Mendes 1 · Izadora Dias 0 · Edjane 1
 - **[2026]** cenários separados — Ipec · CE senador/t1 · 2026-07-26 — 2 levantamentos
   s_a8c3982fec69: Capitão Wagner 24 · Luizianne Lins 16 · Alcides Fernandes 7 · Júnior Mano 7 · Anna Karina 6 · General Theophilo 3 · Cândido Albuquerque 2
   s_fbac0e37641e: Cid Gomes 22 · Capitão Wagner 24 · Luizianne Lins 16 · Alcides Fernandes 8 · General Theóphilo 4
@@ -413,9 +416,8 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_6b39f597ba7d · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Leonardo Avalanche","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - candidate_id_orphaned · c_b6f446547f22 · candidate_id: "c_b6f446547f22" × null
 - person_id_orphaned · p_dd7f23cebe52 · person_id: "p_dd7f23cebe52" × null
-- institute_id_orphaned · i_d510dc358e88 · institute_id: "i_d510dc358e88" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 31
-- disputa_em_quarentena · governador:AM · quarentena: 72 × 78
+- disputa_em_quarentena · governador:AM · quarentena: 72 × 79
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 19
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 71
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 59
@@ -424,6 +426,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 43
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 59
+- disputa_em_quarentena · senador:SP · quarentena: 60 × 60
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (4)
 
