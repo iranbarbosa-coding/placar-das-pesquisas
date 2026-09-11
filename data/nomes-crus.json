@@ -2178,6 +2178,12 @@
    ]
   },
   {
+   "nome": "Henrique Áreas",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
    "nome": "Indira Xavier",
    "partidos": [
     "PSOL",
@@ -2247,6 +2253,12 @@
    ]
   },
   {
+   "nome": "Rafael Duda",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
    "nome": "Rodrigo Pacheco",
    "partidos": [
     "PSB",
@@ -2289,6 +2301,18 @@
    "nome": "Ciro Gomes",
    "partidos": [
     "PDT"
+   ]
+  },
+  {
+   "nome": "Clariana Barão",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
    ]
   },
   {
@@ -2377,9 +2401,27 @@
    ]
   },
   {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
    "nome": "Tarcísio de Freitas",
    "partidos": [
     "Republicanos"
+   ]
+  },
+  {
+   "nome": "Veterinário Wilson Grassi",
+   "partidos": [
+    "Democrata"
    ]
   }
  ],
@@ -3252,6 +3294,12 @@
    ]
   },
   {
+   "nome": "Guilherme Fonseca",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
    "nome": "Ivan Moraes",
    "partidos": [
     "PSOL"
@@ -3270,6 +3318,18 @@
    ]
   },
   {
+   "nome": "Professor Jeremias do Banco",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Professora Camila",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
    "nome": "Raquel Lyra",
    "partidos": [
     "PSD"
@@ -3279,6 +3339,12 @@
    "nome": "Renan Hallais",
    "partidos": [
     "Missão"
+   ]
+  },
+  {
+   "nome": "Victor Assis",
+   "partidos": [
+    "PCO"
    ]
   }
  ],
@@ -3312,6 +3378,12 @@
    "partidos": [
     "PDT",
     "PSDB"
+   ]
+  },
+  {
+   "nome": "Clariana Barão",
+   "partidos": [
+    "DC"
    ]
   },
   {
@@ -3440,6 +3512,12 @@
    "nome": "Tarcísio de Freitas",
    "partidos": [
     "Republicanos"
+   ]
+  },
+  {
+   "nome": "Veterinário Wilson Grassi",
+   "partidos": [
+    "Democrata"
    ]
   }
  ],
@@ -7342,6 +7420,18 @@
    ]
   },
   {
+   "nome": "Fidélis Alcântara",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Jordano Carvalho",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
    "nome": "Marcelo Aro",
    "partidos": [
     "PP"
@@ -7397,6 +7487,12 @@
   },
   {
    "nome": "Vanessa Portugal",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Victoria Mello",
    "partidos": [
     "PSTU"
    ]
@@ -7840,6 +7936,7 @@
   {
    "nome": "Mariano Macedo",
    "partidos": [
+    "PSTU",
     "Pstu"
    ]
   },

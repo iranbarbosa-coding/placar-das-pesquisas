@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **84 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **85 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -1277,6 +1277,22 @@ Soma **85.3%** · faltam **14.7 pontos** · 3 candidato(s) na tabela · amostra 
 | Ricardo Marques | 5.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Bahia · 2º turno
+
+### AtlasIntel — 2026-09-02
+
+Soma **85.9%** · faltam **14.1 pontos** · 2 candidato(s) na tabela · amostra 1804 · registro BR-07739/2026
+
+| candidato | % |
+|---|---|
+| Lula | 57.8 |
+| Zema | 28.1 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas_ATarde-Eleicoes-Bahia-2026-260903.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas_ATarde-Eleicoes-Bahia-2026-260903.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
