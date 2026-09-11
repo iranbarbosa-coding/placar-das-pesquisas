@@ -2,8 +2,8 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 588,
-  "contencao": 196,
+  "exato": 601,
+  "contencao": 199,
   "outra_disputa": 161,
   "ambiguo": 5,
   "sem": 554
@@ -1966,6 +1966,13 @@
     "numero": "15",
     "origem": "contencao"
    },
+   "henrique areas": {
+    "nome_urna": "Henrique Áreas",
+    "sq_candidato": "130002552308",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "indira xavier": {
     "nome_urna": "Indira Xavier",
     "sq_candidato": "130002547874",
@@ -2000,6 +2007,13 @@
     "partido": "PT",
     "numero": "13",
     "origem": "exato"
+   },
+   "rafael duda": {
+    "nome_urna": "Rafael Duda",
+    "sq_candidato": "130002546802",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "exato"
    }
   },
   "presidente:MG": {
@@ -2023,6 +2037,20 @@
     "partido": "PSDB",
     "numero": "45",
     "origem": "outra-disputa"
+   },
+   "clariana barao": {
+    "nome_urna": "Clariana Barão",
+    "sq_candidato": "280002552484",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
+   "edmilson costa": {
+    "nome_urna": "Edmilson Costa",
+    "sq_candidato": "280002551975",
+    "partido": "PCB",
+    "numero": "21",
+    "origem": "exato"
    },
    "flavio bolsonaro": {
     "nome_urna": "Flávio Bolsonaro",
@@ -2080,12 +2108,33 @@
     "numero": "55",
     "origem": "exato"
    },
+   "rui costa pimenta": {
+    "nome_urna": "Rui Costa Pimenta",
+    "sq_candidato": "280002552487",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
+   "samara martins": {
+    "nome_urna": "Samara",
+    "sq_candidato": "280002538811",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "contencao"
+   },
    "tarcisio de freitas": {
     "nome_urna": "Tarcísio",
     "sq_candidato": "250002541303",
     "partido": "REPUBLICANOS",
     "numero": "10",
     "origem": "outra-disputa"
+   },
+   "veterinario wilson grassi": {
+    "nome_urna": "Veterinário Wilson Grassi",
+    "sq_candidato": "280002548139",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
    }
   },
   "governador:MS": {
@@ -2686,6 +2735,13 @@
    }
   },
   "governador:PE": {
+   "guilherme fonseca": {
+    "nome_urna": "Guilherme Fonseca",
+    "sq_candidato": "170002536575",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "exato"
+   },
    "ivan moraes": {
     "nome_urna": "Ivan Moraes",
     "sq_candidato": "170002538097",
@@ -2707,6 +2763,20 @@
     "numero": "40",
     "origem": "contencao"
    },
+   "professor jeremias do banco": {
+    "nome_urna": "Professor Jeremias do Banco",
+    "sq_candidato": "170002541258",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
+   },
+   "professora camila": {
+    "nome_urna": "Professora Camila",
+    "sq_candidato": "170002537320",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
+   },
    "raquel lyra": {
     "nome_urna": "Raquel Lyra",
     "sq_candidato": "170002537227",
@@ -2720,6 +2790,13 @@
     "partido": "MISSÃO",
     "numero": "14",
     "origem": "contencao"
+   },
+   "victor assis": {
+    "nome_urna": "Victor Assis",
+    "sq_candidato": "170002552776",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
    }
   },
   "presidente:PE": {
@@ -2750,6 +2827,13 @@
     "partido": "PSDB",
     "numero": "45",
     "origem": "outra-disputa"
+   },
+   "clariana barao": {
+    "nome_urna": "Clariana Barão",
+    "sq_candidato": "280002552484",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
    },
    "edmilson costa": {
     "nome_urna": "Edmilson Costa",
@@ -2848,6 +2932,13 @@
     "partido": "REPUBLICANOS",
     "numero": "10",
     "origem": "outra-disputa"
+   },
+   "veterinario wilson grassi": {
+    "nome_urna": "Veterinário Wilson Grassi",
+    "sq_candidato": "280002548139",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
    }
   },
   "governador:PI": {
@@ -5479,6 +5570,20 @@
     "numero": "222",
     "origem": "exato"
    },
+   "fidelis alcantara": {
+    "nome_urna": "Fidélis Alcântara",
+    "sq_candidato": "130002547882",
+    "partido": "UP",
+    "numero": "800",
+    "origem": "exato"
+   },
+   "jordano carvalho": {
+    "nome_urna": "Jordano Metalúrgico",
+    "sq_candidato": "130002551929",
+    "partido": "PSTU",
+    "numero": "160",
+    "origem": "contencao"
+   },
    "marcelo aro": {
     "nome_urna": "Marcelo Aro",
     "sq_candidato": "130002548381",
@@ -5513,6 +5618,13 @@
     "partido": "NOVO",
     "numero": "30",
     "origem": "outra-disputa"
+   },
+   "victoria mello": {
+    "nome_urna": "Victória Mello Vic",
+    "sq_candidato": "130002551930",
+    "partido": "PSTU",
+    "numero": "161",
+    "origem": "contencao"
    }
   },
   "senador:MS": {

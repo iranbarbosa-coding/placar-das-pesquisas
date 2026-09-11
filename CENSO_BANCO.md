@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1427 levantamentos · 4458 perguntas · 153 institutos · 1323 candidatos**.
+Banco: **1435 levantamentos · 4474 perguntas · 153 institutos · 1325 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 14 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 27 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 128 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 142 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **195** | **38** |
+| **total** | **209** | **38** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -299,7 +299,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (128)
+## CONFLITO — Conflitos registrados aguardando decisão (142)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -419,6 +419,20 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_510cff0a523a · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
+- person_id_orphaned · p_890708c42fde · person_id: "p_890708c42fde" × null
+- person_id_orphaned · p_b6d294702fa1 · person_id: "p_b6d294702fa1" × null
+- person_id_orphaned · p_42fe5d5e064c · person_id: "p_42fe5d5e064c" × null
+- person_id_orphaned · p_8885a66e57f7 · person_id: "p_8885a66e57f7" × null
+- person_id_orphaned · p_fc8c06d3253f · person_id: "p_fc8c06d3253f" × null
+- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
+- person_id_orphaned · p_b7f84913eecc · person_id: "p_b7f84913eecc" × null
+- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
+- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
+- person_id_orphaned · p_3b2a17aa6bd9 · person_id: "p_3b2a17aa6bd9" × null
+- person_id_orphaned · p_dfaa71177edb · person_id: "p_dfaa71177edb" × null
+- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
+- person_id_orphaned · p_b47f147e6451 · person_id: "p_b47f147e6451" × null
+- person_id_orphaned · p_b21bc72b5693 · person_id: "p_b21bc72b5693" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 33
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 80
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 19
@@ -426,11 +440,11 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 59
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 83
 - disputa_em_quarentena · governador:RS · quarentena: 55 × 57
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1187
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1192
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
-- disputa_em_quarentena · senador:GO · quarentena: 41 × 44
+- disputa_em_quarentena · senador:GO · quarentena: 41 × 45
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 59
-- disputa_em_quarentena · senador:SP · quarentena: 60 × 60
+- disputa_em_quarentena · senador:SP · quarentena: 60 × 61
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (4)
 

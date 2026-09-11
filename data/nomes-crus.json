@@ -4502,6 +4502,12 @@
    "partidos": []
   },
   {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
    "nome": "Ratinho Jr",
    "partidos": [
     "PSD"
@@ -4662,6 +4668,63 @@
    "nome": "Sérgio Gonçalves",
    "partidos": [
     "União Brasil"
+   ]
+  }
+ ],
+ "presidente:RR": [
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
    ]
   }
  ],
@@ -5978,56 +6041,6 @@
   {
    "nome": "SAMARA MARTINS",
    "partidos": []
-  }
- ],
- "presidente:RR": [
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Pablo Marçal",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Ratinho Júnior",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD"
-   ]
   }
  ],
  "presidente:AL": [
@@ -8660,6 +8673,63 @@
    ]
   }
  ],
+ "senador:RR": [
+  {
+   "nome": "Antonio Carlos Nicoletti",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Antônio Denarium",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Chico Rodrigues",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Helena da Asatur",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Hélio Lopes",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Mecias de Jesus",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rodrigo Cataratas",
+   "partidos": [
+    "PRD"
+   ]
+  },
+  {
+   "nome": "Romero Jucá",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Teresa Surita",
+   "partidos": [
+    "MDB"
+   ]
+  }
+ ],
  "senador:RS": [
   {
    "nome": "Eduardo Leite",
@@ -9342,63 +9412,6 @@
    "nome": "Wanderlei Barbosa",
    "partidos": [
     "Republicanos"
-   ]
-  }
- ],
- "senador:RR": [
-  {
-   "nome": "Antonio Carlos Nicoletti",
-   "partidos": [
-    "PL",
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Antônio Denarium",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Chico Rodrigues",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
-   "nome": "Helena da Asatur",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Hélio Lopes",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Mecias de Jesus",
-   "partidos": [
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Rodrigo Cataratas",
-   "partidos": [
-    "PRD"
-   ]
-  },
-  {
-   "nome": "Romero Jucá",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Teresa Surita",
-   "partidos": [
-    "MDB"
    ]
   }
  ]
