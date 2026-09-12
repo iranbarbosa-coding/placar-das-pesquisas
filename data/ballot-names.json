@@ -2,8 +2,8 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 601,
-  "contencao": 199,
+  "exato": 602,
+  "contencao": 200,
   "outra_disputa": 161,
   "ambiguo": 5,
   "sem": 554
@@ -3591,6 +3591,13 @@
     "numero": "13",
     "origem": "exato"
    },
+   "pablo marcal": {
+    "nome_urna": "Pablo Marçal",
+    "sq_candidato": "280002553884",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
    "renan filho": {
     "nome_urna": "Renan Filho",
     "sq_candidato": "20002553745",
@@ -3682,6 +3689,57 @@
     "sq_candidato": "220002550927",
     "partido": "PSB",
     "numero": "40",
+    "origem": "exato"
+   }
+  },
+  "presidente:RR": {
+   "augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
+   "flavio bolsonaro": {
+    "nome_urna": "Flávio Bolsonaro",
+    "sq_candidato": "280002551544",
+    "partido": "PL",
+    "numero": "22",
+    "origem": "exato"
+   },
+   "lula": {
+    "nome_urna": "Lula",
+    "sq_candidato": "280002542548",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
+   "pablo marcal": {
+    "nome_urna": "Pablo Marçal",
+    "sq_candidato": "280002553884",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
+   "renan santos": {
+    "nome_urna": "Renan Santos",
+    "sq_candidato": "280002540694",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "romeu zema": {
+    "nome_urna": "Zema",
+    "sq_candidato": "280002539826",
+    "partido": "NOVO",
+    "numero": "30",
+    "origem": "contencao"
+   },
+   "ronaldo caiado": {
+    "nome_urna": "Ronaldo Caiado",
+    "sq_candidato": "280002551932",
+    "partido": "PSD",
+    "numero": "55",
     "origem": "exato"
    }
   },
@@ -4594,50 +4652,6 @@
     "partido": "UP",
     "numero": "80",
     "origem": "contencao"
-   }
-  },
-  "presidente:RR": {
-   "flavio bolsonaro": {
-    "nome_urna": "Flávio Bolsonaro",
-    "sq_candidato": "280002551544",
-    "partido": "PL",
-    "numero": "22",
-    "origem": "exato"
-   },
-   "lula": {
-    "nome_urna": "Lula",
-    "sq_candidato": "280002542548",
-    "partido": "PT",
-    "numero": "13",
-    "origem": "exato"
-   },
-   "pablo marcal": {
-    "nome_urna": "Pablo Marçal",
-    "sq_candidato": "280002553884",
-    "partido": "PRTB",
-    "numero": "28",
-    "origem": "exato"
-   },
-   "renan santos": {
-    "nome_urna": "Renan Santos",
-    "sq_candidato": "280002540694",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
-   "romeu zema": {
-    "nome_urna": "Zema",
-    "sq_candidato": "280002539826",
-    "partido": "NOVO",
-    "numero": "30",
-    "origem": "contencao"
-   },
-   "ronaldo caiado": {
-    "nome_urna": "Ronaldo Caiado",
-    "sq_candidato": "280002551932",
-    "partido": "PSD",
-    "numero": "55",
-    "origem": "exato"
    }
   },
   "presidente:AL": {
@@ -6368,6 +6382,43 @@
     "origem": "outra-disputa"
    }
   },
+  "senador:RR": {
+   "antonio carlos nicoletti": {
+    "nome_urna": "Nicoletti",
+    "sq_candidato": "230002534804",
+    "partido": "PL",
+    "numero": "227",
+    "origem": "contencao"
+   },
+   "chico rodrigues": {
+    "nome_urna": "Chico Rodrigues",
+    "sq_candidato": "230002550794",
+    "partido": "PSB",
+    "numero": "400",
+    "origem": "exato"
+   },
+   "helena da asatur": {
+    "nome_urna": "Helena da Asatur",
+    "sq_candidato": "230002549845",
+    "partido": "PSD",
+    "numero": "555",
+    "origem": "exato"
+   },
+   "helio lopes": {
+    "nome_urna": "Helio Fernando Barbosa Lopes",
+    "sq_candidato": "230002534806",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "contencao"
+   },
+   "teresa surita": {
+    "nome_urna": "Teresa Surita",
+    "sq_candidato": "230002553006",
+    "partido": "MDB",
+    "numero": "155",
+    "origem": "exato"
+   }
+  },
   "senador:RS": {
    "frederico antunes": {
     "nome_urna": "Frederico Antunes",
@@ -6817,43 +6868,6 @@
     "partido": "PSDB",
     "numero": "45",
     "origem": "outra-disputa"
-   }
-  },
-  "senador:RR": {
-   "antonio carlos nicoletti": {
-    "nome_urna": "Nicoletti",
-    "sq_candidato": "230002534804",
-    "partido": "PL",
-    "numero": "227",
-    "origem": "contencao"
-   },
-   "chico rodrigues": {
-    "nome_urna": "Chico Rodrigues",
-    "sq_candidato": "230002550794",
-    "partido": "PSB",
-    "numero": "400",
-    "origem": "exato"
-   },
-   "helena da asatur": {
-    "nome_urna": "Helena da Asatur",
-    "sq_candidato": "230002549845",
-    "partido": "PSD",
-    "numero": "555",
-    "origem": "exato"
-   },
-   "helio lopes": {
-    "nome_urna": "Helio Fernando Barbosa Lopes",
-    "sq_candidato": "230002534806",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "contencao"
-   },
-   "teresa surita": {
-    "nome_urna": "Teresa Surita",
-    "sq_candidato": "230002553006",
-    "partido": "MDB",
-    "numero": "155",
-    "origem": "exato"
    }
   }
  }

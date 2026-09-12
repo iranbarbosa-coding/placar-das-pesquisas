@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1435 levantamentos · 4474 perguntas · 153 institutos · 1325 candidatos**.
+Banco: **1480 levantamentos · 4516 perguntas · 153 institutos · 1325 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -13,12 +13,12 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SOMA** — Elenco de vaga única somando mais de 100 | 2 | 2 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
-| **SEMDATA** — Levantamentos sem data utilizável | 14 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 27 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 142 | 4 |
+| **SEMDATA** — Levantamentos sem data utilizável | 36 | 0 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 132 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **209** | **38** |
+| **total** | **221** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -44,24 +44,46 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 
 *Nada a reportar.*
 
-## SEMDATA — Levantamentos sem data utilizável (14)
+## SEMDATA — Levantamentos sem data utilizável (36)
 
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
 - s_0c06f21e0a31 · Delta · AC · registro —
+- s_0c50c6b4fee1 · Paraná Pesquisas · SP · registro —
+- s_18c152f4fe25 · Real Time Big Data · SP · registro —
 - s_1f6d83b34792 · Real Time Big Data · RR · registro —
+- s_2b4379073719 · Real Time Big Data · SP · registro —
+- s_2c014467a18c · Paraná Pesquisas · SP · registro —
 - s_2fe68fa4575e · Real Time Big Data · RR · registro —
+- s_31caacbb8eab · Paraná Pesquisas · SP · registro —
+- s_3f5ebbcc1f14 · Real Time Big Data · SP · registro —
+- s_3f773e7c4da7 · Paraná Pesquisas · SP · registro —
 - s_474cbe67ada8 · Delta · AC · registro —
+- s_4a10551994da · Real Time Big Data · SP · registro —
+- s_4adb4f5d7ad9 · Real Time Big Data · SP · registro —
 - s_4b18e5197551 · Opinar · PI · registro PI-02052/2026
+- s_4ef83a915b7f · Real Time Big Data · SP · registro —
 - s_58d742edadc1 · Real Time Big Data · RR · registro —
+- s_5bad2e5e3f5b · Paraná Pesquisas · SP · registro —
 - s_5d46b3d90939 · Real Time Big Data · AC · registro —
 - s_6731840ddf13 · Paraná Pesquisas · PE · registro —
 - s_824da0368472 · Delta · AC · registro —
+- s_85e6cb3fd7ff · Paraná Pesquisas · SP · registro —
+- s_8768f19ed675 · Paraná Pesquisas · SP · registro —
+- s_8e11237d1246 · Real Time Big Data · SP · registro —
+- s_a05e548e7136 · Real Time Big Data · SP · registro —
 - s_a3b6d8cdc27d · Delta · AC · registro —
 - s_a5676154ea88 · Qualitta · RN · registro RN-06751/2026
 - s_b24aba3bbef0 · Delta · AC · registro —
+- s_b5e38606ddfc · Real Time Big Data · SP · registro —
+- s_bd70e47b93fa · Real Time Big Data · SP · registro —
 - s_c5446eaf6c82 · Doxa · PA · registro —
+- s_c622f7e17bc9 · Real Time Big Data · SP · registro —
+- s_ce9d4a8c6ec6 · Real Time Big Data · SP · registro —
+- s_f4457b6d1858 · Paraná Pesquisas · SP · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
+- s_fde53d701f86 · Paraná Pesquisas · SP · registro —
+- s_fe31562fc375 · Real Time Big Data · SP · registro —
 
 ## DUPLICATA — Mesmo campo mantido como dois levantamentos (45)
 
@@ -101,11 +123,6 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
 - **[2026]** cenários separados — Paraná Pesquisas · RJ senador/t1 · 2026-04-23 — 2 levantamentos
   s_167e1bf049a2: Rogéria Bolsonaro 28.1 · Benedita da Silva 32.3 · Márcio Canella 19.7 · Pedro Paulo 20.9
   s_c7fa19bc3263: Benedita da Silva 30.4 · Cláudio Castro 29.9 · Marcelo Crivella 21.5 · Pedro Paulo 19.4 · Márcio Canella 17.1 · Marcos Dias 5.6
-- cenários separados — AtlasIntel · SP governador/t1 · 2025-09-03 — 2 levantamentos
-  s_1a0f386d7afb: Rodrigo Manga 8.2 · Capitão Derrite 23.2 · Fernando Haddad 41 · Paulo Serra 5.2 · Ricardo Salles 10.6
-  s_1a0f386d7afb: Rodrigo Manga 10.8 · Geraldo Alckmin 39.4 · Ricardo Nunes 11.5 · Paulo Serra 1.4 · André do Prado 1.2 · Ricardo Salles 15 · Gilberto Kassab 9
-  s_1d0f1c51d18a: Tarcísio de Freitas 48.6 · Geraldo Alckmin 34.2 · Erika Hilton 8.3 · Paulo Serra 0.2 · Felipe d'Avila 1.9
-  s_1d0f1c51d18a: Tarcísio de Freitas 47.3 · Márcio França 18.2 · Guilherme Boulos 22.6 · Paulo Serra 0.6 · Felipe d'Avila 1.8
 - **[2026]** cenários separados — Real Time Big Data · SP governador/t1 · 2026-03-07 — 2 levantamentos
   s_1b5d70c07004: Tarcísio de Freitas 48 · Márcio França 23 · Paulo Serra 8 · Kim Kataguiri 10
   s_1b5d70c07004: Tarcísio de Freitas 49 · Simone Tebet 21 · Paulo Serra 9 · Kim Kataguiri 10
@@ -155,13 +172,6 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_33f0936d624b: Tarcísio de Freitas 30.1 · Fernando Haddad 43.1 · Ratinho Júnior 3.5 · Romeu Zema 2.6 · Ronaldo Caiado 7
   s_33f0936d624b: Luiz Inácio Lula da Silva 51 · Ratinho Júnior 10.4 · Romeu Zema 10.6 · Ronaldo Caiado 15.3
   s_fa88a308a3ff: Jair Messias Bolsonaro 41.3 · Luiz Inácio Lula da Silva 48.8 · Ciro Gomes 3.1 · Simone Tebet 2.3
-- cenários separados — Paraná Pesquisas · SP governador/t1 · 2025-02-23 — 2 levantamentos
-  s_341490aa1bb8: Rodrigo Manga 9.8 · Márcio França 19.3 · Marta Suplicy 19.2 · Paulo Serra 6.3 · Rodrigo Garcia 12.8 · Felicio Ramuth 2.7
-  s_341490aa1bb8: Márcio França 18.8 · Marta Suplicy 18.3 · Rodrigo Garcia 12.3 · Rodrigo Manga 9.5 · Paulo Serra 6.4 · Gilberto Kassab 4.7
-  s_f0dc6acef5ed: Márcio França 21.6 · Ricardo Nunes 35.8 · Alexandre Padilha 8 · Paulo Serra 6.5
-  s_f0dc6acef5ed: Márcio França 17 · Ricardo Nunes 27 · Alexandre Padilha 6.3 · Paulo Serra 5.1 · Pablo Marçal 25.6
-  s_f0dc6acef5ed: Tarcísio de Freitas 40.3 · Márcio França 12.7 · Alexandre Padilha 7.1 · Paulo Serra 5 · Pablo Marçal 17.6
-  s_f0dc6acef5ed: Tarcísio de Freitas 48.6 · Márcio França 16.6 · Alexandre Padilha 8.5 · Paulo Serra 5.9
 - **[2026]** cenários separados — AtlasIntel · CE governador/t1 · 2026-03-30 — 3 levantamentos
   s_34c6bb115058: Ciro Gomes 46 · Roberto Cláudio 15.2 · Eduardo Girão 22.3 · Jarir Pereira 1.1
   s_55207c7bd590: Ciro Gomes 46.2 · Elmano de Freitas 42.6 · Eduardo Girão 5.3 · Jarir Pereira 1
@@ -191,6 +201,11 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_93d336f9d7a6: Ratinho Jr 40.6 · Lula 37.2
   s_93d336f9d7a6: Tarcísio de Freitas 42.3 · Lula 37.6
   s_93d336f9d7a6: Jair Bolsonaro 51.1 · Lula 37.3
+- **[2026]** cenários separados — AtlasIntel · SP governador/t1 · 2026-09-03 — 2 levantamentos
+  s_4c85bb64cd7a: Rodrigo Manga 10.8 · Geraldo Alckmin 39.4 · Ricardo Nunes 11.5 · Paulo Serra 1.4 · André do Prado 1.2 · Ricardo Salles 15 · Gilberto Kassab 9
+  s_4c85bb64cd7a: Rodrigo Manga 8.2 · Capitão Derrite 23.2 · Fernando Haddad 41 · Paulo Serra 5.2 · Ricardo Salles 10.6
+  s_d3fc6e8d5872: Tarcísio de Freitas 48.6 · Geraldo Alckmin 34.2 · Erika Hilton 8.3 · Paulo Serra 0.2 · Felipe d'Avila 1.9
+  s_d3fc6e8d5872: Tarcísio de Freitas 47.3 · Márcio França 18.2 · Guilherme Boulos 22.6 · Paulo Serra 0.6 · Felipe d'Avila 1.8
 - **[2026]** cenários separados — AtlasIntel · BR presidente/t1 · 2026-01-20 — 2 levantamentos
   s_4d3135a9577d: Luiz Inácio Lula da Silva 48.4 · Flávio Bolsonaro 28 · Tarcísio de Freitas 11 · Ratinho Júnior 1.7 · Ronaldo Caiado 2.9 · Romeu Zema 1.7 · Renan Santos 2.9 · Aldo Rebelo 1
   s_4d3135a9577d: Luiz Inácio Lula da Silva 48.8 · Flávio Bolsonaro 35 · Ratinho Júnior 2.8 · Ronaldo Caiado 4.3 · Romeu Zema 2.8 · Renan Santos 3.4 · Aldo Rebelo 1
@@ -287,6 +302,14 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_b1d12aeaaab3: Michelle Bolsonaro 37.6 · Geraldo Alckmin 22.5 · Ratinho Júnior 11.9 · Ronaldo Caiado 9
   s_e89463848d1c: Tarcísio de Freitas 22.5 · Luiz Inácio Lula da Silva 32.7 · Ratinho Júnior 11.3 · Ronaldo Caiado 6.2
   s_e89463848d1c: Michelle Bolsonaro 36.3 · Luiz Inácio Lula da Silva 33.7 · Ratinho Júnior 10.1 · Ronaldo Caiado 6.5
+- **[2026]** cenários separados — Paraná Pesquisas · SP governador/t1 · 2026-02-23 — 2 levantamentos
+  s_c29b3c8dfdd7: Rodrigo Manga 9.8 · Márcio França 19.3 · Marta Suplicy 19.2 · Paulo Serra 6.3 · Rodrigo Garcia 12.8 · Felicio Ramuth 2.7
+  s_c29b3c8dfdd7: Rodrigo Manga 9.5 · Márcio França 18.8 · Marta Suplicy 18.3 · Paulo Serra 6.4 · Rodrigo Garcia 12.3 · Gilberto Kassab 4.7
+  s_d1eca32f49ef: Márcio França 21.6 · Ricardo Nunes 35.8 · Alexandre Padilha 8 · Paulo Serra 6.5
+  s_d1eca32f49ef: Tarcísio de Freitas 40.3 · Márcio França 12.7 · Alexandre Padilha 7.1 · Paulo Serra 5 · Pablo Marçal 17.6
+  s_d1eca32f49ef: Tarcísio de Freitas 37.8 · Geraldo Alckmin 24.7 · Alexandre Padilha 4.8 · Paulo Serra 3 · Pablo Marçal 16.2
+  s_d1eca32f49ef: Márcio França 17 · Ricardo Nunes 27 · Alexandre Padilha 6.3 · Paulo Serra 5.1 · Pablo Marçal 25.6
+  s_d1eca32f49ef: Tarcísio de Freitas 48.6 · Márcio França 16.6 · Alexandre Padilha 8.5 · Paulo Serra 5.9
 - ELENCO REPETIDO — Quaest · BR presidente/t1 · 2025-08-17 — 2 levantamentos
   s_c6dae875b63c: Luiz Inácio Lula da Silva 35 · Flávio Bolsonaro 14 · Ciro Gomes 10 · Ratinho Júnior 9 · Romeu Zema 6 · Ronaldo Caiado 5
   s_c6dae875b63c: Luiz Inácio Lula da Silva 35 · Tarcísio de Freitas 17 · Ciro Gomes 11 · Romeu Zema 4 · Ronaldo Caiado 6
@@ -299,7 +322,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (142)
+## CONFLITO — Conflitos registrados aguardando decisão (132)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -419,32 +442,22 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_510cff0a523a · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
-- person_id_orphaned · p_890708c42fde · person_id: "p_890708c42fde" × null
-- person_id_orphaned · p_b6d294702fa1 · person_id: "p_b6d294702fa1" × null
-- person_id_orphaned · p_42fe5d5e064c · person_id: "p_42fe5d5e064c" × null
-- person_id_orphaned · p_8885a66e57f7 · person_id: "p_8885a66e57f7" × null
-- person_id_orphaned · p_fc8c06d3253f · person_id: "p_fc8c06d3253f" × null
-- person_id_orphaned · p_fd2593b70c2b · person_id: "p_fd2593b70c2b" × null
-- person_id_orphaned · p_b7f84913eecc · person_id: "p_b7f84913eecc" × null
-- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
-- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
-- person_id_orphaned · p_3b2a17aa6bd9 · person_id: "p_3b2a17aa6bd9" × null
-- person_id_orphaned · p_dfaa71177edb · person_id: "p_dfaa71177edb" × null
-- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
-- person_id_orphaned · p_b47f147e6451 · person_id: "p_b47f147e6451" × null
-- person_id_orphaned · p_b21bc72b5693 · person_id: "p_b21bc72b5693" × null
+- roster_encolhido_na_fonte · q_b15a71e0a4fe · results: ["Erika Hilton","Felipe d'Avila","Kim Kataguiri","Márcio França","Paulo Serra","Tarcísio de Freitas"] × ["Luiz Felipe d'Avila","Márcio França","Paulo Serra","Tarcísio de Freitas"]
+- person_id_orphaned · p_323994772f08 · person_id: "p_323994772f08" × null
+- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 33
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 80
-- disputa_em_quarentena · governador:AP · quarentena: 16 × 19
+- disputa_em_quarentena · governador:AP · quarentena: 16 × 20
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 72
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 59
-- disputa_em_quarentena · governador:PA · quarentena: 73 × 83
+- disputa_em_quarentena · governador:PA · quarentena: 73 × 86
 - disputa_em_quarentena · governador:RS · quarentena: 55 × 57
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1192
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1199
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
-- disputa_em_quarentena · senador:GO · quarentena: 41 × 45
-- disputa_em_quarentena · senador:PE · quarentena: 58 × 59
-- disputa_em_quarentena · senador:SP · quarentena: 60 × 61
+- disputa_em_quarentena · senador:GO · quarentena: 41 × 46
+- disputa_em_quarentena · senador:PE · quarentena: 58 × 61
+- disputa_em_quarentena · senador:RJ · quarentena: 31 × 32
+- disputa_em_quarentena · senador:SP · quarentena: 60 × 62
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (4)
 
