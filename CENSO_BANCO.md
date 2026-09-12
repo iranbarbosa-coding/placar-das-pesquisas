@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 36 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 132 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 130 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **221** | **40** |
+| **total** | **219** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -322,7 +322,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (132)
+## CONFLITO — Conflitos registrados aguardando decisão (130)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -443,8 +443,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_b15a71e0a4fe · results: ["Erika Hilton","Felipe d'Avila","Kim Kataguiri","Márcio França","Paulo Serra","Tarcísio de Freitas"] × ["Luiz Felipe d'Avila","Márcio França","Paulo Serra","Tarcísio de Freitas"]
-- person_id_orphaned · p_323994772f08 · person_id: "p_323994772f08" × null
-- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
 - disputa_em_quarentena · governador:AL · quarentena: 23 × 33
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 80
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 20
