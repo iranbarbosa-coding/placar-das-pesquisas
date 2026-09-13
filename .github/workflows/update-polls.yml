@@ -215,6 +215,10 @@ jobs:
         run: node scripts/census.mjs
 
       - name: Commit se houver mudanças
+        env:
+          # URL secreta do Deploy Hook da Vercel (Settings → Git → Deploy Hooks).
+          # Guardada como secret do repositório; nunca aparece no log.
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           git config user.name "placar-bot"
           git config user.email "actions@github.com"
@@ -236,8 +240,25 @@ jobs:
               sleep $((attempt * 3))
             done
             [ "$pushed" = "1" ] || { echo "ERRO: esgotou as 5 tentativas de push"; exit 1; }
+
+            # Força o rebuild na Vercel via Deploy Hook. O push em data/ JÁ deveria
+            # disparar o build pela integração Git, mas essa integração provou-se
+            # não-confiável (site preso num build antigo enquanto o dado seguia
+            # fresco). O hook é o gatilho explícito e à prova de flakiness. Não-fatal:
+            # o dado já está commitado/pushado; uma falha aqui não reprova a rodada.
+            if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
+              echo "Disparando rebuild na Vercel via Deploy Hook…"
+              if curl -fsS -X POST "$VERCEL_DEPLOY_HOOK" -o /dev/null; then
+                echo "Deploy Hook OK — build de produção disparado."
+              else
+                echo "AVISO: Deploy Hook falhou (curl≠0) — dado foi pushado, mas confira o deploy na Vercel."
+              fi
+            else
+              echo "AVISO: secret VERCEL_DEPLOY_HOOK ausente — pulei o disparo de rebuild."
+            fi
           fi
-      # O push em data/ dispara o rebuild automático no Vercel (site é 100% estático).
+      # O push em data/ dispara o rebuild na Vercel — pela integração Git E pelo
+      # Deploy Hook explícito acima (site é 100% estático).
 
   # ── alerta de falha ──────────────────────────────────────────────────────
   # O cron falhou 02→06/09/2026 (runs 37–45) e o banco ficou congelado 5 DIAS
