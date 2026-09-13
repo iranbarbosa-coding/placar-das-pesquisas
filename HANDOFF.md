@@ -581,8 +581,14 @@ diferem em número ou partido continuam ambíguos e continuam recusados.
   (403 without it). `POST /pesquisas/v1/api` = metadata + `integra` (institute PDF) +
   `noticias`. `GET /pesquisas/v2/cenarios` = clean per-scenario results.
   `cargosId` 1=Gov 3=Pres 4=Sen; `unidadesFederativasId` AC1…TO28, **BR=6**.
-- `wikipedia.mjs` → shells out to `scripts/wiki_parse.py` over the 29 pages listed in
-  `scripts/wiki-pages.json` (PT+EN presidential + 27 state pages).
+- `wikipedia.mjs` → shells out to `scripts/wiki_parse.py` over the pages listed in
+  `scripts/wiki-pages.json` (PT+EN presidential + 27 state pages) **plus every
+  subpage those pages reference** (`discover_subpages`: `{{:Título/Sub}}`,
+  `[[/Sub]]`, `{{AP|…}}`, up to 2 levels). Since 09/2026 pt.wikipedia keeps the
+  older presidential tables in subpages ("…/Primeiro Turno/2026/Janeiro a
+  Agosto") and only transcludes them — `action=raw` returns the marker, not
+  the tables. A subpage inherits year and round from its title
+  (`hints_from_title`); `python3 scripts/wiki_parse.py --self-test` guards both.
 - `tse.mjs` — TSE/TRE registry zip (metadata only, **no results**).
 
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across

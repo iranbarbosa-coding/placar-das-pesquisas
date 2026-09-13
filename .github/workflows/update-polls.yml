@@ -114,6 +114,16 @@ jobs:
       - name: Casar nomes de urna com os nomes das pesquisas
         run: node scripts/match-ballot-names.mjs
 
+      # O parser da Wikipédia descobre sozinho as subpáginas que cada página
+      # configurada referencia (a lusófona dividiu a presidencial em
+      # "…/Primeiro Turno/2026/Janeiro a Agosto" e a principal só transclui;
+      # `action=raw` devolve o marcador, não as tabelas — foi isso que congelou
+      # presidente:BR em 30/08). Este guarda prova, sem rede, que a descoberta
+      # lê os quatro formatos de referência e que a subpágina herda ano e turno
+      # do título — ANTES de o coletor depender disso.
+      - name: Guarda de subpáginas da Wikipédia dispara
+        run: python3 scripts/wiki_parse.py --self-test
+
       - name: Coletar, normalizar e gravar o store
         run: node scripts/scrape.mjs
 
