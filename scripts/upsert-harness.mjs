@@ -23,7 +23,8 @@ import {
   priorStamps, emptyIndexes, TABLE_NAMES, DATA_DIR,
 } from "./lib/store.mjs";
 import { upsertPoll } from "./lib/upsert.mjs";
-import { writeStoreFromPolls, recusaEntradaDerivada } from "./lib/build-store.mjs";
+import { writeStoreFromPolls, recusaEntradaDerivada, ligarAbsorvidos } from "./lib/build-store.mjs";
+import { serializeRecord } from "./lib/ndjson.mjs";
 import { mintCandidateId, mintInstituteId, nameKey } from "./lib/ids.mjs";
 import { validateStore } from "./validate-store.mjs";
 import { normNome } from "./lib/nomes.mjs";
@@ -80,6 +81,67 @@ const poll = (over = {}) => ({
 // ==========================================================================
 // 1. The ladder, rung by rung
 // ==========================================================================
+
+// ==========================================================================
+// 0. A linhagem do colapso de cenário (keepFullestRound1 → ligarAbsorvidos)
+// ==========================================================================
+//
+// O perdedor do funil de 1º turno não é publicado, mas a pergunta que ele
+// tinha no commit anterior sumia do store reconstruído e o guarda de delta
+// lia "perda sem prova" (presidente:BR, 185 cenários, 13/09/2026). Aqui o
+// vencedor chega com `absorvidos` e o passe tem de gravar, em `legacy_ids`,
+// o `question_id` ANTERIOR de cada perdedor — pelo `legacy_id` exato e, se o
+// id do poll derivou, pelo elenco por nome. E a coluna tem de SERIALIZAR, só
+// onde há linhagem.
+check("linhagem de colapso: o vencedor ganha legacy_ids com a pergunta anterior do perdedor (id exato E elenco), e serializa", (store, assert) => {
+  const A = { candidate: "Ana Lima", party: "PT", pct: 40 };
+  const B = { candidate: "Bruno Sá", party: "PL", pct: 30 };
+  const C = { candidate: "Carla Reis", party: "Novo", pct: 10 };
+  const Dd = { candidate: "Dario Nunes", party: "MDB", pct: 5 };
+  const E = { candidate: "Elisa Prado", party: "PSD", pct: 8 };
+  const F = { candidate: "Fábio Rocha", party: "PP", pct: 6 };
+  // Elencos ALTERNATIVOS (< 0,8 de sobreposição), para serem perguntas
+  // distintas no store — exatamente o caso que o guarda acusava.
+  const cheia = poll({ id: "p360-777-1-0-cheia", results: [A, B, C, Dd] });
+  const curta = poll({ id: "p360-778-1-0-curta", results: [A, B, E] });
+  const outra = poll({ id: "p360-779-1-0-outra", results: [A, B, F] });
+
+  // Rodada N (o commit anterior): as três existem como três perguntas do MESMO levantamento.
+  const dirAnt = fs.mkdtempSync(path.join(os.tmpdir(), "placar-ant-"));
+  const anterior = readStore({ dir: dirAnt, tables: [], runDate: RUN_DATE });
+  const { question: qCheiaAnt } = upsertPoll(anterior, cheia, { source: "poder360", nativeId: 777 });
+  const { question: qCurtaAnt } = upsertPoll(anterior, curta, { source: "poder360", nativeId: 778 });
+  const { question: qOutraAnt } = upsertPoll(anterior, outra, { source: "poder360", nativeId: 779 });
+  fs.rmSync(dirAnt, { recursive: true, force: true });
+  assert(new Set([qCheiaAnt.question_id, qCurtaAnt.question_id, qOutraAnt.question_id]).size === 3,
+    "as três tabelas tinham de ser três perguntas distintas (fixture)");
+  assert(anterior.surveys.length === 1, `${anterior.surveys.length} levantamento(s) anterior(es), esperado 1 (mesmo registro)`);
+
+  // Rodada N+1: o funil colapsou `curta` e `outra` em `cheia`. `outra` chega com
+  // o poll.id DERIVADO (o caso "marca relabelada"): o exato falha, o elenco prova.
+  const outraDerivada = { ...outra, id: "wiki-deadbeef0001" };
+  const vencedor = { ...cheia, absorvidos: [curta, outraDerivada] };
+  const { question: qCheia } = upsertPoll(store, vencedor, { source: "poder360", nativeId: 777 });
+  const perguntaDe = new Map([[vencedor, qCheia]]);
+  const n = ligarAbsorvidos(store, anterior, [vencedor], perguntaDe);
+
+  assert(n === 2, `${n} ligação(ões), esperadas 2 (uma por perdedor)`);
+  const lig = qCheia.legacy_ids ?? [];
+  assert(lig.includes(qCurtaAnt.question_id), `legacy_ids sem a pergunta anterior de \`curta\` (via legacy_id exato): ${JSON.stringify(lig)}`);
+  assert(lig.includes(qOutraAnt.question_id), `legacy_ids sem a pergunta anterior de \`outra\` (via elenco por nome): ${JSON.stringify(lig)}`);
+  assert(!lig.includes(qCheia.question_id), "o vencedor não se lista como sucessor de si mesmo");
+
+  // A coluna serializa — e SÓ onde há linhagem (churn zero no resto).
+  const serial = serializeRecord(qCheia, "question");
+  assert(serial.includes('"legacy_ids"'), "legacy_ids tinha de aparecer no NDJSON da pergunta");
+  assert(serial.indexOf('"legacy_ids"') < serial.indexOf('"survey_id"'), "legacy_ids fica logo depois do id, como nas outras tabelas");
+  const semLinhagem = serializeRecord(qCurtaAnt, "question");
+  assert(!semLinhagem.includes('"legacy_ids"'), "pergunta sem linhagem NÃO ganha a coluna (churn zero)");
+
+  // Idempotente e não-duplicante numa segunda passagem.
+  const n2 = ligarAbsorvidos(store, anterior, [vencedor], perguntaDe);
+  assert(n2 === 0 && (qCheia.legacy_ids ?? []).length === 2, "segunda passagem não duplica nem re-conta");
+});
 
 check("degrau 1: mesmo source_ref → mesmo levantamento", (store, assert) => {
   const a = upsertPoll(store, poll(), { source: "poder360", nativeId: 999 });

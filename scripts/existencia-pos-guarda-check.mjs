@@ -327,6 +327,34 @@ function rodar({ mutacao = null } = {}) {
       `ficou "${polls.map((p) => p.id).join(", ")}", esperada a de elenco mais cheio — o conserto revogou a regra entre vivas`);
   });
 
+  caso("round 1: o colapso GRAVA a linhagem — o vencedor carrega os perdedores em absorvidos, e encadeia", ({ afirma }) => {
+    // Três cenários da mesma marca/data com elencos alternativos (2, 3 e 4
+    // nomes). O funil mantém o mais cheio; os dois engolidos têm de ficar
+    // registrados NELE — é o que `ligarAbsorvidos` (lib/build-store.mjs) lê para
+    // provar a sucessão ao guarda de delta. Sem isto, 185 cenários presidenciais
+    // colapsados eram "perda sem prova" e congelavam a corrida inteira no commit
+    // anterior, rodada após rodada (medido em 13/09/2026).
+    const media = curadaRo();
+    const cheia = curadaRo({
+      id: "curado-c3c3c3c3c3c3",
+      results: [...curadaRo().results, { candidate: "Delta Existencia", party: "MDB", pct: 5 }],
+      undecided_pct: 7, blank_null_pct: 5,
+    });
+    const curta = curadaRo({
+      id: "curado-b2b2b2b2b2b2",
+      results: media.results.slice(0, 2), undecided_pct: 30, blank_null_pct: 26,
+    });
+    const polls = keepFullestRound1([curta, media, cheia], oDedupe);
+    afirma(polls.length === 1 && polls[0]?.id === cheia.id,
+      `ficou "${polls.map((p) => p.id).join(", ")}", esperada a mais cheia`);
+    const ids = (polls[0]?.absorvidos ?? []).map((p) => p.id).sort();
+    afirma(ids.length === 2 && ids.includes(curta.id) && ids.includes(media.id),
+      `absorvidos = [${ids.join(", ")}], esperados os DOIS perdedores (encadeado: curta→media→cheia)`);
+    // Uma segunda passagem não duplica o que já foi absorvido.
+    const denovo = keepFullestRound1([...polls], oDedupe);
+    afirma((denovo[0]?.absorvidos ?? []).length === 2, "uma segunda passagem não duplica a linhagem");
+  });
+
   // ====================================================================
   // D. O CASO presidente:RO — a dispensa do add_poll
   // ====================================================================

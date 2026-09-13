@@ -30,7 +30,7 @@ import path from "node:path";
 import {
   readStore, writeStore, markHeadlines, priorStamps, emptyIndexes,
   seedRegisteredPeople, logConflict, DATA_DIR, SOURCE_ORDER, TABLE_NAMES,
-  PEOPLE_SCHEMA_VERSION,
+  PEOPLE_SCHEMA_VERSION, questionRostersMatch,
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
 import { identityConflicts } from "./candidates.mjs";
@@ -101,10 +101,16 @@ export function buildStoreFromPolls(polls, {
 
   const nativeOf = (p) => /^p360-(\d+)-/.exec(p.id ?? "")?.[1] ?? null;
   const report = {};
+  // A pergunta que cada poll RESOLVEU nesta rodada — para `ligarAbsorvidos`
+  // achar o vencedor do colapso sem re-resolver (e sem depender de `legacy_id`,
+  // que só o PRIMEIRO escritor da pergunta grava).
+  const perguntaDe = new Map();
   for (const p of ordered) {
-    const { matched_by } = upsertPoll(store, p, { source: p.source, runId: runDate, nativeId: nativeOf(p) });
+    const { question, matched_by } = upsertPoll(store, p, { source: p.source, runId: runDate, nativeId: nativeOf(p) });
+    perguntaDe.set(p, question);
     report[matched_by] = (report[matched_by] ?? 0) + 1;
   }
+  ligarAbsorvidos(store, previous, ordered, perguntaDe);
   // A RETENÇÃO ANTES DA MANCHETE, e a ordem não é arbitrária: `markHeadlines`
   // promove a pergunta de ELENCO MAIS CHEIO, então decidir a manchete sobre uma
   // tabela que a fonte truncou promoveria o cenário errado e publicaria o
@@ -134,6 +140,86 @@ export function buildStoreFromPolls(polls, {
   // nenhum chamador rebaixa isso.
   store.meta = { ...meta, schema_version: PEOPLE_SCHEMA_VERSION };
   return { store, report };
+}
+
+/**
+ * A LINHAGEM DO COLAPSO DE CENÁRIO vira sucessão PROVADA para o guarda de delta.
+ *
+ * `keepFullestRound1` (scrape.mjs) mantém, por (marca, disputa, UF, turno,
+ * data), só o cenário de 1º turno mais cheio e grava em `absorvidos` do
+ * vencedor os cenários que engoliu. O perdedor não é publicado — o funil sempre
+ * foi assim — mas a PERGUNTA que ele tinha no commit anterior some do store
+ * reconstruído, e `disputa-delta-check` lia isso como "perda sem prova".
+ * Medido em 13/09/2026: presidente:BR 1422 → 1199, 185 sem prova — a
+ * quarentena congelava a corrida presidencial inteira no commit anterior TODA
+ * rodada (o baseline congelado ainda tinha os cenários; a coleta fresca os
+ * colapsava; o guarda re-congelava), auto-perpetuando desde ~30/08 e jogando
+ * fora a coleta fresca — inclusive a pesquisa nacional nova que a fonte trazia.
+ *
+ * Aqui, com o store ANTERIOR na mão (o mesmo padrão de `reterElencos` e das
+ * traduções de carimbo): para cada vencedor, cada perdedor é procurado entre as
+ * perguntas anteriores do MESMO levantamento — por `legacy_id` (o `poll.id` que
+ * a cunhagem grava; exato) e, faltando, por elenco POR NOME (`questionRostersMatch`
+ * no caminho de nomes: o perdedor não passa por `resolveCandidate`, de propósito,
+ * para não cunhar candidato fantasma de uma tabela que não é publicada). O
+ * `question_id` comitado do perdedor entra em `legacy_ids` do vencedor, e
+ * `acharSucessora` (lib/delta.mjs) o aceita como sucessão "gravada, não
+ * inferida" — a via `legacy_ids`, que vale sozinha.
+ *
+ * ⚠ NÃO AFROUXA O GUARDA. Nenhum predicado do juiz muda: só passa a existir a
+ * prova que faltava, gravada no ponto em que a decisão de colapsar é tomada. Um
+ * cenário que a FONTE apaga inteiro (a classe `v2/cenarios`) não passa por aqui
+ * — não foi colapsado por nós, não ganha linhagem, e segue reprovando como
+ * antes. Perdedor sem pergunta anterior (estreia) não tem perda a provar e não
+ * gera nada.
+ *
+ * O `legacy_ids` da rodada anterior VOLTA por id antes de tudo — a mesma lição
+ * de `traduzirCarimbos`: o store é reconstruído do zero, e sem isto a linhagem
+ * evaporaria na rodada seguinte, num diff que ora grava, ora apaga.
+ */
+export function ligarAbsorvidos(store, previous, polls, perguntaDe) {
+  const anteriores = previous?.questions ?? [];
+  const antPorId = new Map(anteriores.map((q) => [q.question_id, q]));
+  // 0) A linhagem anterior volta por id — só onde existia; nada nasce vazio.
+  for (const q of store.questions) {
+    const ant = antPorId.get(q.question_id);
+    if (ant?.legacy_ids?.length) q.legacy_ids = [...new Set([...(q.legacy_ids ?? []), ...ant.legacy_ids])].sort();
+  }
+  const antPorSurvey = new Map();
+  for (const q of anteriores) {
+    if (!antPorSurvey.has(q.survey_id)) antPorSurvey.set(q.survey_id, []);
+    antPorSurvey.get(q.survey_id).push(q);
+  }
+  const nomesDe = (poll) => (poll.results ?? []).map((r) => r.candidate).filter(Boolean);
+  let ligados = 0;
+  for (const p of polls) {
+    if (!p.absorvidos?.length) continue;
+    const vencedora = perguntaDe.get(p);
+    if (!vencedora) continue;
+    // Só as irmãs que DE FATO sumiram: uma pergunta anterior que ainda existe
+    // no store novo não foi colapsada (foi re-produzida pela coleta), e ligá-la
+    // como "absorvida" seria linhagem falsa — inerte para o juiz (ele só consulta
+    // sucessora de pergunta SUMIDA), mas errada no dado. `questionById` é o
+    // índice do store novo.
+    const irmas = (antPorSurvey.get(vencedora.survey_id) ?? [])
+      .filter((q) => q.question_id !== vencedora.question_id && !store._indexes.questionById.has(q.question_id));
+    for (const perdedor of p.absorvidos) {
+      const exata = irmas.find((q) => q.legacy_id != null && q.legacy_id === perdedor.id);
+      const nomes = nomesDe(perdedor);
+      const anterior = exata ?? irmas.find((q) =>
+        q.race === perdedor.race && q.round === perdedor.round &&
+        questionRostersMatch(q.results, nomes.map((candidate) => ({ candidate })), nomes));
+      if (!anterior) continue;
+      const ja = new Set(vencedora.legacy_ids ?? []);
+      if (ja.has(anterior.question_id)) continue;
+      vencedora.legacy_ids = [...ja, anterior.question_id].sort();
+      ligados++;
+    }
+  }
+  if (ligados) {
+    console.log(`linhagem de colapso: ${ligados} pergunta(s) anterior(es) ligada(s) em legacy_ids do cenário mais cheio`);
+  }
+  return ligados;
 }
 
 /**
