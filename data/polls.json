@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-13T18:18:54.032Z",
+ "generated_at": "2026-09-13T19:29:19.986Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-13T18:18:54.032Z"
+   "last_ok": "2026-09-13T19:29:19.986Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-13T18:18:54.032Z"
+   "last_ok": "2026-09-13T19:29:19.986Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-13T18:18:54.032Z"
+   "last_ok": "2026-09-13T19:29:19.986Z"
   }
  ],
  "polls": [
@@ -1424,6 +1424,39 @@
    "tse_registration": null
   },
   {
+   "id": "1219dcd1149c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 1208,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 49.3
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 46.3
+    }
+   ],
+   "others_pct": 1.4,
+   "undecided_pct": 2.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4210371c519d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-2o-turno-com-62-contra-30-de-flavio-no-rn-diz-pesquisa/",
@@ -1703,6 +1736,39 @@
    ],
    "others_pct": 2.24,
    "undecided_pct": 16.71,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "7ecb1587dd51",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: JHC e Renan Filho",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 1208,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 49.9
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 46.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -9990,6 +10056,39 @@
    "tse_registration": null
   },
   {
+   "id": "5a2fba885ecc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: JHC e Renan Filho",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 44
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7d234c1e7830",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -10228,6 +10327,39 @@
    ],
    "others_pct": 12.74,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a9dfb5a3f445",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 43
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 43
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -11295,6 +11427,49 @@
    "undecided_pct": 26.1,
    "blank_null_pct": null,
    "tse_registration": "BR-04083/2026"
+  },
+  {
+   "id": "p360-14038-1-0-7e3fbddccbd6",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisaTDL-SenadorGovernador-AL-4set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisaTDL-SenadorGovernador-AL-4set2026.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "TDL",
+   "contractor": "Portal Agora Alagoas",
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-02",
+   "published_date": "2026-09-02",
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 31.9
+    },
+    {
+     "candidate": "Márcio Jambo",
+     "party": "Democrata",
+     "pct": 1.1
+    },
+    {
+     "candidate": "Lenilda Luna",
+     "party": "UP",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.9,
+   "blank_null_pct": 4.6,
+   "tse_registration": "AL-05121/2026"
   },
   {
    "id": "p360-14039-1-0-7052505a2f59",
@@ -15432,6 +15607,72 @@
    "tse_registration": null
   },
   {
+   "id": "2a72cf96d714",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-26",
+   "fieldwork_end": "2026-08-29",
+   "published_date": null,
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 47.2
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 41.3
+    }
+   ],
+   "others_pct": 1.4,
+   "undecided_pct": 10.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "61b56048e3a2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: JHC e Renan Filho",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-26",
+   "fieldwork_end": "2026-08-29",
+   "published_date": null,
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 48.9
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 42.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "ba566a91b8cb",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -15526,6 +15767,49 @@
    "undecided_pct": 74.9,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "p360-14012-1-0-20f01a69e6ba",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/indice-inteligente-AL-disputa-governador-setembro.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/indice-inteligente-AL-disputa-governador-setembro.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Índice",
+   "contractor": "Alagoas Sistema de Comunicação",
+   "fieldwork_start": "2026-08-27",
+   "fieldwork_end": "2026-08-29",
+   "published_date": "2026-08-29",
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 47.6
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 36
+    },
+    {
+     "candidate": "Lenilda Luna",
+     "party": "UP",
+     "pct": 0.8
+    },
+    {
+     "candidate": "Márcio Jambo",
+     "party": "Democrata",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15.6,
+   "blank_null_pct": null,
+   "tse_registration": "AL-05894/2026"
   },
   {
    "id": "p360-14013-1-0-9ef359b9816b",
@@ -20856,6 +21140,39 @@
    "tse_registration": "AM-09965/2026"
   },
   {
+   "id": "b168e50833a2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Falpe",
+   "contractor": null,
+   "fieldwork_start": "2026-08-16",
+   "fieldwork_end": "2026-08-25",
+   "published_date": null,
+   "sample_size": 5000,
+   "margin_of_error": 1.39,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 37.5
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 41.25
+    }
+   ],
+   "others_pct": 0.75,
+   "undecided_pct": 20.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "c741adf5f11a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
@@ -22495,6 +22812,39 @@
    "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": "RS-09460/2026"
+  },
+  {
+   "id": "a11882a41c78",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-24",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 46.41
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 33.88
+    }
+   ],
+   "others_pct": 1.15,
+   "undecided_pct": 18.55,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "ae8400ead3ea",
@@ -24692,6 +25042,39 @@
    "tse_registration": "BR-09028/2026"
   },
   {
+   "id": "0c451d381ff8",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: JHC e Renan Filho",
+   "pollster": "Quaest",
+   "contractor": "TV Asa Branca",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": "AL-05503/2026"
+  },
+  {
    "id": "0f4d4e00e805",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-46-contra-45-de-flavio-no-2o-turno-diz-btg-nexus/",
@@ -25445,72 +25828,6 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "a10ced9ee36b",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Quaest",
-   "contractor": "TV Asa Branca",
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": "2026-08-23",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 42
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": "AL-05503/2026"
-  },
-  {
-   "id": "b517bd05214e",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
-   "race": "governador",
-   "state": "AL",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "TV Asa Branca",
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": "2026-08-23",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 40
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 42
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": "AL-05503/2026"
   },
   {
    "id": "d28a2c78f6ae",
@@ -26323,6 +26640,40 @@
    "undecided_pct": 61.5,
    "blank_null_pct": null,
    "tse_registration": "RJ-04605/2026"
+  },
+  {
+   "id": "p360-13924-1-0-ec4914133239",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "TV Asa Branca",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Lenilda Luna",
+     "party": "UP",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": "AL-05503/2026",
+   "incomplete": true
   },
   {
    "id": "p360-13929-1-0-71e2e312e476",

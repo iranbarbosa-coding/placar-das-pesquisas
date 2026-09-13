@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **85 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **86 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -492,6 +492,23 @@ Soma **58.4%** · faltam **41.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Alagoas
+
+### Quaest — 2026-08-23
+
+Soma **60%** · faltam **40 pontos** · 2 candidato(s) na tabela · amostra 804 · registro AL-05503/2026
+
+| candidato | % |
+|---|---|
+| Renan Filho | 42 |
+| Lenilda Luna | 1 |
+| *não sabe/não respondeu* | 17 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
