@@ -1,24 +1,178 @@
 {
- "generated_at": "2026-09-12T23:59:19.047Z",
+ "generated_at": "2026-09-13T16:12:56.501Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-12T23:59:19.047Z"
+   "last_ok": "2026-09-13T16:12:56.501Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-12T23:59:19.047Z"
+   "last_ok": "2026-09-13T16:12:56.501Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-12T23:59:19.047Z"
+   "last_ok": "2026-09-13T16:12:56.501Z"
   }
  ],
  "polls": [
+  {
+   "id": "10c415a1a92d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-07",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 47.8
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 19.7
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 10.4
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 11.8
+    },
+    {
+     "candidate": "Samuel Costa",
+     "party": "PSB",
+     "pct": 0.8
+    }
+   ],
+   "others_pct": 0.4,
+   "undecided_pct": 9.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "65971e0059fb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-07",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Fernando Máximo",
+     "party": "PL",
+     "pct": 47.4
+    },
+    {
+     "candidate": "Bruno Scheid",
+     "party": "PL",
+     "pct": 43.9
+    },
+    {
+     "candidate": "Sílvia Cristina",
+     "party": "PP",
+     "pct": 23.2
+    },
+    {
+     "candidate": "Mariana Carvalho",
+     "party": "União Brasil",
+     "pct": 14.7
+    },
+    {
+     "candidate": "Acir Gurgacz",
+     "party": "PDT",
+     "pct": 14
+    }
+   ],
+   "others_pct": 19.8,
+   "undecided_pct": 37,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e0a551ab5fb5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-07",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 3025,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 55.3
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 37.8
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "PSTU",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Carlos Machado",
+     "party": "PCB",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Vivian Mendes",
+     "party": "UP",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Izadora Dias",
+     "party": "PCO",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Policial Edjane",
+     "party": "Agir",
+     "pct": 1.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "08d4dbedce29",
    "source": null,
@@ -233,6 +387,84 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "064155babbbf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-10",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Helder",
+     "party": "MDB",
+     "pct": 40.9
+    },
+    {
+     "candidate": "Delegado Éder Mauro",
+     "party": "PL",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Zequinha Marinho",
+     "party": "Podemos",
+     "pct": 26.8
+    },
+    {
+     "candidate": "Chicão",
+     "party": "União Brasil",
+     "pct": 28.7
+    },
+    {
+     "candidate": "Celso Sabino",
+     "party": "PDT",
+     "pct": 18.2
+    },
+    {
+     "candidate": "Gizelle Freitas",
+     "party": "PSOL",
+     "pct": 3.6
+    },
+    {
+     "candidate": "Conti",
+     "party": "PSOL",
+     "pct": 4.4
+    },
+    {
+     "candidate": "Fernanda Lopes",
+     "party": "UP",
+     "pct": 0.9
+    },
+    {
+     "candidate": "Breno Guimarães",
+     "party": "Mobiliza",
+     "pct": 6.9
+    },
+    {
+     "candidate": "Edlaine Rodrigues",
+     "party": "Democrata",
+     "pct": 2.1
+    },
+    {
+     "candidate": "Coronel Jonildo",
+     "party": "DC",
+     "pct": 0.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -639,7 +871,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 1
     },
     {
@@ -798,7 +1030,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.6
     },
     {
@@ -4143,7 +4375,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0
     },
     {
@@ -7986,7 +8218,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.6
     },
     {
@@ -13750,7 +13982,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.3
     },
     {
@@ -22824,7 +23056,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 1
     },
     {
@@ -22959,7 +23191,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 1
     },
     {
@@ -26817,7 +27049,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0
     },
     {
@@ -27868,7 +28100,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 1
     },
     {
@@ -30374,7 +30606,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.4
     },
     {
@@ -33292,7 +33524,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.3
     }
    ],
@@ -37463,7 +37695,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.1
     }
    ],
@@ -41841,7 +42073,7 @@
     },
     {
      "candidate": "Izadora Dias",
-     "party": null,
+     "party": "PCO",
      "pct": 0.3
     }
    ],

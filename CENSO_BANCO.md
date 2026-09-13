@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1485 levantamentos · 4521 perguntas · 153 institutos · 1325 candidatos**.
+Banco: **1487 levantamentos · 4525 perguntas · 153 institutos · 1325 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -454,7 +454,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 46
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 61
 - disputa_em_quarentena · senador:RJ · quarentena: 31 × 32
-- disputa_em_quarentena · senador:SP · quarentena: 60 × 62
+- disputa_em_quarentena · senador:SP · quarentena: 60 × 63
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (4)
 
