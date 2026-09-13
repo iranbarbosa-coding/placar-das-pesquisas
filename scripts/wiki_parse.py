@@ -353,7 +353,7 @@ def parse_dates(text, year_hint):
     # unknown date must stay unknown.
     return None, None, False
 
-def extract(text, source_url, lang, race='presidente', state=None):
+def extract(text, source_url, lang, race='presidente', state=None, title_hint=None):
     lines = text.split('\n')
     # O ESTÍMULO QUE A PÁGINA DECLARA, e só ele (§4 do CONVENTIONS). As páginas
     # estaduais abrem com "Todos os cenários se referem a pesquisas
@@ -370,7 +370,14 @@ def extract(text, source_url, lang, race='presidente', state=None):
         r'cen[áa]rios?\s+se\s+referem\s+a\s+pesquisas?\s+estimuladas?', lead, re.I) else None
     polls = []
     h2 = h3 = h4 = hidden = None
-    last_year = None   # running year context in document order
+    # Contexto herdado do TÍTULO da subpágina (ver discover_subpages). A
+    # Wikipédia dividiu a presidencial em subpáginas como
+    # ".../Primeiro Turno/2026/Janeiro a Agosto": lá dentro os cabeçalhos são
+    # só os meses — o ano e o turno ficaram NO TÍTULO. Sem isto, as datas saem
+    # sem ano (o Node as anula) e um 2º turno inteiro viraria 1º. Para as
+    # páginas configuradas `title_hint` é None e nada muda: o ano segue vindo
+    # dos cabeçalhos, em ordem de documento, como sempre veio.
+    default_round, last_year = hints_from_title(title_hint)
     i = 0
     n = len(lines)
     while i < n:
@@ -410,7 +417,7 @@ def extract(text, source_url, lang, race='presidente', state=None):
                     depth -= 1
                     if depth == 0: break
                 i += 1
-            polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state, last_year))
+            polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state, last_year, default_round))
         i += 1
     if page_stimulus:
         for p in polls:
@@ -429,7 +436,7 @@ def _is_event_banner(row):
     txt = ''.join(ch for ch in unicodedata.normalize('NFD', txt) if not unicodedata.combining(ch))
     return bool(re.search(r'\b(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)', txt))
 
-def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None, year_ctx=None):
+def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None, year_ctx=None, default_round=1):
     rows = parse_table(tbl_lines)
     if not rows: return []
     grid = expand_grid(rows)
@@ -452,7 +459,9 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
     ctx = ' | '.join(x for x in (h2, h3, h4) if x)
     low = unicodedata.normalize('NFD', ctx.lower())
     low = ''.join(ch for ch in low if not unicodedata.combining(ch))
-    rnd = 2 if ('segundo turno' in low or 'second round' in low) else 1
+    # O cabeçalho manda; sem cabeçalho de turno, vale o turno herdado do título
+    # da subpágina (1 nas páginas configuradas — comportamento de sempre).
+    rnd = 2 if ('segundo turno' in low or 'second round' in low) else default_round
     if race == 'auto':
         if 'senad' in low:
             race = 'senador'
@@ -599,8 +608,152 @@ def desambigua_2t(polls):
                 p['scenario'] = "2º turno: " + " vs ".join(cands)
     return polls
 
+def _fold(t):
+    t = unicodedata.normalize('NFD', (t or '').lower())
+    return ''.join(ch for ch in t if not unicodedata.combining(ch))
+
+def hints_from_title(tail):
+    """(turno padrão, ano inicial) lidos do título RELATIVO de uma subpágina.
+
+    `tail` é o que vem depois de "<página configurada>/" — ex.
+    "Primeiro Turno/2026/Janeiro a Agosto" → (1, 2026);
+    "Segundo Turno/2025" → (2, 2025). None (página configurada) → (1, None),
+    que é exatamente o estado inicial que `extract` sempre teve.
+    """
+    if not tail:
+        return 1, None
+    low = _fold(tail)
+    rnd = 2 if ('segundo turno' in low or 'second round' in low or '2o turno' in low or '2º turno' in tail.lower()) else 1
+    ym = re.search(r'(20\d\d)', tail)
+    return rnd, (int(ym.group(1)) if ym else None)
+
+def page_title_from_url(url):
+    """Título (com espaços) a partir de .../wiki/<Título> ou ...?title=<Título>."""
+    from urllib.parse import unquote, urlparse, parse_qs
+    u = urlparse(url)
+    qs = parse_qs(u.query)
+    if 'title' in qs:
+        t = qs['title'][0]
+    else:
+        m = re.search(r'/wiki/([^?#]+)', url)
+        t = m.group(1) if m else ''
+    return unquote(t).replace('_', ' ').strip()
+
+def _norm_title(t):
+    t = re.sub(r'\s+', ' ', (t or '').replace('_', ' ')).strip().strip('/')
+    return (t[:1].upper() + t[1:]) if t else t
+
+def discover_subpages(text, title):
+    """Subpáginas de `title` referenciadas no wikitext CRU de `title`.
+
+    Por que existe: em setembro de 2026 a Wikipédia lusófona moveu as tabelas
+    antigas da presidencial para subpáginas ("…/Primeiro Turno/2026/Janeiro a
+    Agosto") e passou a TRANSCLUÍ-las na principal. `action=raw` devolve só o
+    marcador `{{:Subpágina}}` — as tabelas sumiram da coleta sem erro nenhum de
+    fetch, e o guarda de delta por disputa congelou presidente:BR em 30/08
+    (179 perguntas "sem prova"). Em vez de adivinhar nomes de subpágina, o
+    coletor lê o que a própria página referencia:
+      • transclusão absoluta   {{:Título/Sub}}
+      • transclusão relativa   {{:/Sub}}
+      • link absoluto          [[Título/Sub|…]]
+      • link relativo          [[/Sub|…]]
+      • {{AP|Título/Sub}}, {{Ver artigo principal|…}}, {{Main|…}} etc. — caem no
+        caso absoluto, porque o título aparece por extenso.
+    Âncoras (#…) e parâmetros (|…) são cortados. Só o que começa pelo título
+    da página — outras páginas linkadas (eleição, categoria) NÃO entram.
+    """
+    if not title:
+        return []
+    base = _norm_title(title)
+    words = [re.escape(w) for w in base.split(' ')]
+    base_pat = r'[ _]+'.join(words)
+    # primeira letra insensível a caixa (MediaWiki trata "pesquisas…" = "Pesquisas…")
+    if base_pat and base_pat[0].isalpha():
+        base_pat = '[' + base_pat[0].upper() + base_pat[0].lower() + ']' + base_pat[1:]
+    tail_pat = r'([^\[\]\{\}\|#<>\n]+)'
+    found = []
+    for m in re.finditer(r'(?<![\w/])' + base_pat + r'/' + tail_pat, text):
+        found.append(m.group(1))
+    for m in re.finditer(r'(?:\[\[|\{\{:)\s*/' + tail_pat, text):
+        found.append(m.group(1))
+    out, seen = [], set()
+    for tail in found:
+        tail = _norm_title(tail)
+        if not tail or tail.lower().startswith(('ficheiro:', 'file:', 'imagem:', 'image:')):
+            continue
+        full = f"{base}/{tail}"
+        key = full.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(full)
+    return out
+
+def _entry_from_title(parent, title):
+    """Entrada no formato de scripts/wiki-pages.json para uma subpágina descoberta."""
+    from urllib.parse import quote
+    lang = parent.get('lang', 'pt')
+    t = quote(title.replace(' ', '_'), safe='/:(),')
+    return {
+        'url': f"https://{lang}.wikipedia.org/wiki/{t}",
+        'lang': lang,
+        'race': parent.get('race', 'presidente'),
+        'state': parent.get('state'),
+        'raw_url': f"https://{lang}.wikipedia.org/w/index.php?title={t}&action=raw",
+    }
+
+def _self_test():
+    """Guarda: a descoberta de subpáginas e o contexto herdado do título."""
+    base = 'Pesquisas de opinião para a eleição presidencial no Brasil em 2026'
+    text = '\n'.join([
+        "Texto da página.",
+        "{{:Pesquisas de opinião para a eleição presidencial no Brasil em 2026/Primeiro Turno/2026/Janeiro a Agosto}}",
+        "{{AP|Pesquisas_de_opinião_para_a_eleição_presidencial_no_Brasil_em_2026/Segundo_Turno/2025}}",
+        "Ver [[Pesquisas de opinião para a eleição presidencial no Brasil em 2026/Primeiro Turno/2025#Dezembro|2025]].",
+        "[[/Primeiro Turno/2024|2024]] e {{:/Segundo Turno/2024}}",
+        "[[Eleição presidencial no Brasil em 2026]] [[Ficheiro:Foto.svg|thumb]]",
+        "{{:Pesquisas de opinião para a eleição presidencial no Brasil em 2026/Primeiro Turno/2026/Janeiro a Agosto}}",
+    ])
+    got = discover_subpages(text, base)
+    want = [f"{base}/Primeiro Turno/2026/Janeiro a Agosto", f"{base}/Segundo Turno/2025",
+            f"{base}/Primeiro Turno/2025", f"{base}/Primeiro Turno/2024", f"{base}/Segundo Turno/2024"]
+    assert got == want, ('discover_subpages', got)
+    assert discover_subpages("nada aqui [[Outra página/Sub]]", base) == []
+    assert page_title_from_url("https://pt.wikipedia.org/w/index.php?title=Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026&action=raw") == base
+    assert page_title_from_url("https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto") == f"{base}/Primeiro Turno/2026/Janeiro a Agosto"
+    e = _entry_from_title({'lang': 'pt', 'race': 'presidente', 'state': None}, f"{base}/Primeiro Turno/2026/Janeiro a Agosto")
+    assert e['raw_url'] == "https://pt.wikipedia.org/w/index.php?title=Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto&action=raw", e['raw_url']
+    assert hints_from_title(None) == (1, None)
+    assert hints_from_title('Primeiro Turno/2026/Janeiro a Agosto') == (1, 2026)
+    assert hints_from_title('Segundo Turno/2025') == (2, 2025)
+    assert hints_from_title('Second round/2025') == (2, 2025)
+
+    # Uma tabela como as da subpágina: cabeçalho só com o MÊS, sem ano nem turno.
+    tabela = '\n'.join([
+        "=== Janeiro ===",
+        "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-",
+        "| Quaest || 5 a 7 de janeiro || 2.004 || 36 || 29 || 10 || 15",
+        "|}",
+    ])
+    url = f"https://pt.wikipedia.org/wiki/{base}"
+    sem = extract(tabela, url, 'pt', 'presidente', None)
+    assert len(sem) == 1 and sem[0]['round'] == 1 and sem[0]['fieldwork_end'] is None, ('sem título: ano indefinido', sem)
+    p1 = extract(tabela, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2026/Janeiro a Agosto')
+    assert len(p1) == 1 and p1[0]['round'] == 1 and p1[0]['fieldwork_end'] == '2026-01-07', p1
+    assert [r['candidate'] for r in p1[0]['results']] == ['Luiz Inácio Lula da Silva', 'Flávio Bolsonaro'], p1
+    p2 = extract(tabela, url, 'pt', 'presidente', None, title_hint='Segundo Turno/2025')
+    assert len(p2) == 1 and p2[0]['round'] == 2 and p2[0]['fieldwork_end'] == '2025-01-07', p2
+    # O cabeçalho continua mandando sobre o título.
+    p3 = extract("== Segundo turno ==\n" + tabela, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2026/Janeiro a Agosto')
+    assert p3[0]['round'] == 2, p3
+    print("wiki_parse --self-test: OK (descoberta de subpáginas + contexto do título)")
+
 def main():
     import urllib.request
+    if sys.argv[1:] == ['--self-test']:
+        _self_test(); return
     cfg_path = sys.argv[1]
     with open(cfg_path, encoding='utf-8') as f:
         pages = json.load(f)
@@ -610,18 +763,61 @@ def main():
     # estruturado ao Node, que o consolida no RESUMO DE COBERTURA — uma página
     # que zera (ou falha) deixa de ser invisível.
     page_log = []
+    # Fila de páginas: as configuradas primeiro (na ordem do JSON, que decide a
+    # preferência PT>EN em wikipedia.mjs), depois as subpáginas que cada uma
+    # referencia (ver discover_subpages), até 2 níveis — uma subpágina-índice
+    # ("…/Primeiro Turno/2026") pode apontar para as suas ("…/Janeiro a
+    # Agosto"). Dedupe por (lang, título): uma subpágina já listada no JSON
+    # não é buscada de novo quando a principal também a referencia.
+    MAX_DEPTH = 2
+    fila = []
+    vistos = set()
+    bases = {}
     for pg in pages:
+        title = pg.get('title') or page_title_from_url(pg.get('raw_url') or pg.get('url') or '')
+        key = (pg.get('lang', 'pt'), _norm_title(title).lower())
+        if key in vistos:
+            continue
+        vistos.add(key)
+        # Uma configurada que é subpágina de outra configurada (mesmo idioma)
+        # herda o contexto do título relativo a ela.
+        tail = None
+        for (lang_b, base_b), base_title in bases.items():
+            if lang_b == pg.get('lang', 'pt') and key[1].startswith(base_b + '/'):
+                tail = _norm_title(title)[len(base_title) + 1:]
+                break
+        if '/' not in _norm_title(title):
+            bases[key] = _norm_title(title)
+        fila.append((pg, title, tail, 0, None))
+    qi = 0
+    while qi < len(fila):
+        pg, title, tail, depth, parent = fila[qi]; qi += 1
         alvo = f"{pg.get('race', 'presidente')}:{pg.get('state') or 'BR'} ({pg.get('lang', 'pt')})"
+        if tail:
+            alvo += f" ⊂ /{tail}"
         try:
             req = urllib.request.Request(pg['raw_url'], headers={
                 'User-Agent': 'PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)'})
             with urllib.request.urlopen(req, timeout=45) as r:
                 text = r.read().decode('utf-8')
             polls = extract(text, pg['url'], pg.get('lang', 'pt'),
-                            pg.get('race', 'presidente'), pg.get('state'))
+                            pg.get('race', 'presidente'), pg.get('state'), title_hint=tail)
             all_polls.extend(polls)
-            page_log.append({'source': 'wikipedia', 'alvo': alvo, 'fetched': len(polls)})
+            entry = {'source': 'wikipedia', 'alvo': alvo, 'fetched': len(polls)}
+            if parent:
+                entry['descoberta_em'] = parent
+            page_log.append(entry)
             print(f"  wiki: {alvo}: {len(polls)} polls", file=sys.stderr)
+            if depth < MAX_DEPTH:
+                base_title = title if not tail else title[:len(title) - len(tail) - 1]
+                for sub in discover_subpages(text, title):
+                    skey = (pg.get('lang', 'pt'), sub.lower())
+                    if skey in vistos:
+                        continue
+                    vistos.add(skey)
+                    sub_tail = sub[len(base_title) + 1:] if sub.lower().startswith(base_title.lower() + '/') else sub
+                    print(f"  wiki: subpágina descoberta em {title}: /{sub_tail}", file=sys.stderr)
+                    fila.append((_entry_from_title(pg, sub), sub, sub_tail, depth + 1, title))
         except Exception as e:
             failures.append(f"{pg['raw_url']}: {e}")
             page_log.append({'source': 'wikipedia', 'alvo': alvo, 'fetched': 0, 'error': str(e)})
