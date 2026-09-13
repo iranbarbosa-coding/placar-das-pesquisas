@@ -27,8 +27,15 @@ export const FIELD_ORDER = {
     "crosstabs_status", "crosstabs_unavailable_reason",
     "retracted", "mint_seed", "provenance",
   ],
+  // `legacy_ids` logo depois do id, como em `survey`, `candidate`, `person` e
+  // `institute`, e pelo mesmo motivo: é a linhagem do próprio id. Aqui guarda
+  // os `question_id` dos cenários de 1º turno que `keepFullestRound1` colapsou
+  // neste (ver `ligarAbsorvidos`, lib/build-store.mjs) — o que o guarda de
+  // delta por disputa lê como sucessão provada. Só é gravado quando não-vazio
+  // (`serializeRecord` pula `undefined`): a coluna não toca pergunta alguma que
+  // não absorveu nada, então a adição não gera churn.
   question: [
-    "question_id", "survey_id", "legacy_id", "race", "round", "uf",
+    "question_id", "legacy_ids", "survey_id", "legacy_id", "race", "round", "uf",
     "scenario_ordinal", "scenario_label_raw", "stimulus", "is_headline",
     "results", "others_pct", "undecided_pct", "blank_null_pct", "basis",
     "parse_warnings", "repaired", "retracted", "mint_seed", "provenance",

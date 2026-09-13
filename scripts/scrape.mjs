@@ -387,6 +387,24 @@ export function keepFullestRound1(polls, {
     } else if (p.results.length > cur.results.length) {
       vencedor = p;
     }
+    // A LINHAGEM DO COLAPSO FICA GRAVADA NO VENCEDOR, no ponto em que a decisão
+    // é tomada — não inferida depois. O perdedor não é publicado (o funil sempre
+    // foi assim), mas a PERGUNTA que ele tinha no commit anterior some do store
+    // reconstruído, e o guarda de delta por disputa lia isso como "perda sem
+    // prova". Medido em 13/09/2026: presidente:BR 1422 → 1199, 185 sem prova —
+    // a quarentena congelava a corrida presidencial INTEIRA no commit anterior
+    // toda rodada (o baseline congelado ainda tinha os cenários, a coleta fresca
+    // os colapsava, o guarda re-congelava), auto-perpetuando desde ~30/08 e
+    // jogando fora a coleta fresca — inclusive a pesquisa nacional nova que a
+    // fonte trazia. `ligarAbsorvidos` (lib/build-store.mjs) lê esta lista e grava
+    // o `question_id` comitado do perdedor em `legacy_ids` do vencedor; o juiz
+    // aceita `legacy_ids` como sucessão "gravada, não inferida" (delta.mjs,
+    // `acharSucessora`), e o colapso deixa de parecer perda SEM afrouxar nenhum
+    // predicado do guarda. Encadeia: o que o perdedor já absorvera passa junto,
+    // para o vencedor final carregar a linhagem inteira. Propriedade enumerável
+    // de propósito (um spread a preserva); é removida antes de `polls.json`.
+    const perdedor = vencedor === cur ? p : cur;
+    vencedor.absorvidos = [...new Set([...(vencedor.absorvidos ?? []), ...(perdedor.absorvidos ?? []), perdedor])];
     grupo[i] = vencedor;
     ordinalTravado.delete(cur);
     travar(vencedor, oTravado);
@@ -961,7 +979,10 @@ async function main() {
       { name: "Wikipédia — páginas de pesquisas 2026", url: "https://pt.wikipedia.org", last_ok: wiki.ok ? now : (prevSources.get("Wikipédia — páginas de pesquisas 2026")?.last_ok ?? null) },
       { name: "TSE — Dados Abertos (PesqEle)", url: "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026", last_ok: tse.ok ? now : (prevSources.get("TSE — Dados Abertos (PesqEle)")?.last_ok ?? null) },
     ],
-    polls,
+    // `absorvidos` é linhagem INTERNA do colapso (keepFullestRound1 →
+    // ligarAbsorvidos): não é campo de pesquisa e não vai para polls.json.
+    // `persistStore` recebe `polls` intacto, com a propriedade.
+    polls: polls.map((p) => { const { absorvidos, ...semLinhagem } = p; void absorvidos; return semLinhagem; }),
   };
 
   const { errors, warn } = validate(dataset, { minPolls: Math.min(50, Math.floor(previous.polls.length * 0.5) || 1) });
