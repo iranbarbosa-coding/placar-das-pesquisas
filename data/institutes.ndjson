@@ -72,6 +72,7 @@
 {"institute_id":"i_73e697fec45b","legacy_ids":[],"canonical":"DataCapital","aliases":["DataCapital"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
 {"institute_id":"i_74e453b52af9","legacy_ids":[],"canonical":"JR Comunicações, Serviços a Pesquisas","aliases":["JR Comunicações, Serviços a Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_79c686f5eb4a","legacy_ids":[],"canonical":"Contextto","aliases":["Contextto"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
+{"institute_id":"i_7a046217b0df","legacy_ids":["i_fb6c9eaa83af"],"canonical":"IPEMS","aliases":["IPEMS"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7a6e62988e8a","legacy_ids":[],"canonical":"Gerp","aliases":["Gerp"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7aa6036e0c6c","legacy_ids":[],"canonical":"DataVero","aliases":["DataVero"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7c89bec393b4","legacy_ids":[],"canonical":"IPR","aliases":["IPR"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -148,6 +149,5 @@
 {"institute_id":"i_f543bcf5a729","legacy_ids":[],"canonical":"Ranking","aliases":["Ranking"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f98c78295598","legacy_ids":[],"canonical":"TCM/TSDois","aliases":["TCM/TSDois"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fad3232f047e","legacy_ids":[],"canonical":"ECM Sergipe","aliases":["ECM Sergipe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_fb6c9eaa83af","legacy_ids":[],"canonical":"Ipems/JD1","aliases":["Ipems/JD1"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fcfba71031f1","legacy_ids":[],"canonical":"Fiems/Instituto Opinião","aliases":["Fiems/Instituto Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fee26aee2746","legacy_ids":[],"canonical":"Econométrica","aliases":["Econométrica"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

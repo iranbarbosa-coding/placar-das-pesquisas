@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1480 levantamentos · 4516 perguntas · 153 institutos · 1325 candidatos**.
+Banco: **1485 levantamentos · 4521 perguntas · 153 institutos · 1325 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 36 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 130 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 129 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **219** | **40** |
+| **total** | **218** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -322,7 +322,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (130)
+## CONFLITO — Conflitos registrados aguardando decisão (129)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -336,7 +336,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_cdab98c6acbd · results: ["Antônio Galvan","Beny Godoy","Carlos Fávaro","Janaína Riva","José Antonio Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques","Professor Nelson Ferreira"] × ["Carlos Fávaro","Galvan","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"]
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_cb46acb84d35 · results: ["Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
-- roster_encolhido_na_fonte · q_fa8f8d30b5f3 · results: ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Delcídio do Amaral","Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_26ca7f89a6ea · results: ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Eduardo Riedel","Fábio Trad","Jefferson Bezzerra","João Henrique Catan","Lucien Rezende","Renato Gomes"]
 - roster_encolhido_na_fonte · q_f6f883c79f82 · results: ["ACM Neto","Aroldo Félix","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
 - roster_encolhido_na_fonte · q_b609b001b4c2 · results: ["Eduardo Riedel","Fábio Trad","João Henrique Catan","Lucien Rezende"] × ["Eduardo Riedel","Fábio Trad","João Henrique Catan"]
@@ -447,9 +446,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 80
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 20
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 72
-- disputa_em_quarentena · governador:MT · quarentena: 52 × 59
+- disputa_em_quarentena · governador:MT · quarentena: 52 × 61
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 86
-- disputa_em_quarentena · governador:RS · quarentena: 55 × 57
+- disputa_em_quarentena · governador:RS · quarentena: 55 × 59
 - disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1199
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 46
