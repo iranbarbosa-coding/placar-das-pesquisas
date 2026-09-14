@@ -1,0 +1,66 @@
+# DIAGNÓSTICO (só nesta branch, nunca no main): roda a coleta REAL no runner e
+# compara presidente:BR entre o commit (HEAD) e a coleta fresca, pergunta a
+# pergunta, para as perdas que o guarda de delta ainda chama de "sem prova".
+name: Diagnóstico — delta presidente:BR (coleta real)
+on:
+  push:
+    branches: ["claude/placar-32-creator-pitches-7dk5vm"]
+    paths: [".github/workflows/diag-delta-branch.yml"]
+permissions:
+  contents: read
+jobs:
+  comparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/fetch-candidaturas.mjs
+      - run: node scripts/match-ballot-names.mjs
+      - name: Coleta real (escreve data/ na árvore de trabalho)
+        run: node scripts/scrape.mjs > /tmp/scrape.log 2>&1 || (tail -50 /tmp/scrape.log; exit 1)
+      - name: presidente:BR — perdas sem prova, lado a lado
+        run: |
+          set -u
+          mkdir -p /tmp/prev
+          for f in questions surveys candidates; do git show HEAD:data/$f.ndjson > /tmp/prev/$f.ndjson; done
+          grep -n "descartada \[cenario_colapsado_round1\].*presidente/BR.*2025-0[46]-2[357]\|descartada \[cenario_colapsado_round1\].*presidente/BR.*2025-10-19\|linhagem de colapso" /tmp/scrape.log || true
+          node - <<'JS'
+          import("node:fs").then(async (fs) => {
+            const rd = (f) => fs.readFileSync(f, "utf-8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+            const P = { q: rd("/tmp/prev/questions.ndjson"), s: rd("/tmp/prev/surveys.ndjson"), c: rd("/tmp/prev/candidates.ndjson") };
+            const N = { q: rd("data/questions.ndjson"), s: rd("data/surveys.ndjson"), c: rd("data/candidates.ndjson") };
+            const by = (arr, k) => new Map(arr.map((x) => [x[k], x]));
+            const Ps = by(P.s, "survey_id"), Ns = by(N.s, "survey_id"), Pc = by(P.c, "candidate_id"), Nc = by(N.c, "candidate_id");
+            const pres = (q) => q.race === "presidente" && (q.uf == null || q.uf === "BR");
+            const Pq = P.q.filter(pres), Nq = N.q.filter(pres);
+            const Nids = new Set(Nq.map((q) => q.question_id));
+            const lost = Pq.filter((q) => !Nids.has(q.question_id));
+            console.log(`presidente:BR — commit ${Pq.length} · fresco ${Nq.length} · ids do commit ausentes no fresco: ${lost.length}`);
+            const nomes = (q, C) => (q.results ?? []).map((r) => (C.get(r.candidate_id)?.canonical ?? r.name_raw ?? r.candidate_id) + ":" + r.pct).join(", ");
+            const dias = (a, b) => Math.abs((new Date(a) - new Date(b)) / 864e5);
+            for (const q of lost) {
+              const s = Ps.get(q.survey_id) ?? {};
+              console.log(`\n=== PERDIDA ${q.question_id} | ${s.institute_names_raw?.[0]} ${s.fieldwork_start}→${s.fieldwork_end} | r${q.round} | ${q.scenario_label_raw} | ord ${q.scenario_ordinal}`);
+              console.log(`    seed: ${q.mint_seed}`);
+              console.log(`    legacy_id ${q.legacy_id} legacy_ids ${JSON.stringify(q.legacy_ids ?? [])} | survey seed: ${s.mint_seed} | refs ${JSON.stringify((s.source_refs ?? []).map((r) => r.source + ":" + r.native_id))}`);
+              console.log(`    elenco: ${nomes(q, Pc)}`);
+              // fresco: mesmo survey_id, ou mesmo instituto ±3d
+              const cand = Nq.filter((n) => {
+                const ns = Ns.get(n.survey_id) ?? {};
+                return n.survey_id === q.survey_id || (ns.institute_id === s.institute_id && ns.fieldwork_end && s.fieldwork_end && dias(ns.fieldwork_end, s.fieldwork_end) <= 3);
+              });
+              console.log(`    fresco — ${cand.length} pergunta(s) do mesmo levantamento (survey igual ou instituto ±3d):`);
+              for (const n of cand) {
+                const ns = Ns.get(n.survey_id) ?? {};
+                console.log(`      ${n.question_id} | survey ${n.survey_id}${n.survey_id === q.survey_id ? " (=)" : ""} ${ns.fieldwork_start}→${ns.fieldwork_end} | r${n.round} | ${n.scenario_label_raw} | ord ${n.scenario_ordinal} | legacy_id ${n.legacy_id} legacy_ids ${JSON.stringify(n.legacy_ids ?? [])}`);
+                console.log(`         seed: ${n.mint_seed}`);
+                console.log(`         elenco: ${nomes(n, Nc)}`);
+              }
+              const sn = [...new Set(cand.map((n) => n.survey_id))].map((id) => Ns.get(id));
+              for (const x of sn) console.log(`      survey ${x.survey_id} seed: ${x.mint_seed} | legacy_ids ${JSON.stringify(x.legacy_ids ?? [])} | refs ${JSON.stringify((x.source_refs ?? []).map((r) => r.source + ":" + r.native_id))}`);
+            }
+          });
+          JS
