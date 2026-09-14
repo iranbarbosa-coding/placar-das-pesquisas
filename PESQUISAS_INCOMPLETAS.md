@@ -861,20 +861,6 @@ Soma **73.2%** · faltam **26.8 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-### Portal Goiás — 2026-09-04
-
-Soma **73.3%** · faltam **26.7 pontos** · 3 candidato(s) na tabela · amostra 1250
-
-| candidato | % |
-|---|---|
-| Daniel Vilela | 42.6 |
-| Marconi Perillo | 17.3 |
-| Wilder Morais | 13.4 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Presidente · São Paulo · 2º turno
 
 ### Enfoque — 2026-08-10
@@ -894,7 +880,7 @@ Soma **73.9%** · faltam **26.1 pontos** · 2 candidato(s) na tabela · amostra 
 
 ## Presidente · Santa Catarina
 
-### Data Povo — 2026-07-23
+### Correio do Povo — 2026-07-23
 
 Soma **74.6%** · faltam **25.4 pontos** · 5 candidato(s) na tabela · amostra 1008 · registro BR-05953/2026
 
@@ -929,6 +915,21 @@ Soma **75%** · faltam **25 pontos** · 4 candidato(s) na tabela · amostra 1104
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/pesquisa-mostra-empate-entre-5-candidatos-ao-senado-no-rs/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Sergipe
+
+### CTAS — 2026-09-03
+
+Soma **75.6%** · faltam **24.4 pontos** · 2 candidato(s) na tabela · amostra 1224
+
+| candidato | % |
+|---|---|
+| Fábio | 48.28 |
+| Valmir de Francisquinho | 27.28 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

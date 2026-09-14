@@ -4,7 +4,7 @@
  "stats": {
   "exato": 603,
   "contencao": 199,
-  "outra_disputa": 163,
+  "outra_disputa": 162,
   "ambiguo": 5,
   "sem": 556
  },
@@ -331,13 +331,6 @@
     "partido": "PL",
     "numero": "22",
     "origem": "exato"
-   },
-   "gleisi hoffmann": {
-    "nome_urna": "Gleisi",
-    "sq_candidato": "160002547656",
-    "partido": "PT",
-    "numero": "131",
-    "origem": "outra-disputa"
    },
    "helder barbalho": {
     "nome_urna": "Helder",

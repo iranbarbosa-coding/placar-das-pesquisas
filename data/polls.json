@@ -1,24 +1,125 @@
 {
- "generated_at": "2026-09-14T00:22:01.836Z",
+ "generated_at": "2026-09-14T18:03:50.522Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-14T00:22:01.836Z"
+   "last_ok": "2026-09-14T18:03:50.522Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-14T00:22:01.836Z"
+   "last_ok": "2026-09-14T18:03:50.522Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-14T00:22:01.836Z"
+   "last_ok": "2026-09-14T18:03:50.522Z"
   }
  ],
  "polls": [
+  {
+   "id": "686374222760",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Nova Ibrape",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-13",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Eduardo Riedel",
+     "party": "PP",
+     "pct": 50.2
+    },
+    {
+     "candidate": "Fábio Trad",
+     "party": "PT",
+     "pct": 13.1
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 4.5
+    },
+    {
+     "candidate": "Delcidio Amaral",
+     "party": "PRD",
+     "pct": 6.8
+    },
+    {
+     "candidate": "Economista Renato Gomes",
+     "party": "DC",
+     "pct": 1.3
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 20.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ef11fe2b1b4f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Nova Ibrape",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-13",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 25
+    },
+    {
+     "candidate": "Capitão Contar",
+     "party": "PL",
+     "pct": 23.4
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 8.8
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 8.2
+    },
+    {
+     "candidate": "Beto do Movimento",
+     "party": "PSOL",
+     "pct": 2.7
+    },
+    {
+     "candidate": "Daniel Junior",
+     "party": "Agir",
+     "pct": 1.9
+    }
+   ],
+   "others_pct": 6.7,
+   "undecided_pct": 23.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "10c415a1a92d",
    "source": null,
@@ -68,6 +169,216 @@
    "tse_registration": null
   },
   {
+   "id": "1798cc322bcf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RJ",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Paes e Anthony Garotinho",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Paes",
+     "party": "PSD",
+     "pct": 45
+    },
+    {
+     "candidate": "Garotinho",
+     "party": "Republicanos",
+     "pct": 24
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2125669f0711",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Arruda",
+   "pollster": "Correio/Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 51.7
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2c7a63c54f92",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Correio/Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 41
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 15.7
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 14
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 4.1
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 5.3
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 2.8
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 13.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3cae997724fe",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "senador",
+   "state": "TO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-07",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Gomes",
+     "party": "PL",
+     "pct": 43.1
+    },
+    {
+     "candidate": "Gaguim",
+     "party": "União Brasil",
+     "pct": 19.1
+    },
+    {
+     "candidate": "Alexandre Guimarães",
+     "party": "MDB",
+     "pct": 25
+    },
+    {
+     "candidate": "Ronaldo Dimas",
+     "party": "Podemos",
+     "pct": 7.8
+    },
+    {
+     "candidate": "Eli Borges",
+     "party": "Republicanos",
+     "pct": 20.4
+    },
+    {
+     "candidate": "Vanderlei Luxemburgo",
+     "party": "Podemos",
+     "pct": 7.3
+    },
+    {
+     "candidate": "Paulo Mourão",
+     "party": "PT",
+     "pct": 15.3
+    }
+   ],
+   "others_pct": 14.7,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3d32ec618e63",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Leandro Grass",
+   "pollster": "Correio/Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 55.1
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 27.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "65971e0059fb",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -112,6 +423,231 @@
    ],
    "others_pct": 19.8,
    "undecided_pct": 37,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6e05a40ec264",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "TDL",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 47
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 36
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9479f61204bb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "senador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Correio/Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Michelle Bolsonaro",
+     "party": "PL",
+     "pct": 39.7
+    },
+    {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 25.3
+    },
+    {
+     "candidate": "Bia Kicis",
+     "party": "PL",
+     "pct": 23
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 21.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 61.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a0257e70a5f0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RJ",
+   "round": 1,
+   "scenario": "1º turno — cenário 2/2",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Paes",
+     "party": "PSD",
+     "pct": 35
+    },
+    {
+     "candidate": "Douglas Ruas",
+     "party": "PL",
+     "pct": 25
+    },
+    {
+     "candidate": "Garotinho",
+     "party": "Republicanos",
+     "pct": 7
+    },
+    {
+     "candidate": "André Marinho",
+     "party": "Novo",
+     "pct": 3
+    },
+    {
+     "candidate": "Coronel Busnello",
+     "party": "Missão",
+     "pct": 4
+    },
+    {
+     "candidate": "William Siri",
+     "party": "PSOL",
+     "pct": 5
+    },
+    {
+     "candidate": "Cyro Garcia",
+     "party": "PSTU",
+     "pct": 1
+    },
+    {
+     "candidate": "Juliete",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Luan Monteiro",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a3271ae13e6b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "TDL",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Arthur Lira",
+     "party": "PP",
+     "pct": 39
+    },
+    {
+     "candidate": "Renan",
+     "party": "MDB",
+     "pct": 33
+    },
+    {
+     "candidate": "Marina JHC",
+     "party": "PSDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Davi Davino Filho",
+     "party": "Republicanos",
+     "pct": 13
+    },
+    {
+     "candidate": "Dr. Wanderley",
+     "party": "MDB",
+     "pct": 10
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d7133f9110f4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RJ",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Paes e Douglas Ruas",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Paes",
+     "party": "PSD",
+     "pct": 42
+    },
+    {
+     "candidate": "Douglas Ruas",
+     "party": "PL",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -174,6 +710,64 @@
    "tse_registration": null
   },
   {
+   "id": "f1bef5997e83",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 53
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 36
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Carlos Machado",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Vivian Mendes",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Izadora Dias",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Policial Edjane",
+     "party": "Agir",
+     "pct": 0
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "08d4dbedce29",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -217,6 +811,97 @@
    "tse_registration": null
   },
   {
+   "id": "345bbba8db82",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Neokemp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-11",
+   "published_date": null,
+   "sample_size": 1008,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Carol de Toni",
+     "party": "PL",
+     "pct": 49.9
+    },
+    {
+     "candidate": "Carlos Bolsonaro",
+     "party": "PL",
+     "pct": 43.4
+    },
+    {
+     "candidate": "Esperidião Amin",
+     "party": "PP",
+     "pct": 37.1
+    },
+    {
+     "candidate": "Décio Lima",
+     "party": "PT",
+     "pct": 25.5
+    },
+    {
+     "candidate": "Afrânio Boppré",
+     "party": "PSOL",
+     "pct": 14.4
+    }
+   ],
+   "others_pct": 16.3,
+   "undecided_pct": 13.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "38d234107cc7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Neokemp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-11",
+   "published_date": null,
+   "sample_size": 1008,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 51.2
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 24
+    },
+    {
+     "candidate": "Gelson Merísio",
+     "party": "PSB",
+     "pct": 15.1
+    },
+    {
+     "candidate": "Ralf Zimmer",
+     "party": "PRD",
+     "pct": 0.6
+    }
+   ],
+   "others_pct": 3.6,
+   "undecided_pct": 5.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "9211860fcc19",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
@@ -244,14 +929,14 @@
      "pct": 18
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 14
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 15
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 14
     },
     {
      "candidate": "Sebastião Coelho",
@@ -498,6 +1183,39 @@
    ],
    "others_pct": 3,
    "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3d31e867ebd6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IPPI",
+   "contractor": null,
+   "fieldwork_start": "2026-09-07",
+   "fieldwork_end": "2026-09-10",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Rafael Fonteles",
+     "party": "PT",
+     "pct": 68
+    },
+    {
+     "candidate": "Joel Rodrigues",
+     "party": "PP",
+     "pct": 25
+    }
+   ],
+   "others_pct": 11,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3480,6 +4198,39 @@
    "tse_registration": null
   },
   {
+   "id": "38755f347510",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-09-06",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 48.3
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 34.2
+    }
+   ],
+   "others_pct": 1.5,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "38de32f1b006",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
@@ -3562,6 +4313,39 @@
    ],
    "others_pct": 0.21,
    "undecided_pct": 17.16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "512797d2f5b4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
+   "pollster": "Correio do Povo",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 38
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3811,6 +4595,64 @@
    "tse_registration": null
   },
   {
+   "id": "c8213fe0da44",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "senador",
+   "state": "TO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Correio do Povo",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Eduardo Gomes",
+     "party": "PL",
+     "pct": 38
+    },
+    {
+     "candidate": "Gaguim",
+     "party": "União Brasil",
+     "pct": 21
+    },
+    {
+     "candidate": "Alexandre Guimarães",
+     "party": "MDB",
+     "pct": 27
+    },
+    {
+     "candidate": "Ronaldo Dimas",
+     "party": "Podemos",
+     "pct": 7
+    },
+    {
+     "candidate": "Eli Borges",
+     "party": "Republicanos",
+     "pct": 13
+    },
+    {
+     "candidate": "Vanderlei Luxemburgo",
+     "party": "Podemos",
+     "pct": 13
+    },
+    {
+     "candidate": "Paulo Mourão",
+     "party": "PT",
+     "pct": 8
+    }
+   ],
+   "others_pct": 13,
+   "undecided_pct": 60,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "c9b7c825bb3b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
@@ -3871,19 +4713,110 @@
      "pct": 17
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 15
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 17
     },
     {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 15
+    },
+    {
      "candidate": "Sebastião Coelho",
      "party": "Novo",
      "pct": 10
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e78602870ffe",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-09-06",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Arthur Lira",
+     "party": "PP",
+     "pct": 41.3
+    },
+    {
+     "candidate": "Renan",
+     "party": "MDB",
+     "pct": 26.3
+    },
+    {
+     "candidate": "Marina JHC",
+     "party": "PSDB",
+     "pct": 38.2
+    },
+    {
+     "candidate": "Davi Davino Filho",
+     "party": "Republicanos",
+     "pct": 16.9
+    },
+    {
+     "candidate": "Dr. Wanderley",
+     "party": "MDB",
+     "pct": 8.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f78aefe210b2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Correio do Povo",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 33
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 41
+    },
+    {
+     "candidate": "Laurez Moreira",
+     "party": "PSD",
+     "pct": 6
+    },
+    {
+     "candidate": "Ataides de Oliveira",
+     "party": "Novo",
+     "pct": 3
     }
    ],
    "others_pct": 3,
@@ -7620,14 +8553,14 @@
      "pct": 23.2
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 17.9
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 21.4
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 17.9
     },
     {
      "candidate": "Sebastião Coelho",
@@ -8088,13 +9021,17 @@
      "candidate": "Wilder Morais",
      "party": "PL",
      "pct": 13.4
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 9
     }
    ],
-   "others_pct": null,
-   "undecided_pct": null,
+   "others_pct": 1.8,
+   "undecided_pct": 15.3,
    "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
+   "tse_registration": null
   },
   {
    "id": "f4f7d4e54c6c",
@@ -8920,6 +9857,40 @@
    "undecided_pct": 3.8,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "bd7c72e7353a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CTAS",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-03",
+   "published_date": null,
+   "sample_size": 1224,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 48.28
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 27.28
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
   },
   {
    "id": "f83eb36cc3ce",
@@ -10308,24 +11279,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 4.83
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 1.05
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 0.18
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.23
     }
    ],
-   "others_pct": 12.74,
+   "others_pct": 15.2,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -10630,24 +11586,9 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 20.89
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.54
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 0.65
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 1.52
     }
    ],
-   "others_pct": 2.93,
+   "others_pct": 5.64,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -12289,14 +13230,14 @@
      "pct": 27.13
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 21.71
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 22.87
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 21.71
     },
     {
      "candidate": "Sebastião Coelho",
@@ -13936,14 +14877,14 @@
      "pct": 17.8
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 12.2
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 11.6
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 12.2
     },
     {
      "candidate": "Sebastião Coelho",
@@ -15748,14 +16689,14 @@
      "pct": 22.4
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 15.7
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 18.9
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 15.7
     },
     {
      "candidate": "Sebastião Coelho",
@@ -17289,9 +18230,14 @@
      "candidate": "Júlio César",
      "party": "PSD",
      "pct": 31
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 8
     }
    ],
-   "others_pct": null,
+   "others_pct": 0,
    "undecided_pct": 77,
    "blank_null_pct": null,
    "tse_registration": null
@@ -17562,16 +18508,6 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 23
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 1
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 2
     }
    ],
    "others_pct": 3,
@@ -20762,7 +21698,7 @@
      "pct": 11.8
     }
    ],
-   "others_pct": 18.66,
+   "others_pct": 18.6,
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": null
@@ -22578,14 +23514,14 @@
      "pct": 17
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 12
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 9
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 12
     },
     {
      "candidate": "Sebastião Coelho",
@@ -27063,14 +27999,14 @@
      "pct": 19.4
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 14
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 18.4
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 14
     },
     {
      "candidate": "Sebastião Coelho",
@@ -28107,24 +29043,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 4
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 1
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 1
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 2
     }
    ],
-   "others_pct": 11,
+   "others_pct": 15,
    "undecided_pct": 34,
    "blank_null_pct": null,
    "tse_registration": null
@@ -28387,14 +29308,14 @@
      "pct": 16
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 12
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 11
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 12
     },
     {
      "candidate": "Sebastião Coelho",
@@ -28491,24 +29412,9 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 21
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 1
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 1
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 2
     }
    ],
-   "others_pct": 5,
+   "others_pct": 9,
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
@@ -31269,13 +32175,13 @@
      "pct": 17
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
+     "candidate": "Bia Kicis",
+     "party": "PL",
      "pct": 15
     },
     {
-     "candidate": "Bia Kicis",
-     "party": "PL",
+     "candidate": "Érika Kokay",
+     "party": "PT",
      "pct": 15
     },
     {
@@ -33057,14 +33963,14 @@
      "pct": 17.2
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 12.2
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 17.4
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 12.2
     },
     {
      "candidate": "Sebastião Coelho",
@@ -33678,19 +34584,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 3.4
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 0.8
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 0.7
     }
    ],
-   "others_pct": 11.9,
+   "others_pct": 12.5,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -33721,24 +34617,9 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 16.3
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.7
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 0.2
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.4
     }
    ],
-   "others_pct": 2,
+   "others_pct": 3.3,
    "undecided_pct": 30,
    "blank_null_pct": null,
    "tse_registration": null
@@ -34404,24 +35285,9 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 19.21
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.99
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 0.99
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.44
     }
    ],
-   "others_pct": 4.51,
+   "others_pct": 6.93,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -34510,24 +35376,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 5.8
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 0.7
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 0.88
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.23
     }
    ],
-   "others_pct": 13.56,
+   "others_pct": 16.37,
    "undecided_pct": 87.01,
    "blank_null_pct": null,
    "tse_registration": null
@@ -38463,19 +39314,19 @@
      "pct": 20.3
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
+     "candidate": "Bia Kicis",
+     "party": "PL",
      "pct": 18.4
     },
     {
-     "candidate": "Bia Kicis",
-     "party": "PL",
-     "pct": 5.3
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 3.3
     },
     {
      "candidate": "Sebastião Coelho",
      "party": "Novo",
-     "pct": 3.3
+     "pct": 5.3
     }
    ],
    "others_pct": 19.4,
@@ -38694,24 +39545,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 5.25
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 0.6
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 0.08
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.16
     }
    ],
-   "others_pct": 16.25,
+   "others_pct": 18.09,
    "undecided_pct": 87.01,
    "blank_null_pct": null,
    "tse_registration": null
@@ -40167,19 +41003,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 4.6
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 1.58
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.14
     }
    ],
-   "others_pct": 3.67,
+   "others_pct": 6.39,
    "undecided_pct": 84.37,
    "blank_null_pct": null,
    "tse_registration": null
@@ -40210,21 +41036,6 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 18.99
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.64
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 0.51
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.26
     }
    ],
    "others_pct": 3.92,
@@ -40347,24 +41158,9 @@
      "candidate": "Joel Rodrigues",
      "party": "PP",
      "pct": 26.5
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.58
-    },
-    {
-     "candidate": "Professor Gisvaldo",
-     "party": "PSOL",
-     "pct": 0.09
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.69
     }
    ],
-   "others_pct": 1.87,
+   "others_pct": 3.23,
    "undecided_pct": 13.81,
    "blank_null_pct": null,
    "tse_registration": null
@@ -41235,14 +42031,14 @@
      "pct": 46.9
     },
     {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 32.3
-    },
-    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 22.6
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 32.3
     },
     {
      "candidate": "Sebastião Coelho",
@@ -43476,7 +44272,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Novo Ibrape",
+   "pollster": "Nova Ibrape",
    "contractor": null,
    "fieldwork_start": "2026-07-25",
    "fieldwork_end": "2026-07-29",
@@ -43764,7 +44560,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Novo Ibrape",
+   "pollster": "Nova Ibrape",
    "contractor": null,
    "fieldwork_start": "2026-07-25",
    "fieldwork_end": "2026-07-29",
@@ -43791,19 +44587,9 @@
      "candidate": "Economista Renato Gomes",
      "party": "DC",
      "pct": 2.9
-    },
-    {
-     "candidate": "Jeferson Bezerra",
-     "party": "Agir",
-     "pct": 1
-    },
-    {
-     "candidate": "Lucien Rezende",
-     "party": "PSOL",
-     "pct": 2.3
     }
    ],
-   "others_pct": null,
+   "others_pct": 3.3,
    "undecided_pct": 25.2,
    "blank_null_pct": null,
    "tse_registration": null
@@ -52834,7 +53620,7 @@
    "state": "SC",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Data Povo",
+   "pollster": "Correio do Povo",
    "contractor": "Neokemp",
    "fieldwork_start": null,
    "fieldwork_end": "2026-07-23",
@@ -54678,24 +55464,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 6.9
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 1.3
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 1.4
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 0.8
     }
    ],
-   "others_pct": 7.9,
+   "others_pct": 11.4,
    "undecided_pct": 31.1,
    "blank_null_pct": null,
    "tse_registration": null
@@ -58924,29 +59695,9 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 1.45
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 1
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 0.67
-    },
-    {
-     "candidate": "Lourdes Melo",
-     "party": "PCO",
-     "pct": 1
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.89
     }
    ],
-   "others_pct": 3.79,
+   "others_pct": 7.35,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -59053,24 +59804,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 7.39
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 2.56
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 2.84
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 2.13
     }
    ],
-   "others_pct": 24.42,
+   "others_pct": 31.95,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -59326,29 +60062,9 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 3.2
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 1
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 0.1
-    },
-    {
-     "candidate": "Lourdes Melo",
-     "party": "PCO",
-     "pct": 1.1
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.5
     }
    ],
-   "others_pct": 1.9,
+   "others_pct": 4.6,
    "undecided_pct": 14.8,
    "blank_null_pct": null,
    "tse_registration": null
@@ -59619,24 +60335,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 13.8
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 3
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 0.3
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 2.5
     }
    ],
-   "others_pct": 18.8,
+   "others_pct": 24.6,
    "undecided_pct": 110.5,
    "blank_null_pct": null,
    "tse_registration": null
@@ -61216,24 +61917,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 5.7
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 0.8
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 1.4
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.1
     }
    ],
-   "others_pct": 18.8,
+   "others_pct": 22.1,
    "undecided_pct": 87.1,
    "blank_null_pct": null,
    "tse_registration": null
@@ -68007,29 +68693,9 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 0.69
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.58
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 0.8
-    },
-    {
-     "candidate": "Lourdes Melo",
-     "party": "PCO",
-     "pct": 0.42
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.11
     }
    ],
-   "others_pct": 1.75,
+   "others_pct": 4.35,
    "undecided_pct": 15.7,
    "blank_null_pct": null,
    "tse_registration": null
@@ -68070,24 +68736,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 3.71
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 2.6
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 0.56
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.01
     }
    ],
-   "others_pct": 14.35,
+   "others_pct": 18.56,
    "undecided_pct": 13.94,
    "blank_null_pct": null,
    "tse_registration": null
@@ -69503,14 +70154,14 @@
      "pct": 20.1
     },
     {
-     "candidate": "Ciro Nogueira",
-     "party": "PP",
-     "pct": 12.6
-    },
-    {
      "candidate": "Júlio César",
      "party": "PSD",
      "pct": 15.8
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 12.6
     },
     {
      "candidate": "Tiago Junqueira",
@@ -69528,14 +70179,14 @@
      "pct": 1.2
     },
     {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.1
+     "candidate": "Antônio José Lira",
+     "party": "Avante",
+     "pct": 0.6
     }
    ],
-   "others_pct": 5.3,
-   "undecided_pct": 33.5,
-   "blank_null_pct": null,
+   "others_pct": null,
+   "undecided_pct": 16.4,
+   "blank_null_pct": 17.1,
    "tse_registration": "PI-00806/2026"
   },
   {
@@ -70975,29 +71626,9 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 2.37
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 1.47
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 0.9
-    },
-    {
-     "candidate": "Lourdes Melo",
-     "party": "PCO",
-     "pct": 1.02
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 1.13
     }
    ],
-   "others_pct": 3.27,
+   "others_pct": 7.79,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -71038,19 +71669,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 5.72
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 2.37
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 3.08
     }
    ],
-   "others_pct": 14.77,
+   "others_pct": 20.22,
    "undecided_pct": 36.06,
    "blank_null_pct": null,
    "tse_registration": null
@@ -77260,19 +77881,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 6.25
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 0.84
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.09
     }
    ],
-   "others_pct": 2.5,
+   "others_pct": 4.43,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -77442,24 +78053,9 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 0.5
-    },
-    {
-     "candidate": "Elizeu Aguiar",
-     "party": "Novo",
-     "pct": 0.42
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 0.08
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 0.42
     }
    ],
-   "others_pct": 0.66,
+   "others_pct": 1.58,
    "undecided_pct": 22.5,
    "blank_null_pct": null,
    "tse_registration": null
@@ -81067,19 +81663,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 8.97
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 1.57
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 1.42
     }
    ],
-   "others_pct": 5.27,
+   "others_pct": 8.26,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -82998,19 +83584,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 15.1
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 2.6
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 0.7
     }
    ],
-   "others_pct": 5.1,
+   "others_pct": 8.4,
    "undecided_pct": 24.7,
    "blank_null_pct": null,
    "tse_registration": null
@@ -84048,7 +84624,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Novo Ibrape",
+   "pollster": "Nova Ibrape",
    "contractor": null,
    "fieldwork_start": "2026-05-20",
    "fieldwork_end": "2026-05-25",
@@ -84112,64 +84688,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "5558ae5be567",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": null,
-   "race": "senador",
-   "state": "MS",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Novo Ibrape",
-   "contractor": null,
-   "fieldwork_start": "2026-05-20",
-   "fieldwork_end": "2026-05-25",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Reinaldo Azambuja",
-     "party": "PL",
-     "pct": 22.3
-    },
-    {
-     "candidate": "Capitão Contar",
-     "party": "PL",
-     "pct": 18
-    },
-    {
-     "candidate": "Nelsinho Trad",
-     "party": "PSD",
-     "pct": 17.1
-    },
-    {
-     "candidate": "Vander Loubet",
-     "party": "PT",
-     "pct": 8.8
-    },
-    {
-     "candidate": "Soraya",
-     "party": "PSB",
-     "pct": 8.7
-    },
-    {
-     "candidate": "Daniel Junior",
-     "party": "Agir",
-     "pct": 3.1
-    },
-    {
-     "candidate": "Beto do Movimento",
-     "party": "PSOL",
-     "pct": 3.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -84281,6 +84799,64 @@
    ],
    "others_pct": 1,
    "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "eb9618ca491c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário 2/2",
+   "pollster": "Nova Ibrape",
+   "contractor": null,
+   "fieldwork_start": "2026-05-20",
+   "fieldwork_end": "2026-05-25",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 23.4
+    },
+    {
+     "candidate": "Marcos Pollon",
+     "party": "PL",
+     "pct": 10.3
+    },
+    {
+     "candidate": "Nelsinho Trad",
+     "party": "PSD",
+     "pct": 18.7
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 8.4
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 9.7
+    },
+    {
+     "candidate": "Daniel Junior",
+     "party": "Agir",
+     "pct": 4.1
+    },
+    {
+     "candidate": "Beto do Movimento",
+     "party": "PSOL",
+     "pct": 3.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -94589,19 +95165,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 13.9
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 5.1
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 7.5
     }
    ],
-   "others_pct": 40.6,
+   "others_pct": 53.2,
    "undecided_pct": 21.3,
    "blank_null_pct": null,
    "tse_registration": null
@@ -106903,14 +107469,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 14.5
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 19.7
     }
    ],
-   "others_pct": 35.6,
+   "others_pct": 55.3,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -107042,24 +107603,9 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 9.1
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 0.7
-    },
-    {
-     "candidate": "Lourdes Melo",
-     "party": "PCO",
-     "pct": 0.7
-    },
-    {
-     "candidate": "Dra. Lúcia Santos",
-     "party": "PSDB",
-     "pct": 1.5
     }
    ],
-   "others_pct": 4.3,
+   "others_pct": 7.2,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -108703,7 +109249,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Novo Ibrape",
+   "pollster": "Nova Ibrape",
    "contractor": null,
    "fieldwork_start": "2026-03-24",
    "fieldwork_end": "2026-03-29",
@@ -108741,7 +109287,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Novo Ibrape",
+   "pollster": "Nova Ibrape",
    "contractor": null,
    "fieldwork_start": "2026-03-24",
    "fieldwork_end": "2026-03-29",
@@ -109967,16 +110513,6 @@
      "candidate": "Toni Rodrigues",
      "party": "PL",
      "pct": 2.46
-    },
-    {
-     "candidate": "Mainha",
-     "party": "Podemos",
-     "pct": 2.11
-    },
-    {
-     "candidate": "Lourdes Melo",
-     "party": "PCO",
-     "pct": 1.06
     }
    ],
    "others_pct": 1.76,
@@ -110020,24 +110556,9 @@
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 6.77
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 3.25
-    },
-    {
-     "candidate": "Pedro Laurentino",
-     "party": "UP",
-     "pct": 4.13
-    },
-    {
-     "candidate": "Jorge Lopes",
-     "party": "PSDB",
-     "pct": 4.13
     }
    ],
-   "others_pct": null,
+   "others_pct": 11.51,
    "undecided_pct": 28.23,
    "blank_null_pct": null,
    "tse_registration": null
@@ -138766,27 +139287,22 @@
      "pct": 29
     },
     {
-     "candidate": "Júlio César",
-     "party": "PSD",
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
      "pct": 20
     },
     {
-     "candidate": "Ciro Nogueira",
-     "party": "PP",
+     "candidate": "Júlio César",
+     "party": "PSD",
      "pct": 19
     },
     {
      "candidate": "Tiago Junqueira",
      "party": "PL",
      "pct": 11
-    },
-    {
-     "candidate": "Francinaldo Leão",
-     "party": "PSOL",
-     "pct": 1
     }
    ],
-   "others_pct": null,
+   "others_pct": 1,
    "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null

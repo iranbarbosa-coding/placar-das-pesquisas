@@ -868,12 +868,6 @@
    ]
   },
   {
-   "nome": "José Carlos Aleluia",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
    "nome": "José Carlos do Pátio",
    "partidos": [
     "União Brasil"
@@ -3535,12 +3529,6 @@
  "governador:PI": [
   {
    "nome": "Doutora Lúcia Santos",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Dra. Lúcia Santos",
    "partidos": [
     "PSDB"
    ]
@@ -6784,12 +6772,6 @@
    ]
   },
   {
-   "nome": "Joel Rodrigues da Silva",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
    "nome": "Jorge Lopes",
    "partidos": [
     "PSDB"
@@ -7110,6 +7092,12 @@
    "nome": "Cintia Dias",
    "partidos": [
     "Cidadania",
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Cíntia Dias",
+   "partidos": [
     "PSOL"
    ]
   },

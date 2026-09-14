@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1464 levantamentos · 4535 perguntas · 153 institutos · 1325 candidatos**.
+Banco: **1486 levantamentos · 4559 perguntas · 154 institutos · 1325 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 36 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 91 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 99 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 4 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **180** | **40** |
+| **total** | **188** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -322,7 +322,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (91)
+## CONFLITO — Conflitos registrados aguardando decisão (99)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -335,7 +335,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_96895a2c5e7b · results: ["Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_cdab98c6acbd · results: ["Antônio Galvan","Beny Godoy","Carlos Fávaro","Janaína Riva","José Antonio Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques","Professor Nelson Ferreira"] × ["Carlos Fávaro","Galvan","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"]
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
-- roster_encolhido_na_fonte · q_cb46acb84d35 · results: ["Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - roster_encolhido_na_fonte · q_26ca7f89a6ea · results: ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Eduardo Riedel","Fábio Trad","Jefferson Bezzerra","João Henrique Catan","Lucien Rezende","Renato Gomes"]
 - roster_encolhido_na_fonte · q_f6f883c79f82 · results: ["ACM Neto","Aroldo Félix","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
 - roster_encolhido_na_fonte · q_b609b001b4c2 · results: ["Eduardo Riedel","Fábio Trad","João Henrique Catan","Lucien Rezende"] × ["Eduardo Riedel","Fábio Trad","João Henrique Catan"]
@@ -404,19 +403,28 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_b15a71e0a4fe · results: ["Erika Hilton","Felipe d'Avila","Kim Kataguiri","Márcio França","Paulo Serra","Tarcísio de Freitas"] × ["Luiz Felipe d'Avila","Márcio França","Paulo Serra","Tarcísio de Freitas"]
-- candidate_id_orphaned · c_40e488b8a551 · candidate_id: "c_40e488b8a551" × null
+- roster_encolhido_na_fonte · q_9bd98062b135 · results: ["ACM Neto","João Roma","Kleber Rosa","Rui Costa"] × ["ACM Neto","João Roma","Rui Costa"]
+- roster_encolhido_na_fonte · q_91c680d7ce70 · results: ["Antonio Barros","Antonio José Lira","Ciro Nogueira","Dionísio Piauí","Francinaldo Leão","Jorge Lopes","Júlio César de Carvalho Lima","Major Paulo Roberto","Marcelo Castro","Ravenna Castro","Tiago Junqueira"] × ["Antonio Barros","Antonio José Lira","Ciro Nogueira","Dionísio Piauí","Francinaldo Leão","Major Paulo Roberto","Marcelo Castro","Ravenna Castro","Tiago Junqueira"]
+- roster_encolhido_na_fonte · q_591df14a32fe · results: ["Ciro Nogueira","Francinaldo Leão","Jorge Lopes","Júlio César de Carvalho Lima","Marcelo Castro","Pedro Laurentino","Tiago Junqueira"] × ["Ciro Nogueira","Júlio César de Carvalho Lima","Marcelo Castro","Tiago Junqueira"]
+- roster_encolhido_na_fonte · q_2c849777b201 · results: ["Ciro Nogueira","Francinaldo Leão","Jorge Lopes","Júlio César de Carvalho Lima","Marcelo Castro","Tiago Junqueira"] × ["Ciro Nogueira","Francinaldo Leão","Júlio César","Marcelo Castro","Tiago Junqueira"]
+- roster_encolhido_na_fonte · q_f1f594e281a8 · results: ["Ciro Nogueira","Francinaldo Leão","Jorge Lopes","Júlio César de Carvalho Lima","Marcelo Castro","Pedro Laurentino","Tiago Junqueira"] × ["Ciro Nogueira","Francinaldo Leão","Júlio César","Marcelo Castro","Pedro Laurentino","Tiago Junqueira"]
+- roster_encolhido_na_fonte · q_43fe99b1b3a4 · results: ["Dra. Lúcia Santos","Elizeu Aguiar","Joel Rodrigues da Silva","Lourdes Melo","Mainha","Rafael Fonteles","Toni Rodrigues"] × ["Joel Rodrigues","Jornalista Toni Rodrigues","Mainha","Rafael Fonteles"]
+- roster_encolhido_na_fonte · q_467e358a9db5 · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
+- roster_encolhido_na_fonte · q_538ca2ca45ad · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
+- roster_encolhido_na_fonte · q_ea149f2c1842 · results: ["ACM Neto","Jerônimo Rodrigues","José Carlos Aleluia","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 80
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 20
+- disputa_em_quarentena · governador:BA · quarentena: 52 × 51
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 72
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 61
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 87
 - disputa_em_quarentena · governador:RS · quarentena: 55 × 59
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1495
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1508
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 46
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 61
-- disputa_em_quarentena · senador:RJ · quarentena: 31 × 32
-- disputa_em_quarentena · senador:SP · quarentena: 60 × 63
+- disputa_em_quarentena · senador:RJ · quarentena: 31 × 33
+- disputa_em_quarentena · senador:SP · quarentena: 60 × 64
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (4)
 
