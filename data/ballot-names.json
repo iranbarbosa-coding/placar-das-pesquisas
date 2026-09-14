@@ -3,10 +3,10 @@
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
   "exato": 603,
-  "contencao": 200,
-  "outra_disputa": 161,
+  "contencao": 199,
+  "outra_disputa": 163,
   "ambiguo": 5,
-  "sem": 554
+  "sem": 556
  },
  "ambiguos": [
   {
@@ -59,6 +59,15 @@
   {
    "contest": "presidente:BR",
    "nome": "Sergio Moro",
+   "urna": "Sergio Moro",
+   "pesquisa": [
+    "União Brasil"
+   ],
+   "registro": "PL"
+  },
+  {
+   "contest": "presidente:BR",
+   "nome": "Sérgio Moro",
    "urna": "Sergio Moro",
    "pesquisa": [
     "União Brasil"
@@ -323,6 +332,13 @@
     "numero": "22",
     "origem": "exato"
    },
+   "gleisi hoffmann": {
+    "nome_urna": "Gleisi",
+    "sq_candidato": "160002547656",
+    "partido": "PT",
+    "numero": "131",
+    "origem": "outra-disputa"
+   },
    "helder barbalho": {
     "nome_urna": "Helder",
     "sq_candidato": "140002550779",
@@ -379,13 +395,6 @@
     "numero": "28",
     "origem": "exato"
    },
-   "professora samara": {
-    "nome_urna": "Samara",
-    "sq_candidato": "280002538811",
-    "partido": "UP",
-    "numero": "80",
-    "origem": "contencao"
-   },
    "renan filho": {
     "nome_urna": "Renan Filho",
     "sq_candidato": "20002553745",
@@ -429,7 +438,7 @@
     "origem": "contencao"
    },
    "sergio moro": {
-    "nome_urna": "Sergio Moro",
+    "nome_urna": "Sérgio Moro",
     "sq_candidato": "160002540833",
     "partido": "PL",
     "numero": "22",

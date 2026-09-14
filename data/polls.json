@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-13T23:43:32.635Z",
+ "generated_at": "2026-09-14T00:08:33.348Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-13T23:43:32.635Z"
+   "last_ok": "2026-09-14T00:08:33.348Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-13T23:43:32.635Z"
+   "last_ok": "2026-09-14T00:08:33.348Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-13T23:43:32.635Z"
+   "last_ok": "2026-09-14T00:08:33.348Z"
   }
  ],
  "polls": [
@@ -164625,7 +164625,7 @@
      "pct": 4.1
     },
     {
-     "candidate": "Sergio Moro",
+     "candidate": "Sérgio Moro",
      "party": "União Brasil",
      "pct": 3.3
     },
@@ -165593,7 +165593,7 @@
      "pct": 6.2
     },
     {
-     "candidate": "Sergio Moro",
+     "candidate": "Sérgio Moro",
      "party": "União Brasil",
      "pct": 4.6
     },
@@ -166323,7 +166323,7 @@
      "pct": 1.4
     },
     {
-     "candidate": "Sergio Moro",
+     "candidate": "Sérgio Moro",
      "party": "União Brasil",
      "pct": 4
     }
@@ -169300,7 +169300,7 @@
      "pct": 6.3
     },
     {
-     "candidate": "Sergio Moro",
+     "candidate": "Sérgio Moro",
      "party": "União Brasil",
      "pct": 6.7
     },
