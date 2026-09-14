@@ -1,0 +1,79 @@
+# DIAGNÓSTICO (só nesta branch, nunca no main): a rodada 64 ainda congela
+# presidente:BR por 5 perguntas "sem prova" — os cenários 2–6/9 do 1º turno da
+# Paraná Pesquisas de 07/01/2025 (s_a80acd2c9280), que vieram da Wikipédia em
+# 16/08. Este job lê, a partir do runner (que alcança a Wikipédia), o wikitext
+# CRU da subpágina "/Primeiro Turno/2023-2025", roda o parser sobre ele e
+# imprime o que a tabela da Paraná Pesquisas de janeiro/2025 contém HOJE; e
+# baixa a íntegra do instituto (PDF no Poder360) para conferir a fonte primária.
+name: Diagnóstico — Paraná Pesquisas jan/2025 na Wikipédia
+on:
+  push:
+    branches: ["claude/placar-32-creator-pitches-7dk5vm"]
+    paths: [".github/workflows/diag-wiki-branch.yml"]
+permissions:
+  contents: read
+jobs:
+  ler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Subpáginas reais, wikitext cru e parse da tabela
+        run: |
+          set -uo pipefail
+          UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
+          PT="Pesquisas de opinião para a eleição presidencial no Brasil em 2026"
+          mkdir -p diag
+          q() { local url="$1"; shift; curl -fsS -A "$UA" -G "$url" "$@"; }
+          echo "===== PT: allpages com prefixo '$PT/' ====="
+          q https://pt.wikipedia.org/w/api.php --data-urlencode action=query --data-urlencode list=allpages \
+            --data-urlencode "apprefix=$PT/" --data-urlencode aplimit=500 --data-urlencode format=json \
+            | python3 -c 'import json,sys; [print(" •", p["title"]) for p in json.load(sys.stdin).get("query",{}).get("allpages",[])]'
+          echo "===== PT: páginas (ns 0) transcluídas pela principal ====="
+          q https://pt.wikipedia.org/w/api.php --data-urlencode action=query --data-urlencode prop=templates \
+            --data-urlencode "titles=$PT" --data-urlencode tlnamespace=0 --data-urlencode tllimit=500 --data-urlencode format=json \
+            | python3 -c 'import json,sys; [print(" •", t["title"]) for p in json.load(sys.stdin).get("query",{}).get("pages",{}).values() for t in p.get("templates",[])]'
+          echo "===== EN: allpages com prefixo 'Opinion polling for the 2026 Brazilian presidential election/' ====="
+          q https://en.wikipedia.org/w/api.php --data-urlencode action=query --data-urlencode list=allpages \
+            --data-urlencode "apprefix=Opinion polling for the 2026 Brazilian presidential election/" --data-urlencode aplimit=500 --data-urlencode format=json \
+            | python3 -c 'import json,sys; [print(" •", p["title"]) for p in json.load(sys.stdin).get("query",{}).get("allpages",[])]'
+
+          q https://pt.wikipedia.org/w/index.php --data-urlencode "title=$PT/Primeiro Turno/2023-2025" --data-urlencode action=raw -o diag/sub-2023-2025.wiki
+          q https://pt.wikipedia.org/w/index.php --data-urlencode "title=$PT" --data-urlencode action=raw -o diag/main.wiki
+          wc -c diag/*.wiki
+          echo "===== linhas do wikitext da subpágina que citam Paraná Pesquisas (com nº de linha) ====="
+          grep -n -i "paran" diag/sub-2023-2025.wiki | head -60
+          echo "===== cabeçalhos da subpágina ====="
+          grep -n "^==" diag/sub-2023-2025.wiki | head -80
+          echo "===== bloco da tabela com 'Paraná Pesquisas' e janeiro de 2025 (±40 linhas) ====="
+          python3 - <<'PY'
+          import re
+          t = open('diag/sub-2023-2025.wiki', encoding='utf-8').read().split('\n')
+          for i, l in enumerate(t):
+              if re.search(r'paran[áa]', l, re.I) and any(re.search(r'jan', x, re.I) and '2025' in ''.join(t[max(0,i-60):i+60]) for x in t[i:i+8]):
+                  print(f'--- linha {i+1} ---')
+                  print('\n'.join(f'{j+1}: {t[j]}' for j in range(max(0,i-6), min(len(t), i+40))))
+                  break
+          PY
+          echo "===== parser sobre a subpágina: Paraná Pesquisas com campo em jan/2025 ====="
+          python3 - <<'PY'
+          import importlib.util, json
+          spec = importlib.util.spec_from_file_location('wp', 'scripts/wiki_parse.py'); wp = importlib.util.module_from_spec(spec); spec.loader.exec_module(wp)
+          text = open('diag/sub-2023-2025.wiki', encoding='utf-8').read()
+          polls = wp.extract(text, 'https://pt.wikipedia.org/wiki/X', 'pt', 'presidente', None, title_hint='Primeiro Turno/2023-2025')
+          print('total polls na subpágina:', len(polls))
+          sel = [p for p in polls if p.get('pollster') and 'paran' in p['pollster'].lower() and str(p.get('fieldwork_end') or '').startswith('2025-01')]
+          print('Paraná Pesquisas jan/2025:', len(sel))
+          for p in sel:
+              print(json.dumps({k: p[k] for k in ('pollster','round','scenario','fieldwork_start','fieldwork_end','sample_size','results','parse_warnings') if k in p}, ensure_ascii=False))
+          PY
+          echo "===== íntegra do instituto (Poder360) ====="
+          if curl -fsSL -A "$UA" -o diag/parana-jan25.pdf https://static.poder360.com.br/2025/09/parana-pesquisas-jan-2025-eleicoes-2026.pdf; then
+            ls -la diag/parana-jan25.pdf
+            if command -v pdftotext >/dev/null; then pdftotext -layout diag/parana-jan25.pdf diag/parana-jan25.txt && grep -n -i "cen[áa]rio\|tarc\|haddad\|camilo\|michelle\|ratinho\|helder\|caiado" diag/parana-jan25.txt | head -120; else echo "pdftotext indisponível"; fi
+          else echo "PDF do Poder360 inacessível"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: diag-wiki
+          path: diag/
+          if-no-files-found: warn
