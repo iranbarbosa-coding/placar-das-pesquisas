@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-13T19:29:19.986Z",
+ "generated_at": "2026-09-13T23:43:32.635Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-13T19:29:19.986Z"
+   "last_ok": "2026-09-13T23:43:32.635Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-13T19:29:19.986Z"
+   "last_ok": "2026-09-13T23:43:32.635Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-13T19:29:19.986Z"
+   "last_ok": "2026-09-13T23:43:32.635Z"
   }
  ],
  "polls": [
@@ -37720,7 +37720,7 @@
    "state": "SP",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "American Analytics Times Brasil/CNBC",
+   "pollster": "American Analytics",
    "contractor": null,
    "fieldwork_start": "2026-08-04",
    "fieldwork_end": "2026-08-08",
@@ -52834,7 +52834,7 @@
    "state": "SC",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Correio/Opinião",
+   "pollster": "Data Povo",
    "contractor": "Neokemp",
    "fieldwork_start": null,
    "fieldwork_end": "2026-07-23",
@@ -59677,7 +59677,7 @@
   {
    "id": "c0e74356a97a",
    "source": null,
-   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -77280,7 +77280,7 @@
   {
    "id": "61074e4c5f51",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -77467,7 +77467,7 @@
   {
    "id": "a265c8fcdf36",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -77606,7 +77606,7 @@
   {
    "id": "d7a4f13aff62",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -77639,7 +77639,7 @@
   {
    "id": "d96e0edba503",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -83203,7 +83203,7 @@
   {
    "id": "379943b00123",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -83357,7 +83357,7 @@
   {
    "id": "77fe407b61d5",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -84335,7 +84335,7 @@
   {
    "id": "48392149c1c9",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -84489,7 +84489,7 @@
   {
    "id": "863d3a82fa84",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -84522,7 +84522,7 @@
   {
    "id": "a1ab3541d528",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -84585,7 +84585,7 @@
   {
    "id": "d5f63efda86f",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -86011,7 +86011,7 @@
   {
    "id": "2a2add3d6612",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -87283,7 +87283,7 @@
   {
    "id": "b0328809df7c",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -87341,7 +87341,7 @@
   {
    "id": "b4270383f8b7",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -88444,7 +88444,7 @@
    "scenario": "1º turno",
    "pollster": "Veritá",
    "contractor": "LeiaJá",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-05-11",
    "fieldwork_end": "2026-05-15",
    "published_date": "2026-05-15",
    "sample_size": 3404,
@@ -89492,7 +89492,7 @@
   {
    "id": "67fcc6bae045",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -89525,7 +89525,7 @@
   {
    "id": "91dd4b8b326d",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -89558,7 +89558,7 @@
   {
    "id": "ba2b9c554c5c",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -89626,7 +89626,7 @@
   {
    "id": "c257ca0ee27a",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -89659,7 +89659,7 @@
   {
    "id": "c506b0b99223",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -89692,7 +89692,7 @@
   {
    "id": "de9aefc86491",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -102382,7 +102382,7 @@
   {
    "id": "14106cce80da",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -102450,7 +102450,7 @@
   {
    "id": "5365c8a21b24",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -102483,7 +102483,7 @@
   {
    "id": "60249ea9241f",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -102516,7 +102516,7 @@
   {
    "id": "62df83f61efd",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -102549,7 +102549,7 @@
   {
    "id": "65c39ec38a0e",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -102582,7 +102582,7 @@
   {
    "id": "a6ab21bbc420",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -104850,7 +104850,7 @@
   {
    "id": "2f47d3e0469c",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -105128,7 +105128,7 @@
   {
    "id": "a70264f79d25",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -108644,7 +108644,7 @@
   {
    "id": "a590e893f478",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -118679,7 +118679,7 @@
   {
    "id": "322ae19f8a63",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -118765,7 +118765,7 @@
   {
    "id": "62b6dbfb9b1f",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -118798,7 +118798,7 @@
   {
    "id": "94f8ed0ae4b3",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -118851,7 +118851,7 @@
   {
    "id": "9878e5b6d5c3",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -118884,7 +118884,7 @@
   {
    "id": "bfe844e3cfa6",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119104,7 +119104,7 @@
   {
    "id": "0a1c57f27885",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119137,7 +119137,7 @@
   {
    "id": "3702648030b6",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119213,7 +119213,7 @@
   {
    "id": "8e6c0fa8bff6",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119246,7 +119246,7 @@
   {
    "id": "91cfa949c324",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119279,7 +119279,7 @@
   {
    "id": "92064fa2350f",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119332,7 +119332,7 @@
   {
    "id": "9ef45a413caa",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119418,7 +119418,7 @@
   {
    "id": "c21622e1346b",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -119524,7 +119524,7 @@
   {
    "id": "fdbf85ec155b",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -123773,7 +123773,7 @@
   {
    "id": "09fadc1d6df1",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -129964,7 +129964,7 @@
   {
    "id": "1c7b0b3c6cef",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,
@@ -130345,7 +130345,7 @@
   {
    "id": "27559b7f62ca",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto",
    "integra_url": null,
    "race": "presidente",
    "state": null,

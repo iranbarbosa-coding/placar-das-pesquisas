@@ -894,7 +894,7 @@ Soma **73.9%** · faltam **26.1 pontos** · 2 candidato(s) na tabela · amostra 
 
 ## Presidente · Santa Catarina
 
-### Correio/Opinião — 2026-07-23
+### Data Povo — 2026-07-23
 
 Soma **74.6%** · faltam **25.4 pontos** · 5 candidato(s) na tabela · amostra 1008 · registro BR-05953/2026
 
