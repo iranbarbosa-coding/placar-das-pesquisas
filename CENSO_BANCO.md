@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1552 levantamentos · 4535 perguntas · 153 institutos · 1326 candidatos**.
+Banco: **1464 levantamentos · 4535 perguntas · 153 institutos · 1325 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -404,14 +404,14 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_b15a71e0a4fe · results: ["Erika Hilton","Felipe d'Avila","Kim Kataguiri","Márcio França","Paulo Serra","Tarcísio de Freitas"] × ["Luiz Felipe d'Avila","Márcio França","Paulo Serra","Tarcísio de Freitas"]
-- person_id_orphaned · p_84469aff451f · person_id: "p_84469aff451f" × null
+- candidate_id_orphaned · c_40e488b8a551 · candidate_id: "c_40e488b8a551" × null
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 80
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 20
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 72
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 61
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 87
 - disputa_em_quarentena · governador:RS · quarentena: 55 × 59
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1620
+- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1495
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 46
 - disputa_em_quarentena · senador:PE · quarentena: 58 × 61
