@@ -588,7 +588,12 @@ diferem em número ou partido continuam ambíguos e continuam recusados.
   older presidential tables in subpages ("…/Primeiro Turno/2026/Janeiro a
   Agosto") and only transcludes them — `action=raw` returns the marker, not
   the tables. A subpage inherits year and round from its title
-  (`hints_from_title`); `python3 scripts/wiki_parse.py --self-test` guards both.
+  (`hints_from_title`). A RANGE title ("…/Primeiro Turno/2023-2025") is not a
+  year: that subpage has month-only headings, so `resolver_ano` dates each row
+  group by the citation's publication date (`data=`/`date=`, only when it is a
+  plausible publication of that fieldwork: after it, within 3 months) and
+  otherwise by reverse-chronological order, clamped to the range.
+  `python3 scripts/wiki_parse.py --self-test` guards all of it.
 - `tse.mjs` — TSE/TRE registry zip (metadata only, **no results**).
 
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across

@@ -353,6 +353,77 @@ def parse_dates(text, year_hint):
     # unknown date must stay unknown.
     return None, None, False
 
+def _mes_do_campo(dcell):
+    """Mês (1-12) do FIM do campo lido da célula de datas, ou None."""
+    if not dcell:
+        return None
+    st, en, ok = parse_dates(dcell, 2000)   # ano fictício só para extrair o mês
+    return int(en[5:7]) if en else None
+
+_RE_PUB_PT = re.compile(r'(?<![a-z\-])data\s*=\s*(\d{1,2})[º°]?\s*de\s+([a-zçã]+)\s+de\s+(20\d\d)', re.I)
+_RE_PUB_ISO = re.compile(r'(?<![a-z\-])dat[ae]\s*=\s*(20\d\d)-(\d\d)-\d\d', re.I)
+_RE_PUB_EN = re.compile(r'(?<![a-z\-])date\s*=\s*(?:(\d{1,2})\s+([A-Za-z]+)|([A-Za-z]+)\s+\d{1,2},?)\s+(20\d\d)', re.I)
+_RE_ACESSO = re.compile(r'(?:acessodata|access-?date)\s*=\s*[^|}]*?(20\d\d)', re.I)
+
+def resolver_ano(dcell, bruto, ctx):
+    """Ano de um levantamento numa subpágina de INTERVALO sem cabeçalho de ano.
+
+    Por que existe: a subpágina "…/Primeiro Turno/2023-2025" tem só cabeçalhos
+    de mês ("==== Janeiro e Fevereiro ====") e células de campo sem ano
+    ("7 Jan – 10 Jan"). Três degraus, do mais forte ao mais fraco:
+      1. ÂNCORA — a data de publicação da citação da própria linha
+         (`data=13 de janeiro de 2025` / `date=…`): a pesquisa não é publicada
+         antes do campo, então ano = ano da publicação, menos um se o mês do
+         campo for posterior ao da publicação (campo em dezembro, matéria em
+         janeiro). Uma `acessodata` só limita por cima.
+      2. ORDEM — as páginas listam em ordem cronológica INVERSA; quando o mês
+         de um levantamento é MAIOR que o do anterior, virou o ano para trás.
+      3. FAIXA — o resultado nunca sai do intervalo do título.
+    A âncora também recalibra o cursor da ordem, e o cursor segue de onde a
+    âncora deixou. Sem faixa (página configurada) a função não é chamada.
+    """
+    faixa = ctx['faixa']
+    mes = _mes_do_campo(dcell)
+    ano = None
+    pubs = []
+    for m in _RE_PUB_PT.finditer(bruto or ''):
+        mm = MONTHS.get(_fold(m.group(2))[:3])
+        if mm: pubs.append((int(m.group(3)), mm))
+    for m in _RE_PUB_ISO.finditer(bruto or ''):
+        pubs.append((int(m.group(1)), int(m.group(2))))
+    for m in _RE_PUB_EN.finditer(bruto or ''):
+        nome = m.group(2) or m.group(3)
+        mm = MONTHS.get(_fold(nome)[:3])
+        if mm: pubs.append((int(m.group(4)), mm))
+    # A âncora só vale se for PLAUSÍVEL como publicação deste campo: a matéria
+    # sai depois do campo e perto dele (até 3 meses). Uma citação reaproveitada
+    # de matéria antiga (a Paraná Pesquisas de nov/2024 cita `data=27 de agosto
+    # de 2024`) não pode puxar o ano para trás — cai para a ordem.
+    candidatos = []
+    for pa, pm in pubs:
+        if not mes:
+            candidatos.append((0, pa)); continue
+        for y in (pa, pa - 1):
+            gap = (pa - y) * 12 + pm - mes
+            if 0 <= gap <= 3:
+                candidatos.append((gap, y))
+    if candidatos:
+        ano = min(candidatos)[1]
+    else:
+        acessos = [int(a) for a in _RE_ACESSO.findall(bruto or '')]
+        cursor = ctx.get('cursor_ano')
+        if cursor is not None and mes and ctx.get('cursor_mes') and mes > ctx['cursor_mes']:
+            cursor -= 1
+        ano = cursor
+        if acessos and ano is not None:
+            ano = min(ano, min(acessos))
+    if ano is None:
+        return None
+    ano = max(faixa[0], min(faixa[1], ano))
+    if mes:
+        ctx['cursor_ano'], ctx['cursor_mes'] = ano, mes
+    return ano
+
 def extract(text, source_url, lang, race='presidente', state=None, title_hint=None):
     lines = text.split('\n')
     # O ESTÍMULO QUE A PÁGINA DECLARA, e só ele (§4 do CONVENTIONS). As páginas
@@ -377,7 +448,11 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
     # sem ano (o Node as anula) e um 2º turno inteiro viraria 1º. Para as
     # páginas configuradas `title_hint` é None e nada muda: o ano segue vindo
     # dos cabeçalhos, em ordem de documento, como sempre veio.
-    default_round, last_year = hints_from_title(title_hint)
+    default_round, last_year, faixa_anos = hints_from_title(title_hint)
+    # Estado da resolução de ano em subpágina de INTERVALO ("2023-2025"), cujos
+    # cabeçalhos são só meses: cursor cronológico inverso, semeado no ano mais
+    # recente da faixa e ancorado pelas datas de publicação das citações.
+    ano_ctx = {'faixa': faixa_anos, 'cursor_ano': faixa_anos[1] if faixa_anos else None, 'cursor_mes': None}
     i = 0
     n = len(lines)
     while i < n:
@@ -417,7 +492,7 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
                     depth -= 1
                     if depth == 0: break
                 i += 1
-            polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state, last_year, default_round))
+            polls.extend(parse_one_table(tbl, h2, h3, h4, hidden, source_url, lang, race, state, last_year, default_round, ano_ctx))
         i += 1
     if page_stimulus:
         for p in polls:
@@ -436,7 +511,7 @@ def _is_event_banner(row):
     txt = ''.join(ch for ch in unicodedata.normalize('NFD', txt) if not unicodedata.combining(ch))
     return bool(re.search(r'\b(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)', txt))
 
-def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None, year_ctx=None, default_round=1):
+def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None, year_ctx=None, default_round=1, ano_ctx=None):
     rows = parse_table(tbl_lines)
     if not rows: return []
     grid = expand_grid(rows)
@@ -506,6 +581,15 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
         # drop event/news rows (a cell spanning >=3 columns is a timeline marker, not poll data)
         grows = [r for r in grows if not any(c['colspan'] >= 3 for c in r)]
         nsc = len(grows)
+        # O ano deste grupo de linhas (um levantamento): o dos cabeçalhos quando
+        # existe; senão, em subpágina de intervalo, resolvido por âncora de
+        # citação e ordem cronológica inversa (ver resolver_ano).
+        ym_grupo = ym
+        if ym_grupo is None and ano_ctx and ano_ctx.get('faixa') and grows:
+            dcell = next((clean_cell(grows[0][ci].get('text', grows[0][ci]['raw'])) for ci, col in enumerate(cols)
+                          if col['kind'] == 'dates' and ci < len(grows[0])), None)
+            bruto = ' '.join(c.get('text', c['raw']) for r in grows for c in r)
+            ym_grupo = resolver_ano(dcell, bruto, ano_ctx)
         for k, row in enumerate(grows):
             poll = {
                 'source': 'wikipedia', 'race': race, 'state': state, 'round': rnd,
@@ -526,7 +610,7 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
                 if kind == 'pollster':
                     poll['pollster'] = re.sub(r'\s+', ' ', txt).strip() or None
                 elif kind == 'dates':
-                    st, en, ok = parse_dates(txt, ym)
+                    st, en, ok = parse_dates(txt, ym_grupo)
                     if st and en and st > en:   # source typos like "22 a 18 de julho"
                         warnings.append(f"inverted date range '{txt}' - start dropped")
                         st = None
@@ -613,19 +697,28 @@ def _fold(t):
     return ''.join(ch for ch in t if not unicodedata.combining(ch))
 
 def hints_from_title(tail):
-    """(turno padrão, ano inicial) lidos do título RELATIVO de uma subpágina.
+    """(turno padrão, ano inicial, faixa de anos) lidos do título RELATIVO de
+    uma subpágina.
 
     `tail` é o que vem depois de "<página configurada>/" — ex.
-    "Primeiro Turno/2026/Janeiro a Agosto" → (1, 2026);
-    "Segundo Turno/2025" → (2, 2025). None (página configurada) → (1, None),
-    que é exatamente o estado inicial que `extract` sempre teve.
+    "Primeiro Turno/2026/Janeiro a Agosto" → (1, 2026, (2026, 2026));
+    "Segundo Turno/2025" → (2, 2025, (2025, 2025)).
+    "Primeiro Turno/2023-2025" → (1, None, (2023, 2025)): um INTERVALO não é um
+    ano — devolver o primeiro (2023) datou 331 pesquisas de três anos em 2023
+    na rodada 64 (14/09/2026). Com a faixa, `parse_one_table` resolve o ano de
+    cada linha por âncora de citação e pela ordem cronológica inversa (ver
+    `resolver_ano`). None (página configurada) → (1, None, None), que é
+    exatamente o estado inicial que `extract` sempre teve.
     """
     if not tail:
-        return 1, None
+        return 1, None, None
     low = _fold(tail)
     rnd = 2 if ('segundo turno' in low or 'second round' in low or '2o turno' in low or '2º turno' in tail.lower()) else 1
-    ym = re.search(r'(20\d\d)', tail)
-    return rnd, (int(ym.group(1)) if ym else None)
+    anos = [int(y) for y in re.findall(r'(20\d\d)', tail)]
+    if not anos:
+        return rnd, None, None
+    faixa = (min(anos), max(anos))
+    return rnd, (faixa[0] if faixa[0] == faixa[1] else None), faixa
 
 def page_title_from_url(url):
     """Título (com espaços) a partir de .../wiki/<Título> ou ...?title=<Título>."""
@@ -723,10 +816,11 @@ def _self_test():
     assert page_title_from_url("https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto") == f"{base}/Primeiro Turno/2026/Janeiro a Agosto"
     e = _entry_from_title({'lang': 'pt', 'race': 'presidente', 'state': None}, f"{base}/Primeiro Turno/2026/Janeiro a Agosto")
     assert e['raw_url'] == "https://pt.wikipedia.org/w/index.php?title=Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026/Primeiro_Turno/2026/Janeiro_a_Agosto&action=raw", e['raw_url']
-    assert hints_from_title(None) == (1, None)
-    assert hints_from_title('Primeiro Turno/2026/Janeiro a Agosto') == (1, 2026)
-    assert hints_from_title('Segundo Turno/2025') == (2, 2025)
-    assert hints_from_title('Second round/2025') == (2, 2025)
+    assert hints_from_title(None) == (1, None, None)
+    assert hints_from_title('Primeiro Turno/2026/Janeiro a Agosto') == (1, 2026, (2026, 2026))
+    assert hints_from_title('Segundo Turno/2025') == (2, 2025, (2025, 2025))
+    assert hints_from_title('Second round/2025') == (2, 2025, (2025, 2025))
+    assert hints_from_title('Primeiro Turno/2023-2025') == (1, None, (2023, 2025)), 'intervalo não é ano'
 
     # Uma tabela como as da subpágina: cabeçalho só com o MÊS, sem ano nem turno.
     tabela = '\n'.join([
@@ -748,7 +842,50 @@ def _self_test():
     # O cabeçalho continua mandando sobre o título.
     p3 = extract("== Segundo turno ==\n" + tabela, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2026/Janeiro a Agosto')
     assert p3[0]['round'] == 2, p3
-    print("wiki_parse --self-test: OK (descoberta de subpáginas + contexto do título)")
+    # Subpágina de INTERVALO ("2023-2025"), sem cabeçalho de ano, em ordem
+    # cronológica inversa — a forma real da "/Primeiro Turno/2023-2025" em
+    # 14/09/2026. Três levantamentos: (a) ancorado pela citação (jan/2025),
+    # (b) sem citação, mês maior que o anterior → virou 2024 pela ordem,
+    # (c) só com acessodata=2024 e mês menor → segue 2024 (acesso só limita).
+    cab = "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos"
+    faixa = '\n'.join([
+        "==== Janeiro e Fevereiro ====",
+        "{| class=\"wikitable\"", cab, "|-",
+        "| Quaest<ref>{{citar web|url=https://x.example/a|titulo=T|data=13 de janeiro de 2025|acessodata=2 de fevereiro de 2025}}</ref> || 7 Jan – 10 Jan || 2.004 || 36 || 29 || 10 || 15",
+        "|}",
+        "==== De setembro a dezembro ====",
+        "{| class=\"wikitable\"", cab, "|-",
+        "| Datafolha || 21 Nov – 25 Nov || 2.000 || 35 || 30 || 10 || 15",
+        "|-",
+        "| Paraná Pesquisas<ref>{{citar web|url=https://x.example/b|titulo=T|acessodata=13 de outubro de 2024}}</ref> || 29 Set – 3 Out || 2.000 || 34 || 31 || 10 || 15",
+        "|}",
+    ])
+    pf = extract(faixa, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2023-2025')
+    got = [(p['pollster'], p['fieldwork_start'], p['fieldwork_end']) for p in pf]
+    assert got == [('Quaest', '2025-01-07', '2025-01-10'), ('Datafolha', '2024-11-21', '2024-11-25'),
+                   ('Paraná Pesquisas', '2024-09-29', '2024-10-03')], got
+    # Âncora com campo em dezembro e matéria em janeiro: ano da publicação menos um.
+    dez = '\n'.join(["==== Novembro - Dezembro ====", "{| class=\"wikitable\"", cab, "|-",
+        "| Quaest<ref>{{citar web|url=https://x.example/c|titulo=T|data=3 de janeiro de 2025}}</ref> || 18 Dez – 22 Dez || 2.004 || 36 || 29 || 10 || 15", "|}"])
+    pd = extract(dez, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2023-2025')
+    assert [(p['fieldwork_start'], p['fieldwork_end']) for p in pd] == [('2024-12-18', '2024-12-22')], pd
+    # Citação REAPROVEITADA de matéria antiga (agosto) numa linha de novembro:
+    # não é publicação deste campo (campo depois da matéria) → vale a ordem.
+    velha = '\n'.join(["==== De setembro a dezembro ====", "{| class=\"wikitable\"", cab, "|-",
+        "| AtlasIntel<ref>{{citar web|url=https://x.example/e|titulo=T|data=31 de dezembro de 2024}}</ref> || 26 Dez – 31 Dez || 2.000 || 36 || 29 || 10 || 15",
+        "|-",
+        "| Paraná Pesquisas<ref>{{Citar web|url=https://x.example/f|titulo=T|acessodata=27 de novembro de 2024|data=27 de agosto de 2024}}</ref> || 21 Nov – 25 Nov || 2.000 || 34 || 31 || 10 || 15",
+        "|}"])
+    pv = extract(velha, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2023-2025')
+    assert [p['fieldwork_end'] for p in pv] == ['2024-12-31', '2024-11-25'], pv
+    # A faixa é teto e piso: nunca sai de 2023–2025.
+    piso = '\n'.join(["==== Janeiro ====", "{| class=\"wikitable\"", cab, "|-",
+        "| Quaest<ref>{{citar web|url=https://x.example/d|titulo=T|data=3 de janeiro de 2020}}</ref> || 18 Dez – 22 Dez || 2.004 || 36 || 29 || 10 || 15", "|}"])
+    pp = extract(piso, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2023-2025')
+    assert pp[0]['fieldwork_end'] == '2023-12-22', pp
+    # Página configurada (sem título): comportamento intacto — sem ano, sem data.
+    assert extract(faixa, url, 'pt', 'presidente', None)[0]['fieldwork_end'] is None
+    print("wiki_parse --self-test: OK (descoberta de subpáginas + contexto do título + ano por âncora/ordem em subpágina de intervalo)")
 
 def main():
     import urllib.request
