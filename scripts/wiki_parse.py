@@ -885,28 +885,62 @@ def _self_test():
     assert pp[0]['fieldwork_end'] == '2023-12-22', pp
     # Página configurada (sem título): comportamento intacto — sem ano, sem data.
     assert extract(faixa, url, 'pt', 'presidente', None)[0]['fieldwork_end'] is None
-    print("wiki_parse --self-test: OK (descoberta de subpáginas + contexto do título + ano por âncora/ordem em subpágina de intervalo)")
+    # A FILA: subpágina descoberta entra logo depois da página-mãe — antes da
+    # inglesa —, cada página é buscada uma vez, e o ano herdado chega lá.
+    base_en = 'Opinion polling for the 2026 Brazilian presidential election'
+    paginas = {
+        base: "{{:" + base + "/Primeiro Turno/2023-2025}}\n[[/Primeiro Turno/2026/Janeiro a Agosto|2026]]\n== 2026 ==\n=== Setembro ===\n" + tabela.split('\n', 1)[1].replace('5 a 7 de janeiro', '4 a 7 de setembro').replace('Quaest', 'Nexus'),
+        base + '/Primeiro Turno/2023-2025': "[[/Dezembro|dez]]\n" + faixa,
+        base + '/Primeiro Turno/2023-2025/Dezembro': dez,
+        base + '/Primeiro Turno/2026/Janeiro a Agosto': tabela,
+        base_en: "nothing here",
+    }
+    pedidos = []
+    def falso_buscar(raw_url):
+        t = page_title_from_url(raw_url); pedidos.append(t)
+        if t not in paginas: raise Exception('HTTP Error 404')
+        return paginas[t]
+    cfg = [
+        _entry_from_title({'lang': 'pt', 'race': 'presidente', 'state': None}, base),
+        _entry_from_title({'lang': 'pt', 'race': 'presidente', 'state': None}, base + '/Primeiro Turno/2026/Janeiro a Agosto'),
+        _entry_from_title({'lang': 'en', 'race': 'presidente', 'state': None}, base_en),
+    ]
+    polls, log, falhas = coletar(cfg, falso_buscar)
+    assert pedidos == [base, base + '/Primeiro Turno/2023-2025', base + '/Primeiro Turno/2023-2025/Dezembro',
+                       base + '/Primeiro Turno/2026/Janeiro a Agosto', base_en], ('ordem da fila', pedidos)
+    assert len(pedidos) == len(set(pedidos)) and not falhas, (pedidos, falhas)
+    assert [p['fieldwork_end'] for p in polls] == ['2026-09-07', '2025-01-10', '2024-11-25', '2024-10-03', '2024-12-22', '2026-01-07'], polls
+    assert [e['alvo'] for e in log] == ['presidente:BR (pt)', 'presidente:BR (pt) ⊂ /Primeiro Turno/2023-2025',
+        'presidente:BR (pt) ⊂ /Primeiro Turno/2023-2025/Dezembro', 'presidente:BR (pt) ⊂ /Primeiro Turno/2026/Janeiro a Agosto', 'presidente:BR (en)'], log
+    print("wiki_parse --self-test: OK (descoberta + fila PT-antes-de-EN + contexto do título + ano por âncora/ordem)")
 
-def main():
+def _buscar_http(raw_url):
     import urllib.request
-    if sys.argv[1:] == ['--self-test']:
-        _self_test(); return
-    cfg_path = sys.argv[1]
-    with open(cfg_path, encoding='utf-8') as f:
-        pages = json.load(f)
-    all_polls, failures = [], []
-    # OBSERVABILIDADE: um registro NOMEADO por página (o que buscou, quantas
-    # trouxe e, se falhou, por quê). Antes isto só ia para stderr; agora volta
-    # estruturado ao Node, que o consolida no RESUMO DE COBERTURA — uma página
-    # que zera (ou falha) deixa de ser invisível.
-    page_log = []
-    # Fila de páginas: as configuradas primeiro (na ordem do JSON, que decide a
-    # preferência PT>EN em wikipedia.mjs), depois as subpáginas que cada uma
-    # referencia (ver discover_subpages), até 2 níveis — uma subpágina-índice
-    # ("…/Primeiro Turno/2026") pode apontar para as suas ("…/Janeiro a
-    # Agosto"). Dedupe por (lang, título): uma subpágina já listada no JSON
-    # não é buscada de novo quando a principal também a referencia.
+    req = urllib.request.Request(raw_url, headers={
+        'User-Agent': 'PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)'})
+    with urllib.request.urlopen(req, timeout=45) as r:
+        return r.read().decode('utf-8')
+
+def coletar(pages, buscar):
+    """Baixa e extrai as páginas configuradas e as subpáginas que elas referenciam.
+
+    A ORDEM É PARTE DO CONTRATO. wikipedia.mjs elimina quase-duplicatas
+    (instituto, disputa, turno, data, elenco) ficando com a PRIMEIRA — é assim
+    que a lusófona (PT, cenários com ordinal declarado) prevalece sobre a
+    inglesa (EN, que lista UM cenário por pesquisa, sem ordinal). Uma subpágina
+    descoberta entra na fila LOGO DEPOIS da página que a referencia, nunca no
+    fim: quando a "/Primeiro Turno/2023-2025" foi enfileirada depois da EN
+    (rodada 66, 14/09/2026), o cenário "único" inglês sobreviveu à dedupe e,
+    sem ordinal, virou ímã em `mergePolls`/`keepFullestRound1` — engoliu
+    cenários alternativos da PT com ≥80% do elenco em comum (Futura 1/6, Neokemp
+    4/4, AtlasIntel 1/5, Gerp 2/2) sem deixar linhagem, e presidente:BR seguiu
+    em quarentena. Até 2 níveis: uma subpágina-índice pode apontar para as suas.
+    Dedupe por (lang, título): uma subpágina já listada no JSON não é buscada de
+    novo quando a principal também a referencia.
+    Devolve (polls, page_log, failures).
+    """
     MAX_DEPTH = 2
+    all_polls, failures, page_log = [], [], []
     fila = []
     vistos = set()
     bases = {}
@@ -933,10 +967,7 @@ def main():
         if tail:
             alvo += f" ⊂ /{tail}"
         try:
-            req = urllib.request.Request(pg['raw_url'], headers={
-                'User-Agent': 'PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)'})
-            with urllib.request.urlopen(req, timeout=45) as r:
-                text = r.read().decode('utf-8')
+            text = buscar(pg['raw_url'])
             polls = extract(text, pg['url'], pg.get('lang', 'pt'),
                             pg.get('race', 'presidente'), pg.get('state'), title_hint=tail)
             all_polls.extend(polls)
@@ -947,6 +978,7 @@ def main():
             print(f"  wiki: {alvo}: {len(polls)} polls", file=sys.stderr)
             if depth < MAX_DEPTH:
                 base_title = title if not tail else title[:len(title) - len(tail) - 1]
+                novas = []
                 for sub in discover_subpages(text, title):
                     skey = (pg.get('lang', 'pt'), sub.lower())
                     if skey in vistos:
@@ -954,11 +986,22 @@ def main():
                     vistos.add(skey)
                     sub_tail = sub[len(base_title) + 1:] if sub.lower().startswith(base_title.lower() + '/') else sub
                     print(f"  wiki: subpágina descoberta em {title}: /{sub_tail}", file=sys.stderr)
-                    fila.append((_entry_from_title(pg, sub), sub, sub_tail, depth + 1, title))
+                    novas.append((_entry_from_title(pg, sub), sub, sub_tail, depth + 1, title))
+                # logo depois da página-mãe (ver docstring), na ordem em que ela as cita
+                fila[qi:qi] = novas
         except Exception as e:
             failures.append(f"{pg['raw_url']}: {e}")
             page_log.append({'source': 'wikipedia', 'alvo': alvo, 'fetched': 0, 'error': str(e)})
             print(f"  wiki FAIL {pg['raw_url']}: {e}", file=sys.stderr)
+    return all_polls, page_log, failures
+
+def main():
+    if sys.argv[1:] == ['--self-test']:
+        _self_test(); return
+    cfg_path = sys.argv[1]
+    with open(cfg_path, encoding='utf-8') as f:
+        pages = json.load(f)
+    all_polls, page_log, failures = coletar(pages, _buscar_http)
     if failures and not all_polls:
         sys.exit('all wiki pages failed: ' + '; '.join(failures))
     all_polls = desambigua_2t(all_polls)

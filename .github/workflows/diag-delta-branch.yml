@@ -21,6 +21,8 @@ jobs:
       - run: node scripts/match-ballot-names.mjs
       - name: Coleta real (escreve data/ na árvore de trabalho)
         run: node scripts/scrape.mjs > /tmp/scrape.log 2>&1 || (tail -50 /tmp/scrape.log; exit 1)
+      - name: Veredito do guarda de delta (HEAD × coleta fresca)
+        run: node scripts/disputa-delta-check.mjs 2>&1 | grep -v "^\s*$" | tail -40 || true
       - name: presidente:BR — perdas sem prova, lado a lado
         run: |
           set -u
