@@ -70,10 +70,20 @@ jobs:
           echo "===== íntegra do instituto (Poder360) ====="
           if curl -fsSL -A "$UA" -o diag/parana-jan25.pdf https://static.poder360.com.br/2025/09/parana-pesquisas-jan-2025-eleicoes-2026.pdf; then
             ls -la diag/parana-jan25.pdf
-            if command -v pdftotext >/dev/null; then pdftotext -layout diag/parana-jan25.pdf diag/parana-jan25.txt && grep -n -i "cen[áa]rio\|tarc\|haddad\|camilo\|michelle\|ratinho\|helder\|caiado" diag/parana-jan25.txt | head -120; else echo "pdftotext indisponível"; fi
+            python3 -m pip install -q pypdf >/dev/null 2>&1 || true
+            python3 - <<'PY' || echo "extração do PDF falhou"
+          from pypdf import PdfReader
+          r = PdfReader('diag/parana-jan25.pdf')
+          print('páginas:', len(r.pages))
+          import re
+          for i, pg in enumerate(r.pages):
+              t = pg.extract_text() or ''
+              if re.search(r'cen[áa]rio|Tarc|Haddad|Camilo|Michelle|Ratinho|Helder|Caiado', t, re.I):
+                  print(f'--- página {i+1} ---')
+                  print(t[:2500])
+          PY
           else echo "PDF do Poder360 inacessível"; fi
-      - uses: actions/upload-artifact@v4
-        with:
-          name: diag-wiki
-          path: diag/
-          if-no-files-found: warn
+          echo "===== DUMP gz+b64 da subpágina (entre marcadores) ====="
+          echo "BEGIN_SUB_B64"; gzip -9 -c diag/sub-2023-2025.wiki | base64 -w0; echo; echo "END_SUB_B64"
+          echo "===== DUMP gz+b64 da principal (entre marcadores) ====="
+          echo "BEGIN_MAIN_B64"; gzip -9 -c diag/main.wiki | base64 -w0; echo; echo "END_MAIN_B64"
