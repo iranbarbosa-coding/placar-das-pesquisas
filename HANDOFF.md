@@ -593,6 +593,12 @@ diferem em número ou partido continuam ambíguos e continuam recusados.
   group by the citation's publication date (`data=`/`date=`, only when it is a
   plausible publication of that fieldwork: after it, within 3 months) and
   otherwise by reverse-chronological order, clamped to the range.
+  Queue order is part of the contract: a discovered subpage is fetched RIGHT
+  AFTER its parent, so PT scenarios (declared ordinals) precede the EN page
+  (one "cenário único" per poll, no ordinal) and win the near-duplicate
+  dedupe in `wikipedia.mjs`; enqueued last, the EN single became a magnet in
+  `mergePolls`/`keepFullestRound1` and swallowed PT scenarios sharing ≥80% of
+  the roster without lineage (run 66, 14/09/2026).
   `python3 scripts/wiki_parse.py --self-test` guards all of it.
 - `tse.mjs` — TSE/TRE registry zip (metadata only, **no results**).
 
