@@ -1313,6 +1313,13 @@
    ]
   },
   {
+   "nome": "João Arruda",
+   "partidos": [
+    "PP",
+    "PSD"
+   ]
+  },
+  {
    "nome": "José Arruda",
    "partidos": [
     "PSD"
@@ -4147,12 +4154,6 @@
    ]
   },
   {
-   "nome": "Wiliam Siri",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
    "nome": "William Siri",
    "partidos": [
     "PSOL"
@@ -5471,6 +5472,7 @@
    "nome": "Renan Santos",
    "partidos": [
     "Missão",
+    "Novo",
     "União Brasil"
    ]
   },

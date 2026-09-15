@@ -116,7 +116,6 @@
 {"institute_id":"i_c6521358cc7a","legacy_ids":[],"canonical":"Agorasei","aliases":["Agorasei"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c752318b052e","legacy_ids":[],"canonical":"Vetor","aliases":["Vetor"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ca24c8f8cec3","legacy_ids":[],"canonical":"Visão","aliases":["Visão"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_cbe60b523ce8","legacy_ids":[],"canonical":"Voz e Pesquisa","aliases":["Voz e Pesquisa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cc62c2780454","legacy_ids":[],"canonical":"IFP","aliases":["IFP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cd57f254cabe","legacy_ids":[],"canonical":"Qualitta","aliases":["Qualitta"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-06"}
 {"institute_id":"i_cec8aef68e73","legacy_ids":[],"canonical":"Direct Pesquisas","aliases":["Direct Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -151,4 +150,5 @@
 {"institute_id":"i_f98c78295598","legacy_ids":[],"canonical":"TCM/TSDois","aliases":["TCM/TSDois"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fad3232f047e","legacy_ids":[],"canonical":"ECM Sergipe","aliases":["ECM Sergipe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fcfba71031f1","legacy_ids":[],"canonical":"Fiems/Instituto Opinião","aliases":["Fiems/Instituto Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_fddfdf998149","legacy_ids":["i_cbe60b523ce8"],"canonical":"Viva Voz","aliases":["Viva Voz"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fee26aee2746","legacy_ids":[],"canonical":"Econométrica","aliases":["Econométrica"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

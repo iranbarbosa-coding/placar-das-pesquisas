@@ -4,9 +4,9 @@
  "stats": {
   "exato": 603,
   "contencao": 199,
-  "outra_disputa": 162,
+  "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 556
+  "sem": 555
  },
  "ambiguos": [
   {
@@ -2944,13 +2944,6 @@
    }
   },
   "governador:PI": {
-   "dra lucia santos": {
-    "nome_urna": "Dra. Lúcia Santos",
-    "sq_candidato": "180002544216",
-    "partido": "PSDB",
-    "numero": "45",
-    "origem": "exato"
-   },
    "elizeu aguiar": {
     "nome_urna": "Elizeu Aguiar",
     "sq_candidato": "180002549920",
@@ -5142,13 +5135,6 @@
     "numero": "11",
     "origem": "outra-disputa"
    },
-   "joel rodrigues da silva": {
-    "nome_urna": "Joel Rodrigues",
-    "sq_candidato": "180002538530",
-    "partido": "PP",
-    "numero": "11",
-    "origem": "outra-disputa"
-   },
    "jorge lopes": {
     "nome_urna": "Jorge Lopes",
     "sq_candidato": "180002548568",
@@ -5387,7 +5373,7 @@
   },
   "senador:GO": {
    "cintia dias": {
-    "nome_urna": "Cintia Dias",
+    "nome_urna": "Cíntia Dias",
     "sq_candidato": "90002541454",
     "partido": "PSOL",
     "numero": "500",
