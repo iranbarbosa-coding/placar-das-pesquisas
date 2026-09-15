@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-15T15:43:46.244Z",
+ "generated_at": "2026-09-15T16:54:41.629Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-15T15:43:46.244Z"
+   "last_ok": "2026-09-15T16:54:41.629Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-15T15:43:46.244Z"
+   "last_ok": "2026-09-15T16:54:41.629Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-15T15:43:46.244Z"
+   "last_ok": "2026-09-15T16:54:41.629Z"
   }
  ],
  "polls": [
@@ -1879,13 +1879,27 @@
      "candidate": "Professora Dorinha",
      "party": "União Brasil",
      "pct": 43.8
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 39.3
+    },
+    {
+     "candidate": "Laurez Moreira",
+     "party": "PSD",
+     "pct": 8.9
+    },
+    {
+     "candidate": "Ataides de Oliveira",
+     "party": "Novo",
+     "pct": 6.8
     }
    ],
-   "others_pct": null,
+   "others_pct": 1.3,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
+   "tse_registration": null
   },
   {
    "id": "9479f61204bb",
@@ -25064,7 +25078,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-24",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-08-27",
    "published_date": "2026-08-27",
    "sample_size": 1600,
@@ -25122,7 +25136,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-24",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-08-27",
    "published_date": "2026-08-27",
    "sample_size": 1600,
@@ -39889,7 +39903,7 @@
   {
    "id": "p360-13851-1-0-64d1e939cd24",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/dallagnol-e-alexandre-curi-empatam-no-senado-do-parana-diz-pesquisa/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/sergio-moro-lidera-disputa-pelo-governo-do-parana-em-1o-turno/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-parana-pesquisa-governo-17ago2026.pdf",
    "race": "senador",
    "state": "PR",
@@ -60590,18 +60604,18 @@
   },
   {
    "id": "996cde344dba",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Relatorio-grafico-Pesq.-Cenarios-Eleitorais-Parana-PR-20e21jul26-v2.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Relatorio-grafico-Pesq.-Cenarios-Eleitorais-Parana-PR-20e21jul26-v2.pdf",
    "race": "senador",
    "state": "PR",
    "round": 1,
    "scenario": "1º turno — cenário 1/2",
    "pollster": "Neokemp",
-   "contractor": null,
+   "contractor": "Jornal O Correio do Povo",
    "fieldwork_start": "2026-07-20",
    "fieldwork_end": "2026-07-21",
-   "published_date": null,
+   "published_date": "2026-07-21",
    "sample_size": 1008,
    "margin_of_error": 3.1,
    "results": [
@@ -60639,7 +60653,7 @@
    "others_pct": 11.4,
    "undecided_pct": 30.2,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "PR-02914/2026"
   },
   {
    "id": "9a32ccb6c49f",
@@ -70191,7 +70205,7 @@
   {
    "id": "p360-13572-1-0-af79660f41c7",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/alvaro-dias-lidera-disputa-ao-senado-no-parana-diz-pesquisa-4/",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/moro-lidera-disputa-de-1o-turno-pelo-governo-do-parana-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/07/PR_Jul26.pdf",
    "race": "senador",
    "state": "PR",
@@ -110136,7 +110150,7 @@
   {
    "id": "p360-13390-1-0-be97a2e7b7da",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/alvaro-dias-lidera-disputa-ao-senado-pelo-parana/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/moro-lidera-com-folga-a-disputa-ao-governo-do-pr-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/04/parana-pesquisas-governo-senado-parana-abr2026.pdf",
    "race": "senador",
    "state": "PR",
@@ -135180,7 +135194,7 @@
      "pct": 23.4
     },
     {
-     "candidate": "Álvaro Dias",
+     "candidate": "Alvaro Dias",
      "party": "MDB",
      "pct": 18.9
     },
@@ -136652,7 +136666,7 @@
      "pct": 16.5
     },
     {
-     "candidate": "Álvaro Dias",
+     "candidate": "Alvaro Dias",
      "party": "MDB",
      "pct": 17.5
     },
@@ -136695,7 +136709,7 @@
      "pct": 51
     },
     {
-     "candidate": "Álvaro Dias",
+     "candidate": "Alvaro Dias",
      "party": "MDB",
      "pct": 37.3
     }
@@ -146302,7 +146316,7 @@
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2025-11-25",
    "fieldwork_end": "2025-11-26",
-   "published_date": "2025-11-26",
+   "published_date": "2025-11-25",
    "sample_size": 1200,
    "margin_of_error": 3,
    "results": [
@@ -157973,19 +157987,19 @@
   {
    "id": "p360-12990-1-0-d10666f534d5",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/ratinho-jr-e-cristina-graeml-lideram-disputa-ao-senado-em-curitiba/",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/moro-lidera-disputa-para-o-governo-do-parana-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2025/08/Parana-pesquisas-governador-Curitiba-senador.pdf",
    "race": "senador",
    "state": "PR",
    "round": 1,
    "scenario": "1º turno",
    "pollster": "Paraná Pesquisas",
-   "contractor": "Paraná Pesquisa",
+   "contractor": "Paraná Pesquisas",
    "fieldwork_start": null,
    "fieldwork_end": "2025-08-11",
    "published_date": "2025-08-11",
    "sample_size": 806,
-   "margin_of_error": 3.5,
+   "margin_of_error": 3,
    "results": [
     {
      "candidate": "Ratinho Jr",

@@ -6,7 +6,7 @@
   "contencao": 201,
   "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 549
+  "sem": 542
  },
  "ambiguos": [
   {
@@ -3722,6 +3722,50 @@
     "origem": "exato"
    }
   },
+  "governador:RR": {
+   "arthur henrique": {
+    "nome_urna": "Arthur Henrique",
+    "sq_candidato": "230002549223",
+    "partido": "PL",
+    "numero": "22",
+    "origem": "exato"
+   },
+   "clebio genuino": {
+    "nome_urna": "Clébio Genuíno",
+    "sq_candidato": "230002553857",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
+   "farah mesquita": {
+    "nome_urna": "Farah Mesquita",
+    "sq_candidato": "230002549294",
+    "partido": "SOLIDARIEDADE",
+    "numero": "77",
+    "origem": "exato"
+   },
+   "rosi aires": {
+    "nome_urna": "Rosi Aires",
+    "sq_candidato": "230002552060",
+    "partido": "PSOL",
+    "numero": "50",
+    "origem": "exato"
+   },
+   "soldado sampaio": {
+    "nome_urna": "Soldado Sampaio",
+    "sq_candidato": "230002551571",
+    "partido": "REPUBLICANOS",
+    "numero": "10",
+    "origem": "exato"
+   },
+   "teresa surita": {
+    "nome_urna": "Teresa Surita",
+    "sq_candidato": "230002553006",
+    "partido": "MDB",
+    "numero": "155",
+    "origem": "outra-disputa"
+   }
+  },
   "presidente:RR": {
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
@@ -6366,50 +6410,6 @@
     "partido": "PP",
     "numero": "111",
     "origem": "exato"
-   }
-  },
-  "governador:RR": {
-   "arthur henrique": {
-    "nome_urna": "Arthur Henrique",
-    "sq_candidato": "230002549223",
-    "partido": "PL",
-    "numero": "22",
-    "origem": "exato"
-   },
-   "clebio genuino": {
-    "nome_urna": "Clébio Genuíno",
-    "sq_candidato": "230002553857",
-    "partido": "PCO",
-    "numero": "29",
-    "origem": "exato"
-   },
-   "farah mesquita": {
-    "nome_urna": "Farah Mesquita",
-    "sq_candidato": "230002549294",
-    "partido": "SOLIDARIEDADE",
-    "numero": "77",
-    "origem": "exato"
-   },
-   "rosi aires": {
-    "nome_urna": "Rosi Aires",
-    "sq_candidato": "230002552060",
-    "partido": "PSOL",
-    "numero": "50",
-    "origem": "exato"
-   },
-   "soldado sampaio": {
-    "nome_urna": "Soldado Sampaio",
-    "sq_candidato": "230002551571",
-    "partido": "REPUBLICANOS",
-    "numero": "10",
-    "origem": "exato"
-   },
-   "teresa surita": {
-    "nome_urna": "Teresa Surita",
-    "sq_candidato": "230002553006",
-    "partido": "MDB",
-    "numero": "155",
-    "origem": "outra-disputa"
    }
   },
   "senador:RR": {

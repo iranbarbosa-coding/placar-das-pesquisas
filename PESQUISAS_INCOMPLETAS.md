@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **84 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **83 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -279,20 +279,6 @@ Soma **43.7%** · faltam **56.3 pontos** · 4 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-datacontrol-acre-governador-8.fev_.2026pdf.pdf
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-datacontrol-acre-governador-8.fev_.2026pdf.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Tocantins
-
-### Veritá — 2026-09-12
-
-Soma **43.8%** · faltam **56.2 pontos** · 1 candidato(s) na tabela · amostra 1220
-
-| candidato | % |
-|---|---|
-| Professora Dorinha | 43.8 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

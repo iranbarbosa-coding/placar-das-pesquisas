@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1504 levantamentos · 4705 perguntas · 153 institutos · 1324 candidatos**.
+Banco: **1495 levantamentos · 4705 perguntas · 153 institutos · 1324 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 111 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 99 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 1 | 1 |
-| **total** | **199** | **40** |
+| **total** | **187** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -321,7 +321,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (111)
+## CONFLITO — Conflitos registrados aguardando decisão (99)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -411,24 +411,12 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_467e358a9db5 · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
 - roster_encolhido_na_fonte · q_538ca2ca45ad · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
 - roster_encolhido_na_fonte · q_ea149f2c1842 · results: ["ACM Neto","Jerônimo Rodrigues","José Carlos Aleluia","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
-- candidate_id_orphaned · c_a5deded54bc8 · candidate_id: "c_a5deded54bc8" × null
-- candidate_id_orphaned · c_77f9287f2fba · candidate_id: "c_77f9287f2fba" × null
-- person_id_orphaned · p_dcd6241e28af · person_id: "p_dcd6241e28af" × null
-- person_id_orphaned · p_2acb42fc3541 · person_id: "p_2acb42fc3541" × null
-- person_id_orphaned · p_7483173d455c · person_id: "p_7483173d455c" × null
-- person_id_orphaned · p_8fa28bcb7d26 · person_id: "p_8fa28bcb7d26" × null
-- person_id_orphaned · p_1c63d1a68611 · person_id: "p_1c63d1a68611" × null
-- person_id_orphaned · p_cb6924cb7de6 · person_id: "p_cb6924cb7de6" × null
-- candidate_id_orphaned · c_e12173db7843 · candidate_id: "c_e12173db7843" × null
-- candidate_id_orphaned · c_4c59160c8b5b · candidate_id: "c_4c59160c8b5b" × null
-- candidate_id_orphaned · c_ef089b988d57 · candidate_id: "c_ef089b988d57" × null
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 85
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 21
 - disputa_em_quarentena · governador:BA · quarentena: 52 × 51
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 72
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 61
 - disputa_em_quarentena · governador:PA · quarentena: 73 × 89
-- disputa_em_quarentena · governador:PR · quarentena: 115 × 116
 - disputa_em_quarentena · governador:RJ · quarentena: 61 × 60
 - disputa_em_quarentena · governador:RS · quarentena: 55 × 59
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
