@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 603,
-  "contencao": 199,
+  "exato": 607,
+  "contencao": 201,
   "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 555
+  "sem": 549
  },
  "ambiguos": [
   {
@@ -352,6 +352,13 @@
     "partido": "PSB",
     "numero": "40",
     "origem": "outra-disputa"
+   },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
    },
    "luiz inacio lula da silva": {
     "nome_urna": "Lula",
@@ -994,6 +1001,13 @@
     "numero": "16",
     "origem": "exato"
    },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
    "lula": {
     "nome_urna": "Lula",
     "sq_candidato": "280002542548",
@@ -1258,6 +1272,13 @@
     "partido": "PCO",
     "numero": "29",
     "origem": "exato"
+   },
+   "joao arruda": {
+    "nome_urna": "Arruda",
+    "sq_candidato": "70002552586",
+    "partido": "PSD",
+    "numero": "55",
+    "origem": "contencao"
    },
    "jose arruda": {
     "nome_urna": "Arruda",
@@ -2872,6 +2893,13 @@
     "numero": "16",
     "origem": "exato"
    },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
    "lula": {
     "nome_urna": "Lula",
     "sq_candidato": "280002542548",
@@ -3405,6 +3433,13 @@
     "sq_candidato": "280002541457",
     "partido": "PSTU",
     "numero": "16",
+    "origem": "exato"
+   },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
     "origem": "exato"
    },
    "lula": {
@@ -4195,6 +4230,13 @@
     "sq_candidato": "280002541457",
     "partido": "PSTU",
     "numero": "16",
+    "origem": "exato"
+   },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
     "origem": "exato"
    },
    "lula": {
@@ -5143,14 +5185,14 @@
     "origem": "exato"
    },
    "julio cesar": {
-    "nome_urna": "Júlio César",
+    "nome_urna": "Júlio César O Julim do Lula",
     "sq_candidato": "180002533964",
     "partido": "PSD",
     "numero": "555",
-    "origem": "exato"
+    "origem": "contencao"
    },
    "julio cesar de carvalho lima": {
-    "nome_urna": "Julio Cesar",
+    "nome_urna": "Júlio César O Julim do Lula",
     "sq_candidato": "180002533964",
     "partido": "PSD",
     "numero": "555",

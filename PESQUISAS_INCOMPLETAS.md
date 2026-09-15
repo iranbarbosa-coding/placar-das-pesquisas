@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **87 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **84 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -296,25 +296,6 @@ Soma **43.8%** · faltam **56.2 pontos** · 1 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · Acre
-
-### Instituto Travessia — 2026-08-06
-
-Soma **44%** · faltam **56 pontos** · 3 candidato(s) na tabela · amostra 800 · registro BR-03113/2026
-
-| candidato | % |
-|---|---|
-| Lula | 27 |
-| Renan Santos | 2 |
-| Zema | 1 |
-| *branco/nulo* | 7 |
-| *não sabe/não respondeu* | 7 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-presidencial-geral-Acre-Travessia-6ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Presidente · Amazonas
 
 ### Real Time Big Data — 2026-08-25
@@ -450,26 +431,6 @@ Soma **55%** · faltam **45 pontos** · 2 candidato(s) na tabela · amostra 1500
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-ideia-presidente-governo-senado-19ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-ideia-presidente-governo-senado-19ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Acre
-
-### Quaest — 2026-08-26
-
-Soma **57%** · faltam **43 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-07015/2026
-
-| candidato | % |
-|---|---|
-| Lula | 25 |
-| Ronaldo Caiado | 5 |
-| Renan Santos | 2 |
-| Escritor Augusto Cury | 2 |
-| Zema | 2 |
-| *não sabe/não respondeu* | 21 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -891,27 +852,6 @@ Soma **73.9%** · faltam **26.1 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Santa Catarina
-
-### Correio do Povo — 2026-07-23
-
-Soma **74.6%** · faltam **25.4 pontos** · 5 candidato(s) na tabela · amostra 1008 · registro BR-05953/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 47.4 |
-| Renan Santos | 7.2 |
-| Zema | 6.7 |
-| Ronaldo Caiado | 5 |
-| Escritor Augusto Cury | 1.3 |
-| *branco/nulo* | 2.9 |
-| *não sabe/não respondeu* | 4.1 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Correio-do-Povo-Presidente-SC-Julho.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/07/Correio-do-Povo-Presidente-SC-Julho.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

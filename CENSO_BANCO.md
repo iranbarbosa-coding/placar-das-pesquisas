@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1500 levantamentos · 4590 perguntas · 154 institutos · 1325 candidatos**.
+Banco: **1504 levantamentos · 4705 perguntas · 153 institutos · 1324 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -13,12 +13,12 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SOMA** — Elenco de vaga única somando mais de 100 | 2 | 2 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
-| **SEMDATA** — Levantamentos sem data utilizável | 36 | 0 |
+| **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 100 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 111 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
-| **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 2 | 2 |
-| **total** | **190** | **41** |
+| **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 1 | 1 |
+| **total** | **199** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -44,7 +44,7 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 
 *Nada a reportar.*
 
-## SEMDATA — Levantamentos sem data utilizável (36)
+## SEMDATA — Levantamentos sem data utilizável (35)
 
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
@@ -73,7 +73,6 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_8e11237d1246 · Real Time Big Data · SP · registro —
 - s_a05e548e7136 · Real Time Big Data · SP · registro —
 - s_a3b6d8cdc27d · Delta · AC · registro —
-- s_a5676154ea88 · Qualitta · RN · registro RN-06751/2026
 - s_b24aba3bbef0 · Delta · AC · registro —
 - s_b5e38606ddfc · Real Time Big Data · SP · registro —
 - s_bd70e47b93fa · Real Time Big Data · SP · registro —
@@ -322,7 +321,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (100)
+## CONFLITO — Conflitos registrados aguardando decisão (111)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -412,18 +411,29 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_467e358a9db5 · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
 - roster_encolhido_na_fonte · q_538ca2ca45ad · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
 - roster_encolhido_na_fonte · q_ea149f2c1842 · results: ["ACM Neto","Jerônimo Rodrigues","José Carlos Aleluia","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
+- candidate_id_orphaned · c_a5deded54bc8 · candidate_id: "c_a5deded54bc8" × null
+- candidate_id_orphaned · c_77f9287f2fba · candidate_id: "c_77f9287f2fba" × null
+- person_id_orphaned · p_dcd6241e28af · person_id: "p_dcd6241e28af" × null
+- person_id_orphaned · p_2acb42fc3541 · person_id: "p_2acb42fc3541" × null
+- person_id_orphaned · p_7483173d455c · person_id: "p_7483173d455c" × null
+- person_id_orphaned · p_8fa28bcb7d26 · person_id: "p_8fa28bcb7d26" × null
+- person_id_orphaned · p_1c63d1a68611 · person_id: "p_1c63d1a68611" × null
+- person_id_orphaned · p_cb6924cb7de6 · person_id: "p_cb6924cb7de6" × null
+- candidate_id_orphaned · c_e12173db7843 · candidate_id: "c_e12173db7843" × null
+- candidate_id_orphaned · c_4c59160c8b5b · candidate_id: "c_4c59160c8b5b" × null
+- candidate_id_orphaned · c_ef089b988d57 · candidate_id: "c_ef089b988d57" × null
 - disputa_em_quarentena · governador:AM · quarentena: 72 × 85
 - disputa_em_quarentena · governador:AP · quarentena: 16 × 21
 - disputa_em_quarentena · governador:BA · quarentena: 52 × 51
 - disputa_em_quarentena · governador:CE · quarentena: 59 × 72
 - disputa_em_quarentena · governador:MT · quarentena: 52 × 61
-- disputa_em_quarentena · governador:PA · quarentena: 73 × 87
+- disputa_em_quarentena · governador:PA · quarentena: 73 × 89
+- disputa_em_quarentena · governador:PR · quarentena: 115 × 116
 - disputa_em_quarentena · governador:RJ · quarentena: 61 × 60
 - disputa_em_quarentena · governador:RS · quarentena: 55 × 59
-- disputa_em_quarentena · presidente:BR · quarentena: 1422 × 1507
 - disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
 - disputa_em_quarentena · senador:GO · quarentena: 41 × 46
-- disputa_em_quarentena · senador:PE · quarentena: 58 × 61
+- disputa_em_quarentena · senador:PE · quarentena: 58 × 62
 - disputa_em_quarentena · senador:RJ · quarentena: 31 × 33
 - disputa_em_quarentena · senador:SP · quarentena: 60 × 64
 
@@ -437,10 +447,9 @@ Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 
 - **[2026]** s_52118f05f979 · IPR · MS · n=784 · registro —
 - **[2026]** s_e8f2eb49bdaf · Phoenix · AC · n=615 · registro —
 
-## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (2)
+## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (1)
 
 Uma pessoa observada cuja grafia ALCANÇA, na disputa dela, a candidatura de uma pessoa registrada: são a mesma pessoa, gravada duas vezes. O caso normal é a estreia de um nome numa disputa nova e se resolve na coleta seguinte sem intervenção (§6) — o que importa aqui é o que PERSISTIR de uma rodada para a outra.
 
-- **[2026]** "Aécio Neves" `p_f04ff3c640fe` (observada, presidente:BR) é `p_1eafadee7ec7` "Aécio Neves" (registrada, sq 130002554332) — a grafia "AÉCIO NEVES" alcança a candidatura, mas a linha ficou na observada
 - **[2026]** "Aécio Neves" `p_f04ff3c640fe` (observada, presidente:GO) é `p_1eafadee7ec7` "Aécio Neves" (registrada, sq 130002554332) — a grafia "AÉCIO NEVES" alcança a candidatura, mas a linha ficou na observada
 

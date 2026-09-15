@@ -196,7 +196,6 @@
   {
    "nome": "Michelle Bolsonaro",
    "partidos": [
-    "Liberal Party (Brazil, 2006)",
     "PL"
    ]
   },
@@ -209,7 +208,6 @@
   {
    "nome": "Pablo Marçal",
    "partidos": [
-    "Brazilian Labour Renewal Party",
     "PRTB"
    ]
   },
@@ -2892,30 +2890,6 @@
    ]
   },
   {
-   "nome": "Beto Richa",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Cida Borghetti",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Enio Verri",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Ênio Verri",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
    "nome": "Fernando Giacobo",
    "partidos": [
     "PSD"
@@ -2936,20 +2910,7 @@
   {
    "nome": "Luiz França",
    "partidos": [
-    "Missão",
-    "Podemos"
-   ]
-  },
-  {
-   "nome": "Paulo Eduardo",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Paulo Martins",
-   "partidos": [
-    "Novo"
+    "Missão"
    ]
   },
   {
@@ -4358,12 +4319,6 @@
    ]
   },
   {
-   "nome": "Cadu Xavier",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
    "nome": "Dário Barbosa",
    "partidos": [
     "PSTU"
@@ -4668,6 +4623,68 @@
    "nome": "Sérgio Gonçalves",
    "partidos": [
     "União Brasil"
+   ]
+  }
+ ],
+ "governador:RR": [
+  {
+   "nome": "Arthur Henrique",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Clébio Genuíno",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Doutor Raposo",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Edilson Damião",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Farah Mesquita",
+   "partidos": [
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Juscelino Kubitschek Pereira",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Romero Jucá",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Rosi Aires",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Soldado Sampaio",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Teresa Surita",
+   "partidos": [
+    "MDB"
    ]
   }
  ],
@@ -8621,68 +8638,6 @@
    "nome": "Sílvia Cristina",
    "partidos": [
     "PP"
-   ]
-  }
- ],
- "governador:RR": [
-  {
-   "nome": "Arthur Henrique",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Clébio Genuíno",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Doutor Raposo",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Edilson Damião",
-   "partidos": [
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Farah Mesquita",
-   "partidos": [
-    "Solidariedade"
-   ]
-  },
-  {
-   "nome": "Juscelino Kubitschek Pereira",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Romero Jucá",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Rosi Aires",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Soldado Sampaio",
-   "partidos": [
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Teresa Surita",
-   "partidos": [
-    "MDB"
    ]
   }
  ],
