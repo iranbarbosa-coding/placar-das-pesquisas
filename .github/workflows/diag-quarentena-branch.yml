@@ -20,7 +20,15 @@ jobs:
       - run: node scripts/fetch-candidaturas.mjs
       - run: node scripts/match-ballot-names.mjs
       - name: Coleta real
+        env:
+          PLACAR_DEBUG_LINHAGEM: "1"
         run: node scripts/scrape.mjs > /tmp/scrape.log 2>&1 || (tail -50 /tmp/scrape.log; exit 1)
+      - name: Linhagem dos absorvidos nas disputas em foco
+        run: |
+          echo "===== [linhagem] SEM ANTERIOR (recentes, ≥ 2026-08-01) ====="
+          grep "^\[linhagem\] SEM ANTERIOR" /tmp/scrape.log | grep -E "campo=2026-0[89]" | head -80
+          echo "===== [linhagem] nas disputas em quarentena (AM, AP, BA, PA, RS, PE) ====="
+          grep "^\[linhagem\]" /tmp/scrape.log | grep -E "governador:(AM|AP|BA|PA|RS)|senador:PE" | head -80
       # A cópia é tirada ANTES do guarda de delta: o guarda RESTAURA as disputas
       # congeladas em data/ (quarentena), e a comparação abaixo precisa do que a
       # coleta de fato produziu, não do dado antigo devolvido.
