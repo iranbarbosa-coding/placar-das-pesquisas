@@ -204,7 +204,21 @@ export function ligarAbsorvidos(store, previous, polls, perguntaDe) {
     const irmas = (antPorSurvey.get(vencedora.survey_id) ?? [])
       .filter((q) => q.question_id !== vencedora.question_id && !store._indexes.questionById.has(q.question_id));
     for (const perdedor of p.absorvidos) {
-      const exata = irmas.find((q) => q.legacy_id != null && q.legacy_id === perdedor.id);
+      // O ID NATIVO É EXATO EM QUALQUER LEVANTAMENTO. `perdedor.id` é o id que a
+      // fonte deu àquela tabela (`p360-<nativo>-…`, o pollId de rótulo da
+      // Wikipédia) e `legacy_id` é esse mesmo id gravado na pergunta quando ela
+      // foi cunhada — a igualdade não infere nada. E a pergunta anterior do
+      // absorvido está, via de regra, em OUTRO levantamento: a linha da Wikipédia
+      // cunhou um `survey|nat|…` semanas antes de o Poder360 chegar com o
+      // `survey|ref|…` que a absorve (medido em 16/09/2026: AM, BA, PA, RJ, RN,
+      // senador RJ/SP/PE). Restrita às irmãs do levantamento vencedor, a busca
+      // exata não achava nada e a perda ficava "sem prova". O casamento por
+      // ELENCO, que infere, segue restrito ao mesmo levantamento (o recorte de
+      // `resolveQuestion`, pelas razões de senador:MT em lib/delta.mjs).
+      const exata = perdedor.id != null
+        ? anteriores.find((q) => q.legacy_id === perdedor.id && q.race === perdedor.race && q.round === perdedor.round
+            && q.question_id !== vencedora.question_id && !store._indexes.questionById.has(q.question_id))
+        : null;
       const nomes = nomesDe(perdedor);
       const anterior = exata ?? irmas.find((q) =>
         q.race === perdedor.race && q.round === perdedor.round &&
@@ -217,7 +231,7 @@ export function ligarAbsorvidos(store, previous, polls, perguntaDe) {
     }
   }
   if (ligados) {
-    console.log(`linhagem de colapso: ${ligados} pergunta(s) anterior(es) ligada(s) em legacy_ids do cenário mais cheio`);
+    console.log(`linhagem de colapso/fusão: ${ligados} pergunta(s) anterior(es) ligada(s) em legacy_ids do registro sobrevivente`);
   }
   return ligados;
 }

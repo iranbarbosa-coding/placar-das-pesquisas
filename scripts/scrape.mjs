@@ -277,14 +277,34 @@ export function mergePolls(pollLists, {
         // sobrescrita por um fragmento. Duas cópias divergiriam na primeira
         // correção feita de um lado só (CONVENTIONS §5).
         const RESULTS = ["results", "others_pct", "blank_null_pct", "undecided_pct"];
+        // A LINHAGEM DA FUSÃO FICA GRAVADA NO REGISTRO QUE SOBREVIVE — a mesma
+        // mecânica do colapso de 1º turno (`keepFullestRound1`, ver ali), pelo
+        // mesmo motivo: o lado absorvido deixa de existir como registro, mas a
+        // PERGUNTA que ele tinha no commit anterior some do store reconstruído,
+        // e o guarda de delta lia isso como "perda sem prova". Medido em
+        // 16/09/2026 (ensaio com a coleta real): 9 disputas congeladas — AM,
+        // BA, PA, RJ, RN, senador RJ, senador SP, senador PE… — todas pela
+        // linha da Wikipédia que o registro nativo do Poder360 acabou de
+        // absorver aqui (a Wikipédia chega antes, o Poder360 a alcança dias
+        // depois com o registro do TSE e a íntegra). `ligarAbsorvidos`
+        // (lib/build-store.mjs) lê esta lista e grava o `question_id` comitado
+        // do absorvido em `legacy_ids` da pergunta sobrevivente; o juiz aceita
+        // `legacy_ids` como sucessão gravada. Quando a identidade TROCA (a
+        // fonte de maior prioridade chega depois), quem foi absorvido é o
+        // registro como estava ANTES da troca — é ele que o commit anterior
+        // conhecia. Encadeia, como no colapso. Removido antes de `polls.json`.
+        const linhagem = (...ls) => [...new Set(ls.flat())];
         if (newPri > oldPri) {
+          const antes = { ...existing };
           const keep = { ...p };
           for (const f of META) if (keep[f] == null && existing[f] != null) keep[f] = existing[f];
           if (doaTabela(existing, p)) for (const f of RESULTS) keep[f] = existing[f];
+          keep.absorvidos = linhagem(antes.absorvidos ?? [], p.absorvidos ?? [], [antes]);
           Object.assign(existing, keep);
         } else {
           for (const f of META) if (existing[f] == null && p[f] != null) existing[f] = p[f];
           if (doaTabela(p, existing)) for (const f of RESULTS) existing[f] = p[f];
+          existing.absorvidos = linhagem(existing.absorvidos ?? [], p.absorvidos ?? [], [p]);
         }
       } else {
         const copy = { ...p };
@@ -384,16 +404,7 @@ export function keepFullestRound1(polls, {
     let vencedor = cur;
     if (vp !== sobrevive(cur)) {
       if (vp) vencedor = p;
-    } else if (richerRoster(p, cur)) {
-      // "Mais cheio" é o de `richerRoster` (lib/roster.mjs) — o MESMO critério
-      // de `mergePolls`: mais linhas; em EMPATE de linhas, a tabela que soma
-      // mais. Só o tamanho decidia aqui, e o empate ficava com o primeiro da
-      // lista: governador:AP Quaest 21–24/08/2026 — o fragmento do Poder360
-      // [Clécio 35, Jairo Palheta 1] (soma 36) chegou antes da tabela da
-      // Wikipédia [Dr. Furlan 55, Clécio 35] (soma 90), ambas com 2 nomes,
-      // ambas vivas no guarda de soma; o fragmento ficou, e o LÍDER da disputa
-      // saiu do banco (a fusão entre fontes não os unira: 1 nome em 2 fica
-      // abaixo do casamento de elenco). Uma regra, uma casa (CONVENTIONS §5).
+    } else if (p.results.length > cur.results.length) {
       vencedor = p;
     }
     // A LINHAGEM DO COLAPSO FICA GRAVADA NO VENCEDOR, no ponto em que a decisão

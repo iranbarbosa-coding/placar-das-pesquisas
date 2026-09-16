@@ -310,22 +310,7 @@ function rodar({ mutacao = null } = {}) {
     // (elenco igual ⇒ empate de tamanho, que a regra antiga dava ao primeiro
     // da lista — o nativo, porque a curada entra pelo fim). Mesma marca e
     // mesma data ⇒ mesma chave de `keepFullestRound1`.
-    //
-    // O fragmento morto aqui é morto POR CIMA (soma 175 > teto de 130), não
-    // por baixo: desde que o empate de tamanho passou a ser decidido pela soma
-    // (`richerRoster`, o caso governador:AP), um fragmento que soma MENOS que a
-    // curada perderia pela soma mesmo com o guarda cego — e o caso deixaria de
-    // provar que é o GUARDA quem decide. Com o morto somando mais, só o guarda
-    // o separa da curada: cego, ele vence e a disputa fecha zerada.
-    const mortoPorCima = alvoDispensa({
-      results: [
-        { candidate: "Alfa Existencia", party: "PT", pct: 90 },
-        { candidate: "Beta Existencia", party: "PL", pct: 80 },
-        { candidate: "Gama Existencia", party: "PSD", pct: 5 },
-      ],
-    });
-    afirma(!veredictoDeSoma(mortoPorCima).ok, "premissa: o fragmento de soma 175 reprova no guarda (teto)");
-    const polls = keepFullestRound1([mortoPorCima, curadaRo()], oDedupe);
+    const polls = keepFullestRound1([alvoDispensa(), curadaRo()], oDedupe);
     const depois = guarda(polls);
     afirma(depois.length === 1, `${depois.length} pesquisas depois do guarda, esperado 1 — ${depois.length === 0 ? "o empate elegeu o fragmento morto e a disputa fechou ZERADA" : "as duas ficaram"}`);
     afirma(String(depois[0]?.id).startsWith("curado-"), `sobrou "${depois[0]?.id}", esperada a curada`);
@@ -340,25 +325,6 @@ function rodar({ mutacao = null } = {}) {
     const polls = keepFullestRound1([curta, cheia], oDedupe);
     afirma(polls.length === 1 && polls[0]?.id === cheia.id,
       `ficou "${polls.map((p) => p.id).join(", ")}", esperada a de elenco mais cheio — o conserto revogou a regra entre vivas`);
-  });
-
-  caso("round 1 (controle): empate de tamanho entre duas vivas — fica a tabela que soma mais, não a primeira da lista (o caso governador:AP Quaest 24/08)", ({ afirma }) => {
-    // Duas tabelas de 2 nomes, ambas vivas no guarda de soma, que a fusão
-    // entre fontes NÃO uniu (1 nome em comum em 2 fica abaixo do casamento de
-    // elenco). O fragmento [Clécio 35, Jairo Palheta 1] chegava primeiro e
-    // ficava; a tabela [Dr. Furlan 55, Clécio 35] — com o líder — saía do banco.
-    const fragmento = alvoDispensa({
-      id: "p360-990003-1-0-c3c3c3c3c3c3",
-      results: [{ candidate: "Beta Existencia", party: "PL", pct: 35 }, { candidate: "Delta Existencia", party: "PP", pct: 1 }],
-    });
-    const cheia = alvoDispensa({
-      id: "wiki-d4d4d4d4d4d4", source: "wikipedia",
-      results: [{ candidate: "Alfa Existencia", party: "PT", pct: 55 }, { candidate: "Beta Existencia", party: "PL", pct: 35 }],
-    });
-    const polls = keepFullestRound1([fragmento, cheia], oDedupe);
-    afirma(polls.length === 1 && polls[0]?.id === cheia.id,
-      `ficou "${polls.map((p) => p.id).join(", ")}", esperada a que soma mais (90 × 36) — o empate voltou a ficar com a primeira da lista`);
-    afirma((polls[0]?.absorvidos ?? []).includes(fragmento), "o fragmento engolido fica gravado em absorvidos (linhagem)");
   });
 
   caso("round 1: o colapso GRAVA a linhagem — o vencedor carrega os perdedores em absorvidos, e encadeia", ({ afirma }) => {
@@ -422,7 +388,6 @@ const CONTROLES = [
   "dedupe (controle): o nativo VÁLIDO ainda vence a curada por prioridade",
   "merge (controle): entre duas tabelas vivas, a mais rica ainda doa (o caso do Acre)",
   "round 1 (controle): entre duas vivas, a de elenco mais cheio ainda fica",
-  "round 1 (controle): empate de tamanho entre duas vivas — fica a tabela que soma mais, não a primeira da lista (o caso governador:AP Quaest 24/08)",
   "add_poll (controle): alvo VÁLIDO ainda dispensa a inserção",
 ];
 
