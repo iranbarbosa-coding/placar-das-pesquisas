@@ -35,7 +35,6 @@
 {"institute_id":"i_3c01dd679c50","legacy_ids":[],"canonical":"Phoenix","aliases":["Phoenix"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3d21d6a0cb1d","legacy_ids":[],"canonical":"Véritas","aliases":["Véritas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3dc359bc2250","legacy_ids":[],"canonical":"AtlasIntel","aliases":["AtlasIntel"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_3e7de26951f3","legacy_ids":["i_5b70f03d36f5"],"canonical":"American Analytics Times Brasil/CNBC","aliases":["American Analytics Times Brasil/CNBC"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3f1da752cbbb","legacy_ids":[],"canonical":"TN/Consult","aliases":["TN/Consult"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3f5a8bd8d7d5","legacy_ids":[],"canonical":"Falpe","aliases":["Falpe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_3f6dbb724844","legacy_ids":[],"canonical":"Amostragem","aliases":["Amostragem"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -114,6 +113,7 @@
 {"institute_id":"i_c29894439ffa","legacy_ids":[],"canonical":"IHPEC","aliases":["IHPEC"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c2f35761fd7d","legacy_ids":[],"canonical":"Ampla","aliases":["Ampla"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c6521358cc7a","legacy_ids":[],"canonical":"Agorasei","aliases":["Agorasei"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_c683ff6b5814","legacy_ids":["i_e6d715380b93"],"canonical":"Séculus/CBN Salvador","aliases":["Séculus/CBN Salvador"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c752318b052e","legacy_ids":[],"canonical":"Vetor","aliases":["Vetor"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ca24c8f8cec3","legacy_ids":[],"canonical":"Visão","aliases":["Visão"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cc62c2780454","legacy_ids":[],"canonical":"IFP","aliases":["IFP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -137,7 +137,6 @@
 {"institute_id":"i_e0f035aea21e","legacy_ids":[],"canonical":"Indexa/Broadcast","aliases":["Indexa/Broadcast"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
 {"institute_id":"i_e2daa49c78bd","legacy_ids":[],"canonical":"Exatus","aliases":["Exatus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_e672fddbfc68","legacy_ids":[],"canonical":"Futura","aliases":["Futura"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_e6d715380b93","legacy_ids":[],"canonical":"Bahia Notícia/Séculus","aliases":["Bahia Notícia/Séculus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_e7faf8929a11","legacy_ids":[],"canonical":"BG/Perfil","aliases":["BG/Perfil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-06"}
 {"institute_id":"i_ec0964259418","legacy_ids":[],"canonical":"Soluções","aliases":["Soluções"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ec0e1c7ba5ac","legacy_ids":[],"canonical":"Brada Comunicação","aliases":["Brada Comunicação"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

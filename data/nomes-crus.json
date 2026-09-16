@@ -4374,15 +4374,16 @@
    ]
   },
   {
-   "nome": "Rodrigo Bolsonaro",
+   "nome": "Roberto Paulino",
    "partidos": [
-    "Agir"
+    "PSOL"
    ]
   },
   {
    "nome": "Rodrigo Vieira",
    "partidos": [
-    "Agir"
+    "Agir",
+    "DC"
    ]
   },
   {
@@ -8497,15 +8498,13 @@
    ]
   },
   {
+   "nome": "Flávio Rocha",
+   "partidos": []
+  },
+  {
    "nome": "Jean Paul Prates",
    "partidos": [
     "PDT"
-   ]
-  },
-  {
-   "nome": "Luciana Lima",
-   "partidos": [
-    "PSTU"
    ]
   },
   {
@@ -8515,15 +8514,15 @@
    ]
   },
   {
-   "nome": "Rafael Motta",
+   "nome": "Professor Guilherme Amorim",
    "partidos": [
-    "PDT"
+    "UP"
    ]
   },
   {
-   "nome": "Rivaldo Fernandes",
+   "nome": "Rafael Motta",
    "partidos": [
-    "PV"
+    "PDT"
    ]
   },
   {
@@ -8536,6 +8535,12 @@
    "nome": "Samanda de Lula",
    "partidos": [
     "PT"
+   ]
+  },
+  {
+   "nome": "Sandro Pimental",
+   "partidos": [
+    "PSOL"
    ]
   },
   {

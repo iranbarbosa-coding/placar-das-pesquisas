@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **83 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **89 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -191,26 +191,6 @@ Soma **41%** · faltam **59 pontos** · 6 candidato(s) na tabela · amostra 1104
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · Goiás
-
-### Quaest — 2026-08-26
-
-Soma **41%** · faltam **59 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-07810/2026
-
-| candidato | % |
-|---|---|
-| Ronaldo Caiado | 32 |
-| Renan Santos | 2 |
-| Zema | 2 |
-| Escritor Augusto Cury | 1 |
-| Rui Costa Pimenta | 0 |
-| *não sabe/não respondeu* | 4 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Presidente · São Paulo · 2º turno
 
 ### Enfoque — 2026-08-10
@@ -296,6 +276,23 @@ Soma **45%** · faltam **55 pontos** · 1 candidato(s) na tabela · amostra 1600
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1-1.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Amapá
+
+### Quaest — 2026-08-24
+
+Soma **45%** · faltam **55 pontos** · 2 candidato(s) na tabela · amostra 804 · registro RÁDIOTVDOAMAZONAS
+
+| candidato | % |
+|---|---|
+| Clécio | 35 |
+| Jairo Palheta | 1 |
+| *não sabe/não respondeu* | 9 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -403,6 +400,24 @@ Soma **53%** · faltam **47 pontos** · 1 candidato(s) na tabela · amostra 1600
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Ceará
+
+### Real Time Big Data — 2026-08-19
+
+Soma **54%** · faltam **46 pontos** · 2 candidato(s) na tabela · amostra 1600 · registro CE-08223/2026
+
+| candidato | % |
+|---|---|
+| Elmano de Freitas | 44 |
+| Vera Lúcia | 1 |
+| *branco/nulo* | 4 |
+| *não sabe/não respondeu* | 5 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Ceara-CE-08223-2026_AGO26.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/Ceara-CE-08223-2026_AGO26.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Bahia
 
 ### Ideia — 2026-08-18
@@ -455,6 +470,21 @@ Soma **58.4%** · faltam **41.6 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/media-inteligencia-pesquisa-gov-rn-7ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Amazonas · 2º turno
+
+### Pontual — 2026-09-13
+
+Soma **58.7%** · faltam **41.3 pontos** · 2 candidato(s) na tabela · amostra 3000
+
+| candidato | % |
+|---|---|
+| Omar Aziz | 41.9 |
+| Roberto Cidade | 16.8 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -666,24 +696,6 @@ Soma **68.2%** · faltam **31.8 pontos** · 2 candidato(s) na tabela · amostra 
 | *outros* | 36.8 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Goiás
-
-### DataRD — 2026-08-04
-
-Soma **69%** · faltam **31 pontos** · 3 candidato(s) na tabela · amostra 1509 · registro BR-07847/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 34.7 |
-| Ronaldo Caiado | 29.7 |
-| Renan Santos | 2.4 |
-| *não sabe/não respondeu* | 2.2 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-datard-presidente-go-6ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1027,6 +1039,49 @@ Soma **78%** · faltam **22 pontos** · 2 candidato(s) na tabela · amostra 1208
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Goiás
+
+### Instituto Gazeta de Pesquisas — 2026-08-29
+
+Soma **78.2%** · faltam **21.8 pontos** · 9 candidato(s) na tabela · amostra 3000 · registro BR-05114/2026
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 29.1 |
+| Lula | 23.3 |
+| Ronaldo Caiado | 19.2 |
+| Pablo Marçal | 3.1 |
+| Renan Santos | 1.8 |
+| Zema | 0.9 |
+| Escritor Augusto Cury | 0.7 |
+| Rui Costa Pimenta | 0.1 |
+| Samara | 0 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/pesquisaIGAPE-GovernadorSenador-30ago2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/09/pesquisaIGAPE-GovernadorSenador-30ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Amazonas
+
+### Paraná Pesquisas — 2026-09-04
+
+Soma **80.2%** · faltam **19.8 pontos** · 5 candidato(s) na tabela · amostra 1350 · registro AM-01118/2026
+
+| candidato | % |
+|---|---|
+| Omar Aziz | 29.6 |
+| Roberto Cidade | 21.5 |
+| David Almeida | 16.8 |
+| Cabo Daciolo | 3 |
+| Gilberto Vasconcelos | 0.3 |
+| *não sabe/não respondeu* | 9 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/parana-pesquisas-amazonas-governador-setembro.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Paraíba
 
 ### Seta — 2026-07-27
@@ -1086,6 +1141,21 @@ Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Bahia
+
+### Séculus/CBN Salvador — 2026-09-15
+
+Soma **82.7%** · faltam **17.3 pontos** · 2 candidato(s) na tabela · amostra 1535
+
+| candidato | % |
+|---|---|
+| ACM Neto | 47.23 |
+| Jerônimo Rodrigues | 35.44 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Sergipe
 
 ### TWS — 2026-09-02
@@ -1101,6 +1171,21 @@ Soma **82.9%** · faltam **17.1 pontos** · 4 candidato(s) na tabela · amostra 
 | *outros* | 0 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rio Grande do Sul · 2º turno
+
+### Veritá — 2025-08-28
+
+Soma **83.6%** · faltam **16.4 pontos** · 2 candidato(s) na tabela · amostra 2020
+
+| candidato | % |
+|---|---|
+| Zucco | 44.1 |
+| Juliana Brizola | 39.5 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1185,6 +1270,25 @@ Soma **84%** · faltam **16 pontos** · 2 candidato(s) na tabela · amostra 1208
 
 - PDF do instituto: https://static.poder360.com.br/2026/03/Pesquisa-AtlasIntel-Eleicoes-Piaui-2026-260317-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/fonteles-e-aprovado-por-61-e-desaprovado-por-34-no-piaui/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Ceará
+
+### Quaest — 2026-07-28
+
+Soma **84%** · faltam **16 pontos** · 4 candidato(s) na tabela · amostra 1002 · registro CE-09277/2026
+
+| candidato | % |
+|---|---|
+| Ciro Gomes | 43 |
+| Elmano de Freitas | 33 |
+| Professor Jarir Pereira | 1 |
+| Serley Leal | 0 |
+| *não sabe/não respondeu* | 7 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1461,19 +1565,24 @@ Soma **88%** · faltam **12 pontos** · 5 candidato(s) na tabela · amostra 1200
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Rio Grande do Norte
+## Presidente · Goiás
 
-### DataCapital — 2026-08-18
+### Quaest — 2026-08-26
 
-Soma **88.4%** · faltam **11.6 pontos** · 3 candidato(s) na tabela · amostra 2100
+Soma **88%** · faltam **12 pontos** · 6 candidato(s) na tabela · amostra 804 · registro BR-07810/2026
 
 | candidato | % |
 |---|---|
-| Allyson | 41.8 |
-| Álvaro Dias | 26.3 |
-| Cadu de Lula | 20.3 |
+| Ronaldo Caiado | 32 |
+| Flávio Bolsonaro | 27 |
+| Lula | 20 |
+| Renan Santos | 2 |
+| Zema | 2 |
+| Escritor Augusto Cury | 1 |
+| *não sabe/não respondeu* | 4 |
 
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

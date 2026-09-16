@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1508 levantamentos · 4731 perguntas · 154 institutos · 1324 candidatos**.
+Banco: **1452 levantamentos · 4815 perguntas · 153 institutos · 1324 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -10,27 +10,25 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 
 | classe | itens | de 2026 |
 |---|---|---|
-| **SOMA** — Elenco de vaga única somando mais de 100 | 2 | 2 |
+| **SOMA** — Elenco de vaga única somando mais de 100 | 1 | 1 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 45 | 29 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 106 | 4 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 47 | 31 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 117 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
-| **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 1 | 1 |
-| **total** | **194** | **40** |
+| **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
+| **total** | **205** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
 
-## SOMA — Elenco de vaga única somando mais de 100 (2)
+## SOMA — Elenco de vaga única somando mais de 100 (1)
 
 Cada eleitor tem um voto: as linhas de candidato não podem passar de 100. A folga é derivada das próprias casas decimais da fonte (0,5 por inteiro, 0,05 por décimo). O que aparecer aqui é arredondamento da fonte ou linha a mais no elenco — o segundo caso é defeito nosso.
 
 - **[2026]** 100.2 (folga 0.10) · Veritá · AP governador/t1 · 2026-05-31 · 72d253a0383b
   Antônio Furlan 70.7 · Clécio Luís 29.5
-- **[2026]** 100.9 (folga 0.65) · AtlasIntel · CE governador/t1 · 2026-03-30 · a2c894042a76
-  Ciro Gomes 46 · Camilo Santana 48.8 · Eduardo Girão 5.4 · Jarir Pereira 0.7
 
 ## PESSOA — Candidatos que podem não ser pessoas (0)
 
@@ -84,22 +82,24 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_fde53d701f86 · Paraná Pesquisas · SP · registro —
 - s_fe31562fc375 · Real Time Big Data · SP · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (45)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (47)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (5 de 45) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (7 de 47) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
-- cenários separados — Real Time Big Data · BA governador/t1 · 2025-11-25 — 2 levantamentos
-  s_03edeccebbee: ACM Neto 42 · Rui Costa 43 · Kleber Rosa 1 · José Carlos Aleluia 3
+- **[2026]** cenários separados — Datafolha · PE senador/t1 · 2026-04-26 — 2 levantamentos
+  s_03b4d753b6bc: Marília Arraes 20 · Humberto Costa 12 · Eduardo da Fonte 6 · Túlio Gadêlha 6 · Mendonça Filho 9
+  s_e8aa822fab2f: Marília Arraes 21 · Humberto Costa 13 · Miguel Coelho 10 · Anderson Ferreira 7
+- cenários separados — Real Time Big Data · BA governador/t1 · 2025-11-25 — 3 levantamentos
   s_03edeccebbee: Rui Costa 46 · Bruno Reis 36 · José Aleluia 3 · Kleber Rosa 1
-  s_9facf13df4dd: ACM Neto 44 · Jerônimo Rodrigues 35 · Kleber Rosa 2 · José Carlos Aleluia 3
+  s_22267000c548: ACM Neto 44 · Jerônimo Rodrigues 35
+  s_bcf7fc87ddc0: ACM Neto 42 · Rui Costa 43
+- **[2026]** cenários separados — Real Time Big Data · CE governador/t1 · 2026-08-19 — 2 levantamentos
+  s_06411268ccb9: Ciro Gomes 44 · Elmano de Freitas 44
+  s_bb1084cb47d8: Elmano de Freitas 44 · Vera Lúcia Salgado 1
 - **[2026]** ELENCO REPETIDO — Real Time Big Data · ES governador/t1 · 2026-07-21 — 2 levantamentos
   s_0a662a18fa0e: Ricardo Ferraço 29 · Paulo Hartung 25 · Lorenzo Pazolini 22 · Magno Malta 10 · Helder Salomão 8
   s_7026742f441c: Lorenzo Pazolini 25 · Paulo Hartung 27 · Ricardo Ferraço 31 · Helder Salomão 8
   s_7026742f441c: Lorenzo Pazolini 22 · Magno Malta 10 · Paulo Hartung 25 · Ricardo Ferraço 29 · Helder Salomão 8
-- **[2026]** cenários separados — Quaest · PE senador/t1 · 2026-07-26 — 2 levantamentos
-  s_0aade2c92e00: Marília Arraes 21 · Humberto Costa 14 · Miguel Coelho 6 · Eduardo da Fonte 6 · Túlio Gadêlha 4 · Silvio Nascimento 3 · Paulo Rubem Santiago 1 · Fernando Dueire 0
-  s_0aade2c92e00: Marília Arraes 21 · Humberto Costa 14 · Miguel Coelho 6 · Eduardo da Fonte 6 · Túlio Gadêlha 4 · Silvio Nascimento 2 · Paulo Rubem Santiago 0
-  s_53a449a24cdb: Marília Arraes 19 · Humberto Costa 12 · Mendonça Filho 8 · Eduardo da Fonte 6 · Miguel Coelho 6 · Túlio Gadelha 4 · Silvio Nascimento 2 · Fernando Dueire 0 · Paulo Rubem Santiago 0
 - cenários separados — Paraná Pesquisas · BR presidente/t1 · 2024-08-18 — 2 levantamentos
   s_124d3b227884: Luiz Inácio Lula da Silva 37.4 · Ciro Gomes 12 · Tereza Cristina 7.4 · Simone Tebet 8.5
   s_124d3b227884: Luiz Inácio Lula da Silva 37.1 · Tarcísio de Freitas 25.4 · Ciro Gomes 10.1
@@ -122,6 +122,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
 - **[2026]** cenários separados — Paraná Pesquisas · RJ senador/t1 · 2026-04-23 — 2 levantamentos
   s_167e1bf049a2: Rogéria Bolsonaro 28.1 · Benedita da Silva 32.3 · Márcio Canella 19.7 · Pedro Paulo 20.9
   s_c7fa19bc3263: Benedita da Silva 30.4 · Cláudio Castro 29.9 · Marcelo Crivella 21.5 · Pedro Paulo 19.4 · Márcio Canella 17.1 · Marcos Dias 5.6
+- **[2026]** ELENCO REPETIDO — Real Time Big Data · PA governador/t2 · 2026-09-07 — 2 levantamentos
+  s_17e52f823b73: Daniel Santos 36 · Hana Ghassan 40
+  s_423ae614ed24: Hana Ghassan 40 · Dr. Daniel 36
 - **[2026]** cenários separados — Real Time Big Data · SP governador/t1 · 2026-03-07 — 2 levantamentos
   s_1b5d70c07004: Tarcísio de Freitas 48 · Márcio França 23 · Paulo Serra 8 · Kim Kataguiri 10
   s_1b5d70c07004: Tarcísio de Freitas 49 · Simone Tebet 21 · Paulo Serra 9 · Kim Kataguiri 10
@@ -131,6 +134,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_1da98a1aa538: Fábio Mitidieri 48 · Emília Corrêa 32
   s_42ae015e72cf: Fábio Mitidieri 46 · Valmir de Francisquinho de Itabaiana 33
   s_ad82f3d5fdbb: Fábio Mitidieri 50 · Eduardo Amorim 28
+- **[2026]** ELENCO REPETIDO — Quaest · PA governador/t2 · 2026-08-28 — 2 levantamentos
+  s_236f9ede7447: Dr. Daniel 36 · Hana Ghassan 36
+  s_87a93348e35c: Daniel Santos 36 · Hana Ghassan 36
 - **[2026]** cenários separados — Real Time Big Data · AC governador/t2 · 2026-07-25 — 2 levantamentos
   s_291fa207ccea: Alan Rick 45 · Mailza Assis 36
   s_cb78c6655121: Alan Rick 54 · Tião Bocalom 26
@@ -148,9 +154,6 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_f974da273cc9: Lula 50 · Michelle Bolsonaro 38
   s_f974da273cc9: Lula 49 · Jair Bolsonaro 40
   s_f974da273cc9: Lula 48 · Tarcísio de Freitas 39
-- **[2026]** cenários separados — Real Time Big Data · CE governador/t1 · 2026-03-28 — 2 levantamentos
-  s_299d16b3a47f: Elmano de Freitas 45 · Roberto Cláudio 27 · Eduardo Girão 15 · Jarir Pereira 1
-  s_657b5dac2dfd: Ciro Gomes 39 · Elmano de Freitas 42 · Eduardo Girão 13 · Jarir Pereira 0
 - cenários separados — AtlasIntel · BR presidente/t1 · 2025-05-23 — 2 levantamentos
   s_2b6ddfecf762: Jair Messias Bolsonaro 46.7 · Luiz Inácio Lula da Silva 43.9 · Ciro Gomes 3.8 · Simone Tebet 2.1
   s_b55aff185e2b: Michelle Bolsonaro 33.5 · Luiz Inácio Lula da Silva 44.4 · Pablo Marçal 2.1 · Ratinho Júnior 3.9 · Eduardo Leite 2.2 · Romeu Zema 4 · Ciro Gomes 3.2 · Ronaldo Caiado 4.8
@@ -171,10 +174,6 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_33f0936d624b: Tarcísio de Freitas 30.1 · Fernando Haddad 43.1 · Ratinho Júnior 3.5 · Romeu Zema 2.6 · Ronaldo Caiado 7
   s_33f0936d624b: Luiz Inácio Lula da Silva 51 · Ratinho Júnior 10.4 · Romeu Zema 10.6 · Ronaldo Caiado 15.3
   s_fa88a308a3ff: Jair Messias Bolsonaro 41.3 · Luiz Inácio Lula da Silva 48.8 · Ciro Gomes 3.1 · Simone Tebet 2.3
-- **[2026]** cenários separados — AtlasIntel · CE governador/t1 · 2026-03-30 — 3 levantamentos
-  s_34c6bb115058: Ciro Gomes 46 · Roberto Cláudio 15.2 · Eduardo Girão 22.3 · Jarir Pereira 1.1
-  s_55207c7bd590: Ciro Gomes 46.2 · Elmano de Freitas 42.6 · Eduardo Girão 5.3 · Jarir Pereira 1
-  s_f6095f145f1e: Ciro Gomes 46 · Camilo Santana 48.8 · Eduardo Girão 5.4 · Jarir Pereira 0.7
 - **[2026]** cenários separados — AtlasIntel · CE senador/t1 · 2026-03-30 — 2 levantamentos
   s_34c6bb115058: Eunício Oliveira 8.7 · Alcides Fernandes 11.8 · Cid Gomes 19.9 · Roberto Cláudio 14.6 · General Theóphilo 6.3
   s_ea4d1c60ea99: Capitão Wagner 20.9 · Eunício Oliveira 10.1 · Júnior Mano 5 · Luizianne Lins 17.2 · Priscila Costa 10.8 · General Theóphilo 4.5
@@ -252,6 +251,11 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_7fe69b9b02c7: Wellington Fagundes 40.8 · Natasha Slhessarenko 12.3
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
   s_8e3757dce960: Wellington Fagundes 40.8 · Doutora Natasha 12.3
+- **[2026]** cenários separados — Quaest · AM governador/t2 · 2026-08-24 — 2 levantamentos
+  s_86145f8e35f7: Omar Aziz 49 · David Almeida 46
+  s_af3cacb4c580: Omar Aziz 44 · Roberto Cidade 40
+  s_af3cacb4c580: Maria do Carmo 41 · David Almeida 40
+  s_af3cacb4c580: Maria do Carmo 44 · Omar Aziz 45
 - **[2026]** cenários separados — Quaest · CE senador/t1 · 2026-04-28 — 2 levantamentos
   s_8671a57e9697: Cid Gomes 17 · Capitão Wagner 17 · Eunício Oliveira 6 · Luizianne Lins 9 · Priscila Costa 4 · General Theóphilo 1 · Anna Karina 1
   s_a6c9cec351e6: Cid Gomes 17 · Capitão Wagner 16 · Roberto Cláudio 8 · Luizianne Lins 8 · Eunício Oliveira 6 · Pastor Alcides 3 · Priscila Costa 3 · Chiquinho Feitosa 1 · Domingos Filho 1 · General Theophilo 1 · Anna Karina 0
@@ -321,7 +325,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (106)
+## CONFLITO — Conflitos registrados aguardando decisão (117)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -411,26 +415,37 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_467e358a9db5 · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
 - roster_encolhido_na_fonte · q_538ca2ca45ad · results: ["ACM Neto","Jerônimo Rodrigues","João Roma","Kleber Rosa"] × ["ACM Neto","Jerônimo Rodrigues","João Roma"]
 - roster_encolhido_na_fonte · q_ea149f2c1842 · results: ["ACM Neto","Jerônimo Rodrigues","José Carlos Aleluia","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"]
+- roster_encolhido_na_fonte · q_a0825829f215 · results: ["Coronel Hélio","Rafael Motta","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
+- roster_encolhido_na_fonte · q_e1a92b516bfe · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Álvaro Costa Dias"]
+- roster_encolhido_na_fonte · q_20a754f7a52a · results: ["Coronel Hélio","Rafael Motta","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
+- roster_encolhido_na_fonte · q_7cc37ad4eb3a · results: ["Arthur Lira","Davi Davino Filho","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Arthur Lira","Davi Davino Filho","Paulão do PT","Renan Calheiros"]
+- roster_encolhido_na_fonte · q_0a587cd4c025 · results: ["Allyson Bezerra","Cadu de Lula","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Robério Paulino","Álvaro Dias"]
+- roster_encolhido_na_fonte · q_5446f4cef2bf · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Rodrigo Vieira","Álvaro Dias"]
+- roster_encolhido_na_fonte · q_b8fbce1566c7 · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio Oliveira","Rafael Motta","Rosália Fernandes","Sandro Pimental","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_af281d0eafce · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"]
 - roster_encolhido_na_fonte · q_9161a68b01b3 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
 - roster_encolhido_na_fonte · q_915127c2fc9c · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"]
+- roster_encolhido_na_fonte · q_d384e71a6484 · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_76449517807e · results: ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
+- roster_encolhido_na_fonte · q_4479bba718ab · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Álvaro Costa Dias"]
+- roster_encolhido_na_fonte · q_75c65043732e · results: ["Allyson Bezerra","Cadu de Lula","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Robério Paulino","Álvaro Dias"]
+- roster_encolhido_na_fonte · q_78a1165ded41 · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Álvaro Costa Dias"]
+- roster_encolhido_na_fonte · q_9450bfc2568f · results: ["Coronel Hélio","Ezequiel Ferreira","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"]
+- roster_encolhido_na_fonte · q_49f669560a10 · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
+- roster_encolhido_na_fonte · q_9075f3691f79 · results: ["Coronel Hélio","Rafael Motta","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_51b7ab81c2ac · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
+- roster_encolhido_na_fonte · q_92e328a3bae9 · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Álvaro Costa Dias"]
+- candidate_id_orphaned · c_fadd1435ce71 · candidate_id: "c_fadd1435ce71" × null
+- roster_encolhido_na_fonte · q_8cdbe4477112 · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino"]
+- roster_encolhido_na_fonte · q_c131e594ca58 · results: ["Coronel Hélio","Jean Paul Prates","Rafael Motta","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_bc9cb3788da4 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
+- roster_encolhido_na_fonte · q_de2e0bf0d4fd · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_b2332206ba0c · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
-- disputa_em_quarentena · governador:AM · quarentena: 72 × 85
-- disputa_em_quarentena · governador:AP · quarentena: 16 × 22
-- disputa_em_quarentena · governador:BA · quarentena: 52 × 51
-- disputa_em_quarentena · governador:CE · quarentena: 59 × 72
-- disputa_em_quarentena · governador:MT · quarentena: 52 × 61
-- disputa_em_quarentena · governador:PA · quarentena: 73 × 89
-- disputa_em_quarentena · governador:RJ · quarentena: 61 × 60
-- disputa_em_quarentena · governador:RS · quarentena: 55 × 59
-- disputa_em_quarentena · presidente:GO · quarentena: 35 × 41
-- disputa_em_quarentena · senador:GO · quarentena: 41 × 48
-- disputa_em_quarentena · senador:PE · quarentena: 58 × 63
-- disputa_em_quarentena · senador:RJ · quarentena: 31 × 33
-- disputa_em_quarentena · senador:SP · quarentena: 60 × 64
+- roster_encolhido_na_fonte · q_25f469023e7c · results: ["Alfredo Gaspar","Arthur Lira","Davi Davino Filho","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Alfredo Gaspar","Arthur Lira","Davi Davino Filho","Paulão do PT","Renan Calheiros"]
+- roster_encolhido_na_fonte · q_df271f2f3b4b · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
+- person_id_orphaned · p_a89432d89287 · person_id: "p_a89432d89287" × null
+- roster_encolhido_na_fonte · q_5bf18ed5f970 · results: ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros"]
+- roster_encolhido_na_fonte · q_40997e6f03a4 · results: ["Coronel Hélio","Jean Paul Prates","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"]
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (5)
 
@@ -442,9 +457,9 @@ Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 
 - **[2026]** s_52118f05f979 · IPR · MS · n=784 · registro —
 - **[2026]** s_e8f2eb49bdaf · Phoenix · AC · n=615 · registro —
 
-## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (1)
+## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (0)
 
 Uma pessoa observada cuja grafia ALCANÇA, na disputa dela, a candidatura de uma pessoa registrada: são a mesma pessoa, gravada duas vezes. O caso normal é a estreia de um nome numa disputa nova e se resolve na coleta seguinte sem intervenção (§6) — o que importa aqui é o que PERSISTIR de uma rodada para a outra.
 
-- **[2026]** "Aécio Neves" `p_f04ff3c640fe` (observada, presidente:GO) é `p_1eafadee7ec7` "Aécio Neves" (registrada, sq 130002554332) — a grafia "AÉCIO NEVES" alcança a candidatura, mas a linha ficou na observada
+*Nada a reportar.*
 
