@@ -1,0 +1,80 @@
+# DIAGNÓSTICO (só nesta branch, nunca no main): roda a coleta REAL no runner e,
+# para CADA disputa em quarentena no commit (HEAD), mostra lado a lado cada
+# pergunta "sem prova" e o que a coleta fresca tem do mesmo levantamento.
+name: Diagnóstico — quarentenas (coleta real)
+on:
+  push:
+    branches: ["claude/placar-32-creator-pitches-7dk5vm"]
+    paths: [".github/workflows/diag-quarentena-branch.yml"]
+permissions:
+  contents: read
+jobs:
+  comparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/fetch-candidaturas.mjs
+      - run: node scripts/match-ballot-names.mjs
+      - name: Coleta real
+        run: node scripts/scrape.mjs > /tmp/scrape.log 2>&1 || (tail -50 /tmp/scrape.log; exit 1)
+      - name: Veredito do guarda de delta (HEAD × coleta fresca)
+        run: node scripts/disputa-delta-check.mjs 2>&1 | grep -v "^\s*$" | tail -40 || true
+      - name: Quarentenas — perdas sem prova, lado a lado
+        run: |
+          set -u
+          mkdir -p /tmp/prev
+          for f in questions surveys candidates conflicts; do git show HEAD:data/$f.ndjson > /tmp/prev/$f.ndjson; done
+          echo "===== descartes da coleta (colapso/duplicata/soma) fora da presidencial ====="
+          grep -E "descartada \[" /tmp/scrape.log | grep -v "presidente/BR" | head -150
+          echo "===== fusões entre marcas ====="
+          grep -E "duplicata entre marcas" /tmp/scrape.log | sort | uniq -c | sort -rn | head -60
+          node - <<'JS'
+          import("node:fs").then(async (fs) => {
+            const rd = (f) => fs.readFileSync(f, "utf-8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
+            const P = { q: rd("/tmp/prev/questions.ndjson"), s: rd("/tmp/prev/surveys.ndjson"), c: rd("/tmp/prev/candidates.ndjson"), k: rd("/tmp/prev/conflicts.ndjson") };
+            const N = { q: rd("data/questions.ndjson"), s: rd("data/surveys.ndjson"), c: rd("data/candidates.ndjson") };
+            const by = (arr, k) => new Map(arr.map((x) => [x[k], x]));
+            const Pq = by(P.q, "question_id"), Ps = by(P.s, "survey_id"), Ns = by(N.s, "survey_id"), Pc = by(P.c, "candidate_id"), Nc = by(N.c, "candidate_id");
+            const quar = P.k.filter((c) => c.type === "disputa_em_quarentena");
+            const lastRun = quar.map((c) => c.run_id).sort().at(-1);
+            const rows = quar.filter((c) => c.run_id === lastRun);
+            console.log(`\n##### ${rows.length} disputa(s) em quarentena no commit (run ${lastRun})`);
+            const nomes = (q, C) => (q.results ?? []).map((r) => (C.get(r.candidate_id)?.canonical ?? r.name_raw ?? r.candidate_id) + ":" + r.pct).join(", ");
+            const dias = (a, b) => Math.abs((new Date(a) - new Date(b)) / 864e5);
+            for (const c of rows) {
+              const ids = [...(c.note ?? "").matchAll(/q_[0-9a-f]+/g)].map((m) => m[0]);
+              console.log(`\n================ ${c.record_id} — congelada em ${c.at} — ${ids.length} sem prova ================`);
+              const [race, uf] = c.record_id.split(":");
+              const Nq = N.q.filter((q) => q.race === race && (q.uf ?? "BR") === uf);
+              for (const id of ids) {
+                const q = Pq.get(id);
+                if (!q) { console.log(`=== PERDIDA ${id} — não está no commit (?)`); continue; }
+                const s = Ps.get(q.survey_id) ?? {};
+                console.log(`=== PERDIDA ${id} | ${s.institute_names_raw?.[0]} ${s.fieldwork_start}→${s.fieldwork_end} n=${s.sample_size} | r${q.round} | ${q.scenario_label_raw} | ord ${q.scenario_ordinal} | estímulo ${q.stimulus}`);
+                console.log(`    seed: ${q.mint_seed}`);
+                console.log(`    legacy_id ${q.legacy_id} legacy_ids ${JSON.stringify(q.legacy_ids ?? [])} | survey seed: ${s.mint_seed} | reg ${s.tse_registration} | refs ${JSON.stringify((s.source_refs ?? []).map((r) => r.source + ":" + r.native_id))} | url ${s.article_url}`);
+                console.log(`    elenco: ${nomes(q, Pc)}`);
+                const cand = Nq.filter((n) => {
+                  const ns = Ns.get(n.survey_id) ?? {};
+                  return n.survey_id === q.survey_id || (ns.institute_id === s.institute_id && ns.fieldwork_end && s.fieldwork_end && dias(ns.fieldwork_end, s.fieldwork_end) <= 3);
+                });
+                console.log(`    fresco — ${cand.length} pergunta(s) do mesmo levantamento (survey igual ou instituto ±3d):`);
+                for (const n of cand) {
+                  const ns = Ns.get(n.survey_id) ?? {};
+                  console.log(`      ${n.question_id} | survey ${n.survey_id}${n.survey_id === q.survey_id ? " (=)" : ""} ${ns.fieldwork_start}→${ns.fieldwork_end} n=${ns.sample_size} | r${n.round} | ${n.scenario_label_raw} | ord ${n.scenario_ordinal} | estímulo ${n.stimulus} | legacy_id ${n.legacy_id} legacy_ids ${JSON.stringify(n.legacy_ids ?? [])}`);
+                  console.log(`         elenco: ${nomes(n, Nc)}`);
+                }
+                for (const x of [...new Set(cand.map((n) => n.survey_id))].map((id) => Ns.get(id))) console.log(`      survey ${x.survey_id} seed: ${x.mint_seed} | reg ${x.tse_registration} | refs ${JSON.stringify((x.source_refs ?? []).map((r) => r.source + ":" + r.native_id))} | url ${x.article_url}`);
+                if (!cand.length) {
+                  // nada do mesmo levantamento: o instituto ainda publica nesta disputa? última data no fresco
+                  const doInst = Nq.filter((n) => (Ns.get(n.survey_id) ?? {}).institute_id === s.institute_id).map((n) => Ns.get(n.survey_id)?.fieldwork_end).filter(Boolean).sort();
+                  console.log(`      (nenhuma; este instituto tem ${doInst.length} pergunta(s) nesta disputa no fresco; última: ${doInst.at(-1) ?? "—"})`);
+                }
+              }
+            }
+          });
+          JS
