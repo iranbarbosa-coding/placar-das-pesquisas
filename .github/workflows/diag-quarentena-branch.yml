@@ -21,8 +21,13 @@ jobs:
       - run: node scripts/match-ballot-names.mjs
       - name: Coleta real
         run: node scripts/scrape.mjs > /tmp/scrape.log 2>&1 || (tail -50 /tmp/scrape.log; exit 1)
+      # A cópia é tirada ANTES do guarda de delta: o guarda RESTAURA as disputas
+      # congeladas em data/ (quarentena), e a comparação abaixo precisa do que a
+      # coleta de fato produziu, não do dado antigo devolvido.
+      - name: Congelar a coleta fresca antes do guarda
+        run: mkdir -p /tmp/fresh && cp data/*.ndjson /tmp/fresh/
       - name: Veredito do guarda de delta (HEAD × coleta fresca)
-        run: node scripts/disputa-delta-check.mjs 2>&1 | grep -v "^\s*$" | tail -40 || true
+        run: node scripts/disputa-delta-check.mjs 2>&1 | grep -v "^\s*$" | grep -v "^\s*✓" | tail -90 || true
       - name: Quarentenas — perdas sem prova, lado a lado
         run: |
           set -u
@@ -36,7 +41,7 @@ jobs:
           import("node:fs").then(async (fs) => {
             const rd = (f) => fs.readFileSync(f, "utf-8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
             const P = { q: rd("/tmp/prev/questions.ndjson"), s: rd("/tmp/prev/surveys.ndjson"), c: rd("/tmp/prev/candidates.ndjson"), k: rd("/tmp/prev/conflicts.ndjson") };
-            const N = { q: rd("data/questions.ndjson"), s: rd("data/surveys.ndjson"), c: rd("data/candidates.ndjson") };
+            const N = { q: rd("/tmp/fresh/questions.ndjson"), s: rd("/tmp/fresh/surveys.ndjson"), c: rd("/tmp/fresh/candidates.ndjson") };
             const by = (arr, k) => new Map(arr.map((x) => [x[k], x]));
             const Pq = by(P.q, "question_id"), Ps = by(P.s, "survey_id"), Ns = by(N.s, "survey_id"), Pc = by(P.c, "candidate_id"), Nc = by(N.c, "candidate_id");
             const quar = P.k.filter((c) => c.type === "disputa_em_quarentena");
