@@ -8,7 +8,7 @@ diferença entre as duas leituras é o estrago, e ela é **enumerável** — é 
 
 Custo de uma rodada: **274 chamadas** à API (2 por combinação × 137 combinações),
 em série e com pausa entre elas. O coletor gasta o mesmo, e é por isso que a coleta roda
-2×/dia. Use `--cache=` para reler a mesma varredura sem tocar na fonte.
+4×/dia, não mais. Use `--cache=` para reler a mesma varredura sem tocar na fonte.
 
 Janela de "mesma operação de campo": **3 dias** — `JANELA_OPERACAO_MS` importada de
 `scripts/lib/store.mjs`, a mesma que `resolveSurvey`, `datesClose` e `repairs.mjs` usam. Não
