@@ -30,7 +30,7 @@ import path from "node:path";
 import {
   readStore, writeStore, markHeadlines, priorStamps, emptyIndexes,
   seedRegisteredPeople, logConflict, DATA_DIR, SOURCE_ORDER, TABLE_NAMES,
-  PEOPLE_SCHEMA_VERSION, questionRostersMatch,
+  PEOPLE_SCHEMA_VERSION, questionRostersMatch, JANELA_OPERACAO_MS,
 } from "./store.mjs";
 import { upsertPoll } from "./upsert.mjs";
 import { identityConflicts } from "./candidates.mjs";
@@ -116,6 +116,18 @@ export function buildStoreFromPolls(polls, {
   // tabela que a fonte truncou promoveria o cenário errado e publicaria o
   // truncado. Ver `scripts/lib/roster.mjs`.
   reterElencos(store, previous, runDate);
+  // NENHUMA PERGUNTA É SUCESSORA DE SI MESMA. A retenção acima pode devolver a
+  // uma pergunta o id que ela tinha no commit anterior (o elenco retido é o
+  // antigo, e o id semeia em elenco) — e `ligarAbsorvidos`, que correu antes
+  // com o id novo, pode ter gravado exatamente esse id antigo em `legacy_ids`
+  // (medido em 16/09/2026, governador:BA Quaest 04/2026: legacy_ids
+  // ["q_ea149f2c1842"] na própria q_ea149f2c1842). Linhagem para si mesma é
+  // ruído no diff e nada para o juiz; sai aqui, e a coluna some se ficar vazia.
+  for (const q of store.questions) {
+    if (!q.legacy_ids?.length) continue;
+    const semSi = q.legacy_ids.filter((id) => id !== q.question_id);
+    if (semSi.length) q.legacy_ids = semSi; else delete q.legacy_ids;
+  }
   markHeadlines(store);
   // A PESSOA PRIMEIRO, a linha que a cita depois. As três traduções são
   // independentes (cada uma casa a sua tabela contra a anterior), mas a ordem
@@ -191,6 +203,26 @@ export function ligarAbsorvidos(store, previous, polls, perguntaDe) {
     antPorSurvey.get(q.survey_id).push(q);
   }
   const nomesDe = (poll) => (poll.results ?? []).map((r) => r.candidate).filter(Boolean);
+  // A MESMA OPERAÇÃO DE CAMPO, entre o levantamento vencedor (novo) e um
+  // levantamento anterior: o mesmo `survey_id`, ou o mesmo instituto com o fim
+  // de campo dentro da janela de operação (±3 dias, `JANELA_OPERACAO_MS` — o
+  // mesmo recorte da chave natural de `resolveSurvey` e de `dropExactDuplicates`).
+  // É o escopo em que o ELENCO pode inferir "mesma pergunta": a linha da
+  // Wikipédia cunhou o próprio `survey|nat|…` semanas antes de o Poder360
+  // chegar com o `survey|ref|…` que a absorve, e o mesmo instituto no mesmo
+  // campo é a mesma medição — não é a lição de senador:MT (elencos iguais de
+  // institutos e datas DIFERENTES), que o recorte por instituto+janela exclui.
+  const survAnt = new Map((previous?.surveys ?? []).map((s) => [s.survey_id, s]));
+  const survNova = store._indexes?.surveyById ?? new Map((store.surveys ?? []).map((s) => [s.survey_id, s]));
+  const dataDe = (s) => s?.fieldwork_end ?? s?.published_date ?? null;
+  const mesmaOperacao = (idAnt, idNova) => {
+    if (idAnt === idNova) return true;
+    const a = survAnt.get(idAnt), n = survNova.get(idNova);
+    if (!a || !n || !a.institute_id || a.institute_id !== n.institute_id) return false;
+    const da = dataDe(a), dn = dataDe(n);
+    return !!da && !!dn && Math.abs(+new Date(da) - +new Date(dn)) <= JANELA_OPERACAO_MS;
+  };
+  const DEBUG = process.env.PLACAR_DEBUG_LINHAGEM === "1";
   let ligados = 0;
   for (const p of polls) {
     if (!p.absorvidos?.length) continue;
@@ -200,15 +232,35 @@ export function ligarAbsorvidos(store, previous, polls, perguntaDe) {
     // no store novo não foi colapsada (foi re-produzida pela coleta), e ligá-la
     // como "absorvida" seria linhagem falsa — inerte para o juiz (ele só consulta
     // sucessora de pergunta SUMIDA), mas errada no dado. `questionById` é o
-    // índice do store novo.
-    const irmas = (antPorSurvey.get(vencedora.survey_id) ?? [])
-      .filter((q) => q.question_id !== vencedora.question_id && !store._indexes.questionById.has(q.question_id));
+    // índice do store novo. As irmãs são as perguntas anteriores da MESMA
+    // OPERAÇÃO DE CAMPO (acima), não só do mesmo `survey_id`.
+    const irmas = anteriores.filter((q) =>
+      q.question_id !== vencedora.question_id && !store._indexes.questionById.has(q.question_id)
+      && mesmaOperacao(q.survey_id, vencedora.survey_id));
     for (const perdedor of p.absorvidos) {
-      const exata = irmas.find((q) => q.legacy_id != null && q.legacy_id === perdedor.id);
+      // O ID NATIVO É EXATO EM QUALQUER LEVANTAMENTO. `perdedor.id` é o id que a
+      // fonte deu àquela tabela (`p360-<nativo>-…`, o pollId de rótulo da
+      // Wikipédia) e `legacy_id` é esse mesmo id gravado na pergunta quando ela
+      // foi cunhada — a igualdade não infere nada. E a pergunta anterior do
+      // absorvido está, via de regra, em OUTRO levantamento: a linha da Wikipédia
+      // cunhou um `survey|nat|…` semanas antes de o Poder360 chegar com o
+      // `survey|ref|…` que a absorve (medido em 16/09/2026: AM, BA, PA, RJ, RN,
+      // senador RJ/SP/PE). Restrita às irmãs do levantamento vencedor, a busca
+      // exata não achava nada e a perda ficava "sem prova". O casamento por
+      // ELENCO, que infere, segue restrito ao mesmo levantamento (o recorte de
+      // `resolveQuestion`, pelas razões de senador:MT em lib/delta.mjs).
+      const exata = perdedor.id != null
+        ? anteriores.find((q) => q.legacy_id === perdedor.id && q.race === perdedor.race && q.round === perdedor.round
+            && q.question_id !== vencedora.question_id && !store._indexes.questionById.has(q.question_id))
+        : null;
       const nomes = nomesDe(perdedor);
       const anterior = exata ?? irmas.find((q) =>
         q.race === perdedor.race && q.round === perdedor.round &&
         questionRostersMatch(q.results, nomes.map((candidate) => ({ candidate })), nomes));
+      if (DEBUG) {
+        const sv = survNova.get(vencedora.survey_id);
+        console.log(`[linhagem] ${anterior ? (exata ? "id exato" : "elenco") : "SEM ANTERIOR"} · absorvido id=${perdedor.id} ${perdedor.pollster} ${perdedor.race}:${perdedor.state ?? "BR"} r${perdedor.round} campo=${perdedor.fieldwork_end} [${nomes.join(", ")}] → vencedora ${vencedora.question_id} (survey ${vencedora.survey_id} ${sv?.fieldwork_end ?? "?"})${anterior ? ` ← ${anterior.question_id}` : ""}`);
+      }
       if (!anterior) continue;
       const ja = new Set(vencedora.legacy_ids ?? []);
       if (ja.has(anterior.question_id)) continue;
@@ -217,7 +269,7 @@ export function ligarAbsorvidos(store, previous, polls, perguntaDe) {
     }
   }
   if (ligados) {
-    console.log(`linhagem de colapso: ${ligados} pergunta(s) anterior(es) ligada(s) em legacy_ids do cenário mais cheio`);
+    console.log(`linhagem de colapso/fusão: ${ligados} pergunta(s) anterior(es) ligada(s) em legacy_ids do registro sobrevivente`);
   }
   return ligados;
 }

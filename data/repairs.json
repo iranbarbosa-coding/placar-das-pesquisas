@@ -271,6 +271,33 @@
    "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
    "evidence": "O levantamento senador:BA (campo 2026-08-10, amostra 1600, elenco Rui Costa/Jaques Wagner/João Roma/Ângelo Coronel) carrega o survey_id s_65457792573e que a canonicalização de nome re-cunha, movendo a chave natural sem que a medição mude. Medido em 2026-08-25 contra o store COMITADO (git HEAD). Ratificação UMA vez; o seguimento (não implementado aqui) é tornar o survey_id independente do nome canônico do candidato.",
    "verified_at": "2026-08-25"
+  },
+  {
+   "question_id": "q_226bd5032d9b",
+   "race": "governador",
+   "uf": "PA",
+   "defect": "FONTE RETIROU A LINHA — a única fonte desta pergunta era a página estadual da Wikipédia (sem registro nativo nem TSE); a página deixou de listar a pesquisa e a coleta não a reproduz mais. Perda na fonte, não no coletor.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "evidence": "Quaest, campo 21–25/04/2024, n=900, 2º turno Dr. Daniel 34 × Hana Ghassan 29 (s_a1ff3f617155, survey|nat, legacy_id b4695c85abd1). Medido em 16/09/2026 com a coleta real no runner (ensaio 35139314788): a página do Pará não traz nenhuma linha da Quaest com campo em 2024; as 7 perguntas da Quaest nesta disputa na coleta fresca vão de 2026-04 a 2026-08-28. Nenhum registro nativo do Poder360 e nenhum registro TSE cobrem esta pesquisa. A disputa ficou congelada desde 06/09/2026 por esta perda.",
+   "verified_at": "2026-09-16"
+  },
+  {
+   "question_id": "q_268e8de7e1c6",
+   "race": "governador",
+   "uf": "RS",
+   "defect": "FONTE RETIROU A LINHA — a única fonte desta pergunta era a página estadual da Wikipédia (sem registro nativo nem TSE); a página deixou de listar a pesquisa e a coleta não a reproduz mais. Perda na fonte, não no coletor.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "evidence": "Real Time Big Data, campo 20–22/06/2025, n=1600, 2º turno Zucco 41 × Juliana Brizola 44 (s_349d507dcdbe, survey|nat, legacy_id 6f7a15dac83b). Medido em 16/09/2026 com a coleta real no runner (ensaio 35139314788): nenhuma pergunta do instituto nesta disputa com campo em junho/2025 na coleta fresca (16 perguntas do instituto, a mais antiga posterior). Nenhum registro nativo do Poder360 nem registro TSE cobrem esta pesquisa. A disputa ficou congelada desde 10/09/2026 por esta perda.",
+   "verified_at": "2026-09-16"
+  },
+  {
+   "question_id": "q_71c0dd167bc5",
+   "race": "senador",
+   "uf": "PE",
+   "defect": "CENÁRIO REESTRUTURADO NA FONTE — a Wikipédia reorganizou os cenários da Quaest 22–26/07/2026 para o Senado de PE; o 'cenário 4/4' como gravado (Paulo Rubem Santiago 0, sem Mendonça Filho) não existe mais em nenhuma fonte. Os cenários que a fonte publica hoje seguem no banco com linhagem (q_6f9942400146 → q_21d1bf6b8d90).",
+   "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-Pernambuco-28-jul-2026.pdf",
+   "evidence": "Quaest, campo 22–26/07/2026, n=900, registro BR-03810/2026 (levantamento s_0aade2c92e00 / registros nativos 13614, 13615, 13617). A pergunta 'cenário 4/4' [Marília Arraes 21, Humberto Costa 14, Miguel Coelho 6, Eduardo da Fonte 6, Túlio Gadêlha 4, Silvio Nascimento 2, Paulo Rubem Santiago 0] (legacy_id db1be336fc45) veio da Wikipédia em 07/2026. Medido em 16/09/2026 (ensaio 35139314788, rastro de linhagem): a Wikipédia hoje traz para essa Quaest duas linhas de 1º turno — 7 nomes com Mendonça Filho e 6 nomes sem Paulo Rubem — ambas absorvidas com linhagem pela tabela nativa do Poder360 (13617: Marília 19, Humberto 12, Mendonça 8, Eduardo 6, Miguel 6, Túlio 4, Silvio 2, Dueire 0, Paulo Rubem 0). Nenhuma linha reproduz a tabela do 4/4 como gravada. A disputa ficou congelada desde 06/09/2026 por esta perda (e pela do 3/4, já provada por id exato).",
+   "verified_at": "2026-09-16"
   }
  ],
  "repairs": [

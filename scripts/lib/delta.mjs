@@ -317,6 +317,26 @@ export function deltaPorDisputa({
         return { sucessora: cand.question_id, via: "legacy_ids" };
       }
     }
+    // O MESMO REGISTRO NATIVO DA FONTE, RE-CUNHADO POR ELENCO. `legacy_id` é o
+    // id que a fonte deu à tabela quando a pergunta foi cunhada (`p360-<id
+    // nativo>-<turno>-<cenário>-…` do Poder360; o pollId de rótulo da
+    // Wikipédia) — a identidade que a PRÓPRIA fonte mantém para aquela tabela.
+    // Quando a fonte EDITA a tabela (acrescenta ou troca um nome menor: o
+    // caso senador:GO de 06/09/2026 — o Poder360 passou a listar Cíntia Dias e
+    // Isaura Lemos e deixou de listar Iure Castro nos MESMOS registros 13863,
+    // 13570, 13972, 13979; governador:CE, "Jair Pereira" → "Professor Jarir
+    // Pereira"; presidente:GO, Flávio e Lula que faltavam na tabela antiga), o
+    // `question_id`, que semeia em elenco, é re-cunhado — e a pergunta velha
+    // sumia "sem prova" com a nova ao lado, no MESMO levantamento, com o MESMO
+    // id nativo. Chave EXATA (§10: nada de limiar), gravada pela fonte e não
+    // inferida por nós, e só dentro do mesmo levantamento e do mesmo turno (o
+    // recorte do grupo). Não afrouxa nada: um id nativo diferente, ou o mesmo
+    // id em OUTRO levantamento, segue precisando de prova.
+    for (const cand of grupo) {
+      if (cand.legacy_id && q.legacy_id && cand.legacy_id === q.legacy_id && mesmoLevantamento(q, cand)) {
+        return { sucessora: cand.question_id, via: "registro" };
+      }
+    }
     for (const cand of grupo) {
       if (!mesmoLevantamento(q, cand)) continue;
       const nomes = (cand.results ?? []).map((r) => r.name_raw ?? r.candidate).filter(Boolean);

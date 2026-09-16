@@ -105,6 +105,18 @@ check("linhagem de colapso: o vencedor ganha legacy_ids com a pergunta anterior 
   const cheia = poll({ id: "p360-777-1-0-cheia", results: [A, B, C, Dd] });
   const curta = poll({ id: "p360-778-1-0-curta", results: [A, B, E] });
   const outra = poll({ id: "p360-779-1-0-outra", results: [A, B, F] });
+  // A linha da Wikipédia que o Poder360 absorve na FUSÃO: cunhou o próprio
+  // levantamento (`survey|nat|…`, sem id nativo) semanas antes — a pergunta
+  // anterior dela vive em OUTRO levantamento. O id exato alcança; o elenco não.
+  const G = { candidate: "Gil Moura", party: "PDT", pct: 4 };
+  const wiki = poll({ id: "wiki-cafe0000beef", source_url: "https://pt.wikipedia.org/x", tse_registration: null, results: [A, B, G] });
+  const wikiSoElenco = poll({ id: "wiki-0000deadbeef", source_url: "https://pt.wikipedia.org/y", tse_registration: null, fieldwork_end: "2026-05-07", results: [A, B, G] });
+  // O MESMO elenco, mas de OUTRA operação de campo (mesmo instituto, campo dois
+  // meses antes): o elenco não pode inferir sucessão fora da janela — a lição
+  // de senador:MT. Tem pergunta anterior própria, para a recusa ser real.
+  const H = { candidate: "Hugo Braga", party: "PV", pct: 3 };
+  const wikiLonge = poll({ id: "wiki-1111deadbeef", source_url: "https://pt.wikipedia.org/z", tse_registration: null, fieldwork_start: "2026-03-01", fieldwork_end: "2026-03-05", published_date: "2026-03-06", results: [A, B, H] });
+  const wikiLongeRelabel = { ...wikiLonge, id: "wiki-2222deadbeef" };
 
   // Rodada N (o commit anterior): as três existem como três perguntas do MESMO levantamento.
   const dirAnt = fs.mkdtempSync(path.join(os.tmpdir(), "placar-ant-"));
@@ -116,19 +128,44 @@ check("linhagem de colapso: o vencedor ganha legacy_ids com a pergunta anterior 
   assert(new Set([qCheiaAnt.question_id, qCurtaAnt.question_id, qOutraAnt.question_id]).size === 3,
     "as três tabelas tinham de ser três perguntas distintas (fixture)");
   assert(anterior.surveys.length === 1, `${anterior.surveys.length} levantamento(s) anterior(es), esperado 1 (mesmo registro)`);
+  // O levantamento da Wikipédia, à parte (sem registro nem id nativo → chave natural, elenco diverso → outro survey).
+  const dirWiki = fs.mkdtempSync(path.join(os.tmpdir(), "placar-wiki-"));
+  const antWiki = readStore({ dir: dirWiki, tables: [], runDate: RUN_DATE });
+  const { question: qWikiAnt } = upsertPoll(antWiki, wiki, { source: "wikipedia", nativeId: null });
+  fs.rmSync(dirWiki, { recursive: true, force: true });
+  assert(qWikiAnt.legacy_id === wiki.id, "fixture: a pergunta da Wikipédia grava o pollId dela em legacy_id");
+  const dirLonge = fs.mkdtempSync(path.join(os.tmpdir(), "placar-longe-"));
+  const antLonge = readStore({ dir: dirLonge, tables: [], runDate: RUN_DATE });
+  const { question: qLongeAnt } = upsertPoll(antLonge, wikiLonge, { source: "wikipedia", nativeId: null });
+  fs.rmSync(dirLonge, { recursive: true, force: true });
+  const anteriorCompleto = {
+    ...anterior,
+    questions: [...anterior.questions, qWikiAnt, qLongeAnt],
+    surveys: [...anterior.surveys, ...antWiki.surveys, ...antLonge.surveys],
+  };
+  assert(qWikiAnt.survey_id !== qCheiaAnt.survey_id, "fixture: a pergunta da Wikipédia vive em OUTRO levantamento");
 
   // Rodada N+1: o funil colapsou `curta` e `outra` em `cheia`. `outra` chega com
   // o poll.id DERIVADO (o caso "marca relabelada"): o exato falha, o elenco prova.
   const outraDerivada = { ...outra, id: "wiki-deadbeef0001" };
-  const vencedor = { ...cheia, absorvidos: [curta, outraDerivada] };
+  // `wiki` foi absorvida pela FUSÃO (id exato, outro levantamento): liga.
+  // `wikiSoElenco` chega com id que nenhuma pergunta anterior gravou e o elenco
+  // igual ao de `wiki`, na MESMA operação de campo (mesmo instituto, campo a
+  // 2 dias): o elenco alcança — mas a anterior que ele acharia (qWikiAnt) já
+  // está ligada, então não conta de novo. `wikiLongeRelabel` tem o MESMO elenco
+  // que qLongeAnt gravou, mas a operação é de março: fora da janela, NÃO liga.
+  const vencedor = { ...cheia, absorvidos: [curta, outraDerivada, wiki, wikiSoElenco, wikiLongeRelabel] };
   const { question: qCheia } = upsertPoll(store, vencedor, { source: "poder360", nativeId: 777 });
   const perguntaDe = new Map([[vencedor, qCheia]]);
-  const n = ligarAbsorvidos(store, anterior, [vencedor], perguntaDe);
+  const n = ligarAbsorvidos(store, anteriorCompleto, [vencedor], perguntaDe);
 
-  assert(n === 2, `${n} ligação(ões), esperadas 2 (uma por perdedor)`);
+  assert(n === 3, `${n} ligação(ões), esperadas 3 (curta, outra e a linha da Wikipédia por id exato)`);
   const lig = qCheia.legacy_ids ?? [];
   assert(lig.includes(qCurtaAnt.question_id), `legacy_ids sem a pergunta anterior de \`curta\` (via legacy_id exato): ${JSON.stringify(lig)}`);
   assert(lig.includes(qOutraAnt.question_id), `legacy_ids sem a pergunta anterior de \`outra\` (via elenco por nome): ${JSON.stringify(lig)}`);
+  assert(lig.includes(qWikiAnt.question_id), `legacy_ids sem a pergunta anterior da Wikipédia (id exato em OUTRO levantamento): ${JSON.stringify(lig)}`);
+  assert(!lig.includes(qLongeAnt.question_id), `o elenco NÃO pode inferir sucessão fora da mesma operação de campo (veio ${JSON.stringify(lig)})`);
+  assert(lig.length === 3, `três ligações, nem mais nem menos (veio ${JSON.stringify(lig)})`);
   assert(!lig.includes(qCheia.question_id), "o vencedor não se lista como sucessor de si mesmo");
 
   // A coluna serializa — e SÓ onde há linhagem (churn zero no resto).
@@ -139,8 +176,8 @@ check("linhagem de colapso: o vencedor ganha legacy_ids com a pergunta anterior 
   assert(!semLinhagem.includes('"legacy_ids"'), "pergunta sem linhagem NÃO ganha a coluna (churn zero)");
 
   // Idempotente e não-duplicante numa segunda passagem.
-  const n2 = ligarAbsorvidos(store, anterior, [vencedor], perguntaDe);
-  assert(n2 === 0 && (qCheia.legacy_ids ?? []).length === 2, "segunda passagem não duplica nem re-conta");
+  const n2 = ligarAbsorvidos(store, anteriorCompleto, [vencedor], perguntaDe);
+  assert(n2 === 0 && (qCheia.legacy_ids ?? []).length === 3, "segunda passagem não duplica nem re-conta");
 });
 
 check("degrau 1: mesmo source_ref → mesmo levantamento", (store, assert) => {

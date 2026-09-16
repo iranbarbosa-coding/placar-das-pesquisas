@@ -307,6 +307,23 @@ function rodar({ mutacao = null } = {}) {
     afirma(depois[0]?.results.length === 6, "a tabela mais cheia não ficou na fusão legítima");
   });
 
+  caso("linhagem (controle): a fusão GRAVA quem absorveu — a identidade que fica carrega a que sumiu em absorvidos, nos dois sentidos", ({ afirma }) => {
+    // Poder360 primeiro, Wikipédia depois: a identidade fica com o Poder360 e a
+    // linha da Wikipédia é o absorvido. Wikipédia primeiro, Poder360 depois: a
+    // identidade TROCA para o Poder360, e o absorvido é o registro como estava
+    // antes da troca (o que o commit anterior conhecia). É esta lista que
+    // `ligarAbsorvidos` lê para gravar a sucessão em legacy_ids — sem ela a
+    // pergunta da Wikipédia sumia do store "sem prova" (16/09/2026: 9 disputas).
+    const a = merge([acre360()], [acreWiki()]);
+    afirma(a.length === 1 && a[0].id === acre360().id, "premissa: identidade do Poder360");
+    afirma((a[0].absorvidos ?? []).some((x) => x.id === acreWiki().id),
+      `o registro fundido não gravou a linha da Wikipédia absorvida (veio ${JSON.stringify((a[0].absorvidos ?? []).map((x) => x.id))})`);
+    const b = merge([acreWiki()], [acre360()]);
+    afirma(b.length === 1 && b[0].id === acre360().id, "premissa: a identidade troca para o Poder360 quando ele chega depois");
+    afirma((b[0].absorvidos ?? []).some((x) => x.id === acreWiki().id),
+      `com a troca de identidade, o registro como estava antes (a linha da Wikipédia) tinha de ficar em absorvidos (veio ${JSON.stringify((b[0].absorvidos ?? []).map((x) => x.id))})`);
+  });
+
   caso("doação (controle): a tabela mais cheia ainda vence entre fontes, com os metadados da prioridade (o caso do Acre 6×3)", ({ afirma }) => {
     const depois = merge([acre360()], [acreWiki()]);
     afirma(depois.length === 1, `${depois.length} registro(s), esperado 1`);
@@ -377,6 +394,7 @@ const CONTROLES = [
   "data nula (controle): o fragmento sem data ainda completa o irmão quando a chave forte liga (mesmo registro nativo)",
   "cenário (controle): a duplicata legítima entre fontes ainda funde (mesmo cenário, mesma data — o padrão SP 23/02)",
   "doação (controle): a tabela mais cheia ainda vence entre fontes, com os metadados da prioridade (o caso do Acre 6×3)",
+  "linhagem (controle): a fusão GRAVA quem absorveu — a identidade que fica carrega a que sumiu em absorvidos, nos dois sentidos",
   "estímulo (controle): fragmento sem marca declarada segue fundindo pela regra atual (§4)",
   "estímulo (controle): estimulada×estimulada do mesmo cenário segue fundindo e colapsando",
 ];

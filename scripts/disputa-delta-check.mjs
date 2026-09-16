@@ -403,6 +403,39 @@ function rodar({ mutacao = null } = {}) {
       `amostra diferente derruba a chave forte do topline de 2 nomes (ok=${va.ok}, semProva=${va.semProva})`);
   });
 
+  caso("13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM", ({ delta, afirma }) => {
+    // senador:GO 06/09/2026: o Poder360 EDITOU a tabela do registro 13863 —
+    // passou a listar Cíntia Dias e Isaura Lemos e deixou de listar Iure Castro.
+    // Mesmo levantamento, mesmo id nativo, mesmos pcts nos nomes comuns; o
+    // question_id (semeado em elenco) foi re-cunhado. Não é subconjunto (Iure
+    // saiu), o elenco casa abaixo de 0,8 e a tabela não é idêntica — nenhuma
+    // ponte existente alcança; a chave exata da fonte alcança.
+    const LEG = "p360-13863-1-0-3dc8ca125136";
+    const anterior = banco(
+      [q("q_go1", "senador", "GO", [r("c_gra", 41), r("c_gay", 27.1), r("c_van", 21.4), r("c_iure", 1.3)], { survey_id: "s_go", legacy_id: LEG })],
+      [], [{ survey_id: "s_go" }]);
+    const novo = banco(
+      [q("q_go2", "senador", "GO", [r("c_gra", 41), r("c_gay", 27.1), r("c_van", 21.4), r("c_cin", 4.8), r("c_isa", 5.7)], { survey_id: "s_go", legacy_id: LEG })],
+      [], [{ survey_id: "s_go" }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok, `mesmo registro nativo no mesmo levantamento tinha de provar sucessão (veio ${v.linhas.join(" | ")})`);
+    afirma(v.toleradas.sucessoras === 1, `1 sucessora (veio ${v.toleradas.sucessoras})`);
+    const c = v.conflitos.find((x) => x.type === "question_sumida_com_sucessora");
+    afirma(/via registro/.test(c?.note ?? ""), `a via é o registro nativo (veio: ${c?.note})`);
+
+    // ⚠ SEGURANÇA — a chave é exata. Outro id nativo no mesmo levantamento NÃO
+    // prova (é outra tabela da fonte); o MESMO id nativo em OUTRO levantamento
+    // (sem nenhuma chave de identidade entre os surveys) NÃO prova.
+    const novoOutroId = banco(
+      [q("q_go3", "senador", "GO", novo.questions[0].results, { survey_id: "s_go", legacy_id: "p360-13863-1-1-ffffffffffff" })],
+      [], [{ survey_id: "s_go" }]);
+    afirma(!delta({ anterior, novo: novoOutroId }).ok, "id nativo diferente não pode provar sucessão");
+    const novoOutroSurvey = banco(
+      [q("q_go4", "senador", "GO", novo.questions[0].results, { survey_id: "s_outro", legacy_id: LEG })],
+      [], [{ survey_id: "s_outro" }]);
+    afirma(!delta({ anterior, novo: novoOutroSurvey }).ok, "mesmo id nativo em OUTRO levantamento não pode provar sucessão");
+  });
+
   caso("11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA", ({ delta, afirma }) => {
     // O caso JHC/CIRO (commit cb100ae): o coletor PAROU de apagar candidatos
     // cujo nome de urna parece sigla de partido — JHC = João Henrique Caldas,
@@ -705,6 +738,7 @@ function autoteste() {
       "10 PASSA: duplicata entre marcas — sucessão por tabela idêntica, durável sob deriva de id",
       "11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA",
       "12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM",
+      "13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM",
     ],
   };
   let okGeral = true;
