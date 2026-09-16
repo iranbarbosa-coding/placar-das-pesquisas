@@ -384,7 +384,16 @@ export function keepFullestRound1(polls, {
     let vencedor = cur;
     if (vp !== sobrevive(cur)) {
       if (vp) vencedor = p;
-    } else if (p.results.length > cur.results.length) {
+    } else if (richerRoster(p, cur)) {
+      // "Mais cheio" é o de `richerRoster` (lib/roster.mjs) — o MESMO critério
+      // de `mergePolls`: mais linhas; em EMPATE de linhas, a tabela que soma
+      // mais. Só o tamanho decidia aqui, e o empate ficava com o primeiro da
+      // lista: governador:AP Quaest 21–24/08/2026 — o fragmento do Poder360
+      // [Clécio 35, Jairo Palheta 1] (soma 36) chegou antes da tabela da
+      // Wikipédia [Dr. Furlan 55, Clécio 35] (soma 90), ambas com 2 nomes,
+      // ambas vivas no guarda de soma; o fragmento ficou, e o LÍDER da disputa
+      // saiu do banco (a fusão entre fontes não os unira: 1 nome em 2 fica
+      // abaixo do casamento de elenco). Uma regra, uma casa (CONVENTIONS §5).
       vencedor = p;
     }
     // A LINHAGEM DO COLAPSO FICA GRAVADA NO VENCEDOR, no ponto em que a decisão

@@ -27,7 +27,9 @@ jobs:
       - name: Congelar a coleta fresca antes do guarda
         run: mkdir -p /tmp/fresh && cp data/*.ndjson /tmp/fresh/
       - name: Veredito do guarda de delta (HEAD × coleta fresca)
-        run: node scripts/disputa-delta-check.mjs 2>&1 | grep -v "^\s*$" | grep -v "^\s*✓" | tail -90 || true
+        run: |
+          node scripts/disputa-delta-check.mjs > /tmp/delta.log 2>&1 || true
+          grep -v "^\s*$" /tmp/delta.log | grep -v "^\s*✓" | tail -90
       - name: Quarentenas — perdas sem prova, lado a lado
         run: |
           set -u
@@ -44,10 +46,18 @@ jobs:
             const N = { q: rd("/tmp/fresh/questions.ndjson"), s: rd("/tmp/fresh/surveys.ndjson"), c: rd("/tmp/fresh/candidates.ndjson") };
             const by = (arr, k) => new Map(arr.map((x) => [x[k], x]));
             const Pq = by(P.q, "question_id"), Ps = by(P.s, "survey_id"), Ns = by(N.s, "survey_id"), Pc = by(P.c, "candidate_id"), Nc = by(N.c, "candidate_id");
-            const quar = P.k.filter((c) => c.type === "disputa_em_quarentena");
-            const lastRun = quar.map((c) => c.run_id).sort().at(-1);
-            const rows = quar.filter((c) => c.run_id === lastRun);
-            console.log(`\n##### ${rows.length} disputa(s) em quarentena no commit (run ${lastRun})`);
+            // As disputas e os ids vêm do VEREDITO desta rodada (/tmp/delta.log), não
+            // do conflicts.ndjson do commit: o veredito é o que a coleta de hoje produz.
+            const veredito = fs.readFileSync("/tmp/delta.log", "utf-8").split("\n");
+            const rows = [];
+            for (const l of veredito) {
+              const m = /^\s{2}(\S+:\S+)\s+\d+ → \d+\s+(\d+) sem prova/.exec(l);
+              if (m) { rows.push({ record_id: m[1], at: "(veredito de hoje)", note: "", n: +m[2] }); continue; }
+              const id = /^\s+(q_[0-9a-f]+)\s*$/.exec(l);
+              if (id && rows.length) rows.at(-1).note += " " + id[1];
+            }
+            console.log(`\n##### ${rows.length} disputa(s) em quarentena no VEREDITO de hoje`);
+            for (const r of rows) if (r.n > 5) console.log(`  (${r.record_id}: o veredito lista só 5 de ${r.n} ids)`);
             const nomes = (q, C) => (q.results ?? []).map((r) => (C.get(r.candidate_id)?.canonical ?? r.name_raw ?? r.candidate_id) + ":" + r.pct).join(", ");
             const dias = (a, b) => Math.abs((new Date(a) - new Date(b)) / 864e5);
             for (const c of rows) {
