@@ -600,6 +600,17 @@ diferem em número ou partido continuam ambíguos e continuam recusados.
   `mergePolls`/`keepFullestRound1` and swallowed PT scenarios sharing ≥80% of
   the roster without lineage (run 66, 14/09/2026).
   `python3 scripts/wiki_parse.py --self-test` guards all of it.
+
+**Lineage of absorbed rows (16/09/2026).** Both `mergePolls` (cross-source
+merge) and `keepFullestRound1` (round-1 collapse) record the rows they absorb
+in `absorvidos`; `ligarAbsorvidos` (lib/build-store.mjs) writes the absorbed
+row's committed `question_id` into `legacy_ids` of the surviving question —
+by exact native id in ANY previous survey, or by roster within the same field
+operation (same institute, fieldwork end within ±3 days). The delta gate also
+accepts the same `legacy_id` inside the same survey as proof (`via registro`:
+the source edited its own table). `PLACAR_DEBUG_LINHAGEM=1` prints one line per
+absorbed row (matched or not). Genuine source removals are ratified in
+`data/repairs.json` (`allow_question_drop`, with the primary source cited).
 - `tse.mjs` — TSE/TRE registry zip (metadata only, **no results**).
 
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across
