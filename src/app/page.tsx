@@ -3,6 +3,7 @@ import RunoffBars from "@/components/RunoffBars";
 import MatchupRows from "@/components/MatchupRows";
 import LatestPollsTable from "@/components/LatestPollsTable";
 import HomeSidebar from "@/components/HomeSidebar";
+import FreshnessBadge from "@/components/FreshnessBadge";
 import {
   heroRace,
   runoffCards,
@@ -15,6 +16,7 @@ import {
   registeredPresidentKeys,
 } from "@/lib/home";
 import { candKey } from "@/lib/average";
+import { loadDataset } from "@/lib/data";
 import { upcomingPolls } from "@/lib/calendar";
 import { houseEffects } from "@/lib/houseEffects";
 import HouseEffects from "@/components/HouseEffects";
@@ -67,6 +69,9 @@ export default function Home() {
             lidera com {fmtPct(heroLead.avg)}%, à frente de {displayName(heroRunner.candidate)} com {fmtPct(heroRunner.avg)}% —
             média em votos válidos, atualizada em {fmtDate(hero.average.lastPollDate)}.
           </p>
+        )}
+        {hero?.average && (
+          <FreshnessBadge race="presidente" uf={null} lastPollDate={hero.average.lastPollDate} generatedAt={loadDataset().generated_at} className="-mt-3" />
         )}
         <section className="card p-4 sm:p-6" aria-label="Corrida presidencial">
           <HeroBasisSwitch
