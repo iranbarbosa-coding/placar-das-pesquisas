@@ -7670,6 +7670,13 @@
  ],
  "senador:MT": [
   {
+   "nome": "Antônio Galvan",
+   "partidos": [
+    "Avante",
+    "DC"
+   ]
+  },
+  {
    "nome": "Carlos Fávaro",
    "partidos": [
     "PSD"
@@ -7679,13 +7686,6 @@
    "nome": "Coronel Darwin",
    "partidos": [
     "Democrata"
-   ]
-  },
-  {
-   "nome": "Galvan",
-   "partidos": [
-    "Avante",
-    "DC"
    ]
   },
   {

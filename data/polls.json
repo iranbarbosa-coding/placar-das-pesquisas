@@ -1,24 +1,1263 @@
 {
- "generated_at": "2026-09-17T00:26:56.413Z",
+ "generated_at": "2026-09-17T22:07:38.405Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-17T00:26:56.413Z"
+   "last_ok": "2026-09-17T22:07:38.405Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-17T00:26:56.413Z"
+   "last_ok": "2026-09-17T22:07:38.405Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-17T00:26:56.413Z"
+   "last_ok": "2026-09-17T22:07:38.405Z"
   }
  ],
  "polls": [
+  {
+   "id": "2a858ad1e1cf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Helder",
+     "party": "MDB",
+     "pct": 45.8
+    },
+    {
+     "candidate": "Delegado Éder Mauro",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Zequinha Marinho",
+     "party": "Podemos",
+     "pct": 30.3
+    },
+    {
+     "candidate": "Chicão",
+     "party": "União Brasil",
+     "pct": 28.3
+    },
+    {
+     "candidate": "Celso Sabino",
+     "party": "PDT",
+     "pct": 20.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "586d713b745f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Hana Ghassan",
+     "party": "MDB",
+     "pct": 38.9
+    },
+    {
+     "candidate": "Dr. Daniel",
+     "party": "Podemos",
+     "pct": 56.2
+    },
+    {
+     "candidate": "Araceli",
+     "party": "PSOL",
+     "pct": 2.9
+    },
+    {
+     "candidate": "Well Macêdo",
+     "party": "PSTU",
+     "pct": 1.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0bb6a0130766",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Renan Santos",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 5018,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.1
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 29.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0c638c48e4d7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 5018,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.1
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 41.7
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 3.5
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 5.1
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1.7
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1.1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0dad391451db",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Zema",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 5018,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.3
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 43.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "113162cb8289",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Neokemp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 48.8
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 31.4
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 28.2
+    },
+    {
+     "candidate": "Cristina Graeml",
+     "party": "PSD",
+     "pct": 21.2
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 28.5
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 17.8
+    },
+    {
+     "candidate": "Karen Guerreiro",
+     "party": "Missão",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Joaquim do MLB",
+     "party": "UP",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Marcelo Marcelino",
+     "party": "PCO",
+     "pct": 0.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "12d0dbd30c6e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Neokemp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 49.8
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 19.4
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 24.5
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 1.1
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Doutor Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2df19ccbeab3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Requião Filho",
+   "pollster": "Alfa/TMC",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 53
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "4bd41e15786f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 826,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 17
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 17
+    },
+    {
+     "candidate": "Júlio César O Julim do Lula",
+     "party": "PSD",
+     "pct": 15
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 4
+    }
+   ],
+   "others_pct": 12,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "51597dcb3000",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 5018,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.8
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5159b1b809c2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 826,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rafael Fonteles",
+     "party": "PT",
+     "pct": 55
+    },
+    {
+     "candidate": "Joel Rodrigues",
+     "party": "PP",
+     "pct": 25
+    }
+   ],
+   "others_pct": 6,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5e1a8cb68398",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Gerp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 37
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 7
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "61ba2b9b4315",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1793,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 48.7
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 45.6
+    }
+   ],
+   "others_pct": 3.2,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "67c11e8421ed",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Sandro Alex",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1794,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 50.4
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 35.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "8cfc9108433e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Gerp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 43
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "970061f2ab49",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 15
+    },
+    {
+     "candidate": "Gelson Merísio",
+     "party": "PSB",
+     "pct": 8
+    },
+    {
+     "candidate": "Ralf Zimmer",
+     "party": "PRD",
+     "pct": 0
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9798b89707f0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-13",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.8,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a7fc459c88d4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Augusto Cury",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-13",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.8,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "af4295430caf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Augusto Cury",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 5018,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.6
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 37.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b0b478d3d875",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Caiado",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 5018,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 41.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b7ab455f195a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Requião Filho",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1794,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 57
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 37.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b991bbfa27b6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Carol de Toni",
+     "party": "PL",
+     "pct": 24
+    },
+    {
+     "candidate": "Carlos Bolsonaro",
+     "party": "PL",
+     "pct": 20
+    },
+    {
+     "candidate": "Esperidião Amin",
+     "party": "PP",
+     "pct": 20
+    },
+    {
+     "candidate": "Décio Lima",
+     "party": "PT",
+     "pct": 11
+    },
+    {
+     "candidate": "Afrânio Boppré",
+     "party": "PSOL",
+     "pct": 10
+    }
+   ],
+   "others_pct": 8,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c27df81cecaf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 2,
+   "scenario": "2º turno: Sérgio Moro e Sandro Alex",
+   "pollster": "Alfa/TMC",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 47
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c93af6b6bfb8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1794,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 49.1
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 28.2
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 18.6
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 0.9
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Doutor Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ccbfb3a7eaaa",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Alfa/TMC",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 30
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 27
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 32
+    },
+    {
+     "candidate": "Cristina Graeml",
+     "party": "PSD",
+     "pct": 13
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 28
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 14
+    },
+    {
+     "candidate": "Karen Guerreiro",
+     "party": "Missão",
+     "pct": 1
+    },
+    {
+     "candidate": "Joaquim do MLB",
+     "party": "UP",
+     "pct": 2
+    },
+    {
+     "candidate": "Marcelo Marcelino",
+     "party": "PCO",
+     "pct": 2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 51,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "dae0cad39bb0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-13",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.8,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 37
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 36
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 8
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 1
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 2
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 1
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ef82455dde16",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Alfa/TMC",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 39
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 23
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 28
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0977e7c774c0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Augusto Cury",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41.5
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 44.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "0d0125b43653",
    "source": null,
@@ -59,6 +1298,188 @@
    ],
    "others_pct": 2.3,
    "undecided_pct": 13.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "29b71cb16a9d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 38.3
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 37.7
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 6.5
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3.4
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 4.5
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": 1.9,
+   "undecided_pct": 6.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "57f833a1d9d6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Zema",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.7
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 40.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5ac294434c57",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 51.7
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 36.4
+    }
+   ],
+   "others_pct": 5.1,
+   "undecided_pct": 3.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5edebd85d9c6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Caiado",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 45.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -156,6 +1577,130 @@
    ],
    "others_pct": 3.4,
    "undecided_pct": 10.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ceabc0474fa0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 43.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e0e28b07695f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Renan Santos",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.5
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 39.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0858534dbd50",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "senador",
+   "state": "TO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-14",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Gomes",
+     "party": "PL",
+     "pct": 25
+    },
+    {
+     "candidate": "Gaguim",
+     "party": "União Brasil",
+     "pct": 14
+    },
+    {
+     "candidate": "Alexandre Guimarães",
+     "party": "MDB",
+     "pct": 16
+    },
+    {
+     "candidate": "Ronaldo Dimas",
+     "party": "Podemos",
+     "pct": 9
+    },
+    {
+     "candidate": "Eli Borges",
+     "party": "Republicanos",
+     "pct": 5
+    },
+    {
+     "candidate": "Vanderlei Luxemburgo",
+     "party": "Podemos",
+     "pct": 12
+    },
+    {
+     "candidate": "Paulo Mourão",
+     "party": "PT",
+     "pct": 9
+    }
+   ],
+   "others_pct": 5,
+   "undecided_pct": 5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -383,6 +1928,69 @@
    "tse_registration": null
   },
   {
+   "id": "5d241170d13d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-14",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 24.1
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 20
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 10.2
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 10.2
+    },
+    {
+     "candidate": "Gustavo Mendanha",
+     "party": "PRD",
+     "pct": 15.6
+    },
+    {
+     "candidate": "Cíntia Dias",
+     "party": "PSOL",
+     "pct": 6.6
+    },
+    {
+     "candidate": "Isaura Lemos",
+     "party": "PSB",
+     "pct": 6.1
+    },
+    {
+     "candidate": "Oséias Varão",
+     "party": "PL",
+     "pct": 4.4
+    }
+   ],
+   "others_pct": 2.4,
+   "undecided_pct": 99.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5e960b72e8fb",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -565,6 +2173,49 @@
    "undecided_pct": 5,
    "blank_null_pct": null,
    "tse_registration": "BR-00283/2026"
+  },
+  {
+   "id": "684316b447cc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-14",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 35
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 34
+    },
+    {
+     "candidate": "Laurez Moreira",
+     "party": "PSD",
+     "pct": 9
+    },
+    {
+     "candidate": "Ataides de Oliveira",
+     "party": "Novo",
+     "pct": 6
+    }
+   ],
+   "others_pct": 5,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "69b74e6822f1",
@@ -1007,6 +2658,49 @@
    "tse_registration": null
   },
   {
+   "id": "e2e9109c4dae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-14",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 39.2
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 29.4
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 16
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 6.8
+    }
+   ],
+   "others_pct": 0.9,
+   "undecided_pct": 7.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "f0a98ea595fd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
@@ -1127,6 +2821,39 @@
    ],
    "others_pct": 10.1,
    "undecided_pct": 13.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fdf7e0e1b26d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-14",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 41
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1253,6 +2980,54 @@
    "undecided_pct": 2,
    "blank_null_pct": 3,
    "tse_registration": "BR-00283/2026"
+  },
+  {
+   "id": "075a0b74490e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Roraima",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Census",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-13",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Teresa Surita",
+     "party": "MDB",
+     "pct": 30.74
+    },
+    {
+     "candidate": "Nicoletti",
+     "party": "PL",
+     "pct": 28.33
+    },
+    {
+     "candidate": "Helio Fernando Barbosa Lopes",
+     "party": "PL",
+     "pct": 8.61
+    },
+    {
+     "candidate": "Helena da Asatur",
+     "party": "PSD",
+     "pct": 16.46
+    },
+    {
+     "candidate": "Chico Rodrigues",
+     "party": "PSB",
+     "pct": 19.49
+    }
+   ],
+   "others_pct": 12.45,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "07e79bfc0f94",
@@ -1400,6 +3175,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "52979bea8292",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Roraima",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Census",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-13",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Arthur Henrique",
+     "party": "PL",
+     "pct": 50.04
+    },
+    {
+     "candidate": "Soldado Sampaio",
+     "party": "Republicanos",
+     "pct": 38.08
+    },
+    {
+     "candidate": "Rosi Aires",
+     "party": "PSOL",
+     "pct": 0.62
+    },
+    {
+     "candidate": "Clébio Genuíno",
+     "party": "PCO",
+     "pct": 0.23
+    },
+    {
+     "candidate": "Farah Mesquita",
+     "party": "Solidariedade",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.04,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -2882,6 +4705,64 @@
    "tse_registration": null
   },
   {
+   "id": "4480c083be75",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTempo",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1560,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 33.7
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 13.6
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 9.8
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 4.6
+    },
+    {
+     "candidate": "Gabriel",
+     "party": "MDB",
+     "pct": 1.3
+    },
+    {
+     "candidate": "Flávio Roscoe",
+     "party": "PL",
+     "pct": 4
+    },
+    {
+     "candidate": "Ben Mendes",
+     "party": "Missão",
+     "pct": 2.4
+    }
+   ],
+   "others_pct": 2.7,
+   "undecided_pct": 27.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4a71840dd5d6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -3049,6 +4930,39 @@
    "tse_registration": null
   },
   {
+   "id": "a7ab0b362a48",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Patrus",
+   "pollster": "DataTempo",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1560,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 54.1
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 20.5
+    }
+   ],
+   "others_pct": 37.1,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "e0a551ab5fb5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -3103,6 +5017,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 4.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e97fc857bddd",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho e Kalil",
+   "pollster": "DataTempo",
+   "contractor": null,
+   "fieldwork_start": "2026-09-09",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 1560,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 51.9
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 14.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -4149,6 +6096,44 @@
      "candidate": "Renatinha",
      "party": "DC",
      "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f68c79a2f95f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-06",
+   "fieldwork_end": "2026-09-11",
+   "published_date": null,
+   "sample_size": 2010,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 37.5
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 35.5
     }
    ],
    "others_pct": null,
@@ -7460,6 +9445,39 @@
    "tse_registration": null
   },
   {
+   "id": "588eafc23806",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 51.6
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 40.4
+    }
+   ],
+   "others_pct": 5.1,
+   "undecided_pct": 2.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5d7aef9b840b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -10618,7 +12636,7 @@
      "pct": 2.8
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 1
     },
@@ -20512,7 +22530,7 @@
      "pct": 13
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 2
     },
@@ -36887,7 +38905,7 @@
      "pct": 8
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 4
     },
@@ -37389,7 +39407,7 @@
      "pct": 7.4
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 6.6
     },
@@ -38325,7 +40343,7 @@
      "pct": 1.9
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 0.9
     },
@@ -41803,7 +43821,7 @@
      "pct": 17
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 11
     },
@@ -47924,7 +49942,7 @@
      "pct": 11
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 4
     },
@@ -47932,19 +49950,9 @@
      "candidate": "Margareth Buzetti",
      "party": "PP",
      "pct": 4
-    },
-    {
-     "candidate": "Professor Nelson Ferreira",
-     "party": "Agir",
-     "pct": 0
-    },
-    {
-     "candidate": "Beny Godoy",
-     "party": "Agir",
-     "pct": 0
     }
    ],
-   "others_pct": null,
+   "others_pct": 0,
    "undecided_pct": 4,
    "blank_null_pct": null,
    "tse_registration": "MT-04560/2026"
@@ -48367,7 +50375,7 @@
      "pct": 14.5
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 6
     },
@@ -50640,12 +52648,12 @@
     {
      "candidate": "Bia Kicis",
      "party": "PL",
-     "pct": 18.4
+     "pct": 3.3
     },
     {
      "candidate": "Érika Kokay",
      "party": "PT",
-     "pct": 3.3
+     "pct": 18.4
     },
     {
      "candidate": "Sebastião Coelho",
@@ -60059,7 +62067,7 @@
      "pct": 5.3
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 2.5
     }
@@ -65518,7 +67526,7 @@
      "pct": 15
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 7
     }
@@ -76038,7 +78046,7 @@
      "pct": 11
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 3
     }
@@ -80784,7 +82792,7 @@
      "pct": 4.7
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 1.6
     }
@@ -91361,7 +93369,7 @@
      "pct": 6
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 4
     }
@@ -91826,7 +93834,7 @@
      "pct": 5.1
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 10.4
     }
@@ -99577,7 +101585,7 @@
      "pct": 12
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 6
     }
@@ -105379,7 +107387,7 @@
      "pct": 5.8
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 1.8
     }
@@ -106815,7 +108823,7 @@
      "pct": 4.5
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 12.5
     }
@@ -118453,6 +120461,59 @@
    "tse_registration": null
   },
   {
+   "id": "462d15e3ffc8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Methodus",
+   "contractor": null,
+   "fieldwork_start": "2026-03-25",
+   "fieldwork_end": "2026-03-30",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 19.4
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 18.2
+    },
+    {
+     "candidate": "Edegar Pretto",
+     "party": "PT",
+     "pct": 21.3
+    },
+    {
+     "candidate": "Gabriel Souza",
+     "party": "MDB",
+     "pct": 8.4
+    },
+    {
+     "candidate": "Marcelo Maranata",
+     "party": "PSDB",
+     "pct": 4
+    },
+    {
+     "candidate": "Evandro Augusto",
+     "party": "Missão",
+     "pct": 2.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4cd1c55d67c1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -119532,6 +121593,59 @@
    ],
    "others_pct": 10.5,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e001876301cd",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Methodus",
+   "contractor": null,
+   "fieldwork_start": "2026-03-25",
+   "fieldwork_end": "2026-03-30",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Leite",
+     "party": "PSD",
+     "pct": 18.9
+    },
+    {
+     "candidate": "Manuela D Ávila",
+     "party": "PSOL",
+     "pct": 16
+    },
+    {
+     "candidate": "Marcel Van Hattem",
+     "party": "Novo",
+     "pct": 8.9
+    },
+    {
+     "candidate": "Rigotto",
+     "party": "MDB",
+     "pct": 8.9
+    },
+    {
+     "candidate": "Pimenta",
+     "party": "PT",
+     "pct": 10
+    },
+    {
+     "candidate": "Sanderson",
+     "party": "PL",
+     "pct": 6.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -122738,7 +124852,7 @@
      "pct": 6.7
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "Avante",
      "pct": 9.2
     }
@@ -132372,6 +134486,59 @@
    "tse_registration": null
   },
   {
+   "id": "9dd6821f7371",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Methodus",
+   "contractor": null,
+   "fieldwork_start": "2026-02-18",
+   "fieldwork_end": "2026-02-24",
+   "published_date": null,
+   "sample_size": 1010,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Leite",
+     "party": "PSD",
+     "pct": 18.9
+    },
+    {
+     "candidate": "Manuela D Ávila",
+     "party": "PSOL",
+     "pct": 14.9
+    },
+    {
+     "candidate": "Marcel Van Hattem",
+     "party": "Novo",
+     "pct": 8
+    },
+    {
+     "candidate": "Rigotto",
+     "party": "MDB",
+     "pct": 10.2
+    },
+    {
+     "candidate": "Pimenta",
+     "party": "PT",
+     "pct": 11
+    },
+    {
+     "candidate": "Sanderson",
+     "party": "PL",
+     "pct": 5.9
+    }
+   ],
+   "others_pct": 7.9,
+   "undecided_pct": 23.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a8d071aff28c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -132525,6 +134692,59 @@
    ],
    "others_pct": null,
    "undecided_pct": 2.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fccb94c7c965",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Methodus",
+   "contractor": null,
+   "fieldwork_start": "2026-02-18",
+   "fieldwork_end": "2026-02-24",
+   "published_date": null,
+   "sample_size": 1010,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 19.9
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 16.7
+    },
+    {
+     "candidate": "Edegar Pretto",
+     "party": "PT",
+     "pct": 22.4
+    },
+    {
+     "candidate": "Gabriel Souza",
+     "party": "MDB",
+     "pct": 5.9
+    },
+    {
+     "candidate": "Marcelo Maranata",
+     "party": "PSDB",
+     "pct": 4
+    },
+    {
+     "candidate": "Evandro Augusto",
+     "party": "Missão",
+     "pct": 2.2
+    }
+   ],
+   "others_pct": 1.7,
+   "undecided_pct": 28.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -145217,7 +147437,7 @@
      "pct": 16
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "DC",
      "pct": 6.1
     }
@@ -150254,7 +152474,7 @@
      "pct": 4
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "DC",
      "pct": 1
     },
@@ -151815,7 +154035,7 @@
      "pct": 7.8
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "DC",
      "pct": 4.2
     },
@@ -155500,6 +157720,72 @@
    ],
    "others_pct": 3,
    "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "07d971bef06c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SC",
+   "round": 2,
+   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-09-12",
+   "fieldwork_end": "2025-09-16",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 57
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 26
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "1ce9fc7093ce",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Raquel Lyra e João Campos",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2025-09-11",
+   "fieldwork_end": "2025-09-16",
+   "published_date": null,
+   "sample_size": 1793,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 51.1
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 47.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -170223,7 +172509,7 @@
      "pct": 18.3
     },
     {
-     "candidate": "Galvan",
+     "candidate": "Antônio Galvan",
      "party": "DC",
      "pct": 3.8
     },
@@ -178120,6 +180406,44 @@
    "tse_registration": null
   },
   {
+   "id": "dd220b8dfb05",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2024-09-10",
+   "fieldwork_end": "2024-09-15",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 43.1
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 42.8
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 42.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "e539af10ab35",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -178159,6 +180483,44 @@
    ],
    "others_pct": 7.31,
    "undecided_pct": 74.78,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b4c94362c3d8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2024-09-04",
+   "fieldwork_end": "2024-09-09",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 43.3
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 43.3
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 42.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
