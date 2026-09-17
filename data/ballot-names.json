@@ -3,10 +3,10 @@
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
   "exato": 607,
-  "contencao": 201,
+  "contencao": 200,
   "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 548
+  "sem": 550
  },
  "ambiguos": [
   {
@@ -3549,13 +3549,6 @@
     "numero": "50",
     "origem": "contencao"
    },
-   "rodrigo bolsonaro": {
-    "nome_urna": "Rodrigo de Bolsonaro",
-    "sq_candidato": "200002546756",
-    "partido": "AGIR",
-    "numero": "36",
-    "origem": "contencao"
-   },
    "rodrigo vieira": {
     "nome_urna": "Rodrigo de Bolsonaro",
     "sq_candidato": "200002546756",
@@ -6297,11 +6290,11 @@
     "numero": "222",
     "origem": "contencao"
    },
-   "luciana lima": {
-    "nome_urna": "Luciana Mandu",
-    "sq_candidato": "200002542484",
-    "partido": "PSTU",
-    "numero": "161",
+   "professor guilherme amorim": {
+    "nome_urna": "Professor Guilherme",
+    "sq_candidato": "200002550541",
+    "partido": "UP",
+    "numero": "800",
     "origem": "contencao"
    },
    "rafael motta": {

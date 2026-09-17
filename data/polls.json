@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-16T19:28:28.445Z",
+ "generated_at": "2026-09-17T00:26:56.413Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-16T19:28:28.445Z"
+   "last_ok": "2026-09-17T00:26:56.413Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-16T19:28:28.445Z"
+   "last_ok": "2026-09-17T00:26:56.413Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-16T19:28:28.445Z"
+   "last_ok": "2026-09-17T00:26:56.413Z"
   }
  ],
  "polls": [
@@ -124,14 +124,14 @@
      "pct": 19.4
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 5.3
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 18.5
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 5.3
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -4810,14 +4810,14 @@
      "pct": 38.7
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 11.5
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 31.7
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 11.5
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -5351,14 +5351,14 @@
      "pct": 27.6
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 21.6
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 22
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 21.6
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -9275,7 +9275,7 @@
      "pct": 1
     },
     {
-     "candidate": "Professor Guilherme Amorim",
+     "candidate": "Professor Guilherme",
      "party": "UP",
      "pct": 0
     },
@@ -16934,14 +16934,14 @@
      "pct": 18.8
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 9.5
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 7.3
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 9.5
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -17521,14 +17521,14 @@
      "pct": 36.4
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 8.5
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 34.6
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 8.5
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -21125,14 +21125,14 @@
      "pct": 49
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 14.7
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 16.2
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 14.7
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -30183,14 +30183,14 @@
      "pct": 17
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 10
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 12
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 10
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -32176,13 +32176,13 @@
      "pct": 12
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
      "pct": 9
     },
     {
-     "candidate": "Dr. Zacharias Calil",
-     "party": "MDB",
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
      "pct": 9
     },
     {
@@ -37278,14 +37278,14 @@
      "pct": 29.1
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 5.5
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 10
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 5.5
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -40799,14 +40799,14 @@
      "pct": 33.6
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 19
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 20.2
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 19
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -44319,14 +44319,14 @@
      "pct": 27.1
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 21.4
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 19.5
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 21.4
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -45026,14 +45026,14 @@
      "pct": 18.12
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 18.35
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 10.97
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 18.35
     },
     {
      "candidate": "Gustavo Mendanha",
@@ -46449,14 +46449,14 @@
      "pct": 43
     },
     {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 7.9
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "MDB",
      "pct": 29.9
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 7.9
     },
     {
      "candidate": "Gustavo Mendanha",

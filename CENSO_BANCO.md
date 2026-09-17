@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 47 | 31 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 117 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 109 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **205** | **40** |
+| **total** | **197** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -325,7 +325,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (117)
+## CONFLITO — Conflitos registrados aguardando decisão (109)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -346,7 +346,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_2d96afe6a309 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_c7e26043c650 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_8a59dbce8257 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
-- person_id_orphaned · p_f04ff3c640fe · person_id: "p_f04ff3c640fe" × null
 - roster_encolhido_na_fonte · q_5ce1df81efd9 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_b202c41a9e09 · results: ["Camilo Santana","Eduardo Girão","Jarir Pereira","Roberto Cláudio","Zé Batista"] × ["Camilo Santana","Eduardo Girão","Roberto Cláudio"]
 - roster_encolhido_na_fonte · q_20ca93035cad · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
@@ -381,11 +380,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_8e4754dc4822 · results: ["Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
 - roster_encolhido_na_fonte · q_1d0f78acf0f6 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_encolhido_na_fonte · q_2136538e3c9e · results: ["Anderson Ferreira","Eduardo da Fonte","Humberto Costa","Jô Cavalcanti","Marília Arraes","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Anderson Ferreira","Eduardo da Fonte","Humberto Costa","Marília Arraes","Túlio Gadêlha"]
-- roster_shrink_ambiguo · q_fe9ced11a1a2 · results: ["q_1a32af6eb72d","q_84db7c746a4e"] × ["Anderson Ferreira","Eduardo da Fonte","Humberto Costa","Marília Arraes","Miguel Coelho","Silvio Costa Filho"]
 - roster_encolhido_na_fonte · q_356e1ab9b2d4 · results: ["Anderson Ferreira","Eduardo da Fonte","Fernando Dueire","Humberto Costa","Marília Arraes","Miguel Coelho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Anderson Ferreira","Eduardo da Fonte","Humberto Costa","Marília Arraes","Miguel Coelho","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_ed43c1950927 · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_dfe827a9c5bc · results: ["Eduardo da Fonte","Fernando Dueire","Humberto Costa","Jô Cavalcanti","Marília Arraes","Mendonça Filho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Eduardo da Fonte","Humberto Costa","Marília Arraes","Mendonça Filho","Túlio Gadêlha"]
-- roster_shrink_ambiguo · q_293f342bbc3b · results: ["q_1a32af6eb72d","q_c0b263d693b2"] × ["Armando Monteiro Neto","Eduardo da Fonte","Gilson Machado Neto","Humberto Costa","Marília Arraes","Silvio Costa Filho"]
 - roster_encolhido_na_fonte · q_56a8d437dcc3 · results: ["Fernando Dueire","Humberto Costa","Marília Arraes","Mendonça Filho","Miguel Coelho","Túlio Gadêlha"] × ["Humberto Costa","Marília Arraes","Mendonça Filho","Miguel Coelho","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_671b527ab8ee · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_71634e2616f0 · results: ["Carlos Sant'anna","Eduardo da Fonte","Humberto Costa","Marília Arraes","Mendonça Filho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Eduardo da Fonte","Humberto Costa","Marília Arraes","Mendonça Filho","Túlio Gadêlha"]
@@ -395,13 +392,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_2008e41fa341 · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_cb1b2c2da61e · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_encolhido_na_fonte · q_955640f20f29 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
-- roster_shrink_ambiguo · q_de40b60095b7 · results: ["q_1a32af6eb72d"] × ["Anderson Ferreira","Armando Monteiro Neto","Eduardo da Fonte","Gilson Machado Neto","Humberto Costa","Marília Arraes","Miguel Coelho","Silvio Costa Filho"]
-- roster_shrink_ambiguo · q_9c073452ec44 · results: ["q_1a32af6eb72d","q_b5ff51722147"] × ["Anderson Ferreira","Armando Monteiro Neto","Eduardo da Fonte","Humberto Costa","Marília Arraes","Miguel Coelho"]
 - roster_encolhido_na_fonte · q_3ac45303b59e · results: ["Ciro Gomes","Delegado Huggo Leonardo","Elmano de Freitas","Zé Batista"] × ["Ciro Gomes","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_4a260d2e7803 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
 - roster_encolhido_na_fonte · q_c830a7966bec · results: ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Baldy","Delegado Humberto Teófilo","Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
-- candidate_id_orphaned · c_b6f446547f22 · candidate_id: "c_b6f446547f22" × null
-- person_id_orphaned · p_dd7f23cebe52 · person_id: "p_dd7f23cebe52" × null
 - roster_encolhido_na_fonte · q_510cff0a523a · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_f0a53df9ed37 · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
 - roster_encolhido_na_fonte · q_a01c59b5a59c · results: ["André Luís","Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"] × ["Eduardo Braide","Felipe Camarão","Orleans Brandão","Roberto Rocha"]
@@ -435,7 +428,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_9075f3691f79 · results: ["Coronel Hélio","Rafael Motta","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_51b7ab81c2ac · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
 - roster_encolhido_na_fonte · q_92e328a3bae9 · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Álvaro Costa Dias"]
-- candidate_id_orphaned · c_fadd1435ce71 · candidate_id: "c_fadd1435ce71" × null
 - roster_encolhido_na_fonte · q_8cdbe4477112 · results: ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino","Rodrigo Bolsonaro","Álvaro Costa Dias"] × ["Allyson Bezerra","Cadu de Lula","Dário Barbosa","Robério Paulino"]
 - roster_encolhido_na_fonte · q_c131e594ca58 · results: ["Coronel Hélio","Jean Paul Prates","Rafael Motta","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_bc9cb3788da4 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
@@ -443,9 +435,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_b2332206ba0c · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
 - roster_encolhido_na_fonte · q_25f469023e7c · results: ["Alfredo Gaspar","Arthur Lira","Davi Davino Filho","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Alfredo Gaspar","Arthur Lira","Davi Davino Filho","Paulão do PT","Renan Calheiros"]
 - roster_encolhido_na_fonte · q_df271f2f3b4b · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
-- person_id_orphaned · p_a89432d89287 · person_id: "p_a89432d89287" × null
 - roster_encolhido_na_fonte · q_5bf18ed5f970 · results: ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros"]
 - roster_encolhido_na_fonte · q_40997e6f03a4 · results: ["Coronel Hélio","Jean Paul Prates","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"]
+- person_id_orphaned · p_ce1c526547e0 · person_id: "p_ce1c526547e0" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (5)
 
