@@ -58,7 +58,7 @@
 //
 // 2 chamadas por combinação (uma POST `v1`, uma GET `v2`) × 137 combinações
 // (presidencial nacional em 2 turnos + 27 UFs × 5) = **274 chamadas**, na mesma
-// ordem e no mesmo ritmo do coletor. É por isso que a coleta é agendada 2×/dia:
+// ordem e no mesmo ritmo do coletor. É por isso que a coleta é agendada 4×/dia, não mais:
 // a sequência é serial, com pausa entre chamadas, e NÃO se paraleliza. Use
 // `--cache=` para reler a mesma varredura sem tocar na API.
 //
@@ -696,7 +696,7 @@ function relatorio(res, ctx) {
   L.push("");
   L.push(`Custo de uma rodada: **${ctx.chamadas} chamadas** à API (2 por combinação × ${ctx.combinacoes} combinações),`);
   L.push("em série e com pausa entre elas. O coletor gasta o mesmo, e é por isso que a coleta roda");
-  L.push("2×/dia. Use `--cache=` para reler a mesma varredura sem tocar na fonte.");
+  L.push("4×/dia, não mais. Use `--cache=` para reler a mesma varredura sem tocar na fonte.");
   L.push("");
   L.push(`Janela de "mesma operação de campo": **${ctx.janelaDias} dias** — \`JANELA_OPERACAO_MS\` importada de`);
   L.push("`scripts/lib/store.mjs`, a mesma que `resolveSurvey`, `datesClose` e `repairs.mjs` usam. Não");

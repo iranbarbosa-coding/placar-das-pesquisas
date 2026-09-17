@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "Sala de imprensa do Placar das Pesquisas: como citar, dados abertos (CC BY 4.0), widgets para incorporar e contato para jornalistas.",
 };
 
-const BOILERPLATE = `O Placar das Pesquisas (placardaspesquisas.com.br) é um agregador independente das pesquisas eleitorais registradas para as Eleições 2026, que calcula a "média do Placar das Pesquisas" para presidente, governadores e senadores a partir das pesquisas mais recentes de cada disputa. Diferente dos agregadores fechados ou pagos, é aberto, reproduzível e licenciado sob Creative Commons (CC BY 4.0): a metodologia é pública, cada média tem comprovação matemática, e os dados podem ser reusados e citados livremente. Atualizado automaticamente duas vezes por dia. O projeto não realiza pesquisas próprias.`;
+const BOILERPLATE = `O Placar das Pesquisas (placardaspesquisas.com.br) é um agregador independente das pesquisas eleitorais registradas para as Eleições 2026, que calcula a "média do Placar das Pesquisas" para presidente, governadores e senadores a partir das pesquisas mais recentes de cada disputa. Diferente dos agregadores fechados ou pagos, é aberto, reproduzível e licenciado sob Creative Commons (CC BY 4.0): a metodologia é pública, cada média tem comprovação matemática, e os dados podem ser reusados e citados livremente. Atualizado automaticamente quatro vezes por dia. O projeto não realiza pesquisas próprias.`;
 
 const CITATION = `Fonte: Placar das Pesquisas — a média do Placar das Pesquisas (placardaspesquisas.com.br), sob licença CC BY 4.0.`;
 
@@ -94,7 +94,7 @@ export default function ImprensaPage() {
           <li><strong style={{ color: "var(--text-primary)" }}>Mostra a conta.</strong> A média é reproduzível: regras fixas e públicas, com comprovação matemática — qualquer pessoa refaz o cálculo a partir das fontes.</li>
           <li><strong style={{ color: "var(--text-primary)" }}>Aberto para reusar.</strong> Os dados agregados saem sob {LICENSE_NAME}: pode republicar, inclusive comercialmente, bastando creditar.</li>
           <li><strong style={{ color: "var(--text-primary)" }}>Legível por máquina.</strong> Feeds em JSON, CSV e RSS, com a proveniência embutida em cada número.</li>
-          <li><strong style={{ color: "var(--text-primary)" }}>Fresco e datado.</strong> Reconstruído duas vezes por dia, com data e hora no topo de cada página.</li>
+          <li><strong style={{ color: "var(--text-primary)" }}>Fresco e datado.</strong> Reconstruído quatro vezes por dia, com data e hora no topo de cada página.</li>
         </ul>
       </section>
 

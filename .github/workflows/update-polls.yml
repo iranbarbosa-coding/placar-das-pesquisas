@@ -39,7 +39,11 @@ on:
   # 1ª rodada pós-religar: esperar churn one-shot de provenance.updated_at
   # (~2,1 mil registros — o campo stimulus passou a ser alimentado; PR #20).
   schedule:
-    - cron: "15 12,22 * * *"
+    # 4×/dia (8h15, 12h15, 16h15 e 20h15 de Brasília): na reta final as
+    # pesquisas saem de manhã, ao meio-dia e à noite; 2×/dia deixava o site até
+    # 10 horas atrás da fonte. Cada rodada faz ~274 chamadas seriais ao Poder360
+    # (ver scripts/lacunas-poder360.mjs) — 4×/dia é o teto razoável para a fonte.
+    - cron: "15 11,15,19,23 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -204,7 +208,7 @@ jobs:
       - name: Inserção curada (disputa apagada por inteiro na fonte)
         run: node scripts/curated-insert-check.mjs
 
-      # Roda 2x/dia: se a reconstrução re-datar registros, cada rodada comita
+      # Roda 4x/dia: se a reconstrução re-datar registros, cada rodada comita
       # 4.613 linhas de carimbo e o diff deixa de ser legível.
       - name: Reconstrução não redata o que já existia
         run: node scripts/idempotence-check.mjs

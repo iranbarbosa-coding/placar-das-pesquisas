@@ -172,7 +172,7 @@ export default function MetodologiaPage() {
           <Stat icon="globe" value={String(estados)} label="estados + Brasil" />
           <Stat icon="users" value={fmt(candidatos)} label="candidatos acompanhados" />
           <Stat icon="filter" value={fmt(conflitos)} label="divergências entre fontes reconciliadas" accent />
-          <Stat icon="refresh" value="2×/dia" label="atualização automática" />
+          <Stat icon="refresh" value="4×/dia" label="atualização automática" />
         </div>
         <div
           className="card mt-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 p-3 text-center text-sm font-semibold"

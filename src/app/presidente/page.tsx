@@ -88,7 +88,7 @@ export default function PresidentePage() {
         },
         {
           q: "Com que frequência a média é atualizada?",
-          a: `O ${SITE_NAME} atualiza automaticamente duas vezes por dia a partir de fontes públicas (registros do TSE/PesqEle, Wikipédia e divulgações dos institutos). Última atualização: ${longDate(ds.generated_at)}.`,
+          a: `O ${SITE_NAME} atualiza automaticamente quatro vezes por dia a partir de fontes públicas (registros do TSE/PesqEle, Wikipédia e divulgações dos institutos). Última atualização: ${longDate(ds.generated_at)}.`,
         },
       ]
     : [];
