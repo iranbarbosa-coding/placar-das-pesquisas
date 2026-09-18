@@ -1,62 +1,45 @@
-# DIAGNÓSTICO (só nesta branch): lê, a partir do runner, as fontes primárias
-# que este ambiente não alcança — íntegras (PDF) e as linhas da Wikipédia com
-# as referências — para as decisões editoriais do censo de 2026.
-name: Diagnóstico — fontes primárias (censo 2026)
+name: diag-fontes-branch
 on:
   push:
-    branches: ["claude/placar-32-creator-pitches-7dk5vm"]
-    paths: [".github/workflows/diag-fontes-branch.yml"]
-permissions:
-  contents: read
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
 jobs:
   ler:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
-      - name: PDFs e referências
+      - shell: bash
         run: |
           set -u
-          python3 -m pip install -q pypdf >/dev/null 2>&1 || true
-          UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
-          mkdir -p diag
-          pdf() { # url rótulo páginas-regex
-            local url="$1" rot="$2" pat="${3:-.}"
-            echo "########## PDF $rot ##########"; echo "$url"
-            if curl -fsSL -A "$UA" -o diag/x.pdf "$url"; then
-              python3 - "$pat" <<'PY'
-          import sys,re
-          from pypdf import PdfReader
-          r=PdfReader('diag/x.pdf'); print('páginas:',len(r.pages))
-          pat=re.compile(sys.argv[1],re.I)
-          for i,pg in enumerate(r.pages):
-              t=(pg.extract_text() or '')
-              if pat.search(t):
-                  print(f'--- página {i+1} ---'); print(t[:2200])
-          PY
-            else echo "PDF inacessível"; fi
-          }
-          wikirefs() { # título UF instituto-regex
-            local title="$1" inst="$2"
-            echo "########## WIKI $title · $inst ##########"
-            curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$title" --data-urlencode action=raw -o diag/w.wiki || { echo "wiki inacessível"; return; }
-            python3 - "$inst" <<'PY'
-          import re,sys
-          t=open('diag/w.wiki',encoding='utf-8').read().split('\n')
-          pat=re.compile(sys.argv[1],re.I)
-          for i,l in enumerate(t):
-              if pat.search(l) and l.strip().startswith('|'):
-                  blk='\n'.join(t[i:i+4])
-                  urls=re.findall(r'url\s*=\s*(\S+)',blk,re.I)
-                  print(f'linha {i+1}: {l[:200]}')
-                  for u in urls: print('   REF', u.rstrip('|}'))
-                  # a célula de data e amostra vêm logo abaixo
-                  for j in range(i+1,min(i+4,len(t))): print('   ', t[j][:160])
+          UA="Mozilla/5.0 (X11; Linux x86_64) PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
+          art() { # url rótulo
+            local url="$1" rot="$2"
+            echo "########## ART $rot ##########"; echo "$url"
+            if ! curl -fsSL --max-time 40 -A "$UA" -o x.html "$url"; then
+              echo "direto inacessível; tentando Wayback"
+              curl -fsSL --max-time 60 -A "$UA" -o x.html "https://web.archive.org/web/2026/$url" || { echo "inacessível"; return; }
+            fi
+            python3 - <<'PY'
+          import re,html
+          t=open('x.html','rb').read().decode('utf-8','replace')
+          t=re.sub(r'(?is)<(script|style|noscript|svg|nav|footer|header)[^>]*>.*?</\1>','',t)
+          t=re.sub(r'(?s)<[^>]+>',' ',t); t=html.unescape(t); t=re.sub(r'\s+',' ',t)
+          pat=re.compile(r'(munic[ií]p|Campo Grande|Rio Branco|Campina Grande|Jo[aã]o Pessoa|eleitor|abrang|amostra|entrevist|registr|TSE|Estado|estadual|cidade|capital|70,[57]|29,5|Furlan)',re.I)
+          seen=0
+          for m in pat.finditer(t):
+              a=max(0,m.start()-160); b=min(len(t),m.end()+160)
+              print('…',t[a:b],'…'); seen+=1
+              if seen>=40: break
+          print('[tamanho texto]',len(t))
           PY
           }
-          pdf "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf" "Quaest AP 21-24/08 governador+senador" "governador|Furlan|Cl[eé]cio|cen[aá]rio|estimulada"
-          pdf "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf" "Quaest AM 24/08 (controle: tem governador?)" "governador|Omar|Aziz"
-          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 em Mato Grosso do Sul" "IPR"
-          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 na Paraíba" "Ranking"
-          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 no Acre" "Phoenix"
-          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 no Amapá" "Verit[áa]"
-          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 no Amapá" "Quaest"
+          art "https://diariodopoder.com.br/brasil-e-regioes/cib-brasil/dr-furlan-lidera-para-o-governo-do-amapa-com-705" "Veritá AP 27-31/05 (SOMA 70,7+29,5)"
+          art "https://fonte83.com.br/politica/eleicoes-2026/pesquisa-data-ranking-fonte83-aponta-lucas-ribeiro-com-421-e-cicero-lucena-com-246-em-campina-grande/" "Ranking PB gov 11-12/06 n=782"
+          art "https://fonte83.com.br/noticias/pesquisa-data-ranking-fonte83-aponta-veneziano-soma-602-joao-azevedo-tem-403-e-queiroga-registra-59-na-soma-dos-votos-ao-senado-em-campina-grande/" "Ranking PB sen 11-12/06 n=787"
+          art "https://fonte83.com.br/politica/pesquisa-data-ranking-fonte83-cicero-lucena-tem-384-lucas-ribeiro-183-e-efraim-filho-135-em-joao-pessoa/" "Ranking PB gov 19-20/06 n=783"
+          art "https://fonte83.com.br/politica/pesquisa-data-ranking-fonte83-em-joao-pessoa-joao-azevedo-tem-568-veneziano-384-queiroga-138-major-fabio-37-e-nabor-registra-36-ao-senado/" "Ranking PB sen 19-20/06 n=783"
+          art "https://correiodoestado.com.br/politica/eduardo-riedel-lidera-disputa-pelo-governo-de-ms-em-1a-pesquisa-do/463588/" "IPR MS gov 05-09/03 n=784"
+          art "https://www.regiaonews.com.br/politica/pesquisa-aponta-empate-triplo-em-disputa-ao-senado" "IPR MS sen 05-09/03 n=784"
+          art "https://horanoticias.com.br/pesquisa-mostra-estabilidade-de-riedel-e-avanco-dos-adversarios/" "IPR MS gov 27/04-01/05 n=784"
+          art "https://www.capitalnews.com.br/politica-e-poder/politica/pesquisa-aponta-lideranca-de-azambuja-ao-senado-com-empate-tecnico-entre-tres-nomes/439992" "IPR MS sen 27/04-01/05 n=784"
+          art "https://investigams.com.br/2026/08/25/reinaldo-azambuja-lidera-nova-pesquisa-para-o-senado-seguido-por-contar-vander-e-soraya/" "IPR MS sen 19-23/08 n=784"
+          art "https://oaltoacre.com/pesquisa-phoenix-acirra-disputa-pelo-governo-do-acre-e-mostra-bocalom-se-aproximando-de-mailza/" "Phoenix AC gov 08-10/09 n=615"
