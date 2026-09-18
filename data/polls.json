@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-18T14:57:59.739Z",
+ "generated_at": "2026-09-18T18:25:58.099Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-18T14:57:59.739Z"
+   "last_ok": "2026-09-18T18:25:58.099Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-18T14:57:59.739Z"
+   "last_ok": "2026-09-18T18:25:58.099Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-18T14:57:59.739Z"
+   "last_ok": "2026-09-18T18:25:58.099Z"
   }
  ],
  "polls": [
@@ -160,6 +160,92 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2f35432d4c02",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 43.3
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 44.4
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 35.1
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 18.6
+    },
+    {
+     "candidate": "General Theóphilo",
+     "party": "Novo",
+     "pct": 1.9
+    }
+   ],
+   "others_pct": 6.2,
+   "undecided_pct": 14.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3af80f9c1ef7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 2030,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 47.4
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 21.2
+    },
+    {
+     "candidate": "Flávio Roscoe",
+     "party": "PL",
+     "pct": 8.6
+    }
+   ],
+   "others_pct": 15.8,
+   "undecided_pct": 7.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -5113,39 +5199,6 @@
    "tse_registration": null
   },
   {
-   "id": "2125669f0711",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "governador",
-   "state": "DF",
-   "round": 2,
-   "scenario": "2º turno: Celina Leão e Arruda",
-   "pollster": "Correio/Opinião",
-   "contractor": null,
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-12",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 51.7
-    },
-    {
-     "candidate": "Arruda",
-     "party": "PSD",
-     "pct": 29
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "2b9d0bd2a675",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -5244,59 +5297,6 @@
    "tse_registration": null
   },
   {
-   "id": "2c7a63c54f92",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "governador",
-   "state": "DF",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Correio/Opinião",
-   "contractor": null,
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-12",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 41
-    },
-    {
-     "candidate": "Arruda",
-     "party": "PSD",
-     "pct": 15.7
-    },
-    {
-     "candidate": "Leandro Grass",
-     "party": "PT",
-     "pct": 14
-    },
-    {
-     "candidate": "Cappelli",
-     "party": "PSB",
-     "pct": 4.1
-    },
-    {
-     "candidate": "Paula Belmonte",
-     "party": "PSDB",
-     "pct": 5.3
-    },
-    {
-     "candidate": "Kiko Caputo",
-     "party": "Novo",
-     "pct": 2.8
-    }
-   ],
-   "others_pct": 5.3,
-   "undecided_pct": 13.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "318af10d1f96",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -5355,6 +5355,49 @@
    "tse_registration": null
   },
   {
+   "id": "359cfada46da",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "senador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Michelle Bolsonaro",
+     "party": "PL",
+     "pct": 39.7
+    },
+    {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 25.3
+    },
+    {
+     "candidate": "Bia Kicis",
+     "party": "PL",
+     "pct": 23
+    },
+    {
+     "candidate": "Érika Kokay",
+     "party": "PT",
+     "pct": 21.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 61.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "3cae997724fe",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
@@ -5409,39 +5452,6 @@
    ],
    "others_pct": 14.7,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "3d32ec618e63",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "governador",
-   "state": "DF",
-   "round": 2,
-   "scenario": "2º turno: Celina Leão e Leandro Grass",
-   "pollster": "Correio/Opinião",
-   "contractor": null,
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-12",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 55.1
-    },
-    {
-     "candidate": "Leandro Grass",
-     "party": "PT",
-     "pct": 27.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -5537,6 +5547,59 @@
    "tse_registration": null
   },
   {
+   "id": "5414db8d7a52",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 41
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 15.7
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 14
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 4.1
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 5.3
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 2.8
+    }
+   ],
+   "others_pct": 5.3,
+   "undecided_pct": 13.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "65971e0059fb",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -5628,49 +5691,6 @@
    "tse_registration": null
   },
   {
-   "id": "9479f61204bb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "senador",
-   "state": "DF",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Correio/Opinião",
-   "contractor": null,
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-12",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Michelle Bolsonaro",
-     "party": "PL",
-     "pct": 39.7
-    },
-    {
-     "candidate": "Leila do Vôlei",
-     "party": "PDT",
-     "pct": 25.3
-    },
-    {
-     "candidate": "Bia Kicis",
-     "party": "PL",
-     "pct": 23
-    },
-    {
-     "candidate": "Érika Kokay",
-     "party": "PT",
-     "pct": 21.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 61.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "a7ab0b362a48",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -5700,6 +5720,39 @@
    ],
    "others_pct": 37.1,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "bcc53d40cea8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Arruda",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 51.7
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -5791,6 +5844,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 31.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ee095d14b3a0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Leandro Grass",
+   "pollster": "IGAPE",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 55.1
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 27.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -13485,6 +13571,49 @@
    ],
    "others_pct": 3,
    "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fc3092dd8f7a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Opinar",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 31.3
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 35.7
+    },
+    {
+     "candidate": "Júlio César O Julim do Lula",
+     "party": "PSD",
+     "pct": 19.2
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 5.7
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
