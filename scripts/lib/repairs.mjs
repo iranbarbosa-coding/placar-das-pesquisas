@@ -634,9 +634,15 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
       // a fonte publicou, não o canônico. Um candidato que não está no elenco
       // NÃO é acrescentado (isso é `add_results`) — o reparo fica em `noop` e a
       // rodada diz isso em voz alta.
+      // `candidate` aceita UMA grafia ou uma LISTA de grafias alternativas
+      // (qualquer uma casa): a Wikipédia publica "Antônio Furlan" onde o
+      // Poder360 publica "Dr Furlan", e um reparo preso a uma só grafia vira
+      // noop na rodada em que a fonte troca — medido no ensaio de 18/09/2026,
+      // em que "Dr. Furlan" (o canônico do site) não casou com o cru da fonte.
       for (const sp of rep.set_pct ?? []) {
+        const grafias = Array.isArray(sp.candidate) ? sp.candidate : [sp.candidate];
         for (const r of poll.results) {
-          if (!sameCandidate(r.candidate, sp.candidate)) continue;
+          if (!grafias.some((g) => sameCandidate(r.candidate, g))) continue;
           if (typeof sp.pct !== "number") continue;
           if (r.pct !== sp.pct) changed = true;
           r.pct = sp.pct;

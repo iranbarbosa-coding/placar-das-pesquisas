@@ -7317,7 +7317,11 @@
     "race": "governador",
     "state": "AP",
     "round": 1,
-    "fieldwork_end": "2026-08-24"
+    "fieldwork_end": "2026-08-24",
+    "has_candidate": [
+     "Clécio",
+     "Jairo Palheta"
+    ]
    },
    "defect": "FRAGMENTO: o v2/cenarios do Poder360 (id 13962) serve o 1º turno para governador do Amapá com DOIS nomes (Clécio 35, Jairo Palheta 1) e indecisos 9 — falta o líder, Dr. Furlan (55), e dois nanicos com 0; branco/nulo (1) e indecisos (8) chegam colapsados em 9. A linha vinha sem data de início de campo e com o contratante ('RÁDIOTVDOAMAZONAS') no lugar do registro do TSE. Por ser a fonte de maior prioridade, o fragmento ainda vencia a linha completa da Wikipédia na fusão — e o site publicava um governador do AP sem o primeiro colocado.",
    "source": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
@@ -7346,7 +7350,8 @@
     "fieldwork_start": "2026-08-21",
     "tse_registration": "AP-09438/2026"
    },
-   "expect_sum": 100
+   "expect_sum": 100,
+   "_nota_alvo": "has_candidate mira o FRAGMENTO do Poder360 (Clécio + Jairo Palheta); a linha da Wikipédia do mesmo campo traz só Furlan e Clécio e não deve receber o add_results (no ensaio de 18/09 ela recebia Furlan em dobro, somava 154, e só sumia porque o colapso de 1º turno a descartava depois)."
   },
   {
    "match": {
@@ -7363,7 +7368,11 @@
    "_nota_nomes": "Os três nomes com 0% (Helio Silva, Juíza Jô, Uzian Pinto) NÃO são acrescentados: a fonte os omite e a média não muda com zeros; acrescentá-los cunharia três pessoas observadas sem entrada de urna.",
    "set_pct": [
     {
-     "candidate": "Capi",
+     "candidate": [
+      "João Capiberibe",
+      "Capiberibe",
+      "Capi"
+     ],
      "pct": 4
     }
    ],
@@ -7371,7 +7380,8 @@
     "blank_null_pct": 5,
     "undecided_pct": 11
    },
-   "expect_sum": 100
+   "expect_sum": 100,
+   "_nota_grafia": "O Poder360 publica 'João Capiberibe' (cru); 'Capi' é o nome de urna que o site exibe depois da canonicalização. O reparo casa com o cru — por isso a lista de grafias."
   },
   {
    "match": {
@@ -7434,7 +7444,11 @@
    "verified_at": "2026-09-18",
    "set_pct": [
     {
-     "candidate": "Dr. Furlan",
+     "candidate": [
+      "Antônio Furlan",
+      "Dr. Furlan",
+      "Dr Furlan"
+     ],
      "pct": 70.5
     }
    ],

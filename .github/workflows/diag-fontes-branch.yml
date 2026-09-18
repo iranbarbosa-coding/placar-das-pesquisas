@@ -1,4 +1,5 @@
 name: diag-fontes-branch
+# ensaio 2 (18/09): alvos dos reparos pelo nome cru da fonte
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
