@@ -1,0 +1,62 @@
+# DIAGNÓSTICO (só nesta branch): lê, a partir do runner, as fontes primárias
+# que este ambiente não alcança — íntegras (PDF) e as linhas da Wikipédia com
+# as referências — para as decisões editoriais do censo de 2026.
+name: Diagnóstico — fontes primárias (censo 2026)
+on:
+  push:
+    branches: ["claude/placar-32-creator-pitches-7dk5vm"]
+    paths: [".github/workflows/diag-fontes-branch.yml"]
+permissions:
+  contents: read
+jobs:
+  ler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: PDFs e referências
+        run: |
+          set -u
+          python3 -m pip install -q pypdf >/dev/null 2>&1 || true
+          UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
+          mkdir -p diag
+          pdf() { # url rótulo páginas-regex
+            local url="$1" rot="$2" pat="${3:-.}"
+            echo "########## PDF $rot ##########"; echo "$url"
+            if curl -fsSL -A "$UA" -o diag/x.pdf "$url"; then
+              python3 - "$pat" <<'PY'
+          import sys,re
+          from pypdf import PdfReader
+          r=PdfReader('diag/x.pdf'); print('páginas:',len(r.pages))
+          pat=re.compile(sys.argv[1],re.I)
+          for i,pg in enumerate(r.pages):
+              t=(pg.extract_text() or '')
+              if pat.search(t):
+                  print(f'--- página {i+1} ---'); print(t[:2200])
+          PY
+            else echo "PDF inacessível"; fi
+          }
+          wikirefs() { # título UF instituto-regex
+            local title="$1" inst="$2"
+            echo "########## WIKI $title · $inst ##########"
+            curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$title" --data-urlencode action=raw -o diag/w.wiki || { echo "wiki inacessível"; return; }
+            python3 - "$inst" <<'PY'
+          import re,sys
+          t=open('diag/w.wiki',encoding='utf-8').read().split('\n')
+          pat=re.compile(sys.argv[1],re.I)
+          for i,l in enumerate(t):
+              if pat.search(l) and l.strip().startswith('|'):
+                  blk='\n'.join(t[i:i+4])
+                  urls=re.findall(r'url\s*=\s*(\S+)',blk,re.I)
+                  print(f'linha {i+1}: {l[:200]}')
+                  for u in urls: print('   REF', u.rstrip('|}'))
+                  # a célula de data e amostra vêm logo abaixo
+                  for j in range(i+1,min(i+4,len(t))): print('   ', t[j][:160])
+          PY
+          }
+          pdf "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf" "Quaest AP 21-24/08 governador+senador" "governador|Furlan|Cl[eé]cio|cen[aá]rio|estimulada"
+          pdf "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf" "Quaest AM 24/08 (controle: tem governador?)" "governador|Omar|Aziz"
+          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 em Mato Grosso do Sul" "IPR"
+          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 na Paraíba" "Ranking"
+          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 no Acre" "Phoenix"
+          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 no Amapá" "Verit[áa]"
+          wikirefs "Pesquisas eleitorais para a eleição estadual de 2026 no Amapá" "Quaest"
