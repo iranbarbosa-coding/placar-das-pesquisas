@@ -16,9 +16,9 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 47 | 31 |
 | **CONFLITO** — Conflitos registrados aguardando decisão | 108 | 4 |
-| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
+| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 0 | 0 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **196** | **40** |
+| **total** | **191** | **36** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -438,15 +438,11 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_40997e6f03a4 · results: ["Coronel Hélio","Jean Paul Prates","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"]
 - person_id_orphaned · p_e8b4414653b7 · person_id: "p_e8b4414653b7" × null
 
-## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (5)
+## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (0)
 
 Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 que ainda NÃO está no ledger de vereditos (data/universe-verdicts.json). Amostra pequena NÃO prova municipal — muitas estaduais legítimas são pequenas — então cada uma exige leitura de fonte (cega) antes de gatear. Ponto cego conhecido: um municipal com n ≥ 800 escapa desta varredura; o gate é por veredito no ledger, não por este limiar. Confirmada municipal, entra no ledger e sai das médias estaduais; confirmada estadual, entra como estadual e para de aparecer aqui. É triagem, não porta.
 
-- s_502c038c0af5 · Doxa · PA · n=600 · registro —
-- **[2026]** s_b38babf70f52 · IPR · MS · n=784 · registro —
-- **[2026]** s_10efbc0a473f · Ranking · PB · n=782 · registro —
-- **[2026]** s_52118f05f979 · IPR · MS · n=784 · registro —
-- **[2026]** s_e8f2eb49bdaf · Phoenix · AC · n=615 · registro —
+*Nada a reportar.*
 
 ## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (0)
 
