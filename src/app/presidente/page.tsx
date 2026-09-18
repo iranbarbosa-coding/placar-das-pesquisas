@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RcpPollsTable from "@/components/RcpPollsTable";
+import FreshnessBadge from "@/components/FreshnessBadge";
 import PresidentEvolution from "@/components/PresidentEvolution";
 import RejectionChart from "@/components/RejectionChart";
 import RunoffSimChart from "@/components/RunoffSimChart";
@@ -145,6 +146,7 @@ export default function PresidentePage() {
               <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full" style={{ background: "var(--series-3)" }} />
               Atualizado em {longDate(ds.generated_at)}
             </span>
+            <FreshnessBadge race="presidente" uf={null} lastPollDate={presAvg?.lastPollDate ?? null} generatedAt={ds.generated_at} className="sm:justify-end" />
             <Link href="/metodologia" className="inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
               Metodologia completa <span aria-hidden="true">→</span>
             </Link>

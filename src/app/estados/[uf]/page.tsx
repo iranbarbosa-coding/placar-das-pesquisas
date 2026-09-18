@@ -9,6 +9,7 @@ import RunoffSims from "@/components/RunoffSims";
 // StateNav (a toggle de navegação do estado) está omitida por ora — volta numa
 // etapa futura; o componente segue em `@/components/StateNav`.
 import StateTrends from "@/components/StateTrends";
+import FreshnessBadge from "@/components/FreshnessBadge";
 import { candKey } from "@/lib/average";
 import { loadDataset, scenarioGroups } from "@/lib/data";
 import JsonLd from "@/components/JsonLd";
@@ -94,6 +95,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   const govLeadPct = gov1Rcp.average.values[0];
   const govDate = gov1Group?.average?.lastPollDate ?? null;
   const hasGovLede = hasGov1 && !!govLead && govLeadPct != null;
+  const generatedAt = loadDataset().generated_at;
 
   return (
     <div className="flex min-w-0 flex-col gap-8">
@@ -148,6 +150,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
         <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
           Governador · 1º turno
         </h2>
+        {hasGov1 && <FreshnessBadge race="governador" uf={UFU} lastPollDate={govDate} generatedAt={generatedAt} />}
         {hasGov1 ? (
           <>
             <div className="card min-w-0 p-4 sm:p-6">
@@ -181,6 +184,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
           <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
             Senado
           </h2>
+          {hasSenado && <FreshnessBadge race="senador" uf={UFU} lastPollDate={sen1Evo.average?.lastPollDate ?? null} generatedAt={generatedAt} />}
           {hasSenado ? (
             <RaceBarsEvolution
               half
@@ -206,6 +210,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
           <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
             Presidente no estado · 1º turno
           </h2>
+          {hasPresidente && <FreshnessBadge race="presidente" uf={UFU} lastPollDate={pres1Evo.average?.lastPollDate ?? null} generatedAt={generatedAt} />}
           {hasPresidente ? (
             <RaceBarsEvolution
               half
@@ -234,6 +239,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
             <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
               Governador · 2º turno
             </h2>
+            {govRunoff.main && <FreshnessBadge race="governador" uf={UFU} lastPollDate={govRunoff.main.lastDate} generatedAt={generatedAt} />}
             <div className="grid min-w-0 gap-4 md:grid-cols-2">
               <RunoffMain data={govRunoff.main} title="Confronto principal" />
               <RunoffSims rows={govRunoff.sims} title="Todas as simulações" />
@@ -244,6 +250,7 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
             <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
               Presidente · 2º turno
             </h2>
+            {presRunoff.main && <FreshnessBadge race="presidente" uf={UFU} lastPollDate={presRunoff.main.lastDate} generatedAt={generatedAt} />}
             <div className="grid min-w-0 gap-4 md:grid-cols-2">
               <RunoffMain data={presRunoff.main} title="Confronto principal" />
               <RunoffSims rows={presRunoff.sims} title="Todas as simulações" />

@@ -4,6 +4,7 @@ import path from "node:path";
 import Link from "next/link";
 import { loadDataset } from "@/lib/data";
 import { candKey } from "@/lib/average";
+import { FRESCOR_ATENCAO_DIAS, FRESCOR_VELHO_DIAS } from "@/lib/frescor";
 import Icon, { type IconName } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -343,6 +344,38 @@ export default function MetodologiaPage() {
             determinístico, os números batem quando recalculados.
           </Cap>
         </div>
+      </section>
+
+      {/* ── FRESCOR E REVISÃO ────────────────────────────────────────────── */}
+      <section id="frescor" className="max-w-4xl scroll-mt-24 space-y-4">
+        <h2 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+          Frescor e revisão, disputa por disputa
+        </h2>
+        <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          Ao lado de cada disputa há um selo com a data da última pesquisa. Ele muda de tom porque uma média
+          vale menos quanto mais velha é a pesquisa mais recente que a compõe — e o site não deve parecer mais
+          fresco do que a fonte.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <Cap icon="refresh" title={`Até ${FRESCOR_ATENCAO_DIAS - 1} dias: fresco`}>
+            A disputa recebeu pesquisa nova na última semana. É o caso normal na reta final.
+          </Cap>
+          <Cap icon="shield" title={`De ${FRESCOR_ATENCAO_DIAS} a ${FRESCOR_VELHO_DIAS - 1} dias: atenção`}>
+            Nenhum instituto publicou nas últimas semanas. A média continua correta, mas descreve um momento
+            que pode ter passado.
+          </Cap>
+          <Cap icon="ban" title={`${FRESCOR_VELHO_DIAS} dias ou mais: sem pesquisa recente`}>
+            A disputa está parada na fonte. Leia a média como retrato antigo, não como placar do dia.
+          </Cap>
+        </div>
+        <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <B>&ldquo;Dado em revisão&rdquo;</B> é outra coisa: um estado do site, não da fonte. A cada rodada, o
+          coletor compara o banco novo com o anterior, disputa por disputa. Se uma pergunta que existia some
+          sem que a coleta prove que foi substituída (mesmo registro, mesmo elenco, mesma tabela publicada
+          sob outro nome), a disputa inteira é <B>congelada no dado anterior</B> até alguém verificar a fonte
+          — e o selo diz isso na página. Preferimos publicar um dado de ontem com aviso a publicar hoje um
+          dado que perdeu uma pesquisa em silêncio.
+        </p>
       </section>
 
       {/* ── FONTES ───────────────────────────────────────────────────────── */}
