@@ -7310,6 +7310,135 @@
    "set": {
     "state": "PE"
    }
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "governador",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2026-08-24"
+   },
+   "defect": "FRAGMENTO: o v2/cenarios do Poder360 (id 13962) serve o 1º turno para governador do Amapá com DOIS nomes (Clécio 35, Jairo Palheta 1) e indecisos 9 — falta o líder, Dr. Furlan (55), e dois nanicos com 0; branco/nulo (1) e indecisos (8) chegam colapsados em 9. A linha vinha sem data de início de campo e com o contratante ('RÁDIOTVDOAMAZONAS') no lugar do registro do TSE. Por ser a fonte de maior prioridade, o fragmento ainda vencia a linha completa da Wikipédia na fusão — e o site publicava um governador do AP sem o primeiro colocado.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "evidence": "Íntegra publicada pelo Poder360 (recorte Gazeta do Povo, 25/08/2026), p.2 'Dr Furlan também lidera cenário estimulado': Dr Furlan (PSD) 55%; Clécio (União Brasil) 35%; Jairo Palheta (PCO) 1%; Carlos Cley (PSTU) 0%; Delegado Marcos (DC) 0%; Branco/Nulo/Não vai votar 1%; Indecisos 8%. p.3–4 'Metodologia: 804 entrevistados pela Quaest de 21 a 24 de agosto de 2026 ... Registro no TSE sob o nº AP-09438/2026'. Soma 100.",
+   "verified_at": "2026-09-18",
+   "add_results": [
+    {
+     "candidate": "Dr Furlan",
+     "party": "PSD",
+     "pct": 55
+    },
+    {
+     "candidate": "Carlos Cley",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Delegado Marcos",
+     "party": "DC",
+     "pct": 0
+    }
+   ],
+   "set": {
+    "blank_null_pct": 1,
+    "undecided_pct": 8,
+    "fieldwork_start": "2026-08-21",
+    "tse_registration": "AP-09438/2026"
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "senador",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2026-08-24"
+   },
+   "defect": "O v2/cenarios do Poder360 (id 13963) serve 'Capi' (João Capiberibe) com 7% onde a íntegra imprime 4% — a tabela somava 103 — e colapsa branco/nulo (5) e indecisos (11) em 16.",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "evidence": "Íntegra publicada pelo Poder360 (recorte Gazeta do Povo, 25/08/2026), p.3 'Rayssa Furlan é a mais citada no cenário estimulado': Rayssa Furlan (Podemos) 27%; Randolfe Rodrigues (PT) 19%; Lucas Barreto (PSD) 18%; Alliny Serrão (União Brasil) 9%; Acácio Favacho (MDB) 7%; João Capiberibe (PSB) 4%; Helio Silva (PCO) 0%; Juíza Jô (DC) 0%; Professor Uzian Pinto (DC) 0%; Branco/Nulo/Não vai votar 5%; Indecisos 11%. 'Cada entrevistado escolheu dois nomes e o consolidado dos votos foi reduzido para 100%.' Soma 100.",
+   "verified_at": "2026-09-18",
+   "_nota_nomes": "Os três nomes com 0% (Helio Silva, Juíza Jô, Uzian Pinto) NÃO são acrescentados: a fonte os omite e a média não muda com zeros; acrescentá-los cunharia três pessoas observadas sem entrada de urna.",
+   "set_pct": [
+    {
+     "candidate": "Capi",
+     "pct": 4
+    }
+   ],
+   "set": {
+    "blank_null_pct": 5,
+    "undecided_pct": 11
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Quaest",
+    "race": "governador",
+    "state": "AP",
+    "round": 2,
+    "fieldwork_end": "2026-08-24",
+    "has_candidate": [
+     "Dr Furlan",
+     "Clécio"
+    ]
+   },
+   "defect": "AUSENTE: a simulação de 2º turno Dr Furlan × Clécio deste levantamento não chega pelo v2/cenarios do Poder360 (só os blocos 13962 e 13963, ambos de 1º turno) nem pela Wikipédia (a página estadual do AP não traz 2º turno para governador).",
+   "source": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "evidence": "Íntegra publicada pelo Poder360 (recorte Gazeta do Povo, 25/08/2026), p.2 'Segundo turno para governador do Amapá — A Quaest simulou um cenário de segundo turno. Dr Furlan x Clécio': Dr Furlan (PSD) 54%; Clécio (União Brasil) 36%; p.3 (continuação) Branco/Nulo/Não vai votar 4%; Indecisos 6%. Ficha: 804 entrevistados, 21 a 24/08/2026, margem 3 p.p., contratante Rádio TV do Amazonas / Rede Amazônica, registro AP-09438/2026. Soma 100.",
+   "verified_at": "2026-09-18",
+   "add_poll": {
+    "pollster": "Quaest",
+    "race": "governador",
+    "state": "AP",
+    "round": 2,
+    "scenario": "2º turno: Dr Furlan vs Clécio",
+    "contractor": "Rádio TV do Amazonas / Rede Amazônica",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-24",
+    "published_date": "2026-08-25",
+    "sample_size": 804,
+    "margin_of_error": 3,
+    "tse_registration": "AP-09438/2026",
+    "results": [
+     {
+      "candidate": "Dr Furlan",
+      "party": "PSD",
+      "pct": 54
+     },
+     {
+      "candidate": "Clécio",
+      "party": "União Brasil",
+      "pct": 36
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 6,
+    "blank_null_pct": 4
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "governador",
+    "state": "AP",
+    "round": 1,
+    "fieldwork_end": "2026-05-31"
+   },
+   "defect": "A Wikipédia (página estadual do AP) grava Dr. Furlan com 70,7% onde a matéria-fonte da própria célula imprime 70,5% dos votos válidos — a tabela somava 100,2 (censo SOMA de 16/09/2026).",
+   "source": "https://diariodopoder.com.br/brasil-e-regioes/cib-brasil/dr-furlan-lidera-para-o-governo-do-amapa-com-705",
+   "evidence": "Diário do Poder (02/06/2026), 'Dr. Furlan lidera para o governo do Amapá com 70,5%': 'Se a eleição fosse hoje, o ex-prefeito de Macapá teria 70,5% dos votos válidos, enquanto o atual governador Clécio Luís (União Brasil) aparece com 29,5%'; '1.030 eleitores entre 27 e 31 de maio'; 'registrada na Justiça Eleitoral sob os números AP-02323/2026 e BR-06360/2026'. Soma 100 (votos válidos).",
+   "verified_at": "2026-09-18",
+   "set_pct": [
+    {
+     "candidate": "Dr. Furlan",
+     "pct": 70.5
+    }
+   ],
+   "expect_sum": 100
   }
  ]
 }

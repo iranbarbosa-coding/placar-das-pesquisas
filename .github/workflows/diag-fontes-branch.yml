@@ -4,42 +4,72 @@ on:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
     paths: [.github/workflows/diag-fontes-branch.yml]
 jobs:
-  ler:
+  ensaio:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - shell: bash
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - run: node scripts/fetch-candidaturas.mjs
+      - run: node scripts/match-ballot-names.mjs
+      - run: python3 scripts/wiki_parse.py --self-test
+      - name: Coleta REAL (stderr guardado)
+        run: node scripts/scrape.mjs 2> scrape.err
+      - run: node scripts/derive-polls.mjs
+      - name: Portões (os mesmos do cron)
         run: |
-          set -u
-          UA="Mozilla/5.0 (X11; Linux x86_64) PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
-          art() { # url rótulo
-            local url="$1" rot="$2"
-            echo "########## ART $rot ##########"; echo "$url"
-            if ! curl -fsSL --max-time 40 -A "$UA" -o x.html "$url"; then
-              echo "direto inacessível; tentando Wayback"
-              curl -fsSL --max-time 60 -A "$UA" -o x.html "https://web.archive.org/web/2026/$url" || { echo "inacessível"; return; }
-            fi
-            python3 - <<'PY'
-          import re,html
-          t=open('x.html','rb').read().decode('utf-8','replace')
-          t=re.sub(r'(?is)<(script|style|noscript|svg|nav|footer|header)[^>]*>.*?</\1>','',t)
-          t=re.sub(r'(?s)<[^>]+>',' ',t); t=html.unescape(t); t=re.sub(r'\s+',' ',t)
-          pat=re.compile(r'(munic[ií]p|Campo Grande|Rio Branco|Campina Grande|Jo[aã]o Pessoa|eleitor|abrang|amostra|entrevist|registr|TSE|Estado|estadual|cidade|capital|70,[57]|29,5|Furlan)',re.I)
-          seen=0
-          for m in pat.finditer(t):
-              a=max(0,m.start()-160); b=min(len(t),m.end()+160)
-              print('…',t[a:b],'…'); seen+=1
-              if seen>=40: break
-          print('[tamanho texto]',len(t))
-          PY
-          }
-          art "https://diariodopoder.com.br/brasil-e-regioes/cib-brasil/dr-furlan-lidera-para-o-governo-do-amapa-com-705" "Veritá AP 27-31/05 (SOMA 70,7+29,5)"
-          art "https://fonte83.com.br/politica/eleicoes-2026/pesquisa-data-ranking-fonte83-aponta-lucas-ribeiro-com-421-e-cicero-lucena-com-246-em-campina-grande/" "Ranking PB gov 11-12/06 n=782"
-          art "https://fonte83.com.br/noticias/pesquisa-data-ranking-fonte83-aponta-veneziano-soma-602-joao-azevedo-tem-403-e-queiroga-registra-59-na-soma-dos-votos-ao-senado-em-campina-grande/" "Ranking PB sen 11-12/06 n=787"
-          art "https://fonte83.com.br/politica/pesquisa-data-ranking-fonte83-cicero-lucena-tem-384-lucas-ribeiro-183-e-efraim-filho-135-em-joao-pessoa/" "Ranking PB gov 19-20/06 n=783"
-          art "https://fonte83.com.br/politica/pesquisa-data-ranking-fonte83-em-joao-pessoa-joao-azevedo-tem-568-veneziano-384-queiroga-138-major-fabio-37-e-nabor-registra-36-ao-senado/" "Ranking PB sen 19-20/06 n=783"
-          art "https://correiodoestado.com.br/politica/eduardo-riedel-lidera-disputa-pelo-governo-de-ms-em-1a-pesquisa-do/463588/" "IPR MS gov 05-09/03 n=784"
-          art "https://www.regiaonews.com.br/politica/pesquisa-aponta-empate-triplo-em-disputa-ao-senado" "IPR MS sen 05-09/03 n=784"
-          art "https://horanoticias.com.br/pesquisa-mostra-estabilidade-de-riedel-e-avanco-dos-adversarios/" "IPR MS gov 27/04-01/05 n=784"
-          art "https://www.capitalnews.com.br/politica-e-poder/politica/pesquisa-aponta-lideranca-de-azambuja-ao-senado-com-empate-tecnico-entre-tres-nomes/439992" "IPR MS sen 27/04-01/05 n=784"
-          art "https://investigams.com.br/2026/08/25/reinaldo-azambuja-lidera-nova-pesquisa-para-o-senado-seguido-por-contar-vander-e-soraya/" "IPR MS sen 19-23/08 n=784"
-          art "https://oaltoacre.com/pesquisa-phoenix-acirra-disputa-pelo-governo-do-acre-e-mostra-bocalom-se-aproximando-de-mailza/" "Phoenix AC gov 08-10/09 n=615"
+          set -e
+          node scripts/validate-store.mjs --self-test && node scripts/validate-store.mjs
+          node scripts/parity-check.mjs
+          node scripts/projection-twin-check.mjs
+          node scripts/pollster-clustering-check.mjs
+          node scripts/upsert-harness.mjs
+          node scripts/roster-retention-check.mjs --self-test && node scripts/roster-retention-check.mjs
+          node scripts/disputa-delta-check.mjs --self-test
+          echo "########## DELTA ##########"
+          node scripts/disputa-delta-check.mjs
+          node scripts/source-fallback-check.mjs --self-test && node scripts/source-fallback-check.mjs
+          node scripts/curated-insert-check.mjs --self-test && node scripts/curated-insert-check.mjs
+          node scripts/existencia-pos-guarda-check.mjs && node scripts/existencia-pos-guarda-check.mjs --self-test
+          node scripts/fusao-cenarios-check.mjs
+          node scripts/idempotence-check.mjs
+          node scripts/validate-data.mjs data/polls.json
+          node scripts/incomplete-polls.mjs
+          node scripts/census.mjs
+      - name: Relatório
+        if: always()
+        run: |
+          echo "########## DEDUPE NA MESMA MARCA ##########"
+          grep -c "duplicata na mesma marca" scrape.err || true
+          grep "duplicata na mesma marca" scrape.err || true
+          echo "########## REPAROS AP ##########"
+          grep -i "AP\b.*quaest\|quaest.*AP\|Verit.*AP\|reparo.*AP" scrape.err | head -20 || true
+          grep -i "PESQUISA CURADA\|inserida" scrape.err | grep -i "AP" | head || true
+          echo "########## CENSO: UNIVERSO ##########"
+          awk '/^## UNIVERSO/,/^## PARTIDA/' CENSO_BANCO.md
+          echo "########## CENSO: DUPLICATA ELENCO REPETIDO 2026 ##########"
+          awk '/^## DUPLICATA/,/^## CONFLITO/' CENSO_BANCO.md | grep -A3 "2026.*ELENCO REPETIDO" || echo "nenhum"
+          awk '/^## DUPLICATA/,/^## CONFLITO/' CENSO_BANCO.md | grep -c "ELENCO REPETIDO" || true
+          echo "########## CENSO: SOMA ##########"
+          awk '/^## SOMA/,/^## /' CENSO_BANCO.md | head -20
+          echo "########## GATE MUNICIPAL ##########"
+          node scripts/municipal-gate-check.mjs 2>&1 | grep -v "^  ok\|XX  E " || true
+          echo "########## POLLS AP ##########"
+          node --input-type=module -e "
+          import fs from 'node:fs';
+          const d=JSON.parse(fs.readFileSync('data/polls.json','utf-8')); const polls=Array.isArray(d)?d:d.polls;
+          for (const p of polls) if (p.state==='AP' && ((p.pollster==='Quaest' && p.fieldwork_end==='2026-08-24') || (p.pollster==='Veritá' && p.fieldwork_end==='2026-05-31')))
+            console.log(p.id, p.race, 't'+p.round, p.tse_registration, p.fieldwork_start, JSON.stringify(p.results.map(r=>[r.candidate,r.pct])), 'bn',p.blank_null_pct,'u',p.undecided_pct, p.repaired?'REPARADA':'', p.incomplete?'INCOMPLETA':'');
+          const q=fs.readFileSync('data/questions.ndjson','utf-8').split('\n').filter(Boolean).map(JSON.parse);
+          const s=Object.fromEntries(fs.readFileSync('data/surveys.ndjson','utf-8').split('\n').filter(Boolean).map(JSON.parse).map(x=>[x.survey_id,x]));
+          console.log('########## PARES DEDUPADOS NO STORE ##########');
+          for (const [uf,end,race,round] of [['ES','2026-07-21','governador',1],['PA','2026-09-07','governador',2],['PA','2026-08-28','governador',2],['MT','2026-07-27','governador',2],['MT','2026-03-23','governador',2]])
+            for (const x of q) if (x.uf===uf && x.race===race && x.round===round && s[x.survey_id]?.fieldwork_end===end)
+              console.log(uf,end,x.question_id,x.survey_id,s[x.survey_id].tse_registration,x.scenario_label_raw,JSON.stringify(x.results.map(r=>[r.name_raw,r.pct])),'legacy_ids',JSON.stringify(x.legacy_ids??[]));
+          "
+          echo "########## DIFF DO STORE ##########"
+          git status --short data/ CENSO_BANCO.md PESQUISAS_INCOMPLETAS.md
+          git diff --stat data/ | tail -3
+          echo "########## SUMIDAS/QUARENTENA ##########"
+          grep -c "disputa_em_quarentena" data/conflicts.ndjson || true

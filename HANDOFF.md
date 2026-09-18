@@ -611,6 +611,45 @@ accepts the same `legacy_id` inside the same survey as proof (`via registro`:
 the source edited its own table). `PLACAR_DEBUG_LINHAGEM=1` prints one line per
 absorbed row (matched or not). Genuine source removals are ratified in
 `data/repairs.json` (`allow_question_drop`, with the primary source cited).
+
+**Same table under two TSE registrations (18/09/2026).** Poder360 serves one
+fieldwork operation twice when the institute files it both nationally (BR-…)
+and at the TRE (UF-…); `mergePolls` buckets by brand/race/UF/round and
+ordinal and does not see it. The 16/09 census counted 5 such 2026 pairs
+(RTBD/ES 21/07, RTBD and Quaest runoffs in PA, Percent and RTBD in MT), each
+one the same sample twice in the average. `dropExactDuplicates` now also
+dedupes SAME-brand tables when the roster is identical (|A| = |B|, every name
+matched), every pct equal, same fieldwork date and same sample; survivor =
+survives the sum guard → higher source priority → more declared buckets →
+smaller id (deterministic). The loser goes into the survivor's `absorvidos`,
+so `ligarAbsorvidos` links its question into `legacy_ids` and the delta gate
+reads a succession, not a loss. Distinct scenarios of the same operation have
+different rosters and never match; the same pair with DIFFERENT numbers
+(RTBD/MT 23/03 Pivetta×Natasha 33/31 under BR vs 36/23 under MT) is not a
+duplicate and stays for the census. `existencia-pos-guarda-check.mjs` pins
+both sides.
+
+**Universe ledger keyed by fingerprint too (18/09/2026).** `survey_id` is
+re-minted whenever the source edits a survey's seed; keyed by id alone, the
+Ranking/PB Campina Grande poll (certified municipal 20/08) had re-minted and
+was back in the PB average, and the IPR/MS estadual control and the Doxa/PA
+Santarém entry had drifted the same way (three orphans, only a census line to
+show for it). Each ledger entry now carries `fieldwork_end`; both projection
+twins resolve the ledger against the store (`resolveMunicipalLedger`: id
+first, then institute + UF + fieldwork_end + sample_size), and
+`municipal-gate-check.mjs` warns `RE-CHAVEADO` when an entry matched by
+fingerprint only — update the id when you see it. Section E of that check
+pins average spreads to the 20/08 store and has been red since the store
+moved on; it is not in the cron. Re-pin or make it relative.
+
+**`set_pct` repair op (18/09/2026).** Mirror of `set_party` for one
+candidate's pct (`sameCandidate` match, never adds a row, no-op reported).
+First uses: Veritá/AP 31/05 70,7→70,5 (source prints 70,5 of valid votes) and
+Quaest/AP 24/08 senate Capiberibe 7→4 (íntegra). The Quaest/AP governor
+fragment (Poder360 13962: two names, no leader) is completed by `add_results`
+from the íntegra, and its runoff (Furlan 54 × Clécio 36) inserted by
+`add_poll`. Note a higher-priority FRAGMENT still wins the merge against a
+complete Wikipedia row — that magnet is the open follow-up from PR #114.
 - `tse.mjs` — TSE/TRE registry zip (metadata only, **no results**).
 
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across
