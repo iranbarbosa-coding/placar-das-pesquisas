@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1475 levantamentos · 4870 perguntas · 154 institutos · 1322 candidatos**.
+Banco: **1476 levantamentos · 4876 perguntas · 154 institutos · 1322 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 47 | 31 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 111 | 4 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 108 | 4 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **199** | **40** |
+| **total** | **196** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -325,7 +325,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (111)
+## CONFLITO — Conflitos registrados aguardando decisão (108)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -436,10 +436,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_df271f2f3b4b · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_5bf18ed5f970 · results: ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros"]
 - roster_encolhido_na_fonte · q_40997e6f03a4 · results: ["Coronel Hélio","Jean Paul Prates","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"]
-- person_id_orphaned · p_c6aea7b2f6d1 · person_id: "p_c6aea7b2f6d1" × null
-- candidate_id_orphaned · c_926dd7abf1df · candidate_id: "c_926dd7abf1df" × null
-- person_id_orphaned · p_21b700867042 · person_id: "p_21b700867042" × null
-- candidate_id_orphaned · c_8631083bd331 · candidate_id: "c_8631083bd331" × null
+- person_id_orphaned · p_e8b4414653b7 · person_id: "p_e8b4414653b7" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (5)
 

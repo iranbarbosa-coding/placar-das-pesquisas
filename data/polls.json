@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-17T22:07:38.405Z",
+ "generated_at": "2026-09-18T01:16:35.654Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-17T22:07:38.405Z"
+   "last_ok": "2026-09-18T01:16:35.654Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-17T22:07:38.405Z"
+   "last_ok": "2026-09-18T01:16:35.654Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-17T22:07:38.405Z"
+   "last_ok": "2026-09-18T01:16:35.654Z"
   }
  ],
  "polls": [
@@ -366,6 +366,72 @@
    "tse_registration": null
   },
   {
+   "id": "130d3d27ccc2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Augusto Cury",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "13ad59dafa50",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Renan Santos",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2df19ccbeab3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -614,6 +680,39 @@
    "tse_registration": null
   },
   {
+   "id": "62ca910617f3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Caiado",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "67c11e8421ed",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -818,6 +917,89 @@
    ],
    "others_pct": null,
    "undecided_pct": 16.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b0ace5540ed9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 36
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 6
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 4
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1183,6 +1365,39 @@
    "tse_registration": null
   },
   {
+   "id": "e0eaded141c2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "ef82455dde16",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -1222,6 +1437,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f76518faadff",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Zema",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-16",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 49
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -12636,7 +12884,7 @@
      "pct": 2.8
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 1
     },
@@ -22530,7 +22778,7 @@
      "pct": 13
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 2
     },
@@ -38905,7 +39153,7 @@
      "pct": 8
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 4
     },
@@ -39407,7 +39655,7 @@
      "pct": 7.4
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 6.6
     },
@@ -40343,7 +40591,7 @@
      "pct": 1.9
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 0.9
     },
@@ -43821,7 +44069,7 @@
      "pct": 17
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 11
     },
@@ -49942,7 +50190,7 @@
      "pct": 11
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 4
     },
@@ -50375,7 +50623,7 @@
      "pct": 14.5
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 6
     },
@@ -62067,7 +62315,7 @@
      "pct": 5.3
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 2.5
     }
@@ -67526,7 +67774,7 @@
      "pct": 15
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 7
     }
@@ -78046,7 +78294,7 @@
      "pct": 11
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 3
     }
@@ -82792,7 +83040,7 @@
      "pct": 4.7
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 1.6
     }
@@ -93369,7 +93617,7 @@
      "pct": 6
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 4
     }
@@ -93834,7 +94082,7 @@
      "pct": 5.1
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 10.4
     }
@@ -101585,7 +101833,7 @@
      "pct": 12
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 6
     }
@@ -107387,7 +107635,7 @@
      "pct": 5.8
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 1.8
     }
@@ -108823,7 +109071,7 @@
      "pct": 4.5
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 12.5
     }
@@ -124852,7 +125100,7 @@
      "pct": 6.7
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "Avante",
      "pct": 9.2
     }
@@ -147437,7 +147685,7 @@
      "pct": 16
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "DC",
      "pct": 6.1
     }
@@ -152474,7 +152722,7 @@
      "pct": 4
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "DC",
      "pct": 1
     },
@@ -154035,7 +154283,7 @@
      "pct": 7.8
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "DC",
      "pct": 4.2
     },
@@ -172509,7 +172757,7 @@
      "pct": 18.3
     },
     {
-     "candidate": "Antônio Galvan",
+     "candidate": "Galvan",
      "party": "DC",
      "pct": 3.8
     },

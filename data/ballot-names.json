@@ -2,8 +2,8 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 607,
-  "contencao": 200,
+  "exato": 606,
+  "contencao": 201,
   "outra_disputa": 161,
   "ambiguo": 5,
   "sem": 550
@@ -5760,6 +5760,13 @@
    }
   },
   "senador:MT": {
+   "antonio galvan": {
+    "nome_urna": "Galvan",
+    "sq_candidato": "110002540403",
+    "partido": "AVANTE",
+    "numero": "700",
+    "origem": "contencao"
+   },
    "carlos favaro": {
     "nome_urna": "Fávaro",
     "sq_candidato": "110002544986",
@@ -5772,13 +5779,6 @@
     "sq_candidato": "110002548042",
     "partido": "DEMOCRATA",
     "numero": "351",
-    "origem": "exato"
-   },
-   "galvan": {
-    "nome_urna": "Galvan",
-    "sq_candidato": "110002540403",
-    "partido": "AVANTE",
-    "numero": "700",
     "origem": "exato"
    },
    "janaina riva": {
