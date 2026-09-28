@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1476 levantamentos · 4876 perguntas · 154 institutos · 1322 candidatos**.
+Banco: **1484 levantamentos · 4891 perguntas · 154 institutos · 1322 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 35 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 47 | 31 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 108 | 4 |
-| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 0 | 0 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 107 | 4 |
+| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 5 | 4 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **191** | **36** |
+| **total** | **195** | **40** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -325,7 +325,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (108)
+## CONFLITO — Conflitos registrados aguardando decisão (107)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -436,13 +436,16 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_df271f2f3b4b · results: ["Coronel Hélio","Luciana Lima","Rafael Motta","Rosália Fernandes","Samanda de Lula","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Rafael Motta","Samanda de Lula","Styvenson Valentim","Zenaide Maia"]
 - roster_encolhido_na_fonte · q_5bf18ed5f970 · results: ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros","Ítalo Bonja"] × ["Alfredo Gaspar","Arthur Lira","Paulão do PT","Renan Calheiros"]
 - roster_encolhido_na_fonte · q_40997e6f03a4 · results: ["Coronel Hélio","Jean Paul Prates","Sandro Pimentel","Styvenson Valentim","Zenaide Maia"] × ["Coronel Hélio","Jean Paul Prates","Styvenson Valentim","Zenaide Maia"]
-- person_id_orphaned · p_e8b4414653b7 · person_id: "p_e8b4414653b7" × null
 
-## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (0)
+## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (5)
 
 Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 que ainda NÃO está no ledger de vereditos (data/universe-verdicts.json). Amostra pequena NÃO prova municipal — muitas estaduais legítimas são pequenas — então cada uma exige leitura de fonte (cega) antes de gatear. Ponto cego conhecido: um municipal com n ≥ 800 escapa desta varredura; o gate é por veredito no ledger, não por este limiar. Confirmada municipal, entra no ledger e sai das médias estaduais; confirmada estadual, entra como estadual e para de aparecer aqui. É triagem, não porta.
 
-*Nada a reportar.*
+- s_502c038c0af5 · Doxa · PA · n=600 · registro —
+- **[2026]** s_b38babf70f52 · IPR · MS · n=784 · registro —
+- **[2026]** s_10efbc0a473f · Ranking · PB · n=782 · registro —
+- **[2026]** s_52118f05f979 · IPR · MS · n=784 · registro —
+- **[2026]** s_e8f2eb49bdaf · Phoenix · AC · n=615 · registro —
 
 ## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (0)
 
