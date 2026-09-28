@@ -20,6 +20,7 @@
 // marginal rounding disagreement from red-lighting the twice-daily Action.
 //
 // Usage: node scripts/census.mjs [--out CENSO_BANCO.md]
+import { resolveMunicipalLedger } from "./lib/project.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -173,10 +174,15 @@ const add = (id, titulo, nota, itens) => classes.push({ id, titulo, nota, itens 
 // A report, never a gate: exits 0 by design, so the known false-positive can
 // never red-light the twice-daily Action (which `validate-store` would).
 {
+  // Resolved the way the projection resolves it — by survey_id, then by
+  // fingerprint (institute, UF, fieldwork_end, sample) — so a survey whose id
+  // the source re-minted does not re-appear here as "not certified" while the
+  // gate already stamps it (measured 28/09/2026: the three IPR/MS estaduais).
   const ledgerFile = path.join(ROOT, "data", "universe-verdicts.json");
-  const certified = fs.existsSync(ledgerFile)
-    ? new Set((JSON.parse(fs.readFileSync(ledgerFile, "utf-8")).certified ?? []).map((e) => e.survey_id))
-    : new Set();
+  const entries = fs.existsSync(ledgerFile)
+    ? (JSON.parse(fs.readFileSync(ledgerFile, "utf-8")).certified ?? [])
+    : [];
+  const certified = new Set(resolveMunicipalLedger(store, entries).keys());
   const stateRaceSurveys = new Set();
   for (const q of store.questions) {
     if (q.race === "governador" || q.race === "senador") stateRaceSurveys.add(q.survey_id);
