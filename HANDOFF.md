@@ -931,6 +931,21 @@ metadata cells change in the table columns.
   the inference sits upstream of nothing. `--self-test` runs in the cron before the
   scrape; both validators still reject any non-integer or < 100 sample that escapes.
   The six per-poll `sample_size` repairs in `data/repairs.json` stay (they cite reports).
+- **The Portuguese Wikipedia restructured its pages (18–28/09/2026).** The
+  presidential subpages ("/Primeiro Turno/2023-2025", "/2026/Janeiro a Agosto")
+  were deleted and everything merged back into the main page (682 KB, 1.859 table
+  rows): "=== 2026 ===" with its months, then "==== Novembro - Dezembro ====",
+  "==== Setembro - Outubro ==== … ==== De janeiro a agosto ====" for 2025 and 2024
+  with NO year heading. `parse_one_table` took the last year heading (2026) for all
+  of them, so a Quaest of September 2025 came out as 2026-09-29 and presidente:BR
+  gained 377 "2026" questions in one run (rehearsal 36436572090). Fix in
+  `wiki_parse.py`: the innermost heading decides; a month-only heading takes its
+  year from a reverse-chronological cursor over headings (end month rises → year
+  minus one; a heading with a year re-seeds), on configured pages only — range
+  subpages keep `resolver_ano`. Self-test covers the merged layout. The PE page
+  dropped its 2025 runoff tables (30 rows really gone, quarantine held) and the SE
+  senate tables dropped three names (Iran Barbosa among them), re-minting those
+  surveys. The dead explicit subpage entry left `wiki-pages.json`.
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across
