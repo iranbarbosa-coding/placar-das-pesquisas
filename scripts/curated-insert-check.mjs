@@ -569,6 +569,42 @@ function rodar({ mutacao = null } = {}) {
   // C. AS RECUSAS
   // ======================================================================
 
+  // ======================================================================
+  // S. `set_pct` — um percentual de um candidato, e só ele
+  // ======================================================================
+
+  caso("set_pct corrige UM percentual sem tocar partido, ordem nem os demais; nome ausente fica em noop", ({ dir, afirma, opcoes }) => {
+    const p = daFonte();
+    const rel = applyRepairs([p], opcoes(specDeTeste(dir, {
+      add_poll: undefined,
+      set_pct: [{ candidate: "Beta Insercao", pct: 28 }],
+      expect_sum: 98,
+    })));
+    afirma(rel.warnings.length === 0, `avisos inesperados: ${rel.warnings.join(" | ")}`);
+    afirma(rel.applied === 1, `applied=${rel.applied}, esperado 1`);
+    afirma(p.results.map((r) => r.candidate).join(",") === ELENCO.map((r) => r.candidate).join(","),
+      "a ordem do elenco mudou");
+    afirma(p.results[1].pct === 28 && p.results[1].party === "PL", `Beta ficou ${p.results[1].pct}/${p.results[1].party}, esperado 28/PL`);
+    afirma(p.results[0].pct === 41 && p.results[2].pct === 6 && p.results[3].pct === 2, "set_pct tocou em outro candidato");
+    afirma(p.results.length === 4, `${p.results.length} linhas, esperado 4 — set_pct não acrescenta`);
+    afirma(p.repaired?.source === "https://exemplo/relatorio-do-instituto.pdf", "a pesquisa corrigida não recebeu o carimbo de reparo");
+
+    // Nome que não está no elenco: NÃO acrescenta, e a rodada diz que o reparo ficou sem efeito.
+    const q = daFonte();
+    const rel2 = applyRepairs([q], opcoes(specDeTeste(dir, {
+      add_poll: undefined,
+      set_pct: [{ candidate: "Omega Insercao", pct: 9 }],
+      expect_sum: 100,
+    })));
+    afirma(q.results.length === 4 && !q.repaired, "set_pct de nome ausente acrescentou linha ou carimbou a pesquisa");
+    afirma(rel2.noop.length === 1 && /nada a corrigir/.test(rel2.noop[0]), `noop não relatado: ${JSON.stringify(rel2.noop)}`);
+    // O mesmo valor duas vezes é ponto fixo: nada muda, nada carimba de novo.
+    const rel3 = applyRepairs([p], opcoes(specDeTeste(dir, {
+      add_poll: undefined, set_pct: [{ candidate: "Beta Insercao", pct: 28 }], expect_sum: 98,
+    })));
+    afirma(rel3.applied === 0 && rel3.noop.length === 1, "set_pct já aplicado voltou a contar como reparo");
+  });
+
   caso("RECUSA sem fonte primária citada", ({ dir, afirma, opcoes }) => {
     // A barra probatória é a mesma de todo reparo do arquivo, e para `add_poll`
     // ela é mais grave: o reparo comum corrige um número num registro que a

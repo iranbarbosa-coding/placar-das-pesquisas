@@ -18,25 +18,73 @@ import type { Poll, PollDataset, RaceKind, UF } from "./types";
 const DATA_DIR = path.join(process.cwd(), "data");
 
 // ── Universe ledger ─────────────────────────────────────────────────────────
-// KEEP IN LOCKSTEP WITH `scripts/lib/project.mjs`. The cited, blind-certified
-// ledger `data/universe-verdicts.json` says which surveys are a single
-// MUNICIPALITY though filed under a state contest. Its `municipal` subset is the
-// gate's allowlist; a poll of one of those surveys is stamped `municipal` here
-// and kept out of the state/national average by `geographyAverageable` (see
-// src/lib/universe.ts and src/lib/average.ts). Read once, by survey_id.
-function loadMunicipalLedger(dir: string = DATA_DIR): Map<string, string | null> {
+// KEEP IN LOCKSTEP WITH `scripts/lib/project.mjs` (the comment there carries the
+// reasoning). The cited, blind-certified ledger `data/universe-verdicts.json`
+// says which surveys are a single MUNICIPALITY though filed under a state
+// contest. Its `municipal` subset is the gate's allowlist; a poll of one of
+// those surveys is stamped `municipal` here and kept out of the state/national
+// average by `geographyAverageable` (see src/lib/universe.ts and
+// src/lib/average.ts). Resolved against the store: by survey_id first, then by
+// fingerprint (institute, UF, fieldwork_end, sample_size), because a survey_id
+// is re-minted whenever the source edits the survey's seed and an id-only key
+// silently let a certified municipal poll back into the average (18/09/2026).
+interface LedgerEntry {
+  survey_id: string;
+  verdict: string;
+  municipio: string | null;
+  uf?: string | null;
+  institute?: string | null;
+  sample_size?: number | null;
+  fieldwork_end?: string | null;
+}
+function loadLedgerEntries(dir: string = DATA_DIR): LedgerEntry[] {
   const file = path.join(dir, "universe-verdicts.json");
-  const m = new Map<string, string | null>();
-  if (!fs.existsSync(file)) return m;
-  const doc = JSON.parse(fs.readFileSync(file, "utf-8")) as {
-    certified?: { survey_id: string; verdict: string; municipio: string | null }[];
+  if (!fs.existsSync(file)) return [];
+  const doc = JSON.parse(fs.readFileSync(file, "utf-8")) as { certified?: LedgerEntry[] };
+  return (doc.certified ?? []).filter((e) => e.verdict === "municipal");
+}
+const LEDGER_ENTRIES = loadLedgerEntries();
+
+export function resolveMunicipalLedger(
+  store: Pick<Store, "surveys" | "institutes">,
+  entries: LedgerEntry[] = LEDGER_ENTRIES,
+): Map<string, string | null> {
+  const instById = new Map(store.institutes.map((i) => [i.institute_id, i]));
+  const nomes = (s: StoreSurvey): string[] => {
+    const out = new Set<string>((s.institute_names_raw ?? []).map((n) => String(n).toLowerCase()));
+    let inst = instById.get(s.institute_id);
+    const seen = new Set<string>();
+    while (inst && !seen.has(inst.institute_id)) {
+      seen.add(inst.institute_id);
+      if (inst.canonical) out.add(String(inst.canonical).toLowerCase());
+      inst = inst.merged_into ? instById.get(inst.merged_into) : undefined;
+    }
+    return [...out];
   };
-  for (const e of doc.certified ?? []) {
-    if (e.verdict === "municipal") m.set(e.survey_id, e.municipio ?? null);
+  const mesmaMarca = (entry: LedgerEntry, s: StoreSurvey): boolean => {
+    const alvo = String(entry.institute ?? "").toLowerCase().trim();
+    if (!alvo) return false;
+    return nomes(s).some((n) => n === alvo || n.includes(alvo) || alvo.includes(n));
+  };
+  const byId = new Map(entries.map((e) => [e.survey_id, e]));
+  const byFp = new Map<string, LedgerEntry[]>();
+  for (const e of entries) {
+    if (!e.fieldwork_end) continue;
+    const k = `${e.uf ?? ""}|${e.fieldwork_end}|${e.sample_size ?? ""}`;
+    if (!byFp.has(k)) byFp.set(k, []);
+    byFp.get(k)!.push(e);
+  }
+  const m = new Map<string, string | null>();
+  for (const s of store.surveys) {
+    let e = byId.get(s.survey_id);
+    if (!e) {
+      const k = `${s.universe?.uf ?? ""}|${s.fieldwork_end ?? ""}|${s.sample_size ?? ""}`;
+      e = (byFp.get(k) ?? []).find((c) => mesmaMarca(c, s));
+    }
+    if (e) m.set(s.survey_id, e.municipio ?? null);
   }
   return m;
 }
-const MUNICIPAL_LEDGER = loadMunicipalLedger();
 
 // ── Store record shapes ────────────────────────────────────────────────────
 // Only the fields the projection reads are typed. The store carries many more
@@ -51,6 +99,8 @@ interface SourceRef {
 export interface StoreSurvey {
   survey_id: string;
   institute_id: string;
+  institute_names_raw?: string[] | null;
+  universe?: { level?: string | null; uf?: string | null } | null;
   source_refs?: SourceRef[] | null;
   article_url?: string | null;
   integra_url?: string | null;
@@ -174,6 +224,7 @@ function incompleteFlag(q: StoreQuestion): boolean {
 }
 
 export function projectPolls(store: Store): Poll[] {
+  const MUNICIPAL_LEDGER = resolveMunicipalLedger(store);
   const surveyById = new Map(store.surveys.map((s) => [s.survey_id, s]));
   const instById = new Map(store.institutes.map((i) => [i.institute_id, i]));
   const candById = new Map(store.candidates.map((c) => [c.candidate_id, c]));

@@ -848,11 +848,73 @@ export function resolveSurvey(store, incoming) {
   const refKey = (incoming.source_refs ?? [])
     .filter((r) => r.native_id != null)
     .map((r) => `${r.source}:${r.native_id}`).sort().join(",");
-  const seed = incoming.mint_seed
+  let seed = incoming.mint_seed
     ?? (refKey ? `survey|ref|${refKey}`
       : reg ? `survey|reg|${reg}`
       : `survey|nat|${incoming.institute_id}|${incoming.universe?.uf ?? "BR"}|${date ?? "-"}|${incoming.sample_size ?? "-"}|${(incoming.roster ?? []).slice().sort().join(",")}`);
-  const survey_id = mintSurveyId(seed);
+  let survey_id = mintSurveyId(seed);
+  // ---- A SEMENTE QUE COLIDE ---------------------------------------------
+  //
+  // O degrau 2 RECUSA unificar dois registros iguais quando o universo difere
+  // (a presidencial nacional e a fatia estadual da mesma operação levam o
+  // mesmo BR-…) ou quando as datas de campo se contradizem — e está certo em
+  // recusar. Mas a semente `survey|reg|<registro>` era a MESMA para os dois, e
+  // o segundo cunhava o MESMO survey_id: duas linhas com um id, e
+  // `validate-store` reprovando a rodada inteira ("id duplicado"). Medido em
+  // 28/09/2026 (run 36431308258): 9 ids duplicados, todos registros sem id
+  // nativo (linhas de 12 hex do Poder360, curadas, Wikipédia) partilhando um
+  // BR-… entre a nacional e as fatias estaduais.
+  //
+  // A saída NÃO é pôr a UF em toda semente de registro — isso re-cunharia
+  // todos os levantamentos existentes dessa classe e o guarda de delta leria
+  // centenas de perguntas sumidas. Só a COLISÃO é qualificada: o primeiro a
+  // chegar fica com a semente de sempre (e o id de sempre); o segundo ganha
+  // a semente qualificada por universo, depois por data, depois por amostra —
+  // na ordem determinística de ingestão, então idempotente. A colisão fica
+  // registrada em conflicts.ndjson: dois levantamentos sob um registro é um
+  // fato da fonte que alguém pode querer ver.
+  if (idx.surveyById.has(survey_id)) {
+    const juntar = (existente) => {
+      // Tudo o que se sabe sobre os dois registros é igual (mesmo instituto,
+      // mesmo universo, mesma data — ou ambos sem data —, mesma amostra, mesmo
+      // elenco quando a semente é natural). Para todos os efeitos é o MESMO
+      // levantamento: o segundo registro se junta ao primeiro e a pergunta
+      // dele resolve para a mesma pergunta. Medido em 28/09/2026: 9 linhas da
+      // Wikipédia SEM DATA (cenários nacionais da Paraná Pesquisas n=2.020 e
+      // da Quaest n=2.004) chegavam em dobro; o degrau 3 exige data e não as
+      // via, e cada uma cunhava o mesmo id.
+      store._report.matched.natural++;
+      logConflict(store, {
+        run_id: "resolve", type: "survey_seed_identical", table: "surveys",
+        record_id: existente.survey_id, field: "mint_seed",
+        stored: existente.mint_seed ?? null, incoming: seed, source: "resolveSurvey", severity: "info",
+        note: "segundo registro com semente de levantamento idêntica e os mesmos fatos (universo, data, amostra) — juntou-se ao levantamento existente em vez de cunhar id duplicado",
+      });
+      return { survey: existente, matched_by: "natural" };
+    };
+    const mesmosFatos = (sv) =>
+      (sv.universe?.uf ?? null) === (incoming.universe?.uf ?? null) &&
+      ((sv.fieldwork_end ?? sv.published_date) ?? null) === (date ?? null) &&
+      (sv.sample_size ?? null) === (incoming.sample_size ?? null);
+    const existente = idx.surveyById.get(survey_id);
+    if (mesmosFatos(existente)) return juntar(existente);
+    // Fatos diferentes sob a mesma semente (o registro partilhado entre a
+    // nacional e a fatia estadual): o segundo ganha a semente qualificada.
+    const base = seed;
+    seed = `${base}|${incoming.universe?.uf ?? "BR"}|${date ?? "-"}|${incoming.sample_size ?? "-"}`;
+    survey_id = mintSurveyId(seed);
+    if (idx.surveyById.has(survey_id)) {
+      const outro = idx.surveyById.get(survey_id);
+      if (mesmosFatos(outro)) return juntar(outro);
+      throw new Error(`resolveSurvey: semente colide mesmo qualificada — ${seed}`);
+    }
+    logConflict(store, {
+      run_id: "resolve", type: "survey_seed_collision", table: "surveys",
+      record_id: survey_id, field: "mint_seed",
+      stored: existente.survey_id, incoming: seed, source: "resolveSurvey", severity: "info",
+      note: "mesma semente de levantamento já cunhada nesta rodada com outros fatos (registro partilhado por universos ou datas distintos) — segundo levantamento qualificado por universo/data/amostra",
+    });
+  }
   const survey = {
     survey_id,
     mint_seed: seed,

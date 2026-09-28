@@ -18,18 +18,70 @@ import { normalizeRegistration } from "./ids.mjs";
 // `data/universe-verdicts.json` names the surveys that sample a single
 // MUNICIPALITY though filed under a state contest; its `municipal` subset is the
 // gate's allowlist. A poll of one of those surveys is stamped `municipal` and
-// kept out of the state/national average by `geographyAverageable`. Read once.
-function loadMunicipalLedger() {
+// kept out of the state/national average by `geographyAverageable`.
+//
+// RESOLVED AGAINST THE STORE, NOT READ BY ID ALONE. A survey_id is minted from
+// the survey's seed (institute, UF, dates, sample, roster) and is re-minted when
+// the source edits any of them — measured on 18/09/2026: the Ranking/PB
+// Campina Grande governor poll (n=782, certified municipal on 20/08) had
+// re-minted from s_a0a23c8e8c0f to s_10efbc0a473f and, keyed by id alone, was
+// back in the state average with nobody told; the IPR/MS estadual control
+// had drifted the same way. So each entry may also carry a FINGERPRINT —
+// institute name, UF, fieldwork_end, sample_size — and a survey matches by id
+// first, by fingerprint second. The fingerprint is what the certification
+// actually read (the source names the institute, the dates and the sample; it
+// never saw our id), so it is the more honest key, and the id stays as the
+// fast path. An entry without `fieldwork_end` matches by id only.
+function loadLedgerEntries() {
   const file = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "data", "universe-verdicts.json");
-  const m = new Map();
-  if (!fs.existsSync(file)) return m;
+  if (!fs.existsSync(file)) return [];
   const doc = JSON.parse(fs.readFileSync(file, "utf-8"));
-  for (const e of doc.certified ?? []) {
-    if (e.verdict === "municipal") m.set(e.survey_id, e.municipio ?? null);
+  return (doc.certified ?? []).filter((e) => e.verdict === "municipal");
+}
+const LEDGER_ENTRIES = loadLedgerEntries();
+
+/**
+ * survey_id → municipio (or null) for every store survey the municipal ledger
+ * covers, by id or by fingerprint. Exported so the gate self-test derives its
+ * expectations from the SAME resolution the projection ships.
+ */
+export function resolveMunicipalLedger(store, entries = LEDGER_ENTRIES) {
+  const instById = new Map((store.institutes ?? []).map((i) => [i.institute_id, i]));
+  const nomes = (s) => {
+    const out = new Set((s.institute_names_raw ?? []).map((n) => String(n).toLowerCase()));
+    let inst = instById.get(s.institute_id);
+    const seen = new Set();
+    while (inst && !seen.has(inst.institute_id)) {
+      seen.add(inst.institute_id);
+      if (inst.canonical) out.add(String(inst.canonical).toLowerCase());
+      inst = inst.merged_into ? instById.get(inst.merged_into) : null;
+    }
+    return [...out];
+  };
+  const mesmaMarca = (entry, s) => {
+    const alvo = String(entry.institute ?? "").toLowerCase().trim();
+    if (!alvo) return false;
+    return nomes(s).some((n) => n === alvo || n.includes(alvo) || alvo.includes(n));
+  };
+  const byId = new Map(entries.map((e) => [e.survey_id, e]));
+  const byFp = new Map();
+  for (const e of entries) {
+    if (!e.fieldwork_end) continue;
+    const k = `${e.uf ?? ""}|${e.fieldwork_end}|${e.sample_size ?? ""}`;
+    if (!byFp.has(k)) byFp.set(k, []);
+    byFp.get(k).push(e);
+  }
+  const m = new Map();
+  for (const s of store.surveys ?? []) {
+    let e = byId.get(s.survey_id);
+    if (!e) {
+      const k = `${s.universe?.uf ?? ""}|${s.fieldwork_end ?? ""}|${s.sample_size ?? ""}`;
+      e = (byFp.get(k) ?? []).find((c) => mesmaMarca(c, s));
+    }
+    if (e) m.set(s.survey_id, e.municipio ?? null);
   }
   return m;
 }
-const MUNICIPAL_LEDGER = loadMunicipalLedger();
 
 
 /**
@@ -50,6 +102,7 @@ function incompleteFlag(q) {
 }
 
 export function projectPolls(store) {
+  const MUNICIPAL_LEDGER = resolveMunicipalLedger(store);
   const surveyById = new Map(store.surveys.map((s) => [s.survey_id, s]));
   const instById = new Map(store.institutes.map((i) => [i.institute_id, i]));
   const candById = new Map(store.candidates.map((c) => [c.candidate_id, c]));

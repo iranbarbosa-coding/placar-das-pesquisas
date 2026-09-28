@@ -66,6 +66,11 @@ function loadPrevious() {
  * Source priority: poder360 (structured, has TSE registro) > wikipedia.
  */
 const SOURCE_PRIORITY = { poder360: 3, wikipedia: 2 };
+// Linhagem de quem foi absorvido por quem, sem repetição — usada pela fusão
+// entre fontes (`mergePolls`) e pela dedupe de tabela idêntica
+// (`dropExactDuplicates`), para que `ligarAbsorvidos` (build-store) enxergue a
+// pergunta que sumiu e o juiz de delta a prove como sucessão, não como perda.
+const linhagem = (...ls) => [...new Set(ls.flat())];
 
 function bucketKey(p) {
   const pollster = p.pollster
@@ -293,7 +298,6 @@ export function mergePolls(pollLists, {
         // fonte de maior prioridade chega depois), quem foi absorvido é o
         // registro como estava ANTES da troca — é ele que o commit anterior
         // conhecia. Encadeia, como no colapso. Removido antes de `polls.json`.
-        const linhagem = (...ls) => [...new Set(ls.flat())];
         if (newPri > oldPri) {
           const antes = { ...existing };
           const keep = { ...p };
@@ -455,11 +459,64 @@ export function dropExactDuplicates(polls, { sobrevive = sobreviveAoGuardaDeSoma
       for (let j = i + 1; j < group.length; j++) {
         const a = group[i];
         const b = group[j];
+        // `a` pode ter sido a perdedora da comparação anterior: uma tabela já
+        // descartada não pode continuar derrubando outras.
+        if (dropped.has(a)) break;
         if (dropped.has(b)) continue;
         const da = pollDate(a);
         const db = pollDate(b);
         if (da && db && +new Date(db) - +new Date(da) > JANELA_OPERACAO_MS) break;
-        if (a.pollster === b.pollster) continue; // same institute handled upstream
+        if (a.pollster === b.pollster) {
+          // ---- A MESMA TABELA, DUAS VEZES, DA MESMA MARCA -----------------
+          //
+          // `mergePolls` funde por balde (marca/disputa/UF/turno) e por
+          // ordinal; o que ele NÃO alcança é o mesmo levantamento servido pela
+          // fonte sob DOIS registros do TSE — o nacional (BR-…) e o estadual
+          // (UF-…) da mesma operação de campo. Medido no censo de 16/09/2026:
+          // 5 pares de 2026 com elenco e percentuais idênticos em dois
+          // levantamentos (RTBD/ES 21/07, RTBD/PA e Quaest/PA nos 2º turnos,
+          // Percent e RTBD em MT), cada um contando a mesma amostra DUAS vezes
+          // na média. A regra aqui é a mais estreita possível: mesmo elenco
+          // (|A| = |B|, todos casados), todos os percentuais iguais, MESMA data
+          // de campo e MESMA amostra. Cenários distintos da mesma operação
+          // (Fagundes×Pivetta e Fagundes×Natasha) têm elenco diferente e não
+          // casam; toplines com um nome a mais ou a menos idem — isso é
+          // trabalho da fusão, não desta dedupe.
+          const mesmaTabela =
+            da && db && da === db &&
+            a.sample_size === b.sample_size &&
+            a.results.length === b.results.length &&
+            a.results.length >= 2 &&
+            a.results.every((r) => {
+              const s = b.results.find((x) => sameCandidate(r.candidate, x.candidate));
+              return s && Math.abs(s.pct - r.pct) <= 0.05;
+            });
+          if (!mesmaTabela) continue;
+          // Quem fica: quem sobrevive ao guarda de soma; depois a fonte de
+          // maior prioridade; depois a tabela com mais baldes declarados
+          // (branco/nulo separado de indeciso é informação, não empate);
+          // por fim o id menor, para que a escolha seja determinística de uma
+          // rodada para a outra (idempotência).
+          const va = sobrevive(a);
+          const vb = sobrevive(b);
+          const baldes = (p) => [p.others_pct, p.undecided_pct, p.blank_null_pct].filter((v) => typeof v === "number").length;
+          let winner;
+          if (va !== vb) winner = va ? a : b;
+          else if ((SOURCE_PRIORITY[a.source] ?? 1) !== (SOURCE_PRIORITY[b.source] ?? 1))
+            winner = (SOURCE_PRIORITY[a.source] ?? 1) > (SOURCE_PRIORITY[b.source] ?? 1) ? a : b;
+          else if (baldes(a) !== baldes(b)) winner = baldes(a) > baldes(b) ? a : b;
+          else winner = String(a.id) <= String(b.id) ? a : b;
+          const loser = winner === a ? b : a;
+          // A linhagem é o que impede o juiz de delta de ler a remoção como
+          // perda: a pergunta da tabela absorvida reaparece em `legacy_ids` da
+          // vencedora (ver `ligarAbsorvidos`).
+          winner.absorvidos = linhagem(winner.absorvidos ?? [], loser.absorvidos ?? [], [loser]);
+          dropped.add(loser);
+          console.warn(`duplicata na mesma marca: ${a.pollster} (${a.race}/${a.state ?? "BR"} t${a.round} ${da}) — ` +
+            `tabela idêntica em dois registros (${a.tse_registration ?? "—"} ≡ ${b.tse_registration ?? "—"}); ` +
+            `mantida ${winner.id}, absorvida ${loser.id}`);
+          continue;
+        }
         if (a.sample_size && b.sample_size && a.sample_size !== b.sample_size) continue;
         const small = a.results.length <= b.results.length ? a : b;
         const large = small === a ? b : a;

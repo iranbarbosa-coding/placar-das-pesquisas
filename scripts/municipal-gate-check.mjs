@@ -35,7 +35,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { readStore, DATA_DIR } from "./lib/store.mjs";
-import { projectPolls } from "./lib/project.mjs";
+import { projectPolls, resolveMunicipalLedger } from "./lib/project.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -78,17 +78,48 @@ check(entries.every((e) => e.citation && e.citation.trim()), "A: toda entrada te
 
 const store = readStore({ dir: DATA_DIR });
 const surveyIds = new Set(store.surveys.map((s) => s.survey_id));
-// A ledger entry whose survey has left the store is an ORPHAN. It is NOT a hard
-// failure: the ledger is the municipal allow-list, so keeping the entry means a
-// survey that later re-appears is re-gated automatically. It is warned (so the
-// drift is visible) and excluded from the derived present-set below.
-const orphans = entries.filter((e) => !surveyIds.has(e.survey_id));
-for (const e of orphans)
-  warn(`A: verdict órfão ${e.survey_id} (${e.verdict}${e.municipio ? " / " + e.municipio : ""}) — não existe mais no store; mantido no ledger, ignorado nas contagens derivadas`);
-// Derived present-in-store sets drive every count from here on.
-const presentMuni = new Set(muni.filter((e) => surveyIds.has(e.survey_id)).map((e) => e.survey_id));
-const presentEst = new Set(est.filter((e) => surveyIds.has(e.survey_id)).map((e) => e.survey_id));
-const ledgerMuniAll = new Set(muni.map((e) => e.survey_id)); // present + orphan, for "sem sobra"
+// THE SAME RESOLUTION THE PROJECTION SHIPS: by survey_id, then by fingerprint
+// (institute, UF, fieldwork_end, sample_size). A survey_id is re-minted when
+// the source edits the survey's seed; keyed by id alone, a certified municipal
+// poll walked back into the PB average on 18/09/2026 with only a census line
+// to show for it. An entry that resolves by fingerprint to a DIFFERENT id is
+// RE-KEYED — warned, so the drift stays visible and the ledger can be updated
+// — and counted as present. An entry that resolves to nothing is an ORPHAN:
+// not a hard failure (the ledger is the allow-list, a survey that re-appears is
+// re-gated automatically), warned and excluded from the derived counts.
+const resolvedMuni = resolveMunicipalLedger(store, muni);
+const resolvedEst = resolveMunicipalLedger(store, est);
+const resolvedIds = (entry, resolved) => {
+  if (surveyIds.has(entry.survey_id) && resolved.has(entry.survey_id)) return [entry.survey_id];
+  // fingerprint hit: which store surveys did THIS entry claim?
+  const soEsta = resolveMunicipalLedger(store, [entry]);
+  return [...soEsta.keys()];
+};
+const presentMuni = new Set();
+const presentEst = new Set();
+for (const e of muni) {
+  const ids = resolvedIds(e, resolvedMuni);
+  if (!ids.length) { warn(`A: verdict órfão ${e.survey_id} (municipal / ${e.municipio}) — não existe mais no store nem casa por impressão digital; mantido no ledger, ignorado nas contagens derivadas`); continue; }
+  for (const id of ids) {
+    if (id !== e.survey_id) warn(`A: verdict RE-CHAVEADO ${e.survey_id} → ${id} (municipal / ${e.municipio}) — casou por impressão digital; atualize o survey_id no ledger`);
+    presentMuni.add(id);
+  }
+}
+for (const e of est) {
+  const ids = resolvedIds(e, resolvedEst);
+  if (!ids.length) { warn(`A: verdict órfão ${e.survey_id} (estadual) — não existe mais no store nem casa por impressão digital; mantido no ledger, ignorado nas contagens derivadas`); continue; }
+  for (const id of ids) {
+    if (id !== e.survey_id) warn(`A: verdict RE-CHAVEADO ${e.survey_id} → ${id} (estadual) — casou por impressão digital; atualize o survey_id no ledger`);
+    presentEst.add(id);
+  }
+}
+// A fingerprint may never put one store survey on BOTH sides.
+const dosDoisLados = [...presentMuni].filter((id) => presentEst.has(id));
+check(dosDoisLados.length === 0, `A: nenhum survey resolvido nos dois lados (dup: ${dosDoisLados.join(",") || "—"})`);
+// Every entry with a fingerprint must carry the fields the fingerprint reads.
+check(entries.filter((e) => e.fieldwork_end).every((e) => e.uf && e.institute && typeof e.sample_size === "number"),
+  "A: toda entrada com fieldwork_end (impressão digital) tem uf, institute e sample_size");
+const ledgerMuniAll = new Set([...muni.map((e) => e.survey_id), ...presentMuni]); // ids + resolved, for "sem sobra"
 check(presentMuni.size >= 1, `A: ao menos 1 survey municipal do ledger existe no store (achou ${presentMuni.size})`);
 
 // ── B. STAMP (positive + negative) ───────────────────────────────────────────

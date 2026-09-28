@@ -611,6 +611,45 @@ accepts the same `legacy_id` inside the same survey as proof (`via registro`:
 the source edited its own table). `PLACAR_DEBUG_LINHAGEM=1` prints one line per
 absorbed row (matched or not). Genuine source removals are ratified in
 `data/repairs.json` (`allow_question_drop`, with the primary source cited).
+
+**Same table under two TSE registrations (18/09/2026).** Poder360 serves one
+fieldwork operation twice when the institute files it both nationally (BR-…)
+and at the TRE (UF-…); `mergePolls` buckets by brand/race/UF/round and
+ordinal and does not see it. The 16/09 census counted 5 such 2026 pairs
+(RTBD/ES 21/07, RTBD and Quaest runoffs in PA, Percent and RTBD in MT), each
+one the same sample twice in the average. `dropExactDuplicates` now also
+dedupes SAME-brand tables when the roster is identical (|A| = |B|, every name
+matched), every pct equal, same fieldwork date and same sample; survivor =
+survives the sum guard → higher source priority → more declared buckets →
+smaller id (deterministic). The loser goes into the survivor's `absorvidos`,
+so `ligarAbsorvidos` links its question into `legacy_ids` and the delta gate
+reads a succession, not a loss. Distinct scenarios of the same operation have
+different rosters and never match; the same pair with DIFFERENT numbers
+(RTBD/MT 23/03 Pivetta×Natasha 33/31 under BR vs 36/23 under MT) is not a
+duplicate and stays for the census. `existencia-pos-guarda-check.mjs` pins
+both sides.
+
+**Universe ledger keyed by fingerprint too (18/09/2026).** `survey_id` is
+re-minted whenever the source edits a survey's seed; keyed by id alone, the
+Ranking/PB Campina Grande poll (certified municipal 20/08) had re-minted and
+was back in the PB average, and the IPR/MS estadual control and the Doxa/PA
+Santarém entry had drifted the same way (three orphans, only a census line to
+show for it). Each ledger entry now carries `fieldwork_end`; both projection
+twins resolve the ledger against the store (`resolveMunicipalLedger`: id
+first, then institute + UF + fieldwork_end + sample_size), and
+`municipal-gate-check.mjs` warns `RE-CHAVEADO` when an entry matched by
+fingerprint only — update the id when you see it. Section E of that check
+pins average spreads to the 20/08 store and has been red since the store
+moved on; it is not in the cron. Re-pin or make it relative.
+
+**`set_pct` repair op (18/09/2026).** Mirror of `set_party` for one
+candidate's pct (`sameCandidate` match, never adds a row, no-op reported).
+First uses: Veritá/AP 31/05 70,7→70,5 (source prints 70,5 of valid votes) and
+Quaest/AP 24/08 senate Capiberibe 7→4 (íntegra). The Quaest/AP governor
+fragment (Poder360 13962: two names, no leader) is completed by `add_results`
+from the íntegra, and its runoff (Furlan 54 × Clécio 36) inserted by
+`add_poll`. Note a higher-priority FRAGMENT still wins the merge against a
+complete Wikipedia row — that magnet is the open follow-up from PR #114.
 - `tse.mjs` — TSE/TRE registry zip (metadata only, **no results**).
 
 **Pipeline** (`scripts/scrape.mjs`): fetch → canonicalise institutes → merge across
@@ -878,8 +917,63 @@ metadata cells change in the table columns.
   `polls.json` passing every check, because a finite positive number is exactly what
   they are. **Both validators now reject a non-integer sample size as a hard error**
   (with a self-test), which is why a run fails until the rows are repaired.
-  ⚠ **Do not repair by multiplying by 1000.** That assumes one decimal place means one
-  dropped digit — an inference, and inferences do not belong upstream of an average.
+  ⚠ **(Rule of 18/08, REVERSED on 28/09/2026 — read on.)** The 18/08 rule was "do not
+  repair by multiplying by 1000; repair per poll from the institute's report". It held
+  while the defect touched a dozen rows. From 18/09 21:39 UTC the source started
+  mangling EVERY sample ≥ 1.000 (Datafolha 1.204, Quaest 2.004, AtlasIntel 1.829,
+  RTBD 1.6, Palver 5): 50+ polls in four days, `validate-data` failing every run, the
+  site frozen for ten days (36 red runs, issue #118). `lerEntrevistas` in
+  `sources/poder360.mjs` now decodes it at ingestion: a value in [0,1; 100) with at most
+  three decimals is an integer whose single thousands dot became a decimal point, and
+  ×1000 returns it EXACTLY (no electoral sample is < 100, none is ≥ 1.000.000). The raw
+  value is written to the question's `parse_warnings`; anything outside that shape is
+  left null and said. `sample_size` feeds no average (display, feeds and CSV only), so
+  the inference sits upstream of nothing. `--self-test` runs in the cron before the
+  scrape; both validators still reject any non-integer or < 100 sample that escapes.
+  The six per-poll `sample_size` repairs in `data/repairs.json` stay (they cite reports).
+- **The Portuguese Wikipedia restructured its pages (18–28/09/2026).** The
+  presidential subpages ("/Primeiro Turno/2023-2025", "/2026/Janeiro a Agosto")
+  were deleted and everything merged back into the main page (682 KB, 1.859 table
+  rows): "=== 2026 ===" with its months, then "==== Novembro - Dezembro ====",
+  "==== Setembro - Outubro ==== … ==== De janeiro a agosto ====" for 2025 and 2024
+  with NO year heading. `parse_one_table` took the last year heading (2026) for all
+  of them, so a Quaest of September 2025 came out as 2026-09-29 and presidente:BR
+  gained 377 "2026" questions in one run (rehearsal 36436572090). Fix in
+  `wiki_parse.py`: the innermost heading decides; a month-only heading takes its
+  year from a reverse-chronological cursor over headings (end month rises → year
+  minus one; a heading with a year re-seeds), on configured pages only — range
+  subpages keep `resolver_ano`. Self-test covers the merged layout. The PE page
+  dropped its 2025 runoff tables (30 rows really gone, quarantine held) and the SE
+  senate tables dropped three names (Iran Barbosa among them), re-minting those
+  surveys. The dead explicit subpage entry left `wiki-pages.json`.
+- **The 24 quarantines of 28/09/2026, diagnosed against the live source.** After
+  the fixes above, rehearsal 36436934742 still froze 24 disputas. Read one by one
+  (v2/cenarios fetched live for every native id): **17 are "Lula vs Renan Santos"
+  (or Flávio vs Renan) runoff scenarios that Poder360 now serves with Renan's row
+  BLANK** — cenário 4 of every AtlasIntel/Quaest/Ideia state presidential comes back
+  as `[Lula, brancos/nulos]` — so `poder360.mjs` (`round === 2 && results.length < 2`)
+  discards the scenario before roster retention can complete it, the question
+  vanishes and the whole disputa freezes (presidente:SP/PA/PB/PE/PI/PR/RJ/RS/MG/MS/
+  GO/DF/CE/AC/AM, presidente:BR ×4). Same defect class as the empty-name rows the
+  retention guard exists for; the fix is to admit a one-name runoff ONLY when a
+  previous question of the same survey can complete it (retention), and discard it
+  otherwise. Not done yet. The rest: PE 2025 runoffs (30 rows) really removed from
+  the Wikipedia page (ratify or park); SE/SC/MT Wikipedia rows re-minted by roster
+  edits (needs survey-level lineage translation, see "seed can collide" below);
+  Ideia/BA 13875 and Quaest/SC 13934 first-round toplines now served WITHOUT Lula and
+  Flávio (source defect, retention would hold them if the scenario survived).
+- **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
+  `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
+  unregistered ones; rung 2 rightly refuses to unify a shared registration across
+  universes (national vs state slice) and rung 3 needs a date. Two records that fell
+  through with the same seed minted the SAME survey_id (9 duplicates in run
+  36431308258, all undated Wikipedia national scenarios arriving twice) and
+  `validate-store` failed the run. Now, on collision: same facts (universe, date,
+  sample) → the record JOINS the existing survey (`survey_seed_identical` in
+  conflicts); different facts → the second gets the seed qualified by
+  universe|date|sample (`survey_seed_collision`), the first keeps its id (no churn).
+  `upsert-harness` pins both. Why undated Wikipedia rows now arrive in pairs is not
+  yet explained — SEMDATA in the census lists them.
   **Both are now repaired in `data/repairs.json` from the institutes' own reports**
   (its generic `set` takes `sample_size`), read with `scripts/ocr/`:
   Quaest 2025-11-09 → **2004** ("2.004 ENTREVISTAS", p.2, and the report's 06–09/11 field

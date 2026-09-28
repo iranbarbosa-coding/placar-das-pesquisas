@@ -530,7 +530,7 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
     // várias é campo POR CENÁRIO — elenco e os três baldes —, porque aí cada
     // confronto tem o seu valor e escrever o mesmo nos quatro erra em três.
     const CAMPOS_DE_PERGUNTA = ["others_pct", "undecided_pct", "blank_null_pct", "results", "scenario"];
-    const mexeEmPergunta = !!rep.add_results
+    const mexeEmPergunta = !!rep.add_results || !!rep.set_pct
       || Object.keys(rep.set ?? {}).some((k) => CAMPOS_DE_PERGUNTA.includes(k));
     if (!rep.add_poll && mexeEmPergunta && targets.length > 1) {
       warnings.push(`ATENÇÃO ${label}: a cláusula match casou com ${targets.length} pesquisas e o reparo ` +
@@ -620,6 +620,32 @@ export function applyRepairs(polls, { file = FILE, inserir = inserirPesquisaCura
           const party = sp.party ?? null;
           if (r.party !== party) changed = true;
           r.party = party;
+        }
+      }
+      // ---- `set_pct` — UM percentual de UM candidato --------------------
+      //
+      // O espelho de `set_party` para o número. Antes dele, corrigir um dígito
+      // trocado da fonte (Veritá/AP 31/05: a Wikipédia grava 70,7 onde a
+      // matéria-fonte imprime 70,5 dos válidos; Quaest/AP 24/08: o Poder360
+      // serve Capiberibe com 7 onde a íntegra dá 4) exigia reescrever o
+      // `results` inteiro por `set` — e com ele o partido e a ordem de cada
+      // linha, que o reparo não tinha intenção nenhuma de tocar. Compara por
+      // `sameCandidate` pela mesma razão de `has_candidate`: o nome aqui é o que
+      // a fonte publicou, não o canônico. Um candidato que não está no elenco
+      // NÃO é acrescentado (isso é `add_results`) — o reparo fica em `noop` e a
+      // rodada diz isso em voz alta.
+      // `candidate` aceita UMA grafia ou uma LISTA de grafias alternativas
+      // (qualquer uma casa): a Wikipédia publica "Antônio Furlan" onde o
+      // Poder360 publica "Dr Furlan", e um reparo preso a uma só grafia vira
+      // noop na rodada em que a fonte troca — medido no ensaio de 18/09/2026,
+      // em que "Dr. Furlan" (o canônico do site) não casou com o cru da fonte.
+      for (const sp of rep.set_pct ?? []) {
+        const grafias = Array.isArray(sp.candidate) ? sp.candidate : [sp.candidate];
+        for (const r of poll.results) {
+          if (!grafias.some((g) => sameCandidate(r.candidate, g))) continue;
+          if (typeof sp.pct !== "number") continue;
+          if (r.pct !== sp.pct) changed = true;
+          r.pct = sp.pct;
         }
       }
       for (const [k, v] of Object.entries(rep.set ?? {})) {

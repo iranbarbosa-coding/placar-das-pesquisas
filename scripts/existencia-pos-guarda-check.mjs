@@ -269,6 +269,82 @@ function rodar({ mutacao = null } = {}) {
   });
 
   // ====================================================================
+  // A2. A MESMA TABELA SOB DOIS REGISTROS DA MESMA MARCA (censo 16/09/2026)
+  // ====================================================================
+  //
+  // O Poder360 serve o mesmo levantamento duas vezes quando o instituto o
+  // registra no TSE nacional (BR-…) e no TRE (UF-…): RTBD/ES 21/07, 2º turnos
+  // de RTBD e Quaest no PA, Percent e RTBD em MT. Elenco e percentuais iguais,
+  // mesma data, mesma amostra — a mesma amostra contada DUAS vezes na média.
+
+  const MARCA_DUPLA = "Instituto do Registro Duplo";
+  const registroDuplo = (over = {}) => ({
+    id: "p360-990010-2-0-bbbbbbbbbbbb", source: "poder360",
+    pollster: MARCA_DUPLA, race: "governador", state: "PA", round: 2,
+    scenario: "2º turno: Alfa Existencia vs Beta Existencia", source_url: "https://exemplo/materia",
+    fieldwork_start: "2026-09-03", fieldwork_end: "2026-09-07", published_date: "2026-09-07",
+    sample_size: 1600, margin_of_error: 2.5, tse_registration: "PA-00206/2026",
+    results: [
+      { candidate: "Alfa Existencia", party: "PT", pct: 40 },
+      { candidate: "Beta Existencia", party: "PL", pct: 36 },
+    ],
+    others_pct: null, undecided_pct: 15, blank_null_pct: 9,
+    ...over,
+  });
+
+  caso("dedupe: a MESMA tabela da MESMA marca sob dois registros fica UMA vez, com linhagem", ({ afirma }) => {
+    const nacional = registroDuplo({
+      id: "9f928a470bd4", tse_registration: "BR-04485/2026",
+      // a fonte nacional colapsa os baldes: 24 = 15 + 9
+      undecided_pct: 24, blank_null_pct: null,
+      // ordem do elenco invertida de propósito: casa por nome, não por posição
+      results: [
+        { candidate: "Beta Existencia", party: "PL", pct: 36 },
+        { candidate: "Alfa Existencia", party: "PT", pct: 40 },
+      ],
+    });
+    const estadual = registroDuplo();
+    const depois = dropExactDuplicates([nacional, estadual], oDedupe);
+    afirma(depois.length === 1, `${depois.length} pesquisas depois da dedupe, esperado 1 — a mesma amostra contaria duas vezes`);
+    afirma(depois[0]?.id === estadual.id,
+      `sobrou "${depois[0]?.id}", esperada a tabela com mais baldes declarados (branco/nulo separado)`);
+    const abs = (depois[0]?.absorvidos ?? []).map((p) => p.id);
+    afirma(abs.includes(nacional.id), `a vencedora não registrou a absorvida em "absorvidos" (${JSON.stringify(abs)}) — sem linhagem o juiz de delta lê a remoção como perda`);
+    // Determinismo: a ordem de chegada não muda quem fica.
+    const inverso = dropExactDuplicates([registroDuplo(), registroDuplo({ id: "9f928a470bd4", tse_registration: "BR-04485/2026", undecided_pct: 24, blank_null_pct: null })], oDedupe);
+    afirma(inverso.length === 1 && inverso[0]?.id === estadual.id, "a ordem de chegada mudou a escolha (idempotência quebrada)");
+  });
+
+  caso("dedupe (controle): cenários DISTINTOS da mesma marca e do mesmo campo ficam os dois", ({ afirma }) => {
+    // Fagundes×Pivetta e Fagundes×Natasha (Percent/MT 27/07): mesmo campo,
+    // mesmo registro nacional, elencos diferentes — dois confrontos, não um.
+    const um = registroDuplo({ id: "d8e3c29c2f8c", tse_registration: "BR-00822/2026" });
+    const outro = registroDuplo({
+      id: "fa20159b769e", tse_registration: "BR-00822/2026",
+      scenario: "2º turno: Alfa Existencia vs Gama Existencia",
+      results: [
+        { candidate: "Alfa Existencia", party: "PT", pct: 40.8 },
+        { candidate: "Gama Existencia", party: "PSD", pct: 12.3 },
+      ],
+      undecided_pct: 45, blank_null_pct: null,
+    });
+    // E a MESMA dupla com percentuais diferentes (RTBD/MT 23/03: Pivetta×Natasha
+    // 33/31 sob BR e 36/23 sob MT) também NÃO é tabela idêntica — fica para o
+    // censo, não para a dedupe.
+    const divergente = registroDuplo({
+      id: "0af7288db2bc", tse_registration: "BR-05763/2026",
+      results: [
+        { candidate: "Alfa Existencia", party: "PT", pct: 33 },
+        { candidate: "Beta Existencia", party: "PL", pct: 31 },
+      ],
+      undecided_pct: 36, blank_null_pct: null,
+    });
+    const depois = dropExactDuplicates([um, outro, divergente], oDedupe);
+    afirma(depois.length === 3, `${depois.length} pesquisas depois da dedupe, esperado 3 — a dedupe engoliu um cenário distinto`);
+    afirma(depois.every((p) => !p.absorvidos), "um cenário distinto foi marcado como absorvido");
+  });
+
+  // ====================================================================
   // B. A DOAÇÃO DE TABELA NO MERGE ENTRE FONTES
   // ====================================================================
 
@@ -386,6 +462,7 @@ function rodar({ mutacao = null } = {}) {
 // ------------------------------------------------------------------- saída
 const CONTROLES = [
   "dedupe (controle): o nativo VÁLIDO ainda vence a curada por prioridade",
+  "dedupe (controle): cenários DISTINTOS da mesma marca e do mesmo campo ficam os dois",
   "merge (controle): entre duas tabelas vivas, a mais rica ainda doa (o caso do Acre)",
   "round 1 (controle): entre duas vivas, a de elenco mais cheio ainda fica",
   "add_poll (controle): alvo VÁLIDO ainda dispensa a inserção",

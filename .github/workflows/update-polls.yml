@@ -128,6 +128,14 @@ jobs:
       - name: Guarda de subpáginas da Wikipédia dispara
         run: python3 scripts/wiki_parse.py --self-test
 
+      # O `v1/api` do Poder360 serve `entrevistas` com o ponto de milhar
+      # colapsado em decimal (2.004, 1.6, 5) — desde 18/09/2026 em TODA
+      # amostra ≥ 1.000, o que reprovou 36 rodadas seguidas e congelou o site
+      # por dez dias (issue #118). A decodificação é exata (ver `lerEntrevistas`)
+      # e este guarda prova, sem rede, os dois lados dela antes da coleta.
+      - name: Guarda de amostra do Poder360 dispara
+        run: node scripts/sources/poder360.mjs --self-test
+
       - name: Coletar, normalizar e gravar o store
         run: node scripts/scrape.mjs
 
