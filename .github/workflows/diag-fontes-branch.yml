@@ -1,4 +1,5 @@
 name: diag-fontes-branch
+# ensaio 4 (28/09): ids de survey duplicados depois da decodificação da amostra
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -13,61 +14,28 @@ jobs:
         with: { node-version: 24 }
       - run: node scripts/fetch-candidaturas.mjs
       - run: node scripts/match-ballot-names.mjs
-      - run: python3 scripts/wiki_parse.py --self-test
-      - run: node scripts/sources/poder360.mjs --self-test
-      - name: Coleta REAL (stderr guardado)
-        run: node scripts/scrape.mjs 2> scrape.err
-      - run: node scripts/derive-polls.mjs
-      - name: Portões (os mesmos do cron)
+      - name: Coleta REAL (pode falhar no store; polls.json fica escrito)
+        run: node scripts/scrape.mjs 2> scrape.err || true
+      - name: Diagnóstico dos ids duplicados
         run: |
-          set -e
-          node scripts/validate-store.mjs --self-test && node scripts/validate-store.mjs
-          node scripts/parity-check.mjs
-          node scripts/projection-twin-check.mjs
-          node scripts/pollster-clustering-check.mjs
-          node scripts/upsert-harness.mjs
-          node scripts/roster-retention-check.mjs --self-test && node scripts/roster-retention-check.mjs
-          node scripts/disputa-delta-check.mjs --self-test
-          echo "########## DELTA ##########"
-          node scripts/disputa-delta-check.mjs
-          node scripts/source-fallback-check.mjs --self-test && node scripts/source-fallback-check.mjs
-          node scripts/curated-insert-check.mjs --self-test && node scripts/curated-insert-check.mjs
-          node scripts/idempotence-check.mjs
-          node scripts/validate-data.mjs data/polls.json
-          node scripts/incomplete-polls.mjs
-          node scripts/census.mjs
-      - name: Relatório
-        if: always()
-        run: |
-          echo "########## ERROS DE VALIDAÇÃO ##########"
-          grep -c "^ERRO" scrape.err || true
-          grep "^ERRO\|Validação falhou" scrape.err | head -20 || true
-          echo "########## DEDUPE NA MESMA MARCA ##########"
-          grep -c "duplicata na mesma marca" scrape.err || true
-          echo "########## AMOSTRAS DECODIFICADAS ##########"
+          grep "^ERRO" scrape.err | head -12 || true
           node --input-type=module -e "
           import fs from 'node:fs';
-          const q=fs.readFileSync('data/questions.ndjson','utf-8').split('\n').filter(Boolean).map(JSON.parse);
-          const s=Object.fromEntries(fs.readFileSync('data/surveys.ndjson','utf-8').split('\n').filter(Boolean).map(JSON.parse).map(x=>[x.survey_id,x]));
-          const dec=q.filter(x=>(x.parse_warnings??[]).some(w=>/entrevistas/.test(w)));
-          console.log('perguntas com aviso de entrevistas:', dec.length);
-          const seen=new Set();
-          for (const x of dec) { if (seen.has(x.survey_id)) continue; seen.add(x.survey_id); const sv=s[x.survey_id]; console.log(sv.institute_names_raw?.[0], sv.universe?.uf??'BR', sv.fieldwork_end, 'n=',sv.sample_size, '|', x.parse_warnings.find(w=>/entrevistas/.test(w))); }
-          const bad=Object.values(s).filter(sv=>sv.sample_size!=null && (!Number.isInteger(sv.sample_size)||sv.sample_size<100));
-          console.log('surveys com amostra inválida:', bad.length);
-          const maxEnd=Object.values(s).map(sv=>sv.fieldwork_end).filter(Boolean).sort().at(-1);
-          console.log('campo mais recente no store:', maxEnd);
-          "
-          echo "########## CENSO ##########"
-          node scripts/census.mjs 2>&1 | tail -9
-          echo "########## POLLS AP ##########"
-          node --input-type=module -e "
-          import fs from 'node:fs';
+          import { buildStoreFromPolls } from './scripts/lib/build-store.mjs';
           const d=JSON.parse(fs.readFileSync('data/polls.json','utf-8')); const polls=Array.isArray(d)?d:d.polls;
-          for (const p of polls) if (p.state==='AP' && ((p.pollster==='Quaest' && p.fieldwork_end==='2026-08-24') || (p.pollster==='Veritá' && p.fieldwork_end==='2026-05-31')))
-            console.log(p.id, p.race, 't'+p.round, JSON.stringify(p.results.map(r=>[r.candidate,r.pct])), 'bn',p.blank_null_pct,'u',p.undecided_pct, p.repaired?'REPARADA':'');
-          "
-          echo "########## DIFF DO STORE ##########"
-          git diff --stat data/ | tail -3
-          echo "########## QUARENTENA ##########"
-          grep -c "disputa_em_quarentena" data/conflicts.ndjson || true
+          console.log('polls.json:', polls.length, 'pesquisas; generated_at', d.generated_at);
+          const { store } = buildStoreFromPolls(polls, { runDate: '2026-09-28', dir: 'data', meta: {} });
+          const seen=new Map(); const dups=new Set();
+          for (const s of store.surveys) { if (seen.has(s.survey_id)) dups.add(s.survey_id); seen.set(s.survey_id,(seen.get(s.survey_id)??0)+1); }
+          console.log('surveys:', store.surveys.length, 'ids duplicados:', dups.size);
+          const inst=Object.fromEntries(store.institutes.map(i=>[i.institute_id,i.canonical]));
+          for (const id of dups) {
+            console.log('=====', id);
+            for (const s of store.surveys.filter(x=>x.survey_id===id)) {
+              console.log('  SURVEY', JSON.stringify({inst: inst[s.institute_id], names: s.institute_names_raw, uf: s.universe?.uf, start: s.fieldwork_start, end: s.fieldwork_end, pub: s.published_date, n: s.sample_size, reg: s.tse_registration, refs: s.source_refs, seed: s.mint_seed}));
+              for (const q of store.questions.filter(q=>q.survey_id===id)) console.log('     Q', q.question_id, q.race, 't'+q.round, q.scenario_label_raw, 'leg', q.legacy_id, JSON.stringify((q.results??[]).map(r=>[r.name_raw,r.pct])), JSON.stringify(q.parse_warnings??[]));
+            }
+            const refs=new Set(store.surveys.filter(x=>x.survey_id===id).flatMap(s=>(s.source_refs??[]).map(r=>String(r.native_id))));
+            for (const p of polls) if (refs.has(String(p.id).split('-')[1]) || refs.has(String(p.id))) console.log('     POLL', p.id, p.source, p.pollster, p.race, p.state, 't'+p.round, p.fieldwork_start, p.fieldwork_end, 'n=',p.sample_size, p.tse_registration, JSON.stringify(p.parse_warnings??null), 'absorvidos', JSON.stringify((p.absorvidos??[]).map(a=>a.id)));
+          }
+          " 2>&1 | grep -v "^duplicata\|^\[linhagem"
