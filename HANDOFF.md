@@ -946,6 +946,22 @@ metadata cells change in the table columns.
   dropped its 2025 runoff tables (30 rows really gone, quarantine held) and the SE
   senate tables dropped three names (Iran Barbosa among them), re-minting those
   surveys. The dead explicit subpage entry left `wiki-pages.json`.
+- **The 24 quarantines of 28/09/2026, diagnosed against the live source.** After
+  the fixes above, rehearsal 36436934742 still froze 24 disputas. Read one by one
+  (v2/cenarios fetched live for every native id): **17 are "Lula vs Renan Santos"
+  (or Flávio vs Renan) runoff scenarios that Poder360 now serves with Renan's row
+  BLANK** — cenário 4 of every AtlasIntel/Quaest/Ideia state presidential comes back
+  as `[Lula, brancos/nulos]` — so `poder360.mjs` (`round === 2 && results.length < 2`)
+  discards the scenario before roster retention can complete it, the question
+  vanishes and the whole disputa freezes (presidente:SP/PA/PB/PE/PI/PR/RJ/RS/MG/MS/
+  GO/DF/CE/AC/AM, presidente:BR ×4). Same defect class as the empty-name rows the
+  retention guard exists for; the fix is to admit a one-name runoff ONLY when a
+  previous question of the same survey can complete it (retention), and discard it
+  otherwise. Not done yet. The rest: PE 2025 runoffs (30 rows) really removed from
+  the Wikipedia page (ratify or park); SE/SC/MT Wikipedia rows re-minted by roster
+  edits (needs survey-level lineage translation, see "seed can collide" below);
+  Ideia/BA 13875 and Quaest/SC 13934 first-round toplines now served WITHOUT Lula and
+  Flávio (source defect, retention would hold them if the scenario survived).
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across
