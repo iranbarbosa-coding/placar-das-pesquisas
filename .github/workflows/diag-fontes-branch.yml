@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 6 (28/09): as 24 quarentenas contra a fonte
+# ensaio 7 (28/09): as 24 quarentenas contra a fonte
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -17,10 +17,12 @@ jobs:
       - name: Coleta REAL
         run: node scripts/scrape.mjs 2> scrape.err
       - run: node scripts/derive-polls.mjs
+      - name: Snapshot do store fresco
+        run: rm -rf /tmp/fresh && cp -r data /tmp/fresh
       - name: Delta (quarentena)
         run: node scripts/disputa-delta-check.mjs
       - name: Quarentenas contra a fonte
-        run: node scripts/diag/quarentena-fonte.mjs 2>&1 | grep -v "^duplicata\|^\[linhagem"
+        run: FRESH=/tmp/fresh node scripts/diag/quarentena-fonte.mjs 2>&1 | grep -v "^duplicata\|^\[linhagem"
       - name: Wikipédia SE/SC (linhas dos institutos sumidos)
         run: |
           UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
@@ -28,5 +30,5 @@ jobs:
             title="${t%%|*}"; pat="${t#*|}"
             echo "########## $title · $pat"
             curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$title" --data-urlencode action=raw -o w.wiki || { echo inacessível; continue; }
-            grep -n -i -A4 "^|.*\($pat\)" w.wiki | cut -c1-200 | head -60
+            grep -n -i -E -A4 "^\|.*($pat)" w.wiki | cut -c1-200 | head -80
           done

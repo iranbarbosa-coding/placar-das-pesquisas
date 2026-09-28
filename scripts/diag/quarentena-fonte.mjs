@@ -7,16 +7,25 @@ const nd = (t) => t.split("\n").filter(Boolean).map(JSON.parse);
 const prevQ = nd(execSync("git show HEAD:data/questions.ndjson", { maxBuffer: 1 << 28 }).toString());
 const prevS = Object.fromEntries(nd(execSync("git show HEAD:data/surveys.ndjson", { maxBuffer: 1 << 28 }).toString()).map((s) => [s.survey_id, s]));
 const inst = Object.fromEntries(nd(fs.readFileSync("data/institutes.ndjson", "utf-8")).map((i) => [i.institute_id, i.canonical]));
-const newQ = nd(fs.readFileSync("data/questions.ndjson", "utf-8"));
-const newS = Object.fromEntries(nd(fs.readFileSync("data/surveys.ndjson", "utf-8")).map((s) => [s.survey_id, s]));
+// O store FRESCO (antes do guarda de delta restaurar as disputas congeladas)
+// fica em FRESH=/tmp/fresh; o commit anterior vem do git.
+const FRESH = process.env.FRESH ?? "data";
+const newQ = nd(fs.readFileSync(`${FRESH}/questions.ndjson`, "utf-8"));
+const newS = Object.fromEntries(nd(fs.readFileSync(`${FRESH}/surveys.ndjson`, "utf-8")).map((s) => [s.survey_id, s]));
 const conflicts = nd(fs.readFileSync("data/conflicts.ndjson", "utf-8")).filter((c) => c.type === "disputa_em_quarentena");
+const newIds = new Set(newQ.map((q) => q.question_id));
 const lost = [];
 for (const c of conflicts) {
-  const ids = c.incoming?.perdidas ?? c.incoming?.ids ?? c.incoming ?? [];
-  for (const id of (Array.isArray(ids) ? ids : [])) lost.push({ disputa: c.record_id ?? c.field, id });
+  const disputa = c.record_id;
+  const [race, uf] = disputa.split(":");
+  const noNote = new Set((c.note ?? "").match(/q_[0-9a-f]{12}/g) ?? []);
+  // conjunto completo: perguntas do commit anterior nesta disputa que NÃO estão no store fresco
+  const antes = prevQ.filter((q) => q.race === race && (q.uf ?? "BR") === uf && !q.retracted);
+  const sumidas = antes.filter((q) => !newIds.has(q.question_id));
+  console.log("QUARENTENA", disputa, "| no aviso:", noNote.size, "| sumidas por diferença de conjunto:", sumidas.length);
+  for (const q of sumidas) lost.push({ disputa, id: q.question_id });
 }
 console.log("quarentenas:", conflicts.length, "perguntas sumidas:", lost.length);
-if (!lost.length) { console.log(JSON.stringify(conflicts[0], null, 1).slice(0, 1500)); }
 const UF_IDS = { AC: 1, AL: 2, AM: 3, AP: 4, BA: 5, CE: 7, DF: 8, ES: 9, GO: 10, MA: 11, MG: 12, MS: 13, MT: 14, PA: 15, PB: 16, PE: 17, PI: 18, PR: 19, RJ: 20, RN: 21, RO: 22, RR: 23, RS: 24, SC: 25, SE: 26, SP: 27, TO: 28 };
 const CARGO = { governador: 1, presidente: 3, senador: 4 };
 const HOST = "https://monitor-agregador.poder360.com.br";
