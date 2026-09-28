@@ -917,8 +917,20 @@ metadata cells change in the table columns.
   `polls.json` passing every check, because a finite positive number is exactly what
   they are. **Both validators now reject a non-integer sample size as a hard error**
   (with a self-test), which is why a run fails until the rows are repaired.
-  ⚠ **Do not repair by multiplying by 1000.** That assumes one decimal place means one
-  dropped digit — an inference, and inferences do not belong upstream of an average.
+  ⚠ **(Rule of 18/08, REVERSED on 28/09/2026 — read on.)** The 18/08 rule was "do not
+  repair by multiplying by 1000; repair per poll from the institute's report". It held
+  while the defect touched a dozen rows. From 18/09 21:39 UTC the source started
+  mangling EVERY sample ≥ 1.000 (Datafolha 1.204, Quaest 2.004, AtlasIntel 1.829,
+  RTBD 1.6, Palver 5): 50+ polls in four days, `validate-data` failing every run, the
+  site frozen for ten days (36 red runs, issue #118). `lerEntrevistas` in
+  `sources/poder360.mjs` now decodes it at ingestion: a value in [0,1; 100) with at most
+  three decimals is an integer whose single thousands dot became a decimal point, and
+  ×1000 returns it EXACTLY (no electoral sample is < 100, none is ≥ 1.000.000). The raw
+  value is written to the question's `parse_warnings`; anything outside that shape is
+  left null and said. `sample_size` feeds no average (display, feeds and CSV only), so
+  the inference sits upstream of nothing. `--self-test` runs in the cron before the
+  scrape; both validators still reject any non-integer or < 100 sample that escapes.
+  The six per-poll `sample_size` repairs in `data/repairs.json` stay (they cite reports).
   **Both are now repaired in `data/repairs.json` from the institutes' own reports**
   (its generic `set` takes `sample_size`), read with `scripts/ocr/`:
   Quaest 2025-11-09 → **2004** ("2.004 ENTREVISTAS", p.2, and the report's 06–09/11 field

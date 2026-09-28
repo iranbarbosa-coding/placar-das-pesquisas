@@ -31,6 +31,53 @@ const BLANK_RE = /branco|nulo|nenhum/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// ===========================================================================
+// `entrevistas` — O SEPARADOR DE MILHAR QUE VIRA PONTO DECIMAL NA FONTE
+// ===========================================================================
+//
+// O `v1/api` serve o tamanho da amostra como NÚMERO JSON já mastigado: 2.004
+// para 2.004 entrevistados, 1.6 para 1.600, 5 para 5.000. Até 18/09/2026 isso
+// atingia uma dúzia de linhas e a regra da casa (HANDOFF, 18/08) era NÃO
+// multiplicar por mil — reparar cada uma em data/repairs.json com o relatório
+// do instituto. A partir de 18/09 às 21h39 UTC a fonte passou a mastigar TODA
+// amostra ≥ 1.000 (Datafolha 1.204, Quaest 2.004, AtlasIntel 1.829, RTBD 1.6,
+// Palver 5…): 50+ pesquisas em quatro dias, o validador reprovando a rodada
+// inteira e o site congelado por dez dias (36 rodadas vermelhas, issue #118).
+// Reparo por pesquisa não escala a 4 rodadas/dia.
+//
+// A decodificação aqui é EXATA sob uma única hipótese — a fonte tinha um
+// inteiro com UM ponto de milhar (toda amostra eleitoral fica entre 100 e
+// 999.999): "1.600" → 1.6 → 1600, "2.004" → 2.004 → 2004, "5.000" → 5 → 5000.
+// Não há caso em que um valor abaixo de 100 seja uma amostra legítima, e não
+// há caso em que multiplicar por mil devolva outra coisa que o inteiro
+// original. A amostra NÃO entra em nenhuma média (só é exibida e exportada;
+// ver src/lib/average.ts), então a inferência não fica a montante de número
+// nenhum. O valor cru fica registrado em `parse_warnings` da pergunta — o
+// leitor do banco vê de onde o inteiro veio — e o validador continua
+// reprovando qualquer amostra não-inteira ou < 100 que escape daqui.
+export function lerEntrevistas(raw) {
+  if (raw == null || raw === "") return { sample_size: null, warning: null };
+  const n = typeof raw === "number" ? raw : Number(String(raw).replace(/\s/g, "").replace(",", "."));
+  if (!Number.isFinite(n) || n <= 0) {
+    return { sample_size: null, warning: `entrevistas ilegível na fonte (${JSON.stringify(raw)}); amostra deixada vazia` };
+  }
+  if (Number.isInteger(n) && n >= 100) {
+    // Inteiro plausível. Se veio como TEXTO, é deriva de esquema — lido, mas dito.
+    return { sample_size: n, warning: typeof raw === "number" ? null : `entrevistas veio como texto (${JSON.stringify(raw)}); lido como ${n}` };
+  }
+  // 0,1 ≤ n < 100 com até três casas: um inteiro de 100 a 99.999 cujo ponto
+  // de milhar virou decimal. Fora disso não há leitura segura — vazio, dito.
+  const casas = (String(n).split(".")[1] ?? "").length;
+  if (n >= 0.1 && n < 100 && casas <= 3) {
+    const decodificado = Math.round(n * 1000);
+    return {
+      sample_size: decodificado,
+      warning: `entrevistas ${raw} na fonte (separador de milhar colapsado em decimal); lido como ${decodificado}`,
+    };
+  }
+  return { sample_size: null, warning: `entrevistas ${raw} na fonte não tem leitura segura; amostra deixada vazia` };
+}
+
 async function getJson(url, init = {}) {
   const res = await fetch(url, { headers: HEADERS, signal: AbortSignal.timeout(45_000), ...init });
   if (!res.ok) throw new Error(`poder360 HTTP ${res.status} for ${url.slice(0, 120)}`);
@@ -110,6 +157,7 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
       const stimulus = /espont/i.test(rotulo) ? "espontânea"
         : /estimulad/i.test(rotulo) ? "estimulada" : null;
 
+      const entrevistas = lerEntrevistas(m.entrevistas);
       const poll = {
         id: "",
         source: "poder360",
@@ -129,13 +177,14 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
         fieldwork_start: null,
         fieldwork_end: date,
         published_date: date,
-        sample_size: m.entrevistas ?? null,
+        sample_size: entrevistas.sample_size,
         margin_of_error: m.margem ?? null,
         results,
         others_pct: null,
         undecided_pct: undecided,
         blank_null_pct: blank,
         tse_registration: m.registro ?? null,
+        ...(entrevistas.warning ? { parse_warnings: [entrevistas.warning] } : {}),
       };
       if (!poll.pollster) continue;
       // Poder360 occasionally files a poll under the wrong UF (seen live: a
@@ -208,4 +257,26 @@ export async function fetchPoder360() {
     console.warn(`poder360: ${failures} combo(s) falharam, continuando — ${nomes.join(" | ")}`);
   }
   return { polls, fetchLog };
+}
+
+// ---------------------------------------------------------------- autoteste
+// `node scripts/sources/poder360.mjs --self-test` — sem rede. Prova a
+// decodificação nos dois sentidos: o que decodifica, o que fica vazio e dito,
+// e o que passa intocado.
+if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href && process.argv.includes("--self-test")) {
+  const casos = [
+    [2.004, 2004], [1.6, 1600], [1.2, 1200], [5, 5000], [2, 2000], [1.829, 1829], [1.836, 1836], [0.804, 804],
+    [804, 804], [1000, 1000], [2004, 2004], ["1.204", 1204], ["2 002", 2002],
+    [null, null], [undefined, null], ["", null], [0, null], [-3, null], ["abc", null], [1.2345, null], [0.05, null],
+  ];
+  let falhas = 0;
+  for (const [raw, esperado] of casos) {
+    const { sample_size, warning } = lerEntrevistas(raw);
+    const avisoEsperado = !(typeof raw === "number" && Number.isInteger(raw) && raw >= 100) && raw != null && raw !== "";
+    const ok = sample_size === esperado && (!!warning === avisoEsperado || (sample_size === null && !warning && raw == null));
+    if (!ok) { falhas++; console.error(`✗ lerEntrevistas(${JSON.stringify(raw)}) → ${sample_size} / ${warning}; esperado ${esperado}`); }
+    else console.log(`✓ lerEntrevistas(${JSON.stringify(raw)}) → ${sample_size}${warning ? " · aviso" : ""}`);
+  }
+  if (falhas) { console.error(`AUTOTESTE FALHOU: ${falhas} caso(s)`); process.exit(1); }
+  console.log("AUTOTESTE OK — entrevistas: decodifica o milhar colapsado, deixa vazio e dito o ilegível, não toca o inteiro.");
 }
