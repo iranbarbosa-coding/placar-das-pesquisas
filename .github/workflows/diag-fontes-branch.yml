@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 8 (28/09): onde foram parar as linhas sumidas da Wikipédia
+# ensaio 9 (28/09): onde foram parar as linhas sumidas da Wikipédia
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -11,15 +11,17 @@ jobs:
       - uses: actions/checkout@v4
       - shell: bash
         run: |
+          set +e
           UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
           pagina() { # título · regex de linhas · rótulo
             local title="$1" pat="$2"
             echo "########## PÁGINA $title ##########"
             if ! curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$title" --data-urlencode action=raw -o w.wiki; then echo "inacessível (404?)"; return; fi
             echo "bytes: $(wc -c < w.wiki) · linhas de tabela: $(grep -c '^|-' w.wiki)"
-            echo "-- transclusões/subpáginas:"; grep -o -E '\{\{:[^}|]+|\[\[/[^]|]+|\{\{/[^}|]+' w.wiki | sort | uniq -c | head -20
-            echo "-- seções:"; grep -E '^==+' w.wiki | head -40
-            echo "-- linhas que casam ($pat):"; grep -n -i -E "$pat" w.wiki | cut -c1-160 | head -25
+            echo "-- transclusões/subpáginas:"; (grep -o -E '\{\{:[^}|]+|\[\[/[^]|]+|\{\{/[^}|]+' w.wiki || true) | sort | uniq -c | head -20
+            echo "-- seções:"; (grep -E '^==+' w.wiki || true) | head -60
+            echo "-- citações com data (amostra):"; (grep -o -E '(data|acessodata) *= *[^|}]+' w.wiki || true) | sort | uniq -c | sort -rn | head -12
+            echo "-- linhas que casam ($pat):"; (grep -n -i -E "$pat" w.wiki || true) | cut -c1-160 | head -30
           }
           P="Pesquisas de opinião para a eleição presidencial no Brasil em 2026"
           pagina "$P" "Futura|Gerp"
