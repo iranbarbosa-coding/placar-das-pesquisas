@@ -1325,6 +1325,84 @@ check("levantamento: dois registros SEM DATA com semente idêntica juntam-se a u
 });
 
 // ==========================================================================
+// 10c. O 2º TURNO DE UM NOME SÓ (28/09/2026) e a linhagem do levantamento
+// ==========================================================================
+
+const runoffFrag = (over = {}) => poll({
+  id: "p360-990500-2-3-abcdefabcdef", source: "poder360", pollster: "AtlasIntel", race: "presidente", state: "SP", round: 2,
+  scenario: "2º turno: Lula vs Renan Santos", fieldwork_start: "2026-08-28", fieldwork_end: "2026-08-31", published_date: "2026-08-31",
+  sample_size: 1810, tse_registration: "BR-02563/2026",
+  results: [{ candidate: "Lula", party: "PT", pct: 43.1 }, { candidate: "Renan Santos", party: "Missão", pct: 33.5 }],
+  others_pct: null, undecided_pct: 23.4, blank_null_pct: null, ...over,
+});
+
+check("2º turno de um nome só: a retenção o completa com o confronto da rodada anterior (mesmo id, mesmo rótulo)", (_store, assert) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-frag-"));
+  try {
+    const { store: r1 } = writeStoreFromPolls([runoffFrag()], { runDate: "2026-09-18", dir });
+    const antes = r1.questions.find((q) => q.round === 2);
+    assert(antes && antes.results.length === 2, "rodada 1 não gravou o confronto completo");
+    // A fonte volta com a linha do Renan em branco: só Lula chega.
+    const { store: r2 } = writeStoreFromPolls([runoffFrag({
+      scenario: "2º turno: Lula", results: [{ candidate: "Lula", party: "PT", pct: 43.1 }],
+      parse_warnings: ["2º turno com um só nome na fonte (Lula); adversário em branco no v2/cenarios"],
+    })], { runDate: "2026-09-28", dir });
+    const depois = r2.questions.find((q) => q.round === 2);
+    assert(!!depois, "o fragmento foi descartado apesar de a rodada anterior ter o confronto");
+    assert(depois?.question_id === antes?.question_id, `id mudou: ${antes?.question_id} → ${depois?.question_id}`);
+    assert((depois?.results ?? []).length === 2, `elenco retido tem ${depois?.results?.length} nome(s), esperado 2`);
+    assert(depois?.scenario_label_raw === "2º turno: Lula vs Renan Santos", `rótulo não voltou com o elenco: ${depois?.scenario_label_raw}`);
+    assert(r2.conflicts.some((c) => c.type === "roster_encolhido_na_fonte" && c.record_id === depois?.question_id), "a retenção não deixou rastro em conflicts.ndjson");
+    assert(!r2.conflicts.some((c) => c.type === "segundo_turno_fragmento_descartado"), "o fragmento completado foi marcado como descartado");
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("2º turno de um nome só SEM confronto anterior é descartado, em voz alta — nunca publicado", (_store, assert) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-frag2-"));
+  try {
+    const { store: novo } = writeStoreFromPolls([runoffFrag({
+      scenario: "2º turno: Lula", results: [{ candidate: "Lula", party: "PT", pct: 43.1 }],
+    })], { runDate: "2026-09-28", dir });
+    assert(novo.questions.filter((q) => q.round === 2).length === 0, "um 2º turno de um nome só foi publicado");
+    const k = novo.conflicts.find((c) => c.type === "segundo_turno_fragmento_descartado");
+    assert(!!k, "o descarte não deixou rastro em conflicts.ndjson — silêncio não é sucesso (§2)");
+    const { errors } = validateStore(novo);
+    assert(!errors.some((e) => /órf|orf/.test(e)), `validate-store reprovaria: ${errors.join(" · ")}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("levantamento re-cunhado por edição de elenco na fonte herda o id antigo em legacy_ids (o juiz de delta lê sucessão)", (_store, assert) => {
+  // O caso senador:SE de 28/09/2026: a Wikipédia retirou três nomes de todas as
+  // linhas; a semente natural inclui o elenco, o levantamento re-cunha.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-linhagem-"));
+  try {
+    const wiki = (over = {}) => poll({
+      id: "wiki-se-senado-1", source: "wikipedia", pollster: "IFP", race: "senador", state: "SE", round: 1,
+      scenario: "1º turno — cenário único", fieldwork_start: "2026-08-18", fieldwork_end: "2026-08-21", published_date: null,
+      sample_size: 1314, tse_registration: null,
+      results: [{ candidate: "André David", party: null, pct: 26.86 }, { candidate: "André Moura", party: null, pct: 19.34 }, { candidate: "Iran Barbosa", party: null, pct: 3.15 }],
+      others_pct: null, undecided_pct: 50.65, blank_null_pct: null, ...over,
+    });
+    const { store: r1 } = writeStoreFromPolls([wiki()], { runDate: "2026-09-18", dir });
+    const sAntes = r1.surveys[0];
+    const { store: r2 } = writeStoreFromPolls([wiki({
+      id: "wiki-se-senado-1", results: [{ candidate: "André David", party: null, pct: 26.86 }, { candidate: "André Moura", party: null, pct: 19.34 }],
+    })], { runDate: "2026-09-28", dir });
+    assert(r2.surveys.length === 1, `${r2.surveys.length} levantamentos, esperado 1`);
+    const sDepois = r2.surveys[0];
+    assert((sDepois.legacy_ids ?? []).includes(sAntes.survey_id) || sDepois.survey_id === sAntes.survey_id,
+      `o levantamento novo ${sDepois.survey_id} não herdou ${sAntes.survey_id} em legacy_ids (${JSON.stringify(sDepois.legacy_ids)})`);
+    assert(sDepois.first_seen === sAntes.first_seen, `first_seen não atravessou a re-cunhagem: ${sAntes.first_seen} → ${sDepois.first_seen}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ==========================================================================
 // 11. A FUSÃO DE INSTITUTOS — `merged_into`, a curadoria que se perdia
 // ==========================================================================
 //

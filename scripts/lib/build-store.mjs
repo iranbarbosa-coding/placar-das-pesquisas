@@ -35,7 +35,7 @@ import {
 import { upsertPoll } from "./upsert.mjs";
 import { identityConflicts } from "./candidates.mjs";
 import { retainRicherRosters } from "./roster.mjs";
-import { nameKey } from "./ids.mjs";
+import { nameKey, normalizeRegistration } from "./ids.mjs";
 import { normNome } from "./nomes.mjs";
 import { pollsterTokens } from "./canonicalize.mjs";
 
@@ -116,6 +116,7 @@ export function buildStoreFromPolls(polls, {
   // tabela que a fonte truncou promoveria o cenário errado e publicaria o
   // truncado. Ver `scripts/lib/roster.mjs`.
   reterElencos(store, previous, runDate);
+  descartarFragmentosDe2oTurno(store, runDate);
   // NENHUMA PERGUNTA É SUCESSORA DE SI MESMA. A retenção acima pode devolver a
   // uma pergunta o id que ela tinha no commit anterior (o elenco retido é o
   // antigo, e o id semeia em elenco) — e `ligarAbsorvidos`, que correu antes
@@ -137,6 +138,7 @@ export function buildStoreFromPolls(polls, {
   translateInstituteStamps(store, previous, runDate);
   translatePersonStamps(store, previous, runDate);
   translateCandidateStamps(store, previous, runDate);
+  translateSurveyStamps(store, previous, runDate);
   settleProvenance(store, previous, runDate);
   // A VERSÃO É A PROMESSA QUE O VALIDADOR COBRA. Este caminho cunha pessoas,
   // então o store que sai daqui DECLARA a camada — e `validate-store.mjs`
@@ -371,6 +373,66 @@ function traduzirCarimbos(store, previous, runDate, {
         : `id antigo sem linha nova correspondente (${descrever(velho)}) — first_seen perdido se isto não for uma saída legítima dos dados`,
     });
   }
+}
+
+/**
+ * O 2º TURNO DE UM NOME SÓ QUE NINGUÉM COMPLETOU sai daqui. `poder360.mjs`
+ * deixa o fragmento passar (o adversário chega com `nome` vazio no
+ * v2/cenarios) para que `reterElencos` o complete com o confronto da rodada
+ * anterior. O que sobra com menos de dois nomes depois da retenção não tem
+ * rodada anterior que o complete — um confronto que a fonte só serviu quebrado
+ * — e um 2º turno de um nome só nunca é publicado: sai do store, em voz alta.
+ */
+function descartarFragmentosDe2oTurno(store, runDate) {
+  const idx = store._indexes;
+  const fora = [];
+  store.questions = (store.questions ?? []).filter((q) => {
+    if (q.round !== 2 || (q.results ?? []).length >= 2) return true;
+    fora.push(q);
+    return false;
+  });
+  for (const q of fora) {
+    idx.questionById?.delete(q.question_id);
+    logConflict(store, {
+      run_id: runDate, type: "segundo_turno_fragmento_descartado", table: "questions",
+      record_id: q.question_id, field: "results",
+      stored: null, incoming: (q.results ?? []).map((r) => r.name_raw ?? r.candidate ?? "?"),
+      source: "build-store", severity: "review",
+      note: `2º turno chegou com um nome só (${q.race}/${q.uf ?? "BR"}, ${q.scenario_label_raw ?? "?"}) e nenhuma pergunta da rodada anterior o completa — descartado, não publicado`,
+    });
+    console.warn(`descartada [2º turno de um nome só, sem elenco anterior]: ${q.race}/${q.uf ?? "BR"} · ${q.scenario_label_raw ?? "?"} · ${q.question_id}`);
+  }
+  if (fora.length) store._report.fragmentosDescartados = fora.length;
+}
+
+/**
+ * A tradução aplicada ao LEVANTAMENTO. A semente natural de um levantamento
+ * inclui o elenco: quando a Wikipédia edita uma tabela (28/09/2026: três nomes
+ * retirados de todas as linhas do senado de SE), o levantamento re-cunha e o
+ * id antigo some sem linhagem — e o juiz de delta, que decide "mesmo
+ * levantamento" por `legacy_ids` do levantamento, lê cada pergunta dele como
+ * perdida e congela a disputa. As chaves de reencontro são os fatos que a
+ * escada de resolução usa e que uma edição de elenco NÃO muda: o registro do
+ * TSE, o id nativo da fonte, e instituto + universo + fim de campo + amostra.
+ * Chave que alcança duas linhas novas não decide nada (o mesmo contrato de
+ * `traduzirCarimbos`).
+ */
+function translateSurveyStamps(store, previous, runDate) {
+  const dataDe = (s) => s.fieldwork_end ?? s.published_date ?? null;
+  traduzirCarimbos(store, previous, runDate, {
+    tabela: "surveys", idField: "survey_id",
+    chavesDe: (s) => {
+      const ks = [];
+      const reg = s.tse_registration ? normalizeRegistration(s.tse_registration) : null;
+      if (reg) ks.push(`reg|${reg}|${s.universe?.uf ?? "BR"}`);
+      for (const r of s.source_refs ?? []) if (r.native_id != null) ks.push(`ref|${r.source}:${r.native_id}`);
+      const d = dataDe(s);
+      if (s.institute_id && d) ks.push(`nat|${s.institute_id}|${s.universe?.uf ?? "BR"}|${d}|${s.sample_size ?? "-"}`);
+      return ks;
+    },
+    tipoConflito: "survey_id_orphaned", contador: "surveys", orfaos: "orphanedSurveys",
+    descrever: (s) => `${s.institute_id ?? "?"} ${s.universe?.uf ?? "BR"} ${dataDe(s) ?? "sem data"} n=${s.sample_size ?? "-"}`,
+  });
 }
 
 /** A tradução aplicada à linha de candidato: reencontro por disputa + grafia. */

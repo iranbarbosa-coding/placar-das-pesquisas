@@ -133,10 +133,19 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
         else if (BLANK_RE.test(nome)) blank = (blank ?? 0) + row.percentual;
         else results.push({ candidate: nome, party: row.partido?.trim() || null, pct: row.percentual });
       }
-      // A runoff "scenario" with fewer than two candidates is an upstream
-      // data gap (missing opponent row) — unusable for a head-to-head.
-      if (round === 2 && results.length < 2) continue;
       if (!results.length) continue;
+      // UM 2º TURNO COM UM NOME SÓ é o defeito do `v2/cenarios` (linha de
+      // candidato com `nome` vazio) atingindo um confronto inteiro. Medido em
+      // 28/09/2026: todos os "Lula × Renan Santos" (AtlasIntel, Quaest, Ideia,
+      // Futura, MDA, Colectta, Alfa/TMC) passaram a chegar como `[Lula,
+      // brancos/nulos]`. Descartar aqui apagava a pergunta ANTES de a retenção
+      // de elenco (`scripts/lib/roster.mjs`) poder completá-la com a rodada
+      // anterior — e o guarda de delta congelava a disputa inteira (17 das 24
+      // quarentenas daquele dia). O fragmento SEGUE, marcado; a retenção o
+      // completa quando a rodada anterior tem o confronto, e `build-store`
+      // descarta o que ninguém completou (um 2º turno de um nome só nunca é
+      // publicado).
+      const fragmentoDe2oTurno = round === 2 && results.length < 2;
 
       const scenario =
         round === 2
@@ -184,7 +193,10 @@ async function fetchCombo({ cargoId, ufId, uf, race, round, cidade }) {
         undecided_pct: undecided,
         blank_null_pct: blank,
         tse_registration: m.registro ?? null,
-        ...(entrevistas.warning ? { parse_warnings: [entrevistas.warning] } : {}),
+        ...((entrevistas.warning || fragmentoDe2oTurno) ? { parse_warnings: [
+          ...(entrevistas.warning ? [entrevistas.warning] : []),
+          ...(fragmentoDe2oTurno ? [`2º turno com um só nome na fonte (${results[0].candidate}); adversário em branco no v2/cenarios`] : []),
+        ] } : {}),
       };
       if (!poll.pollster) continue;
       // Poder360 occasionally files a poll under the wrong UF (seen live: a

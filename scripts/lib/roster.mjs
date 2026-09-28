@@ -295,6 +295,12 @@ export function retainRicherRosters(store, previous, runDate) {
     // registro anterior, que era internamente consistente — o que torna a
     // regra ★ automática em vez de mais uma coisa para lembrar.
     nova.results = structuredClone(doador.results ?? []);
+    // O RÓTULO DO CONFRONTO VOLTA COM O ELENCO no 2º turno: o rótulo é
+    // derivado dos dois nomes ("2º turno: Lula vs Renan Santos"), e um
+    // fragmento de um nome só chega rotulado "2º turno: Lula". No 1º turno o
+    // rótulo carrega o ordinal do cenário, que a fonte pode ter renumerado —
+    // fica o que chegou.
+    if (nova.round === 2 && doador.scenario_label_raw) nova.scenario_label_raw = doador.scenario_label_raw;
     nova.others_pct = doador.others_pct ?? null;
     nova.undecided_pct = doador.undecided_pct ?? null;
     nova.blank_null_pct = doador.blank_null_pct ?? null;

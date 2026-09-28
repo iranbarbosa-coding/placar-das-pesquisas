@@ -1185,11 +1185,14 @@ function persistStore(polls, dataset, tse) {
   // "Percent Brasil" → "Percent" em 17/08/2026 sem uma linha de log.
   const t = store._report.translated;
   if (t.candidates || t.orphanedCandidates || t.people || t.orphanedPeople ||
-      t.institutes || t.orphanedInstitutes) {
-    console.log(`  RE-CUNHAGEM: ${t.people} pessoa(s), ${t.candidates} candidato(s) e ` +
-      `${t.institutes} instituto(s) com first_seen traduzido do id antigo (gravado em legacy_ids) · ` +
-      `${t.orphanedPeople + t.orphanedCandidates + t.orphanedInstitutes} ` +
+      t.institutes || t.orphanedInstitutes || t.surveys || t.orphanedSurveys) {
+    console.log(`  RE-CUNHAGEM: ${t.people} pessoa(s), ${t.candidates} candidato(s), ` +
+      `${t.institutes} instituto(s) e ${t.surveys ?? 0} levantamento(s) com first_seen traduzido do id antigo (gravado em legacy_ids) · ` +
+      `${t.orphanedPeople + t.orphanedCandidates + t.orphanedInstitutes + (t.orphanedSurveys ?? 0)} ` +
       `sem tradução, registrados em conflicts.ndjson`);
+  }
+  if (store._report.fragmentosDescartados) {
+    console.log(`  2º TURNO DE UM NOME SÓ: ${store._report.fragmentosDescartados} fragmento(s) sem confronto anterior descartado(s) — ver conflicts.ndjson (segundo_turno_fragmento_descartado)`);
   }
   // O ELENCO RETIDO TEM DE APARECER NA SAÍDA DA RODADA, pelo mesmo motivo da
   // re-cunhagem acima: numa rodada em que a fonte está sã isto é zero, e
