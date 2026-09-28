@@ -1,45 +1,21 @@
 name: diag-fontes-branch
-# ensaio 9 (28/09): onde foram parar as linhas sumidas da Wikipédia
+# ensaio 10 (28/09): re-datação e datas futuras no store fresco
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
     paths: [.github/workflows/diag-fontes-branch.yml]
 jobs:
-  ler:
+  ensaio:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - shell: bash
-        run: |
-          set +e
-          UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
-          pagina() { # título · regex de linhas · rótulo
-            local title="$1" pat="$2"
-            echo "########## PÁGINA $title ##########"
-            if ! curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$title" --data-urlencode action=raw -o w.wiki; then echo "inacessível (404?)"; return; fi
-            echo "bytes: $(wc -c < w.wiki) · linhas de tabela: $(grep -c '^|-' w.wiki)"
-            echo "-- transclusões/subpáginas:"; (grep -o -E '\{\{:[^}|]+|\[\[/[^]|]+|\{\{/[^}|]+' w.wiki || true) | sort | uniq -c | head -20
-            echo "-- seções:"; (grep -E '^==+' w.wiki || true) | head -60
-            echo "-- citações com data (amostra):"; (grep -o -E '(data|acessodata) *= *[^|}]+' w.wiki || true) | sort | uniq -c | sort -rn | head -12
-            echo "-- linhas que casam ($pat):"; (grep -n -i -E "$pat" w.wiki || true) | cut -c1-160 | head -30
-          }
-          P="Pesquisas de opinião para a eleição presidencial no Brasil em 2026"
-          pagina "$P" "Futura|Gerp"
-          pagina "$P/Primeiro Turno/2023-2025" "Gerp|Futura"
-          pagina "$P/Primeiro Turno/2026/Janeiro a Agosto" "Quaest"
-          pagina "$P/Primeiro Turno/2026" "Quaest"
-          pagina "$P/Primeiro Turno" "Quaest"
-          pagina "$P/Segundo Turno" "Quaest"
-          pagina "Pesquisas eleitorais para a eleição estadual de 2026 em Pernambuco" "Raquel Lyra|Numen"
-          pagina "Pesquisas eleitorais para a eleição estadual de 2026 em Sergipe" "Iran Barbosa|Renatinha|IFP|Fran[çc]a"
-          pagina "Pesquisas eleitorais para a eleição estadual de 2026 em Santa Catarina" "Mapa|Neokemp"
-          echo "########## HISTÓRICO RECENTE (API) ##########"
-          for t in "$P" "$P/Primeiro Turno/2023-2025" "Pesquisas eleitorais para a eleição estadual de 2026 em Pernambuco" "Pesquisas eleitorais para a eleição estadual de 2026 em Sergipe"; do
-            echo "-- $t"
-            curl -fsS -A "$UA" -G "https://pt.wikipedia.org/w/api.php" --data-urlencode "action=query" --data-urlencode "prop=revisions" --data-urlencode "titles=$t" --data-urlencode "rvprop=timestamp|user|comment|size" --data-urlencode "rvlimit=12" --data-urlencode "format=json" | python3 -c "
-          import json,sys
-          d=json.load(sys.stdin)
-          for p in d['query']['pages'].values():
-              for r in p.get('revisions',[]): print('  ',r['timestamp'],r.get('size'),r.get('user','?')[:20],'|',(r.get('comment') or '')[:110])
-          " || echo "api inacessível"
-          done
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - run: node scripts/fetch-candidaturas.mjs
+      - run: node scripts/match-ballot-names.mjs
+      - name: Coleta REAL
+        run: node scripts/scrape.mjs 2> scrape.err
+      - run: node scripts/derive-polls.mjs
+      - name: Datas do store fresco
+        run: FRESH=data node scripts/diag/datas-fresco.mjs 2>&1 | grep -v "^duplicata\|^\[linhagem"
