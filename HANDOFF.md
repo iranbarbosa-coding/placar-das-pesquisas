@@ -931,6 +931,18 @@ metadata cells change in the table columns.
   the inference sits upstream of nothing. `--self-test` runs in the cron before the
   scrape; both validators still reject any non-integer or < 100 sample that escapes.
   The six per-poll `sample_size` repairs in `data/repairs.json` stay (they cite reports).
+- **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
+  `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
+  unregistered ones; rung 2 rightly refuses to unify a shared registration across
+  universes (national vs state slice) and rung 3 needs a date. Two records that fell
+  through with the same seed minted the SAME survey_id (9 duplicates in run
+  36431308258, all undated Wikipedia national scenarios arriving twice) and
+  `validate-store` failed the run. Now, on collision: same facts (universe, date,
+  sample) → the record JOINS the existing survey (`survey_seed_identical` in
+  conflicts); different facts → the second gets the seed qualified by
+  universe|date|sample (`survey_seed_collision`), the first keeps its id (no churn).
+  `upsert-harness` pins both. Why undated Wikipedia rows now arrive in pairs is not
+  yet explained — SEMDATA in the census lists them.
   **Both are now repaired in `data/repairs.json` from the institutes' own reports**
   (its generic `set` takes `sample_size`), read with `scripts/ocr/`:
   Quaest 2025-11-09 → **2004** ("2.004 ENTREVISTAS", p.2, and the report's 06–09/11 field

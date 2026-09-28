@@ -25,7 +25,7 @@ import {
 import { upsertPoll } from "./lib/upsert.mjs";
 import { writeStoreFromPolls, recusaEntradaDerivada, ligarAbsorvidos } from "./lib/build-store.mjs";
 import { serializeRecord } from "./lib/ndjson.mjs";
-import { mintCandidateId, mintInstituteId, nameKey } from "./lib/ids.mjs";
+import { mintCandidateId, mintInstituteId, mintSurveyId, nameKey } from "./lib/ids.mjs";
 import { validateStore } from "./validate-store.mjs";
 import { normNome } from "./lib/nomes.mjs";
 import { pessoasRegistradas } from "./lib/people.mjs";
@@ -1254,6 +1254,71 @@ check("recusa: token que alcança DOIS institutos novos não traduz nada", (_sto
     assert(!!k, "a recusa não deixou linha em conflicts.ndjson — silêncio não é sucesso (§2)");
     assert(k?.record_id === "i_ffffffffffff", `conflito sobre ${k?.record_id}`);
     assert((k?.incoming ?? []).length === 2, `o conflito não nomeia os dois alvos: ${JSON.stringify(k?.incoming)}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ==========================================================================
+// 10b. A SEMENTE DE LEVANTAMENTO QUE COLIDE — um registro, dois universos
+// ==========================================================================
+//
+// Medido em 28/09/2026 (run 36431308258): a nacional e as fatias estaduais de
+// uma operação Datafolha/RTBD chegam sem id nativo (linhas de 12 hex) sob o
+// MESMO BR-…; o degrau 2 recusa unificar universos diferentes (certo), mas a
+// semente `survey|reg|<registro>` era igual para os dois e o segundo cunhava
+// o MESMO survey_id — `validate-store` reprovava a rodada inteira.
+
+check("levantamento: registro partilhado por universos distintos NÃO cunha id duplicado — e o primeiro fica com o id de sempre", (_store, assert) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-colisao-"));
+  try {
+    const semNativo = (over) => poll({
+      id: "aaaaaaaaaaaa", pollster: "Datafolha", race: "presidente", state: null,
+      fieldwork_start: "2026-09-22", fieldwork_end: "2026-09-24", published_date: "2026-09-24",
+      sample_size: 1204, tse_registration: "BR-01111/2026", ...over,
+    });
+    const { store: novo } = writeStoreFromPolls([
+      semNativo(),
+      semNativo({ id: "bbbbbbbbbbbb", state: "SP", sample_size: 602 }),
+      // a terceira é da MESMA fatia SP: casa por registro com a segunda, não cunha
+      semNativo({ id: "cccccccccccc", state: "SP", race: "governador", sample_size: 602 }),
+    ], { runDate: RUN_DATE, dir });
+    const ids = novo.surveys.map((s) => s.survey_id);
+    assert(new Set(ids).size === ids.length, `survey_id duplicado: ${JSON.stringify(ids)}`);
+    assert(novo.surveys.length === 2, `${novo.surveys.length} levantamentos, esperado 2 (nacional + fatia SP)`);
+    const nacional = novo.surveys.find((s) => s.universe?.uf == null);
+    const sp = novo.surveys.find((s) => s.universe?.uf === "SP");
+    assert(nacional?.survey_id === mintSurveyId("survey|reg|BR-01111/2026"), "o primeiro a chegar NÃO ficou com a semente de sempre (id re-cunhado = churn)");
+    assert(sp && sp.mint_seed === "survey|reg|BR-01111/2026|SP|2026-09-24|602", `a fatia não foi qualificada por universo/data/amostra: ${sp?.mint_seed}`);
+    assert(novo.questions.filter((q) => q.survey_id === sp?.survey_id).length === 2, "a governador SP não se juntou à fatia SP pelo registro");
+    const k = novo.conflicts.find((c) => c.type === "survey_seed_collision");
+    assert(!!k && k.incoming === "survey|reg|BR-01111/2026|SP|2026-09-24|602", "a colisão não deixou rastro em conflicts.ndjson — silêncio não é sucesso (§2)");
+    const { errors } = validateStore(novo);
+    assert(!errors.some((e) => /id duplicado/.test(e)), `validate-store reprovaria: ${errors.join(" · ")}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("levantamento: dois registros SEM DATA com semente idêntica juntam-se a um levantamento só — nunca dois com o mesmo id", (_store, assert) => {
+  // O caso real de 28/09/2026: cenários nacionais da Wikipédia sem data
+  // utilizável, mesmo instituto, mesma amostra, mesmo elenco, chegando em dobro.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-semdata-"));
+  try {
+    const semData = (over) => poll({
+      id: "dddddddddddd", source: "wikipedia", pollster: "Paraná Pesquisas", race: "presidente", state: null,
+      scenario: "1º turno — cenário 3/4", fieldwork_start: null, fieldwork_end: null, published_date: null,
+      sample_size: 2020, tse_registration: null, ...over,
+    });
+    const { store: novo } = writeStoreFromPolls([semData(), semData({ id: "eeeeeeeeeeee" })], { runDate: RUN_DATE, dir });
+    const ids = novo.surveys.map((s) => s.survey_id);
+    assert(new Set(ids).size === ids.length, `survey_id duplicado: ${JSON.stringify(ids)}`);
+    assert(novo.surveys.length === 1, `${novo.surveys.length} levantamentos, esperado 1`);
+    assert(novo.questions.length === 1, `${novo.questions.length} perguntas, esperado 1 (a mesma semente de pergunta)`);
+    const k = novo.conflicts.find((c) => c.type === "survey_seed_identical");
+    assert(!!k, "a junção não deixou rastro em conflicts.ndjson — silêncio não é sucesso (§2)");
+    const { errors } = validateStore(novo);
+    assert(!errors.some((e) => /id duplicado/.test(e)), `validate-store reprovaria: ${errors.join(" · ")}`);
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }
