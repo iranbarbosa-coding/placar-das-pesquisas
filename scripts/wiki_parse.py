@@ -107,6 +107,16 @@ def parse_table(lines):
             i += 1; continue
         if s.startswith('|}'):
             break
+        # O SEPARADOR DE LINHA MANDA MAIS QUE A CITAÇÃO ABERTA. Uma citação
+        # quebrada (senador:SP, 29/09/2026: `|Quaest<ref>{{citar web|url=|Quaest
+        # <ref>{{citar web|url=https://…` — o prefixo digitado duas vezes) nunca
+        # fecha, e a regra de continuação abaixo colava nela TODAS as linhas
+        # seguintes até o fim da tabela: 10 pesquisas do Senado sumiram sem
+        # erro. Um `|-` no começo da linha é sempre uma linha nova da tabela
+        # (nenhum parâmetro de {{citar web}} começa por "|-"), então o dano de
+        # uma citação quebrada fica confinado à própria linha.
+        if s.startswith('|-'):
+            flush(); i += 1; continue
         # A multi-line {{citar web|…}} inside <ref> wraps onto lines starting
         # with "|". Those are continuations of the current cell, not new cells:
         # treating them as cells shifts every column of the row by one.
@@ -114,8 +124,6 @@ def parse_table(lines):
                     or cur[-1]['raw'].count('<ref') > cur[-1]['raw'].count('</ref>') + cur[-1]['raw'].count('/>')):
             cur[-1]['raw'] += '\n' + ln
             i += 1; continue
-        if s.startswith('|-'):
-            flush(); i += 1; continue
         if s.startswith('!') or (s.startswith('|') and not s.startswith('|}')):
             is_h = s.startswith('!')
             body = s[1:]
@@ -193,7 +201,14 @@ def cand_from_header(raw):
         # link becomes the candidate whenever the name itself is unlinked.
         m = re.search(r'\(\s*(\[\[[^\]]*\]\][^()]*)\)\s*$', t.strip())
     party_raw = m.group(1) if m else None
-    name_raw = re.split(r'<br\s*/?>', t[:m.start()] if m else t, flags=re.I)[0]
+    # UM <br> DENTRO DO LINK É PARTE DO NOME. São Paulo (29/09/2026) escreve o
+    # cabeçalho como `[[Simone Tebet|Simone<br>Tebet]]`; cortar no primeiro <br>
+    # ANTES de resolver o link deixava `[[Simone Tebet|Simone` — e 46 perguntas
+    # de SP foram cunhadas (e publicadas) com o link cru como nome. O <br> só
+    # separa o nome do partido FORA do link.
+    t_nome = t[:m.start()] if m else t
+    t_nome = re.sub(r'\[\[([^\]]*?)\]\]', lambda k: '[[' + re.sub(r'<br\s*/?>', ' ', k.group(1), flags=re.I) + ']]', t_nome)
+    name_raw = re.split(r'<br\s*/?>', t_nome, flags=re.I)[0]
 
     def link_display(s):
         lm = re.search(r'\[\[([^|\]]*)\|([^\]]*)\]\]', s)
@@ -906,6 +921,23 @@ def _self_test():
     pm = extract(manco, url, 'pt', 'presidente', None)
     assert [p['pollster'] for p in pm] == ['Ranking', 'Índice'], ('template manco engoliu a tabela', pm)
     assert pm[0]['fieldwork_end'] == '2026-09-26' and [r['pct'] for r in pm[0]['results']] == [40.0, 41.0], pm[0]
+    # CITAÇÃO QUEBRADA (senador:SP, 29/09/2026): a linha com o prefixo
+    # `<ref>{{citar web|url=` digitado duas vezes nunca fecha; o `|-` seguinte
+    # tem de encerrar a linha, e a linha boa depois dela tem de sair.
+    quebrada = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "| Quaest<ref name=\":37\">{{citar web|url=|Quaest<ref name=\":37\">{{citar web|url=https://x.example/q|título=T}}</ref> || 21 e 24 de setembro || 1.200 || 40 || 41 || 3 || 59",
+        "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
+    pq = extract(quebrada, url, 'pt', 'presidente', None)
+    assert any(p['pollster'] == 'Índice' and p['fieldwork_end'] == '2026-09-26' for p in pq), ('citação quebrada engoliu a linha seguinte', pq)
+    # <br> DENTRO DO LINK (São Paulo): `[[Simone Tebet|Simone<br>Tebet]]` é
+    # "Simone Tebet", não "[[Simone Tebet|Simone".
+    sp = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Simone Tebet|Simone<br>Tebet]]<br>{{small|[[Partido Socialista Brasileiro (1985)|PSB]]}} !! [[Marina Silva|Marina<br>Silva]]<br>{{small|[[Rede Sustentabilidade|REDE]]}} !! Outros !! Indecisos",
+        "|-", "| Futura || 23 e 25 de setembro || 1.600 || 33,3 || 35,1 || 3 || 20", "|}"])
+    ps = extract(sp, url, 'pt', 'senador', 'SP')
+    assert [r['candidate'] for r in ps[0]['results']] == ['Simone Tebet', 'Marina Silva'], ('<br> dentro do link vazou', ps)
+    assert [r['party'] for r in ps[0]['results']] == ['PSB', 'REDE'], ps
     # Subpágina de INTERVALO ("2023-2025"), sem cabeçalho de ano, em ordem
     # cronológica inversa — a forma real da "/Primeiro Turno/2023-2025" em
     # 14/09/2026. Três levantamentos: (a) ancorado pela citação (jan/2025),

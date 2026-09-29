@@ -1025,7 +1025,19 @@ metadata cells change in the table columns.
   fixed the same rows come back with proper names, every candidate re-mints, and
   the judge saw 10 senador:SP losses "sem prova"; `tabelaIdentica` now matches a
   wikitext-leaked name by its link target (case 12c), so the identical table proves
-  the succession.
+  the succession. Correction after rehearsal 24 (main and branch parse SP
+  identically): the SP garbage is NOT the `{{N/A}` case — it is a `<br>` INSIDE the
+  header link (`[[Simone Tebet|Simone<br>Tebet]]`): `cand_from_header` split on the
+  first `<br>` before resolving the link. Fixed (the `<br>` inside `[[…]]` becomes a
+  space; self-test case). And the 10 senador:SP rows vanished on main too, from a
+  Wikipedia edit made after 21:16: a Quaest row typed with the citation prefix
+  twice (`|Quaest<ref>{{citar web|url=|Quaest<ref>{{citar web|url=https://…`, page
+  line 3350) never closes, and the continuation rule glued every later row to it.
+  Now a `|-` line always ends the row before the continuation check, so a broken
+  citation damages only its own row (self-test case). **Still open**: unlinked
+  multi-line header names (`!Geraldo<br>Rufino<br>{{small|…}}`) are cut at the first
+  `<br>` ("Geraldo", "Carlos", "Vivian" in governador:SP) — a stable but wrong name;
+  fixing it re-mints many candidates and needs its own rehearsal.
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across
