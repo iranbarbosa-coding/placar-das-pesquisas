@@ -699,7 +699,7 @@ Soma **70.5%** · faltam **29.5 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 37 |
-| Valmir de | 23.8 |
+| Valmir de Francisquinho | 23.8 |
 | Ricardo Marques | 7.6 |
 | Emanuel Cacho | 1 |
 | *outros* | 1.13 |
@@ -846,7 +846,7 @@ Soma **75.6%** · faltam **24.4 pontos** · 2 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 48.28 |
-| Valmir de | 27.28 |
+| Valmir de Francisquinho | 27.28 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
@@ -943,7 +943,7 @@ Soma **77.6%** · faltam **22.4 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 40.8 |
-| Valmir de | 30.3 |
+| Valmir de Francisquinho | 30.3 |
 | Ricardo Marques | 5.3 |
 | Emanuel Cacho | 0.8 |
 | *outros* | 0.4 |
@@ -1130,7 +1130,7 @@ Soma **82.9%** · faltam **17.1 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 46.13 |
-| Valmir de | 24.87 |
+| Valmir de Francisquinho | 24.87 |
 | Ricardo Marques | 10.07 |
 | Emanuel Cacho | 1.8 |
 | *outros* | 0 |
@@ -1183,7 +1183,7 @@ Soma **83.7%** · faltam **16.3 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 45.4 |
-| Valmir de | 32.2 |
+| Valmir de Francisquinho | 32.2 |
 | Ricardo Marques | 4.5 |
 | Emanuel Cacho | 1 |
 | *outros* | 0.6 |
@@ -1318,7 +1318,7 @@ Soma **85.3%** · faltam **14.7 pontos** · 3 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 46.2 |
-| Valmir de | 34 |
+| Valmir de Francisquinho | 34 |
 | Ricardo Marques | 5.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
@@ -1423,7 +1423,7 @@ Soma **86.8%** · faltam **13.2 pontos** · 2 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 43.45 |
-| Valmir de | 32.16 |
+| Valmir de Francisquinho | 32.16 |
 | *não sabe/não respondeu* | 11.19 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
@@ -1491,7 +1491,7 @@ Soma **87.3%** · faltam **12.7 pontos** · 3 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Valmir de | 44.59 |
+| Valmir de Francisquinho | 44.59 |
 | Fábio | 37.27 |
 | Ricardo Marques | 5.41 |
 
@@ -1527,7 +1527,7 @@ Soma **87.7%** · faltam **12.3 pontos** · 4 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Valmir de | 39.9 |
+| Valmir de Francisquinho | 39.9 |
 | Fábio | 35.3 |
 | Ricardo Marques | 9.8 |
 | Emanuel Cacho | 0.7 |

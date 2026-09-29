@@ -58,6 +58,7 @@
 {"institute_id":"i_5e4e168f081e","legacy_ids":[],"canonical":"IPSensus","aliases":["IPSensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-21"}
 {"institute_id":"i_609e1b050026","legacy_ids":[],"canonical":"Potengi/Media","aliases":["Potengi/Media"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_60e80ad63304","legacy_ids":[],"canonical":"Opinião","aliases":["Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_615fa65fb5ec","legacy_ids":["i_ae833797eab1"],"canonical":"Revista Total","aliases":["Revista Total"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_64e7733f0f11","legacy_ids":[],"canonical":"Portal Goiás","aliases":["Portal Goiás"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_6658652dc3c4","legacy_ids":[],"canonical":"Metadata/Grupo Dial","aliases":["Metadata/Grupo Dial"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_669ca5649299","legacy_ids":[],"canonical":"Intenção Instituto de Pesquisa","aliases":["Intenção Instituto de Pesquisa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -109,7 +110,6 @@
 {"institute_id":"i_a597e5fe9765","legacy_ids":[],"canonical":"IRTB","aliases":["IRTB"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_a7850b303de2","legacy_ids":[],"canonical":"Data Populi","aliases":["Data Populi"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_a7d105d51718","legacy_ids":[],"canonical":"DataTempo","aliases":["DataTempo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_ae833797eab1","legacy_ids":[],"canonical":"Revista Total Brasil","aliases":["Revista Total Brasil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_afd12246d41a","legacy_ids":[],"canonical":"Seta","aliases":["Seta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_b0f499e2b7a6","legacy_ids":[],"canonical":"IRG","aliases":["IRG"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_b782a22a45fd","legacy_ids":[],"canonical":"Múltipla","aliases":["Múltipla"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -124,7 +124,6 @@
 {"institute_id":"i_ca24c8f8cec3","legacy_ids":[],"canonical":"Visão","aliases":["Visão"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cc62c2780454","legacy_ids":[],"canonical":"IFP","aliases":["IFP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cd57f254cabe","legacy_ids":[],"canonical":"Qualitta","aliases":["Qualitta"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-06"}
-{"institute_id":"i_cdb3a2477863","legacy_ids":["i_fcfba71031f1"],"canonical":"FIEMS/Opinião","aliases":["FIEMS/Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_cec8aef68e73","legacy_ids":[],"canonical":"Direct Pesquisas","aliases":["Direct Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d0269ac54b04","legacy_ids":[],"canonical":"Item","aliases":["Item"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d027ac4093f7","legacy_ids":[],"canonical":"Datailha","aliases":["Datailha"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -157,5 +156,6 @@
 {"institute_id":"i_f95c85972795","legacy_ids":[],"canonical":"Methodus","aliases":["Methodus"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-17"}
 {"institute_id":"i_f98c78295598","legacy_ids":[],"canonical":"TCM/TSDois","aliases":["TCM/TSDois"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fad3232f047e","legacy_ids":[],"canonical":"ECM Sergipe","aliases":["ECM Sergipe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_fcfba71031f1","legacy_ids":["i_cdb3a2477863","i_fcfba71031f1"],"canonical":"Fiems/Instituto Opinião","aliases":["Fiems/Instituto Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fddfdf998149","legacy_ids":["i_cbe60b523ce8"],"canonical":"Viva Voz","aliases":["Viva Voz"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_fee26aee2746","legacy_ids":[],"canonical":"Econométrica","aliases":["Econométrica"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

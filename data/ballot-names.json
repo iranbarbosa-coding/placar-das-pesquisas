@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 606,
-  "contencao": 201,
+  "exato": 635,
+  "contencao": 220,
   "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 550
+  "sem": 552
  },
  "ambiguos": [
   {
@@ -192,15 +192,6 @@
     "PDT"
    ],
    "registro": "PSDB"
-  },
-  {
-   "contest": "governador:SE",
-   "nome": "Eduardo Amorim",
-   "urna": "Eduardo Amorim",
-   "pesquisa": [
-    "PSDB"
-   ],
-   "registro": "REPUBLICANOS"
   },
   {
    "contest": "governador:SP",
@@ -488,6 +479,20 @@
     "numero": "40",
     "origem": "contencao"
    },
+   "eudo raffael": {
+    "nome_urna": "Eudo Raffael",
+    "sq_candidato": "10002549500",
+    "partido": "PCB",
+    "numero": "21",
+    "origem": "exato"
+   },
+   "luisinho": {
+    "nome_urna": "Dr.luisinho",
+    "sq_candidato": "10002533539",
+    "partido": "AGIR",
+    "numero": "36",
+    "origem": "contencao"
+   },
    "mailza assis": {
     "nome_urna": "Mailza Assis",
     "sq_candidato": "10002544107",
@@ -631,6 +636,71 @@
     "partido": "MDB",
     "numero": "15",
     "origem": "exato"
+   }
+  },
+  "presidente:AL": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
+   "augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
+   "flavio bolsonaro": {
+    "nome_urna": "Flávio Bolsonaro",
+    "sq_candidato": "280002551544",
+    "partido": "PL",
+    "numero": "22",
+    "origem": "exato"
+   },
+   "lula": {
+    "nome_urna": "Lula",
+    "sq_candidato": "280002542548",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
+   "pablo marcal": {
+    "nome_urna": "Pablo Marçal",
+    "sq_candidato": "280002553884",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
+   "renan santos": {
+    "nome_urna": "Renan Santos",
+    "sq_candidato": "280002540694",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "romeu zema": {
+    "nome_urna": "Zema",
+    "sq_candidato": "280002539826",
+    "partido": "NOVO",
+    "numero": "30",
+    "origem": "contencao"
+   },
+   "ronaldo caiado": {
+    "nome_urna": "Ronaldo Caiado",
+    "sq_candidato": "280002551932",
+    "partido": "PSD",
+    "numero": "55",
+    "origem": "exato"
+   },
+   "tarcisio de freitas": {
+    "nome_urna": "Tarcísio",
+    "sq_candidato": "250002541303",
+    "partido": "REPUBLICANOS",
+    "numero": "10",
+    "origem": "outra-disputa"
    }
   },
   "governador:AM": {
@@ -785,6 +855,13 @@
     "numero": "55",
     "origem": "contencao"
    },
+   "carlos cley": {
+    "nome_urna": "Carlos Cley",
+    "sq_candidato": "30002536313",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "exato"
+   },
    "clecio": {
     "nome_urna": "Clécio",
     "sq_candidato": "30002536311",
@@ -798,6 +875,13 @@
     "partido": "UNIÃO",
     "numero": "44",
     "origem": "contencao"
+   },
+   "delegado marcos": {
+    "nome_urna": "Delegado Marcos",
+    "sq_candidato": "30002552017",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
    },
    "dr furlan": {
     "nome_urna": "Dr. Furlan",
@@ -1266,6 +1350,13 @@
     "numero": "11",
     "origem": "exato"
    },
+   "elisson ferreira": {
+    "nome_urna": "Elisson",
+    "sq_candidato": "70002551298",
+    "partido": "AGIR",
+    "numero": "36",
+    "origem": "contencao"
+   },
    "expedito mendonca": {
     "nome_urna": "Expedito Mendonça",
     "sq_candidato": "70002552341",
@@ -1349,6 +1440,13 @@
     "partido": "PRTB",
     "numero": "28",
     "origem": "exato"
+   },
+   "robson raymundo": {
+    "nome_urna": "Professor Robson",
+    "sq_candidato": "70002535930",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "contencao"
    }
   },
   "presidente:DF": {
@@ -1573,13 +1671,6 @@
     "numero": "15",
     "origem": "outra-disputa"
    },
-   "renan santos": {
-    "nome_urna": "Renan Santos",
-    "sq_candidato": "280002540694",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
    "romeu zema": {
     "nome_urna": "Zema",
     "sq_candidato": "280002539826",
@@ -1608,6 +1699,13 @@
     "sq_candidato": "90002540993",
     "partido": "MDB",
     "numero": "15",
+    "origem": "exato"
+   },
+   "danilo da silva": {
+    "nome_urna": "Danilo da Silva",
+    "sq_candidato": "90002553733",
+    "partido": "PCO",
+    "numero": "29",
     "origem": "exato"
    },
    "gracinha caiado": {
@@ -1947,6 +2045,13 @@
    }
   },
   "governador:MG": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
    "alexandre kalil": {
     "nome_urna": "Alexandre Kalil",
     "sq_candidato": "130002539775",
@@ -2182,13 +2287,6 @@
     "numero": "25",
     "origem": "contencao"
    },
-   "economista renato gomes": {
-    "nome_urna": "Economista Renato Gomes",
-    "sq_candidato": "120002549681",
-    "partido": "DC",
-    "numero": "27",
-    "origem": "exato"
-   },
    "eduardo riedel": {
     "nome_urna": "Eduardo Riedel",
     "sq_candidato": "120002536582",
@@ -2361,6 +2459,13 @@
     "numero": "150",
     "origem": "outra-disputa"
    },
+   "mauricio coelho": {
+    "nome_urna": "Maurício Coelho",
+    "sq_candidato": "110002553058",
+    "partido": "MOBILIZA",
+    "numero": "33",
+    "origem": "exato"
+   },
    "natasha slhessarenko": {
     "nome_urna": "Doutora Natasha",
     "sq_candidato": "110002544985",
@@ -2373,6 +2478,20 @@
     "sq_candidato": "110002551480",
     "partido": "REPUBLICANOS",
     "numero": "10",
+    "origem": "exato"
+   },
+   "rafaell milas": {
+    "nome_urna": "Rafaell Milas",
+    "sq_candidato": "110002543953",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "sargento laudicerio": {
+    "nome_urna": "Sargento Laudicério",
+    "sq_candidato": "110002554073",
+    "partido": "AGIR",
+    "numero": "36",
     "origem": "exato"
    },
    "wellington fagundes": {
@@ -2463,6 +2582,13 @@
    }
   },
   "governador:PR": {
+   "adriano funileiro": {
+    "nome_urna": "Adriano Funileiro",
+    "sq_candidato": "160002552560",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "adriano teixeira": {
     "nome_urna": "Adriano Funileiro",
     "sq_candidato": "160002552560",
@@ -2714,6 +2840,13 @@
     "numero": "16",
     "origem": "exato"
    },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
    "lula": {
     "nome_urna": "Lula",
     "sq_candidato": "280002542548",
@@ -2749,12 +2882,26 @@
     "numero": "55",
     "origem": "exato"
    },
+   "rui costa pimenta": {
+    "nome_urna": "Rui Costa Pimenta",
+    "sq_candidato": "280002552487",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "samara martins": {
     "nome_urna": "Samara",
     "sq_candidato": "280002538811",
     "partido": "UP",
     "numero": "80",
     "origem": "contencao"
+   },
+   "veterinario wilson grassi": {
+    "nome_urna": "Veterinário Wilson Grassi",
+    "sq_candidato": "280002548139",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
    }
   },
   "governador:PE": {
@@ -3707,6 +3854,13 @@
     "numero": "22",
     "origem": "exato"
    },
+   "pedro abib": {
+    "nome_urna": "Pedro Abib",
+    "sq_candidato": "220002551251",
+    "partido": "MDB",
+    "numero": "15",
+    "origem": "exato"
+   },
    "samuel costa": {
     "nome_urna": "Samuel Costa",
     "sq_candidato": "220002550927",
@@ -3853,6 +4007,13 @@
     "numero": "45",
     "origem": "exato"
    },
+   "priscila voigt": {
+    "nome_urna": "Priscila Voigt",
+    "sq_candidato": "210002533355",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
+   },
    "rejane de oliveira": {
     "nome_urna": "Rejane de Oliveira",
     "sq_candidato": "210002541367",
@@ -3990,6 +4151,13 @@
     "numero": "22",
     "origem": "exato"
    },
+   "hertz dias": {
+    "nome_urna": "Hertz Dias",
+    "sq_candidato": "280002541457",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "exato"
+   },
    "lula": {
     "nome_urna": "Lula",
     "sq_candidato": "280002542548",
@@ -4041,12 +4209,12 @@
     "numero": "101",
     "origem": "outra-disputa"
    },
-   "eduardo amorim": {
-    "nome_urna": "Eduardo Amorim",
-    "sq_candidato": "260002549127",
-    "partido": "REPUBLICANOS",
-    "numero": "100",
-    "origem": "outra-disputa"
+   "dr helton": {
+    "nome_urna": "Dr. Helton",
+    "sq_candidato": "260002547415",
+    "partido": "PSOL",
+    "numero": "50",
+    "origem": "exato"
    },
    "emanuel cacho": {
     "nome_urna": "Emanuel Cacho",
@@ -4069,6 +4237,20 @@
     "numero": "22",
     "origem": "exato"
    },
+   "taty cristina de jesus": {
+    "nome_urna": "Taty Cristina de Jesus",
+    "sq_candidato": "260002550683",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
+   "valmir de": {
+    "nome_urna": "Valmir de Francisquinho",
+    "sq_candidato": "260002532010",
+    "partido": "REPUBLICANOS",
+    "numero": "10",
+    "origem": "contencao"
+   },
    "valmir de francisquinho": {
     "nome_urna": "Valmir de Francisquinho",
     "sq_candidato": "260002532010",
@@ -4084,7 +4266,93 @@
     "origem": "contencao"
    }
   },
+  "presidente:SE": {
+   "aecio neves": {
+    "nome_urna": "Aécio Neves",
+    "sq_candidato": "130002554332",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "outra-disputa"
+   },
+   "augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
+   "cabo daciolo": {
+    "nome_urna": "Cabo Daciolo",
+    "sq_candidato": "40002551740",
+    "partido": "MOBILIZA",
+    "numero": "33",
+    "origem": "outra-disputa"
+   },
+   "flavio bolsonaro": {
+    "nome_urna": "Flávio Bolsonaro",
+    "sq_candidato": "280002551544",
+    "partido": "PL",
+    "numero": "22",
+    "origem": "exato"
+   },
+   "lula": {
+    "nome_urna": "Lula",
+    "sq_candidato": "280002542548",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
+   "pablo marcal": {
+    "nome_urna": "Pablo Marçal",
+    "sq_candidato": "280002553884",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
+   "renan santos": {
+    "nome_urna": "Renan Santos",
+    "sq_candidato": "280002540694",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "romeu zema": {
+    "nome_urna": "Zema",
+    "sq_candidato": "280002539826",
+    "partido": "NOVO",
+    "numero": "30",
+    "origem": "contencao"
+   },
+   "ronaldo caiado": {
+    "nome_urna": "Ronaldo Caiado",
+    "sq_candidato": "280002551932",
+    "partido": "PSD",
+    "numero": "55",
+    "origem": "exato"
+   },
+   "rui costa pimenta": {
+    "nome_urna": "Rui Costa Pimenta",
+    "sq_candidato": "280002552487",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
+   "samara martins": {
+    "nome_urna": "Samara",
+    "sq_candidato": "280002538811",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "contencao"
+   }
+  },
   "governador:SP": {
+   "vera lucia vera": {
+    "nome_urna": "Vera Lúcia",
+    "sq_candidato": "250002536915",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "contencao"
+   },
    "andre do prado": {
     "nome_urna": "André do Prado",
     "sq_candidato": "250002541308",
@@ -4092,19 +4360,19 @@
     "numero": "222",
     "origem": "outra-disputa"
    },
+   "carlos": {
+    "nome_urna": "Carlos Machado",
+    "sq_candidato": "250002550913",
+    "partido": "PCB",
+    "numero": "21",
+    "origem": "contencao"
+   },
    "carlos machado": {
     "nome_urna": "Carlos Machado",
     "sq_candidato": "250002550913",
     "partido": "PCB",
     "numero": "21",
     "origem": "exato"
-   },
-   "edjane": {
-    "nome_urna": "Policial Edjane",
-    "sq_candidato": "250002548080",
-    "partido": "AGIR",
-    "numero": "36",
-    "origem": "contencao"
    },
    "fernando haddad": {
     "nome_urna": "Fernando Haddad",
@@ -4119,6 +4387,13 @@
     "partido": "PL",
     "numero": "22",
     "origem": "outra-disputa"
+   },
+   "izadora": {
+    "nome_urna": "Izadora Dias",
+    "sq_candidato": "250002553062",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "contencao"
    },
    "izadora dias": {
     "nome_urna": "Izadora Dias",
@@ -4140,6 +4415,13 @@
     "partido": "PRTB",
     "numero": "28",
     "origem": "outra-disputa"
+   },
+   "policial": {
+    "nome_urna": "Policial Edjane",
+    "sq_candidato": "250002548080",
+    "partido": "AGIR",
+    "numero": "36",
+    "origem": "contencao"
    },
    "policial edjane": {
     "nome_urna": "Policial Edjane",
@@ -4188,6 +4470,13 @@
     "sq_candidato": "250002536915",
     "partido": "PSTU",
     "numero": "16",
+    "origem": "contencao"
+   },
+   "vivian": {
+    "nome_urna": "Vivian Mendes",
+    "sq_candidato": "250002544912",
+    "partido": "UP",
+    "numero": "80",
     "origem": "contencao"
    },
    "vivian mendes": {
@@ -4469,13 +4758,6 @@
     "numero": "15",
     "origem": "outra-disputa"
    },
-   "renan santos": {
-    "nome_urna": "Renan Santos",
-    "sq_candidato": "280002540694",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
    "romeu zema": {
     "nome_urna": "Zema",
     "sq_candidato": "280002539826",
@@ -4506,6 +4788,13 @@
     "numero": "500",
     "origem": "outra-disputa"
    },
+   "bruno pedreiro do pco": {
+    "nome_urna": "Bruno Pedreiro do PCO",
+    "sq_candidato": "240002553718",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "decio lima": {
     "nome_urna": "Décio Lima",
     "sq_candidato": "240002533898",
@@ -4532,6 +4821,27 @@
     "sq_candidato": "240002537073",
     "partido": "PL",
     "numero": "22",
+    "origem": "exato"
+   },
+   "lais chaud": {
+    "nome_urna": "Laís Chaud",
+    "sq_candidato": "240002550544",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
+   },
+   "marcelo brigadeiro": {
+    "nome_urna": "Marcelo Brigadeiro",
+    "sq_candidato": "240002544118",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "professor marcus sodre": {
+    "nome_urna": "Professor Marcus Sodré",
+    "sq_candidato": "240002541913",
+    "partido": "PSTU",
+    "numero": "16",
     "origem": "exato"
    },
    "ralf zimmer": {
@@ -4647,150 +4957,6 @@
     "partido": "DEMOCRATA",
     "numero": "35",
     "origem": "exato"
-   }
-  },
-  "presidente:SE": {
-   "aecio neves": {
-    "nome_urna": "Aécio Neves",
-    "sq_candidato": "130002554332",
-    "partido": "PSDB",
-    "numero": "456",
-    "origem": "outra-disputa"
-   },
-   "augusto cury": {
-    "nome_urna": "Escritor Augusto Cury",
-    "sq_candidato": "280002551547",
-    "partido": "AVANTE",
-    "numero": "70",
-    "origem": "contencao"
-   },
-   "cabo daciolo": {
-    "nome_urna": "Cabo Daciolo",
-    "sq_candidato": "40002551740",
-    "partido": "MOBILIZA",
-    "numero": "33",
-    "origem": "outra-disputa"
-   },
-   "flavio bolsonaro": {
-    "nome_urna": "Flávio Bolsonaro",
-    "sq_candidato": "280002551544",
-    "partido": "PL",
-    "numero": "22",
-    "origem": "exato"
-   },
-   "lula": {
-    "nome_urna": "Lula",
-    "sq_candidato": "280002542548",
-    "partido": "PT",
-    "numero": "13",
-    "origem": "exato"
-   },
-   "pablo marcal": {
-    "nome_urna": "Pablo Marçal",
-    "sq_candidato": "280002553884",
-    "partido": "PRTB",
-    "numero": "28",
-    "origem": "exato"
-   },
-   "renan santos": {
-    "nome_urna": "Renan Santos",
-    "sq_candidato": "280002540694",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
-   "romeu zema": {
-    "nome_urna": "Zema",
-    "sq_candidato": "280002539826",
-    "partido": "NOVO",
-    "numero": "30",
-    "origem": "contencao"
-   },
-   "ronaldo caiado": {
-    "nome_urna": "Ronaldo Caiado",
-    "sq_candidato": "280002551932",
-    "partido": "PSD",
-    "numero": "55",
-    "origem": "exato"
-   },
-   "rui costa pimenta": {
-    "nome_urna": "Rui Costa Pimenta",
-    "sq_candidato": "280002552487",
-    "partido": "PCO",
-    "numero": "29",
-    "origem": "exato"
-   },
-   "samara martins": {
-    "nome_urna": "Samara",
-    "sq_candidato": "280002538811",
-    "partido": "UP",
-    "numero": "80",
-    "origem": "contencao"
-   }
-  },
-  "presidente:AL": {
-   "aecio neves": {
-    "nome_urna": "Aécio Neves",
-    "sq_candidato": "130002554332",
-    "partido": "PSDB",
-    "numero": "456",
-    "origem": "outra-disputa"
-   },
-   "augusto cury": {
-    "nome_urna": "Escritor Augusto Cury",
-    "sq_candidato": "280002551547",
-    "partido": "AVANTE",
-    "numero": "70",
-    "origem": "contencao"
-   },
-   "flavio bolsonaro": {
-    "nome_urna": "Flávio Bolsonaro",
-    "sq_candidato": "280002551544",
-    "partido": "PL",
-    "numero": "22",
-    "origem": "exato"
-   },
-   "lula": {
-    "nome_urna": "Lula",
-    "sq_candidato": "280002542548",
-    "partido": "PT",
-    "numero": "13",
-    "origem": "exato"
-   },
-   "pablo marcal": {
-    "nome_urna": "Pablo Marçal",
-    "sq_candidato": "280002553884",
-    "partido": "PRTB",
-    "numero": "28",
-    "origem": "exato"
-   },
-   "renan santos": {
-    "nome_urna": "Renan Santos",
-    "sq_candidato": "280002540694",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
-   "romeu zema": {
-    "nome_urna": "Zema",
-    "sq_candidato": "280002539826",
-    "partido": "NOVO",
-    "numero": "30",
-    "origem": "contencao"
-   },
-   "ronaldo caiado": {
-    "nome_urna": "Ronaldo Caiado",
-    "sq_candidato": "280002551932",
-    "partido": "PSD",
-    "numero": "55",
-    "origem": "exato"
-   },
-   "tarcisio de freitas": {
-    "nome_urna": "Tarcísio",
-    "sq_candidato": "250002541303",
-    "partido": "REPUBLICANOS",
-    "numero": "10",
-    "origem": "outra-disputa"
    }
   },
   "presidente:MT": {
@@ -5156,6 +5322,13 @@
     "numero": "445",
     "origem": "exato"
    },
+   "catarina matos": {
+    "nome_urna": "Catarina Matos",
+    "sq_candidato": "60002533959",
+    "partido": "UP",
+    "numero": "800",
+    "origem": "exato"
+   },
    "cid gomes": {
     "nome_urna": "Cid Gomes",
     "sq_candidato": "60002542479",
@@ -5163,11 +5336,25 @@
     "numero": "400",
     "origem": "exato"
    },
+   "lino alves": {
+    "nome_urna": "Lino Alves",
+    "sq_candidato": "60002551397",
+    "partido": "PCO",
+    "numero": "290",
+    "origem": "exato"
+   },
    "luizianne lins": {
     "nome_urna": "Luizianne",
     "sq_candidato": "60002542476",
     "partido": "REDE",
     "numero": "180",
+    "origem": "contencao"
+   },
+   "reginaldo ferreira": {
+    "nome_urna": "Reginaldo",
+    "sq_candidato": "60002550748",
+    "partido": "PSTU",
+    "numero": "162",
     "origem": "contencao"
    }
   },
@@ -5301,7 +5488,7 @@
     "origem": "exato"
    },
    "erika kokay": {
-    "nome_urna": "Érika Kokay",
+    "nome_urna": "Erika Kokay",
     "sq_candidato": "70002552490",
     "partido": "PT",
     "numero": "131",
@@ -5368,6 +5555,13 @@
     "sq_candidato": "70002548624",
     "partido": "NOVO",
     "numero": "300",
+    "origem": "exato"
+   },
+   "tiago": {
+    "nome_urna": "Tiago",
+    "sq_candidato": "70002551323",
+    "partido": "AGIR",
+    "numero": "360",
     "origem": "exato"
    },
    "zanata": {
@@ -5458,11 +5652,25 @@
     "numero": "500",
     "origem": "exato"
    },
+   "ernesto roller": {
+    "nome_urna": "Ernesto Roller",
+    "sq_candidato": "90002545243",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "exato"
+   },
    "gracinha caiado": {
     "nome_urna": "Gracinha Caiado",
     "sq_candidato": "90002540997",
     "partido": "UNIÃO",
     "numero": "444",
+    "origem": "exato"
+   },
+   "guilherme darques": {
+    "nome_urna": "Guilherme Darques",
+    "sq_candidato": "90002551198",
+    "partido": "UP",
+    "numero": "800",
     "origem": "exato"
    },
    "gustavo gayer": {
@@ -5484,6 +5692,13 @@
     "sq_candidato": "90002541455",
     "partido": "PSB",
     "numero": "400",
+    "origem": "exato"
+   },
+   "iure castro": {
+    "nome_urna": "Iure Castro",
+    "sq_candidato": "90002545244",
+    "partido": "CIDADANIA",
+    "numero": "234",
     "origem": "exato"
    },
    "oseias varao": {
@@ -5723,13 +5938,6 @@
     "numero": "221",
     "origem": "exato"
    },
-   "daniel junior": {
-    "nome_urna": "Daniel Junior",
-    "sq_candidato": "120002534952",
-    "partido": "AGIR",
-    "numero": "365",
-    "origem": "exato"
-   },
    "reinaldo azambuja": {
     "nome_urna": "Reinaldo Azambuja",
     "sq_candidato": "120002535764",
@@ -5767,6 +5975,13 @@
     "numero": "700",
     "origem": "contencao"
    },
+   "beny godoy": {
+    "nome_urna": "Beny Godoy",
+    "sq_candidato": "110002553706",
+    "partido": "AGIR",
+    "numero": "365",
+    "origem": "exato"
+   },
    "carlos favaro": {
     "nome_urna": "Fávaro",
     "sq_candidato": "110002544986",
@@ -5779,6 +5994,13 @@
     "sq_candidato": "110002548042",
     "partido": "DEMOCRATA",
     "numero": "351",
+    "origem": "exato"
+   },
+   "galvan": {
+    "nome_urna": "Galvan",
+    "sq_candidato": "110002540403",
+    "partido": "AVANTE",
+    "numero": "700",
     "origem": "exato"
    },
    "janaina riva": {
@@ -5814,6 +6036,13 @@
     "sq_candidato": "110002544988",
     "partido": "PSB",
     "numero": "400",
+    "origem": "exato"
+   },
+   "professor nelson ferreira": {
+    "nome_urna": "Professor Nelson Ferreira",
+    "sq_candidato": "110002553701",
+    "partido": "AGIR",
+    "numero": "360",
     "origem": "exato"
    }
   },
@@ -6348,6 +6577,13 @@
     "numero": "123",
     "origem": "exato"
    },
+   "aires mota": {
+    "nome_urna": "Aires Mota",
+    "sq_candidato": "220002551946",
+    "partido": "PV",
+    "numero": "432",
+    "origem": "exato"
+   },
    "bruno bolsonaro scheid": {
     "nome_urna": "Bruno Scheid",
     "sq_candidato": "220002539995",
@@ -6362,11 +6598,25 @@
     "numero": "222",
     "origem": "exato"
    },
+   "engenheiro thulio": {
+    "nome_urna": "Engenheiro Thulio",
+    "sq_candidato": "220002541944",
+    "partido": "MISSÃO",
+    "numero": "144",
+    "origem": "exato"
+   },
    "fernando maximo": {
     "nome_urna": "Dr. Fernando Máximo",
     "sq_candidato": "220002539996",
     "partido": "PL",
     "numero": "221",
+    "origem": "contencao"
+   },
+   "luciana de oliveira e silva": {
+    "nome_urna": "Luciana Oliveira",
+    "sq_candidato": "220002551948",
+    "partido": "PT",
+    "numero": "133",
     "origem": "contencao"
    },
    "luis fernando silva": {
@@ -6515,6 +6765,13 @@
     "numero": "222",
     "origem": "exato"
    },
+   "carol de toni": {
+    "nome_urna": "Carol de Toni",
+    "sq_candidato": "240002541931",
+    "partido": "PL",
+    "numero": "221",
+    "origem": "exato"
+   },
    "caroline de toni": {
     "nome_urna": "Carol de Toni",
     "sq_candidato": "240002541931",
@@ -6534,6 +6791,20 @@
     "sq_candidato": "240002548632",
     "partido": "PP",
     "numero": "111",
+    "origem": "exato"
+   },
+   "joaninha de oliveira": {
+    "nome_urna": "Joaninha de Oliveira",
+    "sq_candidato": "240002537632",
+    "partido": "PSTU",
+    "numero": "160",
+    "origem": "exato"
+   },
+   "marlene soccas": {
+    "nome_urna": "Marlene Soccas",
+    "sq_candidato": "240002550218",
+    "partido": "UP",
+    "numero": "808",
     "origem": "exato"
    }
   },
@@ -6594,13 +6865,6 @@
     "numero": "123",
     "origem": "contencao"
    },
-   "iran barbosa": {
-    "nome_urna": "Iran Barbosa",
-    "sq_candidato": "260002545677",
-    "partido": "PSOL",
-    "numero": "500",
-    "origem": "exato"
-   },
    "paulinho da uniao tur": {
     "nome_urna": "Paulinho da União Tur",
     "sq_candidato": "260002543589",
@@ -6615,12 +6879,12 @@
     "numero": "500",
     "origem": "contencao"
    },
-   "renatinha": {
+   "renatinha oliveira": {
     "nome_urna": "Renatinha",
     "sq_candidato": "260002543591",
     "partido": "DC",
     "numero": "277",
-    "origem": "exato"
+    "origem": "contencao"
    },
    "rodrigo valadares": {
     "nome_urna": "Rodrigo Valadares",
@@ -6638,6 +6902,48 @@
    }
   },
   "senador:SP": {
+   "andre do prado andre": {
+    "nome_urna": "André do Prado",
+    "sq_candidato": "250002541308",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "contencao"
+   },
+   "guilherme derrite guilherme": {
+    "nome_urna": "Guilherme Derrite",
+    "sq_candidato": "250002541312",
+    "partido": "PP",
+    "numero": "111",
+    "origem": "contencao"
+   },
+   "marina silva marina": {
+    "nome_urna": "Marina Silva",
+    "sq_candidato": "250002551501",
+    "partido": "REDE",
+    "numero": "180",
+    "origem": "contencao"
+   },
+   "ricardo salles ricardo": {
+    "nome_urna": "Salles",
+    "sq_candidato": "250002532794",
+    "partido": "NOVO",
+    "numero": "300",
+    "origem": "contencao"
+   },
+   "simone tebet simone": {
+    "nome_urna": "Simone Tebet",
+    "sq_candidato": "250002551502",
+    "partido": "PSB",
+    "numero": "400",
+    "origem": "contencao"
+   },
+   "soninha francine soninha": {
+    "nome_urna": "Soninha Francine",
+    "sq_candidato": "250002552369",
+    "partido": "CIDADANIA",
+    "numero": "232",
+    "origem": "contencao"
+   },
    "andre do prado": {
     "nome_urna": "André do Prado",
     "sq_candidato": "250002541308",
@@ -6778,13 +7084,6 @@
     "numero": "232",
     "origem": "contencao"
    },
-   "soninha francine": {
-    "nome_urna": "Soninha Francine",
-    "sq_candidato": "250002552369",
-    "partido": "CIDADANIA",
-    "numero": "232",
-    "origem": "exato"
-   },
    "weller": {
     "nome_urna": "Weller Gonçalves",
     "sq_candidato": "250002541365",
@@ -6857,11 +7156,25 @@
     "numero": "100",
     "origem": "exato"
    },
+   "helio bolsonaro": {
+    "nome_urna": "Helio Rodrigues Bolsonaro",
+    "sq_candidato": "270002551270",
+    "partido": "DEMOCRATA",
+    "numero": "351",
+    "origem": "contencao"
+   },
    "jose alexandre guimaraes": {
     "nome_urna": "Alexandre Guimarães",
     "sq_candidato": "270002548344",
     "partido": "MDB",
     "numero": "153",
+    "origem": "contencao"
+   },
+   "nilton santos": {
+    "nome_urna": "Coronel Nilton Santos",
+    "sq_candidato": "270002550610",
+    "partido": "NOVO",
+    "numero": "303",
     "origem": "contencao"
    },
    "paulo mourao": {

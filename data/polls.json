@@ -1,24 +1,468 @@
 {
- "generated_at": "2026-09-28T23:42:56.956Z",
+ "generated_at": "2026-09-29T16:52:55.268Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-28T23:42:56.956Z"
+   "last_ok": "2026-09-29T16:52:55.268Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-28T23:42:56.956Z"
+   "last_ok": "2026-09-29T16:52:55.268Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-28T23:42:56.956Z"
+   "last_ok": "2026-09-29T16:52:55.268Z"
   }
  ],
  "polls": [
+  {
+   "id": "245a944bed3b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcel Van Hattem",
+     "party": "Novo",
+     "pct": 23
+    },
+    {
+     "candidate": "Sanderson",
+     "party": "PL",
+     "pct": 19
+    },
+    {
+     "candidate": "Manuela D Ávila",
+     "party": "PSOL",
+     "pct": 18
+    },
+    {
+     "candidate": "Rigotto",
+     "party": "MDB",
+     "pct": 12
+    },
+    {
+     "candidate": "Pimenta",
+     "party": "PT",
+     "pct": 16
+    },
+    {
+     "candidate": "Frederico Antunes",
+     "party": "PSD",
+     "pct": 4
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "35ab6bcc606b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 35
+    },
+    {
+     "candidate": "Gabriel Souza",
+     "party": "MDB",
+     "pct": 19
+    },
+    {
+     "candidate": "Marcelo Maranata",
+     "party": "PSDB",
+     "pct": 2
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "51f267db8669",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "senador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Simone Tebet",
+     "party": "PSB",
+     "pct": 18
+    },
+    {
+     "candidate": "Marina Silva",
+     "party": "Rede",
+     "pct": 15
+    },
+    {
+     "candidate": "André do Prado",
+     "party": "PL",
+     "pct": 20
+    },
+    {
+     "candidate": "Guilherme Derrite",
+     "party": "PP",
+     "pct": 22
+    },
+    {
+     "candidate": "Salles",
+     "party": "Novo",
+     "pct": 6
+    },
+    {
+     "candidate": "Soninha Francine",
+     "party": "CIDADANIA",
+     "pct": 2
+    },
+    {
+     "candidate": "Geraldo Rufino",
+     "party": "Podemos",
+     "pct": 3
+    },
+    {
+     "candidate": "Guto Schiavetto",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Maíra de Souza",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Márcio Alves",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Dr.ª",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Weller Gonçalves",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Petter Maahs",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Ednelson Cesaretti",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "William Teixeira",
+     "party": "Agir",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "7f2beb302233",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "senador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Michelle Bolsonaro",
+     "party": "PL",
+     "pct": 27
+    },
+    {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 18
+    },
+    {
+     "candidate": "Bia Kicis",
+     "party": "PL",
+     "pct": 18
+    },
+    {
+     "candidate": "Erika Kokay",
+     "party": "PT",
+     "pct": 16
+    },
+    {
+     "candidate": "Sebastião Coelho",
+     "party": "Novo",
+     "pct": 11
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a368e2b72e2e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 47
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 26
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 4
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 10
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 1
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a9a7d629cd83",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão e Leandro Grass",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 53
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f33d575c83bb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 53
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Carlos Machado",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Vivian Mendes",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Izadora Dias",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "229d6b409b01",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RJ",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-27",
+   "published_date": null,
+   "sample_size": 1836,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Paes",
+     "party": "PSD",
+     "pct": 44.1
+    },
+    {
+     "candidate": "Douglas Ruas",
+     "party": "PL",
+     "pct": 35.7
+    },
+    {
+     "candidate": "Garotinho",
+     "party": "Republicanos",
+     "pct": 6.3
+    },
+    {
+     "candidate": "André Marinho",
+     "party": "Novo",
+     "pct": 3.8
+    },
+    {
+     "candidate": "Coronel Busnello",
+     "party": "Missão",
+     "pct": 3
+    },
+    {
+     "candidate": "William Siri",
+     "party": "PSOL",
+     "pct": 3
+    },
+    {
+     "candidate": "Cyro Garcia",
+     "party": "PSTU",
+     "pct": 0.7
+    },
+    {
+     "candidate": "Juliete",
+     "party": "UP",
+     "pct": 1.3
+    },
+    {
+     "candidate": "Luan Monteiro",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "282dfde4bd46",
    "source": null,
@@ -189,6 +633,49 @@
    ],
    "others_pct": 2.4,
    "undecided_pct": 6.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "db94b536c1ae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IPEMS",
+   "contractor": null,
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-27",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 3.46,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 29.43
+    },
+    {
+     "candidate": "Capitão Contar",
+     "party": "PL",
+     "pct": 27.59
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 7.19
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 14.21
+    }
+   ],
+   "others_pct": 6.63,
+   "undecided_pct": 14.95,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -422,7 +909,7 @@
      "pct": 30.9
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 23
     },
@@ -517,6 +1004,69 @@
    ],
    "others_pct": null,
    "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "44d63bd476de",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Neokemp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-26",
+   "published_date": null,
+   "sample_size": 1008,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Sergio Moro",
+     "party": "PL",
+     "pct": 48.7
+    },
+    {
+     "candidate": "Requião Filho",
+     "party": "PDT",
+     "pct": 25.9
+    },
+    {
+     "candidate": "Sandro Alex",
+     "party": "PSD",
+     "pct": 20.8
+    },
+    {
+     "candidate": "Luiz França",
+     "party": "Missão",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Samuel de Mattos",
+     "party": "PSTU",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Adriano Funileiro",
+     "party": "PCO",
+     "pct": 0.5
+    },
+    {
+     "candidate": "Tayná Miessa",
+     "party": "UP",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Doutor Alexandre Salomão",
+     "party": "Mobiliza",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -698,6 +1248,74 @@
    "tse_registration": null
   },
   {
+   "id": "99e25dd0ca54",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PR",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Neokemp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-26",
+   "published_date": null,
+   "sample_size": 1008,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Deltan Dallagnol",
+     "party": "Novo",
+     "pct": 48.8
+    },
+    {
+     "candidate": "Filipe Barros",
+     "party": "PL",
+     "pct": 37.6
+    },
+    {
+     "candidate": "Alexandre Curi",
+     "party": "Republicanos",
+     "pct": 26
+    },
+    {
+     "candidate": "Cristina Graeml",
+     "party": "PSD",
+     "pct": 23.6
+    },
+    {
+     "candidate": "Gleisi",
+     "party": "PT",
+     "pct": 28.7
+    },
+    {
+     "candidate": "Dr Rosinha",
+     "party": "PT",
+     "pct": 21.6
+    },
+    {
+     "candidate": "Karen Guerreiro",
+     "party": "Missão",
+     "pct": 1.7
+    },
+    {
+     "candidate": "Joaquim do MLB",
+     "party": "UP",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Marcelo Marcelino",
+     "party": "PCO",
+     "pct": 0.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a4cac1615cf8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -818,6 +1436,54 @@
    ],
    "others_pct": 3,
    "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f68032888e87",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ipespe",
+   "contractor": null,
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-26",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.2,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 21
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 17
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 9
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 6
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 31,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1797,17 +2463,17 @@
      "pct": 0.8
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.7
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.4
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0.4
     }
@@ -2060,6 +2726,11 @@
      "pct": 12
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 9
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 9
@@ -2068,11 +2739,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 9
     }
    ],
    "others_pct": 4,
@@ -2372,49 +3038,6 @@
    "undecided_pct": 29,
    "blank_null_pct": null,
    "tse_registration": "BR-05465/2026"
-  },
-  {
-   "id": "35997d5be6e8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": null,
-   "race": "senador",
-   "state": "MS",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Reinaldo Azambuja",
-     "party": "PL",
-     "pct": 23
-    },
-    {
-     "candidate": "Capitão Contar",
-     "party": "PL",
-     "pct": 22
-    },
-    {
-     "candidate": "Vander Loubet",
-     "party": "PT",
-     "pct": 8
-    },
-    {
-     "candidate": "Soraya",
-     "party": "PSB",
-     "pct": 10
-    }
-   ],
-   "others_pct": 6,
-   "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "3939c7e2d8d6",
@@ -4223,6 +4846,11 @@
      "pct": 40.3
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 21
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 15.3
@@ -4231,11 +4859,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 8.8
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 21
     }
    ],
    "others_pct": 6.2,
@@ -4339,6 +4962,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 34,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f5a154845305",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 25
+    },
+    {
+     "candidate": "Capitão Contar",
+     "party": "PL",
+     "pct": 31
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 9
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 9
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -4509,7 +5175,7 @@
      "pct": 2
     },
     {
-     "candidate": "Robson Raymundo",
+     "candidate": "Professor Robson",
      "party": "PSTU",
      "pct": 1
     },
@@ -4524,7 +5190,7 @@
      "pct": 0
     },
     {
-     "candidate": "Elisson Ferreira",
+     "candidate": "Elisson",
      "party": "Agir",
      "pct": 0
     }
@@ -4666,7 +5332,7 @@
      "pct": 15
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15
     },
@@ -5316,6 +5982,11 @@
      "pct": 15.62
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 10.8
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 6.74
@@ -5324,11 +5995,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 9.47
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 10.8
     }
    ],
    "others_pct": 6.14,
@@ -5366,69 +6032,6 @@
    ],
    "others_pct": 2,
    "undecided_pct": 9.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4cc289e2e181",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Neokemp",
-   "contractor": null,
-   "fieldwork_start": "2026-09-22",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1008,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Sergio Moro",
-     "party": "PL",
-     "pct": 48.7
-    },
-    {
-     "candidate": "Requião Filho",
-     "party": "PDT",
-     "pct": 25.9
-    },
-    {
-     "candidate": "Sandro Alex",
-     "party": "PSD",
-     "pct": 20.8
-    },
-    {
-     "candidate": "Luiz França",
-     "party": "Missão",
-     "pct": 0.4
-    },
-    {
-     "candidate": "Samuel de Mattos",
-     "party": "PSTU",
-     "pct": 0.2
-    },
-    {
-     "candidate": "Adriano Funileiro",
-     "party": "PCO",
-     "pct": 0.5
-    },
-    {
-     "candidate": "Tayná Miessa",
-     "party": "UP",
-     "pct": 0.2
-    },
-    {
-     "candidate": "Doutor Alexandre Salomão",
-     "party": "Mobiliza",
-     "pct": 0
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 3.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -5801,17 +6404,17 @@
      "pct": 2
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 2
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 2
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1
     }
@@ -5849,6 +6452,11 @@
      "pct": 31.95
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 16.2
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 13.23
@@ -5857,11 +6465,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 14.34
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 16.2
     }
    ],
    "others_pct": 3.62,
@@ -6422,74 +7025,6 @@
    ],
    "others_pct": 6,
    "undecided_pct": 37,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "efe1a0b5b903",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PR",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Neokemp",
-   "contractor": null,
-   "fieldwork_start": "2026-09-22",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1008,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Deltan Dallagnol",
-     "party": "Novo",
-     "pct": 50.8
-    },
-    {
-     "candidate": "Filipe Barros",
-     "party": "PL",
-     "pct": 35.4
-    },
-    {
-     "candidate": "Alexandre Curi",
-     "party": "Republicanos",
-     "pct": 27.5
-    },
-    {
-     "candidate": "Cristina Graeml",
-     "party": "PSD",
-     "pct": 20.9
-    },
-    {
-     "candidate": "Gleisi",
-     "party": "PT",
-     "pct": 30.9
-    },
-    {
-     "candidate": "Dr Rosinha",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "Karen Guerreiro",
-     "party": "Missão",
-     "pct": 0.9
-    },
-    {
-     "candidate": "Joaquim do MLB",
-     "party": "UP",
-     "pct": 0.6
-    },
-    {
-     "candidate": "Marcelo Marcelino",
-     "party": "PCO",
-     "pct": 0.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -7223,7 +7758,7 @@
      "pct": 15
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15
     },
@@ -7271,17 +7806,17 @@
      "pct": 0.9
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.5
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.5
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.2
     }
@@ -7493,17 +8028,17 @@
      "pct": 1.5
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.4
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.9
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1.4
     }
@@ -7854,17 +8389,17 @@
      "pct": 1
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1
     }
@@ -8435,17 +8970,17 @@
      "pct": 1.8
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.9
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.6
     }
@@ -10137,12 +10672,12 @@
      "pct": 41
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.4
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0.1
     },
@@ -10337,7 +10872,7 @@
      "pct": 28.5
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 22
     },
@@ -10725,17 +11260,17 @@
      "pct": 0
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0
     }
@@ -11513,7 +12048,7 @@
      "pct": 37.5
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.4
     }
@@ -11647,7 +12182,7 @@
      "pct": 15
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 13.9
     },
@@ -11829,7 +12364,7 @@
      "pct": 9
     },
     {
-     "candidate": "Luisinho",
+     "candidate": "Dr.luisinho",
      "party": "Agir",
      "pct": 0
     },
@@ -13080,6 +13615,11 @@
      "pct": 20.7
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.3
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 13.3
@@ -13088,11 +13628,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7.5
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.3
     }
    ],
    "others_pct": 4.9,
@@ -15986,6 +16521,11 @@
      "pct": 13.97
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 8.91
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 4.78
@@ -15994,11 +16534,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7.06
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 8.91
     }
    ],
    "others_pct": 3.72,
@@ -17855,12 +18390,12 @@
      "pct": 11.2
     },
     {
-     "candidate": "Helio Bolsonaro",
+     "candidate": "Helio Rodrigues Bolsonaro",
      "party": "PL",
      "pct": 3.3
     },
     {
-     "candidate": "Nilton Santos",
+     "candidate": "Coronel Nilton Santos",
      "party": "Novo",
      "pct": 2.7
     }
@@ -19664,7 +20199,7 @@
      "pct": 23
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 21.6
     }
@@ -20147,17 +20682,17 @@
      "pct": 0.3
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0.4
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.3
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.3
     },
@@ -20362,17 +20897,17 @@
      "pct": 0
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0
     },
@@ -20970,7 +21505,7 @@
      "pct": 47.3
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 35.7
     },
@@ -21147,7 +21682,7 @@
      "pct": 15
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 14
     },
@@ -21689,7 +22224,7 @@
      "pct": 42.41
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 27.07
     },
@@ -22827,7 +23362,7 @@
      "pct": 45.84
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 31.54
     }
@@ -23830,17 +24365,17 @@
      "pct": 2
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 3
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 2
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1
     },
@@ -24435,17 +24970,17 @@
      "pct": 1.8
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0.7
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.7
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.6
     },
@@ -24802,7 +25337,7 @@
      "pct": 47.6
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 40.5
     }
@@ -24832,26 +25367,26 @@
     {
      "candidate": "Reinaldo Azambuja",
      "party": "PL",
-     "pct": 29.43
+     "pct": 29.22
     },
     {
      "candidate": "Capitão Contar",
      "party": "PL",
-     "pct": 27.59
+     "pct": 23.9
     },
     {
      "candidate": "Vander Loubet",
      "party": "PT",
-     "pct": 7.19
+     "pct": 8
     },
     {
      "candidate": "Soraya",
      "party": "PSB",
-     "pct": 14.21
+     "pct": 13.64
     }
    ],
-   "others_pct": 6.63,
-   "undecided_pct": 14.95,
+   "others_pct": 7.37,
+   "undecided_pct": 17.87,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -25237,6 +25772,11 @@
      "pct": 27.74
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 14.96
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 13.46
@@ -25245,11 +25785,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 15.29
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 14.96
     }
    ],
    "others_pct": 5.24,
@@ -25500,7 +26035,7 @@
      "pct": 41.3
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 34.2
     },
@@ -27805,6 +28340,11 @@
      "pct": 13.4
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 9.2
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 6.9
@@ -27813,11 +28353,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 9.2
     }
    ],
    "others_pct": 4.1,
@@ -29165,7 +29700,7 @@
      "pct": 17
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15
     },
@@ -29476,17 +30011,17 @@
      "pct": 1
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 1
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0
     },
@@ -31817,7 +32352,7 @@
      "pct": 26
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 13
     },
@@ -32258,7 +32793,7 @@
      "pct": 27
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 1
     },
@@ -32268,12 +32803,12 @@
      "pct": 1
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0
     }
@@ -33999,6 +34534,11 @@
      "pct": 20.7
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 10.5
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 5.7
@@ -34007,11 +34547,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 5.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 10.5
     }
    ],
    "others_pct": 3.5,
@@ -34090,7 +34625,7 @@
      "pct": 21.4
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 17.9
     },
@@ -35355,17 +35890,17 @@
      "pct": 0.8
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0.7
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.4
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.6
     },
@@ -35655,7 +36190,7 @@
      "pct": 47
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 43
     }
@@ -35688,7 +36223,7 @@
      "pct": 45
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 37
     },
@@ -35915,7 +36450,7 @@
      "pct": 48.28
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 27.28
     }
@@ -35954,6 +36489,11 @@
      "pct": 27.14
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 12.99
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 11.77
@@ -35962,11 +36502,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 13.11
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 12.99
     }
    ],
    "others_pct": 3.26,
@@ -36075,7 +36610,7 @@
      "pct": 42.93
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 27.83
     },
@@ -36118,7 +36653,7 @@
      "pct": 50.38
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 31.39
     }
@@ -37046,7 +37581,7 @@
      "pct": 1
     },
     {
-     "candidate": "Reginaldo Ferreira",
+     "candidate": "Reginaldo",
      "party": "PSTU",
      "pct": 1
     },
@@ -37162,7 +37697,7 @@
      "pct": 6
     },
     {
-     "candidate": "Luciana de Oliveira e Silva",
+     "candidate": "Luciana Oliveira",
      "party": "PT",
      "pct": 3
     },
@@ -38565,7 +39100,7 @@
      "pct": 46.13
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 24.87
     },
@@ -40443,6 +40978,11 @@
      "pct": 42.8
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 21.7
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 33.9
@@ -40451,11 +40991,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 21.6
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 21.7
     }
    ],
    "others_pct": null,
@@ -40744,7 +41279,7 @@
      "pct": 22.87
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 21.71
     },
@@ -40858,6 +41393,11 @@
      "pct": 25.63
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 13.87
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 8.57
@@ -40866,11 +41406,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 12.32
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 13.87
     }
    ],
    "others_pct": 4.2,
@@ -42887,7 +43422,7 @@
      "pct": 11.6
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 12.2
     },
@@ -43393,22 +43928,22 @@
      "pct": 0.7
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.5
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.3
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 0.3
     }
@@ -43838,17 +44373,17 @@
      "pct": 1
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.3
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 1
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 0.2
     }
@@ -44464,6 +44999,11 @@
      "pct": 24.3
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 12.3
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 15
@@ -44472,11 +45012,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 8.5
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 12.3
     }
    ],
    "others_pct": null,
@@ -45114,7 +45649,7 @@
      "pct": 18.9
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15.7
     },
@@ -47086,6 +47621,11 @@
      "pct": 12.9
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 4.1
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 4.1
@@ -47094,11 +47634,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 4.5
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 4.1
     }
    ],
    "others_pct": 0.7,
@@ -48377,7 +48912,7 @@
      "pct": 47
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 34
     }
@@ -49853,7 +50388,7 @@
      "pct": 40
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 20
     },
@@ -50563,6 +51098,11 @@
      "pct": 15.45
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 7.77
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 7.59
@@ -50571,11 +51111,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7.55
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 7.77
     }
    ],
    "others_pct": null,
@@ -52044,7 +52579,7 @@
      "pct": 9
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 12
     },
@@ -52862,22 +53397,22 @@
      "pct": 1
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 1
     }
@@ -52997,22 +53532,22 @@
      "pct": 1
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 1
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 2
     }
@@ -55282,6 +55817,11 @@
      "pct": 10
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 8
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 5
@@ -55289,11 +55829,6 @@
     {
      "candidate": "Rafael Motta",
      "party": "PDT",
-     "pct": 8
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
      "pct": 8
     }
    ],
@@ -56852,7 +57387,7 @@
      "pct": 18.4
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 14
     },
@@ -57206,22 +57741,22 @@
      "pct": 0
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 1
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 0
     }
@@ -58035,7 +58570,7 @@
      "pct": 39.69
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 28.43
     },
@@ -58078,7 +58613,7 @@
      "pct": 44.4
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 25.5
     },
@@ -58184,7 +58719,7 @@
      "pct": 11
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 12
     },
@@ -58232,22 +58767,22 @@
      "pct": 4
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 3
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 2
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 1
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 3
     }
@@ -58525,7 +59060,7 @@
      "pct": 43.45
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 32.16
     }
@@ -60767,6 +61302,11 @@
      "pct": 10.43
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 7
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 5.67
@@ -60775,11 +61315,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 6.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 7
     }
    ],
    "others_pct": 2.6,
@@ -60820,22 +61355,22 @@
      "pct": 1.5
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 0.8
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.8
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.4
     },
     {
-     "candidate": "Policial",
+     "candidate": "Policial Edjane",
      "party": "Agir",
      "pct": 0.4
     }
@@ -61181,7 +61716,7 @@
      "pct": 15
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15
     },
@@ -61512,7 +62047,7 @@
      "pct": 51
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 33.7
     },
@@ -61633,7 +62168,7 @@
      "pct": 56.3
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 43.7
     }
@@ -62217,7 +62752,7 @@
      "pct": 31.59
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 46.73
     },
@@ -62969,7 +63504,7 @@
      "pct": 17.4
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 12.2
     },
@@ -63494,6 +64029,11 @@
      "pct": 34.2
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 17.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 17
@@ -63502,11 +64042,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 32.8
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 17.4
     }
    ],
    "others_pct": 4.4,
@@ -63802,17 +64337,17 @@
      "pct": 0.5
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.3
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.3
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.3
     }
@@ -63921,7 +64456,7 @@
      "pct": 37
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 23.8
     },
@@ -64127,7 +64662,7 @@
      "pct": 38.94
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 28.76
     },
@@ -64473,6 +65008,11 @@
      "pct": 13
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 6.6
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 8.1
@@ -64481,11 +65021,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 6.6
     }
    ],
    "others_pct": 5.1,
@@ -64554,7 +65089,7 @@
      "pct": 43.18
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 32.04
     }
@@ -66932,6 +67467,11 @@
      "pct": 40
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 20.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 11.3
@@ -66940,11 +67480,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 12.2
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 20.4
     }
    ],
    "others_pct": 7.5,
@@ -67959,17 +68494,17 @@
      "pct": 2.6
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.8
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.1
     }
@@ -68392,7 +68927,7 @@
      "pct": 3.3
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 18.4
     },
@@ -68994,6 +69529,11 @@
      "pct": 20.2
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 14
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 12.1
@@ -69002,11 +69542,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 18.5
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 14
     }
    ],
    "others_pct": 9.7,
@@ -71120,7 +71655,7 @@
      "pct": 22.6
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 32.3
     },
@@ -71675,7 +72210,7 @@
      "pct": 43
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 40
     },
@@ -71718,7 +72253,7 @@
      "pct": 46
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 44
     }
@@ -72111,7 +72646,7 @@
      "pct": 31.5
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 23.6
     },
@@ -72379,17 +72914,17 @@
      "pct": 1.3
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.5
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.5
     },
     {
-     "candidate": "Izadora",
+     "candidate": "Izadora Dias",
      "party": "PCO",
      "pct": 0.3
     }
@@ -73434,6 +73969,54 @@
    "tse_registration": "MG-06475/2026"
   },
   {
+   "id": "2a2a4f1e365f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Nova Ibrape",
+   "contractor": null,
+   "fieldwork_start": "2026-07-25",
+   "fieldwork_end": "2026-07-29",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 22
+    },
+    {
+     "candidate": "Capitão Contar",
+     "party": "PL",
+     "pct": 19.2
+    },
+    {
+     "candidate": "Nelsinho Trad",
+     "party": "PSD",
+     "pct": 16.3
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 9.6
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 8.3
+    }
+   ],
+   "others_pct": 6.6,
+   "undecided_pct": 17.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4e1d7d166f73",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -73766,54 +74349,6 @@
    "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": "MG-06475/2026"
-  },
-  {
-   "id": "f47d3c2b239f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": null,
-   "race": "senador",
-   "state": "MS",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Nova Ibrape",
-   "contractor": null,
-   "fieldwork_start": "2026-07-25",
-   "fieldwork_end": "2026-07-29",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Reinaldo Azambuja",
-     "party": "PL",
-     "pct": 22
-    },
-    {
-     "candidate": "Capitão Contar",
-     "party": "PL",
-     "pct": 19.2
-    },
-    {
-     "candidate": "Nelsinho Trad",
-     "party": "PSD",
-     "pct": 16.3
-    },
-    {
-     "candidate": "Vander Loubet",
-     "party": "PT",
-     "pct": 9.6
-    },
-    {
-     "candidate": "Soraya",
-     "party": "PSB",
-     "pct": 8.3
-    }
-   ],
-   "others_pct": 6.6,
-   "undecided_pct": 17.9,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-13647-1-0-eaf80c6cf7fe",
@@ -74591,7 +75126,7 @@
      "pct": 37.94
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 46.07
     },
@@ -74750,12 +75285,12 @@
      "pct": 1.7
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1.1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 0.9
     }
@@ -77242,12 +77777,12 @@
      "pct": 3
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 1
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 1
     }
@@ -80248,6 +80783,11 @@
      "pct": 20.7
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 10.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 10.6
@@ -80256,11 +80796,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 12.8
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 10.4
     }
    ],
    "others_pct": 9.5,
@@ -81827,7 +82362,7 @@
      "pct": 45.4
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 32.2
     },
@@ -84963,7 +85498,7 @@
      "pct": 21.5
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15.8
     },
@@ -85264,7 +85799,7 @@
      "pct": 39.2
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 28.4
     },
@@ -85552,7 +86087,7 @@
      "pct": 46.2
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 34
     },
@@ -85644,6 +86179,11 @@
      "pct": 29
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 5.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 9.3
@@ -85652,11 +86192,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 9.2
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 8.7
     }
    ],
    "others_pct": 14.1,
@@ -87514,7 +88049,7 @@
      "pct": 39.33
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 27.8
     },
@@ -89357,6 +89892,11 @@
      "pct": 14.6
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 8.7
@@ -89365,11 +89905,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7.8
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 5.4
     }
    ],
    "others_pct": 3,
@@ -90656,6 +91191,11 @@
      "pct": 39.8
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.9
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 20.9
@@ -90664,11 +91204,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 24.1
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 23.7
     }
    ],
    "others_pct": 1,
@@ -90699,7 +91234,7 @@
      "pct": 32.9
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 38.69
     },
@@ -92465,6 +93000,11 @@
      "pct": 41.6
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 5.26
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 18.3
@@ -92473,11 +93013,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 15.1
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.9
     }
    ],
    "others_pct": 5.8,
@@ -92948,6 +93483,11 @@
      "pct": 13.27
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 10.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 9.15
@@ -92956,11 +93496,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 8.14
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 5.26
     }
    ],
    "others_pct": 1.7,
@@ -94043,12 +94578,12 @@
      "pct": 5
     },
     {
-     "candidate": "Carlos",
+     "candidate": "Carlos Machado",
      "party": "PCB",
      "pct": 4
     },
     {
-     "candidate": "Vivian",
+     "candidate": "Vivian Mendes",
      "party": "UP",
      "pct": 4
     }
@@ -94306,7 +94841,7 @@
      "pct": 44.65
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 33.78
     }
@@ -94415,7 +94950,7 @@
      "pct": 40.67
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 29.22
     },
@@ -95595,7 +96130,7 @@
      "pct": 33.1
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 39.25
     },
@@ -96280,6 +96815,11 @@
      "pct": 26.3
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 21.8
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 12.3
@@ -96288,11 +96828,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 8.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 10.4
     }
    ],
    "others_pct": 5.1,
@@ -97319,7 +97854,7 @@
    "state": "PE",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Revista Total Brasil",
+   "pollster": "Revista Total",
    "contractor": null,
    "fieldwork_start": "2026-06-20",
    "fieldwork_end": "2026-06-24",
@@ -97945,7 +98480,7 @@
      "pct": 30
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 16.72
     },
@@ -98309,6 +98844,11 @@
      "pct": 32.7
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.1
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 20.1
@@ -98317,11 +98857,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 23.6
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 21.8
     }
    ],
    "others_pct": null,
@@ -99444,7 +99979,7 @@
      "pct": 41.2
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 26.7
     },
@@ -100122,7 +100657,7 @@
      "pct": 34.95
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 41.5
     },
@@ -100956,6 +101491,11 @@
      "pct": 40.3
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 3.9
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 7.5
@@ -100964,11 +101504,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 12
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.1
     }
    ],
    "others_pct": 7.4,
@@ -101530,7 +102065,7 @@
      "pct": 14.4
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 25
     },
@@ -101755,6 +102290,11 @@
      "pct": 12.2
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 8.9
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 5.9
@@ -101763,11 +102303,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 9.3
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 3.9
     }
    ],
    "others_pct": 7.6,
@@ -103232,7 +103767,7 @@
      "pct": 38.7
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 42.8
     },
@@ -104509,7 +105044,7 @@
      "pct": 10.6
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15.7
     },
@@ -106287,7 +106822,7 @@
      "pct": 40.8
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 30.3
     },
@@ -107919,7 +108454,7 @@
      "pct": 44.7
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 38.7
     },
@@ -108883,6 +109418,39 @@
    "tse_registration": null
   },
   {
+   "id": "238c07b19813",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Agorasei",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 20.8
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 38.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2737e2b2a7ac",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -109274,6 +109842,11 @@
      "pct": 25.3
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 24.3
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 9.8
@@ -109282,29 +109855,9 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 17.2
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 8.9
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 2.5
-    },
-    {
-     "candidate": "Rosália Fernandes",
-     "party": "PSTU",
-     "pct": 2.2
-    },
-    {
-     "candidate": "Luciana Mandu",
-     "party": "PSTU",
-     "pct": 1.5
     }
    ],
-   "others_pct": 4.9,
+   "others_pct": 11.1,
    "undecided_pct": 84.5,
    "blank_null_pct": null,
    "tse_registration": null
@@ -109340,37 +109893,22 @@
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 11.4
-    },
-    {
-     "candidate": "Professor Roberio Paulino",
-     "party": "PSOL",
-     "pct": 1.1
-    },
-    {
-     "candidate": "Rodrigo de Bolsonaro",
-     "party": "Agir",
-     "pct": 0.9
-    },
-    {
-     "candidate": "Dário Barbosa",
-     "party": "PSTU",
-     "pct": 0.3
     }
    ],
-   "others_pct": null,
+   "others_pct": 2.3,
    "undecided_pct": 24.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
   {
-   "id": "ab0321d97302",
+   "id": "a442258b4dc4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
    "pollster": "Veritá",
    "contractor": null,
    "fieldwork_start": "2026-05-27",
@@ -109380,14 +109918,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 45
-    },
-    {
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 32.6
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 45
     }
    ],
    "others_pct": null,
@@ -109630,39 +110168,6 @@
    ],
    "others_pct": 5.1,
    "undecided_pct": 13.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fdc5dc906747",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 38.2
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 20.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -110126,6 +110631,11 @@
      "pct": 34.15
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 10.6
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 17.58
@@ -110134,11 +110644,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 20.25
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 12.89
     }
    ],
    "others_pct": 4.61,
@@ -110967,6 +111472,11 @@
      "pct": 36.45
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 19.1
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 17.35
@@ -110975,11 +111485,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 19.95
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 19.1
     }
    ],
    "others_pct": 19.05,
@@ -111079,59 +111584,6 @@
    "tse_registration": null
   },
   {
-   "id": "58bfa045421c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": null,
-   "race": "senador",
-   "state": "MS",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/3",
-   "pollster": "FIEMS/Opinião",
-   "contractor": null,
-   "fieldwork_start": "2026-05-25",
-   "fieldwork_end": "2026-05-27",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Reinaldo Azambuja",
-     "party": "PL",
-     "pct": 38.7
-    },
-    {
-     "candidate": "Capitão Contar",
-     "party": "PL",
-     "pct": 33.7
-    },
-    {
-     "candidate": "Marcos Pollon",
-     "party": "PL",
-     "pct": 7.7
-    },
-    {
-     "candidate": "Nelsinho Trad",
-     "party": "PSD",
-     "pct": 26.1
-    },
-    {
-     "candidate": "Vander Loubet",
-     "party": "PT",
-     "pct": 14.3
-    },
-    {
-     "candidate": "Soraya",
-     "party": "PSB",
-     "pct": 16.6
-    }
-   ],
-   "others_pct": 10.6,
-   "undecided_pct": 52.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "7fe387b3512d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-e-rejeitado-por-467-dos-eleitores-diz-pesquisa/",
@@ -111219,6 +111671,59 @@
    ],
    "others_pct": null,
    "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a15ceea9d950",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/3",
+   "pollster": "Fiems/Instituto Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-05-25",
+   "fieldwork_end": "2026-05-27",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 38.7
+    },
+    {
+     "candidate": "Capitão Contar",
+     "party": "PL",
+     "pct": 33.7
+    },
+    {
+     "candidate": "Marcos Pollon",
+     "party": "PL",
+     "pct": 7.7
+    },
+    {
+     "candidate": "Nelsinho Trad",
+     "party": "PSD",
+     "pct": 26.1
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 14.3
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 16.6
+    }
+   ],
+   "others_pct": 10.6,
+   "undecided_pct": 52.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -113166,7 +113671,7 @@
      "pct": 44
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 41
     }
@@ -113315,7 +113820,7 @@
      "pct": 41
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 38
     },
@@ -113925,6 +114430,11 @@
      "pct": 26.2
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 8.1
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 10.4
@@ -113933,11 +114443,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 13.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 8.1
     }
    ],
    "others_pct": 8.7,
@@ -114175,7 +114680,7 @@
      "pct": 32.9
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 39.72
     },
@@ -114196,7 +114701,7 @@
    "tse_registration": null
   },
   {
-   "id": "213be049b3f4",
+   "id": "09e802b10c48",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -114223,6 +114728,11 @@
      "pct": 19
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.6
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 5.6
@@ -114231,11 +114741,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 18.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.6
     }
    ],
    "others_pct": 4.6,
@@ -114326,6 +114831,44 @@
    ],
    "others_pct": 4.6,
    "undecided_pct": 19.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "7083f6898318",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Item",
+   "contractor": null,
+   "fieldwork_start": "2026-05-18",
+   "fieldwork_end": "2026-05-22",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 37
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 25.2
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 16.4
+    }
+   ],
+   "others_pct": 2.2,
+   "undecided_pct": 19.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -114436,44 +114979,6 @@
    "tse_registration": null
   },
   {
-   "id": "fbbce56e58ff",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Item",
-   "contractor": null,
-   "fieldwork_start": "2026-05-18",
-   "fieldwork_end": "2026-05-22",
-   "published_date": null,
-   "sample_size": 1250,
-   "margin_of_error": 2.77,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 37
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 25.2
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 16.4
-    }
-   ],
-   "others_pct": 2.2,
-   "undecided_pct": 19.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "571de18ca0c8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -114501,6 +115006,11 @@
      "pct": 9.9
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 13.3
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 18.6
@@ -114509,11 +115019,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 10.5
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 13.3
     }
    ],
    "others_pct": null,
@@ -117680,6 +118185,11 @@
      "pct": 12.1
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 3.5
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 3.3
@@ -117688,11 +118198,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 5.1
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 3.5
     }
    ],
    "others_pct": 2.3,
@@ -120192,7 +120697,7 @@
      "pct": 29.2
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 28.4
     },
@@ -120321,6 +120826,11 @@
      "pct": 15
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 4.8
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 4.7
@@ -120329,11 +120839,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 12.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 4.8
     }
    ],
    "others_pct": 7.3,
@@ -120746,6 +121251,11 @@
      "pct": 22.3
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 24.8
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 34.1
@@ -120754,11 +121264,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 24.1
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 24.8
     }
    ],
    "others_pct": 9.4,
@@ -121805,7 +122310,7 @@
      "pct": 5.99
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 4.28
     },
@@ -121891,6 +122396,11 @@
      "pct": 41.7
     },
     {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 10.7
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 19
@@ -121899,11 +122409,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 16.2
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 10.7
     }
    ],
    "others_pct": 6.3,
@@ -127673,7 +128178,7 @@
      "pct": 37.27
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 44.59
     },
@@ -130253,7 +130758,7 @@
      "pct": 35.3
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 39.9
     },
@@ -133919,7 +134424,7 @@
      "pct": 44.2
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
      "pct": 34.5
     },
@@ -143544,7 +144049,7 @@
      "pct": 25.3
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 28.4
     },
@@ -153391,7 +153896,7 @@
      "pct": 41.83
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "PL",
      "pct": 32.32
     }
@@ -163853,14 +164358,14 @@
    "tse_registration": null
   },
   {
-   "id": "38be15ed1d5b",
+   "id": "74dbb2abced4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
    "pollster": "TCM/TSDois",
    "contractor": null,
    "fieldwork_start": "2025-12-09",
@@ -163870,14 +164375,14 @@
    "margin_of_error": 2.3,
    "results": [
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 24.9
-    },
-    {
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 26.7
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 24.9
     }
    ],
    "others_pct": null,
@@ -165355,7 +165860,7 @@
      "pct": 15
     },
     {
-     "candidate": "Érika Kokay",
+     "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 10
     },
@@ -168184,7 +168689,7 @@
      "pct": 46
     },
     {
-     "candidate": "Valmir de",
+     "candidate": "Valmir de Francisquinho",
      "party": "PL",
      "pct": 33
     }
@@ -172712,6 +173217,39 @@
    "tse_registration": null
   },
   {
+   "id": "740c3e6d6bae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-09-24",
+   "fieldwork_end": "2025-09-28",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "06d6b881cfaf",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -172778,39 +173316,6 @@
    "tse_registration": null
   },
   {
-   "id": "42b714f11901",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 26.9
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 27.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 45.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "542360fddedc",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -172844,14 +173349,14 @@
    "tse_registration": null
   },
   {
-   "id": "ae8e37417072",
+   "id": "8c0cfbe79840",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
    "pollster": "Quaest",
    "contractor": null,
    "fieldwork_start": "2025-09-21",
@@ -172861,14 +173366,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 37
-    },
-    {
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 39
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 37
     }
    ],
    "others_pct": null,
@@ -172906,6 +173411,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f3520d93ccd6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2025-09-21",
+   "fieldwork_end": "2025-09-24",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 27.5
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 26.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 45.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -174864,14 +175402,14 @@
    "tse_registration": null
   },
   {
-   "id": "e7dec0f5bb69",
+   "id": "e889a9b771a5",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
    "integra_url": "https://static.poder360.com.br/2025/09/Parana-pesquisa-RN.pdf",
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
    "pollster": "Paraná Pesquisas",
    "contractor": "Paraná Pesquisas",
    "fieldwork_start": "2025-09-06",
@@ -174881,14 +175419,14 @@
    "margin_of_error": 2.6,
    "results": [
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 50.9
-    },
-    {
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 16.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 50.9
     }
    ],
    "others_pct": null,
@@ -175049,6 +175587,39 @@
    "tse_registration": null
   },
   {
+   "id": "4e8017a997d6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-09-05",
+   "fieldwork_end": "2025-09-09",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 40
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "699914c9042f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -175177,39 +175748,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 21.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f935c3f14f45",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-05",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 40
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -175531,14 +176069,14 @@
    "tse_registration": null
   },
   {
-   "id": "47e5be2f09ae",
+   "id": "81e8a983063f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
    "pollster": "Seta",
    "contractor": null,
    "fieldwork_start": "2025-09-03",
@@ -175548,14 +176086,14 @@
    "margin_of_error": 2.53,
    "results": [
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 28.5
-    },
-    {
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 28.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 28.5
     }
    ],
    "others_pct": null,
@@ -178197,14 +178735,14 @@
    "tse_registration": null
   },
   {
-   "id": "2a32a0197d00",
+   "id": "ab15ddde0687",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Álvaro Dias e Cadu de Lula",
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
    "pollster": "Quaest",
    "contractor": null,
    "fieldwork_start": "2025-08-20",
@@ -178214,14 +178752,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 31
-    },
-    {
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 35
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 31
     }
    ],
    "others_pct": null,
