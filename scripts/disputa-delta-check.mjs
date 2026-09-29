@@ -436,6 +436,35 @@ function rodar({ mutacao = null } = {}) {
     afirma(!delta({ anterior, novo: novoOutroSurvey }).ok, "mesmo id nativo em OUTRO levantamento não pode provar sucessão");
   });
 
+  caso("14 PASSA: mesmo registro nativo em OUTRO levantamento da MESMA operação de campo (instituto, UF, data e amostra exatos) prova; data ou amostra diversa REPROVAM", ({ delta, afirma }) => {
+    // senador:AL 29/09/2026: a Wikipédia retirou um nome de todas as linhas do
+    // senado; `rosterContradicts` pôs a linha nova num `survey|nat|…` próprio,
+    // o levantamento antigo seguiu vivo (o governador da mesma operação ainda
+    // resolve nele) e nenhuma chave de identidade ligava os dois surveys.
+    const LEG = "ba566a91b8cb";
+    const OP = { institute_id: "i_parana", universe: { level: "uf", uf: "AL" }, fieldwork_end: "2026-08-29", sample_size: 1400 };
+    const anterior = banco(
+      [q("q_al1", "senador", "AL", [r("c_lira", 40.4), r("c_renan", 36.8), r("c_marina", 28.4), r("c_davi", 24.4), r("c_wand", 10.8)], { survey_id: "s_al_velho", legacy_id: LEG })],
+      [], [{ survey_id: "s_al_velho", ...OP }]);
+    // Um pct MUDA de propósito (40,4 → 41): a tabela não é idêntica, a rota da
+    // duplicata não alcança, e só a chave exata do registro nativo NA MESMA
+    // OPERAÇÃO pode provar — é ela que está em teste.
+    const novo = banco(
+      [q("q_al2", "senador", "AL", [r("c_lira", 41), r("c_renan", 36.8), r("c_marina", 28.4), r("c_davi", 24.4)], { survey_id: "s_al_novo", legacy_id: LEG })],
+      [], [{ survey_id: "s_al_velho", ...OP }, { survey_id: "s_al_novo", ...OP }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok, `mesma operação de campo por chaves exatas tinha de provar sucessão (veio ${v.linhas.join(" | ")})`);
+    afirma(v.toleradas.sucessoras === 1, `1 sucessora (veio ${v.toleradas.sucessoras})`);
+    const c = v.conflitos.find((x) => x.type === "question_sumida_com_sucessora");
+    afirma(/via registro/.test(c?.note ?? ""), `a via é o registro nativo (veio: ${c?.note})`);
+    // ⚠ SEGURANÇA — quatro igualdades, nenhuma janela: outra data ou outra
+    // amostra é outra operação, e o mesmo id nativo lá NÃO prova.
+    const outraData = banco(novo.questions, [], [{ survey_id: "s_al_velho", ...OP }, { survey_id: "s_al_novo", ...OP, fieldwork_end: "2026-08-30" }]);
+    afirma(!delta({ anterior, novo: outraData }).ok, "fim de campo diferente (um dia) não pode provar sucessão");
+    const outraAmostra = banco(novo.questions, [], [{ survey_id: "s_al_velho", ...OP }, { survey_id: "s_al_novo", ...OP, sample_size: 1200 }]);
+    afirma(!delta({ anterior, novo: outraAmostra }).ok, "amostra diferente não pode provar sucessão");
+  });
+
   caso("11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA", ({ delta, afirma }) => {
     // O caso JHC/CIRO (commit cb100ae): o coletor PAROU de apagar candidatos
     // cujo nome de urna parece sigla de partido — JHC = João Henrique Caldas,
@@ -739,6 +768,7 @@ function autoteste() {
       "11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA",
       "12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM",
       "13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM",
+      "14 PASSA: mesmo registro nativo em OUTRO levantamento da MESMA operação de campo (instituto, UF, data e amostra exatos) prova; data ou amostra diversa REPROVAM",
     ],
   };
   let okGeral = true;

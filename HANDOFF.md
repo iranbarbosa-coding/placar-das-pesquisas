@@ -963,7 +963,13 @@ metadata cells change in the table columns.
   edit at Wikipedia, e.g. senador:SE minus three names) is re-found by registration
   + UF, native ref, or institute + UF + fieldwork_end + sample, and inherits the old
   id in `legacy_ids` (+ first_seen) — so the delta judge's `mesmoLevantamento` proves
-  the succession. Both pinned in `upsert-harness`. Still open: Ideia/BA 13875 and
+  the succession — and the judge's `mesmoLevantamento` gained a fourth exact key:
+  same institute + universe + fieldwork_end + sample (the natural rung without its
+  window; case 14 in `disputa-delta-check`), for the survey that `rosterContradicts`
+  splits off while the old one stays alive with the other tables of the operation
+  (senador:AL). One-name runoffs no longer dispense a curated `add_poll`, and
+  "não souberam" is an undecided bucket, not a candidate. Both pinned in
+  `upsert-harness`. Still open: Ideia/BA 13875 and
   Quaest/SC 13934 first-round toplines served WITHOUT Lula and Flávio fall under the
   `soma<30` guard before retention (same shape, first round); PE 2025 runoffs (30
   rows) — see the Wikipedia note below.

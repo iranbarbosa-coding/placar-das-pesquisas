@@ -419,6 +419,26 @@ function descartarFragmentosDe2oTurno(store, runDate) {
  */
 function translateSurveyStamps(store, previous, runDate) {
   const dataDe = (s) => s.fieldwork_end ?? s.published_date ?? null;
+  // AS DISPUTAS DO LEVANTAMENTO ENTRAM NA CHAVE NATURAL. Uma linha da
+  // Wikipédia cunha um levantamento por TABELA: o governador e o senado da
+  // mesma operação (mesmo instituto, mesma UF, mesma data, mesma amostra) são
+  // dois `survey|nat|…` distintos, porque a semente carrega o elenco. Sem as
+  // disputas na chave, o id antigo do senado alcançava DUAS linhas novas
+  // (governador e senado) e a tradução recusava por ambiguidade — foi o que
+  // manteve senador:AL congelado no ensaio 36502405482 (7 perguntas). Os
+  // cargos vêm das perguntas de cada lado, ordenados, e a chave de registro e
+  // a de id nativo ficam como estavam (essas já são um levantamento só).
+  const racesOf = (questions) => {
+    const m = new Map();
+    for (const q of questions ?? []) {
+      if (!m.has(q.survey_id)) m.set(q.survey_id, new Set());
+      m.get(q.survey_id).add(`${q.race}:${q.round}`);
+    }
+    return (id) => [...(m.get(id) ?? [])].sort().join(",") || "-";
+  };
+  const racesNovo = racesOf(store.questions);
+  const racesAnt = racesOf(previous?.questions);
+  const novos = new Set((store.surveys ?? []).map((s) => s.survey_id));
   traduzirCarimbos(store, previous, runDate, {
     tabela: "surveys", idField: "survey_id",
     chavesDe: (s) => {
@@ -427,7 +447,8 @@ function translateSurveyStamps(store, previous, runDate) {
       if (reg) ks.push(`reg|${reg}|${s.universe?.uf ?? "BR"}`);
       for (const r of s.source_refs ?? []) if (r.native_id != null) ks.push(`ref|${r.source}:${r.native_id}`);
       const d = dataDe(s);
-      if (s.institute_id && d) ks.push(`nat|${s.institute_id}|${s.universe?.uf ?? "BR"}|${d}|${s.sample_size ?? "-"}`);
+      const races = (novos.has(s.survey_id) ? racesNovo : racesAnt)(s.survey_id);
+      if (s.institute_id && d) ks.push(`nat|${s.institute_id}|${s.universe?.uf ?? "BR"}|${d}|${s.sample_size ?? "-"}|${races}`);
       return ks;
     },
     tipoConflito: "survey_id_orphaned", contador: "surveys", orfaos: "orphanedSurveys",
