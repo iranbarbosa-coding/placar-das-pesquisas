@@ -98,7 +98,19 @@ def parse_table(lines):
     rows, cur = [], []
     def flush():
         nonlocal cur
-        if cur: rows.append(cur); cur = []
+        if cur:
+            # A LINHA CUJA CITAÇÃO NUNCA FECHOU NÃO VIRA PESQUISA. Com o `|-`
+            # encerrando a linha (abaixo), a citação quebrada fica confinada à
+            # própria linha — mas as células dela chegam coladas e deslocadas
+            # (senador:SP, 29/09/2026: a amostra lida como "38" derrubou o
+            # validador e a rodada inteira). Descartada em voz alta.
+            ultima = cur[-1]['raw']
+            if (ultima.count('{{') > ultima.count('}}')
+                    or ultima.count('<ref') > ultima.count('</ref>') + ultima.count('/>')):
+                print(f"  wiki: linha com citação quebrada descartada: {ultima[:90]!r}", file=sys.stderr)
+            else:
+                rows.append(cur)
+            cur = []
     i = 0
     while i < len(lines):
         ln = _fecha_template_manco(lines[i])
@@ -930,6 +942,7 @@ def _self_test():
         "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
     pq = extract(quebrada, url, 'pt', 'presidente', None)
     assert any(p['pollster'] == 'Índice' and p['fieldwork_end'] == '2026-09-26' for p in pq), ('citação quebrada engoliu a linha seguinte', pq)
+    assert not any(p['pollster'].startswith('Quaest') for p in pq), ('a linha com citação quebrada não pode virar pesquisa', pq)
     # <br> DENTRO DO LINK (São Paulo): `[[Simone Tebet|Simone<br>Tebet]]` é
     # "Simone Tebet", não "[[Simone Tebet|Simone".
     sp = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
