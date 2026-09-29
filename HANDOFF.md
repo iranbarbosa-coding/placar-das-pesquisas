@@ -1033,8 +1033,15 @@ metadata cells change in the table columns.
   Wikipedia edit made after 21:16: a Quaest row typed with the citation prefix
   twice (`|Quaest<ref>{{citar web|url=|Quaest<ref>{{citar web|url=https://…`, page
   line 3350) never closes, and the continuation rule glued every later row to it.
-  Now a `|-` line always ends the row before the continuation check, so a broken
-  citation damages only its own row (self-test case). **Still open**: unlinked
+  Now a `|-` line always ends the row before the continuation check, and a line
+  only counts as a citation continuation when it LOOKS like a template parameter
+  (`|título=…`, `|acessodata=…`); a plain `|21 e 24 de setembro` is a new cell even
+  when the previous cell is unbalanced. So a broken citation dirties only its own
+  cell (`sanitizePollsterName` cuts the institute at "{{"), the row parses whole,
+  and a rowspan sibling keeps its institute. (Discarding the broken row instead —
+  tried in rehearsal 28 — shifted the sibling's cells: institute "2", sample "25",
+  and the validator killed the run.) Two self-test cases: the broken row, and a
+  legitimate multi-line citation that must still be a continuation. **Still open**: unlinked
   multi-line header names (`!Geraldo<br>Rufino<br>{{small|…}}`) are cut at the first
   `<br>` ("Geraldo", "Carlos", "Vivian" in governador:SP) — a stable but wrong name;
   fixing it re-mints many candidates and needs its own rehearsal.
