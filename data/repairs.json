@@ -298,6 +298,33 @@
    "source": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-Pernambuco-28-jul-2026.pdf",
    "evidence": "Quaest, campo 22–26/07/2026, n=900, registro BR-03810/2026 (levantamento s_0aade2c92e00 / registros nativos 13614, 13615, 13617). A pergunta 'cenário 4/4' [Marília Arraes 21, Humberto Costa 14, Miguel Coelho 6, Eduardo da Fonte 6, Túlio Gadêlha 4, Silvio Nascimento 2, Paulo Rubem Santiago 0] (legacy_id db1be336fc45) veio da Wikipédia em 07/2026. Medido em 16/09/2026 (ensaio 35139314788, rastro de linhagem): a Wikipédia hoje traz para essa Quaest duas linhas de 1º turno — 7 nomes com Mendonça Filho e 6 nomes sem Paulo Rubem — ambas absorvidas com linhagem pela tabela nativa do Poder360 (13617: Marília 19, Humberto 12, Mendonça 8, Eduardo 6, Miguel 6, Túlio 4, Silvio 2, Dueire 0, Paulo Rubem 0). Nenhuma linha reproduz a tabela do 4/4 como gravada. A disputa ficou congelada desde 06/09/2026 por esta perda (e pela do 3/4, já provada por id exato).",
    "verified_at": "2026-09-16"
+  },
+  {
+   "question_id": "q_36e975a74c22",
+   "race": "governador",
+   "uf": "PE",
+   "defect": "LINHA COM ANO ERRADO, CORRIGIDA NA FONTE. A seção '2º turno (governador) → Raquel Lyra e João Campos' da página de PE trazia 30 linhas que o parser datou em 2025; todas coincidem, instituto a instituto e número a número, com pesquisas de 2026 já no banco pelo Poder360 (Quaest 07/09: 45×39; Paraná 09/07: 47,5×43,3; Datafolha 30/07: 49×45; RTBD 15/08 e 02/09: 44×44…). Em 28/09/2026 a página passou a ter só a subseção '2026'. Esta linha (RTBD, datada 2025-04-07, Raquel 40 × João 52) não tem gêmea idêntica em 2026 e por isso o juiz não a provou como duplicata; é a mesma classe: linha de 2026 com ano errado, removida/re-datada pela fonte.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "evidence": "Página lida em 28/09/2026 (run 36436326352): seções '== Segundo turno (governador) == / === Raquel Lyra e João Campos === / ==== 2026 ===='; nenhuma subseção 2025. As 29 outras linhas '2025' da mesma seção foram provadas pelo juiz como duplicatas year-shift das pesquisas de 2026 do Poder360 (run 36436934742).",
+   "verified_at": "2026-09-29"
+  },
+  {
+   "question_id": "q_892da022237e",
+   "race": "presidente",
+   "uf": "SP",
+   "defect": "REGISTRO MALFORMADO: o v2/cenarios do Poder360 (id 13839, Enfoque, 10/08/2026) serve o 2º turno com a linha 'não souberam' como se fosse candidato; o parser não a reconhecia como indeciso e a pergunta foi cunhada como '2º turno: não souberam vs Renan Santos' — um confronto que não existe. Com 'não soube' reconhecido como indeciso (poder360.mjs), o que sobra é um 2º turno de um nome só (Renan Santos, com Lula em branco na fonte), sem rodada anterior válida que o complete.",
+   "source": "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&unidadesFederativasId=27&ano=2026&turno=2&cidade=",
+   "evidence": "v2/cenarios lido em 28/09/2026 (run 36435426470), id 13839: 'Presidente' → [['não souberam',27.6],['nenhum/ ninguém',29.4]] e 'Presidente - 2º turno - cenário 2' → [['Lula',30.5],['Ronaldo Caiado',16.2],['não souberam',26.1],['nenhum/ ninguém',27.2]]. Nenhum cenário traz Renan Santos com nome.",
+   "verified_at": "2026-09-29"
+  },
+  {
+   "question_id": "q_c9de327cf92f",
+   "race": "presidente",
+   "uf": "SP",
+   "defect": "REGISTRO MALFORMADO, mesmo caso de q_892da022237e: Enfoque 10/08/2026 (Poder360 id 13839), '2º turno: não souberam vs Romeu Zema' — 'não souberam' cunhado como candidato; reconhecido como indeciso, resta um 2º turno de um nome só (Zema 16, Lula em branco na fonte).",
+   "source": "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&unidadesFederativasId=27&ano=2026&turno=2&cidade=",
+   "evidence": "v2/cenarios lido em 28/09/2026 (run 36435426470), id 13839: 'Presidente' → [['Romeu Zema',16],['não souberam',26.6],['nenhum/ ninguém',26.6]].",
+   "verified_at": "2026-09-29"
   }
  ],
  "repairs": [
