@@ -1,0 +1,23 @@
+name: diag-prod-branch
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-prod-branch.yml]
+jobs:
+  ler:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          set +e
+          W=https://www.placardaspesquisas.com.br
+          for u in $W/ $W/presidente $W/institutos; do
+            echo "########## $u"
+            curl -sS -D h.txt -o b.txt --max-time 40 -A "PlacarDasPesquisas/diag" "$u"; echo "curl exit $?"
+            grep -i -E "^HTTP/|^x-vercel-cache|^age:" h.txt
+            echo "-- atualizado: $(grep -o -E 'Atualizado em [^<]{0,80}' b.txt | head -1)"
+            echo "-- última pesquisa: $(grep -o -E 'ltima pesquisa (h|em)[^<]{0,60}' b.txt | sort -u | head -3 | tr '\n' ' ')"
+            echo "-- em revisão: $(grep -o -E 'Dado em revis[^<]{0,40}' b.txt | sort -u | head -3 | tr '\n' ' ')"
+            echo "-- média presidencial no texto: $(grep -o -E 'Lula[^<]{0,20}lidera com[^<]{0,80}' b.txt | head -1)"
+          done
+          true
