@@ -107,6 +107,15 @@ function rodar({ mutacao = null } = {}) {
     afirma(polls[0].scenario === "1º turno", "o rótulo do 1º turno não muda");
   });
 
+  caso("R3 1º turno com o ÍNDICE de cenário trocado pela fonte ainda volta do mesmo poll (âncora de pcts); o 2º turno não", ({ restaurar, afirma }) => {
+    const polls = [truncadaRJ({ id: "p360-13891-1-1-4444deadbeef" })];
+    const r = restaurar(polls, [anteriorRJ()]);
+    afirma(r.length === 1 && polls[0].results.length === 5, "1º turno com outro índice de cenário não voltou");
+    const polls2 = [fragmento({ id: "p360-14069-2-5-5555deadbeef" })];
+    const r2 = restaurar(polls2, [anterior()]);
+    afirma(r2.length === 0 && polls2[0].results.length === 1, "2º turno com outro índice foi restaurado — cada confronto é uma pergunta");
+  });
+
   // ── os controles: nada mais é tocado ─────────────────────────────────────
   caso("C1 tabela NOVA (id nativo desconhecido do commit) não é tocada", ({ restaurar, afirma }) => {
     const polls = [fragmento({ id: "p360-99999-2-3-0000deadbeef" })];
@@ -150,7 +159,7 @@ function rodar({ mutacao = null } = {}) {
 }
 
 const CONTROLES = ["C1", "C2", "C3", "C4", "C5", "C6", "C7"];
-const RESTAURAM = ["R1", "R2"];
+const RESTAURAM = ["R1", "R2", "R3"];
 const prefixo = (n) => n.split(" ")[0];
 
 if (process.argv.includes("--self-test")) {

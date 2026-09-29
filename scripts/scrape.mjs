@@ -356,8 +356,19 @@ export function mergePolls(pollLists, {
  * com a restauração desligada (`() => null`, o comportamento antigo).
  */
 const chaveNativaDe = (id) => /^(p360-\d+-\d-\d+)-/.exec(String(id ?? ""))?.[1] ?? null;
+// O 1º TURNO NÃO TEM CENÁRIO ESTÁVEL: `keepFullestRound1` colapsa os cenários
+// alternativos num só, e o índice do que sobrevive muda quando a fonte
+// reordena (Quaest/SC 13934: o commit tinha `-1-0`, a coleta trouxe `-1-1`).
+// Para o 1º turno o doador é o registro do MESMO poll e turno, qualquer
+// cenário — a âncora de pcts é quem garante que é a mesma tabela. O 2º turno
+// exige o cenário exato: cada confronto é uma pergunta.
 export function doadorDoCommit(p, anteriores) {
-  return anteriores.get(chaveNativaDe(p.id)) ?? null;
+  const exato = anteriores.get(chaveNativaDe(p.id));
+  if (exato || p.round !== 1) return exato ?? null;
+  const pid = /^p360-(\d+)-1-/.exec(String(p.id ?? ""))?.[1];
+  if (!pid) return null;
+  for (const [k, a] of anteriores) if (k.startsWith(`p360-${pid}-1-`)) return a;
+  return null;
 }
 export function restaurarTruncadasDoCommit(polls, previousPolls, { doador = doadorDoCommit } = {}) {
   const anteriores = new Map();
