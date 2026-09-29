@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **92 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **90 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -190,38 +190,6 @@ Soma **41%** · faltam **59 pontos** · 6 candidato(s) na tabela · amostra 1104
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-em-1o-turno-no-df-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · São Paulo · 2º turno
-
-### Enfoque — 2026-08-10
-
-Soma **41.9%** · faltam **58.1 pontos** · 1 candidato(s) na tabela · amostra 800 · registro BR-03656/2026
-
-| candidato | % |
-|---|---|
-| Renan Santos | 12.5 |
-| *não sabe/não respondeu* | 29.4 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-### Enfoque — 2026-08-10
-
-Soma **42.6%** · faltam **57.4 pontos** · 1 candidato(s) na tabela · amostra 800 · registro BR-03656/2026
-
-| candidato | % |
-|---|---|
-| Zema | 16 |
-| *não sabe/não respondeu* | 26.6 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Distrito Federal
 
 ### Instituto Gazeta de Pesquisas — 2026-07-19
 
@@ -801,23 +769,6 @@ Soma **73.2%** · faltam **26.8 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Presidente · São Paulo · 2º turno
-
-### Enfoque — 2026-08-10
-
-Soma **73.9%** · faltam **26.1 pontos** · 2 candidato(s) na tabela · amostra 800 · registro BR-03656/2026
-
-| candidato | % |
-|---|---|
-| Lula | 30.5 |
-| Ronaldo Caiado | 16.2 |
-| *não sabe/não respondeu* | 27.2 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Enfoque-Presidente-BR-11.ago_.2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Rio Grande do Sul
 
 ### Quaest — 2026-07-28
@@ -1322,6 +1273,27 @@ Soma **85.3%** · faltam **14.7 pontos** · 3 candidato(s) na tabela · amostra 
 | Ricardo Marques | 5.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Paraná
+
+### Ágili — 2026-09-28
+
+Soma **85.4%** · faltam **14.6 pontos** · 8 candidato(s) na tabela · amostra 1200
+
+| candidato | % |
+|---|---|
+| Sergio Moro | 43.9 |
+| Requião Filho | 20.8 |
+| Sandro Alex | 18.4 |
+| Luiz França | 0.8 |
+| Samuel de Mattos | 0.4 |
+| Adriano Funileiro | 0.4 |
+| Tayná Miessa | 0.4 |
+| Doutor Alexandre Salomão | 0.3 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

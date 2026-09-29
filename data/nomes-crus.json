@@ -390,12 +390,6 @@
    ]
   },
   {
-   "nome": "Thor Dantas",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
    "nome": "Tião Bocalom",
    "partidos": [
     "PL",
@@ -4237,6 +4231,7 @@
   {
    "nome": "Felipe Curi",
    "partidos": [
+    "PL",
     "Sem partido"
    ]
   },
@@ -5169,6 +5164,80 @@
    ]
   }
  ],
+ "governador:SC": [
+  {
+   "nome": "Adriano Silva",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Afrânio Boppré",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Bruno Pedreiro do PCO",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Décio Lima",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Gelson Merisio",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "João Rodrigues",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Jorginho Mello",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Laís Chaud",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Marcelo Brigadeiro",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Marcos Vieira",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Professor Marcus Sodré",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Ralf Zimmer",
+   "partidos": [
+    "PRD"
+   ]
+  }
+ ],
  "presidente:SC": [
   {
    "nome": "Aldo Rebelo",
@@ -5189,6 +5258,18 @@
    ]
   },
   {
+   "nome": "Clariana Barão",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
    "nome": "Flávio Bolsonaro",
    "partidos": [
     "PL"
@@ -5204,6 +5285,12 @@
    "nome": "Joaquim Barbosa",
    "partidos": [
     "DC"
+   ]
+  },
+  {
+   "nome": "Leonardo Avalanche",
+   "partidos": [
+    "PRTB"
    ]
   },
   {
@@ -5248,6 +5335,18 @@
    "partidos": [
     "PCO"
    ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Veterinário Wilson Grassi",
+   "partidos": [
+    "Democrata"
+   ]
   }
  ],
  "governador:SE": [
@@ -5276,6 +5375,12 @@
    ]
   },
   {
+   "nome": "Emília Corrêa",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
    "nome": "Fábio Mitidieri",
    "partidos": [
     "PSD"
@@ -5291,6 +5396,12 @@
    "nome": "Taty Cristina de Jesus",
    "partidos": [
     "DC"
+   ]
+  },
+  {
+   "nome": "Thiago de Joaldo",
+   "partidos": [
+    "PP"
    ]
   },
   {
@@ -6112,80 +6223,6 @@
    "nome": "Rui Costa Pimenta",
    "partidos": [
     "PCO"
-   ]
-  }
- ],
- "governador:SC": [
-  {
-   "nome": "Adriano Silva",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Afrânio Boppré",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Bruno Pedreiro do PCO",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Décio Lima",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Gelson Merisio",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
-   "nome": "João Rodrigues",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Jorginho Mello",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Laís Chaud",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Marcelo Brigadeiro",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Marcos Vieira",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Professor Marcus Sodré",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
-   "nome": "Ralf Zimmer",
-   "partidos": [
-    "PRD"
    ]
   }
  ],
@@ -9075,6 +9112,18 @@
    ]
   },
   {
+   "nome": "Ana Lucia da Silveira Machado",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Antídio Lunelli",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
    "nome": "Carlos Bolsonaro",
    "partidos": [
     "PL"
@@ -9096,6 +9145,12 @@
    "nome": "Caroline De Toni",
    "partidos": [
     "PL"
+   ]
+  },
+  {
+   "nome": "Caroline Sant'Anna",
+   "partidos": [
+    "PCO"
    ]
   },
   {
@@ -9123,7 +9178,19 @@
    ]
   },
   {
+   "nome": "Jeferson Rocha",
+   "partidos": [
+    "PRD"
+   ]
+  },
+  {
    "nome": "Joaninha de Oliveira",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Marcos Dorval",
    "partidos": [
     "PSTU"
    ]
@@ -9138,6 +9205,12 @@
    "nome": "Tânia Ramos",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Túlio de Amorim Pfuetzenreiter",
+   "partidos": [
+    "Missão"
    ]
   },
   {
