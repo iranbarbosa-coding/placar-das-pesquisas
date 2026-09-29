@@ -1,0 +1,20 @@
+name: diag-fontes-branch
+# ensaio 16 (29/09): o que a produção está servindo
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
+jobs:
+  ler:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          set +e
+          for u in https://placardaspesquisas.com.br/ https://www.placardaspesquisas.com.br/ https://placardaspesquisas.com.br/api/presidente.json https://placardaspesquisas.com.br/institutos https://placardaspesquisas.com.br/presidente; do
+            echo "########## $u"
+            curl -sS -D h.txt -o b.txt --max-time 40 -A "PlacarDasPesquisas/diag" "$u"; echo "curl exit $?"
+            grep -i -E "^HTTP/|^x-vercel|^age:|^cache-control|^last-modified|^etag|^date:|^location" h.txt
+            echo "-- bytes: $(wc -c < b.txt)"
+            grep -o -i -E "(generated_at|atualizad[oa][^<\"]{0,60}|última pesquisa[^<]{0,60}|2026-0[89]-[0-9]{2}|[0-9]{2}/0[89]/2026)" b.txt | sort | uniq -c | sort -rn | head -15
+          done
