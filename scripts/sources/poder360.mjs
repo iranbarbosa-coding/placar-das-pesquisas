@@ -26,7 +26,9 @@ const UF_IDS = {
 const CARGO = { governador: 1, presidente: 3, senador: 4 };
 
 // "não sabe", "não respondeu", "não vota", "não iria votar", "não votaria"…
-const UNDECIDED_RE = /n[ãa]o sabe|n[ãa]o respond|indecis|ningu[eé]m|n[ãa]o (iria |vai )?vota/i;
+// "não souberam" (Enfoque, 08/2026) entrava como CANDIDATO e virava um lado do
+// confronto ("2º turno: não souberam vs Romeu Zema") — daí o `n[ãa]o soube`.
+const UNDECIDED_RE = /n[ãa]o sabe|n[ãa]o soube|n[ãa]o respond|indecis|ningu[eé]m|n[ãa]o (iria |vai )?vota/i;
 const BLANK_RE = /branco|nulo|nenhum/i;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
