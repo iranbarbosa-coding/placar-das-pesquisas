@@ -58,7 +58,7 @@ jobs:
           grep -n -A1 -E "^\|.*(Verit|Quaest|Prefab|Datafolha|AtlasIntel)" rj.wiki | grep -E "agosto|setembro|Verit|Quaest|Prefab|Datafolha|Atlas" | cut -c1-140 | head -80
           echo "########## RJ: cabeçalho da tabela do 1º turno (colunas de candidatos)"
           awk '/^== Primeiro turno/,/^== Segundo turno/' rj.wiki | grep -n -E "^!\[\[|^!.*<br>" | cut -c1-120 | head -40
-      - name: Wikipédia — parser: RJ governador t1 e SC/SE datas
+      - name: Wikipédia parser — RJ governador t1 e SC/SE datas
         shell: bash
         run: |
           set +e
