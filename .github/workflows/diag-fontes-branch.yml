@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 26 (29/09): PR #120 completo — + <br> no link do cabeçalho de SP e |- acima da continuação
+# ensaio 27 (29/09): PR #120 completo — + <br> no link do cabeçalho de SP e |- acima da continuação
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -19,6 +19,7 @@ jobs:
       - run: node scripts/truncada-restaurada-check.mjs --self-test && node scripts/truncada-restaurada-check.mjs
       - name: Coleta REAL (stderr guardado)
         run: |
+          set +e
           node scripts/scrape.mjs > scrape.out 2> scrape.err; rc=$?
           echo "scrape exit $rc"; tail -30 scrape.out
           echo "########## ERROS (scrape.err) ##########"
