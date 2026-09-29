@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **89 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **92 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -279,23 +279,6 @@ Soma **45%** · faltam **55 pontos** · 1 candidato(s) na tabela · amostra 1600
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Amapá
-
-### Quaest — 2026-08-24
-
-Soma **45%** · faltam **55 pontos** · 2 candidato(s) na tabela · amostra 804 · registro RÁDIOTVDOAMAZONAS
-
-| candidato | % |
-|---|---|
-| Clécio | 35 |
-| Jairo Palheta | 1 |
-| *não sabe/não respondeu* | 9 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Piauí
 
 ### Intenção Instituto de Pesquisa — 2026-07-24
@@ -326,24 +309,6 @@ Soma **47.6%** · faltam **52.4 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-governador-maranhao-13ago2026.png
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-governador-maranhao-13ago2026.png
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Tocantins
-
-### Real Time Big Data — 2026-08-25
-
-Soma **49%** · faltam **51 pontos** · 3 candidato(s) na tabela · amostra 1600 · registro BR-06708/2026
-
-| candidato | % |
-|---|---|
-| Flávio Bolsonaro | 36 |
-| Ronaldo Caiado | 6 |
-| Zema | 1 |
-| *não sabe/não respondeu* | 6 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-tocantins-presidente-26ago2026.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-39-de-lula-no-2o-turno-no-to-diz-big-data/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -734,7 +699,7 @@ Soma **70.5%** · faltam **29.5 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 37 |
-| Valmir de Francisquinho | 23.8 |
+| Valmir de | 23.8 |
 | Ricardo Marques | 7.6 |
 | Emanuel Cacho | 1 |
 | *outros* | 1.13 |
@@ -881,7 +846,7 @@ Soma **75.6%** · faltam **24.4 pontos** · 2 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 48.28 |
-| Valmir de Francisquinho | 27.28 |
+| Valmir de | 27.28 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
@@ -978,7 +943,7 @@ Soma **77.6%** · faltam **22.4 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 40.8 |
-| Valmir de Francisquinho | 30.3 |
+| Valmir de | 30.3 |
 | Ricardo Marques | 5.3 |
 | Emanuel Cacho | 0.8 |
 | *outros* | 0.4 |
@@ -1165,7 +1130,7 @@ Soma **82.9%** · faltam **17.1 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 46.13 |
-| Valmir de Francisquinho | 24.87 |
+| Valmir de | 24.87 |
 | Ricardo Marques | 10.07 |
 | Emanuel Cacho | 1.8 |
 | *outros* | 0 |
@@ -1218,7 +1183,7 @@ Soma **83.7%** · faltam **16.3 pontos** · 4 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 45.4 |
-| Valmir de Francisquinho | 32.2 |
+| Valmir de | 32.2 |
 | Ricardo Marques | 4.5 |
 | Emanuel Cacho | 1 |
 | *outros* | 0.6 |
@@ -1240,6 +1205,22 @@ Soma **83.7%** · faltam **16.3 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rondônia
+
+### Veritá — 2026-09-25
+
+Soma **83.8%** · faltam **16.2 pontos** · 3 candidato(s) na tabela · amostra 1220
+
+| candidato | % |
+|---|---|
+| Marcos Rogério | 49.2 |
+| Adaílton Fúria | 19.6 |
+| Expedito Netto | 15 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1337,7 +1318,7 @@ Soma **85.3%** · faltam **14.7 pontos** · 3 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 46.2 |
-| Valmir de Francisquinho | 34 |
+| Valmir de | 34 |
 | Ricardo Marques | 5.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
@@ -1398,6 +1379,20 @@ Soma **86.4%** · faltam **13.6 pontos** · 3 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+### Veritá — 2026-09-19
+
+Soma **86.5%** · faltam **13.5 pontos** · 3 candidato(s) na tabela · amostra 1220
+
+| candidato | % |
+|---|---|
+| Marcos Rogério | 50.3 |
+| Adaílton Fúria | 22.2 |
+| Hildon Chaves | 14 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Presidente · Ceará
 
 ### Paraná Pesquisas — 2026-02-28
@@ -1428,10 +1423,43 @@ Soma **86.8%** · faltam **13.2 pontos** · 2 candidato(s) na tabela · amostra 
 | candidato | % |
 |---|---|
 | Fábio | 43.45 |
-| Valmir de Francisquinho | 32.16 |
+| Valmir de | 32.16 |
 | *não sabe/não respondeu* | 11.19 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Amazonas
+
+### Viva Voz — 2026-09-27
+
+Soma **86.9%** · faltam **13.1 pontos** · 4 candidato(s) na tabela · amostra 1500
+
+| candidato | % |
+|---|---|
+| Omar Aziz | 30.3 |
+| Professora Maria do Carmo | 25.7 |
+| Roberto Cidade | 20.3 |
+| David Almeida | 10.6 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Alagoas
+
+### Índice — 2026-09-18
+
+Soma **87.1%** · faltam **12.9 pontos** · 2 candidato(s) na tabela · amostra 1600
+
+| candidato | % |
+|---|---|
+| Jhc | 48.9 |
+| Renan Filho | 36.7 |
+| *outros* | 1.5 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1463,7 +1491,7 @@ Soma **87.3%** · faltam **12.7 pontos** · 3 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Valmir de Francisquinho | 44.59 |
+| Valmir de | 44.59 |
 | Fábio | 37.27 |
 | Ricardo Marques | 5.41 |
 
@@ -1499,7 +1527,7 @@ Soma **87.7%** · faltam **12.3 pontos** · 4 candidato(s) na tabela · amostra 
 
 | candidato | % |
 |---|---|
-| Valmir de Francisquinho | 39.9 |
+| Valmir de | 39.9 |
 | Fábio | 35.3 |
 | Ricardo Marques | 9.8 |
 | Emanuel Cacho | 0.7 |
@@ -1601,6 +1629,27 @@ Soma **89%** · faltam **11 pontos** · 2 candidato(s) na tabela · amostra 1000
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-em-2o-turno-no-rj-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Maranhão
+
+### Quaest — 2026-09-24
+
+Soma **89%** · faltam **11 pontos** · 4 candidato(s) na tabela · amostra 900
+
+| candidato | % |
+|---|---|
+| Eduardo Braide | 46 |
+| Orleans Brandão | 27 |
+| Felipe Camarão | 10 |
+| Roberto Rocha | 3 |
+| *outros* | 2 |
+| *não sabe/não respondeu* | 1 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Rio de Janeiro · 2º turno
 
 ### AtlasIntel — 2026-08-31
 
