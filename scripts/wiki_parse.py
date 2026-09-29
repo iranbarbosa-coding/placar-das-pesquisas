@@ -98,19 +98,7 @@ def parse_table(lines):
     rows, cur = [], []
     def flush():
         nonlocal cur
-        if cur:
-            # A LINHA CUJA CITAÇÃO NUNCA FECHOU NÃO VIRA PESQUISA. Com o `|-`
-            # encerrando a linha (abaixo), a citação quebrada fica confinada à
-            # própria linha — mas as células dela chegam coladas e deslocadas
-            # (senador:SP, 29/09/2026: a amostra lida como "38" derrubou o
-            # validador e a rodada inteira). Descartada em voz alta.
-            ultima = cur[-1]['raw']
-            if (ultima.count('{{') > ultima.count('}}')
-                    or ultima.count('<ref') > ultima.count('</ref>') + ultima.count('/>')):
-                print(f"  wiki: linha com citação quebrada descartada: {ultima[:90]!r}", file=sys.stderr)
-            else:
-                rows.append(cur)
-            cur = []
+        if cur: rows.append(cur); cur = []
     i = 0
     while i < len(lines):
         ln = _fecha_template_manco(lines[i])
@@ -132,8 +120,21 @@ def parse_table(lines):
         # A multi-line {{citar web|…}} inside <ref> wraps onto lines starting
         # with "|". Those are continuations of the current cell, not new cells:
         # treating them as cells shifts every column of the row by one.
-        if cur and (cur[-1]['raw'].count('{{') > cur[-1]['raw'].count('}}')
-                    or cur[-1]['raw'].count('<ref') > cur[-1]['raw'].count('</ref>') + cur[-1]['raw'].count('/>')):
+        #
+        # SÓ O QUE PARECE PARÂMETRO DE TEMPLATE É CONTINUAÇÃO ("|título=…",
+        # "|acessodata=…"). Uma citação que nunca fecha (senador:SP, 29/09/2026:
+        # o prefixo `<ref>{{citar web|url=` digitado duas vezes) deixava a
+        # célula desbalanceada para sempre, e as células seguintes da MESMA
+        # linha ("|21 e 24 de setembro", "|{{fmtn|1200}}") eram coladas nela —
+        # a linha saía com as células deslocadas (amostra "38"/"25", instituto
+        # "2") e o validador derrubava a rodada; descartar a linha inteira
+        # quebrava o rowspan do cenário irmão. Com o critério pelo formato, a
+        # citação quebrada suja só a própria célula (o nome do instituto sai
+        # limpo: `sanitizePollsterName` corta em "{{") e o resto da linha
+        # parseia normalmente.
+        desbalanceada = cur and (cur[-1]['raw'].count('{{') > cur[-1]['raw'].count('}}')
+                    or cur[-1]['raw'].count('<ref') > cur[-1]['raw'].count('</ref>') + cur[-1]['raw'].count('/>'))
+        if desbalanceada and (not s.startswith('|') or re.match(r'\|\s*[^|=\[\]{}<>]{1,40}=', s)):
             cur[-1]['raw'] += '\n' + ln
             i += 1; continue
         if s.startswith('!') or (s.startswith('|') and not s.startswith('|}')):
@@ -938,11 +939,20 @@ def _self_test():
     # tem de encerrar a linha, e a linha boa depois dela tem de sair.
     quebrada = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
         "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
-        "|-", "| Quaest<ref name=\":37\">{{citar web|url=|Quaest<ref name=\":37\">{{citar web|url=https://x.example/q|título=T}}</ref> || 21 e 24 de setembro || 1.200 || 40 || 41 || 3 || 59",
+        "|-", "|Quaest<ref name=\":37\">{{citar web|url=|Quaest<ref name=\":37\">{{citar web|url=https://x.example/q|título=T}}</ref>",
+        "|21 e 24 de setembro", "|{{fmtn|1200}}", "|40", "|41", "|3", "|59",
         "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
     pq = extract(quebrada, url, 'pt', 'presidente', None)
     assert any(p['pollster'] == 'Índice' and p['fieldwork_end'] == '2026-09-26' for p in pq), ('citação quebrada engoliu a linha seguinte', pq)
-    assert not any(p['pollster'].startswith('Quaest') for p in pq), ('a linha com citação quebrada não pode virar pesquisa', pq)
+    pq_q = [p for p in pq if p['pollster'].startswith('Quaest')]
+    assert len(pq_q) == 1 and pq_q[0]['fieldwork_end'] == '2026-09-24' and pq_q[0]['sample_size'] == 1200 \
+        and [r['pct'] for r in pq_q[0]['results']] == [40.0, 41.0], ('a linha com citação quebrada tem de sair com as células no lugar', pq_q)
+    # E a citação legítima em várias linhas segue como continuação da célula.
+    multi = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "| Quaest<ref>{{citar web|url=https://x.example/q", "|título=T", "|acessodata=29 de setembro de 2026}}</ref>", "| 21 e 24 de setembro", "| 1.200", "| 40", "| 41", "| 3", "| 59", "|}"])
+    pmu = extract(multi, url, 'pt', 'presidente', None)
+    assert len(pmu) == 1 and pmu[0]['sample_size'] == 1200 and [r['pct'] for r in pmu[0]['results']] == [40.0, 41.0], ('citação multi-linha legítima deixou de ser continuação', pmu)
     # <br> DENTRO DO LINK (São Paulo): `[[Simone Tebet|Simone<br>Tebet]]` é
     # "Simone Tebet", não "[[Simone Tebet|Simone".
     sp = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
