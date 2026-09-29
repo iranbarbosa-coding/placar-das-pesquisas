@@ -951,17 +951,28 @@ metadata cells change in the table columns.
   (v2/cenarios fetched live for every native id): **17 are "Lula vs Renan Santos"
   (or Flávio vs Renan) runoff scenarios that Poder360 now serves with Renan's row
   BLANK** — cenário 4 of every AtlasIntel/Quaest/Ideia state presidential comes back
-  as `[Lula, brancos/nulos]` — so `poder360.mjs` (`round === 2 && results.length < 2`)
-  discards the scenario before roster retention can complete it, the question
-  vanishes and the whole disputa freezes (presidente:SP/PA/PB/PE/PI/PR/RJ/RS/MG/MS/
-  GO/DF/CE/AC/AM, presidente:BR ×4). Same defect class as the empty-name rows the
-  retention guard exists for; the fix is to admit a one-name runoff ONLY when a
-  previous question of the same survey can complete it (retention), and discard it
-  otherwise. Not done yet. The rest: PE 2025 runoffs (30 rows) really removed from
-  the Wikipedia page (ratify or park); SE/SC/MT Wikipedia rows re-minted by roster
-  edits (needs survey-level lineage translation, see "seed can collide" below);
-  Ideia/BA 13875 and Quaest/SC 13934 first-round toplines now served WITHOUT Lula and
-  Flávio (source defect, retention would hold them if the scenario survived).
+  as `[Lula, brancos/nulos]` — `poder360.mjs` discarded the scenario
+  (`round === 2 && results.length < 2`) before roster retention could complete it,
+  the question vanished and the whole disputa froze (presidente:SP/PA/PB/PE/PI/PR/
+  RJ/RS/MG/MS/GO/DF/CE/AC/AM, presidente:BR ×4). **Fixed (PR after #117):** the
+  parser lets a one-name runoff through with a `parse_warnings` line; `reterElencos`
+  completes it from the previous round (same id, results, buckets, and — round 2
+  only — the label); `descartarFragmentosDe2oTurno` (build-store) drops what nobody
+  completed, with a `segundo_turno_fragmento_descartado` conflict and a scrape line.
+  **Survey lineage** (`translateSurveyStamps`): a survey whose id re-minted (roster
+  edit at Wikipedia, e.g. senador:SE minus three names) is re-found by registration
+  + UF, native ref, or institute + UF + fieldwork_end + sample, and inherits the old
+  id in `legacy_ids` (+ first_seen) — so the delta judge's `mesmoLevantamento` proves
+  the succession — and the judge's `mesmoLevantamento` gained a fourth exact key:
+  same institute + universe + fieldwork_end + sample (the natural rung without its
+  window; case 14 in `disputa-delta-check`), for the survey that `rosterContradicts`
+  splits off while the old one stays alive with the other tables of the operation
+  (senador:AL). One-name runoffs no longer dispense a curated `add_poll`, and
+  "não souberam" is an undecided bucket, not a candidate. Both pinned in
+  `upsert-harness`. Still open: Ideia/BA 13875 and
+  Quaest/SC 13934 first-round toplines served WITHOUT Lula and Flávio fall under the
+  `soma<30` guard before retention (same shape, first round); PE 2025 runoffs (30
+  rows) — see the Wikipedia note below.
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across

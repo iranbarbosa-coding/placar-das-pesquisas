@@ -187,7 +187,7 @@ function newReport() {
            // acima ficavam em zero, a linha `RE-CUNHAGEM` nem era impressa, e o
            // instituto perdia `first_seen` atrás desse zero legítimo.
            translated: { candidates: 0, orphanedCandidates: 0, people: 0, orphanedPeople: 0,
-                         institutes: 0, orphanedInstitutes: 0 },
+                         institutes: 0, orphanedInstitutes: 0, surveys: 0, orphanedSurveys: 0 },
            // Quantas perguntas ficaram com o elenco da rodada ANTERIOR porque a
            // fonte encolheu o que devolve, e quantas linhas de candidato isso
            // salvou. Numa rodada em que a fonte está sã é zero; diferente de

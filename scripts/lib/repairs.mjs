@@ -365,8 +365,15 @@ export function inserirPesquisaCurada(polls, rep, targets, label,
   // para um registro somando 16, o guarda o descartou (16 < 30), e a pesquisa
   // fechou a rodada sem existir por nenhum dos dois caminhos. Um alvo que vai
   // morrer não serve a pesquisa; ele só a esconde.
-  const vivos = targets.filter((p) => sobrevive(p));
-  const mortos = targets.filter((p) => !sobrevive(p));
+  // UM 2º TURNO DE UM NOME SÓ TAMBÉM NÃO DISPENSA: desde 28/09/2026 o parser
+  // deixa o fragmento passar para a retenção de elenco completá-lo, e sem este
+  // filtro ele contava como "a fonte já serve" — a curada Quaest/BA 27/07
+  // (Lula × Zema) foi dispensada por um registro que só trazia Zema, e depois
+  // o fragmento foi descartado: a pesquisa fechou a rodada sem existir por
+  // nenhum dos dois caminhos, o mesmo furo do caso RO com outra roupa.
+  const vivo = (p) => sobrevive(p) && !(p.round === 2 && (p.results ?? []).length < 2);
+  const vivos = targets.filter((p) => vivo(p));
+  const mortos = targets.filter((p) => !vivo(p));
   if (vivos.length) {
     // A fonte sarou (ou a rodada anterior já projetou a pesquisa de volta em
     // polls.json). Não é defeito e não é sucesso: é a inserção dispensada, e o

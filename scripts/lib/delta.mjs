@@ -275,6 +275,20 @@ export function deltaPorDisputa({
     if ((sn.source_refs ?? []).some((r) => refs.has(`${r.source}:${r.native_id}`))) return true;
     if (sa.tse_registration && sn.tse_registration
       && normalizeRegistration(sa.tse_registration) === normalizeRegistration(sn.tse_registration)) return true;
+    // A MESMA OPERAÇÃO DE CAMPO POR CHAVES EXATAS — o degrau 3 da escada de
+    // resolução, sem a janela: mesmo instituto, mesmo universo, o MESMO fim de
+    // campo e a MESMA amostra. É o caso em que a fonte edita o elenco de uma
+    // tabela (Wikipédia, senador:AL 29/09/2026: um nome retirado de todas as
+    // linhas): `rosterContradicts` separa a linha nova num `survey|nat|…`
+    // próprio enquanto o levantamento antigo continua vivo com as outras
+    // tabelas da operação — nenhuma das chaves acima liga os dois, e cada
+    // pergunta editada saía como perda. Nada escolhido, nenhuma janela (§10):
+    // quatro igualdades, e a amostra tem de bater (a nula só casa com nula).
+    const dataDe = (s) => s.fieldwork_end ?? s.published_date ?? null;
+    if (sa.institute_id && sa.institute_id === sn.institute_id
+      && (sa.universe?.uf ?? null) === (sn.universe?.uf ?? null)
+      && dataDe(sa) && dataDe(sa) === dataDe(sn)
+      && (sa.sample_size ?? null) === (sn.sample_size ?? null)) return true;
     return false;
   };
 
