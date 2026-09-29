@@ -34,6 +34,17 @@ def strip_templates(t, keep_small_inner=True):
         t = re.sub(r'\{\{([^{}]*)\}\}', repl, t)
     return t
 
+# TEMPLATE MANCO — `{{N/A}` fechado com UMA chave (senador:AL, 29/09/2026). A
+# regra de continuação abaixo lê "{{" a mais que "}}" na célula como uma citação
+# multi-linha e cola nela TODAS as linhas seguintes até o fim da tabela: uma
+# célula digitada errada engoliu 22 linhas do Senado de Alagoas (3 lidas de 25)
+# sem erro nenhum, e 7 pesquisas "sumiram" da coleta. Um `{{X}` nunca é wikitexto
+# legítimo, então fechá-lo é a única leitura; templates balanceados não casam
+# (o `}` de "}}" é seguido de "}").
+_TEMPLATE_MANCO = re.compile(r'\{\{([^{}\n]*)\}(?!\})')
+def _fecha_template_manco(ln):
+    return _TEMPLATE_MANCO.sub(r'{{\1}}', ln)
+
 def strip_links(t):
     # [[target|display]] -> display ; [[target]] -> target ; files removed
     t = re.sub(r'\[\[(?:File|Ficheiro|Image|Imagem):[^\[\]]*(?:\[\[[^\]]*\]\][^\[\]]*)*\]\]', '', t, flags=re.I)
@@ -90,7 +101,7 @@ def parse_table(lines):
         if cur: rows.append(cur); cur = []
     i = 0
     while i < len(lines):
-        ln = lines[i]
+        ln = _fecha_template_manco(lines[i])
         s = ln.strip()
         if s.startswith('{|') or s.startswith('|+'):
             i += 1; continue
@@ -885,6 +896,16 @@ def _self_test():
     # O cabeçalho continua mandando sobre o título.
     p3 = extract("== Segundo turno ==\n" + tabela, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2026/Janeiro a Agosto')
     assert p3[0]['round'] == 2, p3
+    # TEMPLATE MANCO `{{N/A}` (senador:AL, 29/09/2026): a célula fechada com uma
+    # chave só engolia o resto da tabela pela regra de continuação de citação —
+    # 3 de 25 linhas lidas, sem erro. As duas linhas têm de sair.
+    manco = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "| Ranking || 24 e 26 de setembro || 1.200 || 40 || 41 || {{N/A} || 59",
+        "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
+    pm = extract(manco, url, 'pt', 'presidente', None)
+    assert [p['pollster'] for p in pm] == ['Ranking', 'Índice'], ('template manco engoliu a tabela', pm)
+    assert pm[0]['fieldwork_end'] == '2026-09-26' and [r['pct'] for r in pm[0]['results']] == [40.0, 41.0], pm[0]
     # Subpágina de INTERVALO ("2023-2025"), sem cabeçalho de ano, em ordem
     # cronológica inversa — a forma real da "/Primeiro Turno/2023-2025" em
     # 14/09/2026. Três levantamentos: (a) ancorado pela citação (jan/2025),

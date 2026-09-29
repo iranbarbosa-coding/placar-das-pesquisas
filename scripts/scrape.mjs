@@ -16,6 +16,7 @@ import { today, writeStore, readStore, JANELA_OPERACAO_MS } from "./lib/store.mj
 import { relatorioDeEnsaio, resolverDestino, prepararEnsaio } from "./lib/ensaio.mjs";
 import { richerRoster } from "./lib/roster.mjs";
 import { sobreviveAoGuardaDeSoma, veredictoDeSoma } from "./lib/soma.mjs";
+import { pollId } from "./lib/util.mjs";
 import { buildStoreFromPolls } from "./lib/build-store.mjs";
 import { validateStore, contagem } from "./validate-store.mjs";
 import { lerCandidaturas, agruparPorDisputa, contestOf } from "./lib/candidaturas.mjs";
@@ -320,6 +321,85 @@ export function mergePolls(pollLists, {
     }
   }
   return out;
+}
+
+/**
+ * A TABELA QUE A FONTE TRUNCOU VOLTA DO COMMIT ANTERIOR — pelo MESMO id nativo.
+ *
+ * O `v2/cenarios` do Poder360 passou a servir cenários sem parte do elenco:
+ * o 2º turno "Lula × Renan Santos" chega como `[Lula]` (medido em 28/09/2026
+ * na nacional; em 29/09 em 13 UFs), e o 1º turno chega sem os líderes —
+ * `[Garotinho 9]` no lugar de cinco nomes (Datafolha/RJ), `[Caiado 5, Cury 2,
+ * Hertz 1, Rui 0,5]` sem Lula e Flávio (Ideia/BA). A retenção de elenco
+ * (`scripts/lib/roster.mjs`) conserta isso DENTRO do store, mas o fragmento
+ * nunca chegava lá: um 2º turno de um nome só cai em `mergePolls` — `[Lula]`
+ * casa por 1/1 ≥ 0,6 com "Flávio × Lula" do MESMO instituto e é absorvido no
+ * confronto ERRADO, sem linha nenhuma —, e um 1º turno somando 9 morria no
+ * guarda de soma. O guarda de delta congelava a disputa por "perda sem prova"
+ * (13 presidenciais estaduais + governador:RJ/presidente:BA/SC em 29/09).
+ *
+ * A regra é a da retenção, aplicada ANTES das decisões de existência:
+ *   · só registro do Poder360 cujo id nativo (`p360-<id>-<turno>-<cenário>`)
+ *     já estava no polls.json do commit anterior — nunca uma tabela nova;
+ *   · só TRUNCAÇÃO: 2º turno com um nome só, ou 1º turno que não sobrevive
+ *     ao guarda de soma (`veredictoDeSoma`);
+ *   · só SUBCONJUNTO ESTRITO do elenco anterior, ANCORADO pelos pcts — cada
+ *     nome que chegou tem o mesmo pct (±0,05) na tabela do commit. Alguém
+ *     entrando, ou um pct diferente, é a fonte republicando OUTRA tabela, e
+ *     o que chega segue como está (e morre no guarda, em voz alta);
+ *   · nunca quando o confronto anterior chegou INTEIRO por outro cenário do
+ *     mesmo poll — aí o fragmento é outra coisa, não o mesmo confronto.
+ * A tabela volta inteira (linhas + buckets + rótulo do 2º turno + o id, que
+ * `pollId` chaveia pelo rótulo), com `parse_warnings` dizendo o que faltou —
+ * o aviso vai à pergunta e ao polls.json. `doador` é parâmetro por UM motivo:
+ * o autoteste de `truncada-restaurada-check.mjs` prova que a bateria REPROVA
+ * com a restauração desligada (`() => null`, o comportamento antigo).
+ */
+const chaveNativaDe = (id) => /^(p360-\d+-\d-\d+)-/.exec(String(id ?? ""))?.[1] ?? null;
+export function doadorDoCommit(p, anteriores) {
+  return anteriores.get(chaveNativaDe(p.id)) ?? null;
+}
+export function restaurarTruncadasDoCommit(polls, previousPolls, { doador = doadorDoCommit } = {}) {
+  const anteriores = new Map();
+  for (const a of previousPolls ?? []) {
+    const k = chaveNativaDe(a?.id);
+    if (k && !anteriores.has(k)) anteriores.set(k, a);
+  }
+  const restauradas = [];
+  if (!anteriores.size) return restauradas;
+  const pidDe = (p) => /^p360-(\d+)-/.exec(String(p?.id ?? ""))?.[1] ?? null;
+  const acha = (tabela, r) => (tabela ?? []).find((x) => sameCandidate(r.candidate, x.candidate));
+  const mesmoElenco = (ra, rb) => ra.length === rb.length && ra.every((r) => !!acha(rb, r));
+  for (const p of polls) {
+    if (p.source !== "poder360") continue;
+    const chegaram = p.results ?? [];
+    const truncada = p.round === 2 ? chegaram.length < 2 : !sobreviveAoGuardaDeSoma(p);
+    if (!truncada) continue;
+    const ant = doador(p, anteriores);
+    if (!ant || !Array.isArray(ant.results) || ant.results.length <= chegaram.length) continue;
+    const ancorada = chegaram.every((r) => {
+      const x = acha(ant.results, r);
+      return x && x.pct != null && r.pct != null && Math.abs(x.pct - r.pct) <= 0.05;
+    });
+    if (!ancorada) continue;
+    const pid = pidDe(p);
+    const inteiroPorOutro = polls.some((o) => o !== p && o.source === "poder360" && o.round === p.round
+      && pidDe(o) === pid && mesmoElenco(o.results ?? [], ant.results));
+    if (inteiroPorOutro) continue;
+    const faltaram = ant.results.filter((x) => !acha(chegaram, x)).map((x) => x.candidate);
+    const servidos = chegaram.length;
+    p.results = ant.results.map((x) => ({ candidate: x.candidate, party: x.party ?? null, pct: x.pct }));
+    p.others_pct = ant.others_pct ?? null;
+    p.undecided_pct = ant.undecided_pct ?? null;
+    p.blank_null_pct = ant.blank_null_pct ?? null;
+    if (p.round === 2 && ant.scenario) p.scenario = ant.scenario;
+    const m = /^p360-(\d+)-(\d)-(\d+)-/.exec(String(p.id));
+    if (m) p.id = `p360-${m[1]}-${m[2]}-${m[3]}-${pollId(p)}`;
+    const aviso = `elenco restaurado do commit anterior (${ant.id}): a fonte serviu ${servidos} de ${ant.results.length} nome(s); faltaram ${faltaram.join(", ")}`;
+    p.parse_warnings = [...(p.parse_warnings ?? []).filter((w) => !/^2º turno com um só nome/.test(w)), aviso];
+    restauradas.push({ id: p.id, de: ant.id, faltaram });
+  }
+  return restauradas;
 }
 
 /**
@@ -750,6 +830,13 @@ async function main() {
   // land in the same dedupe bucket.
   const allRaw = [...(poder.polls ?? []), ...(wiki.polls ?? [])];
   canonicalizePollsters(allRaw);
+  // A tabela truncada pela fonte volta do commit anterior ANTES da fusão e do
+  // guarda de soma — ver `restaurarTruncadasDoCommit`.
+  {
+    const restauradas = restaurarTruncadasDoCommit(allRaw.filter((p) => p.source === "poder360"), previous.polls ?? []);
+    for (const r of restauradas) console.warn(`ELENCO RESTAURADO do commit anterior: ${r.id} ← ${r.de} (faltaram na fonte: ${r.faltaram.join(", ")})`);
+    if (restauradas.length) console.warn(`  ${restauradas.length} tabela(s) truncada(s) pela fonte restaurada(s) do commit anterior`);
+  }
   let polls = mergePolls([
     allRaw.filter((p) => p.source === "poder360"),
     allRaw.filter((p) => p.source !== "poder360"),

@@ -458,21 +458,33 @@ export function deltaPorDisputa({
       Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS
       || anoTrocadoMesmoInstituto(da, db, sa, sn);
 
+    // A MESMA CASA RE-DATADA FORA DA JANELA — a Wikipédia corrigindo o MÊS de
+    // campo (Santa Catarina, 29/09/2026: Mapa/Jovem Pan e Neokemp saíram de
+    // junho para julho, tabelas idênticas dígito a dígito, mesma amostra). É o
+    // salto de ano generalizado, com a MESMA prova compensatória (o mesmo
+    // `institute_id`) e uma exigência a mais, porque a data não ajuda em nada:
+    // a tabela CHEIA (≥3 nomes idênticos) E a mesma amostra dos dois lados.
+    // Uma topline de 2 nomes re-datada não prova; instituto diverso não prova.
+    const mesmaCasa = (sa, sn) => !!sa?.institute_id && sa.institute_id === sn?.institute_id;
+
     for (const cand of grupo) {
       if (cand.survey_id === q.survey_id) continue; // mesma pesquisa: já decidida acima
       const sa = surveysAnt.get(q.survey_id);
       const sn = surveysNov.get(cand.survey_id);
       const da = dataDe(sa), db = dataDe(sn);
-      if (da && db && !mesmoInstante(da, db, sa, sn)) continue;
+      const noInstante = !(da && db) || mesmoInstante(da, db, sa, sn);
+      if (!noInstante && !mesmaCasa(sa, sn)) continue;
       const amostraA = sa?.sample_size ?? null, amostraB = sn?.sample_size ?? null;
       if (amostraA != null && amostraB != null && amostraA !== amostraB) continue;
       const t = tabelaIdentica(q.results, cand.results);
       if (!t.ok) continue;
       // Topline de 2 nomes coincide por acaso entre institutos: exige a chave
       // FORTE (mesma amostra E mesma data, ou o salto de ano do MESMO instituto).
-      const forte = t.matched >= 3
-        || (t.matched === 2 && amostraA != null && amostraA === amostraB
-            && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn)));
+      const forte = noInstante
+        ? (t.matched >= 3
+          || (t.matched === 2 && amostraA != null && amostraA === amostraB
+              && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn))))
+        : (t.matched >= 3 && amostraA != null && amostraA === amostraB);
       if (!forte) continue;
       return { sucessora: cand.question_id, via: "duplicata" };
     }

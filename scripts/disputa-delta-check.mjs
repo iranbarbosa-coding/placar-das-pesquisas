@@ -403,6 +403,50 @@ function rodar({ mutacao = null } = {}) {
       `amostra diferente derruba a chave forte do topline de 2 nomes (ok=${va.ok}, semProva=${va.semProva})`);
   });
 
+  caso("12b PASSA: a MESMA CASA re-datada fora da janela — tabela cheia idêntica e mesma amostra provam; 2 nomes, instituto diverso ou amostra diversa REPROVAM", ({ delta, afirma }) => {
+    // O caso Santa Catarina (29/09/2026): a Wikipédia corrigiu o MÊS de campo de
+    // Mapa/Jovem Pan e Neokemp (junho → julho). Tabelas idênticas dígito a
+    // dígito, mesma amostra (1008), mesmo instituto — mas 30 dias caem fora da
+    // janela de operação e não são o salto de ano exato (mês/dia iguais), então
+    // o juiz acusava 3 perdas onde só houve correção de data.
+    const tabela = () => [r("c_jm", 55.3, "Jorginho Mello"), r("c_jr", 15.7, "João Rodrigues"), r("c_gm", 3.4, "Gelson Merisio")];
+    const anterior = banco(
+      [q("q_jun", "governador", "SC", tabela(), { survey_id: "s_jun" })],
+      [],
+      [{ survey_id: "s_jun", institute_id: "i_mapa", fieldwork_end: "2026-06-22", sample_size: 1008 }]);
+    const novo = banco(
+      [q("q_jul", "governador", "SC", tabela(), { survey_id: "s_jul" })],
+      [],
+      [{ survey_id: "s_jul", institute_id: "i_mapa", fieldwork_end: "2026-07-22", sample_size: 1008 }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok, `a mesma casa re-datada com tabela cheia idêntica tinha de provar sucessão (veio ${v.linhas.join(" | ")})`);
+    afirma(v.toleradas.sucessoras === 1, `1 sucessora (veio ${v.toleradas.sucessoras})`);
+    afirma(/via duplicata/.test(v.conflitos.find((x) => x.type === "question_sumida_com_sucessora")?.note ?? ""), "a via é a duplicata");
+
+    // SEGURANÇA 1 — instituto diverso: duas casas com a mesma tabela em datas
+    // diferentes não são a mesma pesquisa. REPROVA.
+    const outraCasa = structuredClone(novo); outraCasa.surveys[0].institute_id = "i_outro";
+    const v1 = delta({ anterior, novo: outraCasa });
+    afirma(!v1.ok && v1.semProva === 1, `instituto diverso re-datado tem de reprovar (ok=${v1.ok}, semProva=${v1.semProva})`);
+
+    // SEGURANÇA 2 — topline de 2 nomes: coincide por acaso; fora da janela não
+    // há data que a salve. REPROVA.
+    const dois = () => [r("c_jm", 55.3, "Jorginho Mello"), r("c_jr", 15.7, "João Rodrigues")];
+    const ant2 = banco([q("q_jun2", "governador", "SC", dois(), { round: 2, survey_id: "s_jun" })], [], anterior.surveys);
+    const nov2 = banco([q("q_jul2", "governador", "SC", dois(), { round: 2, survey_id: "s_jul" })], [], novo.surveys);
+    const v2 = delta({ anterior: ant2, novo: nov2 });
+    afirma(!v2.ok && v2.semProva === 1, `2 nomes re-datados têm de reprovar (ok=${v2.ok}, semProva=${v2.semProva})`);
+
+    // SEGURANÇA 3 — amostra diversa (ou ausente de um lado): sem a segunda
+    // igualdade a re-datação não prova. REPROVA.
+    const outraAmostra = structuredClone(novo); outraAmostra.surveys[0].sample_size = 1200;
+    const v3 = delta({ anterior, novo: outraAmostra });
+    afirma(!v3.ok && v3.semProva === 1, `amostra diversa re-datada tem de reprovar (ok=${v3.ok}, semProva=${v3.semProva})`);
+    const semAmostra = structuredClone(novo); semAmostra.surveys[0].sample_size = null;
+    const v4 = delta({ anterior, novo: semAmostra });
+    afirma(!v4.ok && v4.semProva === 1, `amostra ausente de um lado tem de reprovar (ok=${v4.ok}, semProva=${v4.semProva})`);
+  });
+
   caso("13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM", ({ delta, afirma }) => {
     // senador:GO 06/09/2026: o Poder360 EDITOU a tabela do registro 13863 —
     // passou a listar Cíntia Dias e Isaura Lemos e deixou de listar Iure Castro.
@@ -767,6 +811,7 @@ function autoteste() {
       "10 PASSA: duplicata entre marcas — sucessão por tabela idêntica, durável sob deriva de id",
       "11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA",
       "12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM",
+      "12b PASSA: a MESMA CASA re-datada fora da janela — tabela cheia idêntica e mesma amostra provam; 2 nomes, instituto diverso ou amostra diversa REPROVAM",
       "13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM",
       "14 PASSA: mesmo registro nativo em OUTRO levantamento da MESMA operação de campo (instituto, UF, data e amostra exatos) prova; data ou amostra diversa REPROVAM",
     ],
