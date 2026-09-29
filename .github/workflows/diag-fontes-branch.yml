@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 21 (29/09): PR #120 completo sobre o dado fresco — restauração de tabela truncada, {{N/A}, mesma casa re-datada
+# ensaio 22 (29/09): PR #120 completo sobre o dado fresco — com o doador de 1º turno por poll
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
