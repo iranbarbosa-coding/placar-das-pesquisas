@@ -1,81 +1,75 @@
 name: diag-fontes-branch
-# ensaio 20 (29/09): rastro da retenção no AM; SE (IFP≡França?), MT/AC/MS crus
+# ensaio 21 (29/09): PR #120 completo sobre o dado fresco — restauração de tabela truncada, {{N/A}, mesma casa re-datada
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
     paths: [.github/workflows/diag-fontes-branch.yml]
 jobs:
-  ler:
+  ensaio:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 24 }
-      - name: Wikipédia crua — SE (IFP em março), MT senado (Paraná set), AC senado (IPSensus), MS governador (Quaest 2º turno)
-        shell: bash
+      - run: node scripts/fetch-candidaturas.mjs
+      - run: node scripts/match-ballot-names.mjs
+      - run: python3 scripts/wiki_parse.py --self-test
+      - run: node scripts/sources/poder360.mjs --self-test
+      - run: node scripts/truncada-restaurada-check.mjs --self-test && node scripts/truncada-restaurada-check.mjs
+      - name: Coleta REAL (stderr guardado)
+        run: node scripts/scrape.mjs > scrape.out 2> scrape.err; tail -30 scrape.out
+      - run: node scripts/derive-polls.mjs
+      - name: Portões (os mesmos do cron)
         run: |
-          set +e
-          UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
-          w() { curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$1" --data-urlencode action=raw -o "$2"; }
-          w "Pesquisas eleitorais para a eleição estadual de 2026 em Sergipe" se.wiki
-          w "Pesquisas eleitorais para a eleição estadual de 2026 em Mato Grosso" mt.wiki
-          w "Pesquisas eleitorais para a eleição estadual de 2026 no Acre" ac.wiki
-          w "Pesquisas eleitorais para a eleição estadual de 2026 em Mato Grosso do Sul" ms.wiki
-          echo "########## SE: linhas IFP/França de março (governador)"
-          grep -n -A2 -E "^\|.*(IFP|Fran[çc]a)" se.wiki | grep -B1 -A1 -E "mar[çc]o|IFP|Fran" | cut -c1-150 | head -60 || true
-          echo "########## MT: cabeçalhos + linhas Paraná Pesquisas (senado) com datas/amostra"
-          grep -n -E "^==+" mt.wiki || true
-          grep -n -A3 -E "^\|.*Paran" mt.wiki | cut -c1-150 | head -80 || true
-          echo "########## AC: cabeçalhos + IPSensus"
-          grep -n -E "^==+" ac.wiki || true
-          grep -n -i -A3 "IPSensus\|IP Sensus\|Sensus" ac.wiki | cut -c1-150 | head -40 || true
-          echo "########## MS: cabeçalhos + Quaest (2º turno)"
-          grep -n -E "^==+" ms.wiki || true
-          grep -n -A2 -E "^\|.*Quaest" ms.wiki | cut -c1-150 | head -60 || true
-          true
-      - name: Wikipédia parser — SE IFP, AC, MS, MT
-        shell: bash
+          set -e
+          node scripts/validate-store.mjs --self-test && node scripts/validate-store.mjs
+          node scripts/parity-check.mjs
+          node scripts/projection-twin-check.mjs
+          node scripts/pollster-clustering-check.mjs
+          node scripts/upsert-harness.mjs
+          node scripts/roster-retention-check.mjs --self-test && node scripts/roster-retention-check.mjs
+          node scripts/disputa-delta-check.mjs --self-test
+          echo "########## DELTA ##########"
+          node scripts/disputa-delta-check.mjs
+          node scripts/source-fallback-check.mjs --self-test && node scripts/source-fallback-check.mjs
+          node scripts/curated-insert-check.mjs --self-test && node scripts/curated-insert-check.mjs
+          node scripts/existencia-pos-guarda-check.mjs && node scripts/existencia-pos-guarda-check.mjs --self-test
+          node scripts/fusao-cenarios-check.mjs
+          node scripts/idempotence-check.mjs
+          node scripts/validate-data.mjs data/polls.json
+          node scripts/incomplete-polls.mjs
+          node scripts/census.mjs
+      - name: Relatório
+        if: always()
         run: |
-          set +e
-          python3 - <<'PY'
-          import json
-          pages=json.load(open('scripts/wiki-pages.json'))
-          json.dump([p for p in pages if p.get('state') in ('SE','AC','MS','MT')], open('sub.json','w'))
-          PY
-          python3 scripts/wiki_parse.py sub.json > wiki.json 2> wiki.err; echo "parser exit $?"; tail -5 wiki.err
-          python3 - <<'PY'
-          import json,re
-          polls=json.load(open('wiki.json'))['polls']
-          def show(uf,race,pat,since='2026-08-01'):
-              print(f"== {race}/{uf} · {pat} desde {since}")
-              for p in polls:
-                  if p.get('state')==uf and p.get('race')==race and re.search(pat,p.get('pollster') or '') and (p.get('fieldwork_end') or '')>=since:
-                      print("  ", p.get('pollster'), p.get('fieldwork_start'), p.get('fieldwork_end'), 'n', p.get('sample_size'), 't', p.get('round'), p.get('scenario_label') or '', [(r.get('candidate'), r.get('pct')) for r in p.get('results',[])][:7])
-          show('SE','governador',r'IFP|Fran','2026-03-01')
-          show('AC','senador',r'.', '2026-09-01')
-          show('MS','governador',r'Quaest','2026-09-01')
-          show('MT','senador',r'Paran','2026-08-01')
-          PY
-      - name: Rastro da retenção no AM (coleta real)
-        shell: bash
-        run: |
-          set +e
-          node scripts/fetch-candidaturas.mjs >/dev/null 2>&1; node scripts/match-ballot-names.mjs >/dev/null 2>&1
-          node scripts/scrape.mjs > scrape.out 2> scrape.err; echo "scrape exit $?"
-          grep -h "presidente/AM\|presidente/CE" scrape.err scrape.out | cut -c1-220 | head -20
+          echo "########## RESTAURADAS ##########"
+          grep -c "ELENCO RESTAURADO" scrape.err || true
+          grep "ELENCO RESTAURADO\|tabela(s) truncada(s)" scrape.err | cut -c1-200 | head -40 || true
+          echo "########## DESCARTES ##########"
+          grep -o "descartada \[[^]]*\]" scrape.err | sort | uniq -c | sort -rn || true
+          grep "descartada \[soma<30\]\|2º turno de um nome só" scrape.err | cut -c1-180 | head -30 || true
+          echo "########## RETENÇÃO / FRAGMENTOS / RE-CUNHAGEM ##########"
+          grep -h "ELENCO RETIDO\|2º TURNO DE UM NOME\|RE-CUNHAGEM" scrape.out scrape.err 2>/dev/null | sort -u | head || true
+          echo "########## SUMIDAS/QUARENTENA ##########"
+          grep -c "disputa_em_quarentena" data/conflicts.ndjson || true
+          grep "disputa_em_quarentena" data/conflicts.ndjson | python3 -c "
+          import sys,json
+          for l in sys.stdin:
+              c=json.loads(l); print('  ',c['record_id'],'|',c['note'][:170])
+          " || true
+          echo "########## AL senado: linhas parseadas de ago-set ##########"
           python3 - <<'PY'
           import json
           qs=[json.loads(l) for l in open('data/questions.ndjson') if l.strip()]
           ss={s['survey_id']:s for s in (json.loads(l) for l in open('data/surveys.ndjson') if l.strip())}
-          print("== perguntas presidente/AM no store fresco (AtlasIntel 09-03)")
+          n=0
           for q in qs:
               s=ss.get(q['survey_id'],{})
-              if q.get('race')=='presidente' and q.get('uf')=='AM' and (s.get('fieldwork_end') or '')>='2026-09-01':
-                  print("  ", q['question_id'], q['survey_id'], 'r', q['round'], q.get('scenario_label_raw'), q.get('legacy_id'), [(r.get('name_raw'), r.get('candidate_id'), r.get('pct')) for r in q['results']])
-          print("== conflitos AM desta coleta")
-          for l in open('data/conflicts.ndjson'):
-              c=json.loads(l)
-              if 'presidente/AM' in (c.get('note') or '') or (c.get('type','').startswith('roster_shrink') and 'AM' in json.dumps(c)[:400]):
-                  print("  ", c['type'], c.get('record_id'), '|', (c.get('note') or '')[:200])
+              if q.get('race')=='senador' and q.get('uf')=='AL' and (s.get('fieldwork_end') or '')>='2026-08-15':
+                  n+=1; print("  ", s.get('institute_names_raw'), s.get('fieldwork_end'), s.get('sample_size'), [(r.get('name_raw'), r.get('pct')) for r in q['results']][:5])
+          print("total senador/AL desde 15/08:", n)
           PY
+          echo "########## DIFF DO STORE ##########"
+          git status --short data/ CENSO_BANCO.md PESQUISAS_INCOMPLETAS.md
+          git diff --stat data/ | tail -3
