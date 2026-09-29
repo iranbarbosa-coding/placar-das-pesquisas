@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 25 (29/09): PR #120 completo — + <br> no link do cabeçalho de SP e |- acima da continuação
+# ensaio 26 (29/09): PR #120 completo — + <br> no link do cabeçalho de SP e |- acima da continuação
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -18,7 +18,14 @@ jobs:
       - run: node scripts/sources/poder360.mjs --self-test
       - run: node scripts/truncada-restaurada-check.mjs --self-test && node scripts/truncada-restaurada-check.mjs
       - name: Coleta REAL (stderr guardado)
-        run: node scripts/scrape.mjs > scrape.out 2> scrape.err; tail -30 scrape.out
+        run: |
+          node scripts/scrape.mjs > scrape.out 2> scrape.err; rc=$?
+          echo "scrape exit $rc"; tail -30 scrape.out
+          echo "########## ERROS (scrape.err) ##########"
+          grep -n -i "ERRO\|Error\|exception\|abort\|NÃO gravado\|Validação falhou\|desconhecid" scrape.err | cut -c1-260 | head -60 || true
+          echo "########## cauda do scrape.err ##########"
+          tail -60 scrape.err | cut -c1-260
+          exit $rc
       - run: node scripts/derive-polls.mjs
       - name: Portões (os mesmos do cron)
         run: |
