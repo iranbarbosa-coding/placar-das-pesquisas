@@ -301,9 +301,18 @@ export function deltaPorDisputa({
     const A = traduzir(ra ?? []), B = traduzir(rb ?? []);
     const [menor, maior] = A.length <= B.length ? [A, B] : [B, A];
     if (menor.length < 2) return { ok: false, matched: 0 };
+    // GRAFIA VAZADA DE WIKITEXTO — "[[Simone Tebet|Simone" (senador:SP, 29/09/2026):
+    // o template manco `{{N/A}` da página fez o parser colar as linhas do
+    // cabeçalho numa célula, e 46 perguntas de SP foram cunhadas com o link
+    // cru como nome. Consertado o parser, a mesma linha volta com o nome certo
+    // e a pergunta velha "some". O alvo do link É o nome: casa por ele.
+    const semVazamento = (n) => {
+      const t = String(n ?? "").trim();
+      return t.startsWith("[[") ? t.slice(2).split("|")[0].replace(/\]\]$/, "").trim() : t;
+    };
     const casa = (r, x) =>
       (r.candidate_id && x.candidate_id && r.candidate_id === x.candidate_id) ||
-      (r.name_raw && x.name_raw && sameCandidate(r.name_raw, x.name_raw));
+      (r.name_raw && x.name_raw && sameCandidate(semVazamento(r.name_raw), semVazamento(x.name_raw)));
     let matched = 0, identicos = 0;
     for (const r of menor) {
       const x = maior.find((y) => casa(r, y));

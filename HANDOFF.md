@@ -1019,6 +1019,13 @@ metadata cells change in the table columns.
   "Riedel × Trad 63×20" row is gone. Diagnostic pattern that worked: a branch-only
   workflow curling `v2/cenarios` per native id and `action=raw` per page, plus a
   real scrape printing the fresh questions of one survey and its conflicts.
+  **The same `{{N/A}` bug had been PUBLISHING garbage names in São Paulo**: 25
+  senador:SP and 21 governador:SP questions on main carry `name_raw` like
+  `[[Simone Tebet|Simone` (the header lines glued into a cell). With the parser
+  fixed the same rows come back with proper names, every candidate re-mints, and
+  the judge saw 10 senador:SP losses "sem prova"; `tabelaIdentica` now matches a
+  wikitext-leaked name by its link target (case 12c), so the identical table proves
+  the succession.
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across

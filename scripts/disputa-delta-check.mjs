@@ -447,6 +447,27 @@ function rodar({ mutacao = null } = {}) {
     afirma(!v4.ok && v4.semProva === 1, `amostra ausente de um lado tem de reprovar (ok=${v4.ok}, semProva=${v4.semProva})`);
   });
 
+  caso("12c PASSA: grafia vazada de wikitexto ('[[Simone Tebet|Simone') casa pelo alvo do link na duplicata; nome diverso REPROVA", ({ delta, afirma }) => {
+    // senador:SP (29/09/2026): o `{{N/A}` manco fez o parser cunhar 25 perguntas
+    // com o link cru como nome. Consertado o parser, a MESMA linha (mesmo
+    // instituto, mesmo dia, mesma amostra, mesmos pcts) volta com o nome certo,
+    // e cada candidato é re-cunhado — nenhuma linhagem liga os dois. O alvo do
+    // link é o nome; a tabela idêntica prova a sucessão.
+    const vazado = () => [r("c_v1", 29.5, "[[Simone Tebet|Simone"), r("c_v2", 30.4, "[[Marina Silva|Marina"), r("c_v3", 19.3, "[[André do Prado|André")];
+    const limpo = () => [r("c_l1", 29.5, "Simone Tebet"), r("c_l2", 30.4, "Marina Silva"), r("c_l3", 19.3, "André do Prado")];
+    const anterior = banco([q("q_vaz", "senador", "SP", vazado(), { survey_id: "s_vaz" })], [],
+      [{ survey_id: "s_vaz", institute_id: "i_parana", fieldwork_end: "2026-09-10", sample_size: 1680 }]);
+    const novo = banco([q("q_lim", "senador", "SP", limpo(), { survey_id: "s_lim" })], [],
+      [{ survey_id: "s_lim", institute_id: "i_parana", fieldwork_end: "2026-09-10", sample_size: 1680 }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok && v.toleradas.sucessoras === 1, `a grafia vazada tinha de casar pelo alvo do link (veio ${v.linhas.join(" | ")})`);
+    // SEGURANÇA — o alvo do link é OUTRO nome: não casa, a perda REPROVA.
+    const outro = structuredClone(novo);
+    outro.questions[0].results[0].name_raw = "Simone Outra";
+    const vo = delta({ anterior, novo: outro });
+    afirma(!vo.ok && vo.semProva === 1, `alvo do link diverso tem de reprovar (ok=${vo.ok}, semProva=${vo.semProva})`);
+  });
+
   caso("13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM", ({ delta, afirma }) => {
     // senador:GO 06/09/2026: o Poder360 EDITOU a tabela do registro 13863 —
     // passou a listar Cíntia Dias e Isaura Lemos e deixou de listar Iure Castro.
@@ -812,6 +833,7 @@ function autoteste() {
       "11 PASSA: adição pura no mesmo levantamento prova linhagem; departure REPROVA",
       "12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM",
       "12b PASSA: a MESMA CASA re-datada fora da janela — tabela cheia idêntica e mesma amostra provam; 2 nomes, instituto diverso ou amostra diversa REPROVAM",
+      "12c PASSA: grafia vazada de wikitexto ('[[Simone Tebet|Simone') casa pelo alvo do link na duplicata; nome diverso REPROVA",
       "13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM",
       "14 PASSA: mesmo registro nativo em OUTRO levantamento da MESMA operação de campo (instituto, UF, data e amostra exatos) prova; data ou amostra diversa REPROVAM",
     ],
