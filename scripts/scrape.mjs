@@ -1146,6 +1146,22 @@ async function main() {
     (b.fieldwork_end ?? b.published_date ?? "").localeCompare(a.fieldwork_end ?? a.published_date ?? ""),
   );
 
+  // UMA AMOSTRA IMPLAUSÍVEL NÃO DERRUBA A RODADA. O validador reprova n < 100
+  // (o inteiro do separador de milhar colapsado: 1.000 → 1), e reprovar é
+  // abortar a coleta inteira — em 29/09/2026 uma ÚNICA linha da Wikipédia em
+  // edição (senador:SP, Quaest 21–24/09, citação quebrada e células fora do
+  // lugar: amostra "38", "25", "36" em três leituras) matou três ensaios
+  // seguidos. A amostra some da linha, em voz alta e com aviso na pesquisa; a
+  // pesquisa segue (o validador aceita amostra vazia), e o guarda continua
+  // valendo para o que ele existe: nunca publicar 36 como amostra.
+  for (const p of polls) {
+    if (p.sample_size != null && (typeof p.sample_size !== "number" || !Number.isInteger(p.sample_size) || p.sample_size < 100)) {
+      console.warn(`amostra implausível deixada vazia: ${p.pollster} · ${p.race}/${p.state ?? "BR"} · campo ${p.fieldwork_end ?? "?"} · ${p.source} · id=${p.id} — n=${p.sample_size} (separador de milhar colapsado ou células deslocadas na fonte)`);
+      p.parse_warnings = [...(p.parse_warnings ?? []), `amostra implausível na fonte (${p.sample_size}); deixada vazia`];
+      p.sample_size = null;
+    }
+  }
+
   const prevSources = new Map((previous.sources ?? []).map((s) => [s.name, s]));
   const dataset = {
     generated_at: now,

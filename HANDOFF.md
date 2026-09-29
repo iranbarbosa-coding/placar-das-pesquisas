@@ -1041,7 +1041,12 @@ metadata cells change in the table columns.
   and a rowspan sibling keeps its institute. (Discarding the broken row instead —
   tried in rehearsal 28 — shifted the sibling's cells: institute "2", sample "25",
   and the validator killed the run.) Two self-test cases: the broken row, and a
-  legitimate multi-line citation that must still be a continuation. **Still open**: unlinked
+  legitimate multi-line citation that must still be a continuation. That row was
+  being edited live (sample read as 38, 25, 36 in three fetches) and the
+  validator's n<100 guard ABORTED the whole scrape each time; `scrape.mjs` now
+  blanks an implausible sample (with a `parse_warnings` line and a log line)
+  before validation, so one mangled row never kills the run and 36 is still never
+  published as a sample. **Still open**: unlinked
   multi-line header names (`!Geraldo<br>Rufino<br>{{small|…}}`) are cut at the first
   `<br>` ("Geraldo", "Carlos", "Vivian" in governador:SP) — a stable but wrong name;
   fixing it re-mints many candidates and needs its own rehearsal.

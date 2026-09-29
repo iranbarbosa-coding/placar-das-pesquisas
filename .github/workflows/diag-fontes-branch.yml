@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 29 (29/09): PR #120 completo — continuação de citação só pelo formato do parâmetro
+# ensaio 30 (29/09): PR #120 completo — amostra implausível não derruba a rodada
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
