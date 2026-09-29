@@ -1,0 +1,67 @@
+name: diag-fontes-branch
+# ensaio 18 (29/09): as 18 quarentenas restantes — fonte crua por trás de cada perda
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
+jobs:
+  ler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Poder360 v2/cenarios cru das perguntas sumidas (2º turno por UF + 1º turno BA/SC)
+        shell: bash
+        run: |
+          set +e
+          H='-H content-type:application/json -H origin:https://drive.poder360.com.br -A Mozilla/5.0(compatible;PlacarDasPesquisas/1.0)'
+          # uf ufId turno pid
+          for t in "AM 3 2 14069" "CE 7 2 13655" "DF 8 2 14030" "GO 10 2 14026" "GO 10 2 13657" "MG 12 2 13611" "MS 13 2 14023" "PA 15 2 13616" "PB 16 2 14035" "PR 19 2 13603" "RJ 20 2 14046" "RS 24 2 13662" "RS 24 2 14022" "BA 5 1 13875" "SC 25 1 13934" "BR 6 2 13375"; do
+            set -- $t
+            echo "########## presidente/$1 turno $3 · poll $4"
+            curl -sS --max-time 45 $H "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&unidadesFederativasId=$2&ano=2026&turno=$3&cidade=$([ "$1" = BR ] && echo Brasil)" -o c.json; echo "curl exit $?"
+            python3 - "$4" <<'PY'
+          import json,sys
+          pid=int(sys.argv[1])
+          try: d=json.load(open('c.json'))
+          except Exception as e: print("json fail",e); sys.exit()
+          cen=(d.get('data') or {}).get('cenarios') or []
+          print("cenarios no combo:", len(cen), "· ids distintos:", len({c.get('id') for c in cen}))
+          hit=[c for c in cen if c.get('id')==pid]
+          print("cenarios do poll", pid, ":", len(hit))
+          for c in hit:
+              rows=[( (r.get('nome') or '∅').strip(), r.get('percentual')) for r in (c.get('apuracao') or [])]
+              print("  data", c.get('data'), "| instituto", c.get('instituto') or c.get('empresa'), "| entrevistas", c.get('entrevistas'), "| rows:", rows)
+          PY
+          done
+      - name: Wikipédia AL/SC/SE/MT — o que o parser devolve hoje
+        shell: bash
+        run: |
+          set +e
+          python3 - <<'PY'
+          import json
+          pages=json.load(open('scripts/wiki-pages.json'))
+          sub=[p for p in pages if p.get('state') in ('AL','SC','SE','MT')]
+          json.dump(sub, open('sub.json','w'))
+          print([p['state'] for p in sub])
+          PY
+          python3 scripts/wiki_parse.py sub.json > wiki.json 2> wiki.err; echo "parser exit $?"
+          tail -20 wiki.err
+          python3 - <<'PY'
+          import json,re
+          d=json.load(open('wiki.json'))
+          polls=d['polls']
+          print("polls parseadas:", len(polls))
+          alvo={('AL','senador'):r'Ranking|DataTrends|Falpe|Paran|ndice|TDL', ('SC','senador'):r'Neokemp|Mapa', ('SC','governador'):r'Mapa', ('SE','governador'):r'Fran|Real Time', ('SE','senador'):r'INOR', ('MT','senador'):r'Paran'}
+          for (uf,race),pat in alvo.items():
+              print(f"== {race}/{uf} · {pat}")
+              for p in polls:
+                  if p.get('state')==uf and p.get('race')==race and re.search(pat, p.get('pollster') or ''):
+                      print("  ", p.get('pollster'), p.get('fieldwork_start'), p.get('fieldwork_end'), 'n', p.get('sample_size'), 't', p.get('round'), p.get('scenario_label') or p.get('scenario_label_raw') or '', [(r.get('candidate'), r.get('pct')) for r in p.get('results',[])][:7])
+          PY
+          echo "########## AL: seção Senador crua"
+          UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
+          curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=Pesquisas eleitorais para a eleição estadual de 2026 em Alagoas" --data-urlencode action=raw -o al.wiki
+          awk '/^== Senador ==/,0' al.wiki | cut -c1-160 | head -150
