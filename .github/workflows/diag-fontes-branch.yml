@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 19 (29/09): quarentenas restantes — Wikipédia crua (AL/SC/SE/RJ), Poder360 cru (RJ/AC/MS) e rastro da retenção no AM
+# ensaio 20 (29/09): rastro da retenção no AM; SE (IFP≡França?), MT/AC/MS crus
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -12,60 +12,36 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 24 }
-      - name: Poder360 cru — governador/RJ t1 (14045, 13891), senador/AC t1, governador/MS t2
-        shell: bash
-        run: |
-          set +e
-          H='-H content-type:application/json -H origin:https://drive.poder360.com.br -A Mozilla/5.0(compatible;PlacarDasPesquisas/1.0)'
-          # cargo ufId turno filtro(pid ou instituto)
-          for t in "1 20 1 14045" "1 20 1 13891" "4 1 1 IPSensus" "1 13 2 Quaest"; do
-            set -- $t
-            echo "########## cargo $1 uf $2 turno $3 · filtro $4"
-            curl -sS --max-time 45 $H "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=$1&unidadesFederativasId=$2&ano=2026&turno=$3&cidade=" -o c.json; echo "curl exit $?"
-            python3 - "$4" <<'PY'
-          import json,sys
-          f=sys.argv[1]
-          d=json.load(open('c.json')); cen=(d.get('data') or {}).get('cenarios') or []
-          print("cenarios:", len(cen), "ids:", len({c.get('id') for c in cen}))
-          for c in cen:
-              inst=str(c.get('instituto') or c.get('empresa') or '')
-              if str(c.get('id'))==f or f.lower() in inst.lower():
-                  if not (str(c.get('id'))==f or (c.get('data') or '')>='2026-09-15'): continue
-                  rows=[((r.get('nome') or '∅').strip(), r.get('percentual')) for r in (c.get('apuracao') or [])]
-                  print("  id", c.get('id'), "data", c.get('data'), "|", inst, "| rows:", rows)
-          PY
-          done
-      - name: Wikipédia crua — AL senado (tabela inteira), SC senado/governador, SE governador França, RJ governador
+      - name: Wikipédia crua — SE (IFP em março), MT senado (Paraná set), AC senado (IPSensus), MS governador (Quaest 2º turno)
         shell: bash
         run: |
           set +e
           UA="PlacarDasPesquisas/1.0 (agregador de pesquisas eleitorais)"
           w() { curl -fsS -A "$UA" -G https://pt.wikipedia.org/w/index.php --data-urlencode "title=$1" --data-urlencode action=raw -o "$2"; }
-          w "Pesquisas eleitorais para a eleição estadual de 2026 em Alagoas" al.wiki
-          w "Pesquisas eleitorais para a eleição estadual de 2026 em Santa Catarina" sc.wiki
           w "Pesquisas eleitorais para a eleição estadual de 2026 em Sergipe" se.wiki
-          w "Pesquisas eleitorais para a eleição estadual de 2026 no Rio de Janeiro" rj.wiki
-          echo "########## AL senado: linhas de instituto + datas (tabela Agosto – Outubro)"
-          awk '/^==== Agosto – Outubro ====/,/^==== Março/' al.wiki | grep -n -E "^\|[A-Za-zÍ\[]|de (agosto|setembro|outubro)|\{\{N/A|^\|\}" | cut -c1-140 | head -80
-          echo "########## SC: cabeçalhos + linhas Mapa/Neokemp com datas"
-          grep -n -E "^==+" sc.wiki
-          grep -n -A1 -E "^\|.*(Mapa|Neokemp)" sc.wiki | cut -c1-140 | head -60
-          echo "########## SE: cabeçalhos + França"
-          grep -n -E "^==+" se.wiki
-          grep -n -i -A3 "Fran[çc]a" se.wiki | cut -c1-140 | head -40
-          echo "########## RJ: cabeçalhos + linhas Veritá/Quaest/Prefab/Datafolha/AtlasIntel de ago-set"
-          grep -n -E "^==+" rj.wiki
-          grep -n -A1 -E "^\|.*(Verit|Quaest|Prefab|Datafolha|AtlasIntel)" rj.wiki | grep -E "agosto|setembro|Verit|Quaest|Prefab|Datafolha|Atlas" | cut -c1-140 | head -80
-          echo "########## RJ: cabeçalho da tabela do 1º turno (colunas de candidatos)"
-          awk '/^== Primeiro turno/,/^== Segundo turno/' rj.wiki | grep -n -E "^!\[\[|^!.*<br>" | cut -c1-120 | head -40
-      - name: Wikipédia parser — RJ governador t1 e SC/SE datas
+          w "Pesquisas eleitorais para a eleição estadual de 2026 em Mato Grosso" mt.wiki
+          w "Pesquisas eleitorais para a eleição estadual de 2026 no Acre" ac.wiki
+          w "Pesquisas eleitorais para a eleição estadual de 2026 em Mato Grosso do Sul" ms.wiki
+          echo "########## SE: linhas IFP/França de março (governador)"
+          grep -n -A2 -E "^\|.*(IFP|Fran[çc]a)" se.wiki | grep -B1 -A1 -E "mar[çc]o|IFP|Fran" | cut -c1-150 | head -60 || true
+          echo "########## MT: cabeçalhos + linhas Paraná Pesquisas (senado) com datas/amostra"
+          grep -n -E "^==+" mt.wiki || true
+          grep -n -A3 -E "^\|.*Paran" mt.wiki | cut -c1-150 | head -80 || true
+          echo "########## AC: cabeçalhos + IPSensus"
+          grep -n -E "^==+" ac.wiki || true
+          grep -n -i -A3 "IPSensus\|IP Sensus\|Sensus" ac.wiki | cut -c1-150 | head -40 || true
+          echo "########## MS: cabeçalhos + Quaest (2º turno)"
+          grep -n -E "^==+" ms.wiki || true
+          grep -n -A2 -E "^\|.*Quaest" ms.wiki | cut -c1-150 | head -60 || true
+          true
+      - name: Wikipédia parser — SE IFP, AC, MS, MT
         shell: bash
         run: |
           set +e
           python3 - <<'PY'
           import json
           pages=json.load(open('scripts/wiki-pages.json'))
-          json.dump([p for p in pages if p.get('state') in ('RJ','SC','SE')], open('sub.json','w'))
+          json.dump([p for p in pages if p.get('state') in ('SE','AC','MS','MT')], open('sub.json','w'))
           PY
           python3 scripts/wiki_parse.py sub.json > wiki.json 2> wiki.err; echo "parser exit $?"; tail -5 wiki.err
           python3 - <<'PY'
@@ -76,9 +52,10 @@ jobs:
               for p in polls:
                   if p.get('state')==uf and p.get('race')==race and re.search(pat,p.get('pollster') or '') and (p.get('fieldwork_end') or '')>=since:
                       print("  ", p.get('pollster'), p.get('fieldwork_start'), p.get('fieldwork_end'), 'n', p.get('sample_size'), 't', p.get('round'), p.get('scenario_label') or '', [(r.get('candidate'), r.get('pct')) for r in p.get('results',[])][:7])
-          show('RJ','governador',r'Verit|Quaest|Prefab|Datafolha|Atlas')
-          show('SC','governador',r'Mapa','2026-05-01'); show('SC','senador',r'Mapa|Neokemp','2026-05-01')
-          show('SE','governador',r'.', '2026-03-01')
+          show('SE','governador',r'IFP|Fran','2026-03-01')
+          show('AC','senador',r'.', '2026-09-01')
+          show('MS','governador',r'Quaest','2026-09-01')
+          show('MT','senador',r'Paran','2026-08-01')
           PY
       - name: Rastro da retenção no AM (coleta real)
         shell: bash
