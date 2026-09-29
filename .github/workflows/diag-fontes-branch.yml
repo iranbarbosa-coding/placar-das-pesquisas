@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# ensaio 22 (29/09): PR #120 completo sobre o dado fresco — com o doador de 1º turno por poll
+# ensaio 23 (29/09): PR #120 completo — + grafia vazada de SP casa pelo alvo do link
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -69,6 +69,15 @@ jobs:
               if q.get('race')=='senador' and q.get('uf')=='AL' and (s.get('fieldwork_end') or '')>='2026-08-15':
                   n+=1; print("  ", s.get('institute_names_raw'), s.get('fieldwork_end'), s.get('sample_size'), [(r.get('name_raw'), r.get('pct')) for r in q['results']][:5])
           print("total senador/AL desde 15/08:", n)
+          PY
+          echo "########## SP: nomes vazados que sobraram ##########"
+          python3 - <<'PY'
+          import json
+          qs=[json.loads(l) for l in open('data/questions.ndjson') if l.strip()]
+          vaz=[q for q in qs if any(str(r.get('name_raw','')).startswith('[[') for r in q.get('results',[]))]
+          print("perguntas com '[[' no nome:", len(vaz), sorted({f"{q.get('race')}:{q.get('uf')}" for q in vaz}))
+          sp=[q for q in qs if q.get('race')=='senador' and q.get('uf')=='SP']
+          print("senador/SP perguntas:", len(sp))
           PY
           echo "########## DIFF DO STORE ##########"
           git status --short data/ CENSO_BANCO.md PESQUISAS_INCOMPLETAS.md
