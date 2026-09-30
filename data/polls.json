@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-09-30T15:50:05.825Z",
+ "generated_at": "2026-09-30T16:48:40.780Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-30T15:50:05.825Z"
+   "last_ok": "2026-09-30T16:48:40.780Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-30T15:50:05.825Z"
+   "last_ok": "2026-09-30T16:48:40.780Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-30T15:50:05.825Z"
+   "last_ok": "2026-09-30T16:48:40.780Z"
   }
  ],
  "polls": [
@@ -153,32 +153,32 @@
     {
      "candidate": "Benedita da Silva",
      "party": "PT",
-     "pct": 18
+     "pct": 15
     },
     {
      "candidate": "Carlos Jordy",
      "party": "PL",
-     "pct": 14
+     "pct": 18
     },
     {
      "candidate": "Carlos Portinho",
      "party": "PL",
-     "pct": 10
+     "pct": 14
     },
     {
      "candidate": "Marcelo Crivella",
      "party": "Republicanos",
-     "pct": 12
+     "pct": 10
     },
     {
      "candidate": "Pedro Paulo",
      "party": "PSD",
-     "pct": 8
+     "pct": 12
     },
     {
      "candidate": "Monica Benicio",
      "party": "PSOL",
-     "pct": 3
+     "pct": 8
     },
     {
      "candidate": "Hélio Secco",
@@ -188,11 +188,11 @@
     {
      "candidate": "Waguinho",
      "party": "Republicanos",
-     "pct": 2
+     "pct": 3
     }
    ],
-   "others_pct": 15,
-   "undecided_pct": null,
+   "others_pct": 2,
+   "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1118,6 +1118,89 @@
    "tse_registration": null
   },
   {
+   "id": "030592141b02",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Doxa",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Helder",
+     "party": "MDB",
+     "pct": 23.51
+    },
+    {
+     "candidate": "Delegado Éder Mauro",
+     "party": "PL",
+     "pct": 16.78
+    },
+    {
+     "candidate": "Zequinha Marinho",
+     "party": "Podemos",
+     "pct": 10.86
+    },
+    {
+     "candidate": "Chicão",
+     "party": "União Brasil",
+     "pct": 16.1
+    },
+    {
+     "candidate": "Celso Sabino",
+     "party": "PDT",
+     "pct": 9.8
+    },
+    {
+     "candidate": "Lívia Noronha",
+     "party": "Solidariedade",
+     "pct": 1.31
+    },
+    {
+     "candidate": "Gizelle Freitas",
+     "party": "PSOL",
+     "pct": 0.65
+    },
+    {
+     "candidate": "Conti",
+     "party": "PSOL",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Fernanda Lopes",
+     "party": "UP",
+     "pct": 0.38
+    },
+    {
+     "candidate": "Breno Guimarães",
+     "party": "Mobiliza",
+     "pct": 0.71
+    },
+    {
+     "candidate": "Edlaine Rodrigues",
+     "party": "Democrata",
+     "pct": 0.23
+    },
+    {
+     "candidate": "Coronel Jonildo",
+     "party": "DC",
+     "pct": 0.88
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18.59,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "033c0d19031f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -1200,6 +1283,39 @@
    ],
    "others_pct": 3,
    "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2ae723ca4c9f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PA",
+   "round": 2,
+   "scenario": "2º turno: Daniel Santos x Hana Ghassan",
+   "pollster": "Doxa",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Dr. Daniel",
+     "party": "Podemos",
+     "pct": 42.2
+    },
+    {
+     "candidate": "Hana Ghassan",
+     "party": "MDB",
+     "pct": 47.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -180629,7 +180745,7 @@
      "pct": 15
     },
     {
-     "candidate": "Carlos Fávaro",
+     "candidate": "Fávaro",
      "party": "PSD",
      "pct": 12
     },
@@ -200689,7 +200805,7 @@
      "pct": 11.8
     },
     {
-     "candidate": "Carlos Fávaro",
+     "candidate": "Fávaro",
      "party": "PSD",
      "pct": 4.3
     },

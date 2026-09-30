@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 642,
-  "contencao": 223,
-  "outra_disputa": 159,
+  "exato": 656,
+  "contencao": 216,
+  "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 551
+  "sem": 554
  },
  "ambiguos": [
   {
@@ -309,6 +309,13 @@
     "numero": "21",
     "origem": "exato"
    },
+   "escritor augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "exato"
+   },
    "fernando haddad": {
     "nome_urna": "Fernando Haddad",
     "sq_candidato": "250002549705",
@@ -462,6 +469,13 @@
     "partido": "DEMOCRATA",
     "numero": "35",
     "origem": "contencao"
+   },
+   "zema": {
+    "nome_urna": "Zema",
+    "sq_candidato": "280002539826",
+    "partido": "NOVO",
+    "numero": "30",
+    "origem": "exato"
    }
   },
   "governador:AC": {
@@ -744,6 +758,13 @@
     "sq_candidato": "40002532272",
     "partido": "PSD",
     "numero": "55",
+    "origem": "exato"
+   },
+   "professora maria do carmo": {
+    "nome_urna": "Professora Maria do Carmo",
+    "sq_candidato": "40002541626",
+    "partido": "PL",
+    "numero": "22",
     "origem": "exato"
    },
    "roberto cidade": {
@@ -2194,6 +2215,13 @@
     "numero": "21",
     "origem": "exato"
    },
+   "escritor augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "exato"
+   },
    "flavio bolsonaro": {
     "nome_urna": "Flávio Bolsonaro",
     "sq_candidato": "280002551544",
@@ -2283,6 +2311,13 @@
     "sq_candidato": "280002548139",
     "partido": "DEMOCRATA",
     "numero": "35",
+    "origem": "exato"
+   },
+   "zema": {
+    "nome_urna": "Zema",
+    "sq_candidato": "280002539826",
+    "partido": "NOVO",
+    "numero": "30",
     "origem": "exato"
    }
   },
@@ -2459,11 +2494,32 @@
    }
   },
   "governador:MT": {
+   "carlos favaro": {
+    "nome_urna": "Fávaro",
+    "sq_candidato": "110002544986",
+    "partido": "PSD",
+    "numero": "555",
+    "origem": "outra-disputa"
+   },
    "doutora natasha": {
     "nome_urna": "Doutora Natasha",
     "sq_candidato": "110002544985",
     "partido": "PSD",
     "numero": "55",
+    "origem": "exato"
+   },
+   "janaina riva": {
+    "nome_urna": "Janaína Riva",
+    "sq_candidato": "110002552698",
+    "partido": "MDB",
+    "numero": "150",
+    "origem": "outra-disputa"
+   },
+   "mauricio coelho": {
+    "nome_urna": "Maurício Coelho",
+    "sq_candidato": "110002553058",
+    "partido": "MOBILIZA",
+    "numero": "33",
     "origem": "exato"
    },
    "natasha slhessarenko": {
@@ -2478,6 +2534,20 @@
     "sq_candidato": "110002551480",
     "partido": "REPUBLICANOS",
     "numero": "10",
+    "origem": "exato"
+   },
+   "rafaell milas": {
+    "nome_urna": "Rafaell Milas",
+    "sq_candidato": "110002543953",
+    "partido": "MISSÃO",
+    "numero": "14",
+    "origem": "exato"
+   },
+   "sargento laudicerio": {
+    "nome_urna": "Sargento Laudicério",
+    "sq_candidato": "110002554073",
+    "partido": "AGIR",
+    "numero": "36",
     "origem": "exato"
    },
    "wellington fagundes": {
@@ -2595,6 +2665,13 @@
     "partido": "MOBILIZA",
     "numero": "33",
     "origem": "contencao"
+   },
+   "doutor alexandre salomao": {
+    "nome_urna": "Doutor Alexandre Salomão",
+    "sq_candidato": "160002547594",
+    "partido": "MOBILIZA",
+    "numero": "33",
+    "origem": "exato"
    },
    "luiz franca": {
     "nome_urna": "Luiz França",
@@ -3473,6 +3550,13 @@
     "sq_candidato": "190002550196",
     "partido": "REPUBLICANOS",
     "numero": "10",
+    "origem": "exato"
+   },
+   "juliete": {
+    "nome_urna": "Juliete",
+    "sq_candidato": "190002547272",
+    "partido": "UP",
+    "numero": "80",
     "origem": "exato"
    },
    "juliete pantoja": {
@@ -4432,13 +4516,6 @@
    }
   },
   "governador:SP": {
-   "vera lucia vera": {
-    "nome_urna": "Vera Lúcia",
-    "sq_candidato": "250002536915",
-    "partido": "PSTU",
-    "numero": "16",
-    "origem": "contencao"
-   },
    "andre do prado": {
     "nome_urna": "André do Prado",
     "sq_candidato": "250002541308",
@@ -5587,6 +5664,13 @@
    }
   },
   "senador:ES": {
+   "callegari": {
+    "nome_urna": "Callegari",
+    "sq_candidato": "80002542401",
+    "partido": "DC",
+    "numero": "277",
+    "origem": "exato"
+   },
    "evair de melo": {
     "nome_urna": "Evair de Melo",
     "sq_candidato": "80002553265",
@@ -6958,48 +7042,6 @@
    }
   },
   "senador:SP": {
-   "andre do prado andre": {
-    "nome_urna": "André do Prado",
-    "sq_candidato": "250002541308",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "contencao"
-   },
-   "guilherme derrite guilherme": {
-    "nome_urna": "Guilherme Derrite",
-    "sq_candidato": "250002541312",
-    "partido": "PP",
-    "numero": "111",
-    "origem": "contencao"
-   },
-   "marina silva marina": {
-    "nome_urna": "Marina Silva",
-    "sq_candidato": "250002551501",
-    "partido": "REDE",
-    "numero": "180",
-    "origem": "contencao"
-   },
-   "ricardo salles ricardo": {
-    "nome_urna": "Salles",
-    "sq_candidato": "250002532794",
-    "partido": "NOVO",
-    "numero": "300",
-    "origem": "contencao"
-   },
-   "simone tebet simone": {
-    "nome_urna": "Simone Tebet",
-    "sq_candidato": "250002551502",
-    "partido": "PSB",
-    "numero": "400",
-    "origem": "contencao"
-   },
-   "soninha francine soninha": {
-    "nome_urna": "Soninha Francine",
-    "sq_candidato": "250002552369",
-    "partido": "CIDADANIA",
-    "numero": "232",
-    "origem": "contencao"
-   },
    "andre do prado": {
     "nome_urna": "André do Prado",
     "sq_candidato": "250002541308",
@@ -7126,6 +7168,13 @@
     "numero": "300",
     "origem": "contencao"
    },
+   "salles": {
+    "nome_urna": "Salles",
+    "sq_candidato": "250002532794",
+    "partido": "NOVO",
+    "numero": "300",
+    "origem": "exato"
+   },
    "simone tebet": {
     "nome_urna": "Simone Tebet",
     "sq_candidato": "250002551502",
@@ -7139,6 +7188,13 @@
     "partido": "CIDADANIA",
     "numero": "232",
     "origem": "contencao"
+   },
+   "soninha francine": {
+    "nome_urna": "Soninha Francine",
+    "sq_candidato": "250002552369",
+    "partido": "CIDADANIA",
+    "numero": "232",
+    "origem": "exato"
    },
    "weller": {
     "nome_urna": "Weller Gonçalves",
