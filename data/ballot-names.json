@@ -4,9 +4,9 @@
  "stats": {
   "exato": 642,
   "contencao": 223,
-  "outra_disputa": 161,
+  "outra_disputa": 159,
   "ambiguo": 5,
-  "sem": 554
+  "sem": 551
  },
  "ambiguos": [
   {
@@ -992,6 +992,13 @@
     "numero": "44",
     "origem": "exato"
    },
+   "ariel capistrano": {
+    "nome_urna": "Ariel Capistrano",
+    "sq_candidato": "50002535253",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
    "jeronimo rodrigues": {
     "nome_urna": "Jerônimo Rodrigues",
     "sq_candidato": "50002536314",
@@ -1005,6 +1012,13 @@
     "partido": "PL",
     "numero": "222",
     "origem": "outra-disputa"
+   },
+   "maria bona": {
+    "nome_urna": "Maria Bona",
+    "sq_candidato": "50002552489",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
    },
    "prof aroldo felix": {
     "nome_urna": "Aroldo Felix",
@@ -1147,6 +1161,13 @@
     "partido": "REPUBLICANOS",
     "numero": "10",
     "origem": "outra-disputa"
+   },
+   "veterinario wilson grassi": {
+    "nome_urna": "Veterinário Wilson Grassi",
+    "sq_candidato": "280002548139",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
    }
   },
   "governador:CE": {
@@ -2194,6 +2215,13 @@
     "numero": "16",
     "origem": "exato"
    },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
+    "origem": "exato"
+   },
    "lula": {
     "nome_urna": "Lula",
     "sq_candidato": "280002542548",
@@ -2431,32 +2459,11 @@
    }
   },
   "governador:MT": {
-   "carlos favaro": {
-    "nome_urna": "Fávaro",
-    "sq_candidato": "110002544986",
-    "partido": "PSD",
-    "numero": "555",
-    "origem": "outra-disputa"
-   },
    "doutora natasha": {
     "nome_urna": "Doutora Natasha",
     "sq_candidato": "110002544985",
     "partido": "PSD",
     "numero": "55",
-    "origem": "exato"
-   },
-   "janaina riva": {
-    "nome_urna": "Janaína Riva",
-    "sq_candidato": "110002552698",
-    "partido": "MDB",
-    "numero": "150",
-    "origem": "outra-disputa"
-   },
-   "mauricio coelho": {
-    "nome_urna": "Maurício Coelho",
-    "sq_candidato": "110002553058",
-    "partido": "MOBILIZA",
-    "numero": "33",
     "origem": "exato"
    },
    "natasha slhessarenko": {
@@ -2471,20 +2478,6 @@
     "sq_candidato": "110002551480",
     "partido": "REPUBLICANOS",
     "numero": "10",
-    "origem": "exato"
-   },
-   "rafaell milas": {
-    "nome_urna": "Rafaell Milas",
-    "sq_candidato": "110002543953",
-    "partido": "MISSÃO",
-    "numero": "14",
-    "origem": "exato"
-   },
-   "sargento laudicerio": {
-    "nome_urna": "Sargento Laudicério",
-    "sq_candidato": "110002554073",
-    "partido": "AGIR",
-    "numero": "36",
     "origem": "exato"
    },
    "wellington fagundes": {
@@ -3545,13 +3538,6 @@
     "sq_candidato": "280002551975",
     "partido": "PCB",
     "numero": "21",
-    "origem": "exato"
-   },
-   "escritor augusto cury": {
-    "nome_urna": "Escritor Augusto Cury",
-    "sq_candidato": "280002551547",
-    "partido": "AVANTE",
-    "numero": "70",
     "origem": "exato"
    },
    "flavio bolsonaro": {

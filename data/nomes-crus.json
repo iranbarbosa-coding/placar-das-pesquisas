@@ -85,6 +85,12 @@
    ]
   },
   {
+   "nome": "Escritor Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
    "nome": "Fernando Haddad",
    "partidos": [
     "PT"
@@ -336,6 +342,12 @@
    "nome": "Wilson Grassi",
    "partidos": [
     "Democrata"
+   ]
+  },
+  {
+   "nome": "Zema",
+   "partidos": [
+    "Novo"
    ]
   }
  ],
@@ -651,6 +663,12 @@
    "nome": "Omar Aziz",
    "partidos": [
     "PSD"
+   ]
+  },
+  {
+   "nome": "Professora Maria do Carmo",
+   "partidos": [
+    "PL"
    ]
   },
   {
@@ -2461,6 +2479,12 @@
    ]
   },
   {
+   "nome": "Escritor Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
    "nome": "Flávio Bolsonaro",
    "partidos": [
     "PL"
@@ -2566,6 +2590,12 @@
    "nome": "Veterinário Wilson Grassi",
    "partidos": [
     "Democrata"
+   ]
+  },
+  {
+   "nome": "Zema",
+   "partidos": [
+    "Novo"
    ]
   }
  ],
@@ -2786,10 +2816,22 @@
  ],
  "governador:MT": [
   {
+   "nome": "Carlos Fávaro",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
    "nome": "Doutora Natasha",
    "partidos": [
     "PSB",
     "PSD"
+   ]
+  },
+  {
+   "nome": "Janaína Riva",
+   "partidos": [
+    "MDB"
    ]
   },
   {
@@ -2799,15 +2841,52 @@
    ]
   },
   {
+   "nome": "José Carlos do Pátio",
+   "partidos": [
+    "PSB",
+    "Solidariedade"
+   ]
+  },
+  {
+   "nome": "Maurício Coelho",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Max Russi",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
    "nome": "Natasha Slhessarenko",
    "partidos": [
     "PSD"
    ]
   },
   {
+   "nome": "Odílio Balbinotti",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
    "nome": "Otaviano Pivetta",
    "partidos": [
     "Republicanos"
+   ]
+  },
+  {
+   "nome": "Rafaell Milas",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Sargento Laudicério",
+   "partidos": [
+    "Agir"
    ]
   },
   {
@@ -3003,6 +3082,12 @@
    "nome": "Cida Borghetti",
    "partidos": [
     "PP"
+   ]
+  },
+  {
+   "nome": "Doutor Alexandre Salomão",
+   "partidos": [
+    "Mobiliza"
    ]
   },
   {
@@ -4240,6 +4325,12 @@
    "partidos": [
     "DC",
     "Sem partido"
+   ]
+  },
+  {
+   "nome": "Juliete",
+   "partidos": [
+    "UP"
    ]
   },
   {
@@ -5498,12 +5589,6 @@
  ],
  "governador:SP": [
   {
-   "nome": "[[Vera Lúcia |Vera",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
    "nome": "Alexandre Padilha",
    "partidos": [
     "PT"
@@ -5724,6 +5809,12 @@
   },
   {
    "nome": "Vera Lúcia",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Vera Lúcia",
    "partidos": [
     "PSTU"
    ]
@@ -7221,6 +7312,12 @@
    "nome": "Arnaldinho Borgo",
    "partidos": [
     "PSDB"
+   ]
+  },
+  {
+   "nome": "Callegari",
+   "partidos": [
+    "DC"
    ]
   },
   {
@@ -9293,42 +9390,6 @@
  ],
  "senador:SP": [
   {
-   "nome": "[[André do Prado|André",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "[[Guilherme Derrite|Guilherme",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "[[Marina Silva|Marina",
-   "partidos": [
-    "Rede"
-   ]
-  },
-  {
-   "nome": "[[Ricardo Salles |Ricardo",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "[[Simone Tebet|Simone",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
-   "nome": "[[Soninha Francine|Soninha",
-   "partidos": [
-    "CIDADANIA"
-   ]
-  },
-  {
    "nome": "Acácio Miranda",
    "partidos": [
     "Missão"
@@ -9595,6 +9656,12 @@
    ]
   },
   {
+   "nome": "Salles",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
    "nome": "Simone Tebet",
    "partidos": [
     "MDB",
@@ -9605,6 +9672,12 @@
    "nome": "Soninha",
    "partidos": [
     "Cidadania"
+   ]
+  },
+  {
+   "nome": "Soninha Francine",
+   "partidos": [
+    "CIDADANIA"
    ]
   },
   {
