@@ -973,6 +973,83 @@ metadata cells change in the table columns.
   Quaest/SC 13934 first-round toplines served WITHOUT Lula and Flávio fall under the
   `soma<30` guard before retention (same shape, first round); PE 2025 runoffs (30
   rows) — see the Wikipedia note below.
+- **The 22 quarantines of 29/09/2026 (after #119), and the site that "was not
+  updating".** The site WAS deploying (Vercel "Deployment has completed" on every
+  data commit; `/api/polls.json` fresh) — what froze was `presidente:BR` itself,
+  quarantined for the four Renan runoffs, so the home, the presidential chart and the
+  institute-bias page (house effects are computed on `presidente`, `houseEffects` in
+  `src/app/institutos/page.tsx`) all stayed at 16/09 with the "Dado em revisão" badge.
+  #119 unfroze it (run 36631822987). The rest, read source by source (rehearsals 18–20):
+  **(a) Poder360 truncation is wider than the runoffs** — `v2/cenarios` now serves
+  state presidential runoffs as `[Lula]` (Renan's row GONE, not blank) and first
+  rounds without their leaders (Datafolha/RJ 13891 = `[Garotinho 9]`; AtlasIntel/RJ
+  14045 = `[Cyro Garcia 0.7]`; Ideia/BA 13875 and Quaest/SC 13934 without Lula and
+  Flávio). The one-name runoff never reached `reterElencos`: **`mergePolls` absorbed
+  it into the WRONG confrontation** (`[Lula]` matches "Flávio × Lula" of the same
+  institute by 1/1 ≥ 0.6, `rostersMatch`) with no log line — which is why the AM
+  fragment left no trace anywhere; and a truncated first round died in the `soma<30`
+  guard before the store. **Fixed in `restaurarTruncadasDoCommit` (scrape.mjs, before
+  `mergePolls`)**: a Poder360 record whose native key `p360-<id>-<round>-<scenario>`
+  is in the previous polls.json, that is truncated (one-name runoff, or a first
+  round failing the sum guard), and whose rows are a strict subset of the committed
+  table ANCHORED by pct (±0.05), gets the committed table back — rows, buckets,
+  the round-2 label and the id (`pollId` hashes the label) — with a
+  `parse_warnings` line naming what the source dropped; never when the old
+  confrontation arrived whole in another scenario of the same poll. `truncada-
+  restaurada-check.mjs` (+ `--self-test` with the donor reverted) pins it and is a
+  cron gate. `[Cyro Garcia 0.7]` is NOT a subset (Cyro was not in the table) → still
+  discarded, and AtlasIntel/RJ 31/08 stays a real loss to ratify or repair from the
+  PDF. **(b) senador:AL — a `{{N/A}` typed with ONE closing brace** on the Wikipedia
+  senate table made `parse_wikitable_rows`' citation-continuation rule (`{{` > `}}`
+  in the cell) swallow the rest of the table: 3 of 25 rows read, 7 "lost", ~15 new
+  never ingested, no error. `_fecha_template_manco` closes a single-brace template
+  per line before the continuation check (self-test case). **(c) SC — Wikipedia moved
+  Mapa/Jovem Pan and Neokemp from June to July** (identical tables, same 1008
+  sample). The judge's duplicate route now proves the SAME institute re-dated
+  outside the window when the table is full (≥3 identical names) AND the sample
+  matches (case 12b; 2 names, other institute, other/absent sample refuse).
+  **Still editorial (ratify with the source, or leave frozen)**: SE — "França" rows
+  of 16–18/03 are now labelled **"IFP"** (same house: the refs are
+  `pesquisa-franca-…pdf`; the store holds "IFP", "Instituto França" and "França" as
+  three institutes — merging them is a creator decision with a one-round lineage
+  cost), and cenário 4/4 lost its second column; MT senate — Paraná 06–08/09 now has
+  sample **3080** (was 1352) and the old c1/2 table (21.7/9.2/10.1…) is gone from the
+  page; AC senate — the IPSensus 19–24/09 row is no longer in the senate section;
+  MS — Quaest 21–24/09 runoff is now under "Riedel e Delcídio" (63×19), the
+  "Riedel × Trad 63×20" row is gone. Diagnostic pattern that worked: a branch-only
+  workflow curling `v2/cenarios` per native id and `action=raw` per page, plus a
+  real scrape printing the fresh questions of one survey and its conflicts.
+  **The same `{{N/A}` bug had been PUBLISHING garbage names in São Paulo**: 25
+  senador:SP and 21 governador:SP questions on main carry `name_raw` like
+  `[[Simone Tebet|Simone` (the header lines glued into a cell). With the parser
+  fixed the same rows come back with proper names, every candidate re-mints, and
+  the judge saw 10 senador:SP losses "sem prova"; `tabelaIdentica` now matches a
+  wikitext-leaked name by its link target (case 12c), so the identical table proves
+  the succession. Correction after rehearsal 24 (main and branch parse SP
+  identically): the SP garbage is NOT the `{{N/A}` case — it is a `<br>` INSIDE the
+  header link (`[[Simone Tebet|Simone<br>Tebet]]`): `cand_from_header` split on the
+  first `<br>` before resolving the link. Fixed (the `<br>` inside `[[…]]` becomes a
+  space; self-test case). And the 10 senador:SP rows vanished on main too, from a
+  Wikipedia edit made after 21:16: a Quaest row typed with the citation prefix
+  twice (`|Quaest<ref>{{citar web|url=|Quaest<ref>{{citar web|url=https://…`, page
+  line 3350) never closes, and the continuation rule glued every later row to it.
+  Now a `|-` line always ends the row before the continuation check, and a line
+  only counts as a citation continuation when it LOOKS like a template parameter
+  (`|título=…`, `|acessodata=…`); a plain `|21 e 24 de setembro` is a new cell even
+  when the previous cell is unbalanced. So a broken citation dirties only its own
+  cell (`sanitizePollsterName` cuts the institute at "{{"), the row parses whole,
+  and a rowspan sibling keeps its institute. (Discarding the broken row instead —
+  tried in rehearsal 28 — shifted the sibling's cells: institute "2", sample "25",
+  and the validator killed the run.) Two self-test cases: the broken row, and a
+  legitimate multi-line citation that must still be a continuation. That row was
+  being edited live (sample read as 38, 25, 36 in three fetches) and the
+  validator's n<100 guard ABORTED the whole scrape each time; `scrape.mjs` now
+  blanks an implausible sample (with a `parse_warnings` line and a log line)
+  before validation, so one mangled row never kills the run and 36 is still never
+  published as a sample. **Still open**: unlinked
+  multi-line header names (`!Geraldo<br>Rufino<br>{{small|…}}`) are cut at the first
+  `<br>` ("Geraldo", "Carlos", "Vivian" in governador:SP) — a stable but wrong name;
+  fixing it re-mints many candidates and needs its own rehearsal.
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across

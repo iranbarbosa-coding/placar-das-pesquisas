@@ -135,6 +135,11 @@ jobs:
       # e este guarda prova, sem rede, os dois lados dela antes da coleta.
       - name: Guarda de amostra do Poder360 dispara
         run: node scripts/sources/poder360.mjs --self-test
+      # A tabela que a fonte truncou volta do commit anterior pelo id nativo
+      # (2º turno de um nome só; 1º turno sem os líderes) — e o autoteste prova
+      # que a bateria reprova com a restauração desligada (29/09/2026).
+      - name: Restauração de tabela truncada dispara (e o autoteste reprova sem ela)
+        run: node scripts/truncada-restaurada-check.mjs --self-test && node scripts/truncada-restaurada-check.mjs
 
       - name: Coletar, normalizar e gravar o store
         run: node scripts/scrape.mjs

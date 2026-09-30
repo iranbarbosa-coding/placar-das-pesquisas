@@ -301,9 +301,18 @@ export function deltaPorDisputa({
     const A = traduzir(ra ?? []), B = traduzir(rb ?? []);
     const [menor, maior] = A.length <= B.length ? [A, B] : [B, A];
     if (menor.length < 2) return { ok: false, matched: 0 };
+    // GRAFIA VAZADA DE WIKITEXTO — "[[Simone Tebet|Simone" (senador:SP, 29/09/2026):
+    // o template manco `{{N/A}` da página fez o parser colar as linhas do
+    // cabeçalho numa célula, e 46 perguntas de SP foram cunhadas com o link
+    // cru como nome. Consertado o parser, a mesma linha volta com o nome certo
+    // e a pergunta velha "some". O alvo do link É o nome: casa por ele.
+    const semVazamento = (n) => {
+      const t = String(n ?? "").trim();
+      return t.startsWith("[[") ? t.slice(2).split("|")[0].replace(/\]\]$/, "").trim() : t;
+    };
     const casa = (r, x) =>
       (r.candidate_id && x.candidate_id && r.candidate_id === x.candidate_id) ||
-      (r.name_raw && x.name_raw && sameCandidate(r.name_raw, x.name_raw));
+      (r.name_raw && x.name_raw && sameCandidate(semVazamento(r.name_raw), semVazamento(x.name_raw)));
     let matched = 0, identicos = 0;
     for (const r of menor) {
       const x = maior.find((y) => casa(r, y));
@@ -458,21 +467,33 @@ export function deltaPorDisputa({
       Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS
       || anoTrocadoMesmoInstituto(da, db, sa, sn);
 
+    // A MESMA CASA RE-DATADA FORA DA JANELA — a Wikipédia corrigindo o MÊS de
+    // campo (Santa Catarina, 29/09/2026: Mapa/Jovem Pan e Neokemp saíram de
+    // junho para julho, tabelas idênticas dígito a dígito, mesma amostra). É o
+    // salto de ano generalizado, com a MESMA prova compensatória (o mesmo
+    // `institute_id`) e uma exigência a mais, porque a data não ajuda em nada:
+    // a tabela CHEIA (≥3 nomes idênticos) E a mesma amostra dos dois lados.
+    // Uma topline de 2 nomes re-datada não prova; instituto diverso não prova.
+    const mesmaCasa = (sa, sn) => !!sa?.institute_id && sa.institute_id === sn?.institute_id;
+
     for (const cand of grupo) {
       if (cand.survey_id === q.survey_id) continue; // mesma pesquisa: já decidida acima
       const sa = surveysAnt.get(q.survey_id);
       const sn = surveysNov.get(cand.survey_id);
       const da = dataDe(sa), db = dataDe(sn);
-      if (da && db && !mesmoInstante(da, db, sa, sn)) continue;
+      const noInstante = !(da && db) || mesmoInstante(da, db, sa, sn);
+      if (!noInstante && !mesmaCasa(sa, sn)) continue;
       const amostraA = sa?.sample_size ?? null, amostraB = sn?.sample_size ?? null;
       if (amostraA != null && amostraB != null && amostraA !== amostraB) continue;
       const t = tabelaIdentica(q.results, cand.results);
       if (!t.ok) continue;
       // Topline de 2 nomes coincide por acaso entre institutos: exige a chave
       // FORTE (mesma amostra E mesma data, ou o salto de ano do MESMO instituto).
-      const forte = t.matched >= 3
-        || (t.matched === 2 && amostraA != null && amostraA === amostraB
-            && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn)));
+      const forte = noInstante
+        ? (t.matched >= 3
+          || (t.matched === 2 && amostraA != null && amostraA === amostraB
+              && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn))))
+        : (t.matched >= 3 && amostraA != null && amostraA === amostraB);
       if (!forte) continue;
       return { sucessora: cand.question_id, via: "duplicata" };
     }

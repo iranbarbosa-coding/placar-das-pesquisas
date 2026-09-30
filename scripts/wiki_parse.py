@@ -34,6 +34,17 @@ def strip_templates(t, keep_small_inner=True):
         t = re.sub(r'\{\{([^{}]*)\}\}', repl, t)
     return t
 
+# TEMPLATE MANCO — `{{N/A}` fechado com UMA chave (senador:AL, 29/09/2026). A
+# regra de continuação abaixo lê "{{" a mais que "}}" na célula como uma citação
+# multi-linha e cola nela TODAS as linhas seguintes até o fim da tabela: uma
+# célula digitada errada engoliu 22 linhas do Senado de Alagoas (3 lidas de 25)
+# sem erro nenhum, e 7 pesquisas "sumiram" da coleta. Um `{{X}` nunca é wikitexto
+# legítimo, então fechá-lo é a única leitura; templates balanceados não casam
+# (o `}` de "}}" é seguido de "}").
+_TEMPLATE_MANCO = re.compile(r'\{\{([^{}\n]*)\}(?!\})')
+def _fecha_template_manco(ln):
+    return _TEMPLATE_MANCO.sub(r'{{\1}}', ln)
+
 def strip_links(t):
     # [[target|display]] -> display ; [[target]] -> target ; files removed
     t = re.sub(r'\[\[(?:File|Ficheiro|Image|Imagem):[^\[\]]*(?:\[\[[^\]]*\]\][^\[\]]*)*\]\]', '', t, flags=re.I)
@@ -90,21 +101,42 @@ def parse_table(lines):
         if cur: rows.append(cur); cur = []
     i = 0
     while i < len(lines):
-        ln = lines[i]
+        ln = _fecha_template_manco(lines[i])
         s = ln.strip()
         if s.startswith('{|') or s.startswith('|+'):
             i += 1; continue
         if s.startswith('|}'):
             break
+        # O SEPARADOR DE LINHA MANDA MAIS QUE A CITAÇÃO ABERTA. Uma citação
+        # quebrada (senador:SP, 29/09/2026: `|Quaest<ref>{{citar web|url=|Quaest
+        # <ref>{{citar web|url=https://…` — o prefixo digitado duas vezes) nunca
+        # fecha, e a regra de continuação abaixo colava nela TODAS as linhas
+        # seguintes até o fim da tabela: 10 pesquisas do Senado sumiram sem
+        # erro. Um `|-` no começo da linha é sempre uma linha nova da tabela
+        # (nenhum parâmetro de {{citar web}} começa por "|-"), então o dano de
+        # uma citação quebrada fica confinado à própria linha.
+        if s.startswith('|-'):
+            flush(); i += 1; continue
         # A multi-line {{citar web|…}} inside <ref> wraps onto lines starting
         # with "|". Those are continuations of the current cell, not new cells:
         # treating them as cells shifts every column of the row by one.
-        if cur and (cur[-1]['raw'].count('{{') > cur[-1]['raw'].count('}}')
-                    or cur[-1]['raw'].count('<ref') > cur[-1]['raw'].count('</ref>') + cur[-1]['raw'].count('/>')):
+        #
+        # SÓ O QUE PARECE PARÂMETRO DE TEMPLATE É CONTINUAÇÃO ("|título=…",
+        # "|acessodata=…"). Uma citação que nunca fecha (senador:SP, 29/09/2026:
+        # o prefixo `<ref>{{citar web|url=` digitado duas vezes) deixava a
+        # célula desbalanceada para sempre, e as células seguintes da MESMA
+        # linha ("|21 e 24 de setembro", "|{{fmtn|1200}}") eram coladas nela —
+        # a linha saía com as células deslocadas (amostra "38"/"25", instituto
+        # "2") e o validador derrubava a rodada; descartar a linha inteira
+        # quebrava o rowspan do cenário irmão. Com o critério pelo formato, a
+        # citação quebrada suja só a própria célula (o nome do instituto sai
+        # limpo: `sanitizePollsterName` corta em "{{") e o resto da linha
+        # parseia normalmente.
+        desbalanceada = cur and (cur[-1]['raw'].count('{{') > cur[-1]['raw'].count('}}')
+                    or cur[-1]['raw'].count('<ref') > cur[-1]['raw'].count('</ref>') + cur[-1]['raw'].count('/>'))
+        if desbalanceada and (not s.startswith('|') or re.match(r'\|\s*[^|=\[\]{}<>]{1,40}=', s)):
             cur[-1]['raw'] += '\n' + ln
             i += 1; continue
-        if s.startswith('|-'):
-            flush(); i += 1; continue
         if s.startswith('!') or (s.startswith('|') and not s.startswith('|}')):
             is_h = s.startswith('!')
             body = s[1:]
@@ -182,7 +214,14 @@ def cand_from_header(raw):
         # link becomes the candidate whenever the name itself is unlinked.
         m = re.search(r'\(\s*(\[\[[^\]]*\]\][^()]*)\)\s*$', t.strip())
     party_raw = m.group(1) if m else None
-    name_raw = re.split(r'<br\s*/?>', t[:m.start()] if m else t, flags=re.I)[0]
+    # UM <br> DENTRO DO LINK É PARTE DO NOME. São Paulo (29/09/2026) escreve o
+    # cabeçalho como `[[Simone Tebet|Simone<br>Tebet]]`; cortar no primeiro <br>
+    # ANTES de resolver o link deixava `[[Simone Tebet|Simone` — e 46 perguntas
+    # de SP foram cunhadas (e publicadas) com o link cru como nome. O <br> só
+    # separa o nome do partido FORA do link.
+    t_nome = t[:m.start()] if m else t
+    t_nome = re.sub(r'\[\[([^\]]*?)\]\]', lambda k: '[[' + re.sub(r'<br\s*/?>', ' ', k.group(1), flags=re.I) + ']]', t_nome)
+    name_raw = re.split(r'<br\s*/?>', t_nome, flags=re.I)[0]
 
     def link_display(s):
         lm = re.search(r'\[\[([^|\]]*)\|([^\]]*)\]\]', s)
@@ -885,6 +924,43 @@ def _self_test():
     # O cabeçalho continua mandando sobre o título.
     p3 = extract("== Segundo turno ==\n" + tabela, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2026/Janeiro a Agosto')
     assert p3[0]['round'] == 2, p3
+    # TEMPLATE MANCO `{{N/A}` (senador:AL, 29/09/2026): a célula fechada com uma
+    # chave só engolia o resto da tabela pela regra de continuação de citação —
+    # 3 de 25 linhas lidas, sem erro. As duas linhas têm de sair.
+    manco = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "| Ranking || 24 e 26 de setembro || 1.200 || 40 || 41 || {{N/A} || 59",
+        "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
+    pm = extract(manco, url, 'pt', 'presidente', None)
+    assert [p['pollster'] for p in pm] == ['Ranking', 'Índice'], ('template manco engoliu a tabela', pm)
+    assert pm[0]['fieldwork_end'] == '2026-09-26' and [r['pct'] for r in pm[0]['results']] == [40.0, 41.0], pm[0]
+    # CITAÇÃO QUEBRADA (senador:SP, 29/09/2026): a linha com o prefixo
+    # `<ref>{{citar web|url=` digitado duas vezes nunca fecha; o `|-` seguinte
+    # tem de encerrar a linha, e a linha boa depois dela tem de sair.
+    quebrada = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "|Quaest<ref name=\":37\">{{citar web|url=|Quaest<ref name=\":37\">{{citar web|url=https://x.example/q|título=T}}</ref>",
+        "|21 e 24 de setembro", "|{{fmtn|1200}}", "|40", "|41", "|3", "|59",
+        "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
+    pq = extract(quebrada, url, 'pt', 'presidente', None)
+    assert any(p['pollster'] == 'Índice' and p['fieldwork_end'] == '2026-09-26' for p in pq), ('citação quebrada engoliu a linha seguinte', pq)
+    pq_q = [p for p in pq if p['pollster'].startswith('Quaest')]
+    assert len(pq_q) == 1 and pq_q[0]['fieldwork_end'] == '2026-09-24' and pq_q[0]['sample_size'] == 1200 \
+        and [r['pct'] for r in pq_q[0]['results']] == [40.0, 41.0], ('a linha com citação quebrada tem de sair com as células no lugar', pq_q)
+    # E a citação legítima em várias linhas segue como continuação da célula.
+    multi = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "| Quaest<ref>{{citar web|url=https://x.example/q", "|título=T", "|acessodata=29 de setembro de 2026}}</ref>", "| 21 e 24 de setembro", "| 1.200", "| 40", "| 41", "| 3", "| 59", "|}"])
+    pmu = extract(multi, url, 'pt', 'presidente', None)
+    assert len(pmu) == 1 and pmu[0]['sample_size'] == 1200 and [r['pct'] for r in pmu[0]['results']] == [40.0, 41.0], ('citação multi-linha legítima deixou de ser continuação', pmu)
+    # <br> DENTRO DO LINK (São Paulo): `[[Simone Tebet|Simone<br>Tebet]]` é
+    # "Simone Tebet", não "[[Simone Tebet|Simone".
+    sp = '\n'.join(["=== 2026 ===", "==== Setembro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Simone Tebet|Simone<br>Tebet]]<br>{{small|[[Partido Socialista Brasileiro (1985)|PSB]]}} !! [[Marina Silva|Marina<br>Silva]]<br>{{small|[[Rede Sustentabilidade|REDE]]}} !! Outros !! Indecisos",
+        "|-", "| Futura || 23 e 25 de setembro || 1.600 || 33,3 || 35,1 || 3 || 20", "|}"])
+    ps = extract(sp, url, 'pt', 'senador', 'SP')
+    assert [r['candidate'] for r in ps[0]['results']] == ['Simone Tebet', 'Marina Silva'], ('<br> dentro do link vazou', ps)
+    assert [r['party'] for r in ps[0]['results']] == ['PSB', 'REDE'], ps
     # Subpágina de INTERVALO ("2023-2025"), sem cabeçalho de ano, em ordem
     # cronológica inversa — a forma real da "/Primeiro Turno/2023-2025" em
     # 14/09/2026. Três levantamentos: (a) ancorado pela citação (jan/2025),
