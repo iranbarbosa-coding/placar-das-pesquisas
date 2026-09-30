@@ -935,6 +935,12 @@
    ]
   },
   {
+   "nome": "Ariel Capistrano",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Bruno Reis",
    "partidos": [
     "União Brasil"
@@ -968,6 +974,12 @@
    "nome": "Kleber Rosa",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Maria Bona",
+   "partidos": [
+    "PCO"
    ]
   },
   {
@@ -1119,6 +1131,12 @@
    "nome": "Tarcísio de Freitas",
    "partidos": [
     "Republicanos"
+   ]
+  },
+  {
+   "nome": "Veterinário Wilson Grassi",
+   "partidos": [
+    "Democrata"
    ]
   }
  ],
@@ -2471,6 +2489,12 @@
    ]
   },
   {
+   "nome": "Leonardo Avalanche",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
    "nome": "Lula",
    "partidos": [
     "PT"
@@ -2762,22 +2786,10 @@
  ],
  "governador:MT": [
   {
-   "nome": "Carlos Fávaro",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
    "nome": "Doutora Natasha",
    "partidos": [
     "PSB",
     "PSD"
-   ]
-  },
-  {
-   "nome": "Janaína Riva",
-   "partidos": [
-    "MDB"
    ]
   },
   {
@@ -2787,52 +2799,15 @@
    ]
   },
   {
-   "nome": "José Carlos do Pátio",
-   "partidos": [
-    "PSB",
-    "Solidariedade"
-   ]
-  },
-  {
-   "nome": "Maurício Coelho",
-   "partidos": [
-    "Mobiliza"
-   ]
-  },
-  {
-   "nome": "Max Russi",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
    "nome": "Natasha Slhessarenko",
    "partidos": [
     "PSD"
    ]
   },
   {
-   "nome": "Odílio Balbinotti",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
    "nome": "Otaviano Pivetta",
    "partidos": [
     "Republicanos"
-   ]
-  },
-  {
-   "nome": "Rafaell Milas",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Sargento Laudicério",
-   "partidos": [
-    "Agir"
    ]
   },
   {
@@ -4366,12 +4341,6 @@
    "partidos": [
     "PSD",
     "PSDB"
-   ]
-  },
-  {
-   "nome": "Escritor Augusto Cury",
-   "partidos": [
-    "Avante"
    ]
   },
   {
@@ -8283,6 +8252,7 @@
    "nome": "Marília Arraes",
    "partidos": [
     "PDT",
+    "PT",
     "Solidariedade"
    ]
   },
@@ -8301,6 +8271,7 @@
   {
    "nome": "Pastor Gilvan Costa",
    "partidos": [
+    "DC",
     "Democrata"
    ]
   },
