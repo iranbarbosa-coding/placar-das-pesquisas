@@ -1,24 +1,72 @@
 {
- "generated_at": "2026-09-30T22:59:17.906Z",
+ "generated_at": "2026-10-01T02:07:03.627Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-09-30T22:59:17.906Z"
+   "last_ok": "2026-10-01T02:07:03.627Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-09-30T22:59:17.906Z"
+   "last_ok": "2026-10-01T02:07:03.627Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-09-30T22:59:17.906Z"
+   "last_ok": "2026-10-01T02:07:03.627Z"
   }
  ],
  "polls": [
+  {
+   "id": "4bcb97692701",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário 5/5",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Geraldo Alckmin",
+     "party": "PSB",
+     "pct": 31
+    },
+    {
+     "candidate": "Ricardo Nunes",
+     "party": "MDB",
+     "pct": 30
+    },
+    {
+     "candidate": "Erika Hilton",
+     "party": "PSOL",
+     "pct": 10
+    },
+    {
+     "candidate": "Paulo Serra",
+     "party": "PSDB",
+     "pct": 4
+    },
+    {
+     "candidate": "Felipe d'Avila",
+     "party": "Novo",
+     "pct": 7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "0051fab8612d",
    "source": null,
@@ -3181,6 +3229,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cdd0f8ebd981",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Nova Ibrape",
+   "contractor": null,
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Reinaldo Azambuja",
+     "party": "PL",
+     "pct": 26.1
+    },
+    {
+     "candidate": "Capitão Contar",
+     "party": "PL",
+     "pct": 24.8
+    },
+    {
+     "candidate": "Vander Loubet",
+     "party": "PT",
+     "pct": 9.2
+    },
+    {
+     "candidate": "Soraya",
+     "party": "PSB",
+     "pct": 9.5
+    }
+   ],
+   "others_pct": 10.3,
+   "undecided_pct": 20.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -212422,54 +212513,6 @@
    "tse_registration": null
   },
   {
-   "id": "01ef2ee70f70",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário 3/5",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Márcio França",
-     "party": "PSB",
-     "pct": 20
-    },
-    {
-     "candidate": "Ricardo Nunes",
-     "party": "MDB",
-     "pct": 34
-    },
-    {
-     "candidate": "Erika Hilton",
-     "party": "PSOL",
-     "pct": 10
-    },
-    {
-     "candidate": "Paulo Serra",
-     "party": "PSDB",
-     "pct": 9
-    },
-    {
-     "candidate": "Felipe d'Avila",
-     "party": "Novo",
-     "pct": 4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "0b6b2a9fc211",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -212759,102 +212802,6 @@
    ],
    "others_pct": 3.27,
    "undecided_pct": 20.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4897d3b8cc16",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/5",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Tarcísio",
-     "party": "Republicanos",
-     "pct": 52
-    },
-    {
-     "candidate": "Márcio França",
-     "party": "PSB",
-     "pct": 16
-    },
-    {
-     "candidate": "Erika Hilton",
-     "party": "PSOL",
-     "pct": 10
-    },
-    {
-     "candidate": "Paulo Serra",
-     "party": "PSDB",
-     "pct": 8
-    },
-    {
-     "candidate": "Felipe d'Avila",
-     "party": "Novo",
-     "pct": 3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4bcb97692701",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário 5/5",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Geraldo Alckmin",
-     "party": "PSB",
-     "pct": 31
-    },
-    {
-     "candidate": "Ricardo Nunes",
-     "party": "MDB",
-     "pct": 30
-    },
-    {
-     "candidate": "Erika Hilton",
-     "party": "PSOL",
-     "pct": 10
-    },
-    {
-     "candidate": "Paulo Serra",
-     "party": "PSDB",
-     "pct": 4
-    },
-    {
-     "candidate": "Felipe d'Avila",
-     "party": "Novo",
-     "pct": 7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -213195,54 +213142,6 @@
    "tse_registration": null
   },
   {
-   "id": "78c5ccabdb5f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário 4/5",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Márcio França",
-     "party": "PSB",
-     "pct": 27
-    },
-    {
-     "candidate": "Erika Hilton",
-     "party": "PSOL",
-     "pct": 10
-    },
-    {
-     "candidate": "Paulo Serra",
-     "party": "PSDB",
-     "pct": 9
-    },
-    {
-     "candidate": "Rodrigo Garcia",
-     "party": "Sem partido",
-     "pct": 14
-    },
-    {
-     "candidate": "Felipe d'Avila",
-     "party": "Novo",
-     "pct": 5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "8abe9f8934b5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -213340,54 +213239,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 34.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a602ca5aebf5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário 2/5",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Tarcísio",
-     "party": "Republicanos",
-     "pct": 47
-    },
-    {
-     "candidate": "Geraldo Alckmin",
-     "party": "PSB",
-     "pct": 26
-    },
-    {
-     "candidate": "Erika Hilton",
-     "party": "PSOL",
-     "pct": 10
-    },
-    {
-     "candidate": "Paulo Serra",
-     "party": "PSDB",
-     "pct": 7
-    },
-    {
-     "candidate": "Felipe d'Avila",
-     "party": "Novo",
-     "pct": 2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": null
   },

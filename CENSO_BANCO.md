@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1760 levantamentos · 5552 perguntas · 163 institutos · 1377 candidatos**.
+Banco: **1757 levantamentos · 5553 perguntas · 163 institutos · 1377 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -13,12 +13,12 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SOMA** — Elenco de vaga única somando mais de 100 | 0 | 0 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
-| **SEMDATA** — Levantamentos sem data utilizável | 32 | 0 |
+| **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 436 | 38 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 440 | 38 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **518** | **74** |
+| **total** | **517** | **74** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -41,13 +41,12 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 
 *Nada a reportar.*
 
-## SEMDATA — Levantamentos sem data utilizável (32)
+## SEMDATA — Levantamentos sem data utilizável (27)
 
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
 - s_03d648ecabe0 · DataPop · GO · registro —
 - s_0c50c6b4fee1 · Paraná Pesquisas · SP · registro —
-- s_18c152f4fe25 · Real Time Big Data · SP · registro —
 - s_2b4379073719 · Real Time Big Data · SP · registro —
 - s_2c014467a18c · Paraná Pesquisas · SP · registro —
 - s_31caacbb8eab · Paraná Pesquisas · SP · registro —
@@ -64,15 +63,11 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_824da0368472 · Delta · AC · registro —
 - s_85e6cb3fd7ff · Paraná Pesquisas · SP · registro —
 - s_8768f19ed675 · Paraná Pesquisas · SP · registro —
-- s_8e11237d1246 · Real Time Big Data · SP · registro —
 - s_a05e548e7136 · Real Time Big Data · SP · registro —
 - s_a3b6d8cdc27d · Delta · AC · registro —
-- s_b5e38606ddfc · Real Time Big Data · SP · registro —
-- s_bd70e47b93fa · Real Time Big Data · SP · registro —
 - s_c5446eaf6c82 · Doxa · PA · registro —
 - s_c622f7e17bc9 · Real Time Big Data · SP · registro —
 - s_ca4c8b28f604 · Delta · AC · registro —
-- s_ce9d4a8c6ec6 · Real Time Big Data · SP · registro —
 - s_f4457b6d1858 · Paraná Pesquisas · SP · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 - s_fde53d701f86 · Paraná Pesquisas · SP · registro —
@@ -349,7 +344,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (436)
+## CONFLITO — Conflitos registrados aguardando decisão (440)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -766,7 +761,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_2765630c909d · survey_id: "s_2765630c909d" × null
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - **[2026]** survey_id_orphaned · s_8c376670c05d · survey_id: "s_8c376670c05d" × null
-- survey_id_orphaned · s_388ca26661f7 · survey_id: "s_388ca26661f7" × null
 - **[2026]** survey_id_orphaned · s_1fc98e9f7a15 · survey_id: "s_1fc98e9f7a15" × null
 - **[2026]** survey_id_orphaned · s_fe6dadff997f · survey_id: "s_fe6dadff997f" × null
 - **[2026]** survey_id_orphaned · s_8d28e8f932ac · survey_id: "s_8d28e8f932ac" × null
@@ -782,6 +776,11 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_b42b77ccb78a · results: ["Doutora Natasha","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
+- survey_id_orphaned · s_b5e38606ddfc · survey_id: "s_b5e38606ddfc" × null
+- survey_id_orphaned · s_18c152f4fe25 · survey_id: "s_18c152f4fe25" × null
+- survey_id_orphaned · s_bd70e47b93fa · survey_id: "s_bd70e47b93fa" × null
+- survey_id_orphaned · s_8e11237d1246 · survey_id: "s_8e11237d1246" × null
+- survey_id_orphaned · s_ce9d4a8c6ec6 · survey_id: "s_ce9d4a8c6ec6" × null
 - disputa_em_quarentena · governador:MS · quarentena: 43 × 42
 - disputa_em_quarentena · governador:RJ · quarentena: 72 × 78
 - disputa_em_quarentena · governador:SE · quarentena: 56 × 71
