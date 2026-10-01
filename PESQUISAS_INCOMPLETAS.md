@@ -838,14 +838,15 @@ Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 2000
 
 ### Mapa/Jovem Pan — 2026-06-11
 
-Soma **76.7%** · faltam **23.3 pontos** · 3 candidato(s) na tabela · amostra 1008
+Soma **76.7%** · faltam **23.3 pontos** · 4 candidato(s) na tabela · amostra 1008
 
 | candidato | % |
 |---|---|
 | Jorginho Mello | 54.9 |
 | João Rodrigues | 15.3 |
 | Gelson Merísio | 5.1 |
-| *outros* | 1.4 |
+| Marcelo Brigadeiro | 1.3 |
+| *outros* | 0.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina
 
