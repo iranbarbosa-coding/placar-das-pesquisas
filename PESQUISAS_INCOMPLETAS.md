@@ -1655,7 +1655,7 @@ Soma **89.8%** · faltam **10.2 pontos** · 3 candidato(s) na tabela · amostra 
 
 ## Governador · Amazonas
 
-### IMPEN/G6 — 2026-09-25
+### Ipen/G6 — 2026-09-25
 
 Soma **89.9%** · faltam **10.1 pontos** · 4 candidato(s) na tabela · amostra 1200
 

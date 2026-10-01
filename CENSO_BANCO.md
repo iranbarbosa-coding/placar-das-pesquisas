@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1757 levantamentos · 5553 perguntas · 163 institutos · 1377 candidatos**.
+Banco: **1763 levantamentos · 5568 perguntas · 162 institutos · 1377 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 440 | 38 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 441 | 40 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **517** | **74** |
+| **total** | **518** | **76** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -344,7 +344,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (440)
+## CONFLITO — Conflitos registrados aguardando decisão (441)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -776,17 +776,18 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_b42b77ccb78a · results: ["Doutora Natasha","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- survey_id_orphaned · s_b5e38606ddfc · survey_id: "s_b5e38606ddfc" × null
-- survey_id_orphaned · s_18c152f4fe25 · survey_id: "s_18c152f4fe25" × null
-- survey_id_orphaned · s_bd70e47b93fa · survey_id: "s_bd70e47b93fa" × null
-- survey_id_orphaned · s_8e11237d1246 · survey_id: "s_8e11237d1246" × null
-- survey_id_orphaned · s_ce9d4a8c6ec6 · survey_id: "s_ce9d4a8c6ec6" × null
+- survey_id_orphaned · s_55876bd2be1a · survey_id: "s_55876bd2be1a" × null
+- institute_id_orphaned · i_ad6a16bba5ab · institute_id: "i_ad6a16bba5ab" × null
+- **[2026]** survey_id_orphaned · s_56459030d59c · survey_id: "s_56459030d59c" × null
+- **[2026]** survey_id_orphaned · s_2c58c7741bd2 · survey_id: "s_2c58c7741bd2" × null
+- disputa_em_quarentena · governador:AP · quarentena: 28 × 32
 - disputa_em_quarentena · governador:MS · quarentena: 43 × 42
 - disputa_em_quarentena · governador:RJ · quarentena: 72 × 78
 - disputa_em_quarentena · governador:SE · quarentena: 56 × 71
 - disputa_em_quarentena · presidente:RJ · quarentena: 42 × 49
 - disputa_em_quarentena · presidente:SC · quarentena: 12 × 16
 - disputa_em_quarentena · senador:AC · quarentena: 44 × 44
+- disputa_em_quarentena · senador:AP · quarentena: 27 × 24
 - disputa_em_quarentena · senador:MT · quarentena: 27 × 31
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
