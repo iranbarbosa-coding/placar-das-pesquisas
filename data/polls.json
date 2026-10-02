@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-01T23:10:03.698Z",
+ "generated_at": "2026-10-02T02:12:34.561Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-01T23:10:03.698Z"
+   "last_ok": "2026-10-02T02:12:34.561Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-01T23:10:03.698Z"
+   "last_ok": "2026-10-02T02:12:34.561Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-01T23:10:03.698Z"
+   "last_ok": "2026-10-02T02:12:34.561Z"
   }
  ],
  "polls": [
@@ -409,39 +409,6 @@
    "tse_registration": null
   },
   {
-   "id": "865251e0a30f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Raquel Lyra e João Campos",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 50
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 46
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "976e56050500",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -824,19 +791,110 @@
    "tse_registration": null
   },
   {
-   "id": "faa7052a1ff1",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
+   "id": "p360-14295-1-0-b3da21e51165",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/raquel-lyra-tem-50-contra-47-de-joao-campos-no-1o-turno-em-pe/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhaPE-1out2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 46
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 44
+    },
+    {
+     "candidate": "Ivan Moraes",
+     "party": "PSOL",
+     "pct": 2
+    },
+    {
+     "candidate": "Renan",
+     "party": "Missão",
+     "pct": 1
+    },
+    {
+     "candidate": "Professora Camila",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Guilherme Fonseca",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Victor Assis",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 4,
+   "tse_registration": "PE-06822/2026"
+  },
+  {
+   "id": "p360-14295-2-0-a110c2b4ec48",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/raquel-lyra-tem-50-contra-47-de-joao-campos-no-1o-turno-em-pe/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhaPE-1out2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Raquel Lyra vs João Campos",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 50
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 3,
+   "tse_registration": "PE-06822/2026"
+  },
+  {
+   "id": "p360-14296-1-0-0502fea1c3bd",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/raquel-lyra-tem-50-contra-47-de-joao-campos-no-1o-turno-em-pe/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhaPE-1out2026.pdf",
    "race": "senador",
    "state": "PE",
    "round": 1,
-   "scenario": "1º turno — cenário único",
+   "scenario": "1º turno",
    "pollster": "Datafolha",
-   "contractor": null,
+   "contractor": "Folha de S. Paulo/Grupo Globo",
    "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
-   "published_date": null,
+   "published_date": "2026-10-01",
    "sample_size": 1204,
    "margin_of_error": 3,
    "results": [
@@ -864,12 +922,32 @@
      "candidate": "Túlio Gadêlha",
      "party": "PSD",
      "pct": 5
+    },
+    {
+     "candidate": "Carlos Sant Anna",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
+     "candidate": "Pastor Gilvan Costa",
+     "party": "Democrata",
+     "pct": 1
+    },
+    {
+     "candidate": "Paulo Rubem Santiago",
+     "party": "Rede",
+     "pct": 1
+    },
+    {
+     "candidate": "Samuel Timoteo",
+     "party": "UP",
+     "pct": 1
     }
    ],
-   "others_pct": 5,
-   "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": 16,
+   "tse_registration": "PE-06822/2026"
   },
   {
    "id": "0a9f4e142606",
@@ -1561,39 +1639,6 @@
    "tse_registration": null
   },
   {
-   "id": "0051fab8612d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 43.5
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 49
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "0220788346b2",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/dr-fernando-maximo-lidera-disputa-ao-senado-por-ro-diz-pesquisa/",
@@ -1643,18 +1688,18 @@
   },
   {
    "id": "0b396ab8a51f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/voxbrasilspgovernadoresenado-30set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/voxbrasilspgovernadoresenado-30set2026.pdf",
    "race": "governador",
    "state": "SP",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Vox",
-   "contractor": null,
+   "contractor": "Vox Brasil",
    "fieldwork_start": "2026-09-27",
    "fieldwork_end": "2026-09-29",
-   "published_date": null,
+   "published_date": "2026-09-29",
    "sample_size": 1480,
    "margin_of_error": 2.55,
    "results": [
@@ -1692,7 +1737,7 @@
    "others_pct": null,
    "undecided_pct": 3.7,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "SP-01943/2026"
   },
   {
    "id": "0f34371441e9",
@@ -1726,39 +1771,6 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "RO-03623/2026"
-  },
-  {
-   "id": "18d6e9b21270",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Zema",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.1
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 42.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.8,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "1ceba73c91d0",
@@ -1890,39 +1902,6 @@
    "tse_registration": null
   },
   {
-   "id": "33c44388eddf",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-27",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 44.8
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 45.3
-    }
-   ],
-   "others_pct": 2.1,
-   "undecided_pct": 7.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "39b04ff7bf9a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -2044,104 +2023,6 @@
    "tse_registration": null
   },
   {
-   "id": "5e7fd7b469ae",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "senador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Vox",
-   "contractor": null,
-   "fieldwork_start": "2026-09-27",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 1480,
-   "margin_of_error": 2.55,
-   "results": [
-    {
-     "candidate": "Simone Tebet",
-     "party": "PSB",
-     "pct": 25.6
-    },
-    {
-     "candidate": "Marina Silva",
-     "party": "Rede",
-     "pct": 27.1
-    },
-    {
-     "candidate": "André do Prado",
-     "party": "PL",
-     "pct": 28.5
-    },
-    {
-     "candidate": "Guilherme Derrite",
-     "party": "PP",
-     "pct": 26.5
-    },
-    {
-     "candidate": "Salles",
-     "party": "Novo",
-     "pct": 2.1
-    },
-    {
-     "candidate": "Soninha Francine",
-     "party": "CIDADANIA",
-     "pct": 4
-    },
-    {
-     "candidate": "Geraldo Rufino",
-     "party": "Podemos",
-     "pct": 3.5
-    },
-    {
-     "candidate": "Guto Schiavetto",
-     "party": "Missão",
-     "pct": 0.8
-    },
-    {
-     "candidate": "Maíra de Souza",
-     "party": "UP",
-     "pct": 1.4
-    },
-    {
-     "candidate": "Márcio Alves",
-     "party": "UP",
-     "pct": 1.3
-    },
-    {
-     "candidate": "Dr.ª",
-     "party": "PSTU",
-     "pct": 1.5
-    },
-    {
-     "candidate": "Weller Gonçalves",
-     "party": "PSTU",
-     "pct": 0.2
-    },
-    {
-     "candidate": "Petter Maahs",
-     "party": "PCB",
-     "pct": 0.5
-    },
-    {
-     "candidate": "Ednelson Cesaretti",
-     "party": "PCO",
-     "pct": 0.5
-    },
-    {
-     "candidate": "William Teixeira",
-     "party": "Agir",
-     "pct": 0.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 56,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "613db40012b3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -2225,54 +2106,6 @@
    "tse_registration": null
   },
   {
-   "id": "6d765910bcb4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AL",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-26",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Arthur Lira",
-     "party": "PP",
-     "pct": 41.6
-    },
-    {
-     "candidate": "Marina JHC",
-     "party": "PSDB",
-     "pct": 45.6
-    },
-    {
-     "candidate": "Renan",
-     "party": "MDB",
-     "pct": 36.9
-    },
-    {
-     "candidate": "Davi Davino Filho",
-     "party": "Republicanos",
-     "pct": 22.9
-    },
-    {
-     "candidate": "Dr. Wanderley",
-     "party": "MDB",
-     "pct": 15.2
-    }
-   ],
-   "others_pct": 1.5,
-   "undecided_pct": 9.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "752c6fafab28",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -2302,39 +2135,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "842d8425020a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Caiado",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 42.4
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 45.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -2473,72 +2273,6 @@
    "tse_registration": null
   },
   {
-   "id": "b1c593980880",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Augusto Cury",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 42
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 45.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b4ffd5b927a9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-26",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 52.4
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 46.3
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b712800ab5e1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -2639,105 +2373,6 @@
    ],
    "others_pct": 0,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c9bae6b500bb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-26",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 50.4
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 43.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e737fe7192cd",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 44.6
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 40.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "faaeaac03d6e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Raquel Lyra e João Campos",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-27",
-   "fieldwork_end": "2026-09-29",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 46
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 46.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3179,6 +2814,577 @@
    "tse_registration": "MT-02094/2026"
   },
   {
+   "id": "p360-14281-1-0-9a9800688614",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/voxbrasilspgovernadoresenado-30set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/voxbrasilspgovernadoresenado-30set2026.pdf",
+   "race": "senador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Vox",
+   "contractor": "Vox Brasil",
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1480,
+   "margin_of_error": 2.55,
+   "results": [
+    {
+     "candidate": "André do Prado",
+     "party": "PL",
+     "pct": 28.5
+    },
+    {
+     "candidate": "Marina Silva",
+     "party": "Rede",
+     "pct": 27.1
+    },
+    {
+     "candidate": "Guilherme Derrite",
+     "party": "PP",
+     "pct": 26.5
+    },
+    {
+     "candidate": "Simone Tebet",
+     "party": "PSB",
+     "pct": 25.6
+    },
+    {
+     "candidate": "Soninha Francine",
+     "party": "Cidadania",
+     "pct": 4
+    },
+    {
+     "candidate": "Geraldo Rufino",
+     "party": "Podemos",
+     "pct": 3.5
+    },
+    {
+     "candidate": "Salles",
+     "party": "Novo",
+     "pct": 2.1
+    },
+    {
+     "candidate": "Dra Eliana Ferreira",
+     "party": "PSTU",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Maíra de Souza",
+     "party": "UP",
+     "pct": 1.4
+    },
+    {
+     "candidate": "Márcio Alves",
+     "party": "UP",
+     "pct": 1.3
+    },
+    {
+     "candidate": "Guto Schiavetto",
+     "party": "Missão",
+     "pct": 0.8
+    },
+    {
+     "candidate": "William Teixeira",
+     "party": "Agir",
+     "pct": 0.5
+    },
+    {
+     "candidate": "Petter Maahs",
+     "party": "PCB",
+     "pct": 0.5
+    },
+    {
+     "candidate": "Ednelson Cesaretti",
+     "party": "PCO",
+     "pct": 0.5
+    },
+    {
+     "candidate": "Weller Gonçalves",
+     "party": "PSTU",
+     "pct": 0.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 36.9,
+   "blank_null_pct": 19.1,
+   "tse_registration": "SP-01943/2026"
+  },
+  {
+   "id": "p360-14282-1-0-fd2208e83c98",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/futuracidadeparticipacoesBR-30set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 42.2
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39.4
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 4
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 3.8
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3.2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1.6
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01122/2026"
+  },
+  {
+   "id": "p360-14282-2-0-65bddb5bdae3",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/futuracidadeparticipacoesBR-30set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 43.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.5,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01122/2026"
+  },
+  {
+   "id": "p360-14282-2-1-6abe431c8d21",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/futuracidadeparticipacoesBR-30set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Ronaldo Caiado vs Lula",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 45.6
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01122/2026"
+  },
+  {
+   "id": "p360-14282-2-2-7b9a9cafec21",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/futuracidadeparticipacoesBR-30set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Romeu Zema",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.1
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 42.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.8,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01122/2026"
+  },
+  {
+   "id": "p360-14282-2-3-248aec0e1dba",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/futuracidadeparticipacoesBR-30set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Renan Santos",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.6
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 40.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14.8,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01122/2026"
+  },
+  {
+   "id": "p360-14282-2-4-c0a21a7ecc73",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/futuracidadeparticipacoesBR-30set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Augusto Cury vs Lula",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 45.1
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.8,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01122/2026"
+  },
+  {
+   "id": "p360-14286-1-0-e108199c8ded",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-tem-524-ante-463-de-renan-em-al-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/parana-pesquisas-alagoas-setembro-1.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "TV Pajucara",
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 48.6
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 43
+    },
+    {
+     "candidate": "Lenilda Luna",
+     "party": "UP",
+     "pct": 0.7
+    },
+    {
+     "candidate": "Márcio Jambo",
+     "party": "Democrata",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.5,
+   "blank_null_pct": 3.7,
+   "tse_registration": "AL-01237/2026"
+  },
+  {
+   "id": "p360-14286-2-0-019f63bdbb5f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-tem-524-ante-463-de-renan-em-al-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/parana-pesquisas-alagoas-setembro-1.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: JHC vs Renan Filho",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "TV Pajucara",
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 50.4
+    },
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 43.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.4,
+   "blank_null_pct": 3.5,
+   "tse_registration": "AL-01237/2026"
+  },
+  {
+   "id": "p360-14287-1-0-407edeea4c55",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-tem-524-ante-463-de-renan-em-al-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/parana-pesquisas-alagoas-setembro-1.pdf",
+   "race": "senador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "TV Pajucara",
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Marina JHC",
+     "party": "PSDB",
+     "pct": 45.6
+    },
+    {
+     "candidate": "Arthur Lira",
+     "party": "PP",
+     "pct": 41.6
+    },
+    {
+     "candidate": "Renan",
+     "party": "MDB",
+     "pct": 36.9
+    },
+    {
+     "candidate": "Davi Davino Filho",
+     "party": "Republicanos",
+     "pct": 22.9
+    },
+    {
+     "candidate": "Dr. Wanderley",
+     "party": "MDB",
+     "pct": 15.2
+    },
+    {
+     "candidate": "Alexandre Fleming",
+     "party": "UP",
+     "pct": 1.1
+    },
+    {
+     "candidate": "Mariedson",
+     "party": "Democrata",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.6,
+   "blank_null_pct": null,
+   "tse_registration": "AL-01237/2026"
+  },
+  {
+   "id": "p360-14288-1-0-08734d15a450",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/campos-tem-505-e-lyra-495-no-2o-turno-em-pe-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/paranapesquisasPE-30SET2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Inove Publicidade e Propaganda",
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 45.3
+    },
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 44.8
+    },
+    {
+     "candidate": "Ivan Moraes",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Professora Camila",
+     "party": "UP",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Renan",
+     "party": "Missão",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Victor Assis",
+     "party": "PCO",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Guilherme Fonseca",
+     "party": "PSTU",
+     "pct": 0.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.9,
+   "blank_null_pct": null,
+   "tse_registration": "PE-01835/2026"
+  },
+  {
+   "id": "p360-14288-2-0-a25750d74e9f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/campos-tem-505-e-lyra-495-no-2o-turno-em-pe-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/paranapesquisasPE-30SET2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: João Campos vs Raquel Lyra",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Inove Publicidade e Propaganda",
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 46.9
+    },
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.1,
+   "blank_null_pct": null,
+   "tse_registration": "PE-01835/2026"
+  },
+  {
    "id": "030592141b02",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -3344,18 +3550,18 @@
   },
   {
    "id": "245a944bed3b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-tem-49-contra-44-de-brizola-no-2o-turno-no-rs-diz-big-data/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/governador-senador-realtimebigdata-riograndedosul-29set.pdf",
    "race": "senador",
    "state": "RS",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Real Time Big Data",
-   "contractor": null,
+   "contractor": "TV Record",
    "fieldwork_start": "2026-09-24",
    "fieldwork_end": "2026-09-28",
-   "published_date": null,
+   "published_date": "2026-09-28",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -3393,7 +3599,7 @@
    "others_pct": 3,
    "undecided_pct": 5,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "RS-05412/2026"
   },
   {
    "id": "2ae723ca4c9f",
@@ -3429,105 +3635,6 @@
    "tse_registration": null
   },
   {
-   "id": "2db8e3d59160",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 5005,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47.6
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 47.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "2f9482c04674",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1808,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 47.6
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 49
-    }
-   ],
-   "others_pct": 0.8,
-   "undecided_pct": 2.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "30a8ec0e649b",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-41-contra-40-de-flavio-no-2o-turno-em-mg-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestpresidencialmg29set.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho e Patrus",
-   "pollster": "Quaest",
-   "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 1506,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 52
-    },
-    {
-     "candidate": "Patrus Ananias",
-     "party": "PT",
-     "pct": 26
-    }
-   ],
-   "others_pct": 22,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08467/2026"
-  },
-  {
    "id": "34daeacb5ba3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -3557,49 +3664,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "35ab6bcc606b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 40
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 35
-    },
-    {
-     "candidate": "Gabriel Souza",
-     "party": "MDB",
-     "pct": 19
-    },
-    {
-     "candidate": "Marcelo Maranata",
-     "party": "PSDB",
-     "pct": 2
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -3756,162 +3820,6 @@
    "tse_registration": null
   },
   {
-   "id": "4d5bc708a063",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-41-contra-40-de-flavio-no-2o-turno-em-mg-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestpresidencialmg29set.pdf",
-   "race": "senador",
-   "state": "MG",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 1506,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Campos",
-     "party": "PT",
-     "pct": 13
-    },
-    {
-     "candidate": "Aécio Neves",
-     "party": "PSDB",
-     "pct": 12
-    },
-    {
-     "candidate": "Domingos Sávio",
-     "party": "PL",
-     "pct": 14
-    },
-    {
-     "candidate": "Carlos Viana",
-     "party": "PSD",
-     "pct": 12
-    },
-    {
-     "candidate": "Marcelo Aro",
-     "party": "PP",
-     "pct": 6
-    },
-    {
-     "candidate": "Marco Antônio Superman",
-     "party": "Novo",
-     "pct": 4
-    },
-    {
-     "candidate": "Áurea Carolina",
-     "party": "PSOL",
-     "pct": 4
-    }
-   ],
-   "others_pct": 0,
-   "undecided_pct": 35,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08467/2026"
-  },
-  {
-   "id": "51f267db8669",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-51-contra-43-de-lula-no-2o-turno-em-sp-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-presidencial-SaoPaulo-Real-Time-Big-Data-29-set-2026.pdf",
-   "race": "senador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Simone Tebet",
-     "party": "PSB",
-     "pct": 18
-    },
-    {
-     "candidate": "Marina Silva",
-     "party": "Rede",
-     "pct": 15
-    },
-    {
-     "candidate": "André do Prado",
-     "party": "PL",
-     "pct": 20
-    },
-    {
-     "candidate": "Guilherme Derrite",
-     "party": "PP",
-     "pct": 22
-    },
-    {
-     "candidate": "Salles",
-     "party": "Novo",
-     "pct": 6
-    },
-    {
-     "candidate": "Soninha Francine",
-     "party": "CIDADANIA",
-     "pct": 2
-    },
-    {
-     "candidate": "Geraldo Rufino",
-     "party": "Podemos",
-     "pct": 3
-    },
-    {
-     "candidate": "Guto Schiavetto",
-     "party": "Missão",
-     "pct": 2
-    },
-    {
-     "candidate": "Maíra de Souza",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Márcio Alves",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Dr.ª",
-     "party": "PSTU",
-     "pct": 0
-    },
-    {
-     "candidate": "Weller Gonçalves",
-     "party": "PSTU",
-     "pct": 0
-    },
-    {
-     "candidate": "Petter Maahs",
-     "party": "PCB",
-     "pct": 0
-    },
-    {
-     "candidate": "Ednelson Cesaretti",
-     "party": "PCO",
-     "pct": 0
-    },
-    {
-     "candidate": "William Teixeira",
-     "party": "Agir",
-     "pct": 0
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": "BR-09891/2026"
-  },
-  {
    "id": "5478af37266e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -4031,97 +3939,6 @@
    "undecided_pct": 2,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "62c80f3a43c3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Zema",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 5005,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47.4
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 41.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "657ef3a90943",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-41-contra-40-de-flavio-no-2o-turno-em-mg-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestpresidencialmg29set.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 1506,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 37
-    },
-    {
-     "candidate": "Patrus Ananias",
-     "party": "PT",
-     "pct": 18
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 9
-    },
-    {
-     "candidate": "Mateus Simões",
-     "party": "PSD",
-     "pct": 6
-    },
-    {
-     "candidate": "Gabriel",
-     "party": "MDB",
-     "pct": 2
-    },
-    {
-     "candidate": "Flávio Roscoe",
-     "party": "PL",
-     "pct": 5
-    },
-    {
-     "candidate": "Ben Mendes",
-     "party": "Missão",
-     "pct": 2
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08467/2026"
   },
   {
    "id": "766d2124970d",
@@ -4354,18 +4171,18 @@
   },
   {
    "id": "7f2beb302233",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-47-contra-26-de-leandro-grass-no-df-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/RealTimeBigData-DF-governo-estadual-29set2026.pdf",
    "race": "senador",
    "state": "DF",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Real Time Big Data",
-   "contractor": null,
+   "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-09-24",
    "fieldwork_end": "2026-09-28",
-   "published_date": null,
+   "published_date": "2026-09-28",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -4398,45 +4215,7 @@
    "others_pct": 2,
    "undecided_pct": 8,
    "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "895c7f507b62",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 27.1
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 27.3
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 37.1
-    }
-   ],
-   "others_pct": 2.5,
-   "undecided_pct": 6,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "DF-04637/2026"
   },
   {
    "id": "9285bd0ca1d5",
@@ -4621,87 +4400,6 @@
    "tse_registration": null
   },
   {
-   "id": "a368e2b72e2e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "governador",
-   "state": "DF",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 47
-    },
-    {
-     "candidate": "Leandro Grass",
-     "party": "PT",
-     "pct": 26
-    },
-    {
-     "candidate": "Cappelli",
-     "party": "PSB",
-     "pct": 4
-    },
-    {
-     "candidate": "Paula Belmonte",
-     "party": "PSDB",
-     "pct": 10
-    },
-    {
-     "candidate": "Kiko Caputo",
-     "party": "Novo",
-     "pct": 1
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a4fd5efadaca",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-41-contra-40-de-flavio-no-2o-turno-em-mg-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestpresidencialmg29set.pdf",
-   "race": "governador",
-   "state": "MG",
-   "round": 2,
-   "scenario": "2º turno: Cleitinho e Kalil",
-   "pollster": "Quaest",
-   "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 1506,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cleitinho Azevedo",
-     "party": "Republicanos",
-     "pct": 51
-    },
-    {
-     "candidate": "Alexandre Kalil",
-     "party": "PDT",
-     "pct": 22
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08467/2026"
-  },
-  {
    "id": "a85c5623197b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -4819,39 +4517,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a9a7d629cd83",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "governador",
-   "state": "DF",
-   "round": 2,
-   "scenario": "2º turno: Celina Leão e Leandro Grass",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 53
-    },
-    {
-     "candidate": "Leandro Grass",
-     "party": "PT",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -5114,72 +4779,6 @@
    "tse_registration": "BR-00895/2026"
   },
   {
-   "id": "c00b787c8c50",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 2,
-   "scenario": "2º turno: Ciro Gomes e Elmano de Freitas",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1808,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 48.6
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 49.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 1.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c9155ff0c05d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Augusto Cury",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 5005,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 46.2
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 36.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "cbc4b489caf3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -5373,49 +4972,6 @@
    "tse_registration": null
   },
   {
-   "id": "d6ef0be60754",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1808,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 26.3
-    },
-    {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 21.7
-    },
-    {
-     "candidate": "Luizianne",
-     "party": "Rede",
-     "pct": 25.7
-    },
-    {
-     "candidate": "Alcides Fernandes",
-     "party": "PL",
-     "pct": 18.5
-    }
-   ],
-   "others_pct": 1.6,
-   "undecided_pct": 6.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "dd9caf7a6667",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/",
@@ -5447,39 +5003,6 @@
    "undecided_pct": 13.6,
    "blank_null_pct": null,
    "tse_registration": "BR-00895/2026"
-  },
-  {
-   "id": "e1264abff574",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Caiado",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 5005,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.9
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 43.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10.8,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "e17c017077a4",
@@ -5713,127 +5236,6 @@
    "undecided_pct": 20.1,
    "blank_null_pct": null,
    "tse_registration": "BR-00895/2026"
-  },
-  {
-   "id": "fe141190031d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 5005,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 46.4
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 28.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ffd3bddc1c49",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 5005,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.3
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 42.2
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 2
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 5.2
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 1.8
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 0.9
-    },
-    {
-     "candidate": "Samara",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Leonardo Avalanche",
-     "party": "PRTB",
-     "pct": 0
-    },
-    {
-     "candidate": "Veterinário Wilson Grassi",
-     "party": "Democrata",
-     "pct": 0
-    },
-    {
-     "candidate": "Clariana Barão",
-     "party": "DC",
-     "pct": 0
-    },
-    {
-     "candidate": "Hertz Dias",
-     "party": "PSTU",
-     "pct": 0
-    },
-    {
-     "candidate": "Edmilson Costa",
-     "party": "PCB",
-     "pct": 0
-    },
-    {
-     "candidate": "Rui Costa Pimenta",
-     "party": "PCO",
-     "pct": 0
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 2.1,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-14233-1-0-5675733827dd",
@@ -6572,7 +5974,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-09-25",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-28",
    "published_date": "2026-09-28",
    "sample_size": 1506,
@@ -6660,7 +6062,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "Quaest",
    "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-09-25",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-28",
    "published_date": "2026-09-28",
    "sample_size": 1506,
@@ -6814,7 +6216,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-24",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-28",
    "published_date": "2026-09-28",
    "sample_size": 2000,
@@ -6867,7 +6269,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-24",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-28",
    "published_date": "2026-09-28",
    "sample_size": 2000,
@@ -6888,6 +6290,1216 @@
    "undecided_pct": 3,
    "blank_null_pct": 3,
    "tse_registration": "BR-09891/2026"
+  },
+  {
+   "id": "p360-14272-1-0-2c690b7a0f20",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestmggoverno29set.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 37
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 18
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 9
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 6
+    },
+    {
+     "candidate": "Flávio Roscoe",
+     "party": "PL",
+     "pct": 5
+    },
+    {
+     "candidate": "Gabriel",
+     "party": "MDB",
+     "pct": 2
+    },
+    {
+     "candidate": "Ben Mendes",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Prof. Túlio Lopes",
+     "party": "PCB",
+     "pct": 1
+    },
+    {
+     "candidate": "Rafael Duda",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Henrique Áreas",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Indira Xavier",
+     "party": "UP",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "MG-02019/2026"
+  },
+  {
+   "id": "p360-14272-2-0-552e46eff060",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestmggoverno29set.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho Azevedo vs Patrus Ananias",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 52
+    },
+    {
+     "candidate": "Patrus Ananias",
+     "party": "PT",
+     "pct": 26
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": 12,
+   "tse_registration": "MG-02019/2026"
+  },
+  {
+   "id": "p360-14272-2-1-d8fa9f5b24c4",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestmggoverno29set.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho Azevedo vs Alexandre Kalil",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 51
+    },
+    {
+     "candidate": "Alexandre Kalil",
+     "party": "PDT",
+     "pct": 22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": 11,
+   "tse_registration": "MG-02019/2026"
+  },
+  {
+   "id": "p360-14272-2-2-31f103a5186b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestmggoverno29set.pdf",
+   "race": "governador",
+   "state": "MG",
+   "round": 2,
+   "scenario": "2º turno: Cleitinho Azevedo vs Mateus Simões",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cleitinho Azevedo",
+     "party": "Republicanos",
+     "pct": 54
+    },
+    {
+     "candidate": "Mateus Simões",
+     "party": "PSD",
+     "pct": 11
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": 17,
+   "tse_registration": "MG-02019/2026"
+  },
+  {
+   "id": "p360-14273-1-0-4d145f5e3e4a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-lidera-todos-os-cenarios-em-mg-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/quaestmggoverno29set.pdf",
+   "race": "senador",
+   "state": "MG",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1506,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Domingos Sávio",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Marília Campos",
+     "party": "PT",
+     "pct": 13
+    },
+    {
+     "candidate": "Carlos Viana",
+     "party": "PSD",
+     "pct": 12
+    },
+    {
+     "candidate": "Aécio Neves",
+     "party": "PSDB",
+     "pct": 12
+    },
+    {
+     "candidate": "Marcelo Aro",
+     "party": "PP",
+     "pct": 6
+    },
+    {
+     "candidate": "Marco Antônio Superman",
+     "party": "Novo",
+     "pct": 4
+    },
+    {
+     "candidate": "Ana Luiza do MLB",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Jordano Metalúrgico",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Juiz Ramon Moreira",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Manoel Carvalho",
+     "party": "MDB",
+     "pct": 0
+    },
+    {
+     "candidate": "Tião Pessoa",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Victória Mello Vic",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Áurea Carolina",
+     "party": "PSOL",
+     "pct": 4
+    },
+    {
+     "candidate": "Arcanjo Pimenta",
+     "party": "MDB",
+     "pct": 0
+    },
+    {
+     "candidate": "Carlinhos Moura",
+     "party": "Avante",
+     "pct": 0
+    },
+    {
+     "candidate": "Fidélis Alcântara",
+     "party": "UP",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": "MG-02019/2026"
+  },
+  {
+   "id": "p360-14274-1-0-df48c40773ca",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-57-contra-40-de-haddad-no-2o-turno-em-sp/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-estadual-SaoPaulo-Real-Time-Big-Data-29-set-2026.pdf",
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 53
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Carlos Machado",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Vivian Mendes",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Izadora Dias",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": "SP-06293/2026"
+  },
+  {
+   "id": "p360-14274-2-0-9c4528349bff",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-57-contra-40-de-haddad-no-2o-turno-em-sp/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-estadual-SaoPaulo-Real-Time-Big-Data-29-set-2026.pdf",
+   "race": "governador",
+   "state": "SP",
+   "round": 2,
+   "scenario": "2º turno: Tarcísio de Freitas vs Fernando Haddad",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 57
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 2,
+   "tse_registration": "SP-06293/2026"
+  },
+  {
+   "id": "p360-14275-1-0-15772c83718e",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-57-contra-40-de-haddad-no-2o-turno-em-sp/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-estadual-SaoPaulo-Real-Time-Big-Data-29-set-2026.pdf",
+   "race": "senador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Simone Tebet",
+     "party": "PSB",
+     "pct": 18
+    },
+    {
+     "candidate": "Marina Silva",
+     "party": "Rede",
+     "pct": 15
+    },
+    {
+     "candidate": "André do Prado",
+     "party": "PL",
+     "pct": 20
+    },
+    {
+     "candidate": "Guilherme Derrite",
+     "party": "PP",
+     "pct": 22
+    },
+    {
+     "candidate": "Salles",
+     "party": "Novo",
+     "pct": 6
+    },
+    {
+     "candidate": "Soninha Francine",
+     "party": "CIDADANIA",
+     "pct": 2
+    },
+    {
+     "candidate": "Geraldo Rufino",
+     "party": "Podemos",
+     "pct": 3
+    },
+    {
+     "candidate": "Guto Schiavetto",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Maíra de Souza",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Márcio Alves",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Dr.ª",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Weller Gonçalves",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Petter Maahs",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Ednelson Cesaretti",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "William Teixeira",
+     "party": "Agir",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": "SP-06293/2026"
+  },
+  {
+   "id": "p360-14278-1-0-93cbf2181963",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-47-contra-26-de-leandro-grass-no-df-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/RealTimeBigData-DF-governo-estadual-29set2026.pdf",
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 47
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 26
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 10
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 4
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "DF-04637/2026"
+  },
+  {
+   "id": "p360-14278-2-0-888e62405882",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-47-contra-26-de-leandro-grass-no-df-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/RealTimeBigData-DF-governo-estadual-29set2026.pdf",
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão vs Leandro Grass",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 53
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": "DF-04637/2026"
+  },
+  {
+   "id": "p360-14279-1-0-1a46147aa0e1",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-tem-49-contra-44-de-brizola-no-2o-turno-no-rs-diz-big-data/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/governador-senador-realtimebigdata-riograndedosul-29set.pdf",
+   "race": "governador",
+   "state": "RS",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "TV Record",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 35
+    },
+    {
+     "candidate": "Gabriel Souza",
+     "party": "MDB",
+     "pct": 19
+    },
+    {
+     "candidate": "Marcelo Maranata",
+     "party": "PSDB",
+     "pct": 2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": null,
+   "tse_registration": "RS-05412/2026"
+  },
+  {
+   "id": "p360-14279-2-0-f7cdc205b0ba",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-tem-49-contra-44-de-brizola-no-2o-turno-no-rs-diz-big-data/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/governador-senador-realtimebigdata-riograndedosul-29set.pdf",
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Coronel Zucco vs Juliana Brizola",
+   "pollster": "Real Time Big Data",
+   "contractor": "TV Record",
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": "RS-05412/2026"
+  },
+  {
+   "id": "p360-14283-1-0-5eaa816c33c7",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 37.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 27.3
+    },
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 27.1
+    },
+    {
+     "candidate": "Arinalda do MLB",
+     "party": "UP",
+     "pct": 2
+    },
+    {
+     "candidate": "Professor Roberio Paulino",
+     "party": "PSOL",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Rodrigo de Bolsonaro",
+     "party": "Agir",
+     "pct": 0.2
+    },
+    {
+     "candidate": "Godeiro Linhares",
+     "party": "DC",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Henrique Lyra",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1.9,
+   "blank_null_pct": 4.1,
+   "tse_registration": "RN-04187/2026"
+  },
+  {
+   "id": "p360-14283-2-0-9baf16f9878f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Dias",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 51.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 35.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.5,
+   "blank_null_pct": null,
+   "tse_registration": "RN-04187/2026"
+  },
+  {
+   "id": "p360-14284-1-0-f52d2fb287f3",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/elmano-tem-505-contra-495-de-ciro-no-2o-turno-no-ce-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas_Focus-Eleicoes-Ceara-2026-260928.pdf",
+   "race": "governador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "AtlasIntel",
+   "contractor": "Focus Comunicação Mídia",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1808,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 49
+    },
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 47.6
+    },
+    {
+     "candidate": "Delagado Huggo",
+     "party": "Missão",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.7,
+   "blank_null_pct": null,
+   "tse_registration": "CE-01709/2026"
+  },
+  {
+   "id": "p360-14284-2-0-3a3824b3fd17",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/elmano-tem-505-contra-495-de-ciro-no-2o-turno-no-ce-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas_Focus-Eleicoes-Ceara-2026-260928.pdf",
+   "race": "governador",
+   "state": "CE",
+   "round": 2,
+   "scenario": "2º turno: Elmano de Freitas vs Ciro Gomes",
+   "pollster": "AtlasIntel",
+   "contractor": "Focus Comunicação Mídia",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1808,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 49.6
+    },
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 48.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1.9,
+   "blank_null_pct": null,
+   "tse_registration": "CE-01709/2026"
+  },
+  {
+   "id": "p360-14285-1-0-0707b93484bf",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/elmano-tem-505-contra-495-de-ciro-no-2o-turno-no-ce-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Pesquisa-Atlas_Focus-Eleicoes-Ceara-2026-260928.pdf",
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "AtlasIntel",
+   "contractor": "Focus Comunicação Mídia",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1808,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 26.3
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 25.7
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 21.7
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 18.5
+    },
+    {
+     "candidate": "Catarina Matos",
+     "party": "UP",
+     "pct": 1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6.3,
+   "blank_null_pct": null,
+   "tse_registration": "CE-01709/2026"
+  },
+  {
+   "id": "p360-14289-1-0-6a99e2ffcb47",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelnacionalpresidencia-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 5005,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.3
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 42.2
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 2
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 5.2
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1.8
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 0.9
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.1,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04391/2026"
+  },
+  {
+   "id": "p360-14289-2-0-26a37e78d4a1",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelnacionalpresidencia-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 5005,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47.7
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.8,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04391/2026"
+  },
+  {
+   "id": "p360-14289-2-1-a4596ce30ab1",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelnacionalpresidencia-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Ronaldo Caiado",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 5005,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.9
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 43.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.8,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04391/2026"
+  },
+  {
+   "id": "p360-14289-2-2-18c79c45d34e",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelnacionalpresidencia-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Romeu Zema",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 5005,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.4
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 41.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.4,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04391/2026"
+  },
+  {
+   "id": "p360-14289-2-3-f9cbbc7760b9",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelnacionalpresidencia-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Augusto Cury",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 5005,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.2
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 36.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.7,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04391/2026"
+  },
+  {
+   "id": "p360-14289-2-4-dd8840fb33b2",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelnacionalpresidencia-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Renan Santos",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 5005,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.4
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 28.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.7,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04391/2026"
+  },
+  {
+   "id": "p360-14292-1-0-a61adebb29a3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-presidente-PE.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-presidente-PE.pdf",
+   "race": "presidente",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 58
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 20
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 3
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 1
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08289/2026"
+  },
+  {
+   "id": "p360-14292-2-0-daf68011513e",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-presidente-PE.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-presidente-PE.pdf",
+   "race": "presidente",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 61
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 24
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08289/2026"
   },
   {
    "id": "0e9215fd4429",
@@ -7210,59 +7822,6 @@
    ],
    "others_pct": 6,
    "undecided_pct": 63,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7b518302260b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-22",
-   "fieldwork_end": "2026-09-27",
-   "published_date": null,
-   "sample_size": 1833,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Tarcísio",
-     "party": "Republicanos",
-     "pct": 53.3
-    },
-    {
-     "candidate": "Fernando Haddad",
-     "party": "PT",
-     "pct": 40.1
-    },
-    {
-     "candidate": "Vera Lúcia",
-     "party": "PSTU",
-     "pct": 0
-    },
-    {
-     "candidate": "Carlos Machado",
-     "party": "PCB",
-     "pct": 0
-    },
-    {
-     "candidate": "Vivian Mendes",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Izadora Dias",
-     "party": "PCO",
-     "pct": 0
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -8130,6 +8689,92 @@
    "undecided_pct": 6.2,
    "blank_null_pct": null,
    "tse_registration": "MG-04294/2026"
+  },
+  {
+   "id": "p360-14277-1-0-118115ff93cf",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-533-contra-401-de-haddad-no-1o-turno-em-sp-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelgovernosp-29set2026.pdf",
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-27",
+   "published_date": "2026-09-27",
+   "sample_size": 1833,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 53.3
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 40.1
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Carlos Machado",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Vivian Mendes",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Izadora Dias",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.8,
+   "blank_null_pct": null,
+   "tse_registration": "SP-01486/2026"
+  },
+  {
+   "id": "p360-14277-2-0-3ab0f4aad4c1",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-533-contra-401-de-haddad-no-1o-turno-em-sp-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/atlasintelgovernosp-29set2026.pdf",
+   "race": "governador",
+   "state": "SP",
+   "round": 2,
+   "scenario": "2º turno: Tarcísio de Freitas vs Fernando Haddad",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-27",
+   "published_date": "2026-09-27",
+   "sample_size": 1833,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 54.9
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 42.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 0.1,
+   "blank_null_pct": 3,
+   "tse_registration": "SP-01486/2026"
   },
   {
    "id": "01d81d6d35b7",
@@ -9263,92 +9908,6 @@
    "undecided_pct": 14,
    "blank_null_pct": 11,
    "tse_registration": "MG-03351/2026"
-  },
-  {
-   "id": "p360-14228-1-0-6d4da5d0b48a",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-50-contra-45-de-haddad-no-2o-turno-no-grande-abc/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/governador-sp-setembro-real-time-big-data-setembro-1.pdf",
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-26",
-   "published_date": "2026-09-26",
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Tarcísio",
-     "party": "Republicanos",
-     "pct": 53
-    },
-    {
-     "candidate": "Fernando Haddad",
-     "party": "PT",
-     "pct": 39
-    },
-    {
-     "candidate": "Vera Lúcia",
-     "party": "PSTU",
-     "pct": 0
-    },
-    {
-     "candidate": "Carlos Machado",
-     "party": "PCB",
-     "pct": 0
-    },
-    {
-     "candidate": "Vivian Mendes",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Izadora Dias",
-     "party": "PCO",
-     "pct": 0
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": "SP-02538/2026"
-  },
-  {
-   "id": "p360-14228-2-0-eb032c4d5af8",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/tarcisio-tem-50-contra-45-de-haddad-no-2o-turno-no-grande-abc/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/governador-sp-setembro-real-time-big-data-setembro-1.pdf",
-   "race": "governador",
-   "state": "SP",
-   "round": 2,
-   "scenario": "2º turno: Tarcísio de Freitas vs Fernando Haddad",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-26",
-   "published_date": "2026-09-26",
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Tarcísio",
-     "party": "Republicanos",
-     "pct": 50
-    },
-    {
-     "candidate": "Fernando Haddad",
-     "party": "PT",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": "SP-02538/2026"
   },
   {
    "id": "p360-14230-1-0-a37876c056c7",
@@ -11533,18 +12092,18 @@
   },
   {
    "id": "27a41fc53f30",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
    "race": "senador",
    "state": "MA",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Quaest",
-   "contractor": null,
+   "contractor": "TV Mirante",
    "fieldwork_start": "2026-09-21",
    "fieldwork_end": "2026-09-24",
-   "published_date": null,
+   "published_date": "2026-09-24",
    "sample_size": 900,
    "margin_of_error": 3,
    "results": [
@@ -11587,7 +12146,7 @@
    "others_pct": 2,
    "undecided_pct": 29,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "MA-07074/2026"
   },
   {
    "id": "2da5268e0811",
@@ -13057,50 +13616,6 @@
    "tse_registration": null
   },
   {
-   "id": "aedbf2e17b48",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 46
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 27
-    },
-    {
-     "candidate": "Felipe Camarão",
-     "party": "PT",
-     "pct": 10
-    },
-    {
-     "candidate": "Roberto Rocha",
-     "party": "PRTB",
-     "pct": 3
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 1,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
-  },
-  {
    "id": "b1f17821a769",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -13914,39 +14429,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "dd4208984342",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Orleans Brandão",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 55
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -15018,6 +15500,201 @@
    "undecided_pct": 2,
    "blank_null_pct": 4,
    "tse_registration": "CE-00198/2026"
+  },
+  {
+   "id": "p360-14294-1-0-cb3b8b5fabb9",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 29
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 15
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 3
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 1
+    },
+    {
+     "candidate": "André Luis",
+     "party": "Missão",
+     "pct": 1
+    },
+    {
+     "candidate": "Reginaldo Lima",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Dimas Cassimiro",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Saulo Arcangeli",
+     "party": "PSTU",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 51,
+   "blank_null_pct": null,
+   "tse_registration": "MA-07074/2026"
+  },
+  {
+   "id": "p360-14294-2-0-068acfff203e",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Orleans Brandão",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 55
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": 3,
+   "tse_registration": "MA-07074/2026"
+  },
+  {
+   "id": "p360-14294-2-1-6e90ddbc5ee5",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Felipe Camarão",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 66
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 20
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": 6,
+   "tse_registration": "MA-07074/2026"
+  },
+  {
+   "id": "p360-14294-2-2-686314bc8c53",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Roberto Rocha",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 68
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 13
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": 9,
+   "tse_registration": "MA-07074/2026"
+  },
+  {
+   "id": "p360-14294-2-3-6cd5c2539dad",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Orleans Brandão vs Roberto Rocha",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 53
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 18
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": 18,
+   "tse_registration": "MA-07074/2026"
   },
   {
    "id": "07ac3708519b",

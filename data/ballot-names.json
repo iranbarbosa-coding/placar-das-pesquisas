@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 656,
+  "exato": 661,
   "contencao": 216,
   "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 554
+  "sem": 555
  },
  "ambiguos": [
   {
@@ -5290,6 +5290,20 @@
     "numero": "444",
     "origem": "exato"
    },
+   "capi": {
+    "nome_urna": "Capi",
+    "sq_candidato": "30002550229",
+    "partido": "PSB",
+    "numero": "401",
+    "origem": "exato"
+   },
+   "helio silva": {
+    "nome_urna": "Helio Silva",
+    "sq_candidato": "30002553708",
+    "partido": "PCO",
+    "numero": "290",
+    "origem": "exato"
+   },
    "joao capiberibe": {
     "nome_urna": "Capi",
     "sq_candidato": "30002550229",
@@ -5297,11 +5311,25 @@
     "numero": "401",
     "origem": "contencao"
    },
+   "juiza jo": {
+    "nome_urna": "Juíza Jô",
+    "sq_candidato": "30002551382",
+    "partido": "DC",
+    "numero": "277",
+    "origem": "exato"
+   },
    "lucas barreto": {
     "nome_urna": "Lucas Barreto",
     "sq_candidato": "30002530069",
     "partido": "PSD",
     "numero": "555",
+    "origem": "exato"
+   },
+   "professor uzian pinto": {
+    "nome_urna": "Professor Uzian Pinto",
+    "sq_candidato": "30002551381",
+    "partido": "DC",
+    "numero": "272",
     "origem": "exato"
    },
    "randolfe rodrigues": {
@@ -5718,6 +5746,13 @@
     "sq_candidato": "80002551370",
     "partido": "PSB",
     "numero": "400",
+    "origem": "exato"
+   },
+   "rodney miranda": {
+    "nome_urna": "Rodney Miranda",
+    "sq_candidato": "80002552373",
+    "partido": "PRTB",
+    "numero": "280",
     "origem": "exato"
    },
    "rose de freitas": {
