@@ -85,6 +85,12 @@
    ]
   },
   {
+   "nome": "Escritor Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
    "nome": "Fernando Haddad",
    "partidos": [
     "PT"
@@ -336,6 +342,12 @@
    "nome": "Wilson Grassi",
    "partidos": [
     "Democrata"
+   ]
+  },
+  {
+   "nome": "Zema",
+   "partidos": [
+    "Novo"
    ]
   }
  ],
@@ -654,6 +666,12 @@
    ]
   },
   {
+   "nome": "Professora Maria do Carmo",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
    "nome": "Roberto Cidade",
    "partidos": [
     "União Brasil"
@@ -935,6 +953,12 @@
    ]
   },
   {
+   "nome": "Ariel Capistrano",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Bruno Reis",
    "partidos": [
     "União Brasil"
@@ -968,6 +992,12 @@
    "nome": "Kleber Rosa",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Maria Bona",
+   "partidos": [
+    "PCO"
    ]
   },
   {
@@ -1119,6 +1149,12 @@
    "nome": "Tarcísio de Freitas",
    "partidos": [
     "Republicanos"
+   ]
+  },
+  {
+   "nome": "Veterinário Wilson Grassi",
+   "partidos": [
+    "Democrata"
    ]
   }
  ],
@@ -2098,6 +2134,12 @@
    ]
   },
   {
+   "nome": "Dimas Cassimiro",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
    "nome": "Eduardo Braide",
    "partidos": [
     "PSD"
@@ -2132,6 +2174,12 @@
    "partidos": [
     "MDB",
     "PSD"
+   ]
+  },
+  {
+   "nome": "Reginaldo Lima",
+   "partidos": [
+    "PCB"
    ]
   },
   {
@@ -2443,6 +2491,12 @@
    ]
   },
   {
+   "nome": "Escritor Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
    "nome": "Flávio Bolsonaro",
    "partidos": [
     "PL"
@@ -2468,6 +2522,12 @@
    "nome": "Jair Bolsonaro",
    "partidos": [
     "PL"
+   ]
+  },
+  {
+   "nome": "Leonardo Avalanche",
+   "partidos": [
+    "PRTB"
    ]
   },
   {
@@ -2542,6 +2602,12 @@
    "nome": "Veterinário Wilson Grassi",
    "partidos": [
     "Democrata"
+   ]
+  },
+  {
+   "nome": "Zema",
+   "partidos": [
+    "Novo"
    ]
   }
  ],
@@ -3028,6 +3094,12 @@
    "nome": "Cida Borghetti",
    "partidos": [
     "PP"
+   ]
+  },
+  {
+   "nome": "Doutor Alexandre Salomão",
+   "partidos": [
+    "Mobiliza"
    ]
   },
   {
@@ -4268,6 +4340,12 @@
    ]
   },
   {
+   "nome": "Juliete",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
    "nome": "Juliete Pantoja",
    "partidos": [
     "PSOL",
@@ -4366,12 +4444,6 @@
    "partidos": [
     "PSD",
     "PSDB"
-   ]
-  },
-  {
-   "nome": "Escritor Augusto Cury",
-   "partidos": [
-    "Avante"
    ]
   },
   {
@@ -4510,6 +4582,12 @@
    ]
   },
   {
+   "nome": "Arinalda do MLB",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
    "nome": "Cadu de Lula",
    "partidos": [
     "PT"
@@ -4519,6 +4597,18 @@
    "nome": "Dário Barbosa",
    "partidos": [
     "PSTU"
+   ]
+  },
+  {
+   "nome": "Godeiro Linhares",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Henrique Lyra",
+   "partidos": [
+    "PCO"
    ]
   },
   {
@@ -4537,6 +4627,12 @@
    "nome": "Roberto Paulino",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Rodrigo de Bolsonaro",
+   "partidos": [
+    "Agir"
    ]
   },
   {
@@ -5529,12 +5625,6 @@
  ],
  "governador:SP": [
   {
-   "nome": "[[Vera Lúcia |Vera",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
    "nome": "Alexandre Padilha",
    "partidos": [
     "PT"
@@ -5755,6 +5845,12 @@
   },
   {
    "nome": "Vera Lúcia",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Vera Lúcia",
    "partidos": [
     "PSTU"
    ]
@@ -6676,9 +6772,27 @@
    ]
   },
   {
+   "nome": "Aliny Serrão",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
    "nome": "Alliny Serrão",
    "partidos": [
     "União Brasil"
+   ]
+  },
+  {
+   "nome": "Capi",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Helio Silva",
+   "partidos": [
+    "PCO"
    ]
   },
   {
@@ -6688,9 +6802,21 @@
    ]
   },
   {
+   "nome": "Juiza Jó",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Lucas Barreto",
    "partidos": [
     "PSD"
+   ]
+  },
+  {
+   "nome": "Professor Uzian Pinto",
+   "partidos": [
+    "DC"
    ]
   },
   {
@@ -6937,6 +7063,12 @@
    "nome": "Luis Eduardo Girão",
    "partidos": [
     "Novo"
+   ]
+  },
+  {
+   "nome": "Luizianne",
+   "partidos": [
+    "Rede"
    ]
   },
   {
@@ -7255,6 +7387,12 @@
    ]
   },
   {
+   "nome": "Callegari",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
    "nome": "Carlos Manato",
    "partidos": [
     "Republicanos"
@@ -7320,6 +7458,12 @@
    "nome": "Renato Casagrande",
    "partidos": [
     "PSB"
+   ]
+  },
+  {
+   "nome": "Rodney Miranda",
+   "partidos": [
+    "PRTB"
    ]
   },
   {
@@ -7680,6 +7824,12 @@
    ]
   },
   {
+   "nome": "Carlinhos Moura",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
    "nome": "Carlos Viana",
    "partidos": [
     "PSD",
@@ -7742,6 +7892,18 @@
    ]
   },
   {
+   "nome": "Juiz Ramon Moreira",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Manoel Carvalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
    "nome": "Marcelo Aro",
    "partidos": [
     "PP"
@@ -7793,6 +7955,12 @@
    "nome": "Romeu Zema",
    "partidos": [
     "Novo"
+   ]
+  },
+  {
+   "nome": "Tião Pessoa",
+   "partidos": [
+    "PCO"
    ]
   },
   {
@@ -8283,6 +8451,7 @@
    "nome": "Marília Arraes",
    "partidos": [
     "PDT",
+    "PT",
     "Solidariedade"
    ]
   },
@@ -8301,6 +8470,7 @@
   {
    "nome": "Pastor Gilvan Costa",
    "partidos": [
+    "DC",
     "Democrata"
    ]
   },
@@ -9322,42 +9492,6 @@
  ],
  "senador:SP": [
   {
-   "nome": "[[André do Prado|André",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "[[Guilherme Derrite|Guilherme",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "[[Marina Silva|Marina",
-   "partidos": [
-    "Rede"
-   ]
-  },
-  {
-   "nome": "[[Ricardo Salles |Ricardo",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "[[Simone Tebet|Simone",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
-   "nome": "[[Soninha Francine|Soninha",
-   "partidos": [
-    "CIDADANIA"
-   ]
-  },
-  {
    "nome": "Acácio Miranda",
    "partidos": [
     "Missão"
@@ -9624,6 +9758,12 @@
    ]
   },
   {
+   "nome": "Salles",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
    "nome": "Simone Tebet",
    "partidos": [
     "MDB",
@@ -9634,6 +9774,12 @@
    "nome": "Soninha",
    "partidos": [
     "Cidadania"
+   ]
+  },
+  {
+   "nome": "Soninha Francine",
+   "partidos": [
+    "CIDADANIA"
    ]
   },
   {

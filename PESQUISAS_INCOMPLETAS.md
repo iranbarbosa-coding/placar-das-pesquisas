@@ -838,14 +838,15 @@ Soma **76%** · faltam **24 pontos** · 3 candidato(s) na tabela · amostra 2000
 
 ### Mapa/Jovem Pan — 2026-06-11
 
-Soma **76.7%** · faltam **23.3 pontos** · 3 candidato(s) na tabela · amostra 1008
+Soma **76.7%** · faltam **23.3 pontos** · 4 candidato(s) na tabela · amostra 1008
 
 | candidato | % |
 |---|---|
 | Jorginho Mello | 54.9 |
 | João Rodrigues | 15.3 |
 | Gelson Merísio | 5.1 |
-| *outros* | 1.4 |
+| Marcelo Brigadeiro | 1.3 |
+| *outros* | 0.1 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina
 
@@ -1602,27 +1603,6 @@ Soma **89%** · faltam **11 pontos** · 2 candidato(s) na tabela · amostra 1000
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Maranhão
-
-### Quaest — 2026-09-24
-
-Soma **89%** · faltam **11 pontos** · 4 candidato(s) na tabela · amostra 900
-
-| candidato | % |
-|---|---|
-| Eduardo Braide | 46 |
-| Orleans Brandão | 27 |
-| Felipe Camarão | 10 |
-| Roberto Rocha | 3 |
-| *outros* | 2 |
-| *não sabe/não respondeu* | 1 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Rio de Janeiro · 2º turno
-
 ### AtlasIntel — 2026-08-31
 
 Soma **89.6%** · faltam **10.4 pontos** · 2 candidato(s) na tabela · amostra 1784 · registro BR-05901/2026
@@ -1650,6 +1630,24 @@ Soma **89.8%** · faltam **10.2 pontos** · 3 candidato(s) na tabela · amostra 
 | William Siri | 7.5 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Amazonas
+
+### Ipen/G6 — 2026-09-25
+
+Soma **89.9%** · faltam **10.1 pontos** · 4 candidato(s) na tabela · amostra 1200
+
+| candidato | % |
+|---|---|
+| Omar Aziz | 32.6 |
+| Roberto Cidade | 23.3 |
+| Professora Maria do Carmo | 17.3 |
+| David Almeida | 13.9 |
+| *outros* | 2.8 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
