@@ -475,6 +475,13 @@ export function deltaPorDisputa({
     // a tabela CHEIA (≥3 nomes idênticos) E a mesma amostra dos dois lados.
     // Uma topline de 2 nomes re-datada não prova; instituto diverso não prova.
     const mesmaCasa = (sa, sn) => !!sa?.institute_id && sa.institute_id === sn?.institute_id;
+    // A DATA CHEGOU (presidente:BR, 03/10/2026): a Wikipédia lista um levantamento
+    // SEM data e dias depois a acrescenta; a semente natural muda e os cinco
+    // confrontos de 2º turno do Datafolha (n=2506) "sumiram" — a mesma tabela,
+    // dígito a dígito, no levantamento datado. Topline de 2 nomes exigia a mesma
+    // data dos dois lados; com um lado vazio não há data que casar. A prova
+    // compensatória é a de sempre: a MESMA casa e a mesma amostra.
+    const dataChegou = (da, db, sa, sn) => (!da || !db) && mesmaCasa(sa, sn);
 
     for (const cand of grupo) {
       if (cand.survey_id === q.survey_id) continue; // mesma pesquisa: já decidida acima
@@ -492,7 +499,7 @@ export function deltaPorDisputa({
       const forte = noInstante
         ? (t.matched >= 3
           || (t.matched === 2 && amostraA != null && amostraA === amostraB
-              && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn))))
+              && (da === db || anoTrocadoMesmoInstituto(da, db, sa, sn) || dataChegou(da, db, sa, sn))))
         : (t.matched >= 3 && amostraA != null && amostraA === amostraB);
       if (!forte) continue;
       return { sucessora: cand.question_id, via: "duplicata" };
