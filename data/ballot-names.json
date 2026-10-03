@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 670,
-  "contencao": 217,
-  "outra_disputa": 161,
+  "exato": 671,
+  "contencao": 218,
+  "outra_disputa": 162,
   "ambiguo": 5,
-  "sem": 556
+  "sem": 559
  },
  "ambiguos": [
   {
@@ -1553,6 +1553,13 @@
     "sq_candidato": "280002541457",
     "partido": "PSTU",
     "numero": "16",
+    "origem": "exato"
+   },
+   "leonardo avalanche": {
+    "nome_urna": "Leonardo Avalanche",
+    "sq_candidato": "280002554479",
+    "partido": "PRTB",
+    "numero": "28",
     "origem": "exato"
    },
    "lula": {
@@ -5294,6 +5301,20 @@
     "partido": "MDB",
     "numero": "155",
     "origem": "exato"
+   },
+   "evandro oliveira": {
+    "nome_urna": "Evandro de Oliveira",
+    "sq_candidato": "40002535270",
+    "partido": "PSTU",
+    "numero": "161",
+    "origem": "contencao"
+   },
+   "isael munduruku": {
+    "nome_urna": "Isael Munduruku",
+    "sq_candidato": "40002550776",
+    "partido": "REDE",
+    "numero": "18",
+    "origem": "outra-disputa"
    },
    "plinio valerio": {
     "nome_urna": "Plínio Valério",
