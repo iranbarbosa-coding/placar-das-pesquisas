@@ -41,6 +41,7 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 03/10 | **Blitz de lançamento**: um vídeo por disputa (presidencial + 27 estados, governo e senado no mesmo vídeo do estado) com a leitura da média para o domingo 04/10. **Canal: exclusivamente TikTok**, perfil novo e sem seguidores (distribuição pelo For You, série reconhecível, 8–10 vídeos/dia, prestação de contas no domingo à noite). Roteiros gerados com `docs/prompts/roteiros-blitz.md`. | Iran |
 | 03/10 | **Toda predição publicada é registrada antes** em `data/predicoes.ndjson` (uma linha por afirmação, com a média que a sustenta e o `generated_at`), e avaliada contra a apuração depois do pleito. Validador: `node scripts/predicoes-check.mjs`. | Iran |
 | 03/10 | Este arquivo (`ESTADO.md`) é o estado do projeto; toda sessão o lê antes e o atualiza ao fim. | Iran |
+| 03/10 | O juiz de delta prova "a data chegou": levantamento sem data que a Wikipédia datou, mesma casa, mesma amostra, tabela idêntica (caso 12d). Motivo: `presidente:BR` entrou em quarentena na véspera do pleito pelos cinco 2º turnos do Datafolha. | Iran (PR #124) |
 
 ## Em aberto
 

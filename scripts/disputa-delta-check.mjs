@@ -468,6 +468,33 @@ function rodar({ mutacao = null } = {}) {
     afirma(!vo.ok && vo.semProva === 1, `alvo do link diverso tem de reprovar (ok=${vo.ok}, semProva=${vo.semProva})`);
   });
 
+  caso("12d PASSA: a DATA CHEGOU — levantamento sem data vira datado na mesma casa, topline de 2 nomes idêntica e mesma amostra provam; outra casa ou outra amostra REPROVAM", ({ delta, afirma }) => {
+    // presidente:BR (03/10/2026): a Wikipédia listou os cinco 2º turnos do
+    // Datafolha (n=2506) sem data e depois datou as linhas; a semente natural
+    // mudou e as tabelas idênticas "sumiram". Um lado sem data não tem data que
+    // casar — a prova é a mesma casa + a mesma amostra + a tabela idêntica.
+    const tabela = () => [r("c_lula", 49, "Luiz Inácio Lula da Silva"), r("c_zema", 40, "Romeu Zema")];
+    const anterior = banco([q("q_semdata", "presidente", null, tabela(), { round: 2, survey_id: "s_semdata" })], [],
+      [{ survey_id: "s_semdata", institute_id: "i_datafolha", fieldwork_end: null, published_date: null, sample_size: 2506 }]);
+    const novo = banco([q("q_datado", "presidente", null, tabela(), { round: 2, survey_id: "s_datado" })], [],
+      [{ survey_id: "s_datado", institute_id: "i_datafolha", fieldwork_end: "2026-10-01", sample_size: 2506 }]);
+    const v = delta({ anterior, novo });
+    afirma(v.ok && v.toleradas.sucessoras === 1, `a data que chegou tinha de provar sucessão (veio ${v.linhas.join(" | ")})`);
+    afirma(/via duplicata/.test(v.conflitos.find((x) => x.type === "question_sumida_com_sucessora")?.note ?? ""), "a via é a duplicata");
+    // SEGURANÇA 1 — outra casa: topline de 2 nomes coincide por acaso. REPROVA.
+    const outraCasa = structuredClone(novo); outraCasa.surveys[0].institute_id = "i_outro";
+    const v1 = delta({ anterior, novo: outraCasa });
+    afirma(!v1.ok && v1.semProva === 1, `outra casa sem data de um lado tem de reprovar (ok=${v1.ok}, semProva=${v1.semProva})`);
+    // SEGURANÇA 2 — outra amostra: é outro levantamento. REPROVA.
+    const outraAmostra = structuredClone(novo); outraAmostra.surveys[0].sample_size = 2002;
+    const v2 = delta({ anterior, novo: outraAmostra });
+    afirma(!v2.ok && v2.semProva === 1, `outra amostra tem de reprovar (ok=${v2.ok}, semProva=${v2.semProva})`);
+    // SEGURANÇA 3 — amostra ausente de um lado: sem a segunda igualdade não prova. REPROVA.
+    const semAmostra = structuredClone(novo); semAmostra.surveys[0].sample_size = null;
+    const v3 = delta({ anterior, novo: semAmostra });
+    afirma(!v3.ok && v3.semProva === 1, `amostra ausente tem de reprovar (ok=${v3.ok}, semProva=${v3.semProva})`);
+  });
+
   caso("13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM", ({ delta, afirma }) => {
     // senador:GO 06/09/2026: o Poder360 EDITOU a tabela do registro 13863 —
     // passou a listar Cíntia Dias e Isaura Lemos e deixou de listar Iure Castro.
@@ -834,6 +861,7 @@ function autoteste() {
       "12 PASSA: bug de ano da Wikipédia — duplicata year-shift do MESMO instituto; instituto diverso e departure REPROVAM",
       "12b PASSA: a MESMA CASA re-datada fora da janela — tabela cheia idêntica e mesma amostra provam; 2 nomes, instituto diverso ou amostra diversa REPROVAM",
       "12c PASSA: grafia vazada de wikitexto ('[[Simone Tebet|Simone') casa pelo alvo do link na duplicata; nome diverso REPROVA",
+      "12d PASSA: a DATA CHEGOU — levantamento sem data vira datado na mesma casa, topline de 2 nomes idêntica e mesma amostra provam; outra casa ou outra amostra REPROVAM",
       "13 PASSA: mesmo registro nativo (legacy_id) no mesmo levantamento prova a re-cunhagem por elenco; registro diverso ou outro levantamento REPROVAM",
       "14 PASSA: mesmo registro nativo em OUTRO levantamento da MESMA operação de campo (instituto, UF, data e amostra exatos) prova; data ou amostra diversa REPROVAM",
     ],
