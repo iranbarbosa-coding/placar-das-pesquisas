@@ -25,7 +25,9 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
   `workflow_dispatch` funciona). Falha abre issue `cron-falha`.
 - **Último dado comitado quando este arquivo nasceu**: 2026-10-03T14:17Z.
 - **Disputas em quarentena** (congeladas no dado do commit anterior por perda
-  sem prova; o site mostra "Dado em revisão"): governador:AP, governador:MS, governador:PE, governador:RJ, governador:SE, presidente:BR, presidente:RJ, presidente:SC, senador:AC, senador:AP, senador:MT.
+  sem prova; o site mostra "Dado em revisão"): **nenhuma** desde o merge do PR #125
+  (03/10, rodada 15:19Z, commit 4f24e2e). Eram 11 quando este arquivo nasceu; #124 tirou presidente:BR e
+  governador:PE, #125 ratificou as nove restantes (ou destravou a curada do RJ).
   A lista viva é `data/conflicts.ndjson` (type `disputa_em_quarentena`).
 - **Publicidade**: nenhuma até 03/10/2026. Lançamento: blitz de vídeos no TikTok
   (perfil @ novo, zero seguidores; ver decisão de 03/10).
@@ -47,10 +49,8 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 
 ## Em aberto
 
-- Quarentenas editoriais que pedem fonte primária: SE (França → IFP, três
-  institutos para a mesma casa), MT senado (Paraná com amostra trocada), AC
-  senado (IPSensus retirada), MS governador (Quaest movida de confronto),
-  presidente:SC (Quaest republicada), RJ governador (AtlasIntel republicada).
+- AtlasIntel/RJ 14045 (Cyro Garcia republicado) ainda não ratificada; governador:RJ
+  hoje só perdeu as duas linhas Quaest ratificadas em #125.
 - Nome sem link em várias linhas no cabeçalho da Wikipédia ainda sai cortado no
   primeiro `<br>` ("Geraldo", "Carlos" em governador/SP).
 - Alerta de "rodada agendada ausente" (o workflow só avisa quando roda e falha).
