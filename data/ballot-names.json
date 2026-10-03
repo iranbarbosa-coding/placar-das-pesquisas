@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 661,
-  "contencao": 216,
+  "exato": 670,
+  "contencao": 217,
   "outra_disputa": 161,
   "ambiguo": 5,
-  "sem": 555
+  "sem": 556
  },
  "ambiguos": [
   {
@@ -1943,6 +1943,13 @@
     "numero": "14",
     "origem": "exato"
    },
+   "dimas cassimiro": {
+    "nome_urna": "Dimas Cassimiro",
+    "sq_candidato": "100002552700",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "eduardo braide": {
     "nome_urna": "Eduardo Braide",
     "sq_candidato": "100002545679",
@@ -1976,6 +1983,13 @@
     "sq_candidato": "100002543869",
     "partido": "MDB",
     "numero": "15",
+    "origem": "exato"
+   },
+   "reginaldo lima": {
+    "nome_urna": "Reginaldo Lima",
+    "sq_candidato": "100002544073",
+    "partido": "PCB",
+    "numero": "21",
     "origem": "exato"
    },
    "roberto rocha": {
@@ -3738,6 +3752,13 @@
     "numero": "22",
     "origem": "exato"
    },
+   "arinalda do mlb": {
+    "nome_urna": "Arinalda do MLB",
+    "sq_candidato": "200002547826",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
+   },
    "cadu de lula": {
     "nome_urna": "Cadu de Lula",
     "sq_candidato": "200002534001",
@@ -3752,12 +3773,33 @@
     "numero": "16",
     "origem": "exato"
    },
+   "godeiro linhares": {
+    "nome_urna": "Godeiro Linharess",
+    "sq_candidato": "200002554482",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "contencao"
+   },
+   "henrique lyra": {
+    "nome_urna": "Henrique Lyra",
+    "sq_candidato": "200002553301",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "roberio paulino": {
     "nome_urna": "Professor Roberio Paulino",
     "sq_candidato": "200002546757",
     "partido": "PSOL",
     "numero": "50",
     "origem": "contencao"
+   },
+   "rodrigo de bolsonaro": {
+    "nome_urna": "Rodrigo de Bolsonaro",
+    "sq_candidato": "200002546756",
+    "partido": "AGIR",
+    "numero": "36",
+    "origem": "exato"
    },
    "rodrigo vieira": {
     "nome_urna": "Rodrigo de Bolsonaro",
@@ -5462,6 +5504,13 @@
     "numero": "290",
     "origem": "exato"
    },
+   "luizianne": {
+    "nome_urna": "Luizianne",
+    "sq_candidato": "60002542476",
+    "partido": "REDE",
+    "numero": "180",
+    "origem": "exato"
+   },
    "luizianne lins": {
     "nome_urna": "Luizianne",
     "sq_candidato": "60002542476",
@@ -6013,6 +6062,20 @@
     "numero": "160",
     "origem": "contencao"
    },
+   "juiz ramon moreira": {
+    "nome_urna": "Juíz Ramon Moreira",
+    "sq_candidato": "130002551265",
+    "partido": "DC",
+    "numero": "277",
+    "origem": "exato"
+   },
+   "manoel carvalho": {
+    "nome_urna": "Manoel Carvalho",
+    "sq_candidato": "130002552299",
+    "partido": "MDB",
+    "numero": "150",
+    "origem": "exato"
+   },
    "marcelo aro": {
     "nome_urna": "Marcelo Aro",
     "sq_candidato": "130002548381",
@@ -6047,6 +6110,13 @@
     "partido": "NOVO",
     "numero": "30",
     "origem": "outra-disputa"
+   },
+   "tiao pessoa": {
+    "nome_urna": "Tião Pessoa",
+    "sq_candidato": "130002552311",
+    "partido": "PCO",
+    "numero": "290",
+    "origem": "exato"
    },
    "victoria mello": {
     "nome_urna": "Victória Mello Vic",

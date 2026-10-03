@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1789 levantamentos · 5616 perguntas · 162 institutos · 1391 candidatos**.
+Banco: **1817 levantamentos · 5674 perguntas · 162 institutos · 1397 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 33 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 450 | 41 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 461 | 41 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **533** | **77** |
+| **total** | **544** | **77** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -350,7 +350,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (450)
+## CONFLITO — Conflitos registrados aguardando decisão (461)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -703,7 +703,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - segundo_turno_fragmento_descartado · q_dd67a6483e05 · results: null × ["Lula"]
 - roster_encolhido_na_fonte · q_4b210ebad952 · results: ["Antônio Galvan","Carlos Fávaro","Coronel Darwin","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"] × ["Carlos Fávaro","Galvan","Janaína Riva","José Medeiros","Mauro Mendes","Pedro Taques"]
 - segundo_turno_fragmento_descartado · q_9aab4203344c · results: null × ["Flávio Bolsonaro"]
-- segundo_turno_fragmento_descartado · q_7fc9f3e863b3 · results: null × ["Soldado Sampaio"]
 - roster_encolhido_na_fonte · q_e17534fc535a · results: ["Antônio Galvan","Janaína Riva","Jayme Campos","José Medeiros","Mauro Mendes","Pedro Taques"] × ["Janaína Riva","Jayme Campos","José Medeiros","Mauro Mendes","Pedro Taques"]
 - segundo_turno_fragmento_descartado · q_da9cd7bc8675 · results: null × ["Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_d6abd4512d70 · results: ["Beto do Movimento","Daniel Junior","Reinaldo Azambuja","Renan Contar","Soraya Thronicke","Vander Loubet"] × ["Beto do Movimento","Capitão Contar","Reinaldo Azambuja","Soraya Thronicke","Vander Loubet"]
@@ -784,26 +783,38 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
 - **[2026]** survey_id_orphaned · s_56459030d59c · survey_id: "s_56459030d59c" × null
 - **[2026]** survey_id_orphaned · s_2c58c7741bd2 · survey_id: "s_2c58c7741bd2" × null
-- survey_id_orphaned · s_2f2d95b2ef5c · survey_id: "s_2f2d95b2ef5c" × null
-- survey_id_orphaned · s_54ade62abd33 · survey_id: "s_54ade62abd33" × null
 - **[2026]** survey_id_orphaned · s_b485435b94b3 · survey_id: "s_b485435b94b3" × null
-- person_id_orphaned · p_6bb3dba5d43b · person_id: "p_6bb3dba5d43b" × null
-- survey_id_orphaned · s_6a952d7c6b5c · survey_id: "s_6a952d7c6b5c" × null
-- survey_id_orphaned · s_915f9c74b5d7 · survey_id: "s_915f9c74b5d7" × null
-- person_id_orphaned · p_a41eaeee70a6 · person_id: "p_a41eaeee70a6" × null
-- survey_id_orphaned · s_3257044d2100 · survey_id: "s_3257044d2100" × null
-- survey_id_orphaned · s_bdd045b40601 · survey_id: "s_bdd045b40601" × null
-- person_id_orphaned · p_d1d56eee43a0 · person_id: "p_d1d56eee43a0" × null
-- person_id_orphaned · p_9749ba9225e7 · person_id: "p_9749ba9225e7" × null
+- survey_id_orphaned · s_aa2dd6ad755f · survey_id: "s_aa2dd6ad755f" × null
+- survey_id_orphaned · s_9351c3b3fe38 · survey_id: "s_9351c3b3fe38" × null
+- person_id_orphaned · p_32acf5c9a349 · person_id: "p_32acf5c9a349" × null
+- person_id_orphaned · p_39a6700dc6d9 · person_id: "p_39a6700dc6d9" × null
+- survey_id_orphaned · s_c1cb65c3fa57 · survey_id: "s_c1cb65c3fa57" × null
+- survey_id_orphaned · s_2c68f52d1568 · survey_id: "s_2c68f52d1568" × null
+- survey_id_orphaned · s_1f94375e9198 · survey_id: "s_1f94375e9198" × null
+- person_id_orphaned · p_520dde3e3bf4 · person_id: "p_520dde3e3bf4" × null
+- person_id_orphaned · p_36310e2b95c7 · person_id: "p_36310e2b95c7" × null
+- person_id_orphaned · p_9605e8c44dcd · person_id: "p_9605e8c44dcd" × null
+- survey_id_orphaned · s_7f168c1dc817 · survey_id: "s_7f168c1dc817" × null
+- person_id_orphaned · p_b7b1a9342db6 · person_id: "p_b7b1a9342db6" × null
+- survey_id_orphaned · s_f08974c49c0e · survey_id: "s_f08974c49c0e" × null
+- survey_id_orphaned · s_437ad64d72d8 · survey_id: "s_437ad64d72d8" × null
+- survey_id_orphaned · s_af5217ddc7e8 · survey_id: "s_af5217ddc7e8" × null
+- survey_id_orphaned · s_709f5ca22ea4 · survey_id: "s_709f5ca22ea4" × null
+- survey_id_orphaned · s_8c2f2ece96c9 · survey_id: "s_8c2f2ece96c9" × null
+- survey_id_orphaned · s_1ba84f9ec430 · survey_id: "s_1ba84f9ec430" × null
+- person_id_orphaned · p_d8209a09ff7a · person_id: "p_d8209a09ff7a" × null
+- person_id_orphaned · p_a2c458003ebc · person_id: "p_a2c458003ebc" × null
 - disputa_em_quarentena · governador:AP · quarentena: 28 × 35
 - disputa_em_quarentena · governador:MS · quarentena: 43 × 42
-- disputa_em_quarentena · governador:RJ · quarentena: 72 × 81
+- disputa_em_quarentena · governador:PE · quarentena: 111 × 112
+- disputa_em_quarentena · governador:RJ · quarentena: 72 × 84
 - disputa_em_quarentena · governador:SE · quarentena: 56 × 71
-- disputa_em_quarentena · presidente:RJ · quarentena: 42 × 51
+- disputa_em_quarentena · presidente:BR · quarentena: 1709 × 1708
+- disputa_em_quarentena · presidente:RJ · quarentena: 42 × 53
 - disputa_em_quarentena · presidente:SC · quarentena: 12 × 16
 - disputa_em_quarentena · senador:AC · quarentena: 44 × 44
 - disputa_em_quarentena · senador:AP · quarentena: 27 × 26
-- disputa_em_quarentena · senador:MT · quarentena: 27 × 31
+- disputa_em_quarentena · senador:MT · quarentena: 27 × 32
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
 

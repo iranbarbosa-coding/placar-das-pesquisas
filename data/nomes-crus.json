@@ -1622,6 +1622,12 @@
    ]
   },
   {
+   "nome": "Leonardo Avalanche",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
    "nome": "Lula",
    "partidos": [
     "PT"
@@ -6724,9 +6730,27 @@
    ]
   },
   {
+   "nome": "Dr. Xuxo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
    "nome": "Eduardo Braga",
    "partidos": [
     "MDB"
+   ]
+  },
+  {
+   "nome": "Evandro Oliveira",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Isael Munduruku",
+   "partidos": [
+    "Rede"
    ]
   },
   {
@@ -6749,6 +6773,12 @@
    "partidos": [
     "Avante",
     "PSDB"
+   ]
+  },
+  {
+   "nome": "Professora Helga",
+   "partidos": [
+    "PSOL"
    ]
   },
   {
@@ -7917,6 +7947,12 @@
   },
   {
    "nome": "Marco Antônio Superman",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Marco Antônio Tebaldi",
    "partidos": [
     "Novo"
    ]
@@ -9767,7 +9803,8 @@
    "nome": "Simone Tebet",
    "partidos": [
     "MDB",
-    "PSB"
+    "PSB",
+    "PSD"
    ]
   },
   {
