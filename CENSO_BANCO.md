@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1817 levantamentos · 5674 perguntas · 162 institutos · 1397 candidatos**.
+Banco: **1811 levantamentos · 5687 perguntas · 162 institutos · 1397 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -13,12 +13,12 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **SOMA** — Elenco de vaga única somando mais de 100 | 0 | 0 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
-| **SEMDATA** — Levantamentos sem data utilizável | 33 | 0 |
+| **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 461 | 41 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 448 | 41 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **544** | **77** |
+| **total** | **525** | **77** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -41,16 +41,14 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 
 *Nada a reportar.*
 
-## SEMDATA — Levantamentos sem data utilizável (33)
+## SEMDATA — Levantamentos sem data utilizável (27)
 
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
 - s_03d648ecabe0 · DataPop · GO · registro —
 - s_0c50c6b4fee1 · Paraná Pesquisas · SP · registro —
-- s_1ba84f9ec430 · Datafolha · BR · registro —
 - s_2b4379073719 · Real Time Big Data · SP · registro —
 - s_2c014467a18c · Paraná Pesquisas · SP · registro —
-- s_2c68f52d1568 · Datafolha · BR · registro —
 - s_31caacbb8eab · Paraná Pesquisas · SP · registro —
 - s_3f5ebbcc1f14 · Real Time Big Data · SP · registro —
 - s_3f773e7c4da7 · Paraná Pesquisas · SP · registro —
@@ -65,12 +63,8 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_824da0368472 · Delta · AC · registro —
 - s_85e6cb3fd7ff · Paraná Pesquisas · SP · registro —
 - s_8768f19ed675 · Paraná Pesquisas · SP · registro —
-- s_8c2f2ece96c9 · Datafolha · BR · registro —
-- s_9351c3b3fe38 · Datafolha · BR · registro —
 - s_a05e548e7136 · Real Time Big Data · SP · registro —
 - s_a3b6d8cdc27d · Delta · AC · registro —
-- s_aa2dd6ad755f · Datafolha · BR · registro —
-- s_af5217ddc7e8 · Datafolha · PE · registro —
 - s_c5446eaf6c82 · Doxa · PA · registro —
 - s_c622f7e17bc9 · Real Time Big Data · SP · registro —
 - s_ca4c8b28f604 · Delta · AC · registro —
@@ -273,9 +267,11 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - **[2026]** cenários separados — Quaest · AM governador/t2 · 2026-08-24 — 2 levantamentos
   s_86145f8e35f7: Omar Aziz 49 · David Almeida 46
+  s_af3cacb4c580: Maria do Carmo Seffair 38 · Roberto Cidade 43
+  s_af3cacb4c580: Roberto Cidade 41 · David Almeida 39
   s_af3cacb4c580: Omar Aziz 44 · Roberto Cidade 40
-  s_af3cacb4c580: Maria do Carmo 41 · David Almeida 40
-  s_af3cacb4c580: Maria do Carmo 44 · Omar Aziz 45
+  s_af3cacb4c580: Maria do Carmo Seffair 41 · David Almeida 40
+  s_af3cacb4c580: Omar Aziz 45 · Maria do Carmo Seffair 44
 - **[2026]** cenários separados — Quaest · CE senador/t1 · 2026-04-28 — 2 levantamentos
   s_8671a57e9697: Cid Gomes 17 · Capitão Wagner 17 · Eunício Oliveira 6 · Luizianne Lins 9 · Priscila Costa 4 · General Theóphilo 1 · Anna Karina 1
   s_a6c9cec351e6: Cid Gomes 17 · Capitão Wagner 16 · Roberto Cláudio 8 · Luizianne Lins 8 · Eunício Oliveira 6 · Pastor Alcides 3 · Priscila Costa 3 · Chiquinho Feitosa 1 · Domingos Filho 1 · General Theophilo 1 · Anna Karina 0
@@ -350,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (461)
+## CONFLITO — Conflitos registrados aguardando decisão (448)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -785,31 +781,18 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_2c58c7741bd2 · survey_id: "s_2c58c7741bd2" × null
 - **[2026]** survey_id_orphaned · s_b485435b94b3 · survey_id: "s_b485435b94b3" × null
 - survey_id_orphaned · s_aa2dd6ad755f · survey_id: "s_aa2dd6ad755f" × null
+- person_id_orphaned · p_13eb086facf0 · person_id: "p_13eb086facf0" × null
 - survey_id_orphaned · s_9351c3b3fe38 · survey_id: "s_9351c3b3fe38" × null
-- person_id_orphaned · p_32acf5c9a349 · person_id: "p_32acf5c9a349" × null
-- person_id_orphaned · p_39a6700dc6d9 · person_id: "p_39a6700dc6d9" × null
-- survey_id_orphaned · s_c1cb65c3fa57 · survey_id: "s_c1cb65c3fa57" × null
 - survey_id_orphaned · s_2c68f52d1568 · survey_id: "s_2c68f52d1568" × null
-- survey_id_orphaned · s_1f94375e9198 · survey_id: "s_1f94375e9198" × null
-- person_id_orphaned · p_520dde3e3bf4 · person_id: "p_520dde3e3bf4" × null
-- person_id_orphaned · p_36310e2b95c7 · person_id: "p_36310e2b95c7" × null
-- person_id_orphaned · p_9605e8c44dcd · person_id: "p_9605e8c44dcd" × null
-- survey_id_orphaned · s_7f168c1dc817 · survey_id: "s_7f168c1dc817" × null
-- person_id_orphaned · p_b7b1a9342db6 · person_id: "p_b7b1a9342db6" × null
-- survey_id_orphaned · s_f08974c49c0e · survey_id: "s_f08974c49c0e" × null
-- survey_id_orphaned · s_437ad64d72d8 · survey_id: "s_437ad64d72d8" × null
+- person_id_orphaned · p_8fa28bcb7d26 · person_id: "p_8fa28bcb7d26" × null
+- person_id_orphaned · p_15695ae80342 · person_id: "p_15695ae80342" × null
 - survey_id_orphaned · s_af5217ddc7e8 · survey_id: "s_af5217ddc7e8" × null
-- survey_id_orphaned · s_709f5ca22ea4 · survey_id: "s_709f5ca22ea4" × null
 - survey_id_orphaned · s_8c2f2ece96c9 · survey_id: "s_8c2f2ece96c9" × null
 - survey_id_orphaned · s_1ba84f9ec430 · survey_id: "s_1ba84f9ec430" × null
-- person_id_orphaned · p_d8209a09ff7a · person_id: "p_d8209a09ff7a" × null
-- person_id_orphaned · p_a2c458003ebc · person_id: "p_a2c458003ebc" × null
 - disputa_em_quarentena · governador:AP · quarentena: 28 × 35
 - disputa_em_quarentena · governador:MS · quarentena: 43 × 42
-- disputa_em_quarentena · governador:PE · quarentena: 111 × 112
 - disputa_em_quarentena · governador:RJ · quarentena: 72 × 84
 - disputa_em_quarentena · governador:SE · quarentena: 56 × 71
-- disputa_em_quarentena · presidente:BR · quarentena: 1709 × 1708
 - disputa_em_quarentena · presidente:RJ · quarentena: 42 × 53
 - disputa_em_quarentena · presidente:SC · quarentena: 12 × 16
 - disputa_em_quarentena · senador:AC · quarentena: 44 × 44

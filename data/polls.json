@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-03T14:17:08.708Z",
+ "generated_at": "2026-10-03T14:47:35.531Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-03T14:17:08.708Z"
+   "last_ok": "2026-10-03T14:47:35.531Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-03T14:17:08.708Z"
+   "last_ok": "2026-10-03T14:47:35.531Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-03T14:17:08.708Z"
+   "last_ok": "2026-10-03T14:47:35.531Z"
   }
  ],
  "polls": [
@@ -64,6 +64,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "217594f1718e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Gerp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-30",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2.04,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -126,6 +159,155 @@
    "tse_registration": null
   },
   {
+   "id": "72f172095e3b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-09-29",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.88
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 45.01
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "80f71fcb5e03",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-30",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 4000,
+   "margin_of_error": 1.5,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "8921c8cb9117",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Gerp",
+   "contractor": null,
+   "fieldwork_start": "2026-09-30",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2.04,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 44
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 4
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 0
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 1
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "be8516d9b94e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
@@ -170,6 +352,172 @@
    ],
    "others_pct": 4,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "bffa7a0183b6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-30",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 4000,
+   "margin_of_error": 1.5,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 2
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 1
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cec8d9d1716b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-09-29",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 40.62
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 37.49
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 4.52
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 3.47
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3.22
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1.19
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0.68
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0.41
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0.28
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0.18
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0.12
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0.21
+    }
+   ],
+   "others_pct": 0.17,
+   "undecided_pct": 7.44,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -228,72 +576,6 @@
    ],
    "others_pct": 1,
    "undecided_pct": 4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "1b1843da55ff",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Ronaldo Caiado",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 38,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "1b8645bec7e2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Augusto Cury",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 38,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -471,59 +753,6 @@
    ],
    "others_pct": 8.4,
    "undecided_pct": 11.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "57505ee06224",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 38,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 42
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 38
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 3
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 1
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 3
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 4
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -760,72 +989,6 @@
    "tse_registration": null
   },
   {
-   "id": "976e56050500",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Flávio Bolsonaro",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 38,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "9cf03aec8160",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Romeu Zema",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 38,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 49
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "9d59cbecb67f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -948,39 +1111,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 7.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c58b45854697",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Renan Santos",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 38,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -1616,6 +1746,259 @@
    "tse_registration": "RJ-02070/2026"
   },
   {
+   "id": "p360-14303-1-0-c7b8ad5ffb2a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhanacional-1out.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 2506,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 38
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 4
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 3
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 1
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-08039/2026"
+  },
+  {
+   "id": "p360-14303-2-0-f5a1358de3b2",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhanacional-1out.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 2506,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 6,
+   "tse_registration": "BR-08039/2026"
+  },
+  {
+   "id": "p360-14303-2-1-f27376c48d57",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhanacional-1out.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Ronaldo Caiado",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 2506,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 9,
+   "tse_registration": "BR-08039/2026"
+  },
+  {
+   "id": "p360-14303-2-2-fe8f9a060609",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhanacional-1out.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Romeu Zema",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 2506,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 49
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 9,
+   "tse_registration": "BR-08039/2026"
+  },
+  {
+   "id": "p360-14303-2-3-cb2ef3b73249",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhanacional-1out.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Renan Santos",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 2506,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08039/2026"
+  },
+  {
+   "id": "p360-14303-2-4-25470af00dec",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/datafolhanacional-1out.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Augusto Cury",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo/Grupo Globo",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 2506,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 9,
+   "tse_registration": "BR-08039/2026"
+  },
+  {
    "id": "p360-14307-1-0-333024d210ab",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/flavio-tem-521-e-lula-39-no-2o-turno-em-sp-diz-pesquisa/",
@@ -2050,7 +2433,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2098,7 +2481,7 @@
    "scenario": "2º turno: Roberto Cidade vs Maria do Carmo Seffair",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2131,26 +2514,26 @@
    "scenario": "2º turno: Roberto Cidade vs Omar Aziz",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
      "pct": 45
     },
     {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
+     "candidate": "Omar Aziz",
+     "party": "PSD",
      "pct": 45
     }
    ],
    "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 6,
    "tse_registration": "AM-07297/2026"
   },
   {
@@ -2164,7 +2547,7 @@
    "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2197,7 +2580,7 @@
    "scenario": "2º turno: Maria do Carmo Seffair vs David Almeida",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2230,7 +2613,7 @@
    "scenario": "2º turno: Omar Aziz vs David Almeida",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2263,7 +2646,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2305,7 +2688,7 @@
      "pct": 2
     },
     {
-     "candidate": "Evandro Oliveira",
+     "candidate": "Evandro de Oliveira",
      "party": "PSTU",
      "pct": 0
     }
@@ -2453,6 +2836,39 @@
    "tse_registration": "PB-01003/2026"
   },
   {
+   "id": "02aa529d3946",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 47
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 41
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "0a9f4e142606",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
@@ -2525,6 +2941,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "1f19779722cb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Raquel Lyra e João Campos",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 48
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -2827,6 +3276,39 @@
    "tse_registration": null
   },
   {
+   "id": "a92933ea4879",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "ad33c683cd8d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
@@ -3012,6 +3494,94 @@
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": "DF-00905/2026"
+  },
+  {
+   "id": "c4488fa4902f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 39
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 4
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 4
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "c85378811659",
@@ -6104,6 +6674,39 @@
    "tse_registration": null
   },
   {
+   "id": "16578b709116",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-vox-nacional-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Caiado",
+   "pollster": "Vox",
+   "contractor": "Vox",
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 2100,
+   "margin_of_error": 2.15,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 42.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.6,
+   "blank_null_pct": null,
+   "tse_registration": "BR-00895/2026"
+  },
+  {
    "id": "245a944bed3b",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-tem-49-contra-44-de-brizola-no-2o-turno-no-rs-diz-big-data/",
@@ -6388,6 +6991,39 @@
    "undecided_pct": 3.6,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "485ef5763299",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-vox-nacional-29set2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Augusto Cury",
+   "pollster": "Vox",
+   "contractor": "Vox",
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 2100,
+   "margin_of_error": 2.15,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.8
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 33.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20.1,
+   "blank_null_pct": null,
+   "tse_registration": "BR-00895/2026"
   },
   {
    "id": "497fb055ca0d",
@@ -7477,39 +8113,6 @@
    "tse_registration": null
   },
   {
-   "id": "dd9caf7a6667",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-vox-nacional-29set2026.pdf",
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Caiado",
-   "pollster": "Vox",
-   "contractor": "Vox",
-   "fieldwork_start": "2026-09-26",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 2100,
-   "margin_of_error": 2.15,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.3
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 41.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13.6,
-   "blank_null_pct": null,
-   "tse_registration": "BR-00895/2026"
-  },
-  {
    "id": "e17c017077a4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -7675,39 +8278,6 @@
    "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "f8f302d9a838",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-vox-nacional-29set2026.pdf",
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Augusto Cury",
-   "pollster": "Vox",
-   "contractor": "Vox",
-   "fieldwork_start": "2026-09-26",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 2100,
-   "margin_of_error": 2.15,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 44.8
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 35.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20.1,
-   "blank_null_pct": null,
-   "tse_registration": "BR-00895/2026"
   },
   {
    "id": "p360-14233-1-0-5675733827dd",
@@ -12758,41 +13328,71 @@
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 44.65
+     "pct": 43.8
     },
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 45.14
+     "pct": 44.3
     },
     {
      "candidate": "Escritor Augusto Cury",
      "party": "Avante",
-     "pct": 4.25
+     "pct": 4.2
     },
     {
      "candidate": "Renan Santos",
      "party": "Missão",
-     "pct": 2.39
+     "pct": 2.3
     },
     {
      "candidate": "Ronaldo Caiado",
      "party": "PSD",
-     "pct": 2.16
+     "pct": 2.1
     },
     {
      "candidate": "Zema",
      "party": "Novo",
-     "pct": 0.46
+     "pct": 0.5
     },
     {
      "candidate": "Samara",
      "party": "UP",
-     "pct": 0.22
+     "pct": 0.2
+    },
+    {
+     "candidate": "Leonardo Avalanche",
+     "party": "PRTB",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0.3
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0.1
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0.1
     }
    ],
    "others_pct": null,
-   "undecided_pct": null,
+   "undecided_pct": 1.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -13245,7 +13845,7 @@
      "pct": 9.5
     }
    ],
-   "others_pct": 0,
+   "others_pct": 5.4,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -18653,6 +19253,39 @@
    "tse_registration": null
   },
   {
+   "id": "3d48ae534f7c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "41ba9644ca0c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -18946,39 +19579,6 @@
    "tse_registration": "BR-00304/2026"
   },
   {
-   "id": "5d9a6dd5fb49",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 42
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5f446749db71",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -19243,6 +19843,39 @@
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": "BR-04202/2026"
+  },
+  {
+   "id": "75c1519cf726",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 52
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "769a68aabefe",
@@ -20109,39 +20742,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c40ae8004a55",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "PoderData",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 38
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 52
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -29780,39 +30380,6 @@
    "tse_registration": null
   },
   {
-   "id": "2a1b8f83cfb2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 35.94
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 53.05
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.01,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "2b0b2072742f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -29968,6 +30535,72 @@
    ],
    "others_pct": 3.8,
    "undecided_pct": 12.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "356be5a4ad29",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 33.35
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 51.13
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15.52,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "40a61db00a0a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 41.95
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 40.89
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.16,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -30262,6 +30895,39 @@
    "tse_registration": null
   },
   {
+   "id": "99d81bb77beb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 53.05
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 35.94
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.01,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "aae5dbafbd65",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
@@ -30392,6 +31058,39 @@
    ],
    "others_pct": 2.6,
    "undecided_pct": 65.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c2cb26fcbb12",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e David Almeida",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 52.09
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 30.83
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.08,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -30546,39 +31245,6 @@
    ],
    "others_pct": 3.8,
    "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "efd8e1f553ea",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 41.95
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 40.89
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17.16,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -36829,6 +37495,39 @@
    "tse_registration": "BR-04076/2026"
   },
   {
+   "id": "2e4d5deeca54",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Pontual",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-13",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 47.6
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 36.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4d07334b808e",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-42-contra-40-de-lula-no-2o-turno-diz-quaest/",
@@ -37307,39 +38006,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e30304ac4775",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Pontual",
-   "contractor": null,
-   "fieldwork_start": "2026-09-05",
-   "fieldwork_end": "2026-09-13",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 36.6
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 47.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 15.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -64495,6 +65161,39 @@
    "tse_registration": null
   },
   {
+   "id": "3c94d7eeca48",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-08-24",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 53.1
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 46.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5b1788b68f51",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
@@ -64711,39 +65410,6 @@
    ],
    "others_pct": 9,
    "undecided_pct": 80.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c23f910182d3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-08-24",
-   "fieldwork_end": "2026-08-28",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 46.9
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 53.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -69126,14 +69792,14 @@
    "tse_registration": "ES-02530/2026"
   },
   {
-   "id": "0633819bb21c",
+   "id": "1d89b700b9b8",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
+   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-21",
@@ -69145,16 +69811,16 @@
     {
      "candidate": "Professora Maria do Carmo",
      "party": "PL",
-     "pct": 45
+     "pct": 36
     },
     {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 33
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 38
     }
    ],
    "others_pct": null,
-   "undecided_pct": 22,
+   "undecided_pct": 26,
    "blank_null_pct": null,
    "tse_registration": "AM-09965/2026"
   },
@@ -69205,6 +69871,39 @@
    "undecided_pct": 29.5,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "46f965757a9b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 42
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "AM-09965/2026"
   },
   {
    "id": "4ff0e331d5cd",
@@ -69518,6 +70217,39 @@
    "tse_registration": null
   },
   {
+   "id": "aee1b05d59b1",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "AM-09965/2026"
+  },
+  {
    "id": "aff8cdfa2126",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
@@ -69713,14 +70445,14 @@
    "tse_registration": null
   },
   {
-   "id": "f676adccd5c7",
+   "id": "fdcf4ba3ae8d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
+   "scenario": "2º turno: Roberto Cidade e David Almeida",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-21",
@@ -69730,18 +70462,18 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 43
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 44
     },
     {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 42
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 34
     }
    ],
    "others_pct": null,
-   "undecided_pct": 15,
+   "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": "AM-09965/2026"
   },
@@ -70392,39 +71124,6 @@
    "tse_registration": null
   },
   {
-   "id": "1e62b68489c6",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 44
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
-  },
-  {
    "id": "3070e9c8a3cd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -70903,6 +71602,39 @@
    "tse_registration": "DF-06256/2026"
   },
   {
+   "id": "79bfd1513222",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 38
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BR-06252/2026"
+  },
+  {
    "id": "7e6079107a6d",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-TO-Quaest-GazetaDoPovo.pdf",
@@ -71308,6 +72040,39 @@
    "tse_registration": null
   },
   {
+   "id": "b646211b7e94",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 45
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": "BR-06252/2026"
+  },
+  {
    "id": "b648e1141415",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
@@ -71499,6 +72264,39 @@
    }
   },
   {
+   "id": "d69d15e40484",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BR-06252/2026"
+  },
+  {
    "id": "e477fc601d2f",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
@@ -71532,14 +72330,14 @@
    "tse_registration": "BR-04312/2026"
   },
   {
-   "id": "f97f12600e85",
+   "id": "e535f2169a4f",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
+   "scenario": "2º turno: Roberto Cidade e David Almeida",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
    "fieldwork_start": "2026-08-21",
@@ -71549,18 +72347,18 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
      "pct": 41
     },
     {
      "candidate": "David Almeida",
      "party": "Avante",
-     "pct": 40
+     "pct": 39
     }
    ],
    "others_pct": null,
-   "undecided_pct": 19,
+   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": "BR-06252/2026"
   },
@@ -82343,6 +83141,39 @@
    "tse_registration": null
   },
   {
+   "id": "dbf85a2627db",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "DMP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-11",
+   "fieldwork_end": "2026-08-14",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 54.1
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 36.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "dd26540c6bb2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -82382,39 +83213,6 @@
    ],
    "others_pct": 2.8,
    "undecided_pct": 7.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "debdd360019b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "DMP",
-   "contractor": null,
-   "fieldwork_start": "2026-08-11",
-   "fieldwork_end": "2026-08-14",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 36.3
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 54.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 9.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -89984,6 +90782,39 @@
    "tse_registration": null
   },
   {
+   "id": "446956221fc4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-28",
+   "fieldwork_end": "2026-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 32.7
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 27.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 54.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "44bd30bf4ee7",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
@@ -90015,39 +90846,6 @@
    "undecided_pct": 23.2,
    "blank_null_pct": null,
    "tse_registration": "PR-03910/2026"
-  },
-  {
-   "id": "5258a9965e2a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-01",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 33.4
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 36.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "56ae102200c5",
@@ -90164,6 +90962,39 @@
    "tse_registration": null
   },
   {
+   "id": "99632aafa8cd",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-28",
+   "fieldwork_end": "2026-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 36.7
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 33.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "ab60beb4ec50",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -90236,6 +91067,39 @@
    ],
    "others_pct": 11,
    "undecided_pct": 68.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ca4f3dc38cba",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-28",
+   "fieldwork_end": "2026-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 34.2
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 27.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 42.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -90512,39 +91376,6 @@
     "source": "https://static.poder360.com.br/uploads/2026/08/pesquisa-verita-parana-6ago2026.pdf",
     "verified_at": "2026-08-22"
    }
-  },
-  {
-   "id": "f3bdea2d5f31",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-01",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 34.2
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 27.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 42.1,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-13687-1-0-22e85690d5f0",
@@ -112369,14 +113200,14 @@
    "tse_registration": "BR-04779/2026"
   },
   {
-   "id": "942078d28271",
+   "id": "b367dba5ae86",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
    "pollster": "Veritá",
    "contractor": null,
    "fieldwork_start": "2026-07-01",
@@ -112386,14 +113217,14 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 38.3
-    },
-    {
      "candidate": "Omar Aziz",
      "party": "PSD",
      "pct": 37.8
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 38.3
     }
    ],
    "others_pct": null,
@@ -113712,39 +114543,6 @@
    "tse_registration": null
   },
   {
-   "id": "a259520ef43a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "DMP",
-   "contractor": null,
-   "fieldwork_start": "2026-07-01",
-   "fieldwork_end": "2026-07-02",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 34.4
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 55.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "aca111abfb39",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -113895,6 +114693,39 @@
     "source": "https://static.poder360.com.br/uploads/2026/08/PESQUISA-FRANCA_SERGIPE_JULHO_TSE.pdf",
     "verified_at": "2026-08-19"
    }
+  },
+  {
+   "id": "d14cdd049bf1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "DMP",
+   "contractor": null,
+   "fieldwork_start": "2026-07-01",
+   "fieldwork_end": "2026-07-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 55.8
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 34.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "f4eddeca2fcf",
@@ -115924,39 +116755,6 @@
    "tse_registration": null
   },
   {
-   "id": "5df9dc929ccc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Comunidados",
-   "contractor": null,
-   "fieldwork_start": "2026-06-23",
-   "fieldwork_end": "2026-06-26",
-   "published_date": null,
-   "sample_size": 1066,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 37
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 56
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "77c03f0156f4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -116072,6 +116870,39 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b568796974d8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Comunidados",
+   "contractor": null,
+   "fieldwork_start": "2026-06-23",
+   "fieldwork_end": "2026-06-26",
+   "published_date": null,
+   "sample_size": 1066,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 56
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -131126,39 +131957,6 @@
    "tse_registration": null
   },
   {
-   "id": "11ff68c7b666",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-05-22",
-   "fieldwork_end": "2026-05-26",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 42.8
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 36.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "1d850aac23ce",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -131188,6 +131986,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 12.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2e9e88dec424",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-05-22",
+   "fieldwork_end": "2026-05-26",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 36.8
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 42.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20.4,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -136573,6 +137404,39 @@
    "tse_registration": null
   },
   {
+   "id": "1c3446b3ff34",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 50.5
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 26.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23.2,
+   "blank_null_pct": null,
+   "tse_registration": "BR-03812/2026"
+  },
+  {
    "id": "238cbcf4c090",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-governo/51-desaprovam-o-trabalho-de-lula-45-aprovam-diz-datafolha/",
@@ -136639,14 +137503,14 @@
    "tse_registration": "BR-00290/2026"
   },
   {
-   "id": "2aa4bf96787d",
+   "id": "4739acd08cda",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-05-08",
@@ -136658,16 +137522,16 @@
     {
      "candidate": "Professora Maria do Carmo",
      "party": "PL",
-     "pct": 51.1
+     "pct": 50.8
     },
     {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 39.6
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 24.2
     }
    ],
    "others_pct": null,
-   "undecided_pct": 9.3,
+   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": "BR-03812/2026"
   },
@@ -136887,39 +137751,6 @@
    "tse_registration": "BR-03812/2026"
   },
   {
-   "id": "c2f4952e0e82",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1244,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 50.8
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 24.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": "BR-03812/2026"
-  },
-  {
    "id": "curado-0d82d0f97705",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -137099,6 +137930,39 @@
     "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
     "verified_at": "2026-08-23"
    }
+  },
+  {
+   "id": "dfba8f3e8746",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 39.6
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 51.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.3,
+   "blank_null_pct": null,
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "e7fba8c26fb5",
@@ -138567,14 +139431,9 @@
      "candidate": "David Almeida",
      "party": "Avante",
      "pct": 17
-    },
-    {
-     "candidate": "Tadeu de Souza",
-     "party": "PP",
-     "pct": 14
     }
    ],
-   "others_pct": null,
+   "others_pct": 14,
    "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
@@ -158985,14 +159844,9 @@
      "candidate": "David Almeida",
      "party": "Avante",
      "pct": 23
-    },
-    {
-     "candidate": "Tadeu de Souza",
-     "party": "PP",
-     "pct": 2.4
     }
    ],
-   "others_pct": null,
+   "others_pct": 2.4,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "BR-02743/2026",
@@ -162600,57 +163454,14 @@
    "tse_registration": "BR-04215/2026"
   },
   {
-   "id": "17f028f1560f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 1,
-   "scenario": "1º turno — cenário 2/2",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-03-17",
-   "fieldwork_end": "2026-03-18",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 26
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 37
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 19
-    },
-    {
-     "candidate": "Tadeu de Souza",
-     "party": "PP",
-     "pct": 8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "43555a78a453",
+   "id": "05dd054de105",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": null,
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
+   "scenario": "2º turno: Omar Aziz vs Tadeu de Souza",
    "pollster": "Real Time Big Data",
    "contractor": null,
    "fieldwork_start": "2026-03-17",
@@ -162660,18 +163471,51 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 39
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 50
     },
     {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 37
+     "candidate": "Tadeu de Souza",
+     "party": "PP",
+     "pct": 16
     }
    ],
    "others_pct": null,
-   "undecided_pct": 24,
+   "undecided_pct": 34,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "20cfb1a9339f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: David Almeida vs Tadeu de Souza",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-17",
+   "fieldwork_end": "2026-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 46
+    },
+    {
+     "candidate": "Tadeu de Souza",
+     "party": "PP",
+     "pct": 17
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 37,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -162800,6 +163644,39 @@
    "tse_registration": null
   },
   {
+   "id": "51dfd4ec532d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-17",
+   "fieldwork_end": "2026-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 39
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5e99f6383c1a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -162849,6 +163726,77 @@
    ],
    "others_pct": 9.6,
    "undecided_pct": 29.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "67d2b931f9df",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Maria do Carmo Seffair vs Tadeu de Souza",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-17",
+   "fieldwork_end": "2026-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 48
+    },
+    {
+     "candidate": "Tadeu de Souza",
+     "party": "PP",
+     "pct": 16
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 36,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "79e7fa961fce",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-17",
+   "fieldwork_end": "2026-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 27
+    },
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 39
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -162992,39 +163940,6 @@
    "tse_registration": null
   },
   {
-   "id": "b10bd67cad9a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-03-17",
-   "fieldwork_end": "2026-03-18",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 37
-    },
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b68489883347",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -163059,6 +163974,39 @@
    ],
    "others_pct": 1.65,
    "undecided_pct": 31.59,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e4bcd2e5694e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-17",
+   "fieldwork_end": "2026-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -163819,27 +164767,22 @@
      "candidate": "David Almeida",
      "party": "Avante",
      "pct": 9.9
-    },
-    {
-     "candidate": "Tadeu de Souza",
-     "party": "PP",
-     "pct": 1
     }
    ],
-   "others_pct": null,
+   "others_pct": 1,
    "undecided_pct": 6.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
   {
-   "id": "45179d1fb19a",
+   "id": "7a657fbc8f2d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": null,
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e Omar Aziz",
+   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-03-11",
@@ -163851,16 +164794,16 @@
     {
      "candidate": "Professora Maria do Carmo",
      "party": "PL",
-     "pct": 45.3
+     "pct": 46.5
     },
     {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 44.9
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 20.5
     }
    ],
    "others_pct": null,
-   "undecided_pct": 9.8,
+   "undecided_pct": 33.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -163913,14 +164856,14 @@
    "tse_registration": null
   },
   {
-   "id": "bd759ab02c7b",
+   "id": "b6d9a55d8f9c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": null,
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Maria do Carmo e David Almeida",
+   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-03-11",
@@ -163930,18 +164873,18 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 46.5
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 44.9
     },
     {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 20.5
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 45.3
     }
    ],
    "others_pct": null,
-   "undecided_pct": 33.5,
+   "undecided_pct": 9.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -218232,39 +219175,6 @@
    "tse_registration": null
   },
   {
-   "id": "149a5fbbdac6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Augusto Cury",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "1969d79c7906",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -218889,72 +219799,6 @@
    "tse_registration": null
   },
   {
-   "id": "9d986395525e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 46
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 44
-    }
-   ],
-   "others_pct": 2.1,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b4429e7542b0",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "d87c31c2e723",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -219009,39 +219853,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d88658952414",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Caiado",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -219152,39 +219963,6 @@
    "tse_registration": null
   },
   {
-   "id": "e87a178d4c32",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "f1629dd8c6f2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -219229,39 +220007,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 17.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f24365783697",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Zema",
-   "pollster": "Datafolha",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 2506,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 49
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": null
   },
