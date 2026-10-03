@@ -325,6 +325,96 @@
    "source": "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&unidadesFederativasId=27&ano=2026&turno=2&cidade=",
    "evidence": "v2/cenarios lido em 28/09/2026 (run 36435426470), id 13839: 'Presidente' → [['Romeu Zema',16],['não souberam',26.6],['nenhum/ ninguém',26.6]].",
    "verified_at": "2026-09-29"
+  },
+  {
+   "question_id": "q_20a1bd1b5d5b",
+   "race": "governador",
+   "uf": "RJ",
+   "defect": "LINHA RETIRADA DA FONTE: a Wikipédia não lista mais os cenários de 1º turno do Quaest de 19–22/09/2026 (n=1302); a página passou a trazer o Quaest de 25–28/09 (cenários 1/2 e 2/2, n=1302) e manteve só os confrontos de 2º turno de 19–22/09. Cenário 1/2: Paes 36 · Ruas 23 · Garotinho 8 · Marinho 1 · Busnello 1 · Siri 1.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). grep por '19 a 22 de setembro' na seção do 1º turno não retorna nenhuma linha; o parser devolve para o Quaest em setembro apenas 25–28/09 (1º turno, cenários 1/2 e 2/2) e os 2º turnos de 19–22/09 (Paes × Ruas 44/31, Paes × Garotinho 49/18).",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_c55e67691716",
+   "race": "governador",
+   "uf": "RJ",
+   "defect": "LINHA RETIRADA DA FONTE: idem q_20a1bd1b5d5b, cenário 2/2 do Quaest 19–22/09/2026 (Paes 38 · Ruas 25 · Marinho 1 · Busnello 1 · Siri 2 · Cyro Garcia 1).",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). A página só traz, para o Quaest de setembro, o 1º turno de 25–28/09 (cenário 2/2: Paes 35 · Ruas 26 · Marinho 1 · Busnello 1 · Siri 2 · Cyro 2 · Juliete Pantoja 1).",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_2ae5c0e489b3",
+   "race": "governador",
+   "uf": "AP",
+   "defect": "LINHA MOVIDA/RETIRADA NA FONTE: a Wikipédia não traz mais um F5 de 19–23/09/2026 (n=1065) na tabela do GOVERNADOR; o F5 de 19–23/09 está só na tabela do SENADO, e o governador tem o F5 de 10–14/09 (Furlan 61,1 · Clécio 30,0).",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). Tabela do governador (linhas 22–289 do wikitexto): F5 apenas em '10 a 14 de setembro', n 1 065 (linha 83). Tabela do Senado (linhas 399+): F5 '19 a 23 de setembro', n 1 065 (linha 475). O parser devolve para governador/AP só o F5 de 10–14/09.",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_eaad08af4e70",
+   "race": "senador",
+   "uf": "AP",
+   "defect": "LINHA RE-DATADA E CORRIGIDA NA FONTE: a tabela do Senado não traz mais a Paraná Pesquisas de 11–13/07/2026 (cenário 2/2: Rayssa 61,5 · Lucas 46,9 · Randolfe 40,4 · Teles 13,2); a Paraná de julho aparece como 18–20/07 (n 1 100, cenários 1/2 e 2/2) com outros números (2/2: Rayssa 62,7 · Lucas 42,9 · Randolfe 36,9 · Alliny 17,5 · Capiberibe 10,9).",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). O parser devolve para senador/AP em julho apenas a Paraná de 18–20/07 (cenários 1/2 e 2/2); a tabela do Senado não tem linha '11 a 13 de julho'. Tabela diferente, não é a mesma pergunta re-datada (o juiz não casa).",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_f680d8d7dacc",
+   "race": "governador",
+   "uf": "MS",
+   "defect": "LINHA MOVIDA DE CONFRONTO NA FONTE: o 2º turno do Quaest de 21–24/09/2026 (n=804) estava gravado como 'Eduardo Riedel e Fábio Trad' (63 × 20); na página ele está na seção 'Eduardo Riedel e Delcídio do Amaral' (63 × 19), e a seção 'Eduardo Riedel e Fábio Trad' só lista o Quaest de 21–24/08.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). Seção '=== Eduardo Riedel e Fábio Trad ===': linhas AtlasIntel (27/08–01/09), Quaest (ref ':6', o de 21–24/08) e Real Time Big Data. O parser devolve para o Quaest de 21–24/09 apenas '2º turno: Eduardo Riedel e Delcídio do Amaral' 63/19 e o 1º turno (Riedel 51 · Trad 12 · Catan 3 · Delcídio 6).",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_b1d4c5a0da14",
+   "race": "governador",
+   "uf": "SE",
+   "defect": "INSTITUTO RE-ROTULADO NA FONTE: a linha de 16–18/03/2026 (n=1220, cenário 3/4: Mitidieri 50,81) estava gravada como 'França' e a Wikipédia passou a rotulá-la 'IFP'; o banco tem 'IFP', 'Instituto França' e 'França' como institutos distintos, e uma tabela de um nome só não prova sucessão.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). Wikitexto linhas 523–544: '| rowspan=\"4\" |IFP', '16 a 18 de março de 2026', '{{Fmtn|1220}}', cenário 3 = 50,81% (demais colunas N/A). O parser devolve IFP 16–18/03 cenário 3/4 [Mitidieri 50,81].",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_526739de8dab",
+   "race": "governador",
+   "uf": "SE",
+   "defect": "INSTITUTO RE-ROTULADO E COLUNA RETIRADA NA FONTE: a linha de 16–18/03/2026 (n=1220, cenário 4/4: Mitidieri 51,64 · Emanuel Cacho 10,3) está rotulada 'IFP' e perdeu a coluna de Emanuel Cacho — a página traz o cenário 4 só com Mitidieri 51,64.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). O parser devolve IFP 16–18/03 cenário 4/4 [Mitidieri 51,64] sem segundo nome; o cenário 3/4 [50,81] idem. Mesma data, mesma amostra, mesmo primeiro valor; a tabela mudou.",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_2d7d4e6d3080",
+   "race": "senador",
+   "uf": "AC",
+   "defect": "LINHA RETIRADA DA FONTE: a Wikipédia não lista mais o IPSensus de 19–24/09/2026 (n=1000) na seção do Senado (Cameli 23,6 · Bittar 18,85 · Viana 14,8 · Mara Rocha 13,65 · Petecão 5,3 · Velloso 8,8); o IPSensus segue só nas tabelas de governador.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). grep -i 'sensus' na seção '== Senador ==' do wikitexto: nenhuma ocorrência. O parser devolve para senador/AC desde 15/09: Delta 23–29/09, Quaest 21–24/09, Real Time Big Data 16–19/09, Delta 14–19/09, DataControl 12–16/09 — sem IPSensus. (Já visto em 29/09, ensaio 20.)",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_ea74a4e36b07",
+   "race": "senador",
+   "uf": "MT",
+   "defect": "LINHA RETIRADA DA FONTE: a tabela do Senado não traz mais a Paraná Pesquisas de 06–08/09/2026 com n=1352 e cenário 1/2 (Mauro Mendes 21,7 · Janaína Riva 9,2 · José Medeiros 10,1 · Fávaro 6,4 · Taques 2,8 · Galvan 1); a Paraná de 06–08/09 no Senado tem n=3080 e cenário único (Mendes 55 · Riva 31,5 · Medeiros 21,4 · Fávaro 16,6 · Taques 15,6 · Galvan 3,9). O n=1352 é o da tabela do GOVERNADOR da mesma data.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "evidence": "Lido em 03/10/2026 (run 37131441953, action=raw da página às 14:56 UTC). grep '21,7' no wikitexto não acha nenhuma célula (só um número de registro numa ref). Senado, linhas 1100–1111: '6 a 8 de setembro', '{{fmtn|3080}}', 55% · 31,5% · 21,4% · 16,6% · 15,6% · 3,9%. Governador, linhas 119–127: '6 a 8 de setembro', '{{fmtn|1352}}'. O parser devolve para senador/MT em 01–10/09 apenas a Paraná de 06–08/09 n 3080.",
+   "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_beadc626ffae",
+   "race": "presidente",
+   "uf": "SC",
+   "defect": "REGISTRO REPUBLICADO NA FONTE: o 1º turno do Quaest/SC de 23/08/2026 (Poder360 id 13934, BR-0716/2026, n=804) estava gravado como Renan Santos 4 · Zema 3 · Cury 3 · Caiado 3 · Rui Costa Pimenta 0; o v2/cenarios passou a servir dois cenários sem Renan Santos, com Hertz Dias e sem Lula e Flávio: não é truncação (um nome entra), e a tabela não é subconjunto da anterior.",
+   "source": "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&unidadesFederativasId=25&ano=2026&turno=1&cidade=",
+   "evidence": "v2/cenarios lido em 29/09/2026 (run 36632783007, ensaio 18), id 13934, data 2026-08-23, Quaest: cenário A = [Romeu Zema 3, Augusto Cury 3, Ronaldo Caiado 3, Rui Costa Pimenta 0, indecisos 13, brancos/nulos 8]; cenário B = [Romeu Zema 3, Ronaldo Caiado 3, Augusto Cury 2, Hertz Dias 0, Rui Costa Pimenta 0, brancos/nulos 7]. Nenhum traz Renan Santos, Lula ou Flávio Bolsonaro. A rodada de 03/10 (run 37129058649) descarta o registro por soma<30 (15,0).",
+   "verified_at": "2026-10-03"
   }
  ],
  "repairs": [
