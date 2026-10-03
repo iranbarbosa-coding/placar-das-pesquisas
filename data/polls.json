@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-03T14:47:35.531Z",
+ "generated_at": "2026-10-03T15:09:11.358Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-03T14:47:35.531Z"
+   "last_ok": "2026-10-03T15:09:11.358Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-03T14:47:35.531Z"
+   "last_ok": "2026-10-03T15:09:11.358Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-03T14:47:35.531Z"
+   "last_ok": "2026-10-03T15:09:11.358Z"
   }
  ],
  "polls": [
@@ -818,6 +818,39 @@
    "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "5f053ad295bf",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/aziz-lidera-disputa-por-governo-do-amazonas-no-1o-turno-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Amazonas-AM-07297-2026-Out26-1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": "TV 3 Poderes",
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-01",
+   "published_date": "2026-10-01",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 59
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "AM-07297/2026"
   },
   {
    "id": "67c89baada08",
@@ -2433,7 +2466,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2481,7 +2514,7 @@
    "scenario": "2º turno: Roberto Cidade vs Maria do Carmo Seffair",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2514,26 +2547,26 @@
    "scenario": "2º turno: Roberto Cidade vs Omar Aziz",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
+     "candidate": "Omar Aziz",
+     "party": "PSD",
      "pct": 45
     },
     {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
      "pct": 45
     }
    ],
    "others_pct": null,
-   "undecided_pct": 3,
-   "blank_null_pct": 6,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
    "tse_registration": "AM-07297/2026"
   },
   {
@@ -2547,7 +2580,7 @@
    "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2580,7 +2613,7 @@
    "scenario": "2º turno: Maria do Carmo Seffair vs David Almeida",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2613,7 +2646,7 @@
    "scenario": "2º turno: Omar Aziz vs David Almeida",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -2646,7 +2679,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-28",
    "fieldwork_end": "2026-10-01",
    "published_date": "2026-10-01",
    "sample_size": 1600,
@@ -30380,6 +30413,39 @@
    "tse_registration": null
   },
   {
+   "id": "29492a91fc5a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 51.13
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 33.35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15.52,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2b0b2072742f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -30535,39 +30601,6 @@
    ],
    "others_pct": 3.8,
    "undecided_pct": 12.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "356be5a4ad29",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 33.35
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 51.13
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 15.52,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -69792,39 +69825,6 @@
    "tse_registration": "ES-02530/2026"
   },
   {
-   "id": "1d89b700b9b8",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-25",
-   "published_date": "2026-08-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 36
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 38
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
-   "tse_registration": "AM-09965/2026"
-  },
-  {
    "id": "28021e241f25",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -70357,6 +70357,39 @@
    "undecided_pct": 20.5,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "c077d79087c9",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 38
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": "AM-09965/2026"
   },
   {
    "id": "c741adf5f11a",
@@ -70980,6 +71013,39 @@
    "tse_registration": "BR-04312/2026"
   },
   {
+   "id": "0dcd442e268a",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 43
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BR-06252/2026"
+  },
+  {
    "id": "0ecd4913d427",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-TO-Quaest-GazetaDoPovo.pdf",
@@ -71600,39 +71666,6 @@
    "undecided_pct": 26,
    "blank_null_pct": null,
    "tse_registration": "DF-06256/2026"
-  },
-  {
-   "id": "79bfd1513222",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 38
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 43
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
   },
   {
    "id": "7e6079107a6d",
@@ -90739,6 +90772,39 @@
    "tse_registration": null
   },
   {
+   "id": "1fbe256e4e9c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-28",
+   "fieldwork_end": "2026-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 27.7
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 32.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 54.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "385a0c857860",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -90778,39 +90844,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 16.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "446956221fc4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-01",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 32.7
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 27.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 54.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -137404,39 +137437,6 @@
    "tse_registration": null
   },
   {
-   "id": "1c3446b3ff34",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e Roberto Cidade",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1244,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 50.5
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 26.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23.2,
-   "blank_null_pct": null,
-   "tse_registration": "BR-03812/2026"
-  },
-  {
    "id": "238cbcf4c090",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-governo/51-desaprovam-o-trabalho-de-lula-45-aprovam-diz-datafolha/",
@@ -137747,6 +137747,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 30.7,
+   "blank_null_pct": null,
+   "tse_registration": "BR-03812/2026"
+  },
+  {
+   "id": "ca48eb2f35ec",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 26.4
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 50.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23.2,
    "blank_null_pct": null,
    "tse_registration": "BR-03812/2026"
   },

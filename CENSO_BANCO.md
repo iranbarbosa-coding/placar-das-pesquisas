@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1811 levantamentos · 5687 perguntas · 162 institutos · 1397 candidatos**.
+Banco: **1811 levantamentos · 5688 perguntas · 162 institutos · 1397 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 448 | 41 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 439 | 41 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **525** | **77** |
+| **total** | **516** | **77** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -267,7 +267,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - **[2026]** cenários separados — Quaest · AM governador/t2 · 2026-08-24 — 2 levantamentos
   s_86145f8e35f7: Omar Aziz 49 · David Almeida 46
-  s_af3cacb4c580: Maria do Carmo Seffair 38 · Roberto Cidade 43
+  s_af3cacb4c580: Roberto Cidade 43 · Maria do Carmo Seffair 38
   s_af3cacb4c580: Roberto Cidade 41 · David Almeida 39
   s_af3cacb4c580: Omar Aziz 44 · Roberto Cidade 40
   s_af3cacb4c580: Maria do Carmo Seffair 41 · David Almeida 40
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (448)
+## CONFLITO — Conflitos registrados aguardando decisão (439)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -780,15 +780,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_56459030d59c · survey_id: "s_56459030d59c" × null
 - **[2026]** survey_id_orphaned · s_2c58c7741bd2 · survey_id: "s_2c58c7741bd2" × null
 - **[2026]** survey_id_orphaned · s_b485435b94b3 · survey_id: "s_b485435b94b3" × null
-- survey_id_orphaned · s_aa2dd6ad755f · survey_id: "s_aa2dd6ad755f" × null
-- person_id_orphaned · p_13eb086facf0 · person_id: "p_13eb086facf0" × null
-- survey_id_orphaned · s_9351c3b3fe38 · survey_id: "s_9351c3b3fe38" × null
-- survey_id_orphaned · s_2c68f52d1568 · survey_id: "s_2c68f52d1568" × null
-- person_id_orphaned · p_8fa28bcb7d26 · person_id: "p_8fa28bcb7d26" × null
-- person_id_orphaned · p_15695ae80342 · person_id: "p_15695ae80342" × null
-- survey_id_orphaned · s_af5217ddc7e8 · survey_id: "s_af5217ddc7e8" × null
-- survey_id_orphaned · s_8c2f2ece96c9 · survey_id: "s_8c2f2ece96c9" × null
-- survey_id_orphaned · s_1ba84f9ec430 · survey_id: "s_1ba84f9ec430" × null
 - disputa_em_quarentena · governador:AP · quarentena: 28 × 35
 - disputa_em_quarentena · governador:MS · quarentena: 43 × 42
 - disputa_em_quarentena · governador:RJ · quarentena: 72 × 84
