@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **90 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **92 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -58,6 +58,26 @@ Soma **31.5%** · faltam **68.5 pontos** · 5 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Rio de Janeiro
+
+### Quaest — sem data
+
+Soma **33%** · faltam **67 pontos** · 7 candidato(s) na tabela
+
+| candidato | % |
+|---|---|
+| Juliete | 28 |
+| Eduardo Paes | 1 |
+| Douglas Ruas | 1 |
+| Garotinho | 1 |
+| André Marinho | 1 |
+| Coronel Busnello | 1 |
+| William Siri | 0 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Piauí
 
 ### Credibilidade — 2026-07-19
@@ -72,26 +92,6 @@ Soma **33.2%** · faltam **66.8 pontos** · 1 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-intitutoCredibilidade-PI-18-19jul2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Santa Catarina
-
-### Quaest — 2026-08-23
-
-Soma **34%** · faltam **66 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-0716/2026
-
-| candidato | % |
-|---|---|
-| Renan Santos | 4 |
-| Zema | 3 |
-| Escritor Augusto Cury | 3 |
-| Ronaldo Caiado | 3 |
-| Rui Costa Pimenta | 0 |
-| *não sabe/não respondeu* | 21 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-sc-25ago2026.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-20-de-lula-no-1o-turno-em-sc-diz-pesquisa/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -471,6 +471,21 @@ Soma **61%** · faltam **39 pontos** · 2 candidato(s) na tabela · amostra 1000
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Sergipe · 2º turno
+
+### IFP — 2026-08-21
+
+Soma **62.2%** · faltam **37.8 pontos** · 2 candidato(s) na tabela · amostra 1314
+
+| candidato | % |
+|---|---|
+| Fábio | 47.54 |
+| Ricardo Marques | 14.65 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Presidente · Acre
 
 ### Phoenix — 2026-02-05
@@ -662,15 +677,14 @@ Soma **69%** · faltam **31 pontos** · 11 candidato(s) na tabela · amostra 180
 
 ### ECM Sergipe — 2026-08-12
 
-Soma **70.5%** · faltam **29.5 pontos** · 4 candidato(s) na tabela · amostra 1500
+Soma **70.5%** · faltam **29.5 pontos** · 3 candidato(s) na tabela · amostra 1500
 
 | candidato | % |
 |---|---|
 | Fábio | 37 |
 | Valmir de Francisquinho | 23.8 |
 | Ricardo Marques | 7.6 |
-| Emanuel Cacho | 1 |
-| *outros* | 1.13 |
+| *outros* | 2.13 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
@@ -803,6 +817,21 @@ Soma **75.6%** · faltam **24.4 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+### IFP — 2026-09-03
+
+Soma **75.7%** · faltam **24.3 pontos** · 3 candidato(s) na tabela · amostra 1600
+
+| candidato | % |
+|---|---|
+| Fábio | 42.93 |
+| Valmir de Francisquinho | 27.83 |
+| Ricardo Marques | 3.84 |
+| *outros* | 1.12 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Paraíba
 
 ### DataTrends — 2026-07-29
@@ -890,15 +919,14 @@ Soma **77.5%** · faltam **22.5 pontos** · 2 candidato(s) na tabela · amostra 
 
 ### ECM Sergipe — 2026-06-07
 
-Soma **77.6%** · faltam **22.4 pontos** · 4 candidato(s) na tabela · amostra 1200
+Soma **77.6%** · faltam **22.4 pontos** · 3 candidato(s) na tabela · amostra 1200
 
 | candidato | % |
 |---|---|
 | Fábio | 40.8 |
 | Valmir de Francisquinho | 30.3 |
 | Ricardo Marques | 5.3 |
-| Emanuel Cacho | 0.8 |
-| *outros* | 0.4 |
+| *outros* | 1.2 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
@@ -1126,24 +1154,6 @@ Soma **83.6%** · faltam **16.4 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Sergipe
-
-### CTAS — 2026-07-24
-
-Soma **83.7%** · faltam **16.3 pontos** · 4 candidato(s) na tabela · amostra 1224
-
-| candidato | % |
-|---|---|
-| Fábio | 45.4 |
-| Valmir de Francisquinho | 32.2 |
-| Ricardo Marques | 4.5 |
-| Emanuel Cacho | 1 |
-| *outros* | 0.6 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Distrito Federal · 2º turno
 
 ### Opinião Consultoria — 2026-08-01
@@ -1157,6 +1167,23 @@ Soma **83.7%** · faltam **16.3 pontos** · 2 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Sergipe
+
+### CTAS — 2026-07-24
+
+Soma **83.7%** · faltam **16.3 pontos** · 3 candidato(s) na tabela · amostra 1224
+
+| candidato | % |
+|---|---|
+| Fábio | 45.4 |
+| Valmir de Francisquinho | 32.2 |
+| Ricardo Marques | 4.5 |
+| *outros* | 1.6 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1496,15 +1523,14 @@ Soma **87.4%** · faltam **12.6 pontos** · 4 candidato(s) na tabela · amostra 
 
 ### W1 — 2026-04-20
 
-Soma **87.7%** · faltam **12.3 pontos** · 4 candidato(s) na tabela · amostra 1000
+Soma **87.7%** · faltam **12.3 pontos** · 3 candidato(s) na tabela · amostra 1000
 
 | candidato | % |
 |---|---|
 | Valmir de Francisquinho | 39.9 |
 | Fábio | 35.3 |
 | Ricardo Marques | 9.8 |
-| Emanuel Cacho | 0.7 |
-| *outros* | 2 |
+| *outros* | 2.7 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe
 

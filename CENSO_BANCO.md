@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1811 levantamentos · 5688 perguntas · 162 institutos · 1397 candidatos**.
+Banco: **1766 levantamentos · 5742 perguntas · 162 institutos · 1396 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 439 | 41 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 430 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **516** | **77** |
+| **total** | **507** | **41** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -143,10 +143,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_58c4cfe5786e: Lula 45 · Joaquim Barbosa 23
   s_58c4cfe5786e: Lula 45 · Ronaldo Caiado 37.6
   s_58c4cfe5786e: Lula 45 · Michelle Bolsonaro 36
-- cenários separados — Real Time Big Data · SE governador/t1 · 2025-11-26 — 3 levantamentos
+- cenários separados — Real Time Big Data · SE governador/t1 · 2025-11-26 — 2 levantamentos
   s_1da98a1aa538: Fábio Mitidieri 48 · Emília Corrêa 32
   s_42ae015e72cf: Fábio Mitidieri 46 · Valmir de Francisquinho de Itabaiana 33
-  s_ad82f3d5fdbb: Fábio Mitidieri 50 · Eduardo Amorim 28
 - **[2026]** cenários separados — Real Time Big Data · AC governador/t2 · 2026-07-25 — 2 levantamentos
   s_291fa207ccea: Alan Rick 45 · Mailza Assis 36
   s_291fa207ccea: Mailza Assis 42 · Tião Bocalom 28
@@ -346,7 +345,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (439)
+## CONFLITO — Conflitos registrados aguardando decisão (430)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -501,24 +500,24 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - segundo_turno_fragmento_descartado · q_b0be927cda0d · results: null × ["Lula"]
 - segundo_turno_fragmento_descartado · q_ad202740d448 · results: null × ["Jerônimo Rodrigues"]
 - segundo_turno_fragmento_descartado · q_b252195a7be1 · results: null × ["Hildon Chaves"]
-- **[2026]** survey_id_orphaned · s_90afbeb0480d · survey_id: "s_90afbeb0480d" × null
+- survey_id_orphaned · s_90afbeb0480d · survey_id: "s_90afbeb0480d" × null
 - roster_encolhido_na_fonte · q_4c6082c23edb · results: ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
 - roster_encolhido_na_fonte · q_c450356f51e3 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_dd275c65c0e9 · results: ["Emanuel Cacho","Fábio Mitidieri","Ricardo Marques","Valmir de Francisquinho"] × ["Fábio Mitidieri","Ricardo Marques","Valmir de"]
 - roster_encolhido_na_fonte · q_58e33566935c · results: ["Eduardo Moura","Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
 - roster_encolhido_na_fonte · q_ac3ae52c5b52 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
-- **[2026]** survey_id_orphaned · s_9e5f4f2696f1 · survey_id: "s_9e5f4f2696f1" × null
+- survey_id_orphaned · s_9e5f4f2696f1 · survey_id: "s_9e5f4f2696f1" × null
 - roster_encolhido_na_fonte · q_e684cb7a2404 · results: ["Augusto Cury","Hertz Dias","Lula","Renan Santos","Ronaldo Caiado","Rui Costa Pimenta"] × ["Augusto Cury","Hertz Dias","Lula","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_encolhido_na_fonte · q_14b40b60cca8 · results: ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr.","Renan Santos","Romeu Zema"] × ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr.","Romeu Zema"]
 - roster_encolhido_na_fonte · q_b8d1508402c4 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - **[2026]** registration_dates_contradict · s_d42238b605d5 · fieldwork_end: "2026-09-17" × "2025-09-17"
-- **[2026]** survey_id_orphaned · s_8da2e8519711 · survey_id: "s_8da2e8519711" × null
+- survey_id_orphaned · s_8da2e8519711 · survey_id: "s_8da2e8519711" × null
 - roster_encolhido_na_fonte · q_f34fa28ad565 · results: ["Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
 - roster_encolhido_na_fonte · q_21d35eea85fc · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_2dd9cc0863b2 · results: null × ["Fernando Haddad"]
 - roster_encolhido_na_fonte · q_96ee49beeeb0 · results: ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_ed3095dad3b9 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
-- **[2026]** survey_id_orphaned · s_25114ea903ab · survey_id: "s_25114ea903ab" × null
+- survey_id_orphaned · s_25114ea903ab · survey_id: "s_25114ea903ab" × null
 - roster_encolhido_na_fonte · q_7e34f7fded38 · results: ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Samara Martins"]
 - roster_encolhido_na_fonte · q_66a2c0b7f86a · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_ad25dff34bc3 · results: ["Celina Leão","Izalci Lucas","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","Izalci Lucas","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
@@ -557,7 +556,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_16c8e8efcbd8 · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
 - roster_encolhido_na_fonte · q_4514bb412212 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_e2adebb428e9 · results: ["Augusto Cury","Lula","Michelle Bolsonaro","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Lula","Michelle Bolsonaro","Romeu Zema","Ronaldo Caiado"]
-- **[2026]** survey_id_orphaned · s_0eb23a8be234 · survey_id: "s_0eb23a8be234" × null
+- survey_id_orphaned · s_0eb23a8be234 · survey_id: "s_0eb23a8be234" × null
 - roster_encolhido_na_fonte · q_901fd5e66eff · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_c980bd639db2 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_be3fd6526eb3 · results: null × ["Romeu Zema"]
@@ -579,7 +578,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - segundo_turno_fragmento_descartado · q_77f2b2d026aa · results: null × ["Flávio Bolsonaro"]
 - roster_encolhido_na_fonte · q_c583a8161a27 · results: ["Augusto Cury","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_aa68def3efff · results: ["Augusto Cury","Clariana Barão","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"]
-- **[2026]** survey_id_orphaned · s_6344214422a2 · survey_id: "s_6344214422a2" × null
+- survey_id_orphaned · s_6344214422a2 · survey_id: "s_6344214422a2" × null
 - segundo_turno_fragmento_descartado · q_ba7ae552d4c8 · results: null × ["Natasha Slhessarenko"]
 - roster_encolhido_na_fonte · q_475e0c08eeb9 · results: ["Antônio Galvan","Carlos Fávaro","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"] × ["Carlos Fávaro","Galvan","Janaína Riva","José Medeiros","Mauro Mendes","Pedro Taques"]
 - roster_encolhido_na_fonte · q_2d7578147ec0 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
@@ -625,7 +624,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - segundo_turno_fragmento_descartado · q_399d6b8553cf · results: null × ["Flávio Bolsonaro"]
 - roster_encolhido_na_fonte · q_444d85c3a9d5 · results: ["Eduardo Moura","Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
 - roster_encolhido_na_fonte · q_02b44b5d135b · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
-- **[2026]** survey_id_orphaned · s_99f4b1d1b430 · survey_id: "s_99f4b1d1b430" × null
+- survey_id_orphaned · s_99f4b1d1b430 · survey_id: "s_99f4b1d1b430" × null
 - roster_encolhido_na_fonte · q_0cfbedbd52cb · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_282dbd67fe34 · results: ["Antônio Galvan","Carlos Fávaro","Coronel Darwin","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"] × ["Antonio Galvan","Carlos Fávaro","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"]
 - roster_encolhido_na_fonte · q_669f95e746b9 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
@@ -652,7 +651,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_3c9f49c78eb7 · results: ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_1ad374648d96 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_927f0943b3a0 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Samara Martins","Veterinário Wilson Grassi"]
-- **[2026]** survey_id_orphaned · s_7d95a50885f5 · survey_id: "s_7d95a50885f5" × null
+- survey_id_orphaned · s_7d95a50885f5 · survey_id: "s_7d95a50885f5" × null
 - roster_encolhido_na_fonte · q_bc5d503ee6d5 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - roster_encolhido_na_fonte · q_417b2a4b75c6 · results: ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr.","Renan Santos","Romeu Zema","Tereza Cristina"] × ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr.","Romeu Zema","Tereza Cristina"]
 - roster_encolhido_na_fonte · q_898b5cde320f · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
@@ -671,8 +670,8 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_81c29270c61d · results: ["Antônio Galvan","Carlos Fávaro","Coronel Darwin","Janaína Riva","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"] × ["Carlos Fávaro","Galvan","Janaína Riva","José Medeiros","Mauro Mendes","Pedro Taques"]
 - roster_encolhido_na_fonte · q_b683f7e13ea1 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_320a65db0faa · results: ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Ciro Gomes","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Ciro Gomes","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
-- **[2026]** survey_id_orphaned · s_ac3f9055bb23 · survey_id: "s_ac3f9055bb23" × null
-- **[2026]** survey_id_orphaned · s_5f1a87b1844e · survey_id: "s_5f1a87b1844e" × null
+- survey_id_orphaned · s_ac3f9055bb23 · survey_id: "s_ac3f9055bb23" × null
+- survey_id_orphaned · s_5f1a87b1844e · survey_id: "s_5f1a87b1844e" × null
 - roster_encolhido_na_fonte · q_6b3190c7e830 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_18d8668c5552 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_36af75ad4240 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
@@ -684,13 +683,13 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_4e7fde32c60f · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - roster_encolhido_na_fonte · q_d4f0c065ba5c · results: ["Aldo Rebelo","Flávio Bolsonaro","Lula","Pablo Marçal","Ratinho Jr.","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Flávio Bolsonaro","Lula","Pablo Marçal","Ratinho Jr.","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_c33c25b9e5c6 · results: null × ["Helder Salomão"]
-- **[2026]** survey_id_orphaned · s_e17a41f9f3f7 · survey_id: "s_e17a41f9f3f7" × null
+- survey_id_orphaned · s_e17a41f9f3f7 · survey_id: "s_e17a41f9f3f7" × null
 - roster_encolhido_na_fonte · q_c391a6a4411c · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_0a90e0647b08 · results: null × ["Flávio Bolsonaro"]
 - segundo_turno_fragmento_descartado · q_43b68ea96389 · results: null × ["Romeu Zema"]
 - roster_encolhido_na_fonte · q_4c9c41a91c94 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"]
 - segundo_turno_fragmento_descartado · q_3a2e3e731373 · results: null × ["Lula"]
-- **[2026]** survey_id_orphaned · s_571deb64be7e · survey_id: "s_571deb64be7e" × null
+- survey_id_orphaned · s_571deb64be7e · survey_id: "s_571deb64be7e" × null
 - roster_encolhido_na_fonte · q_353f2c63176f · results: ["Delcídio do Amaral","Economista Renato Gomes","Eduardo Riedel","Fábio Trad","João Henrique Catan"] × ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - segundo_turno_fragmento_descartado · q_375f2aff5137 · results: null × ["Helder Salomão"]
 - roster_encolhido_na_fonte · q_3bf49b90bc18 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
@@ -714,7 +713,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_a1e19d58a704 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_encolhido_na_fonte · q_12d48c3da8a5 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_1a5b4c8ee3a3 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
-- **[2026]** survey_id_orphaned · s_3bf9494bf0a2 · survey_id: "s_3bf9494bf0a2" × null
+- survey_id_orphaned · s_3bf9494bf0a2 · survey_id: "s_3bf9494bf0a2" × null
 - roster_encolhido_na_fonte · q_899e38595a06 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_b867be26b650 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_9deb9bd63a0b · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
@@ -724,8 +723,8 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_ac0553173c29 · results: ["Aldo Rebelo","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_57c84f722aed · results: null × ["Flávio Bolsonaro"]
 - roster_encolhido_na_fonte · q_118b5a6c984e · results: ["Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"] × ["Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
-- **[2026]** survey_id_orphaned · s_e39e719fc8fb · survey_id: "s_e39e719fc8fb" × null
-- **[2026]** survey_id_orphaned · s_de0c67c196b7 · survey_id: "s_de0c67c196b7" × null
+- survey_id_orphaned · s_e39e719fc8fb · survey_id: "s_e39e719fc8fb" × null
+- survey_id_orphaned · s_de0c67c196b7 · survey_id: "s_de0c67c196b7" × null
 - roster_encolhido_na_fonte · q_b0ddb2d76a2f · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_2f9b90e5f145 · results: ["Emanuel Cacho","Fábio Mitidieri","Ricardo Marques","Valmir de Francisquinho"] × ["Fábio Mitidieri","Ricardo Marques","Valmir de"]
 - roster_encolhido_na_fonte · q_52d7e90766a7 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
@@ -749,46 +748,37 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_04e1d9cc349b · results: ["Augusto Cury","Hertz Dias","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Hertz Dias","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_3d6e99027262 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_0ca87abc155d · results: ["Antônio Galvan","Carlos Fávaro","Janaína Riva","Jayme Campos","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"] × ["Carlos Fávaro","Janaína Riva","Jayme Campos","José Medeiros","Mauro Mendes","Pedro Taques"]
-- **[2026]** survey_id_orphaned · s_232c3407f4a1 · survey_id: "s_232c3407f4a1" × null
+- survey_id_orphaned · s_232c3407f4a1 · survey_id: "s_232c3407f4a1" × null
 - roster_encolhido_na_fonte · q_c00782ea15b9 · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- **[2026]** survey_id_orphaned · s_88b855bd9581 · survey_id: "s_88b855bd9581" × null
+- survey_id_orphaned · s_88b855bd9581 · survey_id: "s_88b855bd9581" × null
 - roster_encolhido_na_fonte · q_9e8375153b29 · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- **[2026]** survey_id_orphaned · s_0729c09177dc · survey_id: "s_0729c09177dc" × null
-- **[2026]** survey_id_orphaned · s_f76602ec6e99 · survey_id: "s_f76602ec6e99" × null
-- **[2026]** survey_id_orphaned · s_8b3a22d832de · survey_id: "s_8b3a22d832de" × null
-- **[2026]** survey_id_orphaned · s_dfdcf9bf6100 · survey_id: "s_dfdcf9bf6100" × null
+- survey_id_orphaned · s_0729c09177dc · survey_id: "s_0729c09177dc" × null
+- survey_id_orphaned · s_f76602ec6e99 · survey_id: "s_f76602ec6e99" × null
+- survey_id_orphaned · s_8b3a22d832de · survey_id: "s_8b3a22d832de" × null
+- survey_id_orphaned · s_dfdcf9bf6100 · survey_id: "s_dfdcf9bf6100" × null
 - roster_encolhido_na_fonte · q_995f3879a92d · results: ["Antônio Galvan","Carlos Fávaro","Janaína Riva","Jayme Campos","José Medeiros","Margareth Buzetti","Mauro Mendes","Pedro Taques"] × ["Carlos Fávaro","Janaína Riva","Jayme Campos","José Medeiros","Mauro Mendes","Pedro Taques"]
 - roster_encolhido_na_fonte · q_69bf17c316c8 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
-- **[2026]** survey_id_orphaned · s_2765630c909d · survey_id: "s_2765630c909d" × null
+- survey_id_orphaned · s_2765630c909d · survey_id: "s_2765630c909d" × null
 - roster_encolhido_na_fonte · q_0f0f12a28d82 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
-- **[2026]** survey_id_orphaned · s_8c376670c05d · survey_id: "s_8c376670c05d" × null
-- **[2026]** survey_id_orphaned · s_1fc98e9f7a15 · survey_id: "s_1fc98e9f7a15" × null
-- **[2026]** survey_id_orphaned · s_fe6dadff997f · survey_id: "s_fe6dadff997f" × null
-- **[2026]** survey_id_orphaned · s_8d28e8f932ac · survey_id: "s_8d28e8f932ac" × null
-- **[2026]** survey_id_orphaned · s_99ca7b6c3161 · survey_id: "s_99ca7b6c3161" × null
-- **[2026]** survey_id_orphaned · s_60a206aad6eb · survey_id: "s_60a206aad6eb" × null
-- **[2026]** survey_id_orphaned · s_920b36c8cb0f · survey_id: "s_920b36c8cb0f" × null
-- **[2026]** survey_id_orphaned · s_435797ace4cc · survey_id: "s_435797ace4cc" × null
-- **[2026]** survey_id_orphaned · s_a45d6b29ff66 · survey_id: "s_a45d6b29ff66" × null
+- survey_id_orphaned · s_8c376670c05d · survey_id: "s_8c376670c05d" × null
+- survey_id_orphaned · s_1fc98e9f7a15 · survey_id: "s_1fc98e9f7a15" × null
+- survey_id_orphaned · s_fe6dadff997f · survey_id: "s_fe6dadff997f" × null
+- survey_id_orphaned · s_8d28e8f932ac · survey_id: "s_8d28e8f932ac" × null
+- survey_id_orphaned · s_99ca7b6c3161 · survey_id: "s_99ca7b6c3161" × null
+- survey_id_orphaned · s_60a206aad6eb · survey_id: "s_60a206aad6eb" × null
+- survey_id_orphaned · s_920b36c8cb0f · survey_id: "s_920b36c8cb0f" × null
+- survey_id_orphaned · s_435797ace4cc · survey_id: "s_435797ace4cc" × null
+- survey_id_orphaned · s_a45d6b29ff66 · survey_id: "s_a45d6b29ff66" × null
 - roster_encolhido_na_fonte · q_240eac76dc70 · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
 - roster_encolhido_na_fonte · q_6618e5bc5526 · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- **[2026]** survey_id_orphaned · s_831c5ece0842 · survey_id: "s_831c5ece0842" × null
-- **[2026]** survey_id_orphaned · s_2387afdb405a · survey_id: "s_2387afdb405a" × null
+- survey_id_orphaned · s_831c5ece0842 · survey_id: "s_831c5ece0842" × null
+- survey_id_orphaned · s_2387afdb405a · survey_id: "s_2387afdb405a" × null
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_b42b77ccb78a · results: ["Doutora Natasha","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- **[2026]** survey_id_orphaned · s_56459030d59c · survey_id: "s_56459030d59c" × null
-- **[2026]** survey_id_orphaned · s_2c58c7741bd2 · survey_id: "s_2c58c7741bd2" × null
-- **[2026]** survey_id_orphaned · s_b485435b94b3 · survey_id: "s_b485435b94b3" × null
-- disputa_em_quarentena · governador:AP · quarentena: 28 × 35
-- disputa_em_quarentena · governador:MS · quarentena: 43 × 42
-- disputa_em_quarentena · governador:RJ · quarentena: 72 × 84
-- disputa_em_quarentena · governador:SE · quarentena: 56 × 71
-- disputa_em_quarentena · presidente:RJ · quarentena: 42 × 53
-- disputa_em_quarentena · presidente:SC · quarentena: 12 × 16
-- disputa_em_quarentena · senador:AC · quarentena: 44 × 44
-- disputa_em_quarentena · senador:AP · quarentena: 27 × 26
-- disputa_em_quarentena · senador:MT · quarentena: 27 × 32
+- survey_id_orphaned · s_56459030d59c · survey_id: "s_56459030d59c" × null
+- survey_id_orphaned · s_2c58c7741bd2 · survey_id: "s_2c58c7741bd2" × null
+- survey_id_orphaned · s_b485435b94b3 · survey_id: "s_b485435b94b3" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
 
