@@ -65,9 +65,40 @@ export function upsertPoll(store, poll, { source, runId = "run", nativeId = null
   });
 
   if (nativeId != null) addSourceRef(store, survey, { source, native_id: nativeId, url: poll.source_url ?? null });
+
+  // AS DATAS DO LEVANTAMENTO TÊM DE FECHAR ENTRE REGISTROS. `fillFields` preenche
+  // campo a campo, e o levantamento junta vários registros da mesma operação: o
+  // fim pode vir de um (Poder360, 28/09) e o início de outro (uma linha com o
+  // início 29/09 e o fim vazio) — e o store sai com início > fim, que o
+  // validador reprova e aborta a rodada inteira (Vox presidente/BR, 02/10/2026:
+  // duas rodadas vermelhas). `scrape.mjs` já derruba o início maior que o fim
+  // DENTRO do mesmo registro; aqui é a mesma regra entre registros. O fim é o
+  // que as médias usam, então é o início que cede — anotado em conflicts.
+  let inicio = poll.fieldwork_start ?? null;
+  const fimFinal = survey.fieldwork_end ?? poll.fieldwork_end ?? null;
+  if (inicio && fimFinal && inicio > fimFinal) {
+    logConflict(store, {
+      run_id: runId, type: "fieldwork_start_incoerente", table: "surveys",
+      record_id: survey.survey_id, field: "fieldwork_start",
+      stored: survey.fieldwork_start ?? null, incoming: inicio, source, severity: "normal",
+      note: `início ${inicio} posterior ao fim ${fimFinal} do levantamento — início não preenchido`,
+    });
+    inicio = null;
+  }
+  if (survey.fieldwork_start && !survey.fieldwork_end && poll.fieldwork_end && survey.fieldwork_start > poll.fieldwork_end) {
+    logConflict(store, {
+      run_id: runId, type: "fieldwork_start_incoerente", table: "surveys",
+      record_id: survey.survey_id, field: "fieldwork_start",
+      stored: survey.fieldwork_start, incoming: poll.fieldwork_end, source, severity: "normal",
+      note: `início ${survey.fieldwork_start} gravado antes de o fim ${poll.fieldwork_end} chegar — início anulado (o fim é o que as médias usam)`,
+    });
+    survey.fieldwork_start = null;
+    delete survey.provenance?.field_sources?.fieldwork_start;
+  }
+
   fillFields(store, survey, {
     contractor_raw: poll.contractor ?? null,
-    fieldwork_start: poll.fieldwork_start ?? null,
+    fieldwork_start: inicio,
     fieldwork_end: poll.fieldwork_end ?? null,
     published_date: poll.published_date ?? null,
     sample_size: poll.sample_size ?? null,

@@ -1050,6 +1050,17 @@ metadata cells change in the table columns.
   multi-line header names (`!Geraldo<br>Rufino<br>{{small|…}}`) are cut at the first
   `<br>` ("Geraldo", "Carlos", "Vivian" in governador:SP) — a stable but wrong name;
   fixing it re-mints many candidates and needs its own rehearsal.
+- **Survey dates must close ACROSS records (02/10/2026, two red runs).** `fillFields`
+  fills field by field and a survey joins several records of one operation, so the
+  end came from one record (Poder360, 28/09) and the start from another (a row with
+  start 29/09 and an empty end): Vox presidente/BR left the store with start > end,
+  `validate-store` refused it and the whole run aborted twice. `scrape.mjs` already
+  drops a start later than the end INSIDE one record; `upsertPoll` now applies the
+  same rule between records before `fillFields`: a start later than the survey's
+  (or the incoming) end is not filled, and a stored start that a newly arrived end
+  contradicts is nulled, both logged as `fieldwork_start_incoerente`. The end is
+  what every average uses, so the start is what yields. Two harness cases plus a
+  coherent-dates control.
 - **A survey seed can collide within one run (28/09/2026).** `resolveSurvey` mints
   `survey|reg|<registration>` for records without a native id, and `survey|nat|…` for
   unregistered ones; rung 2 rightly refuses to unify a shared registration across
