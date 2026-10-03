@@ -1375,6 +1375,63 @@ check("2º turno de um nome só SEM confronto anterior é descartado, em voz alt
   }
 });
 
+// ==========================================================================
+// 10e. AS DATAS DO LEVANTAMENTO FECHAM ENTRE REGISTROS (Vox, 02/10/2026)
+// ==========================================================================
+
+const voxA = (over = {}) => poll({
+  id: "p360-14258-1-0-aaaaaaaaaaaa", source: "poder360", pollster: "Vox", race: "presidente", state: null, round: 1,
+  scenario: "1º turno", fieldwork_start: null, fieldwork_end: "2026-09-28", published_date: "2026-09-28",
+  sample_size: 2100, tse_registration: "BR-00895/2026",
+  results: [{ candidate: "Lula", party: "PT", pct: 40 }, { candidate: "Flávio Bolsonaro", party: "PL", pct: 38 }], ...over,
+});
+const voxB = (over = {}) => voxA({
+  id: "bbbbbbbbbbbb", source: "wikipedia", round: 2, scenario: "2º turno: Lula e Zema",
+  fieldwork_start: "2026-09-29", fieldwork_end: null, published_date: "2026-09-29",
+  results: [{ candidate: "Lula", party: "PT", pct: 47 }, { candidate: "Romeu Zema", party: "Novo", pct: 36 }], ...over,
+});
+
+check("início de um registro posterior ao fim de OUTRO do mesmo levantamento não é preenchido — o store passa no validador", (_store, assert) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-datas-"));
+  try {
+    const { store: novo } = writeStoreFromPolls([voxA(), voxB()], { runDate: "2026-10-02", dir });
+    const s = novo.surveys.find((x) => x.tse_registration === "BR-00895/2026");
+    assert(!!s && novo.surveys.length === 1, `esperava um levantamento só (veio ${novo.surveys.length})`);
+    assert(s.fieldwork_end === "2026-09-28" && s.fieldwork_start === null, `datas: início=${s.fieldwork_start} fim=${s.fieldwork_end}`);
+    assert(novo.conflicts.some((c) => c.type === "fieldwork_start_incoerente" && c.record_id === s.survey_id), "o início recusado não deixou rastro");
+    const { errors } = validateStore(novo);
+    assert(!errors.some((e) => /posterior ao fim/.test(e)), `validate-store reprovaria: ${errors.join(" · ")}`);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+check("início já gravado que o fim recém-chegado contradiz é anulado (o fim é o que as médias usam)", (_store, assert) => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "placar-datas2-"));
+  try {
+    // A ordem de escrita é por fonte e data: o registro com início 29 e fim vazio
+    // chega primeiro aqui porque é o único poder360; o fim 28 vem depois.
+    const { store: novo } = writeStoreFromPolls([
+      voxA({ fieldwork_start: "2026-09-29", fieldwork_end: null, published_date: "2026-09-29" }),
+      voxB({ source: "wikipedia", fieldwork_start: null, fieldwork_end: "2026-09-28", published_date: "2026-09-28" }),
+    ], { runDate: "2026-10-02", dir });
+    const s = novo.surveys.find((x) => x.tse_registration === "BR-00895/2026");
+    assert(!!s && s.fieldwork_end === "2026-09-28" && s.fieldwork_start === null, `datas: início=${s?.fieldwork_start} fim=${s?.fieldwork_end}`);
+    const { errors } = validateStore(novo);
+    assert(!errors.some((e) => /posterior ao fim/.test(e)), `validate-store reprovaria: ${errors.join(" · ")}`);
+    // Controle: datas coerentes continuam preenchidas normalmente.
+    const dir2 = fs.mkdtempSync(path.join(os.tmpdir(), "placar-datas3-"));
+    try {
+      const { store: ok } = writeStoreFromPolls([voxA({ fieldwork_start: "2026-09-26" }), voxB({ fieldwork_start: "2026-09-26" })], { runDate: "2026-10-02", dir: dir2 });
+      const s2 = ok.surveys[0];
+      assert(s2.fieldwork_start === "2026-09-26" && s2.fieldwork_end === "2026-09-28", `controle: início=${s2.fieldwork_start} fim=${s2.fieldwork_end}`);
+      assert(!ok.conflicts.some((c) => c.type === "fieldwork_start_incoerente"), "controle: datas coerentes geraram conflito");
+    } finally { fs.rmSync(dir2, { recursive: true, force: true }); }
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 check("levantamento re-cunhado por edição de elenco na fonte herda o id antigo em legacy_ids (o juiz de delta lê sucessão)", (_store, assert) => {
   // O caso senador:SE de 28/09/2026: a Wikipédia retirou três nomes de todas as
   // linhas; a semente natural inclui o elenco, o levantamento re-cunha.
