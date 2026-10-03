@@ -649,6 +649,20 @@ function rodar({ mutacao = null } = {}) {
       `a recusa não explica a ambiguidade: ${rel.warnings.join(" | ")}`);
   });
 
+  caso("ADMITE a curada DATADA ao lado de um registro da fonte SEM data, em voz alta", ({ dir, afirma, opcoes }) => {
+    // presidente:RJ (03/10/2026): o Poder360 serviu um Quaest novo com a data
+    // anulada e o mesmo elenco de julho; a regra antiga lia "sem data ⇒ ambíguo"
+    // e recusava a curada de 25/07 lida do PDF — duas perguntas sumiram e a
+    // disputa congelou. Um vizinho sem data não está na janela de nada: a curada
+    // entra, e o vizinho é nomeado num aviso.
+    const polls = [irma(), daFonte({ id: "p360-900009-1-0-eeeeeeeeeeee", fieldwork_start: null, fieldwork_end: null, published_date: null })];
+    const rel = applyRepairs(polls, opcoes(specDeTeste(dir)));
+    afirma(rel.inserted.length === 1, `a curada datada tinha de entrar (inseridos: ${rel.inserted.length}; avisos: ${rel.warnings.join(" | ")})`);
+    afirma(polls.length === 3, `${polls.length} pesquisas na lista, esperado 3`);
+    afirma(rel.warnings.some((w) => /vizinho SEM DATA ignorado/.test(w) && w.includes("p360-900009")), `o vizinho sem data não foi dito: ${rel.warnings.join(" | ")}`);
+    afirma(!rel.warnings.some((w) => /RECUSADO/.test(w)), `recusou por vizinho sem data: ${rel.warnings.join(" | ")}`);
+  });
+
   // ⚠ O PAR QUE O CONSERTO DO `mesmaOperacao` EXIGE (§2): a recusa de quase-igual
   //   passou a ser DOIS testes — "mesma operação de campo?" E "mesma pergunta?".
   //   Sozinho, o teste de operação recusava o segundo confronto de uma pesquisa
