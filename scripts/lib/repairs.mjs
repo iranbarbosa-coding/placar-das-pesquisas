@@ -253,7 +253,17 @@ function mesmaOperacao(a, b) {
   if (a.round !== b.round) return false;
   const da = a.fieldwork_end ?? a.published_date;
   const db = b.fieldwork_end ?? b.published_date;
-  if (!da || !db) return true; // sem data não há como separar ⇒ ambíguo ⇒ recusa
+  // SEM DATA NOS DOIS LADOS não há como separar ⇒ ambíguo ⇒ recusa. Mas um
+  // registro da fonte SEM data ao lado de uma curada DATADA não está "na janela
+  // de 3 dias" de coisa nenhuma: a regra antiga tratava-o como ambíguo e recusava
+  // a curada para sempre. Medido em 03/10/2026: o Poder360 passou a servir um
+  // Quaest presidente/RJ novo (id 14254) com a data anulada (ano digitado
+  // errado), o elenco é o mesmo de julho, e a curada de 21–25/07 (RJ-02671/2026,
+  // lida do PDF em duas leituras cegas) foi RECUSADA — as duas perguntas
+  // sumiram e presidente:RJ entrou em quarentena na véspera do pleito. A data
+  // da curada é fato verificado; a do vizinho não existe. O vizinho sem data é
+  // dito em voz alta pelo chamador (aviso), nunca decide sozinho.
+  if (!da || !db) return !da && !db;
   return Math.abs(+new Date(da) - +new Date(db)) <= JANELA_OPERACAO_MS;
 }
 
@@ -444,6 +454,18 @@ export function inserirPesquisaCurada(polls, rep, targets, label,
       "match — a mesma operação de campo, com o MESMO confronto, em outra data é ambígua, e nada foi inserido",
     );
     return { warnings: [...avisos, ...r.warnings] };
+  }
+  // O VIZINHO SEM DATA É DITO, NÃO DECIDE (ver `mesmaOperacao`): mesma casa,
+  // disputa e turno, elenco que casa, e nenhuma data para pôr na janela.
+  const dataDe = (p) => p.fieldwork_end ?? p.published_date ?? null;
+  for (const p of polls) {
+    if (!sobrevive(p) || dataDe(p) || !dataDe(nova)) continue;
+    if (chaveInstituto(p.pollster) !== chaveInstituto(nova.pollster) || p.race !== nova.race
+      || (p.state ?? null) !== (nova.state ?? null) || p.round !== nova.round) continue;
+    const nomes = (nova.results ?? []).map((r) => r.name_raw ?? r.candidate);
+    if (questionRostersMatch(p.results, nova.results, nomes)) {
+      avisos.push(`add_poll ${label}: vizinho SEM DATA ignorado — ${p.id} (${p.pollster} ${p.race}/${p.state ?? "BR"} turno ${p.round}) tem o mesmo elenco e nenhuma data; a curada entra pela data verificada dela`);
+    }
   }
   polls.push(nova);
   return { warnings: avisos, poll: nova };
