@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **92 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **93 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -35,6 +35,27 @@ Soma **31%** · faltam **69 pontos** · 4 candidato(s) na tabela · amostra 804 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-espirito-santo-27ago2026.pdf
 - Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-bolsonaro-tem-37-ante-30-de-lula-no-espirito-santo-diz-quaest/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Mato Grosso do Sul
+
+### Ranking — 2026-07-21
+
+Soma **31%** · faltam **69 pontos** · 5 candidato(s) na tabela · amostra 1000 · registro BR-00455/2026
+
+| candidato | % |
+|---|---|
+| Ronaldo Caiado | 5 |
+| Zema | 2 |
+| Escritor Augusto Cury | 1.2 |
+| Joaquim Barbosa | 1 |
+| Cabo Daciolo | 0.4 |
+| *branco/nulo* | 11 |
+| *não sabe/não respondeu* | 10.4 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/instituto-ranking-ms-presidente-7ago2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/instituto-ranking-ms-presidente-7ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -728,25 +749,6 @@ Soma **71.1%** · faltam **28.9 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Goiás
-
-### Portal Goiás — 2026-02-03
-
-Soma **71.4%** · faltam **28.6 pontos** · 4 candidato(s) na tabela · amostra 500 · registro GO-05001/2026
-
-| candidato | % |
-|---|---|
-| Marconi Perillo | 20.6 |
-| Adriana Accorsi | 9.4 |
-| Wilder Morais | 8.4 |
-| Telemaco Brandão | 1.6 |
-| *não sabe/não respondeu* | 31.4 |
-
-- PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente.10.fev_.2026pdf.pdf
-- Publicação: https://static.poder360.com.br/2026/02/pesquisa-portalgoias-goias-presidente.10.fev_.2026pdf.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Tocantins
 
 ### Lucro Ativo — 2026-07-25
@@ -1249,6 +1251,29 @@ Soma **84%** · faltam **16 pontos** · 4 candidato(s) na tabela · amostra 1002
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/07/Quaest-Ceara-30jul2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Paraná
+
+### Quaest — 2026-10-03
+
+Soma **85%** · faltam **15 pontos** · 8 candidato(s) na tabela · amostra 2004 · registro PR-05119/2026
+
+| candidato | % |
+|---|---|
+| Sergio Moro | 36 |
+| Sandro Alex | 20 |
+| Requião Filho | 13 |
+| Tayná Miessa | 1 |
+| Doutor Alexandre Salomão | 1 |
+| Luiz França | 1 |
+| Samuel de Mattos | 0 |
+| Adriano Funileiro | 0 |
+| *não sabe/não respondeu* | 13 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/10/quaest-pr-gov-3-out-2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/10/quaest-pr-gov-3-out-2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

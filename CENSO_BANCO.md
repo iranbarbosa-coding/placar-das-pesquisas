@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1713 levantamentos · 5773 perguntas · 162 institutos · 1405 candidatos**.
+Banco: **1770 levantamentos · 5921 perguntas · 162 institutos · 1447 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 50 | 36 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 389 | 5 |
-| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 51 | 37 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 406 | 5 |
+| **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **467** | **42** |
+| **total** | **487** | **45** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -73,9 +73,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_fde53d701f86 · Paraná Pesquisas · SP · registro —
 - s_fe31562fc375 · Real Time Big Data · SP · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (50)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (51)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (2 de 50) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 51) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - **[2026]** cenários separados — Datafolha · PE senador/t1 · 2026-04-26 — 2 levantamentos
   s_03b4d753b6bc: Marília Arraes 20 · Humberto Costa 12 · Eduardo da Fonte 6 · Túlio Gadêlha 6 · Mendonça Filho 9
@@ -235,12 +235,16 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_67a8dda7d659: Jair Messias Bolsonaro 46 · Luiz Inácio Lula da Silva 44.4 · Ciro Gomes 4.5 · Simone Tebet 1.5
   s_9d13d46ea6a8: Michelle Bolsonaro 30.4 · Luiz Inácio Lula da Silva 45 · Pablo Marçal 1.3 · Ratinho Júnior 4.8 · Eduardo Leite 0.9 · Romeu Zema 7.2 · Ciro Gomes 3.9 · Ronaldo Caiado 4
   s_9d13d46ea6a8: Lula 44.6 · Tarcísio de Freitas 34 · Romeu Zema 4.4 · Pablo Marçal 3.7 · Ciro Gomes 3.5 · Ratinho Jr 2.5 · Ronaldo Caiado 1.7 · Eduardo Leite 1
-- **[2026]** cenários separados — Palver · BR presidente/t2 · 2026-09-23 — 2 levantamentos
+- **[2026]** ELENCO REPETIDO — Palver · BR presidente/t2 · 2026-09-23 — 2 levantamentos
   s_684407aea71b: Luiz Inácio Lula da Silva 44 · Augusto Cury 36
   s_684407aea71b: Luiz Inácio Lula da Silva 45 · Romeu Zema 43
   s_684407aea71b: Luiz Inácio Lula da Silva 44 · Renan Santos 34
   s_684407aea71b: Luiz Inácio Lula da Silva 44 · Ronaldo Caiado 42
+  s_b18676d0c7d2: Luiz Inácio Lula da Silva 43 · Romeu Zema 44
   s_b18676d0c7d2: Flávio Bolsonaro 48 · Lula 45
+  s_b18676d0c7d2: Luiz Inácio Lula da Silva 43 · Renan Santos 34
+  s_b18676d0c7d2: Luiz Inácio Lula da Silva 43 · Ronaldo Caiado 44
+  s_b18676d0c7d2: Luiz Inácio Lula da Silva 43 · Augusto Cury 35
 - **[2026]** cenários separados — Quaest · BR presidente/t1 · 2026-02-09 — 2 levantamentos
   s_6c134fdd655e: Luiz Inácio Lula da Silva 39 · Flávio Bolsonaro 32 · Romeu Zema 4 · Renan Santos 2 · Aldo Rebelo 2
   s_6c134fdd655e: Luiz Inácio Lula da Silva 37 · Flávio Bolsonaro 31 · Ratinho Júnior 7
@@ -295,6 +299,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
 - **[2026]** cenários separados — Real Time Big Data · GO governador/t1 · 2026-05-12 — 2 levantamentos
   s_9e8551e8656b: Daniel Vilela 38 · Marconi Perillo 22 · Wilder Morais 14 · Adriana Accorsi 13 · Telemaco Brandão 1
   s_bd3f70c87aa1: Daniel Vilela 40 · Marconi Perillo 25 · Wilder Morais 14 · Luis Cesar Bueno 2 · Telêmaco Brandão 1
+- **[2026]** cenários separados — Direct Pesquisas · GO senador/t1 · 2026-02-03 — 2 levantamentos
+  s_9f4d281a252f: Gracinha Caiado 19 · Vanderlan Cardoso 18 · Gustavo Gayer 15.4 · Gustavo Medanha 7.8 · Jorge Kajuru 6.8 · Zacharias Calil 5.2 · Delegado Humberto 4.4 · Alexandre Bady 2.8
+  s_a7c84a21faf0: Vanderlan Cardoso 19.2 · Gustavo Gayer 13.7 · Gracinha Caiado 12.2 · Zacharias Calil 10.9 · Gustavo Mendanha 10.6 · Jorge Kajuru 5.6 · Alexandre Bady 3.6
 - **[2026]** cenários separados — Real Time Big Data · PE senador/t1 · 2026-04-08 — 2 levantamentos
   s_a06cc00947e0: Marília Arraes 27 · Miguel Coelho 20 · Anderson Ferreira 18 · Humberto Costa 17 · Mendonça Filho 12
   s_b8267f8e8ffc: Marília Arraes 28 · Humberto Costa 17 · Miguel Coelho 21 · Túlio Gadêlha 8 · Anderson Ferreira 19
@@ -349,7 +356,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (389)
+## CONFLITO — Conflitos registrados aguardando decisão (406)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -742,11 +749,30 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_b42b77ccb78a · results: ["Doutora Natasha","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
+- candidate_id_orphaned · c_eafff6e3056a · candidate_id: "c_eafff6e3056a" × null
+- roster_encolhido_na_fonte · q_8edd93a849ac · results: ["Adriana Accorsi","Daniel Vilela","Edward Madureira","Marconi Perillo","Wilder Morais"] × ["Adriana Accorsi","Daniel Vilela","Edward Madureira","Wilder Morais"]
+- roster_encolhido_na_fonte · q_b25d3d05d703 · results: ["Alexandre Bady","Delegado Humberto","Gracinha Caiado","Gustavo Gayer","Gustavo Medanha","Jorge Kajuru","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Bady","Delegado Humberto","Gustavo Medanha","Jorge Kajuru","Vanderlan Gomes","Zacharias Calil"]
+- person_id_orphaned · p_555bfa35a302 · person_id: "p_555bfa35a302" × null
+- survey_id_orphaned · s_2e486001e1b7 · survey_id: "s_2e486001e1b7" × null
+- roster_encolhido_na_fonte · q_7069136782e8 · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
+- survey_id_orphaned · s_030da7791fed · survey_id: "s_030da7791fed" × null
+- person_id_orphaned · p_ee4f3e287621 · person_id: "p_ee4f3e287621" × null
+- survey_id_orphaned · s_1f5d157366be · survey_id: "s_1f5d157366be" × null
+- survey_id_orphaned · s_5b4b14ce7535 · survey_id: "s_5b4b14ce7535" × null
+- person_id_orphaned · p_26a6378796c2 · person_id: "p_26a6378796c2" × null
+- survey_id_orphaned · s_cfd1f3a6b8ae · survey_id: "s_cfd1f3a6b8ae" × null
+- survey_id_orphaned · s_1570c8e6f733 · survey_id: "s_1570c8e6f733" × null
+- candidate_id_orphaned · c_453fa152d1bf · candidate_id: "c_453fa152d1bf" × null
+- roster_encolhido_na_fonte · q_e21e9d6a047d · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
+- survey_id_orphaned · s_543f3f025b3d · survey_id: "s_543f3f025b3d" × null
+- candidate_id_orphaned · c_cc728d0e13fd · candidate_id: "c_cc728d0e13fd" × null
 
-## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
+## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
 Disputa estadual (governador/senador) com universo gravado 'uf' e amostra < 800 que ainda NÃO está no ledger de vereditos (data/universe-verdicts.json). Amostra pequena NÃO prova municipal — muitas estaduais legítimas são pequenas — então cada uma exige leitura de fonte (cega) antes de gatear. Ponto cego conhecido: um municipal com n ≥ 800 escapa desta varredura; o gate é por veredito no ledger, não por este limiar. Confirmada municipal, entra no ledger e sai das médias estaduais; confirmada estadual, entra como estadual e para de aparecer aqui. É triagem, não porta.
 
+- **[2026]** s_9f4d281a252f · Direct Pesquisas · GO · n=500 · registro GO-05001/2026
+- **[2026]** s_a7c84a21faf0 · Direct Pesquisas · GO · n=500 · registro GO-03428/2026
 - **[2026]** s_a730093c4b6a · IPR · MS · n=784 · registro —
 
 ## PARTIDA — A mesma pessoa em duas linhas, uma delas sem registro (0)

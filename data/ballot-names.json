@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 677,
+  "exato": 678,
   "contencao": 218,
   "outra_disputa": 162,
   "ambiguo": 5,
-  "sem": 559
+  "sem": 564
  },
  "ambiguos": [
   {
@@ -484,6 +484,13 @@
     "sq_candidato": "10002532492",
     "partido": "REPUBLICANOS",
     "numero": "10",
+    "origem": "exato"
+   },
+   "dr luisinho": {
+    "nome_urna": "Dr.luisinho",
+    "sq_candidato": "10002533539",
+    "partido": "AGIR",
+    "numero": "36",
     "origem": "exato"
    },
    "dr thor dantas": {
