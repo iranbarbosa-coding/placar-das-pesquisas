@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HeroBasisSwitch from "@/components/HeroBasisSwitch";
 import RunoffBars from "@/components/RunoffBars";
 import MatchupRows from "@/components/MatchupRows";
@@ -59,6 +60,28 @@ export default function Home() {
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_336px]">
+      {/* Noite da eleição: chamada para a apuração ao vivo (dados do TSE). */}
+      <Link
+        href="/apuracao"
+        className="card flex flex-wrap items-center justify-between gap-3 px-4 py-3 lg:col-span-2"
+        style={{ borderColor: "var(--accent)" }}
+      >
+        <span className="flex items-center gap-2.5">
+          <span className="relative inline-flex h-2.5 w-2.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60" style={{ background: "var(--cand-red)" }} />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full" style={{ background: "var(--cand-red)" }} />
+          </span>
+          <span className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-primary)" }}>
+            Apuração ao vivo · Presidente 1º turno
+          </span>
+          <span className="hidden text-xs sm:inline" style={{ color: "var(--text-secondary)" }}>
+            Lula × Flávio Bolsonaro e o andamento por região e estado, direto do TSE
+          </span>
+        </span>
+        <span className="text-sm font-semibold" style={{ color: "var(--accent)" }}>
+          Acompanhar →
+        </span>
+      </Link>
       {/* LEFT: the main stack. `min-w-0` keeps the wide table from forcing the
           track past the viewport on phones (a documented overflow fix). */}
       <div className="flex min-w-0 flex-col gap-6">
