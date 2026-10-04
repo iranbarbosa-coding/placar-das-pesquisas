@@ -2028,3 +2028,26 @@ afirmações NÃO MEDIDAS saíram erradas e foram pegas por leitura cruzada: a p
 6→5 deu 6→12; "Lula/Flávio casam pessoa existente" deu duas duplicatas; "Samara
 aparece na contradição" era lixo de extração. Cada uma corrigida com número. É o §1
 em ação, e a razão da emenda ao §1.
+
+## SESSÃO DE 04/10/2026 (madrugada do pleito) — o ano que atravessava seções na Wikipédia
+
+- **Achado**: a página baiana tem `== Primeiro turno (governador) ==` → `=== 2024 – 2025 ===`
+  e depois `== Senador ==` sem nenhum `=== 2026 ===`. O cursor de ano dos cabeçalhos
+  (`ano_cabecalho` em `wiki_parse.extract`) atravessava a seção: as 32 pesquisas do
+  Senado da BA saíam em 2024 e a média do Senado baiano ficou parada em 18/08 (as
+  cópias do Poder360, só de voto único, não entram na média). O mesmo cursor datava em
+  2025 os 2º turnos de BA, MT, PB, RN, RS e SC (seções de confronto sem ano).
+- **Regra nova**: cada `==` recomeça o ano; sem cabeçalho de ano, a seção resolve como
+  uma subpágina de intervalo (`resolver_ano`: âncora de citação + ordem inversa), com a
+  faixa tirada do título da página (eleição de 2026 → 2023–2026). Cabeçalho sem ano E
+  sem mês (nome de confronto) ou `{{hidden begin}}` recomeça o cursor; cabeçalho de
+  meses continua a cronologia (as faixas da presidencial). `_meses_do_titulo` só aceita
+  a PALAVRA inteira — "Maria" não é março (2º turno do AM descia um ano por confronto).
+- **Como medir uma mudança do parser**: `diag-fontes-branch` com um job que carrega o
+  `wiki_parse.py` de `origin/main` e o da branch, roda `coletar` nas 29 páginas com o
+  mesmo cache de HTTP e imprime o histograma (race, uf, ano) e as linhas que mudaram.
+  Quatro rodadas até o diff ficar só com o que se queria mudar.
+- **Efeito no juiz de delta**: a re-datação faz a linha da Wikipédia cair no registro do
+  Poder360 da mesma operação de campo; a pergunta antiga (mal datada) some sem
+  sucessora de tabela idêntica em 5 casos (RS ×2, BA ×3) — ratificadas em
+  `data/repairs.json` com o `survey_id` do Poder360 como prova.

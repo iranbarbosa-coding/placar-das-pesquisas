@@ -46,6 +46,7 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 03/10 | Ratificadas 10 perdas com a fonte lida no dia (RJ governador ×2, AP governador e senado, MS, SE ×2, AC, MT, presidente:SC): linhas retiradas, movidas de confronto ou re-rotuladas na Wikipédia e um registro republicado pelo Poder360. Evidência em `data/repairs.json` (`allow_question_drop`). | Iran (PR #125) |
 | 03/10 | Um registro da fonte SEM data não bloqueia um `add_poll` curado datado (o vizinho é dito em voz alta). Motivo: `presidente:RJ` congelou porque um Quaest sem data recusou a curada de 25/07. | Iran (PR #125) |
 | 03/10 | O juiz de delta prova "a data chegou": levantamento sem data que a Wikipédia datou, mesma casa, mesma amostra, tabela idêntica (caso 12d). Motivo: `presidente:BR` entrou em quarentena na véspera do pleito pelos cinco 2º turnos do Datafolha. | Iran (PR #124) |
+| 04/10 | Wikipédia: uma seção de nível 2 sem cabeçalho de ano NÃO herda o ano da seção vizinha; resolve por âncora de citação (inclusive `data=DD/MM/AAAA`) e ordem cronológica inversa dentro da faixa da página, e todo cabeçalho sem ano e sem mês (confronto de 2º turno, `{{hidden begin}}`) recomeça a cronologia. Motivo: as 32 pesquisas do Senado da Bahia estavam gravadas em 2024 (média parada em 18/08) e os 2º turnos de BA, MT, PB, RN, RS e SC estavam em 2025. Cinco duplicatas mal datadas (RS ×2, BA ×3) ratificadas com a prova do registro Poder360 da mesma operação de campo. | Iran (PR #126) |
 
 ## Em aberto
 
