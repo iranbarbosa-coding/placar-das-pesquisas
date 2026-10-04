@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# diag 04/10: ano por seção (senador:BA) — parser antigo × novo nas 29 páginas + ensaio completo
+# diag 04/10 (rodada 5): ano por seção + 5 ratificações de duplicatas mal datadas (RS, BA)
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
