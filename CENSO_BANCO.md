@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1770 levantamentos · 5921 perguntas · 162 institutos · 1447 candidatos**.
+Banco: **1770 levantamentos · 5922 perguntas · 162 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 51 | 37 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 406 | 5 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 435 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **487** | **45** |
+| **total** | **516** | **45** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -356,7 +356,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (406)
+## CONFLITO — Conflitos registrados aguardando decisão (435)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -749,23 +749,52 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_b42b77ccb78a · results: ["Doutora Natasha","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- candidate_id_orphaned · c_eafff6e3056a · candidate_id: "c_eafff6e3056a" × null
+- person_id_orphaned · p_fac19f558bae · person_id: "p_fac19f558bae" × null
+- person_id_orphaned · p_d8f874dc05cf · person_id: "p_d8f874dc05cf" × null
+- person_id_orphaned · p_9c8c8c3dae6f · person_id: "p_9c8c8c3dae6f" × null
+- person_id_orphaned · p_f9627e27b137 · person_id: "p_f9627e27b137" × null
+- person_id_orphaned · p_c1681411ad86 · person_id: "p_c1681411ad86" × null
+- person_id_orphaned · p_e0d417611983 · person_id: "p_e0d417611983" × null
+- person_id_orphaned · p_7957d0cf37b8 · person_id: "p_7957d0cf37b8" × null
+- person_id_orphaned · p_1512340f746f · person_id: "p_1512340f746f" × null
+- person_id_orphaned · p_5f6b4ea08c87 · person_id: "p_5f6b4ea08c87" × null
 - roster_encolhido_na_fonte · q_8edd93a849ac · results: ["Adriana Accorsi","Daniel Vilela","Edward Madureira","Marconi Perillo","Wilder Morais"] × ["Adriana Accorsi","Daniel Vilela","Edward Madureira","Wilder Morais"]
 - roster_encolhido_na_fonte · q_b25d3d05d703 · results: ["Alexandre Bady","Delegado Humberto","Gracinha Caiado","Gustavo Gayer","Gustavo Medanha","Jorge Kajuru","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Bady","Delegado Humberto","Gustavo Medanha","Jorge Kajuru","Vanderlan Gomes","Zacharias Calil"]
-- person_id_orphaned · p_555bfa35a302 · person_id: "p_555bfa35a302" × null
-- survey_id_orphaned · s_2e486001e1b7 · survey_id: "s_2e486001e1b7" × null
+- person_id_orphaned · p_328c021ecc68 · person_id: "p_328c021ecc68" × null
+- person_id_orphaned · p_1ad5458652b2 · person_id: "p_1ad5458652b2" × null
+- person_id_orphaned · p_361d1afbf65c · person_id: "p_361d1afbf65c" × null
+- person_id_orphaned · p_a85c6556c6d0 · person_id: "p_a85c6556c6d0" × null
+- person_id_orphaned · p_20668c848750 · person_id: "p_20668c848750" × null
+- person_id_orphaned · p_f0f47e94723e · person_id: "p_f0f47e94723e" × null
+- person_id_orphaned · p_9c50de357f2d · person_id: "p_9c50de357f2d" × null
+- person_id_orphaned · p_829a994fbf2d · person_id: "p_829a994fbf2d" × null
+- person_id_orphaned · p_1a620b5b4814 · person_id: "p_1a620b5b4814" × null
+- person_id_orphaned · p_0ccb4ab28e44 · person_id: "p_0ccb4ab28e44" × null
 - roster_encolhido_na_fonte · q_7069136782e8 · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
-- survey_id_orphaned · s_030da7791fed · survey_id: "s_030da7791fed" × null
-- person_id_orphaned · p_ee4f3e287621 · person_id: "p_ee4f3e287621" × null
-- survey_id_orphaned · s_1f5d157366be · survey_id: "s_1f5d157366be" × null
-- survey_id_orphaned · s_5b4b14ce7535 · survey_id: "s_5b4b14ce7535" × null
-- person_id_orphaned · p_26a6378796c2 · person_id: "p_26a6378796c2" × null
-- survey_id_orphaned · s_cfd1f3a6b8ae · survey_id: "s_cfd1f3a6b8ae" × null
-- survey_id_orphaned · s_1570c8e6f733 · survey_id: "s_1570c8e6f733" × null
-- candidate_id_orphaned · c_453fa152d1bf · candidate_id: "c_453fa152d1bf" × null
+- person_id_orphaned · p_b51902a4afd9 · person_id: "p_b51902a4afd9" × null
+- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
+- person_id_orphaned · p_5266581d3b75 · person_id: "p_5266581d3b75" × null
+- person_id_orphaned · p_b40dff4fd9fa · person_id: "p_b40dff4fd9fa" × null
+- person_id_orphaned · p_57ff2aead704 · person_id: "p_57ff2aead704" × null
+- person_id_orphaned · p_5f820a812d60 · person_id: "p_5f820a812d60" × null
+- person_id_orphaned · p_032a75917d31 · person_id: "p_032a75917d31" × null
+- person_id_orphaned · p_296bdae05e80 · person_id: "p_296bdae05e80" × null
+- person_id_orphaned · p_711265c4f4eb · person_id: "p_711265c4f4eb" × null
+- person_id_orphaned · p_f34ad768be6f · person_id: "p_f34ad768be6f" × null
+- person_id_orphaned · p_edc6555d6182 · person_id: "p_edc6555d6182" × null
+- person_id_orphaned · p_96b19c9a60c8 · person_id: "p_96b19c9a60c8" × null
+- person_id_orphaned · p_842bc306b071 · person_id: "p_842bc306b071" × null
+- person_id_orphaned · p_b6cdfb3bc8d6 · person_id: "p_b6cdfb3bc8d6" × null
+- person_id_orphaned · p_30bc745f8124 · person_id: "p_30bc745f8124" × null
+- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
+- person_id_orphaned · p_8628635825fd · person_id: "p_8628635825fd" × null
+- person_id_orphaned · p_df4c4761871e · person_id: "p_df4c4761871e" × null
 - roster_encolhido_na_fonte · q_e21e9d6a047d · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
-- survey_id_orphaned · s_543f3f025b3d · survey_id: "s_543f3f025b3d" × null
-- candidate_id_orphaned · c_cc728d0e13fd · candidate_id: "c_cc728d0e13fd" × null
+- person_id_orphaned · p_a257a2d68f59 · person_id: "p_a257a2d68f59" × null
+- person_id_orphaned · p_e5affcbbb629 · person_id: "p_e5affcbbb629" × null
+- person_id_orphaned · p_4d6a98da5d81 · person_id: "p_4d6a98da5d81" × null
+- person_id_orphaned · p_00bf721a17f7 · person_id: "p_00bf721a17f7" × null
+- person_id_orphaned · p_73615dd0fd7c · person_id: "p_73615dd0fd7c" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
