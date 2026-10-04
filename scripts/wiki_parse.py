@@ -570,6 +570,14 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
                     if cursor_mes_cab is not None and fim > cursor_mes_cab:
                         ano_cabecalho -= 1
                     cursor_mes_cab = fim
+                if not meses and ano_ctx.get('faixa'):
+                    # Cabeçalho sem ano E sem mês ("=== ACM Neto e Jerônimo ===",
+                    # "== Senador =="): não é um passo da cronologia, é uma lista
+                    # NOVA, que recomeça do mais recente. Só um cabeçalho de meses
+                    # continua a ordem do anterior (as faixas da presidencial).
+                    # Medido em 04/10/2026: sem isto, o 2º turno de AM/MA/MG/RN,
+                    # um confronto por subseção, descia um ano por subseção.
+                    ano_ctx['cursor_ano'], ano_ctx['cursor_mes'] = ano_ctx['faixa'][1], None
             i += 1; continue
         if s.startswith('{{hidden begin'):
             hidden = None
@@ -1079,6 +1087,15 @@ def _self_test():
     pb = [(p['race'], p['pollster'][:9], p['fieldwork_end']) for p in extract(bahia, url_ba, 'pt', 'auto', 'BA')]
     assert pb == [('governador', 'Paraná Pe', '2024-09-23'), ('senador', 'AtlasInte', '2026-09-28'), ('senador', 'IFP', '2026-09-26'),
                   ('senador', 'Veritá', '2026-08-19'), ('senador', 'Quaest', '2025-12-02')], ('o ano do governador atravessou para o Senado', pb)
+    # 2º TURNO COM UM CONFRONTO POR SUBSEÇÃO, sem ano em nenhum cabeçalho (AM,
+    # MA, MG, RN): cada subseção recomeça do mais recente — a segunda NÃO desce
+    # um ano porque setembro é "maior" que o agosto em que a primeira terminou.
+    pares = "\n".join(["== Segundo turno (governador) ==", "=== Omar Aziz e David Almeida ===",
+        linha_ba('Quaest', '20 a 23 de setembro'), linha_ba('Veritá', '28 de julho a 1 de agosto'),
+        "=== Omar Aziz e Roberto Cidade ===",
+        linha_ba('Quaest', '20 a 23 de setembro'), linha_ba('DMP', '11 a 14 de agosto'), linha_ba('Antiga', '20 a 23 de novembro')])
+    pr = [p['fieldwork_end'] for p in extract(pares, url_ba.replace('Bahia', 'Amazonas'), 'pt', 'auto', 'AM') if p['race'] == 'governador']
+    assert pr == ['2026-09-23', '2026-08-01', '2026-09-23', '2026-08-14', '2025-11-23'], ('subseção de confronto desceu um ano', pr)
     # A FILA: subpágina descoberta entra logo depois da página-mãe — antes da
     # inglesa —, cada página é buscada uma vez, e o ano herdado chega lá.
     base_en = 'Opinion polling for the 2026 Brazilian presidential election'
