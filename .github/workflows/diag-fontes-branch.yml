@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# diag 04/10 (04): eleições de 2026 no ele-c.json do TSE e o JSON simplificado (presidente BR, governador e senador SP)
+# diag 04/10 (05): caminho do JSON de resultados do TSE 2026 (presidente 6257, estadual 6259)
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -13,33 +13,24 @@ jobs:
           set +e
           python3 - <<'PY'
           import json, urllib.request
-          UA={'User-Agent':'Mozilla/5.0 PlacarDasPesquisas/1.0'}
+          UA={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/128 Safari/537.36','Accept':'application/json,*/*','Referer':'https://resultados.tse.jus.br/'}
           def get(u):
               try:
                   with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40) as r: return r.status, r.read().decode('utf-8','replace')
               except Exception as e: return None, f"ERRO {e}"
-          st, t = get("https://resultados.tse.jus.br/oficial/comum/config/ele-c.json")
-          cfg = json.loads(t)
-          print("gerado em", cfg.get("dg"), cfg.get("hg"))
-          eleicoes = []
-          for pl in cfg["pl"]:
-              if pl.get("c") != "ele2026": continue
-              print("PLEITO", pl["cd"], pl.get("dt"), "ciclo", pl["c"])
-              for e in pl["e"]:
-                  cargos = sorted({(c["cd"], c["ds"]) for a in e.get("abr", []) for c in a.get("cp", [])})
-                  ufs = [a["cd"] for a in e.get("abr", [])]
-                  print("   ELEICAO cd", e["cd"], "cdt2", e.get("cdt2"), "turno", e.get("t"), "tp", e.get("tp"), "|", e["nm"], "| cargos", cargos, "| abr", ufs[:6], "..." if len(ufs) > 6 else "")
-                  eleicoes.append((e["cd"], e.get("t"), cargos, ufs))
-          print("########## JSON SIMPLIFICADO ##########")
-          for cd, t, cargos, ufs in eleicoes:
-              if t != "1": continue
-              for ccd, cds in cargos:
-                  uf = "br" if "br" in ufs else ("sp" if "sp" in ufs else ufs[0])
-                  u = f"https://resultados.tse.jus.br/oficial/ele2026/{cd}/dados-simplificados/{uf}/{uf}-c{int(ccd):04d}-e{int(cd):06d}-r.json"
-                  st, body = get(u)
-                  print("-----", cds, u, st)
-                  if st:
-                      d = json.loads(body)
-                      print({k: v for k, v in d.items() if k != "cand"})
-                      for c in d.get("cand", [])[:4]: print("   cand:", c)
+          B="https://resultados.tse.jus.br/oficial/ele2026"
+          tent = [
+            f"{B}/6257/dados-simplificados/br/br-c0001-e006257-r.json",
+            f"{B}/6257/dados/br/br-c0001-e006257-r.json",
+            f"{B}/6257/dados/br/br-c0001-e006257-s.json",
+            f"{B}/6259/dados-simplificados/sp/sp-c0003-e006259-r.json",
+            f"{B}/6259/dados/sp/sp-c0003-e006259-r.json",
+            f"{B}/6259/dados/sp/sp-c0005-e006259-r.json",
+            f"{B}/6257/config/br/br-c0001-e006257-c.json",
+            f"{B}/6257/config/mun-e006257-cm.json",
+            "https://resultados.tse.jus.br/oficial/ele2026/6257/dados/br/br-c0001-e006257-u.json",
+          ]
+          for u in tent:
+              st, body = get(u)
+              print("-----", u, "→", st, (body[:900] if st else body[:160]))
           PY
