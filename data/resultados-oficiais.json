@@ -1,0 +1,8 @@
+{
+  "nota": "Resultados oficiais do TSE (Divulgação de Resultados, https://resultados.tse.jus.br), por disputa. `validos` traz o percentual de votos válidos de cada candidato tal como o TSE publica (campo `pvap` do JSON simplificado); `apurado_pct` é o percentual de seções totalizadas (`pst`) no momento da leitura. Enquanto `disputas` estiver vazio o site não mostra o ranking de acerto dos institutos. Preenchido pelo runner (scripts/tse-resultados.mjs) ou à mão; nunca inferido.",
+  "turno": 1,
+  "eleicao": "2026-10-04",
+  "atualizado_em": null,
+  "fonte": "https://resultados.tse.jus.br",
+  "disputas": []
+}
