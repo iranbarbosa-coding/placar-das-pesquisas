@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1708 levantamentos · 5764 perguntas · 162 institutos · 1400 candidatos**.
+Banco: **1713 levantamentos · 5773 perguntas · 162 institutos · 1405 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado

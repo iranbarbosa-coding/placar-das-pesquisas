@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-04T01:25:42.498Z",
+ "generated_at": "2026-10-04T02:34:23.490Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-04T01:25:42.498Z"
+   "last_ok": "2026-10-04T02:34:23.490Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-04T01:25:42.498Z"
+   "last_ok": "2026-10-04T02:34:23.490Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-04T01:25:42.498Z"
+   "last_ok": "2026-10-04T02:34:23.490Z"
   }
  ],
  "polls": [
@@ -884,6 +884,458 @@
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": "AL-07379/2026"
+  },
+  {
+   "id": "p360-14330-1-0-0088d5dfce3b",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 50
+    },
+    {
+     "candidate": "Clécio Luís",
+     "party": "União Brasil",
+     "pct": 45
+    },
+    {
+     "candidate": "Carlos Cley",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Delegado Marcos",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Jairo Palheta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "AM-04805/2026"
+  },
+  {
+   "id": "p360-14330-2-0-b357bfeebb59",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Dr. Furlan vs Clécio Luís",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 50
+    },
+    {
+     "candidate": "Clécio Luís",
+     "party": "União Brasil",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "AM-04805/2026"
+  },
+  {
+   "id": "p360-14331-1-0-721e4711f865",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "race": "senador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rayssa Furlan",
+     "party": "Podemos",
+     "pct": 27
+    },
+    {
+     "candidate": "Randolfe",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "Lucas Barreto",
+     "party": "PSD",
+     "pct": 20
+    },
+    {
+     "candidate": "Acácio Favacho",
+     "party": "MDB",
+     "pct": 19
+    },
+    {
+     "candidate": "Aliny Serrão",
+     "party": "União Brasil",
+     "pct": 8
+    },
+    {
+     "candidate": "Professor Uzian Pinto",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Capi",
+     "party": "PSB",
+     "pct": 0
+    },
+    {
+     "candidate": "Helio Silva",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Juíza Jô",
+     "party": "DC",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": "AP-08084/2026"
+  },
+  {
+   "id": "p360-14332-1-0-81707641bb25",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-bahia-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-bahia-3.out_.pdf",
+   "race": "governador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "TV Bahia",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 42
+    },
+    {
+     "candidate": "Ronaldo Mansur",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Maria Bona",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Ariel Capistrano",
+     "party": "DC",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": "BA-02224/2026"
+  },
+  {
+   "id": "p360-14333-1-0-9881c286cbe3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ceara-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ceara-3.out_.pdf",
+   "race": "governador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "TV Verdes Mares",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 42
+    },
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 41
+    },
+    {
+     "candidate": "Delagado Huggo",
+     "party": "Missão",
+     "pct": 1
+    },
+    {
+     "candidate": "Danilo Soares",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Ieri Braga",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Serley Leal",
+     "party": "UP",
+     "pct": 0
+    },
+    {
+     "candidate": "Vera Lúcia",
+     "party": "Novo",
+     "pct": 0
+    },
+    {
+     "candidate": "Zé Batista",
+     "party": "PSTU",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": "CE-04790/2026"
+  },
+  {
+   "id": "p360-14333-2-0-c0e3b48a6432",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ceara-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ceara-3.out_.pdf",
+   "race": "governador",
+   "state": "CE",
+   "round": 2,
+   "scenario": "2º turno: Ciro Gomes vs Elmano de Freitas",
+   "pollster": "Quaest",
+   "contractor": "TV Verdes Mares",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 49
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 48
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": null,
+   "tse_registration": "CE-04790/2026"
+  },
+  {
+   "id": "p360-14335-1-0-cdcc70166049",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/AC-023702026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/AC-023702026.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 36
+    },
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 33
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 16
+    },
+    {
+     "candidate": "Thor Dantas",
+     "party": "PSB",
+     "pct": 5
+    },
+    {
+     "candidate": "Dr.luisinho",
+     "party": "Agir",
+     "pct": 1
+    },
+    {
+     "candidate": "Eudo Raffael",
+     "party": "PCB",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": "AC-02370/2026"
+  },
+  {
+   "id": "p360-14336-1-0-54880eb0119b",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-DF-governo-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-DF-governo-3.out_.pdf",
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2652,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 41
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 24
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 8
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 3
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 2
+    },
+    {
+     "candidate": "Professora Samara Mineiro",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Professor Robson",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Elisson",
+     "party": "Agir",
+     "pct": 0
+    },
+    {
+     "candidate": "Expedito Mendonça",
+     "party": "PCO",
+     "pct": 0
+    },
+    {
+     "candidate": "Rico Pinheiro",
+     "party": "PRTB",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
+   "blank_null_pct": null,
+   "tse_registration": "DF-04089/2026"
+  },
+  {
+   "id": "p360-14336-2-0-3afb7dfa67db",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-DF-governo-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-DF-governo-3.out_.pdf",
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão vs Leandro Grass",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2652,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 50
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": "DF-04089/2026"
   },
   {
    "id": "16b99b84d8d8",
