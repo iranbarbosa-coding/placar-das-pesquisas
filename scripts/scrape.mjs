@@ -217,6 +217,12 @@ export function operacoesCompativeis(a, b) {
   const da = pollDate(a);
   const db = pollDate(b);
   if (!da || !db || da === db) return true;
+  // A MESMA FONTE NÃO LISTA UMA PESQUISA DUAS VEZES COM DATAS DIFERENTES. Duas
+  // linhas da mesma fonte, mesma casa, fins de campo distintos, são duas
+  // medições — o tracking (Palver, 30/09–01/10 e 30/09–03/10, ambas n=5.000,
+  // 04/10/2026): a amostra igual não as distinguiria, e a janela de ±3 dias as
+  // fundiria. O arredondamento de data que a janela perdoa é ENTRE fontes.
+  if (a?.source && b?.source && a.source === b.source) return false;
   const sa = a?.sample_size;
   const sb = b?.sample_size;
   if (sa == null || sb == null) return true;

@@ -423,6 +423,16 @@ function rodar({ mutacao = null } = {}) {
       "a pesquisa da véspera não ficou com registro próprio, data própria e tabela própria");
   });
 
+  caso("operação: duas leituras de um TRACKING na MESMA fonte (fins de campo diferentes, mesma amostra) são duas pesquisas — o caso Palver 01/10 × 03/10", ({ afirma }) => {
+    const a = dfVespera(); a.fieldwork_end = "2026-10-01"; a.fieldwork_start = "2026-09-30"; a.sample_size = 5000; a.id = "";
+    const b = dfVespera(); b.fieldwork_end = "2026-10-03"; b.fieldwork_start = "2026-09-30"; b.sample_size = 5000; b.id = "";
+    b.results = linhas(["Alfa Fusao", 43], ["Beta Fusao", 47], ["Gama Fusao", 1], ["Delta Fusao", 1], ["Epsilon Fusao", 7], ["Zeta Fusao", 0]);
+    const depois = merge([], [a, b]);
+    afirma(depois.length === 2,
+      `${depois.length} registro(s), esperados 2 — a leitura de 03/10 ${depois.length === 1 ? "foi engolida pela de 01/10 (mesma fonte, mesma amostra)" : "se multiplicou"}`);
+    afirma(depois.some((p) => p.fieldwork_end === "2026-10-03" && p.results[1].pct === 47), "a leitura de 03/10 não ficou com a própria data e tabela");
+  });
+
   caso("operação (controle): a mesma coleta com a amostra arredondada de outro jeito pela outra fonte (mesmo fim de campo) ainda funde", ({ afirma }) => {
     const wiki = dfVespera();
     wiki.fieldwork_end = "2026-10-01"; wiki.fieldwork_start = "2026-09-28"; wiki.sample_size = 2500;
@@ -473,6 +483,7 @@ if (process.argv.includes("--self-test")) {
     ],
     "cega-operacao": [
       "operação: a pesquisa da véspera (campo 1–3/10, n=2.002) não é fundida à anterior da mesma casa (28/09–01/10, n=2.506) — fim de campo E amostra diferentes",
+      "operação: duas leituras de um TRACKING na MESMA fonte (fins de campo diferentes, mesma amostra) são duas pesquisas — o caso Palver 01/10 × 03/10",
     ],
   };
   let ok = true;
