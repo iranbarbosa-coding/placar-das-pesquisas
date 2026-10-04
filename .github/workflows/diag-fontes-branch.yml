@@ -1,35 +1,28 @@
 name: diag-fontes-branch
-# 04/10 (06): importa os resultados do TSE (1º turno) e grava data/resultados-oficiais.json na branch
+# 04/10 (07): cabeçalho do arquivo -u do TSE (campo de seções apuradas) e um candidato completo
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
     paths: [.github/workflows/diag-fontes-branch.yml]
-permissions:
-  contents: write
 jobs:
   tse:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 24 }
-      - name: Importar resultados
-        run: |
-          set +e
-          node scripts/tse-resultados.mjs --turno 1
-          echo "exit $?"
+      - run: |
           python3 - <<'PY'
-          import json
-          d = json.load(open('data/resultados-oficiais.json'))
-          print("disputas:", len(d['disputas']), "| falhas:", d.get('falhas'))
-          for x in d['disputas'][:3]:
-              print(x['race'], x['uf'], 'apurado', x['apurado_pct'], list(x['validos'].items())[:5])
+          import json, urllib.request
+          UA={'User-Agent':'Mozilla/5.0 PlacarDasPesquisas/1.0','Referer':'https://resultados.tse.jus.br/'}
+          for u in ["https://resultados.tse.jus.br/oficial/ele2026/6257/dados/br/br-c0001-e006257-u.json",
+                    "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/sp/sp-c0003-e006259-u.json"]:
+              d = json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40))
+              print("=====", u)
+              print("CABEÇALHO:", {k: v for k, v in d.items() if not isinstance(v, (list, dict))})
+              for carg in d.get("carg", []):
+                  print("CARG:", {k: v for k, v in carg.items() if not isinstance(v, (list, dict))})
+                  for agr in carg.get("agr", [])[:1]:
+                      print(" AGR:", {k: v for k, v in agr.items() if not isinstance(v, (list, dict))})
+                      for par in agr.get("par", [])[:1]:
+                          print("  PAR:", {k: v for k, v in par.items() if not isinstance(v, (list, dict))})
+                          for c in par.get("cand", [])[:1]: print("   CAND:", c)
           PY
-      - name: Gravar na branch
-        run: |
-          git config user.name "placar-bot"
-          git config user.email "actions@github.com"
-          git add data/resultados-oficiais.json
-          git commit -m "dados: resultados oficiais do TSE (1º turno), lidos pelo runner" || echo "nada a commitar"
-          git push
