@@ -2914,6 +2914,80 @@
    ]
   }
  ],
+ "presidente:MT": [
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
+ ],
  "governador:PA": [
   {
    "nome": "Araceli Lemos",
@@ -6487,85 +6561,17 @@
    ]
   }
  ],
- "presidente:MT": [
-  {
-   "nome": "Aécio Neves",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Joaquim Barbosa",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Pablo Marçal",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Ratinho Jr.",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Ratinho Júnior",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD"
-   ]
-  }
- ],
  "senador:AC": [
   {
    "nome": "Coronel Ulysses",
    "partidos": [
     "União Brasil"
+   ]
+  },
+  {
+   "nome": "Dr. Junior Feitosa",
+   "partidos": [
+    "DC"
    ]
   },
   {
@@ -6844,7 +6850,7 @@
    ]
   },
   {
-   "nome": "Juiza Jó",
+   "nome": "Juiza Jô",
    "partidos": [
     "DC"
    ]

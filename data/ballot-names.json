@@ -2,7 +2,7 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 673,
+  "exato": 676,
   "contencao": 218,
   "outra_disputa": 162,
   "ambiguo": 5,
@@ -6399,6 +6399,13 @@
     "numero": "290",
     "origem": "exato"
    },
+   "andre gadelha": {
+    "nome_urna": "André Gadelha",
+    "sq_candidato": "150002544909",
+    "partido": "MDB",
+    "numero": "151",
+    "origem": "exato"
+   },
    "joao azevedo": {
     "nome_urna": "João Azevêdo",
     "sq_candidato": "150002549793",
@@ -6433,6 +6440,20 @@
     "partido": "REPUBLICANOS",
     "numero": "100",
     "origem": "contencao"
+   },
+   "rinaldo junior": {
+    "nome_urna": "Rinaldo Júnior",
+    "sq_candidato": "150002548971",
+    "partido": "DC",
+    "numero": "272",
+    "origem": "exato"
+   },
+   "rosilene santana": {
+    "nome_urna": "Rosilene Santana",
+    "sq_candidato": "150002544135",
+    "partido": "UP",
+    "numero": "800",
+    "origem": "exato"
    },
    "veneziano vital do rego": {
     "nome_urna": "Veneziano",
