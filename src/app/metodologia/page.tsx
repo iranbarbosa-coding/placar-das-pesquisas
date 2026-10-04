@@ -396,7 +396,8 @@ export default function MetodologiaPage() {
           </Cap>
           <Cap icon="shield" title="Mesma base dos dois lados">
             Presidente e governador em votos válidos, como o TSE publica. Senado só com pesquisas de dois votos,
-            contra duas vezes o percentual de válidos do TSE — cada eleitor tem dois votos.
+            cada nome como parte das menções a candidatos — a mesma conta do TSE, que divide os votos do candidato
+            pelos votos válidos totais dos dois votos.
           </Cap>
           <Cap icon="ban" title="Só nomes presentes nos dois lados">
             Um candidato que a pesquisa não testou, ou que desistiu, não conta. Entre os presentes, ficam os

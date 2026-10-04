@@ -12,9 +12,14 @@
 //     não é "erro" medir setembro e errar outubro.
 //  2. Mesma base dos dois lados. Presidente e governador em VOTOS VÁLIDOS
 //     (`toBasis`, regra 1 de validos.ts), contra o `pvap` do TSE. Senado: só
-//     pesquisas de DOIS votos (as mesmas da média, `averageable`), contra
-//     2 × pvap — cada eleitor tem dois votos, o TSE publica a parte de cada
-//     candidato nos votos válidos totais, e a pesquisa de dois votos soma ~200.
+//     pesquisas de DOIS votos (as mesmas da média, `averageable`), e a pesquisa
+//     é posta na base do TSE: a parte de cada nome no total de MENÇÕES a
+//     candidatos (candidatos + outros, sem indecisos e branco/nulo). É o que o
+//     `pvap` do Senado publica — votos do candidato sobre os votos válidos
+//     totais, os dois votos de cada eleitor juntos, somando 100. Uma tabela de
+//     dois votos sem indecisos soma ~200; com eles descontados, 120–160. Comparar
+//     o bruto com 2 × pvap (como a primeira versão fazia) inflava o erro de
+//     TODO instituto no Senado em 10–20 p.p.
 //  3. Só candidatos presentes nos DOIS lados (pesquisa e urna) entram no erro;
 //     um nome que a pesquisa não testou não é erro dela. Entre os presentes, os
 //     com ≥ `PISO_PCT` nas urnas ou no top-`TOPO` — os nanicos a 0,3% só
@@ -147,11 +152,23 @@ function ultimaPorInstituto(race: RaceKind, uf: UF | null, round: 1 | 2, eleicao
   return [...porInstituto.values()];
 }
 
+/**
+ * Pesquisa de dois votos para o Senado na base do `pvap` do TSE: cada nome como
+ * parte do total de menções a candidatos (candidatos + outros), somando 100.
+ */
+function senadoEmValidos(p: Poll): Poll {
+  const denom = p.results.reduce((a, r) => a + r.pct, 0) + (p.others_pct ?? 0);
+  if (denom <= 0) return p;
+  const scale = 100 / denom;
+  return { ...p, results: p.results.map((r) => ({ ...r, pct: r.pct * scale })) };
+}
+
 function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
-  // Senado: a pesquisa de dois votos soma ~200; o pvap do TSE soma 100. Dobrar
-  // o TSE põe os dois na mesma grandeza (regra 2).
-  const fator = r.race === "senador" ? 2 : 1;
-  const pesquisa = r.race === "senador" ? p : toBasis(p, "validos");
+  // Regra 2: os dois lados em parte dos votos válidos. `toBasis` não converte
+  // Senado de propósito (regra 2 de validos.ts, pensada para a exibição); aqui a
+  // conversão é exatamente a conta que o TSE publica, então é feita à parte.
+  const pesquisa = r.race === "senador" ? senadoEmValidos(p) : toBasis(p, "validos");
+  const fator = 1;
   const urna = new Map<string, number>();
   for (const [nome, pct] of Object.entries(r.validos)) urna.set(candKey(nome), pct * fator);
   const ordem = [...urna.entries()].sort((a, b) => b[1] - a[1]);

@@ -102,8 +102,8 @@ export default function RankingInstitutos({
       <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
         Fonte dos resultados: TSE, Divulgação de Resultados{data.atualizado_em ? `, lido em ${fmtDate(data.atualizado_em.slice(0, 10))}` : ""}
         {parcial ? ", com a totalização ainda em andamento — os erros mudam um pouco até o resultado final" : ""}.
-        Erro na margem = diferença entre a vantagem do 1º sobre o 2º na pesquisa e nas urnas. Senado comparado em dois votos (pesquisas que
-        somam ~200 contra 2 × o percentual de válidos do TSE). Uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.{" "}
+        Erro na margem = diferença entre a vantagem do 1º sobre o 2º na pesquisa e nas urnas. Senado: só pesquisas de dois votos, com cada nome como
+        parte das menções a candidatos — a mesma conta do percentual de válidos do TSE. Uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.{" "}
         <Link href="/metodologia" className="underline">Metodologia</Link>
       </p>
     </section>
