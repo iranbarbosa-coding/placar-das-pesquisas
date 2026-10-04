@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Parse Wikipedia (pt+en) wikitext polling tables for the 2026 Brazilian presidential election."""
-import json, re, sys, unicodedata
+import json, re, sys, unicodedata, urllib.parse
 
 PT_URL = "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026"
 EN_URL = "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election"
@@ -394,12 +394,20 @@ def parse_dates(text, year_hint):
 
 def _meses_do_titulo(title):
     """Meses citados num cabeçalho ("Novembro - Dezembro", "De janeiro a agosto"), em ordem."""
+    # Palavra INTEIRA: o nome do mês ou a abreviatura de três letras. O prefixo
+    # não basta — "Maria" começa por "mar" e "=== Omar Aziz e Professora Maria
+    # do Carmo ===" (2º turno do AM, 04/10/2026) virava um cabeçalho de março,
+    # descendo um ano por confronto.
     out = []
     for w in re.findall(r'[A-Za-zÀ-ÿ]+', title or ''):
-        mm = MONTHS.get(_fold(w)[:3]) if len(w) >= 3 else None
-        if mm and _fold(w)[:3] in ('jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'):
-            out.append(mm)
+        f = _fold(w)
+        if f in _MESES_PT:
+            out.append(MONTHS[f])
     return out
+
+_MESES_PT = frozenset(['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez',
+                       'janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho', 'julho', 'agosto',
+                       'setembro', 'outubro', 'novembro', 'dezembro'])
 
 def _mes_do_campo(dcell):
     """Mês (1-12) do FIM do campo lido da célula de datas, ou None."""
@@ -410,6 +418,10 @@ def _mes_do_campo(dcell):
 
 _RE_PUB_PT = re.compile(r'(?<![a-z\-])data\s*=\s*(\d{1,2})[º°]?\s*de\s+([a-zçã]+)\s+de\s+(20\d\d)', re.I)
 _RE_PUB_ISO = re.compile(r'(?<![a-z\-])dat[ae]\s*=\s*(20\d\d)-(\d\d)-\d\d', re.I)
+# `data=29/09/2026` — a forma brasileira, a mais comum nas páginas estaduais
+# (senador:BA, 04/10/2026: 7 das 9 citações da seção eram assim e nenhuma
+# âncora era lida).
+_RE_PUB_BR = re.compile(r'(?<![a-z\-])data\s*=\s*(\d{1,2})/(\d{1,2})/(20\d\d)', re.I)
 _RE_PUB_EN = re.compile(r'(?<![a-z\-])date\s*=\s*(?:(\d{1,2})\s+([A-Za-z]+)|([A-Za-z]+)\s+\d{1,2},?)\s+(20\d\d)', re.I)
 _RE_ACESSO = re.compile(r'(?:acessodata|access-?date)\s*=\s*[^|}]*?(20\d\d)', re.I)
 
@@ -439,6 +451,9 @@ def resolver_ano(dcell, bruto, ctx):
         if mm: pubs.append((int(m.group(3)), mm))
     for m in _RE_PUB_ISO.finditer(bruto or ''):
         pubs.append((int(m.group(1)), int(m.group(2))))
+    for m in _RE_PUB_BR.finditer(bruto or ''):
+        if 1 <= int(m.group(2)) <= 12:
+            pubs.append((int(m.group(3)), int(m.group(2))))
     for m in _RE_PUB_EN.finditer(bruto or ''):
         nome = m.group(2) or m.group(3)
         mm = MONTHS.get(_fold(nome)[:3])
@@ -497,10 +512,29 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
     # páginas configuradas `title_hint` é None e nada muda: o ano segue vindo
     # dos cabeçalhos, em ordem de documento, como sempre veio.
     default_round, last_year, faixa_anos = hints_from_title(title_hint)
+    ano_titulo = last_year
+    # A FAIXA DA PÁGINA CONFIGURADA. Uma seção de nível 2 sem nenhum cabeçalho
+    # de ano (senador:BA, 04/10/2026: "== Senador ==" vem depois de
+    # "=== 2024 – 2025 ===" do governador e não tem "=== 2026 ===") herdava o
+    # último ano visto NA OUTRA seção — as 32 pesquisas do Senado baiano, da
+    # AtlasIntel de 24–28/09/2026 para trás, saíam datadas em 2024 e o Senado da
+    # Bahia ficou sem pesquisa da Wikipédia desde agosto. O ano de uma seção
+    # dessas se resolve como numa subpágina de intervalo (ver resolver_ano):
+    # âncora de citação e ordem cronológica inversa, dentro da faixa que o
+    # título da página dá (eleição de 2026 → 2023–2026; nunca depois do pleito).
+    if faixa_anos is None:
+        m_url = re.search(r'(20\d\d)', urllib.parse.unquote(source_url or ''))
+        if m_url:
+            faixa_anos = (int(m_url.group(1)) - 3, int(m_url.group(1)))
     # Estado da resolução de ano em subpágina de INTERVALO ("2023-2025"), cujos
     # cabeçalhos são só meses: cursor cronológico inverso, semeado no ano mais
     # recente da faixa e ancorado pelas datas de publicação das citações.
-    ano_ctx = {'faixa': faixa_anos, 'cursor_ano': faixa_anos[1] if faixa_anos else None, 'cursor_mes': None}
+    # `subpagina`: a faixa veio do TÍTULO de uma subpágina de intervalo, cujos
+    # cabeçalhos são só meses e NÃO podem puxar o ano do cursor de cabeçalhos
+    # (parse_one_table). Numa página configurada o cursor de cabeçalhos segue
+    # valendo como sempre valeu; a faixa só entra onde não há cabeçalho de ano.
+    ano_ctx = {'faixa': faixa_anos, 'cursor_ano': faixa_anos[1] if faixa_anos else None, 'cursor_mes': None,
+               'subpagina': hints_from_title(title_hint)[2] is not None}
     # O ANO DOS CABEÇALHOS SÓ DE MÊS numa página configurada. Em 28/09/2026 a
     # lusófona apagou as subpáginas da presidencial e fundiu tudo na página
     # principal: "=== 2026 ===", os meses de 2026, e então "==== Novembro -
@@ -522,7 +556,15 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
         m = re.match(r'^(={2,4})\s*(.*?)\s*={2,4}\s*$', s)
         if m:
             lvl, title = len(m.group(1)), m.group(2).strip()
-            if lvl == 2: h2, h3, h4, hidden = title, None, None, None
+            if lvl == 2:
+                h2, h3, h4, hidden = title, None, None, None
+                # Seção nova de nível 2: o ano da seção anterior NÃO atravessa.
+                # Sem cabeçalho de ano aqui dentro, as linhas resolvem o ano por
+                # citação e ordem (resolver_ano), com o cursor recomeçando no
+                # topo da faixa — a seção também lista do mais novo ao mais velho.
+                ano_cabecalho, cursor_mes_cab = ano_titulo, None
+                if ano_ctx.get('faixa'):
+                    ano_ctx['cursor_ano'], ano_ctx['cursor_mes'] = ano_ctx['faixa'][1], None
             elif lvl == 3: h3, h4 = title, None
             elif lvl == 4: h4 = title
             ym0 = re.search(r'(20\d\d)', title)
@@ -536,9 +578,22 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
                     if cursor_mes_cab is not None and fim > cursor_mes_cab:
                         ano_cabecalho -= 1
                     cursor_mes_cab = fim
+                if not meses and ano_ctx.get('faixa'):
+                    # Cabeçalho sem ano E sem mês ("=== ACM Neto e Jerônimo ===",
+                    # "== Senador =="): não é um passo da cronologia, é uma lista
+                    # NOVA, que recomeça do mais recente. Só um cabeçalho de meses
+                    # continua a ordem do anterior (as faixas da presidencial).
+                    # Medido em 04/10/2026: sem isto, o 2º turno de AM/MA/MG/RN,
+                    # um confronto por subseção, descia um ano por subseção.
+                    ano_ctx['cursor_ano'], ano_ctx['cursor_mes'] = ano_ctx['faixa'][1], None
             i += 1; continue
         if s.startswith('{{hidden begin'):
             hidden = None
+            # Um bloco escondido é um confronto (AM: "{{hidden begin|title=Omar
+            # Aziz e David Almeida}}", um por bloco, na mesma seção): lista nova,
+            # cronologia recomeça — como num cabeçalho sem ano e sem mês.
+            if ano_ctx.get('faixa'):
+                ano_ctx['cursor_ano'], ano_ctx['cursor_mes'] = ano_ctx['faixa'][1], None
             j = i
             while j < n and '}}' not in lines[j] or j == i:
                 tm = re.search(r'\|\s*title\s*=\s*(.*)', lines[j])
@@ -625,7 +680,7 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
     interno = h4 or h3 or h2
     if interno and re.search(r'(20\d\d)', interno):
         ym = int(re.search(r'(20\d\d)', interno).group(1))
-    elif interno and _meses_do_titulo(interno) and year_ctx is not None and not (ano_ctx and ano_ctx.get('faixa')):
+    elif interno and _meses_do_titulo(interno) and year_ctx is not None and not (ano_ctx and ano_ctx.get('subpagina')):
         ym = year_ctx
     else:
         for part in (h4, h3, h2):
@@ -915,7 +970,10 @@ def _self_test():
     ])
     url = f"https://pt.wikipedia.org/wiki/{base}"
     sem = extract(tabela, url, 'pt', 'presidente', None)
-    assert len(sem) == 1 and sem[0]['round'] == 1 and sem[0]['fieldwork_end'] is None, ('sem título: ano indefinido', sem)
+    # Sem título de subpágina, a FAIXA DA PÁGINA (eleição de 2026 → 2023–2026)
+    # resolve: sem âncora, o cursor começa no topo da faixa. Até 04/10/2026
+    # isto saía sem data; ver o caso senador:BA mais abaixo.
+    assert len(sem) == 1 and sem[0]['round'] == 1 and sem[0]['fieldwork_end'] == '2026-01-07', ('sem título: ano pela faixa da página', sem)
     p1 = extract(tabela, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2026/Janeiro a Agosto')
     assert len(p1) == 1 and p1[0]['round'] == 1 and p1[0]['fieldwork_end'] == '2026-01-07', p1
     assert [r['candidate'] for r in p1[0]['results']] == ['Luiz Inácio Lula da Silva', 'Flávio Bolsonaro'], p1
@@ -1002,8 +1060,9 @@ def _self_test():
         "| Quaest<ref>{{citar web|url=https://x.example/d|titulo=T|data=3 de janeiro de 2020}}</ref> || 18 Dez – 22 Dez || 2.004 || 36 || 29 || 10 || 15", "|}"])
     pp = extract(piso, url, 'pt', 'presidente', None, title_hint='Primeiro Turno/2023-2025')
     assert pp[0]['fieldwork_end'] == '2023-12-22', pp
-    # Página configurada (sem título): comportamento intacto — sem ano, sem data.
-    assert extract(faixa, url, 'pt', 'presidente', None)[0]['fieldwork_end'] is None
+    # Página configurada (sem título): a mesma resolução, dentro da faixa da
+    # página (2023–2026): a âncora de janeiro/2025 data a Quaest.
+    assert extract(faixa, url, 'pt', 'presidente', None)[0]['fieldwork_end'] == '2025-01-10'
     # PÁGINA CONFIGURADA COM OS MESES DE ANOS ANTERIORES SEM CABEÇALHO DE ANO
     # (a presidencial de 28/09/2026): "=== 2026 ===" e os meses de 2026, depois
     # "Novembro - Dezembro", "Setembro - Outubro" (2025) e "De setembro a
@@ -1023,6 +1082,33 @@ def _self_test():
         "==== 2025 ====", linha('Quaest', '26 a 29 de setembro')])
     pf = extract(fundida, url, 'pt', 'presidente', None)
     assert [p['fieldwork_end'] for p in pf] == ['2026-09-07', '2026-01-07', '2025-11-08', '2025-09-29', '2025-02-12', '2024-10-03', '2024-08-22', '2026-09-07', '2025-09-29'], [p['fieldwork_end'] for p in pf]
+    # SEÇÃO DE NÍVEL 2 SEM CABEÇALHO DE ANO (senador:BA, 04/10/2026): a página
+    # estadual tem "== Primeiro turno (governador) ==" → "=== 2024 – 2025 ===" e
+    # depois "== Senador ==" sem nenhum "=== 2026 ===". O ano do governador NÃO
+    # atravessa: a seção do Senado resolve pela âncora (`data=29/09/2026`, forma
+    # brasileira) e pela ordem inversa, dentro da faixa da página — e o
+    # novembro–dezembro no fim da lista vira 2025 pela ordem.
+    url_ba = "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia"
+    cab_ba = "! Instituto !! Data !! Amostra !! [[Rui Costa (político)|Rui Costa]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[João Roma]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos"
+    linha_ba = lambda inst, campo: '\n'.join(["{| class=\"wikitable\"", cab_ba, "|-", f"| {inst} || {campo} || 2.000 || 46 || 34 || 10 || 15", "|}"])
+    bahia = '\n'.join(["== Primeiro turno (governador) ==", "=== 2024 – 2025 ===", linha_ba('Paraná Pesquisas', '21 a 23 de setembro'),
+        "== Senador ==",
+        linha_ba('AtlasIntel<ref>{{Citar web|url=https://x.example/ba|título=T|data=29/09/2026|acessodata=30/09/2026}}</ref>', '24 e 28 de setembro'),
+        linha_ba('IFP<ref name=":20"/>', '23 a 26 de setembro'),
+        linha_ba('Veritá', '15 a 19 de agosto'),
+        linha_ba('Quaest', '28 de novembro a 2 de dezembro')])
+    pb = [(p['race'], p['pollster'][:9], p['fieldwork_end']) for p in extract(bahia, url_ba, 'pt', 'auto', 'BA')]
+    assert pb == [('governador', 'Paraná Pe', '2024-09-23'), ('senador', 'AtlasInte', '2026-09-28'), ('senador', 'IFP', '2026-09-26'),
+                  ('senador', 'Veritá', '2026-08-19'), ('senador', 'Quaest', '2025-12-02')], ('o ano do governador atravessou para o Senado', pb)
+    # 2º TURNO COM UM CONFRONTO POR SUBSEÇÃO, sem ano em nenhum cabeçalho (AM,
+    # MA, MG, RN): cada subseção recomeça do mais recente — a segunda NÃO desce
+    # um ano porque setembro é "maior" que o agosto em que a primeira terminou.
+    pares = "\n".join(["== Segundo turno (governador) ==", "=== Omar Aziz e David Almeida ===",
+        linha_ba('Quaest', '20 a 23 de setembro'), linha_ba('Veritá', '28 de julho a 1 de agosto'),
+        "=== Omar Aziz e Professora Maria do Carmo ===",
+        linha_ba('Quaest', '20 a 23 de setembro'), linha_ba('DMP', '11 a 14 de agosto'), linha_ba('Antiga', '20 a 23 de novembro')])
+    pr = [p['fieldwork_end'] for p in extract(pares, url_ba.replace('Bahia', 'Amazonas'), 'pt', 'auto', 'AM') if p['race'] == 'governador']
+    assert pr == ['2026-09-23', '2026-08-01', '2026-09-23', '2026-08-14', '2025-11-23'], ('subseção de confronto desceu um ano', pr)
     # A FILA: subpágina descoberta entra logo depois da página-mãe — antes da
     # inglesa —, cada página é buscada uma vez, e o ano herdado chega lá.
     base_en = 'Opinion polling for the 2026 Brazilian presidential election'

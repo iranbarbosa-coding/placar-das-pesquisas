@@ -25,7 +25,9 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
   `workflow_dispatch` funciona). Falha abre issue `cron-falha`.
 - **Último dado comitado quando este arquivo nasceu**: 2026-10-03T14:17Z.
 - **Disputas em quarentena** (congeladas no dado do commit anterior por perda
-  sem prova; o site mostra "Dado em revisão"): governador:AP, governador:MS, governador:PE, governador:RJ, governador:SE, presidente:BR, presidente:RJ, presidente:SC, senador:AC, senador:AP, senador:MT.
+  sem prova; o site mostra "Dado em revisão"): **nenhuma** desde o merge do PR #125
+  (03/10, rodada 15:19Z, commit 4f24e2e). Eram 11 quando este arquivo nasceu; #124 tirou presidente:BR e
+  governador:PE, #125 ratificou as nove restantes (ou destravou a curada do RJ).
   A lista viva é `data/conflicts.ndjson` (type `disputa_em_quarentena`).
 - **Publicidade**: nenhuma até 03/10/2026. Lançamento: blitz de vídeos no TikTok
   (perfil @ novo, zero seguidores; ver decisão de 03/10).
@@ -44,13 +46,12 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 03/10 | Ratificadas 10 perdas com a fonte lida no dia (RJ governador ×2, AP governador e senado, MS, SE ×2, AC, MT, presidente:SC): linhas retiradas, movidas de confronto ou re-rotuladas na Wikipédia e um registro republicado pelo Poder360. Evidência em `data/repairs.json` (`allow_question_drop`). | Iran (PR #125) |
 | 03/10 | Um registro da fonte SEM data não bloqueia um `add_poll` curado datado (o vizinho é dito em voz alta). Motivo: `presidente:RJ` congelou porque um Quaest sem data recusou a curada de 25/07. | Iran (PR #125) |
 | 03/10 | O juiz de delta prova "a data chegou": levantamento sem data que a Wikipédia datou, mesma casa, mesma amostra, tabela idêntica (caso 12d). Motivo: `presidente:BR` entrou em quarentena na véspera do pleito pelos cinco 2º turnos do Datafolha. | Iran (PR #124) |
+| 04/10 | Wikipédia: uma seção de nível 2 sem cabeçalho de ano NÃO herda o ano da seção vizinha; resolve por âncora de citação (inclusive `data=DD/MM/AAAA`) e ordem cronológica inversa dentro da faixa da página, e todo cabeçalho sem ano e sem mês (confronto de 2º turno, `{{hidden begin}}`) recomeça a cronologia. Motivo: as 32 pesquisas do Senado da Bahia estavam gravadas em 2024 (média parada em 18/08) e os 2º turnos de BA, MT, PB, RN, RS e SC estavam em 2025. Cinco duplicatas mal datadas (RS ×2, BA ×3) ratificadas com a prova do registro Poder360 da mesma operação de campo. | Iran (PR #126) |
 
 ## Em aberto
 
-- Quarentenas editoriais que pedem fonte primária: SE (França → IFP, três
-  institutos para a mesma casa), MT senado (Paraná com amostra trocada), AC
-  senado (IPSensus retirada), MS governador (Quaest movida de confronto),
-  presidente:SC (Quaest republicada), RJ governador (AtlasIntel republicada).
+- AtlasIntel/RJ 14045 (Cyro Garcia republicado) ainda não ratificada; governador:RJ
+  hoje só perdeu as duas linhas Quaest ratificadas em #125.
 - Nome sem link em várias linhas no cabeçalho da Wikipédia ainda sai cortado no
   primeiro `<br>` ("Geraldo", "Carlos" em governador/SP).
 - Alerta de "rodada agendada ausente" (o workflow só avisa quando roda e falha).

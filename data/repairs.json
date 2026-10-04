@@ -415,6 +415,51 @@
    "source": "https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&unidadesFederativasId=25&ano=2026&turno=1&cidade=",
    "evidence": "v2/cenarios lido em 29/09/2026 (run 36632783007, ensaio 18), id 13934, data 2026-08-23, Quaest: cenário A = [Romeu Zema 3, Augusto Cury 3, Ronaldo Caiado 3, Rui Costa Pimenta 0, indecisos 13, brancos/nulos 8]; cenário B = [Romeu Zema 3, Ronaldo Caiado 3, Augusto Cury 2, Hertz Dias 0, Rui Costa Pimenta 0, brancos/nulos 7]. Nenhum traz Renan Santos, Lula ou Flávio Bolsonaro. A rodada de 03/10 (run 37129058649) descarta o registro por soma<30 (15,0).",
    "verified_at": "2026-10-03"
+  },
+  {
+   "question_id": "q_11d827000f6d",
+   "race": "governador",
+   "uf": "RS",
+   "defect": "ANO ERRADO PELO PARSER (seção '2º turno' da Wikipédia gaúcha sem cabeçalho de ano; corrigido em 04/10/2026): o 2º turno Futura 9–10/02 (Zucco 37,7 × Juliana Brizola 39,3, n=800) estava gravado em 2025; re-datado para 2026 junta-se ao levantamento s_df2d0ca83ffa (Futura 09–10/02/2026, n=800), que já tinha o 1º turno de governador e o Senado da mesma operação de campo.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "evidence": "Comparativo parser antigo × novo nas 29 páginas (run 37165886569, job compara, 04/10/2026 00:45 UTC): a linha sai de ('2025-02-09','2025-02-10') para ('2026-02-09','2026-02-10'), mesma tabela. Store de main (commit e912aab): s_df2d0ca83ffa Futura RS 2026-02-09..10 n=800 com q_7dae28cddebb (gov r1) e q_c1b862354913 (sen r1). Ensaio run 37165886569 (job ensaio) congelou governador:RS por esta perda.",
+   "verified_at": "2026-10-04"
+  },
+  {
+   "question_id": "q_88a13dcde705",
+   "race": "governador",
+   "uf": "RS",
+   "defect": "ANO ERRADO PELO PARSER (seção '2º turno' da Wikipédia gaúcha sem cabeçalho de ano; corrigido em 04/10/2026): o 2º turno AtlasIntel 27/08–01/09 (Zucco 52,2 × Juliana Brizola 47,8, n=1783) estava gravado em 2025; re-datado para 2026 é a mesma operação de campo do levantamento s_668aacb717d6 (AtlasIntel RS 27/08–01/09/2026, n=1783, Poder360), que já traz o 2º turno Zucco 48,5 × Brizola 43,9 em totais.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "evidence": "Comparativo run 37165886569 (job compara): ('2025-08-27','2025-09-01') → ('2026-08-27','2026-09-01'), mesma tabela. Store de main (e912aab): s_668aacb717d6 AtlasIntel RS 2026-08-27..09-01 n=1783 refs poder360, com q_978f2ffef235 (gov r1) e q_dce346e9c8dd (gov r2 48,5×43,9). Ensaio run 37165886569 congelou governador:RS por esta perda.",
+   "verified_at": "2026-10-04"
+  },
+  {
+   "question_id": "q_21a0f02ebac4",
+   "race": "senador",
+   "uf": "BA",
+   "defect": "ANO ERRADO PELO PARSER (seção '== Senador ==' da Wikipédia baiana sem cabeçalho de ano herdava o '2024 – 2025' do governador; corrigido em 04/10/2026): a Paraná Pesquisas 31/07–02/08 (Rui 44,6 · Wagner 35,1 · Roma 24,1 · Coronel 21,9, n=2400) estava gravada em 2024; re-datada para 2026 é a mesma operação de campo de s_f2ebdf9fae4c (Paraná Pesquisas BA 31/07–02/08/2026, Poder360), cujo Senado q_e4e4317ab6a3 traz exatamente 35,1 · 21,9 · 44,6 · 24,1 · 6,4.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "evidence": "Comparativo run 37165886569 (job compara): senador:BA 32 pesquisas saem de 2024 para 2026; wikitexto lido em 04/10 (run 37165417826) mostra a seção '== Senador ==' (linha 826) sem nenhum '=== 20xx ==='. Store de main (e912aab): s_f2ebdf9fae4c n=1400 refs poder360 com q_e4e4317ab6a3 (sen r1). Ensaio run 37165886569 congelou senador:BA por esta perda.",
+   "verified_at": "2026-10-04"
+  },
+  {
+   "question_id": "q_b72fe6df6293",
+   "race": "senador",
+   "uf": "BA",
+   "defect": "ANO ERRADO PELO PARSER (seção '== Senador ==' da Wikipédia baiana sem cabeçalho de ano; corrigido em 04/10/2026): o Instituto TML 18–21/02 (28,67 · 23,22 · 16,12 · 11,51, n=2045) estava gravado em 2024; re-datado para 2026 é a mesma operação de campo de s_8756e6c9de96 (Instituto TML BA 18–21/02/2026, n=2000, Poder360), cujo Senado q_bf55e57faa77 traz 28,67 · 23,22 · 16,12 · 11,51 · 3,97.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "evidence": "Comparativo run 37165886569 (job compara): ('2024-02-18','2024-02-21') → ('2026-02-18','2026-02-21'). Store de main (e912aab): s_8756e6c9de96 refs poder360 ×2 com q_6cba5e710922, q_516c62195f03 (gov) e q_bf55e57faa77 (sen r1, mesmos percentuais). Ensaio run 37165886569 congelou senador:BA por esta perda.",
+   "verified_at": "2026-10-04"
+  },
+  {
+   "question_id": "q_d2893275511a",
+   "race": "senador",
+   "uf": "BA",
+   "defect": "ANO ERRADO PELO PARSER (seção '== Senador ==' da Wikipédia baiana sem cabeçalho de ano; corrigido em 04/10/2026): a Quaest 22–26/04 (24 · 20 · 9 · 6, n=900) estava gravada em 2024; re-datada para 2026 cai na janela de ±3 dias de s_98d5bb5ac356 (Quaest BA 23–27/04/2026, n=1200, Poder360), cujo Senado q_8b66a4b50550 traz 24 · 22 · 9 · 6 · 1 — a mesma rodada da Quaest, com o elenco do Poder360.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "evidence": "Comparativo run 37165886569 (job compara): ('2024-04-22','2024-04-26') → ('2026-04-22','2026-04-26'). Store de main (e912aab): s_98d5bb5ac356 refs poder360 ×2 com q_ea149f2c1842, q_cd07305462a8 (gov) e q_8b66a4b50550 (sen r1). Ensaio run 37165886569 congelou senador:BA por esta perda.",
+   "verified_at": "2026-10-04"
   }
  ],
  "repairs": [
