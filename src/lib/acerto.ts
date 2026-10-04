@@ -168,8 +168,11 @@ function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
   const p1 = pares.find((x) => x.key === l1?.[0]);
   const p2 = pares.find((x) => x.key === l2?.[0]);
   const erroMargem = p1 && p2 ? Math.abs((p1.pesquisa - p2.pesquisa) - (p1.urna - p2.urna)) : null;
-  const liderPesquisa = [...pesquisa.results].sort((a, b) => b.pct - a.pct)[0];
-  const acertouLider = !!l1 && !!liderPesquisa && candKey(liderPesquisa.candidate) === l1[0];
+  // O líder da pesquisa é medido entre os nomes COMPARADOS: uma pesquisa que
+  // testou um nome que acabou não concorrendo (Alckmin em SP) não "errou o
+  // líder" por isso — ela mediu outra corrida nesse nome, e a regra 3 já o tirou.
+  const liderPesquisa = [...pares].sort((a, b) => b.pesquisa - a.pesquisa)[0];
+  const acertouLider = !!l1 && !!liderPesquisa && liderPesquisa.key === l1[0];
 
   return {
     race: r.race,
