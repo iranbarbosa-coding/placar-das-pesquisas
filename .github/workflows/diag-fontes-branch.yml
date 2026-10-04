@@ -1,0 +1,28 @@
+name: diag-fontes-branch
+# diag 04/10 (03): descobrir os códigos de eleição de 2026 e o JSON simplificado do TSE
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
+jobs:
+  tse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - run: |
+          set +e
+          python3 - <<'PY'
+          import json, urllib.request, re
+          UA={'User-Agent':'Mozilla/5.0 PlacarDasPesquisas/1.0'}
+          def get(u):
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40) as r: return r.status, r.read().decode('utf-8','replace')
+              except Exception as e: return None, f"ERRO {e}"
+          for u in ["https://resultados.tse.jus.br/oficial/comum/config/ele-c.json",
+                    "https://resultados.tse.jus.br/oficial/ele2026/comum/config/ele-c.json"]:
+              st, t = get(u); print("=====", u, st, len(t)); print(t[:3000])
+          # tentativa de palpites de código para a presidencial 2026
+          for ele in ("619","620","617","618","621","622"):
+              u=f"https://resultados.tse.jus.br/oficial/ele2026/{ele}/dados-simplificados/br/br-c0001-e000{ele}-r.json"
+              st,t=get(u); print("-----", u, st, t[:600] if st else t[:120])
+          PY
