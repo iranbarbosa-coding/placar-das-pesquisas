@@ -23,7 +23,7 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 - **Coleta**: cron `update-polls.yml` às 11:15, 15:15, 19:15 e 23:15 UTC
   (o agendador do GitHub pula rodadas sem avisar; disparo manual via
   `workflow_dispatch` funciona). Falha abre issue `cron-falha`.
-- **Último dado comitado quando este arquivo nasceu**: 2026-10-03T14:17Z.
+- **Último dado comitado quando este arquivo nasceu**: 2026-10-03T14:17Z. Na manhã do pleito (04/10, 11:37Z): 5.274 pesquisas, zero quarentenas, as sete pesquisas nacionais da véspera (Datafolha, Quaest, AtlasIntel, Palver, Gerp, Futura, Veritá) no banco.
 - **Disputas em quarentena** (congeladas no dado do commit anterior por perda
   sem prova; o site mostra "Dado em revisão"): **nenhuma** desde o merge do PR #125
   (03/10, rodada 15:19Z, commit 4f24e2e). Eram 11 quando este arquivo nasceu; #124 tirou presidente:BR e
@@ -47,6 +47,8 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 03/10 | Um registro da fonte SEM data não bloqueia um `add_poll` curado datado (o vizinho é dito em voz alta). Motivo: `presidente:RJ` congelou porque um Quaest sem data recusou a curada de 25/07. | Iran (PR #125) |
 | 03/10 | O juiz de delta prova "a data chegou": levantamento sem data que a Wikipédia datou, mesma casa, mesma amostra, tabela idêntica (caso 12d). Motivo: `presidente:BR` entrou em quarentena na véspera do pleito pelos cinco 2º turnos do Datafolha. | Iran (PR #124) |
 | 04/10 | Wikipédia: uma seção de nível 2 sem cabeçalho de ano NÃO herda o ano da seção vizinha; resolve por âncora de citação (inclusive `data=DD/MM/AAAA`) e ordem cronológica inversa dentro da faixa da página, e todo cabeçalho sem ano e sem mês (confronto de 2º turno, `{{hidden begin}}`) recomeça a cronologia. Motivo: as 32 pesquisas do Senado da Bahia estavam gravadas em 2024 (média parada em 18/08) e os 2º turnos de BA, MT, PB, RN, RS e SC estavam em 2025. Cinco duplicatas mal datadas (RS ×2, BA ×3) ratificadas com a prova do registro Poder360 da mesma operação de campo. | Iran (PR #126) |
+| 04/10 | `mergePolls`: quando os fins de campo diferem, a MESMA fonte são duas pesquisas (tracking Palver 01/10 × 03/10) e fontes diferentes com AMOSTRAS diferentes são duas pesquisas (Datafolha 01/10 n=2.506 × 03/10 n=2.002); mesma amostra entre fontes, ou um lado sem amostra, segue fundindo. Motivo: a Datafolha da véspera era engolida pela de 01/10 e nunca chegava ao banco; a RTBD/SP de 28/09 era engolida pela de 26/09. Medido: pares da mesma casa a ≤3 dias 2 → 19, nenhum duplicata PT×EN. | Iran (PR #127) |
+| 04/10 | Pesquisa nacional da véspera que as fontes não serviam (AtlasIntel/Bloomberg 27/09–02/10) entra como curada com fonte secundária reconciliada (Jovem Pan + Metrópoles + Bloomberg Línea + CNN + Fórum), pela decisão de 18/08. Quando a Wikipédia passou a servi-la (manhã de 04/10), a inserção foi dispensada pelo mecanismo. | Iran (PR #127) |
 
 ## Em aberto
 
