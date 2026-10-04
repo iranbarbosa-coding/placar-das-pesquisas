@@ -394,12 +394,20 @@ def parse_dates(text, year_hint):
 
 def _meses_do_titulo(title):
     """Meses citados num cabeçalho ("Novembro - Dezembro", "De janeiro a agosto"), em ordem."""
+    # Palavra INTEIRA: o nome do mês ou a abreviatura de três letras. O prefixo
+    # não basta — "Maria" começa por "mar" e "=== Omar Aziz e Professora Maria
+    # do Carmo ===" (2º turno do AM, 04/10/2026) virava um cabeçalho de março,
+    # descendo um ano por confronto.
     out = []
     for w in re.findall(r'[A-Za-zÀ-ÿ]+', title or ''):
-        mm = MONTHS.get(_fold(w)[:3]) if len(w) >= 3 else None
-        if mm and _fold(w)[:3] in ('jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'):
-            out.append(mm)
+        f = _fold(w)
+        if f in _MESES_PT:
+            out.append(MONTHS[f])
     return out
+
+_MESES_PT = frozenset(['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez',
+                       'janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho', 'julho', 'agosto',
+                       'setembro', 'outubro', 'novembro', 'dezembro'])
 
 def _mes_do_campo(dcell):
     """Mês (1-12) do FIM do campo lido da célula de datas, ou None."""
@@ -1097,7 +1105,7 @@ def _self_test():
     # um ano porque setembro é "maior" que o agosto em que a primeira terminou.
     pares = "\n".join(["== Segundo turno (governador) ==", "=== Omar Aziz e David Almeida ===",
         linha_ba('Quaest', '20 a 23 de setembro'), linha_ba('Veritá', '28 de julho a 1 de agosto'),
-        "=== Omar Aziz e Roberto Cidade ===",
+        "=== Omar Aziz e Professora Maria do Carmo ===",
         linha_ba('Quaest', '20 a 23 de setembro'), linha_ba('DMP', '11 a 14 de agosto'), linha_ba('Antiga', '20 a 23 de novembro')])
     pr = [p['fieldwork_end'] for p in extract(pares, url_ba.replace('Bahia', 'Amazonas'), 'pt', 'auto', 'AM') if p['race'] == 'governador']
     assert pr == ['2026-09-23', '2026-08-01', '2026-09-23', '2026-08-14', '2025-11-23'], ('subseção de confronto desceu um ano', pr)
