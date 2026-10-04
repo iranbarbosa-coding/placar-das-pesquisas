@@ -58,14 +58,15 @@ export default function RankingInstitutos({
   title?: string;
 }) {
   if (!data.ranqueados.length && !data.demais.length) return null;
-  const parcial = data.apuracaoMinima !== null && data.apuracaoMinima < 100;
+  const parcial = data.parcial;
+  const apuracao = data.apuracaoMinima !== null && data.apuracaoMinima < 100 ? ` (≥ ${fmt1(data.apuracaoMinima)}% das seções)` : "";
   return (
     <section className="card p-4 sm:p-6" aria-label="Ranking de acerto dos institutos">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>{title}</h2>
         <span className="text-xs" style={{ color: "var(--text-muted)" }}>
           {data.turno}º turno · {data.disputasComResultado} disputa{data.disputasComResultado === 1 ? "" : "s"} com resultado
-          {parcial ? ` · apuração parcial (≥ ${fmt1(data.apuracaoMinima)}% das seções)` : ""}
+          {parcial ? ` · apuração parcial${apuracao}` : ""}
         </span>
       </div>
       <p className="mt-1 max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -99,7 +100,8 @@ export default function RankingInstitutos({
         </p>
       ) : null}
       <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
-        Fonte dos resultados: TSE, Divulgação de Resultados{data.atualizado_em ? `, lido em ${fmtDate(data.atualizado_em.slice(0, 10))}` : ""}.
+        Fonte dos resultados: TSE, Divulgação de Resultados{data.atualizado_em ? `, lido em ${fmtDate(data.atualizado_em.slice(0, 10))}` : ""}
+        {parcial ? ", com a totalização ainda em andamento — os erros mudam um pouco até o resultado final" : ""}.
         Erro na margem = diferença entre a vantagem do 1º sobre o 2º na pesquisa e nas urnas. Senado comparado em dois votos (pesquisas que
         somam ~200 contra 2 × o percentual de válidos do TSE). Uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.{" "}
         <Link href="/metodologia" className="underline">Metodologia</Link>

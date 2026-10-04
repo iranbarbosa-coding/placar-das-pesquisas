@@ -87,9 +87,24 @@ function candidatos(d) {
   return out;
 }
 
-/** % de seções totalizadas do cabeçalho, no campo que o TSE usar. */
+/**
+ * % de seções totalizadas. O arquivo "-u" de 2026 NÃO traz esse número (visto no
+ * cabeçalho em 04/10: ele, t, f, sup, tpabr, cdabr, dg, hg, idg, dt, ht, dv, tf,
+ * and, md); fica null até o TSE servir um campo. Procuramos os nomes de 2022 por
+ * precaução.
+ */
 function apurado(d) {
   for (const k of ["pst", "pstc", "pse"]) if (d[k] != null) return num(d[k]);
+  return null;
+}
+
+/**
+ * Estado da totalização pelo cabeçalho: `tf` = totalização final ("s"/"n") e
+ * `and` = andamento ("p" parcial, "f" final). "final" só quando o TSE diz que é.
+ */
+function totalizacao(d) {
+  if (d.tf === "s" || d.and === "f") return "final";
+  if (d.tf === "n" || d.and === "p") return "parcial";
   return null;
 }
 
@@ -110,7 +125,7 @@ async function lerDisputa(race, uf, ele, registro) {
   }
   return {
     race, uf: race === "presidente" ? null : uf, round: TURNO,
-    apurado_pct: apurado(d), validos,
+    apurado_pct: apurado(d), totalizacao: totalizacao(d), validos,
     fonte: url, lido_em: new Date().toISOString(),
     _header: Object.fromEntries(Object.entries(d).filter(([k, v]) => typeof v !== "object").slice(0, 24)),
     _n: cands.length,
@@ -129,7 +144,7 @@ async function main() {
     try {
       const r = await lerDisputa(race, uf, e, registro);
       const top = Object.entries(r.validos).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([n, v]) => `${n} ${v}`).join(" · ");
-      console.error(`✓ ${race}:${uf} apurado ${r.apurado_pct ?? "?"}% · ${r._n} cand · ${top}`);
+      console.error(`✓ ${race}:${uf} ${r.totalizacao ?? "?"} ${r.apurado_pct == null ? "" : `${r.apurado_pct}% `}· ${r._n} cand · ${top}`);
       if (disputas.length === 0) console.error("  cabeçalho:", JSON.stringify(r._header));
       delete r._header; delete r._n;
       disputas.push(r);
@@ -139,7 +154,7 @@ async function main() {
     }
   }
   const out = {
-    nota: "Resultados oficiais do TSE (Divulgação de Resultados, https://resultados.tse.jus.br), por disputa. `validos` traz o percentual de votos válidos de cada candidato tal como o TSE publica; `apurado_pct` é o percentual de seções totalizadas no momento da leitura. Gerado por scripts/tse-resultados.mjs; nunca inferido.",
+    nota: "Resultados oficiais do TSE (Divulgação de Resultados, https://resultados.tse.jus.br), por disputa. `validos` traz o percentual de votos válidos de cada candidato tal como o TSE publica; `totalizacao` diz se o TSE marcava a totalização como parcial ou final no momento da leitura (cabeçalho `tf`/`and`); `apurado_pct` é o percentual de seções totalizadas quando o arquivo o informa (o `-u` de 2026 não informa). Gerado por scripts/tse-resultados.mjs; nunca inferido.",
     turno: TURNO, eleicao: ele.data, atualizado_em: new Date().toISOString(),
     fonte: "https://resultados.tse.jus.br", falhas, disputas,
   };

@@ -44,8 +44,10 @@ export interface ResultadoDisputa {
   race: RaceKind;
   uf: UF | null;
   round: 1 | 2;
-  /** % de seções totalizadas no momento da leitura. */
+  /** % de seções totalizadas no momento da leitura (null quando o TSE não informa). */
   apurado_pct: number | null;
+  /** Estado da totalização no cabeçalho do TSE: "parcial" ou "final". */
+  totalizacao?: "parcial" | "final" | null;
   /** % de votos válidos por candidato, como o TSE publica (`pvap`). */
   validos: Record<string, number>;
   fonte?: string;
@@ -93,6 +95,8 @@ export interface RankingAcerto {
   disputasComResultado: number;
   /** Menor % de seções totalizadas entre as disputas usadas (null = não informado). */
   apuracaoMinima: number | null;
+  /** Alguma disputa ainda estava em totalização parcial na leitura. */
+  parcial: boolean;
   ranqueados: AcertoInstituto[];
   demais: AcertoInstituto[];
 }
@@ -197,11 +201,13 @@ export function rankingAcerto(): RankingAcerto | null {
 
   const porInstituto = new Map<string, AcertoDisputa[]>();
   let apuracaoMinima: number | null = null;
+  let parcial = false;
   let disputasComResultado = 0;
   for (const r of res.disputas) {
     if (!r.validos || !Object.keys(r.validos).length) continue;
     disputasComResultado++;
     if (r.apurado_pct != null) apuracaoMinima = apuracaoMinima === null ? r.apurado_pct : Math.min(apuracaoMinima, r.apurado_pct);
+    if (r.totalizacao !== "final" || (r.apurado_pct != null && r.apurado_pct < 100)) parcial = true;
     for (const p of ultimaPorInstituto(r.race, r.uf, r.round, res.eleicao)) {
       const a = compararDisputa(p, r);
       if (!a) continue;
@@ -232,6 +238,7 @@ export function rankingAcerto(): RankingAcerto | null {
     fonte: res.fonte,
     disputasComResultado,
     apuracaoMinima,
+    parcial,
     ranqueados: todos.filter((x) => x.disputas >= MIN_DISPUTAS).sort(ordenar),
     demais: todos.filter((x) => x.disputas < MIN_DISPUTAS).sort(ordenar),
   };

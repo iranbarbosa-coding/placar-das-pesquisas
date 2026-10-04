@@ -5,6 +5,7 @@ import Link from "next/link";
 import { loadDataset } from "@/lib/data";
 import { candKey } from "@/lib/average";
 import { FRESCOR_ATENCAO_DIAS, FRESCOR_VELHO_DIAS } from "@/lib/frescor";
+import { JANELA_DIAS, MIN_DISPUTAS, PISO_PCT, TOPO } from "@/lib/acerto";
 import Icon, { type IconName } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -375,6 +376,40 @@ export default function MetodologiaPage() {
           sob outro nome), a disputa inteira é <B>congelada no dado anterior</B> até alguém verificar a fonte
           — e o selo diz isso na página. Preferimos publicar um dado de ontem com aviso a publicar hoje um
           dado que perdeu uma pesquisa em silêncio.
+        </p>
+      </section>
+
+      {/* ── ACERTO DOS INSTITUTOS ────────────────────────────────────────── */}
+      <section id="acerto" className="max-w-4xl scroll-mt-24 space-y-4">
+        <h2 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+          Quem chegou mais perto das urnas
+        </h2>
+        <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          Depois da votação, a página inicial compara a <B>última pesquisa de cada instituto</B> em cada disputa
+          com o resultado oficial publicado pelo TSE na Divulgação de Resultados. É a versão pós-eleição do
+          efeito casa: lá o instituto é medido contra a média das pesquisas; aqui, contra o voto apurado.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <Cap icon="refresh" title={`Uma pesquisa por instituto, campo até ${JANELA_DIAS} dias antes`}>
+            Entra só a pesquisa de campo mais recente de cada casa dentro da janela final. Medir setembro e
+            errar outubro não é erro do instituto.
+          </Cap>
+          <Cap icon="shield" title="Mesma base dos dois lados">
+            Presidente e governador em votos válidos, como o TSE publica. Senado só com pesquisas de dois votos,
+            contra duas vezes o percentual de válidos do TSE — cada eleitor tem dois votos.
+          </Cap>
+          <Cap icon="ban" title="Só nomes presentes nos dois lados">
+            Um candidato que a pesquisa não testou, ou que desistiu, não conta. Entre os presentes, ficam os
+            com ao menos {PISO_PCT}% nas urnas ou entre os {TOPO} primeiros.
+          </Cap>
+        </div>
+        <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <B>Erro médio</B> é a diferença absoluta média, em pontos percentuais, entre pesquisa e urna por
+          candidato comparado. <B>Erro na margem</B> é a diferença entre a vantagem do 1º sobre o 2º na pesquisa e
+          nas urnas. Só recebe posição quem cobriu <B>{MIN_DISPUTAS} ou mais disputas</B>; os demais aparecem
+          listados sem ranking, porque uma disputa só não é amostra de nada. Enquanto a totalização do TSE está
+          em andamento, o bloco avisa que é apuração parcial — e os números mudam um pouco até o resultado final.
+          O ranking é descritivo: uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.
         </p>
       </section>
 
