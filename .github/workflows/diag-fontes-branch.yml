@@ -1,0 +1,58 @@
+name: diag-fontes-branch
+# diag 04/10 (manhã do pleito): linhas de outubro no wikitexto bruto × pesquisas de outubro que o parser extraiu, por página
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
+jobs:
+  outubro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Outubro bruto × parser
+        run: |
+          set +e
+          python3 - <<'PY'
+          import sys, json, re, collections
+          sys.path.insert(0, 'scripts')
+          import wiki_parse as W
+          pages = json.load(open('scripts/wiki-pages.json'))
+          RX_OUT = re.compile(r'^\|\s*(?:\d{1,2}\s*(?:de\s+)?(?:[A-Za-zç]+\.?)?\s*[–\-a e]+\s*)?\d{1,2}\s*(?:de\s+)?(?:Out\b|out\b|outubro)', re.I)
+          total_bruto = total_parse = 0
+          for pg in pages:
+              if pg.get('lang') != 'pt': continue
+              try:
+                  text = W._buscar_http(pg['raw_url'])
+              except Exception as e:
+                  print("FALHA", pg.get('state') or 'BR', e); continue
+              lines = text.split('\n')
+              # linhas de data de outubro no bruto, com a seção (h2/h3) em que estão
+              h2 = h3 = ''
+              brutos = []
+              for i, l in enumerate(lines):
+                  m = re.match(r'^(={2,4})\s*(.*?)\s*={2,4}\s*$', l.strip())
+                  if m:
+                      if len(m.group(1)) == 2: h2, h3 = m.group(2), ''
+                      elif len(m.group(1)) == 3: h3 = m.group(2)
+                      continue
+                  s = l.strip()
+                  if RX_OUT.match(s) and 'Set' not in s.split('Out')[0][:3]:
+                      # instituto: a linha anterior que começa com | ou ! e não é data
+                      inst = ''
+                      for k in range(i-1, max(i-6, 0), -1):
+                          t = lines[k].strip()
+                          if t.startswith('|') and not t.startswith('|-') and not t.startswith('|}'):
+                              inst = re.sub(r'<ref.*', '', t.lstrip('|').strip())[:40]; break
+                      brutos.append((h2[:40], h3[:30], inst, s[:40]))
+              polls = W.extract(text, pg['url'], 'pt', pg.get('race', 'presidente'), pg.get('state'))
+              outs = [p for p in polls if (p.get('fieldwork_end') or '').startswith('2026-10')]
+              total_bruto += len(brutos); total_parse += len(outs)
+              tag = pg.get('state') or 'BR'
+              flag = '' if len(outs) >= len(brutos) else '   <<<< MENOS PESQUISAS DE OUTUBRO DO QUE LINHAS NO BRUTO'
+              print(f"== {tag}: linhas de outubro no bruto {len(brutos)} · pesquisas de outubro extraídas {len(outs)}{flag}")
+              if flag or len(outs) < len(brutos):
+                  for b in brutos: print("    bruto:", b)
+                  for p in outs: print("    parse:", p['race'], p.get('round'), p.get('pollster'), p.get('fieldwork_start'), p.get('fieldwork_end'), (p.get('scenario') or '')[:30])
+          print("TOTAL bruto", total_bruto, "parse", total_parse)
+          PY
