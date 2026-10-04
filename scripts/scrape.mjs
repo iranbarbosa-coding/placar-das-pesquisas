@@ -194,6 +194,35 @@ export function cenariosCompativeis(oa, ob) {
  * alcance deste coletor — a regra fica pronta para a marca, e a marca do IRG
  * é decisão de curadoria (§12).
  */
+/**
+ * DUAS OPERAÇÕES DE CAMPO DISTINTAS DA MESMA CASA NÃO SÃO UMA PESQUISA.
+ *
+ * O caso Datafolha nacional, 04/10/2026 (madrugada do pleito): a Wikipédia
+ * listou a última Datafolha (campo 1–3/10, n=2.002) e `mergePolls` a fundiu
+ * com a Datafolha de 28/09–01/10 (n=2.506) do Poder360 — mesma casa, mesmo
+ * elenco, dois dias de distância, dentro da janela de ±3 dias que absorve o
+ * arredondamento "22–24" vs "22–23" da MESMA coleta. A pesquisa da véspera
+ * nunca chegou ao banco: a tabela mais cheia doou para o registro de 01/10 e
+ * o número de 03/10 sumiu.
+ *
+ * A regra é a da escada do store (`resolveSurvey`, degrau natural): a amostra
+ * é um fato DA operação de campo. Aqui, mais estreita que lá, porque as duas
+ * fontes arredondam a amostra da MESMA coleta (TML/BA: 2.045 na Wikipédia,
+ * 2.000 no Poder360) e a Wikipédia erra o dia por um: só quando os DOIS fatos
+ * discordam — fim de campo diferente E amostra diferente — as linhas são duas
+ * medições, e fundir seria inventar uma pesquisa que não existiu. Um lado sem
+ * amostra ou sem data não contradiz nada (§4: ausência não é prova).
+ */
+export function operacoesCompativeis(a, b) {
+  const da = pollDate(a);
+  const db = pollDate(b);
+  if (!da || !db || da === db) return true;
+  const sa = a?.sample_size;
+  const sb = b?.sample_size;
+  if (sa == null || sb == null) return true;
+  return sa === sb;
+}
+
 export function estimulosCompativeis(ea, eb) {
   return !ea || !eb || ea === eb;
 }
@@ -216,6 +245,7 @@ export function mergePolls(pollLists, {
   dataNulaCasa = mesmoRegistroNativo,
   cenarioCompativel = cenariosCompativeis,
   estimuloCompativel = estimulosCompativeis,
+  operacaoCompativel = operacoesCompativeis,
 } = {}) {
   // QUEM DOA A TABELA DE RESULTADOS TEM DE SOBREVIVER AO GUARDA DE SOMA.
   //
@@ -249,6 +279,7 @@ export function mergePolls(pollLists, {
       const bucket = buckets.get(k);
       const existing = bucket.find((e) =>
         datesClose(e, p, dataNulaCasa) &&
+        operacaoCompativel(e, p) &&
         rostersMatch(e, p) &&
         cenarioCompativel(ordinalAbsorvido.get(e) ?? null, ordinalDeCenario(p)) &&
         // Diferente do ordinal, o estímulo não precisa de Map à parte: ele vive
