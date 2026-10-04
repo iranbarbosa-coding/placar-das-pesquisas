@@ -1119,21 +1119,6 @@ Soma **82.9%** · faltam **17.1 pontos** · 4 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-## Governador · Rio Grande do Sul · 2º turno
-
-### Veritá — 2025-08-28
-
-Soma **83.6%** · faltam **16.4 pontos** · 2 candidato(s) na tabela · amostra 2020
-
-| candidato | % |
-|---|---|
-| Zucco | 44.1 |
-| Juliana Brizola | 39.5 |
-
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
 ## Governador · Rio de Janeiro
 
 ### AtlasIntel — 2025-08-29
@@ -1151,6 +1136,21 @@ Soma **83.6%** · faltam **16.4 pontos** · 4 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/2025/09/Atlas-RJ-pesquisa-ago2025-1.pdf
 - Publicação: https://www.poder360.com.br/poder-pesquisas/paes-tem-439-das-intencoes-de-voto-ao-governo-do-rj-diz-atlasintel/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rio Grande do Sul · 2º turno
+
+### Veritá — 2026-08-28
+
+Soma **83.6%** · faltam **16.4 pontos** · 2 candidato(s) na tabela · amostra 2020
+
+| candidato | % |
+|---|---|
+| Zucco | 44.1 |
+| Juliana Brizola | 39.5 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

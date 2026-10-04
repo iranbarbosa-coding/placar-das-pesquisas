@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1784 levantamentos · 5795 perguntas · 162 institutos · 1400 candidatos**.
+Banco: **1708 levantamentos · 5764 perguntas · 162 institutos · 1400 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 49 | 35 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 396 | 5 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 50 | 36 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 483 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 1 | 1 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **473** | **41** |
+| **total** | **561** | **42** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -73,9 +73,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_fde53d701f86 · Paraná Pesquisas · SP · registro —
 - s_fe31562fc375 · Real Time Big Data · SP · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (49)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (50)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (2 de 49) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (2 de 50) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - **[2026]** cenários separados — Datafolha · PE senador/t1 · 2026-04-26 — 2 levantamentos
   s_03b4d753b6bc: Marília Arraes 20 · Humberto Costa 12 · Eduardo da Fonte 6 · Túlio Gadêlha 6 · Mendonça Filho 9
@@ -87,6 +87,10 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
 - **[2026]** cenários separados — Real Time Big Data · CE governador/t1 · 2026-08-19 — 2 levantamentos
   s_06411268ccb9: Ciro Gomes 44 · Elmano de Freitas 44
   s_bb1084cb47d8: Elmano de Freitas 44 · Vera Lúcia Salgado 1
+- **[2026]** cenários separados — Real Time Big Data · PB governador/t2 · 2026-08-22 — 2 levantamentos
+  s_077835e07b7d: Cícero Lucena 42 · Efraim Filho 31
+  s_077835e07b7d: Lucas Ribeiro 46 · Efraim Filho 30
+  s_33c20d67ed61: Lucas Ribeiro 42 · Cícero Lucena 35
 - **[2026]** cenários separados — Real Time Big Data · ES governador/t1 · 2026-07-21 — 2 levantamentos
   s_0a662a18fa0e: Ricardo Ferraço 29 · Paulo Hartung 25 · Lorenzo Pazolini 22 · Magno Malta 10 · Helder Salomão 8
   s_7026742f441c: Lorenzo Pazolini 25 · Paulo Hartung 27 · Ricardo Ferraço 31 · Helder Salomão 8
@@ -345,7 +349,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (396)
+## CONFLITO — Conflitos registrados aguardando decisão (483)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -613,7 +617,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_955adc45e05c · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_95b091f36c4e · results: null × ["Garotinho"]
 - roster_encolhido_na_fonte · q_8170e7c2d7ce · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
-- segundo_turno_fragmento_descartado · q_ce5fb47b8d36 · results: null × ["João Rodrigues"]
 - roster_encolhido_na_fonte · q_0baafa19d5e9 · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"]
 - segundo_turno_fragmento_descartado · q_399d6b8553cf · results: null × ["Flávio Bolsonaro"]
 - roster_encolhido_na_fonte · q_444d85c3a9d5 · results: ["Eduardo Moura","Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["João Henrique Campos","Raquel Lyra"]
@@ -650,7 +653,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_fbc5b96b7b71 · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
 - roster_encolhido_na_fonte · q_bb83475f2704 · results: ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues"]
 - roster_encolhido_na_fonte · q_1dbe234e6eed · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema"] × ["Flávio Bolsonaro","Lula","Romeu Zema"]
-- roster_encolhido_na_fonte · q_21de0e1108f4 · results: ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues"]
 - roster_encolhido_na_fonte · q_21081fdd33a5 · results: ["Alan Rick","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_12a567ff5564 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_9c68fe93da57 · results: null × ["Ronaldo Caiado"]
@@ -722,7 +724,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - segundo_turno_fragmento_descartado · q_3bc2c83b006a · results: null × ["Allyson Bezerra"]
 - roster_encolhido_na_fonte · q_ba2f16aa24c3 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_c4cf05d23224 · results: ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
-- segundo_turno_fragmento_descartado · q_1f51039b9f83 · results: null × ["Cícero Lucena"]
 - segundo_turno_fragmento_descartado · q_1ed48181576d · results: null × ["Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_67ecabbb9441 · results: ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Ciro Gomes","Fernando Haddad","Flávio Bolsonaro","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Aldo Rebelo","Augusto Cury","Cabo Daciolo","Ciro Gomes","Fernando Haddad","Flávio Bolsonaro","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_62207d6ae23a · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
@@ -741,10 +742,100 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_bd8fd5b153b2 · results: ["Jayme Campos","Marcelo Maluf","Natasha Slhessarenko","Otaviano Pivetta","Rafaell Milas","Wellington Fagundes"] × ["Doutora Natasha","Jayme Campos","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_b42b77ccb78a · results: ["Doutora Natasha","Otaviano Pivetta","Rafaell Milas","Sargento Laudicério","Wellington Fagundes"] × ["Natasha Slhessarenko","Otaviano Pivetta","Wellington Fagundes"]
 - roster_encolhido_na_fonte · q_261318a2621f · results: ["Carlos Machado","Edjane","Fernando Haddad","Izadora Dias","Tarcísio de Freitas","Vera Lúcia","Vivian Mendes"] × ["Carlos","Fernando Haddad","Izadora","Tarcísio de Freitas","Vera Lúcia","Vivian"]
-- person_id_orphaned · p_026f82b7d8d8 · person_id: "p_026f82b7d8d8" × null
-- person_id_orphaned · p_31dac86d10b6 · person_id: "p_31dac86d10b6" × null
-- survey_id_orphaned · s_9b4860887d4e · survey_id: "s_9b4860887d4e" × null
-- person_id_orphaned · p_ef2417713441 · person_id: "p_ef2417713441" × null
+- survey_id_orphaned · s_4afe9d97815a · survey_id: "s_4afe9d97815a" × null
+- survey_id_orphaned · s_d71422d5f6a1 · survey_id: "s_d71422d5f6a1" × null
+- survey_id_orphaned · s_c34d0e6eb5bd · survey_id: "s_c34d0e6eb5bd" × null
+- survey_id_orphaned · s_6f3edf1bb27c · survey_id: "s_6f3edf1bb27c" × null
+- survey_id_orphaned · s_b56ed4cadcd7 · survey_id: "s_b56ed4cadcd7" × null
+- survey_id_orphaned · s_dff75bfe76e3 · survey_id: "s_dff75bfe76e3" × null
+- survey_id_orphaned · s_602dfdf88377 · survey_id: "s_602dfdf88377" × null
+- survey_id_orphaned · s_4e3673fd0b22 · survey_id: "s_4e3673fd0b22" × null
+- survey_id_orphaned · s_2a0733858b21 · survey_id: "s_2a0733858b21" × null
+- survey_id_orphaned · s_13de058b5324 · survey_id: "s_13de058b5324" × null
+- survey_id_orphaned · s_1f3eb472a33c · survey_id: "s_1f3eb472a33c" × null
+- survey_id_orphaned · s_b3aeac49f4f1 · survey_id: "s_b3aeac49f4f1" × null
+- survey_id_orphaned · s_4c0acd778187 · survey_id: "s_4c0acd778187" × null
+- survey_id_orphaned · s_b2f7555f01c6 · survey_id: "s_b2f7555f01c6" × null
+- survey_id_orphaned · s_960cd907368d · survey_id: "s_960cd907368d" × null
+- survey_id_orphaned · s_b76c4f3acf4d · survey_id: "s_b76c4f3acf4d" × null
+- survey_id_orphaned · s_2608d7943862 · survey_id: "s_2608d7943862" × null
+- survey_id_orphaned · s_9af5729f84fd · survey_id: "s_9af5729f84fd" × null
+- survey_id_orphaned · s_c1204e8caa0d · survey_id: "s_c1204e8caa0d" × null
+- survey_id_orphaned · s_f6543bebca83 · survey_id: "s_f6543bebca83" × null
+- survey_id_orphaned · s_8ed9270912fa · survey_id: "s_8ed9270912fa" × null
+- survey_id_orphaned · s_520b36961692 · survey_id: "s_520b36961692" × null
+- survey_id_orphaned · s_0316101a932d · survey_id: "s_0316101a932d" × null
+- survey_id_orphaned · s_d34b9e1a00e5 · survey_id: "s_d34b9e1a00e5" × null
+- survey_id_orphaned · s_1bce03a998d4 · survey_id: "s_1bce03a998d4" × null
+- survey_id_orphaned · s_28185381ddf6 · survey_id: "s_28185381ddf6" × null
+- survey_id_orphaned · s_e0323b3e5bb0 · survey_id: "s_e0323b3e5bb0" × null
+- survey_id_orphaned · s_695e138024ef · survey_id: "s_695e138024ef" × null
+- survey_id_orphaned · s_381c784dc713 · survey_id: "s_381c784dc713" × null
+- survey_id_orphaned · s_260f2eb2e2d0 · survey_id: "s_260f2eb2e2d0" × null
+- survey_id_orphaned · s_e7fba4d8f5fd · survey_id: "s_e7fba4d8f5fd" × null
+- survey_id_orphaned · s_2d5f54627da3 · survey_id: "s_2d5f54627da3" × null
+- survey_id_orphaned · s_eb5e861dd19a · survey_id: "s_eb5e861dd19a" × null
+- survey_id_orphaned · s_f58c1a69995c · survey_id: "s_f58c1a69995c" × null
+- survey_id_orphaned · s_08a94e2566d9 · survey_id: "s_08a94e2566d9" × null
+- survey_id_orphaned · s_9bfa1aaa1954 · survey_id: "s_9bfa1aaa1954" × null
+- survey_id_orphaned · s_6cc9021a6a09 · survey_id: "s_6cc9021a6a09" × null
+- survey_id_orphaned · s_e9682e1d1c08 · survey_id: "s_e9682e1d1c08" × null
+- survey_id_orphaned · s_33a45050b26b · survey_id: "s_33a45050b26b" × null
+- survey_id_orphaned · s_fcd111c44fb5 · survey_id: "s_fcd111c44fb5" × null
+- survey_id_orphaned · s_144d2b19f1df · survey_id: "s_144d2b19f1df" × null
+- survey_id_orphaned · s_0e529e33157a · survey_id: "s_0e529e33157a" × null
+- survey_id_orphaned · s_722828a387bf · survey_id: "s_722828a387bf" × null
+- survey_id_orphaned · s_cdcc8babf055 · survey_id: "s_cdcc8babf055" × null
+- survey_id_orphaned · s_9ddb40ec7635 · survey_id: "s_9ddb40ec7635" × null
+- survey_id_orphaned · s_0b027e019c17 · survey_id: "s_0b027e019c17" × null
+- survey_id_orphaned · s_5577825e6982 · survey_id: "s_5577825e6982" × null
+- survey_id_orphaned · s_530a1a0561c1 · survey_id: "s_530a1a0561c1" × null
+- survey_id_orphaned · s_8f31bd141c06 · survey_id: "s_8f31bd141c06" × null
+- survey_id_orphaned · s_747c395d243e · survey_id: "s_747c395d243e" × null
+- survey_id_orphaned · s_fe1d1afbe16c · survey_id: "s_fe1d1afbe16c" × null
+- survey_id_orphaned · s_9ef347b3f7b5 · survey_id: "s_9ef347b3f7b5" × null
+- survey_id_orphaned · s_e6b18c16dcba · survey_id: "s_e6b18c16dcba" × null
+- survey_id_orphaned · s_83fe75b34718 · survey_id: "s_83fe75b34718" × null
+- survey_id_orphaned · s_77c79c1a5314 · survey_id: "s_77c79c1a5314" × null
+- survey_id_orphaned · s_2b23d96d2a47 · survey_id: "s_2b23d96d2a47" × null
+- person_id_orphaned · p_80ae5afb12e6 · person_id: "p_80ae5afb12e6" × null
+- survey_id_orphaned · s_d50c570608ca · survey_id: "s_d50c570608ca" × null
+- survey_id_orphaned · s_b90e5a058c2e · survey_id: "s_b90e5a058c2e" × null
+- survey_id_orphaned · s_9dbde83fed41 · survey_id: "s_9dbde83fed41" × null
+- survey_id_orphaned · s_4e58e2f94d58 · survey_id: "s_4e58e2f94d58" × null
+- survey_id_orphaned · s_a2a0cf209711 · survey_id: "s_a2a0cf209711" × null
+- survey_id_orphaned · s_f4739e29bfd7 · survey_id: "s_f4739e29bfd7" × null
+- survey_id_orphaned · s_00d2965c6f85 · survey_id: "s_00d2965c6f85" × null
+- survey_id_orphaned · s_b11d1827d98f · survey_id: "s_b11d1827d98f" × null
+- survey_id_orphaned · s_44e9ca14caf3 · survey_id: "s_44e9ca14caf3" × null
+- survey_id_orphaned · s_8e0803e4e34b · survey_id: "s_8e0803e4e34b" × null
+- survey_id_orphaned · s_524de3ad6476 · survey_id: "s_524de3ad6476" × null
+- survey_id_orphaned · s_c3bad7e9660a · survey_id: "s_c3bad7e9660a" × null
+- survey_id_orphaned · s_453170532e4a · survey_id: "s_453170532e4a" × null
+- survey_id_orphaned · s_2179bb1d278b · survey_id: "s_2179bb1d278b" × null
+- survey_id_orphaned · s_a0acfb182011 · survey_id: "s_a0acfb182011" × null
+- survey_id_orphaned · s_888400a0404d · survey_id: "s_888400a0404d" × null
+- survey_id_orphaned · s_5fa6cd45ae33 · survey_id: "s_5fa6cd45ae33" × null
+- survey_id_orphaned · s_bc3f59279efc · survey_id: "s_bc3f59279efc" × null
+- survey_id_orphaned · s_3f6167058edb · survey_id: "s_3f6167058edb" × null
+- survey_id_orphaned · s_c020fc216708 · survey_id: "s_c020fc216708" × null
+- survey_id_orphaned · s_757664b1abd9 · survey_id: "s_757664b1abd9" × null
+- survey_id_orphaned · s_9f049997a3c0 · survey_id: "s_9f049997a3c0" × null
+- survey_id_orphaned · s_42eb7e8b68b7 · survey_id: "s_42eb7e8b68b7" × null
+- survey_id_orphaned · s_269b53439d71 · survey_id: "s_269b53439d71" × null
+- survey_id_orphaned · s_b965a5d2fa1e · survey_id: "s_b965a5d2fa1e" × null
+- survey_id_orphaned · s_da75d2155fcc · survey_id: "s_da75d2155fcc" × null
+- survey_id_orphaned · s_33b7cb68ed52 · survey_id: "s_33b7cb68ed52" × null
+- survey_id_orphaned · s_36737d73d10e · survey_id: "s_36737d73d10e" × null
+- survey_id_orphaned · s_c44dac918064 · survey_id: "s_c44dac918064" × null
+- survey_id_orphaned · s_bc834235e730 · survey_id: "s_bc834235e730" × null
+- survey_id_orphaned · s_aece68300842 · survey_id: "s_aece68300842" × null
+- survey_id_orphaned · s_81c039bfd668 · survey_id: "s_81c039bfd668" × null
+- survey_id_orphaned · s_321e7511a295 · survey_id: "s_321e7511a295" × null
+- survey_id_orphaned · s_cdbdf937f3c3 · survey_id: "s_cdbdf937f3c3" × null
+- survey_id_orphaned · s_ed360d859c89 · survey_id: "s_ed360d859c89" × null
+- survey_id_orphaned · s_76dacf1b1287 · survey_id: "s_76dacf1b1287" × null
+- survey_id_orphaned · s_27d9aa5354aa · survey_id: "s_27d9aa5354aa" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (1)
 

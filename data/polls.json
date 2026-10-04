@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-04T01:13:46.836Z",
+ "generated_at": "2026-10-04T01:21:04.655Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-04T01:13:46.836Z"
+   "last_ok": "2026-10-04T01:21:04.655Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-04T01:13:46.836Z"
+   "last_ok": "2026-10-04T01:21:04.655Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-04T01:13:46.836Z"
+   "last_ok": "2026-10-04T01:21:04.655Z"
   }
  ],
  "polls": [
@@ -677,6 +677,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d0ab63e9dc13",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": null,
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 46
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -4991,19 +5024,19 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 37
-    },
-    {
      "candidate": "Cícero Lucena",
      "party": "MDB",
      "pct": 35
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 37
     }
    ],
    "others_pct": null,
-   "undecided_pct": 16,
-   "blank_null_pct": 12,
+   "undecided_pct": 31,
+   "blank_null_pct": null,
    "tse_registration": "PB-01003/2026"
   },
   {
@@ -5515,6 +5548,39 @@
    ],
    "others_pct": 1.7,
    "undecided_pct": 4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0afcd0eff289",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 28
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 50
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -8876,19 +8942,19 @@
    "margin_of_error": 2.7,
    "results": [
     {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 53.1
-    },
-    {
      "candidate": "Wellington Fagundes",
      "party": "PL",
      "pct": 34.6
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 53.1
     }
    ],
    "others_pct": null,
-   "undecided_pct": 4.1,
-   "blank_null_pct": 8.1,
+   "undecided_pct": 12.2,
+   "blank_null_pct": null,
    "tse_registration": "MT-02094/2026"
   },
   {
@@ -10809,6 +10875,105 @@
    "tse_registration": null
   },
   {
+   "id": "9bc97fc29c53",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 40.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 29.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30.4,
+   "blank_null_pct": null,
+   "tse_registration": "RN-04187/2026"
+  },
+  {
+   "id": "9c5db42eef6e",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.6
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 41.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.4,
+   "blank_null_pct": null,
+   "tse_registration": "RN-04187/2026"
+  },
+  {
+   "id": "9e113d6fa462",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "BA",
+   "round": 2,
+   "scenario": "2º turno: ACM Neto e Jerônimo Rodrigues",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "ACM Neto",
+     "party": "União Brasil",
+     "pct": 48.6
+    },
+    {
+     "candidate": "Jerônimo Rodrigues",
+     "party": "PT",
+     "pct": 51.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "9e5379e3d356",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -11213,6 +11378,49 @@
    ],
    "others_pct": 2,
    "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d824999ad448",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 28.2
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 24.4
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 21
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 20.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -15626,6 +15834,49 @@
    "tse_registration": null
   },
   {
+   "id": "3cbcaac55640",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-26",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 28
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 17
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 15
+    }
+   ],
+   "others_pct": 9,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "3e7e3dc055e2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -16241,6 +16492,49 @@
    ],
    "others_pct": 0.53,
    "undecided_pct": 16.88,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e64f5ae4910d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-26",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 41.59
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 29.52
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 25.44
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 19.89
+    }
+   ],
+   "others_pct": 16.99,
+   "undecided_pct": 66.57,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -19296,6 +19590,39 @@
    "tse_registration": null
   },
   {
+   "id": "48bc043fd018",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 27.5
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 26.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 45.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4bd05792b4ee",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -19393,6 +19720,82 @@
    ],
    "others_pct": 13,
    "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "537f5e7595a9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 54.1
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 47.6
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 34.9
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 37.4
+    }
+   ],
+   "others_pct": 5.4,
+   "undecided_pct": 6.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "58833f0de6be",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -19507,6 +19910,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "619f07042125",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 50
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -19994,6 +20430,39 @@
    "tse_registration": null
   },
   {
+   "id": "86a3efb156f6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "8add72bd4e8e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -20109,6 +20578,39 @@
    ],
    "others_pct": 1.9,
    "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "929a38388d2d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 43.2
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 34.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -20872,6 +21374,39 @@
    "tse_registration": null
   },
   {
+   "id": "d0acbf0ea739",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.6
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 21.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 36.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "d21500ce483f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -21300,6 +21835,39 @@
    ],
    "others_pct": 6.2,
    "undecided_pct": 57.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "efa30397559d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 49
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -23181,6 +23749,39 @@
    "tse_registration": null
   },
   {
+   "id": "46aee7b2b914",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4e2e5f9fbb1b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -23963,6 +24564,49 @@
    "tse_registration": "BR-01739/2026"
   },
   {
+   "id": "95e878490557",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 23
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 17
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 11
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 9
+    }
+   ],
+   "others_pct": 5,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "991540424ac9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -24487,6 +25131,49 @@
     }
    ],
    "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "bcfd1b1aab48",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 46.3
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 34
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 27.3
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 25.1
+    }
+   ],
+   "others_pct": 9,
    "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": null
@@ -28328,6 +29015,72 @@
    "tse_registration": null
   },
   {
+   "id": "52530ce2a7a3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "TV Cabo Branco/TV Paraíba",
+   "fieldwork_start": "2026-09-18",
+   "fieldwork_end": "2026-09-21",
+   "published_date": "2026-09-21",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 56
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 24
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "BR-09990/2026"
+  },
+  {
+   "id": "653104bb201d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
+   "pollster": "Quaest",
+   "contractor": "TV Cabo Branco/TV Paraíba",
+   "fieldwork_start": "2026-09-18",
+   "fieldwork_end": "2026-09-21",
+   "published_date": "2026-09-21",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 54
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 25
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
+   "blank_null_pct": null,
+   "tse_registration": "BR-09990/2026"
+  },
+  {
    "id": "6dce5245ea2e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
@@ -28523,6 +29276,39 @@
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "86ef85c705f3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "TV Cabo Branco/TV Paraíba",
+   "fieldwork_start": "2026-09-18",
+   "fieldwork_end": "2026-09-21",
+   "published_date": "2026-09-21",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 37
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": "BR-09990/2026"
   },
   {
    "id": "c1cfec4764e8",
@@ -29205,7 +29991,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Cabo Branco/TV Paraíba",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-21",
    "published_date": "2026-09-21",
    "sample_size": 804,
@@ -32563,6 +33349,49 @@
    ],
    "others_pct": 3.1,
    "undecided_pct": 11.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "63579778fbfd",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-09-16",
+   "fieldwork_end": "2026-09-19",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 49.8
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 40.4
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 31.6
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 29.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 39.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -36561,6 +37390,39 @@
    "tse_registration": null
   },
   {
+   "id": "63b7adc3956d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 32
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "6758a2d3ba5f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -37431,19 +38293,19 @@
    "margin_of_error": 2.7,
    "results": [
     {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 38.3
+    },
+    {
      "candidate": "Otaviano Pivetta",
      "party": "Republicanos",
      "pct": 49.1
-    },
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 37.4
     }
    ],
    "others_pct": null,
-   "undecided_pct": 5.8,
-   "blank_null_pct": 7.7,
+   "undecided_pct": 13.5,
+   "blank_null_pct": null,
    "tse_registration": "MT-09335/2026"
   },
   {
@@ -39483,6 +40345,49 @@
    "tse_registration": null
   },
   {
+   "id": "5411e4074df0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Séculus/CBN Salvador",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 1535,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 39.61
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 32.57
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 24.56
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 21.18
+    }
+   ],
+   "others_pct": 7.31,
+   "undecided_pct": 74.78,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5811da9560c4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -40036,6 +40941,44 @@
    ],
    "others_pct": null,
    "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d8a23170699d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 43.1
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 42.8
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 42.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -48537,6 +49480,44 @@
    "tse_registration": "GO-03096/2026"
   },
   {
+   "id": "011f41429b8f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 43.3
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 43.3
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 42.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "0f61cbda7522",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -48718,6 +49699,39 @@
    ],
    "others_pct": 1,
    "undecided_pct": 3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "423c00dfee0c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Studio",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 960,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 34.4
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -48941,6 +49955,39 @@
    ],
    "others_pct": 3.27,
    "undecided_pct": 16.71,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "66c8f23cf1e4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 44
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -58423,6 +59470,39 @@
    "tse_registration": null
   },
   {
+   "id": "8eae5281a603",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 40.5
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 23.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a82d724007ee",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -58462,6 +59542,39 @@
    ],
    "others_pct": 0,
    "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b2cf73c66b90",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 28.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 28.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 43.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -58674,6 +59787,39 @@
    ],
    "others_pct": 2.4,
    "undecided_pct": 110.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e4ba228bc9ba",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 43.5
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 21.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 34.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -61974,6 +63120,39 @@
    "tse_registration": null
   },
   {
+   "id": "5b59eeec775c",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": "2026-09-02",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39.5
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.4,
+   "blank_null_pct": null,
+   "tse_registration": "PB-01118/2026"
+  },
+  {
    "id": "64388911d712",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -62369,6 +63548,39 @@
    "undecided_pct": 3,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "a03d844e7a00",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": "2026-09-02",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 47.5
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 40.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.1,
+   "blank_null_pct": null,
+   "tse_registration": "PB-01118/2026"
   },
   {
    "id": "a1e3970f7961",
@@ -62799,6 +64011,39 @@
    "undecided_pct": 10.4,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "eca72306f32a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": "2026-09-02",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 45.6
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 29.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.8,
+   "blank_null_pct": null,
+   "tse_registration": "PB-01118/2026"
   },
   {
    "id": "f493392555fb",
@@ -64163,9 +65408,19 @@
    "margin_of_error": 2,
    "results": [
     {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 28.2
+    },
+    {
      "candidate": "Jaques Wagner",
      "party": "PT",
      "pct": 23.7
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 18.3
     },
     {
      "candidate": "Ângelo Coronel",
@@ -64173,9 +65428,9 @@
      "pct": 16
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 2.9,
-   "blank_null_pct": 7.8,
+   "others_pct": 3.2,
+   "undecided_pct": 10.7,
+   "blank_null_pct": null,
    "tse_registration": "BA-08891/2026"
   },
   {
@@ -70189,6 +71444,40 @@
    "tse_registration": null
   },
   {
+   "id": "9517bbc2b4c7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-08-24",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 44.1
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 39.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
+  },
+  {
    "id": "957b8fa303ed",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
@@ -75321,6 +76610,49 @@
    "tse_registration": null
   },
   {
+   "id": "f3c055a987cd",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/acm-tem-493-contra-41-de-jeronimo-no-2o-turno-na-bahia-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-parana-pesquisas-governador-bahia-27ago2026.pdf",
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Bahia Notícias",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 43.5
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 32.2
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 26.6
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 25.1
+    }
+   ],
+   "others_pct": 7.8,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BA-07628/2026"
+  },
+  {
    "id": "fdcf4ba3ae8d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
@@ -76000,6 +77332,39 @@
    "tse_registration": null
   },
   {
+   "id": "1d2fdfb74ee5",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 29,
+   "blank_null_pct": null,
+   "tse_registration": "PB-07850/2026"
+  },
+  {
    "id": "3070e9c8a3cd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -76658,6 +78023,39 @@
    "tse_registration": null
   },
   {
+   "id": "996953dfa62a",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 47
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "PB-07850/2026"
+  },
+  {
    "id": "9a8ca085cb6f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
@@ -77033,6 +78431,39 @@
    "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": "BR-06252/2026"
+  },
+  {
+   "id": "bd73da897504",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/juliana-brizola-lidera-disputa-ao-governo-do-rs-diz-pesquisa-2/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Rio-Grande-do-Sul-RS-09640-2026.pdf",
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": "RS-09460/2026"
   },
   {
    "id": "cb6693c4345d",
@@ -77972,6 +79403,39 @@
    ],
    "others_pct": 3,
    "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "PB-07850/2026"
+  },
+  {
+   "id": "p360-13939-2-0-5ee618b82f53",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 48
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
    "blank_null_pct": null,
    "tse_registration": "PB-07850/2026"
   },
@@ -79493,6 +80957,72 @@
    "tse_registration": "BR-08612/2026"
   },
   {
+   "id": "26184669a2d6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 35
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "29b691043f8b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Álvaro Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 35
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2d5580f9bd83",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -80087,6 +81617,39 @@
    "tse_registration": null
   },
   {
+   "id": "b6fe1edf4900",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-no-rs-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-rs-25ago2026.pdf",
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Quaest",
+   "contractor": "Grupo RBS",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 33
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08612/2026"
+  },
+  {
    "id": "c0c98aa0251d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -80197,6 +81760,39 @@
    ],
    "others_pct": 2.6,
    "undecided_pct": 12.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "dbc8d37509fa",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 35
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -81244,6 +82840,39 @@
    "tse_registration": "SC-00517/2026"
   },
   {
+   "id": "p360-13952-2-1-4257aa65540c",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/esperidiao-carlos-bolsonaro-e-de-toni-empatam-pelo-senado-em-sc/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-sc-25ago2026.pdf",
+   "race": "governador",
+   "state": "SC",
+   "round": 2,
+   "scenario": "2º turno: João Rodrigues",
+   "pollster": "Quaest",
+   "contractor": "NSC",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 56
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 24
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "SC-00517/2026"
+  },
+  {
    "id": "12bde9ca68bb",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -81321,6 +82950,49 @@
    ],
    "others_pct": 3.9,
    "undecided_pct": 26.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "91e0f12f7a02",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Opnus/BNews",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-22",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 22
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 16
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 7
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 6
+    }
+   ],
+   "others_pct": 7,
+   "undecided_pct": 43,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -81409,6 +83081,39 @@
    "undecided_pct": 84.2,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "9f72b2e239dc",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-59-contra-32-de-flavio-no-2o-turno-na-pb-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtime-big-data-paraiba-presidente-24ago.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-19",
+   "fieldwork_end": "2026-08-22",
+   "published_date": "2026-08-22",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 46
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08776/2026"
   },
   {
    "id": "c42c27a8c1ce",
@@ -81619,6 +83324,39 @@
    "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": "PR-05032/2026"
+  },
+  {
+   "id": "f432436d1fce",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-59-contra-32-de-flavio-no-2o-turno-na-pb-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtime-big-data-paraiba-presidente-24ago.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-19",
+   "fieldwork_end": "2026-08-22",
+   "published_date": "2026-08-22",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08776/2026"
   },
   {
    "id": "p360-13894-1-0-81fd66c9162c",
@@ -81911,7 +83649,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-19",
    "fieldwork_end": "2026-08-22",
    "published_date": "2026-08-22",
    "sample_size": 1600,
@@ -81964,7 +83702,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-19",
    "fieldwork_end": "2026-08-22",
    "published_date": "2026-08-22",
    "sample_size": 1600,
@@ -84818,6 +86556,49 @@
    "tse_registration": null
   },
   {
+   "id": "dccad0f4adbc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-08-15",
+   "fieldwork_end": "2026-08-19",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 22.9
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 33
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 35.5
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 37.3
+    }
+   ],
+   "others_pct": 15.5,
+   "undecided_pct": 56.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "df4b2da55f5b",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/hana-ghassan-lidera-disputa-pelo-governo-do-para-diz-pesquisa/",
@@ -86205,6 +87986,49 @@
    ],
    "others_pct": 8.2,
    "undecided_pct": 27.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b4b10bb8121a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-08-15",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 51
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 31
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 34
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -90655,6 +92479,49 @@
    "tse_registration": null
   },
   {
+   "id": "76e8d420233e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-realtimebigdata-bahia-11go2026.pdf",
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-06",
+   "fieldwork_end": "2026-08-10",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 25
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 15
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 15
+    }
+   ],
+   "others_pct": 8,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "97df782031b6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -90970,14 +92837,9 @@
      "candidate": "Jerônimo Rodrigues",
      "party": "PT",
      "pct": 42
-    },
-    {
-     "candidate": "Ronaldo Mansur",
-     "party": "PSOL",
-     "pct": 2
     }
    ],
-   "others_pct": 1,
+   "others_pct": 3,
    "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": null
@@ -95508,24 +97370,24 @@
    "margin_of_error": 2,
    "results": [
     {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 35.1
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "PSD",
-     "pct": 21.9
-    },
-    {
      "candidate": "Rui Costa",
      "party": "PT",
      "pct": 44.6
     },
     {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 35.1
+    },
+    {
      "candidate": "João Roma",
      "party": "PL",
      "pct": 24.1
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 21.9
     },
     {
      "candidate": "Professora Delliana",
@@ -98161,6 +100023,72 @@
    "tse_registration": null
   },
   {
+   "id": "2d6360f26e6e",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-07-27",
+   "fieldwork_end": "2026-07-29",
+   "published_date": "2026-07-29",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 55
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "PB-09547/2026"
+  },
+  {
+   "id": "32b6dc389acc",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-07-27",
+   "fieldwork_end": "2026-07-29",
+   "published_date": "2026-07-29",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 47
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": "PB-09547/2026"
+  },
+  {
    "id": "4e1d7d166f73",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -99289,6 +101217,39 @@
    "undecided_pct": 8.51,
    "blank_null_pct": null,
    "tse_registration": "SE-00281/2026"
+  },
+  {
+   "id": "0cdbb078e901",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/pesquisa-mostra-empate-entre-5-candidatos-ao-senado-no-rs/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026.pdf",
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Quaest",
+   "contractor": "Banco Genial",
+   "fieldwork_start": "2026-07-24",
+   "fieldwork_end": "2026-07-28",
+   "published_date": "2026-07-28",
+   "sample_size": 1104,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 31
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 34,
+   "blank_null_pct": null,
+   "tse_registration": "RS-04790/2026"
   },
   {
    "id": "0e12fa6acb4f",
@@ -102227,17 +104188,22 @@
      "pct": 22
     },
     {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 6
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 16
     },
     {
      "candidate": "João Roma",
      "party": "PL",
      "pct": 6
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 6
     }
    ],
-   "others_pct": null,
+   "others_pct": 4,
    "undecided_pct": 46,
    "blank_null_pct": null,
    "tse_registration": "BA-02331/2026"
@@ -104240,6 +106206,49 @@
    "undecided_pct": 36,
    "blank_null_pct": null,
    "tse_registration": "RJ-02671/2026"
+  },
+  {
+   "id": "31d49657921e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-07-24",
+   "fieldwork_end": "2026-07-25",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 47.5
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 36
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 26.7
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 24
+    }
+   ],
+   "others_pct": 9.6,
+   "undecided_pct": 56,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "53fe49031ca1",
@@ -107618,6 +109627,39 @@
    ],
    "others_pct": 0.2,
    "undecided_pct": 24.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f461478e24ed",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-07-20",
+   "fieldwork_end": "2026-07-22",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -113764,6 +115806,39 @@
    "tse_registration": "BR-07981/2026"
   },
   {
+   "id": "2f03bcfebfbd",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-07",
+   "fieldwork_end": "2026-07-11",
+   "published_date": null,
+   "sample_size": 2002,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 41.5
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 31.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2ff28f1ff110",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -118593,6 +120668,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "0e2753018572",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Brasmarket",
+   "contractor": null,
+   "fieldwork_start": "2026-07-01",
+   "fieldwork_end": "2026-07-03",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.84,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 42.8
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 27.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -129946,6 +132054,115 @@
    "tse_registration": null
   },
   {
+   "id": "e8cca402b2c0",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-06-07",
+   "fieldwork_end": "2026-06-09",
+   "published_date": "2026-06-09",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 43
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": "PB-09578/2026"
+  },
+  {
+   "id": "f77e0939be8e",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-06-07",
+   "fieldwork_end": "2026-06-09",
+   "published_date": "2026-06-09",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 49
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 28
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": "PB-09578/2026"
+  },
+  {
+   "id": "fb6d4c22a797",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-06-07",
+   "fieldwork_end": "2026-06-09",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 25
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 21
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 17
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 14
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-13503-1-0-c29b25366a8d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/alvaro-dias-lidera-disputa-ao-senado-no-pr-diz-pesquisa/",
@@ -131996,6 +134213,39 @@
    "tse_registration": null
   },
   {
+   "id": "17d3ff765f8e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Brasmarket",
+   "contractor": null,
+   "fieldwork_start": "2026-06-01",
+   "fieldwork_end": "2026-06-03",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.84,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 41.3
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 30.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7e08c75182ea",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
@@ -132179,6 +134429,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 16.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ec45ef4955f4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SC",
+   "round": 2,
+   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-06-01",
+   "fieldwork_end": "2026-06-03",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 60.6
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 28.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -134039,6 +136322,39 @@
    "tse_registration": null
   },
   {
+   "id": "a9eaf95a3549",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SC",
+   "round": 2,
+   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 63.6
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 16.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "b0a260e15dc8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -134839,6 +137155,39 @@
    ],
    "others_pct": 3.7,
    "undecided_pct": 29.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b442506efb46",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-29",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 33.5
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -143417,6 +145766,49 @@
    ],
    "others_pct": 1.7,
    "undecided_pct": 11.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f64e322caf08",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-05-10",
+   "fieldwork_end": "2026-05-12",
+   "published_date": null,
+   "sample_size": 1510,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 48.8
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 40.6
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 24.8
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 23.2
+    }
+   ],
+   "others_pct": 5.7,
+   "undecided_pct": 21.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -152384,6 +154776,49 @@
    "incomplete": true
   },
   {
+   "id": "710c52ea2d5a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-04-23",
+   "fieldwork_end": "2026-04-27",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 38.3
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 38.4
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 33.6
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 24.9
+    }
+   ],
+   "others_pct": 64.9,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a22313247e6e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -154822,6 +157257,39 @@
    "undecided_pct": 7.7,
    "blank_null_pct": 15.7,
    "tse_registration": "RJ-04997/2026"
+  },
+  {
+   "id": "0cf6037337d6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Brasmarket",
+   "contractor": null,
+   "fieldwork_start": "2026-04-17",
+   "fieldwork_end": "2026-04-21",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 31.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 28.6,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "cde1090a9e5b",
@@ -158146,6 +160614,39 @@
    "tse_registration": null
   },
   {
+   "id": "a5905a4d0ff8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-04-01",
+   "fieldwork_end": "2026-04-07",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 33.4
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 40.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "d383ec49ae69",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-a-maior-rejeicao-na-corrida-pelo-planalto-diz-meio-ideia/",
@@ -160924,6 +163425,39 @@
    "tse_registration": null
   },
   {
+   "id": "a48a599c9eb7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SC",
+   "round": 2,
+   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-03-25",
+   "fieldwork_end": "2026-03-30",
+   "published_date": null,
+   "sample_size": 1280,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Jorginho Mello",
+     "party": "PL",
+     "pct": 53.1
+    },
+    {
+     "candidate": "João Rodrigues",
+     "party": "PSD",
+     "pct": 30.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "bb58d5de7f78",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -162538,6 +165072,39 @@
    "tse_registration": null
   },
   {
+   "id": "0b0355902691",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-26",
+   "fieldwork_end": "2026-03-28",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 38.2
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 28.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "0e9a8ce13ba4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -162766,6 +165333,39 @@
    "tse_registration": null
   },
   {
+   "id": "683d313e9423",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-26",
+   "fieldwork_end": "2026-03-28",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 32.4
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 25.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "8406e16d7a01",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -162916,6 +165516,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b3c5f4562051",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-26",
+   "fieldwork_end": "2026-03-28",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 33.1
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 35.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -164525,6 +167158,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 102.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "45d6ccb55628",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-03-18",
+   "fieldwork_end": "2026-03-24",
+   "published_date": null,
+   "sample_size": 2020,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 19
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 38.1
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 34.1
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -169447,6 +172123,39 @@
    "tse_registration": null
   },
   {
+   "id": "fcbf73b0faa1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RS",
+   "round": 2,
+   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-14",
+   "fieldwork_end": "2026-03-16",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Zucco",
+     "party": "PL",
+     "pct": 40
+    },
+    {
+     "candidate": "Juliana Brizola",
+     "party": "PDT",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "fd031b128289",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -170516,6 +173225,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f42d3d6b677a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário 2/2",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-10",
+   "fieldwork_end": "2026-03-11",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 27
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 21
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 18
+    }
+   ],
+   "others_pct": 24,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -173948,6 +176700,49 @@
    ],
    "others_pct": 1.17,
    "undecided_pct": 9.93,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "80293a0049b4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "BA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Séculus/CBN Salvador",
+   "contractor": null,
+   "fieldwork_start": "2026-02-25",
+   "fieldwork_end": "2026-02-27",
+   "published_date": null,
+   "sample_size": 1535,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Rui Costa",
+     "party": "PT",
+     "pct": 23.38
+    },
+    {
+     "candidate": "Jaques Wagner",
+     "party": "PT",
+     "pct": 19.23
+    },
+    {
+     "candidate": "João Roma",
+     "party": "PL",
+     "pct": 12.43
+    },
+    {
+     "candidate": "Ângelo Coronel",
+     "party": "Republicanos",
+     "pct": 10.5
+    }
+   ],
+   "others_pct": 3.69,
+   "undecided_pct": 30.77,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -197330,39 +200125,6 @@
    "tse_registration": null
   },
   {
-   "id": "529740a9d4b4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-10-02",
-   "fieldwork_end": "2025-10-03",
-   "published_date": null,
-   "sample_size": 2004,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 46
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "p360-13057-1-0-5cf3dba1bbb6",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/tarcisio-lidera-com-folga-disputa-para-o-governo-de-sp/",
@@ -197408,600 +200170,6 @@
    "others_pct": null,
    "undecided_pct": 5,
    "blank_null_pct": 6,
-   "tse_registration": null
-  },
-  {
-   "id": "a4b8e611a6b8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-28",
-   "fieldwork_end": "2025-10-01",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 50
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 28
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d0eacb05c57a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-28",
-   "fieldwork_end": "2025-10-01",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 52
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f7080bcb3fa4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-28",
-   "fieldwork_end": "2025-10-01",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "926c04e49538",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2025-09-25",
-   "fieldwork_end": "2025-09-30",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 28
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 50
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fe60c21ffd00",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2025-09-27",
-   "fieldwork_end": "2025-09-29",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 34.6
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 53.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "424eca883169",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-09-23",
-   "fieldwork_end": "2025-09-28",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 51.3
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 35.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4b61cd5c71c0",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Álvaro Dias",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-09-23",
-   "fieldwork_end": "2025-09-28",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 40.1
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 29.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "740c3e6d6bae",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-24",
-   "fieldwork_end": "2025-09-28",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 49
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b3cd6368b6ab",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-09-23",
-   "fieldwork_end": "2025-09-28",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 41.6
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 41.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "06d6b881cfaf",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 43.2
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 22
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 34.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "144fbb6d1177",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 41
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "542360fddedc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 41.6
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 21.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 36.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "8c0cfbe79840",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 39
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b32dfbba6257",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 49
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f3520d93ccd6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 27.5
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 26.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 45.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f9aa1c244306",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-21",
-   "fieldwork_end": "2025-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 50
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "19f52b4326e8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-20",
-   "fieldwork_end": "2025-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 58
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 23
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "85a3046be887",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-20",
-   "fieldwork_end": "2025-09-23",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 40
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
    "tse_registration": null
   },
   {
@@ -198195,138 +200363,6 @@
    "tse_registration": null
   },
   {
-   "id": "72d83d2d7d0e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-18",
-   "fieldwork_end": "2025-09-21",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 54
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 25
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 21,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7c91b0f20713",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-18",
-   "fieldwork_end": "2025-09-21",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 56
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 24
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7de4077a2f84",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-09-18",
-   "fieldwork_end": "2025-09-21",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 37
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "0682b3a73fa4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-09-15",
-   "fieldwork_end": "2025-09-20",
-   "published_date": null,
-   "sample_size": 1819,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 49.7
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 39.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "1825f48541db",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -198361,72 +200397,6 @@
    ],
    "others_pct": 3,
    "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "04c2c9c280e5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2025-09-11",
-   "fieldwork_end": "2025-09-17",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 32
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 38
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c6ce8102ebeb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2025-09-15",
-   "fieldwork_end": "2025-09-17",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 38.3
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 49.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -198677,72 +200647,6 @@
    "undecided_pct": 1,
    "blank_null_pct": 10,
    "tse_registration": "BR-04029/2026"
-  },
-  {
-   "id": "07d971bef06c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-12",
-   "fieldwork_end": "2025-09-16",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 57
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 26
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "33d8342e4d4f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e Gelson Merisio",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-12",
-   "fieldwork_end": "2025-09-16",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 66
-    },
-    {
-     "candidate": "Gelson Merísio",
-     "party": "PSB",
-     "pct": 18
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-13023-1-0-e007af591564",
@@ -200161,204 +202065,6 @@
    "tse_registration": null
   },
   {
-   "id": "38ada41dc1f7",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-05",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 50
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4e8017a997d6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-05",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 40
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "699914c9042f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-05",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 44
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e38f472cc308",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-09-04",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 1211,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 55.1
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 32.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e6cc84daae6d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Álvaro Dias",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-09-05",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 44
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f724dfd17e8f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Studio",
-   "contractor": null,
-   "fieldwork_start": "2025-09-05",
-   "fieldwork_end": "2025-09-09",
-   "published_date": null,
-   "sample_size": 960,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 34.4
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 21.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "p360-13022-1-0-3401b1cd33bc",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/cnt-mda-lula-tem-362-e-bolsonaro-297-em-disputa-pelo-planalto/",
@@ -200610,105 +202316,6 @@
    "tse_registration": null
   },
   {
-   "id": "1e9b70c3ace2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-03",
-   "fieldwork_end": "2025-09-05",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 43.5
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 21.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 34.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "81e8a983063f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-03",
-   "fieldwork_end": "2025-09-05",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 28.3
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 28.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 43.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "de33b771649b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-09-03",
-   "fieldwork_end": "2025-09-05",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 40.5
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 23.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "d0f218a2ff42",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -200816,138 +202423,6 @@
    ],
    "others_pct": 5.7,
    "undecided_pct": 7.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "3b06a70640f4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-08-28",
-   "fieldwork_end": "2025-09-02",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39.5
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "6617d186e4fc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-08-28",
-   "fieldwork_end": "2025-09-02",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 47.5
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 40.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ca77d1660c3b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-08-28",
-   "fieldwork_end": "2025-09-02",
-   "published_date": null,
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 45.6
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 29.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "6c2f063b5fc4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-08-27",
-   "fieldwork_end": "2025-09-01",
-   "published_date": null,
-   "sample_size": 1783,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 52.2
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 47.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -201153,40 +202628,6 @@
    "undecided_pct": 0.3,
    "blank_null_pct": 3.2,
    "tse_registration": null
-  },
-  {
-   "id": "ffe7838b8a3e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2025-08-24",
-   "fieldwork_end": "2025-08-28",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 44.1
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 39.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
   },
   {
    "id": "p360-13019-1-0-79731f13c412",
@@ -202688,138 +204129,6 @@
    "tse_registration": "TO-09665/2026"
   },
   {
-   "id": "16083a8f3ebb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-08-20",
-   "fieldwork_end": "2025-08-24",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 41
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "24d989ce653f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-21",
-   "fieldwork_end": "2025-08-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "5a4f8dbd7a5d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-21",
-   "fieldwork_end": "2025-08-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 48
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 29
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d6ab9133a651",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-21",
-   "fieldwork_end": "2025-08-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 47
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "p360-13007-1-1-4d9a77b42d8f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/haddad-e-eduardo-bolsonaro-lideram-disputa-ao-senado-em-sp/",
@@ -203045,171 +204354,6 @@
    "tse_registration": null
   },
   {
-   "id": "0d4ce36536f7",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-20",
-   "fieldwork_end": "2025-08-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 35
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "1b3bd297b7d3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-20",
-   "fieldwork_end": "2025-08-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 56
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 24
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "237304c4b8db",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-20",
-   "fieldwork_end": "2025-08-23",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 33
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ab15ddde0687",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-20",
-   "fieldwork_end": "2025-08-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 35
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e7d1d2ba5609",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-08-20",
-   "fieldwork_end": "2025-08-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 35
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "f06fd9ac71c2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -203269,105 +204413,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 9.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "0ad193c6a649",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-08-19",
-   "fieldwork_end": "2025-08-22",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 42
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "222e021a48c0",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-08-19",
-   "fieldwork_end": "2025-08-22",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 46
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "22cc40ad273e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-08-19",
-   "fieldwork_end": "2025-08-22",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 42
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -206479,72 +207524,6 @@
    "tse_registration": null
   },
   {
-   "id": "a2a6622abf64",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2025-07-27",
-   "fieldwork_end": "2025-07-29",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 55
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "baa138d57274",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2025-07-27",
-   "fieldwork_end": "2025-07-29",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 47
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "c0daf4630e41",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-lidera-disputa-para-o-planalto-na-bahia-diz-pesquisa/",
@@ -206726,39 +207705,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ebdea0cc0d41",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-07-24",
-   "fieldwork_end": "2025-07-28",
-   "published_date": null,
-   "sample_size": 1104,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 31
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 34,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -207020,39 +207966,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 24.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "9df7dcc805d6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-07-20",
-   "fieldwork_end": "2025-07-22",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 41
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -207596,39 +208509,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ace5ac5976cb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2025-07-07",
-   "fieldwork_end": "2025-07-11",
-   "published_date": null,
-   "sample_size": 2002,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 41.5
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 31.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -208506,39 +209386,6 @@
    ],
    "others_pct": 7.1,
    "undecided_pct": 18.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fbdf567905d1",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Brasmarket",
-   "contractor": null,
-   "fieldwork_start": "2025-07-01",
-   "fieldwork_end": "2025-07-03",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.84,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 42.8
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 27.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -210875,105 +211722,6 @@
    }
   },
   {
-   "id": "633a055ec90e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2025-06-07",
-   "fieldwork_end": "2025-06-09",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.86,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 49
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 28
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7ed5a1c12a2d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2025-06-07",
-   "fieldwork_end": "2025-06-09",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.86,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 43
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c67073df784f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2025-06-07",
-   "fieldwork_end": "2025-06-09",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.86,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 45
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "1a77912ac9ed",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -211336,72 +212084,6 @@
    "tse_registration": null
   },
   {
-   "id": "0226fde2e283",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2025-06-01",
-   "fieldwork_end": "2025-06-03",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 60.6
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 28.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "309fc8821cdb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Brasmarket",
-   "contractor": null,
-   "fieldwork_start": "2025-06-01",
-   "fieldwork_end": "2025-06-03",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.84,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 41.3
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 30.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "179239e91b8c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -211724,39 +212406,6 @@
    "tse_registration": null
   },
   {
-   "id": "6328c8a7c75b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2025-05-27",
-   "fieldwork_end": "2025-05-31",
-   "published_date": null,
-   "sample_size": 1525,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 63.6
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 16.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "p360-12962-1-0-3d5f3b8e264f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-perderia-para-bolsonaro-e-michelle-no-espirito-santo/",
@@ -211868,39 +212517,6 @@
    "tse_registration": null
   },
   {
-   "id": "b09702f36043",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Índice",
-   "contractor": null,
-   "fieldwork_start": "2025-05-27",
-   "fieldwork_end": "2025-05-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 33.5
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "8d1381e3c86f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -211930,105 +212546,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "56bb52ec3ce6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-05-25",
-   "fieldwork_end": "2025-05-26",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 39
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "9ea86e7ea5fc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-05-25",
-   "fieldwork_end": "2025-05-26",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 44
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 26
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ba6fd500f848",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-05-25",
-   "fieldwork_end": "2025-05-26",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 41
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 29
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -213425,39 +213942,6 @@
    "tse_registration": null
   },
   {
-   "id": "3541b0c20c0f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2025-04-24",
-   "fieldwork_end": "2025-04-28",
-   "published_date": null,
-   "sample_size": 1104,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 27
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 38,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "ce8761c8cd83",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -213873,39 +214357,6 @@
    "tse_registration": null
   },
   {
-   "id": "889089141a40",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Brasmarket",
-   "contractor": null,
-   "fieldwork_start": "2025-04-17",
-   "fieldwork_end": "2025-04-21",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 40
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 31.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 28.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "4652b2d5f0e8",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/04/Parana-pesquisas-cenario-2026-nacional-Abr25.pdf",
@@ -214277,39 +214728,6 @@
    "others_pct": null,
    "undecided_pct": 3.9,
    "blank_null_pct": 6.8,
-   "tse_registration": null
-  },
-  {
-   "id": "df50d5b8f5b0",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2025-04-01",
-   "fieldwork_end": "2025-04-07",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 33.4
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 40.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
    "tse_registration": null
   },
   {
@@ -215017,39 +215435,6 @@
    "tse_registration": null
   },
   {
-   "id": "aa6926966e6c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SC",
-   "round": 2,
-   "scenario": "2º turno: Jorginho Mello e João Rodrigues",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2025-03-25",
-   "fieldwork_end": "2025-03-30",
-   "published_date": null,
-   "sample_size": 1280,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jorginho Mello",
-     "party": "PL",
-     "pct": 53.1
-    },
-    {
-     "candidate": "João Rodrigues",
-     "party": "PSD",
-     "pct": 30.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "p360-12929-1-0-79fc871553fc",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/04/Parana-cenarios-2026-pesquisas-eleitorais-Minas-Gerais-Abr25.pdf",
@@ -215105,105 +215490,6 @@
    "others_pct": null,
    "undecided_pct": 4.3,
    "blank_null_pct": 6,
-   "tse_registration": null
-  },
-  {
-   "id": "46cffdf58e00",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-03-26",
-   "fieldwork_end": "2025-03-28",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 33.1
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b48d70f729d2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-03-26",
-   "fieldwork_end": "2025-03-28",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 32.4
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 25.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "cd009a7f59d2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2025-03-26",
-   "fieldwork_end": "2025-03-28",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 38.2
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 28.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33.4,
-   "blank_null_pct": null,
    "tse_registration": null
   },
   {
@@ -216046,39 +216332,6 @@
    ],
    "others_pct": 1.7,
    "undecided_pct": 11.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e0191596cb29",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2025-03-14",
-   "fieldwork_end": "2025-03-16",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 40
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -219048,39 +219301,6 @@
    "tse_registration": null
   },
   {
-   "id": "83e2b00e8a5d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RS",
-   "round": 2,
-   "scenario": "2º turno: Luciano Zucco e Juliana Brizola",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2025-02-09",
-   "fieldwork_end": "2025-02-10",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Zucco",
-     "party": "PL",
-     "pct": 37.7
-    },
-    {
-     "candidate": "Juliana Brizola",
-     "party": "PDT",
-     "pct": 39.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "p360-12948-1-0-5566e8104b67",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/04/Parana-pesquisas-ES_Fev25.pdf",
@@ -220935,717 +221155,6 @@
    "tse_registration": null
   },
   {
-   "id": "31a5d38af467",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2024-09-24",
-   "fieldwork_end": "2024-09-28",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 28.2
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 24.4
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 21
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 20.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "57274560f50d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "governador",
-   "state": "BA",
-   "round": 2,
-   "scenario": "2º turno: ACM Neto e Jerônimo Rodrigues",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2024-09-24",
-   "fieldwork_end": "2024-09-28",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "ACM Neto",
-     "party": "União Brasil",
-     "pct": 48.6
-    },
-    {
-     "candidate": "Jerônimo Rodrigues",
-     "party": "PT",
-     "pct": 51.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7aa01e971cfe",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2024-09-23",
-   "fieldwork_end": "2024-09-26",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 41.59
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 29.52
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 25.44
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 19.89
-    }
-   ],
-   "others_pct": 16.99,
-   "undecided_pct": 66.57,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e66e7e3cb871",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2024-09-23",
-   "fieldwork_end": "2024-09-26",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 28
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 17
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 15
-    }
-   ],
-   "others_pct": 9,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c88860097487",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2024-09-20",
-   "fieldwork_end": "2024-09-24",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 54.1
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 47.6
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 34.9
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 37.4
-    }
-   ],
-   "others_pct": 5.4,
-   "undecided_pct": 6.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a6d6d92bec83",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2024-09-20",
-   "fieldwork_end": "2024-09-23",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 23
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 17
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 11
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 9
-    }
-   ],
-   "others_pct": 5,
-   "undecided_pct": 35,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d62aa88a7e0c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2024-09-21",
-   "fieldwork_end": "2024-09-23",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 46.3
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 34
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 27.3
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 25.1
-    }
-   ],
-   "others_pct": 9,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ce44dcd0261b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2024-09-16",
-   "fieldwork_end": "2024-09-19",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 49.8
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 40.4
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 31.6
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 29.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 39.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "dd220b8dfb05",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2024-09-10",
-   "fieldwork_end": "2024-09-15",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 43.1
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 42.8
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 42.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e539af10ab35",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Séculus/CBN Salvador",
-   "contractor": null,
-   "fieldwork_start": "2024-09-10",
-   "fieldwork_end": "2024-09-15",
-   "published_date": null,
-   "sample_size": 1535,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 39.61
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 32.57
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 24.56
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 21.18
-    }
-   ],
-   "others_pct": 7.31,
-   "undecided_pct": 74.78,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b4c94362c3d8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2024-09-04",
-   "fieldwork_end": "2024-09-09",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 43.3
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 43.3
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 42.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "edcb1f98f671",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2024-09-04",
-   "fieldwork_end": "2024-09-08",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 26
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 19
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 17
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 15
-    }
-   ],
-   "others_pct": 9,
-   "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "143218875a50",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2024-08-28",
-   "fieldwork_end": "2024-09-02",
-   "published_date": null,
-   "sample_size": 1804,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 28.2
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 23.7
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 18.3
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 16
-    }
-   ],
-   "others_pct": 3.2,
-   "undecided_pct": 10.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "36f4a43b24bb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2024-08-23",
-   "fieldwork_end": "2024-08-26",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 23
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 17
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 7
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 5
-    }
-   ],
-   "others_pct": 6,
-   "undecided_pct": 42,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f318566d98db",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2024-08-23",
-   "fieldwork_end": "2024-08-25",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 43.5
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 32.2
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 26.6
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 25.1
-    }
-   ],
-   "others_pct": 7.8,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "8934e8acbb3a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Opnus/BNews",
-   "contractor": null,
-   "fieldwork_start": "2024-08-17",
-   "fieldwork_end": "2024-08-22",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 22
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 16
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 7
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 6
-    }
-   ],
-   "others_pct": 7,
-   "undecided_pct": 43,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "0e319c95f1f4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2024-08-15",
-   "fieldwork_end": "2024-08-19",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 22.9
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 33
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 35.5
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 37.3
-    }
-   ],
-   "others_pct": 15.5,
-   "undecided_pct": 56.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "33ee93a44748",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -221917,221 +221426,6 @@
    "tse_registration": null
   },
   {
-   "id": "1c8dfc452397",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2024-08-15",
-   "fieldwork_end": "2024-08-17",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 51
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 31
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 34
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c09e92403053",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2024-08-06",
-   "fieldwork_end": "2024-08-10",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 25
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 15
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 15
-    }
-   ],
-   "others_pct": 8,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b5166e9b8330",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2024-07-31",
-   "fieldwork_end": "2024-08-02",
-   "published_date": null,
-   "sample_size": 2400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 44.6
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 35.1
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 24.1
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 21.9
-    }
-   ],
-   "others_pct": 11.9,
-   "undecided_pct": 20.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "9c719532140c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2024-07-23",
-   "fieldwork_end": "2024-07-27",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 22
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 16
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 6
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 6
-    }
-   ],
-   "others_pct": 4,
-   "undecided_pct": 46,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a9b5d9539256",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2024-07-24",
-   "fieldwork_end": "2024-07-25",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 47.5
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 36
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 26.7
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 24
-    }
-   ],
-   "others_pct": 9.6,
-   "undecided_pct": 56,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "15009f05b266",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -222280,135 +221574,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 13,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "2a0900f97195",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2024-06-27",
-   "fieldwork_end": "2024-06-30",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 50.6
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 36.7
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 23.2
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 22.4
-    }
-   ],
-   "others_pct": 9.2,
-   "undecided_pct": 21,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "9059c010ccbb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2024-06-07",
-   "fieldwork_end": "2024-06-09",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 25
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 21
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 17
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 14
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "8b9d6e061a72",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2024-05-10",
-   "fieldwork_end": "2024-05-12",
-   "published_date": null,
-   "sample_size": 1510,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 48.8
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 40.6
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 24.8
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 23.2
-    }
-   ],
-   "others_pct": 5.7,
-   "undecided_pct": 21.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -222622,135 +221787,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 17.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "8d36f4406849",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2024-04-23",
-   "fieldwork_end": "2024-04-27",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 38.3
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 38.4
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 33.6
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 24.9
-    }
-   ],
-   "others_pct": 64.9,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "27da2fb4d3e5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2024-04-22",
-   "fieldwork_end": "2024-04-26",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 24
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 9
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 6
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 38,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a55c8a97bb90",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2024-03-18",
-   "fieldwork_end": "2024-03-24",
-   "published_date": null,
-   "sample_size": 2020,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 19
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 38.1
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 34.1
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -223442,135 +222478,6 @@
    "others_pct": null,
    "undecided_pct": 4.2,
    "blank_null_pct": 8,
-   "tse_registration": null
-  },
-  {
-   "id": "7932cd8e7795",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário 2/2",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2024-03-10",
-   "fieldwork_end": "2024-03-11",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 27
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 21
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 14
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 18
-    }
-   ],
-   "others_pct": 24,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "78662b2859ab",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Séculus/CBN Salvador",
-   "contractor": null,
-   "fieldwork_start": "2024-02-25",
-   "fieldwork_end": "2024-02-27",
-   "published_date": null,
-   "sample_size": 1535,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 23.38
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 19.23
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 12.43
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 10.5
-    }
-   ],
-   "others_pct": 3.69,
-   "undecided_pct": 30.77,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "3b7e9cd423f1",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
-   "integra_url": null,
-   "race": "senador",
-   "state": "BA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Instituto TML",
-   "contractor": null,
-   "fieldwork_start": "2024-02-18",
-   "fieldwork_end": "2024-02-21",
-   "published_date": null,
-   "sample_size": 2045,
-   "margin_of_error": 2.17,
-   "results": [
-    {
-     "candidate": "Rui Costa",
-     "party": "PT",
-     "pct": 28.67
-    },
-    {
-     "candidate": "Jaques Wagner",
-     "party": "PT",
-     "pct": 23.22
-    },
-    {
-     "candidate": "João Roma",
-     "party": "PL",
-     "pct": 16.12
-    },
-    {
-     "candidate": "Ângelo Coronel",
-     "party": "Republicanos",
-     "pct": 11.51
-    }
-   ],
-   "others_pct": 5.2,
-   "undecided_pct": 15.48,
-   "blank_null_pct": null,
    "tse_registration": null
   },
   {
