@@ -1,5 +1,5 @@
 name: diag-fontes-branch
-# diag 04/10 (03): descobrir os códigos de eleição de 2026 e o JSON simplificado do TSE
+# diag 04/10 (04): eleições de 2026 no ele-c.json do TSE e o JSON simplificado (presidente BR, governador e senador SP)
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
@@ -12,17 +12,34 @@ jobs:
       - run: |
           set +e
           python3 - <<'PY'
-          import json, urllib.request, re
+          import json, urllib.request
           UA={'User-Agent':'Mozilla/5.0 PlacarDasPesquisas/1.0'}
           def get(u):
               try:
                   with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=40) as r: return r.status, r.read().decode('utf-8','replace')
               except Exception as e: return None, f"ERRO {e}"
-          for u in ["https://resultados.tse.jus.br/oficial/comum/config/ele-c.json",
-                    "https://resultados.tse.jus.br/oficial/ele2026/comum/config/ele-c.json"]:
-              st, t = get(u); print("=====", u, st, len(t)); print(t[:3000])
-          # tentativa de palpites de código para a presidencial 2026
-          for ele in ("619","620","617","618","621","622"):
-              u=f"https://resultados.tse.jus.br/oficial/ele2026/{ele}/dados-simplificados/br/br-c0001-e000{ele}-r.json"
-              st,t=get(u); print("-----", u, st, t[:600] if st else t[:120])
+          st, t = get("https://resultados.tse.jus.br/oficial/comum/config/ele-c.json")
+          cfg = json.loads(t)
+          print("gerado em", cfg.get("dg"), cfg.get("hg"))
+          eleicoes = []
+          for pl in cfg["pl"]:
+              if pl.get("c") != "ele2026": continue
+              print("PLEITO", pl["cd"], pl.get("dt"), "ciclo", pl["c"])
+              for e in pl["e"]:
+                  cargos = sorted({(c["cd"], c["ds"]) for a in e.get("abr", []) for c in a.get("cp", [])})
+                  ufs = [a["cd"] for a in e.get("abr", [])]
+                  print("   ELEICAO cd", e["cd"], "cdt2", e.get("cdt2"), "turno", e.get("t"), "tp", e.get("tp"), "|", e["nm"], "| cargos", cargos, "| abr", ufs[:6], "..." if len(ufs) > 6 else "")
+                  eleicoes.append((e["cd"], e.get("t"), cargos, ufs))
+          print("########## JSON SIMPLIFICADO ##########")
+          for cd, t, cargos, ufs in eleicoes:
+              if t != "1": continue
+              for ccd, cds in cargos:
+                  uf = "br" if "br" in ufs else ("sp" if "sp" in ufs else ufs[0])
+                  u = f"https://resultados.tse.jus.br/oficial/ele2026/{cd}/dados-simplificados/{uf}/{uf}-c{int(ccd):04d}-e{int(cd):06d}-r.json"
+                  st, body = get(u)
+                  print("-----", cds, u, st)
+                  if st:
+                      d = json.loads(body)
+                      print({k: v for k, v in d.items() if k != "cand"})
+                      for c in d.get("cand", [])[:4]: print("   cand:", c)
           PY
