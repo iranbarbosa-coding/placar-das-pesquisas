@@ -2,7 +2,7 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 671,
+  "exato": 673,
   "contencao": 218,
   "outra_disputa": 162,
   "ambiguo": 5,
@@ -3645,6 +3645,13 @@
     "numero": "21",
     "origem": "exato"
    },
+   "escritor augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "exato"
+   },
    "flavio bolsonaro": {
     "nome_urna": "Flávio Bolsonaro",
     "sq_candidato": "280002551544",
@@ -4440,6 +4447,13 @@
     "sq_candidato": "260002551712",
     "partido": "PSDB",
     "numero": "45",
+    "origem": "exato"
+   },
+   "fabio": {
+    "nome_urna": "Fábio",
+    "sq_candidato": "260002542491",
+    "partido": "PSD",
+    "numero": "55",
     "origem": "exato"
    },
    "fabio mitidieri": {
