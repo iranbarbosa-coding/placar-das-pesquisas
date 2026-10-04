@@ -581,6 +581,11 @@ def extract(text, source_url, lang, race='presidente', state=None, title_hint=No
             i += 1; continue
         if s.startswith('{{hidden begin'):
             hidden = None
+            # Um bloco escondido é um confronto (AM: "{{hidden begin|title=Omar
+            # Aziz e David Almeida}}", um por bloco, na mesma seção): lista nova,
+            # cronologia recomeça — como num cabeçalho sem ano e sem mês.
+            if ano_ctx.get('faixa'):
+                ano_ctx['cursor_ano'], ano_ctx['cursor_mes'] = ano_ctx['faixa'][1], None
             j = i
             while j < n and '}}' not in lines[j] or j == i:
                 tm = re.search(r'\|\s*title\s*=\s*(.*)', lines[j])
