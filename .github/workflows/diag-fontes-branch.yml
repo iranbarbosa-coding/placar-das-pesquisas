@@ -1,0 +1,45 @@
+name: diag-fontes-branch
+# diag 04/10: Senado da Bahia na Wikipédia — nenhuma pesquisa da wiki desde 15/08
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Senado BA
+        run: |
+          set +e
+          python3 - <<'PY'
+          import sys, json, re, urllib.request
+          sys.path.insert(0, 'scripts')
+          import wiki_parse as W
+          url = "https://pt.wikipedia.org/w/index.php?title=Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia&action=raw"
+          text = W._buscar_http(url)
+          lines = text.split('\n')
+          print("########## CABEÇALHOS ##########")
+          for i, l in enumerate(lines):
+              if re.match(r'^==+', l): print(i, l[:100])
+          print("########## EXTRAÇÃO ##########")
+          polls = W.extract(text, "https://pt.wikipedia.org/wiki/BA", 'pt', 'auto', 'BA')
+          sen = [p for p in polls if p.get('race') == 'senador']
+          gov = [p for p in polls if p.get('race') == 'governador']
+          print("governador:", len(gov), "senador:", len(sen))
+          for p in sorted(sen, key=lambda p: p.get('fieldwork_end') or ''):
+              print("  SEN", p.get('fieldwork_end'), p.get('pollster'), p.get('round'), len(p.get('results', [])), 'nomes', 'soma', round(sum(r['pct'] for r in p.get('results', [])), 1))
+          print("########## SEÇÃO SENADO (wikitext) ##########")
+          start = None
+          for i, l in enumerate(lines):
+              if re.match(r'^==+', l) and 'senad' in l.lower(): start = i; break
+          if start is None:
+              print("NENHUM cabeçalho com 'senad'"); sys.exit(0)
+          end = len(lines)
+          for j in range(start + 1, len(lines)):
+              if re.match(r'^==\s*[^=]', lines[j]): end = j; break
+          print("linhas", start, "a", end)
+          for l in lines[start:min(end, start + 260)]:
+              print(l[:220])
+          PY
