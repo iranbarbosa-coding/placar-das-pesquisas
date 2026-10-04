@@ -206,6 +206,27 @@ const irgEstimuladaRala = () => {
   return p;
 };
 
+// O par do caso Datafolha nacional, 04/10/2026: a MESMA casa, o mesmo elenco,
+// a última pesquisa (campo 1–3/10, n=2.002, Wikipédia) dois dias depois da
+// anterior (28/09–01/10, n=2.506, Poder360) — dentro da janela de ±3 dias.
+// Duas operações de campo; a fusão doava a tabela nova ao registro antigo e a
+// pesquisa da véspera nunca chegava ao banco.
+const DF = { pollster: "Instituto da Operacao", race: "presidente", state: null };
+const dfAnterior = () => base({
+  ...DF, id: "p360-887001-1-0-121212121212", source: "poder360",
+  fieldwork_start: "2026-09-28", fieldwork_end: "2026-10-01", published_date: "2026-10-01",
+  sample_size: 2506, margin_of_error: 2, tse_registration: "BR-90005/2026",
+  results: linhas(["Alfa Fusao", 42], ["Beta Fusao", 38], ["Gama Fusao", 4], ["Delta Fusao", 3], ["Epsilon Fusao", 3], ["Zeta Fusao", 1]),
+  undecided_pct: 2, blank_null_pct: 5,
+});
+const dfVespera = () => base({
+  ...DF, scenario: "1º turno — cenário único",
+  fieldwork_start: "2026-10-01", fieldwork_end: "2026-10-03", published_date: null,
+  sample_size: 2002, margin_of_error: 2,
+  results: linhas(["Alfa Fusao", 42], ["Beta Fusao", 40], ["Gama Fusao", 3], ["Delta Fusao", 4], ["Epsilon Fusao", 3], ["Zeta Fusao", 1]),
+  undecided_pct: 3, blank_null_pct: 4,
+});
+
 // ------------------------------------------------------------------ runner
 //
 // `mutacao` reverte UM conserto — e só ele — sobre as funções de verdade:
@@ -219,6 +240,7 @@ function rodar({ mutacao = null } = {}) {
   const opts = mutacao === "passe-nulo" ? { dataNulaCasa: () => true }
     : mutacao === "cega-cenario" ? { cenarioCompativel: () => true }
     : mutacao === "cega-estimulo" ? { estimuloCompativel: () => true }
+    : mutacao === "cega-operacao" ? { operacaoCompativel: () => true }
     : {};
   const merge = (poder, wiki) => mergePolls([poder, wiki], opts);
   const funil = (polls) => keepFullestRound1(polls,
@@ -386,6 +408,47 @@ function rodar({ mutacao = null } = {}) {
       `o funil tinha de colapsar duas estimuladas do mesmo dia na mais cheia (veio ${finais.length} registro(s))`);
   });
 
+  // ====================================================================
+  // E. DUAS OPERAÇÕES DE CAMPO — o caso Datafolha nacional 01/10 × 03/10
+  // ====================================================================
+
+  caso("operação: a pesquisa da véspera (campo 1–3/10, n=2.002) não é fundida à anterior da mesma casa (28/09–01/10, n=2.506) — fim de campo E amostra diferentes", ({ afirma }) => {
+    const depois = merge([dfAnterior()], [dfVespera()]);
+    afirma(depois.length === 2,
+      `${depois.length} registro(s), esperados 2 — a última Datafolha ${depois.length === 1 ? "foi engolida pela anterior (o defeito de 04/10)" : "se multiplicou"}`);
+    const antiga = depois.find((p) => p.id === "p360-887001-1-0-121212121212");
+    afirma(antiga?.results[1].pct === 38 && antiga?.sample_size === 2506, "a anterior perdeu a própria tabela ou a própria amostra");
+    const nova = depois.find((p) => p.id !== "p360-887001-1-0-121212121212");
+    afirma(nova?.fieldwork_end === "2026-10-03" && nova?.results[1].pct === 40 && nova?.sample_size === 2002,
+      "a pesquisa da véspera não ficou com registro próprio, data própria e tabela própria");
+  });
+
+  caso("operação: duas leituras de um TRACKING na MESMA fonte (fins de campo diferentes, mesma amostra) são duas pesquisas — o caso Palver 01/10 × 03/10", ({ afirma }) => {
+    const a = dfVespera(); a.fieldwork_end = "2026-10-01"; a.fieldwork_start = "2026-09-30"; a.sample_size = 5000; a.id = "";
+    const b = dfVespera(); b.fieldwork_end = "2026-10-03"; b.fieldwork_start = "2026-09-30"; b.sample_size = 5000; b.id = "";
+    b.results = linhas(["Alfa Fusao", 43], ["Beta Fusao", 47], ["Gama Fusao", 1], ["Delta Fusao", 1], ["Epsilon Fusao", 7], ["Zeta Fusao", 0]);
+    const depois = merge([], [a, b]);
+    afirma(depois.length === 2,
+      `${depois.length} registro(s), esperados 2 — a leitura de 03/10 ${depois.length === 1 ? "foi engolida pela de 01/10 (mesma fonte, mesma amostra)" : "se multiplicou"}`);
+    afirma(depois.some((p) => p.fieldwork_end === "2026-10-03" && p.results[1].pct === 47), "a leitura de 03/10 não ficou com a própria data e tabela");
+  });
+
+  caso("operação (controle): a mesma coleta com a amostra arredondada de outro jeito pela outra fonte (mesmo fim de campo) ainda funde", ({ afirma }) => {
+    const wiki = dfVespera();
+    wiki.fieldwork_end = "2026-10-01"; wiki.fieldwork_start = "2026-09-28"; wiki.sample_size = 2500;
+    const depois = merge([dfAnterior()], [wiki]);
+    afirma(depois.length === 1, `${depois.length} registro(s), esperado 1 — amostra arredondada (2.500 × 2.506) no mesmo dia separou a mesma pesquisa`);
+  });
+
+  caso("operação (controle): o fim de campo arredondado por um dia (mesma amostra) ainda funde; e um lado sem amostra não contradiz", ({ afirma }) => {
+    const umDia = dfVespera();
+    umDia.fieldwork_end = "2026-10-02"; umDia.sample_size = 2506;
+    afirma(merge([dfAnterior()], [umDia]).length === 1, "fim de campo a um dia com a mesma amostra separou a mesma pesquisa");
+    const semAmostra = dfVespera();
+    semAmostra.sample_size = null;
+    afirma(merge([dfAnterior()], [semAmostra]).length === 1, "um lado sem amostra foi tratado como contradição (§4: ausência não é prova)");
+  });
+
   return { ok, falhas };
 }
 
@@ -397,6 +460,8 @@ const CONTROLES = [
   "linhagem (controle): a fusão GRAVA quem absorveu — a identidade que fica carrega a que sumiu em absorvidos, nos dois sentidos",
   "estímulo (controle): fragmento sem marca declarada segue fundindo pela regra atual (§4)",
   "estímulo (controle): estimulada×estimulada do mesmo cenário segue fundindo e colapsando",
+  "operação (controle): a mesma coleta com a amostra arredondada de outro jeito pela outra fonte (mesmo fim de campo) ainda funde",
+  "operação (controle): o fim de campo arredondado por um dia (mesma amostra) ainda funde; e um lado sem amostra não contradiz",
 ];
 
 if (process.argv.includes("--self-test")) {
@@ -415,6 +480,10 @@ if (process.argv.includes("--self-test")) {
     "cega-estimulo": [
       "estímulo: espontânea declarada não funde com estimulada declarada, e o legacy fica na espontânea (o caso senador:PR IRG 08–12/08)",
       "estímulo: o funil de 1º turno não recolapsa espontânea e estimulada declaradas do mesmo dia",
+    ],
+    "cega-operacao": [
+      "operação: a pesquisa da véspera (campo 1–3/10, n=2.002) não é fundida à anterior da mesma casa (28/09–01/10, n=2.506) — fim de campo E amostra diferentes",
+      "operação: duas leituras de um TRACKING na MESMA fonte (fins de campo diferentes, mesma amostra) são duas pesquisas — o caso Palver 01/10 × 03/10",
     ],
   };
   let ok = true;
