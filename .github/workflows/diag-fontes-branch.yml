@@ -1,58 +1,68 @@
 name: diag-fontes-branch
-# diag 04/10 (02): Datafolha 03/10 e AtlasIntel 27/09–02/10 — o que as fontes e as matérias trazem
+# ensaio 04/10: add_poll AtlasIntel/Bloomberg 27/09–02/10 (1º e 2º turno)
 on:
   push:
     branches: [claude/placar-32-creator-pitches-7dk5vm]
-    paths: [.github/workflows/diag-fontes-branch.yml]
+    paths: [.github/workflows/diag-fontes-branch.yml, data/repairs.json]
 jobs:
-  fontes:
+  ensaio:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Wikipédia PT + Poder360 + matérias
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - run: node scripts/fetch-candidaturas.mjs
+      - run: node scripts/match-ballot-names.mjs
+      - run: python3 scripts/wiki_parse.py --self-test
+      - run: node scripts/sources/poder360.mjs --self-test
+      - run: node scripts/truncada-restaurada-check.mjs --self-test && node scripts/truncada-restaurada-check.mjs
+      - name: Coleta REAL (stderr guardado)
         run: |
           set +e
-          python3 - <<'PY'
-          import re, json, urllib.request, html
-          UA={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) PlacarDasPesquisas/1.0'}
-          def get(u, t=40):
-              try:
-                  with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=t) as r: return r.read().decode('utf-8','replace')
-              except Exception as e: return f"ERRO {e}"
-          print("########## WIKIPÉDIA PT (linhas com Datafolha/AtlasIntel e outubro) ##########")
-          w = get("https://pt.wikipedia.org/w/index.php?title=Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026&action=raw")
-          lines = w.split('\n')
-          for i,l in enumerate(lines):
-              if re.search(r'Datafolha|AtlasIntel|Atlas/Bloomberg|4\s?\.?006|4\s?\.?945', l):
-                  print(i, '|', l[:230])
-                  for k in range(1, 14):
-                      if i+k < len(lines): print('   ', lines[i+k][:160])
-                  print('---')
-              if i > 700: break
-          print("########## PODER360 v2 presidente 1º turno (publicadas >= 2026-10-02) ##########")
-          for turno in (1, 2):
-              p = get(f"https://monitor-agregador.poder360.com.br/pesquisas/v2/cenarios?cargosId=3&ano=2026&turno={turno}&cidade=")
-              try:
-                  d = json.loads(p)
-              except Exception as e:
-                  print("poder360 turno", turno, "não é JSON:", p[:300]); continue
-              items = d if isinstance(d, list) else d.get('data') or d.get('cenarios') or d.get('pesquisas') or []
-              print("turno", turno, "itens:", len(items), "chaves:", list(items[0].keys())[:25] if items else None)
-              for it in items:
-                  s = json.dumps(it, ensure_ascii=False)
-                  if re.search(r'2026-10-0[1-4]|03/10/2026|02/10/2026', s) and re.search(r'Datafolha|Atlas', s, re.I):
-                      print(s[:900]); print('---')
-          print("########## MATÉRIAS ##########")
-          for u in ["https://www.em.com.br/politica/2026/10/7513949-datafolha-lula-tem-47-e-flavio-46-no-segundo-turno.html",
-                    "https://www.terra.com.br/noticias/eleicoes/pesquisas/pesquisa-datafolha-para-presidente-lula-tem-45-em-votos-validos-no-1-turno-flavio-42,597a96c5fe46c0463655d63f0034f9cb2uirzcsq.html",
-                    "https://jovempan.com.br/politica/atlas-bloomberg-lula-467-flavio-bolsonaro-438-primeiro-turno-2026-10-03/",
-                    "https://jovempan.com.br/politica/atlas-bloomberg-lula-476-flavio-bolsonaro-474-segundo-turno-2026-10-03/"]:
-              t = get(u)
-              print("=====", u, len(t))
-              txt = re.sub(r'<script.*?</script>|<style.*?</style>', ' ', t, flags=re.S)
-              txt = html.unescape(re.sub(r'<[^>]+>', ' ', txt)); txt = re.sub(r'\s+', ' ', txt)
-              for m in re.finditer(r'[^.]{0,220}\d{1,2}(,\d)?\s?%[^.]{0,220}\.', txt):
-                  s = m.group(0).strip()
-                  if re.search(r'Lula|Flávio|Caiado|Cury|Renan|Zema|branco|nulo|indecis|não sabe|registr|entrevist', s, re.I): print(' ·', s[:440])
-          PY
+          node scripts/scrape.mjs > scrape.out 2> scrape.err; rc=$?
+          echo "scrape exit $rc"; tail -5 scrape.out
+          grep -n -i "ERRO\|Validação falhou\|NÃO gravado" scrape.err | cut -c1-260 | head -20 || true
+          exit $rc
+      - run: node scripts/derive-polls.mjs
+      - name: Portões (os mesmos do cron)
+        run: |
+          set -e
+          node scripts/validate-store.mjs --self-test && node scripts/validate-store.mjs
+          node scripts/parity-check.mjs
+          node scripts/projection-twin-check.mjs
+          node scripts/pollster-clustering-check.mjs
+          node scripts/upsert-harness.mjs
+          node scripts/roster-retention-check.mjs --self-test && node scripts/roster-retention-check.mjs
+          node scripts/disputa-delta-check.mjs --self-test
+          echo "########## DELTA ##########"
+          node scripts/disputa-delta-check.mjs
+          node scripts/source-fallback-check.mjs --self-test && node scripts/source-fallback-check.mjs
+          node scripts/curated-insert-check.mjs --self-test && node scripts/curated-insert-check.mjs
+          node scripts/existencia-pos-guarda-check.mjs && node scripts/existencia-pos-guarda-check.mjs --self-test
+          node scripts/fusao-cenarios-check.mjs
+          node scripts/idempotence-check.mjs
+          node scripts/validate-data.mjs data/polls.json
+          node scripts/incomplete-polls.mjs
+          node scripts/census.mjs
+      - name: Relatório
+        if: always()
+        run: |
+          echo "########## CURADAS RJ ##########"
+          grep -n "AtlasIntel.*presidente\|INSERIDA\|add_poll.*AtlasIntel\|RECUSADO" scrape.err | cut -c1-240 | head -12 || true
+          echo "########## RATIFICADAS ##########"
+          grep -c "ratificad" data/conflicts.ndjson || true
+          grep "question_sumida_ratificada\|ratificada" data/conflicts.ndjson | python3 -c "
+          import sys,json
+          for l in sys.stdin:
+              c=json.loads(l); print('  ',c.get('type'),c.get('record_id'),'|',(c.get('note') or '')[:120])
+          " | head -20 || true
+          echo "########## SUMIDAS/QUARENTENA ##########"
+          grep -c "disputa_em_quarentena" data/conflicts.ndjson || true
+          grep "disputa_em_quarentena" data/conflicts.ndjson | python3 -c "
+          import sys,json
+          for l in sys.stdin:
+              c=json.loads(l); print('  ',c['record_id'],'|',c['note'][:200])
+          " || true
+          echo "########## DIFF ##########"
+          git diff --stat data/ | tail -3

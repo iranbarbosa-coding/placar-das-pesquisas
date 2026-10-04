@@ -7615,6 +7615,128 @@
     }
    ],
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-10-02"
+   },
+   "defect": "AUSENTE: a última AtlasIntel/Bloomberg nacional antes do 1º turno (campo 27/09–02/10/2026, 4.945 entrevistados, BR-00999/2026, divulgada em 03/10 às 22h) não chegou nem pela Wikipédia (linha 'Resultado da pesquisa ainda não divulgado') nem pelo Poder360 na véspera do pleito.",
+   "source": "https://jovempan.com.br/politica/atlas-bloomberg-lula-467-flavio-bolsonaro-438-primeiro-turno-2026-10-03/",
+   "evidence": "Jovem Pan, 03/10/2026 22h00: 'Lula tem 46,7% das intenções de voto no primeiro turno, enquanto Flávio Bolsonaro registra 43,8%'; 'Renan Santos (Missão) aparece em terceiro, com 4,6%. Na sequência estão Augusto Cury (Avante), com 2,1%, e Ronaldo Caiado (PSD), com 1,4%. Votos em branco ou nulo representam 0,3%, mesmo percentual dos entrevistados que não souberam responder. Entre os demais candidatos, Rui Costa Pimenta (PCO) tem 0,4%, Romeu Zema (Novo), 0,3%, Samara (UP) e Clariana Barão (DC), 0,1% cada.' Ficha: 'entrevistou 4.945 pessoas entre 27 de setembro e 2 de outubro, por recrutamento digital aleatório; registro TSE BR-00999/2026; margem 1 ponto'. Soma dos totais 100,1 (arredondamento em décimos). Válidos publicados: Lula 47 × Flávio 44,1. Matérias lidas pelo runner do GitHub em 04/10/2026 01:22 UTC (run 37167808339). A Wikipédia (linha 322 da página presidencial, lida na mesma hora) lista a AtlasIntel 27 Set – 2 Out, BR-00999/2026, com 'Resultado da pesquisa ainda não divulgado'; o Poder360 ainda não a servia na rodada 37167359633 (01:13 UTC). Reconciliação por segunda fonte independente: Metrópoles ('AtlasIntel: Lula marca 50,1% contra 49,9% de Flávio Bolsonaro em 2º turno') e Bloomberg Línea ('Nova pesquisa AtlasIntel mostra Lula e Flávio empatados na reta final') trazem os mesmos números do 2º turno; Revista Fórum e CNN Brasil, os do 1º turno. Decisão do criador de 18/08/2026: fonte secundária vale quando reconcilia.",
+   "verified_at": "2026-10-04",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": "Bloomberg",
+    "fieldwork_start": "2026-09-27",
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-03",
+    "sample_size": 4945,
+    "margin_of_error": 1.0,
+    "tse_registration": "BR-00999/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 46.7
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 43.8
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 4.6
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 2.1
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 1.4
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct": 0.4
+     },
+     {
+      "candidate": "Zema",
+      "party": "Novo",
+      "pct": 0.3
+     },
+     {
+      "candidate": "Samara",
+      "party": "UP",
+      "pct": 0.1
+     },
+     {
+      "candidate": "Clariana Barão",
+      "party": "DC",
+      "pct": 0.1
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 0.3,
+    "blank_null_pct": 0.3
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-10-02",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE: a simulação de 2º turno Lula × Flávio Bolsonaro da última AtlasIntel/Bloomberg nacional (campo 27/09–02/10/2026, 4.945 entrevistados, BR-00999/2026, divulgada em 03/10) não chegou pela Wikipédia nem pelo Poder360 na véspera do pleito.",
+   "source": "https://jovempan.com.br/politica/atlas-bloomberg-lula-476-flavio-bolsonaro-474-segundo-turno-2026-10-03/",
+   "evidence": "Jovem Pan, 03/10/2026 22h00: 'Lula tem 47,6% das intenções de voto em um eventual segundo turno contra Flávio Bolsonaro (PL), que registra 47,4%'; 'Entre os entrevistados, 5% declararam voto em branco, nulo ou não souberam responder'; válidos 50,1 × 49,9. Soma dos totais 100. Ficha igual à do 1º turno (4.945 entrevistados, 27/09–02/10, BR-00999/2026, margem 1 ponto). O balde branco/nulo/NS vem AGREGADO na matéria (5%) e é gravado inteiro em undecided_pct por falta de separação publicada. Matérias lidas pelo runner do GitHub em 04/10/2026 01:22 UTC (run 37167808339). A Wikipédia (linha 322 da página presidencial, lida na mesma hora) lista a AtlasIntel 27 Set – 2 Out, BR-00999/2026, com 'Resultado da pesquisa ainda não divulgado'; o Poder360 ainda não a servia na rodada 37167359633 (01:13 UTC). Reconciliação por segunda fonte independente: Metrópoles ('AtlasIntel: Lula marca 50,1% contra 49,9% de Flávio Bolsonaro em 2º turno') e Bloomberg Línea ('Nova pesquisa AtlasIntel mostra Lula e Flávio empatados na reta final') trazem os mesmos números do 2º turno; Revista Fórum e CNN Brasil, os do 1º turno. Decisão do criador de 18/08/2026: fonte secundária vale quando reconcilia.",
+   "verified_at": "2026-10-04",
+   "add_poll": {
+    "pollster": "AtlasIntel",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": "Bloomberg",
+    "fieldwork_start": "2026-09-27",
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-03",
+    "sample_size": 4945,
+    "margin_of_error": 1.0,
+    "tse_registration": "BR-00999/2026",
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 47.6
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 47.4
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 5.0,
+    "blank_null_pct": null
+   },
+   "expect_sum": 100
   }
  ]
 }
