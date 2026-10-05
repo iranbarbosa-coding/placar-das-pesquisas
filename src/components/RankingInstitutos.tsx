@@ -14,8 +14,9 @@ import { JANELA_DIAS } from "@/lib/acerto";
 const fmt1 = (v: number | null | undefined): string =>
   v === null || v === undefined ? "—" : v.toFixed(1).replace(".", ",");
 
-function faixa(erro: number): { bg: string; fg: string } {
+function faixa(erro: number | null): { bg: string; fg: string } {
   // Verde até 2 p.p. (dentro da margem típica), âmbar até 4, laranja acima.
+  if (erro === null) return { bg: "transparent", fg: "var(--text-muted)" };
   if (erro <= 2) return { bg: "rgba(22,163,74,0.14)", fg: "var(--text-primary)" };
   if (erro <= 4) return { bg: "rgba(217,119,6,0.14)", fg: "var(--text-primary)" };
   return { bg: "rgba(226,98,15,0.18)", fg: "var(--text-primary)" };
@@ -24,7 +25,7 @@ function faixa(erro: number): { bg: string; fg: string } {
 const tdNum = "py-2 pr-3 text-right text-sm tabular";
 
 function Linha({ pos, r, federal }: { pos: number; r: AcertoInstituto; federal: boolean }) {
-  const f = faixa(r.erroMedio);
+  const f = faixa(r.erroMargem);
   const unica = federal ? r.detalhes[0] : null;
   return (
     <tr className="border-t" style={{ borderColor: "var(--grid)" }}>
@@ -43,10 +44,10 @@ function Linha({ pos, r, federal }: { pos: number; r: AcertoInstituto; federal: 
       )}
       <td className="py-2 pr-3 text-right">
         <span className="inline-block rounded px-2 py-0.5 text-sm font-semibold tabular" style={{ background: f.bg, color: f.fg }}>
-          {fmt1(r.erroMedio)}
+          {fmt1(r.erroMargem)}
         </span>
       </td>
-      <td className={tdNum} style={{ color: "var(--text-secondary)" }}>{fmt1(r.erroMargem)}</td>
+      <td className={tdNum} style={{ color: "var(--text-secondary)" }}>{fmt1(r.erroMedio)}</td>
       <td className="py-2 text-right text-sm tabular" style={{ color: "var(--text-secondary)" }}>
         {federal ? (r.lideresCertos ? "sim" : "não") : `${r.lideresCertos}/${r.disputas}`}
       </td>
@@ -75,8 +76,8 @@ function Placar({ p, maxRows }: { p: PlacarAcerto; maxRows: number }) {
               <th className="pb-2 pr-2 text-right font-medium">#</th>
               <th className="pb-2 pr-3 font-medium">Instituto</th>
               <th className={th}>{federal ? "Campo até" : "Disputas"}</th>
-              <th className={th}>Erro médio (p.p.)</th>
-              <th className={th}>Erro na margem</th>
+              <th className={th}>Erro na margem (p.p.)</th>
+              <th className={th}>Erro médio</th>
               <th className="pb-2 text-right font-medium">Acertou o líder</th>
             </tr>
           </thead>
@@ -90,13 +91,13 @@ function Placar({ p, maxRows }: { p: PlacarAcerto; maxRows: number }) {
       {p.ranqueados.length > maxRows ? (
         <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
           E mais {p.ranqueados.length - maxRows}:{" "}
-          {p.ranqueados.slice(maxRows).map((r) => `${r.pollster} (${fmt1(r.erroMedio)} p.p.)`).join(" · ")}.
+          {p.ranqueados.slice(maxRows).map((r) => `${r.pollster} (${fmt1(r.erroMargem)} p.p.)`).join(" · ")}.
         </p>
       ) : null}
       {p.demais.length ? (
         <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
           Com menos de {p.minDisputas} disputas comparadas (sem posição):{" "}
-          {p.demais.map((r) => `${r.pollster} (${r.disputas}, ${fmt1(r.erroMedio)} p.p.)`).join(" · ")}.
+          {p.demais.map((r) => `${r.pollster} (${r.disputas}, ${fmt1(r.erroMargem)} p.p.)`).join(" · ")}.
         </p>
       ) : null}
     </div>
@@ -126,9 +127,9 @@ export default function RankingInstitutos({
         </span>
       </div>
       <p className="mt-1 max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-        Erro médio, em pontos percentuais por candidato, da última pesquisa de cada instituto (campo até {JANELA_DIAS} dias antes
-        do pleito) contra o resultado oficial do TSE, em votos válidos. Um placar por cargo: a corrida presidencial não se
-        soma às estaduais. Quanto menor, mais perto das urnas.
+        Erro na margem entre os dois primeiros, em pontos percentuais, da última pesquisa de cada instituto (campo até {JANELA_DIAS} dias
+        antes do pleito) contra o resultado oficial do TSE, em votos válidos. Um placar por cargo: a corrida presidencial não se
+        soma às estaduais. Quanto menor, mais perto das urnas; o erro médio por candidato desempata.
       </p>
       <div className="mt-4 flex flex-col gap-6">
         {placares.map((p) => (
@@ -138,7 +139,8 @@ export default function RankingInstitutos({
       <p className="mt-4 text-xs" style={{ color: "var(--text-muted)" }}>
         Fonte dos resultados: TSE, Divulgação de Resultados{data.atualizado_em ? `, lido em ${fmtDate(data.atualizado_em.slice(0, 10))}` : ""}
         {parcial ? ", com a totalização ainda em andamento — os erros mudam um pouco até o resultado final" : ""}.
-        Erro na margem = diferença entre a vantagem do 1º sobre o 2º na pesquisa e nas urnas. Senado: só pesquisas de dois votos, com cada nome como
+        Erro na margem = diferença entre a vantagem do 1º sobre o 2º na pesquisa e nas urnas. Erro médio = diferença absoluta média por
+        candidato comparado. Senado: só pesquisas de dois votos, com cada nome como
         parte das menções a candidatos — a mesma conta do percentual de válidos do TSE. Uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.{" "}
         <Link href="/metodologia#acerto" className="underline">Metodologia</Link>
       </p>

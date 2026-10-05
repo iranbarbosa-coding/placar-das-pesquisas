@@ -405,9 +405,9 @@ export default function MetodologiaPage() {
           </Cap>
         </div>
         <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          <B>Erro médio</B> é a diferença absoluta média, em pontos percentuais, entre pesquisa e urna por
-          candidato comparado. <B>Erro na margem</B> é a diferença entre a vantagem do 1º sobre o 2º na pesquisa e
-          nas urnas. São <B>três placares, um por cargo</B> — presidente, governadores e senadores —, porque uma
+          <B>Erro na margem</B> é a diferença entre a vantagem do 1º sobre o 2º na pesquisa e nas urnas — é o
+          critério que ordena os placares, porque é a disputa que a pesquisa tinha de acertar. <B>Erro médio</B> é a
+          diferença absoluta média, em pontos percentuais, entre pesquisa e urna por candidato comparado; desempata. São <B>três placares, um por cargo</B> — presidente, governadores e senadores —, porque uma
           corrida nacional e 27 estaduais não se somam. No presidencial há uma disputa só, e todo instituto com pesquisa
           na janela entra. Nos estaduais, só recebe posição quem cobriu <B>{MIN_DISPUTAS_ESTADUAIS} ou mais disputas</B> de
           governador ou <B>{MIN_DISPUTAS_SENADO} ou mais</B> de senador (o filtro de dois votos encolhe o conjunto comparável);

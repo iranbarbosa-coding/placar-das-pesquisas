@@ -32,8 +32,13 @@
 //     o Planalto não disputa com um que mediu 20 Senados. No federal há uma
 //     disputa só, então todo instituto com pesquisa na janela entra ranqueado.
 //     Nos estaduais, posição só para quem cobriu ≥ `MIN_DISPUTAS_ESTADUAIS`
-//     disputas, ordenado pelo erro médio; empate pela margem. Os demais aparecem
-//     numa lista secundária, sem posição — uma disputa só não é amostra de nada.
+//     disputas. ORDEM: pelo erro na margem entre os dois primeiros das urnas
+//     (o critério padrão de avaliação de institutos — é a disputa que a pesquisa
+//     tinha de acertar); empate pelo erro médio por candidato, depois por mais
+//     disputas. Decisão de Iran em 05/10: o erro médio castigava arredondamento
+//     de nanicos e punha em 7º uma casa que acertou a margem em 0,7 p.p. Os
+//     demais aparecem numa lista secundária, sem posição — uma disputa só não é
+//     amostra de nada.
 //  6. Sem resultado em `data/resultados-oficiais.json`, nada é calculado e a
 //     home não mostra o bloco. Nunca inferimos resultado.
 import fs from "node:fs";
@@ -267,8 +272,9 @@ export function rankingAcerto(): RankingAcerto | null {
       detalhes: detalhes.sort((a, b) => `${a.race}${a.uf ?? ""}`.localeCompare(`${b.race}${b.uf ?? ""}`)),
     };
   };
+  // Regra 5: margem primeiro (sem margem = último), depois erro médio, depois mais disputas.
   const ordenar = (a: AcertoInstituto, b: AcertoInstituto) =>
-    a.erroMedio - b.erroMedio || (a.erroMargem ?? 99) - (b.erroMargem ?? 99) || b.disputas - a.disputas;
+    (a.erroMargem ?? 99) - (b.erroMargem ?? 99) || a.erroMedio - b.erroMedio || b.disputas - a.disputas;
 
   const CARGOS: { race: RaceKind; titulo: string; minDisputas: number }[] = [
     { race: "presidente", titulo: "Presidente", minDisputas: 1 },
