@@ -5,7 +5,7 @@ import Link from "next/link";
 import { loadDataset } from "@/lib/data";
 import { candKey } from "@/lib/average";
 import { FRESCOR_ATENCAO_DIAS, FRESCOR_VELHO_DIAS } from "@/lib/frescor";
-import { JANELA_DIAS, MIN_DISPUTAS, PISO_PCT, TOPO } from "@/lib/acerto";
+import { JANELA_DIAS, MIN_DISPUTAS_ESTADUAIS, MIN_DISPUTAS_SENADO, PISO_PCT, TOPO } from "@/lib/acerto";
 import Icon, { type IconName } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -407,8 +407,11 @@ export default function MetodologiaPage() {
         <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
           <B>Erro médio</B> é a diferença absoluta média, em pontos percentuais, entre pesquisa e urna por
           candidato comparado. <B>Erro na margem</B> é a diferença entre a vantagem do 1º sobre o 2º na pesquisa e
-          nas urnas. Só recebe posição quem cobriu <B>{MIN_DISPUTAS} ou mais disputas</B>; os demais aparecem
-          listados sem ranking, porque uma disputa só não é amostra de nada. Enquanto a totalização do TSE está
+          nas urnas. São <B>três placares, um por cargo</B> — presidente, governadores e senadores —, porque uma
+          corrida nacional e 27 estaduais não se somam. No presidencial há uma disputa só, e todo instituto com pesquisa
+          na janela entra. Nos estaduais, só recebe posição quem cobriu <B>{MIN_DISPUTAS_ESTADUAIS} ou mais disputas</B> de
+          governador ou <B>{MIN_DISPUTAS_SENADO} ou mais</B> de senador (o filtro de dois votos encolhe o conjunto comparável);
+          os demais aparecem listados sem ranking, porque uma disputa só não é amostra de nada. Enquanto a totalização do TSE está
           em andamento, o bloco avisa que é apuração parcial — e os números mudam um pouco até o resultado final.
           O ranking é descritivo: uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.
         </p>

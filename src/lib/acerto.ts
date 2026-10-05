@@ -27,9 +27,13 @@
 //  4. Métricas por (instituto, disputa): erro médio absoluto por candidato
 //     (p.p.), erro na margem entre os dois primeiros das urnas, e se a pesquisa
 //     apontou o mesmo líder.
-//  5. Ranking só para quem cobriu ≥ `MIN_DISPUTAS` disputas, ordenado pelo erro
-//     médio; empate pela margem. Os demais aparecem numa lista secundária, sem
-//     posição — uma disputa só não é amostra de nada.
+//  5. TRÊS PLACARES, um por cargo: presidente, governadores e senadores. Uma
+//     corrida nacional e 27 estaduais não se somam — um instituto que mediu só
+//     o Planalto não disputa com um que mediu 20 Senados. No federal há uma
+//     disputa só, então todo instituto com pesquisa na janela entra ranqueado.
+//     Nos estaduais, posição só para quem cobriu ≥ `MIN_DISPUTAS_ESTADUAIS`
+//     disputas, ordenado pelo erro médio; empate pela margem. Os demais aparecem
+//     numa lista secundária, sem posição — uma disputa só não é amostra de nada.
 //  6. Sem resultado em `data/resultados-oficiais.json`, nada é calculado e a
 //     home não mostra o bloco. Nunca inferimos resultado.
 import fs from "node:fs";
@@ -43,7 +47,9 @@ import type { Poll, RaceKind, UF } from "./types";
 export const JANELA_DIAS = 10;
 export const PISO_PCT = 2;
 export const TOPO = 4;
-export const MIN_DISPUTAS = 3;
+export const MIN_DISPUTAS_ESTADUAIS = 3;
+/** Senado: o filtro de dois votos (`averageable`) encolhe o conjunto comparável; com 3, só duas casas teriam posição. */
+export const MIN_DISPUTAS_SENADO = 2;
 
 export interface ResultadoDisputa {
   race: RaceKind;
@@ -91,19 +97,31 @@ export interface AcertoInstituto {
   detalhes: AcertoDisputa[];
 }
 
+/** Um placar: o ranking dos institutos num cargo (presidente, governador ou senador). */
+export interface PlacarAcerto {
+  race: RaceKind;
+  titulo: string;
+  /** Disputas desse cargo com resultado oficial carregado. */
+  disputasComResultado: number;
+  /** Mínimo de disputas comparadas para receber posição. */
+  minDisputas: number;
+  ranqueados: AcertoInstituto[];
+  demais: AcertoInstituto[];
+}
+
 export interface RankingAcerto {
   turno: 1 | 2;
   eleicao: string;
   atualizado_em: string | null;
   fonte: string;
-  /** Disputas com resultado oficial carregado. */
+  /** Disputas com resultado oficial carregado, todos os cargos. */
   disputasComResultado: number;
   /** Menor % de seções totalizadas entre as disputas usadas (null = não informado). */
   apuracaoMinima: number | null;
   /** Alguma disputa ainda estava em totalização parcial na leitura. */
   parcial: boolean;
-  ranqueados: AcertoInstituto[];
-  demais: AcertoInstituto[];
+  /** Na ordem: presidente, governador, senador. Só cargos com resultado carregado. */
+  placares: PlacarAcerto[];
 }
 
 const round1 = (x: number): number => Math.round(x * 10) / 10;
@@ -216,15 +234,19 @@ export function rankingAcerto(): RankingAcerto | null {
   const res = resultadosOficiais();
   if (!res) return null;
 
-  const porInstituto = new Map<string, AcertoDisputa[]>();
+  const porCargo = new Map<RaceKind, Map<string, AcertoDisputa[]>>();
+  const disputasPorCargo = new Map<RaceKind, number>();
   let apuracaoMinima: number | null = null;
   let parcial = false;
   let disputasComResultado = 0;
   for (const r of res.disputas) {
     if (!r.validos || !Object.keys(r.validos).length) continue;
     disputasComResultado++;
+    disputasPorCargo.set(r.race, (disputasPorCargo.get(r.race) ?? 0) + 1);
     if (r.apurado_pct != null) apuracaoMinima = apuracaoMinima === null ? r.apurado_pct : Math.min(apuracaoMinima, r.apurado_pct);
     if (r.totalizacao !== "final" || (r.apurado_pct != null && r.apurado_pct < 100)) parcial = true;
+    if (!porCargo.has(r.race)) porCargo.set(r.race, new Map());
+    const porInstituto = porCargo.get(r.race)!;
     for (const p of ultimaPorInstituto(r.race, r.uf, r.round, res.eleicao)) {
       const a = compararDisputa(p, r);
       if (!a) continue;
@@ -234,7 +256,7 @@ export function rankingAcerto(): RankingAcerto | null {
     }
   }
 
-  const todos: AcertoInstituto[] = [...porInstituto.values()].map((detalhes) => {
+  const agregar = (detalhes: AcertoDisputa[]): AcertoInstituto => {
     const margens = detalhes.map((d) => d.erroMargem).filter((v): v is number => v !== null);
     return {
       pollster: detalhes[0].pollster,
@@ -244,9 +266,29 @@ export function rankingAcerto(): RankingAcerto | null {
       lideresCertos: detalhes.filter((d) => d.acertouLider).length,
       detalhes: detalhes.sort((a, b) => `${a.race}${a.uf ?? ""}`.localeCompare(`${b.race}${b.uf ?? ""}`)),
     };
-  });
+  };
   const ordenar = (a: AcertoInstituto, b: AcertoInstituto) =>
     a.erroMedio - b.erroMedio || (a.erroMargem ?? 99) - (b.erroMargem ?? 99) || b.disputas - a.disputas;
+
+  const CARGOS: { race: RaceKind; titulo: string; minDisputas: number }[] = [
+    { race: "presidente", titulo: "Presidente", minDisputas: 1 },
+    { race: "governador", titulo: "Governadores", minDisputas: MIN_DISPUTAS_ESTADUAIS },
+    { race: "senador", titulo: "Senadores", minDisputas: MIN_DISPUTAS_SENADO },
+  ];
+  const placares: PlacarAcerto[] = [];
+  for (const c of CARGOS) {
+    const n = disputasPorCargo.get(c.race) ?? 0;
+    if (!n) continue;
+    const todos = [...(porCargo.get(c.race)?.values() ?? [])].map(agregar);
+    placares.push({
+      race: c.race,
+      titulo: c.titulo,
+      disputasComResultado: n,
+      minDisputas: c.minDisputas,
+      ranqueados: todos.filter((x) => x.disputas >= c.minDisputas).sort(ordenar),
+      demais: todos.filter((x) => x.disputas < c.minDisputas).sort(ordenar),
+    });
+  }
 
   return {
     turno: res.turno,
@@ -256,7 +298,6 @@ export function rankingAcerto(): RankingAcerto | null {
     disputasComResultado,
     apuracaoMinima,
     parcial,
-    ranqueados: todos.filter((x) => x.disputas >= MIN_DISPUTAS).sort(ordenar),
-    demais: todos.filter((x) => x.disputas < MIN_DISPUTAS).sort(ordenar),
+    placares,
   };
 }
