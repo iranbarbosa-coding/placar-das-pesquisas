@@ -90,6 +90,7 @@ export default function EvolucaoConfronto({
   const [recorte, setRecorte] = useState<RecorteEvolucao>(ranges ? recorteInicial : "tudo");
   const [hovered, setHovered] = useState<number | null>(null);
   const [hoverable, setHoverable] = useState(false);
+  const [fracTracado, setFracTracado] = useState(1);
   const plotRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -161,8 +162,10 @@ export default function EvolucaoConfronto({
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ativo || !plotRef.current) return;
     const rect = plotRef.current.getBoundingClientRect();
-    if (rect.width <= 0) return;
-    const pct = ((e.clientX - rect.left) / rect.width) * 100;
+    const larguraTracado = rect.width - (compact ? 36 : 48); // menos a calha dos rótulos
+    if (larguraTracado <= 0) return;
+    const pct = ((e.clientX - rect.left) / larguraTracado) * 100;
+    setFracTracado(larguraTracado / rect.width);
     let best = 0;
     let bestD = Infinity;
     for (let i = 0; i < pts.length; i++) {
@@ -175,7 +178,10 @@ export default function EvolucaoConfronto({
     setHovered(best);
   };
   const hov = ativo && hovered != null && hovered < pts.length ? pts[hovered]! : null;
-  const hovX = hov && hovered != null ? leftPct(hovered) : 0;
+  // Posição do hover em % do CONTÊINER (que inclui a calha): converte a partir
+  // do % do traçado medido na hora do evento (estado declarado acima, com os
+  // demais hooks — nunca depois de um retorno condicional).
+  const hovX = hov && hovered != null ? leftPct(hovered) * fracTracado : 0;
 
   // Valores mostrados nos KPIs e na legenda: os do hover, ou os atuais.
   const vA = hov ? hov.a : a.atual;
@@ -184,6 +190,9 @@ export default function EvolucaoConfronto({
   const lider = vSpread >= 0 ? a : b;
 
   const alturaCls = compact ? "h-[120px]" : "h-[220px] sm:h-[260px]";
+  // Calha à direita do traçado para os rótulos do último ponto, que antes
+  // cobriam o fim das linhas (visto em produção, 08/10).
+  const calha = compact ? "right-9" : "right-12";
   const fonteTick = compact ? "text-[9px]" : "text-[10px]";
   const ultimoPonto = pts[pts.length - 1]!;
 
@@ -244,7 +253,7 @@ export default function EvolucaoConfronto({
           <svg
             viewBox={`0 0 ${W} ${H}`}
             preserveAspectRatio="none"
-            className="absolute inset-0 h-full w-full"
+            className={`absolute inset-y-0 left-0 ${calha} h-full`}
             role="img"
             aria-label={`${a.nome} ${fmtPct(a.atual)}% contra ${b.nome} ${fmtPct(b.atual)}%: evolução da média de 2º turno de ${pts[0]!.date} a ${ultimoPonto.date}.`}
           >
@@ -273,8 +282,8 @@ export default function EvolucaoConfronto({
             [{ s: a, v: ultimoPonto.a }, { s: b, v: ultimoPonto.b }].map(({ s, v }) => (
               <span
                 key={s.nome}
-                className={`tabular pointer-events-none absolute right-0 -translate-y-1/2 rounded px-1 font-bold ${compact ? "text-[10px]" : "text-xs"}`}
-                style={{ top: `${topPct(v)}%`, color: s.cor, background: "var(--surface-1)" }}
+                className={`tabular pointer-events-none absolute right-0 -translate-y-1/2 pl-1 font-bold ${compact ? "text-[10px]" : "text-xs"}`}
+                style={{ top: `${topPct(v)}%`, color: s.cor }}
               >
                 {fmtPct(v)}%
               </span>
