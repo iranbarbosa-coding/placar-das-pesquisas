@@ -460,6 +460,96 @@
    "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
    "evidence": "Comparativo run 37165886569 (job compara): ('2024-04-22','2024-04-26') → ('2026-04-22','2026-04-26'). Store de main (e912aab): s_98d5bb5ac356 refs poder360 ×2 com q_ea149f2c1842, q_cd07305462a8 (gov) e q_8b66a4b50550 (sen r1). Ensaio run 37165886569 congelou senador:BA por esta perda.",
    "verified_at": "2026-10-04"
+  },
+  {
+   "question_id": "q_9a11a1013539",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_17cb83efc15a",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_299d66f24206",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_09dc12d3def2",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_53d6c210698d",
+   "race": "presidente",
+   "uf": null,
+   "defect": "LINHA DE RESULTADO LIDA COMO PESQUISA (rodada 08/10/2026 16:03Z): a linha 'Results' que a Wikipédia pôs no topo da tabela com o resultado oficial do 1º turno (Lula 45,16 · Flávio 47,03, campo 04/10) entrou como instituto 'Results' e abriu o ranking de acerto em 1º com erro zero. O parser passou a pular linhas de resultado (wiki_parse.py, _eh_linha_de_resultado); a pergunta some na rodada seguinte por correção, não por perda.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "evidence": "data/polls.json em main a7c12fa: poll e3c2e3199a06, pollster 'Results', presidente r1, 04/10/2026, Lula 45.16 · Flávio Bolsonaro 47.03 · Caiado 2.18 — os números exatos do TSE em data/resultados-oficiais.json. Self-test do parser cobre a linha.",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_b89c18de078a",
+   "race": "presidente",
+   "uf": null,
+   "defect": "LINHA ERRADA NA WIKIPÉDIA (rodada 08/10/2026 16:03Z): a última Gerp nacional passou a dizer campo 01–03/10 com Lula 44 × Flávio 42; a pesquisa real é 30/09–02/10 com Flávio à frente. Gateada por drop_poll e reposta por add_poll em repairs.json (mesma rodada de curadoria); a pergunta some por decisão curada.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+   "evidence": "Poder360 03/10/2026: Gerp, 2.400 eleitores, 30/09 a 02/10. Jovem Pan/Tribuna PR 03/10: 1º turno em válidos Flávio 46 × Lula 44. Poll errada em main a7c12fa: f45fa7a69c0e.",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_dde1fb83a3a7",
+   "race": "presidente",
+   "uf": null,
+   "defect": "LINHA ERRADA NA WIKIPÉDIA (rodada 08/10/2026 16:03Z): a última Gerp nacional passou a dizer campo 01–03/10 com Lula 44 × Flávio 42; a pesquisa real é 30/09–02/10 com Flávio à frente. Gateada por drop_poll e reposta por add_poll em repairs.json (mesma rodada de curadoria); a pergunta some por decisão curada.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+   "evidence": "Poder360 03/10/2026: Gerp, 2.400 eleitores, 30/09 a 02/10. Jovem Pan/Tribuna PR 03/10: 1º turno em válidos Flávio 46 × Lula 44. Poll errada em main a7c12fa: f45fa7a69c0e.",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_c0b352f6686a",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_f949a31768eb",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
+  },
+  {
+   "question_id": "q_7c83214b570f",
+   "race": "governador",
+   "uf": "SP",
+   "defect": "ANO ERRADO PELO PARSER (rodada 08/10/2026 16:03Z): a Paraná Pesquisas/SP de '9 de outubro' (n=1.680, 7 cenários com Alckmin, Nunes, Haddad e Kassab) saiu datada 2026-10-09 — depois do pleito; é de 2025. O parser passou a recuar um ano quando o campo cai depois do dia da votação (wiki_parse.py, _dia_do_pleito); a pergunta volta com a data certa sob outro id.",
+   "source": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
+   "evidence": "data/polls.json em main a7c12fa: 7 polls Paraná Pesquisas governador/SP r1 com fieldwork_start 2026-10-09 e fieldwork_end null (ex.: 2eff36a5998f), elenco de 2025. Self-test do parser cobre o caso ('9 de outubro' em página de 2026 → 2025-10-09).",
+   "verified_at": "2026-10-08"
   }
  ],
  "repairs": [
@@ -7734,6 +7824,179 @@
     ],
     "others_pct": null,
     "undecided_pct": 5.0,
+    "blank_null_pct": null
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Gerp",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-10-03"
+   },
+   "defect": "LINHA ERRADA NA WIKIPÉDIA (rodada 08/10/2026 16:03Z): a linha da última Gerp nacional passou a dizer campo 01–03/10/2026 com Lula 44 × Flávio Bolsonaro 42, substituindo a linha correta (30/09–02/10, Flávio 43 × Lula 41). A Gerp divulgou UMA pesquisa em 03/10, campo 30/09 a 02/10, 2.400 entrevistas, com Flávio à frente (46 × 44 em válidos); não existe levantamento 01–03/10. A linha errada tirava a Gerp do 1º lugar do ranking de acerto e a marcava como 'errou o líder'.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+   "evidence": "Poder360, 03/10/2026: Gerp, 2.400 eleitores, 30/09 a 02/10/2026; 2º turno Flávio 49 × Lula 44 (brutos). Jovem Pan e Tribuna PR (03/10): 1º turno em válidos Flávio 46 × Lula 44; 2º turno em válidos Flávio 53 × Lula 47. Fontes: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/ ; https://jovempan.com.br/politica/gerp-flavio-bolsonaro-venceria-lula-em-eventual-segundo-turno/ ; https://www.tribunapr.com.br/eleicoes/2026/pesquisa-gerp-flavio-bolsonaro-lula-2026/",
+   "verified_at": "2026-10-08",
+   "drop_poll": true
+  },
+  {
+   "match": {
+    "pollster": "Gerp",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-10-02",
+    "has_candidate": "Flávio Bolsonaro"
+   },
+   "defect": "AUSENTE desde a rodada de 08/10/2026 16:03Z: a linha correta da última Gerp nacional (campo 30/09–02/10/2026, 2.400 entrevistas, divulgada em 03/10) foi substituída na Wikipédia por uma linha errada (ver o drop_poll acima). Reinserida com os números que o banco já tinha (snapshot de 04/10, poll 8921c8cb9117), conferidos com as matérias: 43 × 41 brutos = 46,2 × 44,1 em válidos.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+   "evidence": "Poder360, 03/10/2026: 2.400 eleitores, 30/09 a 02/10. Jovem Pan/Tribuna PR, 03/10: 1º turno em válidos Flávio 46 × Lula 44 — bate com 43 × 41 brutos sobre 93 de válidos (7 indecisos). Elenco e demais percentuais iguais aos da linha da Wikipédia de 04/10 (snapshot snapshots/2026-10-04-primeiro-turno). Fontes: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/ ; https://jovempan.com.br/politica/gerp-flavio-bolsonaro-venceria-lula-em-eventual-segundo-turno/ ; https://www.tribunapr.com.br/eleicoes/2026/pesquisa-gerp-flavio-bolsonaro-lula-2026/",
+   "verified_at": "2026-10-08",
+   "add_poll": {
+    "pollster": "Gerp",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "scenario": "1º turno",
+    "contractor": null,
+    "fieldwork_start": "2026-09-30",
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-03",
+    "sample_size": 2400,
+    "margin_of_error": 2.04,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 41
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 43
+     },
+     {
+      "candidate": "Escritor Augusto Cury",
+      "party": "Avante",
+      "pct": 4
+     },
+     {
+      "candidate": "Ronaldo Caiado",
+      "party": "PSD",
+      "pct": 3
+     },
+     {
+      "candidate": "Renan Santos",
+      "party": "Missão",
+      "pct": 2
+     },
+     {
+      "candidate": "Zema",
+      "party": "Novo",
+      "pct": 0
+     },
+     {
+      "candidate": "Samara",
+      "party": "UP",
+      "pct": 0
+     },
+     {
+      "candidate": "Veterinário Wilson Grassi",
+      "party": "Democrata",
+      "pct": 0
+     },
+     {
+      "candidate": "Clariana Barão",
+      "party": "DC",
+      "pct": 0
+     },
+     {
+      "candidate": "Hertz Dias",
+      "party": "PSTU",
+      "pct": 0
+     },
+     {
+      "candidate": "Edmilson Costa",
+      "party": "PCB",
+      "pct": 0
+     },
+     {
+      "candidate": "Rui Costa Pimenta",
+      "party": "PCO",
+      "pct": 0
+     }
+    ],
+    "others_pct": 0,
+    "undecided_pct": 7,
+    "blank_null_pct": null
+   },
+   "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Gerp",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-10-03",
+    "has_candidate": [
+     "Lula",
+     "Flávio Bolsonaro"
+    ]
+   },
+   "defect": "LINHA ERRADA NA WIKIPÉDIA (rodada 08/10/2026 16:03Z), parte do 2º turno: a mesma linha re-datada para 01–03/10/2026 trouxe também a simulação Lula × Flávio sob a data errada, duplicando a simulação correta (30/09–02/10, Lula 44 × Flávio 49 brutos), que segue no banco. Não existe levantamento Gerp 01–03/10.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+   "evidence": "Poder360, 03/10/2026: Gerp, 2.400 eleitores, 30/09 a 02/10/2026; 2º turno Flávio 49 × Lula 44 (brutos), 53 × 47 em válidos (Tribuna PR). A simulação correta está no banco desde 04/10 (poll 217594f1718e, campo 30/09–02/10).",
+   "verified_at": "2026-10-08",
+   "drop_poll": true
+  },
+  {
+   "match": {
+    "pollster": "Gerp",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "fieldwork_end": "2026-10-02",
+    "has_candidate": [
+     "Lula",
+     "Flávio Bolsonaro"
+    ]
+   },
+   "defect": "AUSENTE desde a rodada de 08/10/2026 16:03Z: a simulação de 2º turno Lula × Flávio da última Gerp nacional (campo 30/09–02/10/2026) foi re-datada na Wikipédia para 01–03/10 (o registro manteve o id e trocou a data); a linha re-datada é gateada pelo drop_poll acima e a simulação volta aqui com a data certa e os mesmos números.",
+   "source": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/",
+   "evidence": "Poder360, 03/10/2026: Gerp, 2.400 eleitores, 30/09 a 02/10/2026; 2º turno Flávio 49 × Lula 44 (brutos), 7 não sabem/nenhum. Tribuna PR: 53 × 47 em válidos (= 49/93 e 44/93). Mesmos números da poll 217594f1718e no snapshot de 04/10. Fontes: https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-44-de-lula-no-2o-turno-diz-gerp/ ; https://www.tribunapr.com.br/eleicoes/2026/pesquisa-gerp-flavio-bolsonaro-lula-2026/",
+   "verified_at": "2026-10-08",
+   "add_poll": {
+    "pollster": "Gerp",
+    "race": "presidente",
+    "state": null,
+    "round": 2,
+    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+    "contractor": null,
+    "fieldwork_start": "2026-09-30",
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-03",
+    "sample_size": 2400,
+    "margin_of_error": 2.04,
+    "tse_registration": null,
+    "results": [
+     {
+      "candidate": "Lula",
+      "party": "PT",
+      "pct": 44
+     },
+     {
+      "candidate": "Flávio Bolsonaro",
+      "party": "PL",
+      "pct": 49
+     }
+    ],
+    "others_pct": null,
+    "undecided_pct": 7,
     "blank_null_pct": null
    },
    "expect_sum": 100
