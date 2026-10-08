@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1770 levantamentos · 5922 perguntas · 162 institutos · 1444 candidatos**.
+Banco: **1803 levantamentos · 5930 perguntas · 163 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 27 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 51 | 37 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 393 | 5 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 394 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **474** | **45** |
+| **total** | **475** | **45** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -274,10 +274,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - **[2026]** cenários separados — Quaest · AM governador/t2 · 2026-08-24 — 2 levantamentos
   s_86145f8e35f7: Omar Aziz 49 · David Almeida 46
-  s_af3cacb4c580: Roberto Cidade 43 · Maria do Carmo Seffair 38
-  s_af3cacb4c580: Roberto Cidade 41 · David Almeida 39
   s_af3cacb4c580: Omar Aziz 44 · Roberto Cidade 40
-  s_af3cacb4c580: Maria do Carmo Seffair 41 · David Almeida 40
   s_af3cacb4c580: Omar Aziz 45 · Maria do Carmo Seffair 44
 - **[2026]** cenários separados — Quaest · CE senador/t1 · 2026-04-28 — 2 levantamentos
   s_8671a57e9697: Cid Gomes 17 · Capitão Wagner 17 · Eunício Oliveira 6 · Luizianne Lins 9 · Priscila Costa 4 · General Theóphilo 1 · Anna Karina 1
@@ -356,7 +353,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (393)
+## CONFLITO — Conflitos registrados aguardando decisão (394)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -753,6 +750,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_b25d3d05d703 · results: ["Alexandre Bady","Delegado Humberto","Gracinha Caiado","Gustavo Gayer","Gustavo Medanha","Jorge Kajuru","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Bady","Delegado Humberto","Gustavo Medanha","Jorge Kajuru","Vanderlan Gomes","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_7069136782e8 · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_e21e9d6a047d · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
+- survey_id_orphaned · s_7917a9315a14 · survey_id: "s_7917a9315a14" × null
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 

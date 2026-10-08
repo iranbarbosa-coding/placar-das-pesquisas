@@ -454,8 +454,8 @@ Soma **60%** · faltam **40 pontos** · 2 candidato(s) na tabela · amostra 804 
 | Lenilda Luna | 1 |
 | *não sabe/não respondeu* | 17 |
 
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-al-24ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/jhc-e-renan-filho-empatam-no-2o-turno-em-alagoas-diz-quaest/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -903,7 +903,7 @@ Soma **77%** · faltam **23 pontos** · 2 candidato(s) na tabela · amostra 1200
 
 ## Governador · Amazonas · 2º turno
 
-### DMP — 2026-07-02
+### DMP — 2025-07-02
 
 Soma **77.5%** · faltam **22.5 pontos** · 2 candidato(s) na tabela · amostra 1200
 

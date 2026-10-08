@@ -1,24 +1,110 @@
 {
- "generated_at": "2026-10-04T19:05:26.578Z",
+ "generated_at": "2026-10-08T16:03:57.670Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-04T19:05:26.578Z"
+   "last_ok": "2026-10-08T16:03:57.670Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-04T19:05:26.578Z"
+   "last_ok": "2026-10-08T16:03:57.670Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-04T19:05:26.578Z"
+   "last_ok": "2026-10-08T16:03:57.670Z"
   }
  ],
  "polls": [
+  {
+   "id": "c249b5c630ae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-10-05",
+   "fieldwork_end": "2026-10-07",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.8,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 53
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e3c2e3199a06",
+   "source": null,
+   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Results",
+   "contractor": null,
+   "fieldwork_start": "2026-10-04",
+   "fieldwork_end": "2026-10-04",
+   "published_date": null,
+   "sample_size": null,
+   "margin_of_error": null,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.16
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47.03
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 2.18
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 0.27
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2.24
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 2.89
+    }
+   ],
+   "others_pct": 0.23,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "03033f6d014a",
    "source": null,
@@ -165,6 +251,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "217594f1718e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Gerp",
+   "contractor": null,
+   "fieldwork_start": "2026-10-01",
+   "fieldwork_end": "2026-10-03",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2.04,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -759,6 +878,89 @@
    ],
    "others_pct": null,
    "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f45fa7a69c0e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Gerp",
+   "contractor": null,
+   "fieldwork_start": "2026-10-01",
+   "fieldwork_end": "2026-10-03",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2.04,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 42
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 3
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 4
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Samara",
+     "party": "UP",
+     "pct": 1
+    },
+    {
+     "candidate": "Veterinário Wilson Grassi",
+     "party": "Democrata",
+     "pct": 0
+    },
+    {
+     "candidate": "Clariana Barão",
+     "party": "DC",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    },
+    {
+     "candidate": "Edmilson Costa",
+     "party": "PCB",
+     "pct": 0
+    },
+    {
+     "candidate": "Rui Costa Pimenta",
+     "party": "PCO",
+     "pct": 0
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 4,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -6164,39 +6366,6 @@
    "tse_registration": null
   },
   {
-   "id": "217594f1718e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Gerp",
-   "contractor": null,
-   "fieldwork_start": "2026-09-30",
-   "fieldwork_end": "2026-10-02",
-   "published_date": null,
-   "sample_size": 2400,
-   "margin_of_error": 2.04,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 44
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 49
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "22b83d4b0f0c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -6757,89 +6926,6 @@
    ],
    "others_pct": 18,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "8921c8cb9117",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Gerp",
-   "contractor": null,
-   "fieldwork_start": "2026-09-30",
-   "fieldwork_end": "2026-10-02",
-   "published_date": null,
-   "sample_size": 2400,
-   "margin_of_error": 2.04,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 41
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 43
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 4
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 3
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 2
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 0
-    },
-    {
-     "candidate": "Samara",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Veterinário Wilson Grassi",
-     "party": "Democrata",
-     "pct": 0
-    },
-    {
-     "candidate": "Clariana Barão",
-     "party": "DC",
-     "pct": 0
-    },
-    {
-     "candidate": "Hertz Dias",
-     "party": "PSTU",
-     "pct": 0
-    },
-    {
-     "candidate": "Edmilson Costa",
-     "party": "PCB",
-     "pct": 0
-    },
-    {
-     "candidate": "Rui Costa Pimenta",
-     "party": "PCO",
-     "pct": 0
-    }
-   ],
-   "others_pct": 0,
-   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -9853,39 +9939,6 @@
    "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "5f053ad295bf",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/aziz-lidera-disputa-por-governo-do-amazonas-no-1o-turno-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Amazonas-AM-07297-2026-Out26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e David Almeida",
-   "pollster": "Real Time Big Data",
-   "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-10-01",
-   "published_date": "2026-10-01",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 59
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "AM-07297/2026"
   },
   {
    "id": "67c89baada08",
@@ -30332,39 +30385,6 @@
    "tse_registration": "MA-07074/2026"
   },
   {
-   "id": "07ac3708519b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "PoderData",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 46
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "0928b2915310",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -32587,39 +32607,6 @@
    "tse_registration": null
   },
   {
-   "id": "cefbc8a65719",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 44
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 38
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "d249db752654",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -32649,39 +32636,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d8c294c355a8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 48
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -32724,6 +32678,72 @@
     }
    ],
    "others_pct": 3,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "dcef7ececed1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e421cb42c71e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 46
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
    "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
@@ -32887,39 +32907,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fb9003b0afa3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "PoderData",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 51
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 29
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -42859,47 +42846,14 @@
    "tse_registration": null
   },
   {
-   "id": "29492a91fc5a",
+   "id": "2b5f80771249",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": null,
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 51.13
-    },
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 33.35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 15.52,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "2b0b2072742f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
    "pollster": "Projeta",
    "contractor": null,
    "fieldwork_start": "2026-09-14",
@@ -42911,16 +42865,16 @@
     {
      "candidate": "Omar Aziz",
      "party": "PSD",
-     "pct": 52.06
+     "pct": 43.24
     },
     {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 30.88
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 45.42
     }
    ],
    "others_pct": null,
-   "undecided_pct": 17.06,
+   "undecided_pct": 11.34,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -43047,39 +43001,6 @@
    ],
    "others_pct": 3.8,
    "undecided_pct": 12.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "40a61db00a0a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 41.95
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 40.89
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17.16,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -43271,39 +43192,6 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "85482ce2bd0a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 43.24
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 45.42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.34,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -43537,39 +43425,6 @@
    ],
    "others_pct": 2.6,
    "undecided_pct": 65.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c2cb26fcbb12",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e David Almeida",
-   "pollster": "Projeta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 52.09
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 30.83
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17.08,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -50323,6 +50178,40 @@
    "tse_registration": "BR-04076/2026"
   },
   {
+   "id": "2a36dcf58f1e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Pontual",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-13",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 16.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
+  },
+  {
    "id": "2e4d5deeca54",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -50771,40 +50660,6 @@
    "tse_registration": null
   },
   {
-   "id": "b1edaee8724d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Pontual",
-   "contractor": null,
-   "fieldwork_start": "2026-09-05",
-   "fieldwork_end": "2026-09-13",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 41.9
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 16.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
-  },
-  {
    "id": "c07c5fd64240",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -50834,39 +50689,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e795cdd1dc99",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "Pontual",
-   "contractor": null,
-   "fieldwork_start": "2026-09-05",
-   "fieldwork_end": "2026-09-13",
-   "published_date": null,
-   "sample_size": 3000,
-   "margin_of_error": 1.79,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 49.4
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 24.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -79005,6 +78827,39 @@
    "tse_registration": null
   },
   {
+   "id": "c3381dde0478",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-08-24",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 53.1
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 46.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "e211e026c0ed",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -79044,39 +78899,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e6300067c27d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-08-24",
-   "fieldwork_end": "2026-08-28",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 53.1
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 46.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -83464,6 +83286,39 @@
    "tse_registration": "AM-09965/2026"
   },
   {
+   "id": "49ebb1feb4eb",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-25",
+   "published_date": "2026-08-25",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 42
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": "AM-09965/2026"
+  },
+  {
    "id": "4ff0e331d5cd",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-39-de-lula-no-2o-turno-no-to-diz-big-data/",
@@ -83689,39 +83544,6 @@
    "tse_registration": "AM-09965/2026"
   },
   {
-   "id": "93a2859ac921",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-25",
-   "published_date": "2026-08-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 42
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": "AM-09965/2026"
-  },
-  {
    "id": "a037abba599d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
@@ -83773,72 +83595,6 @@
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "aee1b05d59b1",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-25",
-   "published_date": "2026-08-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 45
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": "AM-09965/2026"
-  },
-  {
-   "id": "aff8cdfa2126",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-25",
-   "published_date": "2026-08-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 42
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 41
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 17,
-   "blank_null_pct": null,
-   "tse_registration": "AM-09965/2026"
   },
   {
    "id": "b0abc4d02239",
@@ -83915,39 +83671,6 @@
    "undecided_pct": 20.5,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "c077d79087c9",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-25",
-   "published_date": "2026-08-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 38
-    },
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
-   "tse_registration": "AM-09965/2026"
   },
   {
    "id": "c741adf5f11a",
@@ -84077,39 +83800,6 @@
    "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": "BA-07628/2026"
-  },
-  {
-   "id": "fdcf4ba3ae8d",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/real-time-big-data-Amazonas-BR-09140-2026Ago26-1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e David Almeida",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-25",
-   "published_date": "2026-08-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 44
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": "AM-09965/2026"
   },
   {
    "id": "p360-13908-1-0-c4f5a8fb8e6c",
@@ -84581,39 +84271,6 @@
    "tse_registration": "BR-04312/2026"
   },
   {
-   "id": "0dcd442e268a",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 43
-    },
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 38
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
-  },
-  {
    "id": "0ecd4913d427",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-TO-Quaest-GazetaDoPovo.pdf",
@@ -84839,6 +84496,39 @@
    "tse_registration": null
   },
   {
+   "id": "32e422006613",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": "BR-06252/2026"
+  },
+  {
    "id": "44234267bd79",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cleitinho-vence-todos-os-candidatos-em-2o-turno-em-mg-diz-quaest/",
@@ -84961,39 +84651,6 @@
    "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": "PB-07850/2026"
-  },
-  {
-   "id": "5ed18bcd20d1",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 44
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
   },
   {
    "id": "67d9e7af5790",
@@ -85958,39 +85615,6 @@
    "tse_registration": null
   },
   {
-   "id": "d69d15e40484",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 41
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 40
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
-  },
-  {
    "id": "e477fc601d2f",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
@@ -86022,39 +85646,6 @@
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": "BR-04312/2026"
-  },
-  {
-   "id": "e535f2169a4f",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e David Almeida",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 41
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
   },
   {
    "id": "fe4b02c36a9c",
@@ -87476,7 +87067,7 @@
    "scenario": "2º turno: Omar Aziz vs David Almeida",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-08-24",
    "published_date": "2026-08-24",
    "sample_size": 804,
@@ -88221,8 +87812,8 @@
   {
    "id": "0c451d381ff8",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-e-renan-filho-empatam-no-2o-turno-em-alagoas-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-al-24ago2026.pdf",
    "race": "governador",
    "state": "AL",
    "round": 2,
@@ -88596,6 +88187,54 @@
    "undecided_pct": 65.9,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "43ea6d1fa68d",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-e-renan-filho-empatam-no-2o-turno-em-alagoas-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-al-24ago2026.pdf",
+   "race": "senador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "TV Asa Branca",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Arthur Lira",
+     "party": "PP",
+     "pct": 20
+    },
+    {
+     "candidate": "Marina JHC",
+     "party": "PSDB",
+     "pct": 15
+    },
+    {
+     "candidate": "Renan",
+     "party": "MDB",
+     "pct": 18
+    },
+    {
+     "candidate": "Davi Davino Filho",
+     "party": "Republicanos",
+     "pct": 10
+    },
+    {
+     "candidate": "Dr. Wanderley",
+     "party": "MDB",
+     "pct": 5
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": "AL-05503/2026"
   },
   {
    "id": "464b4a65be30",
@@ -89787,54 +89426,6 @@
    "tse_registration": "PR-05388/2026"
   },
   {
-   "id": "p360-13918-1-0-cea1896a80a0",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
-   "race": "senador",
-   "state": "AL",
-   "round": 1,
-   "scenario": "1º turno",
-   "pollster": "Quaest",
-   "contractor": "TV Asa Branca",
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": "2026-08-23",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Arthur Lira",
-     "party": "PP",
-     "pct": 20
-    },
-    {
-     "candidate": "Marina JHC",
-     "party": "PSDB",
-     "pct": 15
-    },
-    {
-     "candidate": "Renan",
-     "party": "MDB",
-     "pct": 18
-    },
-    {
-     "candidate": "Davi Davino Filho",
-     "party": "Republicanos",
-     "pct": 10
-    },
-    {
-     "candidate": "Dr. Wanderley",
-     "party": "MDB",
-     "pct": 5
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 31,
-   "blank_null_pct": null,
-   "tse_registration": "AL-05503/2026"
-  },
-  {
    "id": "p360-13920-1-0-81bb948dd711",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-Prefab-rio-de-janeiro-26ago-prefab-presidente-senador-governador.pdf",
@@ -90080,8 +89671,8 @@
   {
    "id": "p360-13924-1-0-ec4914133239",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-lidera-no-1o-turno-em-alagoas-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-al-25ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-e-renan-filho-empatam-no-2o-turno-em-alagoas-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-al-24ago2026.pdf",
    "race": "governador",
    "state": "AL",
    "round": 1,
@@ -97084,14 +96675,14 @@
    "incomplete": true
   },
   {
-   "id": "32235dcedb6e",
+   "id": "20550a327518",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": null,
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
    "pollster": "DMP",
    "contractor": null,
    "fieldwork_start": "2026-08-11",
@@ -97103,16 +96694,16 @@
     {
      "candidate": "Omar Aziz",
      "party": "PSD",
-     "pct": 54.2
+     "pct": 53
     },
     {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 33.7
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 38.2
     }
    ],
    "others_pct": null,
-   "undecided_pct": 12.1,
+   "undecided_pct": 8.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -97179,39 +96770,6 @@
    ],
    "others_pct": 1,
    "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a3c6c9219ac6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "DMP",
-   "contractor": null,
-   "fieldwork_start": "2026-08-11",
-   "fieldwork_end": "2026-08-14",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 53
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 38.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 8.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -104923,39 +104481,6 @@
    "tse_registration": null
   },
   {
-   "id": "1fbe256e4e9c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-01",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 27.7
-    },
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 32.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 54.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "385a0c857860",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -105113,14 +104638,14 @@
    "tse_registration": null
   },
   {
-   "id": "71c3bdf3b2e8",
+   "id": "630497e34c0c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
    "integra_url": null,
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
    "pollster": "Veritá",
    "contractor": null,
    "fieldwork_start": "2026-07-28",
@@ -105132,16 +104657,16 @@
     {
      "candidate": "Omar Aziz",
      "party": "PSD",
-     "pct": 38.6
+     "pct": 37.8
     },
     {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 20.6
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 26.6
     }
    ],
    "others_pct": null,
-   "undecided_pct": 40.8,
+   "undecided_pct": 35.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -105175,39 +104700,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ab60beb4ec50",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-01",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 37.8
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 26.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -105251,39 +104743,6 @@
    ],
    "others_pct": 11,
    "undecided_pct": 68.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ca4f3dc38cba",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-01",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 34.2
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 27.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 42.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -128749,39 +128208,6 @@
    "tse_registration": "BR-06481/2026"
   },
   {
-   "id": "0baf9e4333ef",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "DMP",
-   "contractor": null,
-   "fieldwork_start": "2026-07-01",
-   "fieldwork_end": "2026-07-02",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 58.3
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 33.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 8.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "139425bc02ea",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -128854,6 +128280,39 @@
    ],
    "others_pct": 2.3,
    "undecided_pct": 6.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "603e0724dae9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "DMP",
+   "contractor": null,
+   "fieldwork_start": "2026-07-01",
+   "fieldwork_end": "2026-07-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 58.3
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 33.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -128990,40 +128449,6 @@
    "undecided_pct": 32.89,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "aca111abfb39",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "DMP",
-   "contractor": null,
-   "fieldwork_start": "2026-07-01",
-   "fieldwork_end": "2026-07-02",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 36.9
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7.6,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
   },
   {
    "id": "curado-bbd45b174c44",
@@ -131252,72 +130677,6 @@
    "tse_registration": null
   },
   {
-   "id": "9311ef25d29d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "Comunidados",
-   "contractor": null,
-   "fieldwork_start": "2026-06-23",
-   "fieldwork_end": "2026-06-26",
-   "published_date": null,
-   "sample_size": 1066,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 57
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a08a08710169",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "Comunidados",
-   "contractor": null,
-   "fieldwork_start": "2026-06-23",
-   "fieldwork_end": "2026-06-26",
-   "published_date": null,
-   "sample_size": 1066,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 57
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b568796974d8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -131347,6 +130706,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e4339e0956d9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Comunidados",
+   "contractor": null,
+   "fieldwork_start": "2026-06-23",
+   "fieldwork_end": "2026-06-26",
+   "published_date": null,
+   "sample_size": 1066,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 57
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -146683,39 +146075,6 @@
    "tse_registration": null
   },
   {
-   "id": "318269b3041f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-05-22",
-   "fieldwork_end": "2026-05-26",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 37.2
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 22.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 40.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "379943b00123",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -152125,39 +151484,6 @@
    "tse_registration": "BR-00290/2026"
   },
   {
-   "id": "4739acd08cda",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1244,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 50.8
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 24.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": "BR-03812/2026"
-  },
-  {
    "id": "6a30e3cddcf3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -152303,105 +151629,6 @@
    ],
    "others_pct": 6.1,
    "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": "BR-03812/2026"
-  },
-  {
-   "id": "946921e4b709",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Roberto Cidade",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1244,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 38.4
-    },
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30.7,
-   "blank_null_pct": null,
-   "tse_registration": "BR-03812/2026"
-  },
-  {
-   "id": "a62560d8ea8d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1244,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 46.7
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 22.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30.7,
-   "blank_null_pct": null,
-   "tse_registration": "BR-03812/2026"
-  },
-  {
-   "id": "ca48eb2f35ec",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Roberto Cidade e Professora Maria do Carmo",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1244,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Roberto Cidade",
-     "party": "União Brasil",
-     "pct": 26.4
-    },
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 50.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23.2,
    "blank_null_pct": null,
    "tse_registration": "BR-03812/2026"
   },
@@ -152585,6 +151812,39 @@
     "source": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
     "verified_at": "2026-08-23"
    }
+  },
+  {
+   "id": "d2ea43e90112",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": "https://static.poder360.com.br/2026/05/Pesquisa-Atlas-Eleicoes-Amazonas-2026-260514.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 38.4
+    },
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30.7,
+   "blank_null_pct": null,
+   "tse_registration": "BR-03812/2026"
   },
   {
    "id": "dfba8f3e8746",
@@ -178692,72 +177952,6 @@
    "tse_registration": null
   },
   {
-   "id": "4fde88a8f914",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-03-17",
-   "fieldwork_end": "2026-03-18",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 48
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "51dfd4ec532d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-03-17",
-   "fieldwork_end": "2026-03-18",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 39
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5e99f6383c1a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -179922,39 +179116,6 @@
    "tse_registration": null
   },
   {
-   "id": "7a657fbc8f2d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Professora Maria do Carmo e David Almeida",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-03-11",
-   "fieldwork_end": "2026-03-15",
-   "published_date": null,
-   "sample_size": 1138,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 46.5
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 20.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "9d68dd0d5b6e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
@@ -180098,39 +179259,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 9.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fe7433b7844b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e David Almeida",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-03-11",
-   "fieldwork_end": "2026-03-15",
-   "published_date": null,
-   "sample_size": 1138,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 49.2
-    },
-    {
-     "candidate": "David Almeida",
-     "party": "Avante",
-     "pct": 13.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 37.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -208161,6 +207289,105 @@
    "tse_registration": null
   },
   {
+   "id": "d7e36e0e9ef0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-09-28",
+   "fieldwork_end": "2025-10-01",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 46
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5eacef693c96",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2025-09-20",
+   "fieldwork_end": "2025-09-23",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 51
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b5e276681572",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2025-09-20",
+   "fieldwork_end": "2025-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 48
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-13154-1-1-e2c7359dc408",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2026/01/pesquisa-paranapesquisa-acre-presidente-25.set_.2025.pdf",
@@ -208385,6 +207612,39 @@
    ],
    "others_pct": 3,
    "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f7b6469106b3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2025-09-14",
+   "fieldwork_end": "2025-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 52.06
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 30.88
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.06,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -209694,6 +208954,39 @@
    "others_pct": null,
    "undecided_pct": 4,
    "blank_null_pct": 25,
+   "tse_registration": null
+  },
+  {
+   "id": "dc14ba2ba82a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Pontual",
+   "contractor": null,
+   "fieldwork_start": "2025-09-05",
+   "fieldwork_end": "2025-09-13",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 49.4
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 24.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25.7,
+   "blank_null_pct": null,
    "tse_registration": null
   },
   {
@@ -211281,6 +210574,39 @@
    "tse_registration": "-"
   },
   {
+   "id": "87c3beaf2d4f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-08-21",
+   "fieldwork_end": "2025-08-25",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 42
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-13004-2-0-1abc4024dff3",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-empata-com-bolsonaro-michelle-e-tarcisio-no-2-turno/",
@@ -212115,6 +211441,39 @@
    "undecided_pct": 10,
    "blank_null_pct": 9,
    "tse_registration": "TO-09665/2026"
+  },
+  {
+   "id": "a3309c7d6b0a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2025-08-21",
+   "fieldwork_end": "2025-08-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 49
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-13007-1-1-4d9a77b42d8f",
@@ -214241,6 +213600,39 @@
    "tse_registration": null
   },
   {
+   "id": "0e34ea1a7004",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "DMP",
+   "contractor": null,
+   "fieldwork_start": "2025-08-11",
+   "fieldwork_end": "2025-08-14",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 54.2
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 33.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-12992-1-3-88fae410776d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/parana-pesquisas-fernando-maximo-lidera-disputa-pelo-governo-de-ro/",
@@ -214823,6 +214215,39 @@
    "undecided_pct": 9,
    "blank_null_pct": null,
    "tse_registration": "TO-01056/2026"
+  },
+  {
+   "id": "73e2a141f46f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2025-07-28",
+   "fieldwork_end": "2025-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 38.6
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 20.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40.8,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-12991-1-0-7e6e3f01e410",
@@ -217378,6 +216803,40 @@
    "tse_registration": null
   },
   {
+   "id": "6afa22a7cac5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "DMP",
+   "contractor": null,
+   "fieldwork_start": "2025-07-01",
+   "fieldwork_end": "2025-07-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 36.9
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.6,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
+  },
+  {
    "id": "13e3045e57c9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -218289,6 +217748,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cfae76eb5266",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Comunidados",
+   "contractor": null,
+   "fieldwork_start": "2025-06-23",
+   "fieldwork_end": "2025-06-26",
+   "published_date": null,
+   "sample_size": 1066,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 57
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -220538,6 +220030,39 @@
    "tse_registration": null
   },
   {
+   "id": "73ea7e6a366b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2025-05-22",
+   "fieldwork_end": "2025-05-26",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 37.2
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 22.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-12969-1-0-2df22a312780",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/06/raking-brasil-inteligencia-cenarios-2026.pdf",
@@ -221550,6 +221075,39 @@
    "others_pct": null,
    "undecided_pct": 3.8,
    "blank_null_pct": 6.4,
+   "tse_registration": null
+  },
+  {
+   "id": "908c1102e847",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2025-05-08",
+   "fieldwork_end": "2025-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 46.7
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 22.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30.7,
+   "blank_null_pct": null,
    "tse_registration": null
   },
   {
@@ -224324,6 +223882,39 @@
    "tse_registration": null
   },
   {
+   "id": "66666f95e0c2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2025-03-17",
+   "fieldwork_end": "2025-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 48
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-12934-1-0-92df9362fc0e",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/04/Parana-cenarios-2026-pequisas-eleitorais-Rio-Grande-do-Sul-Mar25.pdf",
@@ -224379,6 +223970,39 @@
    "others_pct": null,
    "undecided_pct": 3.8,
    "blank_null_pct": 5.7,
+   "tse_registration": null
+  },
+  {
+   "id": "1229a04bf2e2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2025-03-11",
+   "fieldwork_end": "2025-03-15",
+   "published_date": null,
+   "sample_size": 1138,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 49.2
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 13.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 37.1,
+   "blank_null_pct": null,
    "tse_registration": null
   },
   {
@@ -229105,6 +228729,39 @@
    "tse_registration": null
   },
   {
+   "id": "2ff693938a21",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2024-09-28",
+   "fieldwork_end": "2024-10-01",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4a26bb0dc9c8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -229139,6 +228796,138 @@
    ],
    "others_pct": null,
    "undecided_pct": 36,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "01417d81b16f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2024-09-14",
+   "fieldwork_end": "2024-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 41.95
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 40.89
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "63943f781e94",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2024-08-29",
+   "fieldwork_end": "2024-09-03",
+   "published_date": null,
+   "sample_size": 1185,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 64.9
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 35.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b4a3c88fcec4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2024-08-21",
+   "fieldwork_end": "2024-08-25",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "022a4474fdce",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2024-08-21",
+   "fieldwork_end": "2024-08-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 40
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -229414,6 +229203,39 @@
    "tse_registration": null
   },
   {
+   "id": "5390d1e8f108",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2024-07-28",
+   "fieldwork_end": "2024-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 34.2
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 27.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 42.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "15009f05b266",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -229562,6 +229384,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e678358d826a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2024-05-08",
+   "fieldwork_end": "2024-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 50.8
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 24.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -230469,6 +230324,72 @@
    "tse_registration": null
   },
   {
+   "id": "d9ab83eedd60",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2024-03-17",
+   "fieldwork_end": "2024-03-18",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 39
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6842c0158b3d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2024-03-11",
+   "fieldwork_end": "2024-03-15",
+   "published_date": null,
+   "sample_size": 1138,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 46.5
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 20.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a2574586a8e7",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -230699,6 +230620,336 @@
    "tse_registration": null
   },
   {
+   "id": "ede03d5c3d0e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs Maria do Carmo Seffair",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2023-09-28",
+   "fieldwork_end": "2023-10-01",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 45
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "eec3eca70983",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2023-09-28",
+   "fieldwork_end": "2023-10-01",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 59
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "877a9f7804fa",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs Maria do Carmo Seffair",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2023-09-14",
+   "fieldwork_end": "2023-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 51.13
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 33.35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15.52,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "91725c44b736",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs David Almeida",
+   "pollster": "Projeta",
+   "contractor": null,
+   "fieldwork_start": "2023-09-14",
+   "fieldwork_end": "2023-09-18",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 1.79,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 52.09
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 30.83
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17.08,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b2fc5c60b063",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2023-08-29",
+   "fieldwork_end": "2023-09-03",
+   "published_date": null,
+   "sample_size": 1185,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 47.3
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 52.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2e4330c00fa0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs David Almeida",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2023-08-21",
+   "fieldwork_end": "2023-08-25",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 44
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "91b6cf77b9ac",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs Maria do Carmo Seffair",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2023-08-21",
+   "fieldwork_end": "2023-08-25",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 38
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2ab92d966ab0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs Maria do Carmo Seffair",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2023-08-21",
+   "fieldwork_end": "2023-08-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 43
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a54d70a6192b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Roberto Cidade vs David Almeida",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2023-08-21",
+   "fieldwork_end": "2023-08-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 41
+    },
+    {
+     "candidate": "David Almeida",
+     "party": "Avante",
+     "pct": 39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9018c2bc9c6b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2023-07-28",
+   "fieldwork_end": "2023-08-01",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 27.7
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 32.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 54.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2a0544d546e2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -230794,6 +231045,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 7.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "06d760b91530",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Roberto Cidade e David Almeida",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2023-05-08",
+   "fieldwork_end": "2023-05-14",
+   "published_date": null,
+   "sample_size": 1244,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roberto Cidade",
+     "party": "União Brasil",
+     "pct": 26.4
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 50.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -231015,7 +231299,7 @@
    "scenario": "1º turno — cenário 7/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
@@ -231101,7 +231385,7 @@
    "scenario": "1º turno — cenário 4/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
@@ -231485,7 +231769,7 @@
    "scenario": "1º turno — cenário 6/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
@@ -231655,7 +231939,7 @@
    "scenario": "1º turno — cenário 5/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
@@ -231708,7 +231992,7 @@
    "scenario": "1º turno — cenário 3/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
@@ -231809,7 +232093,7 @@
    "scenario": "1º turno — cenário 1/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
@@ -231910,7 +232194,7 @@
    "scenario": "1º turno — cenário 2/7",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": null,
    "published_date": null,
    "sample_size": 1680,
