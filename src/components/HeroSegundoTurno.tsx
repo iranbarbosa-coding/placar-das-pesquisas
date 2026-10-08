@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { colorMap, colorOf, ensureDistinct } from "@/lib/colors";
 import { candKey } from "@/lib/average";
-import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
+import { fmtDate, fmtPct } from "@/lib/format";
 import { displayName } from "@/lib/names";
 import EvolucaoConfronto from "@/components/EvolucaoConfronto";
-import { evolucaoConfronto, EVOLUCAO_DESDE, PRIMEIRO_TURNO, SEGUNDO_TURNO, type MediaConfronto } from "@/lib/eleicao";
+import { evolucaoConfronto, PRIMEIRO_TURNO, SEGUNDO_TURNO, type MediaConfronto } from "@/lib/eleicao";
 
 /**
  * O herói da home no 2º turno: o GRÁFICO DE ÁREA da evolução das intenções de
- * voto no confronto presidencial (Lula × Flávio), lido da média móvel do site
- * desde `EVOLUCAO_DESDE`. Em cima, os dois nomes com a média atual e a
- * vantagem; embaixo do gráfico, em letra pequena, o resultado oficial do 1º
- * turno e quantas pesquisas da média têm campo após a votação. Decisão de Iran
- * em 08/10/2026: o gráfico é o topo da página. Server component.
+ * voto no confronto presidencial (Lula × Flávio), lido da média móvel do site.
+ * Interativo (pedido de Iran, 08/10): seletor Tudo / 2026 / 90 dias e hover com
+ * a média em cada data, os números grandes acompanhando — como o herói do 1º
+ * turno fazia. Embaixo, em letra pequena, o resultado oficial do 1º turno e
+ * quantas pesquisas da média têm campo após a votação. Server component que
+ * entrega a série completa ao gráfico (client).
  */
 
 export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaConfronto; diasRestantes: number }) {
@@ -25,7 +26,6 @@ export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaC
   const cores: [string, string] = [corA, ensureDistinct(corA, colorOf(cmap, p2.nome))];
   const mA = m?.candidates.find((c) => candKey(c.candidate) === candKey(p1.nome)) ?? null;
   const mB = m?.candidates.find((c) => candKey(c.candidate) === candKey(p2.nome)) ?? null;
-  const lider = m?.candidates[0] ?? null;
   const pontos = evolucaoConfronto(data);
   const quando =
     diasRestantes > 1 ? `faltam ${diasRestantes} dias` : diasRestantes === 1 ? "é amanhã" : diasRestantes === 0 ? "é hoje" : "realizado";
@@ -42,37 +42,19 @@ export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaC
       </div>
 
       {m && mA && mB ? (
-        <>
-          {/* Os dois nomes e a média atual, líder da média à esquerda. */}
-          <div className="mt-3 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
-            <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
-              {[mA, mB].map((c, i) => (
-                <div key={c.candidate} className="min-w-0">
-                  <div className="truncate text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(c.candidate)}</div>
-                  <div className="tabular text-3xl font-bold leading-tight sm:text-4xl" style={{ color: cores[i] }}>{fmtPct(c.avg)}%</div>
-                </div>
-              ))}
-            </div>
-            {lider ? (
-              <div className="tabular text-sm sm:text-right">
-                <span className="font-bold" style={{ color: "var(--text-primary)" }}>{fmtSigned(m.spread)} p.p.</span>{" "}
-                <span style={{ color: "var(--text-secondary)" }}>para {displayName(lider.candidate)}</span>
-                <div className="text-xs" style={{ color: "var(--text-muted)" }}>
-                  {m.pollCount} pesquisa{m.pollCount === 1 ? "" : "s"} · última em {fmtDate(m.lastPollDate)}
-                </div>
-              </div>
-            ) : null}
-          </div>
-
-          <div className="mt-4">
-            <EvolucaoConfronto
-              id="hero-2t"
-              points={pontos}
-              a={{ nome: displayName(mA.candidate), cor: cores[0], atual: mA.avg }}
-              b={{ nome: displayName(mB.candidate), cor: cores[1], atual: mB.avg }}
-            />
-          </div>
-        </>
+        <div className="mt-3">
+          <EvolucaoConfronto
+            id="hero-2t"
+            points={pontos}
+            a={{ nome: displayName(mA.candidate), cor: cores[0], atual: mA.avg }}
+            b={{ nome: displayName(mB.candidate), cor: cores[1], atual: mB.avg }}
+            ranges
+            interactive
+            kpi
+            spread={mA.avg - mB.avg}
+            nota={`${m.pollCount} pesquisa${m.pollCount === 1 ? "" : "s"} · última em ${fmtDate(m.lastPollDate)}`}
+          />
+        </div>
       ) : (
         <p className="mt-3 text-sm" style={{ color: "var(--text-secondary)" }}>
           Este confronto ainda não foi pesquisado. O gráfico aparece aqui com a primeira pesquisa.
@@ -96,8 +78,8 @@ export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaC
         ) : null}
       </div>
       <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
-        Série desde {fmtDate(EVOLUCAO_DESDE)}: a média móvel do site (até 10 pesquisas mais recentes, 2 por instituto) com todas as
-        simulações que testaram exatamente estes dois nomes, antes e depois do 1º turno.{" "}
+        A média móvel do site (até 10 pesquisas mais recentes, 2 por instituto) com todas as simulações que testaram exatamente estes
+        dois nomes, antes e depois do 1º turno; o seletor muda só o trecho visto.{" "}
         <Link href="/presidente#segundo-turno" className="underline">Todas as pesquisas</Link> ·{" "}
         <Link href="/metodologia#segundo-turno" className="underline">Metodologia</Link>
       </p>

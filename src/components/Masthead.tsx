@@ -82,6 +82,7 @@ const MENUS: Menu[] = [
     label: "Derivadas",
     href: "/derivadas",
     links: [
+      { href: "/acerto", label: "Acerto dos Institutos", note: "Quem chegou mais perto das urnas no 1º turno" },
       { href: "/institutos", label: "Viés dos Institutos", note: "Efeito casa: quanto cada instituto desvia da média" },
     ],
   },

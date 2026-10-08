@@ -130,7 +130,7 @@ export default function Home() {
           </>
         )}
 
-        {acerto ? <RankingInstitutos data={acerto} maxRows={10} /> : null}
+        {acerto ? <RankingInstitutos data={acerto} maxRows={10} cargos={["presidente"]} hrefDemais="/acerto" /> : null}
 
         <HouseEffects data={house} compact maxRows={10} title="Viés dos Institutos (Efeito Casa)" href="/institutos" />
 

@@ -5,7 +5,7 @@ import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import { displayName } from "@/lib/names";
 import { UF_NAMES } from "@/lib/types";
 import EvolucaoConfronto from "@/components/EvolucaoConfronto";
-import { evolucaoConfronto, type MediaConfronto } from "@/lib/eleicao";
+import { evolucaoConfronto, EVOLUCAO_DESDE, type MediaConfronto } from "@/lib/eleicao";
 
 /**
  * Os governos em 2º turno — um gráfico de área REDUZIDO por estado, com a
@@ -44,7 +44,7 @@ function Cartao({ d }: { d: MediaConfronto }) {
         <EvolucaoConfronto
           id={`uf-${uf.toLowerCase()}`}
           compact
-          points={evolucaoConfronto(d)}
+          points={evolucaoConfronto(d, EVOLUCAO_DESDE)}
           a={{ nome: displayName(mA.candidate), cor: cores[0], atual: mA.avg }}
           b={{ nome: displayName(mB.candidate), cor: cores[1], atual: mB.avg }}
         />

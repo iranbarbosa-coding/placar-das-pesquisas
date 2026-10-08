@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { fmtDate } from "@/lib/format";
 import type { RankingAcerto, AcertoInstituto, PlacarAcerto } from "@/lib/acerto";
+import type { RaceKind } from "@/lib/types";
 import { JANELA_DIAS } from "@/lib/acerto";
 
 /**
@@ -108,12 +109,19 @@ export default function RankingInstitutos({
   data,
   maxRows = 10,
   title = "Quem chegou mais perto das urnas",
+  cargos,
+  hrefDemais,
 }: {
   data: RankingAcerto;
   maxRows?: number;
   title?: string;
+  /** Só estes cargos (ex.: ["presidente"] na home); omitido = todos. */
+  cargos?: RaceKind[];
+  /** Link para a página com os demais placares, mostrado quando `cargos` filtra. */
+  hrefDemais?: string;
 }) {
-  const placares = data.placares.filter((p) => p.ranqueados.length || p.demais.length);
+  const placares = data.placares.filter((p) => p.ranqueados.length || p.demais.length).filter((p) => !cargos || cargos.includes(p.race));
+  const omitidos = data.placares.filter((p) => cargos && !cargos.includes(p.race) && (p.ranqueados.length || p.demais.length));
   if (!placares.length) return null;
   const parcial = data.parcial;
   const apuracao = data.apuracaoMinima !== null && data.apuracaoMinima < 100 ? ` (≥ ${fmt1(data.apuracaoMinima)}% das seções)` : "";
@@ -128,8 +136,19 @@ export default function RankingInstitutos({
       </div>
       <p className="mt-1 max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
         Erro na margem entre os dois primeiros, em pontos percentuais, da última pesquisa de cada instituto (campo até {JANELA_DIAS} dias
-        antes do pleito) contra o resultado oficial do TSE, em votos válidos. Um placar por cargo: a corrida presidencial não se
-        soma às estaduais. Quanto menor, mais perto das urnas; o erro médio por candidato desempata.
+        antes do pleito) contra o resultado oficial do TSE, em votos válidos.{" "}
+        {omitidos.length
+          ? "Aqui, só a corrida presidencial."
+          : "Um placar por cargo: a corrida presidencial não se soma às estaduais."}{" "}
+        Quanto menor, mais perto das urnas; o erro médio por candidato desempata.
+        {omitidos.length && hrefDemais ? (
+          <>
+            {" "}
+            <Link href={hrefDemais} className="font-semibold underline" style={{ color: "var(--accent)" }}>
+              {omitidos.map((p) => p.titulo).join(" e ")} →
+            </Link>
+          </>
+        ) : null}
       </p>
       <div className="mt-4 flex flex-col gap-6">
         {placares.map((p) => (
