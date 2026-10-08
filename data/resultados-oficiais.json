@@ -2,7 +2,7 @@
  "nota": "Resultados oficiais do TSE (Divulgação de Resultados, https://resultados.tse.jus.br), por disputa. `validos` traz o percentual de votos válidos de cada candidato tal como o TSE publica; `totalizacao` diz se o TSE marcava a totalização como parcial ou final no momento da leitura (cabeçalho `tf`/`and`); `apurado_pct` é o percentual de seções totalizadas quando o arquivo o informa (o `-u` de 2026 não informa). Gerado por scripts/tse-resultados.mjs; nunca inferido.",
  "turno": 1,
  "eleicao": "2026-10-04",
- "atualizado_em": "2026-10-04T23:40:37.489Z",
+ "atualizado_em": "2026-10-08T14:46:52.333Z",
  "fonte": "https://resultados.tse.jus.br",
  "falhas": [],
  "disputas": [
@@ -11,241 +11,241 @@
    "uf": null,
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Flavio Bolsonaro": 47.86,
-    "Ronaldo Caiado": 2.24,
-    "Lula": 44.18,
+    "Flavio Bolsonaro": 47.03,
+    "Ronaldo Caiado": 2.18,
+    "Lula": 45.16,
     "Clariana Barao": 0.03,
     "Edmilson Costa": 0.02,
     "Hertz Dias": 0.04,
-    "Escritor Augusto Cury": 2.92,
-    "Zema": 0.28,
-    "Samara": 0.11,
+    "Escritor Augusto Cury": 2.89,
+    "Zema": 0.27,
+    "Samara": 0.1,
     "Veterinário Wilson Grassi": 0.01,
-    "Renan Santos": 2.29,
+    "Renan Santos": 2.24,
     "Rui Costa Pimenta": 0.01
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6257/dados/br/br-c0001-e006257-u.json",
-   "lido_em": "2026-10-04T23:40:35.189Z"
+   "lido_em": "2026-10-08T14:46:50.970Z"
   },
   {
    "race": "governador",
    "uf": "AC",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Mailza Assis": 49.76,
     "Eudo Raffael": 0.16,
     "Dr.luisinho": 0.09,
-    "Alan Rick": 32.28,
-    "Thor Dantas": 7.49,
+    "Alan Rick": 32.27,
+    "Thor Dantas": 7.5,
     "Tião Bocalom": 10.22
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ac/ac-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.218Z"
+   "lido_em": "2026-10-08T14:46:51.008Z"
   },
   {
    "race": "senador",
    "uf": "AC",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Dr. Junior Feitosa": 2.2,
+    "Gladson Camelí": 16.59,
     "Marcio Bittar": 25.59,
-    "Gladson Camelí": 16.61,
-    "Professor Inacio Moreira": 2.24,
-    "Eduardo Velloso": 10.88,
+    "Professor Inacio Moreira": 2.25,
+    "Eduardo Velloso": 10.87,
     "Mara Rocha": 17.95,
-    "Petecão": 10.37,
+    "Petecão": 10.38,
     "Jorge Viana": 14.17
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ac/ac-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.251Z"
+   "lido_em": "2026-10-08T14:46:51.043Z"
   },
   {
    "race": "governador",
    "uf": "AL",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Renan Filho": 49.62,
+    "Renan Filho": 47.37,
     "Márcio Jambo": 0.05,
-    "Jhc": 49.99,
-    "Lenilda Luna": 0.35
+    "Jhc": 52.2,
+    "Lenilda Luna": 0.38
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/al/al-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.292Z"
+   "lido_em": "2026-10-08T14:46:51.065Z"
   },
   {
    "race": "senador",
    "uf": "AL",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Renan": 23.29,
-    "Dr. Wanderley": 11.14,
-    "Alexandre Fleming": 0.74,
-    "Davi Davino Filho": 7.92,
-    "Arthur Lira": 29.67,
-    "Marina Jhc": 27.17,
+    "Renan": 22.24,
+    "Dr. Wanderley": 10.91,
+    "Alexandre Fleming": 0.79,
+    "Davi Davino Filho": 8.92,
+    "Arthur Lira": 28.87,
+    "Marina Jhc": 28.2,
     "Mariedson": 0.07
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/al/al-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.344Z"
+   "lido_em": "2026-10-08T14:46:51.088Z"
   },
   {
    "race": "governador",
    "uf": "AM",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Omar Aziz": 39.54,
-    "Roberto Cidade": 21.63,
-    "Isael Munduruku": 0.58,
-    "Professora Maria do Carmo": 25.4,
-    "Gilberto Vasconcelos": 0.14,
-    "David Almeida": 10.85,
-    "Cabo Daciolo": 1.85
+    "Roberto Cidade": 21.91,
+    "Omar Aziz": 40.63,
+    "Isael Munduruku": 0.55,
+    "Gilberto Vasconcelos": 0.13,
+    "Professora Maria do Carmo": 24.49,
+    "Cabo Daciolo": 1.75,
+    "David Almeida": 10.54
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.375Z"
+   "lido_em": "2026-10-08T14:46:51.111Z"
   },
   {
    "race": "senador",
    "uf": "AM",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Xuxa do Amazonas": 1.3,
-    "Plinio Valério": 24.75,
-    "Wilson Lima": 11.62,
-    "Dailson Corrêa": 0.38,
-    "Eduardo Braga": 31.73,
-    "Capitão Alberto Neto": 24.08,
-    "Professora Evany": 6.01,
-    "Evandro de Oliveira": 0.14
+    "Xuxa do Amazonas": 1.22,
+    "Plinio Valério": 24.7,
+    "Dailson Corrêa": 0.36,
+    "Wilson Lima": 11.89,
+    "Eduardo Braga": 32.29,
+    "Evandro de Oliveira": 0.13,
+    "Capitão Alberto Neto": 23.66,
+    "Professora Evany": 5.75
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/am/am-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.420Z"
+   "lido_em": "2026-10-08T14:46:51.142Z"
   },
   {
    "race": "governador",
    "uf": "AP",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Clécio": 37.37,
-    "Dr. Furlan": 62.35,
+    "Clécio": 36.97,
+    "Dr. Furlan": 62.75,
     "Jairo Palheta": 0.07,
     "Delegado Marcos": 0.08,
     "Carlos Cley": 0.13
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ap/ap-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.480Z"
+   "lido_em": "2026-10-08T14:46:51.164Z"
   },
   {
    "race": "senador",
    "uf": "AP",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Randolfe": 18.75,
-    "Alliny Serrão": 9.83,
+    "Randolfe": 18.55,
+    "Alliny Serrão": 9.68,
     "Helio Silva": 0.08,
     "Juíza Jô": 0.3,
     "Professor Uzian Pinto": 0.12,
-    "Capi": 2.24,
-    "Lucas Barreto": 24.1,
-    "Rayssa Furlan": 29.75,
-    "Acácio Favacho": 14.84
+    "Capi": 2.19,
+    "Lucas Barreto": 24.22,
+    "Rayssa Furlan": 29.98,
+    "Acácio Favacho": 14.87
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ap/ap-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.533Z"
+   "lido_em": "2026-10-08T14:46:51.191Z"
   },
   {
    "race": "governador",
    "uf": "BA",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Jerônimo Rodrigues": 54.53,
-    "Ariel Capistrano": 0.04,
+    "Jerônimo Rodrigues": 55.8,
+    "Ariel Capistrano": 0.03,
     "Maria Bona": 0.05,
-    "Aroldo Felix": 0.07,
-    "Ronaldo Mansur": 0.36,
-    "Acm Neto": 44.95
+    "Aroldo Felix": 0.06,
+    "Ronaldo Mansur": 0.33,
+    "Acm Neto": 43.72
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ba/ba-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.559Z"
+   "lido_em": "2026-10-08T14:46:51.212Z"
   },
   {
    "race": "senador",
    "uf": "BA",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Rui Costa": 29.55,
-    "Jaques Wagner": 27.08,
-    "Professora Delliana": 1.65,
-    "Marcelo Carvalho": 0.39,
-    "Marcelo Millet": 0.04,
-    "Marcelo Santtana": 0.1,
-    "Gregorio Gould": 0.1,
-    "João Roma": 20.44,
-    "Angelo Coronel": 20.51,
+    "Rui Costa": 30.07,
+    "Jaques Wagner": 27.65,
+    "Professora Delliana": 1.49,
+    "Marcelo Carvalho": 0.35,
+    "Marcelo Santtana": 0.09,
+    "Marcelo Millet": 0.03,
+    "Gregorio Gould": 0.09,
+    "João Roma": 19.97,
+    "Angelo Coronel": 20.11,
     "Carlos Sodré": 0.15
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ba/ba-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.598Z"
+   "lido_em": "2026-10-08T14:46:51.230Z"
   },
   {
    "race": "governador",
    "uf": "CE",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Ciro Gomes": 47.06,
-    "Elmano de Freitas": 52.31,
-    "Vera Lúcia": 0.12,
+    "Ciro Gomes": 46.22,
+    "Elmano de Freitas": 53.19,
+    "Vera Lúcia": 0.11,
     "Zé Batista": 0.04,
-    "Delegado Huggo": 0.34,
+    "Delegado Huggo": 0.32,
     "Ieri Braga": 0.01,
     "Danilo Soares": 0.03,
-    "Serley Leal": 0.09
+    "Serley Leal": 0.08
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ce/ce-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.633Z"
+   "lido_em": "2026-10-08T14:46:51.248Z"
   },
   {
    "race": "senador",
    "uf": "CE",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Lino Alves": 0.03,
-    "Catarina Matos": 0.44,
+    "Catarina Matos": 0.4,
     "Reginaldo": 0.07,
-    "Cid Gomes": 30.69,
-    "Luizianne": 28.61,
-    "Capitão Wagner": 21.11,
-    "Alcides Fernandes": 18.77,
-    "Guilherme Theophilo": 0.28
+    "Cid Gomes": 31.22,
+    "Luizianne": 29.05,
+    "Capitão Wagner": 20.7,
+    "Alcides Fernandes": 18.28,
+    "Guilherme Theophilo": 0.25
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ce/ce-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.681Z"
+   "lido_em": "2026-10-08T14:46:51.277Z"
   },
   {
    "race": "governador",
@@ -266,7 +266,7 @@
     "Kiko Caputo": 4.36
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/df/df-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.892Z"
+   "lido_em": "2026-10-08T14:46:51.307Z"
   },
   {
    "race": "senador",
@@ -288,184 +288,184 @@
     "Zanata": 0.11
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/df/df-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:35.999Z"
+   "lido_em": "2026-10-08T14:46:51.329Z"
   },
   {
    "race": "governador",
    "uf": "ES",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Lorenzo Pazolini": 49.63,
-    "Helder Salomão": 15.31,
-    "Ricardo Ferraço": 34.08,
+    "Lorenzo Pazolini": 49.65,
+    "Ricardo Ferraço": 34.06,
+    "Helder Salomão": 15.32,
     "Rafael Demuner": 0.13,
     "Breno Barcelos": 0.85
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/es/es-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.053Z"
+   "lido_em": "2026-10-08T14:46:51.348Z"
   },
   {
    "race": "senador",
    "uf": "ES",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Renato Casagrande": 24.7,
     "Rose de Freitas": 4.08,
     "Evair de Melo": 24.39,
-    "Maguinha Malta": 18.89,
+    "Maguinha Malta": 18.9,
     "Sergio Meneguelli": 7.49,
     "Marcos do Val": 4.17,
+    "Callegari": 1.24,
     "Fabiano Contarato": 12.94,
-    "Callegari": 1.25,
     "Rodney Miranda": 0.39,
     "Leonardo Monjardim": 0.63,
     "Professor Fabian": 1.06
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/es/es-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.101Z"
+   "lido_em": "2026-10-08T14:46:51.374Z"
   },
   {
    "race": "governador",
    "uf": "GO",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Wilder Morais": 22.09,
-    "Luciana Amorim": 0.33,
-    "Luis Cesar Bueno": 9.8,
+    "Wilder Morais": 21.96,
+    "Luciana Amorim": 0.32,
+    "Luis Cesar Bueno": 9.82,
     "Danilo da Silva": 0.03,
-    "Daniel Vilela": 59.05,
-    "Marconi Perillo": 8.71
+    "Daniel Vilela": 59.17,
+    "Marconi Perillo": 8.69
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/go/go-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.136Z"
+   "lido_em": "2026-10-08T14:46:51.403Z"
   },
   {
    "race": "senador",
    "uf": "GO",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Gustavo Mendanha": 8.69,
-    "Gracinha Caiado": 21.71,
-    "Gustavo Gayer": 24.62,
-    "Oséias Varão": 10.19,
-    "Dr. Zacharias Calil": 14.99,
+    "Gustavo Mendanha": 8.66,
+    "Gracinha Caiado": 21.83,
+    "Gustavo Gayer": 24.53,
+    "Oséias Varão": 10.13,
+    "Dr. Zacharias Calil": 14.94,
     "Guilherme Darques": 0.11,
-    "Vanderlan Cardoso": 9.41,
-    "Isaura Lemos": 5.2,
-    "Cintia Dias": 4.31,
+    "Vanderlan Cardoso": 9.49,
+    "Isaura Lemos": 5.21,
+    "Cintia Dias": 4.32,
     "Ernesto Roller": 0.43,
-    "Iure Castro": 0.34
+    "Iure Castro": 0.35
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/go/go-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.175Z"
+   "lido_em": "2026-10-08T14:46:51.423Z"
   },
   {
    "race": "governador",
    "uf": "MA",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Roberto Rocha": 1.34,
-    "Eduardo Braide": 54.49,
+    "Roberto Rocha": 1.26,
+    "Eduardo Braide": 54.02,
     "Reginaldo Lima": 0.03,
-    "Orleans Brandão": 34.32,
-    "Saulo Arcangeli": 0.13,
+    "Orleans Brandão": 34.76,
+    "Saulo Arcangeli": 0.12,
     "Dimas Cassimiro": 0.01,
-    "Felipe Camarão": 9.48,
-    "André Luis": 0.21
+    "Felipe Camarão": 9.6,
+    "André Luis": 0.2
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ma/ma-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.231Z"
+   "lido_em": "2026-10-08T14:46:51.457Z"
   },
   {
    "race": "senador",
    "uf": "MA",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Roseana Sarney": 16.03,
-    "Weverton Rocha": 14.8,
-    "Wilson Leite": 0.16,
-    "Cidônio Gonçalves": 8.75,
-    "Fufuca": 21.56,
-    "Simplício Araújo": 0.35,
-    "Enilton Rodrigues": 1.21,
-    "Eliziane Gama": 9.69,
-    "Lahesio Bonfim": 21.04,
-    "Dr.hilton Gonçalo": 6.35,
-    "Raimundo Moreira": 0.07
+    "Roseana Sarney": 16.41,
+    "Weverton Rocha": 15.21,
+    "Wilson Leite": 0.15,
+    "Cidônio Gonçalves": 8.44,
+    "Fufuca": 21.43,
+    "Simplício Araújo": 0.34,
+    "Enilton Rodrigues": 1.18,
+    "Eliziane Gama": 9.75,
+    "Raimundo Moreira": 0.07,
+    "Lahesio Bonfim": 20.61,
+    "Dr.hilton Gonçalo": 6.42
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ma/ma-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.291Z"
+   "lido_em": "2026-10-08T14:46:51.472Z"
   },
   {
    "race": "governador",
    "uf": "MG",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Rafael Duda": 0.04,
-    "Cleitinho Azevedo": 55.23,
-    "Patrus Ananias": 26.19,
+    "Cleitinho Azevedo": 55.4,
+    "Patrus Ananias": 26.34,
     "Professor Túlio Lopes": 0.1,
     "Henrique Áreas": 0.01,
-    "Gabriel": 2.17,
-    "Mateus Simões": 4.49,
-    "Alexandre Kalil": 3.71,
-    "Ben Mendes": 0.73,
-    "Flávio Roscoe": 7.14,
-    "Indira Xavier": 0.19
+    "Mateus Simões": 4.65,
+    "Gabriel": 2.08,
+    "Alexandre Kalil": 3.54,
+    "Flávio Roscoe": 6.97,
+    "Ben Mendes": 0.7,
+    "Indira Xavier": 0.18
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/mg/mg-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.317Z"
+   "lido_em": "2026-10-08T14:46:51.509Z"
   },
   {
    "race": "senador",
    "uf": "MG",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Juíz Ramon Moreira": 0.07,
-    "Carlin Moura": 0.18,
-    "Victória Mello Vic": 0.09,
+    "Carlin Moura": 0.17,
+    "Victória Mello Vic": 0.08,
     "Jordano Metalúrgico": 0.04,
     "Tião Pessoa": 0.02,
-    "Aécio Neves": 3.9,
-    "Marco Antônio Superman": 9.47,
-    "Ana Luiza do Mlb": 0.14,
+    "Aécio Neves": 4.08,
+    "Marco Antônio Superman": 9.24,
+    "Ana Luiza do Mlb": 0.13,
     "Fidélis Alcântara": 0.04,
-    "Marcelo Aro": 11.23,
-    "Carlos Viana": 17.52,
-    "Domingos Sávio": 24.56,
-    "Áurea Carolina": 13.04,
-    "Marília Campos": 19.32,
-    "Manoel Carvalho": 0.2,
+    "Marcelo Aro": 11.63,
+    "Carlos Viana": 17.46,
+    "Domingos Sávio": 24.21,
+    "Áurea Carolina": 12.98,
+    "Marília Campos": 19.44,
+    "Manoel Carvalho": 0.21,
     "Arcanjo Pimenta": 0.2
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/mg/mg-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.350Z"
+   "lido_em": "2026-10-08T14:46:51.532Z"
   },
   {
    "race": "governador",
    "uf": "MS",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Fábio Trad": 23.67,
-    "Daniel Lemes": 0.15,
+    "Fábio Trad": 23.68,
+    "Daniel Lemes": 0.16,
     "João Henrique Catan": 7.24,
     "Lucien Rezende": 0.33,
     "Eduardo Riedel": 67.07,
@@ -474,383 +474,383 @@
     "Economista Renato Gomes": 0.41
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ms/ms-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.378Z"
+   "lido_em": "2026-10-08T14:46:51.556Z"
   },
   {
    "race": "senador",
    "uf": "MS",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Reinaldo Azambuja": 34.65,
-    "Capitão Contar": 32.84,
+    "Reinaldo Azambuja": 34.64,
+    "Capitão Contar": 32.82,
     "Valderi Garcia": 0.12,
     "Beto do Movimento": 0.69,
-    "Vander Loubet": 13.86,
-    "Soraya": 13.06,
+    "Vander Loubet": 13.88,
+    "Soraya": 13.07,
     "Valter da Comagran": 0.63,
     "Roberto Oshiro": 3.96,
     "Luiz Lemes": 0.19
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ms/ms-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.420Z"
+   "lido_em": "2026-10-08T14:46:51.582Z"
   },
   {
    "race": "governador",
    "uf": "MT",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Doutora Natasha": 15.14,
+    "Doutora Natasha": 15.17,
     "Otaviano Pivetta": 60.77,
-    "Rafaell Milas": 0.56,
+    "Rafaell Milas": 0.55,
     "Mauricio Coelho": 0.15,
     "Sargento Laudicério": 0.17,
-    "Wellington Fagundes": 23.22
+    "Wellington Fagundes": 23.19
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/mt/mt-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.453Z"
+   "lido_em": "2026-10-08T14:46:51.600Z"
   },
   {
    "race": "senador",
    "uf": "MT",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Janaina Riva": 14.5,
-    "Zé Medeiros": 27.4,
+    "Janaina Riva": 14.53,
+    "Zé Medeiros": 27.35,
     "Coronel Darwin": 0.36,
-    "Margareth Buzetti": 1.85,
-    "Mauro Mendes": 33.22,
-    "Pedro Taques": 6.27,
-    "Fávaro": 11.45,
+    "Margareth Buzetti": 1.83,
+    "Mauro Mendes": 33.21,
+    "Pedro Taques": 6.28,
+    "Fávaro": 11.5,
     "Professor Nelson Ferreira": 0.16,
     "Beny Godoy": 0.05,
-    "Galvan": 4.75
+    "Galvan": 4.73
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/mt/mt-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.494Z"
+   "lido_em": "2026-10-08T14:46:51.624Z"
   },
   {
    "race": "governador",
    "uf": "PA",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Well Macedo": 0.06,
-    "Gal Leite": 0.13,
-    "Araceli": 2,
-    "Hana Ghassan": 45.49,
-    "Dr. Daniel": 52.27,
-    "Ruth Reis": 0.05
+    "Gal Leite": 0.12,
+    "Araceli": 1.88,
+    "Hana Ghassan": 46.53,
+    "Dr. Daniel": 51.36,
+    "Ruth Reis": 0.04
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pa/pa-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.531Z"
+   "lido_em": "2026-10-08T14:46:51.660Z"
   },
   {
    "race": "senador",
    "uf": "PA",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Delegado Éder Mauro": 22.85,
-    "Fernanda Lopes": 0.16,
-    "Livia Noronha": 0.46,
-    "Coronel Jonildo": 0.15,
-    "Zequinha Marinho": 21.54,
-    "Edlaine Rodrigues": 0.1,
+    "Delegado Éder Mauro": 22.26,
+    "Fernanda Lopes": 0.15,
+    "Livia Noronha": 0.44,
+    "Coronel Jonildo": 0.14,
+    "Celso Sabino": 5.87,
+    "Zequinha Marinho": 21.06,
     "Breno Guimarães": 0.08,
-    "Celso Sabino": 5.93,
-    "Chicão": 21.81,
-    "Helder": 25.49,
-    "Gizelle Freitas": 1.01,
-    "Conti": 0.41
+    "Edlaine Rodrigues": 0.1,
+    "Chicão": 22.45,
+    "Helder": 26.1,
+    "Gizelle Freitas": 0.96,
+    "Conti": 0.39
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pa/pa-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.561Z"
+   "lido_em": "2026-10-08T14:46:51.684Z"
   },
   {
    "race": "governador",
    "uf": "PB",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Cícero Lucena": 11.04,
+    "Cícero Lucena": 11.06,
     "Camilo Duarte": 0.1,
-    "Lucas Ribeiro": 64.29,
+    "Lucas Ribeiro": 64.3,
     "Yuri Ezequiel": 0.36,
-    "Efraim Filho": 24.2
+    "Efraim Filho": 24.18
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pb/pb-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.585Z"
+   "lido_em": "2026-10-08T14:46:51.715Z"
   },
   {
    "race": "senador",
    "uf": "PB",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Joao Azevêdo": 32.52,
-    "Nabor": 20.9,
-    "Dr. Marcelo Queiroga": 12.49,
-    "Veneziano": 22.71,
-    "André Gadelha": 2.81,
-    "Major Fábio": 7.7,
+    "Joao Azevêdo": 32.5,
+    "Nabor": 20.91,
+    "Dr. Marcelo Queiroga": 12.46,
+    "Veneziano": 22.76,
+    "André Gadelha": 2.83,
+    "Major Fábio": 7.69,
     "Rinaldo Júnior": 0.2,
     "Adriano Trajano": 0.06,
     "Rosilene Santana": 0.5,
     "João Batista": 0.1
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pb/pb-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.616Z"
+   "lido_em": "2026-10-08T14:46:51.739Z"
   },
   {
    "race": "governador",
    "uf": "PE",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Raquel Lyra": 53.08,
-    "Ivan Moraes": 1.57,
+    "Raquel Lyra": 53.27,
+    "Ivan Moraes": 1.48,
     "Guilherme Fonseca": 0.02,
     "Victor Assis": 0.01,
     "Professora Camila": 0.07,
     "Renan": 0.35,
-    "João Campos": 44.9
+    "João Campos": 44.82
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pe/pe-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.644Z"
+   "lido_em": "2026-10-08T14:46:51.760Z"
   },
   {
    "race": "senador",
    "uf": "PE",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Mariano Macedo": 0.03,
-    "Carlos Sant Anna": 7.69,
-    "Gorett Bitu": 0.08,
+    "Gorett Bitu": 0.07,
     "Samuel Timoteo": 0.04,
-    "Eduardo da Fonte": 13.71,
-    "Túlio Gadêlha": 7,
+    "Carlos Sant Anna": 7.5,
+    "Mariano Macedo": 0.03,
+    "Eduardo da Fonte": 13.84,
+    "Túlio Gadêlha": 7.22,
     "Pastor Gilvan Costa": 0.2,
     "Marília Arraes": 24.97,
-    "Humberto Costa": 27.05,
-    "Paulo Rubem Santiago": 0.39,
-    "Mendonça Filho": 18.82,
+    "Humberto Costa": 27.19,
+    "Paulo Rubem Santiago": 0.37,
+    "Mendonça Filho": 18.57,
     "Mailson da Silva Neto": 0.01
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pe/pe-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.700Z"
+   "lido_em": "2026-10-08T14:46:51.792Z"
   },
   {
    "race": "governador",
    "uf": "PI",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
+    "Elizeu Aguiar": 0.25,
     "Professor Jurity": 0.05,
-    "Elizeu Aguiar": 0.26,
     "Ravenna da Inclusão": 0.04,
-    "Dra. Lúcia Santos": 0.48,
-    "Professor Gisvaldo": 0.51,
+    "Dra. Lúcia Santos": 0.47,
+    "Professor Gisvaldo": 0.49,
     "Santiago Belizário": 0.09,
     "Geraldo Carvalho": 0.09,
-    "Joel Rodrigues": 27.95,
-    "Rafael Fonteles": 70.45,
-    "Lourdes Melo": 0.07
+    "Joel Rodrigues": 27.54,
+    "Rafael Fonteles": 70.9,
+    "Lourdes Melo": 0.06
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pi/pi-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.727Z"
+   "lido_em": "2026-10-08T14:46:51.827Z"
   },
   {
    "race": "senador",
    "uf": "PI",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Pedro Laurentino": 0.17,
-    "Dionisio Carvalho": 0.22,
-    "Irmão Evandro Marques": 0.18,
+    "Pedro Laurentino": 0.16,
+    "Dionisio Carvalho": 0.21,
+    "Irmão Evandro Marques": 0.17,
     "Danniel Rocha": 0.08,
-    "Antônio Barros": 1.08,
-    "Antônio José Lira": 0.63,
+    "Antônio Barros": 1.05,
+    "Antônio José Lira": 0.61,
     "Jardenya Bezerra": 0.18,
     "Missionário Evandro Craveiro": 0.04,
-    "Maria Madalena Nunes": 0.76,
-    "Francinaldo Leão": 0.32,
-    "Júlio César O Julim do Lula": 26.9,
-    "Marcelo Castro": 35.45,
-    "Ciro Nogueira": 24.67,
-    "Tiago Junqueira": 9.04,
-    "Jorge Lopes": 0.26,
+    "Maria Madalena Nunes": 0.74,
+    "Francinaldo Leão": 0.31,
+    "Júlio César O Julim do Lula": 26.98,
+    "Marcelo Castro": 35.67,
+    "Ciro Nogueira": 24.68,
+    "Tiago Junqueira": 8.85,
+    "Jorge Lopes": 0.25,
     "Cloves José": 0.02
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pi/pi-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.751Z"
+   "lido_em": "2026-10-08T14:46:51.848Z"
   },
   {
    "race": "governador",
    "uf": "PR",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Sandro Alex": 25.34,
+    "Sandro Alex": 25.37,
     "Adriano Funileiro": 0.02,
     "Requião Filho": 23.47,
     "Luiz França": 0.71,
-    "Sergio Moro": 50.12,
+    "Sergio Moro": 50.1,
     "Doutor Alexandre Salomão": 0.07,
     "Tayná Miessa": 0.23,
     "Samuel de Mattos": 0.03
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pr/pr-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.776Z"
+   "lido_em": "2026-10-08T14:46:51.879Z"
   },
   {
    "race": "senador",
    "uf": "PR",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Marcelo Marcelino": 0.08,
-    "Cristina Graeml": 6.38,
-    "Alexandre Curi": 16.83,
-    "Joaquim do Mlb": 0.13,
+    "Cristina Graeml": 6.39,
+    "Alexandre Curi": 16.85,
     "Karen Guerreiro": 0.81,
+    "Joaquim do Mlb": 0.13,
     "Gleisi": 13.35,
     "Dr Rosinha": 9.99,
-    "Deltan Dallagnol": 25.16,
-    "Filipe Barros": 27.27
+    "Deltan Dallagnol": 25.14,
+    "Filipe Barros": 27.25
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/pr/pr-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.813Z"
+   "lido_em": "2026-10-08T14:46:51.906Z"
   },
   {
    "race": "governador",
    "uf": "RJ",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Douglas Ruas": 49.87,
-    "André Marinho": 0.54,
+    "Douglas Ruas": 49.27,
+    "André Marinho": 0.52,
     "Luan Monteiro": 0.03,
-    "Eduardo Paes": 42.13,
+    "Eduardo Paes": 42.76,
     "Juliete": 0.39,
     "William Siri": 2.71,
-    "Garotinho": 3.18,
+    "Garotinho": 3.17,
     "Coronel Busnello": 0.98,
     "Cyro Garcia": 0.17
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rj/rj-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.854Z"
+   "lido_em": "2026-10-08T14:46:51.928Z"
   },
   {
    "race": "senador",
    "uf": "RJ",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Helio Secco": 0.83,
-    "Carlos Portinho": 27.04,
-    "Carlos Jordy": 24.83,
+    "Helio Secco": 0.82,
+    "Carlos Portinho": 26.77,
+    "Carlos Jordy": 24.56,
     "Luiz Eugenio": 0.04,
-    "Marcos Dias": 1.14,
+    "Marcos Dias": 1.22,
     "Ó Clemente": 0.06,
     "Michelly Xavier": 0.2,
-    "Vinicius Benevides": 0.05,
+    "Vinicius Benevides": 0.06,
     "Paula Falcão": 0.17,
-    "Monica Benicio": 9.68,
-    "Luciano Mattos": 0.16,
-    "Marcelo Crivella": 3.31,
-    "Waguinho": 0.75,
-    "Pedro Paulo": 11.67,
-    "Benedita da Silva": 20.07
+    "Monica Benicio": 9.66,
+    "Luciano Mattos": 0.15,
+    "Marcelo Crivella": 3.39,
+    "Waguinho": 0.73,
+    "Pedro Paulo": 11.95,
+    "Benedita da Silva": 20.22
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rj/rj-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.933Z"
+   "lido_em": "2026-10-08T14:46:51.959Z"
   },
   {
    "race": "governador",
    "uf": "RN",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Rodrigo de Bolsonaro": 0.02,
     "Godeiro Linharess": 0.02,
     "Arinalda do Mlb": 0.07,
-    "Cadu de Lula": 36.31,
+    "Cadu de Lula": 36.16,
     "Dário Barbosa": 0.07,
-    "Álvaro Dias": 26.78,
-    "Allyson": 36.71,
+    "Álvaro Dias": 26.71,
+    "Allyson": 36.94,
     "Henrique Lyra": 0.01
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rn/rn-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:36.975Z"
+   "lido_em": "2026-10-08T14:46:51.986Z"
   },
   {
    "race": "senador",
    "uf": "RN",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Rosália Fernandes": 0.11,
     "Luciana Mandu": 0.07,
     "Clóvis Costa do Coletivo Nós": 0.05,
     "Gari Wendell Batista": 0.05,
-    "Styvenson Valentim": 29.2,
-    "Coronel Hélio": 17.25,
-    "Tércio Tinôco": 2.84,
-    "Zenaide Maia": 17.27,
+    "Styvenson Valentim": 29.25,
+    "Coronel Hélio": 17.2,
+    "Tércio Tinôco": 2.85,
+    "Zenaide Maia": 17.47,
     "Professor Guilherme": 0.15,
-    "Samanda de Lula": 17.73,
-    "Rafael Motta": 14.26,
+    "Samanda de Lula": 17.63,
+    "Rafael Motta": 14.16,
     "Sandro Pimentel": 0.62,
-    "Sonia Godeiro": 0.41
+    "Sonia Godeiro": 0.4
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rn/rn-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.020Z"
+   "lido_em": "2026-10-08T14:46:52.014Z"
   },
   {
    "race": "governador",
    "uf": "RO",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Adailton Furia": 20.05,
+    "Adailton Furia": 20.06,
     "Hildon Chaves": 14.22,
     "Samuel Costa": 0.46,
-    "Marcos Rogério": 56.87,
+    "Marcos Rogério": 56.86,
     "Expedito Netto": 7.71,
     "Pedro Abib": 0.7
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ro/ro-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.063Z"
+   "lido_em": "2026-10-08T14:46:52.039Z"
   },
   {
    "race": "senador",
    "uf": "RO",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Dr. Fernando Máximo": 31.97,
     "Bruno Scheid": 26.56,
@@ -864,120 +864,120 @@
     "Sílvia Cristina": 17.03
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/ro/ro-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.098Z"
+   "lido_em": "2026-10-08T14:46:52.065Z"
   },
   {
    "race": "governador",
    "uf": "RR",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Farah Mesquita": 0.07,
-    "Rosi Aires": 1.51,
+    "Rosi Aires": 1.53,
     "Clébio Genuíno": 0.02,
-    "Arthur Henrique": 69.25,
-    "Soldado Sampaio": 29.15
+    "Arthur Henrique": 69.13,
+    "Soldado Sampaio": 29.25
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rr/rr-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.136Z"
+   "lido_em": "2026-10-08T14:46:52.088Z"
   },
   {
    "race": "senador",
    "uf": "RR",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Teresa Surita": 19.26,
-    "Chico Rodrigues": 13.4,
-    "Márcio Junqueira": 0.61,
+    "Teresa Surita": 19.24,
+    "Chico Rodrigues": 13.43,
+    "Márcio Junqueira": 0.62,
     "Hilton Xavier": 0.78,
-    "Hiperion de Oliveira": 0.39,
-    "Regina Tio Ivo": 7.47,
-    "Bartô Macuxi": 1.57,
+    "Hiperion de Oliveira": 0.4,
+    "Regina Tio Ivo": 7.44,
+    "Bartô Macuxi": 1.62,
     "Mario Rocha": 0.24,
-    "Nicoletti": 22.76,
-    "Helio Fernando Barbosa Lopes": 13.01,
+    "Nicoletti": 22.68,
+    "Helio Fernando Barbosa Lopes": 12.97,
+    "Helena da Asatur": 17.5,
     "Pastor Isamar": 2.96,
-    "Helena da Asatur": 17.42,
     "Rogério Miranda": 0.14
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rr/rr-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.162Z"
+   "lido_em": "2026-10-08T14:46:52.106Z"
   },
   {
    "race": "governador",
    "uf": "RS",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Gabriel Souza": 8.43,
-    "Juliana Brizola": 31.64,
+    "Juliana Brizola": 31.65,
     "Rejane de Oliveira": 0.06,
     "Priscila Voigt": 0.09,
-    "Zucco": 58.06,
+    "Zucco": 58.05,
     "Marcelo Maranata": 1.68,
     "Cesar Pontes": 0.04
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rs/rs-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.202Z"
+   "lido_em": "2026-10-08T14:46:52.121Z"
   },
   {
    "race": "senador",
    "uf": "RS",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Pimenta": 16.3,
-    "Manuela D Ávila": 17.06,
-    "Rigotto": 3.67,
+    "Pimenta": 16.31,
+    "Manuela D Ávila": 17.07,
     "Frederico Antunes": 1.95,
-    "Sanderson": 30.12,
+    "Rigotto": 3.67,
+    "Sanderson": 30.11,
     "Marcel Van Hattem": 30.08,
     "Daniela Mulheres Socialistas": 0.23,
     "Regis Ethur": 0.03,
     "Ric Jones": 0.02,
-    "Milton Cardoso": 0.23,
     "Renato Jaguarão": 0.14,
+    "Milton Cardoso": 0.23,
     "Tania Peres": 0.11,
     "Luciano do Mlb": 0.05
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/rs/rs-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.233Z"
+   "lido_em": "2026-10-08T14:46:52.144Z"
   },
   {
    "race": "governador",
    "uf": "SC",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "João Rodrigues": 13.39,
+    "João Rodrigues": 13.35,
     "Laís Chaud": 0.5,
     "Bruno Pedreiro do Pco": 0.06,
     "Ralf Zimmer": 0.21,
     "Gelson Merísio": 15.66,
-    "Jorginho Mello": 68.93,
+    "Jorginho Mello": 68.98,
     "Professor Marcus Sodré": 0.16,
     "Marcelo Brigadeiro": 1.09
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/sc/sc-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.261Z"
+   "lido_em": "2026-10-08T14:46:52.163Z"
   },
   {
    "race": "senador",
    "uf": "SC",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Túlio de Amorim Pfuetzenreiter": 0.74,
-    "Esperidião Amin": 15.3,
-    "Lunelli": 6,
-    "Carol de Toni": 33.47,
+    "Esperidião Amin": 15.31,
+    "Lunelli": 5.99,
+    "Carol de Toni": 33.46,
     "Carlos Bolsonaro": 25.35,
     "Décio Lima": 10.22,
     "Afrânio Boppré": 8.16,
@@ -989,124 +989,124 @@
     "Marcos Dorval": 0.05
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/sc/sc-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.303Z"
+   "lido_em": "2026-10-08T14:46:52.181Z"
   },
   {
    "race": "governador",
    "uf": "SE",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Taty Cristina de Jesus": 0.23,
-    "Fábio": 59.17,
-    "Valmir de Francisquinho": 37.52,
-    "Dr. Helton": 3.08
+    "Taty Cristina de Jesus": 0.22,
+    "Fábio": 59.27,
+    "Valmir de Francisquinho": 37.48,
+    "Dr. Helton": 3.02
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/se/se-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.344Z"
+   "lido_em": "2026-10-08T14:46:52.201Z"
   },
   {
    "race": "senador",
    "uf": "SE",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Delegado André David": 16.4,
-    "Eduardo Amorim": 9.41,
-    "Delegado Alessandro": 17.15,
-    "Edvaldo": 8.16,
-    "Rodrigo Valadares": 5.61,
-    "Coronel Rocha": 1.75,
+    "Delegado André David": 16.23,
+    "Eduardo Amorim": 9.55,
+    "Delegado Alessandro": 17.13,
+    "Edvaldo": 8.04,
+    "Rodrigo Valadares": 5.54,
+    "Coronel Rocha": 1.73,
     "Renatinha": 0.32,
-    "Rogerio Carvalho": 21.84,
-    "André Moura": 15.93,
-    "Iran Barbosa": 3.41
+    "Rogerio Carvalho": 21.91,
+    "André Moura": 16.19,
+    "Iran Barbosa": 3.36
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/se/se-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.382Z"
+   "lido_em": "2026-10-08T14:46:52.220Z"
   },
   {
    "race": "governador",
    "uf": "SP",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Tarcísio": 62.7,
-    "Fernando Haddad": 36.37,
+    "Tarcísio": 62.65,
+    "Fernando Haddad": 36.42,
     "Vivian Mendes": 0.35,
     "Vera Lúcia": 0.33,
     "Carlos Machado": 0.25
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/sp/sp-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.409Z"
+   "lido_em": "2026-10-08T14:46:52.239Z"
   },
   {
    "race": "senador",
    "uf": "SP",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "André do Prado": 29.28,
-    "Guilherme Derrite": 30.61,
+    "Guilherme Derrite": 30.59,
     "Petter Maahs": 0.07,
     "Guto Schiavetto": 0.91,
-    "Simone Tebet": 19.22,
-    "Marina Silva": 18.11,
-    "Soninha Francine": 0.38,
-    "Geraldo Rufino": 0.89,
+    "Simone Tebet": 19.23,
+    "Marina Silva": 18.12,
     "Dra Eliana Ferreira": 0.15,
     "Weller Gonçalves": 0.05,
+    "Geraldo Rufino": 0.89,
+    "Soninha Francine": 0.38,
     "William Teixeira": 0.02,
     "Maíra de Souza": 0.21,
     "Marcio Alves": 0.1
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/sp/sp-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.433Z"
+   "lido_em": "2026-10-08T14:46:52.282Z"
   },
   {
    "race": "governador",
    "uf": "TO",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
-    "Du Pereira": 0.15,
     "Vicentinho Júnior": 43.94,
+    "Du Pereira": 0.15,
     "Ataides de Oliveira": 1.55,
     "Laurez Moreira": 8.24,
     "Prof Witer Naves": 0.6,
     "Professora Dorinha": 45.52
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/to/to-c0003-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.462Z"
+   "lido_em": "2026-10-08T14:46:52.309Z"
   },
   {
    "race": "senador",
    "uf": "TO",
    "round": 1,
    "apurado_pct": null,
-   "totalizacao": "parcial",
+   "totalizacao": "final",
    "validos": {
     "Paulo Mourão": 7.85,
     "Eli Borges": 16.44,
-    "Eduardo Gomes": 27.23,
+    "Eduardo Gomes": 27.22,
     "Fábio Ribeiro": 0.47,
     "Professor Osvaldo": 2.16,
     "Osvany Luz": 0.3,
     "Helio Rodrigues Bolsonaro": 0.2,
-    "Ronaldo Dimas": 5.61,
+    "Ronaldo Dimas": 5.62,
     "Vanderlei Luxemburgo": 4.11,
-    "Gaguim": 15.46,
+    "Gaguim": 15.45,
     "Alexandre Guimarães": 19.16,
     "Coronel Nilton Santos": 0.88,
     "Apóstolo Flavio Braga": 0.13
    },
    "fonte": "https://resultados.tse.jus.br/oficial/ele2026/6259/dados/to/to-c0005-e006259-u.json",
-   "lido_em": "2026-10-04T23:40:37.489Z"
+   "lido_em": "2026-10-08T14:46:52.333Z"
   }
  ]
 }
