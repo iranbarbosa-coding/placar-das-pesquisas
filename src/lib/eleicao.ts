@@ -43,7 +43,7 @@ export const PRIMEIRO_TURNO = "2026-10-04";
 export const SEGUNDO_TURNO = "2026-10-25";
 /** Primeiro dia de campo possível depois do 1º turno. */
 export const POS_PRIMEIRO_TURNO = "2026-10-05";
-/** Início da série dos gráficos de evolução do 2º turno (campanha: três meses antes do 1º turno). */
+/** Início da série dos gráficos COMPACTOS de evolução do 2º turno (campanha: três meses antes do 1º turno). O herói tem seletor. */
 export const EVOLUCAO_DESDE = "2026-07-01";
 
 export type RaceComTurno = "presidente" | "governador";
@@ -260,7 +260,7 @@ export interface PontoEvolucao {
  * candidato), nunca recalculadas. Onde um lado não tem amostra numa data, vale
  * 100 − outro (válidos de um confronto somam 100).
  */
-export function evolucaoConfronto(mc: MediaConfronto, desde = EVOLUCAO_DESDE): PontoEvolucao[] {
+export function evolucaoConfronto(mc: MediaConfronto, desde: string | null = null): PontoEvolucao[] {
   const m = mc.media;
   if (!m) return [];
   const [n1, n2] = mc.confronto.nomes;
@@ -270,6 +270,6 @@ export function evolucaoConfronto(mc: MediaConfronto, desde = EVOLUCAO_DESDE): P
   const bPorData = new Map<string, number>();
   for (const p of cb.trend ?? []) if (Number.isFinite(p.avg)) bPorData.set(p.date, p.avg);
   return (ca.trend ?? [])
-    .filter((p) => Number.isFinite(p.avg) && p.date >= desde)
+    .filter((p) => Number.isFinite(p.avg) && (!desde || p.date >= desde))
     .map((p) => ({ date: p.date, a: p.avg, b: bPorData.get(p.date) ?? 100 - p.avg }));
 }

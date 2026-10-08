@@ -636,9 +636,47 @@ def _is_event_banner(row):
     txt = ''.join(ch for ch in unicodedata.normalize('NFD', txt) if not unicodedata.combining(ch))
     return bool(re.search(r'\b(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)', txt))
 
+# A LINHA DE RESULTADO (08/10/2026). Depois do pleito a Wikipédia põe no topo
+# da tabela uma linha "Results"/"Resultado"/"Eleição" com o resultado oficial,
+# nas mesmas colunas das pesquisas. Lida como pesquisa, ela entrou no banco
+# como instituto "Results" (campo 04/10/2026) e abriu o ranking de acerto em
+# 1º com erro zero. Resultado de urna nunca é pesquisa: a linha é pulada.
+_RE_LINHA_RESULTADO = re.compile(
+    r'^\s*(results?|resultados?(\s+(oficia(l|is)|finais?|da\s+elei[cç][aã]o))?|elei[cç][aã]o|election(\s+results?)?|apura[cç][aã]o|urnas?|tse)\s*$',
+    re.I)
+
+def _eh_linha_de_resultado(pollster):
+    return bool(pollster) and bool(_RE_LINHA_RESULTADO.match(_fold(pollster)))
+
+def _dia_do_pleito(ano, rnd):
+    """O dia da votação daquele ano: 1º turno no primeiro domingo de outubro,
+    2º turno no último domingo de outubro (CF art. 77) — 04/10 e 25/10 em 2026."""
+    import datetime as _dt
+    try:
+        d = _dt.date(int(ano), 10, 1)
+    except (TypeError, ValueError):
+        return None
+    primeiro_domingo = d + _dt.timedelta(days=(6 - d.weekday()) % 7)
+    if rnd == 2:
+        ultimo = _dt.date(int(ano), 10, 31)
+        return (ultimo - _dt.timedelta(days=(ultimo.weekday() + 1) % 7)).isoformat()
+    return primeiro_domingo.isoformat()
+
+def _ano_da_pagina(source_url, ano_ctx):
+    faixa = (ano_ctx or {}).get('faixa')
+    if faixa: return faixa[1]
+    m = re.search(r'(20\d\d)', urllib.parse.unquote(source_url or ''))
+    return int(m.group(1)) if m else None
+
 def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presidente', state=None, year_ctx=None, default_round=1, ano_ctx=None):
     rows = parse_table(tbl_lines)
     if not rows: return []
+    # CAMPO DEPOIS DO PLEITO (08/10/2026). Uma pesquisa de 1º turno não pode ter
+    # campo depois do dia da votação: quando a resolução de ano a põe lá, o ano
+    # está errado por um (a Paraná Pesquisas/SP de "9 de outubro" com Alckmin,
+    # Nunes e Kassab no elenco saiu datada 2026-10-09 — era 2025). A faixa da
+    # página diz "nunca depois do pleito"; isto a aplica à linha.
+    ano_pagina = _ano_da_pagina(source_url, ano_ctx)
     grid = expand_grid(rows)
     # header rows: leading rows where every cell is header-marked or cleans to empty
     n_header = 0
@@ -775,6 +813,15 @@ def parse_one_table(tbl_lines, h2, h3, h4, hidden, source_url, lang, race='presi
                         poll['results'].append({'candidate': col['name'], 'party': col.get('party'), 'pct': v})
                         if not ok:
                             warnings.append(f"pct for {col['name']} parsed loosely from '{txt}'")
+            if _eh_linha_de_resultado(poll.get('pollster')):
+                continue  # resultado oficial, não pesquisa
+            pleito = _dia_do_pleito(ano_pagina, rnd) if ano_pagina else None
+            if pleito and poll.get('fieldwork_end') and poll['fieldwork_end'] > pleito:
+                def _menos_um_ano(iso):
+                    return f"{int(iso[:4]) - 1:04d}{iso[4:]}" if iso else iso
+                warnings.append(f"campo {poll['fieldwork_end']} depois do pleito {pleito}: ano recuado em um")
+                poll['fieldwork_start'] = _menos_um_ano(poll.get('fieldwork_start'))
+                poll['fieldwork_end'] = _menos_um_ano(poll['fieldwork_end'])
             if und_parts:
                 poll['undecided_pct'] = round(sum(und_parts), 2)
                 if len(und_parts) > 1:
@@ -991,6 +1038,19 @@ def _self_test():
         "|-", "| Índice || 24 e 26 de setembro || 1.200 || 42 || 43 || 3 || 55", "|}"])
     pm = extract(manco, url, 'pt', 'presidente', None)
     assert [p['pollster'] for p in pm] == ['Ranking', 'Índice'], ('template manco engoliu a tabela', pm)
+    # LINHA DE RESULTADO E CAMPO DEPOIS DO PLEITO (08/10/2026): a linha "Results"
+    # do topo da tabela não é pesquisa, e uma pesquisa de 1º turno datada depois
+    # de 04/10/2026 está no ano errado (é de 2025).
+    pos_pleito = '\n'.join(["=== 2026 ===", "==== Outubro ====", "{| class=\"wikitable\"",
+        "! Instituto !! Data !! Amostra !! [[Luiz Inácio Lula da Silva|Lula]]<br>{{small|[[Partido dos Trabalhadores|PT]]}} !! [[Flávio Bolsonaro|Flávio]]<br>{{small|[[Partido Liberal (2006)|PL]]}} !! Outros !! Indecisos",
+        "|-", "| '''Results''' || 4 de outubro || – || 45,16 || 47,03 || 7,81 || –",
+        "|-", "| Gerp || 30 de setembro a 2 de outubro || 2.400 || 41 || 43 || 9 || 7",
+        "|-", "| Paraná Pesquisas || 9 de outubro || 1.680 || 30 || 40 || 5 || 25", "|}"])
+    pp2 = extract(pos_pleito, url, 'pt', 'presidente', None)
+    assert [p['pollster'] for p in pp2] == ['Gerp', 'Paraná Pesquisas'], ('a linha Results entrou como pesquisa', [p['pollster'] for p in pp2])
+    assert pp2[0]['fieldwork_end'] == '2026-10-02', pp2[0]
+    assert (pp2[1]['fieldwork_start'], pp2[1]['fieldwork_end']) == ('2025-10-09', '2025-10-09'), ('campo depois do pleito tinha de recuar um ano', pp2[1])
+    assert _dia_do_pleito(2026, 1) == '2026-10-04' and _dia_do_pleito(2026, 2) == '2026-10-25', (_dia_do_pleito(2026, 1), _dia_do_pleito(2026, 2))
     assert pm[0]['fieldwork_end'] == '2026-09-26' and [r['pct'] for r in pm[0]['results']] == [40.0, 41.0], pm[0]
     # CITAÇÃO QUEBRADA (senador:SP, 29/09/2026): a linha com o prefixo
     # `<ref>{{citar web|url=` digitado duas vezes nunca fecha; o `|-` seguinte

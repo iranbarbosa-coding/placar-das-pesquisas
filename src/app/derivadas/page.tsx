@@ -12,6 +12,11 @@ export const metadata: Metadata = {
  */
 const ANALISES = [
   {
+    href: "/acerto",
+    title: "Quem chegou mais perto das urnas",
+    note: "A última pesquisa de cada instituto contra o resultado oficial do TSE no 1º turno: presidente, governadores e senadores.",
+  },
+  {
     href: "/institutos",
     title: "Viés dos Institutos",
     note: "Efeito casa: quanto cada instituto tende a super ou subestimar cada candidato ante a média das demais pesquisas.",
