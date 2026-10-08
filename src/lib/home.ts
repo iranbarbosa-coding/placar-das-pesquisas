@@ -3,6 +3,7 @@ import path from "node:path";
 import { scenarioGroups, pollsFor } from "./data";
 import { candKey, sortPollsDesc } from "./average";
 import { toBasis } from "./validos";
+import { displayName } from "./names";
 import { confronto, confrontosSegundoTurno, disputaEncerrada, mediaConfronto, primeiroTurnoApurado } from "./eleicao";
 import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
 
@@ -411,6 +412,55 @@ export interface StateMapDatum {
   margin?: number | null;
   /** Nome do 2º colocado. */
   runnerUp?: string | null;
+  /** Cor explícita (token CSS); vence o `status`. Usada pelo mapa do 2º turno. */
+  fill?: string;
+  /** Tooltip e situação prontos (mapa do 2º turno). */
+  tooltipText?: string;
+  situacaoText?: string;
+}
+
+/**
+ * O mapa do 2º TURNO (home, decisão de Iran em 08/10): azul escuro onde a
+ * corrida para governador segue para 25/10, cinza onde se decidiu no 1º turno.
+ * O tooltip diz quem ganhou (com a margem das urnas) ou quem lidera a média do
+ * confronto (com a margem da média). Tudo lido de `lib/eleicao.ts`; nada aqui
+ * é pesquisa de 1º turno.
+ */
+export function stateMapSegundoTurno(): StateMapDatum[] {
+  const pp = (v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return [...UFS].sort().map((uf) => {
+    const name = UF_NAMES[uf];
+    const c = confronto("governador", uf);
+    if (c) {
+      const [a, b] = c.nomes;
+      const m = mediaConfronto(c).media;
+      const lider = m?.candidates[0];
+      const segundo = m?.candidates[1];
+      const tooltipText =
+        m && lider && segundo
+          ? `${name} — 2º turno: ${displayName(lider.candidate)} lidera a média com ${pp(lider.avg)}% (+${pp(m.spread)} sobre ${displayName(segundo.candidate)})`
+          : `${name} — 2º turno: ${displayName(a.nome)} × ${displayName(b.nome)}, sem pesquisa do confronto`;
+      return {
+        uf, name, status: "abaixo" as const, fill: "var(--map-2t-ativa)",
+        leader: lider?.candidate ?? a.nome, leaderPct: lider?.avg ?? a.pct,
+        margin: m ? round1(m.spread) : round1(a.pct - b.pct), runnerUp: segundo?.candidate ?? b.nome,
+        tooltipText, situacaoText: "Em 2º turno",
+      };
+    }
+    const enc = disputaEncerrada("governador", uf);
+    if (enc) {
+      const [a, b] = enc.resultado;
+      const tooltipText = b
+        ? `${name} — ${displayName(a.nome)} eleito no 1º turno com ${pp(a.pct)}% (+${pp(a.pct - b.pct)} sobre ${displayName(b.nome)})`
+        : `${name} — ${displayName(a.nome)} eleito no 1º turno com ${pp(a.pct)}%`;
+      return {
+        uf, name, status: "acima" as const, fill: "var(--map-2t-encerrada)",
+        leader: a.nome, leaderPct: a.pct, margin: b ? round1(a.pct - b.pct) : null, runnerUp: b?.nome ?? null,
+        tooltipText, situacaoText: "Decidida no 1º turno",
+      };
+    }
+    return { uf, name, leader: null, status: "sem" as const, fill: "var(--map-sem)", tooltipText: `${name} — sem resultado`, situacaoText: "Sem resultado" };
+  });
 }
 
 export function stateMapData(): StateMapDatum[] {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import HeroBasisSwitch from "@/components/HeroBasisSwitch";
 import HeroSegundoTurno from "@/components/HeroSegundoTurno";
 import ConfrontosGovernador from "@/components/ConfrontosGovernador";
+import MapaSegundoTurno from "@/components/MapaSegundoTurno";
 import RunoffBars from "@/components/RunoffBars";
 import LatestPollsTable from "@/components/LatestPollsTable";
 import HomeSidebar from "@/components/HomeSidebar";
@@ -13,6 +14,7 @@ import {
   stateHighlights,
   recentMovers,
   stateMapData,
+  stateMapSegundoTurno,
   newestPoll,
   registeredPresidentKeys,
 } from "@/lib/home";
@@ -152,6 +154,7 @@ export default function Home() {
           sidebar. Stacks under the content on phones. */}
       {modo2T ? (
         <aside className="flex min-w-0 flex-col gap-5" aria-label="Governos em 2º turno">
+          <MapaSegundoTurno map={stateMapSegundoTurno()} />
           <ConfrontosGovernador data={segundoTurno} layout="coluna" />
         </aside>
       ) : (

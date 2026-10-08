@@ -160,6 +160,10 @@
      base state stroke (1.2) here so light stays pixel-identical; dark widens it. */
   --map-sem-outline: var(--surface-1);
   --map-sem-outline-width: 1.2;
+  /* Mapa do 2º turno (home, 08/10/2026): azul escuro = corrida ativa (vai ao
+     2º turno); cinza = decidida no 1º turno. Dois estados só, legíveis de longe. */
+  --map-2t-ativa: #1d4ed8;
+  --map-2t-encerrada: #cbd5e1;
 
   /* ── PRESIDENTIAL STATE MAP — LEADER IDENTITY + INTENSITY (/presidente) ─────
      The governor map above colours by a four-value STATUS. The presidential map
@@ -266,6 +270,8 @@
     --map-abaixo: #274a86;  /* muted blue — leader below 50 (runoff) */
     --map-empate: #2b3a55;  /* navy-grey — technical tie (mirrors --pmap-tie) */
     --map-sem: #0b0d12;     /* quase-preto — no recent poll (mirrors --pmap-sem) */
+    --map-2t-ativa: #3b82f6;
+    --map-2t-encerrada: #334155;
     /* The quase-preto no-data fill (#0b0d12) sits at ~1.16:1 against the navy card
        (#142038) and its default border is the card colour too — effectively
        invisible. Outline those states in a clearly visible mid grey so they read

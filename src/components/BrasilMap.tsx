@@ -60,6 +60,10 @@ export interface MapDatum {
   /** Nome do 2º colocado (tooltip de hover). */
   runnerUp?: string | null;
   reason?: "sem-dados" | "empate" | null;
+  /** Texto pronto do tooltip de hover; quando presente, vence a composição padrão. */
+  tooltipText?: string;
+  /** Texto pronto da coluna "situação" da tabela acessível; idem. */
+  situacaoText?: string;
 }
 
 const escXml = (s: string) =>
@@ -67,6 +71,7 @@ const escXml = (s: string) =>
 
 /** Texto do tooltip (hover): nome do líder + distância ao 2º colocado. */
 function tooltip(d: MapDatum): string {
+  if (d.tooltipText) return d.tooltipText;
   const name = d.name ?? UF_NAMES[d.uf];
   const noData = d.reason === "sem-dados" || (d.reason == null && d.status === "sem") || !d.leader;
   if (noData) return `${name} — sem pesquisa recente`;
@@ -86,6 +91,7 @@ function tooltip(d: MapDatum): string {
  *  fields the datum carries. Mirrors the colour logic: technical tie, missing/
  *  thin data, leader above 50, or leader below 50 (runoff). */
 function situacao(d: MapDatum): string {
+  if (d.situacaoText) return d.situacaoText;
   if (d.reason === "sem-dados") return "Sem dados suficientes";
   if (d.reason === "empate" || d.status === "empate") return "Empate técnico";
   if (!d.leader) return "Sem dados suficientes";
