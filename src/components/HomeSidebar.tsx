@@ -37,12 +37,20 @@ function CardTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-function MapCard({ map }: { map: StateMapDatum[] }) {
+// No modo 2º turno o mapa pinta o que as URNAS decidiram (ver `stateMapData`).
+const STATUS_LABEL_2T: { key: MapStatus; label: string }[] = [
+  { key: "acima", label: "Decidido no 1º turno" },
+  { key: "abaixo", label: "Vai ao 2º turno" },
+  { key: "sem", label: "Sem resultado" },
+];
+
+function MapCard({ map, segundoTurno }: { map: StateMapDatum[]; segundoTurno: boolean }) {
+  const legend = segundoTurno ? STATUS_LABEL_2T : STATUS_LABEL;
   return (
     <section className="card p-4" aria-label="Corridas estaduais — Governador">
       <CardTitle>Corridas estaduais · Governador</CardTitle>
       <p className="mt-0.5 text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-        Situação dos líderes
+        {segundoTurno ? "O que as urnas decidiram em 04/10" : "Situação dos líderes"}
       </p>
 
       {/* The real geographic Brazil SVG (creator-supplied), each state coloured
@@ -52,7 +60,7 @@ function MapCard({ map }: { map: StateMapDatum[] }) {
       </div>
 
       <ul className="mt-3 grid grid-cols-2 gap-y-1 text-xs" style={{ color: "var(--text-secondary)" }}>
-        {STATUS_LABEL.map((s) => (
+        {legend.map((s) => (
           <li key={s.key} className="flex items-center gap-1.5">
             <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: STATUS_COLOR[s.key] }} />
             {s.label}
@@ -71,11 +79,11 @@ function MapCard({ map }: { map: StateMapDatum[] }) {
   );
 }
 
-function DestaquesCard({ highlights }: { highlights: StateHighlight[] }) {
+function DestaquesCard({ highlights, segundoTurno }: { highlights: StateHighlight[]; segundoTurno: boolean }) {
   return (
     <section className="card p-4" aria-label="Destaques">
       <div className="flex items-baseline justify-between">
-        <CardTitle>Destaques</CardTitle>
+        <CardTitle>{segundoTurno ? "Governos em 2º turno · 1º turno oficial" : "Destaques"}</CardTitle>
         <span className="text-[11px] uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
           Margem
         </span>
@@ -227,15 +235,17 @@ export interface HomeSidebarProps {
   highlights: StateHighlight[];
   movers: Mover[];
   map: StateMapDatum[];
+  /** Modo 2º turno: mapa e destaques pelo resultado das urnas. */
+  segundoTurno?: boolean;
   newPoll: NewestPoll | null;
   upcoming: CalendarEntry[];
 }
 
-export default function HomeSidebar({ highlights, movers, map, newPoll, upcoming }: HomeSidebarProps) {
+export default function HomeSidebar({ highlights, movers, map, newPoll, upcoming, segundoTurno = false }: HomeSidebarProps) {
   return (
     <aside className="flex min-w-0 flex-col gap-5" aria-label="Painel de estados">
-      <MapCard map={map} />
-      <DestaquesCard highlights={highlights} />
+      <MapCard map={map} segundoTurno={segundoTurno} />
+      <DestaquesCard highlights={highlights} segundoTurno={segundoTurno} />
       {(movers.length > 0 || newPoll) && <MudouCard movers={movers} newPoll={newPoll} />}
       <ProximasPesquisasCard upcoming={upcoming} />
     </aside>

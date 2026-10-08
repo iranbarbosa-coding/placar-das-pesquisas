@@ -148,7 +148,7 @@ export default function Home() {
       </div>
 
       {/* RIGHT: the dashboard sidebar. Stacks under the content on phones. */}
-      <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} upcoming={upcoming} />
+      <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} upcoming={upcoming} segundoTurno={modo2T} />
     </div>
   );
 }

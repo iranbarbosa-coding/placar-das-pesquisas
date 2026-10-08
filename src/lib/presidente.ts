@@ -7,6 +7,7 @@ import { shortName } from "./names";
 import { toBasis } from "./validos";
 import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage, type RaceKind } from "./types";
 import type { MapStatus } from "./home";
+import { confronto } from "./eleicao";
 
 /**
  * Everything the /presidente page needs, assembled once at build time.
@@ -524,7 +525,14 @@ export function runoffSim(race: RaceKind = "presidente", state: UF | null = null
 
   // Leader + challengers are ranked among REGISTERED candidates only, so a
   // hypothetical never seeds a runoff card.
-  const pool = first.candidates.filter((c) => reg.has(candKey(c.candidate)));
+  let pool = first.candidates.filter((c) => reg.has(candKey(c.candidate)));
+  // MODO 2º TURNO (08/10): com o resultado oficial, só o par das urnas — o 1º
+  // das urnas como "líder" e o 2º como único desafiante.
+  const real = race === "senador" ? null : confronto(race, state);
+  if (real) {
+    const porNome = real.nomes.map((n) => first.candidates.find((c) => candKey(c.candidate) === candKey(n.nome)));
+    if (porNome.every(Boolean)) pool = porNome as typeof pool;
+  }
   const leaderCand = pool[0];
   if (!leaderCand) return { leader: "", leaderColor: "var(--dual-lead)", cards: [] };
   const leaderKey = candKey(leaderCand.candidate);
@@ -532,7 +540,7 @@ export function runoffSim(race: RaceKind = "presidente", state: UF | null = null
   // own hue, so the leader line always reads distinct from the challenger's own
   // colour. Presidential is unaffected — Lula's own colour is already this red.
   const leaderColor = "var(--dual-lead)";
-  const challengers = pool.slice(1, 4); // the three ranked behind the leader
+  const challengers = real ? pool.slice(1, 2) : pool.slice(1, 4); // the three ranked behind the leader
 
   const groups = scenarioGroups(race, state, 2).filter(
     (g) => g.average && g.average.candidates.length >= 2,

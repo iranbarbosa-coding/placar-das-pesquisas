@@ -3,7 +3,18 @@ import path from "node:path";
 import { scenarioGroups, pollsFor } from "./data";
 import { candKey, sortPollsDesc } from "./average";
 import { toBasis } from "./validos";
+import { confronto, confrontosSegundoTurno, disputaEncerrada, mediaConfronto, primeiroTurnoApurado } from "./eleicao";
 import { UFS, UF_NAMES, type UF, type Poll, type RaceAverage } from "./types";
+
+/**
+ * MODO 2º TURNO (08/10/2026). Com o resultado oficial do 1º turno carregado,
+ * a barra lateral deixa de ler o 1º turno dos governadores: o mapa pinta o que
+ * as urnas decidiram, os "Destaques" são os estados em 2º turno e "O que mudou"
+ * acompanha a média de cada confronto. Sem resultado, tudo volta ao 1º turno.
+ */
+export function modoSegundoTurno(): boolean {
+  return confrontosSegundoTurno().length > 0;
+}
 
 /**
  * Everything the front page needs, assembled once at build time.
@@ -354,6 +365,17 @@ export interface StateHighlight {
 
 export function stateHighlights(): StateHighlight[] {
   const out: StateHighlight[] = [];
+  if (modoSegundoTurno()) {
+    // Os estados em 2º turno, pelo resultado das urnas: líder, margem e
+    // distância para 50% são os do 1º turno oficial, não de pesquisa.
+    for (const c of confrontosSegundoTurno()) {
+      if (c.race !== "governador" || !c.uf) continue;
+      const [a, b] = c.nomes;
+      const party = pollsFor("governador", c.uf).flatMap((p) => p.results).find((r) => candKey(r.candidate) === candKey(a.nome))?.party ?? null;
+      out.push({ uf: c.uf, name: UF_NAMES[c.uf], leader: a.nome, party, margin: round1(a.pct - b.pct), toFifty: round1(a.pct - 50) });
+    }
+    return out.sort((x, y) => x.margin - y.margin);
+  }
   for (const uf of DESTAQUE_UFS) {
     const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
     const top = avg?.candidates[0];
@@ -392,6 +414,23 @@ export interface StateMapDatum {
 }
 
 export function stateMapData(): StateMapDatum[] {
+  if (primeiroTurnoApurado()) {
+    // O mapa do que as urnas decidiram: "acima" = eleito no 1º turno,
+    // "abaixo" = vai ao 2º turno. Números do TSE, válidos.
+    return [...UFS].sort().map((uf) => {
+      const enc = disputaEncerrada("governador", uf);
+      if (enc) {
+        const [a, b] = enc.resultado;
+        return { uf, name: UF_NAMES[uf], leader: a.nome, status: "acima" as const, leaderPct: a.pct, margin: b ? round1(a.pct - b.pct) : null, runnerUp: b?.nome ?? null };
+      }
+      const c = confronto("governador", uf);
+      if (c) {
+        const [a, b] = c.nomes;
+        return { uf, name: UF_NAMES[uf], leader: a.nome, status: "abaixo" as const, leaderPct: a.pct, margin: round1(a.pct - b.pct), runnerUp: b.nome };
+      }
+      return { uf, name: UF_NAMES[uf], leader: null, status: "sem" as const };
+    });
+  }
   return [...UFS].sort().map((uf) => {
     const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
     const top = avg?.candidates[0];
@@ -447,8 +486,12 @@ export function newestPoll(): NewestPoll | null {
 
 export function recentMovers(limit = 4, windowDays = 30): Mover[] {
   const movers: Mover[] = [];
+  const modo2T = modoSegundoTurno();
   for (const uf of UFS) {
-    const avg = scenarioGroups("governador", uf, 1)[0]?.average ?? null;
+    // No 2º turno, o movimento é o da média do CONFRONTO real do estado.
+    const c = modo2T ? confronto("governador", uf) : null;
+    if (modo2T && !c) continue;
+    const avg = c ? mediaConfronto(c).media : (scenarioGroups("governador", uf, 1)[0]?.average ?? null);
     const top = avg?.candidates[0];
     const trend = top?.trend ?? [];
     if (!avg || !top || trend.length < 2) continue;

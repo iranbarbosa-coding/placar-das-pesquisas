@@ -3,6 +3,7 @@ import { colorMap, colorOf, ensureDistinctFromAll } from "./colors";
 import { scenarioGroups } from "./data";
 import { displayName } from "./names";
 import { candDelta, raceEvolutionData } from "./presidente";
+import { confronto, disputaEncerrada } from "./eleicao";
 import type { CandidateAverage, RaceAverage, UF } from "./types";
 
 /**
@@ -241,10 +242,20 @@ export function stateRunoff(race: RunoffRace, uf: UF, limit = 5): StateRunoffDat
 
   const reg = new Set(evo.registeredKeys);
 
-  // First-round ranking (registered only), as candKeys.
-  const ranking = firstAvg.candidates
-    .filter((c) => reg.size === 0 || reg.has(candKey(c.candidate)))
-    .map((c) => candKey(c.candidate));
+  // MODO 2º TURNO (08/10): com o resultado oficial, a disputa ou se decidiu no
+  // 1º turno — e não há 2º turno a mostrar — ou tem UM confronto real, e só ele
+  // entra (o presidencial é nacional, lido nas pesquisas do estado).
+  const alvo = race === "presidente" ? null : uf;
+  const real = confronto(race, alvo);
+  if (!real && disputaEncerrada(race, alvo)) return { main: null, sims: [] };
+
+  // First-round ranking (registered only), as candKeys — or the two names the
+  // ballot put in the runoff.
+  const ranking = real
+    ? real.nomes.map((n) => candKey(n.nome))
+    : firstAvg.candidates
+        .filter((c) => reg.size === 0 || reg.has(candKey(c.candidate)))
+        .map((c) => candKey(c.candidate));
 
   // Round-2 groups, one per unordered candidate pair (best-covered wins).
   const groups = scenarioGroups(race, uf, 2).filter((g) => g.average && g.average.candidates.length >= 2);

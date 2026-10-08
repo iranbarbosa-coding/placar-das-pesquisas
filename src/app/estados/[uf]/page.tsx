@@ -20,6 +20,7 @@ import { stateRunoff, stateTrends } from "@/lib/estado";
 import { allStatePolls, raceEvolutionData, rcpTable } from "@/lib/presidente";
 import { UFS, UF_NAMES, type UF } from "@/lib/types";
 import ResultadoOficial from "@/components/ResultadoOficial";
+import { disputaEncerrada } from "@/lib/eleicao";
 
 export function generateStaticParams() {
   return UFS.map((uf) => ({ uf: uf.toLowerCase() }));
@@ -83,6 +84,8 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
   const govRunoff = stateRunoff("governador", UFU);
   const presRunoff = stateRunoff("presidente", UFU);
   const hasRunoff = !!(govRunoff.main || govRunoff.sims.length || presRunoff.main || presRunoff.sims.length);
+  // Governo decidido no 1º turno: a metade "Governador · 2º turno" vira uma nota.
+  const govDecidido = !!disputaEncerrada("governador", UFU);
 
   // Every poll of the state — governor, senate and president — for the final
   // searchable/filterable table, in the presidential page's pattern.
@@ -244,11 +247,19 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
             <h2 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
               Governador · 2º turno
             </h2>
-            {govRunoff.main && <FreshnessBadge race="governador" uf={UFU} lastPollDate={govRunoff.main.lastDate} generatedAt={generatedAt} />}
-            <div className="grid min-w-0 gap-4 md:grid-cols-2">
-              <RunoffMain data={govRunoff.main} title="Confronto principal" />
-              <RunoffSims rows={govRunoff.sims} title="Todas as simulações" />
-            </div>
+            {govDecidido ? (
+              <p className="card p-4 text-sm" style={{ color: "var(--text-secondary)" }}>
+                Não há 2º turno para governador em {UF_NAMES[UFU]}: a disputa foi decidida no 1º turno (resultado oficial no topo da página).
+              </p>
+            ) : (
+              <>
+                {govRunoff.main && <FreshnessBadge race="governador" uf={UFU} lastPollDate={govRunoff.main.lastDate} generatedAt={generatedAt} />}
+                <div className="grid min-w-0 gap-4 md:grid-cols-2">
+                  <RunoffMain data={govRunoff.main} title="Confronto principal" />
+                  <RunoffSims rows={govRunoff.sims} title="Todas as simulações" />
+                </div>
+              </>
+            )}
           </section>
 
           <section id="segundo-turno-presidente" className="flex scroll-mt-24 flex-col gap-4">
