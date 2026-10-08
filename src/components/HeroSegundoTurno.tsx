@@ -3,17 +3,16 @@ import { dualColor } from "@/lib/colors";
 import { candKey } from "@/lib/average";
 import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import { displayName } from "@/lib/names";
-import { SEGUNDO_TURNO, type MediaConfronto } from "@/lib/eleicao";
+import { PRIMEIRO_TURNO, SEGUNDO_TURNO, type MediaConfronto } from "@/lib/eleicao";
 
 /**
  * O herói da home no 2º turno — um confronto, duas leituras.
  *
  * Em cima, o que já aconteceu: o resultado oficial do 1º turno, como o TSE o
- * publicou (votos válidos). Embaixo, o que as pesquisas dizem desde então: a
- * média das pesquisas de 2º turno com campo APÓS o 1º turno (regra 2 de
- * `lib/eleicao.ts`). Enquanto não há nenhuma, o bloco diz isso e mostra, com
- * esse nome, a última média das simulações feitas antes da votação — contexto,
- * não placar. Server component; nada de estado.
+ * publicou (votos válidos). Embaixo, o que as pesquisas dizem: a média das
+ * simulações deste par — a série contínua, antes e depois do 1º turno (regra 2
+ * de `lib/eleicao.ts`) — e quantas das pesquisas da média têm campo após a
+ * votação. Server component; nada de estado.
  */
 
 const pct = (v: number): string => (Number.isFinite(v) ? `${fmtPct(v)}%` : "—");
@@ -40,7 +39,6 @@ export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaC
   const mA = m?.candidates.find((c) => candKey(c.candidate) === candKey(p1.nome)) ?? null;
   const mB = m?.candidates.find((c) => candKey(c.candidate) === candKey(p2.nome)) ?? null;
   const lider = m?.candidates[0] ?? null;
-  const h = data.mediaHipotetica;
 
   const quando =
     diasRestantes > 1 ? `faltam ${diasRestantes} dias` : diasRestantes === 1 ? "é amanhã" : diasRestantes === 0 ? "é hoje" : "realizado";
@@ -115,28 +113,22 @@ export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaC
           </>
         ) : (
           <p className="mt-2 text-sm" style={{ color: "var(--text-secondary)" }}>
-            Nenhuma pesquisa de 2º turno com campo após o 1º turno foi publicada ainda. A média aparece aqui com a primeira.
+            Este confronto ainda não foi pesquisado. A média aparece aqui com a primeira pesquisa.
           </p>
         )}
 
-        {h ? (
+        {m ? (
           <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
-            Para comparar: a última média das simulações feitas <em>antes</em> do 1º turno dava{" "}
-            {h.candidates.slice(0, 2).map((c, i) => (
-              <span key={c.candidate}>
-                {i ? " × " : ""}
-                {displayName(c.candidate)} {pct(c.avg)}
-              </span>
-            ))}{" "}
-            ({h.pollCount} pesquisa{h.pollCount === 1 ? "" : "s"}, última em {fmtDate(h.lastPollDate)}). Era uma pergunta hipotética a um
-            eleitorado que ainda não tinha votado; não entra na média.
+            {data.posPrimeiroTurnoNaMedia === 0
+              ? `Todas as ${m.pollCount} pesquisas da média foram feitas antes do 1º turno; as primeiras de campo após ${fmtDate(PRIMEIRO_TURNO)} entram assim que publicadas.`
+              : `${data.posPrimeiroTurnoNaMedia} das ${m.pollCount} pesquisas da média ${data.posPrimeiroTurnoNaMedia === 1 ? "tem" : "têm"} campo após o 1º turno (${fmtDate(PRIMEIRO_TURNO)}).`}
           </p>
         ) : null}
       </div>
 
       <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
-        A média segue a regra do site (até 10 pesquisas mais recentes, no máximo 2 por instituto), só com pesquisas que testaram exatamente
-        estes dois nomes. <Link href="/presidente" className="underline">Página do presidente</Link> ·{" "}
+        A média segue a regra do site (até 10 pesquisas mais recentes, no máximo 2 por instituto), com todas as simulações que testaram
+        exatamente estes dois nomes — antes e depois do 1º turno. <Link href="/presidente" className="underline">Página do presidente</Link> ·{" "}
         <Link href="/metodologia#segundo-turno" className="underline">Metodologia</Link>
       </p>
     </section>

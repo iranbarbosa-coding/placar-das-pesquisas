@@ -9,10 +9,9 @@ import type { MediaConfronto } from "@/lib/eleicao";
 /**
  * Os governos em 2º turno — um cartão por estado.
  *
- * Cada cartão traz o resultado oficial do 1º turno (TSE, válidos) e, quando já
- * existe, a média das pesquisas de 2º turno com campo após o 1º turno (regra 2
- * de `lib/eleicao.ts`). Sem pesquisa nova, o cartão diz "sem pesquisa de 2º
- * turno ainda" — nunca mostra a simulação pré-eleição como se fosse média.
+ * Cada cartão traz o resultado oficial do 1º turno (TSE, válidos) e a média das
+ * simulações deste par — a série contínua, antes e depois do 1º turno (regra 2
+ * de `lib/eleicao.ts`) — com a contagem das que têm campo após a votação.
  * Server component.
  */
 
@@ -61,10 +60,11 @@ function Cartao({ d }: { d: MediaConfronto }) {
             </span>
             <span style={{ color: "var(--text-muted)" }}>
               {" "}· {m.pollCount} pesquisa{m.pollCount === 1 ? "" : "s"}, última em {fmtDate(m.lastPollDate)}
+              {d.posPrimeiroTurnoNaMedia ? `, ${d.posPrimeiroTurnoNaMedia} após o 1º turno` : ", nenhuma após o 1º turno"}
             </span>
           </>
         ) : (
-          <span style={{ color: "var(--text-muted)" }}>Sem pesquisa de 2º turno ainda.</span>
+          <span style={{ color: "var(--text-muted)" }}>Este confronto ainda não foi pesquisado.</span>
         )}
       </div>
     </article>
@@ -74,18 +74,18 @@ function Cartao({ d }: { d: MediaConfronto }) {
 export default function ConfrontosGovernador({ data, title = "Governadores · 2º turno" }: { data: MediaConfronto[]; title?: string }) {
   const govs = data.filter((d) => d.confronto.race === "governador" && d.confronto.uf);
   if (!govs.length) return null;
-  const comMedia = govs.filter((d) => d.media).length;
+  const comNovas = govs.filter((d) => d.posPrimeiroTurno > 0).length;
   return (
     <section className="card p-4 sm:p-6" aria-label={title}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>{title}</h2>
         <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-          {govs.length} estado{govs.length === 1 ? "" : "s"} · {comMedia} com pesquisa de 2º turno
+          {govs.length} estado{govs.length === 1 ? "" : "s"} · {comNovas} com pesquisa após o 1º turno
         </span>
       </div>
       <p className="mt-1 max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-        Os estados em que ninguém chegou a 50% dos votos válidos no 1º turno. O resultado é o oficial do TSE; a média usa só pesquisas
-        com campo após o 1º turno.
+        Os estados em que ninguém chegou a 50% dos votos válidos no 1º turno. O resultado é o oficial do TSE; a média reúne todas as
+        simulações do par, antes e depois do 1º turno.
       </p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {govs.map((d) => (

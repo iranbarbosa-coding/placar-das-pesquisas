@@ -23,7 +23,7 @@ import { houseEffects } from "@/lib/houseEffects";
 import HouseEffects from "@/components/HouseEffects";
 import { rankingAcerto } from "@/lib/acerto";
 import RankingInstitutos from "@/components/RankingInstitutos";
-import { diasAteSegundoTurno, mediasSegundoTurno, PRIMEIRO_TURNO, SEGUNDO_TURNO } from "@/lib/eleicao";
+import { diasAteSegundoTurno, mediasSegundoTurno, SEGUNDO_TURNO } from "@/lib/eleicao";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 
@@ -92,7 +92,7 @@ export default function Home() {
               {fmtPct(p2.pct)}%).{" "}
               {m2 && m2.candidates[0]
                 ? `Na média do Placar das Pesquisas para o 2º turno, ${displayName(m2.candidates[0].candidate)} tem ${fmtPct(m2.candidates[0].avg)}% e ${displayName(m2.candidates[1]?.candidate ?? "")} ${fmtPct(m2.candidates[1]?.avg)}%, em votos válidos, com a última pesquisa em ${fmtDate(m2.lastPollDate)}.`
-                : `Nenhuma pesquisa de 2º turno com campo após ${fmtDate(PRIMEIRO_TURNO)} foi publicada ainda.`}
+                : "Este confronto ainda não foi pesquisado."}
             </p>
             {m2 ? <FreshnessBadge race="presidente" uf={null} lastPollDate={m2.lastPollDate} generatedAt={generatedAt} className="-mt-3" /> : null}
             <HeroSegundoTurno data={presidencial} diasRestantes={dias} />

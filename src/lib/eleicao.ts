@@ -16,11 +16,13 @@
 //  1. Quem vai ao 2º turno vem das URNAS, nunca das pesquisas: os dois mais
 //     votados numa disputa em que o primeiro ficou abaixo de 50% dos válidos.
 //     Sem resultado oficial, não há confronto — e a home volta ao 1º turno.
-//  2. A média de 2º turno de um confronto só usa pesquisas de campo DEPOIS do
-//     1º turno (`POS_PRIMEIRO_TURNO`). As simulações feitas antes mediam uma
-//     pergunta hipotética num eleitorado que ainda não tinha votado; misturá-las
-//     com as pesquisas reais daria uma média de duas corridas diferentes. A
-//     última média hipotética fica disponível à parte, com esse nome.
+//  2. A média de 2º turno de um confronto é a SÉRIE CONTÍNUA das simulações
+//     daquele par: as feitas antes do 1º turno e as feitas depois, sob a regra
+//     de sempre (até 10 mais recentes, 2 por instituto). Decisão de Iran em
+//     08/10: a simulação Flávio × Lula de setembro mediu a mesma pergunta que a
+//     pesquisa de 2º turno de outubro, e não há por que perdê-la. Quando as
+//     pesquisas novas chegam, a janela de 10 as privilegia sozinha. O site
+//     informa quantas das pesquisas da média têm campo após o 1º turno.
 //  3. A pesquisa precisa ser DESTE par: os dois nomes das urnas (por `candKey`,
 //     que ignora acentos — o TSE grafa "Flavio") e nenhum outro.
 //  4. Nada aqui inventa número: sem pesquisa pós-1º turno, a média é null e a
@@ -32,7 +34,7 @@ import type { Poll, RaceAverage, RaceKind, UF } from "./types";
 
 export const PRIMEIRO_TURNO = "2026-10-04";
 export const SEGUNDO_TURNO = "2026-10-25";
-/** Primeiro dia de campo que conta como pesquisa de 2º turno "de verdade". */
+/** Primeiro dia de campo possível depois do 1º turno. */
 export const POS_PRIMEIRO_TURNO = "2026-10-05";
 
 export type RaceComTurno = "presidente" | "governador";
@@ -53,12 +55,14 @@ export interface Confronto {
 
 export interface MediaConfronto {
   confronto: Confronto;
-  /** Média das pesquisas de campo após o 1º turno, ou null se não há nenhuma. */
+  /** Média de todas as simulações deste par (regra 2), ou null se nunca foi pesquisado. */
   media: RaceAverage | null;
-  /** Pesquisas pós-1º turno deste par (as mesmas da média, mais as fora dela). */
+  /** Todas as pesquisas deste par, mais recente primeiro. */
   pesquisas: Poll[];
-  /** Última média das simulações ANTES do 1º turno, para contexto. */
-  mediaHipotetica: RaceAverage | null;
+  /** Quantas pesquisas DA MÉDIA têm campo iniciado após o 1º turno. */
+  posPrimeiroTurnoNaMedia: number;
+  /** Quantas pesquisas deste par, no total, têm campo iniciado após o 1º turno. */
+  posPrimeiroTurno: number;
 }
 
 export interface DisputaEncerrada {
@@ -142,7 +146,7 @@ export function disputaEncerrada(race: RaceKind, uf: UF | null): DisputaEncerrad
 
 const dataDeCampo = (p: Poll): string | null => p.fieldwork_start ?? p.fieldwork_end ?? null;
 
-/** Regra 2: campo iniciado depois do 1º turno. Sem data, fica fora. */
+/** Campo iniciado depois do 1º turno. Sem data, conta como anterior. */
 export function posPrimeiroTurno(p: Poll): boolean {
   const d = dataDeCampo(p);
   return !!d && d >= POS_PRIMEIRO_TURNO;
@@ -165,14 +169,15 @@ export function rotuloConfronto(c: Confronto): string {
 export function mediaConfronto(c: Confronto): MediaConfronto {
   const key = { race: c.race, state: c.uf, round: 2 as const };
   const scenario = rotuloConfronto(c);
-  const doPar = pollsFor(c.race, c.uf, 2).filter((p) => pesquisaDoPar(p, c));
-  const pesquisas = sortPollsDesc(doPar.filter(posPrimeiroTurno));
-  const antes = sortPollsDesc(doPar.filter((p) => !posPrimeiroTurno(p)));
+  const pesquisas = sortPollsDesc(pollsFor(c.race, c.uf, 2).filter((p) => pesquisaDoPar(p, c)));
+  const media = pesquisas.length ? computeAverage(key, scenario, pesquisas, "validos") : null;
+  const naMedia = new Set(media?.windowPollIds ?? []);
   return {
     confronto: c,
-    media: pesquisas.length ? computeAverage(key, scenario, pesquisas, "validos") : null,
+    media,
     pesquisas,
-    mediaHipotetica: antes.length ? computeAverage(key, scenario, antes, "validos") : null,
+    posPrimeiroTurnoNaMedia: pesquisas.filter((p) => naMedia.has(p.id) && posPrimeiroTurno(p)).length,
+    posPrimeiroTurno: pesquisas.filter(posPrimeiroTurno).length,
   };
 }
 
