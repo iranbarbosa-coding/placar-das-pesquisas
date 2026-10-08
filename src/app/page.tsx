@@ -21,6 +21,8 @@ import { loadDataset } from "@/lib/data";
 import { upcomingPolls } from "@/lib/calendar";
 import { houseEffects } from "@/lib/houseEffects";
 import HouseEffects from "@/components/HouseEffects";
+import { rankingAcerto } from "@/lib/acerto";
+import RankingInstitutos from "@/components/RankingInstitutos";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 
@@ -47,6 +49,7 @@ export default function Home() {
   const newPoll = newestPoll();
   const upcoming = upcomingPolls(6);
   const house = houseEffects("presidente", null, 1);
+  const acerto = rankingAcerto();
   const registeredKeys = registeredPresidentKeys();
 
   // Answer-first lede: a single crawlable, quotable sentence stating the current
@@ -106,6 +109,8 @@ export default function Home() {
             registeredKeys={registeredKeys}
           />
         </section>
+
+        {acerto ? <RankingInstitutos data={acerto} maxRows={10} /> : null}
 
         <HouseEffects data={house} compact maxRows={10} title="Viés dos Institutos (Efeito Casa)" href="/institutos" />
 

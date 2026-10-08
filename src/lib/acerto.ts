@@ -1,0 +1,309 @@
+// ACERTO DOS INSTITUTOS — quem chegou mais perto do resultado das urnas.
+//
+// Compara a ÚLTIMA pesquisa de cada instituto em cada disputa com o resultado
+// oficial do TSE (data/resultados-oficiais.json). É a versão pós-eleição do
+// "efeito casa": lá o instituto é medido contra a média das pesquisas; aqui,
+// contra o voto apurado. Descritivo, não acusatório — uma pesquisa de 7 dias
+// antes mede um eleitorado que ainda se moveu.
+//
+// REGRAS
+//  1. Uma pesquisa por instituto por disputa: a de campo mais recente dentro da
+//     janela final (`JANELA_DIAS` antes do pleito). Fora da janela não entra —
+//     não é "erro" medir setembro e errar outubro.
+//  2. Mesma base dos dois lados. Presidente e governador em VOTOS VÁLIDOS
+//     (`toBasis`, regra 1 de validos.ts), contra o `pvap` do TSE. Senado: só
+//     pesquisas de DOIS votos (as mesmas da média, `averageable`), e a pesquisa
+//     é posta na base do TSE: a parte de cada nome no total de MENÇÕES a
+//     candidatos (candidatos + outros, sem indecisos e branco/nulo). É o que o
+//     `pvap` do Senado publica — votos do candidato sobre os votos válidos
+//     totais, os dois votos de cada eleitor juntos, somando 100. Uma tabela de
+//     dois votos sem indecisos soma ~200; com eles descontados, 120–160. Comparar
+//     o bruto com 2 × pvap (como a primeira versão fazia) inflava o erro de
+//     TODO instituto no Senado em 10–20 p.p.
+//  3. Só candidatos presentes nos DOIS lados (pesquisa e urna) entram no erro;
+//     um nome que a pesquisa não testou não é erro dela. Entre os presentes, os
+//     com ≥ `PISO_PCT` nas urnas ou no top-`TOPO` — os nanicos a 0,3% só
+//     adicionam ruído de arredondamento.
+//  4. Métricas por (instituto, disputa): erro médio absoluto por candidato
+//     (p.p.), erro na margem entre os dois primeiros das urnas, e se a pesquisa
+//     apontou o mesmo líder.
+//  5. TRÊS PLACARES, um por cargo: presidente, governadores e senadores. Uma
+//     corrida nacional e 27 estaduais não se somam — um instituto que mediu só
+//     o Planalto não disputa com um que mediu 20 Senados. No federal há uma
+//     disputa só, então todo instituto com pesquisa na janela entra ranqueado.
+//     Nos estaduais, posição só para quem cobriu ≥ `MIN_DISPUTAS_ESTADUAIS`
+//     disputas. ORDEM: pelo erro na margem entre os dois primeiros das urnas
+//     (o critério padrão de avaliação de institutos — é a disputa que a pesquisa
+//     tinha de acertar); empate pelo erro médio por candidato, depois por mais
+//     disputas. Decisão de Iran em 05/10: o erro médio castigava arredondamento
+//     de nanicos e punha em 7º uma casa que acertou a margem em 0,7 p.p. Os
+//     demais aparecem numa lista secundária, sem posição — uma disputa só não é
+//     amostra de nada.
+//  6. Sem resultado em `data/resultados-oficiais.json`, nada é calculado e a
+//     home não mostra o bloco. Nunca inferimos resultado.
+import fs from "node:fs";
+import path from "node:path";
+import { candKey } from "./average";
+import { pollsFor } from "./data";
+import { averageable } from "./senado";
+import { toBasis } from "./validos";
+import type { Poll, RaceKind, UF } from "./types";
+
+export const JANELA_DIAS = 10;
+export const PISO_PCT = 2;
+export const TOPO = 4;
+export const MIN_DISPUTAS_ESTADUAIS = 3;
+/** Senado: o filtro de dois votos (`averageable`) encolhe o conjunto comparável; com 3, só duas casas teriam posição. */
+export const MIN_DISPUTAS_SENADO = 2;
+
+export interface ResultadoDisputa {
+  race: RaceKind;
+  uf: UF | null;
+  round: 1 | 2;
+  /** % de seções totalizadas no momento da leitura (null quando o TSE não informa). */
+  apurado_pct: number | null;
+  /** Estado da totalização no cabeçalho do TSE: "parcial" ou "final". */
+  totalizacao?: "parcial" | "final" | null;
+  /** % de votos válidos por candidato, como o TSE publica (`pvap`). */
+  validos: Record<string, number>;
+  fonte?: string;
+  lido_em?: string;
+}
+
+export interface ResultadosOficiais {
+  turno: 1 | 2;
+  eleicao: string;
+  atualizado_em: string | null;
+  fonte: string;
+  disputas: ResultadoDisputa[];
+}
+
+export interface AcertoDisputa {
+  race: RaceKind;
+  uf: UF | null;
+  pollster: string;
+  fieldwork_end: string;
+  sample_size: number | null;
+  /** Erro médio absoluto por candidato comparado, em p.p. */
+  erroMedio: number;
+  /** |margem na pesquisa − margem nas urnas| entre os dois primeiros das urnas. */
+  erroMargem: number | null;
+  /** A pesquisa apontou o mesmo líder das urnas. */
+  acertouLider: boolean;
+  comparados: number;
+}
+
+export interface AcertoInstituto {
+  pollster: string;
+  disputas: number;
+  erroMedio: number;
+  erroMargem: number | null;
+  lideresCertos: number;
+  detalhes: AcertoDisputa[];
+}
+
+/** Um placar: o ranking dos institutos num cargo (presidente, governador ou senador). */
+export interface PlacarAcerto {
+  race: RaceKind;
+  titulo: string;
+  /** Disputas desse cargo com resultado oficial carregado. */
+  disputasComResultado: number;
+  /** Mínimo de disputas comparadas para receber posição. */
+  minDisputas: number;
+  ranqueados: AcertoInstituto[];
+  demais: AcertoInstituto[];
+}
+
+export interface RankingAcerto {
+  turno: 1 | 2;
+  eleicao: string;
+  atualizado_em: string | null;
+  fonte: string;
+  /** Disputas com resultado oficial carregado, todos os cargos. */
+  disputasComResultado: number;
+  /** Menor % de seções totalizadas entre as disputas usadas (null = não informado). */
+  apuracaoMinima: number | null;
+  /** Alguma disputa ainda estava em totalização parcial na leitura. */
+  parcial: boolean;
+  /** Na ordem: presidente, governador, senador. Só cargos com resultado carregado. */
+  placares: PlacarAcerto[];
+}
+
+const round1 = (x: number): number => Math.round(x * 10) / 10;
+const mean = (xs: number[]): number => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
+const pollsterKey = (name: string): string => name.toLowerCase().trim();
+
+let cache: ResultadosOficiais | null | undefined;
+
+/** O arquivo de resultados, ou null quando não existe / está vazio / malformado. */
+export function resultadosOficiais(): ResultadosOficiais | null {
+  if (cache !== undefined) return cache;
+  cache = null;
+  const p = path.join(process.cwd(), "data", "resultados-oficiais.json");
+  if (!fs.existsSync(p)) return cache;
+  try {
+    const raw = JSON.parse(fs.readFileSync(p, "utf-8")) as ResultadosOficiais;
+    if (Array.isArray(raw?.disputas) && raw.disputas.length) cache = raw;
+  } catch {
+    cache = null;
+  }
+  return cache;
+}
+
+function dentroDaJanela(p: Poll, eleicao: string): boolean {
+  if (!p.fieldwork_end) return false;
+  const fim = Date.parse(`${p.fieldwork_end}T00:00:00Z`);
+  const dia = Date.parse(`${eleicao}T00:00:00Z`);
+  const dias = (dia - fim) / 864e5;
+  return dias >= 0 && dias <= JANELA_DIAS;
+}
+
+/** A pesquisa comparável de cada instituto numa disputa: a última dentro da janela. */
+function ultimaPorInstituto(race: RaceKind, uf: UF | null, round: 1 | 2, eleicao: string): Poll[] {
+  const polls = pollsFor(race, uf, round)
+    .filter((p) => !p.incomplete && !p.municipal && dentroDaJanela(p, eleicao))
+    .filter((p) => (race === "senador" ? averageable(p) : true))
+    // 1º turno: só o cenário completo (o colapso de cenários já deixou um por
+    // levantamento; um 2º turno hipotético não compara com um 1º turno real).
+    .filter((p) => p.round === round);
+  const porInstituto = new Map<string, Poll>();
+  for (const p of polls) {
+    const k = pollsterKey(p.pollster);
+    const atual = porInstituto.get(k);
+    if (!atual || (p.fieldwork_end ?? "") > (atual.fieldwork_end ?? "")) porInstituto.set(k, p);
+  }
+  return [...porInstituto.values()];
+}
+
+/**
+ * Pesquisa de dois votos para o Senado na base do `pvap` do TSE: cada nome como
+ * parte do total de menções a candidatos (candidatos + outros), somando 100.
+ */
+function senadoEmValidos(p: Poll): Poll {
+  const denom = p.results.reduce((a, r) => a + r.pct, 0) + (p.others_pct ?? 0);
+  if (denom <= 0) return p;
+  const scale = 100 / denom;
+  return { ...p, results: p.results.map((r) => ({ ...r, pct: r.pct * scale })) };
+}
+
+function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
+  // Regra 2: os dois lados em parte dos votos válidos. `toBasis` não converte
+  // Senado de propósito (regra 2 de validos.ts, pensada para a exibição); aqui a
+  // conversão é exatamente a conta que o TSE publica, então é feita à parte.
+  const pesquisa = r.race === "senador" ? senadoEmValidos(p) : toBasis(p, "validos");
+  const fator = 1;
+  const urna = new Map<string, number>();
+  for (const [nome, pct] of Object.entries(r.validos)) urna.set(candKey(nome), pct * fator);
+  const ordem = [...urna.entries()].sort((a, b) => b[1] - a[1]);
+  const topo = new Set(ordem.slice(0, TOPO).map(([k]) => k));
+
+  const pares: { key: string; pesquisa: number; urna: number }[] = [];
+  for (const res of pesquisa.results) {
+    const k = candKey(res.candidate);
+    const v = urna.get(k);
+    if (v === undefined) continue;
+    if (v < PISO_PCT * fator && !topo.has(k)) continue;
+    pares.push({ key: k, pesquisa: res.pct, urna: v });
+  }
+  if (pares.length < 2) return null;
+
+  const erroMedio = mean(pares.map((x) => Math.abs(x.pesquisa - x.urna)));
+  const [l1, l2] = ordem;
+  const p1 = pares.find((x) => x.key === l1?.[0]);
+  const p2 = pares.find((x) => x.key === l2?.[0]);
+  const erroMargem = p1 && p2 ? Math.abs((p1.pesquisa - p2.pesquisa) - (p1.urna - p2.urna)) : null;
+  // O líder da pesquisa é medido entre os nomes COMPARADOS: uma pesquisa que
+  // testou um nome que acabou não concorrendo (Alckmin em SP) não "errou o
+  // líder" por isso — ela mediu outra corrida nesse nome, e a regra 3 já o tirou.
+  const liderPesquisa = [...pares].sort((a, b) => b.pesquisa - a.pesquisa)[0];
+  const acertouLider = !!l1 && !!liderPesquisa && liderPesquisa.key === l1[0];
+
+  return {
+    race: r.race,
+    uf: r.uf,
+    pollster: p.pollster,
+    fieldwork_end: p.fieldwork_end ?? "",
+    sample_size: p.sample_size,
+    erroMedio: round1(erroMedio),
+    erroMargem: erroMargem === null ? null : round1(erroMargem),
+    acertouLider,
+    comparados: pares.length,
+  };
+}
+
+/**
+ * O ranking. Null quando não há resultado oficial carregado — a home então não
+ * mostra o bloco (regra 6).
+ */
+export function rankingAcerto(): RankingAcerto | null {
+  const res = resultadosOficiais();
+  if (!res) return null;
+
+  const porCargo = new Map<RaceKind, Map<string, AcertoDisputa[]>>();
+  const disputasPorCargo = new Map<RaceKind, number>();
+  let apuracaoMinima: number | null = null;
+  let parcial = false;
+  let disputasComResultado = 0;
+  for (const r of res.disputas) {
+    if (!r.validos || !Object.keys(r.validos).length) continue;
+    disputasComResultado++;
+    disputasPorCargo.set(r.race, (disputasPorCargo.get(r.race) ?? 0) + 1);
+    if (r.apurado_pct != null) apuracaoMinima = apuracaoMinima === null ? r.apurado_pct : Math.min(apuracaoMinima, r.apurado_pct);
+    if (r.totalizacao !== "final" || (r.apurado_pct != null && r.apurado_pct < 100)) parcial = true;
+    if (!porCargo.has(r.race)) porCargo.set(r.race, new Map());
+    const porInstituto = porCargo.get(r.race)!;
+    for (const p of ultimaPorInstituto(r.race, r.uf, r.round, res.eleicao)) {
+      const a = compararDisputa(p, r);
+      if (!a) continue;
+      const k = pollsterKey(p.pollster);
+      if (!porInstituto.has(k)) porInstituto.set(k, []);
+      porInstituto.get(k)!.push(a);
+    }
+  }
+
+  const agregar = (detalhes: AcertoDisputa[]): AcertoInstituto => {
+    const margens = detalhes.map((d) => d.erroMargem).filter((v): v is number => v !== null);
+    return {
+      pollster: detalhes[0].pollster,
+      disputas: detalhes.length,
+      erroMedio: round1(mean(detalhes.map((d) => d.erroMedio))),
+      erroMargem: margens.length ? round1(mean(margens)) : null,
+      lideresCertos: detalhes.filter((d) => d.acertouLider).length,
+      detalhes: detalhes.sort((a, b) => `${a.race}${a.uf ?? ""}`.localeCompare(`${b.race}${b.uf ?? ""}`)),
+    };
+  };
+  // Regra 5: margem primeiro (sem margem = último), depois erro médio, depois mais disputas.
+  const ordenar = (a: AcertoInstituto, b: AcertoInstituto) =>
+    (a.erroMargem ?? 99) - (b.erroMargem ?? 99) || a.erroMedio - b.erroMedio || b.disputas - a.disputas;
+
+  const CARGOS: { race: RaceKind; titulo: string; minDisputas: number }[] = [
+    { race: "presidente", titulo: "Presidente", minDisputas: 1 },
+    { race: "governador", titulo: "Governadores", minDisputas: MIN_DISPUTAS_ESTADUAIS },
+    { race: "senador", titulo: "Senadores", minDisputas: MIN_DISPUTAS_SENADO },
+  ];
+  const placares: PlacarAcerto[] = [];
+  for (const c of CARGOS) {
+    const n = disputasPorCargo.get(c.race) ?? 0;
+    if (!n) continue;
+    const todos = [...(porCargo.get(c.race)?.values() ?? [])].map(agregar);
+    placares.push({
+      race: c.race,
+      titulo: c.titulo,
+      disputasComResultado: n,
+      minDisputas: c.minDisputas,
+      ranqueados: todos.filter((x) => x.disputas >= c.minDisputas).sort(ordenar),
+      demais: todos.filter((x) => x.disputas < c.minDisputas).sort(ordenar),
+    });
+  }
+
+  return {
+    turno: res.turno,
+    eleicao: res.eleicao,
+    atualizado_em: res.atualizado_em,
+    fonte: res.fonte,
+    disputasComResultado,
+    apuracaoMinima,
+    parcial,
+    placares,
+  };
+}
