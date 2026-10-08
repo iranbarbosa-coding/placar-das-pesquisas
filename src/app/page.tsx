@@ -87,7 +87,10 @@ export default function Home() {
       <div className="flex min-w-0 flex-col gap-6">
         {modo2T && presidencial && p1 && p2 ? (
           <>
-            <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
+            <HeroSegundoTurno data={presidencial} diasRestantes={dias} />
+            {/* A frase-resposta (rastreável, citável) fica ABAIXO do gráfico — decisão de Iran, 08/10:
+                o topo da página é o gráfico. */}
+            <p className="-mt-2 max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
               O 2º turno da eleição presidencial de 2026 é em {fmtDate(SEGUNDO_TURNO)}
               {dias > 0 ? `, daqui a ${dias} dia${dias === 1 ? "" : "s"}` : ""}, entre{" "}
               <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(p1.nome)}</strong> ({fmtPct(p1.pct)}% dos
@@ -97,8 +100,7 @@ export default function Home() {
                 ? `Na média do Placar das Pesquisas para o 2º turno, ${displayName(m2.candidates[0].candidate)} tem ${fmtPct(m2.candidates[0].avg)}% e ${displayName(m2.candidates[1]?.candidate ?? "")} ${fmtPct(m2.candidates[1]?.avg)}%, em votos válidos, com a última pesquisa em ${fmtDate(m2.lastPollDate)}.`
                 : "Este confronto ainda não foi pesquisado."}
             </p>
-            {m2 ? <FreshnessBadge race="presidente" uf={null} lastPollDate={m2.lastPollDate} generatedAt={generatedAt} className="-mt-3" /> : null}
-            <HeroSegundoTurno data={presidencial} diasRestantes={dias} />
+            {m2 ? <FreshnessBadge race="presidente" uf={null} lastPollDate={m2.lastPollDate} generatedAt={generatedAt} className="-mt-4" /> : null}
           </>
         ) : (
           <>
