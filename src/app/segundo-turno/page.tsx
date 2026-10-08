@@ -11,6 +11,7 @@ import { candKey } from "@/lib/average";
 import JsonLd from "@/components/JsonLd";
 import { datasetSchema } from "@/lib/jsonld";
 import type { ScenarioGroup } from "@/lib/data";
+import { confronto, confrontosSegundoTurno, pesquisaDoPar, SEGUNDO_TURNO, type Confronto } from "@/lib/eleicao";
 
 export const metadata: Metadata = {
   title: "2º turno — projeções dos confrontos",
@@ -57,13 +58,20 @@ export default function SegundoTurnoPage() {
   const bothRegistered = (g: ScenarioGroup) =>
     !!g.average && g.average.candidates.slice(0, 2).every((c) => registered.has(candKey(c.candidate)));
 
-  const pres = scenarioGroups("presidente", null, 2).filter(bothRegistered);
-  const { current: presCurrent, older: presOlder } = splitRecent(pres);
+  // MODO 2º TURNO (08/10): com o resultado oficial, só os confrontos REAIS —
+  // o par que as urnas puseram na disputa — aparecem; os hipotéticos saem.
+  const modo2T = confrontosSegundoTurno().length > 0;
+  const doPar = (c: Confronto | null) => (g: ScenarioGroup) => !!c && !!g.polls[0] && pesquisaDoPar(g.polls[0], c);
 
-  const states = UFS.map((uf) => ({
-    uf,
-    groups: splitRecent(scenarioGroups("governador", uf, 2)).current,
-  }))
+  const presConf = modo2T ? confronto("presidente", null) : null;
+  const pres = scenarioGroups("presidente", null, 2).filter(bothRegistered).filter((g) => !modo2T || doPar(presConf)(g));
+  const { current: presCurrent, older: presOlder } = modo2T ? { current: pres.filter((g) => g.average), older: [] as ScenarioGroup[] } : splitRecent(pres);
+
+  const states = UFS.map((uf) => {
+    const c = modo2T ? confronto("governador", uf) : null;
+    const all = scenarioGroups("governador", uf, 2);
+    return { uf, groups: modo2T ? (c ? all.filter(doPar(c)).filter((g) => g.average) : []) : splitRecent(all).current };
+  })
     .filter((s) => s.groups.length > 0)
     .sort((a, b) => UF_NAMES[a.uf].localeCompare(UF_NAMES[b.uf], "pt-BR"));
 
@@ -105,11 +113,12 @@ export default function SegundoTurnoPage() {
         <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
           <div className="flex min-w-0 flex-col gap-1">
             <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
-              2º turno — projeções dos confrontos
+              {modo2T ? `2º turno — ${fmtDate(SEGUNDO_TURNO)}` : "2º turno — projeções dos confrontos"}
             </h1>
             <p className="max-w-[70ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-              Cada card é um pareamento testado pelos institutos, com a média móvel atual do confronto —
-              nenhum modelo além dos números publicados. Clique para ver todas as pesquisas do confronto.
+              {modo2T
+                ? "Os confrontos que as urnas definiram no 1º turno, cada um com a média móvel das pesquisas que testaram exatamente aquele par — antes e depois de 04/10. Clique para ver todas as pesquisas do confronto."
+                : "Cada card é um pareamento testado pelos institutos, com a média móvel atual do confronto — nenhum modelo além dos números publicados. Clique para ver todas as pesquisas do confronto."}
             </p>
           </div>
           <Link href="/metodologia" className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold" style={{ color: "var(--accent)" }}>
@@ -120,7 +129,7 @@ export default function SegundoTurnoPage() {
 
       {marquee && marqueeA && marqueeB && (
         <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-          No confronto de 2º turno mais recente entre presidenciáveis registrados, a média do Placar das Pesquisas mostra{" "}
+          {modo2T ? "No confronto presidencial de 2º turno, a média do Placar das Pesquisas mostra" : "No confronto de 2º turno mais recente entre presidenciáveis registrados, a média do Placar das Pesquisas mostra"}{" "}
           <strong className="font-semibold" style={{ color: "var(--text-primary)" }}>{displayName(marqueeA.candidate)}</strong>{" "}
           com {fmtPct(marqueeA.avg)}% contra {displayName(marqueeB.candidate)} com {fmtPct(marqueeB.avg)}% — vantagem de{" "}
           {fmtPct(Math.abs(marqueeA.avg - marqueeB.avg))} pontos, atualizada em {fmtDate(marquee.lastPollDate)}.
@@ -170,8 +179,9 @@ export default function SegundoTurnoPage() {
         <div className="flex flex-col gap-1">
           <SectionTitle>Governadores · 2º turno</SectionTitle>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            Estados com confrontos de 2º turno testados nas pesquisas. Estados ausentes ainda não têm
-            pesquisas de 2º turno publicadas.
+            {modo2T
+              ? "Os estados em que ninguém chegou a 50% dos válidos no 1º turno. Um estado em 2º turno sem card ainda não teve o confronto pesquisado."
+              : "Estados com confrontos de 2º turno testados nas pesquisas. Estados ausentes ainda não têm pesquisas de 2º turno publicadas."}
           </p>
         </div>
         <div className="flex flex-col gap-6">
