@@ -20,6 +20,7 @@ import { candKey, selectWindow, sortPollsDesc } from "./average";
 import { pollsFor } from "./data";
 import { raceEvolutionData } from "./presidente";
 import { toBasis } from "./validos";
+import { PRIMEIRO_TURNO, resultadoDisputa } from "./eleicao";
 import type { Poll, RaceKind, UF } from "./types";
 
 /** Instituto precisa de ao menos isto de pesquisas na disputa para ter efeito. */
@@ -80,7 +81,19 @@ export interface HouseEffectsData {
   pollsters: PollsterEffect[];
   /** Total de pesquisas da disputa consideradas. */
   pollCount: number;
+  /** Contra o que o desvio foi medido: a média das demais pesquisas (padrão) ou
+   *  o resultado oficial do 1º turno (`houseEffectsVsResultado`). */
+  base?: "media" | "resultado";
+  /** No modo resultado: a janela de campo considerada (ISO) e o resultado usado. */
+  janela?: { desde: string; ate: string };
+  resultado?: { candidate: string; pct: number }[];
 }
+
+/** VIÉS CONTRA O RESULTADO (08/10/2026, pedido de Iran). Janela de campo antes
+ *  do pleito e mínimo de pesquisas por instituto — menor que o do modo média
+ *  porque a referência é fixa (a urna), não uma média que precisa de base. */
+export const RESULTADO_JANELA_DIAS = 30;
+export const RESULTADO_MIN_POLLS = 2;
 
 /**
  * Efeito casa de uma disputa. Colunas = campo registrado (via
@@ -88,33 +101,17 @@ export interface HouseEffectsData {
  * com ≥ `MIN_POLLS_PER_POLLSTER` pesquisas, ordenados por magnitude do desvio.
  * Server-only (alcança `node:fs`).
  */
-export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1): HouseEffectsData {
-  // Medimos o viés em VOTOS VÁLIDOS, não na base bruta. Os institutos alocam
-  // indecisos de forma diferente, então a base bruta não é comparável entre
-  // eles: um instituto que "força" a escolha (menos indeciso, base bruta mais
-  // alta) apareceria superestimando TODOS os candidatos — um artefato de base,
-  // não um viés por candidato. Converter cada pesquisa a válidos ANTES de
-  // qualquer conta (regra 1 de `toBasis`) coloca instituto e consenso na mesma
-  // base e isola o desvio real por candidato.
+/** Colunas (campo registrado, por média) e campo comparável de uma disputa —
+ *  o mesmo recorte para os dois modos, para que a tabela não troque de forma
+ *  quando o leitor alterna a base. */
+function campoComparavel(race: RaceKind, state: UF | null, round: 1 | 2) {
   const polls = pollsFor(race, state, round).map((p) => toBasis(p, "validos"));
   const evo = raceEvolutionData(race, state, round);
   const reg = new Set(evo.registeredKeys);
-
-  // Colunas: campo registrado, já ordenado por média, cortado no topo.
   const columns = (evo.average?.candidates ?? [])
     .filter((c) => reg.size === 0 || reg.has(candKey(c.candidate)))
     .slice(0, MAX_COLUMNS)
     .map((c) => ({ candidate: c.candidate, party: c.party, key: candKey(c.candidate) }));
-
-  if (!polls.length || !columns.length) return { candidates: [], pollsters: [], pollCount: 0 };
-
-  // CAMPO COMPARÁVEL — só a corrida ATUAL e de campo cheio. Uma pesquisa só conta
-  // se testa os DOIS primeiros colocados (as âncoras da corrida atual) e tem
-  // elenco ≥ MIN_FIELD. Isso exclui hipotéticos reduzidos (2–3 nomes) e cenários
-  // de eras passadas (ex.: Lula×Bolsonaro antes do Flávio) — onde o % em válidos
-  // de um nome depende do tamanho/composição do campo, não do viés do instituto.
-  // Sem isso, um instituto que testa um minoritário num campo pequeno o infla e
-  // contamina o consenso (o -8,7 do Marçal era isso, não viés real).
   const anchors = columns.slice(0, 2).map((c) => c.key);
   const comparable =
     anchors.length === 2
@@ -124,6 +121,81 @@ export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1)
           return anchors.every((a) => keys.has(a));
         })
       : polls;
+  return { polls, columns, comparable };
+}
+
+/**
+ * Efeito casa CONTRA O RESULTADO OFICIAL do 1º turno: para cada pesquisa do
+ * instituto com campo nos últimos `RESULTADO_JANELA_DIAS` dias antes do pleito,
+ *     resíduo = p.pct(c) em válidos − resultado(c) em válidos (TSE)
+ * e o efeito (J, c) é a média dos resíduos. Mesmas colunas e mesmo campo
+ * comparável do modo média, para a tabela alternar sem trocar de forma. A
+ * referência é a urna, não uma média: por isso o mínimo por instituto é
+ * `RESULTADO_MIN_POLLS`, e não há leave-one-out. Null sem resultado carregado.
+ * Descritivo, como o outro: uma pesquisa de 25 dias antes mediu um eleitorado
+ * que ainda se moveu, e isso aparece como "viés" aqui.
+ */
+export function houseEffectsVsResultado(race: RaceKind, state: UF | null): HouseEffectsData | null {
+  const resultado = resultadoDisputa(race, state);
+  if (!resultado) return null;
+  const urna = new Map(resultado.map((c) => [candKey(c.nome), c.pct] as const));
+  const { columns, comparable } = campoComparavel(race, state, 1);
+  if (!columns.length) return null;
+  const ate = PRIMEIRO_TURNO;
+  const desde = new Date(Date.parse(`${ate}T00:00:00Z`) - RESULTADO_JANELA_DIAS * 864e5).toISOString().slice(0, 10);
+  const naJanela = comparable.filter((p) => {
+    const d = pollDate(p);
+    return d !== null && d >= desde && d <= ate;
+  });
+  const byPollster = new Map<string, Poll[]>();
+  for (const p of naJanela) {
+    const k = pollsterKey(p.pollster);
+    if (!byPollster.has(k)) byPollster.set(k, []);
+    byPollster.get(k)!.push(p);
+  }
+  const pollsters: PollsterEffect[] = [];
+  for (const own of byPollster.values()) {
+    if (own.length < RESULTADO_MIN_POLLS) continue;
+    const cells: (HouseEffectCell | null)[] = columns.map((col) => {
+      const alvo = urna.get(col.key);
+      if (alvo === undefined) return null;
+      const residuals: number[] = [];
+      for (const p of own) {
+        const mine = p.results.find((r) => candKey(r.candidate) === col.key)?.pct;
+        if (mine === undefined || mine === null) continue;
+        residuals.push(mine - alvo);
+      }
+      return residuals.length >= MIN_OBS_PER_CELL ? { effect: round1(mean(residuals)), n: residuals.length } : null;
+    });
+    const filled = cells.filter((c): c is HouseEffectCell => c !== null);
+    if (!filled.length) continue;
+    pollsters.push({ pollster: own[0].pollster, nPolls: own.length, cells, magnitude: round1(mean(filled.map((c) => Math.abs(c.effect)))) });
+  }
+  pollsters.sort((a, b) => b.magnitude - a.magnitude || b.nPolls - a.nPolls);
+  const keep = columns.map((_, i) => i).filter((i) => pollsters.some((p) => p.cells[i] !== null));
+  return {
+    candidates: keep.map((i) => ({ candidate: columns[i].candidate, party: columns[i].party })),
+    pollsters: pollsters.map((p) => ({ ...p, cells: keep.map((i) => p.cells[i]) })),
+    pollCount: naJanela.length,
+    base: "resultado",
+    janela: { desde, ate },
+    resultado: keep.map((i) => ({ candidate: columns[i].candidate, pct: urna.get(columns[i].key) ?? 0 })),
+  };
+}
+
+export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1): HouseEffectsData {
+  // Medimos o viés em VOTOS VÁLIDOS, não na base bruta. Os institutos alocam
+  // indecisos de forma diferente, então a base bruta não é comparável entre
+  // eles: um instituto que "força" a escolha (menos indeciso, base bruta mais
+  // alta) apareceria superestimando TODOS os candidatos — um artefato de base,
+  // não um viés por candidato. Converter cada pesquisa a válidos ANTES de
+  // qualquer conta (regra 1 de `toBasis`) coloca instituto e consenso na mesma
+  // base e isola o desvio real por candidato.
+  // (Ver `campoComparavel`: colunas = campo registrado por média; campo
+  // comparável = pesquisas que testam os dois primeiros com elenco ≥ MIN_FIELD —
+  // o mesmo recorte do modo resultado.)
+  const { polls, columns, comparable } = campoComparavel(race, state, round);
+  if (!polls.length || !columns.length) return { candidates: [], pollsters: [], pollCount: 0, base: "media" };
 
   // Institutos com pesquisas suficientes na disputa (no campo comparável).
   const byPollster = new Map<string, Poll[]>();
@@ -176,5 +248,6 @@ export function houseEffects(race: RaceKind, state: UF | null, round: 1 | 2 = 1)
     candidates: keep.map((i) => ({ candidate: columns[i].candidate, party: columns[i].party })),
     pollsters: pollsters.map((p) => ({ ...p, cells: keep.map((i) => p.cells[i]) })),
     pollCount: comparable.length,
+    base: "media",
   };
 }

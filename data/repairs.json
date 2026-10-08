@@ -8000,6 +8000,27 @@
     "blank_null_pct": null
    },
    "expect_sum": 100
+  },
+  {
+   "match": {
+    "pollster": "Veritá",
+    "race": "presidente",
+    "state": null,
+    "round": 1,
+    "fieldwork_end": "2026-10-02",
+    "has_candidate": [
+     "Lula",
+     "Flávio Bolsonaro"
+    ]
+   },
+   "defect": "LINHA SÓ COM OS DOIS PRIMEIROS, JÁ EM VÁLIDOS: a última Veritá nacional (campo 26/09–02/10/2026, 40,5 mil entrevistas) chegou pela Wikipédia só com Lula 45 e Flávio Bolsonaro 47 — os percentuais em votos válidos que o instituto divulgou —, sem os demais candidatos nem 'outros'. Somando 92, a conversão a válidos do site (toBasis) inflava a linha para 48,9 × 51,1 e o ranking de acerto media erro médio de 3,9 p.p. para a Veritá, que na verdade acertou 45 × 47 contra 45,16 × 47,03. Os outros candidatos somam os 8 pontos restantes e entram como 'outros'; a linha segue fora do campo comparável do efeito casa (só dois nomes), mas o ranking a lê certo.",
+   "source": "https://www.congressoemfoco.com.br/noticia/122891/pesquisas-subestimaram-flavio-no-1-turno-veja-quais-chegaram-perto",
+   "evidence": "Congresso em Foco (05/10/2026): a Veritá teve os números mais próximos do resultado, 47% para Flávio e 45% para Lula em votos válidos, 40,5 mil entrevistados em todos os estados e no DF entre 26/09 e 02/10. A mesma operação de campo gerou a simulação de 2º turno divulgada em 05/10 (51,56 × 48,44 em válidos; A Crítica, Diário 360). Wikipédia (página da presidencial): linha Veritá 26/09–02/10, Lula 45 · Flávio 47. Ver também https://claudiodantas.com.br/as-02-pesquisas-que-apontavam-flavio-a-frente-de-lula/",
+   "verified_at": "2026-10-08",
+   "set": {
+    "others_pct": 8
+   },
+   "_nota_escala": "Lula 45 + Flávio 47 + outros 8 = 100 em válidos; toBasis passa a devolver a linha como está."
   }
  ]
 }

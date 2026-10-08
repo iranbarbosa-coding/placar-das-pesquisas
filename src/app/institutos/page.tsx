@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pollsters, fmtDate } from "@/lib/data";
-import { houseEffects } from "@/lib/houseEffects";
+import { houseEffects, houseEffectsVsResultado } from "@/lib/houseEffects";
 import { pollsterPages } from "@/lib/pollster-pages";
 import InstitutosSearch from "@/components/InstitutosSearch";
 import HouseEffects from "@/components/HouseEffects";
@@ -85,6 +85,7 @@ export default function InstitutosPage() {
     slug: pageSlug.get(p.name),
   }));
   const house = houseEffects("presidente", null, 1);
+  const houseResultado = houseEffectsVsResultado("presidente", null);
 
   return (
     <div>
@@ -282,7 +283,7 @@ export default function InstitutosPage() {
         </div>
       </div>
 
-      <HouseEffects data={house} hideLegendNote />
+      <HouseEffects data={house} dataResultado={houseResultado} hideLegendNote />
 
       <h2 className="mt-8 text-lg font-bold" style={{ color: "var(--text-primary)" }}>
         Todos os institutos
