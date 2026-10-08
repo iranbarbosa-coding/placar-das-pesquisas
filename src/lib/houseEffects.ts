@@ -21,6 +21,7 @@ import { pollsFor } from "./data";
 import { raceEvolutionData } from "./presidente";
 import { toBasis } from "./validos";
 import { PRIMEIRO_TURNO, resultadoDisputa } from "./eleicao";
+import { JANELA_DIAS } from "./acerto";
 import type { Poll, RaceKind, UF } from "./types";
 
 /** Instituto precisa de ao menos isto de pesquisas na disputa para ter efeito. */
@@ -69,6 +70,8 @@ export interface PollsterEffect {
   pollster: string;
   /** Pesquisas deste instituto na disputa (independe de casar candidato). */
   nPolls: number;
+  /** No modo resultado: fim de campo da última pesquisa, a comparada. */
+  fieldworkEnd?: string | null;
   /** Uma célula por candidato-coluna, na mesma ordem de `candidates`; null quando
    *  o instituto não testou o candidato o bastante (< MIN_OBS_PER_CELL). */
   cells: (HouseEffectCell | null)[];
@@ -89,18 +92,10 @@ export interface HouseEffectsData {
   resultado?: { candidate: string; pct: number }[];
 }
 
-/** VIÉS CONTRA O RESULTADO (08/10/2026, pedido de Iran). Janela de campo antes
- *  do pleito e mínimo de pesquisas por instituto — menor que o do modo média
- *  porque a referência é fixa (a urna), não uma média que precisa de base. */
-export const RESULTADO_JANELA_DIAS = 30;
-export const RESULTADO_MIN_POLLS = 2;
+/** DESVIO DA ÚLTIMA PESQUISA PARA O RESULTADO (08/10/2026, decisão de Iran):
+ *  a mesma janela do ranking de acerto (`JANELA_DIAS` antes do pleito). */
+export const RESULTADO_JANELA_DIAS = JANELA_DIAS;
 
-/**
- * Efeito casa de uma disputa. Colunas = campo registrado (via
- * `raceEvolutionData`), os primeiros `MAX_COLUMNS` por média. Linhas = institutos
- * com ≥ `MIN_POLLS_PER_POLLSTER` pesquisas, ordenados por magnitude do desvio.
- * Server-only (alcança `node:fs`).
- */
 /** Colunas (campo registrado, por média) e campo comparável de uma disputa —
  *  o mesmo recorte para os dois modos, para que a tabela não troque de forma
  *  quando o leitor alterna a base. */
@@ -125,58 +120,57 @@ function campoComparavel(race: RaceKind, state: UF | null, round: 1 | 2) {
 }
 
 /**
- * Efeito casa CONTRA O RESULTADO OFICIAL do 1º turno: para cada pesquisa do
- * instituto com campo nos últimos `RESULTADO_JANELA_DIAS` dias antes do pleito,
- *     resíduo = p.pct(c) em válidos − resultado(c) em válidos (TSE)
- * e o efeito (J, c) é a média dos resíduos. Mesmas colunas e mesmo campo
- * comparável do modo média, para a tabela alternar sem trocar de forma. A
- * referência é a urna, não uma média: por isso o mínimo por instituto é
- * `RESULTADO_MIN_POLLS`, e não há leave-one-out. Null sem resultado carregado.
- * Descritivo, como o outro: uma pesquisa de 25 dias antes mediu um eleitorado
- * que ainda se moveu, e isso aparece como "viés" aqui.
+ * A ÚLTIMA PESQUISA DE CADA INSTITUTO CONTRA O RESULTADO OFICIAL do 1º turno —
+ * a visão por candidato do ranking "Quem chegou mais perto" (decisão de Iran,
+ * 08/10/2026: não é viés sistemático, é a distância da última leitura). Para
+ * cada instituto, a pesquisa de campo mais recente até `RESULTADO_JANELA_DIAS`
+ * dias antes do pleito que testou os dois primeiros das urnas; cada célula é
+ *     p.pct(c) em válidos − resultado(c) em válidos (TSE),
+ * com uma observação só. Mesmas colunas do modo média. Sem exigência de elenco
+ * mínimo: a Veritá da véspera publicou só os dois primeiros em válidos, e é
+ * exatamente a pesquisa que o leitor quer ver aqui — as colunas que ela não
+ * testou ficam "—". Ordenado do menor para o maior desvio médio, como o
+ * ranking. Null sem resultado carregado.
  */
 export function houseEffectsVsResultado(race: RaceKind, state: UF | null): HouseEffectsData | null {
   const resultado = resultadoDisputa(race, state);
   if (!resultado) return null;
   const urna = new Map(resultado.map((c) => [candKey(c.nome), c.pct] as const));
-  const { columns, comparable } = campoComparavel(race, state, 1);
+  const { polls, columns } = campoComparavel(race, state, 1);
   if (!columns.length) return null;
+  const anchors = columns.slice(0, 2).map((c) => c.key);
   const ate = PRIMEIRO_TURNO;
   const desde = new Date(Date.parse(`${ate}T00:00:00Z`) - RESULTADO_JANELA_DIAS * 864e5).toISOString().slice(0, 10);
-  const naJanela = comparable.filter((p) => {
-    const d = pollDate(p);
-    return d !== null && d >= desde && d <= ate;
+  const naJanela = polls.filter((p) => {
+    const d = p.fieldwork_end;
+    if (!d || d < desde || d > ate) return false;
+    const keys = new Set(p.results.map((r) => candKey(r.candidate)));
+    return anchors.every((a) => keys.has(a));
   });
-  const byPollster = new Map<string, Poll[]>();
+  const ultima = new Map<string, Poll>();
   for (const p of naJanela) {
     const k = pollsterKey(p.pollster);
-    if (!byPollster.has(k)) byPollster.set(k, []);
-    byPollster.get(k)!.push(p);
+    const atual = ultima.get(k);
+    if (!atual || (p.fieldwork_end ?? "") > (atual.fieldwork_end ?? "")) ultima.set(k, p);
   }
   const pollsters: PollsterEffect[] = [];
-  for (const own of byPollster.values()) {
-    if (own.length < RESULTADO_MIN_POLLS) continue;
+  for (const p of ultima.values()) {
     const cells: (HouseEffectCell | null)[] = columns.map((col) => {
       const alvo = urna.get(col.key);
-      if (alvo === undefined) return null;
-      const residuals: number[] = [];
-      for (const p of own) {
-        const mine = p.results.find((r) => candKey(r.candidate) === col.key)?.pct;
-        if (mine === undefined || mine === null) continue;
-        residuals.push(mine - alvo);
-      }
-      return residuals.length >= MIN_OBS_PER_CELL ? { effect: round1(mean(residuals)), n: residuals.length } : null;
+      const mine = p.results.find((r) => candKey(r.candidate) === col.key)?.pct;
+      if (alvo === undefined || mine === undefined || mine === null) return null;
+      return { effect: round1(mine - alvo), n: 1 };
     });
     const filled = cells.filter((c): c is HouseEffectCell => c !== null);
     if (!filled.length) continue;
-    pollsters.push({ pollster: own[0].pollster, nPolls: own.length, cells, magnitude: round1(mean(filled.map((c) => Math.abs(c.effect)))) });
+    pollsters.push({ pollster: p.pollster, nPolls: 1, fieldworkEnd: p.fieldwork_end ?? null, cells, magnitude: round1(mean(filled.map((c) => Math.abs(c.effect)))) });
   }
-  pollsters.sort((a, b) => b.magnitude - a.magnitude || b.nPolls - a.nPolls);
+  pollsters.sort((a, b) => a.magnitude - b.magnitude || (b.fieldworkEnd ?? "").localeCompare(a.fieldworkEnd ?? ""));
   const keep = columns.map((_, i) => i).filter((i) => pollsters.some((p) => p.cells[i] !== null));
   return {
     candidates: keep.map((i) => ({ candidate: columns[i].candidate, party: columns[i].party })),
     pollsters: pollsters.map((p) => ({ ...p, cells: keep.map((i) => p.cells[i]) })),
-    pollCount: naJanela.length,
+    pollCount: pollsters.length,
     base: "resultado",
     janela: { desde, ate },
     resultado: keep.map((i) => ({ candidate: columns[i].candidate, pct: urna.get(columns[i].key) ?? 0 })),

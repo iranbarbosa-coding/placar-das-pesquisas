@@ -11,8 +11,9 @@ import type { HouseEffectsData, HouseEffectCell, PollsterEffect } from "@/lib/ho
  * DUAS BASES, alternadas por um toggle (pedido de Iran, 08/10/2026):
  *  · contra a MÉDIA das demais pesquisas (leave-one-out; `houseEffects`), a
  *    versão de sempre, disponível durante toda a campanha;
- *  · contra o RESULTADO oficial do 1º turno (`houseEffectsVsResultado`): o
- *    desvio das pesquisas do último mês de campo para o que a urna deu.
+ *  · contra o RESULTADO oficial do 1º turno (`houseEffectsVsResultado`): a
+ *    ÚLTIMA pesquisa de cada instituto contra o que a urna deu, por candidato —
+ *    a visão por candidato do ranking "Quem chegou mais perto".
  * Matriz instituto × candidato, tom divergente por direção (não por "bom/ruim"):
  * azul = superestima, laranja = subestima, intensidade ~ magnitude. Descritivo —
  * a nota deixa claro que desvio sistemático pode ser metodologia, não fraude.
@@ -161,7 +162,7 @@ function MatrixTable({
                   {row.pollster}
                 </span>
                 <span className="ml-1.5 text-xs" style={{ color: "var(--text-muted)" }}>
-                  {row.nPolls} pesq.
+                  {resultado ? (row.fieldworkEnd ? `campo até ${fmtDate(row.fieldworkEnd)}` : "") : `${row.nPolls} pesq.`}
                 </span>
               </td>
               {row.cells.slice(0, candidates.length).map((cell, i) => (
@@ -203,11 +204,12 @@ function Descricao({ base, data, compact }: { base: Base; data: HouseEffectsData
   if (base === "resultado") {
     return (
       <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
-        Quanto cada instituto <strong style={{ color: "var(--text-primary)" }}>super</strong> ou{" "}
-        <strong style={{ color: "var(--text-primary)" }}>subestimou</strong> cada candidato ante o{" "}
-        <strong style={{ color: "var(--text-primary)" }}>resultado oficial do 1º turno</strong> (TSE, votos válidos), em p.p.,
-        nas pesquisas com campo {data.janela ? `de ${fmtDate(data.janela.desde)} a ${fmtDate(data.janela.ate)}` : "do último mês"}
-        {compact ? "." : " — média dos desvios de cada pesquisa do instituto. Uma pesquisa de semanas antes mede um eleitorado que ainda se moveu; isso aparece aqui como desvio."}
+        Quanto a <strong style={{ color: "var(--text-primary)" }}>última pesquisa</strong> de cada instituto ficou{" "}
+        <strong style={{ color: "var(--text-primary)" }}>acima</strong> ou <strong style={{ color: "var(--text-primary)" }}>abaixo</strong>{" "}
+        do <strong style={{ color: "var(--text-primary)" }}>resultado oficial do 1º turno</strong> (TSE, votos válidos), em p.p., por
+        candidato — a visão por candidato do ranking acima. Pesquisas com campo{" "}
+        {data.janela ? `de ${fmtDate(data.janela.desde)} a ${fmtDate(data.janela.ate)}` : "nos últimos dias antes do pleito"}; do menor para o
+        maior desvio médio{compact ? "." : ". Um nome que a pesquisa não testou fica como —."}
       </p>
     );
   }
@@ -256,8 +258,7 @@ export default function HouseEffects({
   if (compact) {
     // Home: os institutos MAIS ATIVOS (maior nº de pesquisas), não os de maior
     // desvio — a ordem da análise completa fica em /institutos.
-    const rows = [...ativo.pollsters]
-      .sort((a, b) => b.nPolls - a.nPolls || b.magnitude - a.magnitude)
+    const rows = (base === "resultado" ? [...ativo.pollsters] : [...ativo.pollsters].sort((a, b) => b.nPolls - a.nPolls || b.magnitude - a.magnitude))
       .slice(0, maxRows ?? 10);
     return (
       <section className="card p-4 sm:p-6" aria-label="Efeito casa dos institutos">
@@ -319,15 +320,15 @@ export default function HouseEffects({
             <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
               Desvio sistemático pode refletir metodologia legítima (amostragem, modo de coleta), não fraude.{" "}
               {base === "resultado"
-                ? "Referência: o percentual de votos válidos de cada candidato no 1º turno (TSE), nas pesquisas do último mês de campo."
+                ? "Referência: o percentual de votos válidos de cada candidato no 1º turno (TSE); uma pesquisa por instituto, a última antes do pleito."
                 : "Média excluindo o próprio instituto (leave-one-out), pela mesma regra de janela do site."}
             </p>
           </>
         )}
         {hideLegendNote && base === "resultado" ? (
           <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
-            Referência: o percentual de votos válidos de cada candidato no 1º turno (TSE), nas pesquisas do último mês de campo. — = sem base
-            suficiente.
+            Referência: o percentual de votos válidos de cada candidato no 1º turno (TSE); uma pesquisa por instituto, a última antes do pleito.
+            — = nome não testado.
           </p>
         ) : null}
         <p className="mt-4 border-t pt-3 text-sm" style={{ borderColor: "var(--grid)" }}>
