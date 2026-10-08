@@ -3,7 +3,7 @@
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
   "exato": 721,
-  "contencao": 224,
+  "contencao": 225,
   "outra_disputa": 162,
   "ambiguo": 5,
   "sem": 564
@@ -5362,6 +5362,13 @@
     "partido": "DEMOCRATA",
     "numero": "355",
     "origem": "exato"
+   },
+   "marina candia": {
+    "nome_urna": "Marina Jhc",
+    "sq_candidato": "20002553711",
+    "partido": "PSDB",
+    "numero": "456",
+    "origem": "contencao"
    },
    "marina candia esposa do jhc": {
     "nome_urna": "Marina Jhc",
