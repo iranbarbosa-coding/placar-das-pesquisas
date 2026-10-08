@@ -15,6 +15,7 @@ import { datasetSchema, faqSchema } from "@/lib/jsonld";
 import { displayName } from "@/lib/names";
 import { fmtPct, fmtDate } from "@/lib/format";
 import { SITE_NAME } from "@/lib/brand";
+import ResultadoOficial from "@/components/ResultadoOficial";
 import {
   rcpTable,
   presidentEvolution,
@@ -120,6 +121,7 @@ export default function PresidentePage() {
         })}
       />
       {faqItems.length > 0 && <JsonLd data={faqSchema(faqItems)} />}
+      <ResultadoOficial race="presidente" uf={null} hrefSegundoTurno="#segundo-turno" />
       {/* Page header */}
       <header className="flex flex-col gap-2">
         <nav aria-label="Trilha" className="text-xs" style={{ color: "var(--text-muted)" }}>
@@ -187,7 +189,7 @@ export default function PresidentePage() {
       </div>
 
       {/* Row 4 — runoff simulations (three matchup cards, each its own card) */}
-      <section className="min-w-0" aria-label="Simulações de 2º turno">
+      <section id="segundo-turno" className="min-w-0 scroll-mt-24" aria-label="Simulações de 2º turno">
         <RunoffSimChart data={runoff} />
       </section>
 

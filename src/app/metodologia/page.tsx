@@ -6,6 +6,7 @@ import { loadDataset } from "@/lib/data";
 import { candKey } from "@/lib/average";
 import { FRESCOR_ATENCAO_DIAS, FRESCOR_VELHO_DIAS } from "@/lib/frescor";
 import { JANELA_DIAS, MIN_DISPUTAS_ESTADUAIS, MIN_DISPUTAS_SENADO, PISO_PCT, TOPO } from "@/lib/acerto";
+import { PRIMEIRO_TURNO, SEGUNDO_TURNO } from "@/lib/eleicao";
 import Icon, { type IconName } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -415,6 +416,34 @@ export default function MetodologiaPage() {
           em andamento, o bloco avisa que é apuração parcial — e os números mudam um pouco até o resultado final.
           O ranking é descritivo: uma pesquisa mede o eleitorado do dia do campo, não do dia da votação.
         </p>
+      </section>
+
+      {/* ── DEPOIS DO 1º TURNO ───────────────────────────────────────────── */}
+      <section id="segundo-turno" className="max-w-4xl scroll-mt-24 space-y-4">
+        <h2 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+          Depois do 1º turno: o que fecha e o que continua
+        </h2>
+        <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          Com o resultado oficial do TSE carregado, cada disputa se divide em duas classes — e quem decide é a
+          urna, nunca a pesquisa. Onde alguém passou de 50% dos votos válidos (ou no Senado, que não tem 2º turno),
+          a disputa está <B>encerrada</B>: a média final fica arquivada ao lado do resultado. Onde ninguém
+          passou, os dois mais votados seguem para o <B>2º turno de {SEGUNDO_TURNO.split("-").reverse().join("/")}</B>.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <Cap icon="split" title="Uma série só, antes e depois">
+            A média de 2º turno reúne todas as simulações daquele par — as feitas antes de {PRIMEIRO_TURNO.split("-").reverse().join("/")} e as
+            feitas depois. É a mesma pergunta ao mesmo eleitorado; a janela de 10 pesquisas privilegia as novas conforme chegam, e o site diz
+            quantas da média têm campo após o 1º turno.
+          </Cap>
+          <Cap icon="shield" title="Só o par que está na urna">
+            Entra a pesquisa que testou exatamente os dois nomes do confronto. Um cenário com outro par, mesmo
+            publicado agora, é outra pergunta.
+          </Cap>
+          <Cap icon="refresh" title="A mesma média de sempre">
+            Até 10 pesquisas mais recentes, no máximo 2 por instituto, em votos válidos. Ao lado dela, sempre, o
+            resultado oficial do 1º turno — o único número que não é estimativa.
+          </Cap>
+        </div>
       </section>
 
       {/* ── FONTES ───────────────────────────────────────────────────────── */}
