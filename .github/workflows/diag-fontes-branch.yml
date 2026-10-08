@@ -1,0 +1,37 @@
+name: diag-fontes-branch
+# 08/10 (09): reimporta os resultados do TSE (1º turno) com a totalização fechada e grava na branch
+on:
+  push:
+    branches: [claude/placar-32-creator-pitches-7dk5vm]
+    paths: [.github/workflows/diag-fontes-branch.yml]
+permissions:
+  contents: write
+jobs:
+  tse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24 }
+      - name: Importar resultados
+        run: |
+          set +e
+          node scripts/tse-resultados.mjs --turno 1
+          echo "exit $?"
+          python3 - <<'PY'
+          import json
+          from collections import Counter
+          d = json.load(open('data/resultados-oficiais.json'))
+          print("disputas:", len(d['disputas']), "| falhas:", d.get('falhas'))
+          print("totalizacao:", Counter(str(x.get('totalizacao')) for x in d['disputas']))
+          for x in d['disputas'][:1]:
+              print(x['race'], x['uf'], x.get('totalizacao'), sorted(x['validos'].items(), key=lambda kv: -kv[1])[:4])
+          PY
+      - name: Gravar na branch
+        run: |
+          git config user.name "placar-bot"
+          git config user.email "actions@github.com"
+          git add data/resultados-oficiais.json
+          git commit -m "dados: resultados oficiais do TSE (1º turno), totalização reimportada" || echo "nada a commitar"
+          git push
