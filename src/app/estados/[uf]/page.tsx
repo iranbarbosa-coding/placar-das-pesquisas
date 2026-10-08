@@ -19,6 +19,7 @@ import { displayName } from "@/lib/names";
 import { stateRunoff, stateTrends } from "@/lib/estado";
 import { allStatePolls, raceEvolutionData, rcpTable } from "@/lib/presidente";
 import { UFS, UF_NAMES, type UF } from "@/lib/types";
+import ResultadoOficial from "@/components/ResultadoOficial";
 
 export function generateStaticParams() {
   return UFS.map((uf) => ({ uf: uf.toLowerCase() }));
@@ -133,6 +134,10 @@ export default async function EstadoPage({ params }: { params: Promise<{ uf: str
             Presidente · Todas as pesquisas) OMITIDA por ora — volta numa etapa
             futura de evolução do produto. Componente pronto em `StateNav.tsx`. */}
       </header>
+
+      {/* O que as urnas decidiram em 04/10 (TSE). Sem resultado carregado, nada aparece. */}
+      <ResultadoOficial race="governador" uf={UFU} hrefSegundoTurno="#segundo-turno-governador" />
+      <ResultadoOficial race="senador" uf={UFU} />
 
       {hasGovLede && (
         <p className="max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
