@@ -158,6 +158,18 @@ function disputa(race: RaceKind, uf: UF | null): (ResultadoDisputa & { nota?: st
   return { ...d, validos, nota: decisoes.map((x) => x.efeito).join(" ") };
 }
 
+/**
+ * O resultado oficial de uma disputa (1º turno), na ordem das urnas e já
+ * corrigido pelas decisões curadas (regra 5), ou null sem resultado carregado.
+ * É a referência do viés "contra o resultado" (`houseEffectsVsResultado`).
+ */
+export function resultadoDisputa(race: RaceKind, uf: UF | null): Candidato1T[] | null {
+  const d = disputa(race, uf);
+  if (!d) return null;
+  const ord = ordenar(d);
+  return ord.length ? ord : null;
+}
+
 /** Há resultado oficial do 1º turno carregado para alguma disputa. */
 export function primeiroTurnoApurado(): boolean {
   return !!resultadosOficiais()?.disputas.length;

@@ -21,7 +21,7 @@ import {
 import { candKey } from "@/lib/average";
 import { loadDataset } from "@/lib/data";
 import { upcomingPolls } from "@/lib/calendar";
-import { houseEffects } from "@/lib/houseEffects";
+import { houseEffects, houseEffectsVsResultado } from "@/lib/houseEffects";
 import HouseEffects from "@/components/HouseEffects";
 import { rankingAcerto } from "@/lib/acerto";
 import RankingInstitutos from "@/components/RankingInstitutos";
@@ -60,6 +60,7 @@ export default function Home() {
   const newPoll = newestPoll();
   const upcoming = upcomingPolls(6);
   const house = houseEffects("presidente", null, 1);
+  const houseResultado = houseEffectsVsResultado("presidente", null);
   const acerto = rankingAcerto();
   const generatedAt = loadDataset().generated_at;
 
@@ -132,7 +133,7 @@ export default function Home() {
 
         {acerto ? <RankingInstitutos data={acerto} maxRows={10} cargos={["presidente"]} hrefDemais="/acerto" /> : null}
 
-        <HouseEffects data={house} compact maxRows={10} title="Viés dos Institutos (Efeito Casa)" href="/institutos" />
+        <HouseEffects data={house} dataResultado={houseResultado} compact maxRows={10} title="Viés dos Institutos (Efeito Casa)" href="/institutos" baseInicial={modo2T ? "resultado" : "media"} />
 
         {modo2T ? (
           <p className="-mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
