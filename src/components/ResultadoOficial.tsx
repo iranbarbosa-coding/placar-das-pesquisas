@@ -20,6 +20,7 @@ export default function ResultadoOficial({ race, uf, hrefSegundoTurno }: { race:
   const conf = race === "senador" ? null : confronto(race, uf);
   if (!enc && !conf) return null;
   const parcial = (enc?.totalizacao ?? conf?.totalizacao) === "parcial";
+  const nota = enc?.nota ?? conf?.nota ?? null;
 
   return (
     <aside
@@ -54,6 +55,11 @@ export default function ResultadoOficial({ race, uf, hrefSegundoTurno }: { race:
           </span>
         ) : null}
       </div>
+      {nota ? (
+        <span className="basis-full text-xs" style={{ color: "var(--text-secondary)" }}>
+          Decisão da Justiça Eleitoral: {nota} Percentuais recalculados sem os votos anulados.
+        </span>
+      ) : null}
       <span className="text-xs" style={{ color: "var(--text-muted)" }}>
         Votos válidos, TSE{parcial ? ", totalização parcial" : ""}.{" "}
         {conf && hrefSegundoTurno ? (

@@ -1,0 +1,20 @@
+{
+ "nota": "Decisões da Justiça Eleitoral que alteram o resultado publicado na Divulgação de Resultados do TSE (data/resultados-oficiais.json). Cada entrada é curada à mão, com fonte, e lida por src/lib/eleicao.ts: `votos_anulados` retira o candidato dos válidos e recalcula os percentuais dos demais. Nunca inferido pelo site.",
+ "decisoes": [
+  {
+   "race": "governador",
+   "uf": "RJ",
+   "tipo": "votos_anulados",
+   "candidato": "Garotinho",
+   "motivo": "Candidatura indeferida pelo TRE-RJ; em 02/10 o TSE revogou a liminar que mantinha as prerrogativas de candidato e os votos passaram a nulos sub judice. Em 05/10 Garotinho desistiu do recurso e em 06/10 o MPE opinou pela homologação. Sem os votos de Garotinho, Douglas Ruas passa de 49,27% para 50,88% dos válidos e a disputa se encerra no 1º turno.",
+   "efeito": "Douglas Ruas eleito no 1º turno; sem 2º turno para governador no RJ.",
+   "fontes": [
+    "https://www.congressoemfoco.com.br/noticia/122933/ministro-do-tse-decide-que-votos-em-garotinho-ficarao-fora-dos-validos",
+    "https://www.congressoemfoco.com.br/noticia/123001/garotinho-desiste-de-recurso-no-tse-e-abre-caminho-para-douglas-ruas",
+    "https://www.diariodepernambuco.com.br/politica/2026/10/11725983-mpe-se-manifesta-a-favor-da-desistencia-de-recurso-de-garotinho-ruas-pode-ser-declarado-eleito.html"
+   ],
+   "registrado_em": "2026-10-08",
+   "registrado_por": "Iran"
+  }
+ ]
+}
