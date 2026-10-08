@@ -2,6 +2,7 @@ import Link from "next/link";
 import HeroBasisSwitch from "@/components/HeroBasisSwitch";
 import HeroSegundoTurno from "@/components/HeroSegundoTurno";
 import ConfrontosGovernador from "@/components/ConfrontosGovernador";
+import MapaSegundoTurno from "@/components/MapaSegundoTurno";
 import RunoffBars from "@/components/RunoffBars";
 import LatestPollsTable from "@/components/LatestPollsTable";
 import HomeSidebar from "@/components/HomeSidebar";
@@ -13,6 +14,7 @@ import {
   stateHighlights,
   recentMovers,
   stateMapData,
+  stateMapSegundoTurno,
   newestPoll,
   registeredPresidentKeys,
 } from "@/lib/home";
@@ -96,7 +98,6 @@ export default function Home() {
             </p>
             {m2 ? <FreshnessBadge race="presidente" uf={null} lastPollDate={m2.lastPollDate} generatedAt={generatedAt} className="-mt-3" /> : null}
             <HeroSegundoTurno data={presidencial} diasRestantes={dias} />
-            <ConfrontosGovernador data={segundoTurno} />
           </>
         ) : (
           <>
@@ -147,8 +148,18 @@ export default function Home() {
         </section>
       </div>
 
-      {/* RIGHT: the dashboard sidebar. Stacks under the content on phones. */}
-      <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} upcoming={upcoming} segundoTurno={modo2T} />
+      {/* RIGHT: in 2º-turno mode the column IS the state runoffs (one compact
+          chart per state, stacked) — the owner's call on 08/10: the map,
+          highlights, movers and calendar come out. Otherwise the dashboard
+          sidebar. Stacks under the content on phones. */}
+      {modo2T ? (
+        <aside className="flex min-w-0 flex-col gap-5" aria-label="Governos em 2º turno">
+          <MapaSegundoTurno map={stateMapSegundoTurno()} />
+          <ConfrontosGovernador data={segundoTurno} layout="coluna" />
+        </aside>
+      ) : (
+        <HomeSidebar highlights={highlights} movers={movers} map={map} newPoll={newPoll} upcoming={upcoming} />
+      )}
     </div>
   );
 }

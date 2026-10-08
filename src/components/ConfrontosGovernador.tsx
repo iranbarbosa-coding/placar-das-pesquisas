@@ -67,25 +67,37 @@ function Cartao({ d }: { d: MediaConfronto }) {
   );
 }
 
-export default function ConfrontosGovernador({ data, title = "Governadores · 2º turno" }: { data: MediaConfronto[]; title?: string }) {
+export default function ConfrontosGovernador({
+  data,
+  title = "Governadores · 2º turno",
+  layout = "grid",
+}: {
+  data: MediaConfronto[];
+  title?: string;
+  /** `coluna`: a coluna da direita da home — um cartão por estado, empilhados (decisão de Iran, 08/10). */
+  layout?: "grid" | "coluna";
+}) {
   const govs = data.filter((d) => d.confronto.race === "governador" && d.confronto.uf);
   if (!govs.length) return null;
   const comNovas = govs.filter((d) => d.posPrimeiroTurno > 0).length;
+  const coluna = layout === "coluna";
   return (
-    <section className="card p-4 sm:p-6" aria-label={title}>
+    <section className={coluna ? "card p-4" : "card p-4 sm:p-6"} aria-label={title}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>
-          {title} <span className="font-normal" style={{ color: "var(--text-muted)" }}>· evolução da média, votos válidos</span>
+        <h2 className={coluna ? "text-[11px] font-bold uppercase tracking-[0.14em]" : "text-lg font-semibold"} style={{ color: coluna ? "var(--text-secondary)" : "var(--text-primary)" }}>
+          {title}
+          {coluna ? null : <span className="font-normal" style={{ color: "var(--text-muted)" }}> · evolução da média, votos válidos</span>}
         </h2>
         <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-          {govs.length} estado{govs.length === 1 ? "" : "s"} · {comNovas} com pesquisa após o 1º turno
+          {govs.length} estado{govs.length === 1 ? "" : "s"}{coluna ? "" : ` · ${comNovas} com pesquisa após o 1º turno`}
         </span>
       </div>
-      <p className="mt-1 max-w-[75ch] text-sm" style={{ color: "var(--text-secondary)" }}>
-        Os estados em que ninguém chegou a 50% dos votos válidos no 1º turno. Cada gráfico é a média do par das urnas, com todas as
-        simulações que o testaram, antes e depois de 04/10.
+      <p className={coluna ? "mt-1 text-xs" : "mt-1 max-w-[75ch] text-sm"} style={{ color: "var(--text-secondary)" }}>
+        {coluna
+          ? "Evolução da média, votos válidos, nos estados em que ninguém chegou a 50% no 1º turno."
+          : "Os estados em que ninguém chegou a 50% dos votos válidos no 1º turno. Cada gráfico é a média do par das urnas, com todas as simulações que o testaram, antes e depois de 04/10."}
       </p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className={coluna ? "mt-3 flex flex-col gap-3" : "mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3"}>
         {govs.map((d) => (
           <Cartao key={d.confronto.uf} d={d} />
         ))}
