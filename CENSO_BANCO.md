@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1789 levantamentos · 5930 perguntas · 162 institutos · 1444 candidatos**.
+Banco: **1790 levantamentos · 5935 perguntas · 161 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 51 | 37 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 392 | 5 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 394 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **456** | **45** |
+| **total** | **458** | **45** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -134,9 +134,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_1da98a1aa538: Fábio Mitidieri 48 · Emília Corrêa 32
   s_42ae015e72cf: Fábio Mitidieri 46 · Valmir de Francisquinho de Itabaiana 33
 - **[2026]** cenários separados — Real Time Big Data · AC governador/t2 · 2026-07-25 — 2 levantamentos
-  s_291fa207ccea: Alan Rick 45 · Mailza Assis 36
   s_291fa207ccea: Mailza Assis 42 · Tião Bocalom 28
   s_cb78c6655121: Alan Rick 54 · Tião Bocalom 26
+  s_cb78c6655121: Alan Rick 45 · Mailza Assis 36
 - cenários separados — Datafolha · BR presidente/t1 · 2025-04-03 — 2 levantamentos
   s_29780600671a: Jair Messias Bolsonaro 30 · Luiz Inácio Lula da Silva 36 · Pablo Marçal 7 · Ciro Gomes 12 · Eduardo Leite 5
   s_29780600671a: Jair Messias Bolsonaro 32 · Fernando Haddad 17 · Pablo Marçal 8 · Ciro Gomes 20 · Eduardo Leite 6
@@ -212,6 +212,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_4f2efc1b33dc: Capitão Wagner 39.1 · Eunício Oliveira 26.4 · Júnior Mano 9.1 · Alcides Fernandes 8.1 · Roberto Cláudio 24.9 · Luizianne Lins 19.9 · José Nobre Guimarães 13.4 · Priscila Costa 8 · Chiquinho Feitosa 4.3 · General Theóphilo 3.5
 - **[2026]** cenários separados — Quaest · AC governador/t2 · 2026-08-26 — 2 levantamentos
   s_63076a766607: Alan Rick 42 · Mailza Assis 35
+  s_63076a766607: Sebastião Bocalom 42 · Dr.Thor Dantas 13
   s_f2be082c9a16: Alan Rick 48 · Tião Bocalom 27
   s_f2be082c9a16: Mailza Assis 43 · Tião Bocalom 27
 - cenários separados — AtlasIntel · BR presidente/t1 · 2025-06-30 — 2 levantamentos
@@ -257,8 +258,8 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_8e3757dce960: Wellington Fagundes 37.3 · Otaviano Pivetta 20.3
 - **[2026]** cenários separados — Quaest · AM governador/t2 · 2026-08-24 — 2 levantamentos
   s_86145f8e35f7: Omar Aziz 49 · David Almeida 46
+  s_86145f8e35f7: Omar Aziz 45 · Maria do Carmo Seffair 44
   s_af3cacb4c580: Omar Aziz 44 · Roberto Cidade 40
-  s_af3cacb4c580: Omar Aziz 45 · Maria do Carmo Seffair 44
 - **[2026]** cenários separados — Quaest · CE senador/t1 · 2026-04-28 — 2 levantamentos
   s_8671a57e9697: Cid Gomes 17 · Capitão Wagner 17 · Eunício Oliveira 6 · Luizianne Lins 9 · Priscila Costa 4 · General Theóphilo 1 · Anna Karina 1
   s_a6c9cec351e6: Cid Gomes 17 · Capitão Wagner 16 · Roberto Cláudio 8 · Luizianne Lins 8 · Eunício Oliveira 6 · Pastor Alcides 3 · Priscila Costa 3 · Chiquinho Feitosa 1 · Domingos Filho 1 · General Theophilo 1 · Anna Karina 0
@@ -336,7 +337,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (392)
+## CONFLITO — Conflitos registrados aguardando decisão (394)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -687,7 +688,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_a1e19d58a704 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_encolhido_na_fonte · q_12d48c3da8a5 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_1a5b4c8ee3a3 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
-- roster_encolhido_na_fonte · q_899e38595a06 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_b867be26b650 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_9deb9bd63a0b · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_44e0d1ba94fe · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
@@ -732,6 +732,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_b25d3d05d703 · results: ["Alexandre Bady","Delegado Humberto","Gracinha Caiado","Gustavo Gayer","Gustavo Medanha","Jorge Kajuru","Vanderlan Cardoso","Zacharias Calil"] × ["Alexandre Bady","Delegado Humberto","Gustavo Medanha","Jorge Kajuru","Vanderlan Gomes","Zacharias Calil"]
 - roster_encolhido_na_fonte · q_7069136782e8 · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_e21e9d6a047d · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
+- institute_id_orphaned · i_8ef2c80f7b85 · institute_id: "i_8ef2c80f7b85" × null
+- survey_id_orphaned · s_7446ed42eb07 · survey_id: "s_7446ed42eb07" × null
+- segundo_turno_fragmento_descartado · q_94f28f09c4fc · results: null × ["Sebastião Bocalom"]
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 

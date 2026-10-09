@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-09T17:25:47.554Z",
+ "generated_at": "2026-10-09T23:14:02.914Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-09T17:25:47.554Z"
+   "last_ok": "2026-10-09T23:14:02.914Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-09T17:25:47.554Z"
+   "last_ok": "2026-10-09T23:14:02.914Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-09T17:25:47.554Z"
+   "last_ok": "2026-10-09T23:14:02.914Z"
   }
  ],
  "polls": [
@@ -53,70 +53,70 @@
    "tse_registration": null
   },
   {
-   "id": "70523f051a75",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14431-2-0-b6710f3f134d",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/atlasintel-confirma-poderdata-aya-e-da-flavio-com-53-e-lula-com-47/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-atlas-bloomberg-9out2026.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "AtlasIntel",
-   "contractor": null,
+   "contractor": "AtlasIntel",
    "fieldwork_start": "2026-10-03",
    "fieldwork_end": "2026-10-08",
-   "published_date": null,
+   "published_date": "2026-10-08",
    "sample_size": 5026,
    "margin_of_error": 1,
    "results": [
     {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.7
-    },
-    {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
      "pct": 51.1
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.7
     }
    ],
    "others_pct": null,
    "undecided_pct": 3.2,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03663/2026"
   },
   {
-   "id": "4d98782dbb30",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
+   "id": "p360-14433-2-0-03d107b63e2b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-tem-55-contra-37-de-grass-no-2o-turno-no-df-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-datafolha-governador-df-8out2026-1.pdf",
+   "race": "governador",
+   "state": "DF",
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Vox",
-   "contractor": null,
-   "fieldwork_start": "2026-10-05",
-   "fieldwork_end": "2026-10-07",
-   "published_date": null,
-   "sample_size": 2100,
-   "margin_of_error": 2,
+   "scenario": "2º turno: Celina Leão vs Leandro Grass",
+   "pollster": "Datafolha",
+   "contractor": "Folha da Manhã e Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-08",
+   "published_date": "2026-10-08",
+   "sample_size": 910,
+   "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 44.2
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 55
     },
     {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 42.7
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 37
     }
    ],
    "others_pct": null,
-   "undecided_pct": 13.1,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 3,
+   "blank_null_pct": 5,
+   "tse_registration": "DF-03365/2026"
   },
   {
    "id": "p360-14429-2-0-fe269f027467",
@@ -150,6 +150,72 @@
    "undecided_pct": 2,
    "blank_null_pct": 5,
    "tse_registration": "BR-08134/2026"
+  },
+  {
+   "id": "p360-14430-2-0-7bfe4d260076",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-442-e-flavio-427-no-2o-turno-diz-vox-brasil/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-vox-brasil-9out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Vox",
+   "contractor": "Vox Brasil",
+   "fieldwork_start": "2026-10-05",
+   "fieldwork_end": "2026-10-07",
+   "published_date": "2026-10-07",
+   "sample_size": 2100,
+   "margin_of_error": 2.15,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 42.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.7,
+   "blank_null_pct": 3.4,
+   "tse_registration": "BR-09623/2026"
+  },
+  {
+   "id": "p360-14432-2-0-eaa989f922dd",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Igape-governador-DF-9out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Igape-governador-DF-9out2026.pdf",
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão vs Leandro Grass",
+   "pollster": "Instituto Gazeta de Pesquisas",
+   "contractor": "TV Atual",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-07",
+   "published_date": "2026-10-07",
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 55.8
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 36.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": "DF-00054/2026"
   },
   {
    "id": "03033f6d014a",
@@ -1579,14 +1645,14 @@
    "tse_registration": "AM-04805/2026"
   },
   {
-   "id": "p360-14337-2-0-8ab5c9bfcd8c",
+   "id": "p360-14337-2-0-d104d5c41bf1",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
    "race": "governador",
    "state": "AM",
    "round": 2,
-   "scenario": "2º turno: Omar Aziz vs Maria do Carmo",
+   "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
    "fieldwork_start": null,
@@ -6325,6 +6391,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "21a86060452b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 40500,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48.44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 51.56
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -18159,39 +18258,6 @@
    "tse_registration": "RN-04187/2026"
   },
   {
-   "id": "9c5db42eef6e",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "AtlasIntel",
-   "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 41.6
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 41.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16.4,
-   "blank_null_pct": null,
-   "tse_registration": "RN-04187/2026"
-  },
-  {
    "id": "9e113d6fa462",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -20777,6 +20843,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 13.5,
+   "blank_null_pct": null,
+   "tse_registration": "RN-04187/2026"
+  },
+  {
+   "id": "p360-14283-2-1-3378ca1b9597",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Allyson Bezerra",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 41.9
+    },
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.4,
    "blank_null_pct": null,
    "tse_registration": "RN-04187/2026"
   },
@@ -68009,6 +68108,39 @@
    "tse_registration": "AM-01118/2026"
   },
   {
+   "id": "p360-14049-2-1-160a83bbc086",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/parana-pesquisas-amazonas-governador-setembro.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": "2026-09-02",
+   "fieldwork_end": "2026-09-04",
+   "published_date": "2026-09-04",
+   "sample_size": 1350,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 51.7
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.3,
+   "blank_null_pct": 7,
+   "tse_registration": "AM-01118/2026"
+  },
+  {
    "id": "p360-14049-2-2-9647826b4ef1",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa/",
@@ -83172,11 +83304,6 @@
      "pct": 33
     },
     {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 24
-    },
-    {
      "candidate": "Tião Bocalom",
      "party": "PSDB",
      "pct": 15
@@ -83185,22 +83312,33 @@
      "candidate": "Thor Dantas",
      "party": "PSB",
      "pct": 2
+    },
+    {
+     "candidate": "Doutor Luizinho",
+     "party": "Agir",
+     "pct": 1
+    },
+    {
+     "candidate": "Eudo Raffael",
+     "party": "PCB",
+     "pct": 0
     }
    ],
-   "others_pct": 1,
+   "others_pct": null,
    "undecided_pct": 25,
    "blank_null_pct": null,
-   "tse_registration": "AC-09106/2026"
+   "tse_registration": "AC-09106/2026",
+   "incomplete": true
   },
   {
-   "id": "p360-13993-2-0-dc7d217d14fd",
+   "id": "p360-13993-2-0-2ba8bac37992",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/alan-rick-lidera-corrida-pelo-governo-do-acre-no-2o-turno-diz-quaest/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-AC-26.ago_.2026-Quaest-GazetaDoPovo.pdf",
    "race": "governador",
    "state": "AC",
    "round": 2,
-   "scenario": "2º turno: Mailza Assis",
+   "scenario": "2º turno: Alan Rick vs Mailza Assis",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
    "fieldwork_start": "2026-08-23",
@@ -83221,8 +83359,41 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": 10,
+   "tse_registration": "AC-09106/2026"
+  },
+  {
+   "id": "p360-13993-2-1-d47ca6d0c507",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/alan-rick-lidera-corrida-pelo-governo-do-acre-no-2o-turno-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-AC-26.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Dr.Thor Dantas",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Thor Dantas",
+     "party": "PSB",
+     "pct": 13
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 17,
+   "blank_null_pct": 28,
    "tse_registration": "AC-09106/2026"
   },
   {
@@ -85524,39 +85695,6 @@
    "tse_registration": null
   },
   {
-   "id": "b646211b7e94",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
-   "race": "governador",
-   "state": "AM",
-   "round": 2,
-   "scenario": "2º turno: Omar Aziz e Professora Maria do Carmo",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Omar Aziz",
-     "party": "PSD",
-     "pct": 45
-    },
-    {
-     "candidate": "Professora Maria do Carmo",
-     "party": "PL",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": "BR-06252/2026"
-  },
-  {
    "id": "b648e1141415",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
@@ -87194,7 +87332,7 @@
    "scenario": "2º turno: Omar Aziz vs David Almeida",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-21",
    "fieldwork_end": "2026-08-24",
    "published_date": "2026-08-24",
    "sample_size": 804,
@@ -87213,6 +87351,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "AM-04595/2026"
+  },
+  {
+   "id": "p360-13987-2-3-d4e0298dd772",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-AM-Quaest-GazetaDoPovo.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-AM-Quaest-GazetaDoPovo.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Maria do Carmo Seffair",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 45
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": "AM-04595/2026"
   },
@@ -103638,39 +103809,6 @@
    }
   },
   {
-   "id": "7190b35cb9b7",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-empatam-para-o-governo-do-acre/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick e Mailza Assis",
-   "pollster": "AtlasIntel",
-   "contractor": "AC 24 Horas",
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-02",
-   "published_date": "2026-08-02",
-   "sample_size": 997,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 42.2
-    },
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 44.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13.4,
-   "blank_null_pct": null,
-   "tse_registration": "AC-07815/2026"
-  },
-  {
    "id": "7c3ec6ff57e6",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-sao-rejeitados-por-49-dos-eleitores-diz-nexus/",
@@ -103988,14 +104126,47 @@
    "tse_registration": "AC-07815/2026"
   },
   {
-   "id": "p360-13684-2-0-fcc0c2289094",
+   "id": "p360-13684-2-0-24ae96ce09a7",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-empatam-para-o-governo-do-acre/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
    "race": "governador",
    "state": "AC",
    "round": 2,
-   "scenario": "2º turno: Alan Rick",
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
+   "pollster": "AtlasIntel",
+   "contractor": "AC 24 Horas",
+   "fieldwork_start": "2026-07-28",
+   "fieldwork_end": "2026-08-02",
+   "published_date": "2026-08-02",
+   "sample_size": 997,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 42.2
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 44.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": 13.4,
+   "tse_registration": "AC-07815/2026"
+  },
+  {
+   "id": "p360-13684-2-1-818f287257c6",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-empatam-para-o-governo-do-acre/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Pesquisa-Atlas_AC24-Horas-Eleicoes-Acre-2026-260803-1.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
    "pollster": "AtlasIntel",
    "contractor": "AC 24 Horas",
    "fieldwork_start": "2026-07-28",
@@ -105148,6 +105319,92 @@
    }
   },
   {
+   "id": "d875ab6d2429",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Correio/Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-07-30",
+   "fieldwork_end": "2026-08-01",
+   "published_date": null,
+   "sample_size": 1109,
+   "margin_of_error": 3.3,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 32.4
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 24
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 9.8
+    },
+    {
+     "candidate": "Cappelli",
+     "party": "PSB",
+     "pct": 4.3
+    },
+    {
+     "candidate": "Paula Belmonte",
+     "party": "PSDB",
+     "pct": 3.5
+    },
+    {
+     "candidate": "Kiko Caputo",
+     "party": "Novo",
+     "pct": 0.8
+    }
+   ],
+   "others_pct": 1.4,
+   "undecided_pct": 23.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fbe2498a76f0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+   "integra_url": null,
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Arruda e Celina",
+   "pollster": "Correio/Opinião",
+   "contractor": null,
+   "fieldwork_start": "2026-07-30",
+   "fieldwork_end": "2026-08-01",
+   "published_date": null,
+   "sample_size": 1109,
+   "margin_of_error": 3.3,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 43.6
+    },
+    {
+     "candidate": "Arruda",
+     "party": "PSD",
+     "pct": 40.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-13687-1-0-22e85690d5f0",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-60-no-1o-turno-em-sergipe-diz-real-time-big-data/",
@@ -105343,83 +105600,6 @@
    "undecided_pct": 3,
    "blank_null_pct": 3,
    "tse_registration": "BR-07696/2026"
-  },
-  {
-   "id": "p360-13712-1-0-cb2bb1d07ecb",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf",
-   "race": "governador",
-   "state": "DF",
-   "round": 1,
-   "scenario": "1º turno",
-   "pollster": "Opinião Consultoria",
-   "contractor": "Correio Braziliense",
-   "fieldwork_start": null,
-   "fieldwork_end": "2026-08-01",
-   "published_date": "2026-08-01",
-   "sample_size": 1109,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 32.4
-    },
-    {
-     "candidate": "Arruda",
-     "party": "PSD",
-     "pct": 24
-    },
-    {
-     "candidate": "Leandro Grass",
-     "party": "PT",
-     "pct": 9.8
-    },
-    {
-     "candidate": "Paula Belmonte",
-     "party": "PSDB",
-     "pct": 3.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.5,
-   "blank_null_pct": 12.2,
-   "tse_registration": "DF-04077/2026"
-  },
-  {
-   "id": "p360-13712-2-0-084d53fb333d",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf",
-   "race": "governador",
-   "state": "DF",
-   "round": 2,
-   "scenario": "2º turno: Celina Leão vs José Roberto Arruda",
-   "pollster": "Opinião Consultoria",
-   "contractor": "Correio Braziliense",
-   "fieldwork_start": null,
-   "fieldwork_end": "2026-08-01",
-   "published_date": "2026-08-01",
-   "sample_size": 1109,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 43.6
-    },
-    {
-     "candidate": "Arruda",
-     "party": "PSD",
-     "pct": 40.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": "DF-04077/2026",
-   "incomplete": true
   },
   {
    "id": "p360-13748-1-0-f8ed94cc32be",
@@ -114002,39 +114182,6 @@
    "tse_registration": null
   },
   {
-   "id": "fbf2f88191dd",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-57-contra-34-de-lula-no-2o-turno-no-acre-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/07/pesquisa-realtimebigdata-presidencial-acre-27jul26.pdf",
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick e Mailza Assis",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-07-22",
-   "fieldwork_end": "2026-07-25",
-   "published_date": "2026-07-25",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 45
-    },
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08086/2026"
-  },
-  {
    "id": "p360-13592-1-0-47ce5652d4ee",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-57-contra-34-de-lula-no-2o-turno-no-acre-diz-pesquisa/",
@@ -114718,6 +114865,39 @@
    ],
    "others_pct": 1,
    "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": "AC-01069/2026"
+  },
+  {
+   "id": "p360-13613-2-0-3b18a880aa41",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cameli-lidera-disputa-pelo-senado-no-acre-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/07/real-time-big-data-acre-estadual-27jul.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-22",
+   "fieldwork_end": "2026-07-25",
+   "published_date": "2026-07-25",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 45
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": "AC-01069/2026"
   },
@@ -133925,39 +134105,6 @@
    "tse_registration": null
   },
   {
-   "id": "1fd717a224fe",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/06/Tocantins-TO-053792026-Jun_26.pdf",
-   "race": "governador",
-   "state": "TO",
-   "round": 2,
-   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-06-17",
-   "fieldwork_end": "2026-06-18",
-   "published_date": "2026-06-18",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Dorinha",
-     "party": "União Brasil",
-     "pct": 43
-    },
-    {
-     "candidate": "Vicentinho Júnior",
-     "party": "PSDB",
-     "pct": 37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "TO-05379/2026"
-  },
-  {
    "id": "4a4144c0a659",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -134143,6 +134290,39 @@
    "undecided_pct": 23.4,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "94d806842856",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/06/Tocantins-TO-053792026-Jun_26.pdf",
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Laurez Moreira",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-06-17",
+   "fieldwork_end": "2026-06-18",
+   "published_date": "2026-06-18",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 48
+    },
+    {
+     "candidate": "Laurez Moreira",
+     "party": "PSD",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": "TO-05379/2026"
   },
   {
    "id": "c2b318c56e4c",
@@ -134567,14 +134747,14 @@
    "tse_registration": "TO-05379/2026"
   },
   {
-   "id": "p360-13537-2-0-a165e7f9f6c9",
+   "id": "p360-13537-2-0-9af9a240cfa8",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/06/Tocantins-TO-053792026-Jun_26.pdf",
    "race": "governador",
    "state": "TO",
    "round": 2,
-   "scenario": "2º turno: Professora Dorinha vs Laurez Moreira",
+   "scenario": "2º turno: Professora Dorinha vs Vicentinho Júnior",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-06-17",
@@ -134586,16 +134766,16 @@
     {
      "candidate": "Professora Dorinha",
      "party": "União Brasil",
-     "pct": 48
+     "pct": 43
     },
     {
-     "candidate": "Laurez Moreira",
+     "candidate": "Vicentinho Júnior",
      "party": "PSD",
-     "pct": 34
+     "pct": 37
     }
    ],
    "others_pct": null,
-   "undecided_pct": 9,
+   "undecided_pct": 11,
    "blank_null_pct": 9,
    "tse_registration": "TO-05379/2026"
   },

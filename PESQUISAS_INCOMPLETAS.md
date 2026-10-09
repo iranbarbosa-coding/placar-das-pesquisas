@@ -834,6 +834,26 @@ Soma **75.7%** · faltam **24.3 pontos** · 3 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Governador · Acre
+
+### Quaest — 2026-08-26
+
+Soma **76%** · faltam **24 pontos** · 5 candidato(s) na tabela · amostra 804 · registro AC-09106/2026
+
+| candidato | % |
+|---|---|
+| Alan Rick | 33 |
+| Tião Bocalom | 15 |
+| Thor Dantas | 2 |
+| Doutor Luizinho | 1 |
+| Eudo Raffael | 0 |
+| *não sabe/não respondeu* | 25 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-AC-26.ago_.2026-Quaest-GazetaDoPovo.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/alan-rick-lidera-corrida-pelo-governo-do-acre-no-2o-turno-diz-quaest/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Paraíba
 
 ### DataTrends — 2026-07-29
@@ -1153,22 +1173,6 @@ Soma **83.6%** · faltam **16.4 pontos** · 2 candidato(s) na tabela · amostra 
 | Juliana Brizola | 39.5 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Distrito Federal · 2º turno
-
-### Opinião Consultoria — 2026-08-01
-
-Soma **83.7%** · faltam **16.3 pontos** · 2 candidato(s) na tabela · amostra 1109 · registro DF-04077/2026
-
-| candidato | % |
-|---|---|
-| Celina Leão | 43.6 |
-| Arruda | 40.1 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-opiniao-consultoria-governador-1ago2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

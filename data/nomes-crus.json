@@ -362,6 +362,7 @@
   {
    "nome": "Doutor Luizinho",
    "partidos": [
+    "Agir",
     "PP"
    ]
   },
@@ -404,7 +405,8 @@
   {
    "nome": "Sebastião Bocalom",
    "partidos": [
-    "PL"
+    "PL",
+    "PSDB"
    ]
   },
   {
@@ -6384,6 +6386,7 @@
    "nome": "Vicentinho Júnior",
    "partidos": [
     "PP",
+    "PSD",
     "PSDB"
    ]
   }
