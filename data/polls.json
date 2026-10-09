@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-08T23:44:00.697Z",
+ "generated_at": "2026-10-09T17:25:47.554Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-08T23:44:00.697Z"
+   "last_ok": "2026-10-09T17:25:47.554Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-08T23:44:00.697Z"
+   "last_ok": "2026-10-09T17:25:47.554Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-08T23:44:00.697Z"
+   "last_ok": "2026-10-09T17:25:47.554Z"
   }
  ],
  "polls": [
@@ -49,6 +49,72 @@
    ],
    "others_pct": null,
    "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "70523f051a75",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-10-03",
+   "fieldwork_end": "2026-10-08",
+   "published_date": null,
+   "sample_size": 5026,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 51.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "4d98782dbb30",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Vox",
+   "contractor": null,
+   "fieldwork_start": "2026-10-05",
+   "fieldwork_end": "2026-10-07",
+   "published_date": null,
+   "sample_size": 2100,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 42.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
