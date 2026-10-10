@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-10T16:13:22.706Z",
+ "generated_at": "2026-10-10T22:28:29.791Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-10T16:13:22.706Z"
+   "last_ok": "2026-10-10T22:28:29.791Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-10T16:13:22.706Z"
+   "last_ok": "2026-10-10T22:28:29.791Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-10T16:13:22.706Z"
+   "last_ok": "2026-10-10T22:28:29.791Z"
   }
  ],
  "polls": [
@@ -49,39 +49,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "1ca7d9f6de23",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Ipespe",
-   "contractor": null,
-   "fieldwork_start": "2026-10-06",
-   "fieldwork_end": "2026-10-08",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47.3
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 52.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -150,6 +117,39 @@
    "undecided_pct": 3,
    "blank_null_pct": 5,
    "tse_registration": "DF-03365/2026"
+  },
+  {
+   "id": "p360-14434-2-0-07e3d3758790",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/ipespe-confirma-poderdata-aya-e-da-flavio-com-527-e-lula-com-473/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-abrapel-10out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Ipespe",
+   "contractor": "Ipespe",
+   "fieldwork_start": "2026-10-06",
+   "fieldwork_end": "2026-10-08",
+   "published_date": "2026-10-08",
+   "sample_size": 1500,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-00933"
   },
   {
    "id": "p360-14429-2-0-fe269f027467",
