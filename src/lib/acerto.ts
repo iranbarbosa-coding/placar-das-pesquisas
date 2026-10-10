@@ -44,7 +44,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { candKey } from "./average";
-import { pollsFor } from "./data";
+import { pollsFor, scenarioGroups } from "./data";
 import { averageable } from "./senado";
 import { toBasis } from "./validos";
 import type { Poll, RaceKind, UF } from "./types";
@@ -112,6 +112,21 @@ export interface PlacarAcerto {
   minDisputas: number;
   ranqueados: AcertoInstituto[];
   demais: AcertoInstituto[];
+  /** A média do próprio Placar medida como se fosse um instituto — linha de
+   *  referência, sem posição, inserida no ranking onde cairia pela ordem (só
+   *  no placar presidencial; pedido de Iran, 10/10). */
+  referencia?: ReferenciaMedia;
+}
+
+export interface ReferenciaMedia {
+  nome: string;
+  erroMedio: number;
+  erroMargem: number | null;
+  acertouLider: boolean;
+  /** Quantos ranqueados ficaram à frente da média (= índice onde a linha entra). */
+  acima: number;
+  abaixo: number;
+  lastPollDate: string | null;
 }
 
 export interface RankingAcerto {
@@ -186,11 +201,8 @@ function senadoEmValidos(p: Poll): Poll {
   return { ...p, results: p.results.map((r) => ({ ...r, pct: r.pct * scale })) };
 }
 
-function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
-  // Regra 2: os dois lados em parte dos votos válidos. `toBasis` não converte
-  // Senado de propósito (regra 2 de validos.ts, pensada para a exibição); aqui a
-  // conversão é exatamente a conta que o TSE publica, então é feita à parte.
-  const pesquisa = r.race === "senador" ? senadoEmValidos(p) : toBasis(p, "validos");
+/** As métricas de uma leitura (pesquisa OU média) em válidos contra a urna — regras 3 e 4. */
+function compararValores(valores: { candidate: string; pct: number }[], r: ResultadoDisputa) {
   const fator = 1;
   const urna = new Map<string, number>();
   for (const [nome, pct] of Object.entries(r.validos)) urna.set(candKey(nome), pct * fator);
@@ -198,7 +210,7 @@ function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
   const topo = new Set(ordem.slice(0, TOPO).map(([k]) => k));
 
   const pares: { key: string; pesquisa: number; urna: number }[] = [];
-  for (const res of pesquisa.results) {
+  for (const res of valores) {
     const k = candKey(res.candidate);
     const v = urna.get(k);
     if (v === undefined) continue;
@@ -206,30 +218,33 @@ function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
     pares.push({ key: k, pesquisa: res.pct, urna: v });
   }
   if (pares.length < 2) return null;
-
   const erroMedio = mean(pares.map((x) => Math.abs(x.pesquisa - x.urna)));
   const [l1, l2] = ordem;
   const p1 = pares.find((x) => x.key === l1?.[0]);
   const p2 = pares.find((x) => x.key === l2?.[0]);
   const erroMargem = p1 && p2 ? Math.abs((p1.pesquisa - p2.pesquisa) - (p1.urna - p2.urna)) : null;
-  // O líder da pesquisa é medido entre os nomes COMPARADOS: uma pesquisa que
-  // testou um nome que acabou não concorrendo (Alckmin em SP) não "errou o
-  // líder" por isso — ela mediu outra corrida nesse nome, e a regra 3 já o tirou.
   const liderPesquisa = [...pares].sort((a, b) => b.pesquisa - a.pesquisa)[0];
   const acertouLider = !!l1 && !!liderPesquisa && liderPesquisa.key === l1[0];
+  return { erroMedio: round1(erroMedio), erroMargem: erroMargem === null ? null : round1(erroMargem), acertouLider, comparados: pares.length };
+}
 
+function compararDisputa(p: Poll, r: ResultadoDisputa): AcertoDisputa | null {
+  // Regra 2: os dois lados em parte dos votos válidos. `toBasis` não converte
+  // Senado de propósito (regra 2 de validos.ts, pensada para a exibição); aqui a
+  // conversão é exatamente a conta que o TSE publica, então é feita à parte.
+  const pesquisa = r.race === "senador" ? senadoEmValidos(p) : toBasis(p, "validos");
+  const m = compararValores(pesquisa.results, r);
+  if (!m) return null;
   return {
     race: r.race,
     uf: r.uf,
     pollster: p.pollster,
     fieldwork_end: p.fieldwork_end ?? "",
     sample_size: p.sample_size,
-    erroMedio: round1(erroMedio),
-    erroMargem: erroMargem === null ? null : round1(erroMargem),
-    acertouLider,
-    comparados: pares.length,
+    ...m,
   };
 }
+
 
 /**
  * O ranking. Null quando não há resultado oficial carregado — a home então não
@@ -286,13 +301,31 @@ export function rankingAcerto(): RankingAcerto | null {
     const n = disputasPorCargo.get(c.race) ?? 0;
     if (!n) continue;
     const todos = [...(porCargo.get(c.race)?.values() ?? [])].map(agregar);
+    const ranqueados = todos.filter((x) => x.disputas >= c.minDisputas).sort(ordenar);
+    // A MÉDIA DO PLACAR COMO REFERÊNCIA (10/10, pedido de Iran): a média final
+    // do 1º turno presidencial, medida com as mesmas regras, entra como linha
+    // sem posição no ponto em que cairia pela ordem — mostra quantos institutos
+    // ficaram acima e abaixo dela. Só no presidencial: nos estaduais são 27
+    // médias, uma por estado, e não há uma linha só a mostrar.
+    let referencia: ReferenciaMedia | undefined;
+    if (c.race === "presidente") {
+      const r = res.disputas.find((d) => d.race === "presidente" && d.round === 1);
+      const avg = scenarioGroups("presidente", null, 1)[0]?.average ?? null;
+      const m = r && avg ? compararValores(avg.candidates.map((x) => ({ candidate: x.candidate, pct: x.avg })), r) : null;
+      if (m) {
+        const fake: AcertoInstituto = { pollster: "Média do Placar", disputas: 1, erroMedio: m.erroMedio, erroMargem: m.erroMargem, lideresCertos: m.acertouLider ? 1 : 0, detalhes: [] };
+        const acima = ranqueados.filter((x) => ordenar(x, fake) < 0).length;
+        referencia = { nome: "Média do Placar", erroMedio: m.erroMedio, erroMargem: m.erroMargem, acertouLider: m.acertouLider, acima, abaixo: ranqueados.length - acima, lastPollDate: avg!.lastPollDate };
+      }
+    }
     placares.push({
       race: c.race,
       titulo: c.titulo,
       disputasComResultado: n,
       minDisputas: c.minDisputas,
-      ranqueados: todos.filter((x) => x.disputas >= c.minDisputas).sort(ordenar),
+      ranqueados,
       demais: todos.filter((x) => x.disputas < c.minDisputas).sort(ordenar),
+      ...(referencia ? { referencia } : {}),
     });
   }
 

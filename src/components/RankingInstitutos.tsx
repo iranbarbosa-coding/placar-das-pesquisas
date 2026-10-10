@@ -56,6 +56,30 @@ function Linha({ pos, r, federal }: { pos: number; r: AcertoInstituto; federal: 
   );
 }
 
+/** A média do Placar como linha de referência, sem posição, destacada por tom e borda. */
+function LinhaReferencia({ ref_, federal }: { ref_: NonNullable<PlacarAcerto["referencia"]>; federal: boolean }) {
+  const f = faixa(ref_.erroMargem);
+  return (
+    <tr className="border-t border-b" style={{ borderColor: "var(--accent)", background: "color-mix(in srgb, var(--accent) 7%, transparent)" }}>
+      <td className="py-2 pr-2 text-right text-[10px] font-semibold uppercase tracking-wide" style={{ color: "var(--accent)" }}>ref.</td>
+      <td className="py-2 pr-3 text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+        {ref_.nome}
+        <span className="ml-1.5 text-xs font-normal" style={{ color: "var(--text-muted)" }}>
+          {ref_.acima} acima · {ref_.abaixo} abaixo
+        </span>
+      </td>
+      <td className={tdNum} style={{ color: "var(--text-secondary)" }}>{federal ? (ref_.lastPollDate ? fmtDate(ref_.lastPollDate) : "—") : "—"}</td>
+      <td className="py-2 pr-3 text-right">
+        <span className="inline-block rounded px-2 py-0.5 text-sm font-semibold tabular" style={{ background: f.bg, color: f.fg }}>
+          {fmt1(ref_.erroMargem)}
+        </span>
+      </td>
+      <td className={tdNum} style={{ color: "var(--text-secondary)" }}>{fmt1(ref_.erroMedio)}</td>
+      <td className="py-2 text-right text-sm tabular" style={{ color: "var(--text-secondary)" }}>{ref_.acertouLider ? "sim" : "não"}</td>
+    </tr>
+  );
+}
+
 function Placar({ p, maxRows }: { p: PlacarAcerto; maxRows: number }) {
   if (!p.ranqueados.length && !p.demais.length) return null;
   const federal = p.race === "presidente";
@@ -83,12 +107,23 @@ function Placar({ p, maxRows }: { p: PlacarAcerto; maxRows: number }) {
             </tr>
           </thead>
           <tbody>
-            {p.ranqueados.slice(0, maxRows).map((r, i) => (
-              <Linha key={r.pollster} pos={i + 1} r={r} federal={federal} />
-            ))}
+            {p.ranqueados.slice(0, maxRows).flatMap((r, i) => {
+              const linhas = [<Linha key={r.pollster} pos={i + 1} r={r} federal={federal} />];
+              // A média do Placar entra como referência logo após o último
+              // instituto que ficou à frente dela (ou no topo, se nenhum ficou).
+              if (p.referencia && i + 1 === p.referencia.acima) linhas.push(<LinhaReferencia key="__media" ref_={p.referencia} federal={federal} />);
+              return linhas;
+            })}
           </tbody>
         </table>
       </div>
+      {p.referencia ? (
+        <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
+          <span className="font-semibold" style={{ color: "var(--accent)" }}>ref.</span> = a média final do Placar para o 1º turno, medida com as
+          mesmas regras e posta onde cairia na ordem: {p.referencia.acima} instituto{p.referencia.acima === 1 ? "" : "s"} ficaram à frente dela e{" "}
+          {p.referencia.abaixo} atrás. Não tem posição porque é derivada das pesquisas que ranqueia.
+        </p>
+      ) : null}
       {p.ranqueados.length > maxRows ? (
         <p className="mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
           E mais {p.ranqueados.length - maxRows}:{" "}
