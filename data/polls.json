@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-09T23:14:02.914Z",
+ "generated_at": "2026-10-10T02:20:24.462Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-09T23:14:02.914Z"
+   "last_ok": "2026-10-10T02:20:24.462Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-09T23:14:02.914Z"
+   "last_ok": "2026-10-10T02:20:24.462Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-09T23:14:02.914Z"
+   "last_ok": "2026-10-10T02:20:24.462Z"
   }
  ],
  "polls": [
@@ -96,7 +96,7 @@
    "scenario": "2º turno: Celina Leão vs Leandro Grass",
    "pollster": "Datafolha",
    "contractor": "Folha da Manhã e Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-06",
    "fieldwork_end": "2026-10-08",
    "published_date": "2026-10-08",
    "sample_size": 910,
