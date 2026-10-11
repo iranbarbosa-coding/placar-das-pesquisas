@@ -1,24 +1,57 @@
 {
- "generated_at": "2026-10-11T16:38:17.790Z",
+ "generated_at": "2026-10-11T22:50:41.440Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-11T16:38:17.790Z"
+   "last_ok": "2026-10-11T22:50:41.440Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-11T16:38:17.790Z"
+   "last_ok": "2026-10-11T22:50:41.440Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-11T16:38:17.790Z"
+   "last_ok": "2026-10-11T22:50:41.440Z"
   }
  ],
  "polls": [
+  {
+   "id": "p360-14435-2-0-89b6544ff9eb",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-531-e-lula-tem-469-em-votos-validos-diz-datatrends/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-datatrends-nacional-11out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-10-07",
+   "fieldwork_end": "2026-10-09",
+   "published_date": "2026-10-09",
+   "sample_size": 2000,
+   "margin_of_error": 2.19,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-03576/2026"
+  },
   {
    "id": "0492b5c35c7e",
    "source": null,
@@ -13498,7 +13531,7 @@
      "pct": 35.47
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 19.99
     },
@@ -23431,7 +23464,7 @@
      "pct": 15.41
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 9.08
     },
@@ -26300,7 +26333,7 @@
      "pct": 12
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 9
     },
@@ -29432,7 +29465,7 @@
      "pct": 40.3
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 21
     },
@@ -31089,7 +31122,7 @@
      "pct": 15.62
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 10.8
     },
@@ -32215,7 +32248,7 @@
      "pct": 31.95
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 16.2
     },
@@ -44312,7 +44345,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 11.3
     },
@@ -47831,7 +47864,7 @@
      "pct": 13.97
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 8.91
     },
@@ -57794,7 +57827,7 @@
      "pct": 27.74
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 14.96
     },
@@ -60640,7 +60673,7 @@
      "pct": 13.4
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 9.2
     },
@@ -66756,7 +66789,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 10.5
     },
@@ -68933,7 +68966,7 @@
      "pct": 27.14
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 12.99
     },
@@ -73455,7 +73488,7 @@
      "pct": 42.8
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 21.7
     },
@@ -73592,24 +73625,9 @@
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 20
-    },
-    {
-     "candidate": "Professor Roberio Paulino",
-     "party": "PSOL",
-     "pct": 1.5
-    },
-    {
-     "candidate": "Rodrigo de Bolsonaro",
-     "party": "Agir",
-     "pct": 3
-    },
-    {
-     "candidate": "Dário Barbosa",
-     "party": "PSTU",
-     "pct": 0.6
     }
    ],
-   "others_pct": 0.6,
+   "others_pct": 5.7,
    "undecided_pct": 6.6,
    "blank_null_pct": null,
    "tse_registration": null
@@ -73903,7 +73921,7 @@
      "pct": 25.63
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 13.87
     },
@@ -77587,7 +77605,7 @@
      "pct": 24.3
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 12.3
     },
@@ -80271,7 +80289,7 @@
      "pct": 12.9
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 4.1
     },
@@ -80509,16 +80527,6 @@
      "candidate": "Cadu de Lula",
      "party": "PT",
      "pct": 13.2
-    },
-    {
-     "candidate": "Professor Roberio Paulino",
-     "party": "PSOL",
-     "pct": 0
-    },
-    {
-     "candidate": "Dário Barbosa",
-     "party": "PSTU",
-     "pct": 0.2
     }
    ],
    "others_pct": 0.3,
@@ -83811,7 +83819,7 @@
      "pct": 15.45
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 7.77
     },
@@ -88790,7 +88798,7 @@
      "pct": 10
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 8
     },
@@ -94481,7 +94489,7 @@
      "pct": 10.43
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 7
     },
@@ -94653,6 +94661,11 @@
      "pct": 50
     },
     {
+     "candidate": "Samanda Alves",
+     "party": "PT",
+     "pct": 15.4
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 26.8
@@ -94661,19 +94674,9 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 25.2
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 15.4
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 6.6
     }
    ],
-   "others_pct": null,
+   "others_pct": 6.6,
    "undecided_pct": 28,
    "blank_null_pct": null,
    "tse_registration": null
@@ -97322,7 +97325,7 @@
      "pct": 34.2
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 17.4
     },
@@ -98342,7 +98345,7 @@
      "pct": 13
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 6.6
     },
@@ -100453,6 +100456,11 @@
      "pct": 12.18
     },
     {
+     "candidate": "Samanda Alves",
+     "party": "PT",
+     "pct": 5.32
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 9.09
@@ -100461,29 +100469,9 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 7
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 5.32
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 0.94
-    },
-    {
-     "candidate": "Rosália Fernandes",
-     "party": "PSTU",
-     "pct": 0.24
-    },
-    {
-     "candidate": "Luciana Mandu",
-     "party": "PSTU",
-     "pct": 0.12
     }
    ],
-   "others_pct": 1.12,
+   "others_pct": 2.42,
    "undecided_pct": 40.59,
    "blank_null_pct": null,
    "tse_registration": "RN-08509/2026"
@@ -100793,7 +100781,7 @@
      "pct": 40
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 20.4
     },
@@ -102817,7 +102805,7 @@
      "pct": 20.2
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 14
     },
@@ -108350,6 +108338,11 @@
      "pct": 50
     },
     {
+     "candidate": "Samanda Alves",
+     "party": "PT",
+     "pct": 19
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 21
@@ -108358,16 +108351,6 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 19
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 19
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 4
     }
    ],
    "others_pct": null,
@@ -114194,7 +114177,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 10.4
     },
@@ -117075,6 +117058,11 @@
      "pct": 11.2
     },
     {
+     "candidate": "Samanda Alves",
+     "party": "PT",
+     "pct": 18.2
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 15.3
@@ -117083,19 +117071,9 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 14.4
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 18.2
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 2.1
     }
    ],
-   "others_pct": 2.4,
+   "others_pct": 4.5,
    "undecided_pct": 14.9,
    "blank_null_pct": null,
    "tse_registration": "RN-04754/2026"
@@ -119847,7 +119825,7 @@
      "pct": 29
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 5.4
     },
@@ -123626,7 +123604,7 @@
      "pct": 14.6
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 11.4
     },
@@ -124085,6 +124063,11 @@
      "pct": 34.34
     },
     {
+     "candidate": "Samanda Alves",
+     "party": "PT",
+     "pct": 23.7
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 18.89
@@ -124093,29 +124076,9 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 21.76
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.4
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 1.76
-    },
-    {
-     "candidate": "Rosália Fernandes",
-     "party": "PSTU",
-     "pct": 1.59
-    },
-    {
-     "candidate": "Luciana Mandu",
-     "party": "PSTU",
-     "pct": 0.67
     }
    ],
-   "others_pct": 0.99,
+   "others_pct": 5.01,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "BR-07763/2026"
@@ -124892,7 +124855,7 @@
      "pct": 39.8
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 11.9
     },
@@ -126696,7 +126659,7 @@
      "pct": 41.6
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 5.26
     },
@@ -127179,7 +127142,7 @@
      "pct": 13.27
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 10.4
     },
@@ -130523,7 +130486,7 @@
      "pct": 26.3
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 21.8
     },
@@ -132514,7 +132477,7 @@
      "pct": 32.7
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 11.1
     },
@@ -135022,7 +134985,7 @@
      "pct": 40.3
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 3.9
     },
@@ -135806,7 +135769,7 @@
      "pct": 12.2
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 8.9
     },
@@ -143480,7 +143443,7 @@
      "pct": 25.3
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 24.3
     },
@@ -143632,6 +143595,11 @@
      "pct": 15
     },
     {
+     "candidate": "Samanda Alves",
+     "party": "PT",
+     "pct": 12.89
+    },
+    {
      "candidate": "Coronel Hélio",
      "party": "PL",
      "pct": 39.7
@@ -143640,29 +143608,9 @@
      "candidate": "Rafael Motta",
      "party": "PDT",
      "pct": 28.6
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 24.3
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 4.8
-    },
-    {
-     "candidate": "Rosália Fernandes",
-     "party": "PSTU",
-     "pct": 1.6
-    },
-    {
-     "candidate": "Luciana Mandu",
-     "party": "PSTU",
-     "pct": 5.2
     }
    ],
-   "others_pct": null,
+   "others_pct": 11.6,
    "undecided_pct": 32.8,
    "blank_null_pct": null,
    "tse_registration": null
@@ -144302,7 +144250,7 @@
      "pct": 34.15
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 10.6
     },
@@ -145176,7 +145124,7 @@
      "pct": 36.45
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 19.1
     },
@@ -148134,7 +148082,7 @@
      "pct": 26.2
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 8.1
     },
@@ -148422,7 +148370,7 @@
      "pct": 19
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 11.6
     },
@@ -148700,7 +148648,7 @@
      "pct": 9.9
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 13.3
     },
@@ -151851,7 +151799,7 @@
      "pct": 12.1
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 3.5
     },
@@ -154492,7 +154440,7 @@
      "pct": 15
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 4.8
     },
@@ -154917,7 +154865,7 @@
      "pct": 22.3
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 24.8
     },
@@ -156067,7 +156015,7 @@
      "pct": 41.7
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 10.7
     },
@@ -164797,17 +164745,12 @@
      "pct": 2.9
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 6
-    },
-    {
-     "candidate": "Sandro Pimentel",
-     "party": "PSOL",
-     "pct": 1.4
     }
    ],
-   "others_pct": 0.5,
+   "others_pct": 1.9,
    "undecided_pct": 31.4,
    "blank_null_pct": null,
    "tse_registration": null
@@ -164888,7 +164831,7 @@
      "pct": 1.9
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 12.6
     }
@@ -169404,7 +169347,7 @@
      "pct": 23.1
     },
     {
-     "candidate": "Samanda de Lula",
+     "candidate": "Samanda Alves",
      "party": "PT",
      "pct": 31.9
     }
