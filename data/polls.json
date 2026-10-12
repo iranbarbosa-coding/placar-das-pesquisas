@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-11T22:50:41.440Z",
+ "generated_at": "2026-10-12T02:20:32.525Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-11T22:50:41.440Z"
+   "last_ok": "2026-10-12T02:20:32.525Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-11T22:50:41.440Z"
+   "last_ok": "2026-10-12T02:20:32.525Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-11T22:50:41.440Z"
+   "last_ok": "2026-10-12T02:20:32.525Z"
   }
  ],
  "polls": [
@@ -13531,7 +13531,7 @@
      "pct": 35.47
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 19.99
     },
@@ -23464,7 +23464,7 @@
      "pct": 15.41
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 9.08
     },
@@ -26333,7 +26333,7 @@
      "pct": 12
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 9
     },
@@ -29465,7 +29465,7 @@
      "pct": 40.3
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 21
     },
@@ -31122,7 +31122,7 @@
      "pct": 15.62
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 10.8
     },
@@ -32248,7 +32248,7 @@
      "pct": 31.95
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 16.2
     },
@@ -44345,7 +44345,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 11.3
     },
@@ -47864,7 +47864,7 @@
      "pct": 13.97
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 8.91
     },
@@ -57827,7 +57827,7 @@
      "pct": 27.74
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 14.96
     },
@@ -60673,7 +60673,7 @@
      "pct": 13.4
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 9.2
     },
@@ -66789,7 +66789,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 10.5
     },
@@ -68966,7 +68966,7 @@
      "pct": 27.14
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 12.99
     },
@@ -73488,7 +73488,7 @@
      "pct": 42.8
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 21.7
     },
@@ -73921,7 +73921,7 @@
      "pct": 25.63
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 13.87
     },
@@ -77605,7 +77605,7 @@
      "pct": 24.3
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 12.3
     },
@@ -80289,7 +80289,7 @@
      "pct": 12.9
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 4.1
     },
@@ -83819,7 +83819,7 @@
      "pct": 15.45
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 7.77
     },
@@ -88798,7 +88798,7 @@
      "pct": 10
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 8
     },
@@ -94489,7 +94489,7 @@
      "pct": 10.43
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 7
     },
@@ -94661,7 +94661,7 @@
      "pct": 50
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 15.4
     },
@@ -97325,7 +97325,7 @@
      "pct": 34.2
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 17.4
     },
@@ -98345,7 +98345,7 @@
      "pct": 13
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 6.6
     },
@@ -100456,7 +100456,7 @@
      "pct": 12.18
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 5.32
     },
@@ -100781,7 +100781,7 @@
      "pct": 40
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 20.4
     },
@@ -102805,7 +102805,7 @@
      "pct": 20.2
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 14
     },
@@ -108338,7 +108338,7 @@
      "pct": 50
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 19
     },
@@ -114177,7 +114177,7 @@
      "pct": 20.7
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 10.4
     },
@@ -117058,7 +117058,7 @@
      "pct": 11.2
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 18.2
     },
@@ -119825,7 +119825,7 @@
      "pct": 29
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 5.4
     },
@@ -123604,7 +123604,7 @@
      "pct": 14.6
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 11.4
     },
@@ -124063,7 +124063,7 @@
      "pct": 34.34
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 23.7
     },
@@ -124855,7 +124855,7 @@
      "pct": 39.8
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 11.9
     },
@@ -126659,7 +126659,7 @@
      "pct": 41.6
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 5.26
     },
@@ -127142,7 +127142,7 @@
      "pct": 13.27
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 10.4
     },
@@ -130486,7 +130486,7 @@
      "pct": 26.3
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 21.8
     },
@@ -132477,7 +132477,7 @@
      "pct": 32.7
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 11.1
     },
@@ -134985,7 +134985,7 @@
      "pct": 40.3
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 3.9
     },
@@ -135769,7 +135769,7 @@
      "pct": 12.2
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 8.9
     },
@@ -143443,7 +143443,7 @@
      "pct": 25.3
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 24.3
     },
@@ -143595,7 +143595,7 @@
      "pct": 15
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 12.89
     },
@@ -144250,7 +144250,7 @@
      "pct": 34.15
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 10.6
     },
@@ -145124,7 +145124,7 @@
      "pct": 36.45
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 19.1
     },
@@ -148082,7 +148082,7 @@
      "pct": 26.2
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 8.1
     },
@@ -148370,7 +148370,7 @@
      "pct": 19
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 11.6
     },
@@ -148648,7 +148648,7 @@
      "pct": 9.9
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 13.3
     },
@@ -151799,7 +151799,7 @@
      "pct": 12.1
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 3.5
     },
@@ -154440,7 +154440,7 @@
      "pct": 15
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 4.8
     },
@@ -154865,7 +154865,7 @@
      "pct": 22.3
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 24.8
     },
@@ -156015,7 +156015,7 @@
      "pct": 41.7
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 10.7
     },
@@ -164745,7 +164745,7 @@
      "pct": 2.9
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 6
     }
@@ -164831,7 +164831,7 @@
      "pct": 1.9
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 12.6
     }
@@ -169347,7 +169347,7 @@
      "pct": 23.1
     },
     {
-     "candidate": "Samanda Alves",
+     "candidate": "Samanda de Lula",
      "party": "PT",
      "pct": 31.9
     }

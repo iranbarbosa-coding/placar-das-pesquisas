@@ -3,7 +3,7 @@
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
   "exato": 721,
-  "contencao": 225,
+  "contencao": 226,
   "outra_disputa": 162,
   "ambiguo": 5,
   "sem": 564
@@ -6994,6 +6994,13 @@
     "partido": "PSTU",
     "numero": "166",
     "origem": "exato"
+   },
+   "samanda alves": {
+    "nome_urna": "Samanda de Lula",
+    "sq_candidato": "200002533841",
+    "partido": "PT",
+    "numero": "131",
+    "origem": "contencao"
    },
    "samanda de lula": {
     "nome_urna": "Samanda de Lula",
