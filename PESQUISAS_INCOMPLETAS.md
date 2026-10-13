@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **93 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **94 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -1351,6 +1351,22 @@ Soma **85.4%** · faltam **14.6 pontos** · 8 candidato(s) na tabela · amostra 
 | Doutor Alexandre Salomão | 0.3 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rio Grande do Norte · 2º turno
+
+### Seta — 2026-10-10
+
+Soma **85.8%** · faltam **14.2 pontos** · 2 candidato(s) na tabela · amostra 1500
+
+| candidato | % |
+|---|---|
+| Allyson | 43.5 |
+| Cadu de Lula | 32.4 |
+| *não sabe/não respondeu* | 9.9 |
+
+- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
