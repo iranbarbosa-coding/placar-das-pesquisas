@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-14T15:48:29.189Z",
+ "generated_at": "2026-10-14T22:16:11.469Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-14T15:48:29.189Z"
+   "last_ok": "2026-10-14T22:16:11.469Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-14T15:48:29.189Z"
+   "last_ok": "2026-10-14T22:16:11.469Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-14T15:48:29.189Z"
+   "last_ok": "2026-10-14T22:16:11.469Z"
   }
  ],
  "polls": [
@@ -49,6 +49,105 @@
    ],
    "others_pct": null,
    "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "40d18ea3e1e6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-10-10",
+   "fieldwork_end": "2026-10-13",
+   "published_date": null,
+   "sample_size": 2154,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "444967ff69a1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "ES",
+   "round": 2,
+   "scenario": "2º turno: Lorenzo Pazolini e Ricardo Ferraço",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-10-10",
+   "fieldwork_end": "2026-10-13",
+   "published_date": null,
+   "sample_size": 1098,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lorenzo Pazolini",
+     "party": "Republicanos",
+     "pct": 57
+    },
+    {
+     "candidate": "Ricardo Ferraço",
+     "party": "MDB",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2e0f01d396b6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Affare",
+   "contractor": null,
+   "fieldwork_start": "2026-10-09",
+   "fieldwork_end": "2026-10-12",
+   "published_date": null,
+   "sample_size": 1350,
+   "margin_of_error": 2.67,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 49.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -39907,7 +40006,7 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -39950,7 +40049,7 @@
    "scenario": "2º turno: Coronel Zucco vs Juliana Brizola",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -39983,7 +40082,7 @@
    "scenario": "2º turno: Coronel Zucco vs Gabriel Souza",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -40016,7 +40115,7 @@
    "scenario": "2º turno: Juliana Brizola vs Gabriel Souza",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -93792,7 +93891,7 @@
   {
    "id": "p360-13885-1-0-9959cdd04b54",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/manuela-davila-lidera-disputa-pelo-senado-no-rs/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-e-juliana-brizola-empatam-pelo-governo-do-rs-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-parana-pesquisa-governo-senado-rs.pdf",
    "race": "senador",
    "state": "RS",

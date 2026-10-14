@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1813 levantamentos · 5959 perguntas · 162 institutos · 1444 candidatos**.
+Banco: **1814 levantamentos · 5962 perguntas · 162 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 50 | 36 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 396 | 5 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 388 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **459** | **44** |
+| **total** | **451** | **44** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -332,7 +332,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (396)
+## CONFLITO — Conflitos registrados aguardando decisão (388)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -717,21 +717,13 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_7069136782e8 · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_e21e9d6a047d · results: ["Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_94f28f09c4fc · results: null × ["Sebastião Bocalom"]
-- survey_id_orphaned · s_1a87afdafbfb · survey_id: "s_1a87afdafbfb" × null
 - roster_encolhido_na_fonte · q_0927afb01163 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_encolhido_na_fonte · q_4df80dd793ad · results: ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"]
-- candidate_id_orphaned · c_44ff8e240ef0 · candidate_id: "c_44ff8e240ef0" × null
-- survey_id_orphaned · s_a435e87c4f4c · survey_id: "s_a435e87c4f4c" × null
 - roster_encolhido_na_fonte · q_041706c33fa6 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Professora Samara","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
-- survey_id_orphaned · s_a804ce0b7550 · survey_id: "s_a804ce0b7550" × null
 - roster_encolhido_na_fonte · q_3a991e7e862f · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"]
 - roster_encolhido_na_fonte · q_d2cab372ee66 · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_59fd4f91bb9f · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Heró Bezerra","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Heró Bezerra","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
-- roster_encolhido_na_fonte · q_49d296f11b64 · results: ["Cesar Pontes","Coronel Zucco","Gabriel Souza","Juliana Brizola","Marcelo Maranata","Priscila Voigt","Rejane de Oliveira"] × ["Gabriel Souza","Juliana Brizola","Luciano Zucco","Marcelo Maranata"]
-- person_id_orphaned · p_a5d383ad62a1 · person_id: "p_a5d383ad62a1" × null
-- roster_encolhido_na_fonte · q_dde667e2ddf4 · results: ["Coronel Zucco","Covatti filho","Edegar Pretto","Gabriel Souza","Juliana Brizola","Paula Mascarenhas"] × ["Covatti Filho","Edegar Pretto","Gabriel Souza","Juliana Brizola","Luciano Zucco"]
 - roster_encolhido_na_fonte · q_ee442f75ac27 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
-- disputa_em_quarentena · governador:RS · quarentena: 75 × 73
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
