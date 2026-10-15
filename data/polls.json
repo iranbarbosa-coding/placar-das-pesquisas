@@ -1,24 +1,57 @@
 {
- "generated_at": "2026-10-15T01:26:14.998Z",
+ "generated_at": "2026-10-15T15:35:08.200Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-15T01:26:14.998Z"
+   "last_ok": "2026-10-15T15:35:08.200Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-15T01:26:14.998Z"
+   "last_ok": "2026-10-15T15:35:08.200Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-15T01:26:14.998Z"
+   "last_ok": "2026-10-15T15:35:08.200Z"
   }
  ],
  "polls": [
+  {
+   "id": "64778d157438",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Data Index",
+   "contractor": null,
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-14",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 42
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "40d18ea3e1e6",
    "source": null,
@@ -72,16 +105,49 @@
     {
      "candidate": "Lorenzo Pazolini",
      "party": "Republicanos",
-     "pct": 57
+     "pct": 47
     },
     {
      "candidate": "Ricardo Ferraço",
      "party": "MDB",
-     "pct": 43
+     "pct": 38
     }
    ],
    "others_pct": null,
-   "undecided_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ac6adfd1e3bc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Palver",
+   "contractor": null,
+   "fieldwork_start": "2026-10-10",
+   "fieldwork_end": "2026-10-13",
+   "published_date": null,
+   "sample_size": 5000,
+   "margin_of_error": 2.3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 49
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -96,7 +162,7 @@
    "scenario": "2º turno: Celina Leão vs Leandro Grass",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": "2026-10-09",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-13",
    "published_date": "2026-10-13",
    "sample_size": 1600,
@@ -459,7 +525,7 @@
    "scenario": "2º turno: Celina Leão e Leandro Grass",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": "2026-10-08",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-11",
    "published_date": "2026-10-11",
    "sample_size": 1104,
@@ -558,7 +624,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": "2026-10-08",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-11",
    "published_date": "2026-10-11",
    "sample_size": 1104,
@@ -136725,6 +136791,16 @@
      "pct": 38.8
     },
     {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 30.2
+    },
+    {
+     "candidate": "Ibaneis",
+     "party": "MDB",
+     "pct": 22.6
+    },
+    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 14.4
@@ -136733,16 +136809,6 @@
      "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 25
-    },
-    {
-     "candidate": "Ibaneis",
-     "party": "MDB",
-     "pct": 22.6
-    },
-    {
-     "candidate": "Leila do Vôlei",
-     "party": "PDT",
-     "pct": 30.2
     },
     {
      "candidate": "José Reguffe",
@@ -139633,6 +139699,16 @@
      "pct": 36.8
     },
     {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 18.8
+    },
+    {
+     "candidate": "Ibaneis",
+     "party": "MDB",
+     "pct": 21.7
+    },
+    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 10.6
@@ -139641,16 +139717,6 @@
      "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 15.7
-    },
-    {
-     "candidate": "Ibaneis",
-     "party": "MDB",
-     "pct": 21.7
-    },
-    {
-     "candidate": "Leila do Vôlei",
-     "party": "PDT",
-     "pct": 18.8
     },
     {
      "candidate": "José Reguffe",
@@ -145768,6 +145834,44 @@
    ],
    "others_pct": 10.6,
    "undecided_pct": 59.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d2d08623674e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Insppe/Clube FM",
+   "contractor": null,
+   "fieldwork_start": "2026-05-26",
+   "fieldwork_end": "2026-05-28",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 34.93
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 23.07
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 6.6
+    }
+   ],
+   "others_pct": 2.54,
+   "undecided_pct": 32.87,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -155487,6 +155591,16 @@
      "pct": 29.8
     },
     {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 14.9
+    },
+    {
+     "candidate": "Ibaneis",
+     "party": "MDB",
+     "pct": 10.2
+    },
+    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 29.2
@@ -155495,16 +155609,6 @@
      "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 28.4
-    },
-    {
-     "candidate": "Ibaneis",
-     "party": "MDB",
-     "pct": 10.2
-    },
-    {
-     "candidate": "Leila do Vôlei",
-     "party": "PDT",
-     "pct": 14.9
     },
     {
      "candidate": "José Reguffe",
@@ -157105,6 +157209,16 @@
      "pct": 17.58
     },
     {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 9.02
+    },
+    {
+     "candidate": "Ibaneis",
+     "party": "MDB",
+     "pct": 4.78
+    },
+    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 5.99
@@ -157113,16 +157227,6 @@
      "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 4.28
-    },
-    {
-     "candidate": "Ibaneis",
-     "party": "MDB",
-     "pct": 4.78
-    },
-    {
-     "candidate": "Leila do Vôlei",
-     "party": "PDT",
-     "pct": 9.02
     },
     {
      "candidate": "José Reguffe",
@@ -179218,6 +179322,16 @@
      "pct": 41
     },
     {
+     "candidate": "Leila do Vôlei",
+     "party": "PDT",
+     "pct": 14.9
+    },
+    {
+     "candidate": "Ibaneis",
+     "party": "MDB",
+     "pct": 16.2
+    },
+    {
      "candidate": "Bia Kicis",
      "party": "PL",
      "pct": 25.3
@@ -179226,16 +179340,6 @@
      "candidate": "Erika Kokay",
      "party": "PT",
      "pct": 28.4
-    },
-    {
-     "candidate": "Ibaneis",
-     "party": "MDB",
-     "pct": 16.2
-    },
-    {
-     "candidate": "Leila do Vôlei",
-     "party": "PDT",
-     "pct": 14.9
     },
     {
      "candidate": "José Reguffe",

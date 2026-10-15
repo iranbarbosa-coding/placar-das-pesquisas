@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1818 levantamentos · 5967 perguntas · 162 institutos · 1444 candidatos**.
+Banco: **1829 levantamentos · 5970 perguntas · 163 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 50 | 36 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 392 | 5 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 412 | 5 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **455** | **44** |
+| **total** | **475** | **44** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -332,7 +332,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (392)
+## CONFLITO — Conflitos registrados aguardando decisão (412)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -492,7 +492,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_ed3095dad3b9 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_7e34f7fded38 · results: ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Samara Martins"]
 - roster_encolhido_na_fonte · q_66a2c0b7f86a · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
-- roster_encolhido_na_fonte · q_ad25dff34bc3 · results: ["Celina Leão","Izalci Lucas","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","Izalci Lucas","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
 - roster_encolhido_na_fonte · q_4e4475bcd6d2 · results: ["Aldo Rebelo","Ciro Gomes","Flávio Bolsonaro","Lula","Ratinho Jr","Renan Santos","Romeu Zema"] × ["Aldo Rebelo","Ciro Gomes","Flávio Bolsonaro","Lula","Ratinho Jr","Romeu Zema"]
 - roster_encolhido_na_fonte · q_76a4cac858ef · results: ["Beto do Movimento","Daniel Junior","Nelsinho Trad","Reinaldo Azambuja","Renan Contar","Soraya Thronicke","Vander Loubet"] × ["Beto do Movimento","Capitão Contar","Nelsinho Trad","Reinaldo Azambuja","Soraya Thronicke","Vander Loubet"]
 - roster_encolhido_na_fonte · q_d22d72518db9 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado"]
@@ -724,10 +723,31 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_d2cab372ee66 · results: ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Aécio Neves","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_59fd4f91bb9f · results: ["Augusto Cury","Cabo Daciolo","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Heró Bezerra","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Heró Bezerra","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
 - roster_encolhido_na_fonte · q_ee442f75ac27 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Pablo Marçal","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta"]
-- person_id_orphaned · p_e9cac5331b79 · person_id: "p_e9cac5331b79" × null
-- person_id_orphaned · p_833fb23fa2cf · person_id: "p_833fb23fa2cf" × null
-- person_id_orphaned · p_abe40ddc5755 · person_id: "p_abe40ddc5755" × null
-- survey_id_orphaned · s_444130c57425 · survey_id: "s_444130c57425" × null
+- roster_encolhido_na_fonte · q_301e2475d4ae · results: ["Celina Leão","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- roster_encolhido_na_fonte · q_051ff5e23060 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- survey_id_orphaned · s_362628fc47fb · survey_id: "s_362628fc47fb" × null
+- roster_encolhido_na_fonte · q_8554d7999948 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- roster_encolhido_na_fonte · q_e9184108d470 · results: ["Celina Leão","Kiko Caputo","Leandro Grass","Paula Belmonte"] × ["Celina Leão","Leandro Grass","Paula Belmonte"]
+- roster_encolhido_na_fonte · q_a661707d69e0 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- survey_id_orphaned · s_fb70e05d17e1 · survey_id: "s_fb70e05d17e1" × null
+- roster_encolhido_na_fonte · q_69becf4de398 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- survey_id_orphaned · s_c98bf4e807f3 · survey_id: "s_c98bf4e807f3" × null
+- survey_id_orphaned · s_f6329d777b09 · survey_id: "s_f6329d777b09" × null
+- roster_encolhido_na_fonte · q_c4184999184f · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- roster_shrink_ambiguo · q_9f29a096b917 · results: ["q_40908a1caf25","q_d352c5e27d84"] × ["Celina Leão","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- roster_encolhido_na_fonte · q_b0afaf8b7589 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- survey_id_orphaned · s_e188f3cde6fa · survey_id: "s_e188f3cde6fa" × null
+- survey_id_orphaned · s_9024abf03c33 · survey_id: "s_9024abf03c33" × null
+- survey_id_orphaned · s_38e4cd61680d · survey_id: "s_38e4cd61680d" × null
+- survey_id_orphaned · s_697b02f150d0 · survey_id: "s_697b02f150d0" × null
+- roster_encolhido_na_fonte · q_5db4177d5ede · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- survey_id_orphaned · s_5ec469d6a3f4 · survey_id: "s_5ec469d6a3f4" × null
+- survey_id_orphaned · s_eedb9644adbf · survey_id: "s_eedb9644adbf" × null
+- roster_shrink_ambiguo · q_ae9955b41b9a · results: ["q_40908a1caf25"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- roster_encolhido_na_fonte · q_03fddbe12b3c · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- roster_encolhido_na_fonte · q_8a9e11a579a8 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
+- survey_id_orphaned · s_ba56a5e4d6f4 · survey_id: "s_ba56a5e4d6f4" × null
+- disputa_em_quarentena · governador:DF · quarentena: 101 × 96
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
