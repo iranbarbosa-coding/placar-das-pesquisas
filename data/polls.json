@@ -1,24 +1,57 @@
 {
- "generated_at": "2026-10-15T15:35:08.200Z",
+ "generated_at": "2026-10-15T22:13:09.735Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-15T15:35:08.200Z"
+   "last_ok": "2026-10-15T22:13:09.735Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-15T15:35:08.200Z"
+   "last_ok": "2026-10-15T22:13:09.735Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-15T15:35:08.200Z"
+   "last_ok": "2026-10-15T22:13:09.735Z"
   }
  ],
  "polls": [
+  {
+   "id": "382b4a89a077",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-15",
+   "published_date": null,
+   "sample_size": 2520,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "64778d157438",
    "source": null,
@@ -1110,6 +1143,39 @@
    "tse_registration": "BR-02949/2026"
   },
   {
+   "id": "02d379ba8f4b",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/MS-041572026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MS-041572026-Governador.pdf",
+   "race": "governador",
+   "state": "MS",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Riedel vs Delcídio do Amaral",
+   "pollster": "Quaest",
+   "contractor": "TV Morena",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Riedel",
+     "party": "PP",
+     "pct": 62
+    },
+    {
+     "candidate": "Delcidio Amaral",
+     "party": "PRD",
+     "pct": 15
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": "MS-04157/2026"
+  },
+  {
    "id": "03033f6d014a",
    "source": null,
    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
@@ -1487,6 +1553,54 @@
    "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": "AC-02370/2026"
+  },
+  {
+   "id": "84f6cf329eeb",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/AL-073792026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/AL-073792026.pdf",
+   "race": "senador",
+   "state": "AL",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "TV Asa Branca Alagoas",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Arthur Lira",
+     "party": "PP",
+     "pct": 27
+    },
+    {
+     "candidate": "Marina JHC",
+     "party": "PSDB",
+     "pct": 29
+    },
+    {
+     "candidate": "Renan",
+     "party": "MDB",
+     "pct": 25
+    },
+    {
+     "candidate": "Davi Davino Filho",
+     "party": "Republicanos",
+     "pct": 9
+    },
+    {
+     "candidate": "Dr. Wanderley",
+     "party": "MDB",
+     "pct": 9
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": "AL-07379/2026"
   },
   {
    "id": "8e56183e0269",
@@ -2009,7 +2123,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Asa Branca Alagoas",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -2052,7 +2166,7 @@
    "scenario": "2º turno: Renan Filho vs JHC",
    "pollster": "Quaest",
    "contractor": "TV Asa Branca Alagoas",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -3183,7 +3297,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Morena",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -3246,7 +3360,7 @@
    "scenario": "2º turno: Eduardo Riedel vs Fábio Trad",
    "pollster": "Quaest",
    "contractor": "TV Morena",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -3476,7 +3590,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Morena",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7391,6 +7505,39 @@
    "tse_registration": "BR-04756/2026"
   },
   {
+   "id": "2545ef939332",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 68.5
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 31.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2d5c848265e8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
@@ -7661,6 +7808,39 @@
     }
    ],
    "others_pct": 14,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "59c21fc4bfb8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 57.1
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 42.9
+    }
+   ],
+   "others_pct": null,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -8480,7 +8660,7 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-27",
    "fieldwork_end": "2026-10-02",
    "published_date": "2026-10-02",
    "sample_size": 1194,
@@ -8528,7 +8708,7 @@
    "scenario": "2º turno: Otaviano Pivetta vs Wellington Fagundes",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-27",
    "fieldwork_end": "2026-10-02",
    "published_date": "2026-10-02",
    "sample_size": 1194,
@@ -8561,7 +8741,7 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-27",
    "fieldwork_end": "2026-10-02",
    "published_date": "2026-10-02",
    "sample_size": 1194,
@@ -8614,7 +8794,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-27",
    "fieldwork_end": "2026-10-02",
    "published_date": "2026-10-02",
    "sample_size": 1194,
@@ -8647,21 +8827,26 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-27",
    "fieldwork_end": "2026-10-02",
    "published_date": "2026-10-02",
    "sample_size": 1194,
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Zé Medeiros",
-     "party": "PL",
-     "pct": 26.8
-    },
-    {
      "candidate": "Mauro Mendes",
      "party": "União Brasil",
      "pct": 25.3
+    },
+    {
+     "candidate": "Janaína Riva",
+     "party": "MDB",
+     "pct": 10.2
+    },
+    {
+     "candidate": "Zé Medeiros",
+     "party": "PL",
+     "pct": 26.8
     },
     {
      "candidate": "Fávaro",
@@ -8679,9 +8864,9 @@
      "pct": 7.3
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 2.9,
-   "blank_null_pct": 2,
+   "others_pct": 2.1,
+   "undecided_pct": 3.1,
+   "blank_null_pct": null,
    "tse_registration": "BR-02167/2026"
   },
   {
@@ -13673,39 +13858,6 @@
    "tse_registration": null
   },
   {
-   "id": "0afcd0eff289",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-30",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 28
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 50
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "14bc9150f82e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -14483,6 +14635,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b189fb931452",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 28
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 50
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -18968,39 +19153,6 @@
    "tse_registration": "DF-04637/2026"
   },
   {
-   "id": "8cdfeced4f27",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2026-09-26",
-   "fieldwork_end": "2026-09-28",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 47
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 48
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "9285bd0ca1d5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -19696,6 +19848,39 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d9765e0394ea",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-28",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 48
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 47
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -27218,6 +27403,39 @@
    "tse_registration": null
   },
   {
+   "id": "1c94209c6461",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 48
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 25
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "1f127fc24a96",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -27805,6 +28023,72 @@
    "tse_registration": null
   },
   {
+   "id": "3e51ddbf28c7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "43c20fb2a72e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 47
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "44c76c649952",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
@@ -28203,6 +28487,72 @@
    ],
    "others_pct": null,
    "undecided_pct": 27,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5dca5e3a1cf8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5e552c867990",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MS",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Riedel",
+     "party": "PP",
+     "pct": 63
+    },
+    {
+     "candidate": "Delcidio Amaral",
+     "party": "PRD",
+     "pct": 19
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -28642,39 +28992,6 @@
    "tse_registration": null
   },
   {
-   "id": "74cdfe964adf",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MS",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Riedel e Delcídio do Amaral",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Riedel",
-     "party": "PP",
-     "pct": 63
-    },
-    {
-     "candidate": "Delcidio Amaral",
-     "party": "PRD",
-     "pct": 19
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "769a68aabefe",
    "source": null,
    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
@@ -28833,39 +29150,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "86a3efb156f6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 41
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -29257,39 +29541,6 @@
    "tse_registration": null
   },
   {
-   "id": "a3eec1030cdc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Doutora Natasha",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 48
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 25
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "a55329ab858c",
    "source": null,
    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
@@ -29389,72 +29640,6 @@
    "tse_registration": null
   },
   {
-   "id": "b3991e9d6ed3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 45
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 47
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b3b2fc16e31e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Otaviano Pivetta e Doutora Natasha",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 46
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 29
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "bb3906d3012a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -29532,6 +29717,39 @@
    ],
    "others_pct": 1,
    "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "bf847bdea3d8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 46
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -30549,39 +30767,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fcd3eee64351",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 45
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -31807,39 +31992,6 @@
    "tse_registration": null
   },
   {
-   "id": "31fa3c912550",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Marconi Perillo",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 53
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "348630f9078f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -31965,6 +32117,39 @@
    ],
    "others_pct": 6.14,
    "undecided_pct": 32.12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3ac0e6067816",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 61
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 14
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -32934,6 +33119,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "86694f1314c2",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 53
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -34060,39 +34278,6 @@
    "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": "BR-09587/2026"
-  },
-  {
-   "id": "ff0a5f4e2d8b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Wilder Morais",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 61
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 14
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-14206-1-0-41f5759fd741",
@@ -37321,39 +37506,6 @@
    "tse_registration": null
   },
   {
-   "id": "3fabf7123c9f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2026-09-19",
-   "fieldwork_end": "2026-09-21",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 46
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 47
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "4fb41fe3c511",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -37716,6 +37868,39 @@
    "undecided_pct": 31,
    "blank_null_pct": null,
    "tse_registration": "BR-09990/2026"
+  },
+  {
+   "id": "ae821b62a58e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-09-19",
+   "fieldwork_end": "2026-09-21",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 47
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "c1cfec4764e8",
@@ -38676,6 +38861,39 @@
    "tse_registration": null
   },
   {
+   "id": "1dcb64e86d52",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-09-18",
+   "fieldwork_end": "2026-09-20",
+   "published_date": null,
+   "sample_size": 1400,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 43.2
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 49.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "1eee4c2bc779",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -39340,39 +39558,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "97e34763d2cc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-18",
-   "fieldwork_end": "2026-09-20",
-   "published_date": null,
-   "sample_size": 1400,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 49.6
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 43.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -45384,39 +45569,6 @@
    "tse_registration": null
   },
   {
-   "id": "39ed44ae3ffd",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Doutora Natasha",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2026-09-11",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 41
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 19
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 40,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "3af80f9c1ef7",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -45504,39 +45656,6 @@
    ],
    "others_pct": 4,
    "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4ad7597c629a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Otaviano Pivetta e Doutora Natasha",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2026-09-11",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 45
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 18
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 37,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -45665,39 +45784,6 @@
    "tse_registration": null
   },
   {
-   "id": "63b7adc3956d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2026-09-11",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 32
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 38
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "6758a2d3ba5f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -45770,6 +45856,105 @@
    ],
    "others_pct": 4,
    "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6b2414becd62",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 45
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 18
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 37,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6d2187c9a302",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 41
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 19
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "7d7eb598cb83",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-09-11",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 32
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 38
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -49673,6 +49858,39 @@
    "tse_registration": null
   },
   {
+   "id": "0fe2eee2a28b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renan-marina-e-arthur-lideram-corrida-ao-senado-por-al-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Alagoas-AL-09248-2026-Set26.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Record TV",
+   "fieldwork_start": "2026-09-10",
+   "fieldwork_end": "2026-09-14",
+   "published_date": "2026-09-14",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 47
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "AL-09248/2026"
+  },
+  {
    "id": "182f222f9065",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -50300,39 +50518,6 @@
    "undecided_pct": 6,
    "blank_null_pct": null,
    "tse_registration": "PA-00415/2026"
-  },
-  {
-   "id": "9ec4de682ed6",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renan-marina-e-arthur-lideram-corrida-ao-senado-por-al-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Alagoas-AL-09248-2026-Set26.pdf",
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": "Record TV",
-   "fieldwork_start": "2026-09-10",
-   "fieldwork_end": "2026-09-14",
-   "published_date": "2026-09-14",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 43
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 47
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": "AL-09248/2026"
   },
   {
    "id": "a4085402294f",
@@ -58335,35 +58520,35 @@
    "tse_registration": null
   },
   {
-   "id": "7ecb1587dd51",
+   "id": "7a90e2e00977",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
    "integra_url": null,
    "race": "governador",
-   "state": "AL",
+   "state": "MT",
    "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
+   "scenario": "2º turno: Hipóteses de segundo turno",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-09",
    "published_date": null,
-   "sample_size": 1208,
+   "sample_size": 1209,
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 49.9
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 40.7
     },
     {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 46.7
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 36.9
     }
    ],
    "others_pct": null,
-   "undecided_pct": 3.3,
+   "undecided_pct": 22.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -58894,6 +59079,39 @@
    "tse_registration": null
   },
   {
+   "id": "c2b7d61144c6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 1208,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 46.7
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 49.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "c55e950b4725",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -59300,39 +59518,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fbf9e5ba18df",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-04",
-   "fieldwork_end": "2026-09-09",
-   "published_date": null,
-   "sample_size": 1209,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 40.7
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 36.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -61439,39 +61624,6 @@
    "tse_registration": null
   },
   {
-   "id": "773cb2a579d2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-09-06",
-   "fieldwork_end": "2026-09-08",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 38.3
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 47.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "853809979a3c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -61579,6 +61731,39 @@
    ],
    "others_pct": 8.2,
    "undecided_pct": 5.76,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "925d5335fdcc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-09-06",
+   "fieldwork_end": "2026-09-08",
+   "published_date": null,
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 38.3
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 47.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -71564,39 +71749,6 @@
    "tse_registration": null
   },
   {
-   "id": "5a2fba885ecc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "DataTrends",
-   "contractor": null,
-   "fieldwork_start": "2026-08-31",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 44
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 46
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5b59eeec775c",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
@@ -71740,39 +71892,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "79b3a51b663f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-29",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 45
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -72186,6 +72305,72 @@
    "tse_registration": null
   },
   {
+   "id": "a6006056bb95",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-29",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 45
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a6c698adfeb5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-29",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a9dfb5a3f445",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -72267,39 +72452,6 @@
    "tse_registration": null
   },
   {
-   "id": "c1acb36c3f3d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Otaviano Pivetta e Doutora Natasha",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-29",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 45
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "c6cc80f3cce6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -72329,39 +72481,6 @@
    ],
    "others_pct": 2,
    "undecided_pct": 13,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "caed76fea8be",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Doutora Natasha",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-29",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 53
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -72443,6 +72562,72 @@
    ],
    "others_pct": 5,
    "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d8f716626776",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 46
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "dbe87b96ced5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-29",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 53
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -79172,14 +79357,14 @@
    "tse_registration": null
   },
   {
-   "id": "61b56048e3a2",
+   "id": "56880578a8bd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
    "integra_url": null,
    "race": "governador",
    "state": "AL",
    "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
+   "scenario": "2º turno: Hipótese de segundo turno",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-08-26",
@@ -79189,14 +79374,14 @@
    "margin_of_error": 2.7,
    "results": [
     {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 48.9
-    },
-    {
      "candidate": "Renan Filho",
      "party": "MDB",
      "pct": 42.6
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 48.9
     }
    ],
    "others_pct": null,
@@ -80839,14 +81024,14 @@
    "tse_registration": null
   },
   {
-   "id": "55361747fb43",
+   "id": "4db1089d868c",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Marconi Perillo",
+   "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-24",
@@ -80858,16 +81043,16 @@
     {
      "candidate": "Daniel Vilela",
      "party": "MDB",
-     "pct": 57
+     "pct": 56
     },
     {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 28
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 30
     }
    ],
    "others_pct": null,
-   "undecided_pct": 15,
+   "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": "GO-08492/2026"
   },
@@ -80956,39 +81141,6 @@
    "undecided_pct": 77,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "748a90482e97",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Wilder Morais",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-24",
-   "fieldwork_end": "2026-08-27",
-   "published_date": "2026-08-27",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 56
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "a7621fb656f7",
@@ -81530,6 +81682,39 @@
    "undecided_pct": 32.8,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "fa39f70e48af",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-24",
+   "fieldwork_end": "2026-08-27",
+   "published_date": "2026-08-27",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 57
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 28
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "p360-13964-1-0-1f9caecccbae",
@@ -82257,72 +82442,6 @@
    "tse_registration": null
   },
   {
-   "id": "349b60f2b79f",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Wilder Morais",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": "2026-08-26",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 56
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 18
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07810/2026"
-  },
-  {
-   "id": "411c227a3cc3",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Marconi Perillo",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": "2026-08-26",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 53
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 28
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07810/2026"
-  },
-  {
    "id": "51a40f0b4926",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
@@ -82576,6 +82695,39 @@
    "tse_registration": "BR-07015/2026"
   },
   {
+   "id": "a016a1615320",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 53
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 28
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07810/2026"
+  },
+  {
    "id": "bc81709bfa34",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
@@ -82728,6 +82880,39 @@
    "undecided_pct": 73.08,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "df2a4803113a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf",
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 56
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 18
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07810/2026"
   },
   {
    "id": "e9076476fcbd",
@@ -85574,39 +85759,6 @@
    "tse_registration": null
   },
   {
-   "id": "0b61cf57a65d",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
-   "race": "governador",
-   "state": "MS",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Riedel e Fábio Trad",
-   "pollster": "Quaest",
-   "contractor": "TV Morena",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Riedel",
-     "party": "PP",
-     "pct": 59
-    },
-    {
-     "candidate": "Fábio Trad",
-     "party": "PT",
-     "pct": 22
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04312/2026"
-  },
-  {
    "id": "0ecd4913d427",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-TO-Quaest-GazetaDoPovo.pdf",
@@ -85782,6 +85934,39 @@
    "undecided_pct": 29,
    "blank_null_pct": null,
    "tse_registration": "PB-07850/2026"
+  },
+  {
+   "id": "276bbb4467b5",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
+   "race": "governador",
+   "state": "MS",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Riedel vs Fábio Trad",
+   "pollster": "Quaest",
+   "contractor": "TV Morena",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Riedel",
+     "party": "PP",
+     "pct": 59
+    },
+    {
+     "candidate": "Fábio Trad",
+     "party": "PT",
+     "pct": 22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04312/2026"
   },
   {
    "id": "3070e9c8a3cd",
@@ -86918,14 +87103,14 @@
    "tse_registration": null
   },
   {
-   "id": "e477fc601d2f",
+   "id": "fb9bdef1bc2d",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
    "race": "governador",
    "state": "MS",
    "round": 2,
-   "scenario": "2º turno: Eduardo Riedel e Delcídio do Amaral",
+   "scenario": "2º turno: Eduardo Riedel vs Delcídio do Amaral",
    "pollster": "Quaest",
    "contractor": "TV Morena",
    "fieldwork_start": "2026-08-21",
@@ -89146,39 +89331,6 @@
    "tse_registration": null
   },
   {
-   "id": "0c451d381ff8",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-e-renan-filho-empatam-no-2o-turno-em-alagoas-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-al-24ago2026.pdf",
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Quaest",
-   "contractor": "TV Asa Branca",
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": "2026-08-23",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 42
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": "AL-05503/2026"
-  },
-  {
    "id": "14b25eddc6e5",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-no-rs-diz-quaest/",
@@ -89930,6 +90082,39 @@
    "undecided_pct": 21,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "6f9ab3d90982",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/jhc-e-renan-filho-empatam-no-2o-turno-em-alagoas-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-al-24ago2026.pdf",
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "TV Asa Branca",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": "AL-05503/2026"
   },
   {
    "id": "700b8a78d27e",
@@ -93334,6 +93519,39 @@
    "tse_registration": "PE-01528/2026"
   },
   {
+   "id": "0d58f88528a6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-08-15",
+   "fieldwork_end": "2026-08-20",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 33
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2d9d7a5d2a5d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -93598,39 +93816,6 @@
    ],
    "others_pct": 1,
    "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7c65b17721a9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2026-08-15",
-   "fieldwork_end": "2026-08-20",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 33
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -93976,39 +94161,6 @@
    "tse_registration": null
   },
   {
-   "id": "f64f8cbd1ff9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Doutora Natasha",
-   "pollster": "MT Dados",
-   "contractor": null,
-   "fieldwork_start": "2026-08-15",
-   "fieldwork_end": "2026-08-20",
-   "published_date": null,
-   "sample_size": 3080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 43
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 17
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 40,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "f667c245f1d6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -94054,20 +94206,43 @@
      "candidate": "Galvan",
      "party": "Avante",
      "pct": 11
-    },
-    {
-     "candidate": "Margareth Buzetti",
-     "party": "PP",
-     "pct": 6
-    },
-    {
-     "candidate": "Coronel Darwin",
-     "party": "Democrata",
-     "pct": 3
     }
    ],
-   "others_pct": 5,
+   "others_pct": 14,
    "undecided_pct": 45,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f72f07d8ef64",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "MT Dados",
+   "contractor": null,
+   "fieldwork_start": "2026-08-15",
+   "fieldwork_end": "2026-08-20",
+   "published_date": null,
+   "sample_size": 3080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 43
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 17
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -100254,39 +100429,6 @@
    "tse_registration": null
   },
   {
-   "id": "5259c911efa5",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-07",
-   "fieldwork_end": "2026-08-11",
-   "published_date": "2026-08-11",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 45
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23,
-   "blank_null_pct": null,
-   "tse_registration": "MT-04560/2026"
-  },
-  {
    "id": "54f7a6a79809",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
@@ -100345,6 +100487,39 @@
    "tse_registration": null
   },
   {
+   "id": "69bcf071c3c3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-07",
+   "fieldwork_end": "2026-08-11",
+   "published_date": "2026-08-11",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23,
+   "blank_null_pct": null,
+   "tse_registration": "MT-04560/2026"
+  },
+  {
    "id": "8b1c4ea2e273",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -100376,39 +100551,6 @@
    "undecided_pct": 9,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "978ce8352557",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Doutora Natasha",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-07",
-   "fieldwork_end": "2026-08-11",
-   "published_date": "2026-08-11",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 52
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 26
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": "MT-04560/2026"
   },
   {
    "id": "a540e5ab54b9",
@@ -100457,6 +100599,39 @@
    "undecided_pct": 3.8,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "ab54491e9285",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-realtimebigdata-governo-mt-12ago2026.pdf",
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-07",
+   "fieldwork_end": "2026-08-11",
+   "published_date": "2026-08-11",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 52
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 26
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "MT-04560/2026"
   },
   {
    "id": "p360-13822-1-0-25da6cfc8cb3",
@@ -104030,6 +104205,39 @@
    "tse_registration": "BR-01784/2026"
   },
   {
+   "id": "658fbe5b7d03",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/presidente-mato-grosso-do-sul-real-time-big-data-6ago.pdf",
+   "race": "governador",
+   "state": "MS",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-01",
+   "fieldwork_end": "2026-08-05",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Riedel",
+     "party": "PP",
+     "pct": 54
+    },
+    {
+     "candidate": "Fábio Trad",
+     "party": "PT",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01784/2026"
+  },
+  {
    "id": "8fe5905fa4a2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -104076,39 +104284,6 @@
    "undecided_pct": 82,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "9c201ebc3155",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/presidente-mato-grosso-do-sul-real-time-big-data-6ago.pdf",
-   "race": "governador",
-   "state": "MS",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Riedel e Fábio Trad",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-01",
-   "fieldwork_end": "2026-08-05",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Eduardo Riedel",
-     "party": "PP",
-     "pct": 54
-    },
-    {
-     "candidate": "Fábio Trad",
-     "party": "PT",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01784/2026"
   },
   {
    "id": "bb39620cf69a",
@@ -112145,39 +112320,6 @@
    }
   },
   {
-   "id": "d8e3c29c2f8c",
-   "source": "poder360",
-   "source_url": " https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
-   "integra_url": " https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Percent Brasil",
-   "contractor": "Doc Comunicação",
-   "fieldwork_start": "2026-07-23",
-   "fieldwork_end": "2026-07-27",
-   "published_date": "2026-07-27",
-   "sample_size": 1200,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 37.3
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 20.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 42,
-   "blank_null_pct": null,
-   "tse_registration": "BR-00822/2026"
-  },
-  {
    "id": "d9586a32503b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -112209,6 +112351,39 @@
    "undecided_pct": 6.9,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "db2352ebab09",
+   "source": "poder360",
+   "source_url": " https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
+   "integra_url": " https://static.poder360.com.br/uploads/2026/07/Pesquisa-Genial-Quaest-RS-jul-2026-1.pdf",
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "Percent Brasil",
+   "contractor": "Doc Comunicação",
+   "fieldwork_start": "2026-07-23",
+   "fieldwork_end": "2026-07-27",
+   "published_date": "2026-07-27",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 37.3
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 20.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 42,
+   "blank_null_pct": null,
+   "tse_registration": "BR-00822/2026"
   },
   {
    "id": "e30bd8e8952c",
@@ -121394,39 +121569,6 @@
    "tse_registration": "AL-04857/2026"
   },
   {
-   "id": "084a0d908188",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Wilder Morais e Marconi Perillo",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-12",
-   "fieldwork_end": "2026-07-16",
-   "published_date": null,
-   "sample_size": 1525,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 37.3
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 29.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07834/2026"
-  },
-  {
    "id": "288e2f256940",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
@@ -121649,14 +121791,14 @@
    "tse_registration": null
   },
   {
-   "id": "59ca9d9b9e7f",
+   "id": "438689a1729c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "governador",
    "state": "GO",
    "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Wilder Morais",
+   "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
    "pollster": "Veritá",
    "contractor": null,
    "fieldwork_start": "2026-07-12",
@@ -121727,27 +121869,22 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 1.3
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 0.7
     }
    ],
-   "others_pct": 10.8,
+   "others_pct": 11.5,
    "undecided_pct": 96.9,
    "blank_null_pct": null,
    "tse_registration": "BR-07834/2026"
   },
   {
-   "id": "a4c1f0b82390",
+   "id": "62797373bb95",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
    "race": "governador",
    "state": "GO",
    "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Marconi Perillo",
+   "scenario": "2º turno: Wilder Morais vs Marconi Perillo",
    "pollster": "Veritá",
    "contractor": null,
    "fieldwork_start": "2026-07-12",
@@ -121757,18 +121894,18 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 55.2
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 37.3
     },
     {
      "candidate": "Marconi Perillo",
      "party": "PSDB",
-     "pct": 22.6
+     "pct": 29.6
     }
    ],
    "others_pct": null,
-   "undecided_pct": 22.2,
+   "undecided_pct": 33,
    "blank_null_pct": null,
    "tse_registration": "BR-07834/2026"
   },
@@ -122028,6 +122165,39 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "f2fb1ffbaffa",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026",
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-12",
+   "fieldwork_end": "2026-07-16",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 55.2
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 22.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.2,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07834/2026"
   },
   {
    "id": "13886c49e2e1",
@@ -124457,6 +124627,39 @@
    "tse_registration": null
   },
   {
+   "id": "51e8828ca0a0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-07-09",
+   "fieldwork_end": "2026-07-11",
+   "published_date": null,
+   "sample_size": 1201,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 39
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 48
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "54e933ba9261",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -124744,39 +124947,6 @@
    ],
    "others_pct": 24.6,
    "undecided_pct": 110.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b5e361446044",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Ranking",
-   "contractor": null,
-   "fieldwork_start": "2026-07-09",
-   "fieldwork_end": "2026-07-11",
-   "published_date": null,
-   "sample_size": 1201,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 48
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -126047,39 +126217,6 @@
    "tse_registration": "PE-00478/2026"
   },
   {
-   "id": "2e63e20dc63a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AL",
-   "round": 2,
-   "scenario": "2º turno: JHC e Renan Filho",
-   "pollster": "Vox",
-   "contractor": null,
-   "fieldwork_start": "2026-07-06",
-   "fieldwork_end": "2026-07-08",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Jhc",
-     "party": "PSDB",
-     "pct": 45.4
-    },
-    {
-     "candidate": "Renan Filho",
-     "party": "MDB",
-     "pct": 51.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "32d082843bbd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -126329,6 +126466,39 @@
    ],
    "others_pct": 2.5,
    "undecided_pct": 33.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ca9ba5bf1770",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AL",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Vox",
+   "contractor": null,
+   "fieldwork_start": "2026-07-06",
+   "fieldwork_end": "2026-07-08",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Renan Filho",
+     "party": "MDB",
+     "pct": 51.5
+    },
+    {
+     "candidate": "Jhc",
+     "party": "PSDB",
+     "pct": 45.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -133502,39 +133672,6 @@
    "tse_registration": "BR-06776/2026"
   },
   {
-   "id": "08375c70d272",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Percent Brasil",
-   "contractor": null,
-   "fieldwork_start": "2026-06-18",
-   "fieldwork_end": "2026-06-22",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 39.2
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 19.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "155257114395",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
@@ -133645,6 +133782,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3e02f011fd9d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Otaviano Pivetta",
+   "pollster": "Percent Brasil",
+   "contractor": null,
+   "fieldwork_start": "2026-06-18",
+   "fieldwork_end": "2026-06-22",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 39.2
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 19.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -133841,6 +134011,39 @@
    "tse_registration": null
   },
   {
+   "id": "8d0874c493b4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Jayme Campos",
+   "pollster": "Percent Brasil",
+   "contractor": null,
+   "fieldwork_start": "2026-06-18",
+   "fieldwork_end": "2026-06-22",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 36.9
+    },
+    {
+     "candidate": "Jayme Campos",
+     "party": "União Brasil",
+     "pct": 32.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "f26dd853f19d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
@@ -133870,39 +134073,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 13.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f8adba8ae824",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Jayme Campos",
-   "pollster": "Percent Brasil",
-   "contractor": null,
-   "fieldwork_start": "2026-06-18",
-   "fieldwork_end": "2026-06-22",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 36.9
-    },
-    {
-     "candidate": "Jayme Campos",
-     "party": "União Brasil",
-     "pct": 32.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -143755,39 +143925,6 @@
    "tse_registration": null
   },
   {
-   "id": "2c8be9f9f14c",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/2026/06/Mato-Grosso-MT-01755-2026-Jun-26.pdf",
-   "integra_url": "https://static.poder360.com.br/2026/06/Mato-Grosso-MT-01755-2026-Jun-26.pdf",
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Otaviano Pivetta e Doutora Natasha",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-05-30",
-   "fieldwork_end": "2026-06-01",
-   "published_date": "2026-06-01",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 40
-    },
-    {
-     "candidate": "Doutora Natasha",
-     "party": "PSD",
-     "pct": 29
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31,
-   "blank_null_pct": null,
-   "tse_registration": "MT-01755/2026"
-  },
-  {
    "id": "75cd2e63ae6e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -143834,6 +143971,39 @@
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "7879118514cd",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/2026/06/Mato-Grosso-MT-01755-2026-Jun-26.pdf",
+   "integra_url": "https://static.poder360.com.br/2026/06/Mato-Grosso-MT-01755-2026-Jun-26.pdf",
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-05-30",
+   "fieldwork_end": "2026-06-01",
+   "published_date": "2026-06-01",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 40
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 31,
+   "blank_null_pct": null,
+   "tse_registration": "MT-01755/2026"
   },
   {
    "id": "e8551b7f35f9",
@@ -176988,14 +177158,14 @@
    "tse_registration": "AP-02183/2026"
   },
   {
-   "id": "0af7288db2bc",
+   "id": "221cb56f79d8",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/flavio-lidera-em-mt-com-16-pontos-a-frente-de-lula-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/03/Mato-Grosso-BR-05763-2026-Mar-26.pdf",
    "race": "governador",
    "state": "MT",
    "round": 2,
-   "scenario": "2º turno: Otaviano Pivetta e Doutora Natasha",
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-03-21",
@@ -180092,14 +180262,14 @@
    "tse_registration": null
   },
   {
-   "id": "998bda317ec9",
+   "id": "77ee96e87026",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": null,
    "race": "governador",
    "state": "GO",
    "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Wilder Morais",
+   "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
    "pollster": "Real Time Big Data",
    "contractor": null,
    "fieldwork_start": "2026-03-16",
@@ -180125,14 +180295,47 @@
    "tse_registration": null
   },
   {
-   "id": "e126c4b61da0",
+   "id": "a425060cb752",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": null,
    "race": "governador",
    "state": "GO",
    "round": 2,
-   "scenario": "2º turno: Daniel Vilela e Marconi Perillo",
+   "scenario": "2º turno: Daniel Vilela vs Adriana Accorsi",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-03-16",
+   "fieldwork_end": "2026-03-17",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 52
+    },
+    {
+     "candidate": "Adriana Accorsi",
+     "party": "PT",
+     "pct": 23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "be7c3017d5e0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
    "pollster": "Real Time Big Data",
    "contractor": null,
    "fieldwork_start": "2026-03-16",
@@ -180207,39 +180410,6 @@
    ],
    "others_pct": 4,
    "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e9f45a93d794",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Adriana Accorsi",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-03-16",
-   "fieldwork_end": "2026-03-17",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 52
-    },
-    {
-     "candidate": "Adriana Accorsi",
-     "party": "PT",
-     "pct": 23
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -198758,39 +198928,6 @@
    "tse_registration": null
   },
   {
-   "id": "26ae62f8ffca",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MT",
-   "round": 2,
-   "scenario": "2º turno: Wellington Fagundes e Otaviano Pivetta",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2025-12-12",
-   "fieldwork_end": "2025-12-16",
-   "published_date": null,
-   "sample_size": 1502,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Wellington Fagundes",
-     "party": "PL",
-     "pct": 48.3
-    },
-    {
-     "candidate": "Otaviano Pivetta",
-     "party": "Republicanos",
-     "pct": 32.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "3f0dfb34609f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -198892,14 +199029,14 @@
    "tse_registration": null
   },
   {
-   "id": "87a1cf5b3abe",
+   "id": "539cbcf50a6b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
    "integra_url": null,
-   "race": "senador",
+   "race": "governador",
    "state": "MT",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
    "fieldwork_start": "2025-12-12",
@@ -198909,38 +199046,18 @@
    "margin_of_error": 2.6,
    "results": [
     {
-     "candidate": "Mauro Mendes",
-     "party": "União Brasil",
-     "pct": 65.6
-    },
-    {
-     "candidate": "Janaína Riva",
-     "party": "MDB",
-     "pct": 36.4
-    },
-    {
-     "candidate": "Jayme Campos",
-     "party": "União Brasil",
-     "pct": 19.7
-    },
-    {
-     "candidate": "Zé Medeiros",
+     "candidate": "Wellington Fagundes",
      "party": "PL",
-     "pct": 12.8
+     "pct": 48.3
     },
     {
-     "candidate": "Pedro Taques",
-     "party": "PSB",
-     "pct": 16
-    },
-    {
-     "candidate": "Galvan",
-     "party": "DC",
-     "pct": 6.1
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 32.8
     }
    ],
    "others_pct": null,
-   "undecided_pct": 14.5,
+   "undecided_pct": 18.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -198984,6 +199101,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 32,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9ac013e8fcc8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "senador",
+   "state": "MT",
+   "round": 1,
+   "scenario": "1º turno — cenário 2/2",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2025-12-12",
+   "fieldwork_end": "2025-12-16",
+   "published_date": null,
+   "sample_size": 1502,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Mauro Mendes",
+     "party": "União Brasil",
+     "pct": 68.3
+    },
+    {
+     "candidate": "Janaína Riva",
+     "party": "MDB",
+     "pct": 39.9
+    },
+    {
+     "candidate": "Zé Medeiros",
+     "party": "PL",
+     "pct": 14.1
+    },
+    {
+     "candidate": "Fávaro",
+     "party": "PSD",
+     "pct": 11.1
+    },
+    {
+     "candidate": "Pedro Taques",
+     "party": "PSB",
+     "pct": 17.9
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 14.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -203575,14 +203740,14 @@
    "tse_registration": null
   },
   {
-   "id": "a10abcb6e78d",
+   "id": "9efd577550c4",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-matogrossodosul-governador-28nov2025.pdf",
    "integra_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-matogrossodosul-governador-28nov2025.pdf",
    "race": "governador",
    "state": "MS",
    "round": 2,
-   "scenario": "2º turno: Eduardo Riedel e Fábio Trad",
+   "scenario": "2º turno: Hipóteses de segundo turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2025-11-27",
