@@ -1,57 +1,24 @@
 {
- "generated_at": "2026-10-14T22:16:11.469Z",
+ "generated_at": "2026-10-15T01:26:14.998Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-14T22:16:11.469Z"
+   "last_ok": "2026-10-15T01:26:14.998Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-14T22:16:11.469Z"
+   "last_ok": "2026-10-15T01:26:14.998Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-14T22:16:11.469Z"
+   "last_ok": "2026-10-15T01:26:14.998Z"
   }
  ],
  "polls": [
-  {
-   "id": "238d8a30e158",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
-   "integra_url": null,
-   "race": "governador",
-   "state": "DF",
-   "round": 2,
-   "scenario": "2º turno: Celina Leão e Leandro Grass",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-09",
-   "fieldwork_end": "2026-10-13",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Celina Leão",
-     "party": "PP",
-     "pct": 53
-    },
-    {
-     "candidate": "Leandro Grass",
-     "party": "PT",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
   {
    "id": "40d18ea3e1e6",
    "source": null,
@@ -117,6 +84,72 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "p360-14443-2-0-7d1657f69501",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-53-contra-36-de-grass-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Distrito-Federal-DF-SegundoTurno-1.pdf",
+   "race": "governador",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Celina Leão vs Leandro Grass",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Midia",
+   "fieldwork_start": "2026-10-09",
+   "fieldwork_end": "2026-10-13",
+   "published_date": "2026-10-13",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Celina Leão",
+     "party": "PP",
+     "pct": 53
+    },
+    {
+     "candidate": "Leandro Grass",
+     "party": "PT",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 8,
+   "tse_registration": "DF-01170/2026"
+  },
+  {
+   "id": "p360-14449-2-0-cb1625ce4010",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/Quaest-TO-governador-14out.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Quaest-TO-governador-14out.pdf",
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Vicentinho Júnior vs Professora Dorinha",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-13",
+   "published_date": "2026-10-13",
+   "sample_size": 1098,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 49
+    },
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": 4,
+   "tse_registration": "TO-03829/2026"
   },
   {
    "id": "2e0f01d396b6",
@@ -549,18 +582,18 @@
   },
   {
    "id": "f6f396dbcc7e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaSeta-presidente-RN-10out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaSeta-presidente-RN-10out2026.pdf",
    "race": "governador",
    "state": "RN",
    "round": 2,
    "scenario": "2º turno: Allyson e Cadu de Lula",
    "pollster": "Seta",
-   "contractor": null,
+   "contractor": "Seta",
    "fieldwork_start": "2026-10-07",
    "fieldwork_end": "2026-10-10",
-   "published_date": null,
+   "published_date": "2026-10-10",
    "sample_size": 1500,
    "margin_of_error": 2.5,
    "results": [
@@ -578,7 +611,7 @@
    "others_pct": null,
    "undecided_pct": 9.9,
    "blank_null_pct": null,
-   "tse_registration": null,
+   "tse_registration": "BR-04487/2026",
    "incomplete": true
   },
   {
@@ -615,6 +648,72 @@
    "tse_registration": "BR-00650/2026"
   },
   {
+   "id": "p360-14446-2-0-2ea970d09704",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaSeta-presidente-RN-10out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaSeta-presidente-RN-10out2026.pdf",
+   "race": "presidente",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Seta",
+   "contractor": "Seta",
+   "fieldwork_start": "2026-10-07",
+   "fieldwork_end": "2026-10-10",
+   "published_date": "2026-10-10",
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 51.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 34.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.5,
+   "blank_null_pct": 8.8,
+   "tse_registration": "BR-04487/2026"
+  },
+  {
+   "id": "p360-14447-2-0-15e1c4fbe525",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/agregador-de-pesquisas/",
+   "integra_url": null,
+   "race": "presidente",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Direct Pesquisas",
+   "contractor": "Trilha do Cerrado",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-10",
+   "published_date": "2026-10-10",
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 68.9
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 21.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5.8,
+   "blank_null_pct": 3.8,
+   "tse_registration": "BR-05793/2026"
+  },
+  {
    "id": "p360-14435-2-0-89b6544ff9eb",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-531-e-lula-tem-469-em-votos-validos-diz-datatrends/",
@@ -646,6 +745,39 @@
    "undecided_pct": 1,
    "blank_null_pct": 5,
    "tse_registration": "BR-03576/2026"
+  },
+  {
+   "id": "p360-14448-2-0-427ea7fc349d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/governador-TO-outubro-pesquisa-instituto-directa-pesquisas.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/governador-TO-outubro-pesquisa-instituto-directa-pesquisas.pdf",
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha vs Vicentinho Júnior",
+   "pollster": "Direct Pesquisas",
+   "contractor": "Trilhas do Cerrado Produções e Publicidades",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-09",
+   "published_date": "2026-10-09",
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 44.8
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 40.01
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15.4,
+   "blank_null_pct": null,
+   "tse_registration": "TO-03128/2026"
   },
   {
    "id": "0492b5c35c7e",
@@ -877,6 +1009,39 @@
    "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": "DF-00054/2026"
+  },
+  {
+   "id": "p360-14445-2-0-67eddba2e520",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/Datafolha-presidente-DF-8out-1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Datafolha-presidente-DF-8out-1.pdf",
+   "race": "presidente",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Datafolha",
+   "contractor": "TV Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-07",
+   "published_date": "2026-10-07",
+   "sample_size": 2520,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": "BR-02949/2026"
   },
   {
    "id": "03033f6d014a",

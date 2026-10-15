@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 718,
+  "exato": 721,
   "contencao": 227,
   "outra_disputa": 162,
   "ambiguo": 5,
-  "sem": 561
+  "sem": 564
  },
  "ambiguos": [
   {
@@ -4198,6 +4198,13 @@
    }
   },
   "governador:RS": {
+   "cesar pontes": {
+    "nome_urna": "Cesar Pontes",
+    "sq_candidato": "210002552592",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "coronel zucco": {
     "nome_urna": "Zucco",
     "sq_candidato": "210002547857",
@@ -4231,6 +4238,20 @@
     "sq_candidato": "210002535802",
     "partido": "PSDB",
     "numero": "45",
+    "origem": "exato"
+   },
+   "priscila voigt": {
+    "nome_urna": "Priscila Voigt",
+    "sq_candidato": "210002533355",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
+   },
+   "rejane de oliveira": {
+    "nome_urna": "Rejane de Oliveira",
+    "sq_candidato": "210002541367",
+    "partido": "PSTU",
+    "numero": "16",
     "origem": "exato"
    }
   },

@@ -1358,7 +1358,7 @@ Soma **85.4%** · faltam **14.6 pontos** · 8 candidato(s) na tabela · amostra 
 
 ### Seta — 2026-10-10
 
-Soma **85.8%** · faltam **14.2 pontos** · 2 candidato(s) na tabela · amostra 1500
+Soma **85.8%** · faltam **14.2 pontos** · 2 candidato(s) na tabela · amostra 1500 · registro BR-04487/2026
 
 | candidato | % |
 |---|---|
@@ -1366,7 +1366,8 @@ Soma **85.8%** · faltam **14.2 pontos** · 2 candidato(s) na tabela · amostra 
 | Cadu de Lula | 32.4 |
 | *não sabe/não respondeu* | 9.9 |
 
-- Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/10/pesquisaSeta-presidente-RN-10out2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/10/pesquisaSeta-presidente-RN-10out2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
