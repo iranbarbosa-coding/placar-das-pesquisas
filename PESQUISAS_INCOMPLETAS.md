@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **94 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **96 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -527,6 +527,22 @@ Soma **62.8%** · faltam **37.2 pontos** · 7 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-presidente-6.fev_.2026.pdf
 - Publicação: https://static.poder360.com.br/2026/02/pesquisa-institutophoenix-acre-presidente-6.fev_.2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Presidente · Rio de Janeiro
+
+### Factum Comunicação — 2026-09-02
+
+Soma **63.3%** · faltam **36.7 pontos** · 2 candidato(s) na tabela · amostra 700 · registro BR-08523/2026
+
+| candidato | % |
+|---|---|
+| Flávio Bolsonaro | 42.3 |
+| Lula | 21 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/10/pesquisaFactum-presidente-3set2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/10/pesquisaFactum-presidente-3set2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1635,6 +1651,25 @@ Soma **88%** · faltam **12 pontos** · 5 candidato(s) na tabela · amostra 1200
 | *não sabe/não respondeu* | 22 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rio de Janeiro
+
+### Veritá — 2026-08-28
+
+Soma **88%** · faltam **12 pontos** · 3 candidato(s) na tabela · amostra 2030 · registro RJ-06078/2026
+
+| candidato | % |
+|---|---|
+| Eduardo Paes | 35.7 |
+| Douglas Ruas | 34.2 |
+| Garotinho | 5.3 |
+| *branco/nulo* | 12.8 |
+| *não sabe/não respondeu* | 0 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-RJ-governador-9set2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-RJ-governador-9set2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

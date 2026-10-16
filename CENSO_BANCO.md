@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1833 levantamentos · 5977 perguntas · 163 institutos · 1444 candidatos**.
+Banco: **1846 levantamentos · 5989 perguntas · 164 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 51 | 37 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 414 | 12 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 52 | 38 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 419 | 13 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **478** | **52** |
+| **total** | **484** | **54** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -56,9 +56,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_ca4c8b28f604 · Delta · AC · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (51)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (52)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 51) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 52) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - **[2026]** cenários separados — Datafolha · PE senador/t1 · 2026-04-26 — 2 levantamentos
   s_03b4d753b6bc: Marília Arraes 20 · Humberto Costa 12 · Eduardo da Fonte 6 · Túlio Gadêlha 6 · Mendonça Filho 9
@@ -332,11 +332,14 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_ebd719464c42: Tarcísio de Freitas 17 · Luiz Inácio Lula da Silva 35 · Romeu Zema 4 · Ciro Gomes 11 · Ronaldo Caiado 6
   s_ebd719464c42: Flávio Bolsonaro 14 · Luiz Inácio Lula da Silva 35 · Ratinho Júnior 9 · Romeu Zema 6 · Ciro Gomes 10 · Ronaldo Caiado 5
   s_ebd719464c42: Michelle Bolsonaro 21 · Luiz Inácio Lula da Silva 35 · Ratinho Júnior 8 · Romeu Zema 4 · Ciro Gomes 9 · Ronaldo Caiado 4
+- **[2026]** cenários separados — Quaest · RJ governador/t2 · 2026-09-22 — 2 levantamentos
+  s_d0b8c498093b: Eduardo Paes 49 · Anthony Garotinho 18
+  s_f59472960d7c: Eduardo Paes 44 · Douglas Ruas 31
 - **[2026]** cenários separados — Quaest · PA senador/t1 · 2026-07-25 — 2 levantamentos
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (414)
+## CONFLITO — Conflitos registrados aguardando decisão (419)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -475,7 +478,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_248fb8b83435 · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_d47ad041c68c · results: null × ["Dr. Daniel"]
 - roster_encolhido_na_fonte · q_553f17dcc0dc · results: ["Eduardo Moura","Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["Ivan Moraes","João Campos","Raquel Lyra"]
-- roster_encolhido_na_fonte · q_b24eca7a7ee0 · results: ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues"]
 - segundo_turno_fragmento_descartado · q_b0be927cda0d · results: null × ["Lula"]
 - segundo_turno_fragmento_descartado · q_ad202740d448 · results: null × ["Jerônimo Rodrigues"]
 - segundo_turno_fragmento_descartado · q_b252195a7be1 · results: null × ["Hildon Chaves"]
@@ -582,7 +584,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_5b1e67451007 · results: ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Clariana Barão","Edmilson Costa","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
 - roster_encolhido_na_fonte · q_1c3f1bd9253f · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_91b582ebd463 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
-- roster_encolhido_na_fonte · q_5baa51b1207a · results: ["ACM Neto","Jerônimo Rodrigues","Ronaldo Mansur"] × ["ACM Neto","Jerônimo Rodrigues"]
 - roster_encolhido_na_fonte · q_f9e3166f918d · results: ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"] × ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins"]
 - roster_encolhido_na_fonte · q_0fafc7baadb6 · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
 - roster_encolhido_na_fonte · q_586ae5daa331 · results: ["Augusto Cury","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
@@ -753,7 +754,14 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_45732cdfb5e7 · survey_id: "s_45732cdfb5e7" × null
 - roster_encolhido_na_fonte · q_8a9e11a579a8 · results: ["Celina Leão","José Roberto Arruda","Kiko Caputo","Leandro Grass","Paula Belmonte","Ricardo Cappelli"] × ["Celina Leão","José Roberto Arruda","Leandro Grass","Paula Belmonte","Ricardo Cappelli"]
 - survey_id_orphaned · s_ba56a5e4d6f4 · survey_id: "s_ba56a5e4d6f4" × null
+- survey_id_orphaned · s_e8283b7b2912 · survey_id: "s_e8283b7b2912" × null
+- survey_id_orphaned · s_e5ee4b5df042 · survey_id: "s_e5ee4b5df042" × null
+- survey_id_orphaned · s_4571d32bf819 · survey_id: "s_4571d32bf819" × null
+- **[2026]** survey_id_orphaned · s_2892a3e7dcd9 · survey_id: "s_2892a3e7dcd9" × null
+- survey_id_orphaned · s_12423708c5b5 · survey_id: "s_12423708c5b5" × null
+- disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 96
+- disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
