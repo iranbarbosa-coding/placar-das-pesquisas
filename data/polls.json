@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-17T01:16:43.233Z",
+ "generated_at": "2026-10-17T14:11:12.252Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-17T01:16:43.233Z"
+   "last_ok": "2026-10-17T14:11:12.252Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-17T01:16:43.233Z"
+   "last_ok": "2026-10-17T14:11:12.252Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-17T01:16:43.233Z"
+   "last_ok": "2026-10-17T14:11:12.252Z"
   }
  ],
  "polls": [
@@ -53,6 +53,39 @@
    "tse_registration": null
   },
   {
+   "id": "d2dc96eca5e0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-10-12",
+   "fieldwork_end": "2026-10-16",
+   "published_date": null,
+   "sample_size": 15554,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48.9
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 51.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "120ac3282b25",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -82,6 +115,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 7.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "af9e99f57269",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Ipespe",
+   "contractor": null,
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-15",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
    "blank_null_pct": null,
    "tse_registration": null
   },
