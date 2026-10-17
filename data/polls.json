@@ -1,33 +1,33 @@
 {
- "generated_at": "2026-10-16T22:03:43.961Z",
+ "generated_at": "2026-10-17T01:16:43.233Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-16T22:03:43.961Z"
+   "last_ok": "2026-10-17T01:16:43.233Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-16T22:03:43.961Z"
+   "last_ok": "2026-10-17T01:16:43.233Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-16T22:03:43.961Z"
+   "last_ok": "2026-10-17T01:16:43.233Z"
   }
  ],
  "polls": [
   {
-   "id": "5cfb5e45d6e8",
+   "id": "26110a7532a3",
    "source": null,
-   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
    "integra_url": null,
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Flávio Bolsonaro",
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
    "pollster": "Gerp",
    "contractor": null,
    "fieldwork_start": "2026-10-14",
@@ -152,7 +152,7 @@
    "tse_registration": "BR-03764/2026"
   },
   {
-   "id": "p360-14453-2-0-eb4442bee464",
+   "id": "p360-14453-2-0-a91fb5936877",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-51-e-lula-49-no-2o-turno-mostra-indexa-broadcast/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-Indexa-presidente-15out2026.pdf",
@@ -160,9 +160,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Estadão",
-   "fieldwork_start": "2026-10-13",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-14",
    "published_date": "2026-10-14",
    "sample_size": 2000,
@@ -36737,69 +36737,6 @@
    "tse_registration": "RJ-01631/2026"
   },
   {
-   "id": "b7632d664675",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/paes-tem-431-e-douglas-ruas-267-no-rj-no-1o-turno-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/RJ-040362026.pdf",
-   "race": "senador",
-   "state": "RJ",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-22",
-   "published_date": "2026-09-22",
-   "sample_size": 1600,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Benedita da Silva",
-     "party": "PT",
-     "pct": 32
-    },
-    {
-     "candidate": "Carlos Jordy",
-     "party": "PL",
-     "pct": 16.8
-    },
-    {
-     "candidate": "Carlos Portinho",
-     "party": "PL",
-     "pct": 16.2
-    },
-    {
-     "candidate": "Marcelo Crivella",
-     "party": "Republicanos",
-     "pct": 19.5
-    },
-    {
-     "candidate": "Pedro Paulo",
-     "party": "PSD",
-     "pct": 17.3
-    },
-    {
-     "candidate": "Monica Benicio",
-     "party": "PSOL",
-     "pct": 6.7
-    },
-    {
-     "candidate": "Hélio Secco",
-     "party": "Missão",
-     "pct": 1.4
-    },
-    {
-     "candidate": "Waguinho",
-     "party": "Republicanos",
-     "pct": 6.9
-    }
-   ],
-   "others_pct": 10.6,
-   "undecided_pct": 20.2,
-   "blank_null_pct": null,
-   "tse_registration": "RJ-04036/2026"
-  },
-  {
    "id": "b811d08fce06",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -37764,6 +37701,104 @@
    "others_pct": null,
    "undecided_pct": 5.8,
    "blank_null_pct": 7.8,
+   "tse_registration": "RJ-04036/2026"
+  },
+  {
+   "id": "p360-14469-1-0-45dfae35541d",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/paes-tem-431-e-douglas-ruas-267-no-rj-no-1o-turno-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/RJ-040362026.pdf",
+   "race": "senador",
+   "state": "RJ",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-22",
+   "published_date": "2026-09-22",
+   "sample_size": 1600,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Benedita da Silva",
+     "party": "PT",
+     "pct": 32
+    },
+    {
+     "candidate": "Marcelo Crivella",
+     "party": "Republicanos",
+     "pct": 19.5
+    },
+    {
+     "candidate": "Pedro Paulo",
+     "party": "PSD",
+     "pct": 17.3
+    },
+    {
+     "candidate": "Carlos Jordy",
+     "party": "PL",
+     "pct": 16.8
+    },
+    {
+     "candidate": "Carlos Portinho",
+     "party": "PL",
+     "pct": 16.2
+    },
+    {
+     "candidate": "Waguinho",
+     "party": "Republicanos",
+     "pct": 6.9
+    },
+    {
+     "candidate": "Monica Benicio",
+     "party": "PSOL",
+     "pct": 6.7
+    },
+    {
+     "candidate": "Marcos Dias",
+     "party": "Podemos",
+     "pct": 3.3
+    },
+    {
+     "candidate": "Paula Falcão",
+     "party": "PSTU",
+     "pct": 1.9
+    },
+    {
+     "candidate": "Michelly Xavier",
+     "party": "UP",
+     "pct": 1.8
+    },
+    {
+     "candidate": "Luciano Mattos",
+     "party": "PRTB",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Hélio Secco",
+     "party": "Missão",
+     "pct": 1.4
+    },
+    {
+     "candidate": "Luiz Eugênio",
+     "party": "PCO",
+     "pct": 0.9
+    },
+    {
+     "candidate": "Vinicius Benevides",
+     "party": "UP",
+     "pct": 0.9
+    },
+    {
+     "candidate": "Ó Clemente",
+     "party": "Democrata",
+     "pct": 0.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.4,
+   "blank_null_pct": 12.8,
    "tse_registration": "RJ-04036/2026"
   },
   {
@@ -90026,7 +90061,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Indexa/Broadcast",
+   "pollster": "Indexa Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-08-20",
    "fieldwork_end": "2026-08-23",
@@ -90246,7 +90281,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Caiado",
-   "pollster": "Indexa/Broadcast",
+   "pollster": "Indexa Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-08-20",
    "fieldwork_end": "2026-08-23",
@@ -90519,7 +90554,7 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno — cenário 2/2",
-   "pollster": "Indexa/Broadcast",
+   "pollster": "Indexa Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-08-20",
    "fieldwork_end": "2026-08-23",
@@ -90607,7 +90642,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Zema",
-   "pollster": "Indexa/Broadcast",
+   "pollster": "Indexa Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-08-20",
    "fieldwork_end": "2026-08-23",
@@ -90972,7 +91007,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "Indexa/Broadcast",
+   "pollster": "Indexa Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-08-20",
    "fieldwork_end": "2026-08-23",
@@ -121234,18 +121269,18 @@
   },
   {
    "id": "a881de9d1a31",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
    "race": "presidente",
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Renan Santos",
    "pollster": "Data Index",
-   "contractor": "Index Instituto de Pesquisas",
+   "contractor": null,
    "fieldwork_start": "2026-07-16",
    "fieldwork_end": "2026-07-19",
-   "published_date": "2026-07-19",
+   "published_date": null,
    "sample_size": 2000,
    "margin_of_error": 2.2,
    "results": [
@@ -121263,10 +121298,10 @@
    "others_pct": null,
    "undecided_pct": 26,
    "blank_null_pct": null,
-   "tse_registration": "BR-02904/2026"
+   "tse_registration": null
   },
   {
-   "id": "p360-13586-1-0-cf6840288192",
+   "id": "p360-13586-1-0-fa4c7b436204",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
@@ -121274,9 +121309,9 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-07-16",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
@@ -121339,7 +121374,7 @@
    "tse_registration": "BR-02904/2026"
   },
   {
-   "id": "p360-13586-2-0-0cb6ecadaeb7",
+   "id": "p360-13586-2-0-d3add6ad1bc9",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
@@ -121347,9 +121382,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-07-16",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
@@ -121372,7 +121407,7 @@
    "tse_registration": "BR-02904/2026"
   },
   {
-   "id": "p360-13586-2-1-b298dcb8979a",
+   "id": "p360-13586-2-1-a6eb5998a1e1",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
@@ -121380,9 +121415,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Romeu Zema",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-07-16",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
@@ -121405,7 +121440,7 @@
    "tse_registration": "BR-02904/2026"
   },
   {
-   "id": "p360-13586-2-2-201f1b1b845b",
+   "id": "p360-13586-2-2-be25f19a3aeb",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
@@ -121413,9 +121448,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-07-16",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-07-19",
    "published_date": "2026-07-19",
    "sample_size": 2000,
@@ -135596,20 +135631,20 @@
   },
   {
    "id": "daacbcc1040c",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
+   "source": null,
+   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+   "integra_url": null,
    "race": "presidente",
    "state": null,
    "round": 2,
    "scenario": "2º turno: Luiz Inácio Lula da Silva vs Renan Santos",
    "pollster": "Data Index",
-   "contractor": "Index Instituto de Pesquisas",
+   "contractor": null,
    "fieldwork_start": "2026-06-18",
    "fieldwork_end": "2026-06-20",
-   "published_date": "2026-06-20",
+   "published_date": null,
    "sample_size": 2000,
-   "margin_of_error": 2,
+   "margin_of_error": 2.2,
    "results": [
     {
      "candidate": "Lula",
@@ -135625,7 +135660,7 @@
    "others_pct": null,
    "undecided_pct": 25,
    "blank_null_pct": null,
-   "tse_registration": "BR-08944/2026"
+   "tse_registration": null
   },
   {
    "id": "ed6d402a9e18",
@@ -135737,7 +135772,7 @@
    "tse_registration": null
   },
   {
-   "id": "p360-13543-1-0-b6e54be251dd",
+   "id": "p360-13543-1-0-3b5ff2287391",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
@@ -135745,9 +135780,9 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-06-18",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
@@ -135805,7 +135840,7 @@
    "tse_registration": "BR-08944/2026"
   },
   {
-   "id": "p360-13543-2-0-00ea9da63dc0",
+   "id": "p360-13543-2-0-994dab730827",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
@@ -135813,9 +135848,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-06-18",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
@@ -135838,7 +135873,7 @@
    "tse_registration": "BR-08944/2026"
   },
   {
-   "id": "p360-13543-2-2-435702a03e94",
+   "id": "p360-13543-2-2-3cb089247b2d",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
@@ -135846,9 +135881,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Romeu Zema",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-06-18",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
@@ -135871,7 +135906,7 @@
    "tse_registration": "BR-08944/2026"
   },
   {
-   "id": "p360-13543-2-3-cba285f3e34b",
+   "id": "p360-13543-2-3-f0e4027c39ba",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
@@ -135879,9 +135914,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-06-18",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-20",
    "published_date": "2026-06-20",
    "sample_size": 2000,
@@ -149698,79 +149733,6 @@
    "tse_registration": null
   },
   {
-   "id": "500de3f7f840",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
-   "race": "presidente",
-   "state": null,
-   "round": 1,
-   "scenario": "1º turno — cenário 4/4",
-   "pollster": "Data Index",
-   "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
-   "fieldwork_end": "2026-05-24",
-   "published_date": "2026-05-24",
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 39
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 30
-    },
-    {
-     "candidate": "Ronaldo Caiado",
-     "party": "PSD",
-     "pct": 5
-    },
-    {
-     "candidate": "Zema",
-     "party": "Novo",
-     "pct": 3
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 2
-    },
-    {
-     "candidate": "Joaquim Barbosa",
-     "party": "DC",
-     "pct": 3
-    },
-    {
-     "candidate": "Cabo Daciolo",
-     "party": "Mobiliza",
-     "pct": 0
-    },
-    {
-     "candidate": "Escritor Augusto Cury",
-     "party": "Avante",
-     "pct": 0
-    },
-    {
-     "candidate": "Samara",
-     "party": "UP",
-     "pct": 0
-    },
-    {
-     "candidate": "Hertz Dias",
-     "party": "PSTU",
-     "pct": 0
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "BR-02154/2026"
-  },
-  {
    "id": "542a71a3a291",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -149981,7 +149943,123 @@
    "tse_registration": null
   },
   {
-   "id": "p360-13476-2-0-71676e427123",
+   "id": "e450160fc367",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno — cenário 1/4",
+   "pollster": "Data Index",
+   "contractor": null,
+   "fieldwork_start": "2026-05-22",
+   "fieldwork_end": "2026-05-24",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 30
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 5
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 3
+    },
+    {
+     "candidate": "Renan Santos",
+     "party": "Missão",
+     "pct": 2
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 0
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "p360-13476-1-0-38cf3e247480",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Indexa Pesquisas",
+   "contractor": "Index Instituto de Pesquisas",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-05-24",
+   "published_date": "2026-05-24",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 30
+    },
+    {
+     "candidate": "Ronaldo Caiado",
+     "party": "PSD",
+     "pct": 5
+    },
+    {
+     "candidate": "Zema",
+     "party": "Novo",
+     "pct": 3
+    },
+    {
+     "candidate": "Joaquim Barbosa",
+     "party": "DC",
+     "pct": 3
+    },
+    {
+     "candidate": "Cabo Daciolo",
+     "party": "Mobiliza",
+     "pct": 0
+    },
+    {
+     "candidate": "Escritor Augusto Cury",
+     "party": "Avante",
+     "pct": 0
+    },
+    {
+     "candidate": "Hertz Dias",
+     "party": "PSTU",
+     "pct": 0
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": 8,
+   "tse_registration": "BR-02154/2026"
+  },
+  {
+   "id": "p360-13476-2-0-b4b6e027892e",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
@@ -149989,9 +150067,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-24",
    "published_date": "2026-05-24",
    "sample_size": 2000,
@@ -150014,7 +150092,7 @@
    "tse_registration": "BR-02154/2026"
   },
   {
-   "id": "p360-13476-2-1-30807f5a82af",
+   "id": "p360-13476-2-1-6d59df16d555",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
@@ -150022,9 +150100,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Romeu Zema",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-24",
    "published_date": "2026-05-24",
    "sample_size": 2000,
@@ -150047,7 +150125,7 @@
    "tse_registration": "BR-02154/2026"
   },
   {
-   "id": "p360-13476-2-2-cb19a6d616d6",
+   "id": "p360-13476-2-2-86cc38c697d5",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
@@ -150055,9 +150133,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-24",
    "published_date": "2026-05-24",
    "sample_size": 2000,
@@ -150080,7 +150158,7 @@
    "tse_registration": "BR-02154/2026"
   },
   {
-   "id": "p360-13476-2-3-fb6cf2dcadda",
+   "id": "p360-13476-2-3-3f24bc452ea3",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
@@ -150088,9 +150166,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Michelle Bolsonaro",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-24",
    "published_date": "2026-05-24",
    "sample_size": 2000,
@@ -150113,7 +150191,7 @@
    "tse_registration": "BR-02154/2026"
   },
   {
-   "id": "p360-13476-2-4-2b11c7e9deb6",
+   "id": "p360-13476-2-4-8268580a537a",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
@@ -150121,9 +150199,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Flávio Bolsonaro vs Geraldo Alckmin",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-24",
    "published_date": "2026-05-24",
    "sample_size": 2000,
@@ -150146,7 +150224,7 @@
    "tse_registration": "BR-02154/2026"
   },
   {
-   "id": "p360-13476-2-5-4d8d12485b7b",
+   "id": "p360-13476-2-5-97c85f36c6dd",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/2026/05/Relatorio-Nacional-Divulgacao.pdf",
@@ -150154,9 +150232,9 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Flávio Bolsonaro vs Fernando Haddad",
-   "pollster": "Data Index",
+   "pollster": "Indexa Pesquisas",
    "contractor": "Index Instituto de Pesquisas",
-   "fieldwork_start": "2026-05-22",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-24",
    "published_date": "2026-05-24",
    "sample_size": 2000,
