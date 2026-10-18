@@ -252,7 +252,13 @@ Registradas porque cada uma mudou o resultado:
 | Gov. RN | 14 | 8 | 12/10 | 1,003 | 803 | Allyson | 58,8 | 59,3 (55,4–61,8) | 59 (46–71) | 92% |
 | Gov. TO | 15 | 5 | 13/10 | 1,006 | 947 | Professora Dorinha | 50,1 | 50,4 (48,1–52,2) | 50 (41–60) | 93% |
 
-Projeções experimentais (erro emprestado); probabilidade retida em todas. A
+Projeções experimentais (erro emprestado). Probabilidade de vitória publicada
+como **experimental** por decisão editorial de 18/10 (METHODOLOGY §8): nenhuma
+delas tem validação de 2º turno; a calibração de probabilidades medida aqui é
+só a do 1º turno (§3.3). Chance do líder na rodada de 18/10: presidente
+Flávio Bolsonaro 55%; governadores AC Mailza Assis 66%, AM Omar Aziz 81%, DF
+Celina Leão 95%, ES Lorenzo Pazolini 61%, RN Allyson 82%, TO Professora
+Dorinha 52%. A
 projeção é dominada (80–97%) pelo erro sistemático emprestado, calibrado
 sobretudo em governadores e Senado de 1º turno — é provável que seja larga
 demais para o 2º turno presidencial, mas não há dado para afirmar isso.

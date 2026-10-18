@@ -3,7 +3,7 @@ import Link from "next/link";
 import { fmtDate } from "@/lib/format";
 import { forecastRaces, latestPublished, latestSnapshot, raceLabel } from "@/lib/forecast";
 import { Glossario, Metadados, Motivos, StatusSelos, Trilha } from "@/components/previsao/ForecastBits";
-import { Faixas, TabelaNumeros } from "@/components/previsao/ForecastTables";
+import { Faixas, Favorito, TabelaNumeros } from "@/components/previsao/ForecastTables";
 
 export const metadata: Metadata = {
   title: "Previsão Estatística",
@@ -35,6 +35,7 @@ function CardDisputa({ raceId }: { raceId: string }) {
       )}
       {s.status.overall === "publicado" ? (
         <>
+          <Favorito s={s} />
           <StatusSelos s={s} />
           <Faixas s={s} />
           <TabelaNumeros s={s} />
@@ -80,9 +81,20 @@ export default function PrevisaoPage() {
           </h2>
           <p className="mt-1 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             Uma probabilidade só é publicada quando o modelo foi validado contra resultados reais do MESMO tipo de disputa, em mais
-            de uma eleição. O banco tem pesquisas apenas de 2026, e nenhum 2º turno com resultado oficial ainda. O erro do 2º turno
-            é, por ora, emprestado do 1º turno: serve para a faixa experimental da projeção, não para afirmar uma chance de vitória.
-            Depois de 25/10 o 2º turno entra na validação automaticamente.
+            de uma eleição. O banco tem pesquisas apenas de 2026, e nenhum 2º turno com resultado oficial ainda.
+          </p>
+        </section>
+      )}
+      {algum && algum.status.probability === "experimental" && (
+        <section className="card p-4" style={{ borderLeft: "3px solid var(--accent)" }}>
+          <h2 className="text-[13px] font-bold uppercase tracking-wide" style={{ color: "var(--text-primary)" }}>
+            Como ler a chance de vitória
+          </h2>
+          <p className="mt-1 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            É a fração das 100.000 simulações do dia da eleição em que o candidato termina com mais votos válidos. Um candidato com
+            70% de chance perde em 3 de cada 10 cenários — não é certeza. A probabilidade é <strong>experimental</strong>: ainda não
+            há 2º turno com resultado oficial no banco para conferir se o modelo acerta essas chances, e o erro das pesquisas usado
+            aqui foi medido no 1º turno de 2026. Depois de 25/10 o 2º turno entra na validação automaticamente.
           </p>
         </section>
       )}

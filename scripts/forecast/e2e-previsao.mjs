@@ -79,16 +79,29 @@ await check("metadados exibidos", async () => {
   const txt = await page.locator("body").textContent();
   for (const t of ["Data de referência", "Última pesquisa incluída", "Pesquisas · institutos", "Versão do modelo"]) assert.ok(txt.includes(t), t);
 });
-await check("probabilidade retida não aparece como número", async () => {
+await check("probabilidade: retida não aparece; experimental aparece SEMPRE com o aviso", async () => {
+  const txt = await page.locator("body").textContent();
+  let experimentais = 0;
+  let comProbabilidade = 0;
   for (const id of raceIds) {
     const d = await (await fetch(`${BASE}/api/forecast/${id}/latest.json`)).json();
-    if (d.latest.status.probability === "retida") {
+    const st = d.latest.status.probability;
+    if (st === "retida") {
       assert.ok(d.latest.candidates.every((c) => c.probability_first === null), `${id} expõe probabilidade retida`);
+    } else {
+      const ps = d.latest.candidates.map((c) => c.probability_first);
+      assert.ok(ps.every((p) => typeof p === "number"), `${id} sem probabilidade`);
+      assert.ok(Math.abs(ps.reduce((a, b) => a + b, 0) - 1) < 1e-3, `${id}: probabilidades não somam 1`);
+      comProbabilidade++;
+      if (st === "experimental") experimentais++;
     }
   }
-  const txt = await page.locator("body").textContent();
-  assert.ok(!/chance de vit[óo]ria de \d/i.test(txt));
-  assert.ok(txt.includes("Probabilidade: não publicada"));
+  const destaques = await page.locator("text=de chance de vencer").count();
+  assert.equal(destaques, comProbabilidade, "um destaque por disputa com probabilidade");
+  if (experimentais) {
+    assert.ok(txt.includes("Probabilidade: experimental"));
+    assert.ok(txt.includes("Como ler a chance de vitória"));
+  }
 });
 await check("menu do site leva à seção", async () => assert.ok((await page.locator('header a[href="/previsao"], header button:has-text("Previsão")').count()) > 0));
 await page.goto(`${BASE}/previsao/${raceIds[0]}`, { waitUntil: "networkidle" });

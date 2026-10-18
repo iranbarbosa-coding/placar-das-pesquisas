@@ -1,0 +1,1380 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-am-2026-t2",
+ "contest": "governador:AM",
+ "race": "governador",
+ "uf": "AM",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-18",
+ "horizon_days": 7,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "ffb865a9fe8d31449b6a62248622ce70fa185888c328a073d6026fb4d8abf339",
+  "code_sha256": "42be87031930f3ebcd325064124b6c3e3681bc06596bb7efc9ec280de9872924",
+  "calibration_id": "calibracao-2026t1-ab0bfb0ddd",
+  "numpy_version": "2.5.3",
+  "seed": 930279652,
+  "fit_seconds": 8.8
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_f649ea80be52",
+   "person_id": "p_9bbdbfb669d1",
+   "name": "Omar Aziz",
+   "first_round_pct": 40.63
+  },
+  {
+   "candidate_id": "c_43e545003a6b",
+   "person_id": "p_5b76221dc45d",
+   "name": "Professora Maria do Carmo",
+   "first_round_pct": 24.49
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14459-2-0-6042a2135f98",
+   "p360-14439-2-0-a34685092a0e",
+   "p360-14337-2-0-d104d5c41bf1",
+   "p360-14312-2-2-b23d27594c61",
+   "75c1519cf726",
+   "99d81bb77beb",
+   "2e4d5deeca54",
+   "p360-14049-2-1-160a83bbc086",
+   "p360-14068-2-0-4ce7a74d174f",
+   "3c94d7eeca48"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-12",
+  "candidates": [
+   {
+    "candidate_id": "c_f649ea80be52",
+    "name": "Omar Aziz",
+    "avg": 55.5,
+    "nPolls": 10
+   },
+   {
+    "candidate_id": "c_43e545003a6b",
+    "name": "Professora Maria do Carmo",
+    "avg": 44.5,
+    "nPolls": 10
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "6ab49de7cc60d7ff148483d49380676b36c6eccab34bf95d7d901bd3209e84a2",
+  "input_sha256": "4207e8f4c259799343da0217ba02f1489122af154ce604acb89996df63d3e505",
+  "source_polls_sha256": "a3c60b8e7936e9eb4c3a75ee9ef475ba5135dd2f914970989745cb5f69e65c19",
+  "source_generated_at": "2026-10-18T00:59:37.861Z",
+  "n_polls": 19,
+  "n_institutes": 10,
+  "latest_fieldwork_end": "2026-10-12",
+  "polls": [
+   {
+    "id": "2e9e88dec424",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-05-22",
+    "fieldwork_end": "2026-05-26",
+    "published_date": null,
+    "available_from": "2026-05-26",
+    "sample_size": 1200,
+    "n_eff": 955.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     46.23,
+     53.77
+    ]
+   },
+   {
+    "id": "b568796974d8",
+    "pollster": "Comunidados",
+    "fieldwork_start": "2026-06-23",
+    "fieldwork_end": "2026-06-26",
+    "published_date": null,
+    "available_from": "2026-06-26",
+    "sample_size": 1066,
+    "n_eff": 991.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     60.22,
+     39.78
+    ]
+   },
+   {
+    "id": "d14cdd049bf1",
+    "pollster": "DMP",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-02",
+    "published_date": null,
+    "available_from": "2026-07-02",
+    "sample_size": 1200,
+    "n_eff": 1082.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     61.86,
+     38.14
+    ]
+   },
+   {
+    "id": "b367dba5ae86",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-05",
+    "published_date": null,
+    "available_from": "2026-07-05",
+    "sample_size": 1220,
+    "n_eff": 928.4,
+    "n_imputado": false,
+    "tse_registration": "BR-03439/2026",
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     49.67,
+     50.33
+    ]
+   },
+   {
+    "id": "99632aafa8cd",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "available_from": "2026-08-01",
+    "sample_size": 1220,
+    "n_eff": 855.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     52.35,
+     47.65
+    ]
+   },
+   {
+    "id": "dbf85a2627db",
+    "pollster": "DMP",
+    "fieldwork_start": "2026-08-11",
+    "fieldwork_end": "2026-08-14",
+    "published_date": null,
+    "available_from": "2026-08-14",
+    "sample_size": 2000,
+    "n_eff": 1808.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     59.85,
+     40.15
+    ]
+   },
+   {
+    "id": "p360-13987-2-3-d4e0298dd772",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-24",
+    "published_date": "2026-08-24",
+    "available_from": "2026-08-24",
+    "sample_size": 804,
+    "n_eff": 715.6,
+    "n_imputado": false,
+    "tse_registration": "AM-04595/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-AM-Quaest-GazetaDoPovo.pdf",
+    "shares": [
+     50.56,
+     49.44
+    ]
+   },
+   {
+    "id": "46f965757a9b",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-25",
+    "published_date": "2026-08-25",
+    "available_from": "2026-08-25",
+    "sample_size": 1600,
+    "n_eff": 1360.0,
+    "n_imputado": false,
+    "tse_registration": "AM-09965/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
+    "shares": [
+     49.41,
+     50.59
+    ]
+   },
+   {
+    "id": "3c94d7eeca48",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-08-24",
+    "fieldwork_end": "2026-08-28",
+    "published_date": null,
+    "available_from": "2026-08-28",
+    "sample_size": 1220,
+    "n_eff": 1220.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     53.1,
+     46.9
+    ]
+   },
+   {
+    "id": "p360-14068-2-0-4ce7a74d174f",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-08-29",
+    "fieldwork_end": "2026-09-03",
+    "published_date": "2026-09-03",
+    "available_from": "2026-09-03",
+    "sample_size": 1185,
+    "n_eff": 1035.7,
+    "n_imputado": false,
+    "tse_registration": "BR-01799/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/flavio-tem-413-das-intencoes-de-voto-contra-391-de-lula-no-amazonas/",
+    "shares": [
+     46.68,
+     53.32
+    ]
+   },
+   {
+    "id": "p360-14049-2-1-160a83bbc086",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-09-02",
+    "fieldwork_end": "2026-09-04",
+    "published_date": "2026-09-04",
+    "available_from": "2026-09-04",
+    "sample_size": 1350,
+    "n_eff": 1197.5,
+    "n_imputado": false,
+    "tse_registration": "AM-01118/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa/",
+    "shares": [
+     58.29,
+     41.71
+    ]
+   },
+   {
+    "id": "2e4d5deeca54",
+    "pollster": "Pontual",
+    "fieldwork_start": "2026-09-05",
+    "fieldwork_end": "2026-09-13",
+    "published_date": null,
+    "available_from": "2026-09-13",
+    "sample_size": 3000,
+    "n_eff": 2526.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     56.53,
+     43.47
+    ]
+   },
+   {
+    "id": "99d81bb77beb",
+    "pollster": "Projeta",
+    "fieldwork_start": "2026-09-14",
+    "fieldwork_end": "2026-09-18",
+    "published_date": null,
+    "available_from": "2026-09-18",
+    "sample_size": 3000,
+    "n_eff": 2669.7,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     59.61,
+     40.39
+    ]
+   },
+   {
+    "id": "3d48ae534f7c",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-20",
+    "fieldwork_end": "2026-09-23",
+    "published_date": null,
+    "available_from": "2026-09-23",
+    "sample_size": 804,
+    "n_eff": 691.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     51.16,
+     48.84
+    ]
+   },
+   {
+    "id": "75c1519cf726",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-09-20",
+    "fieldwork_end": "2026-09-23",
+    "published_date": null,
+    "available_from": "2026-09-23",
+    "sample_size": 1200,
+    "n_eff": 1080.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     57.78,
+     42.22
+    ]
+   },
+   {
+    "id": "p360-14312-2-2-b23d27594c61",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-28",
+    "fieldwork_end": "2026-10-01",
+    "published_date": "2026-10-01",
+    "available_from": "2026-10-01",
+    "sample_size": 1600,
+    "n_eff": 1408.0,
+    "n_imputado": false,
+    "tse_registration": "AM-07297/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/aziz-lidera-disputa-por-governo-do-amazonas-no-1o-turno-diz-pesquisa/",
+    "shares": [
+     51.14,
+     48.86
+    ]
+   },
+   {
+    "id": "p360-14337-2-0-d104d5c41bf1",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1512.0,
+    "n_imputado": false,
+    "tse_registration": "AM-04805/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
+    "shares": [
+     58.33,
+     41.67
+    ]
+   },
+   {
+    "id": "p360-14439-2-0-a34685092a0e",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-10-08",
+    "fieldwork_end": "2026-10-11",
+    "published_date": "2026-10-11",
+    "available_from": "2026-10-11",
+    "sample_size": 1200,
+    "n_eff": 1128.0,
+    "n_imputado": false,
+    "tse_registration": "AM-08245/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/omar-aziz-tem-56-e-maria-do-carmo-tem-44-no-am-diz-poderdata/",
+    "shares": [
+     55.32,
+     44.68
+    ]
+   },
+   {
+    "id": "p360-14459-2-0-6042a2135f98",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-09",
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 1098,
+    "n_eff": 966.2,
+    "n_imputado": false,
+    "tse_registration": "AM-09760/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-governo-AM-13out2026.pdf",
+    "shares": [
+     57.95,
+     42.05
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 43,
+   "incompleta_na_fonte": 2,
+   "par_diferente": 20
+  },
+  "exclusions": [
+   {
+    "id": "2a36dcf58f1e",
+    "pollster": "Pontual",
+    "fieldwork_end": "2026-09-13",
+    "reason": "incompleta_na_fonte"
+   },
+   {
+    "id": "6afa22a7cac5",
+    "pollster": "DMP",
+    "fieldwork_end": "2025-07-02",
+    "reason": "incompleta_na_fonte"
+   }
+  ]
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0015,
+    "ess_bulk": 1392.0
+   },
+   "tau": {
+    "rhat": 1.0032,
+    "ess_bulk": 1237.1
+   },
+   "sigma_h": {
+    "rhat": 1.0031,
+    "ess_bulk": 1276.4
+   },
+   "fração_atual[Omar Aziz]": {
+    "rhat": 1.0001,
+    "ess_bulk": 4782.3
+   },
+   "fração_atual[Professora Maria do Carmo]": {
+    "rhat": 1.0001,
+    "ess_bulk": 4782.3
+   }
+  },
+  "rhat_max": 1.0032,
+  "ess_min": 1237.1,
+  "accept": [
+   0.295,
+   0.297,
+   0.378,
+   0.345
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Omar Aziz",
+    "mean": 56.246,
+    "sd": 1.968,
+    "quantiles": {
+     "0.025": 52.741,
+     "0.05": 53.41,
+     "0.1": 54.038,
+     "0.25": 55.017,
+     "0.5": 56.029,
+     "0.75": 57.36,
+     "0.9": 58.798,
+     "0.95": 59.751,
+     "0.975": 60.661
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 43.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      1,
+      1,
+      3,
+      4,
+      5,
+      11,
+      12,
+      22,
+      24,
+      49,
+      105,
+      141,
+      291,
+      479,
+      717,
+      1083,
+      1430,
+      1536,
+      1299,
+      1143,
+      892,
+      687,
+      581,
+      431,
+      320,
+      246,
+      146,
+      107,
+      85,
+      51,
+      37,
+      21,
+      13,
+      8,
+      7,
+      5,
+      3
+     ]
+    }
+   },
+   {
+    "label": "Professora Maria do Carmo",
+    "mean": 43.754,
+    "sd": 1.968,
+    "quantiles": {
+     "0.025": 39.339,
+     "0.05": 40.249,
+     "0.1": 41.202,
+     "0.25": 42.64,
+     "0.5": 43.971,
+     "0.75": 44.983,
+     "0.9": 45.962,
+     "0.95": 46.59,
+     "0.975": 47.259
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 34.5,
+     "counts": [
+      3,
+      5,
+      7,
+      8,
+      13,
+      21,
+      37,
+      51,
+      85,
+      107,
+      146,
+      246,
+      320,
+      431,
+      581,
+      687,
+      892,
+      1143,
+      1299,
+      1536,
+      1430,
+      1083,
+      717,
+      479,
+      291,
+      141,
+      105,
+      49,
+      24,
+      22,
+      12,
+      11,
+      5,
+      4,
+      3,
+      1,
+      1,
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-05-24",
+    "values": [
+     {
+      "q10": 50.07,
+      "median": 53.82,
+      "q90": 56.15
+     },
+     {
+      "q10": 43.85,
+      "median": 46.18,
+      "q90": 49.93
+     }
+    ]
+   },
+   {
+    "date": "2026-06-24",
+    "values": [
+     {
+      "q10": 52.7,
+      "median": 54.88,
+      "q90": 56.83
+     },
+     {
+      "q10": 43.17,
+      "median": 45.12,
+      "q90": 47.3
+     }
+    ]
+   },
+   {
+    "date": "2026-07-01",
+    "values": [
+     {
+      "q10": 53.0,
+      "median": 54.91,
+      "q90": 56.79
+     },
+     {
+      "q10": 43.21,
+      "median": 45.09,
+      "q90": 47.0
+     }
+    ]
+   },
+   {
+    "date": "2026-07-03",
+    "values": [
+     {
+      "q10": 52.86,
+      "median": 54.85,
+      "q90": 56.7
+     },
+     {
+      "q10": 43.3,
+      "median": 45.15,
+      "q90": 47.14
+     }
+    ]
+   },
+   {
+    "date": "2026-07-30",
+    "values": [
+     {
+      "q10": 53.11,
+      "median": 54.98,
+      "q90": 56.73
+     },
+     {
+      "q10": 43.27,
+      "median": 45.02,
+      "q90": 46.89
+     }
+    ]
+   },
+   {
+    "date": "2026-08-12",
+    "values": [
+     {
+      "q10": 53.17,
+      "median": 54.92,
+      "q90": 56.39
+     },
+     {
+      "q10": 43.61,
+      "median": 45.08,
+      "q90": 46.83
+     }
+    ]
+   },
+   {
+    "date": "2026-08-22",
+    "values": [
+     {
+      "q10": 53.22,
+      "median": 54.85,
+      "q90": 56.21
+     },
+     {
+      "q10": 43.79,
+      "median": 45.15,
+      "q90": 46.78
+     }
+    ]
+   },
+   {
+    "date": "2026-08-23",
+    "values": [
+     {
+      "q10": 53.28,
+      "median": 54.9,
+      "q90": 56.2
+     },
+     {
+      "q10": 43.8,
+      "median": 45.1,
+      "q90": 46.72
+     }
+    ]
+   },
+   {
+    "date": "2026-08-26",
+    "values": [
+     {
+      "q10": 53.51,
+      "median": 55.02,
+      "q90": 56.32
+     },
+     {
+      "q10": 43.68,
+      "median": 44.98,
+      "q90": 46.49
+     }
+    ]
+   },
+   {
+    "date": "2026-08-31",
+    "values": [
+     {
+      "q10": 53.61,
+      "median": 55.11,
+      "q90": 56.39
+     },
+     {
+      "q10": 43.61,
+      "median": 44.89,
+      "q90": 46.39
+     }
+    ]
+   },
+   {
+    "date": "2026-09-03",
+    "values": [
+     {
+      "q10": 53.79,
+      "median": 55.24,
+      "q90": 56.58
+     },
+     {
+      "q10": 43.42,
+      "median": 44.76,
+      "q90": 46.21
+     }
+    ]
+   },
+   {
+    "date": "2026-09-09",
+    "values": [
+     {
+      "q10": 54.02,
+      "median": 55.48,
+      "q90": 56.9
+     },
+     {
+      "q10": 43.1,
+      "median": 44.52,
+      "q90": 45.98
+     }
+    ]
+   },
+   {
+    "date": "2026-09-16",
+    "values": [
+     {
+      "q10": 54.18,
+      "median": 55.65,
+      "q90": 57.25
+     },
+     {
+      "q10": 42.75,
+      "median": 44.35,
+      "q90": 45.82
+     }
+    ]
+   },
+   {
+    "date": "2026-09-21",
+    "values": [
+     {
+      "q10": 54.16,
+      "median": 55.69,
+      "q90": 57.32
+     },
+     {
+      "q10": 42.68,
+      "median": 44.31,
+      "q90": 45.84
+     }
+    ]
+   },
+   {
+    "date": "2026-09-29",
+    "values": [
+     {
+      "q10": 54.3,
+      "median": 55.94,
+      "q90": 57.84
+     },
+     {
+      "q10": 42.16,
+      "median": 44.06,
+      "q90": 45.7
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 54.3,
+      "median": 56.12,
+      "q90": 58.36
+     },
+     {
+      "q10": 41.64,
+      "median": 43.88,
+      "q90": 45.7
+     }
+    ]
+   },
+   {
+    "date": "2026-10-09",
+    "values": [
+     {
+      "q10": 54.29,
+      "median": 56.13,
+      "q90": 58.35
+     },
+     {
+      "q10": 41.65,
+      "median": 43.87,
+      "q90": 45.71
+     }
+    ]
+   },
+   {
+    "date": "2026-10-10",
+    "values": [
+     {
+      "q10": 54.3,
+      "median": 56.14,
+      "q90": 58.45
+     },
+     {
+      "q10": 41.55,
+      "median": 43.86,
+      "q90": 45.7
+     }
+    ]
+   },
+   {
+    "date": "2026-10-18",
+    "values": [
+     {
+      "q10": 54.06,
+      "median": 56.03,
+      "q90": 58.74
+     },
+     {
+      "q10": 41.26,
+      "median": 43.97,
+      "q90": 45.94
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Omar Aziz",
+  "rows": [
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -8.692,
+     "0.5": -5.152,
+     "0.9": -0.75
+    }
+   },
+   {
+    "pollster": "DMP",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": 1.135,
+     "0.5": 4.444,
+     "0.9": 7.079
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -6.39,
+     "0.5": -3.908,
+     "0.9": -0.799
+    }
+   },
+   {
+    "pollster": "Veritá",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -5.609,
+     "0.5": -3.413,
+     "0.9": -0.95
+    }
+   },
+   {
+    "pollster": "Comunidados",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.085,
+     "0.5": 3.28,
+     "0.9": 6.839
+    }
+   },
+   {
+    "pollster": "Projeta",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.242,
+     "0.5": 2.501,
+     "0.9": 5.341
+    }
+   },
+   {
+    "pollster": "Paraná Pesquisas",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.921,
+     "0.5": 1.766,
+     "0.9": 4.648
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -2.777,
+     "0.5": -0.774,
+     "0.9": 1.106
+    }
+   },
+   {
+    "pollster": "Pontual",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -1.912,
+     "0.5": 0.611,
+     "0.9": 3.218
+    }
+   },
+   {
+    "pollster": "PoderData",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -1.995,
+     "0.5": 0.281,
+     "0.9": 2.674
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.001,
+   "0.5": 0.011,
+   "0.95": 0.029
+  },
+  "tau": {
+   "0.05": 0.041,
+   "0.5": 0.101,
+   "0.95": 0.184
+  },
+  "sigma_h": {
+   "0.05": 0.061,
+   "0.5": 0.16,
+   "0.95": 0.262
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Omar Aziz",
+    "mean": 56.095,
+    "sd": 7.227,
+    "quantiles": {
+     "0.025": 41.375,
+     "0.05": 44.08,
+     "0.1": 47.012,
+     "0.25": 51.504,
+     "0.5": 56.206,
+     "0.75": 60.814,
+     "0.9": 65.131,
+     "0.95": 67.741,
+     "0.975": 70.084
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 16.0,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      2,
+      2,
+      2,
+      4,
+      3,
+      10,
+      5,
+      4,
+      6,
+      7,
+      9,
+      5,
+      2,
+      14,
+      10,
+      16,
+      21,
+      21,
+      19,
+      28,
+      21,
+      29,
+      33,
+      39,
+      55,
+      55,
+      67,
+      74,
+      90,
+      105,
+      104,
+      115,
+      142,
+      171,
+      170,
+      224,
+      263,
+      306,
+      316,
+      375,
+      410,
+      444,
+      538,
+      563,
+      639,
+      737,
+      804,
+      890,
+      937,
+      1066,
+      1213,
+      1289,
+      1419,
+      1570,
+      1702,
+      1808,
+      1869,
+      2001,
+      2136,
+      2280,
+      2323,
+      2437,
+      2565,
+      2666,
+      2786,
+      2847,
+      2927,
+      2953,
+      3065,
+      2880,
+      2939,
+      2854,
+      2760,
+      2733,
+      2700,
+      2368,
+      2381,
+      2398,
+      2181,
+      2090,
+      1908,
+      1788,
+      1623,
+      1499,
+      1406,
+      1332,
+      1230,
+      1139,
+      988,
+      848,
+      762,
+      680,
+      627,
+      571,
+      482,
+      439,
+      384,
+      308,
+      265,
+      224,
+      217,
+      169,
+      155,
+      152,
+      123,
+      84,
+      76,
+      64,
+      63,
+      47,
+      38,
+      29,
+      26,
+      16,
+      18,
+      22,
+      12,
+      19,
+      8,
+      8,
+      5,
+      3,
+      3,
+      4,
+      3,
+      4,
+      2,
+      0,
+      1,
+      2,
+      1,
+      3,
+      0,
+      1,
+      2
+     ]
+    }
+   },
+   {
+    "label": "Professora Maria do Carmo",
+    "mean": 43.905,
+    "sd": 7.227,
+    "quantiles": {
+     "0.025": 29.916,
+     "0.05": 32.259,
+     "0.1": 34.869,
+     "0.25": 39.186,
+     "0.5": 43.794,
+     "0.75": 48.496,
+     "0.9": 52.988,
+     "0.95": 55.92,
+     "0.975": 58.625
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 10.5,
+     "counts": [
+      2,
+      1,
+      0,
+      3,
+      1,
+      2,
+      1,
+      0,
+      2,
+      4,
+      3,
+      4,
+      3,
+      3,
+      5,
+      8,
+      8,
+      19,
+      12,
+      22,
+      18,
+      16,
+      26,
+      29,
+      38,
+      47,
+      63,
+      64,
+      76,
+      84,
+      123,
+      152,
+      155,
+      169,
+      217,
+      224,
+      265,
+      308,
+      384,
+      439,
+      482,
+      571,
+      627,
+      680,
+      762,
+      848,
+      988,
+      1139,
+      1230,
+      1332,
+      1406,
+      1499,
+      1623,
+      1788,
+      1908,
+      2090,
+      2181,
+      2398,
+      2381,
+      2368,
+      2700,
+      2733,
+      2760,
+      2854,
+      2939,
+      2880,
+      3065,
+      2953,
+      2927,
+      2847,
+      2786,
+      2666,
+      2565,
+      2437,
+      2323,
+      2280,
+      2136,
+      2001,
+      1869,
+      1808,
+      1702,
+      1570,
+      1419,
+      1289,
+      1213,
+      1066,
+      937,
+      890,
+      804,
+      737,
+      639,
+      563,
+      538,
+      444,
+      410,
+      375,
+      316,
+      306,
+      263,
+      224,
+      170,
+      171,
+      142,
+      115,
+      104,
+      105,
+      90,
+      74,
+      67,
+      55,
+      55,
+      39,
+      33,
+      29,
+      21,
+      28,
+      19,
+      21,
+      21,
+      16,
+      10,
+      14,
+      2,
+      5,
+      9,
+      7,
+      6,
+      4,
+      5,
+      10,
+      3,
+      4,
+      2,
+      2,
+      2,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.12785,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   -0.6427
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.0708,
+   "drift": 0.0177,
+   "systematic": 0.9114
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.8102,
+   0.1898
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "ebd9f06f40cfb2f132f534417d738a583ce466596d513a9ecaf57bf50e38651d",
+ "run": {
+  "executed_at": "2026-10-18T15:15:01+00:00"
+ }
+}

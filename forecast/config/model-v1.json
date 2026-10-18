@@ -91,7 +91,14 @@
     "probability": {
       "min_elections_same_category": 2,
       "min_contests_same_category": 20,
-      "coverage80_tolerance": 0.1
+      "coverage80_tolerance": 0.1,
+      "editorial_override": {
+        "enabled": true,
+        "status": "experimental",
+        "decided_at": "2026-10-18",
+        "decided_by": "criador do projeto",
+        "reason": "Destacar quem tem maior chance e a probabilidade de vitória no 2º turno (presidente e governadores) mesmo sem 2º turno com resultado para validar; publicada rotulada como experimental, com os motivos do portão."
+      }
     }
   }
 }

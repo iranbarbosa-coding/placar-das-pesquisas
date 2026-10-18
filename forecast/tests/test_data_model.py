@@ -247,6 +247,11 @@ class Publication(unittest.TestCase):
         self.assertTrue(any("inválidas" in e for e in errs)); self.assertTrue(any("retida" in e for e in errs))
         w = json.loads(json.dumps(s)); w["nowcast"]["summary"][0]["quantiles"]["0.9"] = 40.0; w["output_sha256"] = P.output_hash(w)
         self.assertTrue(any("monótonos" in e for e in P.validate_snapshot(w)))
+        # Probabilidade experimental (decisão editorial) exige as probabilidades no snapshot.
+        x = json.loads(json.dumps(s)); x["status"]["probability"] = "experimental"; x["output_sha256"] = P.output_hash(x)
+        self.assertTrue(any("experimental" in e for e in P.validate_snapshot(x)))
+        y = json.loads(json.dumps(x)); y["probabilities"] = {"first": [0.62, 0.38]}; y["output_sha256"] = P.output_hash(y)
+        self.assertEqual(P.validate_snapshot(y), [])
 
     def test_probability_gate_withholds_without_history(self):
         c = cfg()

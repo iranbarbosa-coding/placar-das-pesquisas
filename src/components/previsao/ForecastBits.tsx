@@ -31,7 +31,7 @@ export function StatusSelos({ s }: { s: Snapshot }) {
         Projeção: {s.status.projection === "publicada" ? "calibrada" : s.status.projection === "experimental" ? "experimental" : "retida"}
       </Selo>
       <Selo tom={s.status.probability === "publicada" ? "ok" : "aviso"}>
-        Probabilidade: {s.status.probability === "publicada" ? "publicada" : "não publicada"}
+        Probabilidade: {s.status.probability === "publicada" ? "calibrada" : s.status.probability === "experimental" ? "experimental" : "não publicada"}
       </Selo>
     </div>
   );

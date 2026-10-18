@@ -123,6 +123,8 @@ export function historyBody(raceId: string) {
       reference_date: e.reference_date,
       status: e.status.overall,
       projection_status: e.status.projection,
+      probability_status: e.status.probability,
+      probability_first: e.probability_first ?? null,
       n_polls: e.n_polls ?? null,
       latest_fieldwork_end: e.latest_fieldwork_end ?? null,
       nowcast_median: e.nowcast_median ?? null,

@@ -4,6 +4,65 @@ import { fmtPct } from "@/lib/format";
 import { casasPara, type Snapshot } from "@/lib/forecast";
 import { IntervalStrip } from "./ForecastCharts";
 
+/** Probabilidade em inteiro, sem falsa precisão nas pontas (">99%", "<1%"). */
+export function fmtChance(p: number): string {
+  if (p >= 0.995) return ">99%";
+  if (p <= 0.005) return "<1%";
+  return `${Math.round(p * 100)}%`;
+}
+
+/**
+ * Destaque de quem tem MAIOR CHANCE de vencer e a probabilidade (decisão do
+ * criador, 18/10/2026). Só aparece quando o snapshot traz probabilidades; se o
+ * status é "experimental", o selo e a frase dizem isso no mesmo bloco — a
+ * probabilidade nunca é exibida sem o aviso ao lado.
+ */
+export function Favorito({ s, grande = false }: { s: Snapshot; grande?: boolean }) {
+  const f = s.probabilities?.first;
+  if (!f || f.length !== s.candidates.length) return null;
+  const colors = colorMap(s.candidates.map((c) => c.name));
+  const ordem = s.candidates.map((c, k) => ({ c, p: f[k] })).sort((a, b) => b.p - a.p);
+  const [lider, ...resto] = ordem;
+  const cor = colorOf(colors, lider.c.name);
+  const indefinida = lider.p < 0.6;
+  const experimental = s.status.probability === "experimental";
+  return (
+    <div
+      className="flex flex-wrap items-center justify-between gap-3 rounded-lg p-3"
+      style={{ background: "var(--surface-2)", borderLeft: `4px solid ${cor}` }}
+    >
+      <div className="min-w-0">
+        <p className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+          {indefinida ? "Leve vantagem · disputa indefinida" : "Maior chance de vencer"}
+        </p>
+        <p className={`${grande ? "text-2xl" : "text-xl"} font-extrabold leading-tight`} style={{ color: "var(--text-primary)" }}>
+          {lider.c.name}
+        </p>
+        <p className="mt-0.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+          {resto.map((r) => `${r.c.name}: ${fmtChance(r.p)}`).join(" · ")}
+        </p>
+      </div>
+      <div className="text-right">
+        <p className={`tabular ${grande ? "text-5xl" : "text-4xl"} font-extrabold leading-none`} style={{ color: cor }}>
+          {fmtChance(lider.p)}
+        </p>
+        <p className="mt-1 text-xs" style={{ color: "var(--text-secondary)" }}>
+          de chance de vencer em {s.election_date.slice(8, 10)}/{s.election_date.slice(5, 7)}
+        </p>
+        {experimental && (
+          <span
+            className="mt-1 inline-flex rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+            style={{ border: "1px dashed var(--axis)", color: "var(--text-secondary)" }}
+            title="Sem 2º turno com resultado no banco para validar esta probabilidade; ver os motivos na página da disputa."
+          >
+            Experimental
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /** Um número do modelo com a precisão que o intervalo permite (sem falsa precisão). */
 export function Faixa({ q }: { q: Record<string, number> }) {
   const c = casasPara(q["0.1"], q["0.9"]);

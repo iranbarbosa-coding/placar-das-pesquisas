@@ -1,0 +1,1217 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-es-2026-t2",
+ "contest": "governador:ES",
+ "race": "governador",
+ "uf": "ES",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-18",
+ "horizon_days": 7,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "ffb865a9fe8d31449b6a62248622ce70fa185888c328a073d6026fb4d8abf339",
+  "code_sha256": "42be87031930f3ebcd325064124b6c3e3681bc06596bb7efc9ec280de9872924",
+  "calibration_id": "calibracao-2026t1-ab0bfb0ddd",
+  "numpy_version": "2.5.3",
+  "seed": 1522010873,
+  "fit_seconds": 6.4
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_d09634143e1e",
+   "person_id": "p_85342d310197",
+   "name": "Lorenzo Pazolini",
+   "first_round_pct": 49.65
+  },
+  {
+   "candidate_id": "c_f16927347aae",
+   "person_id": "p_8a1182ced4d4",
+   "name": "Ricardo Ferraço",
+   "first_round_pct": 34.06
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14450-2-0-f9a1961406e9",
+   "p360-14338-2-0-c1601f5e0b00",
+   "p360-14402-2-0-364aacb02100",
+   "p360-14263-2-0-43a3532bc36c",
+   "6b09fea4f2fc",
+   "844ea9c60309",
+   "208c9ca0c9cc",
+   "83d049b4097d",
+   "p360-13475-2-0-097d4d2a845a",
+   "9e91f873a295"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-13",
+  "candidates": [
+   {
+    "candidate_id": "c_d09634143e1e",
+    "name": "Lorenzo Pazolini",
+    "avg": 50.6,
+    "nPolls": 10
+   },
+   {
+    "candidate_id": "c_f16927347aae",
+    "name": "Ricardo Ferraço",
+    "avg": 49.4,
+    "nPolls": 10
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "22e62b919d0a77bb0233fee498a8d915652ce76328a1684e01d40b37d16f5abc",
+  "input_sha256": "27350f81e0ab1c60a51028f2046d3e23c6be2dbc44419c2175ca826cd2d7c1c0",
+  "source_polls_sha256": "a3c60b8e7936e9eb4c3a75ee9ef475ba5135dd2f914970989745cb5f69e65c19",
+  "source_generated_at": "2026-10-18T00:59:37.861Z",
+  "n_polls": 15,
+  "n_institutes": 5,
+  "latest_fieldwork_end": "2026-10-13",
+  "polls": [
+   {
+    "id": "p360-13506-2-0-009a3c3819cc",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-06-06",
+    "fieldwork_end": "2026-06-08",
+    "published_date": "2026-06-08",
+    "available_from": "2026-06-08",
+    "sample_size": 1600,
+    "n_eff": 1280.0,
+    "n_imputado": false,
+    "tse_registration": "ES-06698/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/ricardo-ferraco-lidera-disputa-ao-governo-do-es-diz-pesquisa/",
+    "shares": [
+     46.25,
+     53.75
+    ]
+   },
+   {
+    "id": "83d049b4097d",
+    "pollster": "França",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-07",
+    "published_date": null,
+    "available_from": "2026-07-07",
+    "sample_size": 1066,
+    "n_eff": 908.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "p360-13630-2-0-08320fb46fe8",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-07-10",
+    "fieldwork_end": "2026-07-13",
+    "published_date": "2026-07-13",
+    "available_from": "2026-07-13",
+    "sample_size": 804,
+    "n_eff": 586.9,
+    "n_imputado": false,
+    "tse_registration": "ES-07211/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-42-dos-votos-contra-36-de-lula-no-es-diz-quaest/",
+    "shares": [
+     41.1,
+     58.9
+    ]
+   },
+   {
+    "id": "p360-13612-2-0-ce2f5f89dd5c",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-07-20",
+    "fieldwork_end": "2026-07-21",
+    "published_date": "2026-07-21",
+    "available_from": "2026-07-21",
+    "sample_size": 1600,
+    "n_eff": 1280.0,
+    "n_imputado": false,
+    "tse_registration": "ES-04482/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/ricardo-ferraco-lidera-corrida-pelo-governo-do-es-diz-pesquisa/",
+    "shares": [
+     43.75,
+     56.25
+    ]
+   },
+   {
+    "id": "51a40f0b4926",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-23",
+    "fieldwork_end": "2026-08-26",
+    "published_date": "2026-08-26",
+    "available_from": "2026-08-26",
+    "sample_size": 804,
+    "n_eff": 643.2,
+    "n_imputado": false,
+    "tse_registration": "ES-04444/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
+    "shares": [
+     43.75,
+     56.25
+    ]
+   },
+   {
+    "id": "p360-13958-2-0-ff87c478e4e5",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-22",
+    "fieldwork_end": "2026-08-26",
+    "published_date": "2026-08-26",
+    "available_from": "2026-08-26",
+    "sample_size": 1600,
+    "n_eff": 1344.0,
+    "n_imputado": false,
+    "tse_registration": "ES-05096/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-pesquisa-2/",
+    "shares": [
+     44.05,
+     55.95
+    ]
+   },
+   {
+    "id": "208c9ca0c9cc",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-08-26",
+    "fieldwork_end": "2026-08-31",
+    "published_date": null,
+    "available_from": "2026-08-31",
+    "sample_size": 1194,
+    "n_eff": 1017.3,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     53.99,
+     46.01
+    ]
+   },
+   {
+    "id": "p360-14097-2-0-66cbb5a1ac44",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-08",
+    "published_date": "2026-09-08",
+    "available_from": "2026-09-08",
+    "sample_size": 1600,
+    "n_eff": 1392.0,
+    "n_imputado": false,
+    "tse_registration": "ES-01967/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/ricardo-ferraco-lidera-corrida-pelo-governo-do-es-diz-levantamento/",
+    "shares": [
+     43.68,
+     56.32
+    ]
+   },
+   {
+    "id": "465dafbdbb5a",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 804,
+    "n_eff": 651.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     46.91,
+     53.09
+    ]
+   },
+   {
+    "id": "6b09fea4f2fc",
+    "pollster": "Perfil",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1800,
+    "n_eff": 1515.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     49.51,
+     50.49
+    ]
+   },
+   {
+    "id": "844ea9c60309",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1600,
+    "n_eff": 1408.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     45.45,
+     54.55
+    ]
+   },
+   {
+    "id": "p360-14263-2-0-43a3532bc36c",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-25",
+    "fieldwork_end": "2026-09-29",
+    "published_date": "2026-09-29",
+    "available_from": "2026-09-29",
+    "sample_size": 1600,
+    "n_eff": 1424.0,
+    "n_imputado": false,
+    "tse_registration": "ES-01627/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/ferraco-tem-48-e-pazolini-41-no-2o-turno-no-es-diz-big-data/",
+    "shares": [
+     46.07,
+     53.93
+    ]
+   },
+   {
+    "id": "p360-14402-2-0-364aacb02100",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-02",
+    "available_from": "2026-10-02",
+    "sample_size": 1226,
+    "n_eff": 1077.7,
+    "n_imputado": false,
+    "tse_registration": "ES-01573/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Atlas-Eleicoes-Espirito-Santo-2026-261003-2.pdf",
+    "shares": [
+     52.9,
+     47.1
+    ]
+   },
+   {
+    "id": "p360-14338-2-0-c1601f5e0b00",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1440.0,
+    "n_imputado": false,
+    "tse_registration": "ES-09011/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/ES-090112026-Governador.pdf",
+    "shares": [
+     51.25,
+     48.75
+    ]
+   },
+   {
+    "id": "p360-14450-2-0-f9a1961406e9",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-10",
+    "fieldwork_end": "2026-10-13",
+    "published_date": "2026-10-13",
+    "available_from": "2026-10-13",
+    "sample_size": 1098,
+    "n_eff": 933.3,
+    "n_imputado": false,
+    "tse_registration": "BR-01973/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-governador-ES-2oturno-outubro-1.pdf",
+    "shares": [
+     55.29,
+     44.71
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 15,
+   "par_diferente": 26
+  },
+  "exclusions": []
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0047,
+    "ess_bulk": 1317.6
+   },
+   "tau": {
+    "rhat": 1.0018,
+    "ess_bulk": 1102.4
+   },
+   "sigma_h": {
+    "rhat": 1.0032,
+    "ess_bulk": 1497.8
+   },
+   "fração_atual[Lorenzo Pazolini]": {
+    "rhat": 1.0012,
+    "ess_bulk": 2805.5
+   },
+   "fração_atual[Ricardo Ferraço]": {
+    "rhat": 1.0012,
+    "ess_bulk": 2805.5
+   }
+  },
+  "rhat_max": 1.0047,
+  "ess_min": 1102.4,
+  "accept": [
+   0.349,
+   0.361,
+   0.367,
+   0.376
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Lorenzo Pazolini",
+    "mean": 52.267,
+    "sd": 3.213,
+    "quantiles": {
+     "0.025": 46.878,
+     "0.05": 47.541,
+     "0.1": 48.373,
+     "0.25": 49.885,
+     "0.5": 51.992,
+     "0.75": 54.35,
+     "0.9": 56.574,
+     "0.95": 57.958,
+     "0.975": 59.138
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 41.5,
+     "counts": [
+      1,
+      0,
+      2,
+      1,
+      5,
+      12,
+      14,
+      30,
+      59,
+      69,
+      159,
+      223,
+      335,
+      416,
+      532,
+      628,
+      676,
+      675,
+      693,
+      751,
+      730,
+      699,
+      710,
+      628,
+      567,
+      533,
+      498,
+      407,
+      367,
+      342,
+      259,
+      220,
+      175,
+      131,
+      131,
+      77,
+      68,
+      43,
+      43,
+      24,
+      21,
+      8,
+      16,
+      12,
+      6,
+      2,
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Ricardo Ferraço",
+    "mean": 47.733,
+    "sd": 3.213,
+    "quantiles": {
+     "0.025": 40.862,
+     "0.05": 42.042,
+     "0.1": 43.426,
+     "0.25": 45.65,
+     "0.5": 48.008,
+     "0.75": 50.115,
+     "0.9": 51.627,
+     "0.95": 52.459,
+     "0.975": 53.122
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 33.5,
+     "counts": [
+      1,
+      1,
+      0,
+      0,
+      2,
+      6,
+      12,
+      16,
+      8,
+      21,
+      24,
+      43,
+      43,
+      68,
+      77,
+      131,
+      131,
+      175,
+      220,
+      259,
+      342,
+      367,
+      407,
+      498,
+      533,
+      567,
+      628,
+      710,
+      699,
+      730,
+      751,
+      693,
+      675,
+      676,
+      628,
+      532,
+      416,
+      335,
+      223,
+      159,
+      69,
+      59,
+      30,
+      14,
+      12,
+      5,
+      1,
+      2,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-06-07",
+    "values": [
+     {
+      "q10": 45.37,
+      "median": 48.33,
+      "q90": 50.88
+     },
+     {
+      "q10": 49.12,
+      "median": 51.67,
+      "q90": 54.63
+     }
+    ]
+   },
+   {
+    "date": "2026-07-04",
+    "values": [
+     {
+      "q10": 44.75,
+      "median": 47.13,
+      "q90": 49.39
+     },
+     {
+      "q10": 50.61,
+      "median": 52.87,
+      "q90": 55.25
+     }
+    ]
+   },
+   {
+    "date": "2026-07-11",
+    "values": [
+     {
+      "q10": 43.89,
+      "median": 46.35,
+      "q90": 48.73
+     },
+     {
+      "q10": 51.27,
+      "median": 53.65,
+      "q90": 56.11
+     }
+    ]
+   },
+   {
+    "date": "2026-07-20",
+    "values": [
+     {
+      "q10": 44.58,
+      "median": 46.85,
+      "q90": 49.01
+     },
+     {
+      "q10": 50.99,
+      "median": 53.15,
+      "q90": 55.42
+     }
+    ]
+   },
+   {
+    "date": "2026-08-24",
+    "values": [
+     {
+      "q10": 45.79,
+      "median": 47.69,
+      "q90": 49.42
+     },
+     {
+      "q10": 50.58,
+      "median": 52.31,
+      "q90": 54.21
+     }
+    ]
+   },
+   {
+    "date": "2026-08-28",
+    "values": [
+     {
+      "q10": 46.43,
+      "median": 48.36,
+      "q90": 50.2
+     },
+     {
+      "q10": 49.8,
+      "median": 51.64,
+      "q90": 53.57
+     }
+    ]
+   },
+   {
+    "date": "2026-09-06",
+    "values": [
+     {
+      "q10": 46.14,
+      "median": 48.07,
+      "q90": 49.85
+     },
+     {
+      "q10": 50.15,
+      "median": 51.93,
+      "q90": 53.86
+     }
+    ]
+   },
+   {
+    "date": "2026-09-22",
+    "values": [
+     {
+      "q10": 47.44,
+      "median": 49.0,
+      "q90": 50.61
+     },
+     {
+      "q10": 49.39,
+      "median": 51.0,
+      "q90": 52.56
+     }
+    ]
+   },
+   {
+    "date": "2026-09-27",
+    "values": [
+     {
+      "q10": 47.83,
+      "median": 49.61,
+      "q90": 51.34
+     },
+     {
+      "q10": 48.66,
+      "median": 50.39,
+      "q90": 52.17
+     }
+    ]
+   },
+   {
+    "date": "2026-10-02",
+    "values": [
+     {
+      "q10": 48.4,
+      "median": 50.65,
+      "q90": 52.44
+     },
+     {
+      "q10": 47.56,
+      "median": 49.35,
+      "q90": 51.6
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 48.52,
+      "median": 50.93,
+      "q90": 52.91
+     },
+     {
+      "q10": 47.09,
+      "median": 49.07,
+      "q90": 51.48
+     }
+    ]
+   },
+   {
+    "date": "2026-10-11",
+    "values": [
+     {
+      "q10": 48.66,
+      "median": 52.26,
+      "q90": 55.82
+     },
+     {
+      "q10": 44.18,
+      "median": 47.74,
+      "q90": 51.34
+     }
+    ]
+   },
+   {
+    "date": "2026-10-18",
+    "values": [
+     {
+      "q10": 48.41,
+      "median": 52.01,
+      "q90": 56.53
+     },
+     {
+      "q10": 43.47,
+      "median": 47.99,
+      "q90": 51.59
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Lorenzo Pazolini",
+  "rows": [
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 6,
+    "effect_pp_first_candidate": {
+     "0.1": -4.522,
+     "0.5": -2.888,
+     "0.9": -0.722
+    }
+   },
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": 0.268,
+     "0.5": 2.434,
+     "0.9": 4.581
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -2.671,
+     "0.5": -1.047,
+     "0.9": 0.501
+    }
+   },
+   {
+    "pollster": "França",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -1.075,
+     "0.5": 1.027,
+     "0.9": 3.716
+    }
+   },
+   {
+    "pollster": "Perfil",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -1.801,
+     "0.5": 0.181,
+     "0.9": 2.192
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.004,
+   "0.5": 0.021,
+   "0.95": 0.042
+  },
+  "tau": {
+   "0.05": 0.01,
+   "0.5": 0.081,
+   "0.95": 0.168
+  },
+  "sigma_h": {
+   "0.05": 0.032,
+   "0.5": 0.113,
+   "0.95": 0.234
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Lorenzo Pazolini",
+    "mean": 52.212,
+    "sd": 7.854,
+    "quantiles": {
+     "0.025": 36.675,
+     "0.05": 39.337,
+     "0.1": 42.263,
+     "0.25": 47.069,
+     "0.5": 52.204,
+     "0.75": 57.353,
+     "0.9": 62.199,
+     "0.95": 65.147,
+     "0.975": 67.701
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 6.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      2,
+      3,
+      2,
+      4,
+      3,
+      5,
+      2,
+      4,
+      7,
+      9,
+      9,
+      13,
+      11,
+      14,
+      20,
+      17,
+      21,
+      31,
+      40,
+      42,
+      58,
+      65,
+      49,
+      80,
+      83,
+      106,
+      127,
+      139,
+      169,
+      178,
+      211,
+      239,
+      315,
+      292,
+      362,
+      363,
+      467,
+      490,
+      528,
+      637,
+      678,
+      776,
+      795,
+      940,
+      1030,
+      1074,
+      1163,
+      1206,
+      1374,
+      1479,
+      1670,
+      1647,
+      1739,
+      1899,
+      2005,
+      2100,
+      2291,
+      2287,
+      2331,
+      2396,
+      2449,
+      2568,
+      2568,
+      2675,
+      2558,
+      2708,
+      2618,
+      2620,
+      2629,
+      2503,
+      2534,
+      2453,
+      2227,
+      2183,
+      2141,
+      2021,
+      1924,
+      1789,
+      1801,
+      1635,
+      1570,
+      1478,
+      1389,
+      1212,
+      1200,
+      1057,
+      1027,
+      922,
+      822,
+      747,
+      680,
+      602,
+      542,
+      543,
+      480,
+      375,
+      338,
+      307,
+      253,
+      228,
+      212,
+      193,
+      158,
+      144,
+      120,
+      109,
+      93,
+      73,
+      53,
+      36,
+      56,
+      46,
+      26,
+      43,
+      25,
+      20,
+      19,
+      7,
+      15,
+      8,
+      13,
+      4,
+      8,
+      8,
+      3,
+      2,
+      3,
+      1,
+      4,
+      1,
+      2,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      3,
+      2,
+      1,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Ricardo Ferraço",
+    "mean": 47.788,
+    "sd": 7.854,
+    "quantiles": {
+     "0.025": 32.299,
+     "0.05": 34.853,
+     "0.1": 37.801,
+     "0.25": 42.647,
+     "0.5": 47.796,
+     "0.75": 52.931,
+     "0.9": 57.737,
+     "0.95": 60.663,
+     "0.975": 63.325
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 9.5,
+     "counts": [
+      1,
+      1,
+      1,
+      2,
+      3,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      2,
+      1,
+      4,
+      1,
+      3,
+      2,
+      3,
+      8,
+      8,
+      4,
+      13,
+      8,
+      15,
+      7,
+      19,
+      20,
+      25,
+      43,
+      26,
+      46,
+      56,
+      36,
+      53,
+      73,
+      93,
+      109,
+      120,
+      144,
+      158,
+      193,
+      212,
+      228,
+      253,
+      307,
+      338,
+      375,
+      480,
+      543,
+      542,
+      602,
+      680,
+      747,
+      822,
+      922,
+      1027,
+      1057,
+      1200,
+      1212,
+      1389,
+      1478,
+      1570,
+      1635,
+      1801,
+      1789,
+      1924,
+      2021,
+      2141,
+      2183,
+      2227,
+      2453,
+      2534,
+      2503,
+      2629,
+      2620,
+      2618,
+      2708,
+      2558,
+      2675,
+      2568,
+      2568,
+      2449,
+      2396,
+      2331,
+      2287,
+      2291,
+      2100,
+      2005,
+      1899,
+      1739,
+      1647,
+      1670,
+      1479,
+      1374,
+      1206,
+      1163,
+      1074,
+      1030,
+      940,
+      795,
+      776,
+      678,
+      637,
+      528,
+      490,
+      467,
+      363,
+      362,
+      292,
+      315,
+      239,
+      211,
+      178,
+      169,
+      139,
+      127,
+      106,
+      83,
+      80,
+      49,
+      65,
+      58,
+      42,
+      40,
+      31,
+      21,
+      17,
+      20,
+      14,
+      11,
+      13,
+      9,
+      9,
+      7,
+      4,
+      2,
+      5,
+      3,
+      4,
+      2,
+      3,
+      2,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.13007,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   -0.5395
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.1584,
+   "drift": 0.041,
+   "systematic": 0.8006
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.6145,
+   0.3855
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "20e929762770f11b86280a0072fe776398859d2848e2c654cfe9482083c36a93",
+ "run": {
+  "executed_at": "2026-10-18T15:15:19+00:00"
+ }
+}

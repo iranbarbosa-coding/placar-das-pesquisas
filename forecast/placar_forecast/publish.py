@@ -414,6 +414,7 @@ def build_snapshot(cfg: dict, cfg_sha: str, export_doc: dict, rc: dict, ref_date
 
     category = f"{rc['race']}_t2"
     proj_status = "retida"
+    prob_status = "retida"
     base["projection"] = None
     base["probabilities"] = None
     if now_ok and cf is not None:
@@ -441,8 +442,18 @@ def build_snapshot(cfg: dict, cfg_sha: str, export_doc: dict, rc: dict, ref_date
         p_ok, p_reasons = probability_gate(cfg, calib, category, backtest)
         probs = event_probabilities(sh, len(race.candidate_ids), rc["race"], 2)
         _validate_probs(probs)
+        override = cfg["gates"]["probability"].get("editorial_override") or {}
         if p_ok:
             base["probabilities"] = _round_tree(probs, 4)
+            prob_status = "publicada"
+        elif override.get("enabled"):
+            # Decisão editorial registrada na configuração: a probabilidade sai,
+            # mas como EXPERIMENTAL — os motivos do portão continuam no snapshot
+            # e na página, para o leitor saber por que ela não está validada.
+            base["probabilities"] = _round_tree(probs, 4)
+            prob_status = "experimental"
+            reasons += p_reasons
+            reasons.append(f"probabilidade publicada como experimental por decisão editorial ({override.get('decided_at')})")
         else:
             reasons += p_reasons
     elif cf is None:
@@ -452,7 +463,7 @@ def build_snapshot(cfg: dict, cfg_sha: str, export_doc: dict, rc: dict, ref_date
         "overall": "publicado" if now_ok else ("nao_convergiu" if not ok_conv else "insuficiente"),
         "nowcast": "publicada" if now_ok else ("nao_convergiu" if not ok_conv else "insuficiente"),
         "projection": proj_status,
-        "probability": "publicada" if base["probabilities"] is not None else "retida",
+        "probability": prob_status,
         "reasons": reasons,
     }
     return base, race, fit
@@ -499,11 +510,15 @@ def output_hash(snap: dict) -> str:
 
 
 def latest_snapshot(race_id: str) -> dict | None:
-    files = sorted(glob.glob(os.path.join(SNAP_DIR, race_id, "*.json")))
-    for f in reversed(files):
+    """O snapshot mais recente: data de referência, depois horário de execução (não o nome)."""
+    rows = []
+    for f in glob.glob(os.path.join(SNAP_DIR, race_id, "*.json")):
         with open(f, encoding="utf-8") as fh:
-            return json.load(fh)
-    return None
+            s = json.load(fh)
+        rows.append(((s["reference_date"], (s.get("run") or {}).get("executed_at", ""), f), s))
+    rows.sort(key=lambda r: r[0])
+    return rows[-1][1] if rows else None
+
 
 
 def append_run(row: dict) -> None:
@@ -598,7 +613,10 @@ def rebuild_index() -> dict:
                 "n_polls": s["input"].get("n_polls"),
                 "latest_fieldwork_end": s["input"].get("latest_fieldwork_end"),
                 "output_sha256": s["output_sha256"],
+                "executed_at": (s.get("run") or {}).get("executed_at", ""),
             }
+            if s.get("probabilities"):
+                entry["probability_first"] = s["probabilities"]["first"]
             if s.get("nowcast"):
                 entry["nowcast_median"] = [r["quantiles"]["0.5"] for r in s["nowcast"]["summary"]]
                 entry["nowcast_q10"] = [r["quantiles"]["0.1"] for r in s["nowcast"]["summary"]]
@@ -608,7 +626,9 @@ def rebuild_index() -> dict:
                 entry["projection_q10"] = [r["quantiles"]["0.1"] for r in s["projection"]["summary"]]
                 entry["projection_q90"] = [r["quantiles"]["0.9"] for r in s["projection"]["summary"]]
             hist.append(entry)
-        hist.sort(key=lambda e: (e["reference_date"], e["path"]))
+        # Na mesma data pode haver mais de um snapshot (pesquisa nova à tarde, código
+        # novo): o nome traz um hash, então a ordem é a da EXECUÇÃO, não a do nome.
+        hist.sort(key=lambda e: (e["reference_date"], e["executed_at"], e["path"]))
         if not hist:
             continue
         latest = hist[-1]
@@ -654,8 +674,8 @@ def validate_snapshot(s: dict) -> list[str]:
         f = s["probabilities"]["first"]
         if abs(sum(f) - 1) > 1e-3 or any(v < 0 or v > 1 for v in f):
             errs.append("probabilidades inválidas")
-    if s["status"]["probability"] == "publicada" and not s.get("probabilities"):
-        errs.append("status diz probabilidade publicada, mas não há probabilidades")
+    if s["status"]["probability"] in ("publicada", "experimental") and not s.get("probabilities"):
+        errs.append(f"status diz probabilidade {s['status']['probability']}, mas não há probabilidades")
     if s["status"]["probability"] == "retida" and s.get("probabilities"):
         errs.append("probabilidade retida, mas o snapshot contém probabilidades")
     return errs

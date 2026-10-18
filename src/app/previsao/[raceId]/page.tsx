@@ -6,7 +6,7 @@ import { fmtDate, fmtPct, fmtSigned } from "@/lib/format";
 import { forecastRaces, latestPublished, latestSnapshot, raceById, raceLabel } from "@/lib/forecast";
 import { Metadados, Motivos, StatusSelos, Trilha } from "@/components/previsao/ForecastBits";
 import { DistributionChart, NowcastChart, VarianceBar } from "@/components/previsao/ForecastCharts";
-import { Faixas, TabelaNumeros } from "@/components/previsao/ForecastTables";
+import { Faixas, Favorito, TabelaNumeros } from "@/components/previsao/ForecastTables";
 
 export const dynamicParams = false;
 
@@ -92,6 +92,7 @@ export default async function PrevisaoDisputa({ params }: { params: Promise<{ ra
         </p>
       )}
       <Card titulo="Resumo" sub={`Referência ${fmtDate(s.reference_date)} · ${s.horizon_days} dias até a eleição`}>
+        <Favorito s={s} grande />
         <StatusSelos s={s} />
         <Faixas s={s} />
         <p className="text-xs" style={{ color: "var(--text-muted)" }}>
@@ -101,7 +102,7 @@ export default async function PrevisaoDisputa({ params }: { params: Promise<{ ra
         <TabelaNumeros s={s} />
         {s.status.reasons.length > 0 && (
           <div>
-            <p className="text-xs font-semibold" style={{ color: "var(--text-secondary)" }}>O que está retido e por quê</p>
+            <p className="text-xs font-semibold" style={{ color: "var(--text-secondary)" }}>O que é experimental ou retido, e por quê</p>
             <Motivos reasons={s.status.reasons} />
           </div>
         )}
@@ -140,6 +141,8 @@ export default async function PrevisaoDisputa({ params }: { params: Promise<{ ra
               Com dois candidatos, a distribuição de {names[1]} é o espelho desta (100 − x).
               {s.status.probability === "retida" &&
                 " A área de cada lado dos 50% NÃO deve ser lida como probabilidade de vitória: o erro sistemático desta projeção não foi validado para 2º turno."}
+              {s.status.probability === "experimental" &&
+                " A área à direita dos 50% é a chance de vitória exibida no resumo — experimental, porque o erro sistemático desta projeção ainda não foi validado para 2º turno."}
             </p>
           )}
           {desc && (

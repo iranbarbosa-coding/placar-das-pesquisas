@@ -95,7 +95,8 @@ export interface Snapshot {
     overall: Status;
     nowcast: "publicada" | "insuficiente" | "nao_convergiu";
     projection: "publicada" | "experimental" | "retida";
-    probability: "publicada" | "retida";
+    /** "experimental" = publicada por decisão editorial sem validação histórica da categoria (config). */
+    probability: "publicada" | "experimental" | "retida";
     reasons: string[];
   };
   diagnostics?: {
@@ -135,6 +136,8 @@ export interface IndexEntry {
   n_polls?: number;
   latest_fieldwork_end?: string;
   output_sha256: string;
+  executed_at?: string;
+  probability_first?: number[];
   nowcast_median?: number[];
   nowcast_q10?: number[];
   nowcast_q90?: number[];
@@ -218,6 +221,7 @@ export function validateSnapshot(s: Snapshot): string[] {
     if (Math.abs(f.reduce((a, b) => a + b, 0) - 1) > 1e-3 || f.some((v) => v < 0 || v > 1)) errs.push("probabilidades inválidas");
   }
   if (s.status.probability === "retida" && s.probabilities) errs.push("probabilidade retida, mas presente");
+  if (s.status.probability !== "retida" && !s.probabilities) errs.push("status com probabilidade, mas sem probabilidades");
   return errs;
 }
 

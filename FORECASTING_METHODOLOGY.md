@@ -349,8 +349,15 @@ líder" é reportado **à parte** e explicitamente não é tratado como calibra�
 | Probabilidade | categoria da disputa com ≥ 2 eleições **e** ≥ 20 disputas com resultado; cobertura de 80% no backtest a ±10 p.p. do nominal | `retida`, com os motivos no snapshot |
 
 Com o banco atual nenhuma categoria cumpre o portão de probabilidade (só há
-2026), então **o site não publica probabilidade de vitória**. A interface diz
-isso e por quê.
+2026). **Decisão editorial do criador do projeto (18/10/2026)**: a chance de
+vitória do 2º turno de presidente e governadores é publicada mesmo assim, em
+destaque, com status `experimental` — distinto de `publicada` (validada). A
+regra está na configuração (`gates.probability.editorial_override`), entra no
+hash de entrada de todo snapshot e pode ser desligada sem mudar código. Cada
+snapshot experimental guarda os motivos do portão; a página mostra o selo
+"Experimental" no mesmo bloco do número e explica como ler a chance. Exibição
+sem falsa precisão: inteiro, com ">99%" e "<1%" nas pontas; abaixo de 60%
+para o líder, o destaque diz "leve vantagem · disputa indefinida".
 
 Validade numérica antes de gravar: frações finitas em [0, 1] que somam 1 (tol.
 1e-9); probabilidades em [0, 1] que somam 1; quantis monótonos; médias que

@@ -98,7 +98,7 @@ pesquisa   = apoio(dia do campo) + efeito do instituto + erro      (observação
         <ul className="list-disc space-y-1 pl-5">
           <li><strong>Estimativa atual</strong>: exige ≥ 5 pesquisas de ≥ 2 institutos, uma delas com campo nos últimos 21 dias, e convergência.</li>
           <li><strong>Projeção</strong>: exige calibração carregada. Quando o erro do tipo de disputa é emprestado de outro tipo (hoje: todo 2º turno), ela sai marcada como <em>experimental</em>.</li>
-          <li><strong>Probabilidade de vitória</strong>: exige ≥ 2 eleições e ≥ 20 disputas com resultado na mesma categoria e cobertura do intervalo de 80% no backtest a ±10 pontos do nominal. Hoje nenhuma categoria cumpre: o banco só tem 2026.</li>
+          <li><strong>Probabilidade de vitória</strong>: exige ≥ 2 eleições e ≥ 20 disputas com resultado na mesma categoria e cobertura do intervalo de 80% no backtest a ±10 pontos do nominal para ser considerada <em>calibrada</em>. Hoje nenhuma categoria cumpre: o banco só tem 2026. Por decisão editorial, a chance de vitória do 2º turno é exibida assim mesmo, sempre marcada como <em>experimental</em> e com os motivos ao lado.</li>
           <li>Se uma rodada falha (não converge, dado inválido), nada é publicado e o último snapshot válido continua no ar.</li>
         </ul>
       </Secao>
