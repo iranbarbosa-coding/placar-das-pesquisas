@@ -3,7 +3,7 @@
   "config_id": "placar-previsao-v1",
   "description": "Espaço de estados ALR com efeitos casa + simulação Monte Carlo com erro sistemático calibrado no 1º turno de 2026.",
   "seed": 20261025,
-  "calibration_id": "calibracao-2026t1-ab0bfb0ddd",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
   "data": {
     "window_days": 150,
     "availability_lag_days": 2,
@@ -60,6 +60,16 @@
       "senador_t1",
       "presidente_t2",
       "governador_t2"
+    ]
+  },
+  "headline_method": "modelo",
+  "trend": {
+    "variants": [
+      {"name": "tendencia_14d_inteira", "lookback_days": 14, "damping": 1.0},
+      {"name": "tendencia_21d_inteira", "lookback_days": 21, "damping": 1.0},
+      {"name": "tendencia_21d_metade", "lookback_days": 21, "damping": 0.5},
+      {"name": "tendencia_42d_inteira", "lookback_days": 42, "damping": 1.0},
+      {"name": "tendencia_42d_metade", "lookback_days": 42, "damping": 0.5}
     ]
   },
   "backtest": {

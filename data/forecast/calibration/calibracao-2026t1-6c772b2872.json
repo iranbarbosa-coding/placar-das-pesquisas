@@ -1,0 +1,453 @@
+{
+ "calibration_id": "calibracao-2026t1-6c772b2872",
+ "model_version": "1.0.0",
+ "config_id": "placar-previsao-v1",
+ "elections": [
+  {
+   "date": "2026-10-04",
+   "round": 1
+  }
+ ],
+ "fit": {
+  "variant": "covariaveis",
+  "structure": "mult",
+  "nu": 10.0,
+  "alpha0": -2.0799674162465447,
+  "alpha": {
+   "presidente_t1": -1.8228226577399425,
+   "governador_t1": -1.9677865031048232,
+   "senador_t1": -2.220357533591006,
+   "presidente_t2": -2.080498931005652,
+   "governador_t2": -2.0814889863558648
+  },
+  "beta": 0.19623223868095274,
+  "gamma": [
+   -0.062378009162071875,
+   0.16628854716285887
+  ],
+  "n_records": 252
+ },
+ "covariate_standardization": {
+  "log1p_n_institutes_30d": [
+   1.5657139381801306,
+   0.6049720015915068
+  ],
+  "dispersion_30d": [
+   0.1760339364832552,
+   0.07068344923537374
+  ]
+ },
+ "categories": {
+  "presidente_t1": {
+   "n_contests": 1,
+   "n_elections": 1,
+   "scale_alr_by_horizon": {
+    "1": 0.16585862773444426,
+    "3": 0.17328259241295632,
+    "7": 0.1851100372528858,
+    "14": 0.20044016436055048,
+    "21": 0.2120809978842943,
+    "30": 0.22400330856208572,
+    "60": 0.251685064552097,
+    "90": 0.27063961260041164
+   },
+   "borrowed": false
+  },
+  "governador_t1": {
+   "n_contests": 25,
+   "n_elections": 1,
+   "scale_alr_by_horizon": {
+    "1": 0.1434765977453173,
+    "3": 0.14989872488096287,
+    "7": 0.16013009824292324,
+    "14": 0.1733914793990041,
+    "21": 0.1834614239760238,
+    "30": 0.19377486136953082,
+    "60": 0.21772106316388018,
+    "90": 0.2341177625874795
+   },
+   "borrowed": false
+  },
+  "senador_t1": {
+   "n_contests": 22,
+   "n_elections": 1,
+   "scale_alr_by_horizon": {
+    "1": 0.11145276952992594,
+    "3": 0.11644148453145904,
+    "7": 0.12438922594159019,
+    "14": 0.13469068054020558,
+    "21": 0.1425130239032251,
+    "30": 0.15052451273794257,
+    "60": 0.16912594705993692,
+    "90": 0.18186292013169714
+   },
+   "borrowed": false
+  },
+  "presidente_t2": {
+   "n_contests": 0,
+   "n_elections": 0,
+   "scale_alr_by_horizon": {
+    "1": 0.12818307456354514,
+    "3": 0.13392065138388684,
+    "7": 0.1430614375131456,
+    "14": 0.15490925545877976,
+    "21": 0.16390581989403458,
+    "30": 0.17311992264802545,
+    "60": 0.1945136399395896,
+    "90": 0.2091625748728119
+   },
+   "borrowed": true
+  },
+  "governador_t2": {
+   "n_contests": 0,
+   "n_elections": 0,
+   "scale_alr_by_horizon": {
+    "1": 0.12805622902717897,
+    "3": 0.13378812813997865,
+    "7": 0.14291986886349,
+    "14": 0.15475596261833532,
+    "21": 0.16374362436464213,
+    "30": 0.17294860916129,
+    "60": 0.19432115597029273,
+    "90": 0.20895559482425402
+   },
+   "borrowed": true
+  }
+ },
+ "selection": [
+  {
+   "structure": "iso",
+   "variant": "sem_sistematico",
+   "nu": 1000.0,
+   "loso_mean_logdens": -28.38844478628914,
+   "loso_sum_logdens": -7153.888086144863,
+   "n": 252,
+   "diff_vs_best": 24.660663014798942,
+   "se_diff": 2.232916456110951,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "agrupado",
+   "nu": 3.0,
+   "loso_mean_logdens": -4.219298211805755,
+   "loso_sum_logdens": -1063.2631493750503,
+   "n": 252,
+   "diff_vs_best": 0.49151644031555813,
+   "se_diff": 0.059711896756355944,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "agrupado",
+   "nu": 5.0,
+   "loso_mean_logdens": -4.1810737851926785,
+   "loso_sum_logdens": -1053.630593868555,
+   "n": 252,
+   "diff_vs_best": 0.45329201370248223,
+   "se_diff": 0.05994049024793179,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "agrupado",
+   "nu": 10.0,
+   "loso_mean_logdens": -4.175267193396887,
+   "loso_sum_logdens": -1052.1673327360154,
+   "n": 252,
+   "diff_vs_best": 0.44748542190669066,
+   "se_diff": 0.06160340451169964,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "agrupado",
+   "nu": 1000.0,
+   "loso_mean_logdens": -4.24440269378764,
+   "loso_sum_logdens": -1069.5894788344851,
+   "n": 252,
+   "diff_vs_best": 0.5166209222974432,
+   "se_diff": 0.07134476752025355,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "horizonte",
+   "nu": 3.0,
+   "loso_mean_logdens": -4.196296911821082,
+   "loso_sum_logdens": -1057.4668217789126,
+   "n": 252,
+   "diff_vs_best": 0.4685151403308855,
+   "se_diff": 0.05993520155417775,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "horizonte",
+   "nu": 5.0,
+   "loso_mean_logdens": -4.150583696674588,
+   "loso_sum_logdens": -1045.9470915619963,
+   "n": 252,
+   "diff_vs_best": 0.42280192518439175,
+   "se_diff": 0.05994799538822022,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "horizonte",
+   "nu": 10.0,
+   "loso_mean_logdens": -4.136320872811003,
+   "loso_sum_logdens": -1042.3528599483727,
+   "n": 252,
+   "diff_vs_best": 0.40853910132080656,
+   "se_diff": 0.06155756980645393,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "horizonte",
+   "nu": 1000.0,
+   "loso_mean_logdens": -4.195345390885553,
+   "loso_sum_logdens": -1057.2270385031593,
+   "n": 252,
+   "diff_vs_best": 0.4675636193953554,
+   "se_diff": 0.07370825364333984,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "covariaveis",
+   "nu": 3.0,
+   "loso_mean_logdens": -4.1867988980439295,
+   "loso_sum_logdens": -1055.0733223070702,
+   "n": 252,
+   "diff_vs_best": 0.45901712655373317,
+   "se_diff": 0.059023212111645525,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "covariaveis",
+   "nu": 5.0,
+   "loso_mean_logdens": -4.141196903266321,
+   "loso_sum_logdens": -1043.5816196231128,
+   "n": 252,
+   "diff_vs_best": 0.41341513177612377,
+   "se_diff": 0.05906367724166422,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "covariaveis",
+   "nu": 10.0,
+   "loso_mean_logdens": -4.124790903077583,
+   "loso_sum_logdens": -1039.447307575551,
+   "n": 252,
+   "diff_vs_best": 0.39700913158738604,
+   "se_diff": 0.060856856285670884,
+   "within_1se": false
+  },
+  {
+   "structure": "iso",
+   "variant": "covariaveis",
+   "nu": 1000.0,
+   "loso_mean_logdens": -4.172073548780449,
+   "loso_sum_logdens": -1051.362534292673,
+   "n": 252,
+   "diff_vs_best": 0.4442917772902516,
+   "se_diff": 0.07166525967991248,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "agrupado",
+   "nu": 3.0,
+   "loso_mean_logdens": -3.8502928024418654,
+   "loso_sum_logdens": -970.2737862153501,
+   "n": 252,
+   "diff_vs_best": 0.12251103095166953,
+   "se_diff": 0.02298978915065248,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "agrupado",
+   "nu": 5.0,
+   "loso_mean_logdens": -3.816210219365758,
+   "loso_sum_logdens": -961.684975280171,
+   "n": 252,
+   "diff_vs_best": 0.08842844787556123,
+   "se_diff": 0.023164768271134225,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "agrupado",
+   "nu": 10.0,
+   "loso_mean_logdens": -3.8178982864740934,
+   "loso_sum_logdens": -962.1103681914715,
+   "n": 252,
+   "diff_vs_best": 0.09011651498389663,
+   "se_diff": 0.02691188549007121,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "agrupado",
+   "nu": 1000.0,
+   "loso_mean_logdens": -3.900541864966227,
+   "loso_sum_logdens": -982.9365499714893,
+   "n": 252,
+   "diff_vs_best": 0.17276009347603058,
+   "se_diff": 0.045940381613800194,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "horizonte",
+   "nu": 3.0,
+   "loso_mean_logdens": -3.8223205675545264,
+   "loso_sum_logdens": -963.2247830237407,
+   "n": 252,
+   "diff_vs_best": 0.09453879606433009,
+   "se_diff": 0.020638732702173063,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "horizonte",
+   "nu": 5.0,
+   "loso_mean_logdens": -3.7788117168211777,
+   "loso_sum_logdens": -952.2605526389368,
+   "n": 252,
+   "diff_vs_best": 0.051029945330981305,
+   "se_diff": 0.01972637607667418,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "horizonte",
+   "nu": 10.0,
+   "loso_mean_logdens": -3.7682161643678653,
+   "loso_sum_logdens": -949.5904734207021,
+   "n": 252,
+   "diff_vs_best": 0.04043439287766889,
+   "se_diff": 0.023644906838000766,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "horizonte",
+   "nu": 1000.0,
+   "loso_mean_logdens": -3.8389401357806143,
+   "loso_sum_logdens": -967.4129142167149,
+   "n": 252,
+   "diff_vs_best": 0.11115836429041773,
+   "se_diff": 0.05213913068368738,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "covariaveis",
+   "nu": 3.0,
+   "loso_mean_logdens": -3.798285652651748,
+   "loso_sum_logdens": -957.1679844682405,
+   "n": 252,
+   "diff_vs_best": 0.07050388116155197,
+   "se_diff": 0.014576184569103449,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "covariaveis",
+   "nu": 5.0,
+   "loso_mean_logdens": -3.7495489766266195,
+   "loso_sum_logdens": -944.8863421099081,
+   "n": 252,
+   "diff_vs_best": 0.021767205136423037,
+   "se_diff": 0.008498534023895856,
+   "within_1se": false
+  },
+  {
+   "structure": "mult",
+   "variant": "covariaveis",
+   "nu": 10.0,
+   "loso_mean_logdens": -3.7277817714901964,
+   "loso_sum_logdens": -939.4010064155295,
+   "n": 252,
+   "diff_vs_best": 0.0,
+   "se_diff": 0.0,
+   "within_1se": true
+  },
+  {
+   "structure": "mult",
+   "variant": "covariaveis",
+   "nu": 1000.0,
+   "loso_mean_logdens": -3.7591263108340023,
+   "loso_sum_logdens": -947.2998303301686,
+   "n": 252,
+   "diff_vs_best": 0.03134453934380609,
+   "se_diff": 0.020709909236508242,
+   "within_1se": false
+  }
+ ],
+ "trend": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "loso_mean_logdens_common": {
+   "media_site": -4.178914255404161,
+   "tendencia_14d_inteira": -5.297943239194845,
+   "tendencia_21d_inteira": -5.310813229453294,
+   "tendencia_21d_metade": -4.985367905624309,
+   "tendencia_42d_inteira": -5.193041137943947,
+   "tendencia_42d_metade": -4.944476256633011
+  },
+  "fit": {
+   "variant": "horizonte",
+   "structure": "mult",
+   "nu": 10.0,
+   "alpha0": -1.8870897020213466,
+   "alpha": {
+    "presidente_t1": -1.9026006956322181,
+    "governador_t1": -1.6282437698254688,
+    "senador_t1": -1.8637747501074289,
+    "presidente_t2": -1.890333952881658,
+    "governador_t2": -1.882841256799746
+   },
+   "beta": 0.17687054338830296,
+   "gamma": [
+    0.0,
+    0.0
+   ],
+   "n_records": 252
+  }
+ },
+ "selection_rule": "um erro-padrão: a combinação mais simples a menos de 1 EP (pareado) da melhor densidade fora da amostra",
+ "selected": {
+  "structure": "mult",
+  "variant": "covariaveis",
+  "nu": 10.0,
+  "loso_mean_logdens": -3.7277817714901964,
+  "loso_sum_logdens": -939.4010064155295,
+  "n": 252,
+  "diff_vs_best": 0.0,
+  "se_diff": 0.0,
+  "within_1se": true
+ },
+ "best_raw": {
+  "structure": "mult",
+  "variant": "covariaveis",
+  "nu": 10.0,
+  "loso_mean_logdens": -3.7277817714901964,
+  "loso_sum_logdens": -939.4010064155295,
+  "n": 252,
+  "diff_vs_best": 0.0,
+  "se_diff": 0.0,
+  "within_1se": true
+ },
+ "notes": [
+  "Todas as disputas de calibração são do 1º turno de 2026: o erro comum da eleição está em todas.",
+  "Categorias sem disputa (2º turno) usam α_0, a média agrupada — erro EMPRESTADO, não validado."
+ ]
+}

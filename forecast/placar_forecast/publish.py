@@ -45,6 +45,7 @@ from .calibration import CalibFit
 from .simulate import event_probabilities, posterior_flat, simulate, summarize_shares, sys_structure, variance_decomposition
 from .transforms import inv_alr
 from .vintage import Vintage, export
+from . import trend as TR
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 FORECAST_DIR = os.path.join(REPO, "data", "forecast")
@@ -55,7 +56,7 @@ CALIB_DIR = os.path.join(FORECAST_DIR, "calibration")
 BACKTEST_DIR = os.path.join(FORECAST_DIR, "backtests")
 SNAPSHOT_SCHEMA = "placar.previsao.snapshot/1"
 INDEX_SCHEMA = "placar.previsao.indice/1"
-CODE_FILES = ("data.py", "transforms.py", "ssm.py", "simulate.py", "calibration.py", "publish.py")
+CODE_FILES = ("data.py", "transforms.py", "ssm.py", "simulate.py", "calibration.py", "trend.py", "publish.py")
 
 
 class LockBusy(RuntimeError):
@@ -456,9 +457,17 @@ def build_snapshot(cfg: dict, cfg_sha: str, export_doc: dict, rc: dict, ref_date
             reasons.append(f"probabilidade publicada como experimental por decisão editorial ({override.get('decided_at')})")
         else:
             reasons += p_reasons
+        # Modelo de tendência da média (trend.py): mesma data, mesmo par, mesma
+        # semente-base; publicado com o mesmo status de probabilidade.
+        base["trend_model"] = trend_block(calib, rc, race, ref_date, H, category, x, seed + 2,
+                                          int(cfg["simulation"]["draws"]), qs, cfg["simulation"]["histogram_bin_pp"],
+                                          include_probs=base["probabilities"] is not None)
     elif cf is None:
         reasons.append("sem calibração histórica: projeção retida")
 
+    base["headline_method"] = cfg.get("headline_method", "modelo")
+    if base["headline_method"] == "tendencia" and not (base.get("trend_model") or {}).get("probabilities"):
+        base["headline_method"] = "modelo"
     base["status"] = {
         "overall": "publicado" if now_ok else ("nao_convergiu" if not ok_conv else "insuficiente"),
         "nowcast": "publicada" if now_ok else ("nao_convergiu" if not ok_conv else "insuficiente"),
@@ -467,6 +476,44 @@ def build_snapshot(cfg: dict, cfg_sha: str, export_doc: dict, rc: dict, ref_date
         "reasons": reasons,
     }
     return base, race, fit
+
+
+def trend_block(calib: dict | None, rc: dict, race: D.RaceData, ref_date: str, H: float, category: str,
+                x: np.ndarray, seed: int, draws: int, qs: list[float], bin_pp: float, include_probs: bool) -> dict | None:
+    """A média do site, sua tendência e a projeção dela até a eleição, com incerteza calibrada."""
+    tcal = (calib or {}).get("trend")
+    sa = rc.get("site_average")
+    if not tcal or not sa:
+        return None
+    pr = TR.project(sa, race.candidate_ids, False, race.ref, rc["race"], ref_date, H,
+                    int(tcal["lookback_days"]), float(tcal["damping"]))
+    if pr is None:
+        return None
+    fj = tcal["fit"]
+    cats = list(fj["alpha"].keys())
+    tcf = CalibFit(fj["variant"], float(fj["nu"]), float(fj["alpha0"]), np.array([fj["alpha"][k] for k in cats]),
+                   float(fj["beta"]), np.array(fj["gamma"]), cats, int(fj["n_records"]), fj.get("structure", "iso"))
+    s = tcf.scale(category, H, x)
+    pt = pr["y_end"][None, :]
+    L = sys_structure(pt, race.ref, tcf.structure)
+    sh = simulate(pt, np.zeros(1), race.ref, 0.0, s, tcf.nu, draws, seed, L)
+    _validate_shares(sh)
+    probs = event_probabilities(sh, len(race.candidate_ids), rc["race"], 2)
+    _validate_probs(probs)
+    return _round_tree({
+        "method": tcal["method"],
+        "lookback_days": int(tcal["lookback_days"]),
+        "damping": float(tcal["damping"]),
+        "series_from": pr["series_from"],
+        "series_to": pr["series_to"],
+        "points": pr["points"],
+        "average_now_pct": [float(v) * 100 for v in pr["shares_now"]],
+        "trend_pp_per_week": [float(v) for v in pr["pp_per_week"]],
+        "point_election_pct": [float(v) * 100 for v in pr["shares_end"]],
+        "sys_scale_alr": s,
+        "summary": summarize_shares(sh, race.labels(), qs, bin_pp),
+        "probabilities": probs if include_probs else None,
+    }, 4)
 
 
 def race_covariates(race: D.RaceData, ref_date: str, calib: dict) -> np.ndarray:
@@ -657,7 +704,7 @@ def validate_snapshot(s: dict) -> list[str]:
         errs.append(f"schema inesperado: {s['schema']}")
     if output_hash(s) != s["output_sha256"]:
         errs.append("hash de saída não confere (snapshot alterado depois de publicado?)")
-    for block in ("nowcast", "projection"):
+    for block in ("nowcast", "projection", "trend_model"):
         b = s.get(block)
         if not b:
             continue
@@ -670,10 +717,13 @@ def validate_snapshot(s: dict) -> list[str]:
                 errs.append(f"{block}: quantis não monótonos para {r['label']}")
             if any(v < 0 or v > 100 for v in q):
                 errs.append(f"{block}: quantil fora de [0, 100] para {r['label']}")
-    if s.get("probabilities"):
-        f = s["probabilities"]["first"]
-        if abs(sum(f) - 1) > 1e-3 or any(v < 0 or v > 1 for v in f):
-            errs.append("probabilidades inválidas")
+    for where, pr in (("modelo", s.get("probabilities")), ("tendência", (s.get("trend_model") or {}).get("probabilities"))):
+        if pr:
+            f = pr["first"]
+            if abs(sum(f) - 1) > 1e-3 or any(v < 0 or v > 1 for v in f):
+                errs.append(f"probabilidades inválidas ({where})")
+    if s["status"]["probability"] == "retida" and (s.get("trend_model") or {}).get("probabilities"):
+        errs.append("probabilidade retida, mas o modelo de tendência traz probabilidades")
     if s["status"]["probability"] in ("publicada", "experimental") and not s.get("probabilities"):
         errs.append(f"status diz probabilidade {s['status']['probability']}, mas não há probabilidades")
     if s["status"]["probability"] == "retida" and s.get("probabilities"):

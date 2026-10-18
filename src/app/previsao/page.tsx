@@ -96,6 +96,12 @@ export default function PrevisaoPage() {
             há 2º turno com resultado oficial no banco para conferir se o modelo acerta essas chances, e o erro das pesquisas usado
             aqui foi medido no 1º turno de 2026. Depois de 25/10 o 2º turno entra na validação automaticamente.
           </p>
+          <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+            <strong>E a tendência?</strong> Cada quadro mostra a média das 10 últimas pesquisas e se ela vem subindo ou caindo. A
+            chance de vitória não estende essa tendência até a eleição de propósito: no teste com o 1º turno de 2026, projetar o
+            “embalo” das últimas semanas piorou a previsão em todas as versões testadas — o erro médio subiu de 5,1 para até 6,8
+            pontos. Os números estão em <Link href="/previsao/desempenho" className="underline">Desempenho histórico</Link>.
+          </p>
         </section>
       )}
 

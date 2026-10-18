@@ -1,7 +1,7 @@
 // Tabela e faixas de uma disputa — usadas na /previsao e na página da disputa.
 import { colorMap, colorOf } from "@/lib/colors";
-import { fmtPct } from "@/lib/format";
-import { casasPara, type Snapshot } from "@/lib/forecast";
+import { fmtPct, fmtSigned } from "@/lib/format";
+import { casasPara, headlineProbabilities, type Snapshot } from "@/lib/forecast";
 import { IntervalStrip } from "./ForecastCharts";
 
 /** Probabilidade em inteiro, sem falsa precisão nas pontas (">99%", "<1%"). */
@@ -18,8 +18,11 @@ export function fmtChance(p: number): string {
  * probabilidade nunca é exibida sem o aviso ao lado.
  */
 export function Favorito({ s, grande = false }: { s: Snapshot; grande?: boolean }) {
-  const f = s.probabilities?.first;
+  const f = headlineProbabilities(s);
   if (!f || f.length !== s.candidates.length) return null;
+  // A tendência da média das 10 últimas aparece SEMPRE como informação; ela só
+  // move a projeção quando o amortecimento escolhido no backtest é > 0.
+  const tm = s.trend_model ?? null;
   const colors = colorMap(s.candidates.map((c) => c.name));
   const ordem = s.candidates.map((c, k) => ({ c, p: f[k] })).sort((a, b) => b.p - a.p);
   const [lider, ...resto] = ordem;
@@ -49,6 +52,9 @@ export function Favorito({ s, grande = false }: { s: Snapshot; grande?: boolean 
         <p className="mt-1 text-xs" style={{ color: "var(--text-secondary)" }}>
           de chance de vencer em {s.election_date.slice(8, 10)}/{s.election_date.slice(5, 7)}
         </p>
+        <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+          {s.headline_method === "tendencia" ? "pela tendência da média" : "pelo modelo estatístico"}
+        </p>
         {experimental && (
           <span
             className="mt-1 inline-flex rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
@@ -59,6 +65,23 @@ export function Favorito({ s, grande = false }: { s: Snapshot; grande?: boolean 
           </span>
         )}
       </div>
+      {tm && (() => {
+        // Linha inteira embaixo: a tendência é informação, não o que gera a chance.
+        const k = s.candidates.indexOf(lider.c);
+        const v = tm.trend_pp_per_week[k];
+        const seta = Math.abs(v) < 0.1 ? "estável" : `${v > 0 ? "▲" : "▼"} ${fmtSigned(v)} p.p./semana`;
+        return (
+          <p className="basis-full border-t pt-2 text-xs" style={{ color: "var(--text-secondary)", borderColor: "var(--grid)" }}>
+            {lider.c.name} · média das 10 últimas pesquisas: <strong className="tabular">{fmtPct(tm.average_now_pct[k])}%</strong> ·
+            tendência em {tm.lookback_days} dias: <strong className="tabular">{seta}</strong>
+            {tm.damping > 0 && (
+              <>
+                {" "}· ponto projetado para a eleição: <strong className="tabular">{fmtPct(tm.point_election_pct[k])}%</strong>
+              </>
+            )}
+          </p>
+        );
+      })()}
     </div>
   );
 }

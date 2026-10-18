@@ -18,6 +18,11 @@ const COR: Record<string, string> = {
   modelo_sem_sistematico: "var(--series-8)",
   media_site: "var(--series-4)",
   ultima_pesquisa: "var(--series-7)",
+  tendencia_14d_inteira: "var(--series-muted)",
+  tendencia_21d_inteira: "var(--series-muted)",
+  tendencia_21d_metade: "var(--series-muted)",
+  tendencia_42d_inteira: "var(--series-muted)",
+  tendencia_42d_metade: "var(--series-muted)",
 };
 const CAT: Record<string, string> = { presidente_t1: "Presidente · 1º turno", governador_t1: "Governador · 1º turno", senador_t1: "Senado · 1º turno" };
 
@@ -131,6 +136,23 @@ export default function DesempenhoPage() {
           </p>
         )}
       </Card>
+
+      {b.summary_common && (
+        <Card
+          titulo="Projetar a tendência da média ajuda?"
+          sub={`Mesmos ${b.n_common ?? 0} pares disputa × data para todos os métodos. A média das 10 últimas pesquisas, parada ou estendida até a eleição pela tendência das últimas semanas`}
+        >
+          <Tabela
+            rows={["modelo", "media_site", "tendencia_42d_metade", "tendencia_21d_metade", "tendencia_14d_inteira", "tendencia_21d_inteira", "tendencia_42d_inteira"]
+              .filter((m) => b.summary_common?.[m]?.overall)
+              .map((m) => [m, b.summary_common![m].overall])}
+          />
+          <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+            Quanto mais da tendência se estende, maior o erro: em pesquisa eleitoral, o movimento de poucas semanas tende a não continuar.
+            Por isso a chance de vitória do site não projeta a tendência; ela aparece nos quadros como informação.
+          </p>
+        </Card>
+      )}
 
       <div className="grid min-w-0 gap-5 lg:grid-cols-2">
         <Card titulo="Cobertura dos intervalos por horizonte" sub="Modelo completo: com que frequência o resultado caiu dentro do intervalo (tracejado = nominal)">

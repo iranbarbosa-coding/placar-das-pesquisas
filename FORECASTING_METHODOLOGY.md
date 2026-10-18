@@ -363,6 +363,32 @@ Validade numérica antes de gravar: frações finitas em [0, 1] que somam 1 (tol
 1e-9); probabilidades em [0, 1] que somam 1; quantis monótonos; médias que
 somam 100 (tol. 0,05).
 
+### 8.1 Modelo de tendência da média (`trend.py`) e o que o destaque mostra
+
+Pedido do criador (18/10/2026): prever o vencedor e sua chance "com base na
+tendência das últimas 10 pesquisas em relação aos intervalos anteriores". O
+modelo foi construído assim e testado no backtest como os demais:
+
+```
+série      = a média do site (10 mais recentes, ≤ 2 por instituto) a cada 3 dias
+             — `computeAverage().trend`, a mesma regra aplicada para trás
+inclinação = mínimos quadrados da série nos últimos L dias, escala ALR
+projeção   = média de hoje + φ · inclinação · (dias até a eleição)
+incerteza  = erro desse procedimento contra as urnas, calibrado como os demais
+```
+
+Variantes testadas: L ∈ {14, 21, 42} dias, φ ∈ {½, 1}, e φ = 0 (a média
+parada). **Todas as variantes com φ > 0 tiveram previsão PIOR que a média
+parada**, e pior quanto mais tendência se estende (FORECASTING_VALIDATION §2.1).
+A seleção automática escolheu φ = 0.
+
+Decisão do criador, depois de ver esses números (18/10/2026): a chance de
+vitória do destaque vem do **modelo estatístico** (`headline_method: "modelo"`
+na configuração), o de melhor desempenho; ao lado, cada quadro mostra a média
+das 10 últimas pesquisas e a tendência dela em p.p./semana, como informação.
+O snapshot guarda o bloco `trend_model` completo (média, tendência, projeção e
+probabilidade do método de tendência escolhido) para quem quiser comparar.
+
 ## 9. Atualização automática e armazenamento
 
 ### 9.1 Fluxo (`publish.py`, passo no `update-polls.yml`)

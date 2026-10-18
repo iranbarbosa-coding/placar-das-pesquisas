@@ -125,8 +125,30 @@ export interface Snapshot {
     rows: { pollster: string; n_polls: number; effect_pp_first_candidate: Quantis }[];
   };
   hyperparameters?: Record<string, Quantis>;
+  /** Modelo de tendência da média do site (forecast/placar_forecast/trend.py). */
+  trend_model?: {
+    method: string;
+    lookback_days: number;
+    damping: number;
+    series_from: string;
+    series_to: string;
+    points: number;
+    average_now_pct: number[];
+    trend_pp_per_week: number[];
+    point_election_pct: number[];
+    summary: ResumoCategoria[];
+    probabilities: { first: number[] } | null;
+  } | null;
+  /** Qual modelo alimenta o destaque "maior chance de vencer". */
+  headline_method?: "tendencia" | "modelo";
   output_sha256: string;
   run?: { executed_at: string };
+}
+
+/** As probabilidades do destaque: as do método escolhido em `headline_method`. */
+export function headlineProbabilities(s: Snapshot): number[] | null {
+  if (s.headline_method === "tendencia" && s.trend_model?.probabilities) return s.trend_model.probabilities.first;
+  return s.probabilities?.first ?? null;
 }
 
 export interface IndexEntry {
@@ -204,7 +226,7 @@ export function validateSnapshot(s: Snapshot): string[] {
   if (errs.length) return errs;
   if (s.schema !== SNAPSHOT_SCHEMA) errs.push(`schema inesperado: ${s.schema}`);
   if (outputHash(s) !== s.output_sha256) errs.push("hash de saída não confere");
-  for (const block of [s.nowcast, s.projection]) {
+  for (const block of [s.nowcast, s.projection, s.trend_model]) {
     if (!block) continue;
     const soma = block.summary.reduce((a, r) => a + r.mean, 0);
     if (Math.abs(soma - 100) > 0.05) errs.push(`médias somam ${soma.toFixed(3)}`);
@@ -216,10 +238,10 @@ export function validateSnapshot(s: Snapshot): string[] {
       if (q.some((v) => v < 0 || v > 100)) errs.push(`quantil fora de [0, 100]: ${r.label}`);
     }
   }
-  if (s.probabilities) {
-    const f = s.probabilities.first;
-    if (Math.abs(f.reduce((a, b) => a + b, 0) - 1) > 1e-3 || f.some((v) => v < 0 || v > 1)) errs.push("probabilidades inválidas");
+  for (const f of [s.probabilities?.first, s.trend_model?.probabilities?.first]) {
+    if (f && (Math.abs(f.reduce((a, b) => a + b, 0) - 1) > 1e-3 || f.some((v) => v < 0 || v > 1))) errs.push("probabilidades inválidas");
   }
+  if (s.status.probability === "retida" && s.trend_model?.probabilities) errs.push("probabilidade retida, mas a tendência traz probabilidades");
   if (s.status.probability === "retida" && s.probabilities) errs.push("probabilidade retida, mas presente");
   if (s.status.probability !== "retida" && !s.probabilities) errs.push("status com probabilidade, mas sem probabilidades");
   return errs;
@@ -347,6 +369,10 @@ export interface Backtest {
     }
   >;
   revision_leakage: { ref_date: string; mean_abs_diff_pp: number; max_abs_diff_pp: number; mae_vintage_pp: number; mae_reconstructed_pp: number; polls_vintage: number; polls_reconstructed: number }[];
+  /** Os mesmos pares disputa × data em todos os métodos (comparação justa com a tendência). */
+  summary_common?: Record<string, { overall: Agregado; by_horizon: Record<string, Agregado> }>;
+  n_common?: number;
+  trend_selected?: { method: string; lookback_days: number; damping: number };
   calibration_id: string;
 }
 
@@ -384,6 +410,11 @@ export const METHOD_LABELS: Record<string, string> = {
   modelo_sem_sistematico: "Modelo sem erro sistemático",
   media_site: "Média do site",
   ultima_pesquisa: "Última pesquisa",
+  tendencia_14d_inteira: "Média + tendência de 14 dias (inteira)",
+  tendencia_21d_inteira: "Média + tendência de 21 dias (inteira)",
+  tendencia_21d_metade: "Média + metade da tendência de 21 dias",
+  tendencia_42d_inteira: "Média + tendência de 42 dias (inteira)",
+  tendencia_42d_metade: "Média + metade da tendência de 42 dias",
 };
 
 export const VARIANT_LABELS: Record<string, string> = {

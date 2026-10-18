@@ -64,7 +64,11 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
   commit das pesquisas). Publica estimativa atual, projeção *experimental* do 2º turno e, em destaque, **quem
   tem maior chance e a probabilidade de vitória, rotulada experimental** (pedido do criador em 18/10; o portão
   de validação — ≥ 2 eleições por categoria — segue não cumprido e seus motivos vão junto; chave
-  `gates.probability.editorial_override` na config). Aguarda revisão e "merge it" do criador. Ver `FORECASTING_METHODOLOGY.md` e `FORECASTING_VALIDATION.md`.
+  `gates.probability.editorial_override` na config). **Tendência da média (18/10)**: testada a pedido do criador
+  (média das 10 últimas + tendência projetada); projetar a tendência PIOROU a previsão em todas as variantes
+  (erro 5,1 → até 6,8 p.p.). Decisão do criador: a chance do destaque vem do modelo estatístico, e a média das 10
+  últimas com a tendência (p.p./semana) aparece ao lado como informação (`headline_method: "modelo"`).
+  Aguarda revisão e "merge it" do criador. Ver `FORECASTING_METHODOLOGY.md` e `FORECASTING_VALIDATION.md`.
 - **Defeito encontrado no ranking de acerto (Senado/SC), NÃO corrigido** (é método publicado, decisão do
   criador): a urna tem "Carol de Toni" (33,46%) e OUTRA "Carol" (0,15%); `acerto.ts` casa por `candKey` e
   compara a Carol das pesquisas (~25%) com 0,15%. O store também lista as duas grafias como apelido do mesmo

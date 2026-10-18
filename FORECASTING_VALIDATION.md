@@ -3,7 +3,7 @@
 Resultados **medidos** da validação histórica do modelo descrito em
 [`FORECASTING_METHODOLOGY.md`](FORECASTING_METHODOLOGY.md). Todo número aqui sai
 de `data/forecast/backtests/backtest-2026-10-04-t1-placar-previsao-v1.json` e
-`data/forecast/calibration/calibracao-2026t1-ab0bfb0ddd.json`, gerados por
+`data/forecast/calibration/calibracao-2026t1-6c772b2872.json`, gerados por
 `python3 forecast/run.py backtest-fit` + `backtest-evaluate` em 18/10/2026
 (config `placar-previsao-v1`, modelo 1.0.0). A mesma informação está em
 `/previsao/desempenho` e `/api/forecast/model-performance.json`.
@@ -93,6 +93,38 @@ Leitura:
   quase nada o Brier.
 * **Líder certo** está na tabela só para mostrar que não mede calibração: 75%
   × 73% × 74% para métodos com Brier de 0,372 a 0,425.
+
+### 2.1 Tendência da média das 10 últimas pesquisas (pedido de 18/10/2026)
+
+O modelo de tendência (METHODOLOGY §8.1) foi avaliado nos **mesmos 205 pares**
+disputa × data em que todos os métodos têm previsão (a série da média falta em
+alguns pares onde o Modelo A ajustou):
+
+| Método | EAM | CRPS | Cob. 80% | Brier 1º | Log 1º | Líder certo | Densidade |
+|---|---|---|---|---|---|---|---|
+| **Modelo completo** | **5,09** | **3,68** | 84% | **0,342** | **−0,596** | **79%** | **−3,58** |
+| Média das 10 últimas, parada (φ = 0) | 5,55 | 4,04 | 88% | 0,359 | −0,638 | 77% | −4,18 |
+| Última pesquisa | 5,46 | 3,93 | 86% | 0,357 | −0,617 | 76% | −4,10 |
+| Média + ½ tendência de 42 dias | 6,24 | 4,56 | 88% | 0,371 | −0,670 | 74% | −4,94 |
+| Média + ½ tendência de 21 dias | 6,17 | 4,52 | 87% | 0,385 | −0,686 | 73% | −4,99 |
+| Média + tendência de 42 dias | 6,65 | 4,82 | 88% | 0,381 | −0,688 | 72% | −5,19 |
+| Média + tendência de 14 dias | 6,70 | 4,92 | 86% | 0,377 | −0,690 | 73% | −5,30 |
+| Média + tendência de 21 dias | 6,64 | 4,91 | 88% | 0,387 | −0,698 | 72% | −5,31 |
+
+EAM por horizonte (dias antes → p.p.):
+
+| | 90 | 60 | 30 | 14 | 7 | 3 | 1 |
+|---|---|---|---|---|---|---|---|
+| Modelo completo | 7,89 | 6,09 | 6,02 | 5,10 | 4,75 | 4,47 | 4,10 |
+| Média parada | 8,64 | 6,84 | 6,63 | 5,49 | 5,16 | 4,80 | 4,49 |
+| Média + ½ tendência (42 d) | 10,60 | 8,93 | 7,07 | 5,82 | 5,47 | 5,35 | 5,00 |
+| Média + tendência (21 d) | 11,28 | 9,15 | 8,78 | 6,13 | 6,78 | 5,14 | 4,88 |
+
+Estender a tendência piorou a previsão em **todas** as variantes e em todos os
+horizontes; quanto mais tendência, maior o erro. Em 2026, o movimento de poucas
+semanas da média reverteu mais do que continuou. A seleção automática escolheu
+φ = 0, e o criador decidiu que a chance do destaque vem do modelo completo, com
+a média das 10 últimas e a tendência exibidas ao lado como informação.
 
 ## 3. Calibração
 

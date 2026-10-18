@@ -27,6 +27,7 @@ import numpy as np
 
 from . import calibration as CAL
 from . import data as D
+from . import trend as TR
 from .backtest import plan, task_seed
 from .scoring import pit_histogram, reliability, score_record
 from .simulate import simulate, sys_structure
@@ -84,6 +85,15 @@ def _baselines(train: dict, rec: dict, cfg: dict) -> dict:
     if elig:
         last = sorted(elig, key=lambda p: ((p["fieldwork_end"] or p["published_date"]), p["id"]))[-1]
         out["ultima_pesquisa"] = _vector({r["candidate_id"]: r["pct_result_basis"] / 100 for r in last["results"] if r["candidate_id"]}, rec)
+    # Modelo de tendência da média: a série publicada pelo site até T, projetada à eleição.
+    if avg:
+        H = float(D.days_between(rec["ref_date"], cfg["backtest"]["election_date"]))
+        race = rec["contest"].split(":")[0]
+        for v in cfg["trend"]["variants"]:
+            pr = TR.project(avg, rec["candidate_ids"], rec["include_rest"], rec["ref"], race, rec["ref_date"], H,
+                            int(v["lookback_days"]), float(v["damping"]))
+            if pr is not None:
+                out[v["name"]] = pr["shares_end"]
     return out
 
 
@@ -105,10 +115,17 @@ def evaluate(cfg: dict, cache_dir: str, log=print) -> dict:
     cur = D.load_export(os.path.join(cache_dir, "current-with-results.json"))
     rows = {r["ref_date"]: r for r in plan(cfg)}
     trains = {}
+    lag = int(cfg["data"]["availability_lag_days"])
     for T, row in rows.items():
         v = row["vintage"]
         tag = v.commit[:12] if v.commit else "reconstruido"
-        trains[T] = D.load_export(os.path.join(cache_dir, f"train-{T}-{tag}.json"))
+        # "train2": exportação que já traz a série da média (`trend`). O ajuste do
+        # Modelo A não muda; só as bases de comparação precisam da série.
+        path = os.path.join(cache_dir, f"train2-{T}-{tag}.json")
+        if not os.path.exists(path):
+            export(path, as_of=T, lag=lag, vintage=v, scratch=cache_dir, with_results=False)
+        trains[T] = D.load_export(path)
+    methods = METHODS + tuple(v["name"] for v in cfg["trend"]["variants"])
 
     status_counts: dict[str, int] = {}
     for r in recs:
@@ -170,15 +187,15 @@ def evaluate(cfg: dict, cache_dir: str, log=print) -> dict:
     results = {}
     selected = {}
     jobs = {}
-    with ProcessPoolExecutor(max_workers=min(4, len(METHODS))) as pool:
-        for method in METHODS:
+    with ProcessPoolExecutor(max_workers=4) as pool:
+        for method in methods:
             er, keep = err_records(method)
             if not er:
                 continue
             variants = ("sem_sistematico",) if method == "modelo_sem_sistematico" else CAL.VARIANTS
             jobs[method] = (keep, pool.submit(_select_job, er, cats, nu_grid, omega, variants))
         sels = {m: (keep, fu.result()) for m, (keep, fu) in jobs.items()}
-    for method in METHODS:
+    for method in methods:
         if method not in sels:
             continue
         keep, sel = sels[method]
@@ -217,6 +234,26 @@ def evaluate(cfg: dict, cache_dir: str, log=print) -> dict:
 
     summary = {m: _aggregate(rows_, cfg) for m, rows_ in results.items()}
 
+    # Comparação justa: os MESMOS pares disputa × data em todos os métodos (a
+    # série da média pode faltar onde o Modelo A ajustou, e vice-versa).
+    keyset = [{(r["contest"], r["ref_date"]) for r in rows_} for rows_ in results.values()]
+    common = set.intersection(*keyset) if keyset else set()
+    summary_common = {m: _aggregate([r for r in rows_ if (r["contest"], r["ref_date"]) in common], cfg)
+                      for m, rows_ in results.items()}
+
+    # Tendência de produção: entre as variantes de tendência E a média parada
+    # (φ = 0), a de maior densidade preditiva fora da amostra nos pares comuns.
+    cand_trend = ["media_site"] + [v["name"] for v in cfg["trend"]["variants"]]
+    trend_scores = {m: summary_common[m]["overall"]["loso_mean_logdens"] for m in cand_trend if summary_common.get(m, {}).get("overall")}
+    trend_best = max(trend_scores, key=trend_scores.get)
+    tv = next((v for v in cfg["trend"]["variants"] if v["name"] == trend_best), {"name": "media_site", "lookback_days": 21, "damping": 0.0})
+    er_t, _ = err_records(trend_best)
+    tb = selected[trend_best]["best"]
+    tfit = CAL.fit_calibration(CAL.build_error_set(er_t, cats, tb["structure"]), tb["variant"], tb["nu"], omega)
+    tfit.structure = tb["structure"]
+    log(f"tendência: escolhida {trend_best} (φ = {tv['damping']}, {tv['lookback_days']} dias) — " +
+        ", ".join(f"{m} {s:.3f}" for m, s in sorted(trend_scores.items(), key=lambda kv: -kv[1])))
+
     # Calibração de produção: a variante escolhida para `modelo`, ajustada em TODOS os registros.
     er, keep = err_records("modelo")
     best = selected["modelo"]["best"]
@@ -238,6 +275,15 @@ def evaluate(cfg: dict, cache_dir: str, log=print) -> dict:
                            "borrowed": n_contests.get(c, 0) == 0}
                        for c in cats},
         "selection": selected["modelo"]["table"],
+        # Modelo de tendência da média (trend.py): variante escolhida fora da amostra
+        # e a calibração do erro DELE (erro do ponto projetado contra a urna).
+        "trend": {
+            "method": trend_best,
+            "lookback_days": int(tv["lookback_days"]),
+            "damping": float(tv["damping"]),
+            "loso_mean_logdens_common": trend_scores,
+            "fit": tfit.to_json(),
+        },
         "selection_rule": "um erro-padrão: a combinação mais simples a menos de 1 EP (pareado) da melhor densidade fora da amostra",
         "selected": best,
         "best_raw": selected["modelo"]["best_raw"],
@@ -269,6 +315,9 @@ def evaluate(cfg: dict, cache_dir: str, log=print) -> dict:
         "n_items": len(items),
         "selection": selected,
         "summary": summary,
+        "summary_common": summary_common,
+        "n_common": len(common),
+        "trend_selected": {"method": trend_best, "lookback_days": int(tv["lookback_days"]), "damping": float(tv["damping"])},
         "records": results,
         "revision_leakage": leakage,
         "calibration_id": calib["calibration_id"],

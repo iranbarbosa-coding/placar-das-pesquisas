@@ -13,6 +13,7 @@ import {
   loadSnapshot,
   raceById,
   raceLabel,
+  headlineProbabilities,
   type Snapshot,
 } from "./forecast";
 
@@ -59,8 +60,23 @@ function snapshotSummary(s: Snapshot) {
       site_average_pct: s.site_average?.candidates.find((x) => x.candidate_id === c.candidate_id)?.avg ?? null,
       nowcast: s.nowcast?.summary[k] ? { mean: s.nowcast.summary[k].mean, quantiles: s.nowcast.summary[k].quantiles } : null,
       projection: s.projection?.summary[k] ? { mean: s.projection.summary[k].mean, quantiles: s.projection.summary[k].quantiles } : null,
-      probability_first: s.probabilities?.first?.[k] ?? null,
+      // Probabilidade do destaque (método em `headline_method`) e as dos dois métodos.
+      probability_first: headlineProbabilities(s)?.[k] ?? null,
+      probability_first_state_space: s.probabilities?.first?.[k] ?? null,
+      probability_first_trend: s.trend_model?.probabilities?.first?.[k] ?? null,
+      trend: s.trend_model
+        ? {
+            average_now_pct: s.trend_model.average_now_pct[k],
+            pp_per_week: s.trend_model.trend_pp_per_week[k],
+            point_election_pct: s.trend_model.point_election_pct[k],
+            projection: s.trend_model.summary[k]?.quantiles ?? null,
+          }
+        : null,
     })),
+    headline_method: s.headline_method ?? "modelo",
+    trend_model: s.trend_model
+      ? { method: s.trend_model.method, lookback_days: s.trend_model.lookback_days, damping: s.trend_model.damping, series_from: s.trend_model.series_from, series_to: s.trend_model.series_to }
+      : null,
     output_sha256: s.output_sha256,
   };
 }

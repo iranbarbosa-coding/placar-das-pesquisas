@@ -185,7 +185,7 @@ export function exportInputs({ polls, candidates, resultados, asOf = null, lag =
       windowPollIds: avg.windowPollIds,
       capRelaxed: avg.capRelaxed,
       lastPollDate: avg.lastPollDate,
-      candidates: avg.candidates.map((c) => ({ candidate_id: resolve(contest, c.candidate)?.candidate_id ?? null, name: c.candidate, avg: c.avg, nPolls: c.nPolls })),
+      candidates: avg.candidates.map((c) => ({ candidate_id: resolve(contest, c.candidate)?.candidate_id ?? null, name: c.candidate, avg: c.avg, nPolls: c.nPolls, trend: c.trend })),
     });
   }
 
@@ -245,7 +245,10 @@ export function exportInputs({ polls, candidates, resultados, asOf = null, lag =
             pollCount: avg.pollCount,
             capRelaxed: avg.capRelaxed,
             lastPollDate: avg.lastPollDate,
-            candidates: avg.candidates.map((x) => ({ candidate_id: resolve(contest, x.candidate)?.candidate_id ?? null, name: x.candidate, avg: x.avg, nPolls: x.nPolls })),
+            // `trend`: a mesma regra (10 mais recentes, ≤ 2 por instituto) aplicada
+            // para trás no tempo, a cada 3 dias — o que a média do site marcava em
+            // cada data. É a série que o modelo de tendência (forecast/…/trend.py) lê.
+            candidates: avg.candidates.map((x) => ({ candidate_id: resolve(contest, x.candidate)?.candidate_id ?? null, name: x.candidate, avg: x.avg, nPolls: x.nPolls, trend: x.trend })),
           }
         : null,
       contest,
