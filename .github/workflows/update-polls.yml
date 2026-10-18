@@ -241,6 +241,38 @@ jobs:
       - name: Regenerar o censo do banco
         run: node scripts/census.mjs
 
+      # ── previsão estatística (camada SEPARADA da média; nunca bloqueia o dado) ──
+      # Roda só depois de TODOS os guardas do banco acima: a previsão consome o
+      # store já validado. Uma falha aqui não reprova a rodada nem segura o
+      # commit das pesquisas — o último snapshot válido de cada disputa segue no
+      # ar e a falha fica em data/forecast/runs.ndjson. Snapshot que não passa na
+      # conferência (`validate`: esquema, hash, somas, quantis) NÃO é comitado:
+      # as mudanças em data/forecast são revertidas. Sem pesquisa nova e sem
+      # mudança de data, a rodada não escreve nada (mudança material = hash da
+      # entrada). A trava em data/forecast/.lock e o `concurrency` do workflow
+      # impedem execução duplicada. Ver FORECASTING_METHODOLOGY.md §9.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Dependências da previsão (versões fixadas)
+        run: pip install -r forecast/requirements.txt
+
+      - name: Previsão estatística — rodada e conferência
+        run: |
+          set +e
+          python3 forecast/run.py update --ref-date "$(date -u +%F)"; u=$?
+          python3 forecast/run.py validate; v=$?
+          if [ "$v" -ne 0 ]; then
+            echo "::warning::conferência dos snapshots falhou — revertendo data/forecast para o último estado comitado"
+            git checkout -- data/forecast
+            git clean -fdq data/forecast
+          fi
+          if [ "$u" -ne 0 ] || [ "$v" -ne 0 ]; then
+            echo "::warning::previsão: rodada com falha (update=$u validate=$v); o último snapshot válido segue publicado"
+          fi
+          exit 0
+
       - name: Commit se houver mudanças
         env:
           # URL secreta do Deploy Hook da Vercel (Settings → Git → Deploy Hooks).

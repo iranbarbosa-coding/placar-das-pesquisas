@@ -37,6 +37,16 @@ e tabela completa de todas as pesquisas publicadas — **atualizado automaticame
    sozinho (também pode ser disparado manualmente na aba Actions → *Atualizar
    pesquisas* → Run workflow).
 
+## Previsão Estatística (camada separada)
+
+`/previsao` publica uma estimativa atual e uma projeção para o dia da eleição por
+modelo estatístico (espaço de estados bayesiano + Monte Carlo + calibração contra
+o TSE), SEPARADA da média das pesquisas, que não muda. Código em `forecast/`
+(Python, só numpy fixado) e `scripts/forecast/` (exportador que reusa as regras do
+site); artefatos imutáveis em `data/forecast/`; API estática em `/api/forecast/*`.
+Detalhes: [FORECASTING_METHODOLOGY.md](FORECASTING_METHODOLOGY.md) e
+[FORECASTING_VALIDATION.md](FORECASTING_VALIDATION.md).
+
 ## Comandos
 
 ```

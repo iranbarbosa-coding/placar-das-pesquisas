@@ -31,7 +31,7 @@ export interface MastheadProps {
   meta?: React.ReactNode;
 }
 
-type MenuKey = "sobre" | "presidente" | "estados" | "derivadas" | "metodologia" | "imprensa";
+type MenuKey = "sobre" | "presidente" | "estados" | "previsao" | "derivadas" | "metodologia" | "imprensa";
 
 interface MenuLink {
   href: string;
@@ -76,6 +76,18 @@ const MENUS: Menu[] = [
     href: "/estados",
     mega: true,
     links: STATE_LINKS,
+  },
+  {
+    // Seção independente da média (decisão de produto, 10/2026): o modelo nunca
+    // aparece misturado aos números das pesquisas.
+    key: "previsao",
+    label: "Previsão",
+    href: "/previsao",
+    links: [
+      { href: "/previsao", label: "Previsão Estatística", note: "Estimativa atual e projeção para o 2º turno, com incerteza" },
+      { href: "/previsao/desempenho", label: "Desempenho histórico", note: "Como o modelo teria se saído no 1º turno" },
+      { href: "/previsao/metodologia", label: "Como o modelo funciona", note: "Modelos, calibração e limites" },
+    ],
   },
   {
     key: "derivadas",

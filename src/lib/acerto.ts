@@ -179,7 +179,7 @@ function ultimaPorInstituto(race: RaceKind, uf: UF | null, round: 1 | 2, eleicao
  * Pesquisa de dois votos para o Senado na base do `pvap` do TSE: cada nome como
  * parte do total de menções a candidatos (candidatos + outros), somando 100.
  */
-function senadoEmValidos(p: Poll): Poll {
+export function senadoEmValidos(p: Poll): Poll {
   const denom = p.results.reduce((a, r) => a + r.pct, 0) + (p.others_pct ?? 0);
   if (denom <= 0) return p;
   const scale = 100 / denom;

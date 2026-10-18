@@ -1,0 +1,50 @@
+name: Testes da previsão
+
+# Testes da camada de previsão estatística (forecast/, scripts/forecast/,
+# src/lib/forecast*.ts e as páginas /previsao). Separado do cron de coleta:
+# roda em PR e em push que tocam esses caminhos, nunca publica nada.
+on:
+  pull_request:
+    paths:
+      - "forecast/**"
+      - "scripts/forecast/**"
+      - "src/lib/forecast*.ts"
+      - "src/lib/acerto.ts"
+      - "src/app/previsao/**"
+      - "src/app/api/forecast/**"
+      - "src/components/previsao/**"
+      - "data/forecast/**"
+      - ".github/workflows/forecast-tests.yml"
+  push:
+    branches: [main]
+    paths:
+      - "forecast/**"
+      - "scripts/forecast/**"
+      - "src/lib/forecast*.ts"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r forecast/requirements.txt
+      - name: Python — unitários e estatísticos
+        run: python3 -m unittest discover -s forecast/tests -t forecast -v
+      - name: Node — exportador, conferência e paridade do hash
+        run: node --no-warnings --test scripts/forecast/forecast.test.mjs
+      - name: Snapshots publicados passam na conferência
+        run: python3 forecast/run.py validate
+      - run: npm ci
+      - name: Tipos
+        run: npx tsc --noEmit

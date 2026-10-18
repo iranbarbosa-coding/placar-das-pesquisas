@@ -1,0 +1,439 @@
+{
+ "schema": "placar.previsao.indice/1",
+ "races": [
+  {
+   "race_id": "presidente-br-2026-t2",
+   "contest": "presidente:BR",
+   "race": "presidente",
+   "uf": null,
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_e159c73fb9d6",
+     "name": "Flávio Bolsonaro"
+    },
+    {
+     "candidate_id": "c_f903907587c1",
+     "name": "Lula"
+    }
+   ],
+   "latest": "snapshots/presidente-br-2026-t2/2026-10-18_05932fe69e.json",
+   "history": [
+    {
+     "path": "snapshots/presidente-br-2026-t2/2026-10-18_05932fe69e.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria presidente_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 137,
+     "latest_fieldwork_end": "2026-10-16",
+     "output_sha256": "d1509c38daf9b6175c48df89a569439f74e240796ff1511f642cd0353ca74cf2",
+     "nowcast_median": [
+      50.629,
+      49.371
+     ],
+     "nowcast_q10": [
+      49.877,
+      48.698
+     ],
+     "nowcast_q90": [
+      51.302,
+      50.123
+     ],
+     "projection_median": [
+      50.616,
+      49.384
+     ],
+     "projection_q10": [
+      44.255,
+      43.029
+     ],
+     "projection_q90": [
+      56.971,
+      55.745
+     ]
+    }
+   ]
+  },
+  {
+   "race_id": "governador-ac-2026-t2",
+   "contest": "governador:AC",
+   "race": "governador",
+   "uf": "AC",
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_1f1fcb9de510",
+     "name": "Mailza Assis"
+    },
+    {
+     "candidate_id": "c_6635b4cd6596",
+     "name": "Alan Rick"
+    }
+   ],
+   "latest": "snapshots/governador-ac-2026-t2/2026-10-18_4ef6ff5c82.json",
+   "history": [
+    {
+     "path": "snapshots/governador-ac-2026-t2/2026-10-18_4ef6ff5c82.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 16,
+     "latest_fieldwork_end": "2026-10-12",
+     "output_sha256": "a761dc56006026f58be57e3e5972350d27ca0db7d6f79340f8297241d40e92c5",
+     "nowcast_median": [
+      54.12,
+      45.88
+     ],
+     "nowcast_q10": [
+      49.036,
+      40.098
+     ],
+     "nowcast_q90": [
+      59.902,
+      50.964
+     ],
+     "projection_median": [
+      54.276,
+      45.724
+     ],
+     "projection_q10": [
+      40.653,
+      32.395
+     ],
+     "projection_q90": [
+      67.605,
+      59.347
+     ]
+    }
+   ]
+  },
+  {
+   "race_id": "governador-am-2026-t2",
+   "contest": "governador:AM",
+   "race": "governador",
+   "uf": "AM",
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_f649ea80be52",
+     "name": "Omar Aziz"
+    },
+    {
+     "candidate_id": "c_43e545003a6b",
+     "name": "Professora Maria do Carmo"
+    }
+   ],
+   "latest": "snapshots/governador-am-2026-t2/2026-10-18_3f1c8591d3.json",
+   "history": [
+    {
+     "path": "snapshots/governador-am-2026-t2/2026-10-18_3f1c8591d3.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 19,
+     "latest_fieldwork_end": "2026-10-12",
+     "output_sha256": "04ec2f8775c65fde78333a0f684a70c4547db873de788a47562e99a9d797d1ed",
+     "nowcast_median": [
+      56.089,
+      43.911
+     ],
+     "nowcast_q10": [
+      54.116,
+      41.162
+     ],
+     "nowcast_q90": [
+      58.838,
+      45.884
+     ],
+     "projection_median": [
+      56.295,
+      43.705
+     ],
+     "projection_q10": [
+      47.02,
+      34.862
+     ],
+     "projection_q90": [
+      65.138,
+      52.98
+     ]
+    }
+   ]
+  },
+  {
+   "race_id": "governador-df-2026-t2",
+   "contest": "governador:DF",
+   "race": "governador",
+   "uf": "DF",
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_8d467f173562",
+     "name": "Celina Leão"
+    },
+    {
+     "candidate_id": "c_dbf81338b2dd",
+     "name": "Leandro Grass"
+    }
+   ],
+   "latest": "snapshots/governador-df-2026-t2/2026-10-18_ee573b2f72.json",
+   "history": [
+    {
+     "path": "snapshots/governador-df-2026-t2/2026-10-18_ee573b2f72.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 21,
+     "latest_fieldwork_end": "2026-10-13",
+     "output_sha256": "665bab19be7ff0504d4adf6402f2803655f332e13c0e670afe78aa62ad1bb4e5",
+     "nowcast_median": [
+      61.253,
+      38.747
+     ],
+     "nowcast_q10": [
+      58.985,
+      36.842
+     ],
+     "nowcast_q90": [
+      63.158,
+      41.015
+     ],
+     "projection_median": [
+      61.144,
+      38.856
+     ],
+     "projection_q10": [
+      52.727,
+      31.102
+     ],
+     "projection_q90": [
+      68.898,
+      47.273
+     ]
+    }
+   ]
+  },
+  {
+   "race_id": "governador-es-2026-t2",
+   "contest": "governador:ES",
+   "race": "governador",
+   "uf": "ES",
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_d09634143e1e",
+     "name": "Lorenzo Pazolini"
+    },
+    {
+     "candidate_id": "c_f16927347aae",
+     "name": "Ricardo Ferraço"
+    }
+   ],
+   "latest": "snapshots/governador-es-2026-t2/2026-10-18_2ac4c89345.json",
+   "history": [
+    {
+     "path": "snapshots/governador-es-2026-t2/2026-10-18_2ac4c89345.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 15,
+     "latest_fieldwork_end": "2026-10-13",
+     "output_sha256": "599e00bfcaafe0ee4f00f91fa56610a79ddbfa44ece706081c08ff15e23f475e",
+     "nowcast_median": [
+      52.159,
+      47.841
+     ],
+     "nowcast_q10": [
+      48.448,
+      43.246
+     ],
+     "nowcast_q90": [
+      56.754,
+      51.552
+     ],
+     "projection_median": [
+      52.31,
+      47.69
+     ],
+     "projection_q10": [
+      42.369,
+      37.598
+     ],
+     "projection_q90": [
+      62.402,
+      57.631
+     ]
+    }
+   ]
+  },
+  {
+   "race_id": "governador-rn-2026-t2",
+   "contest": "governador:RN",
+   "race": "governador",
+   "uf": "RN",
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_5068e842f4fc",
+     "name": "Allyson"
+    },
+    {
+     "candidate_id": "c_43db1835e592",
+     "name": "Cadu de Lula"
+    }
+   ],
+   "latest": "snapshots/governador-rn-2026-t2/2026-10-18_698bf4d562.json",
+   "history": [
+    {
+     "path": "snapshots/governador-rn-2026-t2/2026-10-18_698bf4d562.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 14,
+     "latest_fieldwork_end": "2026-10-12",
+     "output_sha256": "1b05419d20a47955253ab70729ed451cb7a0ad52847355a05485a98179c00ce1",
+     "nowcast_median": [
+      59.311,
+      40.689
+     ],
+     "nowcast_q10": [
+      55.356,
+      38.248
+     ],
+     "nowcast_q90": [
+      61.752,
+      44.644
+     ],
+     "projection_median": [
+      59.012,
+      40.988
+     ],
+     "projection_q10": [
+      45.839,
+      29.08
+     ],
+     "projection_q90": [
+      70.92,
+      54.161
+     ]
+    }
+   ]
+  },
+  {
+   "race_id": "governador-to-2026-t2",
+   "contest": "governador:TO",
+   "race": "governador",
+   "uf": "TO",
+   "round": 2,
+   "election_date": "2026-10-25",
+   "candidates": [
+    {
+     "candidate_id": "c_2d5ddaf72c9d",
+     "name": "Professora Dorinha"
+    },
+    {
+     "candidate_id": "c_e06fbc541674",
+     "name": "Vicentinho Júnior"
+    }
+   ],
+   "latest": "snapshots/governador-to-2026-t2/2026-10-18_3795366af8.json",
+   "history": [
+    {
+     "path": "snapshots/governador-to-2026-t2/2026-10-18_3795366af8.json",
+     "reference_date": "2026-10-18",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "retida",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+      ]
+     },
+     "n_polls": 15,
+     "latest_fieldwork_end": "2026-10-13",
+     "output_sha256": "0257b4a9e50ec14516bfcaf86f3ca30b1ac11ea93146f8013490b07b3910f67f",
+     "nowcast_median": [
+      50.369,
+      49.631
+     ],
+     "nowcast_q10": [
+      48.063,
+      47.847
+     ],
+     "nowcast_q90": [
+      52.153,
+      51.937
+     ],
+     "projection_median": [
+      50.24,
+      49.76
+     ],
+     "projection_q10": [
+      40.707,
+      40.305
+     ],
+     "projection_q90": [
+      59.695,
+      59.293
+     ]
+    }
+   ]
+  }
+ ]
+}
