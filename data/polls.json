@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-18T18:04:04.579Z",
+ "generated_at": "2026-10-18T21:28:42.257Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-18T18:04:04.579Z"
+   "last_ok": "2026-10-18T21:28:42.257Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-18T18:04:04.579Z"
+   "last_ok": "2026-10-18T21:28:42.257Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-18T18:04:04.579Z"
+   "last_ok": "2026-10-18T21:28:42.257Z"
   }
  ],
  "polls": [
@@ -16732,7 +16732,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-25",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-29",
    "published_date": "2026-09-29",
    "sample_size": 2000,
@@ -16785,7 +16785,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "TV 3 Poderes",
-   "fieldwork_start": "2026-09-25",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-29",
    "published_date": "2026-09-29",
    "sample_size": 2000,
@@ -37805,7 +37805,7 @@
   {
    "id": "p360-14469-1-0-45dfae35541d",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/benedita-lidera-disputa-ao-senado-no-rio-diz-pesquisa/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/paes-tem-431-e-douglas-ruas-267-no-rj-no-1o-turno-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/09/RJ-040362026.pdf",
    "race": "senador",
    "state": "RJ",
@@ -39363,8 +39363,8 @@
   {
    "id": "p360-14204-1-0-7587b73a90e2",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/Governador-PB-18a21.set_.2026-Quaest-FolhaDeS.Paulo_.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Governador-PB-18a21.set_.2026-Quaest-FolhaDeS.Paulo_.pdf",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Senador-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Senador-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
    "race": "senador",
    "state": "PB",
    "round": 1,
@@ -45071,18 +45071,18 @@
   },
   {
    "id": "80347ae321ff",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaFactum-presidente-3set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaFactum-presidente-3set2026.pdf",
    "race": "senador",
    "state": "RJ",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Veritá",
-   "contractor": null,
+   "contractor": "Veritá",
    "fieldwork_start": "2026-09-13",
    "fieldwork_end": "2026-09-18",
-   "published_date": null,
+   "published_date": "2026-09-18",
    "sample_size": 2030,
    "margin_of_error": 2.5,
    "results": [
@@ -45105,7 +45105,7 @@
    "others_pct": null,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "RJ-01332/2026"
   },
   {
    "id": "8ee4d2d2c46e",
@@ -54566,7 +54566,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-09",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-12",
    "published_date": "2026-09-12",
    "sample_size": 2000,
@@ -54624,7 +54624,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-09",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-12",
    "published_date": "2026-09-12",
    "sample_size": 2000,
@@ -61437,7 +61437,7 @@
   {
    "id": "p360-14119-1-1-e2a4209f4a0a",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/prefab-riodejaneiro-10set.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/eduardo-paes-lidera-no-1o-turno-pelo-governo-do-rj-diz-prefab-2/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/09/prefab-riodejaneiro-10set.pdf",
    "race": "senador",
    "state": "RJ",
@@ -61540,7 +61540,7 @@
   {
    "id": "p360-14120-1-0-ff3b8003e44c",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/prefab-riodejaneiro-10set.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/eduardo-paes-lidera-no-1o-turno-pelo-governo-do-rj-diz-prefab-2/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/09/prefab-riodejaneiro-10set.pdf",
    "race": "presidente",
    "state": "RJ",
@@ -74404,7 +74404,7 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-28",
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74477,7 +74477,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-28",
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74510,7 +74510,7 @@
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-28",
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74543,7 +74543,7 @@
    "scenario": "2º turno: Lula vs Romeu Zema",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-28",
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74576,7 +74576,7 @@
    "scenario": "2º turno: Lula vs Renan Santos",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-08-28",
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -80895,18 +80895,18 @@
   },
   {
    "id": "9de766b9877c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-RJ-governador-9set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-RJ-governador-9set2026.pdf",
    "race": "senador",
    "state": "RJ",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Veritá",
-   "contractor": null,
+   "contractor": "Veritá",
    "fieldwork_start": "2026-08-24",
    "fieldwork_end": "2026-08-28",
-   "published_date": null,
+   "published_date": "2026-08-28",
    "sample_size": 2030,
    "margin_of_error": 2.5,
    "results": [
@@ -80954,7 +80954,7 @@
    "others_pct": 9,
    "undecided_pct": 80.9,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "RJ-06078/2026"
   },
   {
    "id": "c3381dde0478",
@@ -87936,7 +87936,7 @@
   {
    "id": "p360-13906-1-0-0320365b9f47",
    "source": "poder360",
-   "source_url": "https://drive.google.com/file/d/1bHh3hVCK3Qkokpa93XD0IHsRZGa6eH7m/view?usp=drive_link",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/eduardo-paes-ganharia-no-1o-turno-se-eleicao-fosse-hoje-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/RJ_Ago26.pdf",
    "race": "senador",
    "state": "RJ",
@@ -94077,8 +94077,8 @@
   {
    "id": "p360-13900-1-0-1c88c05db827",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/benedita-da-silva-lidera-disputa-pelo-senado-no-rj-diz-datafolha/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datafolha-senado-rj-21ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/eduardo-paes-tem-41-contra-19-de-douglas-ruas-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/datafolha-governador-21ago2026.pdf",
    "race": "senador",
    "state": "RJ",
    "round": 1,
@@ -109632,20 +109632,20 @@
   },
   {
    "id": "72e523fc662a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/PrefabEstadualImprensa2026-1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/PrefabEstadualImprensa2026-1.pdf",
    "race": "senador",
    "state": "RJ",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Prefab Future",
-   "contractor": null,
+   "contractor": "Sistema de Comunicação",
    "fieldwork_start": "2026-07-24",
    "fieldwork_end": "2026-07-29",
-   "published_date": null,
+   "published_date": "2026-07-29",
    "sample_size": 2000,
-   "margin_of_error": 2.19,
+   "margin_of_error": 2,
    "results": [
     {
      "candidate": "Benedita da Silva",
@@ -109696,7 +109696,7 @@
    "others_pct": 8.9,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "RJ-02770/2026"
   },
   {
    "id": "7d99f85ed9cb",
@@ -149147,7 +149147,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-05-25",
    "fieldwork_end": "2026-05-26",
    "published_date": "2026-05-26",
    "sample_size": 1600,
@@ -212419,7 +212419,7 @@
   {
    "id": "p360-13016-1-0-adb9dee204a6",
    "source": "poder360",
-   "source_url": "https://poder360.com.br/poder-pesquisas/paes-tem-439-das-intencoes-de-voto-ao-governo-do-rj-diz-atlasintel/",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/paes-tem-439-das-intencoes-de-voto-ao-governo-do-rj-diz-atlasintel/",
    "integra_url": "https://static.poder360.com.br/2025/09/Atlas-RJ-pesquisa-ago2025-1.pdf",
    "race": "senador",
    "state": "RJ",
@@ -212472,7 +212472,7 @@
   {
    "id": "p360-13017-1-0-08aa0555c335",
    "source": "poder360",
-   "source_url": "https://poder360.com.br/poder-pesquisas/paes-tem-439-das-intencoes-de-voto-ao-governo-do-rj-diz-atlasintel/",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/paes-tem-439-das-intencoes-de-voto-ao-governo-do-rj-diz-atlasintel/",
    "integra_url": "https://static.poder360.com.br/2025/09/Atlas-RJ-pesquisa-ago2025-1.pdf",
    "race": "presidente",
    "state": "RJ",

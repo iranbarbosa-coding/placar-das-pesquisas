@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1865 levantamentos · 5993 perguntas · 164 institutos · 1444 candidatos**.
+Banco: **1856 levantamentos · 5993 perguntas · 164 institutos · 1444 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 52 | 38 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 432 | 13 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 425 | 15 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **497** | **54** |
+| **total** | **490** | **56** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -339,7 +339,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (432)
+## CONFLITO — Conflitos registrados aguardando decisão (425)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -752,28 +752,21 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_2892a3e7dcd9 · survey_id: "s_2892a3e7dcd9" × null
 - roster_encolhido_na_fonte · q_f203af681286 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_2b8785167d22 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
-- candidate_id_orphaned · c_cb79ee634a00 · candidate_id: "c_cb79ee634a00" × null
-- candidate_id_orphaned · c_1979ec8ec2c9 · candidate_id: "c_1979ec8ec2c9" × null
-- person_id_orphaned · p_8d5cacd44980 · person_id: "p_8d5cacd44980" × null
-- candidate_id_orphaned · c_b779e6ab9878 · candidate_id: "c_b779e6ab9878" × null
-- survey_id_orphaned · s_3b7a0e697555 · survey_id: "s_3b7a0e697555" × null
-- roster_shrink_ambiguo · q_716dfb924981 · results: ["q_018a75ca83c2"] × ["Anthony Garotinho","Bombeiro Rafa Luz","Douglas Ruas","Eduardo Paes","Glauber Braga","Wilson Witzel","Ítalo Marsili"]
-- candidate_id_orphaned · c_cfd3cd461350 · candidate_id: "c_cfd3cd461350" × null
-- person_id_orphaned · p_34eb9653c828 · person_id: "p_34eb9653c828" × null
-- survey_id_orphaned · s_cb1145638908 · survey_id: "s_cb1145638908" × null
-- candidate_id_orphaned · c_23045464dfc1 · candidate_id: "c_23045464dfc1" × null
-- roster_shrink_ambiguo · q_7e3f2f652e0c · results: ["q_018a75ca83c2"] × ["Douglas Ruas","Eduardo Paes","Glauber Braga","Wilson Witzel","Ítalo Marsili"]
-- survey_id_orphaned · s_a2e0c23fb0bd · survey_id: "s_a2e0c23fb0bd" × null
-- candidate_id_orphaned · c_d342574e8bba · candidate_id: "c_d342574e8bba" × null
-- person_id_orphaned · p_4ccb803fcd5f · person_id: "p_4ccb803fcd5f" × null
-- candidate_id_orphaned · c_a40731825754 · candidate_id: "c_a40731825754" × null
-- candidate_id_orphaned · c_c51c6a4f8303 · candidate_id: "c_c51c6a4f8303" × null
-- person_id_orphaned · p_ead19b3846f6 · person_id: "p_ead19b3846f6" × null
-- candidate_id_orphaned · c_5976eae8bd06 · candidate_id: "c_5976eae8bd06" × null
+- candidate_id_orphaned · c_3f01b1541c42 · candidate_id: "c_3f01b1541c42" × null
+- survey_id_orphaned · s_22ba03306975 · survey_id: "s_22ba03306975" × null
+- candidate_id_orphaned · c_242d08fbd92a · candidate_id: "c_242d08fbd92a" × null
+- person_id_orphaned · p_bb3fda78c360 · person_id: "p_bb3fda78c360" × null
+- survey_id_orphaned · s_6cba027c4cdd · survey_id: "s_6cba027c4cdd" × null
+- **[2026]** survey_id_orphaned · s_a17a9b3640cb · survey_id: "s_a17a9b3640cb" × null
+- roster_encolhido_na_fonte · q_ea7022c468ec · results: ["Cícero Lucena","Efraim Moraes Filho","Lucas Ribeiro","Lúcio Flávio"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
+- candidate_id_orphaned · c_36ed8493bd82 · candidate_id: "c_36ed8493bd82" × null
+- candidate_id_orphaned · c_ae213ebd3c46 · candidate_id: "c_ae213ebd3c46" × null
+- segundo_turno_fragmento_descartado · q_9aab4203344c · results: null × ["Flávio Bolsonaro"]
+- **[2026]** survey_id_orphaned · s_90c71c2fed00 · survey_id: "s_90c71c2fed00" × null
+- survey_id_orphaned · s_f07743ade940 · survey_id: "s_f07743ade940" × null
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 96
-- disputa_em_quarentena · governador:RJ · quarentena: 94 × 99
-- disputa_em_quarentena · presidente:PR · quarentena: 53 × 18
+- disputa_em_quarentena · governador:PB · quarentena: 67 × 63
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)

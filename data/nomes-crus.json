@@ -3473,12 +3473,6 @@
  ],
  "governador:PB": [
   {
-   "nome": "Camilo Duarte",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
    "nome": "Cícero Lucena",
    "partidos": [
     "MDB"
@@ -3507,8 +3501,7 @@
    "nome": "Lúcio Flávio",
    "partidos": [
     "PL",
-    "PP",
-    "PSOL"
+    "PP"
    ]
   },
   {
@@ -3518,27 +3511,9 @@
    ]
   },
   {
-   "nome": "Pedro Coutinho",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Pedro Couto",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
    "nome": "Pedro Cunha Lima",
    "partidos": [
     "PSD"
-   ]
-  },
-  {
-   "nome": "Yuri Ezequiel",
-   "partidos": [
-    "UP"
    ]
   }
  ],
@@ -4211,6 +4186,200 @@
    ]
   }
  ],
+ "presidente:PR": [
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro",
+   "partidos": [
+    "PDT"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PDT",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Ciro Nogueira, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Eduardo Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Eduardo Leite",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Escritor Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Helder Barbalho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Michelle Bolsonaro, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr., com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Filho",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Romeu Zema, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas, com apoio do ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Tereza Cristina, ex-presidente Jair Bolsonaro",
+   "partidos": [
+    "PP"
+   ]
+  }
+ ],
  "governador:RJ": [
   {
    "nome": "André Ceciliano",
@@ -4233,7 +4402,9 @@
   {
    "nome": "Bombeiro Rafa Luz",
    "partidos": [
-    "Missão"
+    "Avante",
+    "Missão",
+    "Republicanos"
    ]
   },
   {
@@ -4257,7 +4428,8 @@
   {
    "nome": "Eduardo Paes",
    "partidos": [
-    "PSD"
+    "PSD",
+    "PSDB"
    ]
   },
   {
@@ -4280,14 +4452,35 @@
    ]
   },
   {
+   "nome": "Italo Marsili",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
    "nome": "Ítalo Marsili",
    "partidos": [
+    "Novo",
     "Sem partido"
+   ]
+  },
+  {
+   "nome": "Juiz Wilson Witzel",
+   "partidos": [
+    "DC",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Juliete",
+   "partidos": [
+    "UP"
    ]
   },
   {
    "nome": "Juliete Pantoja",
    "partidos": [
+    "PSOL",
     "UP"
    ]
   },
@@ -4295,6 +4488,31 @@
    "nome": "Luan Monteiro",
    "partidos": [
     "PCO"
+   ]
+  },
+  {
+   "nome": "Monica Benicio",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rodrigo Barcellar",
+   "partidos": [
+    "PL",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rodrigo Pimentel",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Tarcísio Motta",
+   "partidos": [
+    "PSOL"
    ]
   },
   {
@@ -6417,142 +6635,6 @@
    "nome": "Veterinário Wilson Grassi",
    "partidos": [
     "Democrata"
-   ]
-  }
- ],
- "presidente:PR": [
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Cabo Daciolo",
-   "partidos": [
-    "Mobiliza"
-   ]
-  },
-  {
-   "nome": "Ciro",
-   "partidos": [
-    "PDT"
-   ]
-  },
-  {
-   "nome": "Ciro Gomes",
-   "partidos": [
-    "PDT",
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Edmilson Costa",
-   "partidos": [
-    "PCB"
-   ]
-  },
-  {
-   "nome": "Eduardo Leite",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Escritor Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Helder Barbalho",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Jair Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Joaquim Barbosa",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Pablo Marçal",
-   "partidos": [
-    "PRTB"
-   ]
-  },
-  {
-   "nome": "Ratinho Jr",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Filho",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD",
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Samara Martins",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Simone Tebet",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Tarcísio de Freitas",
-   "partidos": [
-    "Republicanos"
    ]
   }
  ],
