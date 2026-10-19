@@ -1,0 +1,2785 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-es-2026-t2",
+ "contest": "governador:ES",
+ "race": "governador",
+ "uf": "ES",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-19",
+ "horizon_days": 6,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "f4a603e3814b35975c0e4f27c0c526d6e402f351dedb152abd65360c085d4da2",
+  "code_sha256": "6fd689eb6066d27c735b7a118a5af68a291bd22e2e680dc8b65b3c2c9eb2a2fb",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
+  "numpy_version": "2.5.3",
+  "seed": 1251654298,
+  "fit_seconds": 9.5
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_d09634143e1e",
+   "person_id": "p_85342d310197",
+   "name": "Lorenzo Pazolini",
+   "first_round_pct": 49.65
+  },
+  {
+   "candidate_id": "c_f16927347aae",
+   "person_id": "p_8a1182ced4d4",
+   "name": "Ricardo Ferraço",
+   "first_round_pct": 34.06
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14450-2-0-f9a1961406e9",
+   "p360-14338-2-0-c1601f5e0b00",
+   "p360-14402-2-0-364aacb02100",
+   "p360-14263-2-0-43a3532bc36c",
+   "6b09fea4f2fc",
+   "844ea9c60309",
+   "208c9ca0c9cc",
+   "83d049b4097d",
+   "p360-13475-2-0-097d4d2a845a",
+   "9e91f873a295"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-13",
+  "candidates": [
+   {
+    "candidate_id": "c_d09634143e1e",
+    "name": "Lorenzo Pazolini",
+    "avg": 50.6,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2025-08-17",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-08-20",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-08-23",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-08-26",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-08-29",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-01",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-04",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-07",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-10",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-13",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-16",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-19",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-22",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-25",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-09-28",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-01",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-04",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-07",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-10",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-13",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-16",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-19",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-22",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-25",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-28",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-10-31",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-03",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-06",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-09",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-12",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-15",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-18",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-21",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-24",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-27",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-11-30",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-03",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-06",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-09",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-12",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-15",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-18",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-21",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-24",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-27",
+      "avg": 53.7
+     },
+     {
+      "date": "2025-12-30",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-02",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-05",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-08",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-11",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-14",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-17",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-20",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-23",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-26",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-01-29",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-01",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-04",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-07",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-10",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-13",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-16",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-19",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-22",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-25",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-02-28",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-03",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-06",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-09",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-12",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-15",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-18",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-21",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-24",
+      "avg": 53.7
+     },
+     {
+      "date": "2026-03-27",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-03-30",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-02",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-05",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-08",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-11",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-14",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-17",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-20",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-23",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-26",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-04-29",
+      "avg": 51.8
+     },
+     {
+      "date": "2026-05-02",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-05",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-08",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-11",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-14",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-17",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-20",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-23",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-26",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-29",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-06-01",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-06-04",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-06-07",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-06-10",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-06-13",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-06-16",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-06-19",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-06-22",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-06-25",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-06-28",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-07-01",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-07-04",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-07-07",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-07-10",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-07-13",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-07-16",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-07-19",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-07-22",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-07-25",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-07-28",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-07-31",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-03",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-06",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-09",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-12",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-15",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-18",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-21",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-24",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-08-27",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-08-30",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-09-02",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-05",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-08",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-11",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-14",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-17",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-20",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-23",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-09-26",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-09-29",
+      "avg": 49.1
+     },
+     {
+      "date": "2026-10-02",
+      "avg": 49
+     },
+     {
+      "date": "2026-10-05",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-10-08",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-10-11",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 50.6
+     }
+    ]
+   },
+   {
+    "candidate_id": "c_f16927347aae",
+    "name": "Ricardo Ferraço",
+    "avg": 49.4,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2025-08-17",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-08-20",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-08-23",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-08-26",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-08-29",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-01",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-04",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-07",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-10",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-13",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-16",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-19",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-22",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-25",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-09-28",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-01",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-04",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-07",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-10",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-13",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-16",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-19",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-22",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-25",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-28",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-10-31",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-03",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-06",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-09",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-12",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-15",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-18",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-21",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-24",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-27",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-11-30",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-03",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-06",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-09",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-12",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-15",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-18",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-21",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-24",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-27",
+      "avg": 46.3
+     },
+     {
+      "date": "2025-12-30",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-02",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-05",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-08",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-11",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-14",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-17",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-20",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-23",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-26",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-01-29",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-01",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-04",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-07",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-10",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-13",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-16",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-19",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-22",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-25",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-02-28",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-03",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-06",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-09",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-12",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-15",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-18",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-21",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-24",
+      "avg": 46.3
+     },
+     {
+      "date": "2026-03-27",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-03-30",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-02",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-05",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-08",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-11",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-14",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-17",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-20",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-23",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-26",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-04-29",
+      "avg": 48.2
+     },
+     {
+      "date": "2026-05-02",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-05",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-08",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-11",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-14",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-17",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-20",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-23",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-26",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-29",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-06-01",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-06-04",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-06-07",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-06-10",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-06-13",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-06-16",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-06-19",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-06-22",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-06-25",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-06-28",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-07-01",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-07-04",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-07-07",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-07-10",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-07-13",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-07-16",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-07-19",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-07-22",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-07-25",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-07-28",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-07-31",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-03",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-06",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-09",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-12",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-15",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-18",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-21",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-24",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-08-27",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-08-30",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-09-02",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-05",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-08",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-11",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-14",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-17",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-20",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-23",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-09-26",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-09-29",
+      "avg": 50.9
+     },
+     {
+      "date": "2026-10-02",
+      "avg": 51
+     },
+     {
+      "date": "2026-10-05",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-10-08",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-10-11",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 49.4
+     }
+    ]
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "d805ea76e21e7547b249354e3acc4be723f92aefb082bee388add2b078d1ffce",
+  "input_sha256": "03b363d1dbdb84704b440ff492ffad51ec9be1156723f1205bfb8c26b3f99aae",
+  "source_polls_sha256": "ce42752a3100c7e9e948efe9e33aca8508b4b089cee7cf2dca94e8a48db74ccc",
+  "source_generated_at": "2026-10-19T22:53:37.377Z",
+  "n_polls": 15,
+  "n_institutes": 5,
+  "latest_fieldwork_end": "2026-10-13",
+  "polls": [
+   {
+    "id": "p360-13506-2-0-009a3c3819cc",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-06-06",
+    "fieldwork_end": "2026-06-08",
+    "published_date": "2026-06-08",
+    "available_from": "2026-06-08",
+    "sample_size": 1600,
+    "n_eff": 1280.0,
+    "n_imputado": false,
+    "tse_registration": "ES-06698/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/ricardo-ferraco-lidera-disputa-ao-governo-do-es-diz-pesquisa/",
+    "shares": [
+     46.25,
+     53.75
+    ]
+   },
+   {
+    "id": "83d049b4097d",
+    "pollster": "França",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-07",
+    "published_date": null,
+    "available_from": "2026-07-07",
+    "sample_size": 1066,
+    "n_eff": 908.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "p360-13630-2-0-08320fb46fe8",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-07-10",
+    "fieldwork_end": "2026-07-13",
+    "published_date": "2026-07-13",
+    "available_from": "2026-07-13",
+    "sample_size": 804,
+    "n_eff": 586.9,
+    "n_imputado": false,
+    "tse_registration": "ES-07211/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-42-dos-votos-contra-36-de-lula-no-es-diz-quaest/",
+    "shares": [
+     41.1,
+     58.9
+    ]
+   },
+   {
+    "id": "p360-13612-2-0-ce2f5f89dd5c",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-07-20",
+    "fieldwork_end": "2026-07-21",
+    "published_date": "2026-07-21",
+    "available_from": "2026-07-21",
+    "sample_size": 1600,
+    "n_eff": 1280.0,
+    "n_imputado": false,
+    "tse_registration": "ES-04482/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/ricardo-ferraco-lidera-corrida-pelo-governo-do-es-diz-pesquisa/",
+    "shares": [
+     43.75,
+     56.25
+    ]
+   },
+   {
+    "id": "51a40f0b4926",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-23",
+    "fieldwork_end": "2026-08-26",
+    "published_date": "2026-08-26",
+    "available_from": "2026-08-26",
+    "sample_size": 804,
+    "n_eff": 643.2,
+    "n_imputado": false,
+    "tse_registration": "ES-04444/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
+    "shares": [
+     43.75,
+     56.25
+    ]
+   },
+   {
+    "id": "p360-13958-2-0-ff87c478e4e5",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-22",
+    "fieldwork_end": "2026-08-26",
+    "published_date": "2026-08-26",
+    "available_from": "2026-08-26",
+    "sample_size": 1600,
+    "n_eff": 1344.0,
+    "n_imputado": false,
+    "tse_registration": "ES-05096/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-pesquisa-2/",
+    "shares": [
+     44.05,
+     55.95
+    ]
+   },
+   {
+    "id": "208c9ca0c9cc",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-08-26",
+    "fieldwork_end": "2026-08-31",
+    "published_date": null,
+    "available_from": "2026-08-31",
+    "sample_size": 1194,
+    "n_eff": 1017.3,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     53.99,
+     46.01
+    ]
+   },
+   {
+    "id": "p360-14097-2-0-66cbb5a1ac44",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-08",
+    "published_date": "2026-09-08",
+    "available_from": "2026-09-08",
+    "sample_size": 1600,
+    "n_eff": 1392.0,
+    "n_imputado": false,
+    "tse_registration": "ES-01967/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/ricardo-ferraco-lidera-corrida-pelo-governo-do-es-diz-levantamento/",
+    "shares": [
+     43.68,
+     56.32
+    ]
+   },
+   {
+    "id": "465dafbdbb5a",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 804,
+    "n_eff": 651.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     46.91,
+     53.09
+    ]
+   },
+   {
+    "id": "6b09fea4f2fc",
+    "pollster": "Perfil",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1800,
+    "n_eff": 1515.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     49.51,
+     50.49
+    ]
+   },
+   {
+    "id": "844ea9c60309",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1600,
+    "n_eff": 1408.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+    "shares": [
+     45.45,
+     54.55
+    ]
+   },
+   {
+    "id": "p360-14263-2-0-43a3532bc36c",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-25",
+    "fieldwork_end": "2026-09-29",
+    "published_date": "2026-09-29",
+    "available_from": "2026-09-29",
+    "sample_size": 1600,
+    "n_eff": 1424.0,
+    "n_imputado": false,
+    "tse_registration": "ES-01627/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/ferraco-tem-48-e-pazolini-41-no-2o-turno-no-es-diz-big-data/",
+    "shares": [
+     46.07,
+     53.93
+    ]
+   },
+   {
+    "id": "p360-14402-2-0-364aacb02100",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-02",
+    "available_from": "2026-10-02",
+    "sample_size": 1226,
+    "n_eff": 1077.7,
+    "n_imputado": false,
+    "tse_registration": "ES-01573/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Atlas-Eleicoes-Espirito-Santo-2026-261003-2.pdf",
+    "shares": [
+     52.9,
+     47.1
+    ]
+   },
+   {
+    "id": "p360-14338-2-0-c1601f5e0b00",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1440.0,
+    "n_imputado": false,
+    "tse_registration": "ES-09011/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/ES-090112026-Governador.pdf",
+    "shares": [
+     51.25,
+     48.75
+    ]
+   },
+   {
+    "id": "p360-14450-2-0-f9a1961406e9",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-10",
+    "fieldwork_end": "2026-10-13",
+    "published_date": "2026-10-13",
+    "available_from": "2026-10-13",
+    "sample_size": 1098,
+    "n_eff": 933.3,
+    "n_imputado": false,
+    "tse_registration": "BR-01973/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-governador-ES-2oturno-outubro-1.pdf",
+    "shares": [
+     55.29,
+     44.71
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 15,
+   "par_diferente": 26
+  },
+  "exclusions": []
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0044,
+    "ess_bulk": 1017.1
+   },
+   "tau": {
+    "rhat": 1.002,
+    "ess_bulk": 1177.7
+   },
+   "sigma_h": {
+    "rhat": 1.0011,
+    "ess_bulk": 1427.7
+   },
+   "fração_atual[Lorenzo Pazolini]": {
+    "rhat": 1.0016,
+    "ess_bulk": 2305.7
+   },
+   "fração_atual[Ricardo Ferraço]": {
+    "rhat": 1.0016,
+    "ess_bulk": 2305.7
+   }
+  },
+  "rhat_max": 1.0044,
+  "ess_min": 1017.1,
+  "accept": [
+   0.367,
+   0.373,
+   0.303,
+   0.368
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Lorenzo Pazolini",
+    "mean": 52.278,
+    "sd": 3.255,
+    "quantiles": {
+     "0.025": 46.908,
+     "0.05": 47.602,
+     "0.1": 48.371,
+     "0.25": 49.892,
+     "0.5": 51.98,
+     "0.75": 54.371,
+     "0.9": 56.583,
+     "0.95": 58.034,
+     "0.975": 59.319
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 39.5,
+     "counts": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      2,
+      1,
+      2,
+      4,
+      10,
+      17,
+      30,
+      50,
+      81,
+      134,
+      212,
+      333,
+      470,
+      533,
+      597,
+      678,
+      725,
+      763,
+      688,
+      694,
+      682,
+      661,
+      622,
+      569,
+      581,
+      476,
+      419,
+      379,
+      331,
+      275,
+      199,
+      168,
+      137,
+      104,
+      110,
+      72,
+      47,
+      36,
+      21,
+      17,
+      19,
+      14,
+      7,
+      9,
+      5,
+      4,
+      0,
+      2,
+      5,
+      0,
+      0,
+      0,
+      0,
+      2
+     ]
+    }
+   },
+   {
+    "label": "Ricardo Ferraço",
+    "mean": 47.722,
+    "sd": 3.255,
+    "quantiles": {
+     "0.025": 40.681,
+     "0.05": 41.966,
+     "0.1": 43.417,
+     "0.25": 45.629,
+     "0.5": 48.02,
+     "0.75": 50.108,
+     "0.9": 51.629,
+     "0.95": 52.398,
+     "0.975": 53.092
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 31.0,
+     "counts": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      5,
+      2,
+      0,
+      4,
+      5,
+      9,
+      7,
+      14,
+      19,
+      17,
+      21,
+      36,
+      47,
+      72,
+      110,
+      104,
+      137,
+      168,
+      199,
+      275,
+      331,
+      379,
+      419,
+      476,
+      581,
+      569,
+      622,
+      661,
+      682,
+      694,
+      688,
+      763,
+      725,
+      678,
+      597,
+      533,
+      470,
+      333,
+      212,
+      134,
+      81,
+      50,
+      30,
+      17,
+      10,
+      4,
+      2,
+      1,
+      2,
+      1,
+      1,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-06-07",
+    "values": [
+     {
+      "q10": 45.58,
+      "median": 48.3,
+      "q90": 50.9
+     },
+     {
+      "q10": 49.1,
+      "median": 51.7,
+      "q90": 54.42
+     }
+    ]
+   },
+   {
+    "date": "2026-07-04",
+    "values": [
+     {
+      "q10": 44.73,
+      "median": 47.15,
+      "q90": 49.42
+     },
+     {
+      "q10": 50.58,
+      "median": 52.85,
+      "q90": 55.27
+     }
+    ]
+   },
+   {
+    "date": "2026-07-11",
+    "values": [
+     {
+      "q10": 43.93,
+      "median": 46.3,
+      "q90": 48.85
+     },
+     {
+      "q10": 51.15,
+      "median": 53.7,
+      "q90": 56.07
+     }
+    ]
+   },
+   {
+    "date": "2026-07-20",
+    "values": [
+     {
+      "q10": 44.53,
+      "median": 46.84,
+      "q90": 49.08
+     },
+     {
+      "q10": 50.92,
+      "median": 53.16,
+      "q90": 55.47
+     }
+    ]
+   },
+   {
+    "date": "2026-08-24",
+    "values": [
+     {
+      "q10": 45.78,
+      "median": 47.7,
+      "q90": 49.47
+     },
+     {
+      "q10": 50.53,
+      "median": 52.3,
+      "q90": 54.22
+     }
+    ]
+   },
+   {
+    "date": "2026-08-28",
+    "values": [
+     {
+      "q10": 46.42,
+      "median": 48.43,
+      "q90": 50.16
+     },
+     {
+      "q10": 49.84,
+      "median": 51.57,
+      "q90": 53.58
+     }
+    ]
+   },
+   {
+    "date": "2026-09-06",
+    "values": [
+     {
+      "q10": 46.08,
+      "median": 48.05,
+      "q90": 49.83
+     },
+     {
+      "q10": 50.17,
+      "median": 51.95,
+      "q90": 53.92
+     }
+    ]
+   },
+   {
+    "date": "2026-09-22",
+    "values": [
+     {
+      "q10": 47.32,
+      "median": 49.04,
+      "q90": 50.48
+     },
+     {
+      "q10": 49.52,
+      "median": 50.96,
+      "q90": 52.68
+     }
+    ]
+   },
+   {
+    "date": "2026-09-27",
+    "values": [
+     {
+      "q10": 47.85,
+      "median": 49.63,
+      "q90": 51.36
+     },
+     {
+      "q10": 48.64,
+      "median": 50.37,
+      "q90": 52.15
+     }
+    ]
+   },
+   {
+    "date": "2026-10-02",
+    "values": [
+     {
+      "q10": 48.46,
+      "median": 50.68,
+      "q90": 52.58
+     },
+     {
+      "q10": 47.42,
+      "median": 49.32,
+      "q90": 51.54
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 48.54,
+      "median": 51.0,
+      "q90": 53.09
+     },
+     {
+      "q10": 46.91,
+      "median": 49.0,
+      "q90": 51.46
+     }
+    ]
+   },
+   {
+    "date": "2026-10-11",
+    "values": [
+     {
+      "q10": 48.7,
+      "median": 52.35,
+      "q90": 55.97
+     },
+     {
+      "q10": 44.03,
+      "median": 47.65,
+      "q90": 51.3
+     }
+    ]
+   },
+   {
+    "date": "2026-10-19",
+    "values": [
+     {
+      "q10": 48.52,
+      "median": 52.13,
+      "q90": 56.6
+     },
+     {
+      "q10": 43.4,
+      "median": 47.87,
+      "q90": 51.48
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Lorenzo Pazolini",
+  "rows": [
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 6,
+    "effect_pp_first_candidate": {
+     "0.1": -4.563,
+     "0.5": -2.914,
+     "0.9": -0.784
+    }
+   },
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": 0.296,
+     "0.5": 2.477,
+     "0.9": 4.577
+    }
+   },
+   {
+    "pollster": "França",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.998,
+     "0.5": 1.08,
+     "0.9": 3.737
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -2.686,
+     "0.5": -1.053,
+     "0.9": 0.502
+    }
+   },
+   {
+    "pollster": "Perfil",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -1.773,
+     "0.5": 0.147,
+     "0.9": 2.158
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.004,
+   "0.5": 0.021,
+   "0.95": 0.041
+  },
+  "tau": {
+   "0.05": 0.01,
+   "0.5": 0.079,
+   "0.95": 0.159
+  },
+  "sigma_h": {
+   "0.05": 0.032,
+   "0.5": 0.115,
+   "0.95": 0.225
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Lorenzo Pazolini",
+    "mean": 52.17,
+    "sd": 7.783,
+    "quantiles": {
+     "0.025": 36.807,
+     "0.05": 39.453,
+     "0.1": 42.384,
+     "0.25": 47.061,
+     "0.5": 52.126,
+     "0.75": 57.247,
+     "0.9": 62.029,
+     "0.95": 64.982,
+     "0.975": 67.653
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 10.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      1,
+      0,
+      2,
+      2,
+      1,
+      1,
+      4,
+      1,
+      4,
+      2,
+      5,
+      2,
+      4,
+      3,
+      14,
+      8,
+      8,
+      6,
+      11,
+      22,
+      19,
+      19,
+      19,
+      24,
+      28,
+      27,
+      31,
+      51,
+      47,
+      65,
+      61,
+      84,
+      102,
+      128,
+      135,
+      144,
+      182,
+      222,
+      256,
+      249,
+      300,
+      337,
+      393,
+      437,
+      481,
+      541,
+      568,
+      665,
+      744,
+      789,
+      910,
+      990,
+      1094,
+      1168,
+      1349,
+      1344,
+      1494,
+      1659,
+      1753,
+      1791,
+      1894,
+      2050,
+      2110,
+      2174,
+      2291,
+      2354,
+      2450,
+      2586,
+      2574,
+      2645,
+      2697,
+      2672,
+      2633,
+      2756,
+      2518,
+      2575,
+      2455,
+      2560,
+      2399,
+      2392,
+      2146,
+      2200,
+      2087,
+      1925,
+      1846,
+      1723,
+      1687,
+      1572,
+      1451,
+      1360,
+      1236,
+      1123,
+      1057,
+      959,
+      879,
+      811,
+      729,
+      647,
+      568,
+      523,
+      500,
+      395,
+      377,
+      350,
+      279,
+      264,
+      231,
+      201,
+      186,
+      175,
+      151,
+      106,
+      95,
+      76,
+      74,
+      55,
+      55,
+      47,
+      46,
+      27,
+      28,
+      23,
+      22,
+      17,
+      21,
+      15,
+      12,
+      12,
+      6,
+      10,
+      1,
+      5,
+      4,
+      3,
+      4,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Ricardo Ferraço",
+    "mean": 47.83,
+    "sd": 7.783,
+    "quantiles": {
+     "0.025": 32.347,
+     "0.05": 35.018,
+     "0.1": 37.971,
+     "0.25": 42.753,
+     "0.5": 47.874,
+     "0.75": 52.939,
+     "0.9": 57.616,
+     "0.95": 60.547,
+     "0.975": 63.193
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 10.5,
+     "counts": [
+      1,
+      1,
+      0,
+      0,
+      3,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      4,
+      3,
+      4,
+      5,
+      1,
+      10,
+      6,
+      12,
+      12,
+      15,
+      21,
+      17,
+      22,
+      23,
+      28,
+      27,
+      46,
+      47,
+      55,
+      55,
+      74,
+      76,
+      95,
+      106,
+      151,
+      175,
+      186,
+      201,
+      231,
+      264,
+      279,
+      350,
+      377,
+      395,
+      500,
+      523,
+      568,
+      647,
+      729,
+      811,
+      879,
+      959,
+      1057,
+      1123,
+      1236,
+      1360,
+      1451,
+      1572,
+      1687,
+      1723,
+      1846,
+      1925,
+      2087,
+      2200,
+      2146,
+      2392,
+      2399,
+      2560,
+      2455,
+      2575,
+      2518,
+      2756,
+      2633,
+      2672,
+      2697,
+      2645,
+      2574,
+      2586,
+      2450,
+      2354,
+      2291,
+      2174,
+      2110,
+      2050,
+      1894,
+      1791,
+      1753,
+      1659,
+      1494,
+      1344,
+      1349,
+      1168,
+      1094,
+      990,
+      910,
+      789,
+      744,
+      665,
+      568,
+      541,
+      481,
+      437,
+      393,
+      337,
+      300,
+      249,
+      256,
+      222,
+      182,
+      144,
+      135,
+      128,
+      102,
+      84,
+      61,
+      65,
+      47,
+      51,
+      31,
+      27,
+      28,
+      24,
+      19,
+      19,
+      19,
+      22,
+      11,
+      6,
+      8,
+      8,
+      14,
+      3,
+      4,
+      2,
+      5,
+      2,
+      4,
+      1,
+      4,
+      1,
+      1,
+      2,
+      2,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.12819,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   -0.5395
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.1672,
+   "drift": 0.0343,
+   "systematic": 0.7986
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.6129,
+   0.3871
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "trend_model": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "series_from": "2026-09-29",
+  "series_to": "2026-10-13",
+  "points": 6,
+  "average_now_pct": [
+   50.6,
+   49.4
+  ],
+  "trend_pp_per_week": [
+   0.6559,
+   -0.6559
+  ],
+  "point_election_pct": [
+   50.6,
+   49.4
+  ],
+  "sys_scale_alr": 0.1698,
+  "summary": [
+   {
+    "label": "Lorenzo Pazolini",
+    "mean": 50.53,
+    "sd": 9.0766,
+    "quantiles": {
+     "0.025": 32.4084,
+     "0.05": 35.5977,
+     "0.1": 39.0937,
+     "0.25": 44.6364,
+     "0.5": 50.5593,
+     "0.75": 56.4602,
+     "0.9": 61.9615,
+     "0.95": 65.4178,
+     "0.975": 68.4549
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 6.5,
+     "counts": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      2,
+      0,
+      3,
+      1,
+      3,
+      0,
+      4,
+      4,
+      1,
+      0,
+      8,
+      7,
+      3,
+      7,
+      9,
+      13,
+      7,
+      9,
+      12,
+      17,
+      19,
+      24,
+      24,
+      31,
+      25,
+      32,
+      54,
+      54,
+      56,
+      60,
+      56,
+      61,
+      71,
+      100,
+      81,
+      125,
+      110,
+      143,
+      149,
+      190,
+      211,
+      231,
+      240,
+      302,
+      302,
+      306,
+      361,
+      411,
+      451,
+      504,
+      533,
+      552,
+      659,
+      717,
+      758,
+      824,
+      868,
+      973,
+      1056,
+      1084,
+      1157,
+      1258,
+      1338,
+      1463,
+      1524,
+      1502,
+      1657,
+      1693,
+      1798,
+      1880,
+      1916,
+      1941,
+      2102,
+      2146,
+      2103,
+      2157,
+      2201,
+      2276,
+      2298,
+      2379,
+      2336,
+      2340,
+      2281,
+      2167,
+      2230,
+      2173,
+      2146,
+      2072,
+      1989,
+      1982,
+      1846,
+      1877,
+      1770,
+      1688,
+      1577,
+      1499,
+      1452,
+      1385,
+      1256,
+      1246,
+      1100,
+      979,
+      983,
+      921,
+      821,
+      796,
+      659,
+      629,
+      603,
+      567,
+      563,
+      472,
+      414,
+      355,
+      329,
+      311,
+      258,
+      251,
+      246,
+      192,
+      179,
+      175,
+      154,
+      126,
+      114,
+      91,
+      79,
+      83,
+      61,
+      55,
+      54,
+      48,
+      45,
+      35,
+      33,
+      22,
+      23,
+      21,
+      18,
+      15,
+      17,
+      11,
+      11,
+      10,
+      8,
+      3,
+      5,
+      2,
+      8,
+      6,
+      2,
+      2,
+      2,
+      1,
+      2,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Ricardo Ferraço",
+    "mean": 49.47,
+    "sd": 9.0766,
+    "quantiles": {
+     "0.025": 31.5451,
+     "0.05": 34.5822,
+     "0.1": 38.0385,
+     "0.25": 43.5398,
+     "0.5": 49.4407,
+     "0.75": 55.3636,
+     "0.9": 60.9063,
+     "0.95": 64.4023,
+     "0.975": 67.5916
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 5.5,
+     "counts": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      1,
+      2,
+      2,
+      2,
+      6,
+      8,
+      2,
+      5,
+      3,
+      8,
+      10,
+      11,
+      11,
+      17,
+      15,
+      18,
+      21,
+      23,
+      22,
+      33,
+      35,
+      45,
+      48,
+      54,
+      55,
+      61,
+      83,
+      79,
+      91,
+      114,
+      126,
+      154,
+      175,
+      179,
+      192,
+      246,
+      251,
+      258,
+      311,
+      329,
+      355,
+      414,
+      472,
+      563,
+      567,
+      603,
+      629,
+      659,
+      796,
+      821,
+      921,
+      983,
+      979,
+      1100,
+      1246,
+      1256,
+      1385,
+      1452,
+      1499,
+      1577,
+      1688,
+      1770,
+      1877,
+      1846,
+      1982,
+      1989,
+      2072,
+      2146,
+      2173,
+      2230,
+      2167,
+      2281,
+      2340,
+      2336,
+      2379,
+      2298,
+      2276,
+      2201,
+      2157,
+      2103,
+      2146,
+      2102,
+      1941,
+      1916,
+      1880,
+      1798,
+      1693,
+      1657,
+      1502,
+      1524,
+      1463,
+      1338,
+      1258,
+      1157,
+      1084,
+      1056,
+      973,
+      868,
+      824,
+      758,
+      717,
+      659,
+      552,
+      533,
+      504,
+      451,
+      411,
+      361,
+      306,
+      302,
+      302,
+      240,
+      231,
+      211,
+      190,
+      149,
+      143,
+      110,
+      125,
+      81,
+      100,
+      71,
+      61,
+      56,
+      60,
+      56,
+      54,
+      54,
+      32,
+      25,
+      31,
+      24,
+      24,
+      19,
+      17,
+      12,
+      9,
+      7,
+      13,
+      9,
+      7,
+      3,
+      7,
+      8,
+      0,
+      1,
+      4,
+      4,
+      0,
+      3,
+      1,
+      3,
+      0,
+      2,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "probabilities": {
+   "first": [
+    0.5267,
+    0.4733
+   ],
+   "top2": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "headline_method": "modelo",
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "cb0ffd2b3b16de524223fe71eba371346f13516636daa2ffc2f30dd3f980ce2f",
+ "run": {
+  "executed_at": "2026-10-19T23:17:01+00:00"
+ }
+}

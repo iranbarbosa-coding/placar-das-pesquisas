@@ -18,7 +18,7 @@
      "name": "Lula"
     }
    ],
-   "latest": "snapshots/presidente-br-2026-t2/2026-10-18_87a39c156f.json",
+   "latest": "snapshots/presidente-br-2026-t2/2026-10-19_f686f4f350.json",
    "history": [
     {
      "path": "snapshots/presidente-br-2026-t2/2026-10-18_05932fe69e.json",
@@ -202,6 +202,53 @@
       56.977,
       55.76
      ]
+    },
+    {
+     "path": "snapshots/presidente-br-2026-t2/2026-10-19_f686f4f350.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria presidente_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 141,
+     "latest_fieldwork_end": "2026-10-18",
+     "output_sha256": "61f38d3727984328dc47073467195a5945d45962c82bf49e0f73c8f46db6fdf1",
+     "executed_at": "2026-10-19T23:15:09+00:00",
+     "probability_first": [
+      0.5548,
+      0.4452
+     ],
+     "nowcast_median": [
+      50.658,
+      49.342
+     ],
+     "nowcast_q10": [
+      49.994,
+      48.714
+     ],
+     "nowcast_q90": [
+      51.286,
+      50.006
+     ],
+     "projection_median": [
+      50.652,
+      49.348
+     ],
+     "projection_q10": [
+      44.419,
+      43.108
+     ],
+     "projection_q90": [
+      56.892,
+      55.581
+     ]
     }
    ]
   },
@@ -222,7 +269,7 @@
      "name": "Alan Rick"
     }
    ],
-   "latest": "snapshots/governador-ac-2026-t2/2026-10-18_651ae4704f.json",
+   "latest": "snapshots/governador-ac-2026-t2/2026-10-19_0d1b82010e.json",
    "history": [
     {
      "path": "snapshots/governador-ac-2026-t2/2026-10-18_4ef6ff5c82.json",
@@ -406,6 +453,53 @@
       67.628,
       59.175
      ]
+    },
+    {
+     "path": "snapshots/governador-ac-2026-t2/2026-10-19_0d1b82010e.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 16,
+     "latest_fieldwork_end": "2026-10-12",
+     "output_sha256": "b5db206afec9928550205097a2ef924daf59e677479c09222310a129271a3837",
+     "executed_at": "2026-10-19T23:16:24+00:00",
+     "probability_first": [
+      0.6557,
+      0.3443
+     ],
+     "nowcast_median": [
+      53.907,
+      46.093
+     ],
+     "nowcast_q10": [
+      48.947,
+      40.225
+     ],
+     "nowcast_q90": [
+      59.775,
+      51.053
+     ],
+     "projection_median": [
+      54.114,
+      45.886
+     ],
+     "projection_q10": [
+      40.754,
+      32.743
+     ],
+     "projection_q90": [
+      67.257,
+      59.246
+     ]
     }
    ]
   },
@@ -426,7 +520,7 @@
      "name": "Professora Maria do Carmo"
     }
    ],
-   "latest": "snapshots/governador-am-2026-t2/2026-10-18_781fe8a2f1.json",
+   "latest": "snapshots/governador-am-2026-t2/2026-10-19_ad8a30a164.json",
    "history": [
     {
      "path": "snapshots/governador-am-2026-t2/2026-10-18_3f1c8591d3.json",
@@ -610,6 +704,53 @@
       65.116,
       52.954
      ]
+    },
+    {
+     "path": "snapshots/governador-am-2026-t2/2026-10-19_ad8a30a164.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 19,
+     "latest_fieldwork_end": "2026-10-12",
+     "output_sha256": "a0b0f1b650141feaad1d652356f7270bfe421aa63829690bed7a393befd2482f",
+     "executed_at": "2026-10-19T23:16:35+00:00",
+     "probability_first": [
+      0.8116,
+      0.1884
+     ],
+     "nowcast_median": [
+      55.995,
+      44.005
+     ],
+     "nowcast_q10": [
+      53.959,
+      41.048
+     ],
+     "nowcast_q90": [
+      58.952,
+      46.041
+     ],
+     "projection_median": [
+      56.186,
+      43.814
+     ],
+     "projection_q10": [
+      46.969,
+      34.876
+     ],
+     "projection_q90": [
+      65.124,
+      53.031
+     ]
     }
    ]
   },
@@ -630,7 +771,7 @@
      "name": "Leandro Grass"
     }
    ],
-   "latest": "snapshots/governador-df-2026-t2/2026-10-18_72f5a91ddc.json",
+   "latest": "snapshots/governador-df-2026-t2/2026-10-19_e9007c0a00.json",
    "history": [
     {
      "path": "snapshots/governador-df-2026-t2/2026-10-18_ee573b2f72.json",
@@ -814,6 +955,53 @@
       68.944,
       47.227
      ]
+    },
+    {
+     "path": "snapshots/governador-df-2026-t2/2026-10-19_e9007c0a00.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 21,
+     "latest_fieldwork_end": "2026-10-13",
+     "output_sha256": "b5bc9ebade358f167eddfe8004808ceed35b8b94dd45c7a0b6131d6abf0426de",
+     "executed_at": "2026-10-19T23:16:47+00:00",
+     "probability_first": [
+      0.9512,
+      0.0488
+     ],
+     "nowcast_median": [
+      61.227,
+      38.773
+     ],
+     "nowcast_q10": [
+      58.86,
+      36.818
+     ],
+     "nowcast_q90": [
+      63.182,
+      41.14
+     ],
+     "projection_median": [
+      61.14,
+      38.86
+     ],
+     "projection_q10": [
+      52.816,
+      31.216
+     ],
+     "projection_q90": [
+      68.784,
+      47.184
+     ]
     }
    ]
   },
@@ -834,7 +1022,7 @@
      "name": "Ricardo Ferraço"
     }
    ],
-   "latest": "snapshots/governador-es-2026-t2/2026-10-18_7ef69349e3.json",
+   "latest": "snapshots/governador-es-2026-t2/2026-10-19_03b363d1db.json",
    "history": [
     {
      "path": "snapshots/governador-es-2026-t2/2026-10-18_2ac4c89345.json",
@@ -1018,6 +1206,53 @@
       62.148,
       57.677
      ]
+    },
+    {
+     "path": "snapshots/governador-es-2026-t2/2026-10-19_03b363d1db.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 15,
+     "latest_fieldwork_end": "2026-10-13",
+     "output_sha256": "cb0ffd2b3b16de524223fe71eba371346f13516636daa2ffc2f30dd3f980ce2f",
+     "executed_at": "2026-10-19T23:17:01+00:00",
+     "probability_first": [
+      0.6129,
+      0.3871
+     ],
+     "nowcast_median": [
+      51.98,
+      48.02
+     ],
+     "nowcast_q10": [
+      48.371,
+      43.417
+     ],
+     "nowcast_q90": [
+      56.583,
+      51.629
+     ],
+     "projection_median": [
+      52.126,
+      47.874
+     ],
+     "projection_q10": [
+      42.384,
+      37.971
+     ],
+     "projection_q90": [
+      62.029,
+      57.616
+     ]
     }
    ]
   },
@@ -1038,7 +1273,7 @@
      "name": "Cadu de Lula"
     }
    ],
-   "latest": "snapshots/governador-rn-2026-t2/2026-10-18_1ba1564bfa.json",
+   "latest": "snapshots/governador-rn-2026-t2/2026-10-19_364a458be2.json",
    "history": [
     {
      "path": "snapshots/governador-rn-2026-t2/2026-10-18_698bf4d562.json",
@@ -1222,6 +1457,53 @@
       70.991,
       54.134
      ]
+    },
+    {
+     "path": "snapshots/governador-rn-2026-t2/2026-10-19_364a458be2.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 14,
+     "latest_fieldwork_end": "2026-10-12",
+     "output_sha256": "ab5f856b97ef789008829c824479a59189a9217595d2346e99b33eeffdb5cb23",
+     "executed_at": "2026-10-19T23:17:10+00:00",
+     "probability_first": [
+      0.815,
+      0.185
+     ],
+     "nowcast_median": [
+      59.333,
+      40.667
+     ],
+     "nowcast_q10": [
+      55.496,
+      38.259
+     ],
+     "nowcast_q90": [
+      61.741,
+      44.504
+     ],
+     "projection_median": [
+      58.91,
+      41.09
+     ],
+     "projection_q10": [
+      45.857,
+      29.344
+     ],
+     "projection_q90": [
+      70.656,
+      54.143
+     ]
     }
    ]
   },
@@ -1242,7 +1524,7 @@
      "name": "Vicentinho Júnior"
     }
    ],
-   "latest": "snapshots/governador-to-2026-t2/2026-10-18_1030879f2d.json",
+   "latest": "snapshots/governador-to-2026-t2/2026-10-19_9c7b7044c5.json",
    "history": [
     {
      "path": "snapshots/governador-to-2026-t2/2026-10-18_3795366af8.json",
@@ -1425,6 +1707,53 @@
      "projection_q90": [
       59.685,
       59.402
+     ]
+    },
+    {
+     "path": "snapshots/governador-to-2026-t2/2026-10-19_9c7b7044c5.json",
+     "reference_date": "2026-10-19",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 16,
+     "latest_fieldwork_end": "2026-10-17",
+     "output_sha256": "c34e9b994bfc273040abde4c53fad4130fd21ec2f0c2d80523190104e7c8decc",
+     "executed_at": "2026-10-19T23:17:20+00:00",
+     "probability_first": [
+      0.4382,
+      0.5618
+     ],
+     "nowcast_median": [
+      49.122,
+      50.878
+     ],
+     "nowcast_q10": [
+      45.716,
+      48.822
+     ],
+     "nowcast_q90": [
+      51.178,
+      54.284
+     ],
+     "projection_median": [
+      48.76,
+      51.24
+     ],
+     "projection_q10": [
+      38.627,
+      41.225
+     ],
+     "projection_q90": [
+      58.775,
+      61.373
      ]
     }
    ]

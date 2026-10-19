@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1857 levantamentos · 5998 perguntas · 165 institutos · 1444 candidatos**.
+Banco: **1870 levantamentos · 6003 perguntas · 165 institutos · 1445 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 52 | 38 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 417 | 13 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 53 | 39 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 418 | 15 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **482** | **54** |
+| **total** | **484** | **57** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -56,9 +56,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_ca4c8b28f604 · Delta · AC · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (52)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (53)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 52) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 53) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - **[2026]** cenários separados — Datafolha · PE senador/t1 · 2026-04-26 — 2 levantamentos
   s_03b4d753b6bc: Marília Arraes 20 · Humberto Costa 12 · Eduardo da Fonte 6 · Túlio Gadêlha 6 · Mendonça Filho 9
@@ -154,15 +154,15 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_2b6ddfecf762: Jair Messias Bolsonaro 46.7 · Luiz Inácio Lula da Silva 43.9 · Ciro Gomes 3.8 · Simone Tebet 2.1
   s_b55aff185e2b: Michelle Bolsonaro 33.5 · Luiz Inácio Lula da Silva 44.4 · Pablo Marçal 2.1 · Ratinho Júnior 3.9 · Eduardo Leite 2.2 · Romeu Zema 4 · Ciro Gomes 3.2 · Ronaldo Caiado 4.8
   s_b55aff185e2b: Lula 44.1 · Tarcísio de Freitas 33.1 · Ronaldo Caiado 4.7 · Pablo Marçal 4.7 · Ciro Gomes 3.6 · Ratinho Jr 2.1 · Eduardo Leite 2.1 · Romeu Zema 1.4
+- **[2026]** cenários separados — Seta · RN governador/t2 · 2026-10-10 — 2 levantamentos
+  s_32a6cbc5f52c: Allyson Bezerra 43.5 · Cadu de Lula 32.4
+  s_7bd165d371aa: Lula 51.7 · Flávio Bolsonaro 34.9
 - cenários separados — AtlasIntel · BR presidente/t1 · 2025-10-19 — 2 levantamentos
   s_33f0936d624b: Michelle Bolsonaro 26.2 · Luiz Inácio Lula da Silva 51 · Ratinho Júnior 5.1 · Romeu Zema 4.6 · Ronaldo Caiado 9.1
   s_33f0936d624b: Tarcísio de Freitas 30.4 · Luiz Inácio Lula da Silva 51.3 · Ratinho Júnior 3 · Romeu Zema 2.5 · Ronaldo Caiado 6
   s_33f0936d624b: Tarcísio de Freitas 30.1 · Fernando Haddad 43.1 · Ratinho Júnior 3.5 · Romeu Zema 2.6 · Ronaldo Caiado 7
   s_33f0936d624b: Luiz Inácio Lula da Silva 51 · Ratinho Júnior 10.4 · Romeu Zema 10.6 · Ronaldo Caiado 15.3
   s_fa88a308a3ff: Jair Messias Bolsonaro 41.3 · Luiz Inácio Lula da Silva 48.8 · Ciro Gomes 3.1 · Simone Tebet 2.3
-- **[2026]** cenários separados — AtlasIntel · CE senador/t1 · 2026-03-30 — 2 levantamentos
-  s_34c6bb115058: Eunício Oliveira 8.7 · Alcides Fernandes 11.8 · Cid Gomes 19.9 · Roberto Cláudio 14.6 · General Theóphilo 6.3
-  s_ea4d1c60ea99: Capitão Wagner 20.9 · Eunício Oliveira 10.1 · Júnior Mano 5 · Luizianne Lins 17.2 · Priscila Costa 10.8 · General Theóphilo 4.5
 - cenários separados — Paraná Pesquisas · BR presidente/t1 · 2024-03-22 — 2 levantamentos
   s_3898a4afe32c: Luiz Inácio Lula da Silva 36.2 · Tarcísio de Freitas 23.3 · Ciro Gomes 11 · Eduardo Leite 2.2 · Simone Tebet 8.2
   s_3898a4afe32c: Luiz Inácio Lula da Silva 36.6 · Ratinho Júnior 14.6 · Ciro Gomes 12.9 · Eduardo Leite 3 · Simone Tebet 8.3
@@ -262,6 +262,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_881b674736fb: Otaviano Pivetta 56.2 · Wellington Fagundes 26.2
   s_f89952e54a39: Otaviano Pivetta 68.5 · Doutora Natasha 31.5
   s_f89952e54a39: Wellington Fagundes 57.1 · Doutora Natasha 42.9
+- **[2026]** cenários separados — AtlasIntel · CE senador/t1 · 2026-03-30 — 2 levantamentos
+  s_892ed51a30e3: Eunício Oliveira 8.7 · Alcides Fernandes 11.8 · Cid Gomes 19.9 · Roberto Cláudio 14.6 · General Theóphilo 6.3
+  s_eba01c387862: Capitão Wagner 20.9 · Eunício Oliveira 10.1 · Júnior Mano 5 · Luizianne Lins 17.2 · Priscila Costa 10.8 · General Theóphilo 4.5
 - **[2026]** cenários separados — Datafolha · BR presidente/t1 · 2026-03-05 — 2 levantamentos
   s_9949485e2ceb: Luiz Inácio Lula da Silva 39 · Flávio Bolsonaro 34 · Eduardo Leite 3 · Romeu Zema 4
   s_9949485e2ceb: Luiz Inácio Lula da Silva 39 · Flávio Bolsonaro 33 · Ronaldo Caiado 4 · Romeu Zema 5
@@ -339,7 +342,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (417)
+## CONFLITO — Conflitos registrados aguardando decisão (418)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -351,14 +354,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_26ca7f89a6ea · results: ["Delcídio do Amaral","Eduardo Riedel","Fábio Trad","Jefferson Bezerra","João Henrique Catan","Lucien Rezende","Renato Gomes"] × ["Eduardo Riedel","Fábio Trad","Jefferson Bezzerra","João Henrique Catan","Lucien Rezende","Renato Gomes"]
 - roster_encolhido_na_fonte · q_b609b001b4c2 · results: ["Eduardo Riedel","Fábio Trad","João Henrique Catan","Lucien Rezende"] × ["Eduardo Riedel","Fábio Trad","João Henrique Catan"]
 - **[2026]** registration_dates_contradict · s_5995d129ff44 · fieldwork_end: "2026-08-25" × "2025-08-25"
-- roster_encolhido_na_fonte · q_2d96afe6a309 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
-- roster_encolhido_na_fonte · q_c7e26043c650 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
-- roster_encolhido_na_fonte · q_8a59dbce8257 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_5ce1df81efd9 · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira","Zé Batista"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_b202c41a9e09 · results: ["Camilo Santana","Eduardo Girão","Jarir Pereira","Roberto Cláudio","Zé Batista"] × ["Camilo Santana","Eduardo Girão","Roberto Cláudio"]
-- roster_encolhido_na_fonte · q_20ca93035cad · results: ["Ciro Gomes","Eduardo Girão","Elmano de Freitas","Jarir Pereira"] × ["Ciro Gomes","Eduardo Girão","Elmano de Freitas"]
 - roster_encolhido_na_fonte · q_67e9418576fc · results: ["Eduardo Girão","Elmano de Freitas","Jarir Pereira","Roberto Cláudio","Zé Batista"] × ["Eduardo Girão","Elmano de Freitas","Roberto Cláudio"]
-- roster_encolhido_na_fonte · q_5d119008ea70 · results: ["Ciro Gomes","Eduardo Girão","Jarir Pereira","Roberto Cláudio"] × ["Ciro Gomes","Eduardo Girão","Roberto Cláudio"]
 - roster_encolhido_na_fonte · q_c7b62f97aeea · results: ["Anderson Ferreira","Eduardo da Fonte","Fernando Dueire","Humberto Costa","Jô Cavalcanti","Marília Arraes","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Anderson Ferreira","Eduardo da Fonte","Humberto Costa","Marília Arraes","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_20b33da428ac · results: ["Eduardo da Fonte","Fernando Dueire","Humberto Costa","Jô Cavalcanti","Marília Arraes","Mendonça Filho","Paulo Rubem Santiago","Túlio Gadêlha"] × ["Eduardo da Fonte","Humberto Costa","Marília Arraes","Mendonça Filho","Túlio Gadêlha"]
 - roster_encolhido_na_fonte · q_292e1832d378 · results: ["Cícero Lucena","Efraim Filho","Lucas Ribeiro","Olímpio Rocha"] × ["Cícero Lucena","Efraim Filho","Lucas Ribeiro"]
@@ -751,14 +749,20 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_f203af681286 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_2b8785167d22 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_9aab4203344c · results: null × ["Flávio Bolsonaro"]
+- survey_id_orphaned · s_6e6244aaac3f · survey_id: "s_6e6244aaac3f" × null
+- **[2026]** survey_id_orphaned · s_9e6172f00e87 · survey_id: "s_9e6172f00e87" × null
 - segundo_turno_fragmento_descartado · q_993c5845051c · results: null × ["Jerônimo Rodrigues"]
 - segundo_turno_fragmento_descartado · q_ad202740d448 · results: null × ["Jerônimo Rodrigues"]
-- person_id_orphaned · p_a85c6556c6d0 · person_id: "p_a85c6556c6d0" × null
-- person_id_orphaned · p_5e13db80014c · person_id: "p_5e13db80014c" × null
-- person_id_orphaned · p_155b58872880 · person_id: "p_155b58872880" × null
-- survey_id_orphaned · s_6e9c6899c547 · survey_id: "s_6e9c6899c547" × null
+- roster_encolhido_na_fonte · q_92e16fed5335 · results: ["Alcides Fernandes","Anna Karina","Capitão Wagner","Cid Gomes","Cândido Albuquerque","Eunício Oliveira","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Anna Karina","Capitão Wagner","Cid Gomes","Cândido Albuquerque","Eunício Oliveira","Luizianne Lins"]
+- roster_encolhido_na_fonte · q_a89e27a83fbc · results: ["Anna Karina","Capitão Wagner","Cid Gomes","Cândido Albuquerque","Eunício Oliveira","General Theóphilo","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","Luizianne Lins","Priscila Costa"]
+- **[2026]** survey_id_orphaned · s_93f61a79b05c · survey_id: "s_93f61a79b05c" × null
+- institute_id_orphaned · i_cbdaab92c77b · institute_id: "i_cbdaab92c77b" × null
+- roster_encolhido_na_fonte · q_29b4dd87f0b1 · results: ["Anna Karina","Capitão Wagner","Cândido Albuquerque","Eunício Oliveira","General Theóphilo","Júnior Mano","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Eunício Oliveira","Júnior Mano","Luizianne Lins","Priscila Costa"]
+- roster_encolhido_na_fonte · q_5c5a26cbcebb · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
+- roster_encolhido_na_fonte · q_cbafbdab427c · results: ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","General Theóphilo","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","Luizianne Lins","Priscila Costa"]
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
-- disputa_em_quarentena · governador:DF · quarentena: 101 × 96
+- disputa_em_quarentena · governador:DF · quarentena: 101 × 98
+- disputa_em_quarentena · presidente:BR · quarentena: 1775 × 1775
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)

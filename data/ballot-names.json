@@ -19,6 +19,15 @@
    "motivo": "compatível com mais de uma pessoa no registro inteiro"
   },
   {
+   "contest": "governador:BA",
+   "nome": "Rui Costa",
+   "candidatos": [
+    "RUI COSTA PIMENTA (presidente:BR)",
+    "RUI COSTA (senador:BA)"
+   ],
+   "motivo": "compatível com mais de uma pessoa no registro inteiro"
+  },
+  {
    "contest": "presidente:PR",
    "nome": "Ciro",
    "candidatos": [
@@ -33,15 +42,6 @@
    "candidatos": [
     "CIRO GOMES (governador:CE)",
     "CIRO NOGUEIRA (senador:PI)"
-   ],
-   "motivo": "compatível com mais de uma pessoa no registro inteiro"
-  },
-  {
-   "contest": "governador:BA",
-   "nome": "Rui Costa",
-   "candidatos": [
-    "RUI COSTA PIMENTA (presidente:BR)",
-    "RUI COSTA (senador:BA)"
    ],
    "motivo": "compatível com mais de uma pessoa no registro inteiro"
   },
@@ -1031,6 +1031,57 @@
     "partido": "UP",
     "numero": "80",
     "origem": "contencao"
+   }
+  },
+  "governador:BA": {
+   "acm neto": {
+    "nome_urna": "ACM Neto",
+    "sq_candidato": "50002533190",
+    "partido": "UNIÃO",
+    "numero": "44",
+    "origem": "exato"
+   },
+   "ariel capistrano": {
+    "nome_urna": "Ariel Capistrano",
+    "sq_candidato": "50002535253",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
+   "jeronimo rodrigues": {
+    "nome_urna": "Jerônimo Rodrigues",
+    "sq_candidato": "50002536314",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
+   "joao roma": {
+    "nome_urna": "João Roma",
+    "sq_candidato": "50002533123",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "outra-disputa"
+   },
+   "maria bona": {
+    "nome_urna": "Maria Bona",
+    "sq_candidato": "50002552489",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
+   "prof aroldo felix": {
+    "nome_urna": "Aroldo Felix",
+    "sq_candidato": "50002544692",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "contencao"
+   },
+   "ronaldo mansur": {
+    "nome_urna": "Ronaldo Mansur",
+    "sq_candidato": "50002532269",
+    "partido": "PSOL",
+    "numero": "50",
+    "origem": "exato"
    }
   },
   "presidente:BA": {
@@ -5087,57 +5138,6 @@
     "sq_candidato": "280002552487",
     "partido": "PCO",
     "numero": "29",
-    "origem": "exato"
-   }
-  },
-  "governador:BA": {
-   "acm neto": {
-    "nome_urna": "ACM Neto",
-    "sq_candidato": "50002533190",
-    "partido": "UNIÃO",
-    "numero": "44",
-    "origem": "exato"
-   },
-   "ariel capistrano": {
-    "nome_urna": "Ariel Capistrano",
-    "sq_candidato": "50002535253",
-    "partido": "DC",
-    "numero": "27",
-    "origem": "exato"
-   },
-   "jeronimo rodrigues": {
-    "nome_urna": "Jerônimo Rodrigues",
-    "sq_candidato": "50002536314",
-    "partido": "PT",
-    "numero": "13",
-    "origem": "exato"
-   },
-   "joao roma": {
-    "nome_urna": "João Roma",
-    "sq_candidato": "50002533123",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "outra-disputa"
-   },
-   "maria bona": {
-    "nome_urna": "Maria Bona",
-    "sq_candidato": "50002552489",
-    "partido": "PCO",
-    "numero": "29",
-    "origem": "exato"
-   },
-   "prof aroldo felix": {
-    "nome_urna": "Aroldo Felix",
-    "sq_candidato": "50002544692",
-    "partido": "UP",
-    "numero": "80",
-    "origem": "contencao"
-   },
-   "ronaldo mansur": {
-    "nome_urna": "Ronaldo Mansur",
-    "sq_candidato": "50002532269",
-    "partido": "PSOL",
-    "numero": "50",
     "origem": "exato"
    }
   },
