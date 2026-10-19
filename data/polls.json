@@ -1,24 +1,222 @@
 {
- "generated_at": "2026-10-18T00:59:37.861Z",
+ "generated_at": "2026-10-19T17:26:59.840Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-18T00:59:37.861Z"
+   "last_ok": "2026-10-19T17:26:59.840Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-18T00:59:37.861Z"
+   "last_ok": "2026-10-19T17:26:59.840Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-18T00:59:37.861Z"
+   "last_ok": "2026-10-19T17:26:59.840Z"
   }
  ],
  "polls": [
+  {
+   "id": "17b6d129b1c9",
+   "source": null,
+   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Flávio Bolsonaro",
+   "pollster": "Atlas",
+   "contractor": null,
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-18",
+   "published_date": null,
+   "sample_size": 4998,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.6
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cc87d719018b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-18",
+   "published_date": null,
+   "sample_size": 4998,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d953ad5e8fb8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-18",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.9
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "21d40502cf3d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Vox",
+   "contractor": null,
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-17",
+   "published_date": null,
+   "sample_size": 2100,
+   "margin_of_error": 2.15,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.4
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 44.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2ac08be37bee",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "DataTrends",
+   "contractor": null,
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-17",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.19,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48.5
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 51.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6e1a2ca4729c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-17",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 49.6
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "26110a7532a3",
    "source": null,
@@ -162,7 +360,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "PoderData",
    "contractor": "PoderData",
-   "fieldwork_start": "2026-10-13",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-15",
    "published_date": "2026-10-15",
    "sample_size": 3000,
@@ -61535,11 +61733,6 @@
      "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 6.7
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 2.3
     },
     {
      "candidate": "Pablo Marçal",
@@ -131298,11 +131491,6 @@
      "pct": 2.3
     },
     {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 1.8
-    },
-    {
      "candidate": "Zema",
      "party": "Novo",
      "pct": 1.6
@@ -187430,11 +187618,6 @@
     {
      "candidate": "Ratinho Jr",
      "party": "PSD",
-     "pct": 2.6
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
      "pct": 2.6
     },
     {
