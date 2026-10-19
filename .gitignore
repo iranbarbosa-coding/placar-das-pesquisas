@@ -10,3 +10,8 @@ data-research/
 scripts/ocr/ocr
 logs/
 .claude/settings.local.json
+
+# camada de previsão: cache do backtest (sorteios brutos, recomputáveis)
+forecast/.cache/
+__pycache__/
+data/forecast/.lock

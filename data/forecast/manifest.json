@@ -1,0 +1,12 @@
+{
+ "migrations": [
+  "0001_estrutura_inicial"
+ ],
+ "schema_versions": {
+  "backtest": 1,
+  "calibration": 1,
+  "index": 1,
+  "runs": 1,
+  "snapshot": 1
+ }
+}

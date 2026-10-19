@@ -1,0 +1,172 @@
+// Tabela e faixas de uma disputa — usadas na /previsao e na página da disputa.
+import { colorMap, colorOf } from "@/lib/colors";
+import { fmtPct, fmtSigned } from "@/lib/format";
+import { casasPara, headlineProbabilities, type Snapshot } from "@/lib/forecast";
+import { IntervalStrip } from "./ForecastCharts";
+
+/** Probabilidade em inteiro, sem falsa precisão nas pontas (">99%", "<1%"). */
+export function fmtChance(p: number): string {
+  if (p >= 0.995) return ">99%";
+  if (p <= 0.005) return "<1%";
+  return `${Math.round(p * 100)}%`;
+}
+
+/**
+ * Destaque de quem tem MAIOR CHANCE de vencer e a probabilidade (decisão do
+ * criador, 18/10/2026). Só aparece quando o snapshot traz probabilidades; se o
+ * status é "experimental", o selo e a frase dizem isso no mesmo bloco — a
+ * probabilidade nunca é exibida sem o aviso ao lado.
+ */
+export function Favorito({ s, grande = false }: { s: Snapshot; grande?: boolean }) {
+  const f = headlineProbabilities(s);
+  if (!f || f.length !== s.candidates.length) return null;
+  // A tendência da média das 10 últimas aparece SEMPRE como informação; ela só
+  // move a projeção quando o amortecimento escolhido no backtest é > 0.
+  const tm = s.trend_model ?? null;
+  const colors = colorMap(s.candidates.map((c) => c.name));
+  const ordem = s.candidates.map((c, k) => ({ c, p: f[k] })).sort((a, b) => b.p - a.p);
+  const [lider, ...resto] = ordem;
+  const cor = colorOf(colors, lider.c.name);
+  const indefinida = lider.p < 0.6;
+  const experimental = s.status.probability === "experimental";
+  return (
+    <div
+      className="flex flex-wrap items-center justify-between gap-3 rounded-lg p-3"
+      style={{ background: "var(--surface-2)", borderLeft: `4px solid ${cor}` }}
+    >
+      <div className="min-w-0">
+        <p className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+          {indefinida ? "Leve vantagem · disputa indefinida" : "Maior chance de vencer"}
+        </p>
+        <p className={`${grande ? "text-2xl" : "text-xl"} font-extrabold leading-tight`} style={{ color: "var(--text-primary)" }}>
+          {lider.c.name}
+        </p>
+        <p className="mt-0.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+          {resto.map((r) => `${r.c.name}: ${fmtChance(r.p)}`).join(" · ")}
+        </p>
+      </div>
+      <div className="text-right">
+        <p className={`tabular ${grande ? "text-5xl" : "text-4xl"} font-extrabold leading-none`} style={{ color: cor }}>
+          {fmtChance(lider.p)}
+        </p>
+        <p className="mt-1 text-xs" style={{ color: "var(--text-secondary)" }}>
+          de chance de vencer em {s.election_date.slice(8, 10)}/{s.election_date.slice(5, 7)}
+        </p>
+        <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+          {s.headline_method === "tendencia" ? "pela tendência da média" : "pelo modelo estatístico"}
+        </p>
+        {experimental && (
+          <span
+            className="mt-1 inline-flex rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+            style={{ border: "1px dashed var(--axis)", color: "var(--text-secondary)" }}
+            title="Sem 2º turno com resultado no banco para validar esta probabilidade; ver os motivos na página da disputa."
+          >
+            Experimental
+          </span>
+        )}
+      </div>
+      {tm && (() => {
+        // Linha inteira embaixo: a tendência é informação, não o que gera a chance.
+        const k = s.candidates.indexOf(lider.c);
+        const v = tm.trend_pp_per_week[k];
+        const seta = Math.abs(v) < 0.1 ? "estável" : `${v > 0 ? "▲" : "▼"} ${fmtSigned(v)} p.p./semana`;
+        return (
+          <p className="basis-full border-t pt-2 text-xs" style={{ color: "var(--text-secondary)", borderColor: "var(--grid)" }}>
+            {lider.c.name} · média das 10 últimas pesquisas: <strong className="tabular">{fmtPct(tm.average_now_pct[k])}%</strong> ·
+            tendência em {tm.lookback_days} dias: <strong className="tabular">{seta}</strong>
+            {tm.damping > 0 && (
+              <>
+                {" "}· ponto projetado para a eleição: <strong className="tabular">{fmtPct(tm.point_election_pct[k])}%</strong>
+              </>
+            )}
+          </p>
+        );
+      })()}
+    </div>
+  );
+}
+
+/** Um número do modelo com a precisão que o intervalo permite (sem falsa precisão). */
+export function Faixa({ q }: { q: Record<string, number> }) {
+  const c = casasPara(q["0.1"], q["0.9"]);
+  return (
+    <span className="tabular whitespace-nowrap">
+      <strong>{fmtPct(q["0.5"], c)}%</strong>{" "}
+      <span style={{ color: "var(--text-muted)" }}>
+        ({fmtPct(q["0.1"], c)}–{fmtPct(q["0.9"], c)})
+      </span>
+    </span>
+  );
+}
+
+export function TabelaNumeros({ s }: { s: Snapshot }) {
+  const colors = colorMap(s.candidates.map((c) => c.name));
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[520px] text-sm">
+        <thead>
+          <tr className="text-left text-[11px] uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+            <th className="py-1 pr-2 font-semibold">Candidato</th>
+            <th className="py-1 pr-2 font-semibold">1º turno (TSE)</th>
+            <th className="py-1 pr-2 font-semibold">Média das pesquisas</th>
+            <th className="py-1 pr-2 font-semibold">Estimativa atual</th>
+            <th className="py-1 font-semibold">Projeção para 25/10{s.status.projection === "experimental" ? " *" : ""}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {s.candidates.map((c, k) => {
+            const avg = s.site_average?.candidates.find((x) => x.candidate_id === c.candidate_id)?.avg ?? null;
+            const now = s.nowcast?.summary[k];
+            const proj = s.projection?.summary[k];
+            return (
+              <tr key={c.candidate_id} className="border-t" style={{ borderColor: "var(--grid)" }}>
+                <td className="py-1.5 pr-2 font-semibold" style={{ color: "var(--text-primary)" }}>
+                  <span aria-hidden="true" className="mr-1.5 inline-block h-2.5 w-2.5 rounded-full align-middle" style={{ background: colorOf(colors, c.name) }} />
+                  {c.name}
+                </td>
+                <td className="tabular py-1.5 pr-2" style={{ color: "var(--text-secondary)" }}>{fmtPct(c.first_round_pct)}%</td>
+                <td className="tabular py-1.5 pr-2">{avg != null ? `${fmtPct(avg)}%` : "—"}</td>
+                <td className="py-1.5 pr-2">{now ? <Faixa q={now.quantiles} /> : "—"}</td>
+                <td className="py-1.5">{proj ? <Faixa q={proj.quantiles} /> : <span style={{ color: "var(--text-muted)" }}>retida</span>}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <p className="mt-1.5 text-xs" style={{ color: "var(--text-muted)" }}>
+        Votos válidos. Entre parênteses, o intervalo de 80%. A média das pesquisas é o número publicado pelo site; as duas colunas à direita são do modelo.
+        {s.status.projection === "experimental" ? " * Projeção experimental: o erro sistemático do 2º turno é emprestado do 1º turno, sem validação própria." : ""}
+      </p>
+    </div>
+  );
+}
+
+export function Faixas({ s }: { s: Snapshot }) {
+  const colors = colorMap(s.candidates.map((c) => c.name));
+  const vals = s.candidates.flatMap((_, k) => [
+    s.projection?.summary[k]?.quantiles["0.025"] ?? s.nowcast?.summary[k]?.quantiles["0.1"] ?? 50,
+    s.projection?.summary[k]?.quantiles["0.975"] ?? s.nowcast?.summary[k]?.quantiles["0.9"] ?? 50,
+  ]);
+  const lo = Math.max(0, Math.floor((Math.min(...vals) - 2) / 5) * 5);
+  const hi = Math.min(100, Math.ceil((Math.max(...vals) + 2) / 5) * 5);
+  return (
+    <IntervalStrip
+      lo={lo}
+      hi={hi}
+      fifty={s.round === 2}
+      rows={s.candidates.map((c, k) => {
+        const n = s.nowcast?.summary[k]?.quantiles;
+        const p = s.projection?.summary[k]?.quantiles;
+        return {
+          label: c.name,
+          color: colorOf(colors, c.name),
+          avg: s.site_average?.candidates.find((x) => x.candidate_id === c.candidate_id)?.avg ?? null,
+          now: n ? [n["0.1"], n["0.5"], n["0.9"]] : null,
+          proj: p ? [p["0.025"], p["0.1"], p["0.5"], p["0.9"], p["0.975"]] : null,
+          experimental: s.status.projection !== "publicada",
+        };
+      })}
+    />
+  );
+}
+

@@ -1,0 +1,6 @@
+# Camada de previsão — dependências FIXADAS (reprodutibilidade dos snapshots:
+# mesma entrada + mesma semente + mesma versão do numpy ⇒ mesmos números).
+# Só numpy: o amostrador (Kalman + MCMC marginal), a simulação e a calibração
+# são implementados em forecast/placar_forecast/ — ver FORECASTING_METHODOLOGY.md §10
+# para a avaliação de PyMC, NumPyro e Stan.
+numpy==2.5.3

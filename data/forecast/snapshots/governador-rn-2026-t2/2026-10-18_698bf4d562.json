@@ -1,0 +1,1254 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-rn-2026-t2",
+ "contest": "governador:RN",
+ "race": "governador",
+ "uf": "RN",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-18",
+ "horizon_days": 7,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "c6070178de740a7cedaf0368e4fe712402b2248c411beadfbce6dab00d78345d",
+  "code_sha256": "4e01006c2967f86d6010ded6518e942aae11e4015005f052e460b61d5d8e9ed3",
+  "calibration_id": "calibracao-2026t1-ab0bfb0ddd",
+  "numpy_version": "2.5.3",
+  "seed": 2408901195,
+  "fit_seconds": 6.9
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_5068e842f4fc",
+   "person_id": "p_e9976d81841b",
+   "name": "Allyson",
+   "first_round_pct": 36.94
+  },
+  {
+   "candidate_id": "c_43db1835e592",
+   "person_id": "p_2184fe3a65c3",
+   "name": "Cadu de Lula",
+   "first_round_pct": 36.16
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "2e0f01d396b6",
+   "8255164dd5f8",
+   "p360-14359-2-0-cd1db3aeffa9",
+   "p360-14283-2-1-3378ca1b9597",
+   "929a38388d2d",
+   "p360-14110-2-1-1780cdd2f3f4",
+   "e4ba228bc9ba",
+   "p360-13713-2-0-bb2d2ea15733",
+   "p360-13625-2-1-c0467cf58257",
+   "43cca2861181"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-12",
+  "candidates": [
+   {
+    "candidate_id": "c_5068e842f4fc",
+    "name": "Allyson",
+    "avg": 58.8,
+    "nPolls": 10
+   },
+   {
+    "candidate_id": "c_43db1835e592",
+    "name": "Cadu de Lula",
+    "avg": 41.2,
+    "nPolls": 10
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "0abf210481affd5fdb8b3442aaa1585c3f757d2a43be3db8047f504e01528f08",
+  "input_sha256": "698bf4d562b03b63b42937100d20cdc41982e59830164b4abc4ac6a8c7be94ea",
+  "source_polls_sha256": "a3c60b8e7936e9eb4c3a75ee9ef475ba5135dd2f914970989745cb5f69e65c19",
+  "source_generated_at": "2026-10-18T00:59:37.861Z",
+  "n_polls": 14,
+  "n_institutes": 8,
+  "latest_fieldwork_end": "2026-10-12",
+  "polls": [
+   {
+    "id": "p360-13491-2-0-e7b7b811f0d2",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-05-22",
+    "fieldwork_end": "2026-05-27",
+    "published_date": "2026-05-27",
+    "available_from": "2026-05-27",
+    "sample_size": 962,
+    "n_eff": 765.8,
+    "n_imputado": false,
+    "tse_registration": "RN-02267/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/cadu-xavier-lidera-no-1o-turno-no-rn-diz-pesquisa/",
+    "shares": [
+     49.12,
+     50.88
+    ]
+   },
+   {
+    "id": "43cca2861181",
+    "pollster": "Agorasei",
+    "fieldwork_start": "2026-05-28",
+    "fieldwork_end": "2026-05-31",
+    "published_date": null,
+    "available_from": "2026-05-31",
+    "sample_size": 1500,
+    "n_eff": 1033.5,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     78.37,
+     21.63
+    ]
+   },
+   {
+    "id": "b5ed0c8c9b33",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-05-27",
+    "fieldwork_end": "2026-05-31",
+    "published_date": null,
+    "available_from": "2026-05-31",
+    "sample_size": 1220,
+    "n_eff": 812.5,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     56.76,
+     43.24
+    ]
+   },
+   {
+    "id": "p360-13625-2-1-c0467cf58257",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-07-16",
+    "fieldwork_end": "2026-07-21",
+    "published_date": "2026-07-21",
+    "available_from": "2026-07-21",
+    "sample_size": 1245,
+    "n_eff": 916.3,
+    "n_imputado": false,
+    "tse_registration": "RN-04754/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/xavier-tem-457-e-dias-355-no-2o-turno-no-rn-diz-pesquisa/",
+    "shares": [
+     46.47,
+     53.53
+    ]
+   },
+   {
+    "id": "p360-13713-2-0-bb2d2ea15733",
+    "pollster": "Data Capital",
+    "fieldwork_start": "2026-07-25",
+    "fieldwork_end": "2026-07-29",
+    "published_date": "2026-07-29",
+    "available_from": "2026-07-29",
+    "sample_size": 2050,
+    "n_eff": 1783.5,
+    "n_imputado": false,
+    "tse_registration": "RN-06579/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-data-capital-senador-rn-5ago2026-1.pdf",
+    "shares": [
+     64.37,
+     35.63
+    ]
+   },
+   {
+    "id": "26184669a2d6",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-20",
+    "fieldwork_end": "2026-08-23",
+    "published_date": null,
+    "available_from": "2026-08-23",
+    "sample_size": 804,
+    "n_eff": 554.8,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     50.72,
+     49.28
+    ]
+   },
+   {
+    "id": "e4ba228bc9ba",
+    "pollster": "Seta",
+    "fieldwork_start": "2026-09-03",
+    "fieldwork_end": "2026-09-05",
+    "published_date": null,
+    "available_from": "2026-09-05",
+    "sample_size": 1500,
+    "n_eff": 978.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     66.72,
+     33.28
+    ]
+   },
+   {
+    "id": "p360-14110-2-1-1780cdd2f3f4",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-05",
+    "fieldwork_end": "2026-09-09",
+    "published_date": "2026-09-09",
+    "available_from": "2026-09-09",
+    "sample_size": 1600,
+    "n_eff": 1312.0,
+    "n_imputado": false,
+    "tse_registration": "RN-08492/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/Rio-Grande-do-Norte-RN-08492-2026-Set26.pdf",
+    "shares": [
+     60.98,
+     39.02
+    ]
+   },
+   {
+    "id": "619f07042125",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 804,
+    "n_eff": 643.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     62.5,
+     37.5
+    ]
+   },
+   {
+    "id": "929a38388d2d",
+    "pollster": "Seta",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1500,
+    "n_eff": 978.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     66.26,
+     33.74
+    ]
+   },
+   {
+    "id": "p360-14283-2-1-3378ca1b9597",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-09-23",
+    "fieldwork_end": "2026-09-28",
+    "published_date": "2026-09-28",
+    "available_from": "2026-09-28",
+    "sample_size": 1207,
+    "n_eff": 1007.8,
+    "n_imputado": false,
+    "tse_registration": "RN-04187/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+    "shares": [
+     49.82,
+     50.18
+    ]
+   },
+   {
+    "id": "p360-14359-2-0-cd1db3aeffa9",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1404.0,
+    "n_imputado": false,
+    "tse_registration": "RN-09644/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/RN-096442026-Governador.pdf",
+    "shares": [
+     56.41,
+     43.59
+    ]
+   },
+   {
+    "id": "2e0f01d396b6",
+    "pollster": "Affare",
+    "fieldwork_start": "2026-10-09",
+    "fieldwork_end": "2026-10-12",
+    "published_date": null,
+    "available_from": "2026-10-12",
+    "sample_size": 1350,
+    "n_eff": 1259.6,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     47.37,
+     52.63
+    ]
+   },
+   {
+    "id": "8255164dd5f8",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-09",
+    "fieldwork_end": "2026-10-12",
+    "published_date": null,
+    "available_from": "2026-10-12",
+    "sample_size": 1098,
+    "n_eff": 955.3,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+    "shares": [
+     51.72,
+     48.28
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 5,
+   "incompleta_na_fonte": 1,
+   "par_diferente": 21
+  },
+  "exclusions": [
+   {
+    "id": "f6f396dbcc7e",
+    "pollster": "Seta",
+    "fieldwork_end": "2026-10-10",
+    "reason": "incompleta_na_fonte"
+   }
+  ]
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0028,
+    "ess_bulk": 803.3
+   },
+   "tau": {
+    "rhat": 1.0032,
+    "ess_bulk": 1218.9
+   },
+   "sigma_h": {
+    "rhat": 1.0025,
+    "ess_bulk": 1329.8
+   },
+   "fração_atual[Allyson]": {
+    "rhat": 1.0011,
+    "ess_bulk": 3656.4
+   },
+   "fração_atual[Cadu de Lula]": {
+    "rhat": 1.0011,
+    "ess_bulk": 3656.4
+   }
+  },
+  "rhat_max": 1.0032,
+  "ess_min": 803.3,
+  "accept": [
+   0.354,
+   0.309,
+   0.33,
+   0.361
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Allyson",
+    "mean": 58.887,
+    "sd": 2.709,
+    "quantiles": {
+     "0.025": 52.274,
+     "0.05": 53.77,
+     "0.1": 55.356,
+     "0.25": 57.56,
+     "0.5": 59.311,
+     "0.75": 60.623,
+     "0.9": 61.752,
+     "0.95": 62.533,
+     "0.975": 63.261
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 41.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      3,
+      4,
+      2,
+      2,
+      1,
+      7,
+      9,
+      8,
+      14,
+      21,
+      19,
+      35,
+      35,
+      48,
+      51,
+      70,
+      93,
+      102,
+      130,
+      170,
+      197,
+      256,
+      296,
+      386,
+      418,
+      551,
+      636,
+      819,
+      958,
+      1045,
+      1178,
+      1180,
+      988,
+      785,
+      492,
+      364,
+      231,
+      150,
+      88,
+      61,
+      37,
+      21,
+      19,
+      5,
+      6,
+      4,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Cadu de Lula",
+    "mean": 41.113,
+    "sd": 2.709,
+    "quantiles": {
+     "0.025": 36.739,
+     "0.05": 37.467,
+     "0.1": 38.248,
+     "0.25": 39.377,
+     "0.5": 40.689,
+     "0.75": 42.44,
+     "0.9": 44.644,
+     "0.95": 46.23,
+     "0.975": 47.726
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 31.5,
+     "counts": [
+      1,
+      1,
+      4,
+      6,
+      5,
+      19,
+      21,
+      37,
+      61,
+      88,
+      150,
+      231,
+      364,
+      492,
+      785,
+      988,
+      1180,
+      1178,
+      1045,
+      958,
+      819,
+      636,
+      551,
+      418,
+      386,
+      296,
+      256,
+      197,
+      170,
+      130,
+      102,
+      93,
+      70,
+      51,
+      48,
+      35,
+      35,
+      19,
+      21,
+      14,
+      8,
+      9,
+      7,
+      1,
+      2,
+      2,
+      4,
+      3,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-05-24",
+    "values": [
+     {
+      "q10": 58.17,
+      "median": 60.64,
+      "q90": 63.36
+     },
+     {
+      "q10": 36.64,
+      "median": 39.36,
+      "q90": 41.83
+     }
+    ]
+   },
+   {
+    "date": "2026-05-29",
+    "values": [
+     {
+      "q10": 58.22,
+      "median": 60.67,
+      "q90": 63.68
+     },
+     {
+      "q10": 36.32,
+      "median": 39.33,
+      "q90": 41.78
+     }
+    ]
+   },
+   {
+    "date": "2026-07-18",
+    "values": [
+     {
+      "q10": 57.2,
+      "median": 59.69,
+      "q90": 61.72
+     },
+     {
+      "q10": 38.28,
+      "median": 40.31,
+      "q90": 42.8
+     }
+    ]
+   },
+   {
+    "date": "2026-07-27",
+    "values": [
+     {
+      "q10": 57.11,
+      "median": 59.74,
+      "q90": 61.83
+     },
+     {
+      "q10": 38.17,
+      "median": 40.26,
+      "q90": 42.89
+     }
+    ]
+   },
+   {
+    "date": "2026-08-21",
+    "values": [
+     {
+      "q10": 56.25,
+      "median": 59.42,
+      "q90": 61.55
+     },
+     {
+      "q10": 38.45,
+      "median": 40.58,
+      "q90": 43.75
+     }
+    ]
+   },
+   {
+    "date": "2026-09-04",
+    "values": [
+     {
+      "q10": 57.77,
+      "median": 60.06,
+      "q90": 62.29
+     },
+     {
+      "q10": 37.71,
+      "median": 39.94,
+      "q90": 42.23
+     }
+    ]
+   },
+   {
+    "date": "2026-09-07",
+    "values": [
+     {
+      "q10": 57.84,
+      "median": 60.13,
+      "q90": 62.33
+     },
+     {
+      "q10": 37.67,
+      "median": 39.87,
+      "q90": 42.16
+     }
+    ]
+   },
+   {
+    "date": "2026-09-22",
+    "values": [
+     {
+      "q10": 58.23,
+      "median": 60.44,
+      "q90": 62.76
+     },
+     {
+      "q10": 37.24,
+      "median": 39.56,
+      "q90": 41.77
+     }
+    ]
+   },
+   {
+    "date": "2026-09-25",
+    "values": [
+     {
+      "q10": 58.02,
+      "median": 60.27,
+      "q90": 62.35
+     },
+     {
+      "q10": 37.65,
+      "median": 39.73,
+      "q90": 41.98
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 57.22,
+      "median": 59.75,
+      "q90": 61.88
+     },
+     {
+      "q10": 38.12,
+      "median": 40.25,
+      "q90": 42.78
+     }
+    ]
+   },
+   {
+    "date": "2026-10-10",
+    "values": [
+     {
+      "q10": 55.73,
+      "median": 59.23,
+      "q90": 61.48
+     },
+     {
+      "q10": 38.52,
+      "median": 40.77,
+      "q90": 44.27
+     }
+    ]
+   },
+   {
+    "date": "2026-10-18",
+    "values": [
+     {
+      "q10": 55.32,
+      "median": 59.26,
+      "q90": 61.68
+     },
+     {
+      "q10": 38.32,
+      "median": 40.74,
+      "q90": 44.68
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Allyson",
+  "rows": [
+   {
+    "pollster": "Agorasei",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": 10.046,
+     "0.5": 16.834,
+     "0.9": 21.451
+    }
+   },
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 3,
+    "effect_pp_first_candidate": {
+     "0.1": -13.25,
+     "0.5": -10.603,
+     "0.9": -7.199
+    }
+   },
+   {
+    "pollster": "Affare",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -13.587,
+     "0.5": -9.287,
+     "0.9": -3.905
+    }
+   },
+   {
+    "pollster": "Seta",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": 2.328,
+     "0.5": 5.627,
+     "0.9": 8.78
+    }
+   },
+   {
+    "pollster": "Data Capital",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.2,
+     "0.5": 4.027,
+     "0.9": 7.927
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -6.55,
+     "0.5": -3.899,
+     "0.9": -0.931
+    }
+   },
+   {
+    "pollster": "Veritá",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -7.578,
+     "0.5": -3.29,
+     "0.9": 1.121
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -3.281,
+     "0.5": 0.639,
+     "0.9": 4.555
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.001,
+   "0.5": 0.013,
+   "0.95": 0.041
+  },
+  "tau": {
+   "0.05": 0.039,
+   "0.5": 0.128,
+   "0.95": 0.241
+  },
+  "sigma_h": {
+   "0.05": 0.207,
+   "0.5": 0.32,
+   "0.95": 0.451
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Allyson",
+    "mean": 58.614,
+    "sd": 9.915,
+    "quantiles": {
+     "0.025": 37.923,
+     "0.05": 41.698,
+     "0.1": 45.839,
+     "0.25": 52.307,
+     "0.5": 59.012,
+     "0.75": 65.378,
+     "0.9": 70.92,
+     "0.95": 74.188,
+     "0.975": 77.004
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 4.0,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      3,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      2,
+      2,
+      3,
+      1,
+      9,
+      6,
+      3,
+      7,
+      6,
+      2,
+      9,
+      7,
+      4,
+      8,
+      13,
+      19,
+      15,
+      10,
+      18,
+      20,
+      22,
+      20,
+      29,
+      28,
+      45,
+      38,
+      36,
+      43,
+      59,
+      56,
+      63,
+      73,
+      96,
+      98,
+      97,
+      102,
+      110,
+      124,
+      134,
+      139,
+      156,
+      185,
+      182,
+      215,
+      209,
+      271,
+      299,
+      294,
+      290,
+      344,
+      393,
+      418,
+      449,
+      470,
+      494,
+      517,
+      614,
+      666,
+      687,
+      747,
+      788,
+      825,
+      902,
+      862,
+      1012,
+      1023,
+      1131,
+      1207,
+      1295,
+      1326,
+      1366,
+      1455,
+      1407,
+      1517,
+      1586,
+      1673,
+      1746,
+      1738,
+      1819,
+      1873,
+      1950,
+      1991,
+      1916,
+      2029,
+      2036,
+      2033,
+      1965,
+      2118,
+      2138,
+      2023,
+      2090,
+      2003,
+      1986,
+      2006,
+      1918,
+      1951,
+      1821,
+      1852,
+      1821,
+      1734,
+      1665,
+      1613,
+      1536,
+      1528,
+      1372,
+      1319,
+      1293,
+      1181,
+      1156,
+      1103,
+      971,
+      931,
+      839,
+      794,
+      752,
+      678,
+      643,
+      581,
+      493,
+      440,
+      462,
+      412,
+      317,
+      321,
+      239,
+      263,
+      227,
+      185,
+      159,
+      164,
+      140,
+      100,
+      100,
+      90,
+      75,
+      65,
+      52,
+      55,
+      52,
+      41,
+      28,
+      17,
+      29,
+      12,
+      23,
+      11,
+      11,
+      6,
+      10,
+      10,
+      1,
+      6,
+      2,
+      2,
+      2,
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Cadu de Lula",
+    "mean": 41.386,
+    "sd": 9.915,
+    "quantiles": {
+     "0.025": 22.996,
+     "0.05": 25.812,
+     "0.1": 29.08,
+     "0.25": 34.622,
+     "0.5": 40.988,
+     "0.75": 47.693,
+     "0.9": 54.161,
+     "0.95": 58.302,
+     "0.975": 62.077
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 3.0,
+     "counts": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      2,
+      2,
+      2,
+      6,
+      1,
+      10,
+      10,
+      6,
+      11,
+      11,
+      23,
+      12,
+      29,
+      17,
+      28,
+      41,
+      52,
+      55,
+      52,
+      65,
+      75,
+      90,
+      100,
+      100,
+      140,
+      164,
+      159,
+      185,
+      227,
+      263,
+      239,
+      321,
+      317,
+      412,
+      462,
+      440,
+      493,
+      581,
+      643,
+      678,
+      752,
+      794,
+      839,
+      931,
+      971,
+      1103,
+      1156,
+      1181,
+      1293,
+      1319,
+      1372,
+      1528,
+      1536,
+      1613,
+      1665,
+      1734,
+      1821,
+      1852,
+      1821,
+      1951,
+      1918,
+      2006,
+      1986,
+      2003,
+      2090,
+      2023,
+      2138,
+      2118,
+      1965,
+      2033,
+      2036,
+      2029,
+      1916,
+      1991,
+      1950,
+      1873,
+      1819,
+      1738,
+      1746,
+      1673,
+      1586,
+      1517,
+      1407,
+      1455,
+      1366,
+      1326,
+      1295,
+      1207,
+      1131,
+      1023,
+      1012,
+      862,
+      902,
+      825,
+      788,
+      747,
+      687,
+      666,
+      614,
+      517,
+      494,
+      470,
+      449,
+      418,
+      393,
+      344,
+      290,
+      294,
+      299,
+      271,
+      209,
+      215,
+      182,
+      185,
+      156,
+      139,
+      134,
+      124,
+      110,
+      102,
+      97,
+      98,
+      96,
+      73,
+      63,
+      56,
+      59,
+      43,
+      36,
+      38,
+      45,
+      28,
+      29,
+      20,
+      22,
+      20,
+      18,
+      10,
+      15,
+      19,
+      13,
+      8,
+      4,
+      7,
+      9,
+      2,
+      6,
+      7,
+      3,
+      6,
+      9,
+      1,
+      3,
+      2,
+      2,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      3,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.18175,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   1.4723
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.0668,
+   "drift": 0.0159,
+   "systematic": 0.9174
+  }
+ },
+ "probabilities": null,
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "retida",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco"
+  ]
+ },
+ "output_sha256": "1b05419d20a47955253ab70729ed451cb7a0ad52847355a05485a98179c00ce1",
+ "run": {
+  "executed_at": "2026-10-18T14:48:00+00:00"
+ }
+}

@@ -59,6 +59,22 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 
 ## Em aberto
 
+- **Previsão Estatística (`/previsao`, branch `claude/previsao-estatistica`, 18/10)** — camada SEPARADA da média
+  (`forecast/`, `data/forecast/`, passo novo no `update-polls.yml` depois de todos os guardas; nunca bloqueia o
+  commit das pesquisas). Publica estimativa atual, projeção *experimental* do 2º turno e, em destaque, **quem
+  tem maior chance e a probabilidade de vitória, rotulada experimental** (pedido do criador em 18/10; o portão
+  de validação — ≥ 2 eleições por categoria — segue não cumprido e seus motivos vão junto; chave
+  `gates.probability.editorial_override` na config). **Tendência da média (18/10)**: testada a pedido do criador
+  (média das 10 últimas + tendência projetada); projetar a tendência PIOROU a previsão em todas as variantes
+  (erro 5,1 → até 6,8 p.p.). Decisão do criador: a chance do destaque vem do modelo estatístico, e a média das 10
+  últimas com a tendência (p.p./semana) aparece ao lado como informação (`headline_method: "modelo"`).
+  Aguarda revisão e "merge it" do criador. Ver `FORECASTING_METHODOLOGY.md` e `FORECASTING_VALIDATION.md`.
+- **Defeito encontrado no ranking de acerto (Senado/SC), NÃO corrigido** (é método publicado, decisão do
+  criador): a urna tem "Carol de Toni" (33,46%) e OUTRA "Carol" (0,15%); `acerto.ts` casa por `candKey` e
+  compara a Carol das pesquisas (~25%) com 0,15%. O store também lista as duas grafias como apelido do mesmo
+  `candidate_id`. A previsão recusa a ambiguidade (`ambiguous_official` no exportador) e deixa SC/Senado fora
+  da avaliação.
+
 - AtlasIntel/RJ 14045 (Cyro Garcia republicado) ainda não ratificada; governador:RJ
   hoje só perdeu as duas linhas Quaest ratificadas em #125.
 - Nome sem link em várias linhas no cabeçalho da Wikipédia ainda sai cortado no
