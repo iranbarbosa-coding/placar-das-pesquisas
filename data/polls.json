@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-18T21:28:42.257Z",
+ "generated_at": "2026-10-19T01:11:49.884Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-18T21:28:42.257Z"
+   "last_ok": "2026-10-19T01:11:49.884Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-18T21:28:42.257Z"
+   "last_ok": "2026-10-19T01:11:49.884Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-18T21:28:42.257Z"
+   "last_ok": "2026-10-19T01:11:49.884Z"
   }
  ],
  "polls": [
@@ -39363,8 +39363,8 @@
   {
    "id": "p360-14204-1-0-7587b73a90e2",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/Senador-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Senador-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Governador-PB-18a21.set_.2026-Quaest-FolhaDeS.Paulo_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Governador-PB-18a21.set_.2026-Quaest-FolhaDeS.Paulo_.pdf",
    "race": "senador",
    "state": "PB",
    "round": 1,
@@ -62612,7 +62612,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-08",
    "published_date": "2026-09-08",
    "sample_size": 1600,
@@ -62670,7 +62670,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-08",
    "published_date": "2026-09-08",
    "sample_size": 1600,
@@ -74404,7 +74404,7 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74477,7 +74477,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74510,7 +74510,7 @@
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74543,7 +74543,7 @@
    "scenario": "2º turno: Lula vs Romeu Zema",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -74576,7 +74576,7 @@
    "scenario": "2º turno: Lula vs Renan Santos",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-02",
    "published_date": "2026-09-02",
    "sample_size": 1207,
@@ -149147,7 +149147,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-05-25",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-05-26",
    "published_date": "2026-05-26",
    "sample_size": 1600,
