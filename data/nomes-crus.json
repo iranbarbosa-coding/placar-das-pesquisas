@@ -985,6 +985,80 @@
    ]
   }
  ],
+ "governador:BA": [
+  {
+   "nome": "ACM Neto",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ariel Capistrano",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Bruno Reis",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Jerônimo Rodrigues",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "João Roma",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Aleluia",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "José Carlos do Pátio",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Kleber Rosa",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Maria Bona",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Prof. Aroldo Félix",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Ronaldo Mansur",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rui Costa",
+   "partidos": [
+    "PT"
+   ]
+  }
+ ],
  "presidente:BA": [
   {
    "nome": "Augusto Cury",
@@ -6439,80 +6513,6 @@
    "nome": "Rui Costa Pimenta",
    "partidos": [
     "PCO"
-   ]
-  }
- ],
- "governador:BA": [
-  {
-   "nome": "ACM Neto",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Ariel Capistrano",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Bruno Reis",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Jerônimo Rodrigues",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "João Roma",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "José Aleluia",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "José Carlos do Pátio",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Kleber Rosa",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Maria Bona",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Prof. Aroldo Félix",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Ronaldo Mansur",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Rui Costa",
-   "partidos": [
-    "PT"
    ]
   }
  ],

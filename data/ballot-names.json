@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 718,
+  "exato": 721,
   "contencao": 227,
   "outra_disputa": 162,
   "ambiguo": 5,
-  "sem": 563
+  "sem": 564
  },
  "ambiguos": [
   {
@@ -15,15 +15,6 @@
    "candidatos": [
     "CIRO GOMES (governador:CE)",
     "CIRO NOGUEIRA (senador:PI)"
-   ],
-   "motivo": "compatível com mais de uma pessoa no registro inteiro"
-  },
-  {
-   "contest": "governador:BA",
-   "nome": "Rui Costa",
-   "candidatos": [
-    "RUI COSTA PIMENTA (presidente:BR)",
-    "RUI COSTA (senador:BA)"
    ],
    "motivo": "compatível com mais de uma pessoa no registro inteiro"
   },
@@ -42,6 +33,15 @@
    "candidatos": [
     "CIRO GOMES (governador:CE)",
     "CIRO NOGUEIRA (senador:PI)"
+   ],
+   "motivo": "compatível com mais de uma pessoa no registro inteiro"
+  },
+  {
+   "contest": "governador:BA",
+   "nome": "Rui Costa",
+   "candidatos": [
+    "RUI COSTA PIMENTA (presidente:BR)",
+    "RUI COSTA (senador:BA)"
    ],
    "motivo": "compatível com mais de uma pessoa no registro inteiro"
   },
@@ -1031,57 +1031,6 @@
     "partido": "UP",
     "numero": "80",
     "origem": "contencao"
-   }
-  },
-  "governador:BA": {
-   "acm neto": {
-    "nome_urna": "ACM Neto",
-    "sq_candidato": "50002533190",
-    "partido": "UNIÃO",
-    "numero": "44",
-    "origem": "exato"
-   },
-   "ariel capistrano": {
-    "nome_urna": "Ariel Capistrano",
-    "sq_candidato": "50002535253",
-    "partido": "DC",
-    "numero": "27",
-    "origem": "exato"
-   },
-   "jeronimo rodrigues": {
-    "nome_urna": "Jerônimo Rodrigues",
-    "sq_candidato": "50002536314",
-    "partido": "PT",
-    "numero": "13",
-    "origem": "exato"
-   },
-   "joao roma": {
-    "nome_urna": "João Roma",
-    "sq_candidato": "50002533123",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "outra-disputa"
-   },
-   "maria bona": {
-    "nome_urna": "Maria Bona",
-    "sq_candidato": "50002552489",
-    "partido": "PCO",
-    "numero": "29",
-    "origem": "exato"
-   },
-   "prof aroldo felix": {
-    "nome_urna": "Aroldo Felix",
-    "sq_candidato": "50002544692",
-    "partido": "UP",
-    "numero": "80",
-    "origem": "contencao"
-   },
-   "ronaldo mansur": {
-    "nome_urna": "Ronaldo Mansur",
-    "sq_candidato": "50002532269",
-    "partido": "PSOL",
-    "numero": "50",
-    "origem": "exato"
    }
   },
   "presidente:BA": {
@@ -2931,6 +2880,13 @@
    }
   },
   "governador:PB": {
+   "camilo duarte": {
+    "nome_urna": "Camilo Duarte",
+    "sq_candidato": "150002552603",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
    "cicero lucena": {
     "nome_urna": "Cícero Lucena",
     "sq_candidato": "150002544133",
@@ -2957,6 +2913,20 @@
     "sq_candidato": "150002551789",
     "partido": "PP",
     "numero": "11",
+    "origem": "exato"
+   },
+   "pedro coutinho": {
+    "nome_urna": "Pedro Coutinho",
+    "sq_candidato": "150002551911",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
+   "yuri ezequiel": {
+    "nome_urna": "Yuri Ezequiel",
+    "sq_candidato": "150002540204",
+    "partido": "UP",
+    "numero": "80",
     "origem": "exato"
    }
   },
@@ -5117,6 +5087,57 @@
     "sq_candidato": "280002552487",
     "partido": "PCO",
     "numero": "29",
+    "origem": "exato"
+   }
+  },
+  "governador:BA": {
+   "acm neto": {
+    "nome_urna": "ACM Neto",
+    "sq_candidato": "50002533190",
+    "partido": "UNIÃO",
+    "numero": "44",
+    "origem": "exato"
+   },
+   "ariel capistrano": {
+    "nome_urna": "Ariel Capistrano",
+    "sq_candidato": "50002535253",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
+   "jeronimo rodrigues": {
+    "nome_urna": "Jerônimo Rodrigues",
+    "sq_candidato": "50002536314",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
+   "joao roma": {
+    "nome_urna": "João Roma",
+    "sq_candidato": "50002533123",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "outra-disputa"
+   },
+   "maria bona": {
+    "nome_urna": "Maria Bona",
+    "sq_candidato": "50002552489",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
+   "prof aroldo felix": {
+    "nome_urna": "Aroldo Felix",
+    "sq_candidato": "50002544692",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "contencao"
+   },
+   "ronaldo mansur": {
+    "nome_urna": "Ronaldo Mansur",
+    "sq_candidato": "50002532269",
+    "partido": "PSOL",
+    "numero": "50",
     "origem": "exato"
    }
   },
