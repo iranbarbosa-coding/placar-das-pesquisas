@@ -1,71 +1,269 @@
 {
- "generated_at": "2026-10-20T15:38:42.989Z",
+ "generated_at": "2026-10-20T22:15:56.827Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-20T15:38:42.989Z"
+   "last_ok": "2026-10-20T22:15:56.827Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-20T15:38:42.989Z"
+   "last_ok": "2026-10-20T22:15:56.827Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-20T15:38:42.989Z"
+   "last_ok": "2026-10-20T22:15:56.827Z"
   }
  ],
  "polls": [
   {
-   "id": "c8d006faee78",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14487-2-0-09cfff796aa6",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-508-contra-492-de-lula-em-votos-validos-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa_Presidente_2T_Brasil_Out2026_Instituto_Franca.pdfhttps://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-508-contra-492-de-lula-em-votos-validos-diz-pesquisa/",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-10-16",
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "França",
+   "contractor": "Instituto França",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-20",
-   "published_date": null,
+   "published_date": "2026-10-20",
    "sample_size": 3000,
    "margin_of_error": 1.8,
    "results": [
     {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 39.65
-    },
-    {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
      "pct": 40.95
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39.65
     }
    ],
    "others_pct": null,
-   "undecided_pct": 19.4,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 8.84,
+   "blank_null_pct": 10.56,
+   "tse_registration": "BR-07896/2026"
   },
   {
-   "id": "2baac877613f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14488-2-0-30113f88383f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/vicentinho-tem-52-contra-48-de-dorinha-no-2o-turno-no-to/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/governo-tocantins-realtimebigdata-20out.pdf",
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Vicentinho Júnior vs Professora Dorinha",
+   "pollster": "Real Time Big Data",
+   "contractor": "3 Poderes",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 46
+    },
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 10,
+   "tse_registration": "TO-09320/2026"
+  },
+  {
+   "id": "p360-14489-2-0-4b6976bbc1b0",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/pazolini-tem-52-dos-votos-validos-e-ferraco-48-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Espirito-Santo-ES-06599-2026-Out26.pdf",
+   "race": "governador",
+   "state": "ES",
+   "round": 2,
+   "scenario": "2º turno: Lorenzo Pazolini vs Ricardo Ferraço",
+   "pollster": "Real Time Big Data",
+   "contractor": "3 Poderes",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lorenzo Pazolini",
+     "party": "Republicanos",
+     "pct": 46
+    },
+    {
+     "candidate": "Ricardo Ferraço",
+     "party": "MDB",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 8,
+   "tse_registration": "ES-06599/2026"
+  },
+  {
+   "id": "p360-14491-2-0-b20390175fff",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-lidera-disputa-no-acre-com-59-dos-votos-validos/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-RealTimeBigData-Acre-20out2026.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 50
+    },
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 11,
+   "tse_registration": "AC-09297/2026"
+  },
+  {
+   "id": "p360-14492-2-0-eb1eb1a487d5",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/aziz-tem-53-dos-votos-validos-e-maria-do-carmo-47-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Amazonas-AM-03112-2026-Out26.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 46
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 11,
+   "tse_registration": "AM-03112/2026"
+  },
+  {
+   "id": "p360-14493-2-0-71d47f348fd3",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/allyson-tem-52-dos-votos-validos-contra-48-de-cadu-de-lula-no-rn/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-RealTimeBigData-RioGrandedoNorte-20out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
+   "pollster": "Real Time Big Data",
+   "contractor": "3 Poderes",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 45
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 9,
+   "tse_registration": "RN-02651/2026"
+  },
+  {
+   "id": "p360-14494-2-0-7272ad0b131b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-35-de-rejeicao-contra-33-de-flavio-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Presidencial-BR-02952-2026-Out26.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Alfa/TMC",
-   "contractor": null,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-10-15",
    "fieldwork_end": "2026-10-19",
-   "published_date": null,
+   "published_date": "2026-10-19",
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-02952/2026"
+  },
+  {
+   "id": "p360-14501-2-0-dfc998fe833b",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaAlfaInteligencia-presidente-20out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaAlfaInteligencia-presidente-20out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Alfa/TMC",
+   "contractor": "Alfa",
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
    "sample_size": 2700,
    "margin_of_error": 1.9,
    "results": [
@@ -83,73 +281,7 @@
    "others_pct": null,
    "undecided_pct": 5.3,
    "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "824f039e79ba",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-10-15",
-   "fieldwork_end": "2026-10-19",
-   "published_date": null,
-   "sample_size": 15554,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.16
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 47.03
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 2.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ddc381a1443f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-10-15",
-   "fieldwork_end": "2026-10-19",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 44
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 47
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-00820/2026"
   },
   {
    "id": "p360-14479-2-0-8f22d3847ef3",
@@ -249,6 +381,39 @@
    "undecided_pct": 2.6,
    "blank_null_pct": null,
    "tse_registration": "BR-02418/2026"
+  },
+  {
+   "id": "p360-14502-2-0-bf261092c25a",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaDatatrends-governador-RN-20out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaDatatrends-governador-RN-20out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-18",
+   "published_date": "2026-10-18",
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 49
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 3,
+   "tse_registration": "BR-07585/2026"
   },
   {
    "id": "p360-14478-2-0-09acd336f38c",
@@ -383,6 +548,39 @@
    "tse_registration": "TO-09349/2026"
   },
   {
+   "id": "p360-14498-2-0-80ff3a5622b4",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaPerfil-2oTurno-governador-ES-19out2026pdf.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaPerfil-2oTurno-governador-ES-19out2026pdf.pdf",
+   "race": "governador",
+   "state": "ES",
+   "round": 2,
+   "scenario": "2º turno: Lorenzo Pazolini vs Ricardo Ferraço",
+   "pollster": "Perfil",
+   "contractor": "ES Hoje",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-17",
+   "published_date": "2026-10-17",
+   "sample_size": 1500,
+   "margin_of_error": 3.58,
+   "results": [
+    {
+     "candidate": "Lorenzo Pazolini",
+     "party": "Republicanos",
+     "pct": 46.74
+    },
+    {
+     "candidate": "Ricardo Ferraço",
+     "party": "MDB",
+     "pct": 39.15
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.07,
+   "blank_null_pct": 5.02,
+   "tse_registration": "ES-06620/2026"
+  },
+  {
    "id": "9885c440f4a3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -408,6 +606,39 @@
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
      "pct": 49.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d2dc96eca5e0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-10-12",
+   "fieldwork_end": "2026-10-16",
+   "published_date": null,
+   "sample_size": 15554,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48.9
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 51.1
     }
    ],
    "others_pct": null,
@@ -449,6 +680,39 @@
    "tse_registration": "BR-05187/2026"
   },
   {
+   "id": "p360-14499-2-0-5c23246f742b",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaProjeta-governador-AM-19out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaProjeta-governador-AM-19out2026.pdf",
+   "race": "governador",
+   "state": "AM",
+   "round": 2,
+   "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
+   "pollster": "Projeta",
+   "contractor": "Projeta",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-16",
+   "published_date": "2026-10-16",
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Omar Aziz",
+     "party": "PSD",
+     "pct": 53.1
+    },
+    {
+     "candidate": "Professora Maria do Carmo",
+     "party": "PL",
+     "pct": 38.95
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.72,
+   "blank_null_pct": 4.23,
+   "tse_registration": "AM-/"
+  },
+  {
    "id": "120ac3282b25",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -480,6 +744,39 @@
    "undecided_pct": 7.3,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "bb3633d55c61",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/brasil/saiba-como-estao-cadu-de-lula-e-allyson-nas-pesquisas-do-rn/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaItem-governador-RN-2oTurno-18out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Item",
+   "contractor": "Rádio Difusora",
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-15",
+   "published_date": "2026-10-15",
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 51
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "RN-01978/2026"
   },
   {
    "id": "p360-14457-2-0-39049bf80e2e",
@@ -581,6 +878,72 @@
    "tse_registration": "BR-00223/2026"
   },
   {
+   "id": "p360-14495-1-0-7dd7615aa4b8",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/brasil/saiba-como-estao-cadu-de-lula-e-allyson-nas-pesquisas-do-rn/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaItem-governador-RN-2oTurno-18out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno",
+   "pollster": "Item",
+   "contractor": "Rádio Difusora",
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-15",
+   "published_date": "2026-10-15",
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 51
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": 1,
+   "tse_registration": "RN-01978/2026"
+  },
+  {
+   "id": "p360-14497-2-0-d76e684821ed",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaDatavero-governo-RN-16out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaDatavero-governo-RN-16out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Allyson Bezerra",
+   "pollster": "DataVero",
+   "contractor": "TL Comunicação e Marketing",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-15",
+   "published_date": "2026-10-15",
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 46.71
+    },
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 45.73
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.24,
+   "blank_null_pct": 4.32,
+   "tse_registration": "RN-01514/2026"
+  },
+  {
    "id": "p360-14453-2-0-a91fb5936877",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-51-e-lula-49-no-2o-turno-mostra-indexa-broadcast/",
@@ -657,7 +1020,7 @@
    "scenario": "2º turno: Celina Leão vs Leandro Grass",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-09",
    "fieldwork_end": "2026-10-13",
    "published_date": "2026-10-13",
    "sample_size": 1600,
@@ -2403,6 +2766,39 @@
    "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "9bfcaef41d2c",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/PB-050482026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PB-050482026-Governador.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "TVs Cabo Branco e Paraíba",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 61
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "PB-05048/2026"
   },
   {
    "id": "ae2873357476",
@@ -4721,7 +5117,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TVs Cabo Branco e Paraíba",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -4774,7 +5170,7 @@
    "scenario": "2º turno: Lucas Ribeiro vs Cícero Lucena",
    "pollster": "Quaest",
    "contractor": "TVs Cabo Branco e Paraíba",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -4898,7 +5294,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TVs Cabo Branco e Paraíba",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -38792,14 +39188,14 @@
    "tse_registration": null
   },
   {
-   "id": "52530ce2a7a3",
+   "id": "52b6df4135da",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "scenario": "2º turno: Cícero Lucena vs Efraim Filho",
    "pollster": "Quaest",
    "contractor": "TV Cabo Branco/TV Paraíba",
    "fieldwork_start": "2026-09-18",
@@ -38809,51 +39205,18 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 56
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 37
     },
     {
      "candidate": "Efraim Filho",
      "party": "PL",
-     "pct": 24
+     "pct": 32
     }
    ],
    "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "BR-09990/2026"
-  },
-  {
-   "id": "653104bb201d",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Quaest",
-   "contractor": "TV Cabo Branco/TV Paraíba",
-   "fieldwork_start": "2026-09-18",
-   "fieldwork_end": "2026-09-21",
-   "published_date": "2026-09-21",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 54
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 25
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 21,
+   "undecided_pct": 31,
    "blank_null_pct": null,
    "tse_registration": "BR-09990/2026"
   },
@@ -39055,14 +39418,14 @@
    "tse_registration": null
   },
   {
-   "id": "86ef85c705f3",
+   "id": "99027c307fe5",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
    "pollster": "Quaest",
    "contractor": "TV Cabo Branco/TV Paraíba",
    "fieldwork_start": "2026-09-18",
@@ -39072,18 +39435,51 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 37
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 56
     },
     {
      "candidate": "Efraim Filho",
      "party": "PL",
-     "pct": 32
+     "pct": 24
     }
    ],
    "others_pct": null,
-   "undecided_pct": 31,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "BR-09990/2026"
+  },
+  {
+   "id": "ad79e32d1e92",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Presidente-PB-18a21.set_.2026-Quaest-JornalDaParaiba.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Cícero Lucena",
+   "pollster": "Quaest",
+   "contractor": "TV Cabo Branco/TV Paraíba",
+   "fieldwork_start": "2026-09-18",
+   "fieldwork_end": "2026-09-21",
+   "published_date": "2026-09-21",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 54
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 25
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
    "blank_null_pct": null,
    "tse_registration": "BR-09990/2026"
   },
@@ -72542,6 +72938,72 @@
    "tse_registration": null
   },
   {
+   "id": "0d658279df8a",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena vs Efraim Filho",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": "2026-09-02",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39.5
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.4,
+   "blank_null_pct": null,
+   "tse_registration": "PB-01118/2026"
+  },
+  {
+   "id": "27e9d51c714f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Cícero Lucena",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": "2026-09-02",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 45.6
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 29.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.8,
+   "blank_null_pct": null,
+   "tse_registration": "PB-01118/2026"
+  },
+  {
    "id": "2bda411dda66",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -72929,14 +73391,14 @@
    "tse_registration": null
   },
   {
-   "id": "5b59eeec775c",
+   "id": "5bc7cbe5a3ed",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
    "fieldwork_start": "2026-08-28",
@@ -72946,18 +73408,18 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39.5
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 47.5
     },
     {
      "candidate": "Efraim Filho",
      "party": "PL",
-     "pct": 36
+     "pct": 40.4
     }
    ],
    "others_pct": null,
-   "undecided_pct": 24.4,
+   "undecided_pct": 12.1,
    "blank_null_pct": null,
    "tse_registration": "PB-01118/2026"
   },
@@ -73357,39 +73819,6 @@
    "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "a03d844e7a00",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "AtlasIntel",
-   "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
-   "fieldwork_end": "2026-09-02",
-   "published_date": "2026-09-02",
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 47.5
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 40.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.1,
-   "blank_null_pct": null,
-   "tse_registration": "PB-01118/2026"
   },
   {
    "id": "a1e3970f7961",
@@ -73949,39 +74378,6 @@
    "undecided_pct": 4.1,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "eca72306f32a",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AtlasIntel-PB-PresidenteGovernador-3set2026.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "AtlasIntel",
-   "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-08-28",
-   "fieldwork_end": "2026-09-02",
-   "published_date": "2026-09-02",
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 45.6
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 29.6
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.8,
-   "blank_null_pct": null,
-   "tse_registration": "PB-01118/2026"
   },
   {
    "id": "fc1c65b0d362",
@@ -87151,39 +87547,6 @@
    "tse_registration": null
   },
   {
-   "id": "1d2fdfb74ee5",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Quaest",
-   "contractor": "Televisão Cabo Branco",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 32
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": "PB-07850/2026"
-  },
-  {
    "id": "276bbb4467b5",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
@@ -87418,6 +87781,39 @@
    ],
    "others_pct": 4,
    "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "PB-07850/2026"
+  },
+  {
+   "id": "673710ac18e3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 47
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": "PB-07850/2026"
   },
@@ -87875,39 +88271,6 @@
    "tse_registration": null
   },
   {
-   "id": "996953dfa62a",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Quaest",
-   "contractor": "Televisão Cabo Branco",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 47
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "PB-07850/2026"
-  },
-  {
    "id": "9a8ca085cb6f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
@@ -88349,6 +88712,39 @@
    "undecided_pct": 17,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "fab1d1fecc01",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena vs Efraim Filho",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 29,
+   "blank_null_pct": null,
+   "tse_registration": "PB-07850/2026"
   },
   {
    "id": "fb9bdef1bc2d",
@@ -92823,6 +93219,39 @@
    "tse_registration": null
   },
   {
+   "id": "68589eb13a00",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-59-contra-32-de-flavio-no-2o-turno-na-pb-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtime-big-data-paraiba-presidente-24ago.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena vs Efraim Filho",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-08-19",
+   "fieldwork_end": "2026-08-22",
+   "published_date": "2026-08-22",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 42
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27,
+   "blank_null_pct": null,
+   "tse_registration": "BR-08776/2026"
+  },
+  {
    "id": "91e0f12f7a02",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -92952,14 +93381,14 @@
    "tse_registration": null
   },
   {
-   "id": "9f72b2e239dc",
+   "id": "c220913453ec",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-59-contra-32-de-flavio-no-2o-turno-na-pb-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtime-big-data-paraiba-presidente-24ago.pdf",
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-19",
@@ -93193,39 +93622,6 @@
    "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": "PR-05032/2026"
-  },
-  {
-   "id": "f432436d1fce",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-59-contra-32-de-flavio-no-2o-turno-na-pb-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtime-big-data-paraiba-presidente-24ago.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-08-19",
-   "fieldwork_end": "2026-08-22",
-   "published_date": "2026-08-22",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 42
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27,
-   "blank_null_pct": null,
-   "tse_registration": "BR-08776/2026"
   },
   {
    "id": "p360-13894-1-0-81fd66c9162c",
@@ -110022,6 +110418,39 @@
    "tse_registration": "MG-06475/2026"
   },
   {
+   "id": "21ae48611032",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Cícero Lucena",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-07-27",
+   "fieldwork_end": "2026-07-29",
+   "published_date": "2026-07-29",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 47
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": "PB-09547/2026"
+  },
+  {
    "id": "2a2a4f1e365f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
@@ -110068,72 +110497,6 @@
    "undecided_pct": 17.9,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "2d6360f26e6e",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "DataTrends",
-   "contractor": "DataTrends",
-   "fieldwork_start": "2026-07-27",
-   "fieldwork_end": "2026-07-29",
-   "published_date": "2026-07-29",
-   "sample_size": 1200,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 55
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": "PB-09547/2026"
-  },
-  {
-   "id": "32b6dc389acc",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "DataTrends",
-   "contractor": "DataTrends",
-   "fieldwork_start": "2026-07-27",
-   "fieldwork_end": "2026-07-29",
-   "published_date": "2026-07-29",
-   "sample_size": 1200,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 47
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "PB-09547/2026"
   },
   {
    "id": "3ea919bdc451",
@@ -110397,6 +110760,39 @@
    "undecided_pct": 80.4,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "ceae9550ca0a",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrend-governador-pb-1ago2026.pdf",
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
+   "pollster": "DataTrends",
+   "contractor": "DataTrends",
+   "fieldwork_start": "2026-07-27",
+   "fieldwork_end": "2026-07-29",
+   "published_date": "2026-07-29",
+   "sample_size": 1200,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 55
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": "PB-09547/2026"
   },
   {
    "id": "dfe2e4531ba9",
@@ -142038,14 +142434,14 @@
    "tse_registration": null
   },
   {
-   "id": "e8cca402b2c0",
+   "id": "bb98373f0a79",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "scenario": "2º turno: Cícero Lucena vs Efraim Filho",
    "pollster": "DataTrends",
    "contractor": "DataTrends",
    "fieldwork_start": "2026-06-07",
@@ -142071,14 +142467,14 @@
    "tse_registration": "PB-09578/2026"
   },
   {
-   "id": "f77e0939be8e",
+   "id": "c9992fce5c3f",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datatrends-governo-pb-11jun2026.pdf",
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
    "pollster": "DataTrends",
    "contractor": "DataTrends",
    "fieldwork_start": "2026-06-07",
@@ -147113,39 +147509,6 @@
    "tse_registration": null
   },
   {
-   "id": "b442506efb46",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Índice",
-   "contractor": null,
-   "fieldwork_start": "2026-05-27",
-   "fieldwork_end": "2026-05-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 33.5
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "c0b136c5cbd4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
@@ -147183,6 +147546,39 @@
    "blank_null_pct": null,
    "tse_registration": null,
    "incomplete": true
+  },
+  {
+   "id": "ca920b5fd0b6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-29",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 33.5
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27.1,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "f7a396d571bf",
@@ -175006,14 +175402,14 @@
    "tse_registration": "BR-07875/2026"
   },
   {
-   "id": "0b0355902691",
+   "id": "0698d87a6939",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
    "integra_url": null,
    "race": "governador",
    "state": "PB",
    "round": 2,
-   "scenario": "2º turno: Cícero Lucena e Efraim Filho",
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Cícero Lucena",
    "pollster": "Seta",
    "contractor": null,
    "fieldwork_start": "2026-03-26",
@@ -175023,18 +175419,18 @@
    "margin_of_error": 2.5,
    "results": [
     {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 38.2
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 33.1
     },
     {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 28.4
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 35.3
     }
    ],
    "others_pct": null,
-   "undecided_pct": 33.4,
+   "undecided_pct": 31.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -175191,6 +175587,39 @@
    "tse_registration": null
   },
   {
+   "id": "48acda86c644",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Lucas Ribeiro (político) vs Efraim Filho",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-26",
+   "fieldwork_end": "2026-03-28",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 32.4
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 25.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "535e4d72b501",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -175296,39 +175725,6 @@
    ],
    "others_pct": 1,
    "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "683d313e9423",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Efraim Filho",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2026-03-26",
-   "fieldwork_end": "2026-03-28",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 32.4
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 25.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -175516,39 +175912,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b3c5f4562051",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Lucas Ribeiro e Cícero Lucena",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2026-03-26",
-   "fieldwork_end": "2026-03-28",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 33.1
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 35.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -175766,6 +176129,39 @@
     "source": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
     "verified_at": "2026-08-19"
    }
+  },
+  {
+   "id": "d30244ea432c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Cícero Lucena vs Efraim Filho",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-26",
+   "fieldwork_end": "2026-03-28",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 38.2
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 28.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33.4,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "de1243f72c4a",
