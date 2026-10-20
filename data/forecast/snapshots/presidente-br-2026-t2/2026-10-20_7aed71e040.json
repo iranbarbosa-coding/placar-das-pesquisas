@@ -1,0 +1,6194 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "presidente-br-2026-t2",
+ "contest": "presidente:BR",
+ "race": "presidente",
+ "uf": null,
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-20",
+ "horizon_days": 5,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "f4a603e3814b35975c0e4f27c0c526d6e402f351dedb152abd65360c085d4da2",
+  "code_sha256": "6fd689eb6066d27c735b7a118a5af68a291bd22e2e680dc8b65b3c2c9eb2a2fb",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
+  "numpy_version": "2.5.3",
+  "seed": 2706537408,
+  "fit_seconds": 75.6
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_e159c73fb9d6",
+   "person_id": "p_2901c8f601be",
+   "name": "Flávio Bolsonaro",
+   "first_round_pct": 47.03
+  },
+  {
+   "candidate_id": "c_f903907587c1",
+   "person_id": "p_60768259dc7a",
+   "name": "Lula",
+   "first_round_pct": 45.16
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "17b6d129b1c9",
+   "cc87d719018b",
+   "d953ad5e8fb8",
+   "21d40502cf3d",
+   "2ac08be37bee",
+   "6e1a2ca4729c",
+   "26110a7532a3",
+   "d2dc96eca5e0",
+   "120ac3282b25",
+   "af9e99f57269"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-18",
+  "candidates": [
+   {
+    "candidate_id": "c_e159c73fb9d6",
+    "name": "Flávio Bolsonaro",
+    "avg": 50.9,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2025-06-11",
+      "avg": 44.7
+     },
+     {
+      "date": "2025-06-14",
+      "avg": 44.7
+     },
+     {
+      "date": "2025-06-17",
+      "avg": 44.7
+     },
+     {
+      "date": "2025-06-20",
+      "avg": 44.7
+     },
+     {
+      "date": "2025-06-23",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-06-26",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-06-29",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-02",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-05",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-08",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-11",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-14",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-17",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-20",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-23",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-26",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-07-29",
+      "avg": 46.2
+     },
+     {
+      "date": "2025-08-01",
+      "avg": 45.3
+     },
+     {
+      "date": "2025-08-04",
+      "avg": 45.3
+     },
+     {
+      "date": "2025-08-07",
+      "avg": 45.3
+     },
+     {
+      "date": "2025-08-10",
+      "avg": 45.3
+     },
+     {
+      "date": "2025-08-13",
+      "avg": 45.3
+     },
+     {
+      "date": "2025-08-16",
+      "avg": 45.3
+     },
+     {
+      "date": "2025-08-19",
+      "avg": 44
+     },
+     {
+      "date": "2025-08-22",
+      "avg": 44
+     },
+     {
+      "date": "2025-08-25",
+      "avg": 44
+     },
+     {
+      "date": "2025-08-28",
+      "avg": 44
+     },
+     {
+      "date": "2025-08-31",
+      "avg": 44
+     },
+     {
+      "date": "2025-09-03",
+      "avg": 44
+     },
+     {
+      "date": "2025-09-06",
+      "avg": 44
+     },
+     {
+      "date": "2025-09-09",
+      "avg": 44
+     },
+     {
+      "date": "2025-09-12",
+      "avg": 44
+     },
+     {
+      "date": "2025-09-15",
+      "avg": 44
+     },
+     {
+      "date": "2025-09-18",
+      "avg": 45
+     },
+     {
+      "date": "2025-09-21",
+      "avg": 45
+     },
+     {
+      "date": "2025-09-24",
+      "avg": 45
+     },
+     {
+      "date": "2025-09-27",
+      "avg": 45
+     },
+     {
+      "date": "2025-09-30",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-03",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-06",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-09",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-12",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-15",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-18",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-21",
+      "avg": 45
+     },
+     {
+      "date": "2025-10-24",
+      "avg": 44.9
+     },
+     {
+      "date": "2025-10-27",
+      "avg": 44.9
+     },
+     {
+      "date": "2025-10-30",
+      "avg": 44.9
+     },
+     {
+      "date": "2025-11-02",
+      "avg": 44.9
+     },
+     {
+      "date": "2025-11-05",
+      "avg": 44.9
+     },
+     {
+      "date": "2025-11-08",
+      "avg": 44.9
+     },
+     {
+      "date": "2025-11-11",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-11-14",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-11-17",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-11-20",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-11-23",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-11-26",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-11-29",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-12-02",
+      "avg": 44.5
+     },
+     {
+      "date": "2025-12-05",
+      "avg": 44.1
+     },
+     {
+      "date": "2025-12-08",
+      "avg": 45.8
+     },
+     {
+      "date": "2025-12-11",
+      "avg": 46.8
+     },
+     {
+      "date": "2025-12-14",
+      "avg": 46.5
+     },
+     {
+      "date": "2025-12-17",
+      "avg": 46.8
+     },
+     {
+      "date": "2025-12-20",
+      "avg": 46.8
+     },
+     {
+      "date": "2025-12-23",
+      "avg": 47.2
+     },
+     {
+      "date": "2025-12-26",
+      "avg": 47.2
+     },
+     {
+      "date": "2025-12-29",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-01-01",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-01-04",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-01-07",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-01-10",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-01-13",
+      "avg": 46.7
+     },
+     {
+      "date": "2026-01-16",
+      "avg": 46.7
+     },
+     {
+      "date": "2026-01-19",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-01-22",
+      "avg": 47.7
+     },
+     {
+      "date": "2026-01-25",
+      "avg": 47.7
+     },
+     {
+      "date": "2026-01-28",
+      "avg": 47.7
+     },
+     {
+      "date": "2026-01-31",
+      "avg": 47.5
+     },
+     {
+      "date": "2026-02-03",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-02-06",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-02-09",
+      "avg": 48.5
+     },
+     {
+      "date": "2026-02-12",
+      "avg": 48.5
+     },
+     {
+      "date": "2026-02-15",
+      "avg": 48.5
+     },
+     {
+      "date": "2026-02-18",
+      "avg": 48.5
+     },
+     {
+      "date": "2026-02-21",
+      "avg": 48.5
+     },
+     {
+      "date": "2026-02-24",
+      "avg": 48.7
+     },
+     {
+      "date": "2026-02-27",
+      "avg": 49.1
+     },
+     {
+      "date": "2026-03-02",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-03-05",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-03-08",
+      "avg": 50.5
+     },
+     {
+      "date": "2026-03-11",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-03-14",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-03-17",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-03-20",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-03-23",
+      "avg": 50.5
+     },
+     {
+      "date": "2026-03-26",
+      "avg": 50.7
+     },
+     {
+      "date": "2026-03-29",
+      "avg": 50.7
+     },
+     {
+      "date": "2026-04-01",
+      "avg": 50.7
+     },
+     {
+      "date": "2026-04-04",
+      "avg": 50.5
+     },
+     {
+      "date": "2026-04-07",
+      "avg": 50.7
+     },
+     {
+      "date": "2026-04-10",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-04-13",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-04-16",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-04-19",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-04-22",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-04-25",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-04-28",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-05-01",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-05-04",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-05-07",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-05-10",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-05-13",
+      "avg": 50.6
+     },
+     {
+      "date": "2026-05-16",
+      "avg": 50.8
+     },
+     {
+      "date": "2026-05-19",
+      "avg": 49.2
+     },
+     {
+      "date": "2026-05-22",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-05-25",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-05-28",
+      "avg": 47.7
+     },
+     {
+      "date": "2026-05-31",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-06-03",
+      "avg": 48.1
+     },
+     {
+      "date": "2026-06-06",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-06-09",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-06-12",
+      "avg": 48.4
+     },
+     {
+      "date": "2026-06-15",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-06-18",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-06-21",
+      "avg": 47
+     },
+     {
+      "date": "2026-06-24",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-06-27",
+      "avg": 47.4
+     },
+     {
+      "date": "2026-06-30",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-07-03",
+      "avg": 47.3
+     },
+     {
+      "date": "2026-07-06",
+      "avg": 47.8
+     },
+     {
+      "date": "2026-07-09",
+      "avg": 48.2
+     },
+     {
+      "date": "2026-07-12",
+      "avg": 48.6
+     },
+     {
+      "date": "2026-07-15",
+      "avg": 48.3
+     },
+     {
+      "date": "2026-07-18",
+      "avg": 48.5
+     },
+     {
+      "date": "2026-07-21",
+      "avg": 48.2
+     },
+     {
+      "date": "2026-07-24",
+      "avg": 48.3
+     },
+     {
+      "date": "2026-07-27",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-07-30",
+      "avg": 47.6
+     },
+     {
+      "date": "2026-08-02",
+      "avg": 47.7
+     },
+     {
+      "date": "2026-08-05",
+      "avg": 47.4
+     },
+     {
+      "date": "2026-08-08",
+      "avg": 47.7
+     },
+     {
+      "date": "2026-08-11",
+      "avg": 48.3
+     },
+     {
+      "date": "2026-08-14",
+      "avg": 48.3
+     },
+     {
+      "date": "2026-08-17",
+      "avg": 48.4
+     },
+     {
+      "date": "2026-08-20",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-08-23",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-08-26",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-08-29",
+      "avg": 49.6
+     },
+     {
+      "date": "2026-09-01",
+      "avg": 49.5
+     },
+     {
+      "date": "2026-09-04",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-09-07",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-09-10",
+      "avg": 50.9
+     },
+     {
+      "date": "2026-09-13",
+      "avg": 50
+     },
+     {
+      "date": "2026-09-16",
+      "avg": 50.4
+     },
+     {
+      "date": "2026-09-19",
+      "avg": 50.9
+     },
+     {
+      "date": "2026-09-22",
+      "avg": 50.8
+     },
+     {
+      "date": "2026-09-25",
+      "avg": 50.8
+     },
+     {
+      "date": "2026-09-28",
+      "avg": 51
+     },
+     {
+      "date": "2026-10-01",
+      "avg": 50.6
+     },
+     {
+      "date": "2026-10-04",
+      "avg": 50.6
+     },
+     {
+      "date": "2026-10-07",
+      "avg": 51
+     },
+     {
+      "date": "2026-10-10",
+      "avg": 51.8
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 52
+     },
+     {
+      "date": "2026-10-16",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-10-18",
+      "avg": 50.9
+     }
+    ]
+   },
+   {
+    "candidate_id": "c_f903907587c1",
+    "name": "Lula",
+    "avg": 49.1,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2025-06-11",
+      "avg": 55.3
+     },
+     {
+      "date": "2025-06-14",
+      "avg": 55.3
+     },
+     {
+      "date": "2025-06-17",
+      "avg": 55.3
+     },
+     {
+      "date": "2025-06-20",
+      "avg": 55.3
+     },
+     {
+      "date": "2025-06-23",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-06-26",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-06-29",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-02",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-05",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-08",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-11",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-14",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-17",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-20",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-23",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-26",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-07-29",
+      "avg": 53.8
+     },
+     {
+      "date": "2025-08-01",
+      "avg": 54.7
+     },
+     {
+      "date": "2025-08-04",
+      "avg": 54.7
+     },
+     {
+      "date": "2025-08-07",
+      "avg": 54.7
+     },
+     {
+      "date": "2025-08-10",
+      "avg": 54.7
+     },
+     {
+      "date": "2025-08-13",
+      "avg": 54.7
+     },
+     {
+      "date": "2025-08-16",
+      "avg": 54.7
+     },
+     {
+      "date": "2025-08-19",
+      "avg": 56
+     },
+     {
+      "date": "2025-08-22",
+      "avg": 56
+     },
+     {
+      "date": "2025-08-25",
+      "avg": 56
+     },
+     {
+      "date": "2025-08-28",
+      "avg": 56
+     },
+     {
+      "date": "2025-08-31",
+      "avg": 56
+     },
+     {
+      "date": "2025-09-03",
+      "avg": 56
+     },
+     {
+      "date": "2025-09-06",
+      "avg": 56
+     },
+     {
+      "date": "2025-09-09",
+      "avg": 56
+     },
+     {
+      "date": "2025-09-12",
+      "avg": 56
+     },
+     {
+      "date": "2025-09-15",
+      "avg": 56
+     },
+     {
+      "date": "2025-09-18",
+      "avg": 55
+     },
+     {
+      "date": "2025-09-21",
+      "avg": 55
+     },
+     {
+      "date": "2025-09-24",
+      "avg": 55
+     },
+     {
+      "date": "2025-09-27",
+      "avg": 55
+     },
+     {
+      "date": "2025-09-30",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-03",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-06",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-09",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-12",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-15",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-18",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-21",
+      "avg": 55
+     },
+     {
+      "date": "2025-10-24",
+      "avg": 55.1
+     },
+     {
+      "date": "2025-10-27",
+      "avg": 55.1
+     },
+     {
+      "date": "2025-10-30",
+      "avg": 55.1
+     },
+     {
+      "date": "2025-11-02",
+      "avg": 55.1
+     },
+     {
+      "date": "2025-11-05",
+      "avg": 55.1
+     },
+     {
+      "date": "2025-11-08",
+      "avg": 55.1
+     },
+     {
+      "date": "2025-11-11",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-11-14",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-11-17",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-11-20",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-11-23",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-11-26",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-11-29",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-12-02",
+      "avg": 55.5
+     },
+     {
+      "date": "2025-12-05",
+      "avg": 55.9
+     },
+     {
+      "date": "2025-12-08",
+      "avg": 54.2
+     },
+     {
+      "date": "2025-12-11",
+      "avg": 53.2
+     },
+     {
+      "date": "2025-12-14",
+      "avg": 53.5
+     },
+     {
+      "date": "2025-12-17",
+      "avg": 53.2
+     },
+     {
+      "date": "2025-12-20",
+      "avg": 53.2
+     },
+     {
+      "date": "2025-12-23",
+      "avg": 52.8
+     },
+     {
+      "date": "2025-12-26",
+      "avg": 52.8
+     },
+     {
+      "date": "2025-12-29",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-01-01",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-01-04",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-01-07",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-01-10",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-01-13",
+      "avg": 53.3
+     },
+     {
+      "date": "2026-01-16",
+      "avg": 53.3
+     },
+     {
+      "date": "2026-01-19",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-01-22",
+      "avg": 52.3
+     },
+     {
+      "date": "2026-01-25",
+      "avg": 52.3
+     },
+     {
+      "date": "2026-01-28",
+      "avg": 52.3
+     },
+     {
+      "date": "2026-01-31",
+      "avg": 52.5
+     },
+     {
+      "date": "2026-02-03",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-02-06",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-02-09",
+      "avg": 51.5
+     },
+     {
+      "date": "2026-02-12",
+      "avg": 51.5
+     },
+     {
+      "date": "2026-02-15",
+      "avg": 51.5
+     },
+     {
+      "date": "2026-02-18",
+      "avg": 51.5
+     },
+     {
+      "date": "2026-02-21",
+      "avg": 51.5
+     },
+     {
+      "date": "2026-02-24",
+      "avg": 51.3
+     },
+     {
+      "date": "2026-02-27",
+      "avg": 50.9
+     },
+     {
+      "date": "2026-03-02",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-03-05",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-03-08",
+      "avg": 49.5
+     },
+     {
+      "date": "2026-03-11",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-03-14",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-03-17",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-03-20",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-03-23",
+      "avg": 49.5
+     },
+     {
+      "date": "2026-03-26",
+      "avg": 49.3
+     },
+     {
+      "date": "2026-03-29",
+      "avg": 49.3
+     },
+     {
+      "date": "2026-04-01",
+      "avg": 49.3
+     },
+     {
+      "date": "2026-04-04",
+      "avg": 49.5
+     },
+     {
+      "date": "2026-04-07",
+      "avg": 49.3
+     },
+     {
+      "date": "2026-04-10",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-04-13",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-04-16",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-04-19",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-04-22",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-04-25",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-04-28",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-05-01",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-05-04",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-05-07",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-05-10",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-05-13",
+      "avg": 49.4
+     },
+     {
+      "date": "2026-05-16",
+      "avg": 49.2
+     },
+     {
+      "date": "2026-05-19",
+      "avg": 50.8
+     },
+     {
+      "date": "2026-05-22",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-05-25",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-05-28",
+      "avg": 52.3
+     },
+     {
+      "date": "2026-05-31",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-06-03",
+      "avg": 51.9
+     },
+     {
+      "date": "2026-06-06",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-06-09",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-06-12",
+      "avg": 51.6
+     },
+     {
+      "date": "2026-06-15",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-06-18",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-06-21",
+      "avg": 53
+     },
+     {
+      "date": "2026-06-24",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-06-27",
+      "avg": 52.6
+     },
+     {
+      "date": "2026-06-30",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-07-03",
+      "avg": 52.7
+     },
+     {
+      "date": "2026-07-06",
+      "avg": 52.2
+     },
+     {
+      "date": "2026-07-09",
+      "avg": 51.8
+     },
+     {
+      "date": "2026-07-12",
+      "avg": 51.4
+     },
+     {
+      "date": "2026-07-15",
+      "avg": 51.7
+     },
+     {
+      "date": "2026-07-18",
+      "avg": 51.5
+     },
+     {
+      "date": "2026-07-21",
+      "avg": 51.8
+     },
+     {
+      "date": "2026-07-24",
+      "avg": 51.7
+     },
+     {
+      "date": "2026-07-27",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-07-30",
+      "avg": 52.4
+     },
+     {
+      "date": "2026-08-02",
+      "avg": 52.3
+     },
+     {
+      "date": "2026-08-05",
+      "avg": 52.6
+     },
+     {
+      "date": "2026-08-08",
+      "avg": 52.3
+     },
+     {
+      "date": "2026-08-11",
+      "avg": 51.7
+     },
+     {
+      "date": "2026-08-14",
+      "avg": 51.7
+     },
+     {
+      "date": "2026-08-17",
+      "avg": 51.6
+     },
+     {
+      "date": "2026-08-20",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-08-23",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-08-26",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-08-29",
+      "avg": 50.4
+     },
+     {
+      "date": "2026-09-01",
+      "avg": 50.5
+     },
+     {
+      "date": "2026-09-04",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-09-07",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-09-10",
+      "avg": 49.1
+     },
+     {
+      "date": "2026-09-13",
+      "avg": 50
+     },
+     {
+      "date": "2026-09-16",
+      "avg": 49.6
+     },
+     {
+      "date": "2026-09-19",
+      "avg": 49.1
+     },
+     {
+      "date": "2026-09-22",
+      "avg": 49.2
+     },
+     {
+      "date": "2026-09-25",
+      "avg": 49.2
+     },
+     {
+      "date": "2026-09-28",
+      "avg": 49
+     },
+     {
+      "date": "2026-10-01",
+      "avg": 49.4
+     },
+     {
+      "date": "2026-10-04",
+      "avg": 49.4
+     },
+     {
+      "date": "2026-10-07",
+      "avg": 49
+     },
+     {
+      "date": "2026-10-10",
+      "avg": 48.2
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 48
+     },
+     {
+      "date": "2026-10-16",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-10-18",
+      "avg": 49.1
+     }
+    ]
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "58fd1d84d23b6788a60c708205012b50967dbabf0c8ffd08597201ea305dea8b",
+  "input_sha256": "7aed71e04059ecdac05d05528cf60bbda1004034f103e0949a21a3a18784f1b4",
+  "source_polls_sha256": "a9ba92f941043561b2593acd27826541c90596f339f760fd25f18bd83f593be4",
+  "source_generated_at": "2026-10-20T01:46:53.175Z",
+  "n_polls": 141,
+  "n_institutes": 23,
+  "latest_fieldwork_end": "2026-10-18",
+  "polls": [
+   {
+    "id": "863d3a82fa84",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-05-22",
+    "fieldwork_end": "2026-05-24",
+    "published_date": null,
+    "available_from": "2026-05-24",
+    "sample_size": 2045,
+    "n_eff": 1840.5,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     47.78,
+     52.22
+    ]
+   },
+   {
+    "id": "p360-13476-2-0-b4b6e027892e",
+    "pollster": "Indexa Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-05-24",
+    "published_date": "2026-05-24",
+    "available_from": "2026-05-24",
+    "sample_size": 2000,
+    "n_eff": 1740.0,
+    "n_imputado": false,
+    "tse_registration": "BR-02154/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-46-e-flavio-41-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     47.13,
+     52.87
+    ]
+   },
+   {
+    "id": "77fe407b61d5",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-05-22",
+    "fieldwork_end": "2026-05-26",
+    "published_date": null,
+    "available_from": "2026-05-26",
+    "sample_size": 3330,
+    "n_eff": 3330.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     53.2,
+     46.8
+    ]
+   },
+   {
+    "id": "p360-13478-2-0-188256a4a026",
+    "pollster": "Ideia",
+    "fieldwork_start": "2026-05-23",
+    "fieldwork_end": "2026-05-27",
+    "published_date": "2026-05-27",
+    "available_from": "2026-05-27",
+    "sample_size": 1500,
+    "n_eff": 1318.5,
+    "n_imputado": false,
+    "tse_registration": "BR-02918/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-e-rejeitado-por-467-dos-eleitores-diz-pesquisa/",
+    "shares": [
+     47.1,
+     52.9
+    ]
+   },
+   {
+    "id": "p360-13477-2-0-81cbc8fdd4e1",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-05-25",
+    "fieldwork_end": "2026-05-28",
+    "published_date": "2026-05-28",
+    "available_from": "2026-05-28",
+    "sample_size": 2400,
+    "n_eff": 2112.0,
+    "n_imputado": false,
+    "tse_registration": "BR-04882/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/poderdata-aya-lula-tem-40-e-flavio-35-no-1o-turno/",
+    "shares": [
+     47.73,
+     52.27
+    ]
+   },
+   {
+    "id": "p360-13479-2-0-bb5b513a84a7",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-05-29",
+    "fieldwork_end": "2026-05-30",
+    "published_date": "2026-05-30",
+    "available_from": "2026-05-30",
+    "sample_size": 2000,
+    "n_eff": 1700.0,
+    "n_imputado": false,
+    "tse_registration": "BR-05864/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/governo-lula-e-desaprovado-por-50-e-aprovado-por-43-diz-pesquisa/",
+    "shares": [
+     47.06,
+     52.94
+    ]
+   },
+   {
+    "id": "p360-13510-2-0-68e0551ea49c",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-06-02",
+    "fieldwork_end": "2026-06-05",
+    "published_date": "2026-06-05",
+    "available_from": "2026-06-05",
+    "sample_size": 2000,
+    "n_eff": 1676.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01792/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-e-rejeitado-por-48-e-flavio-por-42-diz-pesquisa-gerp/",
+    "shares": [
+     53.34,
+     46.66
+    ]
+   },
+   {
+    "id": "d7a4f13aff62",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-06-01",
+    "fieldwork_end": "2026-06-06",
+    "published_date": null,
+    "available_from": "2026-06-06",
+    "sample_size": 2100,
+    "n_eff": 1871.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     46.35,
+     53.65
+    ]
+   },
+   {
+    "id": "p360-13502-2-0-79d291272ea0",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-06-05",
+    "fieldwork_end": "2026-06-08",
+    "published_date": "2026-06-08",
+    "available_from": "2026-06-08",
+    "sample_size": 2004,
+    "n_eff": 1643.3,
+    "n_imputado": false,
+    "tse_registration": "BR-07661/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-44-contra-38-de-flavio-diz-quaest/",
+    "shares": [
+     46.34,
+     53.66
+    ]
+   },
+   {
+    "id": "p360-13508-2-0-66657ba8431d",
+    "pollster": "Alfa/TMC",
+    "fieldwork_start": "2026-06-05",
+    "fieldwork_end": "2026-06-10",
+    "published_date": "2026-06-10",
+    "available_from": "2026-06-10",
+    "sample_size": 1400,
+    "n_eff": 1190.0,
+    "n_imputado": false,
+    "tse_registration": "BR-03496/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/06/alfa-pesquisa-nacional-junho-2026.pdf",
+    "shares": [
+     48.24,
+     51.76
+    ]
+   },
+   {
+    "id": "p360-13521-2-0-505a07d2b9f2",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-06-08",
+    "fieldwork_end": "2026-06-12",
+    "published_date": "2026-06-12",
+    "available_from": "2026-06-12",
+    "sample_size": 2000,
+    "n_eff": 1820.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01461/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/flavio-e-rejeitado-por-438-e-lula-por-433-diz-pesquisa/",
+    "shares": [
+     47.14,
+     52.86
+    ]
+   },
+   {
+    "id": "p360-13511-2-0-dc1edce27dae",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-06-12",
+    "fieldwork_end": "2026-06-14",
+    "published_date": "2026-06-14",
+    "available_from": "2026-06-14",
+    "sample_size": 2017,
+    "n_eff": 1855.6,
+    "n_imputado": false,
+    "tse_registration": "BR-06645/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-49-contra-43-de-flavio-no-2o-turno-diz-nexus/",
+    "shares": [
+     46.74,
+     53.26
+    ]
+   },
+   {
+    "id": "p360-13520-2-0-7c7ce1d3e6ea",
+    "pollster": "MDA",
+    "fieldwork_start": "2026-06-10",
+    "fieldwork_end": "2026-06-14",
+    "published_date": "2026-06-14",
+    "available_from": "2026-06-14",
+    "sample_size": 2002,
+    "n_eff": 1723.7,
+    "n_imputado": false,
+    "tse_registration": "BR-04256/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/65-defendem-nome-alternativo-a-lula-e-flavio-em-2026/",
+    "shares": [
+     42.74,
+     57.26
+    ]
+   },
+   {
+    "id": "33fc267fc27a",
+    "pollster": "American Analytics",
+    "fieldwork_start": "2026-06-11",
+    "fieldwork_end": "2026-06-15",
+    "published_date": null,
+    "available_from": "2026-06-15",
+    "sample_size": 2000,
+    "n_eff": 1700.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     47.06,
+     52.94
+    ]
+   },
+   {
+    "id": "p360-13533-2-0-3d8031706cf9",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-06-17",
+    "fieldwork_end": "2026-06-18",
+    "published_date": "2026-06-18",
+    "available_from": "2026-06-18",
+    "sample_size": 2004,
+    "n_eff": 1803.6,
+    "n_imputado": false,
+    "tse_registration": "BR-09956/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-47-contra-43-de-flavio-no-2o-turno-diz-datafolha/",
+    "shares": [
+     47.78,
+     52.22
+    ]
+   },
+   {
+    "id": "p360-13543-2-0-994dab730827",
+    "pollster": "Indexa Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-06-20",
+    "published_date": "2026-06-20",
+    "available_from": "2026-06-20",
+    "sample_size": 2000,
+    "n_eff": 1740.0,
+    "n_imputado": false,
+    "tse_registration": "BR-08944/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/06/Relatorio-Final-Pesquisa-Nacional-Indexa-18-20jun2026.pdf",
+    "shares": [
+     45.98,
+     54.02
+    ]
+   },
+   {
+    "id": "p360-13548-2-0-2e7227dbaadf",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-06-15",
+    "fieldwork_end": "2026-06-20",
+    "published_date": "2026-06-20",
+    "available_from": "2026-06-20",
+    "sample_size": 2000,
+    "n_eff": 1640.0,
+    "n_imputado": false,
+    "tse_registration": "BR-09657/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/flavio-e-lula-empatam-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     51.22,
+     48.78
+    ]
+   },
+   {
+    "id": "p360-13544-2-0-9a16a631ac5e",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-06-21",
+    "fieldwork_end": "2026-06-24",
+    "published_date": "2026-06-24",
+    "available_from": "2026-06-24",
+    "sample_size": 2400,
+    "n_eff": 2136.0,
+    "n_imputado": false,
+    "tse_registration": "BR-05722/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/poderdata-aya-1o-turno-lula-40-flavio-36-renan-4-e-caiado-4/",
+    "shares": [
+     48.31,
+     51.69
+    ]
+   },
+   {
+    "id": "p360-13549-2-0-510ed5528276",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-06-23",
+    "fieldwork_end": "2026-06-25",
+    "published_date": "2026-06-25",
+    "available_from": "2026-06-25",
+    "sample_size": 2100,
+    "n_eff": 1850.1,
+    "n_imputado": false,
+    "tse_registration": "BR-06630/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/flavio-e-lula-empatam-no-2o-turno-diz-pesquisa-2/",
+    "shares": [
+     48.58,
+     51.42
+    ]
+   },
+   {
+    "id": "42eac0c906b2",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-06-26",
+    "fieldwork_end": "2026-06-28",
+    "published_date": "2026-06-28",
+    "available_from": "2026-06-28",
+    "sample_size": 2009,
+    "n_eff": 1828.2,
+    "n_imputado": false,
+    "tse_registration": "BR-08521/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-e-flavio-empatam-no-2o-turno-diz-nexus/",
+    "shares": [
+     48.35,
+     51.65
+    ]
+   },
+   {
+    "id": "p360-13554-2-0-9631aa8aba5d",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-06-26",
+    "fieldwork_end": "2026-06-30",
+    "published_date": "2026-06-30",
+    "available_from": "2026-06-30",
+    "sample_size": 4999,
+    "n_eff": 4554.1,
+    "n_imputado": false,
+    "tse_registration": "BR-04582/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-488-e-flavio-423-em-eventual-2o-turno-diz-pesquisa/",
+    "shares": [
+     46.43,
+     53.57
+    ]
+   },
+   {
+    "id": "p360-13573-2-0-8a81f0a4b65a",
+    "pollster": "Ideia",
+    "fieldwork_start": "2026-07-03",
+    "fieldwork_end": "2026-07-06",
+    "published_date": "2026-07-06",
+    "available_from": "2026-07-06",
+    "sample_size": 1500,
+    "n_eff": 1275.0,
+    "n_imputado": false,
+    "tse_registration": "BR-05628/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-e-flavio-estao-tecnicamente-empatados-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     47.06,
+     52.94
+    ]
+   },
+   {
+    "id": "e1c6b34f59ed",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-07-03",
+    "fieldwork_end": "2026-07-07",
+    "published_date": "2026-07-07",
+    "available_from": "2026-07-07",
+    "sample_size": 2000,
+    "n_eff": 1740.0,
+    "n_imputado": false,
+    "tse_registration": "BR-03067/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/flavio-tem-45-e-lula-42-em-eventual-2o-turno-diz-pesquisa/",
+    "shares": [
+     51.72,
+     48.28
+    ]
+   },
+   {
+    "id": "p360-13596-2-0-d4ad814c4bb7",
+    "pollster": "100% Cidades Participações",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-07-11",
+    "published_date": "2026-07-11",
+    "available_from": "2026-07-11",
+    "sample_size": 2000,
+    "n_eff": 1848.0,
+    "n_imputado": false,
+    "tse_registration": "BR-07294/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-e-flavio-empatam-no-2o-turno-diz-futura-apex/",
+    "shares": [
+     49.89,
+     50.11
+    ]
+   },
+   {
+    "id": "p360-13584-2-0-ad65778223b6",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-07-10",
+    "fieldwork_end": "2026-07-12",
+    "published_date": "2026-07-12",
+    "available_from": "2026-07-12",
+    "sample_size": 2003,
+    "n_eff": 1822.7,
+    "n_imputado": false,
+    "tse_registration": "BR-07981/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-bolsonaro-empatam-no-2o-turno-diz-nexus/",
+    "shares": [
+     48.35,
+     51.65
+    ]
+   },
+   {
+    "id": "p360-13591-2-0-7b41289474d4",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-07-10",
+    "fieldwork_end": "2026-07-13",
+    "published_date": "2026-07-13",
+    "available_from": "2026-07-13",
+    "sample_size": 2004,
+    "n_eff": 1643.3,
+    "n_imputado": false,
+    "tse_registration": "BR-07181/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-45-contra-37-de-flavio-no-2o-turno-diz-quaest/",
+    "shares": [
+     45.12,
+     54.88
+    ]
+   },
+   {
+    "id": "p360-13585-2-0-b691d9cb2016",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-07-12",
+    "fieldwork_end": "2026-07-15",
+    "published_date": "2026-07-15",
+    "available_from": "2026-07-15",
+    "sample_size": 2400,
+    "n_eff": 2112.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00059/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-40-e-flavio-34-no-1o-turno-diz-poderdata-aya/",
+    "shares": [
+     48.86,
+     51.14
+    ]
+   },
+   {
+    "id": "p360-13589-2-0-168451b4fb15",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-07-15",
+    "fieldwork_end": "2026-07-17",
+    "published_date": "2026-07-17",
+    "available_from": "2026-07-17",
+    "sample_size": 2000,
+    "n_eff": 1820.0,
+    "n_imputado": false,
+    "tse_registration": "BR-05026/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-tem-empate-tecnico-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     50.55,
+     49.45
+    ]
+   },
+   {
+    "id": "p360-13586-2-0-d3add6ad1bc9",
+    "pollster": "Indexa Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-07-19",
+    "published_date": "2026-07-19",
+    "available_from": "2026-07-19",
+    "sample_size": 2000,
+    "n_eff": 1700.0,
+    "n_imputado": false,
+    "tse_registration": "BR-02904/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/07/Relatorio-Nacional-Rodada-3-Imprensa.pdf",
+    "shares": [
+     45.88,
+     54.12
+    ]
+   },
+   {
+    "id": "p360-13590-2-0-dd4a1deaebce",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-07-18",
+    "fieldwork_end": "2026-07-20",
+    "published_date": "2026-07-20",
+    "available_from": "2026-07-20",
+    "sample_size": 2000,
+    "n_eff": 1740.0,
+    "n_imputado": false,
+    "tse_registration": "BR-09247/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/07/presidencial-21jul2026-realtimebigdata.pdf",
+    "shares": [
+     48.28,
+     51.72
+    ]
+   },
+   {
+    "id": "p360-13588-2-0-b3a9b0d237d2",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-07-22",
+    "fieldwork_end": "2026-07-23",
+    "published_date": "2026-07-23",
+    "available_from": "2026-07-23",
+    "sample_size": 2004,
+    "n_eff": 1823.6,
+    "n_imputado": false,
+    "tse_registration": "BR-01166/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/datafolha-lula-tem-48-e-flavio-43-em-2o-turno/",
+    "shares": [
+     47.25,
+     52.75
+    ]
+   },
+   {
+    "id": "p360-13587-2-0-e681cdefed65",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-07-24",
+    "fieldwork_end": "2026-07-26",
+    "published_date": "2026-07-26",
+    "available_from": "2026-07-26",
+    "sample_size": 2004,
+    "n_eff": 1803.6,
+    "n_imputado": false,
+    "tse_registration": "BR-01489/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-bolsonaro-e-rejeitado-por-50-e-lula-por-48-diz-btg-nexus/",
+    "shares": [
+     47.78,
+     52.22
+    ]
+   },
+   {
+    "id": "67b64a246650",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-07-22",
+    "fieldwork_end": "2026-07-27",
+    "published_date": null,
+    "available_from": "2026-07-27",
+    "sample_size": 5021,
+    "n_eff": 4624.3,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     46.58,
+     53.42
+    ]
+   },
+   {
+    "id": "ef108051a307",
+    "pollster": "Alfa/TMC",
+    "fieldwork_start": "2026-07-23",
+    "fieldwork_end": "2026-07-28",
+    "published_date": "2026-07-28",
+    "available_from": "2026-07-28",
+    "sample_size": 2700,
+    "n_eff": 2403.0,
+    "n_imputado": false,
+    "tse_registration": "BR-04488/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-41-de-flavio-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     46.07,
+     53.93
+    ]
+   },
+   {
+    "id": "p360-13668-2-0-806af556f9f8",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-07-26",
+    "fieldwork_end": "2026-07-28",
+    "published_date": "2026-07-28",
+    "available_from": "2026-07-28",
+    "sample_size": 2100,
+    "n_eff": 1860.6,
+    "n_imputado": false,
+    "tse_registration": "BR-01084/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-475-contra-411-de-flavio-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     46.39,
+     53.61
+    ]
+   },
+   {
+    "id": "p360-13647-2-0-a183c3a21342",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-07-26",
+    "fieldwork_end": "2026-07-29",
+    "published_date": "2026-07-29",
+    "available_from": "2026-07-29",
+    "sample_size": 2400,
+    "n_eff": 2136.0,
+    "n_imputado": false,
+    "tse_registration": "BR-07845/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/saiba-quem-recebe-os-votos-de-lula-e-flavio-se-eles-nao-concorrerem/",
+    "shares": [
+     48.31,
+     51.69
+    ]
+   },
+   {
+    "id": "p360-13690-2-0-d1d1b923770b",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-07-31",
+    "fieldwork_end": "2026-08-02",
+    "published_date": "2026-08-02",
+    "available_from": "2026-08-02",
+    "sample_size": 2002,
+    "n_eff": 1821.8,
+    "n_imputado": false,
+    "tse_registration": "BR-02874/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-sao-rejeitados-por-49-dos-eleitores-diz-nexus/",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "59887281c7b7",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-07-31",
+    "fieldwork_end": "2026-08-03",
+    "published_date": "2026-08-03",
+    "available_from": "2026-08-03",
+    "sample_size": 2004,
+    "n_eff": 1663.3,
+    "n_imputado": false,
+    "tse_registration": "BR-06591/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-44-ante-39-de-flavio-no-2o-turno-diz-quaest/",
+    "shares": [
+     46.99,
+     53.01
+    ]
+   },
+   {
+    "id": "93f17bbb686a",
+    "pollster": "Ideia",
+    "fieldwork_start": "2026-07-31",
+    "fieldwork_end": "2026-08-03",
+    "published_date": "2026-08-03",
+    "available_from": "2026-08-03",
+    "sample_size": 1500,
+    "n_eff": 1372.5,
+    "n_imputado": false,
+    "tse_registration": "BR-04579/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-vence-flavio-no-2o-turno-diz-meio-ideia/",
+    "shares": [
+     46.99,
+     53.01
+    ]
+   },
+   {
+    "id": "b1be706880cd",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-08-03",
+    "fieldwork_end": "2026-08-07",
+    "published_date": "2026-08-07",
+    "available_from": "2026-08-07",
+    "sample_size": 5000,
+    "n_eff": 4600.0,
+    "n_imputado": false,
+    "tse_registration": "BR-06596/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-presidente-palver-10ago2026.pdf",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "p360-13816-2-0-98aa843280bd",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-08-03",
+    "fieldwork_end": "2026-08-07",
+    "published_date": "2026-08-07",
+    "available_from": "2026-08-07",
+    "sample_size": 2000,
+    "n_eff": 1810.0,
+    "n_imputado": false,
+    "tse_registration": "BR-08109/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/futura-pesquisa-nacional-11ago2026.pdf",
+    "shares": [
+     48.62,
+     51.38
+    ]
+   },
+   {
+    "id": "99b6a828be60",
+    "pollster": "Nexus/BTG Pactual",
+    "fieldwork_start": "2026-08-07",
+    "fieldwork_end": "2026-08-09",
+    "published_date": null,
+    "available_from": "2026-08-09",
+    "sample_size": 2001,
+    "n_eff": 1820.9,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     48.35,
+     51.65
+    ]
+   },
+   {
+    "id": "p360-13798-2-0-45ee98dabe65",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-08-07",
+    "fieldwork_end": "2026-08-09",
+    "published_date": "2026-08-09",
+    "available_from": "2026-08-09",
+    "sample_size": 2000,
+    "n_eff": 1820.0,
+    "n_imputado": false,
+    "tse_registration": "BR-08428/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-47-contra-44-de-flavio-no-2o-turno-diz-btg-nexus/",
+    "shares": [
+     48.35,
+     51.65
+    ]
+   },
+   {
+    "id": "p360-13809-2-0-2851ca58dec0",
+    "pollster": "MDA",
+    "fieldwork_start": "2026-08-05",
+    "fieldwork_end": "2026-08-09",
+    "published_date": "2026-08-09",
+    "available_from": "2026-08-09",
+    "sample_size": 2002,
+    "n_eff": 1743.7,
+    "n_imputado": false,
+    "tse_registration": "BR-06935/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-48-contra-39-de-flavio-no-2o-turno-diz-pesquisa-cnt/",
+    "shares": [
+     44.89,
+     55.11
+    ]
+   },
+   {
+    "id": "p360-13810-2-0-6e09812d9aa9",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-08-06",
+    "fieldwork_end": "2026-08-10",
+    "published_date": "2026-08-10",
+    "available_from": "2026-08-10",
+    "sample_size": 2400,
+    "n_eff": 2112.0,
+    "n_imputado": false,
+    "tse_registration": "BR-08045/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-tem-empate-tecnico-no-2o-turno-diz-gerp/",
+    "shares": [
+     51.14,
+     48.86
+    ]
+   },
+   {
+    "id": "11d028868159",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-10",
+    "fieldwork_end": "2026-08-12",
+    "published_date": "2026-08-12",
+    "available_from": "2026-08-12",
+    "sample_size": 2004,
+    "n_eff": 1663.3,
+    "n_imputado": false,
+    "tse_registration": "BR-06773/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-globo-presidente-nacional-14ago2026.pdf",
+    "shares": [
+     48.19,
+     51.81
+    ]
+   },
+   {
+    "id": "p360-13819-2-0-effc95fa1388",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-08-09",
+    "fieldwork_end": "2026-08-12",
+    "published_date": "2026-08-12",
+    "available_from": "2026-08-12",
+    "sample_size": 2400,
+    "n_eff": 2184.0,
+    "n_imputado": false,
+    "tse_registration": "BR-06868/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/lula-tem-46-contra-45-de-flavio-no-2o-turno-diz-poderdata-aya/",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "p360-13848-2-0-645c7c684550",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-08-14",
+    "fieldwork_end": "2026-08-16",
+    "published_date": "2026-08-16",
+    "available_from": "2026-08-16",
+    "sample_size": 2003,
+    "n_eff": 1822.7,
+    "n_imputado": false,
+    "tse_registration": "BR-03317/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-47-contra-44-de-flavio-no-2o-turno-diz-nexus/",
+    "shares": [
+     48.35,
+     51.65
+    ]
+   },
+   {
+    "id": "2d9d7a5d2a5d",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-08-16",
+    "fieldwork_end": "2026-08-20",
+    "published_date": null,
+    "available_from": "2026-08-20",
+    "sample_size": 3840,
+    "n_eff": 3429.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     52.97,
+     47.03
+    ]
+   },
+   {
+    "id": "p360-13886-2-0-71b2832c4f3d",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-08-18",
+    "fieldwork_end": "2026-08-20",
+    "published_date": "2026-08-20",
+    "available_from": "2026-08-20",
+    "sample_size": 2058,
+    "n_eff": 1852.2,
+    "n_imputado": false,
+    "tse_registration": "BR-04496/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-47-e-flavio-43-em-2o-turno-diz-datafolha/",
+    "shares": [
+     47.78,
+     52.22
+    ]
+   },
+   {
+    "id": "2fa74bb1d983",
+    "pollster": "Indexa Pesquisas",
+    "fieldwork_start": "2026-08-20",
+    "fieldwork_end": "2026-08-23",
+    "published_date": null,
+    "available_from": "2026-08-23",
+    "sample_size": 2000,
+    "n_eff": 1740.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     47.13,
+     52.87
+    ]
+   },
+   {
+    "id": "p360-13893-2-0-21dad1c4a683",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-23",
+    "published_date": "2026-08-23",
+    "available_from": "2026-08-23",
+    "sample_size": 2006,
+    "n_eff": 1825.5,
+    "n_imputado": false,
+    "tse_registration": "BR-09028/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-46-contra-45-de-flavio-no-2o-turno-diz-btg-nexus/",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "p360-13916-2-0-99d8e47e6c31",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-25",
+    "published_date": "2026-08-25",
+    "available_from": "2026-08-25",
+    "sample_size": 2400,
+    "n_eff": 2136.0,
+    "n_imputado": false,
+    "tse_registration": "BR-03547/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-47-e-lula-42-em-2o-turno-diz-pesquisa/",
+    "shares": [
+     52.81,
+     47.19
+    ]
+   },
+   {
+    "id": "p360-13955-2-0-7caa0de1fe1c",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-08-23",
+    "fieldwork_end": "2026-08-26",
+    "published_date": "2026-08-26",
+    "available_from": "2026-08-26",
+    "sample_size": 2400,
+    "n_eff": 2136.0,
+    "n_imputado": false,
+    "tse_registration": "BR-04974/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/lula-e-flavio-tem-49-de-rejeicao-cada-um-diz-poderdata-aya-2/",
+    "shares": [
+     49.44,
+     50.56
+    ]
+   },
+   {
+    "id": "p360-13995-2-0-f0bdf4ad7b16",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-08-25",
+    "fieldwork_end": "2026-08-27",
+    "published_date": "2026-08-27",
+    "available_from": "2026-08-27",
+    "sample_size": 2100,
+    "n_eff": 1881.6,
+    "n_imputado": false,
+    "tse_registration": "BR-05519/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-2o-turno-diz-pesquisa-3/",
+    "shares": [
+     50.33,
+     49.67
+    ]
+   },
+   {
+    "id": "78e3996cfe43",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-08-25",
+    "fieldwork_end": "2026-08-30",
+    "published_date": null,
+    "available_from": "2026-08-30",
+    "sample_size": 5014,
+    "n_eff": 4497.6,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     47.49,
+     52.51
+    ]
+   },
+   {
+    "id": "p360-13998-2-0-c03eedb01edd",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-08-28",
+    "fieldwork_end": "2026-08-30",
+    "published_date": "2026-08-30",
+    "available_from": "2026-08-30",
+    "sample_size": 2005,
+    "n_eff": 1824.5,
+    "n_imputado": false,
+    "tse_registration": "BR-08900/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-46-ante-45-de-flavio-no-2o-turno-diz-btg-nexus/",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "p360-14008-2-0-3e459f83997a",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-27",
+    "fieldwork_end": "2026-08-31",
+    "published_date": "2026-08-31",
+    "available_from": "2026-08-31",
+    "sample_size": 2000,
+    "n_eff": 1760.0,
+    "n_imputado": false,
+    "tse_registration": "BR-03490/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/pesquisa-real-time-big-data-confirma-crescimento-de-augusto-cury/",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "1a81ce77f007",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-30",
+    "fieldwork_end": "2026-09-01",
+    "published_date": "2026-09-01",
+    "available_from": "2026-09-01",
+    "sample_size": 2004,
+    "n_eff": 1663.3,
+    "n_imputado": false,
+    "tse_registration": "BR-07065/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-42-ante-41-de-flavio-bolsonaro-no-2o-turno-diz-quaest/",
+    "shares": [
+     49.4,
+     50.6
+    ]
+   },
+   {
+    "id": "p360-14033-2-0-9d1d35281ddc",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-08-27",
+    "fieldwork_end": "2026-09-01",
+    "published_date": "2026-09-01",
+    "available_from": "2026-09-01",
+    "sample_size": 2000,
+    "n_eff": 1816.0,
+    "n_imputado": false,
+    "tse_registration": "BR-02793/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisaFutura-nacional-presidente-3set2026.pdf",
+    "shares": [
+     49.78,
+     50.22
+    ]
+   },
+   {
+    "id": "cd9a9d344fd1",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-09-01",
+    "fieldwork_end": "2026-09-02",
+    "published_date": null,
+    "available_from": "2026-09-02",
+    "sample_size": 2002,
+    "n_eff": 1801.8,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     48.89,
+     51.11
+    ]
+   },
+   {
+    "id": "p360-14024-2-0-45ca0c01e0dd",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-08-30",
+    "fieldwork_end": "2026-09-02",
+    "published_date": "2026-09-02",
+    "available_from": "2026-09-02",
+    "sample_size": 3000,
+    "n_eff": 2730.0,
+    "n_imputado": false,
+    "tse_registration": "BR-07561/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/poderdata-aya-augusto-cury-vai-de-4-para-10-no-1o-turno/",
+    "shares": [
+     50.55,
+     49.45
+    ]
+   },
+   {
+    "id": "a531267b7f68",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-09-01",
+    "fieldwork_end": "2026-09-04",
+    "published_date": null,
+    "available_from": "2026-09-04",
+    "sample_size": 3804,
+    "n_eff": 3484.5,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     52.95,
+     47.05
+    ]
+   },
+   {
+    "id": "7c0994ce21aa",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-03",
+    "fieldwork_end": "2026-09-06",
+    "published_date": null,
+    "available_from": "2026-09-06",
+    "sample_size": 2004,
+    "n_eff": 1643.3,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "7c795fc40bc8",
+    "pollster": "Ideia",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-07",
+    "published_date": null,
+    "available_from": "2026-09-07",
+    "sample_size": 1500,
+    "n_eff": 1380.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "ae386d6fea6f",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-07",
+    "published_date": null,
+    "available_from": "2026-09-07",
+    "sample_size": 5000,
+    "n_eff": 4500.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.11,
+     48.89
+    ]
+   },
+   {
+    "id": "p360-14051-2-0-f704b54a7350",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-07",
+    "published_date": "2026-09-07",
+    "available_from": "2026-09-07",
+    "sample_size": 2002,
+    "n_eff": 1821.8,
+    "n_imputado": false,
+    "tse_registration": "BR-06790/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-46-contra-45-de-lula-no-2o-turno-diz-btg-nexus/",
+    "shares": [
+     50.55,
+     49.45
+    ]
+   },
+   {
+    "id": "p360-14153-2-0-ba8df4220a09",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-09-03",
+    "fieldwork_end": "2026-09-08",
+    "published_date": "2026-09-08",
+    "available_from": "2026-09-08",
+    "sample_size": 2400,
+    "n_eff": 2088.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00251/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-47-ante-40-de-lula-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     54.02,
+     45.98
+    ]
+   },
+   {
+    "id": "p360-14105-2-0-021eddb5581f",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-09-06",
+    "fieldwork_end": "2026-09-09",
+    "published_date": "2026-09-09",
+    "available_from": "2026-09-09",
+    "sample_size": 3000,
+    "n_eff": 2760.0,
+    "n_imputado": false,
+    "tse_registration": "BR-04914/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/flavio-tem-47-e-lula-45-no-2o-turno-diz-poderdata-aya/",
+    "shares": [
+     51.09,
+     48.91
+    ]
+   },
+   {
+    "id": "p360-14125-2-0-1e3bffdf0d20",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-09",
+    "published_date": "2026-09-09",
+    "available_from": "2026-09-09",
+    "sample_size": 5000,
+    "n_eff": 4630.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01452/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-464-e-lula-462-no-2o-turno-diz-atlasintel/",
+    "shares": [
+     50.11,
+     49.89
+    ]
+   },
+   {
+    "id": "636dfb4e62cf",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-10",
+    "published_date": null,
+    "available_from": "2026-09-10",
+    "sample_size": 2000,
+    "n_eff": 1808.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.22,
+     49.78
+    ]
+   },
+   {
+    "id": "p360-14137-2-0-a1b1c3f42dad",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-09-08",
+    "fieldwork_end": "2026-09-10",
+    "published_date": "2026-09-10",
+    "available_from": "2026-09-10",
+    "sample_size": 2002,
+    "n_eff": 1801.8,
+    "n_imputado": false,
+    "tse_registration": "BR-01833/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-46-e-flavio-44-em-2o-turno-diz-datafolha/",
+    "shares": [
+     48.89,
+     51.11
+    ]
+   },
+   {
+    "id": "c07c5fd64240",
+    "pollster": "Data Index",
+    "fieldwork_start": "2026-09-10",
+    "fieldwork_end": "2026-09-13",
+    "published_date": null,
+    "available_from": "2026-09-13",
+    "sample_size": 2000,
+    "n_eff": 1700.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.41,
+     50.59
+    ]
+   },
+   {
+    "id": "p360-14129-2-0-bf15b13bcc3d",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-09-11",
+    "fieldwork_end": "2026-09-13",
+    "published_date": "2026-09-13",
+    "available_from": "2026-09-13",
+    "sample_size": 2003,
+    "n_eff": 1862.8,
+    "n_imputado": false,
+    "tse_registration": "BR-04076/2026",
+    "source_url": "https://www.poder360.com.br/brasil/lula-tem-47-contra-46-de-flavio-no-2o-turno-mostra-btg-nexus/",
+    "shares": [
+     49.46,
+     50.54
+    ]
+   },
+   {
+    "id": "p360-14130-2-0-0f59c9dda54b",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-10",
+    "fieldwork_end": "2026-09-13",
+    "published_date": "2026-09-13",
+    "available_from": "2026-09-13",
+    "sample_size": 2004,
+    "n_eff": 1643.3,
+    "n_imputado": false,
+    "tse_registration": "BR-03607/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-42-contra-40-de-lula-no-2o-turno-diz-quaest/",
+    "shares": [
+     51.22,
+     48.78
+    ]
+   },
+   {
+    "id": "p360-14157-2-0-0fee694d8d9a",
+    "pollster": "MDA",
+    "fieldwork_start": "2026-09-09",
+    "fieldwork_end": "2026-09-13",
+    "published_date": "2026-09-13",
+    "available_from": "2026-09-13",
+    "sample_size": 2002,
+    "n_eff": 1747.7,
+    "n_imputado": false,
+    "tse_registration": "BR-06902/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/Relatorio-Pesquisa-CNT-de-Opiniao-R170-SETEMBRO26.pdf",
+    "shares": [
+     45.82,
+     54.18
+    ]
+   },
+   {
+    "id": "099a4e153384",
+    "pollster": "DataTrends",
+    "fieldwork_start": "2026-09-12",
+    "fieldwork_end": "2026-09-14",
+    "published_date": null,
+    "available_from": "2026-09-14",
+    "sample_size": 2000,
+    "n_eff": 1780.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.56,
+     49.44
+    ]
+   },
+   {
+    "id": "p360-14164-2-0-3ddd8c3ab8c0",
+    "pollster": "100% Cidades Participações",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-09-15",
+    "published_date": "2026-09-15",
+    "available_from": "2026-09-15",
+    "sample_size": 2000,
+    "n_eff": 1836.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00749/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-e-aprovado-por-441-e-desaprovado-por-531-diz-pesquisa/",
+    "shares": [
+     52.4,
+     47.6
+    ]
+   },
+   {
+    "id": "p360-14166-2-0-c1890fa4ba32",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-09-14",
+    "fieldwork_end": "2026-09-16",
+    "published_date": "2026-09-16",
+    "available_from": "2026-09-16",
+    "sample_size": 2400,
+    "n_eff": 2232.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00535/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-50-contra-43-de-lula-no-2o-turno-diz-gerp/",
+    "shares": [
+     53.76,
+     46.24
+    ]
+   },
+   {
+    "id": "p360-14167-2-0-7e5c3f92bf5d",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-09-11",
+    "fieldwork_end": "2026-09-16",
+    "published_date": "2026-09-16",
+    "available_from": "2026-09-16",
+    "sample_size": 5018,
+    "n_eff": 4716.9,
+    "n_imputado": false,
+    "tse_registration": "BR-06221/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-472-contra-468-de-lula-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     50.21,
+     49.79
+    ]
+   },
+   {
+    "id": "p360-14168-2-0-b9b2e9fa6f06",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-09-13",
+    "fieldwork_end": "2026-09-16",
+    "published_date": "2026-09-16",
+    "available_from": "2026-09-16",
+    "sample_size": 3000,
+    "n_eff": 2700.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00360/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/flavio-tem-46-e-lula-44-no-2o-turno-diz-poderdata-aya/",
+    "shares": [
+     51.11,
+     48.89
+    ]
+   },
+   {
+    "id": "fe6df8836db8",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-09-15",
+    "fieldwork_end": "2026-09-18",
+    "published_date": null,
+    "available_from": "2026-09-18",
+    "sample_size": 5000,
+    "n_eff": 4500.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     52.22,
+     47.78
+    ]
+   },
+   {
+    "id": "p360-14177-2-0-11a72aee1e29",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-09-18",
+    "fieldwork_end": "2026-09-20",
+    "published_date": "2026-09-20",
+    "available_from": "2026-09-20",
+    "sample_size": 2006,
+    "n_eff": 1825.5,
+    "n_imputado": false,
+    "tse_registration": "BR-00485/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-46-flavio-bolsonaro-45-btg-2-turno-btg-nexus/",
+    "shares": [
+     49.45,
+     50.55
+    ]
+   },
+   {
+    "id": "p360-14179-2-0-bc62ceb74240",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-17",
+    "fieldwork_end": "2026-09-20",
+    "published_date": "2026-09-20",
+    "available_from": "2026-09-20",
+    "sample_size": 2004,
+    "n_eff": 1663.3,
+    "n_imputado": false,
+    "tse_registration": "BR-06004/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-42-e-lula-41-em-2o-turno-diz-quaest/",
+    "shares": [
+     50.6,
+     49.4
+    ]
+   },
+   {
+    "id": "p360-14213-2-0-843ef8beb015",
+    "pollster": "American Analytics",
+    "fieldwork_start": "2026-09-15",
+    "fieldwork_end": "2026-09-20",
+    "published_date": "2026-09-20",
+    "available_from": "2026-09-20",
+    "sample_size": 2000,
+    "n_eff": 1720.0,
+    "n_imputado": false,
+    "tse_registration": "BR-02587/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-AmericanAnalytics-TimesBrasil-presidente-23.set_.2026.pdf",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "p360-14192-2-0-218bffc0e44c",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-09-17",
+    "fieldwork_end": "2026-09-22",
+    "published_date": "2026-09-22",
+    "available_from": "2026-09-22",
+    "sample_size": 5015,
+    "n_eff": 4769.3,
+    "n_imputado": false,
+    "tse_registration": "BR-04739/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-atlasintel-presidente-nacional-setembro.pdf",
+    "shares": [
+     49.84,
+     50.16
+    ]
+   },
+   {
+    "id": "41ba9644ca0c",
+    "pollster": "Alfa/TMC",
+    "fieldwork_start": "2026-09-18",
+    "fieldwork_end": "2026-09-23",
+    "published_date": null,
+    "available_from": "2026-09-23",
+    "sample_size": 2700,
+    "n_eff": 2322.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "p360-14206-2-0-76da0a4aa295",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-09-20",
+    "fieldwork_end": "2026-09-23",
+    "published_date": "2026-09-23",
+    "available_from": "2026-09-23",
+    "sample_size": 5000,
+    "n_eff": 4650.0,
+    "n_imputado": false,
+    "tse_registration": "BR-09587/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-48-contra-45-de-lula-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     51.61,
+     48.39
+    ]
+   },
+   {
+    "id": "p360-14208-2-0-960c83baaa78",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-19",
+    "fieldwork_end": "2026-09-23",
+    "published_date": "2026-09-23",
+    "available_from": "2026-09-23",
+    "sample_size": 2000,
+    "n_eff": 1780.0,
+    "n_imputado": false,
+    "tse_registration": "BR-04202/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-e-rejeitado-por-50-e-flavio-bolsonaro-por-49-diz-pesquisa/",
+    "shares": [
+     50.56,
+     49.44
+    ]
+   },
+   {
+    "id": "p360-14212-2-0-732a7e554fa2",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-09-22",
+    "fieldwork_end": "2026-09-23",
+    "published_date": "2026-09-23",
+    "available_from": "2026-09-23",
+    "sample_size": 2002,
+    "n_eff": 1841.8,
+    "n_imputado": false,
+    "tse_registration": "BR-00304/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-lula-flavio-nacional-setembro.pdf",
+    "shares": [
+     48.91,
+     51.09
+    ]
+   },
+   {
+    "id": "p360-14214-2-0-d2572e146828",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-09-20",
+    "fieldwork_end": "2026-09-23",
+    "published_date": "2026-09-23",
+    "available_from": "2026-09-23",
+    "sample_size": 3000,
+    "n_eff": 2730.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01739/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/flavio-tem-46-e-lula-45-no-2o-turno-diz-poderdata-aya/",
+    "shares": [
+     50.55,
+     49.45
+    ]
+   },
+   {
+    "id": "769a68aabefe",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-09-18",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 2000,
+    "n_eff": 1862.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+    "shares": [
+     53.06,
+     46.94
+    ]
+   },
+   {
+    "id": "p360-14210-2-0-260751c13714",
+    "pollster": "100% Cidades Participações",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-09-24",
+    "published_date": "2026-09-24",
+    "available_from": "2026-09-24",
+    "sample_size": 2000,
+    "n_eff": 1862.0,
+    "n_imputado": false,
+    "tse_registration": "BR-05268/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/R_BR_Setembro_3.pdf",
+    "shares": [
+     53.06,
+     46.94
+    ]
+   },
+   {
+    "id": "p360-14255-2-0-42f93b657bb9",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-09-25",
+    "fieldwork_end": "2026-09-27",
+    "published_date": "2026-09-27",
+    "available_from": "2026-09-27",
+    "sample_size": 2000,
+    "n_eff": 1800.0,
+    "n_imputado": false,
+    "tse_registration": "BR-07557/2026",
+    "source_url": "http://poder360.com.br/poder-eleicoes-2026/lula-tem-46-contra-44-de-flavio-no-2o-turno-diz-btg-nexus/",
+    "shares": [
+     48.89,
+     51.11
+    ]
+   },
+   {
+    "id": "p360-14257-2-0-be51ccfab283",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-24",
+    "fieldwork_end": "2026-09-27",
+    "published_date": "2026-09-27",
+    "available_from": "2026-09-27",
+    "sample_size": 2004,
+    "n_eff": 1683.4,
+    "n_imputado": false,
+    "tse_registration": "BR-06520/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-e-flavio-empatam-com-42-no-2o-turno-diz-quaest/",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "45de88cc37b4",
+    "pollster": "Ideia",
+    "fieldwork_start": "2026-09-25",
+    "fieldwork_end": "2026-09-28",
+    "published_date": null,
+    "available_from": "2026-09-28",
+    "sample_size": 2000,
+    "n_eff": 1930.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.74,
+     50.26
+    ]
+   },
+   {
+    "id": "cbc4b489caf3",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-09-24",
+    "fieldwork_end": "2026-09-28",
+    "published_date": null,
+    "available_from": "2026-09-28",
+    "sample_size": 5000,
+    "n_eff": 4600.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.09,
+     48.91
+    ]
+   },
+   {
+    "id": "ea746e464419",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-09-24",
+    "fieldwork_end": "2026-09-28",
+    "published_date": null,
+    "available_from": "2026-09-28",
+    "sample_size": 2400,
+    "n_eff": 2232.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     53.76,
+     46.24
+    ]
+   },
+   {
+    "id": "p360-14258-2-0-62a9d71894ba",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-09-26",
+    "fieldwork_end": "2026-09-28",
+    "published_date": "2026-09-28",
+    "available_from": "2026-09-28",
+    "sample_size": 2100,
+    "n_eff": 1887.9,
+    "n_imputado": false,
+    "tse_registration": "BR-00895/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-452-contra-447-de-lula-no-2o-turno-diz-pesquisa/",
+    "shares": [
+     50.28,
+     49.72
+    ]
+   },
+   {
+    "id": "p360-14289-2-0-26a37e78d4a1",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-09-23",
+    "fieldwork_end": "2026-09-28",
+    "published_date": "2026-09-28",
+    "available_from": "2026-09-28",
+    "sample_size": 5005,
+    "n_eff": 4769.8,
+    "n_imputado": false,
+    "tse_registration": "BR-04391/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-477-e-lula-476-no-2o-turno-diz-atlasintel/",
+    "shares": [
+     50.05,
+     49.95
+    ]
+   },
+   {
+    "id": "752c6fafab28",
+    "pollster": "Data Index",
+    "fieldwork_start": "2026-09-27",
+    "fieldwork_end": "2026-09-29",
+    "published_date": null,
+    "available_from": "2026-09-29",
+    "sample_size": 2000,
+    "n_eff": 1700.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.41,
+     50.59
+    ]
+   },
+   {
+    "id": "p360-14282-2-0-65bddb5bdae3",
+    "pollster": "100% Cidades Participações",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-09-29",
+    "published_date": "2026-09-29",
+    "available_from": "2026-09-29",
+    "sample_size": 2000,
+    "n_eff": 1850.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01122/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-49-contra-435-de-lula-no-2o-turno-diz-futura/",
+    "shares": [
+     52.97,
+     47.03
+    ]
+   },
+   {
+    "id": "a92933ea4879",
+    "pollster": "DataTrends",
+    "fieldwork_start": "2026-09-28",
+    "fieldwork_end": "2026-09-30",
+    "published_date": null,
+    "available_from": "2026-09-30",
+    "sample_size": 2000,
+    "n_eff": 1800.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "ae06c9bd9242",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-26",
+    "fieldwork_end": "2026-09-30",
+    "published_date": null,
+    "available_from": "2026-09-30",
+    "sample_size": 2000,
+    "n_eff": 1820.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.55,
+     49.45
+    ]
+   },
+   {
+    "id": "p360-14303-2-0-f5a1358de3b2",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-09-28",
+    "fieldwork_end": "2026-10-01",
+    "published_date": "2026-10-01",
+    "available_from": "2026-10-01",
+    "sample_size": 2506,
+    "n_eff": 2330.6,
+    "n_imputado": false,
+    "tse_registration": "BR-08039/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-48-contra-45-de-flavio-em-2o-turno-diz-datafolha/",
+    "shares": [
+     48.39,
+     51.61
+    ]
+   },
+   {
+    "id": "217594f1718e",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-09-30",
+    "fieldwork_end": "2026-10-02",
+    "published_date": null,
+    "available_from": "2026-10-02",
+    "sample_size": 2400,
+    "n_eff": 2232.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     52.69,
+     47.31
+    ]
+   },
+   {
+    "id": "21a86060452b",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-09-26",
+    "fieldwork_end": "2026-10-02",
+    "published_date": null,
+    "available_from": "2026-10-02",
+    "sample_size": 40500,
+    "n_eff": 40500.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.56,
+     48.44
+    ]
+   },
+   {
+    "id": "72f172095e3b",
+    "pollster": "IFP",
+    "fieldwork_start": "2026-09-29",
+    "fieldwork_end": "2026-10-02",
+    "published_date": null,
+    "available_from": "2026-10-02",
+    "sample_size": 2000,
+    "n_eff": 1817.8,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.52,
+     50.48
+    ]
+   },
+   {
+    "id": "7da96fbcecd3",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-09-27",
+    "fieldwork_end": "2026-10-02",
+    "published_date": null,
+    "available_from": "2026-10-02",
+    "sample_size": 5000,
+    "n_eff": 5000.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.9,
+     50.1
+    ]
+   },
+   {
+    "id": "80f71fcb5e03",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-09-30",
+    "fieldwork_end": "2026-10-02",
+    "published_date": null,
+    "available_from": "2026-10-02",
+    "sample_size": 4000,
+    "n_eff": 3680.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "p360-14323-2-0-ba5725a22c2d",
+    "pollster": "MDA",
+    "fieldwork_start": "2026-09-30",
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-02",
+    "available_from": "2026-10-02",
+    "sample_size": 2007,
+    "n_eff": 1814.3,
+    "n_imputado": false,
+    "tse_registration": "BR-04756/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cnt-mda-lula-tem-478-e-flavio-421-dos-votos-validos-no-1o-turno/",
+    "shares": [
+     47.68,
+     52.32
+    ]
+   },
+   {
+    "id": "2649d9dc6a26",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-10-03",
+    "fieldwork_end": "2026-10-03",
+    "published_date": null,
+    "available_from": "2026-10-03",
+    "sample_size": 4006,
+    "n_eff": 3725.6,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.46,
+     50.54
+    ]
+   },
+   {
+    "id": "9bf979fc8841",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-02",
+    "fieldwork_end": "2026-10-03",
+    "published_date": null,
+    "available_from": "2026-10-03",
+    "sample_size": 3702,
+    "n_eff": 3183.7,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.16,
+     48.84
+    ]
+   },
+   {
+    "id": "db116130aba4",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-09-30",
+    "fieldwork_end": "2026-10-03",
+    "published_date": null,
+    "available_from": "2026-10-03",
+    "sample_size": 5000,
+    "n_eff": 4650.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+    "shares": [
+     52.69,
+     47.31
+    ]
+   },
+   {
+    "id": "df7dda02f30d",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-09-29",
+    "fieldwork_end": "2026-10-03",
+    "published_date": null,
+    "available_from": "2026-10-03",
+    "sample_size": 2000,
+    "n_eff": 1862.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.56,
+     48.44
+    ]
+   },
+   {
+    "id": "p360-14429-2-0-fe269f027467",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-10-05",
+    "fieldwork_end": "2026-10-07",
+    "published_date": "2026-10-07",
+    "available_from": "2026-10-07",
+    "sample_size": 3000,
+    "n_eff": 2790.0,
+    "n_imputado": false,
+    "tse_registration": "BR-08134/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/flavio-tem-53-contra-47-de-lula-no-2o-turno-diz-pesquisa-poderdata-aya/",
+    "shares": [
+     52.69,
+     47.31
+    ]
+   },
+   {
+    "id": "p360-14430-2-0-7bfe4d260076",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-10-05",
+    "fieldwork_end": "2026-10-07",
+    "published_date": "2026-10-07",
+    "available_from": "2026-10-07",
+    "sample_size": 2100,
+    "n_eff": 1824.9,
+    "n_imputado": false,
+    "tse_registration": "BR-09623/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-442-e-flavio-427-no-2o-turno-diz-vox-brasil/",
+    "shares": [
+     49.14,
+     50.86
+    ]
+   },
+   {
+    "id": "0492b5c35c7e",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-10-06",
+    "fieldwork_end": "2026-10-08",
+    "published_date": null,
+    "available_from": "2026-10-08",
+    "sample_size": 2520,
+    "n_eff": 2368.8,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     52.13,
+     47.87
+    ]
+   },
+   {
+    "id": "p360-14431-2-0-b6710f3f134d",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-10-03",
+    "fieldwork_end": "2026-10-08",
+    "published_date": "2026-10-08",
+    "available_from": "2026-10-08",
+    "sample_size": 5026,
+    "n_eff": 4865.2,
+    "n_imputado": false,
+    "tse_registration": "BR-03663/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/atlasintel-confirma-poderdata-aya-e-da-flavio-com-53-e-lula-com-47/",
+    "shares": [
+     52.79,
+     47.21
+    ]
+   },
+   {
+    "id": "p360-14434-2-0-07e3d3758790",
+    "pollster": "Ipespe",
+    "fieldwork_start": "2026-10-06",
+    "fieldwork_end": "2026-10-08",
+    "published_date": "2026-10-08",
+    "available_from": "2026-10-08",
+    "sample_size": 1500,
+    "n_eff": 1395.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00933",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/ipespe-confirma-poderdata-aya-e-da-flavio-com-527-e-lula-com-473/",
+    "shares": [
+     52.69,
+     47.31
+    ]
+   },
+   {
+    "id": "p360-14435-2-0-89b6544ff9eb",
+    "pollster": "DataTrends",
+    "fieldwork_start": "2026-10-07",
+    "fieldwork_end": "2026-10-09",
+    "published_date": "2026-10-09",
+    "available_from": "2026-10-09",
+    "sample_size": 2000,
+    "n_eff": 1880.0,
+    "n_imputado": false,
+    "tse_registration": "BR-03576/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-531-e-lula-tem-469-em-votos-validos-diz-datatrends/",
+    "shares": [
+     53.19,
+     46.81
+    ]
+   },
+   {
+    "id": "p360-14438-2-0-b2b82fea97d7",
+    "pollster": "100% Cidades Participações",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-10",
+    "published_date": "2026-10-10",
+    "available_from": "2026-10-10",
+    "sample_size": 2000,
+    "n_eff": 1932.0,
+    "n_imputado": false,
+    "tse_registration": "BR-00650/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-518-contra-482-de-lula-diz-futura/",
+    "shares": [
+     51.76,
+     48.24
+    ]
+   },
+   {
+    "id": "fcfb74ef78cf",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-10-10",
+    "fieldwork_end": "2026-10-12",
+    "published_date": null,
+    "available_from": "2026-10-12",
+    "sample_size": 2000,
+    "n_eff": 1860.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.61,
+     48.39
+    ]
+   },
+   {
+    "id": "p360-14436-2-0-1ac8225d1d2f",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-10-08",
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 2400,
+    "n_eff": 2328.0,
+    "n_imputado": false,
+    "tse_registration": "BR-07877/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-53-contra-44-de-lula-diz-pesquisa-gerp/",
+    "shares": [
+     54.64,
+     45.36
+    ]
+   },
+   {
+    "id": "p360-14437-2-0-abbd5323f4ee",
+    "pollster": "Nexus/BTG Pactual",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 2002,
+    "n_eff": 1861.9,
+    "n_imputado": false,
+    "tse_registration": "BR-07997/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-e-desaprovado-por-50-e-aprovado-por-45-diz-btg-nexus/",
+    "shares": [
+     51.61,
+     48.39
+    ]
+   },
+   {
+    "id": "p360-14441-2-0-ca9f74c73152",
+    "pollster": "PoderData",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 3000,
+    "n_eff": 2820.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01209/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/lula-reage-e-vai-a-49-contra-51-de-flavio-diz-poderdata-aya/",
+    "shares": [
+     51.06,
+     48.94
+    ]
+   },
+   {
+    "id": "p360-14452-2-0-60cfc4d09510",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-10",
+    "fieldwork_end": "2026-10-13",
+    "published_date": "2026-10-13",
+    "available_from": "2026-10-13",
+    "sample_size": 2154,
+    "n_eff": 1938.6,
+    "n_imputado": false,
+    "tse_registration": "BR-08729/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-46-e-lula-tem-44-no-2o-turno-diz-quaest/",
+    "shares": [
+     51.11,
+     48.89
+    ]
+   },
+   {
+    "id": "p360-14454-2-0-90c05a8970db",
+    "pollster": "Palver",
+    "fieldwork_start": "2026-10-10",
+    "fieldwork_end": "2026-10-13",
+    "published_date": "2026-10-13",
+    "available_from": "2026-10-13",
+    "sample_size": 5000,
+    "n_eff": 4950.0,
+    "n_imputado": false,
+    "tse_registration": "BR-08028/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-palver-presidente-nacional-15out2026.pdf",
+    "shares": [
+     50.51,
+     49.49
+    ]
+   },
+   {
+    "id": "p360-14453-2-0-a91fb5936877",
+    "pollster": "Indexa Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-14",
+    "published_date": "2026-10-14",
+    "available_from": "2026-10-14",
+    "sample_size": 2000,
+    "n_eff": 1720.0,
+    "n_imputado": false,
+    "tse_registration": "BR-04629/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-51-e-lula-49-no-2o-turno-mostra-indexa-broadcast/",
+    "shares": [
+     51.16,
+     48.84
+    ]
+   },
+   {
+    "id": "p360-14456-2-0-7361d0798258",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-10-13",
+    "fieldwork_end": "2026-10-14",
+    "published_date": "2026-10-14",
+    "available_from": "2026-10-14",
+    "sample_size": 2520,
+    "n_eff": 2318.4,
+    "n_imputado": false,
+    "tse_registration": "BR-00466/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/datafolha-confirma-poderdata-aya-e-da-flavio-com-51-e-lula-com-49/",
+    "shares": [
+     51.09,
+     48.91
+    ]
+   },
+   {
+    "id": "120ac3282b25",
+    "pollster": "MDA",
+    "fieldwork_start": "2026-10-13",
+    "fieldwork_end": "2026-10-15",
+    "published_date": null,
+    "available_from": "2026-10-15",
+    "sample_size": 2014,
+    "n_eff": 1867.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.49,
+     49.51
+    ]
+   },
+   {
+    "id": "af9e99f57269",
+    "pollster": "Ipespe",
+    "fieldwork_start": "2026-10-13",
+    "fieldwork_end": "2026-10-15",
+    "published_date": null,
+    "available_from": "2026-10-15",
+    "sample_size": 1500,
+    "n_eff": 1410.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.06,
+     48.94
+    ]
+   },
+   {
+    "id": "p360-14458-2-0-d8ac758a19f2",
+    "pollster": "100% Cidades Participações",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-15",
+    "published_date": "2026-10-15",
+    "available_from": "2026-10-15",
+    "sample_size": 2000,
+    "n_eff": 1930.0,
+    "n_imputado": false,
+    "tse_registration": "BR-03764/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-508-contra-492-de-lula-no-2o-turno-diz-futura/",
+    "shares": [
+     50.78,
+     49.22
+    ]
+   },
+   {
+    "id": "26110a7532a3",
+    "pollster": "Gerp",
+    "fieldwork_start": "2026-10-14",
+    "fieldwork_end": "2026-10-16",
+    "published_date": null,
+    "available_from": "2026-10-16",
+    "sample_size": 2400,
+    "n_eff": 2280.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     52.63,
+     47.37
+    ]
+   },
+   {
+    "id": "d2dc96eca5e0",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-10-12",
+    "fieldwork_end": "2026-10-16",
+    "published_date": null,
+    "available_from": "2026-10-16",
+    "sample_size": 15554,
+    "n_eff": 15554.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.1,
+     48.9
+    ]
+   },
+   {
+    "id": "21d40502cf3d",
+    "pollster": "Vox",
+    "fieldwork_start": "2026-10-15",
+    "fieldwork_end": "2026-10-17",
+    "published_date": null,
+    "available_from": "2026-10-17",
+    "sample_size": 2100,
+    "n_eff": 1911.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     49.01,
+     50.99
+    ]
+   },
+   {
+    "id": "2ac08be37bee",
+    "pollster": "DataTrends",
+    "fieldwork_start": "2026-10-15",
+    "fieldwork_end": "2026-10-17",
+    "published_date": null,
+    "available_from": "2026-10-17",
+    "sample_size": 2000,
+    "n_eff": 2000.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.5,
+     48.5
+    ]
+   },
+   {
+    "id": "6e1a2ca4729c",
+    "pollster": "Futura",
+    "fieldwork_start": "2026-10-16",
+    "fieldwork_end": "2026-10-17",
+    "published_date": null,
+    "available_from": "2026-10-17",
+    "sample_size": 2000,
+    "n_eff": 2000.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.4,
+     49.6
+    ]
+   },
+   {
+    "id": "17b6d129b1c9",
+    "pollster": "Atlas",
+    "fieldwork_start": "2026-10-13",
+    "fieldwork_end": "2026-10-18",
+    "published_date": null,
+    "available_from": "2026-10-18",
+    "sample_size": 4998,
+    "n_eff": 4868.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
+    "shares": [
+     51.13,
+     48.87
+    ]
+   },
+   {
+    "id": "cc87d719018b",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-10-13",
+    "fieldwork_end": "2026-10-18",
+    "published_date": null,
+    "available_from": "2026-10-18",
+    "sample_size": 4998,
+    "n_eff": 4873.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     51.08,
+     48.92
+    ]
+   },
+   {
+    "id": "d953ad5e8fb8",
+    "pollster": "Nexus",
+    "fieldwork_start": "2026-10-16",
+    "fieldwork_end": "2026-10-18",
+    "published_date": null,
+    "available_from": "2026-10-18",
+    "sample_size": 2000,
+    "n_eff": 1848.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+    "shares": [
+     50.32,
+     49.68
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 649,
+   "par_diferente": 365,
+   "provavel_republicacao": 2
+  },
+  "exclusions": [
+   {
+    "id": "p360-14162-2-0-d8c49dce1e7a",
+    "pollster": "Datafolha",
+    "fieldwork_end": "2026-09-17",
+    "reason": "provavel_republicacao"
+   },
+   {
+    "id": "p360-14457-2-0-39049bf80e2e",
+    "pollster": "PoderData",
+    "fieldwork_end": "2026-10-15",
+    "reason": "provavel_republicacao"
+   }
+  ]
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0029,
+    "ess_bulk": 1047.3
+   },
+   "tau": {
+    "rhat": 1.0033,
+    "ess_bulk": 1129.5
+   },
+   "sigma_h": {
+    "rhat": 1.004,
+    "ess_bulk": 966.3
+   },
+   "fração_atual[Flávio Bolsonaro]": {
+    "rhat": 1.0003,
+    "ess_bulk": 9993.8
+   },
+   "fração_atual[Lula]": {
+    "rhat": 1.0003,
+    "ess_bulk": 9993.8
+   }
+  },
+  "rhat_max": 1.004,
+  "ess_min": 966.3,
+  "accept": [
+   0.339,
+   0.235,
+   0.279,
+   0.325
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Flávio Bolsonaro",
+    "mean": 50.649,
+    "sd": 0.561,
+    "quantiles": {
+     "0.025": 49.489,
+     "0.05": 49.709,
+     "0.1": 49.947,
+     "0.25": 50.297,
+     "0.5": 50.662,
+     "0.75": 51.015,
+     "0.9": 51.344,
+     "0.95": 51.551,
+     "0.975": 51.741
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 47.5,
+     "counts": [
+      1,
+      7,
+      44,
+      262,
+      1081,
+      3166,
+      4338,
+      2373,
+      615,
+      94,
+      19
+     ]
+    }
+   },
+   {
+    "label": "Lula",
+    "mean": 49.351,
+    "sd": 0.561,
+    "quantiles": {
+     "0.025": 48.259,
+     "0.05": 48.449,
+     "0.1": 48.656,
+     "0.25": 48.985,
+     "0.5": 49.338,
+     "0.75": 49.703,
+     "0.9": 50.053,
+     "0.95": 50.291,
+     "0.975": 50.511
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 47.0,
+     "counts": [
+      19,
+      94,
+      615,
+      2373,
+      4338,
+      3166,
+      1081,
+      262,
+      44,
+      7,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-05-23",
+    "values": [
+     {
+      "q10": 47.87,
+      "median": 48.56,
+      "q90": 49.26
+     },
+     {
+      "q10": 50.74,
+      "median": 51.44,
+      "q90": 52.13
+     }
+    ]
+   },
+   {
+    "date": "2026-05-24",
+    "values": [
+     {
+      "q10": 47.91,
+      "median": 48.56,
+      "q90": 49.23
+     },
+     {
+      "q10": 50.77,
+      "median": 51.44,
+      "q90": 52.09
+     }
+    ]
+   },
+   {
+    "date": "2026-05-25",
+    "values": [
+     {
+      "q10": 47.85,
+      "median": 48.45,
+      "q90": 49.11
+     },
+     {
+      "q10": 50.89,
+      "median": 51.55,
+      "q90": 52.15
+     }
+    ]
+   },
+   {
+    "date": "2026-05-26",
+    "values": [
+     {
+      "q10": 47.73,
+      "median": 48.37,
+      "q90": 48.96
+     },
+     {
+      "q10": 51.04,
+      "median": 51.63,
+      "q90": 52.27
+     }
+    ]
+   },
+   {
+    "date": "2026-05-29",
+    "values": [
+     {
+      "q10": 47.55,
+      "median": 48.18,
+      "q90": 48.8
+     },
+     {
+      "q10": 51.2,
+      "median": 51.82,
+      "q90": 52.45
+     }
+    ]
+   },
+   {
+    "date": "2026-06-03",
+    "values": [
+     {
+      "q10": 47.44,
+      "median": 48.04,
+      "q90": 48.61
+     },
+     {
+      "q10": 51.39,
+      "median": 51.96,
+      "q90": 52.56
+     }
+    ]
+   },
+   {
+    "date": "2026-06-06",
+    "values": [
+     {
+      "q10": 47.25,
+      "median": 47.84,
+      "q90": 48.41
+     },
+     {
+      "q10": 51.59,
+      "median": 52.16,
+      "q90": 52.75
+     }
+    ]
+   },
+   {
+    "date": "2026-06-07",
+    "values": [
+     {
+      "q10": 47.2,
+      "median": 47.81,
+      "q90": 48.39
+     },
+     {
+      "q10": 51.61,
+      "median": 52.19,
+      "q90": 52.8
+     }
+    ]
+   },
+   {
+    "date": "2026-06-10",
+    "values": [
+     {
+      "q10": 47.04,
+      "median": 47.65,
+      "q90": 48.22
+     },
+     {
+      "q10": 51.78,
+      "median": 52.35,
+      "q90": 52.96
+     }
+    ]
+   },
+   {
+    "date": "2026-06-12",
+    "values": [
+     {
+      "q10": 46.99,
+      "median": 47.56,
+      "q90": 48.14
+     },
+     {
+      "q10": 51.86,
+      "median": 52.44,
+      "q90": 53.01
+     }
+    ]
+   },
+   {
+    "date": "2026-06-13",
+    "values": [
+     {
+      "q10": 47.02,
+      "median": 47.6,
+      "q90": 48.14
+     },
+     {
+      "q10": 51.86,
+      "median": 52.4,
+      "q90": 52.98
+     }
+    ]
+   },
+   {
+    "date": "2026-06-17",
+    "values": [
+     {
+      "q10": 47.22,
+      "median": 47.77,
+      "q90": 48.31
+     },
+     {
+      "q10": 51.69,
+      "median": 52.23,
+      "q90": 52.78
+     }
+    ]
+   },
+   {
+    "date": "2026-06-20",
+    "values": [
+     {
+      "q10": 47.22,
+      "median": 47.79,
+      "q90": 48.37
+     },
+     {
+      "q10": 51.63,
+      "median": 52.21,
+      "q90": 52.78
+     }
+    ]
+   },
+   {
+    "date": "2026-06-22",
+    "values": [
+     {
+      "q10": 47.27,
+      "median": 47.84,
+      "q90": 48.41
+     },
+     {
+      "q10": 51.59,
+      "median": 52.16,
+      "q90": 52.73
+     }
+    ]
+   },
+   {
+    "date": "2026-06-24",
+    "values": [
+     {
+      "q10": 47.34,
+      "median": 47.88,
+      "q90": 48.48
+     },
+     {
+      "q10": 51.52,
+      "median": 52.12,
+      "q90": 52.66
+     }
+    ]
+   },
+   {
+    "date": "2026-06-27",
+    "values": [
+     {
+      "q10": 47.26,
+      "median": 47.81,
+      "q90": 48.41
+     },
+     {
+      "q10": 51.59,
+      "median": 52.19,
+      "q90": 52.74
+     }
+    ]
+   },
+   {
+    "date": "2026-06-28",
+    "values": [
+     {
+      "q10": 47.18,
+      "median": 47.78,
+      "q90": 48.35
+     },
+     {
+      "q10": 51.65,
+      "median": 52.22,
+      "q90": 52.82
+     }
+    ]
+   },
+   {
+    "date": "2026-07-04",
+    "values": [
+     {
+      "q10": 47.25,
+      "median": 47.86,
+      "q90": 48.46
+     },
+     {
+      "q10": 51.54,
+      "median": 52.14,
+      "q90": 52.75
+     }
+    ]
+   },
+   {
+    "date": "2026-07-05",
+    "values": [
+     {
+      "q10": 47.26,
+      "median": 47.87,
+      "q90": 48.47
+     },
+     {
+      "q10": 51.53,
+      "median": 52.13,
+      "q90": 52.74
+     }
+    ]
+   },
+   {
+    "date": "2026-07-11",
+    "values": [
+     {
+      "q10": 47.24,
+      "median": 47.8,
+      "q90": 48.37
+     },
+     {
+      "q10": 51.63,
+      "median": 52.2,
+      "q90": 52.76
+     }
+    ]
+   },
+   {
+    "date": "2026-07-13",
+    "values": [
+     {
+      "q10": 47.26,
+      "median": 47.84,
+      "q90": 48.38
+     },
+     {
+      "q10": 51.62,
+      "median": 52.16,
+      "q90": 52.74
+     }
+    ]
+   },
+   {
+    "date": "2026-07-16",
+    "values": [
+     {
+      "q10": 47.22,
+      "median": 47.79,
+      "q90": 48.35
+     },
+     {
+      "q10": 51.65,
+      "median": 52.21,
+      "q90": 52.78
+     }
+    ]
+   },
+   {
+    "date": "2026-07-19",
+    "values": [
+     {
+      "q10": 47.18,
+      "median": 47.77,
+      "q90": 48.31
+     },
+     {
+      "q10": 51.69,
+      "median": 52.23,
+      "q90": 52.82
+     }
+    ]
+   },
+   {
+    "date": "2026-07-22",
+    "values": [
+     {
+      "q10": 47.19,
+      "median": 47.76,
+      "q90": 48.28
+     },
+     {
+      "q10": 51.72,
+      "median": 52.24,
+      "q90": 52.81
+     }
+    ]
+   },
+   {
+    "date": "2026-07-24",
+    "values": [
+     {
+      "q10": 47.22,
+      "median": 47.73,
+      "q90": 48.25
+     },
+     {
+      "q10": 51.75,
+      "median": 52.27,
+      "q90": 52.78
+     }
+    ]
+   },
+   {
+    "date": "2026-07-25",
+    "values": [
+     {
+      "q10": 47.25,
+      "median": 47.77,
+      "q90": 48.27
+     },
+     {
+      "q10": 51.73,
+      "median": 52.23,
+      "q90": 52.75
+     }
+    ]
+   },
+   {
+    "date": "2026-07-27",
+    "values": [
+     {
+      "q10": 47.33,
+      "median": 47.87,
+      "q90": 48.39
+     },
+     {
+      "q10": 51.61,
+      "median": 52.13,
+      "q90": 52.67
+     }
+    ]
+   },
+   {
+    "date": "2026-08-01",
+    "values": [
+     {
+      "q10": 47.69,
+      "median": 48.21,
+      "q90": 48.74
+     },
+     {
+      "q10": 51.26,
+      "median": 51.79,
+      "q90": 52.31
+     }
+    ]
+   },
+   {
+    "date": "2026-08-05",
+    "values": [
+     {
+      "q10": 47.95,
+      "median": 48.47,
+      "q90": 48.95
+     },
+     {
+      "q10": 51.05,
+      "median": 51.53,
+      "q90": 52.05
+     }
+    ]
+   },
+   {
+    "date": "2026-08-07",
+    "values": [
+     {
+      "q10": 48.01,
+      "median": 48.52,
+      "q90": 49.03
+     },
+     {
+      "q10": 50.97,
+      "median": 51.48,
+      "q90": 51.99
+     }
+    ]
+   },
+   {
+    "date": "2026-08-08",
+    "values": [
+     {
+      "q10": 48.08,
+      "median": 48.58,
+      "q90": 49.09
+     },
+     {
+      "q10": 50.91,
+      "median": 51.42,
+      "q90": 51.92
+     }
+    ]
+   },
+   {
+    "date": "2026-08-10",
+    "values": [
+     {
+      "q10": 48.22,
+      "median": 48.74,
+      "q90": 49.27
+     },
+     {
+      "q10": 50.73,
+      "median": 51.26,
+      "q90": 51.78
+     }
+    ]
+   },
+   {
+    "date": "2026-08-11",
+    "values": [
+     {
+      "q10": 48.28,
+      "median": 48.81,
+      "q90": 49.34
+     },
+     {
+      "q10": 50.66,
+      "median": 51.19,
+      "q90": 51.72
+     }
+    ]
+   },
+   {
+    "date": "2026-08-15",
+    "values": [
+     {
+      "q10": 48.53,
+      "median": 49.1,
+      "q90": 49.65
+     },
+     {
+      "q10": 50.35,
+      "median": 50.9,
+      "q90": 51.47
+     }
+    ]
+   },
+   {
+    "date": "2026-08-18",
+    "values": [
+     {
+      "q10": 48.81,
+      "median": 49.36,
+      "q90": 49.88
+     },
+     {
+      "q10": 50.12,
+      "median": 50.64,
+      "q90": 51.19
+     }
+    ]
+   },
+   {
+    "date": "2026-08-19",
+    "values": [
+     {
+      "q10": 48.82,
+      "median": 49.35,
+      "q90": 49.86
+     },
+     {
+      "q10": 50.14,
+      "median": 50.65,
+      "q90": 51.18
+     }
+    ]
+   },
+   {
+    "date": "2026-08-21",
+    "values": [
+     {
+      "q10": 48.86,
+      "median": 49.37,
+      "q90": 49.86
+     },
+     {
+      "q10": 50.14,
+      "median": 50.63,
+      "q90": 51.14
+     }
+    ]
+   },
+   {
+    "date": "2026-08-22",
+    "values": [
+     {
+      "q10": 48.95,
+      "median": 49.43,
+      "q90": 49.92
+     },
+     {
+      "q10": 50.08,
+      "median": 50.57,
+      "q90": 51.05
+     }
+    ]
+   },
+   {
+    "date": "2026-08-23",
+    "values": [
+     {
+      "q10": 48.99,
+      "median": 49.47,
+      "q90": 49.96
+     },
+     {
+      "q10": 50.04,
+      "median": 50.53,
+      "q90": 51.01
+     }
+    ]
+   },
+   {
+    "date": "2026-08-24",
+    "values": [
+     {
+      "q10": 49.01,
+      "median": 49.5,
+      "q90": 50.0
+     },
+     {
+      "q10": 50.0,
+      "median": 50.5,
+      "q90": 50.99
+     }
+    ]
+   },
+   {
+    "date": "2026-08-26",
+    "values": [
+     {
+      "q10": 49.11,
+      "median": 49.58,
+      "q90": 50.07
+     },
+     {
+      "q10": 49.93,
+      "median": 50.42,
+      "q90": 50.89
+     }
+    ]
+   },
+   {
+    "date": "2026-08-27",
+    "values": [
+     {
+      "q10": 49.08,
+      "median": 49.59,
+      "q90": 50.04
+     },
+     {
+      "q10": 49.96,
+      "median": 50.41,
+      "q90": 50.92
+     }
+    ]
+   },
+   {
+    "date": "2026-08-29",
+    "values": [
+     {
+      "q10": 49.3,
+      "median": 49.77,
+      "q90": 50.23
+     },
+     {
+      "q10": 49.77,
+      "median": 50.23,
+      "q90": 50.7
+     }
+    ]
+   },
+   {
+    "date": "2026-08-31",
+    "values": [
+     {
+      "q10": 49.51,
+      "median": 49.95,
+      "q90": 50.42
+     },
+     {
+      "q10": 49.58,
+      "median": 50.05,
+      "q90": 50.49
+     }
+    ]
+   },
+   {
+    "date": "2026-09-01",
+    "values": [
+     {
+      "q10": 49.61,
+      "median": 50.03,
+      "q90": 50.51
+     },
+     {
+      "q10": 49.49,
+      "median": 49.97,
+      "q90": 50.39
+     }
+    ]
+   },
+   {
+    "date": "2026-09-02",
+    "values": [
+     {
+      "q10": 49.69,
+      "median": 50.15,
+      "q90": 50.64
+     },
+     {
+      "q10": 49.36,
+      "median": 49.85,
+      "q90": 50.31
+     }
+    ]
+   },
+   {
+    "date": "2026-09-04",
+    "values": [
+     {
+      "q10": 49.82,
+      "median": 50.25,
+      "q90": 50.72
+     },
+     {
+      "q10": 49.28,
+      "median": 49.75,
+      "q90": 50.18
+     }
+    ]
+   },
+   {
+    "date": "2026-09-05",
+    "values": [
+     {
+      "q10": 49.88,
+      "median": 50.29,
+      "q90": 50.72
+     },
+     {
+      "q10": 49.28,
+      "median": 49.71,
+      "q90": 50.12
+     }
+    ]
+   },
+   {
+    "date": "2026-09-06",
+    "values": [
+     {
+      "q10": 49.9,
+      "median": 50.31,
+      "q90": 50.75
+     },
+     {
+      "q10": 49.25,
+      "median": 49.69,
+      "q90": 50.1
+     }
+    ]
+   },
+   {
+    "date": "2026-09-07",
+    "values": [
+     {
+      "q10": 49.9,
+      "median": 50.32,
+      "q90": 50.77
+     },
+     {
+      "q10": 49.23,
+      "median": 49.68,
+      "q90": 50.1
+     }
+    ]
+   },
+   {
+    "date": "2026-09-09",
+    "values": [
+     {
+      "q10": 49.85,
+      "median": 50.32,
+      "q90": 50.75
+     },
+     {
+      "q10": 49.25,
+      "median": 49.68,
+      "q90": 50.15
+     }
+    ]
+   },
+   {
+    "date": "2026-09-11",
+    "values": [
+     {
+      "q10": 49.91,
+      "median": 50.33,
+      "q90": 50.76
+     },
+     {
+      "q10": 49.24,
+      "median": 49.67,
+      "q90": 50.09
+     }
+    ]
+   },
+   {
+    "date": "2026-09-12",
+    "values": [
+     {
+      "q10": 49.95,
+      "median": 50.37,
+      "q90": 50.79
+     },
+     {
+      "q10": 49.21,
+      "median": 49.63,
+      "q90": 50.05
+     }
+    ]
+   },
+   {
+    "date": "2026-09-13",
+    "values": [
+     {
+      "q10": 50.03,
+      "median": 50.43,
+      "q90": 50.87
+     },
+     {
+      "q10": 49.13,
+      "median": 49.57,
+      "q90": 49.97
+     }
+    ]
+   },
+   {
+    "date": "2026-09-14",
+    "values": [
+     {
+      "q10": 50.07,
+      "median": 50.49,
+      "q90": 50.93
+     },
+     {
+      "q10": 49.07,
+      "median": 49.51,
+      "q90": 49.93
+     }
+    ]
+   },
+   {
+    "date": "2026-09-15",
+    "values": [
+     {
+      "q10": 50.12,
+      "median": 50.55,
+      "q90": 50.98
+     },
+     {
+      "q10": 49.02,
+      "median": 49.45,
+      "q90": 49.88
+     }
+    ]
+   },
+   {
+    "date": "2026-09-16",
+    "values": [
+     {
+      "q10": 50.14,
+      "median": 50.58,
+      "q90": 51.01
+     },
+     {
+      "q10": 48.99,
+      "median": 49.42,
+      "q90": 49.86
+     }
+    ]
+   },
+   {
+    "date": "2026-09-17",
+    "values": [
+     {
+      "q10": 50.11,
+      "median": 50.57,
+      "q90": 51.01
+     },
+     {
+      "q10": 48.99,
+      "median": 49.43,
+      "q90": 49.89
+     }
+    ]
+   },
+   {
+    "date": "2026-09-18",
+    "values": [
+     {
+      "q10": 50.12,
+      "median": 50.56,
+      "q90": 50.99
+     },
+     {
+      "q10": 49.01,
+      "median": 49.44,
+      "q90": 49.88
+     }
+    ]
+   },
+   {
+    "date": "2026-09-19",
+    "values": [
+     {
+      "q10": 50.11,
+      "median": 50.54,
+      "q90": 50.98
+     },
+     {
+      "q10": 49.02,
+      "median": 49.46,
+      "q90": 49.89
+     }
+    ]
+   },
+   {
+    "date": "2026-09-20",
+    "values": [
+     {
+      "q10": 50.15,
+      "median": 50.57,
+      "q90": 51.0
+     },
+     {
+      "q10": 49.0,
+      "median": 49.43,
+      "q90": 49.85
+     }
+    ]
+   },
+   {
+    "date": "2026-09-21",
+    "values": [
+     {
+      "q10": 50.19,
+      "median": 50.58,
+      "q90": 50.98
+     },
+     {
+      "q10": 49.02,
+      "median": 49.42,
+      "q90": 49.81
+     }
+    ]
+   },
+   {
+    "date": "2026-09-22",
+    "values": [
+     {
+      "q10": 50.14,
+      "median": 50.55,
+      "q90": 50.97
+     },
+     {
+      "q10": 49.03,
+      "median": 49.45,
+      "q90": 49.86
+     }
+    ]
+   },
+   {
+    "date": "2026-09-24",
+    "values": [
+     {
+      "q10": 50.12,
+      "median": 50.54,
+      "q90": 50.97
+     },
+     {
+      "q10": 49.03,
+      "median": 49.46,
+      "q90": 49.88
+     }
+    ]
+   },
+   {
+    "date": "2026-09-25",
+    "values": [
+     {
+      "q10": 50.11,
+      "median": 50.51,
+      "q90": 50.9
+     },
+     {
+      "q10": 49.1,
+      "median": 49.49,
+      "q90": 49.89
+     }
+    ]
+   },
+   {
+    "date": "2026-09-26",
+    "values": [
+     {
+      "q10": 50.08,
+      "median": 50.47,
+      "q90": 50.84
+     },
+     {
+      "q10": 49.16,
+      "median": 49.53,
+      "q90": 49.92
+     }
+    ]
+   },
+   {
+    "date": "2026-09-27",
+    "values": [
+     {
+      "q10": 50.07,
+      "median": 50.47,
+      "q90": 50.83
+     },
+     {
+      "q10": 49.17,
+      "median": 49.53,
+      "q90": 49.93
+     }
+    ]
+   },
+   {
+    "date": "2026-09-28",
+    "values": [
+     {
+      "q10": 50.08,
+      "median": 50.46,
+      "q90": 50.83
+     },
+     {
+      "q10": 49.17,
+      "median": 49.54,
+      "q90": 49.92
+     }
+    ]
+   },
+   {
+    "date": "2026-09-29",
+    "values": [
+     {
+      "q10": 50.07,
+      "median": 50.45,
+      "q90": 50.79
+     },
+     {
+      "q10": 49.21,
+      "median": 49.55,
+      "q90": 49.93
+     }
+    ]
+   },
+   {
+    "date": "2026-09-30",
+    "values": [
+     {
+      "q10": 50.18,
+      "median": 50.57,
+      "q90": 50.91
+     },
+     {
+      "q10": 49.09,
+      "median": 49.43,
+      "q90": 49.82
+     }
+    ]
+   },
+   {
+    "date": "2026-10-01",
+    "values": [
+     {
+      "q10": 50.33,
+      "median": 50.69,
+      "q90": 51.03
+     },
+     {
+      "q10": 48.97,
+      "median": 49.31,
+      "q90": 49.67
+     }
+    ]
+   },
+   {
+    "date": "2026-10-02",
+    "values": [
+     {
+      "q10": 50.44,
+      "median": 50.82,
+      "q90": 51.22
+     },
+     {
+      "q10": 48.78,
+      "median": 49.18,
+      "q90": 49.56
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 50.54,
+      "median": 50.92,
+      "q90": 51.37
+     },
+     {
+      "q10": 48.63,
+      "median": 49.08,
+      "q90": 49.46
+     }
+    ]
+   },
+   {
+    "date": "2026-10-05",
+    "values": [
+     {
+      "q10": 50.77,
+      "median": 51.21,
+      "q90": 51.73
+     },
+     {
+      "q10": 48.27,
+      "median": 48.79,
+      "q90": 49.23
+     }
+    ]
+   },
+   {
+    "date": "2026-10-06",
+    "values": [
+     {
+      "q10": 50.79,
+      "median": 51.23,
+      "q90": 51.74
+     },
+     {
+      "q10": 48.26,
+      "median": 48.77,
+      "q90": 49.21
+     }
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "values": [
+     {
+      "q10": 50.8,
+      "median": 51.26,
+      "q90": 51.8
+     },
+     {
+      "q10": 48.2,
+      "median": 48.74,
+      "q90": 49.2
+     }
+    ]
+   },
+   {
+    "date": "2026-10-08",
+    "values": [
+     {
+      "q10": 50.75,
+      "median": 51.21,
+      "q90": 51.74
+     },
+     {
+      "q10": 48.26,
+      "median": 48.79,
+      "q90": 49.25
+     }
+    ]
+   },
+   {
+    "date": "2026-10-10",
+    "values": [
+     {
+      "q10": 50.62,
+      "median": 51.04,
+      "q90": 51.45
+     },
+     {
+      "q10": 48.55,
+      "median": 48.96,
+      "q90": 49.38
+     }
+    ]
+   },
+   {
+    "date": "2026-10-11",
+    "values": [
+     {
+      "q10": 50.55,
+      "median": 50.94,
+      "q90": 51.32
+     },
+     {
+      "q10": 48.68,
+      "median": 49.06,
+      "q90": 49.45
+     }
+    ]
+   },
+   {
+    "date": "2026-10-12",
+    "values": [
+     {
+      "q10": 50.5,
+      "median": 50.9,
+      "q90": 51.29
+     },
+     {
+      "q10": 48.71,
+      "median": 49.1,
+      "q90": 49.5
+     }
+    ]
+   },
+   {
+    "date": "2026-10-13",
+    "values": [
+     {
+      "q10": 50.44,
+      "median": 50.85,
+      "q90": 51.24
+     },
+     {
+      "q10": 48.76,
+      "median": 49.15,
+      "q90": 49.56
+     }
+    ]
+   },
+   {
+    "date": "2026-10-14",
+    "values": [
+     {
+      "q10": 50.36,
+      "median": 50.74,
+      "q90": 51.12
+     },
+     {
+      "q10": 48.88,
+      "median": 49.26,
+      "q90": 49.64
+     }
+    ]
+   },
+   {
+    "date": "2026-10-15",
+    "values": [
+     {
+      "q10": 50.29,
+      "median": 50.69,
+      "q90": 51.07
+     },
+     {
+      "q10": 48.93,
+      "median": 49.31,
+      "q90": 49.71
+     }
+    ]
+   },
+   {
+    "date": "2026-10-16",
+    "values": [
+     {
+      "q10": 50.21,
+      "median": 50.65,
+      "q90": 51.11
+     },
+     {
+      "q10": 48.89,
+      "median": 49.35,
+      "q90": 49.79
+     }
+    ]
+   },
+   {
+    "date": "2026-10-17",
+    "values": [
+     {
+      "q10": 50.15,
+      "median": 50.67,
+      "q90": 51.17
+     },
+     {
+      "q10": 48.83,
+      "median": 49.33,
+      "q90": 49.85
+     }
+    ]
+   },
+   {
+    "date": "2026-10-20",
+    "values": [
+     {
+      "q10": 49.94,
+      "median": 50.65,
+      "q90": 51.36
+     },
+     {
+      "q10": 48.64,
+      "median": 49.35,
+      "q90": 50.06
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Flávio Bolsonaro",
+  "rows": [
+   {
+    "pollster": "Gerp",
+    "n_polls": 12,
+    "effect_pp_first_candidate": {
+     "0.1": 2.506,
+     "0.5": 2.977,
+     "0.9": 3.445
+    }
+   },
+   {
+    "pollster": "MDA",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -3.368,
+     "0.5": -2.659,
+     "0.9": -1.946
+    }
+   },
+   {
+    "pollster": "Veritá",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": 1.203,
+     "0.5": 1.652,
+     "0.9": 2.168
+    }
+   },
+   {
+    "pollster": "100% Cidades Participações",
+    "n_polls": 6,
+    "effect_pp_first_candidate": {
+     "0.1": 0.764,
+     "0.5": 1.391,
+     "0.9": 2.023
+    }
+   },
+   {
+    "pollster": "Indexa Pesquisas",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -1.839,
+     "0.5": -1.155,
+     "0.9": -0.453
+    }
+   },
+   {
+    "pollster": "Palver",
+    "n_polls": 7,
+    "effect_pp_first_candidate": {
+     "0.1": 0.509,
+     "0.5": 0.962,
+     "0.9": 1.413
+    }
+   },
+   {
+    "pollster": "Datafolha",
+    "n_polls": 10,
+    "effect_pp_first_candidate": {
+     "0.1": -1.283,
+     "0.5": -0.807,
+     "0.9": -0.319
+    }
+   },
+   {
+    "pollster": "Ideia",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -1.425,
+     "0.5": -0.696,
+     "0.9": 0.024
+    }
+   },
+   {
+    "pollster": "Vox",
+    "n_polls": 7,
+    "effect_pp_first_candidate": {
+     "0.1": -1.287,
+     "0.5": -0.695,
+     "0.9": -0.113
+    }
+   },
+   {
+    "pollster": "Data Index",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -1.569,
+     "0.5": -0.63,
+     "0.9": 0.315
+    }
+   },
+   {
+    "pollster": "Alfa/TMC",
+    "n_polls": 3,
+    "effect_pp_first_candidate": {
+     "0.1": -1.398,
+     "0.5": -0.584,
+     "0.9": 0.212
+    }
+   },
+   {
+    "pollster": "Ipespe",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -0.483,
+     "0.5": 0.533,
+     "0.9": 1.548
+    }
+   },
+   {
+    "pollster": "DataTrends",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -0.193,
+     "0.5": 0.522,
+     "0.9": 1.252
+    }
+   },
+   {
+    "pollster": "IFP",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -1.678,
+     "0.5": -0.513,
+     "0.9": 0.65
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 11,
+    "effect_pp_first_candidate": {
+     "0.1": -0.933,
+     "0.5": -0.437,
+     "0.9": 0.054
+    }
+   },
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 10,
+    "effect_pp_first_candidate": {
+     "0.1": -0.816,
+     "0.5": -0.433,
+     "0.9": -0.045
+    }
+   },
+   {
+    "pollster": "American Analytics",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -1.313,
+     "0.5": -0.349,
+     "0.9": 0.632
+    }
+   },
+   {
+    "pollster": "Futura",
+    "n_polls": 7,
+    "effect_pp_first_candidate": {
+     "0.1": -0.239,
+     "0.5": 0.346,
+     "0.9": 0.918
+    }
+   },
+   {
+    "pollster": "PoderData",
+    "n_polls": 13,
+    "effect_pp_first_candidate": {
+     "0.1": -0.079,
+     "0.5": 0.333,
+     "0.9": 0.748
+    }
+   },
+   {
+    "pollster": "Atlas",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.645,
+     "0.5": 0.296,
+     "0.9": 1.239
+    }
+   },
+   {
+    "pollster": "Nexus",
+    "n_polls": 16,
+    "effect_pp_first_candidate": {
+     "0.1": -0.627,
+     "0.5": -0.199,
+     "0.9": 0.217
+    }
+   },
+   {
+    "pollster": "Nexus/BTG Pactual",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -0.761,
+     "0.5": 0.171,
+     "0.9": 1.128
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -0.726,
+     "0.5": -0.05,
+     "0.9": 0.639
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.005,
+   "0.5": 0.008,
+   "0.95": 0.013
+  },
+  "tau": {
+   "0.05": 0.009,
+   "0.5": 0.021,
+   "0.95": 0.03
+  },
+  "sigma_h": {
+   "0.05": 0.038,
+   "0.5": 0.051,
+   "0.95": 0.071
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Flávio Bolsonaro",
+    "mean": 50.64,
+    "sd": 4.956,
+    "quantiles": {
+     "0.025": 40.725,
+     "0.05": 42.543,
+     "0.1": 44.528,
+     "0.25": 47.503,
+     "0.5": 50.622,
+     "0.75": 53.763,
+     "0.9": 56.798,
+     "0.95": 58.742,
+     "0.975": 60.513
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 21.0,
+     "counts": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      2,
+      1,
+      5,
+      2,
+      1,
+      8,
+      4,
+      2,
+      6,
+      6,
+      14,
+      7,
+      21,
+      24,
+      21,
+      33,
+      36,
+      51,
+      45,
+      66,
+      67,
+      118,
+      125,
+      156,
+      180,
+      209,
+      282,
+      349,
+      434,
+      484,
+      601,
+      723,
+      821,
+      949,
+      1110,
+      1363,
+      1573,
+      1816,
+      2088,
+      2351,
+      2575,
+      3004,
+      3238,
+      3439,
+      3671,
+      3989,
+      4183,
+      4253,
+      4446,
+      4279,
+      4246,
+      4208,
+      4060,
+      3772,
+      3685,
+      3306,
+      3096,
+      2721,
+      2442,
+      2204,
+      1978,
+      1742,
+      1464,
+      1306,
+      1073,
+      963,
+      813,
+      644,
+      526,
+      458,
+      392,
+      300,
+      261,
+      212,
+      138,
+      154,
+      116,
+      85,
+      63,
+      58,
+      54,
+      37,
+      24,
+      35,
+      16,
+      21,
+      14,
+      19,
+      9,
+      7,
+      11,
+      5,
+      3,
+      9,
+      2,
+      0,
+      1,
+      3,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      2
+     ]
+    }
+   },
+   {
+    "label": "Lula",
+    "mean": 49.36,
+    "sd": 4.956,
+    "quantiles": {
+     "0.025": 39.487,
+     "0.05": 41.258,
+     "0.1": 43.202,
+     "0.25": 46.237,
+     "0.5": 49.378,
+     "0.75": 52.497,
+     "0.9": 55.472,
+     "0.95": 57.457,
+     "0.975": 59.275
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 21.5,
+     "counts": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      3,
+      1,
+      0,
+      2,
+      9,
+      3,
+      5,
+      11,
+      7,
+      9,
+      19,
+      14,
+      21,
+      16,
+      35,
+      24,
+      37,
+      54,
+      58,
+      63,
+      85,
+      116,
+      154,
+      138,
+      212,
+      261,
+      300,
+      392,
+      458,
+      526,
+      644,
+      813,
+      963,
+      1073,
+      1306,
+      1464,
+      1742,
+      1978,
+      2204,
+      2442,
+      2721,
+      3096,
+      3306,
+      3685,
+      3772,
+      4060,
+      4208,
+      4246,
+      4279,
+      4446,
+      4253,
+      4183,
+      3989,
+      3671,
+      3439,
+      3238,
+      3004,
+      2575,
+      2351,
+      2088,
+      1816,
+      1573,
+      1363,
+      1110,
+      949,
+      821,
+      723,
+      601,
+      484,
+      434,
+      349,
+      282,
+      209,
+      180,
+      156,
+      125,
+      118,
+      67,
+      66,
+      45,
+      51,
+      36,
+      33,
+      21,
+      24,
+      21,
+      7,
+      14,
+      6,
+      6,
+      2,
+      4,
+      8,
+      1,
+      2,
+      5,
+      1,
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.08862,
+  "sys_structure": "mult",
+  "covariates_std": [
+   2.6651,
+   -1.6984
+  ],
+  "nu": 10.0,
+  "category": "presidente_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.0126,
+   "drift": 0.01,
+   "systematic": 0.9775
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.5549,
+   0.4451
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "trend_model": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "series_from": "2026-10-01",
+  "series_to": "2026-10-18",
+  "points": 7,
+  "average_now_pct": [
+   50.9,
+   49.1
+  ],
+  "trend_pp_per_week": [
+   0.2666,
+   -0.2666
+  ],
+  "point_election_pct": [
+   50.9,
+   49.1
+  ],
+  "sys_scale_alr": 0.1661,
+  "summary": [
+   {
+    "label": "Flávio Bolsonaro",
+    "mean": 50.8506,
+    "sd": 8.9147,
+    "quantiles": {
+     "0.025": 33.0791,
+     "0.05": 36.1614,
+     "0.1": 39.6079,
+     "0.25": 45.0817,
+     "0.5": 50.8916,
+     "0.75": 56.6248,
+     "0.9": 62.061,
+     "0.95": 65.4544,
+     "0.975": 68.4718
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 9.0,
+     "counts": [
+      1,
+      0,
+      2,
+      1,
+      1,
+      0,
+      1,
+      1,
+      2,
+      6,
+      2,
+      2,
+      5,
+      4,
+      2,
+      4,
+      11,
+      6,
+      9,
+      10,
+      8,
+      11,
+      18,
+      19,
+      21,
+      18,
+      20,
+      24,
+      26,
+      32,
+      25,
+      35,
+      47,
+      41,
+      69,
+      73,
+      83,
+      91,
+      92,
+      103,
+      123,
+      134,
+      157,
+      172,
+      199,
+      206,
+      246,
+      287,
+      272,
+      342,
+      365,
+      456,
+      462,
+      470,
+      555,
+      561,
+      666,
+      726,
+      738,
+      805,
+      923,
+      963,
+      1041,
+      1121,
+      1176,
+      1263,
+      1366,
+      1445,
+      1550,
+      1621,
+      1586,
+      1781,
+      1821,
+      1922,
+      1945,
+      2081,
+      2081,
+      2250,
+      2192,
+      2207,
+      2312,
+      2312,
+      2354,
+      2365,
+      2382,
+      2324,
+      2282,
+      2266,
+      2230,
+      2217,
+      2213,
+      2136,
+      2057,
+      1990,
+      1879,
+      1843,
+      1780,
+      1587,
+      1485,
+      1470,
+      1374,
+      1353,
+      1260,
+      1157,
+      1081,
+      960,
+      927,
+      932,
+      770,
+      751,
+      671,
+      584,
+      535,
+      525,
+      461,
+      439,
+      407,
+      342,
+      295,
+      279,
+      249,
+      214,
+      194,
+      172,
+      173,
+      154,
+      127,
+      120,
+      106,
+      103,
+      82,
+      63,
+      56,
+      49,
+      50,
+      46,
+      27,
+      30,
+      19,
+      27,
+      24,
+      17,
+      12,
+      9,
+      13,
+      7,
+      4,
+      13,
+      9,
+      10,
+      5,
+      7,
+      2,
+      3,
+      3,
+      2,
+      3,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Lula",
+    "mean": 49.1494,
+    "sd": 8.9147,
+    "quantiles": {
+     "0.025": 31.5282,
+     "0.05": 34.5456,
+     "0.1": 37.939,
+     "0.25": 43.3752,
+     "0.5": 49.1084,
+     "0.75": 54.9183,
+     "0.9": 60.3921,
+     "0.95": 63.8386,
+     "0.975": 66.9209
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 6.5,
+     "counts": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      3,
+      2,
+      3,
+      3,
+      2,
+      7,
+      5,
+      10,
+      9,
+      13,
+      4,
+      7,
+      13,
+      9,
+      12,
+      17,
+      24,
+      27,
+      19,
+      30,
+      27,
+      46,
+      50,
+      49,
+      56,
+      63,
+      82,
+      103,
+      106,
+      120,
+      127,
+      154,
+      173,
+      172,
+      194,
+      214,
+      249,
+      279,
+      295,
+      342,
+      407,
+      439,
+      461,
+      525,
+      535,
+      584,
+      671,
+      751,
+      770,
+      932,
+      927,
+      960,
+      1081,
+      1157,
+      1260,
+      1353,
+      1374,
+      1470,
+      1485,
+      1587,
+      1780,
+      1843,
+      1879,
+      1990,
+      2057,
+      2136,
+      2213,
+      2217,
+      2230,
+      2266,
+      2282,
+      2324,
+      2382,
+      2365,
+      2354,
+      2312,
+      2312,
+      2207,
+      2192,
+      2250,
+      2081,
+      2081,
+      1945,
+      1922,
+      1821,
+      1781,
+      1586,
+      1621,
+      1550,
+      1445,
+      1366,
+      1263,
+      1176,
+      1121,
+      1041,
+      963,
+      923,
+      805,
+      738,
+      726,
+      666,
+      561,
+      555,
+      470,
+      462,
+      456,
+      365,
+      342,
+      272,
+      287,
+      246,
+      206,
+      199,
+      172,
+      157,
+      134,
+      123,
+      103,
+      92,
+      91,
+      83,
+      73,
+      69,
+      41,
+      47,
+      35,
+      25,
+      32,
+      26,
+      24,
+      20,
+      18,
+      21,
+      19,
+      18,
+      11,
+      8,
+      10,
+      9,
+      6,
+      11,
+      4,
+      2,
+      4,
+      5,
+      2,
+      2,
+      6,
+      2,
+      1,
+      1,
+      0,
+      1,
+      1,
+      2,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "probabilities": {
+   "first": [
+    0.5417,
+    0.4583
+   ],
+   "top2": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "headline_method": "modelo",
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria presidente_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "7a13c390d72dace15c6dfa2877604c1833082423fc8027f898bbebe458aef98e",
+ "run": {
+  "executed_at": "2026-10-20T02:08:06+00:00"
+ }
+}

@@ -749,7 +749,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_f203af681286 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_2b8785167d22 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Samara Martins"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_9aab4203344c · results: null × ["Flávio Bolsonaro"]
-- survey_id_orphaned · s_6e6244aaac3f · survey_id: "s_6e6244aaac3f" × null
 - **[2026]** survey_id_orphaned · s_9e6172f00e87 · survey_id: "s_9e6172f00e87" × null
 - segundo_turno_fragmento_descartado · q_993c5845051c · results: null × ["Jerônimo Rodrigues"]
 - segundo_turno_fragmento_descartado · q_ad202740d448 · results: null × ["Jerônimo Rodrigues"]
@@ -760,6 +759,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_29b4dd87f0b1 · results: ["Anna Karina","Capitão Wagner","Cândido Albuquerque","Eunício Oliveira","General Theóphilo","Júnior Mano","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Eunício Oliveira","Júnior Mano","Luizianne Lins","Priscila Costa"]
 - roster_encolhido_na_fonte · q_5c5a26cbcebb · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
 - roster_encolhido_na_fonte · q_cbafbdab427c · results: ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","General Theóphilo","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","Luizianne Lins","Priscila Costa"]
+- person_id_orphaned · p_b84e0335ced0 · person_id: "p_b84e0335ced0" × null
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 98
 - disputa_em_quarentena · presidente:BR · quarentena: 1775 × 1775

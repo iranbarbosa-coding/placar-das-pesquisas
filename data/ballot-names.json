@@ -3,8 +3,8 @@
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
   "exato": 721,
-  "contencao": 227,
-  "outra_disputa": 162,
+  "contencao": 228,
+  "outra_disputa": 163,
   "ambiguo": 5,
   "sem": 564
  },
@@ -3901,6 +3901,13 @@
     "numero": "16",
     "origem": "exato"
    },
+   "flavio bolsonaro": {
+    "nome_urna": "Flávio Bolsonaro",
+    "sq_candidato": "280002551544",
+    "partido": "PL",
+    "numero": "22",
+    "origem": "outra-disputa"
+   },
    "godeiro linhares": {
     "nome_urna": "Godeiro Linharess",
     "sq_candidato": "200002554482",
@@ -3914,6 +3921,13 @@
     "partido": "PCO",
     "numero": "29",
     "origem": "exato"
+   },
+   "lula": {
+    "nome_urna": "Cadu de Lula",
+    "sq_candidato": "200002534001",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "contencao"
    },
    "roberio paulino": {
     "nome_urna": "Professor Roberio Paulino",
