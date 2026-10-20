@@ -1,59 +1,26 @@
 {
- "generated_at": "2026-10-20T01:46:53.175Z",
+ "generated_at": "2026-10-20T15:38:42.989Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-20T01:46:53.175Z"
+   "last_ok": "2026-10-20T15:38:42.989Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-20T01:46:53.175Z"
+   "last_ok": "2026-10-20T15:38:42.989Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-20T01:46:53.175Z"
+   "last_ok": "2026-10-20T15:38:42.989Z"
   }
  ],
  "polls": [
   {
-   "id": "17b6d129b1c9",
-   "source": null,
-   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Flávio Bolsonaro",
-   "pollster": "Atlas",
-   "contractor": null,
-   "fieldwork_start": "2026-10-13",
-   "fieldwork_end": "2026-10-18",
-   "published_date": null,
-   "sample_size": 4998,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47.6
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 49.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 2.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "cc87d719018b",
+   "id": "c8d006faee78",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
    "integra_url": null,
@@ -61,46 +28,46 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-10-13",
-   "fieldwork_end": "2026-10-18",
-   "published_date": null,
-   "sample_size": 4998,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 47.7
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 49.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 2.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d953ad5e8fb8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Nexus",
+   "pollster": "IFP",
    "contractor": null,
    "fieldwork_start": "2026-10-16",
-   "fieldwork_end": "2026-10-18",
+   "fieldwork_end": "2026-10-20",
    "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2,
+   "sample_size": 3000,
+   "margin_of_error": 1.8,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39.65
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 40.95
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 19.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2baac877613f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Alfa/TMC",
+   "contractor": null,
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-19",
+   "published_date": null,
+   "sample_size": 2700,
+   "margin_of_error": 1.9,
    "results": [
     {
      "candidate": "Lula",
@@ -110,16 +77,16 @@
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 46.5
+     "pct": 48.8
     }
    ],
    "others_pct": null,
-   "undecided_pct": 7.6,
+   "undecided_pct": 5.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
   {
-   "id": "21d40502cf3d",
+   "id": "824f039e79ba",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
    "integra_url": null,
@@ -127,11 +94,209 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Vox",
+   "pollster": "Veritá",
    "contractor": null,
    "fieldwork_start": "2026-10-15",
-   "fieldwork_end": "2026-10-17",
+   "fieldwork_end": "2026-10-19",
    "published_date": null,
+   "sample_size": 15554,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.16
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47.03
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ddc381a1443f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-19",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "p360-14479-2-0-8f22d3847ef3",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-478-de-rejeicao-contra-468-de-flavio-diz-btg-nexus/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-presidencial-BTG-Nexus-19out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Nexus",
+   "contractor": "Banco BTG Pactual",
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-18",
+   "published_date": "2026-10-18",
+   "sample_size": 2002,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46.5
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.6,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04499/2026"
+  },
+  {
+   "id": "p360-14480-2-0-332e683942b6",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-reage-e-vai-a-52-contra-48-de-lula-diz-poderdata-aya/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-18out26.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "PoderData",
+   "contractor": "PoderData",
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-18",
+   "published_date": "2026-10-18",
+   "sample_size": 3000,
+   "margin_of_error": 1.8,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 4,
+   "tse_registration": "BR-02586/2026"
+  },
+  {
+   "id": "p360-14481-2-0-2ce9303abf86",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-511-dos-votos-validos-contra-489-de-lula-diz-atlasintel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-presidencial-AtlasIntel-Bloomberg-19out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "AtlasIntel",
+   "contractor": "Bloomberg",
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-18",
+   "published_date": "2026-10-18",
+   "sample_size": 4998,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49.8
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": "BR-02418/2026"
+  },
+  {
+   "id": "p360-14478-2-0-09acd336f38c",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-504-dos-votos-validos-contra-496-de-lula-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-futura-eleicao-presidencial-19out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Futura",
+   "contractor": "100% Cidades",
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-17",
+   "published_date": "2026-10-17",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48.3
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1.9,
+   "blank_null_pct": 2.4,
+   "tse_registration": "BR-06715/2026"
+  },
+  {
+   "id": "p360-14482-2-0-4994d540953f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-51-contra-49-de-flavio-em-votos-validos-diz-vox/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaVOX-nacional-18.out_.2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Vox",
+   "contractor": "Vox Brasil",
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-17",
+   "published_date": "2026-10-17",
    "sample_size": 2100,
    "margin_of_error": 2.15,
    "results": [
@@ -147,75 +312,42 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 8.9,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 3.9,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-04332/2026"
   },
   {
-   "id": "2ac08be37bee",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14483-2-0-b629eee6ba9c",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaDataTrends-nacional-19out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaDataTrends-nacional-19out2026.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "DataTrends",
-   "contractor": null,
+   "contractor": "DataTrends",
    "fieldwork_start": "2026-10-15",
    "fieldwork_end": "2026-10-17",
-   "published_date": null,
+   "published_date": "2026-10-17",
    "sample_size": 2000,
    "margin_of_error": 2.19,
    "results": [
     {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48.5
-    },
-    {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 51.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "6e1a2ca4729c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-10-16",
-   "fieldwork_end": "2026-10-17",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
+     "pct": 49
+    },
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 49.6
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 50.4
+     "pct": 46
     }
    ],
    "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 1,
+   "blank_null_pct": 4,
+   "tse_registration": "BR-04454/2026"
   },
   {
    "id": "p360-14486-2-0-19b80ddeb397",
@@ -251,7 +383,7 @@
    "tse_registration": "TO-09349/2026"
   },
   {
-   "id": "26110a7532a3",
+   "id": "9885c440f4a3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
    "integra_url": null,
@@ -259,62 +391,62 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Gerp",
+   "pollster": "Ranking",
    "contractor": null,
    "fieldwork_start": "2026-10-14",
    "fieldwork_end": "2026-10-16",
    "published_date": null,
-   "sample_size": 2400,
-   "margin_of_error": 2,
+   "sample_size": 2100,
+   "margin_of_error": 2.15,
    "results": [
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 45
+     "pct": 50.4
     },
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 50
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d2dc96eca5e0",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-10-12",
-   "fieldwork_end": "2026-10-16",
-   "published_date": null,
-   "sample_size": 15554,
-   "margin_of_error": 1,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48.9
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 51.1
+     "pct": 49.6
     }
    ],
    "others_pct": null,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "p360-14472-2-0-167e0b21377d",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-52-e-lula-48-dos-votos-validos-no-2o-turno-diz-gerp/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaGerp-presidente-16out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Gerp",
+   "contractor": "Gerp",
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-16",
+   "published_date": "2026-10-16",
+   "sample_size": 2400,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3,
+   "blank_null_pct": 2,
+   "tse_registration": "BR-05187/2026"
   },
   {
    "id": "120ac3282b25",
@@ -346,39 +478,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 7.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "af9e99f57269",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Ipespe",
-   "contractor": null,
-   "fieldwork_start": "2026-10-13",
-   "fieldwork_end": "2026-10-15",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 46
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 48
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -447,6 +546,39 @@
    "undecided_pct": 3.6,
    "blank_null_pct": null,
    "tse_registration": "BR-03764/2026"
+  },
+  {
+   "id": "p360-14484-2-0-8d0a24fffcfb",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-512-contra-488-de-lula-diz-ipespe-abrapel/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-ipespe-17out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Ipespe",
+   "contractor": "Ipespe",
+   "fieldwork_start": "2026-10-13",
+   "fieldwork_end": "2026-10-15",
+   "published_date": "2026-10-15",
+   "sample_size": 1500,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": "BR-00223/2026"
   },
   {
    "id": "p360-14453-2-0-a91fb5936877",
@@ -1853,6 +1985,39 @@
    "tse_registration": null
   },
   {
+   "id": "307c8a7f5675",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Roberto Rocha",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 68
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 10
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "MA-00831/2026"
+  },
+  {
    "id": "3819d184fa76",
    "source": null,
    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
@@ -2058,6 +2223,39 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "5377e07ae90d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Felipe Camarão",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 64
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "MA-00831/2026"
   },
   {
    "id": "6310edc7a2a3",
@@ -3608,7 +3806,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Mirante",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -3671,7 +3869,7 @@
    "scenario": "2º turno: Eduardo Braide vs Orleans Brandão",
    "pollster": "Quaest",
    "contractor": "TV Mirante",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -3823,7 +4021,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Mirante",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -28325,14 +28523,14 @@
      "pct": 15
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 10
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 12
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 10
     },
     {
      "candidate": "Eliziane Gama",
@@ -30705,6 +30903,39 @@
    "undecided_pct": 11.1,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "ced3a116c28b",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Orleans Brandão vs Felipe Camarão",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 47
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": "MA-07074/2026"
   },
   {
    "id": "d21500ce483f",
@@ -38654,14 +38885,14 @@
      "pct": 18.45
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 12.95
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 11.55
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 12.95
     },
     {
      "candidate": "Eliziane Gama",
@@ -40214,14 +40445,14 @@
      "pct": 16.2
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 9.8
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 11.7
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 9.8
     },
     {
      "candidate": "Eliziane Gama",
@@ -45708,14 +45939,14 @@
      "pct": 18.2
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 13.2
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 12.3
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 13.2
     },
     {
      "candidate": "Eliziane Gama",
@@ -50204,7 +50435,7 @@
    "fieldwork_end": "2026-09-15",
    "published_date": null,
    "sample_size": 1000,
-   "margin_of_error": null,
+   "margin_of_error": 3.1,
    "results": [
     {
      "candidate": "Roseana Sarney",
@@ -50217,14 +50448,14 @@
      "pct": 24.5
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 19.5
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 22.8
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 19.5
     },
     {
      "candidate": "Eliziane Gama",
@@ -51403,14 +51634,14 @@
      "pct": 25.3
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 19.8
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 18.7
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 19.8
     },
     {
      "candidate": "Eliziane Gama",
@@ -56283,14 +56514,14 @@
      "pct": 16.4
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 12.3
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 11.3
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 12.3
     },
     {
      "candidate": "Eliziane Gama",
@@ -72634,14 +72865,14 @@
      "pct": 20.3
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 21.8
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 19.1
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 21.8
     },
     {
      "candidate": "Eliziane Gama",
@@ -75474,14 +75705,14 @@
      "pct": 19
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 6.9
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 30.2
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 6.9
     },
     {
      "candidate": "Eliziane Gama",
@@ -85960,14 +86191,14 @@
      "pct": 10.9
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 13.7
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 14.2
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 13.7
     },
     {
      "candidate": "Eliziane Gama",
@@ -95063,14 +95294,14 @@
      "pct": 19.17
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 16.24
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 19.1
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 16.24
     },
     {
      "candidate": "Eliziane Gama",
@@ -101589,14 +101820,14 @@
      "pct": 7.2
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 15.2
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 9.7
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 15.2
     },
     {
      "candidate": "Eliziane Gama",
@@ -102732,14 +102963,14 @@
      "pct": 23.1
     },
     {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 23.5
-    },
-    {
      "candidate": "Lahesio Bonfim",
      "party": "Novo",
      "pct": 22.5
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 23.5
     },
     {
      "candidate": "Eliziane Gama",
@@ -109905,6 +110136,39 @@
    "tse_registration": "PB-09547/2026"
   },
   {
+   "id": "3ea919bdc451",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Veritá",
+   "contractor": null,
+   "fieldwork_start": "2026-07-25",
+   "fieldwork_end": "2026-07-29",
+   "published_date": null,
+   "sample_size": 1525,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 68.1
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 20.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4e1d7d166f73",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -110202,39 +110466,6 @@
    ],
    "others_pct": 6.2,
    "undecided_pct": 25.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e7fc344cd4bf",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Orleans Brandão",
-   "pollster": "Veritá",
-   "contractor": null,
-   "fieldwork_start": "2026-07-25",
-   "fieldwork_end": "2026-07-29",
-   "published_date": null,
-   "sample_size": 1525,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 68.1
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 20.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -119745,39 +119976,6 @@
    "tse_registration": "BR-00636/2026"
   },
   {
-   "id": "750dd65408a6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Orleans Brandão",
-   "pollster": "Véritas",
-   "contractor": null,
-   "fieldwork_start": "2026-07-17",
-   "fieldwork_end": "2026-07-21",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 2.09,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 44
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 51.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "8af4aabe7d4f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/flavio-tem-49-e-lula-43-no-2o-turno-no-es-diz-pesquisa",
@@ -119930,6 +120128,39 @@
    "undecided_pct": 52,
    "blank_null_pct": null,
    "tse_registration": "MT-04879/2026"
+  },
+  {
+   "id": "b4cebd6cd10d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Véritas",
+   "contractor": null,
+   "fieldwork_start": "2026-07-17",
+   "fieldwork_end": "2026-07-21",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 2.09,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 51.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.8,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-13599-1-0-3f0c5f413d2a",
@@ -154908,47 +155139,14 @@
    "tse_registration": "BR-00290/2026"
   },
   {
-   "id": "142de26d2c7c",
+   "id": "09b32f5e5107",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
    "integra_url": null,
    "race": "governador",
    "state": "MA",
    "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Felipe Camarão",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-05-08",
-   "fieldwork_end": "2026-05-13",
-   "published_date": null,
-   "sample_size": 1180,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 58.5
-    },
-    {
-     "candidate": "Felipe Camarão",
-     "party": "PT",
-     "pct": 23.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "7f955e204cdf",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Lahesio Bonfim",
+   "scenario": "2º turno: Eduardo Braide vs Lahesio Bonfim",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-05-08",
@@ -154974,14 +155172,14 @@
    "tse_registration": null
   },
   {
-   "id": "bfc3c1257652",
+   "id": "74e550922ffd",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
    "integra_url": null,
    "race": "governador",
    "state": "MA",
    "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Orleans Brandão",
+   "scenario": "2º turno: Eduardo Braide vs Orleans Brandão",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-05-08",
@@ -155114,6 +155312,39 @@
    ],
    "others_pct": 1.4,
    "undecided_pct": 2.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e5b21ff52d75",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Felipe Camarão",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-05-08",
+   "fieldwork_end": "2026-05-13",
+   "published_date": null,
+   "sample_size": 1180,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 58.5
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 23.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -181722,14 +181953,14 @@
    "tse_registration": null
   },
   {
-   "id": "75c4707b98f1",
+   "id": "4a33a02e90e1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
    "integra_url": null,
    "race": "governador",
    "state": "MA",
    "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Orleans Brandão",
+   "scenario": "2º turno: Eduardo Braide vs Orleans Brandão",
    "pollster": "Quaest",
    "contractor": null,
    "fieldwork_start": "2026-03-12",
@@ -184084,47 +184315,14 @@
    "tse_registration": null
   },
   {
-   "id": "6733d391c72c",
+   "id": "8cb294fc1231",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
    "integra_url": null,
    "race": "governador",
    "state": "MA",
    "round": 2,
-   "scenario": "2º turno: Eduardo Braide e Orleans Brandão",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-03-05",
-   "fieldwork_end": "2026-03-08",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 47.3
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 39.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fd1049a6e2e6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Lahesio Bonfim",
+   "scenario": "2º turno: Eduardo Braide vs Lahesio Bonfim",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-03-05",
@@ -184146,6 +184344,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 15.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "dba1de91c4b9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Orleans Brandão",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-03-05",
+   "fieldwork_end": "2026-03-08",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 47.3
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 39.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
