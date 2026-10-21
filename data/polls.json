@@ -1,26 +1,26 @@
 {
- "generated_at": "2026-10-21T15:56:12.336Z",
+ "generated_at": "2026-10-21T22:18:12.147Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-21T15:56:12.336Z"
+   "last_ok": "2026-10-21T22:18:12.147Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-21T15:56:12.336Z"
+   "last_ok": "2026-10-21T22:18:12.147Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-21T15:56:12.336Z"
+   "last_ok": "2026-10-21T22:18:12.147Z"
   }
  ],
  "polls": [
   {
-   "id": "a2a4861d7337",
+   "id": "a8e2dca8a544",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
    "integra_url": null,
@@ -28,51 +28,18 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Quaest",
+   "pollster": "Gerp",
    "contractor": null,
    "fieldwork_start": "2026-10-17",
    "fieldwork_end": "2026-10-20",
    "published_date": null,
-   "sample_size": 2154,
-   "margin_of_error": 2,
+   "sample_size": 2400,
+   "margin_of_error": 2.04,
    "results": [
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 44
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
      "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c9738fe6ca6a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Palver",
-   "contractor": null,
-   "fieldwork_start": "2026-10-18",
-   "fieldwork_end": "2026-10-20",
-   "published_date": null,
-   "sample_size": 5000,
-   "margin_of_error": 2.4,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
     },
     {
      "candidate": "Flávio Bolsonaro",
@@ -81,7 +48,7 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 2,
+   "undecided_pct": 4,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -119,37 +86,103 @@
    "tse_registration": "BR-07896/2026"
   },
   {
-   "id": "0e212153717b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14505-2-0-d81ac67adc85",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-44-de-lula-no-2o-turno-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaQuaest-2oturno-presidente-21out2026.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Ideia",
-   "contractor": null,
-   "fieldwork_start": "2026-10-15",
-   "fieldwork_end": "2026-10-19",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-10-17",
+   "fieldwork_end": "2026-10-20",
+   "published_date": "2026-10-20",
+   "sample_size": 2154,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
+   "blank_null_pct": 9,
+   "tse_registration": "BR-08535/2026"
+  },
+  {
+   "id": "p360-14506-2-0-23b52c534f49",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/flavio-tem-511-dos-votos-validos-contra-489-de-lula-diz-futura/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaFutura-presidente-21out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "100% Cidades Participações",
+   "contractor": "Futura Inteligência",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-20",
+   "published_date": "2026-10-20",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48.9
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.3,
+   "blank_null_pct": 2,
+   "tse_registration": "BR-06614/2026"
+  },
+  {
+   "id": "p360-14507-2-0-930e2bc3f09f",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaPalver-presidente-21out2026_compressed-compactado.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaPalver-presidente-21out2026_compressed-compactado.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Palver",
+   "contractor": "Palver",
+   "fieldwork_start": "2026-10-18",
+   "fieldwork_end": "2026-10-20",
+   "published_date": "2026-10-20",
+   "sample_size": 5000,
+   "margin_of_error": 2.4,
    "results": [
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 46
+     "pct": 48
     },
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 48
+     "pct": 50
     }
    ],
    "others_pct": null,
-   "undecided_pct": 6,
+   "undecided_pct": 2,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-04612/2026"
   },
   {
    "id": "824f039e79ba",
@@ -414,6 +447,72 @@
    "undecided_pct": 5.3,
    "blank_null_pct": null,
    "tse_registration": "BR-00820/2026"
+  },
+  {
+   "id": "p360-14503-2-0-b115443a7050",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/pazolini-tem-568-e-ferraco-432-no-2o-turno-no-es-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/ParanaPesquisa-governador-ES-20out2026.pdf",
+   "race": "governador",
+   "state": "ES",
+   "round": 2,
+   "scenario": "2º turno: Lorenzo Pazolini vs Ricardo Ferraço",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1300,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Lorenzo Pazolini",
+     "party": "Republicanos",
+     "pct": 52.4
+    },
+    {
+     "candidate": "Ricardo Ferraço",
+     "party": "MDB",
+     "pct": 39.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.4,
+   "blank_null_pct": 4.4,
+   "tse_registration": "ES-01531/2026"
+  },
+  {
+   "id": "p360-14504-2-0-3b2197001dda",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-511-e-lula-489-dos-votos-validos-diz-meio-ideia/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Meio_Ideia-Outubro-Imprensa.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Ideia",
+   "contractor": "Canal Meio",
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 48
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": 3.4,
+   "tse_registration": "BR-08251/2026"
   },
   {
    "id": "p360-14479-2-0-8f22d3847ef3",
