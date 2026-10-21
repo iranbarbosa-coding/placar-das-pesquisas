@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1878 levantamentos · 6022 perguntas · 164 institutos · 1445 candidatos**.
+Banco: **1887 levantamentos · 6028 perguntas · 164 institutos · 1445 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -10,24 +10,25 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 
 | classe | itens | de 2026 |
 |---|---|---|
-| **SOMA** — Elenco de vaga única somando mais de 100 | 0 | 0 |
+| **SOMA** — Elenco de vaga única somando mais de 100 | 1 | 1 |
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 53 | 39 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 413 | 13 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 419 | 13 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **479** | **55** |
+| **total** | **486** | **56** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
 
-## SOMA — Elenco de vaga única somando mais de 100 (0)
+## SOMA — Elenco de vaga única somando mais de 100 (1)
 
 Cada eleitor tem um voto: as linhas de candidato não podem passar de 100. A folga é derivada das próprias casas decimais da fonte (0,5 por inteiro, 0,05 por décimo). O que aparecer aqui é arredondamento da fonte ou linha a mais no elenco — o segundo caso é defeito nosso.
 
-*Nada a reportar.*
+- **[2026]** 100.2 (folga 0.10) · Verita · AP governador/t1 · 2026-05-31 · 72d253a0383b
+  Antônio Furlan 70.7 · Clécio Luís 29.5
 
 ## PESSOA — Candidatos que podem não ser pessoas (0)
 
@@ -45,7 +46,7 @@ Referência quebrada entre questions e candidates. Sempre defeito nosso, nunca d
 
 Sem data de campo nem de publicação, a pesquisa não entra em média nem em série temporal: está no banco e é invisível. Ou se acha a data na fonte, ou se descarta.
 
-- s_03d648ecabe0 · DataPop · GO · registro —
+- s_03d648ecabe0 · Datapop · GO · registro —
 - s_4b18e5197551 · Opinar · PI · registro PI-02052/2026
 - s_5d46b3d90939 · Real Time Big Data · AC · registro —
 - s_6731840ddf13 · Paraná Pesquisas · PE · registro —
@@ -99,10 +100,10 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_4ab31bf55ba3: Lula 49.3 · Flávio Bolsonaro 36.8
   s_4ab31bf55ba3: Lula 48.8 · Romeu Zema 31.6
   s_4ab31bf55ba3: Luiz Inácio Lula da Silva 48.4 · Ronaldo Caiado 32.2
-- **[2026]** cenários separados — Veritá · PA governador/t1 · 2026-03-30 — 2 levantamentos
+- **[2026]** cenários separados — Verita · PA governador/t1 · 2026-03-30 — 2 levantamentos
   s_1528eaac66a9: Daniel Santos 18.7 · Hana Ghassan 12.7
   s_6aa0e4061efa: Daniel Santos 43.4 · Hana Ghassan 25.5 · Mário Couto 17.4
-- **[2026]** cenários separados — Veritá · PA senador/t1 · 2026-03-30 — 2 levantamentos
+- **[2026]** cenários separados — Verita · PA senador/t1 · 2026-03-30 — 2 levantamentos
   s_1528eaac66a9: Helder Barbalho 28.4 · Éder Mauro 40.6
   s_6aa0e4061efa: Helder Barbalho 31.6 · Paulo Rocha 8.2
 - **[2026]** cenários separados — Real Time Big Data · PE senador/t1 · 2026-02-10 — 2 levantamentos
@@ -342,7 +343,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (413)
+## CONFLITO — Conflitos registrados aguardando decisão (419)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -756,8 +757,14 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_29b4dd87f0b1 · results: ["Anna Karina","Capitão Wagner","Cândido Albuquerque","Eunício Oliveira","General Theóphilo","Júnior Mano","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Eunício Oliveira","Júnior Mano","Luizianne Lins","Priscila Costa"]
 - roster_encolhido_na_fonte · q_5c5a26cbcebb · results: ["Alcides Fernandes","Capitão Wagner","Cid Gomes","General Theóphilo","Luizianne Lins"] × ["Alcides Fernandes","Capitão Wagner","Cid Gomes","Luizianne Lins"]
 - roster_encolhido_na_fonte · q_cbafbdab427c · results: ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","General Theóphilo","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","Luizianne Lins","Priscila Costa"]
+- survey_id_orphaned · s_753b4ba246a9 · survey_id: "s_753b4ba246a9" × null
+- survey_id_orphaned · s_200f7ed08b29 · survey_id: "s_200f7ed08b29" × null
+- survey_id_orphaned · s_9ec2475dbdac · survey_id: "s_9ec2475dbdac" × null
+- survey_id_orphaned · s_bfbced8718a7 · survey_id: "s_bfbced8718a7" × null
+- survey_id_orphaned · s_6d646b32cbae · survey_id: "s_6d646b32cbae" × null
+- survey_id_orphaned · s_b75d29339dbc · survey_id: "s_b75d29339dbc" × null
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
-- disputa_em_quarentena · governador:DF · quarentena: 101 × 100
+- disputa_em_quarentena · governador:DF · quarentena: 101 × 101
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)

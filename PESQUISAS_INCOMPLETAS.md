@@ -287,7 +287,7 @@ Soma **45.7%** · faltam **54.3 pontos** · 1 candidato(s) na tabela · amostra 
 
 ## Governador · Maranhão
 
-### Veritá — 2026-08-11
+### Verita — 2026-08-11
 
 Soma **47.6%** · faltam **52.4 pontos** · 2 candidato(s) na tabela · amostra 1000 · registro MA-01632/2026
 
@@ -670,7 +670,7 @@ Soma **66.7%** · faltam **33.3 pontos** · 3 candidato(s) na tabela · amostra 
 
 ## Governador · Pará
 
-### Veritá — 2026-03-30
+### Verita — 2026-03-30
 
 Soma **68.2%** · faltam **31.8 pontos** · 2 candidato(s) na tabela · amostra 1525
 
@@ -1179,7 +1179,7 @@ Soma **83.6%** · faltam **16.4 pontos** · 4 candidato(s) na tabela · amostra 
 
 ## Governador · Rio Grande do Sul · 2º turno
 
-### Veritá — 2026-08-28
+### Verita — 2026-08-28
 
 Soma **83.6%** · faltam **16.4 pontos** · 2 candidato(s) na tabela · amostra 2020
 
@@ -1211,7 +1211,7 @@ Soma **83.7%** · faltam **16.3 pontos** · 3 candidato(s) na tabela · amostra 
 
 ## Governador · Rondônia
 
-### Veritá — 2026-09-25
+### Verita — 2026-09-25
 
 Soma **83.8%** · faltam **16.2 pontos** · 3 candidato(s) na tabela · amostra 1220
 
@@ -1427,7 +1427,7 @@ Soma **86%** · faltam **14 pontos** · 6 candidato(s) na tabela · amostra 1603
 
 ## Governador · Rondônia
 
-### Veritá — 2026-05-08
+### Verita — 2026-05-08
 
 Soma **86.4%** · faltam **13.6 pontos** · 3 candidato(s) na tabela · amostra 1220
 
@@ -1441,7 +1441,7 @@ Soma **86.4%** · faltam **13.6 pontos** · 3 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
-### Veritá — 2026-09-19
+### Verita — 2026-09-19
 
 Soma **86.5%** · faltam **13.5 pontos** · 3 candidato(s) na tabela · amostra 1220
 
@@ -1656,7 +1656,7 @@ Soma **88%** · faltam **12 pontos** · 5 candidato(s) na tabela · amostra 1200
 
 ## Governador · Rio de Janeiro
 
-### Veritá — 2026-08-28
+### Verita — 2026-08-28
 
 Soma **88%** · faltam **12 pontos** · 3 candidato(s) na tabela · amostra 2030 · registro RJ-06078/2026
 
@@ -1726,7 +1726,7 @@ Soma **89.6%** · faltam **10.4 pontos** · 2 candidato(s) na tabela · amostra 
 
 ## Governador · Rio de Janeiro
 
-### Veritá — 2026-05-08
+### Verita — 2026-05-08
 
 Soma **89.8%** · faltam **10.2 pontos** · 3 candidato(s) na tabela · amostra 2030
 

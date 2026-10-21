@@ -55,6 +55,7 @@
 {"institute_id":"i_4bd7fa4f1ea1","legacy_ids":[],"canonical":"Destak","aliases":["Destak"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_4d49caa697c5","legacy_ids":[],"canonical":"Ipespe","aliases":["Ipespe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_503423488257","legacy_ids":[],"canonical":"Projeta","aliases":["Projeta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_531e17c32082","legacy_ids":["i_9e4d28f9bf36"],"canonical":"Simplex/CBN","aliases":["Simplex/CBN"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_53d43b18599b","legacy_ids":[],"canonical":"Instituto Gazeta de Pesquisas","aliases":["Instituto Gazeta de Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-15"}
 {"institute_id":"i_5628816bfef0","legacy_ids":[],"canonical":"Mensury/Blog do Barreto","aliases":["Mensury/Blog do Barreto"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_5b70f03d36f5","legacy_ids":["i_3e7de26951f3","i_5b70f03d36f5"],"canonical":"American Analytics","aliases":["American Analytics"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -103,7 +104,6 @@
 {"institute_id":"i_9a07f3f233b1","legacy_ids":[],"canonical":"Ibespe","aliases":["Ibespe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9b0d8b2047a4","legacy_ids":[],"canonical":"Exata GO","aliases":["Exata GO"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9e3952be383e","legacy_ids":[],"canonical":"W1","aliases":["W1"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_9e4d28f9bf36","legacy_ids":[],"canonical":"Simplex","aliases":["Simplex"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9eb8e7d3b29a","legacy_ids":[],"canonical":"Palver","aliases":["Palver"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_a19e32a844e5","legacy_ids":[],"canonical":"CTAS","aliases":["CTAS"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_a1a4759f14ff","legacy_ids":[],"canonical":"Instituto TML","aliases":["Instituto TML"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -141,7 +141,7 @@
 {"institute_id":"i_d796d22d8e47","legacy_ids":[],"canonical":"MT Dados","aliases":["MT Dados"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d796ecff8e94","legacy_ids":[],"canonical":"Neokemp","aliases":["Neokemp"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d93412eb22bd","legacy_ids":[],"canonical":"Agora Sei Pesquisas","aliases":["Agora Sei Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_db7984a34609","legacy_ids":[],"canonical":"Veritá","aliases":["Veritá"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_db7984a34609","legacy_ids":[],"canonical":"Verita","aliases":["Verita"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_dbdd8bc83ace","legacy_ids":[],"canonical":"Instituto França","aliases":["Instituto França"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-21"}
 {"institute_id":"i_dc2831189848","legacy_ids":[],"canonical":"Credibilidade","aliases":["Credibilidade"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_e2daa49c78bd","legacy_ids":[],"canonical":"Exatus","aliases":["Exatus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -153,7 +153,7 @@
 {"institute_id":"i_ee5b0c356dcb","legacy_ids":[],"canonical":"Qualitá","aliases":["Qualitá"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f0a455dac76e","legacy_ids":[],"canonical":"França","aliases":["França"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f1cff6fb14cb","legacy_ids":[],"canonical":"Data Capital","aliases":["Data Capital"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_f2a40cebf81e","legacy_ids":[],"canonical":"DataPop","aliases":["DataPop"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
+{"institute_id":"i_f2a40cebf81e","legacy_ids":[],"canonical":"Datapop","aliases":["Datapop"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_f41a6a906cf5","legacy_ids":[],"canonical":"Vox","aliases":["Vox"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f543bcf5a729","legacy_ids":[],"canonical":"Ranking","aliases":["Ranking"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_f95c85972795","legacy_ids":[],"canonical":"Methodus","aliases":["Methodus"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-17"}
