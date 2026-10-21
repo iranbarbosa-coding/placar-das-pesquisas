@@ -1,0 +1,2248 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-to-2026-t2",
+ "contest": "governador:TO",
+ "race": "governador",
+ "uf": "TO",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-21",
+ "horizon_days": 4,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "f4a603e3814b35975c0e4f27c0c526d6e402f351dedb152abd65360c085d4da2",
+  "code_sha256": "6fd689eb6066d27c735b7a118a5af68a291bd22e2e680dc8b65b3c2c9eb2a2fb",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
+  "numpy_version": "2.5.3",
+  "seed": 1513116486,
+  "fit_seconds": 11.5
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_2d5ddaf72c9d",
+   "person_id": "p_a692bbc6fc6f",
+   "name": "Professora Dorinha",
+   "first_round_pct": 45.52
+  },
+  {
+   "candidate_id": "c_e06fbc541674",
+   "person_id": "p_420d89713e56",
+   "name": "Vicentinho Júnior",
+   "first_round_pct": 43.94
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14488-2-0-30113f88383f",
+   "p360-14486-2-0-19b80ddeb397",
+   "p360-14449-2-0-cb1625ce4010",
+   "p360-14448-2-0-427ea7fc349d",
+   "p360-14374-2-0-fad4377d50a1",
+   "d093ffad58cc",
+   "f0a98ea595fd",
+   "512797d2f5b4"
+  ],
+  "pollCount": 8,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-19",
+  "candidates": [
+   {
+    "candidate_id": "c_e06fbc541674",
+    "name": "Vicentinho Júnior",
+    "avg": 51.2,
+    "nPolls": 8,
+    "trend": [
+     {
+      "date": "2026-03-24",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-03-27",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-03-30",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-02",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-05",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-08",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-11",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-14",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-17",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-20",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-23",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-26",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-04-29",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-02",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-05",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-08",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-11",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-14",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-17",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-20",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-23",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-26",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-05-29",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-01",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-04",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-07",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-10",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-13",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-16",
+      "avg": 38.5
+     },
+     {
+      "date": "2026-06-19",
+      "avg": 42.4
+     },
+     {
+      "date": "2026-06-22",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-06-25",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-06-28",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-01",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-04",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-07",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-10",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-13",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-16",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-19",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-22",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-07-25",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-07-28",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-07-31",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-03",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-06",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-09",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-12",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-15",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-18",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-21",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-24",
+      "avg": 46.5
+     },
+     {
+      "date": "2026-08-27",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-08-30",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-09-02",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-09-05",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-09-08",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-09-11",
+      "avg": 49.8
+     },
+     {
+      "date": "2026-09-14",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-09-17",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-09-20",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-09-23",
+      "avg": 48.8
+     },
+     {
+      "date": "2026-09-26",
+      "avg": 48.4
+     },
+     {
+      "date": "2026-09-29",
+      "avg": 48.4
+     },
+     {
+      "date": "2026-10-02",
+      "avg": 47.9
+     },
+     {
+      "date": "2026-10-05",
+      "avg": 48.6
+     },
+     {
+      "date": "2026-10-08",
+      "avg": 48.6
+     },
+     {
+      "date": "2026-10-11",
+      "avg": 48.4
+     },
+     {
+      "date": "2026-10-14",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-10-17",
+      "avg": 50.7
+     },
+     {
+      "date": "2026-10-19",
+      "avg": 51.2
+     }
+    ]
+   },
+   {
+    "candidate_id": "c_2d5ddaf72c9d",
+    "name": "Professora Dorinha",
+    "avg": 48.8,
+    "nPolls": 8,
+    "trend": [
+     {
+      "date": "2026-03-24",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-03-27",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-03-30",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-02",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-05",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-08",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-11",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-14",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-17",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-20",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-23",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-26",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-04-29",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-02",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-05",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-08",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-11",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-14",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-17",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-20",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-23",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-26",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-05-29",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-01",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-04",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-07",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-10",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-13",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-16",
+      "avg": 61.5
+     },
+     {
+      "date": "2026-06-19",
+      "avg": 57.6
+     },
+     {
+      "date": "2026-06-22",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-06-25",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-06-28",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-01",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-04",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-07",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-10",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-13",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-16",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-19",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-22",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-07-25",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-07-28",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-07-31",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-03",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-06",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-09",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-12",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-15",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-18",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-21",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-24",
+      "avg": 53.5
+     },
+     {
+      "date": "2026-08-27",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-08-30",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-09-02",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-09-05",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-09-08",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-09-11",
+      "avg": 50.2
+     },
+     {
+      "date": "2026-09-14",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-09-17",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-09-20",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-09-23",
+      "avg": 51.2
+     },
+     {
+      "date": "2026-09-26",
+      "avg": 51.6
+     },
+     {
+      "date": "2026-09-29",
+      "avg": 51.6
+     },
+     {
+      "date": "2026-10-02",
+      "avg": 52.1
+     },
+     {
+      "date": "2026-10-05",
+      "avg": 51.4
+     },
+     {
+      "date": "2026-10-08",
+      "avg": 51.4
+     },
+     {
+      "date": "2026-10-11",
+      "avg": 51.6
+     },
+     {
+      "date": "2026-10-14",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-10-17",
+      "avg": 49.3
+     },
+     {
+      "date": "2026-10-19",
+      "avg": 48.8
+     }
+    ]
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "feac3a7429ca0cb2f090cfff234f9309a0e59c3c93adf65bf9aa00142be3075d",
+  "input_sha256": "1a9a3bebd809f84097c39577f82168bd030c5af8818b33bfd7dfd12baed2fd3e",
+  "source_polls_sha256": "767529f64366742a8d991025f23385d055b8722ab52c341015259ce8355b32c0",
+  "source_generated_at": "2026-10-21T01:32:01.070Z",
+  "n_polls": 17,
+  "n_institutes": 5,
+  "latest_fieldwork_end": "2026-10-19",
+  "polls": [
+   {
+    "id": "p360-13537-2-0-9af9a240cfa8",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-06-17",
+    "fieldwork_end": "2026-06-18",
+    "published_date": "2026-06-18",
+    "available_from": "2026-06-18",
+    "sample_size": 1600,
+    "n_eff": 1280.0,
+    "n_imputado": false,
+    "tse_registration": "TO-05379/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
+    "shares": [
+     53.75,
+     46.25
+    ]
+   },
+   {
+    "id": "f26dd853f19d",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-06-20",
+    "fieldwork_end": "2026-06-22",
+    "published_date": null,
+    "available_from": "2026-06-22",
+    "sample_size": 1340,
+    "n_eff": 1160.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+    "shares": [
+     49.08,
+     50.92
+    ]
+   },
+   {
+    "id": "p360-13621-2-0-e4f4a4a2c743",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-07-21",
+    "fieldwork_end": "2026-07-24",
+    "published_date": "2026-07-24",
+    "available_from": "2026-07-24",
+    "sample_size": 1300,
+    "n_eff": 1133.6,
+    "n_imputado": false,
+    "tse_registration": "TO-06833/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/vicentinho-e-dorinha-empatam-no-2o-turno-em-to-diz-pesquisa/",
+    "shares": [
+     48.39,
+     51.61
+    ]
+   },
+   {
+    "id": "7e6079107a6d",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-24",
+    "published_date": "2026-08-24",
+    "available_from": "2026-08-24",
+    "sample_size": 804,
+    "n_eff": 675.4,
+    "n_imputado": false,
+    "tse_registration": "TO-02161/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-TO-Quaest-GazetaDoPovo.pdf",
+    "shares": [
+     54.76,
+     45.24
+    ]
+   },
+   {
+    "id": "4ff0e331d5cd",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-25",
+    "published_date": "2026-08-25",
+    "available_from": "2026-08-25",
+    "sample_size": 1600,
+    "n_eff": 1296.0,
+    "n_imputado": false,
+    "tse_registration": "BR-06708/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-45-contra-39-de-lula-no-2o-turno-no-to-diz-big-data/",
+    "shares": [
+     49.38,
+     50.62
+    ]
+   },
+   {
+    "id": "b617381331d5",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-08-25",
+    "fieldwork_end": "2026-08-27",
+    "published_date": null,
+    "available_from": "2026-08-27",
+    "sample_size": 1504,
+    "n_eff": 1343.1,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+    "shares": [
+     49.72,
+     50.28
+    ]
+   },
+   {
+    "id": "512797d2f5b4",
+    "pollster": "Correio do Povo",
+    "fieldwork_start": "2026-08-31",
+    "fieldwork_end": "2026-09-08",
+    "published_date": null,
+    "available_from": "2026-09-08",
+    "sample_size": 1600,
+    "n_eff": 1344.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+    "shares": [
+     45.24,
+     54.76
+    ]
+   },
+   {
+    "id": "f0a98ea595fd",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-09-12",
+    "fieldwork_end": "2026-09-14",
+    "published_date": "2026-09-14",
+    "available_from": "2026-09-14",
+    "sample_size": 1504,
+    "n_eff": 1340.1,
+    "n_imputado": false,
+    "tse_registration": "TO-08578/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/dorinha-e-vicentinho-empatam-em-2o-turno-no-to-diz-pesquisa/",
+    "shares": [
+     52.53,
+     47.47
+    ]
+   },
+   {
+    "id": "fdf7e0e1b26d",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-10",
+    "fieldwork_end": "2026-09-14",
+    "published_date": "2026-09-14",
+    "available_from": "2026-09-14",
+    "sample_size": 1600,
+    "n_eff": 1344.0,
+    "n_imputado": false,
+    "tse_registration": "BR-01315/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/Tocantins-BR-01315-2026-Set26.pdf",
+    "shares": [
+     48.81,
+     51.19
+    ]
+   },
+   {
+    "id": "c2196fe6e5c8",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-19",
+    "fieldwork_end": "2026-09-22",
+    "published_date": null,
+    "available_from": "2026-09-22",
+    "sample_size": 804,
+    "n_eff": 691.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+    "shares": [
+     58.14,
+     41.86
+    ]
+   },
+   {
+    "id": "5ed4573c3cf6",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1600,
+    "n_eff": 1392.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+    "shares": [
+     51.72,
+     48.28
+    ]
+   },
+   {
+    "id": "d093ffad58cc",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-28",
+    "fieldwork_end": "2026-10-01",
+    "published_date": null,
+    "available_from": "2026-10-01",
+    "sample_size": 1600,
+    "n_eff": 1456.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+    "shares": [
+     52.75,
+     47.25
+    ]
+   },
+   {
+    "id": "p360-14374-2-0-fad4377d50a1",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1584.0,
+    "n_imputado": false,
+    "tse_registration": "TO-01946/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-to-3-out-2026.pdf",
+    "shares": [
+     50.0,
+     50.0
+    ]
+   },
+   {
+    "id": "p360-14448-2-0-427ea7fc349d",
+    "pollster": "Direct Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-09",
+    "published_date": "2026-10-09",
+    "available_from": "2026-10-09",
+    "sample_size": 1200,
+    "n_eff": 1017.7,
+    "n_imputado": false,
+    "tse_registration": "TO-03128/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/governador-TO-outubro-pesquisa-instituto-directa-pesquisas.pdf",
+    "shares": [
+     52.82,
+     47.18
+    ]
+   },
+   {
+    "id": "p360-14449-2-0-cb1625ce4010",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-13",
+    "published_date": "2026-10-13",
+    "available_from": "2026-10-13",
+    "sample_size": 1098,
+    "n_eff": 999.2,
+    "n_imputado": false,
+    "tse_registration": "TO-03829/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/Quaest-TO-governador-14out.pdf",
+    "shares": [
+     46.15,
+     53.85
+    ]
+   },
+   {
+    "id": "p360-14486-2-0-19b80ddeb397",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-17",
+    "published_date": "2026-10-17",
+    "available_from": "2026-10-17",
+    "sample_size": 1500,
+    "n_eff": 1393.5,
+    "n_imputado": false,
+    "tse_registration": "TO-09349/2026",
+    "source_url": "https://www.poder360.com.br/poder-pesquisas/vicentinho-tem-566-e-dorinha-435-no-2o-turno-no-to-diz-pesquisa/",
+    "shares": [
+     43.49,
+     56.51
+    ]
+   },
+   {
+    "id": "p360-14488-2-0-30113f88383f",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-19",
+    "published_date": "2026-10-19",
+    "available_from": "2026-10-19",
+    "sample_size": 1600,
+    "n_eff": 1408.0,
+    "n_imputado": false,
+    "tse_registration": "TO-09320/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/vicentinho-tem-52-contra-48-de-dorinha-no-2o-turno-no-to/",
+    "shares": [
+     47.73,
+     52.27
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 4,
+   "par_diferente": 2
+  },
+  "exclusions": []
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0038,
+    "ess_bulk": 1269.3
+   },
+   "tau": {
+    "rhat": 1.0027,
+    "ess_bulk": 1459.2
+   },
+   "sigma_h": {
+    "rhat": 1.0016,
+    "ess_bulk": 1327.5
+   },
+   "fração_atual[Professora Dorinha]": {
+    "rhat": 1.0003,
+    "ess_bulk": 3297.9
+   },
+   "fração_atual[Vicentinho Júnior]": {
+    "rhat": 1.0003,
+    "ess_bulk": 3297.9
+   }
+  },
+  "rhat_max": 1.0038,
+  "ess_min": 1269.3,
+  "accept": [
+   0.334,
+   0.303,
+   0.368,
+   0.3
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Professora Dorinha",
+    "mean": 48.604,
+    "sd": 1.898,
+    "quantiles": {
+     "0.025": 44.428,
+     "0.05": 45.199,
+     "0.1": 46.046,
+     "0.25": 47.444,
+     "0.5": 48.795,
+     "0.75": 49.946,
+     "0.9": 50.849,
+     "0.95": 51.377,
+     "0.975": 51.856
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 39.0,
+     "counts": [
+      1,
+      1,
+      1,
+      4,
+      3,
+      4,
+      12,
+      34,
+      58,
+      83,
+      111,
+      204,
+      253,
+      385,
+      505,
+      641,
+      808,
+      1034,
+      1115,
+      1273,
+      1341,
+      1272,
+      1103,
+      777,
+      486,
+      251,
+      125,
+      63,
+      28,
+      12,
+      9,
+      1,
+      2
+     ]
+    }
+   },
+   {
+    "label": "Vicentinho Júnior",
+    "mean": 51.396,
+    "sd": 1.898,
+    "quantiles": {
+     "0.025": 48.144,
+     "0.05": 48.623,
+     "0.1": 49.151,
+     "0.25": 50.054,
+     "0.5": 51.205,
+     "0.75": 52.556,
+     "0.9": 53.954,
+     "0.95": 54.801,
+     "0.975": 55.572
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 44.5,
+     "counts": [
+      2,
+      1,
+      9,
+      12,
+      28,
+      63,
+      125,
+      251,
+      486,
+      777,
+      1103,
+      1272,
+      1341,
+      1273,
+      1115,
+      1034,
+      808,
+      641,
+      505,
+      385,
+      253,
+      204,
+      111,
+      83,
+      58,
+      34,
+      12,
+      4,
+      3,
+      4,
+      1,
+      1,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-06-17",
+    "values": [
+     {
+      "q10": 48.95,
+      "median": 50.97,
+      "q90": 53.49
+     },
+     {
+      "q10": 46.51,
+      "median": 49.03,
+      "q90": 51.05
+     }
+    ]
+   },
+   {
+    "date": "2026-06-21",
+    "values": [
+     {
+      "q10": 48.84,
+      "median": 50.78,
+      "q90": 53.19
+     },
+     {
+      "q10": 46.81,
+      "median": 49.22,
+      "q90": 51.16
+     }
+    ]
+   },
+   {
+    "date": "2026-07-22",
+    "values": [
+     {
+      "q10": 48.4,
+      "median": 50.32,
+      "q90": 52.52
+     },
+     {
+      "q10": 47.48,
+      "median": 49.68,
+      "q90": 51.6
+     }
+    ]
+   },
+   {
+    "date": "2026-08-22",
+    "values": [
+     {
+      "q10": 48.85,
+      "median": 50.39,
+      "q90": 52.16
+     },
+     {
+      "q10": 47.84,
+      "median": 49.61,
+      "q90": 51.15
+     }
+    ]
+   },
+   {
+    "date": "2026-08-23",
+    "values": [
+     {
+      "q10": 48.89,
+      "median": 50.31,
+      "q90": 52.05
+     },
+     {
+      "q10": 47.95,
+      "median": 49.69,
+      "q90": 51.11
+     }
+    ]
+   },
+   {
+    "date": "2026-08-26",
+    "values": [
+     {
+      "q10": 48.78,
+      "median": 50.29,
+      "q90": 51.96
+     },
+     {
+      "q10": 48.04,
+      "median": 49.71,
+      "q90": 51.22
+     }
+    ]
+   },
+   {
+    "date": "2026-09-04",
+    "values": [
+     {
+      "q10": 48.49,
+      "median": 50.14,
+      "q90": 51.73
+     },
+     {
+      "q10": 48.27,
+      "median": 49.86,
+      "q90": 51.51
+     }
+    ]
+   },
+   {
+    "date": "2026-09-12",
+    "values": [
+     {
+      "q10": 49.02,
+      "median": 50.49,
+      "q90": 52.1
+     },
+     {
+      "q10": 47.9,
+      "median": 49.51,
+      "q90": 50.98
+     }
+    ]
+   },
+   {
+    "date": "2026-09-13",
+    "values": [
+     {
+      "q10": 49.08,
+      "median": 50.58,
+      "q90": 52.34
+     },
+     {
+      "q10": 47.66,
+      "median": 49.42,
+      "q90": 50.92
+     }
+    ]
+   },
+   {
+    "date": "2026-09-20",
+    "values": [
+     {
+      "q10": 49.17,
+      "median": 50.79,
+      "q90": 52.92
+     },
+     {
+      "q10": 47.08,
+      "median": 49.21,
+      "q90": 50.83
+     }
+    ]
+   },
+   {
+    "date": "2026-09-22",
+    "values": [
+     {
+      "q10": 49.11,
+      "median": 50.68,
+      "q90": 52.63
+     },
+     {
+      "q10": 47.37,
+      "median": 49.32,
+      "q90": 50.89
+     }
+    ]
+   },
+   {
+    "date": "2026-09-29",
+    "values": [
+     {
+      "q10": 48.76,
+      "median": 50.3,
+      "q90": 52.02
+     },
+     {
+      "q10": 47.98,
+      "median": 49.7,
+      "q90": 51.24
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 48.35,
+      "median": 49.9,
+      "q90": 51.52
+     },
+     {
+      "q10": 48.48,
+      "median": 50.1,
+      "q90": 51.65
+     }
+    ]
+   },
+   {
+    "date": "2026-10-09",
+    "values": [
+     {
+      "q10": 47.62,
+      "median": 49.47,
+      "q90": 51.17
+     },
+     {
+      "q10": 48.83,
+      "median": 50.53,
+      "q90": 52.38
+     }
+    ]
+   },
+   {
+    "date": "2026-10-13",
+    "values": [
+     {
+      "q10": 46.65,
+      "median": 49.03,
+      "q90": 50.84
+     },
+     {
+      "q10": 49.16,
+      "median": 50.97,
+      "q90": 53.35
+     }
+    ]
+   },
+   {
+    "date": "2026-10-17",
+    "values": [
+     {
+      "q10": 46.17,
+      "median": 48.77,
+      "q90": 50.74
+     },
+     {
+      "q10": 49.26,
+      "median": 51.23,
+      "q90": 53.83
+     }
+    ]
+   },
+   {
+    "date": "2026-10-19",
+    "values": [
+     {
+      "q10": 46.17,
+      "median": 48.82,
+      "q90": 50.79
+     },
+     {
+      "q10": 49.21,
+      "median": 51.18,
+      "q90": 53.83
+     }
+    ]
+   },
+   {
+    "date": "2026-10-21",
+    "values": [
+     {
+      "q10": 46.01,
+      "median": 48.82,
+      "q90": 50.87
+     },
+     {
+      "q10": 49.13,
+      "median": 51.18,
+      "q90": 53.99
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Professora Dorinha",
+  "rows": [
+   {
+    "pollster": "Correio do Povo",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -4.499,
+     "0.5": -0.973,
+     "0.9": 0.373
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -0.281,
+     "0.5": 0.783,
+     "0.9": 2.726
+    }
+   },
+   {
+    "pollster": "Paraná Pesquisas",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -2.385,
+     "0.5": -0.655,
+     "0.9": 0.395
+    }
+   },
+   {
+    "pollster": "Direct Pesquisas",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.646,
+     "0.5": 0.633,
+     "0.9": 3.702
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 6,
+    "effect_pp_first_candidate": {
+     "0.1": -0.956,
+     "0.5": 0.127,
+     "0.9": 1.476
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.001,
+   "0.5": 0.013,
+   "0.95": 0.035
+  },
+  "tau": {
+   "0.05": 0.056,
+   "0.5": 0.113,
+   "0.95": 0.17
+  },
+  "sigma_h": {
+   "0.05": 0.007,
+   "0.5": 0.071,
+   "0.95": 0.199
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Professora Dorinha",
+    "mean": 48.642,
+    "sd": 7.568,
+    "quantiles": {
+     "0.025": 33.652,
+     "0.05": 36.238,
+     "0.1": 39.137,
+     "0.25": 43.756,
+     "0.5": 48.643,
+     "0.75": 53.538,
+     "0.9": 58.143,
+     "0.95": 60.951,
+     "0.975": 63.637
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 13.5,
+     "counts": [
+      2,
+      1,
+      0,
+      2,
+      2,
+      3,
+      1,
+      3,
+      5,
+      3,
+      4,
+      3,
+      2,
+      7,
+      8,
+      11,
+      15,
+      16,
+      18,
+      23,
+      25,
+      20,
+      21,
+      32,
+      39,
+      51,
+      53,
+      63,
+      49,
+      75,
+      91,
+      111,
+      101,
+      156,
+      153,
+      158,
+      198,
+      266,
+      287,
+      325,
+      333,
+      422,
+      466,
+      512,
+      576,
+      639,
+      699,
+      791,
+      849,
+      967,
+      1051,
+      1102,
+      1313,
+      1384,
+      1458,
+      1556,
+      1661,
+      1801,
+      1963,
+      2012,
+      2110,
+      2256,
+      2371,
+      2485,
+      2555,
+      2601,
+      2629,
+      2755,
+      2797,
+      2729,
+      2701,
+      2751,
+      2776,
+      2702,
+      2583,
+      2559,
+      2498,
+      2406,
+      2349,
+      2272,
+      2115,
+      2047,
+      1824,
+      1813,
+      1595,
+      1538,
+      1392,
+      1299,
+      1219,
+      1145,
+      995,
+      948,
+      847,
+      738,
+      704,
+      558,
+      528,
+      470,
+      439,
+      350,
+      312,
+      297,
+      249,
+      242,
+      185,
+      163,
+      153,
+      151,
+      101,
+      111,
+      91,
+      68,
+      69,
+      58,
+      33,
+      36,
+      35,
+      36,
+      31,
+      24,
+      14,
+      24,
+      15,
+      15,
+      13,
+      11,
+      9,
+      4,
+      5,
+      6,
+      3,
+      6,
+      4,
+      2,
+      2,
+      3,
+      3,
+      3,
+      2,
+      1,
+      2,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Vicentinho Júnior",
+    "mean": 51.358,
+    "sd": 7.568,
+    "quantiles": {
+     "0.025": 36.363,
+     "0.05": 39.049,
+     "0.1": 41.857,
+     "0.25": 46.462,
+     "0.5": 51.357,
+     "0.75": 56.244,
+     "0.9": 60.863,
+     "0.95": 63.762,
+     "0.975": 66.348
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 14.0,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      2,
+      1,
+      2,
+      3,
+      3,
+      3,
+      2,
+      2,
+      4,
+      6,
+      3,
+      6,
+      5,
+      4,
+      9,
+      11,
+      13,
+      15,
+      15,
+      24,
+      14,
+      24,
+      31,
+      36,
+      35,
+      36,
+      33,
+      58,
+      69,
+      68,
+      91,
+      111,
+      101,
+      151,
+      153,
+      163,
+      185,
+      242,
+      249,
+      297,
+      312,
+      350,
+      439,
+      470,
+      528,
+      558,
+      704,
+      738,
+      847,
+      948,
+      995,
+      1145,
+      1219,
+      1299,
+      1392,
+      1538,
+      1595,
+      1813,
+      1824,
+      2047,
+      2115,
+      2272,
+      2349,
+      2406,
+      2498,
+      2559,
+      2583,
+      2702,
+      2776,
+      2751,
+      2701,
+      2729,
+      2797,
+      2755,
+      2629,
+      2601,
+      2555,
+      2485,
+      2371,
+      2256,
+      2110,
+      2012,
+      1963,
+      1801,
+      1661,
+      1556,
+      1458,
+      1384,
+      1313,
+      1102,
+      1051,
+      967,
+      849,
+      791,
+      699,
+      639,
+      576,
+      512,
+      466,
+      422,
+      333,
+      325,
+      287,
+      266,
+      198,
+      158,
+      153,
+      156,
+      101,
+      111,
+      91,
+      75,
+      49,
+      63,
+      53,
+      51,
+      39,
+      32,
+      21,
+      20,
+      25,
+      23,
+      18,
+      16,
+      15,
+      11,
+      8,
+      7,
+      2,
+      3,
+      4,
+      3,
+      5,
+      3,
+      1,
+      3,
+      2,
+      2,
+      0,
+      1,
+      2
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.13435,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   -0.06
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.0595,
+   "drift": 0.0144,
+   "systematic": 0.9262
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.4253,
+   0.5747
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "trend_model": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "series_from": "2026-10-02",
+  "series_to": "2026-10-19",
+  "points": 7,
+  "average_now_pct": [
+   48.8,
+   51.2
+  ],
+  "trend_pp_per_week": [
+   -1.3198,
+   1.3198
+  ],
+  "point_election_pct": [
+   48.8,
+   51.2
+  ],
+  "sys_scale_alr": 0.1648,
+  "summary": [
+   {
+    "label": "Professora Dorinha",
+    "mean": 48.8631,
+    "sd": 8.8193,
+    "quantiles": {
+     "0.025": 31.5848,
+     "0.05": 34.5179,
+     "0.1": 37.7997,
+     "0.25": 43.0654,
+     "0.5": 48.8416,
+     "0.75": 54.5463,
+     "0.9": 59.9871,
+     "0.95": 63.3312,
+     "0.975": 66.4822
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 9.0,
+     "counts": [
+      2,
+      2,
+      0,
+      1,
+      2,
+      2,
+      0,
+      1,
+      5,
+      2,
+      2,
+      3,
+      6,
+      3,
+      1,
+      6,
+      8,
+      7,
+      7,
+      15,
+      12,
+      16,
+      20,
+      19,
+      25,
+      38,
+      34,
+      39,
+      34,
+      37,
+      45,
+      56,
+      68,
+      89,
+      94,
+      86,
+      101,
+      134,
+      144,
+      172,
+      192,
+      175,
+      237,
+      232,
+      276,
+      296,
+      361,
+      403,
+      448,
+      521,
+      506,
+      610,
+      640,
+      693,
+      788,
+      844,
+      890,
+      948,
+      1072,
+      1170,
+      1237,
+      1308,
+      1361,
+      1427,
+      1627,
+      1643,
+      1773,
+      1738,
+      1897,
+      1836,
+      1968,
+      2078,
+      2116,
+      2139,
+      2206,
+      2299,
+      2259,
+      2356,
+      2515,
+      2332,
+      2377,
+      2409,
+      2317,
+      2238,
+      2255,
+      2224,
+      2258,
+      2107,
+      2004,
+      1981,
+      1916,
+      1753,
+      1760,
+      1627,
+      1491,
+      1520,
+      1379,
+      1300,
+      1189,
+      1160,
+      1078,
+      928,
+      907,
+      848,
+      822,
+      736,
+      669,
+      602,
+      554,
+      520,
+      424,
+      430,
+      370,
+      311,
+      290,
+      269,
+      218,
+      227,
+      203,
+      179,
+      170,
+      125,
+      120,
+      115,
+      104,
+      82,
+      73,
+      59,
+      79,
+      58,
+      53,
+      54,
+      39,
+      37,
+      32,
+      19,
+      36,
+      13,
+      17,
+      20,
+      11,
+      9,
+      7,
+      8,
+      4,
+      7,
+      4,
+      3,
+      2,
+      5,
+      7,
+      4,
+      1,
+      3,
+      2,
+      1,
+      4,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Vicentinho Júnior",
+    "mean": 51.1369,
+    "sd": 8.8193,
+    "quantiles": {
+     "0.025": 33.5178,
+     "0.05": 36.6688,
+     "0.1": 40.0129,
+     "0.25": 45.4537,
+     "0.5": 51.1584,
+     "0.75": 56.9346,
+     "0.9": 62.2003,
+     "0.95": 65.4821,
+     "0.975": 68.4152
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 2.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      4,
+      1,
+      2,
+      3,
+      1,
+      4,
+      7,
+      5,
+      2,
+      3,
+      4,
+      7,
+      4,
+      8,
+      7,
+      9,
+      11,
+      20,
+      17,
+      13,
+      36,
+      19,
+      32,
+      37,
+      39,
+      54,
+      53,
+      58,
+      79,
+      59,
+      73,
+      82,
+      104,
+      115,
+      120,
+      125,
+      170,
+      179,
+      203,
+      227,
+      218,
+      269,
+      290,
+      311,
+      370,
+      430,
+      424,
+      520,
+      554,
+      602,
+      669,
+      736,
+      822,
+      848,
+      907,
+      928,
+      1078,
+      1160,
+      1189,
+      1300,
+      1379,
+      1520,
+      1491,
+      1627,
+      1760,
+      1753,
+      1916,
+      1981,
+      2004,
+      2107,
+      2258,
+      2224,
+      2255,
+      2238,
+      2317,
+      2409,
+      2377,
+      2332,
+      2515,
+      2356,
+      2259,
+      2299,
+      2206,
+      2139,
+      2116,
+      2078,
+      1968,
+      1836,
+      1897,
+      1738,
+      1773,
+      1643,
+      1627,
+      1427,
+      1361,
+      1308,
+      1237,
+      1170,
+      1072,
+      948,
+      890,
+      844,
+      788,
+      693,
+      640,
+      610,
+      506,
+      521,
+      448,
+      403,
+      361,
+      296,
+      276,
+      232,
+      237,
+      175,
+      192,
+      172,
+      144,
+      134,
+      101,
+      86,
+      94,
+      89,
+      68,
+      56,
+      45,
+      37,
+      34,
+      39,
+      34,
+      38,
+      25,
+      19,
+      20,
+      16,
+      12,
+      15,
+      7,
+      7,
+      8,
+      6,
+      1,
+      3,
+      6,
+      3,
+      2,
+      2,
+      5,
+      1,
+      0,
+      2,
+      2,
+      1,
+      0,
+      2,
+      2
+     ]
+    }
+   }
+  ],
+  "probabilities": {
+   "first": [
+    0.4446,
+    0.5554
+   ],
+   "top2": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "headline_method": "modelo",
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "8b3a7fddf381a27af37ff7cdd16f46501ca9d60a1bbca18d8e8eb4e3a7dcae38",
+ "run": {
+  "executed_at": "2026-10-21T01:55:29+00:00"
+ }
+}

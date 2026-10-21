@@ -1,0 +1,2064 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-df-2026-t2",
+ "contest": "governador:DF",
+ "race": "governador",
+ "uf": "DF",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-21",
+ "horizon_days": 4,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "f4a603e3814b35975c0e4f27c0c526d6e402f351dedb152abd65360c085d4da2",
+  "code_sha256": "6fd689eb6066d27c735b7a118a5af68a291bd22e2e680dc8b65b3c2c9eb2a2fb",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
+  "numpy_version": "2.5.3",
+  "seed": 3755089745,
+  "fit_seconds": 12.8
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_8d467f173562",
+   "person_id": "p_069c136c8f8e",
+   "name": "Celina Leão",
+   "first_round_pct": 49.93
+  },
+  {
+   "candidate_id": "c_dbf81338b2dd",
+   "person_id": "p_5c5aed57b50b",
+   "name": "Leandro Grass",
+   "first_round_pct": 34.47
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14443-2-0-7d1657f69501",
+   "2de907425237",
+   "p360-14433-2-0-03d107b63e2b",
+   "p360-14432-2-0-eaa989f922dd",
+   "p360-14336-2-0-3afb7dfa67db",
+   "p360-14377-2-0-e85fde62e4b1",
+   "p360-14278-2-0-888e62405882",
+   "9bfae3fae0fb",
+   "ee095d14b3a0",
+   "6cecc73225af"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-13",
+  "candidates": [
+   {
+    "candidate_id": "c_8d467f173562",
+    "name": "Celina Leão",
+    "avg": 62.4,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2026-07-03",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-06",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-09",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-12",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-15",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-18",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-21",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-24",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-27",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-07-30",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-08-02",
+      "avg": 60.6
+     },
+     {
+      "date": "2026-08-05",
+      "avg": 60.6
+     },
+     {
+      "date": "2026-08-08",
+      "avg": 60.6
+     },
+     {
+      "date": "2026-08-11",
+      "avg": 60.6
+     },
+     {
+      "date": "2026-08-14",
+      "avg": 60.6
+     },
+     {
+      "date": "2026-08-17",
+      "avg": 60.6
+     },
+     {
+      "date": "2026-08-20",
+      "avg": 60.9
+     },
+     {
+      "date": "2026-08-23",
+      "avg": 60.9
+     },
+     {
+      "date": "2026-08-26",
+      "avg": 62.8
+     },
+     {
+      "date": "2026-08-29",
+      "avg": 62.8
+     },
+     {
+      "date": "2026-09-01",
+      "avg": 62.7
+     },
+     {
+      "date": "2026-09-04",
+      "avg": 62.7
+     },
+     {
+      "date": "2026-09-07",
+      "avg": 62.3
+     },
+     {
+      "date": "2026-09-10",
+      "avg": 62.1
+     },
+     {
+      "date": "2026-09-13",
+      "avg": 62.6
+     },
+     {
+      "date": "2026-09-16",
+      "avg": 62.6
+     },
+     {
+      "date": "2026-09-19",
+      "avg": 62.1
+     },
+     {
+      "date": "2026-09-22",
+      "avg": 60.7
+     },
+     {
+      "date": "2026-09-25",
+      "avg": 61.2
+     },
+     {
+      "date": "2026-09-28",
+      "avg": 61.3
+     },
+     {
+      "date": "2026-10-01",
+      "avg": 60.9
+     },
+     {
+      "date": "2026-10-04",
+      "avg": 61.3
+     },
+     {
+      "date": "2026-10-07",
+      "avg": 62.3
+     },
+     {
+      "date": "2026-10-10",
+      "avg": 61.9
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 62.4
+     }
+    ]
+   },
+   {
+    "candidate_id": "c_dbf81338b2dd",
+    "name": "Leandro Grass",
+    "avg": 37.6,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2026-07-03",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-06",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-09",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-12",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-15",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-18",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-21",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-24",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-27",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-07-30",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-08-02",
+      "avg": 39.4
+     },
+     {
+      "date": "2026-08-05",
+      "avg": 39.4
+     },
+     {
+      "date": "2026-08-08",
+      "avg": 39.4
+     },
+     {
+      "date": "2026-08-11",
+      "avg": 39.4
+     },
+     {
+      "date": "2026-08-14",
+      "avg": 39.4
+     },
+     {
+      "date": "2026-08-17",
+      "avg": 39.4
+     },
+     {
+      "date": "2026-08-20",
+      "avg": 39.1
+     },
+     {
+      "date": "2026-08-23",
+      "avg": 39.1
+     },
+     {
+      "date": "2026-08-26",
+      "avg": 37.2
+     },
+     {
+      "date": "2026-08-29",
+      "avg": 37.2
+     },
+     {
+      "date": "2026-09-01",
+      "avg": 37.3
+     },
+     {
+      "date": "2026-09-04",
+      "avg": 37.3
+     },
+     {
+      "date": "2026-09-07",
+      "avg": 37.7
+     },
+     {
+      "date": "2026-09-10",
+      "avg": 37.9
+     },
+     {
+      "date": "2026-09-13",
+      "avg": 37.4
+     },
+     {
+      "date": "2026-09-16",
+      "avg": 37.4
+     },
+     {
+      "date": "2026-09-19",
+      "avg": 37.9
+     },
+     {
+      "date": "2026-09-22",
+      "avg": 39.3
+     },
+     {
+      "date": "2026-09-25",
+      "avg": 38.8
+     },
+     {
+      "date": "2026-09-28",
+      "avg": 38.7
+     },
+     {
+      "date": "2026-10-01",
+      "avg": 39.1
+     },
+     {
+      "date": "2026-10-04",
+      "avg": 38.7
+     },
+     {
+      "date": "2026-10-07",
+      "avg": 37.7
+     },
+     {
+      "date": "2026-10-10",
+      "avg": 38.1
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 37.6
+     }
+    ]
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "301dcd1b60a498e7f8a7f2fa6fa8792ecf43628cc7100e15e081c25469b3a51a",
+  "input_sha256": "be15b527679450a00a662cb6439a2b927a32c863451a2cd9de332a3a23bbce9e",
+  "source_polls_sha256": "767529f64366742a8d991025f23385d055b8722ab52c341015259ce8355b32c0",
+  "source_generated_at": "2026-10-21T01:32:01.070Z",
+  "n_polls": 21,
+  "n_institutes": 9,
+  "latest_fieldwork_end": "2026-10-13",
+  "polls": [
+   {
+    "id": "3f532f8da6cb",
+    "pollster": "Exata GO",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-03",
+    "published_date": null,
+    "available_from": "2026-07-03",
+    "sample_size": 1500,
+    "n_eff": 1225.5,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     55.94,
+     44.06
+    ]
+   },
+   {
+    "id": "0685bf235024",
+    "pollster": "Correio/Opinião",
+    "fieldwork_start": "2026-07-30",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "available_from": "2026-08-01",
+    "sample_size": 1109,
+    "n_eff": 913.8,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     65.29,
+     34.71
+    ]
+   },
+   {
+    "id": "9e182a27bc6d",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-14",
+    "fieldwork_end": "2026-08-18",
+    "published_date": null,
+    "available_from": "2026-08-18",
+    "sample_size": 1600,
+    "n_eff": 1328.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     61.45,
+     38.55
+    ]
+   },
+   {
+    "id": "p360-13940-2-1-34e980dae384",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-24",
+    "published_date": "2026-08-24",
+    "available_from": "2026-08-24",
+    "sample_size": 1104,
+    "n_eff": 839.0,
+    "n_imputado": false,
+    "tse_registration": "DF-06256/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-tem-42-e-arruda-32-em-2o-turno-no-df-diz-pesquisa/",
+    "shares": [
+     68.42,
+     31.58
+    ]
+   },
+   {
+    "id": "ffc8ddc1dd7d",
+    "pollster": "Correio/Opinião",
+    "fieldwork_start": "2026-08-29",
+    "fieldwork_end": "2026-08-31",
+    "published_date": null,
+    "available_from": "2026-08-31",
+    "sample_size": 1121,
+    "n_eff": 917.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     66.5,
+     33.5
+    ]
+   },
+   {
+    "id": "6cecc73225af",
+    "pollster": "IFP",
+    "fieldwork_start": "2026-08-27",
+    "fieldwork_end": "2026-09-01",
+    "published_date": null,
+    "available_from": "2026-09-01",
+    "sample_size": 1141,
+    "n_eff": 787.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     69.66,
+     30.34
+    ]
+   },
+   {
+    "id": "p360-14029-2-0-6df9e2b48f52",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-08-27",
+    "fieldwork_end": "2026-09-01",
+    "published_date": "2026-09-01",
+    "available_from": "2026-09-01",
+    "sample_size": 1193,
+    "n_eff": 1010.5,
+    "n_imputado": false,
+    "tse_registration": "DF-02018/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-e-grass-empatam-tecnicamente-em-2o-turno-no-df-diz-pesquisa/",
+    "shares": [
+     51.48,
+     48.52
+    ]
+   },
+   {
+    "id": "p360-14078-2-2-38c72adf5753",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-07",
+    "published_date": "2026-09-07",
+    "available_from": "2026-09-07",
+    "sample_size": 1104,
+    "n_eff": 761.8,
+    "n_imputado": false,
+    "tse_registration": "DF-01987/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/quaest-df-governador-set.pdf",
+    "shares": [
+     59.42,
+     40.58
+    ]
+   },
+   {
+    "id": "p360-14144-2-1-fd4f0c70f6fe",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-04",
+    "fieldwork_end": "2026-09-08",
+    "published_date": "2026-09-08",
+    "available_from": "2026-09-08",
+    "sample_size": 1600,
+    "n_eff": 1312.0,
+    "n_imputado": false,
+    "tse_registration": "DF-09600/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/michelle-lidera-disputa-pelo-senado-no-df-diz-pesquisa-3/",
+    "shares": [
+     60.98,
+     39.02
+    ]
+   },
+   {
+    "id": "ee095d14b3a0",
+    "pollster": "IGAPE",
+    "fieldwork_start": "2026-09-08",
+    "fieldwork_end": "2026-09-12",
+    "published_date": null,
+    "available_from": "2026-09-12",
+    "sample_size": 2000,
+    "n_eff": 1648.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     66.87,
+     33.13
+    ]
+   },
+   {
+    "id": "9bfae3fae0fb",
+    "pollster": "Correio/Opinião",
+    "fieldwork_start": "2026-09-17",
+    "fieldwork_end": "2026-09-19",
+    "published_date": null,
+    "available_from": "2026-09-19",
+    "sample_size": 1131,
+    "n_eff": 946.6,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     59.98,
+     40.02
+    ]
+   },
+   {
+    "id": "b843d4db35db",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-19",
+    "fieldwork_end": "2026-09-22",
+    "published_date": null,
+    "available_from": "2026-09-22",
+    "sample_size": 1104,
+    "n_eff": 761.8,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
+    "shares": [
+     55.07,
+     44.93
+    ]
+   },
+   {
+    "id": "p360-14207-2-0-0ae7d49332b4",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-09-22",
+    "fieldwork_end": "2026-09-24",
+    "published_date": "2026-09-24",
+    "available_from": "2026-09-24",
+    "sample_size": 910,
+    "n_eff": 791.7,
+    "n_imputado": false,
+    "tse_registration": "DF-01888/2026",
+    "source_url": "https://www.poder360.com.br/agregador-de-pesquisas/",
+    "shares": [
+     60.92,
+     39.08
+    ]
+   },
+   {
+    "id": "p360-14278-2-0-888e62405882",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-24",
+    "fieldwork_end": "2026-09-28",
+    "published_date": "2026-09-28",
+    "available_from": "2026-09-28",
+    "sample_size": 1600,
+    "n_eff": 1376.0,
+    "n_imputado": false,
+    "tse_registration": "DF-04637/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-47-contra-26-de-leandro-grass-no-df-diz-pesquisa/",
+    "shares": [
+     61.63,
+     38.37
+    ]
+   },
+   {
+    "id": "p360-14301-2-0-eaae0b1751ad",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-09-28",
+    "fieldwork_end": "2026-09-30",
+    "published_date": "2026-09-30",
+    "available_from": "2026-09-30",
+    "sample_size": 910,
+    "n_eff": 791.7,
+    "n_imputado": false,
+    "tse_registration": "DF-00905/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-53-dos-votos-validos-no-df-grass-26-diz-pesquisa/",
+    "shares": [
+     63.22,
+     36.78
+    ]
+   },
+   {
+    "id": "p360-14336-2-0-3afb7dfa67db",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 2652,
+    "n_eff": 2201.2,
+    "n_imputado": false,
+    "tse_registration": "DF-04089/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-DF-governo-3.out_.pdf",
+    "shares": [
+     60.24,
+     39.76
+    ]
+   },
+   {
+    "id": "p360-14377-2-0-e85fde62e4b1",
+    "pollster": "Datafolha",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1620,
+    "n_eff": 1409.4,
+    "n_imputado": false,
+    "tse_registration": "DF-07243/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-DataFolha-DF-governo-3out.pdf",
+    "shares": [
+     64.37,
+     35.63
+    ]
+   },
+   {
+    "id": "p360-14432-2-0-eaa989f922dd",
+    "pollster": "Instituto Gazeta de Pesquisas",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-07",
+    "published_date": "2026-10-07",
+    "available_from": "2026-10-07",
+    "sample_size": 1200,
+    "n_eff": 1104.0,
+    "n_imputado": false,
+    "tse_registration": "DF-00054/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Igape-governador-DF-9out2026.pdf",
+    "shares": [
+     60.65,
+     39.35
+    ]
+   },
+   {
+    "id": "p360-14433-2-0-03d107b63e2b",
+    "pollster": "Datafolha",
+    "fieldwork_start": "2026-10-06",
+    "fieldwork_end": "2026-10-08",
+    "published_date": "2026-10-08",
+    "available_from": "2026-10-08",
+    "sample_size": 910,
+    "n_eff": 837.2,
+    "n_imputado": false,
+    "tse_registration": "DF-03365/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-tem-55-contra-37-de-grass-no-2o-turno-no-df-diz-datafolha/",
+    "shares": [
+     59.78,
+     40.22
+    ]
+   },
+   {
+    "id": "2de907425237",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-11",
+    "published_date": "2026-10-11",
+    "available_from": "2026-10-11",
+    "sample_size": 1104,
+    "n_eff": 949.4,
+    "n_imputado": false,
+    "tse_registration": "BR-06799/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaQuaest-presidente-DF-12out2026.pdf",
+    "shares": [
+     61.63,
+     38.37
+    ]
+   },
+   {
+    "id": "p360-14443-2-0-7d1657f69501",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-10-09",
+    "fieldwork_end": "2026-10-13",
+    "published_date": "2026-10-13",
+    "available_from": "2026-10-13",
+    "sample_size": 1600,
+    "n_eff": 1424.0,
+    "n_imputado": false,
+    "tse_registration": "DF-01170/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-leao-tem-53-contra-36-de-grass-diz-pesquisa/",
+    "shares": [
+     59.55,
+     40.45
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 3,
+   "par_diferente": 27
+  },
+  "exclusions": []
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0056,
+    "ess_bulk": 1356.4
+   },
+   "tau": {
+    "rhat": 1.0036,
+    "ess_bulk": 1398.7
+   },
+   "sigma_h": {
+    "rhat": 1.0027,
+    "ess_bulk": 1406.0
+   },
+   "fração_atual[Celina Leão]": {
+    "rhat": 1.0013,
+    "ess_bulk": 11280.1
+   },
+   "fração_atual[Leandro Grass]": {
+    "rhat": 1.0013,
+    "ess_bulk": 11280.1
+   }
+  },
+  "rhat_max": 1.0056,
+  "ess_min": 1356.4,
+  "accept": [
+   0.409,
+   0.346,
+   0.347,
+   0.382
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Celina Leão",
+    "mean": 61.18,
+    "sd": 1.959,
+    "quantiles": {
+     "0.025": 56.926,
+     "0.05": 57.893,
+     "0.1": 58.789,
+     "0.25": 60.127,
+     "0.5": 61.285,
+     "0.75": 62.326,
+     "0.9": 63.377,
+     "0.95": 64.112,
+     "0.975": 64.935
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 48.0,
+     "counts": [
+      2,
+      0,
+      1,
+      0,
+      0,
+      2,
+      4,
+      3,
+      4,
+      5,
+      9,
+      4,
+      16,
+      29,
+      36,
+      47,
+      58,
+      88,
+      128,
+      203,
+      318,
+      428,
+      575,
+      788,
+      1031,
+      1362,
+      1508,
+      1505,
+      1261,
+      908,
+      596,
+      422,
+      241,
+      130,
+      89,
+      58,
+      50,
+      35,
+      22,
+      12,
+      9,
+      6,
+      2,
+      1,
+      1,
+      3
+     ]
+    }
+   },
+   {
+    "label": "Leandro Grass",
+    "mean": 38.82,
+    "sd": 1.959,
+    "quantiles": {
+     "0.025": 35.065,
+     "0.05": 35.888,
+     "0.1": 36.623,
+     "0.25": 37.674,
+     "0.5": 38.715,
+     "0.75": 39.873,
+     "0.9": 41.211,
+     "0.95": 42.107,
+     "0.975": 43.074
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 29.0,
+     "counts": [
+      3,
+      1,
+      1,
+      2,
+      6,
+      9,
+      12,
+      22,
+      35,
+      50,
+      58,
+      89,
+      130,
+      241,
+      422,
+      596,
+      908,
+      1261,
+      1505,
+      1508,
+      1362,
+      1031,
+      788,
+      575,
+      428,
+      318,
+      203,
+      128,
+      88,
+      58,
+      47,
+      36,
+      29,
+      16,
+      4,
+      9,
+      5,
+      4,
+      3,
+      4,
+      2,
+      0,
+      0,
+      1,
+      0,
+      2
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-07-02",
+    "values": [
+     {
+      "q10": 58.47,
+      "median": 61.53,
+      "q90": 63.92
+     },
+     {
+      "q10": 36.08,
+      "median": 38.47,
+      "q90": 41.53
+     }
+    ]
+   },
+   {
+    "date": "2026-07-31",
+    "values": [
+     {
+      "q10": 60.23,
+      "median": 62.08,
+      "q90": 64.26
+     },
+     {
+      "q10": 35.74,
+      "median": 37.92,
+      "q90": 39.77
+     }
+    ]
+   },
+   {
+    "date": "2026-08-16",
+    "values": [
+     {
+      "q10": 60.51,
+      "median": 62.29,
+      "q90": 64.13
+     },
+     {
+      "q10": 35.87,
+      "median": 37.71,
+      "q90": 39.49
+     }
+    ]
+   },
+   {
+    "date": "2026-08-22",
+    "values": [
+     {
+      "q10": 60.78,
+      "median": 62.43,
+      "q90": 64.72
+     },
+     {
+      "q10": 35.28,
+      "median": 37.57,
+      "q90": 39.22
+     }
+    ]
+   },
+   {
+    "date": "2026-08-29",
+    "values": [
+     {
+      "q10": 60.69,
+      "median": 62.11,
+      "q90": 63.84
+     },
+     {
+      "q10": 36.16,
+      "median": 37.89,
+      "q90": 39.31
+     }
+    ]
+   },
+   {
+    "date": "2026-08-30",
+    "values": [
+     {
+      "q10": 60.67,
+      "median": 62.12,
+      "q90": 63.86
+     },
+     {
+      "q10": 36.14,
+      "median": 37.88,
+      "q90": 39.33
+     }
+    ]
+   },
+   {
+    "date": "2026-09-05",
+    "values": [
+     {
+      "q10": 60.34,
+      "median": 61.7,
+      "q90": 63.17
+     },
+     {
+      "q10": 36.83,
+      "median": 38.3,
+      "q90": 39.66
+     }
+    ]
+   },
+   {
+    "date": "2026-09-06",
+    "values": [
+     {
+      "q10": 60.26,
+      "median": 61.68,
+      "q90": 63.13
+     },
+     {
+      "q10": 36.87,
+      "median": 38.32,
+      "q90": 39.74
+     }
+    ]
+   },
+   {
+    "date": "2026-09-10",
+    "values": [
+     {
+      "q10": 60.06,
+      "median": 61.59,
+      "q90": 63.12
+     },
+     {
+      "q10": 36.88,
+      "median": 38.41,
+      "q90": 39.94
+     }
+    ]
+   },
+   {
+    "date": "2026-09-18",
+    "values": [
+     {
+      "q10": 59.16,
+      "median": 61.08,
+      "q90": 62.66
+     },
+     {
+      "q10": 37.34,
+      "median": 38.92,
+      "q90": 40.84
+     }
+    ]
+   },
+   {
+    "date": "2026-09-20",
+    "values": [
+     {
+      "q10": 59.06,
+      "median": 61.02,
+      "q90": 62.61
+     },
+     {
+      "q10": 37.39,
+      "median": 38.98,
+      "q90": 40.94
+     }
+    ]
+   },
+   {
+    "date": "2026-09-23",
+    "values": [
+     {
+      "q10": 59.35,
+      "median": 61.08,
+      "q90": 62.66
+     },
+     {
+      "q10": 37.34,
+      "median": 38.92,
+      "q90": 40.65
+     }
+    ]
+   },
+   {
+    "date": "2026-09-26",
+    "values": [
+     {
+      "q10": 59.56,
+      "median": 61.22,
+      "q90": 62.81
+     },
+     {
+      "q10": 37.19,
+      "median": 38.78,
+      "q90": 40.44
+     }
+    ]
+   },
+   {
+    "date": "2026-09-29",
+    "values": [
+     {
+      "q10": 59.65,
+      "median": 61.29,
+      "q90": 62.79
+     },
+     {
+      "q10": 37.21,
+      "median": 38.71,
+      "q90": 40.35
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 59.68,
+      "median": 61.25,
+      "q90": 62.81
+     },
+     {
+      "q10": 37.19,
+      "median": 38.75,
+      "q90": 40.32
+     }
+    ]
+   },
+   {
+    "date": "2026-10-07",
+    "values": [
+     {
+      "q10": 59.32,
+      "median": 61.13,
+      "q90": 62.72
+     },
+     {
+      "q10": 37.28,
+      "median": 38.87,
+      "q90": 40.68
+     }
+    ]
+   },
+   {
+    "date": "2026-10-11",
+    "values": [
+     {
+      "q10": 59.34,
+      "median": 61.12,
+      "q90": 62.86
+     },
+     {
+      "q10": 37.14,
+      "median": 38.88,
+      "q90": 40.66
+     }
+    ]
+   },
+   {
+    "date": "2026-10-21",
+    "values": [
+     {
+      "q10": 58.64,
+      "median": 61.23,
+      "q90": 63.16
+     },
+     {
+      "q10": 36.84,
+      "median": 38.77,
+      "q90": 41.36
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Celina Leão",
+  "rows": [
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -9.913,
+     "0.5": -4.013,
+     "0.9": 0.034
+    }
+   },
+   {
+    "pollster": "IFP",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.2,
+     "0.5": 2.784,
+     "0.9": 7.322
+    }
+   },
+   {
+    "pollster": "IGAPE",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.377,
+     "0.5": 2.054,
+     "0.9": 6.22
+    }
+   },
+   {
+    "pollster": "Exata GO",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -6.26,
+     "0.5": -1.7,
+     "0.9": 0.62
+    }
+   },
+   {
+    "pollster": "Correio/Opinião",
+    "n_polls": 3,
+    "effect_pp_first_candidate": {
+     "0.1": -0.568,
+     "0.5": 1.094,
+     "0.9": 3.495
+    }
+   },
+   {
+    "pollster": "Datafolha",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -1.071,
+     "0.5": 0.504,
+     "0.9": 2.671
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -2.16,
+     "0.5": -0.324,
+     "0.9": 1.159
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 5,
+    "effect_pp_first_candidate": {
+     "0.1": -1.955,
+     "0.5": -0.218,
+     "0.9": 1.251
+    }
+   },
+   {
+    "pollster": "Instituto Gazeta de Pesquisas",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -2.558,
+     "0.5": -0.071,
+     "0.9": 2.333
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.001,
+   "0.5": 0.012,
+   "0.95": 0.034
+  },
+  "tau": {
+   "0.05": 0.058,
+   "0.5": 0.136,
+   "0.95": 0.206
+  },
+  "sigma_h": {
+   "0.05": 0.014,
+   "0.5": 0.129,
+   "0.95": 0.276
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Celina Leão",
+    "mean": 60.974,
+    "sd": 6.385,
+    "quantiles": {
+     "0.025": 47.723,
+     "0.05": 50.195,
+     "0.1": 52.893,
+     "0.25": 56.975,
+     "0.5": 61.165,
+     "0.75": 65.195,
+     "0.9": 68.823,
+     "0.95": 71.099,
+     "0.975": 73.119
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 18.5,
+     "counts": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      2,
+      0,
+      0,
+      3,
+      3,
+      2,
+      4,
+      6,
+      3,
+      5,
+      3,
+      9,
+      8,
+      12,
+      13,
+      18,
+      19,
+      23,
+      24,
+      26,
+      22,
+      55,
+      44,
+      49,
+      60,
+      61,
+      73,
+      90,
+      92,
+      117,
+      134,
+      175,
+      188,
+      193,
+      254,
+      283,
+      279,
+      329,
+      421,
+      485,
+      543,
+      591,
+      680,
+      756,
+      857,
+      988,
+      1020,
+      1210,
+      1276,
+      1472,
+      1658,
+      1689,
+      1934,
+      2095,
+      2335,
+      2424,
+      2504,
+      2747,
+      2799,
+      2953,
+      3080,
+      3237,
+      3278,
+      3260,
+      3210,
+      3311,
+      3233,
+      3263,
+      3106,
+      3031,
+      3006,
+      2761,
+      2686,
+      2568,
+      2318,
+      2211,
+      1942,
+      1778,
+      1653,
+      1453,
+      1240,
+      1151,
+      993,
+      924,
+      818,
+      682,
+      615,
+      463,
+      465,
+      341,
+      336,
+      259,
+      214,
+      186,
+      152,
+      111,
+      98,
+      95,
+      70,
+      44,
+      48,
+      51,
+      23,
+      15,
+      19,
+      20,
+      11,
+      10,
+      11,
+      10,
+      3,
+      2,
+      4,
+      0,
+      1,
+      2,
+      0,
+      2,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Leandro Grass",
+    "mean": 39.026,
+    "sd": 6.385,
+    "quantiles": {
+     "0.025": 26.881,
+     "0.05": 28.901,
+     "0.1": 31.177,
+     "0.25": 34.805,
+     "0.5": 38.835,
+     "0.75": 43.025,
+     "0.9": 47.107,
+     "0.95": 49.805,
+     "0.975": 52.277
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 11.0,
+     "counts": [
+      1,
+      1,
+      2,
+      0,
+      2,
+      1,
+      0,
+      4,
+      2,
+      3,
+      10,
+      11,
+      10,
+      11,
+      20,
+      19,
+      15,
+      23,
+      51,
+      48,
+      44,
+      70,
+      95,
+      98,
+      111,
+      152,
+      186,
+      214,
+      259,
+      336,
+      341,
+      465,
+      463,
+      615,
+      682,
+      818,
+      924,
+      993,
+      1151,
+      1240,
+      1453,
+      1653,
+      1778,
+      1942,
+      2211,
+      2318,
+      2568,
+      2686,
+      2761,
+      3006,
+      3031,
+      3106,
+      3263,
+      3233,
+      3311,
+      3210,
+      3260,
+      3278,
+      3237,
+      3080,
+      2953,
+      2799,
+      2747,
+      2504,
+      2424,
+      2335,
+      2095,
+      1934,
+      1689,
+      1658,
+      1472,
+      1276,
+      1210,
+      1020,
+      988,
+      857,
+      756,
+      680,
+      591,
+      543,
+      485,
+      421,
+      329,
+      279,
+      283,
+      254,
+      193,
+      188,
+      175,
+      134,
+      117,
+      92,
+      90,
+      73,
+      61,
+      60,
+      49,
+      44,
+      55,
+      22,
+      26,
+      24,
+      23,
+      19,
+      18,
+      13,
+      12,
+      8,
+      9,
+      3,
+      5,
+      3,
+      6,
+      4,
+      2,
+      3,
+      3,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.113,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   -1.1009
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.0904,
+   "drift": 0.0166,
+   "systematic": 0.893
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.9527,
+   0.0473
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "trend_model": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "series_from": "2026-10-01",
+  "series_to": "2026-10-13",
+  "points": 5,
+  "average_now_pct": [
+   62.4,
+   37.6
+  ],
+  "trend_pp_per_week": [
+   0.8298,
+   -0.8298
+  ],
+  "point_election_pct": [
+   62.4,
+   37.6
+  ],
+  "sys_scale_alr": 0.1648,
+  "summary": [
+   {
+    "label": "Celina Leão",
+    "mean": 61.993,
+    "sd": 8.6109,
+    "quantiles": {
+     "0.025": 43.8216,
+     "0.05": 47.2577,
+     "0.1": 50.9578,
+     "0.25": 56.6687,
+     "0.5": 62.3714,
+     "0.75": 67.7811,
+     "0.9": 72.5558,
+     "0.95": 75.3825,
+     "0.975": 77.9671
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 11.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      2,
+      1,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      4,
+      2,
+      6,
+      3,
+      10,
+      1,
+      6,
+      5,
+      4,
+      7,
+      11,
+      4,
+      7,
+      11,
+      11,
+      9,
+      15,
+      10,
+      19,
+      17,
+      25,
+      21,
+      23,
+      26,
+      29,
+      33,
+      33,
+      41,
+      49,
+      59,
+      49,
+      69,
+      70,
+      85,
+      89,
+      112,
+      119,
+      116,
+      125,
+      167,
+      166,
+      200,
+      232,
+      237,
+      242,
+      286,
+      290,
+      371,
+      367,
+      420,
+      441,
+      485,
+      502,
+      592,
+      639,
+      692,
+      764,
+      755,
+      887,
+      924,
+      983,
+      1031,
+      1151,
+      1218,
+      1266,
+      1445,
+      1431,
+      1510,
+      1649,
+      1722,
+      1813,
+      1876,
+      1943,
+      2083,
+      2015,
+      2268,
+      2381,
+      2303,
+      2341,
+      2408,
+      2368,
+      2467,
+      2466,
+      2439,
+      2322,
+      2387,
+      2333,
+      2322,
+      2336,
+      2324,
+      2122,
+      2146,
+      2030,
+      1984,
+      1849,
+      1711,
+      1616,
+      1539,
+      1426,
+      1395,
+      1234,
+      1209,
+      1063,
+      1016,
+      903,
+      854,
+      778,
+      667,
+      581,
+      512,
+      480,
+      425,
+      372,
+      381,
+      309,
+      251,
+      235,
+      197,
+      153,
+      146,
+      124,
+      103,
+      86,
+      80,
+      65,
+      55,
+      48,
+      49,
+      29,
+      24,
+      28,
+      20,
+      23,
+      17,
+      9,
+      7,
+      10,
+      4,
+      5,
+      4,
+      2,
+      2,
+      5,
+      2,
+      2,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Leandro Grass",
+    "mean": 38.007,
+    "sd": 8.6109,
+    "quantiles": {
+     "0.025": 22.0329,
+     "0.05": 24.6175,
+     "0.1": 27.4442,
+     "0.25": 32.2189,
+     "0.5": 37.6286,
+     "0.75": 43.3313,
+     "0.9": 49.0422,
+     "0.95": 52.7423,
+     "0.975": 56.1784
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 5.0,
+     "counts": [
+      1,
+      1,
+      2,
+      2,
+      5,
+      2,
+      2,
+      4,
+      5,
+      4,
+      10,
+      7,
+      9,
+      17,
+      23,
+      20,
+      28,
+      24,
+      29,
+      49,
+      48,
+      55,
+      65,
+      80,
+      86,
+      103,
+      124,
+      146,
+      153,
+      197,
+      235,
+      251,
+      309,
+      381,
+      372,
+      425,
+      480,
+      512,
+      581,
+      667,
+      778,
+      854,
+      903,
+      1016,
+      1063,
+      1209,
+      1234,
+      1395,
+      1426,
+      1539,
+      1616,
+      1711,
+      1849,
+      1984,
+      2030,
+      2146,
+      2122,
+      2324,
+      2336,
+      2322,
+      2333,
+      2387,
+      2322,
+      2439,
+      2466,
+      2467,
+      2368,
+      2408,
+      2341,
+      2303,
+      2381,
+      2268,
+      2015,
+      2083,
+      1943,
+      1876,
+      1813,
+      1722,
+      1649,
+      1510,
+      1431,
+      1445,
+      1266,
+      1218,
+      1151,
+      1031,
+      983,
+      924,
+      887,
+      755,
+      764,
+      692,
+      639,
+      592,
+      502,
+      485,
+      441,
+      420,
+      367,
+      371,
+      290,
+      286,
+      242,
+      237,
+      232,
+      200,
+      166,
+      167,
+      125,
+      116,
+      119,
+      112,
+      89,
+      85,
+      70,
+      69,
+      49,
+      59,
+      49,
+      41,
+      33,
+      33,
+      29,
+      26,
+      23,
+      21,
+      25,
+      17,
+      19,
+      10,
+      15,
+      9,
+      11,
+      11,
+      7,
+      4,
+      11,
+      7,
+      4,
+      5,
+      6,
+      1,
+      10,
+      3,
+      6,
+      2,
+      4,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      1,
+      2,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "probabilities": {
+   "first": [
+    0.9156,
+    0.0844
+   ],
+   "top2": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "headline_method": "modelo",
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "ae01ab445624690734c7417ba502d753d5476556231ef23dc89590a5c912607c",
+ "run": {
+  "executed_at": "2026-10-21T01:54:54+00:00"
+ }
+}

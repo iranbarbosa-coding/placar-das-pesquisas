@@ -1,0 +1,2660 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-am-2026-t2",
+ "contest": "governador:AM",
+ "race": "governador",
+ "uf": "AM",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-21",
+ "horizon_days": 4,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "f4a603e3814b35975c0e4f27c0c526d6e402f351dedb152abd65360c085d4da2",
+  "code_sha256": "6fd689eb6066d27c735b7a118a5af68a291bd22e2e680dc8b65b3c2c9eb2a2fb",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
+  "numpy_version": "2.5.3",
+  "seed": 1344160601,
+  "fit_seconds": 13.9
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_f649ea80be52",
+   "person_id": "p_9bbdbfb669d1",
+   "name": "Omar Aziz",
+   "first_round_pct": 40.63
+  },
+  {
+   "candidate_id": "c_43e545003a6b",
+   "person_id": "p_5b76221dc45d",
+   "name": "Professora Maria do Carmo",
+   "first_round_pct": 24.49
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14492-2-0-eb1eb1a487d5",
+   "p360-14499-2-0-5c23246f742b",
+   "p360-14459-2-0-6042a2135f98",
+   "p360-14439-2-0-a34685092a0e",
+   "p360-14337-2-0-d104d5c41bf1",
+   "p360-14312-2-2-b23d27594c61",
+   "75c1519cf726",
+   "99d81bb77beb",
+   "2e4d5deeca54",
+   "p360-14049-2-1-160a83bbc086"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-19",
+  "candidates": [
+   {
+    "candidate_id": "c_f649ea80be52",
+    "name": "Omar Aziz",
+    "avg": 56.6,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2025-12-26",
+      "avg": 56.6
+     },
+     {
+      "date": "2025-12-29",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-01",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-04",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-07",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-10",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-13",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-16",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-19",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-22",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-25",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-28",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-01-31",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-03",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-06",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-09",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-12",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-15",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-18",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-21",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-24",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-02-27",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-03-02",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-03-05",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-03-08",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-03-11",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-03-14",
+      "avg": 56.6
+     },
+     {
+      "date": "2026-03-17",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-03-20",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-03-23",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-03-26",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-03-29",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-01",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-04",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-07",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-10",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-13",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-16",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-19",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-22",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-25",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-04-28",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-05-01",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-05-04",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-05-07",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-05-10",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-05-13",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-05-16",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-19",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-22",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-25",
+      "avg": 51.1
+     },
+     {
+      "date": "2026-05-28",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-05-31",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-03",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-06",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-09",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-12",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-15",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-18",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-21",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-24",
+      "avg": 50.1
+     },
+     {
+      "date": "2026-06-27",
+      "avg": 51.8
+     },
+     {
+      "date": "2026-06-30",
+      "avg": 51.8
+     },
+     {
+      "date": "2026-07-03",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-07-06",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-09",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-12",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-15",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-18",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-21",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-24",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-27",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-07-30",
+      "avg": 52.8
+     },
+     {
+      "date": "2026-08-02",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-08-05",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-08-08",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-08-11",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-08-14",
+      "avg": 54.3
+     },
+     {
+      "date": "2026-08-17",
+      "avg": 54.3
+     },
+     {
+      "date": "2026-08-20",
+      "avg": 54.3
+     },
+     {
+      "date": "2026-08-23",
+      "avg": 54.3
+     },
+     {
+      "date": "2026-08-26",
+      "avg": 53.2
+     },
+     {
+      "date": "2026-08-29",
+      "avg": 53.5
+     },
+     {
+      "date": "2026-09-01",
+      "avg": 53.5
+     },
+     {
+      "date": "2026-09-04",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-09-07",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-09-10",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-09-13",
+      "avg": 54.9
+     },
+     {
+      "date": "2026-09-16",
+      "avg": 54.9
+     },
+     {
+      "date": "2026-09-19",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-09-22",
+      "avg": 54.8
+     },
+     {
+      "date": "2026-09-25",
+      "avg": 54.3
+     },
+     {
+      "date": "2026-09-28",
+      "avg": 54.3
+     },
+     {
+      "date": "2026-10-01",
+      "avg": 53.4
+     },
+     {
+      "date": "2026-10-04",
+      "avg": 54.2
+     },
+     {
+      "date": "2026-10-07",
+      "avg": 54.2
+     },
+     {
+      "date": "2026-10-10",
+      "avg": 54.2
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 55.5
+     },
+     {
+      "date": "2026-10-16",
+      "avg": 55.9
+     },
+     {
+      "date": "2026-10-19",
+      "avg": 56.6
+     }
+    ]
+   },
+   {
+    "candidate_id": "c_43e545003a6b",
+    "name": "Professora Maria do Carmo",
+    "avg": 43.4,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2025-12-26",
+      "avg": 43.4
+     },
+     {
+      "date": "2025-12-29",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-01",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-04",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-07",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-10",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-13",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-16",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-19",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-22",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-25",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-28",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-01-31",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-03",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-06",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-09",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-12",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-15",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-18",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-21",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-24",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-02-27",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-03-02",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-03-05",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-03-08",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-03-11",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-03-14",
+      "avg": 43.4
+     },
+     {
+      "date": "2026-03-17",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-03-20",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-03-23",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-03-26",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-03-29",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-01",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-04",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-07",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-10",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-13",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-16",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-19",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-22",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-25",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-04-28",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-05-01",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-05-04",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-05-07",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-05-10",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-05-13",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-05-16",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-19",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-22",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-25",
+      "avg": 48.9
+     },
+     {
+      "date": "2026-05-28",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-05-31",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-03",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-06",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-09",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-12",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-15",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-18",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-21",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-24",
+      "avg": 49.9
+     },
+     {
+      "date": "2026-06-27",
+      "avg": 48.2
+     },
+     {
+      "date": "2026-06-30",
+      "avg": 48.2
+     },
+     {
+      "date": "2026-07-03",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-07-06",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-09",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-12",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-15",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-18",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-21",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-24",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-27",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-07-30",
+      "avg": 47.2
+     },
+     {
+      "date": "2026-08-02",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-08-05",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-08-08",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-08-11",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-08-14",
+      "avg": 45.7
+     },
+     {
+      "date": "2026-08-17",
+      "avg": 45.7
+     },
+     {
+      "date": "2026-08-20",
+      "avg": 45.7
+     },
+     {
+      "date": "2026-08-23",
+      "avg": 45.7
+     },
+     {
+      "date": "2026-08-26",
+      "avg": 46.8
+     },
+     {
+      "date": "2026-08-29",
+      "avg": 46.5
+     },
+     {
+      "date": "2026-09-01",
+      "avg": 46.5
+     },
+     {
+      "date": "2026-09-04",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-09-07",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-09-10",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-09-13",
+      "avg": 45.1
+     },
+     {
+      "date": "2026-09-16",
+      "avg": 45.1
+     },
+     {
+      "date": "2026-09-19",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-09-22",
+      "avg": 45.2
+     },
+     {
+      "date": "2026-09-25",
+      "avg": 45.7
+     },
+     {
+      "date": "2026-09-28",
+      "avg": 45.7
+     },
+     {
+      "date": "2026-10-01",
+      "avg": 46.6
+     },
+     {
+      "date": "2026-10-04",
+      "avg": 45.8
+     },
+     {
+      "date": "2026-10-07",
+      "avg": 45.8
+     },
+     {
+      "date": "2026-10-10",
+      "avg": 45.8
+     },
+     {
+      "date": "2026-10-13",
+      "avg": 44.5
+     },
+     {
+      "date": "2026-10-16",
+      "avg": 44.1
+     },
+     {
+      "date": "2026-10-19",
+      "avg": 43.4
+     }
+    ]
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "f8ee0255fba10bef2d18c7bdbbc8091665cdab2c82466a236e90251a8a78f755",
+  "input_sha256": "53bcfebafe1d3678ad1645bbccf32b5c9c71df17ce66bcce38b701dea65f24a1",
+  "source_polls_sha256": "767529f64366742a8d991025f23385d055b8722ab52c341015259ce8355b32c0",
+  "source_generated_at": "2026-10-21T01:32:01.070Z",
+  "n_polls": 21,
+  "n_institutes": 10,
+  "latest_fieldwork_end": "2026-10-19",
+  "polls": [
+   {
+    "id": "2e9e88dec424",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-05-22",
+    "fieldwork_end": "2026-05-26",
+    "published_date": null,
+    "available_from": "2026-05-26",
+    "sample_size": 1200,
+    "n_eff": 955.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     46.23,
+     53.77
+    ]
+   },
+   {
+    "id": "b568796974d8",
+    "pollster": "Comunidados",
+    "fieldwork_start": "2026-06-23",
+    "fieldwork_end": "2026-06-26",
+    "published_date": null,
+    "available_from": "2026-06-26",
+    "sample_size": 1066,
+    "n_eff": 991.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     60.22,
+     39.78
+    ]
+   },
+   {
+    "id": "d14cdd049bf1",
+    "pollster": "DMP",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-02",
+    "published_date": null,
+    "available_from": "2026-07-02",
+    "sample_size": 1200,
+    "n_eff": 1082.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     61.86,
+     38.14
+    ]
+   },
+   {
+    "id": "b367dba5ae86",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-07-01",
+    "fieldwork_end": "2026-07-05",
+    "published_date": null,
+    "available_from": "2026-07-05",
+    "sample_size": 1220,
+    "n_eff": 928.4,
+    "n_imputado": false,
+    "tse_registration": "BR-03439/2026",
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     49.67,
+     50.33
+    ]
+   },
+   {
+    "id": "99632aafa8cd",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-01",
+    "published_date": null,
+    "available_from": "2026-08-01",
+    "sample_size": 1220,
+    "n_eff": 855.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     52.35,
+     47.65
+    ]
+   },
+   {
+    "id": "dbf85a2627db",
+    "pollster": "DMP",
+    "fieldwork_start": "2026-08-11",
+    "fieldwork_end": "2026-08-14",
+    "published_date": null,
+    "available_from": "2026-08-14",
+    "sample_size": 2000,
+    "n_eff": 1808.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     59.85,
+     40.15
+    ]
+   },
+   {
+    "id": "p360-13987-2-3-d4e0298dd772",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-24",
+    "published_date": "2026-08-24",
+    "available_from": "2026-08-24",
+    "sample_size": 804,
+    "n_eff": 715.6,
+    "n_imputado": false,
+    "tse_registration": "AM-04595/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-AM-Quaest-GazetaDoPovo.pdf",
+    "shares": [
+     50.56,
+     49.44
+    ]
+   },
+   {
+    "id": "46f965757a9b",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-08-21",
+    "fieldwork_end": "2026-08-25",
+    "published_date": "2026-08-25",
+    "available_from": "2026-08-25",
+    "sample_size": 1600,
+    "n_eff": 1360.0,
+    "n_imputado": false,
+    "tse_registration": "AM-09965/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-disputa-pelo-governo-do-amazonas-no-1o-turno/",
+    "shares": [
+     49.41,
+     50.59
+    ]
+   },
+   {
+    "id": "3c94d7eeca48",
+    "pollster": "Veritá",
+    "fieldwork_start": "2026-08-24",
+    "fieldwork_end": "2026-08-28",
+    "published_date": null,
+    "available_from": "2026-08-28",
+    "sample_size": 1220,
+    "n_eff": 1220.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     53.1,
+     46.9
+    ]
+   },
+   {
+    "id": "p360-14068-2-0-4ce7a74d174f",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-08-29",
+    "fieldwork_end": "2026-09-03",
+    "published_date": "2026-09-03",
+    "available_from": "2026-09-03",
+    "sample_size": 1185,
+    "n_eff": 1035.7,
+    "n_imputado": false,
+    "tse_registration": "BR-01799/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/flavio-tem-413-das-intencoes-de-voto-contra-391-de-lula-no-amazonas/",
+    "shares": [
+     46.68,
+     53.32
+    ]
+   },
+   {
+    "id": "p360-14049-2-1-160a83bbc086",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-09-02",
+    "fieldwork_end": "2026-09-04",
+    "published_date": "2026-09-04",
+    "available_from": "2026-09-04",
+    "sample_size": 1350,
+    "n_eff": 1197.5,
+    "n_imputado": false,
+    "tse_registration": "AM-01118/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/omar-aziz-lidera-no-1o-turno-para-o-governo-do-amazonas-diz-pesquisa/",
+    "shares": [
+     58.29,
+     41.71
+    ]
+   },
+   {
+    "id": "2e4d5deeca54",
+    "pollster": "Pontual",
+    "fieldwork_start": "2026-09-05",
+    "fieldwork_end": "2026-09-13",
+    "published_date": null,
+    "available_from": "2026-09-13",
+    "sample_size": 3000,
+    "n_eff": 2526.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     56.53,
+     43.47
+    ]
+   },
+   {
+    "id": "99d81bb77beb",
+    "pollster": "Projeta",
+    "fieldwork_start": "2026-09-14",
+    "fieldwork_end": "2026-09-18",
+    "published_date": null,
+    "available_from": "2026-09-18",
+    "sample_size": 3000,
+    "n_eff": 2669.7,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     59.61,
+     40.39
+    ]
+   },
+   {
+    "id": "3d48ae534f7c",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-20",
+    "fieldwork_end": "2026-09-23",
+    "published_date": null,
+    "available_from": "2026-09-23",
+    "sample_size": 804,
+    "n_eff": 691.4,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     51.16,
+     48.84
+    ]
+   },
+   {
+    "id": "75c1519cf726",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-09-20",
+    "fieldwork_end": "2026-09-23",
+    "published_date": null,
+    "available_from": "2026-09-23",
+    "sample_size": 1200,
+    "n_eff": 1080.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+    "shares": [
+     57.78,
+     42.22
+    ]
+   },
+   {
+    "id": "p360-14312-2-2-b23d27594c61",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-28",
+    "fieldwork_end": "2026-10-01",
+    "published_date": "2026-10-01",
+    "available_from": "2026-10-01",
+    "sample_size": 1600,
+    "n_eff": 1408.0,
+    "n_imputado": false,
+    "tse_registration": "AM-07297/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/aziz-lidera-disputa-por-governo-do-amazonas-no-1o-turno-diz-pesquisa/",
+    "shares": [
+     51.14,
+     48.86
+    ]
+   },
+   {
+    "id": "p360-14337-2-0-d104d5c41bf1",
+    "pollster": "Quaest",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1512.0,
+    "n_imputado": false,
+    "tse_registration": "AM-04805/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ap-3-out-2026.pdf",
+    "shares": [
+     58.33,
+     41.67
+    ]
+   },
+   {
+    "id": "p360-14439-2-0-a34685092a0e",
+    "pollster": "PoderData",
+    "fieldwork_start": "2026-10-08",
+    "fieldwork_end": "2026-10-11",
+    "published_date": "2026-10-11",
+    "available_from": "2026-10-11",
+    "sample_size": 1200,
+    "n_eff": 1128.0,
+    "n_imputado": false,
+    "tse_registration": "AM-08245/2026",
+    "source_url": "https://www.poder360.com.br/poderdata/omar-aziz-tem-56-e-maria-do-carmo-tem-44-no-am-diz-poderdata/",
+    "shares": [
+     55.32,
+     44.68
+    ]
+   },
+   {
+    "id": "p360-14459-2-0-6042a2135f98",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-09",
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 1098,
+    "n_eff": 966.2,
+    "n_imputado": false,
+    "tse_registration": "AM-09760/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-governo-AM-13out2026.pdf",
+    "shares": [
+     57.95,
+     42.05
+    ]
+   },
+   {
+    "id": "p360-14499-2-0-5c23246f742b",
+    "pollster": "Projeta",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-16",
+    "published_date": "2026-10-16",
+    "available_from": "2026-10-16",
+    "sample_size": 1200,
+    "n_eff": 1104.6,
+    "n_imputado": false,
+    "tse_registration": "AM-/",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaProjeta-governador-AM-19out2026.pdf",
+    "shares": [
+     57.69,
+     42.31
+    ]
+   },
+   {
+    "id": "p360-14492-2-0-eb1eb1a487d5",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-19",
+    "published_date": "2026-10-19",
+    "available_from": "2026-10-19",
+    "sample_size": 1600,
+    "n_eff": 1392.0,
+    "n_imputado": false,
+    "tse_registration": "AM-03112/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/aziz-tem-53-dos-votos-validos-e-maria-do-carmo-47-diz-pesquisa/",
+    "shares": [
+     52.87,
+     47.13
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 43,
+   "incompleta_na_fonte": 2,
+   "par_diferente": 20
+  },
+  "exclusions": [
+   {
+    "id": "2a36dcf58f1e",
+    "pollster": "Pontual",
+    "fieldwork_end": "2026-09-13",
+    "reason": "incompleta_na_fonte"
+   },
+   {
+    "id": "6afa22a7cac5",
+    "pollster": "DMP",
+    "fieldwork_end": "2025-07-02",
+    "reason": "incompleta_na_fonte"
+   }
+  ]
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0032,
+    "ess_bulk": 1200.8
+   },
+   "tau": {
+    "rhat": 1.0022,
+    "ess_bulk": 1190.6
+   },
+   "sigma_h": {
+    "rhat": 1.0047,
+    "ess_bulk": 1457.0
+   },
+   "fração_atual[Omar Aziz]": {
+    "rhat": 1.0001,
+    "ess_bulk": 5645.9
+   },
+   "fração_atual[Professora Maria do Carmo]": {
+    "rhat": 1.0001,
+    "ess_bulk": 5645.9
+   }
+  },
+  "rhat_max": 1.0047,
+  "ess_min": 1190.6,
+  "accept": [
+   0.295,
+   0.332,
+   0.293,
+   0.352
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Omar Aziz",
+    "mean": 56.063,
+    "sd": 1.537,
+    "quantiles": {
+     "0.025": 53.218,
+     "0.05": 53.739,
+     "0.1": 54.304,
+     "0.25": 55.066,
+     "0.5": 55.941,
+     "0.75": 56.946,
+     "0.9": 58.109,
+     "0.95": 58.782,
+     "0.975": 59.391
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 47.0,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      2,
+      4,
+      12,
+      14,
+      26,
+      44,
+      112,
+      221,
+      382,
+      740,
+      1235,
+      1617,
+      1773,
+      1664,
+      1274,
+      899,
+      656,
+      512,
+      344,
+      203,
+      122,
+      67,
+      34,
+      20,
+      13,
+      3,
+      3,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Professora Maria do Carmo",
+    "mean": 43.937,
+    "sd": 1.537,
+    "quantiles": {
+     "0.025": 40.609,
+     "0.05": 41.218,
+     "0.1": 41.891,
+     "0.25": 43.054,
+     "0.5": 44.059,
+     "0.75": 44.934,
+     "0.9": 45.696,
+     "0.95": 46.261,
+     "0.975": 46.782
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 36.0,
+     "counts": [
+      1,
+      1,
+      3,
+      3,
+      13,
+      20,
+      34,
+      67,
+      122,
+      203,
+      344,
+      512,
+      656,
+      899,
+      1274,
+      1664,
+      1773,
+      1617,
+      1235,
+      740,
+      382,
+      221,
+      112,
+      44,
+      26,
+      14,
+      12,
+      4,
+      2,
+      1,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-05-24",
+    "values": [
+     {
+      "q10": 50.4,
+      "median": 54.1,
+      "q90": 56.16
+     },
+     {
+      "q10": 43.84,
+      "median": 45.9,
+      "q90": 49.6
+     }
+    ]
+   },
+   {
+    "date": "2026-06-24",
+    "values": [
+     {
+      "q10": 52.84,
+      "median": 54.94,
+      "q90": 56.72
+     },
+     {
+      "q10": 43.28,
+      "median": 45.06,
+      "q90": 47.16
+     }
+    ]
+   },
+   {
+    "date": "2026-07-01",
+    "values": [
+     {
+      "q10": 53.15,
+      "median": 54.99,
+      "q90": 56.56
+     },
+     {
+      "q10": 43.44,
+      "median": 45.01,
+      "q90": 46.85
+     }
+    ]
+   },
+   {
+    "date": "2026-07-03",
+    "values": [
+     {
+      "q10": 53.14,
+      "median": 54.98,
+      "q90": 56.49
+     },
+     {
+      "q10": 43.51,
+      "median": 45.02,
+      "q90": 46.86
+     }
+    ]
+   },
+   {
+    "date": "2026-07-30",
+    "values": [
+     {
+      "q10": 53.2,
+      "median": 55.07,
+      "q90": 56.5
+     },
+     {
+      "q10": 43.5,
+      "median": 44.93,
+      "q90": 46.8
+     }
+    ]
+   },
+   {
+    "date": "2026-08-12",
+    "values": [
+     {
+      "q10": 53.42,
+      "median": 54.97,
+      "q90": 56.31
+     },
+     {
+      "q10": 43.69,
+      "median": 45.03,
+      "q90": 46.58
+     }
+    ]
+   },
+   {
+    "date": "2026-08-22",
+    "values": [
+     {
+      "q10": 53.35,
+      "median": 54.91,
+      "q90": 56.17
+     },
+     {
+      "q10": 43.83,
+      "median": 45.09,
+      "q90": 46.65
+     }
+    ]
+   },
+   {
+    "date": "2026-08-23",
+    "values": [
+     {
+      "q10": 53.46,
+      "median": 54.95,
+      "q90": 56.23
+     },
+     {
+      "q10": 43.77,
+      "median": 45.05,
+      "q90": 46.54
+     }
+    ]
+   },
+   {
+    "date": "2026-08-26",
+    "values": [
+     {
+      "q10": 53.6,
+      "median": 55.05,
+      "q90": 56.32
+     },
+     {
+      "q10": 43.68,
+      "median": 44.95,
+      "q90": 46.4
+     }
+    ]
+   },
+   {
+    "date": "2026-08-31",
+    "values": [
+     {
+      "q10": 53.67,
+      "median": 55.13,
+      "q90": 56.34
+     },
+     {
+      "q10": 43.66,
+      "median": 44.87,
+      "q90": 46.33
+     }
+    ]
+   },
+   {
+    "date": "2026-09-03",
+    "values": [
+     {
+      "q10": 53.88,
+      "median": 55.26,
+      "q90": 56.5
+     },
+     {
+      "q10": 43.5,
+      "median": 44.74,
+      "q90": 46.12
+     }
+    ]
+   },
+   {
+    "date": "2026-09-09",
+    "values": [
+     {
+      "q10": 54.16,
+      "median": 55.47,
+      "q90": 56.77
+     },
+     {
+      "q10": 43.23,
+      "median": 44.53,
+      "q90": 45.84
+     }
+    ]
+   },
+   {
+    "date": "2026-09-16",
+    "values": [
+     {
+      "q10": 54.34,
+      "median": 55.65,
+      "q90": 57.14
+     },
+     {
+      "q10": 42.86,
+      "median": 44.35,
+      "q90": 45.66
+     }
+    ]
+   },
+   {
+    "date": "2026-09-21",
+    "values": [
+     {
+      "q10": 54.34,
+      "median": 55.67,
+      "q90": 57.19
+     },
+     {
+      "q10": 42.81,
+      "median": 44.33,
+      "q90": 45.66
+     }
+    ]
+   },
+   {
+    "date": "2026-09-29",
+    "values": [
+     {
+      "q10": 54.49,
+      "median": 55.82,
+      "q90": 57.55
+     },
+     {
+      "q10": 42.45,
+      "median": 44.18,
+      "q90": 45.51
+     }
+    ]
+   },
+   {
+    "date": "2026-10-03",
+    "values": [
+     {
+      "q10": 54.56,
+      "median": 56.01,
+      "q90": 57.91
+     },
+     {
+      "q10": 42.09,
+      "median": 43.99,
+      "q90": 45.44
+     }
+    ]
+   },
+   {
+    "date": "2026-10-09",
+    "values": [
+     {
+      "q10": 54.58,
+      "median": 56.01,
+      "q90": 57.85
+     },
+     {
+      "q10": 42.15,
+      "median": 43.99,
+      "q90": 45.42
+     }
+    ]
+   },
+   {
+    "date": "2026-10-10",
+    "values": [
+     {
+      "q10": 54.58,
+      "median": 56.03,
+      "q90": 57.89
+     },
+     {
+      "q10": 42.11,
+      "median": 43.97,
+      "q90": 45.42
+     }
+    ]
+   },
+   {
+    "date": "2026-10-16",
+    "values": [
+     {
+      "q10": 54.5,
+      "median": 55.95,
+      "q90": 57.88
+     },
+     {
+      "q10": 42.12,
+      "median": 44.05,
+      "q90": 45.5
+     }
+    ]
+   },
+   {
+    "date": "2026-10-19",
+    "values": [
+     {
+      "q10": 54.5,
+      "median": 55.97,
+      "q90": 57.95
+     },
+     {
+      "q10": 42.05,
+      "median": 44.03,
+      "q90": 45.5
+     }
+    ]
+   },
+   {
+    "date": "2026-10-21",
+    "values": [
+     {
+      "q10": 54.36,
+      "median": 55.91,
+      "q90": 58.06
+     },
+     {
+      "q10": 41.94,
+      "median": 44.09,
+      "q90": 45.64
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Omar Aziz",
+  "rows": [
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -8.704,
+     "0.5": -5.309,
+     "0.9": -1.328
+    }
+   },
+   {
+    "pollster": "DMP",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": 1.543,
+     "0.5": 4.597,
+     "0.9": 7.171
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 3,
+    "effect_pp_first_candidate": {
+     "0.1": -5.761,
+     "0.5": -3.711,
+     "0.9": -1.232
+    }
+   },
+   {
+    "pollster": "Veritá",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -5.512,
+     "0.5": -3.483,
+     "0.9": -1.197
+    }
+   },
+   {
+    "pollster": "Comunidados",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": 0.067,
+     "0.5": 3.353,
+     "0.9": 6.816
+    }
+   },
+   {
+    "pollster": "Projeta",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -0.054,
+     "0.5": 2.142,
+     "0.9": 4.368
+    }
+   },
+   {
+    "pollster": "Paraná Pesquisas",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.838,
+     "0.5": 1.828,
+     "0.9": 4.623
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -2.643,
+     "0.5": -0.704,
+     "0.9": 1.131
+    }
+   },
+   {
+    "pollster": "Pontual",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -1.892,
+     "0.5": 0.567,
+     "0.9": 3.114
+    }
+   },
+   {
+    "pollster": "PoderData",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -1.76,
+     "0.5": 0.389,
+     "0.9": 2.585
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.001,
+   "0.5": 0.01,
+   "0.95": 0.026
+  },
+  "tau": {
+   "0.05": 0.04,
+   "0.5": 0.096,
+   "0.95": 0.166
+  },
+  "sigma_h": {
+   "0.05": 0.074,
+   "0.5": 0.157,
+   "0.95": 0.259
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Omar Aziz",
+    "mean": 55.97,
+    "sd": 6.629,
+    "quantiles": {
+     "0.025": 42.538,
+     "0.05": 44.994,
+     "0.1": 47.677,
+     "0.25": 51.731,
+     "0.5": 56.039,
+     "0.75": 60.334,
+     "0.9": 64.232,
+     "0.95": 66.597,
+     "0.975": 68.86
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 15.0,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      2,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      3,
+      1,
+      5,
+      2,
+      6,
+      6,
+      9,
+      7,
+      4,
+      8,
+      11,
+      18,
+      17,
+      19,
+      12,
+      19,
+      35,
+      39,
+      37,
+      53,
+      64,
+      58,
+      64,
+      67,
+      90,
+      103,
+      128,
+      126,
+      190,
+      185,
+      223,
+      229,
+      284,
+      339,
+      355,
+      471,
+      498,
+      571,
+      639,
+      667,
+      798,
+      915,
+      1015,
+      1175,
+      1250,
+      1463,
+      1635,
+      1588,
+      1871,
+      2029,
+      2204,
+      2291,
+      2405,
+      2574,
+      2735,
+      2770,
+      2840,
+      3040,
+      3130,
+      3183,
+      3188,
+      3031,
+      3166,
+      3083,
+      3095,
+      2970,
+      2846,
+      2734,
+      2631,
+      2491,
+      2475,
+      2234,
+      2036,
+      1962,
+      1722,
+      1639,
+      1484,
+      1305,
+      1194,
+      1070,
+      941,
+      965,
+      706,
+      649,
+      519,
+      481,
+      419,
+      381,
+      316,
+      271,
+      218,
+      217,
+      162,
+      144,
+      113,
+      113,
+      83,
+      60,
+      46,
+      48,
+      39,
+      28,
+      20,
+      20,
+      21,
+      18,
+      11,
+      10,
+      9,
+      6,
+      8,
+      2,
+      3,
+      3,
+      2,
+      2,
+      0,
+      0,
+      2,
+      0,
+      2,
+      1,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Professora Maria do Carmo",
+    "mean": 44.03,
+    "sd": 6.629,
+    "quantiles": {
+     "0.025": 31.14,
+     "0.05": 33.403,
+     "0.1": 35.768,
+     "0.25": 39.666,
+     "0.5": 43.961,
+     "0.75": 48.269,
+     "0.9": 52.323,
+     "0.95": 55.006,
+     "0.975": 57.462
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 11.5,
+     "counts": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      2,
+      0,
+      2,
+      0,
+      0,
+      2,
+      2,
+      3,
+      3,
+      2,
+      8,
+      6,
+      9,
+      10,
+      11,
+      18,
+      21,
+      20,
+      20,
+      28,
+      39,
+      48,
+      46,
+      60,
+      83,
+      113,
+      113,
+      144,
+      162,
+      217,
+      218,
+      271,
+      316,
+      381,
+      419,
+      481,
+      519,
+      649,
+      706,
+      965,
+      941,
+      1070,
+      1194,
+      1305,
+      1484,
+      1639,
+      1722,
+      1962,
+      2036,
+      2234,
+      2475,
+      2491,
+      2631,
+      2734,
+      2846,
+      2970,
+      3095,
+      3083,
+      3166,
+      3031,
+      3188,
+      3183,
+      3130,
+      3040,
+      2840,
+      2770,
+      2735,
+      2574,
+      2405,
+      2291,
+      2204,
+      2029,
+      1871,
+      1588,
+      1635,
+      1463,
+      1250,
+      1175,
+      1015,
+      915,
+      798,
+      667,
+      639,
+      571,
+      498,
+      471,
+      355,
+      339,
+      284,
+      229,
+      223,
+      185,
+      190,
+      126,
+      128,
+      103,
+      90,
+      67,
+      64,
+      58,
+      64,
+      53,
+      37,
+      39,
+      35,
+      19,
+      12,
+      19,
+      17,
+      18,
+      11,
+      8,
+      4,
+      7,
+      9,
+      6,
+      6,
+      2,
+      5,
+      1,
+      3,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.11841,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.0723,
+   -0.8196
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.0516,
+   "drift": 0.0103,
+   "systematic": 0.938
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.8262,
+   0.1738
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "trend_model": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "series_from": "2026-10-01",
+  "series_to": "2026-10-19",
+  "points": 7,
+  "average_now_pct": [
+   56.6,
+   43.4
+  ],
+  "trend_pp_per_week": [
+   1.1791,
+   -1.1791
+  ],
+  "point_election_pct": [
+   56.6,
+   43.4
+  ],
+  "sys_scale_alr": 0.1648,
+  "summary": [
+   {
+    "label": "Omar Aziz",
+    "mean": 56.3592,
+    "sd": 8.7795,
+    "quantiles": {
+     "0.025": 38.3363,
+     "0.05": 41.6201,
+     "0.1": 45.2251,
+     "0.25": 50.8078,
+     "0.5": 56.5561,
+     "0.75": 62.164,
+     "0.9": 67.2457,
+     "0.95": 70.346,
+     "0.975": 73.1799
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 7.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      2,
+      1,
+      1,
+      3,
+      1,
+      1,
+      2,
+      2,
+      3,
+      4,
+      6,
+      2,
+      4,
+      6,
+      6,
+      4,
+      8,
+      7,
+      6,
+      8,
+      10,
+      10,
+      11,
+      12,
+      16,
+      14,
+      18,
+      22,
+      29,
+      27,
+      36,
+      43,
+      29,
+      56,
+      39,
+      65,
+      66,
+      95,
+      91,
+      107,
+      112,
+      119,
+      121,
+      113,
+      145,
+      162,
+      204,
+      220,
+      237,
+      291,
+      303,
+      322,
+      380,
+      372,
+      441,
+      461,
+      501,
+      534,
+      645,
+      668,
+      756,
+      793,
+      808,
+      972,
+      1040,
+      1017,
+      1103,
+      1239,
+      1303,
+      1370,
+      1420,
+      1540,
+      1612,
+      1672,
+      1863,
+      1859,
+      1951,
+      2000,
+      2153,
+      2176,
+      2265,
+      2169,
+      2254,
+      2407,
+      2312,
+      2438,
+      2376,
+      2366,
+      2372,
+      2310,
+      2305,
+      2240,
+      2168,
+      2264,
+      2159,
+      2056,
+      2010,
+      1959,
+      1743,
+      1760,
+      1638,
+      1595,
+      1442,
+      1415,
+      1201,
+      1194,
+      1138,
+      1047,
+      991,
+      819,
+      853,
+      750,
+      659,
+      618,
+      564,
+      515,
+      426,
+      412,
+      315,
+      284,
+      290,
+      275,
+      230,
+      189,
+      160,
+      153,
+      160,
+      117,
+      101,
+      74,
+      65,
+      67,
+      78,
+      55,
+      49,
+      58,
+      36,
+      29,
+      16,
+      19,
+      13,
+      12,
+      11,
+      10,
+      7,
+      5,
+      9,
+      2,
+      9,
+      3,
+      1,
+      3,
+      3,
+      1,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Professora Maria do Carmo",
+    "mean": 43.6408,
+    "sd": 8.7795,
+    "quantiles": {
+     "0.025": 26.8201,
+     "0.05": 29.654,
+     "0.1": 32.7543,
+     "0.25": 37.836,
+     "0.5": 43.4439,
+     "0.75": 49.1922,
+     "0.9": 54.7749,
+     "0.95": 58.3799,
+     "0.975": 61.6637
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 4.0,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      1,
+      3,
+      3,
+      1,
+      3,
+      9,
+      2,
+      9,
+      5,
+      7,
+      10,
+      11,
+      12,
+      13,
+      19,
+      16,
+      29,
+      36,
+      58,
+      49,
+      55,
+      78,
+      67,
+      65,
+      74,
+      101,
+      117,
+      160,
+      153,
+      160,
+      189,
+      230,
+      275,
+      290,
+      284,
+      315,
+      412,
+      426,
+      515,
+      564,
+      618,
+      659,
+      750,
+      853,
+      819,
+      991,
+      1047,
+      1138,
+      1194,
+      1201,
+      1415,
+      1442,
+      1595,
+      1638,
+      1760,
+      1743,
+      1959,
+      2010,
+      2056,
+      2159,
+      2264,
+      2168,
+      2240,
+      2305,
+      2310,
+      2372,
+      2366,
+      2376,
+      2438,
+      2312,
+      2407,
+      2254,
+      2169,
+      2265,
+      2176,
+      2153,
+      2000,
+      1951,
+      1859,
+      1863,
+      1672,
+      1612,
+      1540,
+      1420,
+      1370,
+      1303,
+      1239,
+      1103,
+      1017,
+      1040,
+      972,
+      808,
+      793,
+      756,
+      668,
+      645,
+      534,
+      501,
+      461,
+      441,
+      372,
+      380,
+      322,
+      303,
+      291,
+      237,
+      220,
+      204,
+      162,
+      145,
+      113,
+      121,
+      119,
+      112,
+      107,
+      91,
+      95,
+      66,
+      65,
+      39,
+      56,
+      29,
+      43,
+      36,
+      27,
+      29,
+      22,
+      18,
+      14,
+      16,
+      12,
+      11,
+      10,
+      10,
+      8,
+      6,
+      7,
+      8,
+      4,
+      6,
+      6,
+      4,
+      2,
+      6,
+      4,
+      3,
+      2,
+      2,
+      1,
+      1,
+      3,
+      1,
+      1,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "probabilities": {
+   "first": [
+    0.778,
+    0.222
+   ],
+   "top2": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "headline_method": "modelo",
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "13b4a09ba5a36ae5904d01e07c0935c6e2eff44007fd00207ba569d5da5fb684",
+ "run": {
+  "executed_at": "2026-10-21T01:54:40+00:00"
+ }
+}
