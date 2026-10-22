@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-22T01:28:24.040Z",
+ "generated_at": "2026-10-22T15:52:20.037Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-22T01:28:24.040Z"
+   "last_ok": "2026-10-22T15:52:20.037Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-22T01:28:24.040Z"
+   "last_ok": "2026-10-22T15:52:20.037Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-22T01:28:24.040Z"
+   "last_ok": "2026-10-22T15:52:20.037Z"
   }
  ],
  "polls": [
@@ -49,6 +49,105 @@
    ],
    "others_pct": null,
    "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ca0f01e7b193",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "PoderData",
+   "contractor": null,
+   "fieldwork_start": "2026-10-19",
+   "fieldwork_end": "2026-10-21",
+   "published_date": null,
+   "sample_size": 4000,
+   "margin_of_error": 1.6,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 49
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 51
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e3981f0cc33c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Data Index",
+   "contractor": null,
+   "fieldwork_start": "2026-10-20",
+   "fieldwork_end": "2026-10-21",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.19,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.1
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 45.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "592aab948825",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Quallitá",
+   "contractor": null,
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-20",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 50.5
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 41.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -218,6 +317,39 @@
    "tse_registration": null
   },
   {
+   "id": "eb01bbc26751",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Mensury/Blog do Barreto",
+   "contractor": null,
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-19",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.67
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 44.27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14.07,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-14488-2-0-30113f88383f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/vicentinho-tem-52-contra-48-de-dorinha-no-2o-turno-no-to/",
@@ -360,7 +492,7 @@
    "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
    "pollster": "Real Time Big Data",
    "contractor": "3 Poderes",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-15",
    "fieldwork_end": "2026-10-19",
    "published_date": "2026-10-19",
    "sample_size": 1600,
@@ -624,7 +756,7 @@
    "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
    "pollster": "DataTrends",
    "contractor": "DataTrends",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-16",
    "fieldwork_end": "2026-10-18",
    "published_date": "2026-10-18",
    "sample_size": 1200,
@@ -1185,26 +1317,26 @@
    "scenario": "2º turno: Cadu de Lula vs Allyson Bezerra",
    "pollster": "DataVero",
    "contractor": "TL Comunicação e Marketing",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-13",
    "fieldwork_end": "2026-10-15",
    "published_date": "2026-10-15",
    "sample_size": 1500,
    "margin_of_error": 2.53,
    "results": [
     {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 46.71
-    },
-    {
      "candidate": "Allyson",
      "party": "União Brasil",
      "pct": 45.73
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 46.71
     }
    ],
    "others_pct": null,
-   "undecided_pct": 3.24,
-   "blank_null_pct": 4.32,
+   "undecided_pct": 7.56,
+   "blank_null_pct": null,
    "tse_registration": "RN-01514/2026"
   },
   {
