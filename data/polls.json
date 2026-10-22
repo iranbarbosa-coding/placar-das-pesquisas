@@ -1,24 +1,57 @@
 {
- "generated_at": "2026-10-22T15:52:20.037Z",
+ "generated_at": "2026-10-22T22:16:52.584Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-22T15:52:20.037Z"
+   "last_ok": "2026-10-22T22:16:52.584Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-22T15:52:20.037Z"
+   "last_ok": "2026-10-22T22:16:52.584Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-22T15:52:20.037Z"
+   "last_ok": "2026-10-22T22:16:52.584Z"
   }
  ],
  "polls": [
+  {
+   "id": "e7f79649c957",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-10-20",
+   "fieldwork_end": "2026-10-22",
+   "published_date": null,
+   "sample_size": 2520,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "90833d22facb",
    "source": null,
@@ -72,16 +105,16 @@
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 49
+     "pct": 48
     },
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 51
+     "pct": 49
     }
    ],
    "others_pct": null,
-   "undecided_pct": null,
+   "undecided_pct": 4,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -2773,6 +2806,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2bdaf7255ea8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": null,
+   "fieldwork_start": "2026-10-01",
+   "fieldwork_end": "2026-10-03",
+   "published_date": null,
+   "sample_size": 1564,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 28
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 26
+    },
+    {
+     "candidate": "Júlio César O Julim do Lula",
+     "party": "PSD",
+     "pct": 25
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 9
+    }
+   ],
+   "others_pct": 10,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -106621,7 +106697,7 @@
    "scenario": "1º turno",
    "pollster": "Datamax",
    "contractor": "Centro de Treinamento Humano",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-07-27",
    "fieldwork_end": "2026-08-05",
    "published_date": "2026-08-05",
    "sample_size": 2000,
@@ -107470,49 +107546,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "a977e56b8656",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PI",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Datamax",
-   "contractor": null,
-   "fieldwork_start": "2026-07-28",
-   "fieldwork_end": "2026-08-02",
-   "published_date": null,
-   "sample_size": 1602,
-   "margin_of_error": 2.19,
-   "results": [
-    {
-     "candidate": "Marcelo Castro",
-     "party": "MDB",
-     "pct": 15.13
-    },
-    {
-     "candidate": "Ciro Nogueira",
-     "party": "PP",
-     "pct": 13.58
-    },
-    {
-     "candidate": "Júlio César O Julim do Lula",
-     "party": "PSD",
-     "pct": 9.85
-    },
-    {
-     "candidate": "Tiago Junqueira",
-     "party": "PL",
-     "pct": 4.53
-    }
-   ],
-   "others_pct": 3.71,
-   "undecided_pct": 53.23,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -135108,6 +135141,49 @@
    "tse_registration": null
   },
   {
+   "id": "6e069f13846f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Vetor3",
+   "contractor": null,
+   "fieldwork_start": "2026-06-17",
+   "fieldwork_end": "2026-06-24",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2.45,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 37.35
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 32.03
+    },
+    {
+     "candidate": "Júlio César O Julim do Lula",
+     "party": "PSD",
+     "pct": 33.1
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 3.71
+    }
+   ],
+   "others_pct": 18.56,
+   "undecided_pct": 13.94,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "87f47bfe1548",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -135243,49 +135319,6 @@
    ],
    "others_pct": 4.35,
    "undecided_pct": 15.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "bebc6aab5582",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PI",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Vetor",
-   "contractor": null,
-   "fieldwork_start": "2026-06-17",
-   "fieldwork_end": "2026-06-24",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2.45,
-   "results": [
-    {
-     "candidate": "Marcelo Castro",
-     "party": "MDB",
-     "pct": 37.35
-    },
-    {
-     "candidate": "Ciro Nogueira",
-     "party": "PP",
-     "pct": 32.03
-    },
-    {
-     "candidate": "Júlio César O Julim do Lula",
-     "party": "PSD",
-     "pct": 33.1
-    },
-    {
-     "candidate": "Tiago Junqueira",
-     "party": "PL",
-     "pct": 3.71
-    }
-   ],
-   "others_pct": 18.56,
-   "undecided_pct": 13.94,
    "blank_null_pct": null,
    "tse_registration": null
   },
