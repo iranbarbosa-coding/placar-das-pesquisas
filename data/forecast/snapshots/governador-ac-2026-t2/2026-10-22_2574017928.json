@@ -1,0 +1,2377 @@
+{
+ "schema": "placar.previsao.snapshot/1",
+ "race_id": "governador-ac-2026-t2",
+ "contest": "governador:AC",
+ "race": "governador",
+ "uf": "AC",
+ "round": 2,
+ "election_date": "2026-10-25",
+ "reference_date": "2026-10-22",
+ "horizon_days": 3,
+ "model": {
+  "model_version": "1.0.0",
+  "config_id": "placar-previsao-v1",
+  "config_sha256": "f4a603e3814b35975c0e4f27c0c526d6e402f351dedb152abd65360c085d4da2",
+  "code_sha256": "6fd689eb6066d27c735b7a118a5af68a291bd22e2e680dc8b65b3c2c9eb2a2fb",
+  "calibration_id": "calibracao-2026t1-6c772b2872",
+  "numpy_version": "2.5.3",
+  "seed": 3023643164,
+  "fit_seconds": 11.9
+ },
+ "candidates": [
+  {
+   "candidate_id": "c_1f1fcb9de510",
+   "person_id": "p_94d990e2647d",
+   "name": "Mailza Assis",
+   "first_round_pct": 49.76
+  },
+  {
+   "candidate_id": "c_6635b4cd6596",
+   "person_id": "p_9b9c4dc260b1",
+   "name": "Alan Rick",
+   "first_round_pct": 32.27
+  }
+ ],
+ "site_average": {
+  "basis": "validos",
+  "windowPollIds": [
+   "p360-14491-2-0-b20390175fff",
+   "p360-14460-2-0-1dfd2fc9bd00",
+   "p360-14477-2-0-dff6988eef56",
+   "6310edc7a2a3",
+   "p360-14390-2-0-90e344c0437f",
+   "bb3906d3012a",
+   "p360-14216-2-0-173cfa491cf7",
+   "cb6693c4345d",
+   "5d45dd7c369d",
+   "p360-13684-2-0-24ae96ce09a7"
+  ],
+  "pollCount": 10,
+  "capRelaxed": false,
+  "lastPollDate": "2026-10-19",
+  "candidates": [
+   {
+    "candidate_id": "c_1f1fcb9de510",
+    "name": "Mailza Assis",
+    "avg": 51.8,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2026-03-21",
+      "avg": 36
+     },
+     {
+      "date": "2026-03-24",
+      "avg": 36
+     },
+     {
+      "date": "2026-03-27",
+      "avg": 36
+     },
+     {
+      "date": "2026-03-30",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-02",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-05",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-08",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-11",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-14",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-17",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-20",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-23",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-26",
+      "avg": 36
+     },
+     {
+      "date": "2026-04-29",
+      "avg": 36
+     },
+     {
+      "date": "2026-05-02",
+      "avg": 34.4
+     },
+     {
+      "date": "2026-05-05",
+      "avg": 34.4
+     },
+     {
+      "date": "2026-05-08",
+      "avg": 34.4
+     },
+     {
+      "date": "2026-05-11",
+      "avg": 34.4
+     },
+     {
+      "date": "2026-05-14",
+      "avg": 34.4
+     },
+     {
+      "date": "2026-05-17",
+      "avg": 32
+     },
+     {
+      "date": "2026-05-20",
+      "avg": 32
+     },
+     {
+      "date": "2026-05-23",
+      "avg": 32
+     },
+     {
+      "date": "2026-05-26",
+      "avg": 32
+     },
+     {
+      "date": "2026-05-29",
+      "avg": 32
+     },
+     {
+      "date": "2026-06-01",
+      "avg": 32
+     },
+     {
+      "date": "2026-06-04",
+      "avg": 32.7
+     },
+     {
+      "date": "2026-06-07",
+      "avg": 33.4
+     },
+     {
+      "date": "2026-06-10",
+      "avg": 33.4
+     },
+     {
+      "date": "2026-06-13",
+      "avg": 33.4
+     },
+     {
+      "date": "2026-06-16",
+      "avg": 33.4
+     },
+     {
+      "date": "2026-06-19",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-06-22",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-06-25",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-06-28",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-07-01",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-07-04",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-07-07",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-07-10",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-07-13",
+      "avg": 35.8
+     },
+     {
+      "date": "2026-07-16",
+      "avg": 37.5
+     },
+     {
+      "date": "2026-07-19",
+      "avg": 37.5
+     },
+     {
+      "date": "2026-07-22",
+      "avg": 37.5
+     },
+     {
+      "date": "2026-07-25",
+      "avg": 38.9
+     },
+     {
+      "date": "2026-07-28",
+      "avg": 38.9
+     },
+     {
+      "date": "2026-07-31",
+      "avg": 38.9
+     },
+     {
+      "date": "2026-08-03",
+      "avg": 41
+     },
+     {
+      "date": "2026-08-06",
+      "avg": 41
+     },
+     {
+      "date": "2026-08-09",
+      "avg": 40.9
+     },
+     {
+      "date": "2026-08-12",
+      "avg": 40.9
+     },
+     {
+      "date": "2026-08-15",
+      "avg": 40.9
+     },
+     {
+      "date": "2026-08-18",
+      "avg": 40.9
+     },
+     {
+      "date": "2026-08-21",
+      "avg": 40.9
+     },
+     {
+      "date": "2026-08-24",
+      "avg": 43.2
+     },
+     {
+      "date": "2026-08-27",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-08-30",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-02",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-05",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-08",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-11",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-14",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-17",
+      "avg": 43.5
+     },
+     {
+      "date": "2026-09-20",
+      "avg": 44.8
+     },
+     {
+      "date": "2026-09-23",
+      "avg": 44.8
+     },
+     {
+      "date": "2026-09-26",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-09-29",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-10-02",
+      "avg": 46.4
+     },
+     {
+      "date": "2026-10-05",
+      "avg": 47.1
+     },
+     {
+      "date": "2026-10-08",
+      "avg": 47.1
+     },
+     {
+      "date": "2026-10-11",
+      "avg": 47.1
+     },
+     {
+      "date": "2026-10-14",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-10-17",
+      "avg": 50.3
+     },
+     {
+      "date": "2026-10-19",
+      "avg": 51.8
+     }
+    ]
+   },
+   {
+    "candidate_id": "c_6635b4cd6596",
+    "name": "Alan Rick",
+    "avg": 48.2,
+    "nPolls": 10,
+    "trend": [
+     {
+      "date": "2026-03-21",
+      "avg": 64
+     },
+     {
+      "date": "2026-03-24",
+      "avg": 64
+     },
+     {
+      "date": "2026-03-27",
+      "avg": 64
+     },
+     {
+      "date": "2026-03-30",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-02",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-05",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-08",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-11",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-14",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-17",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-20",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-23",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-26",
+      "avg": 64
+     },
+     {
+      "date": "2026-04-29",
+      "avg": 64
+     },
+     {
+      "date": "2026-05-02",
+      "avg": 65.6
+     },
+     {
+      "date": "2026-05-05",
+      "avg": 65.6
+     },
+     {
+      "date": "2026-05-08",
+      "avg": 65.6
+     },
+     {
+      "date": "2026-05-11",
+      "avg": 65.6
+     },
+     {
+      "date": "2026-05-14",
+      "avg": 65.6
+     },
+     {
+      "date": "2026-05-17",
+      "avg": 68
+     },
+     {
+      "date": "2026-05-20",
+      "avg": 68
+     },
+     {
+      "date": "2026-05-23",
+      "avg": 68
+     },
+     {
+      "date": "2026-05-26",
+      "avg": 68
+     },
+     {
+      "date": "2026-05-29",
+      "avg": 68
+     },
+     {
+      "date": "2026-06-01",
+      "avg": 68
+     },
+     {
+      "date": "2026-06-04",
+      "avg": 67.3
+     },
+     {
+      "date": "2026-06-07",
+      "avg": 66.6
+     },
+     {
+      "date": "2026-06-10",
+      "avg": 66.6
+     },
+     {
+      "date": "2026-06-13",
+      "avg": 66.6
+     },
+     {
+      "date": "2026-06-16",
+      "avg": 66.6
+     },
+     {
+      "date": "2026-06-19",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-06-22",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-06-25",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-06-28",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-07-01",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-07-04",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-07-07",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-07-10",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-07-13",
+      "avg": 64.2
+     },
+     {
+      "date": "2026-07-16",
+      "avg": 62.5
+     },
+     {
+      "date": "2026-07-19",
+      "avg": 62.5
+     },
+     {
+      "date": "2026-07-22",
+      "avg": 62.5
+     },
+     {
+      "date": "2026-07-25",
+      "avg": 61.1
+     },
+     {
+      "date": "2026-07-28",
+      "avg": 61.1
+     },
+     {
+      "date": "2026-07-31",
+      "avg": 61.1
+     },
+     {
+      "date": "2026-08-03",
+      "avg": 59
+     },
+     {
+      "date": "2026-08-06",
+      "avg": 59
+     },
+     {
+      "date": "2026-08-09",
+      "avg": 59.1
+     },
+     {
+      "date": "2026-08-12",
+      "avg": 59.1
+     },
+     {
+      "date": "2026-08-15",
+      "avg": 59.1
+     },
+     {
+      "date": "2026-08-18",
+      "avg": 59.1
+     },
+     {
+      "date": "2026-08-21",
+      "avg": 59.1
+     },
+     {
+      "date": "2026-08-24",
+      "avg": 56.8
+     },
+     {
+      "date": "2026-08-27",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-08-30",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-02",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-05",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-08",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-11",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-14",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-17",
+      "avg": 56.5
+     },
+     {
+      "date": "2026-09-20",
+      "avg": 55.2
+     },
+     {
+      "date": "2026-09-23",
+      "avg": 55.2
+     },
+     {
+      "date": "2026-09-26",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-09-29",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-10-02",
+      "avg": 53.6
+     },
+     {
+      "date": "2026-10-05",
+      "avg": 52.9
+     },
+     {
+      "date": "2026-10-08",
+      "avg": 52.9
+     },
+     {
+      "date": "2026-10-11",
+      "avg": 52.9
+     },
+     {
+      "date": "2026-10-14",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-10-17",
+      "avg": 49.7
+     },
+     {
+      "date": "2026-10-19",
+      "avg": 48.2
+     }
+    ]
+   }
+  ]
+ },
+ "note": null,
+ "limitations": [
+  "Não há no banco pesquisas de eleições anteriores a 2026 (2010–2022): a calibração do erro histórico usa apenas o 1º turno de 2026.",
+  "Nenhum 2º turno com resultado oficial está no banco. O erro sistemático do 2º turno é emprestado da média agrupada do 1º turno, sem validação — por isso a projeção é marcada como experimental e nenhuma probabilidade de vitória é publicada.",
+  "Comparecimento não é modelado à parte; seu efeito sobre os votos válidos entra no erro sistemático.",
+  "A metodologia de coleta (presencial, telefone, internet) não está registrada no banco; diferenças de método entram apenas como efeito casa de cada instituto.",
+  "Pesquisas de 2º turno feitas antes do 1º turno (simulações do mesmo par) entram no modelo; o passeio aleatório lhes dá menos peso à medida que envelhecem, mas o modelo não prevê um salto no dia do 1º turno.",
+  "O efeito casa é medido em relação ao instituto médio; se a média dos institutos erra, esse erro comum não aparece no efeito casa — está no erro sistemático."
+ ],
+ "input": {
+  "dataset_sha256": "4a421a07b487cde7e401c64d3f526ec91de772e0a4d00da6405dbd2eaa0010cb",
+  "input_sha256": "2574017928e3b137fec8963730fe966e165b1294630c424d98d72f646d3749d5",
+  "source_polls_sha256": "1553f06a35eb890a37bc34afd8ab500279369762e7db4987a2b4b6b02650cc6a",
+  "source_generated_at": "2026-10-22T01:28:24.040Z",
+  "n_polls": 17,
+  "n_institutes": 7,
+  "latest_fieldwork_end": "2026-10-19",
+  "polls": [
+   {
+    "id": "p360-13486-2-1-8069274e58b7",
+    "pollster": "Paraná Pesquisas",
+    "fieldwork_start": "2026-05-31",
+    "fieldwork_end": "2026-06-02",
+    "published_date": "2026-06-02",
+    "available_from": "2026-06-02",
+    "sample_size": 1000,
+    "n_eff": 870.0,
+    "n_imputado": false,
+    "tse_registration": "AC-01182/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes/alan-rick-lidera-no-1o-e-2o-turnos-para-o-governo-do-acre/",
+    "shares": [
+     38.16,
+     61.84
+    ]
+   },
+   {
+    "id": "7ff41b6b12c8",
+    "pollster": "Delta",
+    "fieldwork_start": "2026-06-01",
+    "fieldwork_end": "2026-06-06",
+    "published_date": null,
+    "available_from": "2026-06-06",
+    "sample_size": 1201,
+    "n_eff": 936.9,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+    "shares": [
+     34.79,
+     65.21
+    ]
+   },
+   {
+    "id": "6b905a45c409",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-06-16",
+    "fieldwork_end": "2026-06-17",
+    "published_date": null,
+    "available_from": "2026-06-17",
+    "sample_size": 1600,
+    "n_eff": 1296.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+    "shares": [
+     43.21,
+     56.79
+    ]
+   },
+   {
+    "id": "edad08e23ce2",
+    "pollster": "Delta",
+    "fieldwork_start": "2026-07-11",
+    "fieldwork_end": "2026-07-15",
+    "published_date": null,
+    "available_from": "2026-07-15",
+    "sample_size": 1006,
+    "n_eff": 818.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+    "shares": [
+     33.98,
+     66.02
+    ]
+   },
+   {
+    "id": "p360-13613-2-0-3b18a880aa41",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-07-22",
+    "fieldwork_end": "2026-07-25",
+    "published_date": "2026-07-25",
+    "available_from": "2026-07-25",
+    "sample_size": 1600,
+    "n_eff": 1296.0,
+    "n_imputado": false,
+    "tse_registration": "AC-01069/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cameli-lidera-disputa-pelo-senado-no-acre-diz-pesquisa/",
+    "shares": [
+     44.44,
+     55.56
+    ]
+   },
+   {
+    "id": "p360-13684-2-0-24ae96ce09a7",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": "2026-07-28",
+    "fieldwork_end": "2026-08-02",
+    "published_date": "2026-08-02",
+    "available_from": "2026-08-02",
+    "sample_size": 997,
+    "n_eff": 864.4,
+    "n_imputado": false,
+    "tse_registration": "AC-07815/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-e-alan-rick-empatam-para-o-governo-do-acre/",
+    "shares": [
+     51.33,
+     48.67
+    ]
+   },
+   {
+    "id": "5d45dd7c369d",
+    "pollster": "Delta",
+    "fieldwork_start": "2026-08-04",
+    "fieldwork_end": "2026-08-09",
+    "published_date": "2026-08-09",
+    "available_from": "2026-08-09",
+    "sample_size": 1006,
+    "n_eff": 707.4,
+    "n_imputado": false,
+    "tse_registration": "AC-06787/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
+    "shares": [
+     34.27,
+     65.73
+    ]
+   },
+   {
+    "id": "cb6693c4345d",
+    "pollster": "Delta",
+    "fieldwork_start": "2026-08-20",
+    "fieldwork_end": "2026-08-24",
+    "published_date": null,
+    "available_from": "2026-08-24",
+    "sample_size": 1006,
+    "n_eff": 841.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+    "shares": [
+     47.92,
+     52.08
+    ]
+   },
+   {
+    "id": "p360-13993-2-0-2ba8bac37992",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-08-23",
+    "fieldwork_end": "2026-08-26",
+    "published_date": "2026-08-26",
+    "available_from": "2026-08-26",
+    "sample_size": 804,
+    "n_eff": 619.1,
+    "n_imputado": false,
+    "tse_registration": "AC-09106/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/alan-rick-lidera-corrida-pelo-governo-do-acre-no-2o-turno-diz-quaest/",
+    "shares": [
+     45.45,
+     54.55
+    ]
+   },
+   {
+    "id": "p360-14216-2-0-173cfa491cf7",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-09-16",
+    "fieldwork_end": "2026-09-19",
+    "published_date": "2026-09-19",
+    "available_from": "2026-09-19",
+    "sample_size": 1600,
+    "n_eff": 1392.0,
+    "n_imputado": false,
+    "tse_registration": "AC-01699/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-RealTime-governo-AC-21.set_.2026.pdf",
+    "shares": [
+     51.72,
+     48.28
+    ]
+   },
+   {
+    "id": "bb3906d3012a",
+    "pollster": "IPSensus",
+    "fieldwork_start": "2026-09-19",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 1000,
+    "n_eff": 847.0,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+    "shares": [
+     46.52,
+     53.48
+    ]
+   },
+   {
+    "id": "cdd42e24f1c7",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-09-21",
+    "fieldwork_end": "2026-09-24",
+    "published_date": null,
+    "available_from": "2026-09-24",
+    "sample_size": 804,
+    "n_eff": 643.2,
+    "n_imputado": false,
+    "tse_registration": null,
+    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+    "shares": [
+     57.5,
+     42.5
+    ]
+   },
+   {
+    "id": "p360-14390-2-0-90e344c0437f",
+    "pollster": "AtlasIntel",
+    "fieldwork_start": null,
+    "fieldwork_end": "2026-10-02",
+    "published_date": "2026-10-02",
+    "available_from": "2026-10-02",
+    "sample_size": 800,
+    "n_eff": 714.4,
+    "n_imputado": false,
+    "tse_registration": "AC-00679/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Atlas-Eleicoes-Acre-2026-261003-1.pdf",
+    "shares": [
+     46.47,
+     53.53
+    ]
+   },
+   {
+    "id": "6310edc7a2a3",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-02",
+    "fieldwork_end": "2026-10-03",
+    "published_date": "2026-10-03",
+    "available_from": "2026-10-03",
+    "sample_size": 1800,
+    "n_eff": 1458.0,
+    "n_imputado": false,
+    "tse_registration": "AC-02370/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/AC-023702026.pdf",
+    "shares": [
+     53.09,
+     46.91
+    ]
+   },
+   {
+    "id": "p360-14460-2-0-1dfd2fc9bd00",
+    "pollster": "Quaest",
+    "fieldwork_start": "2026-10-09",
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 1098,
+    "n_eff": 889.4,
+    "n_imputado": false,
+    "tse_registration": "AC-05379/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-AC-governador2oturno-13out2026.pdf",
+    "shares": [
+     60.49,
+     39.51
+    ]
+   },
+   {
+    "id": "p360-14477-2-0-dff6988eef56",
+    "pollster": "Data Control",
+    "fieldwork_start": "2026-10-07",
+    "fieldwork_end": "2026-10-12",
+    "published_date": "2026-10-12",
+    "available_from": "2026-10-12",
+    "sample_size": 1344,
+    "n_eff": 1247.0,
+    "n_imputado": false,
+    "tse_registration": "AC-04381/2026",
+    "source_url": "https://static.poder360.com.br/uploads/2026/10/Data-Control-AC-2oturno-governador-outubro.pdf",
+    "shares": [
+     66.88,
+     33.12
+    ]
+   },
+   {
+    "id": "p360-14491-2-0-b20390175fff",
+    "pollster": "Real Time Big Data",
+    "fieldwork_start": "2026-10-15",
+    "fieldwork_end": "2026-10-19",
+    "published_date": "2026-10-19",
+    "available_from": "2026-10-19",
+    "sample_size": 1600,
+    "n_eff": 1360.0,
+    "n_imputado": false,
+    "tse_registration": "AC-09297/2026",
+    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/mailza-assis-lidera-disputa-no-acre-com-59-dos-votos-validos/",
+    "shares": [
+     58.82,
+     41.18
+    ]
+   }
+  ],
+  "exclusion_counts": {
+   "fora_da_janela": 7,
+   "par_diferente": 22
+  },
+  "exclusions": []
+ },
+ "diagnostics": {
+  "chains": 4,
+  "draws_per_chain": 3000,
+  "params": {
+   "sigma_rw": {
+    "rhat": 1.0052,
+    "ess_bulk": 1073.8
+   },
+   "tau": {
+    "rhat": 1.0035,
+    "ess_bulk": 908.1
+   },
+   "sigma_h": {
+    "rhat": 1.0046,
+    "ess_bulk": 1545.7
+   },
+   "fração_atual[Mailza Assis]": {
+    "rhat": 1.0004,
+    "ess_bulk": 4882.7
+   },
+   "fração_atual[Alan Rick]": {
+    "rhat": 1.0004,
+    "ess_bulk": 4882.7
+   }
+  },
+  "rhat_max": 1.0052,
+  "ess_min": 908.1,
+  "accept": [
+   0.364,
+   0.337,
+   0.346,
+   0.379
+  ]
+ },
+ "nowcast": {
+  "summary": [
+   {
+    "label": "Mailza Assis",
+    "mean": 55.847,
+    "sd": 3.784,
+    "quantiles": {
+     "0.025": 48.69,
+     "0.05": 49.787,
+     "0.1": 51.074,
+     "0.25": 53.251,
+     "0.5": 55.748,
+     "0.75": 58.31,
+     "0.9": 60.749,
+     "0.95": 62.268,
+     "0.975": 63.665
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 42.0,
+     "counts": [
+      1,
+      0,
+      0,
+      2,
+      3,
+      9,
+      5,
+      15,
+      26,
+      34,
+      40,
+      52,
+      74,
+      109,
+      134,
+      176,
+      205,
+      270,
+      300,
+      387,
+      423,
+      488,
+      494,
+      563,
+      554,
+      639,
+      634,
+      699,
+      646,
+      605,
+      560,
+      508,
+      529,
+      472,
+      433,
+      322,
+      266,
+      231,
+      236,
+      172,
+      139,
+      113,
+      96,
+      96,
+      50,
+      51,
+      47,
+      19,
+      23,
+      14,
+      14,
+      7,
+      8,
+      1,
+      2,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Alan Rick",
+    "mean": 44.153,
+    "sd": 3.784,
+    "quantiles": {
+     "0.025": 36.335,
+     "0.05": 37.732,
+     "0.1": 39.251,
+     "0.25": 41.69,
+     "0.5": 44.252,
+     "0.75": 46.749,
+     "0.9": 48.926,
+     "0.95": 50.213,
+     "0.975": 51.31
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 25.5,
+     "counts": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      2,
+      1,
+      8,
+      7,
+      14,
+      14,
+      23,
+      19,
+      47,
+      51,
+      50,
+      96,
+      96,
+      113,
+      139,
+      172,
+      236,
+      231,
+      266,
+      322,
+      433,
+      472,
+      529,
+      508,
+      560,
+      605,
+      646,
+      699,
+      634,
+      639,
+      554,
+      563,
+      494,
+      488,
+      423,
+      387,
+      300,
+      270,
+      205,
+      176,
+      134,
+      109,
+      74,
+      52,
+      40,
+      34,
+      26,
+      15,
+      5,
+      9,
+      3,
+      2,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "series": [
+   {
+    "date": "2026-06-01",
+    "values": [
+     {
+      "q10": 36.1,
+      "median": 40.35,
+      "q90": 44.41
+     },
+     {
+      "q10": 55.59,
+      "median": 59.65,
+      "q90": 63.9
+     }
+    ]
+   },
+   {
+    "date": "2026-06-03",
+    "values": [
+     {
+      "q10": 36.36,
+      "median": 40.4,
+      "q90": 44.41
+     },
+     {
+      "q10": 55.59,
+      "median": 59.6,
+      "q90": 63.64
+     }
+    ]
+   },
+   {
+    "date": "2026-06-16",
+    "values": [
+     {
+      "q10": 37.52,
+      "median": 41.47,
+      "q90": 45.21
+     },
+     {
+      "q10": 54.79,
+      "median": 58.53,
+      "q90": 62.48
+     }
+    ]
+   },
+   {
+    "date": "2026-07-13",
+    "values": [
+     {
+      "q10": 38.56,
+      "median": 42.31,
+      "q90": 46.35
+     },
+     {
+      "q10": 53.65,
+      "median": 57.69,
+      "q90": 61.44
+     }
+    ]
+   },
+   {
+    "date": "2026-07-23",
+    "values": [
+     {
+      "q10": 40.52,
+      "median": 43.97,
+      "q90": 47.4
+     },
+     {
+      "q10": 52.6,
+      "median": 56.03,
+      "q90": 59.48
+     }
+    ]
+   },
+   {
+    "date": "2026-07-30",
+    "values": [
+     {
+      "q10": 41.8,
+      "median": 45.21,
+      "q90": 48.4
+     },
+     {
+      "q10": 51.6,
+      "median": 54.79,
+      "q90": 58.2
+     }
+    ]
+   },
+   {
+    "date": "2026-08-06",
+    "values": [
+     {
+      "q10": 41.0,
+      "median": 44.81,
+      "q90": 48.31
+     },
+     {
+      "q10": 51.69,
+      "median": 55.19,
+      "q90": 59.0
+     }
+    ]
+   },
+   {
+    "date": "2026-08-22",
+    "values": [
+     {
+      "q10": 44.19,
+      "median": 47.59,
+      "q90": 50.74
+     },
+     {
+      "q10": 49.26,
+      "median": 52.41,
+      "q90": 55.81
+     }
+    ]
+   },
+   {
+    "date": "2026-08-24",
+    "values": [
+     {
+      "q10": 44.23,
+      "median": 47.6,
+      "q90": 50.76
+     },
+     {
+      "q10": 49.24,
+      "median": 52.4,
+      "q90": 55.77
+     }
+    ]
+   },
+   {
+    "date": "2026-09-17",
+    "values": [
+     {
+      "q10": 47.88,
+      "median": 51.03,
+      "q90": 53.95
+     },
+     {
+      "q10": 46.05,
+      "median": 48.97,
+      "q90": 52.12
+     }
+    ]
+   },
+   {
+    "date": "2026-09-21",
+    "values": [
+     {
+      "q10": 48.61,
+      "median": 51.57,
+      "q90": 54.48
+     },
+     {
+      "q10": 45.52,
+      "median": 48.43,
+      "q90": 51.39
+     }
+    ]
+   },
+   {
+    "date": "2026-09-22",
+    "values": [
+     {
+      "q10": 48.94,
+      "median": 51.78,
+      "q90": 54.83
+     },
+     {
+      "q10": 45.17,
+      "median": 48.22,
+      "q90": 51.06
+     }
+    ]
+   },
+   {
+    "date": "2026-10-02",
+    "values": [
+     {
+      "q10": 49.81,
+      "median": 52.93,
+      "q90": 55.9
+     },
+     {
+      "q10": 44.1,
+      "median": 47.07,
+      "q90": 50.19
+     }
+    ]
+   },
+   {
+    "date": "2026-10-09",
+    "values": [
+     {
+      "q10": 51.68,
+      "median": 55.48,
+      "q90": 59.19
+     },
+     {
+      "q10": 40.81,
+      "median": 44.52,
+      "q90": 48.32
+     }
+    ]
+   },
+   {
+    "date": "2026-10-10",
+    "values": [
+     {
+      "q10": 51.72,
+      "median": 55.67,
+      "q90": 59.19
+     },
+     {
+      "q10": 40.81,
+      "median": 44.33,
+      "q90": 48.28
+     }
+    ]
+   },
+   {
+    "date": "2026-10-17",
+    "values": [
+     {
+      "q10": 51.66,
+      "median": 55.83,
+      "q90": 59.88
+     },
+     {
+      "q10": 40.12,
+      "median": 44.17,
+      "q90": 48.34
+     }
+    ]
+   },
+   {
+    "date": "2026-10-22",
+    "values": [
+     {
+      "q10": 50.96,
+      "median": 55.67,
+      "q90": 60.48
+     },
+     {
+      "q10": 39.52,
+      "median": 44.33,
+      "q90": 49.04
+     }
+    ]
+   }
+  ]
+ },
+ "house_effects": {
+  "reference_candidate": "Mailza Assis",
+  "rows": [
+   {
+    "pollster": "Data Control",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -0.064,
+     "0.5": 4.119,
+     "0.9": 10.548
+    }
+   },
+   {
+    "pollster": "Delta",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -7.945,
+     "0.5": -3.925,
+     "0.9": -0.144
+    }
+   },
+   {
+    "pollster": "IPSensus",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -5.736,
+     "0.5": -1.386,
+     "0.9": 1.361
+    }
+   },
+   {
+    "pollster": "Quaest",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -1.026,
+     "0.5": 1.148,
+     "0.9": 4.148
+    }
+   },
+   {
+    "pollster": "Real Time Big Data",
+    "n_polls": 4,
+    "effect_pp_first_candidate": {
+     "0.1": -1.427,
+     "0.5": 0.743,
+     "0.9": 3.39
+    }
+   },
+   {
+    "pollster": "Paraná Pesquisas",
+    "n_polls": 1,
+    "effect_pp_first_candidate": {
+     "0.1": -5.0,
+     "0.5": -0.665,
+     "0.9": 2.314
+    }
+   },
+   {
+    "pollster": "AtlasIntel",
+    "n_polls": 2,
+    "effect_pp_first_candidate": {
+     "0.1": -2.808,
+     "0.5": 0.01,
+     "0.9": 2.736
+    }
+   }
+  ]
+ },
+ "hyperparameters": {
+  "sigma_rw": {
+   "0.05": 0.016,
+   "0.5": 0.032,
+   "0.95": 0.052
+  },
+  "tau": {
+   "0.05": 0.12,
+   "0.5": 0.181,
+   "0.95": 0.259
+  },
+  "sigma_h": {
+   "0.05": 0.023,
+   "0.5": 0.149,
+   "0.95": 0.295
+  }
+ },
+ "projection": {
+  "summary": [
+   {
+    "label": "Mailza Assis",
+    "mean": 55.684,
+    "sd": 9.769,
+    "quantiles": {
+     "0.025": 35.841,
+     "0.05": 39.241,
+     "0.1": 43.162,
+     "0.25": 49.309,
+     "0.5": 55.893,
+     "0.75": 62.299,
+     "0.9": 67.997,
+     "0.95": 71.4,
+     "0.975": 74.235
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 9.5,
+     "counts": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1,
+      2,
+      1,
+      4,
+      6,
+      5,
+      7,
+      5,
+      7,
+      5,
+      14,
+      8,
+      12,
+      17,
+      18,
+      19,
+      24,
+      21,
+      32,
+      40,
+      32,
+      40,
+      45,
+      48,
+      55,
+      68,
+      62,
+      73,
+      80,
+      110,
+      95,
+      101,
+      126,
+      144,
+      156,
+      182,
+      168,
+      232,
+      229,
+      292,
+      277,
+      305,
+      328,
+      412,
+      423,
+      431,
+      490,
+      506,
+      544,
+      578,
+      628,
+      655,
+      727,
+      812,
+      871,
+      921,
+      1006,
+      1016,
+      1125,
+      1186,
+      1193,
+      1252,
+      1269,
+      1374,
+      1489,
+      1620,
+      1569,
+      1649,
+      1742,
+      1714,
+      1849,
+      1868,
+      1965,
+      1909,
+      1909,
+      2023,
+      1959,
+      2037,
+      2077,
+      2123,
+      2148,
+      2124,
+      2145,
+      2107,
+      2037,
+      1943,
+      1916,
+      1816,
+      1907,
+      1863,
+      1767,
+      1768,
+      1680,
+      1584,
+      1628,
+      1524,
+      1441,
+      1359,
+      1301,
+      1270,
+      1193,
+      1101,
+      953,
+      1004,
+      953,
+      792,
+      795,
+      714,
+      670,
+      632,
+      549,
+      520,
+      530,
+      443,
+      380,
+      352,
+      330,
+      285,
+      249,
+      228,
+      190,
+      158,
+      161,
+      140,
+      103,
+      101,
+      99,
+      99,
+      78,
+      46,
+      63,
+      57,
+      36,
+      34,
+      21,
+      26,
+      22,
+      18,
+      21,
+      14,
+      16,
+      11,
+      11,
+      10,
+      7,
+      12,
+      3,
+      3,
+      4,
+      0,
+      2,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Alan Rick",
+    "mean": 44.316,
+    "sd": 9.769,
+    "quantiles": {
+     "0.025": 25.765,
+     "0.05": 28.6,
+     "0.1": 32.003,
+     "0.25": 37.701,
+     "0.5": 44.107,
+     "0.75": 50.691,
+     "0.9": 56.838,
+     "0.95": 60.759,
+     "0.975": 64.159
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 3.5,
+     "counts": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      2,
+      0,
+      4,
+      3,
+      3,
+      12,
+      7,
+      10,
+      11,
+      11,
+      16,
+      14,
+      21,
+      18,
+      22,
+      26,
+      21,
+      34,
+      36,
+      57,
+      63,
+      46,
+      78,
+      99,
+      99,
+      101,
+      103,
+      140,
+      161,
+      158,
+      190,
+      228,
+      249,
+      285,
+      330,
+      352,
+      380,
+      443,
+      530,
+      520,
+      549,
+      632,
+      670,
+      714,
+      795,
+      792,
+      953,
+      1004,
+      953,
+      1101,
+      1193,
+      1270,
+      1301,
+      1359,
+      1441,
+      1524,
+      1628,
+      1584,
+      1680,
+      1768,
+      1767,
+      1863,
+      1907,
+      1816,
+      1916,
+      1943,
+      2037,
+      2107,
+      2145,
+      2124,
+      2148,
+      2123,
+      2077,
+      2037,
+      1959,
+      2023,
+      1909,
+      1909,
+      1965,
+      1868,
+      1849,
+      1714,
+      1742,
+      1649,
+      1569,
+      1620,
+      1489,
+      1374,
+      1269,
+      1252,
+      1193,
+      1186,
+      1125,
+      1016,
+      1006,
+      921,
+      871,
+      812,
+      727,
+      655,
+      628,
+      578,
+      544,
+      506,
+      490,
+      431,
+      423,
+      412,
+      328,
+      305,
+      277,
+      292,
+      229,
+      232,
+      168,
+      182,
+      156,
+      144,
+      126,
+      101,
+      95,
+      110,
+      80,
+      73,
+      62,
+      68,
+      55,
+      48,
+      45,
+      40,
+      32,
+      40,
+      32,
+      21,
+      24,
+      19,
+      18,
+      17,
+      12,
+      8,
+      14,
+      5,
+      7,
+      5,
+      7,
+      5,
+      6,
+      4,
+      1,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "draws": 100000,
+  "sys_scale_alr": 0.16881,
+  "sys_structure": "mult",
+  "covariates_std": [
+   0.3736,
+   1.5386
+  ],
+  "nu": 10.0,
+  "category": "governador_t2",
+  "error_borrowed": true,
+  "variance_decomposition": {
+   "posterior": 0.1392,
+   "drift": 0.0209,
+   "systematic": 0.8399
+  }
+ },
+ "probabilities": {
+  "first": [
+   0.7275,
+   0.2725
+  ],
+  "top2": [
+   1.0,
+   1.0
+  ]
+ },
+ "trend_model": {
+  "method": "media_site",
+  "lookback_days": 21,
+  "damping": 0.0,
+  "series_from": "2026-10-02",
+  "series_to": "2026-10-19",
+  "points": 7,
+  "average_now_pct": [
+   51.8,
+   48.2
+  ],
+  "trend_pp_per_week": [
+   2.206,
+   -2.206
+  ],
+  "point_election_pct": [
+   51.8,
+   48.2
+  ],
+  "sys_scale_alr": 0.1621,
+  "summary": [
+   {
+    "label": "Mailza Assis",
+    "mean": 51.7134,
+    "sd": 8.7127,
+    "quantiles": {
+     "0.025": 34.1968,
+     "0.05": 37.3069,
+     "0.1": 40.7381,
+     "0.25": 46.1364,
+     "0.5": 51.7426,
+     "0.75": 57.3864,
+     "0.9": 62.6444,
+     "0.95": 65.8445,
+     "0.975": 68.7831
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 8.0,
+     "counts": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      2,
+      1,
+      2,
+      2,
+      8,
+      2,
+      7,
+      4,
+      7,
+      5,
+      4,
+      9,
+      9,
+      17,
+      21,
+      11,
+      10,
+      17,
+      30,
+      23,
+      27,
+      21,
+      42,
+      40,
+      41,
+      47,
+      55,
+      72,
+      68,
+      75,
+      92,
+      104,
+      112,
+      148,
+      175,
+      179,
+      198,
+      204,
+      234,
+      268,
+      280,
+      327,
+      348,
+      400,
+      439,
+      490,
+      526,
+      549,
+      605,
+      689,
+      723,
+      879,
+      878,
+      972,
+      1041,
+      1114,
+      1181,
+      1255,
+      1348,
+      1471,
+      1536,
+      1664,
+      1627,
+      1753,
+      1832,
+      1997,
+      2099,
+      2107,
+      2297,
+      2172,
+      2293,
+      2321,
+      2405,
+      2378,
+      2454,
+      2399,
+      2420,
+      2331,
+      2339,
+      2275,
+      2245,
+      2288,
+      2214,
+      2106,
+      2026,
+      2017,
+      1918,
+      1805,
+      1711,
+      1666,
+      1543,
+      1506,
+      1340,
+      1316,
+      1226,
+      1100,
+      1091,
+      921,
+      921,
+      823,
+      785,
+      700,
+      691,
+      609,
+      518,
+      475,
+      430,
+      397,
+      324,
+      295,
+      235,
+      233,
+      233,
+      194,
+      198,
+      161,
+      133,
+      131,
+      111,
+      99,
+      83,
+      65,
+      70,
+      58,
+      52,
+      37,
+      42,
+      31,
+      30,
+      31,
+      21,
+      24,
+      14,
+      11,
+      6,
+      15,
+      13,
+      7,
+      4,
+      3,
+      1,
+      6,
+      4,
+      4,
+      4,
+      1,
+      2,
+      0,
+      3,
+      4,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      1
+     ]
+    }
+   },
+   {
+    "label": "Alan Rick",
+    "mean": 48.2866,
+    "sd": 8.7127,
+    "quantiles": {
+     "0.025": 31.2169,
+     "0.05": 34.1555,
+     "0.1": 37.3556,
+     "0.25": 42.6136,
+     "0.5": 48.2574,
+     "0.75": 53.8636,
+     "0.9": 59.2619,
+     "0.95": 62.6931,
+     "0.975": 65.8032
+    },
+    "histogram": {
+     "bin_pp": 0.5,
+     "start_pp": 5.0,
+     "counts": [
+      1,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      4,
+      3,
+      0,
+      2,
+      1,
+      4,
+      4,
+      4,
+      6,
+      1,
+      3,
+      4,
+      7,
+      13,
+      15,
+      6,
+      11,
+      14,
+      24,
+      21,
+      31,
+      30,
+      31,
+      42,
+      37,
+      52,
+      58,
+      70,
+      65,
+      83,
+      99,
+      111,
+      131,
+      133,
+      161,
+      198,
+      194,
+      233,
+      233,
+      235,
+      295,
+      324,
+      397,
+      430,
+      475,
+      518,
+      609,
+      691,
+      700,
+      785,
+      823,
+      921,
+      921,
+      1091,
+      1100,
+      1226,
+      1316,
+      1340,
+      1506,
+      1543,
+      1666,
+      1711,
+      1805,
+      1918,
+      2017,
+      2026,
+      2106,
+      2214,
+      2288,
+      2245,
+      2275,
+      2339,
+      2331,
+      2420,
+      2399,
+      2454,
+      2378,
+      2405,
+      2321,
+      2293,
+      2172,
+      2297,
+      2107,
+      2099,
+      1997,
+      1832,
+      1753,
+      1627,
+      1664,
+      1536,
+      1471,
+      1348,
+      1255,
+      1181,
+      1114,
+      1041,
+      972,
+      878,
+      879,
+      723,
+      689,
+      605,
+      549,
+      526,
+      490,
+      439,
+      400,
+      348,
+      327,
+      280,
+      268,
+      234,
+      204,
+      198,
+      179,
+      175,
+      148,
+      112,
+      104,
+      92,
+      75,
+      68,
+      72,
+      55,
+      47,
+      41,
+      40,
+      42,
+      21,
+      27,
+      23,
+      30,
+      17,
+      10,
+      11,
+      21,
+      17,
+      9,
+      9,
+      4,
+      5,
+      7,
+      4,
+      7,
+      2,
+      8,
+      2,
+      2,
+      1,
+      2,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+     ]
+    }
+   }
+  ],
+  "probabilities": {
+   "first": [
+    0.5839,
+    0.4161
+   ],
+   "top2": [
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "headline_method": "modelo",
+ "status": {
+  "overall": "publicado",
+  "nowcast": "publicada",
+  "projection": "experimental",
+  "probability": "experimental",
+  "reasons": [
+   "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+   "nenhuma disputa histórica da categoria governador_t2 com resultado oficial no banco",
+   "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+  ]
+ },
+ "output_sha256": "5dcd09b51a5e95108897c8612778688416dfef80bcb7254b9fd4cb033b9bf844",
+ "run": {
+  "executed_at": "2026-10-22T01:50:45+00:00"
+ }
+}

@@ -1,40 +1,40 @@
 {
- "generated_at": "2026-10-21T22:18:12.147Z",
+ "generated_at": "2026-10-22T01:28:24.040Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-21T22:18:12.147Z"
+   "last_ok": "2026-10-22T01:28:24.040Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-21T22:18:12.147Z"
+   "last_ok": "2026-10-22T01:28:24.040Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-21T22:18:12.147Z"
+   "last_ok": "2026-10-22T01:28:24.040Z"
   }
  ],
  "polls": [
   {
-   "id": "a8e2dca8a544",
+   "id": "90833d22facb",
    "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
    "integra_url": null,
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Flávio Bolsonaro",
    "pollster": "Gerp",
    "contractor": null,
-   "fieldwork_start": "2026-10-17",
-   "fieldwork_end": "2026-10-20",
+   "fieldwork_start": "2026-10-19",
+   "fieldwork_end": "2026-10-21",
    "published_date": null,
    "sample_size": 2400,
-   "margin_of_error": 2.04,
+   "margin_of_error": 2,
    "results": [
     {
      "candidate": "Lula",
@@ -48,7 +48,7 @@
     }
    ],
    "others_pct": null,
-   "undecided_pct": 4,
+   "undecided_pct": 5,
    "blank_null_pct": null,
    "tse_registration": null
   },
