@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1899 levantamentos · 6036 perguntas · 165 institutos · 1445 candidatos**.
+Banco: **1901 levantamentos · 6037 perguntas · 165 institutos · 1445 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -760,7 +760,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_2225219f8ee6 · survey_id: "s_2225219f8ee6" × null
 - **[2026]** survey_id_orphaned · s_60bb9f3eb8b1 · survey_id: "s_60bb9f3eb8b1" × null
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
-- disputa_em_quarentena · governador:DF · quarentena: 101 × 103
+- disputa_em_quarentena · governador:DF · quarentena: 101 × 104
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 

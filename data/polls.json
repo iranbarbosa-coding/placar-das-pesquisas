@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-22T22:16:52.584Z",
+ "generated_at": "2026-10-23T01:27:18.891Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-22T22:16:52.584Z"
+   "last_ok": "2026-10-23T01:27:18.891Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-22T22:16:52.584Z"
+   "last_ok": "2026-10-23T01:27:18.891Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-22T22:16:52.584Z"
+   "last_ok": "2026-10-23T01:27:18.891Z"
   }
  ],
  "polls": [
@@ -49,6 +49,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "7fe1d4019d30",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Exatus",
+   "contractor": null,
+   "fieldwork_start": "2026-10-19",
+   "fieldwork_end": "2026-10-21",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 46.08
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 43.37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.56,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -624,7 +657,7 @@
    "scenario": "2º turno: Lorenzo Pazolini vs Ricardo Ferraço",
    "pollster": "Paraná Pesquisas",
    "contractor": "Paraná Pesquisas",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-15",
    "fieldwork_end": "2026-10-19",
    "published_date": "2026-10-19",
    "sample_size": 1300,
@@ -20321,6 +20354,39 @@
    "tse_registration": null
   },
   {
+   "id": "432466e08b2c",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "AtlasIntel",
+   "contractor": "AtlasIntel",
+   "fieldwork_start": "2026-09-23",
+   "fieldwork_end": "2026-09-28",
+   "published_date": "2026-09-28",
+   "sample_size": 1207,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 40.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 29.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30.4,
+   "blank_null_pct": null,
+   "tse_registration": "RN-04187/2026"
+  },
+  {
    "id": "45de88cc37b4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -20627,39 +20693,6 @@
    "undecided_pct": 2.2,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "7809101b095f",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/cadu-tem-51-contra-35-de-alvaro-dias-no-rn-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/riograndedonorte-atlasintel-presidente-governador-senador-29set.pdf",
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "AtlasIntel",
-   "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-23",
-   "fieldwork_end": "2026-09-28",
-   "published_date": "2026-09-28",
-   "sample_size": 1207,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 40.1
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 29.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30.4,
-   "blank_null_pct": null,
-   "tse_registration": "RN-04187/2026"
   },
   {
    "id": "7a5b75bf390e",
@@ -28972,6 +29005,39 @@
    "tse_registration": "RJ-02205/2026"
   },
   {
+   "id": "0e4d1c8555da",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.6
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 21.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 36.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "10c4c2050ae2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -29541,6 +29607,39 @@
    "tse_registration": null
   },
   {
+   "id": "388e46d48596",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 39
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "3939c7e2d8d6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -29722,6 +29821,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 14.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3e396c131541",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 49
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -29951,39 +30083,6 @@
    "tse_registration": null
   },
   {
-   "id": "48bc043fd018",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 27.5
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 26.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 45.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "4bd05792b4ee",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -30128,35 +30227,35 @@
    "tse_registration": null
   },
   {
-   "id": "58833f0de6be",
+   "id": "5899f739fde4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Quaest",
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Seta",
    "contractor": null,
    "fieldwork_start": "2026-09-21",
    "fieldwork_end": "2026-09-24",
    "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
    "results": [
     {
      "candidate": "Cadu de Lula",
      "party": "PT",
-     "pct": 39
+     "pct": 27.5
     },
     {
      "candidate": "Álvaro Dias",
      "party": "PL",
-     "pct": 37
+     "pct": 26.9
     }
    ],
    "others_pct": null,
-   "undecided_pct": 24,
+   "undecided_pct": 45.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -31310,39 +31409,6 @@
    "tse_registration": null
   },
   {
-   "id": "b07f579c938f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 49
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b1f17821a769",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -31883,39 +31949,6 @@
    ],
    "others_pct": 1.1,
    "undecided_pct": 8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d2e4005a0e8f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 41.6
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 21.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 36.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -69864,6 +69897,39 @@
    "tse_registration": null
   },
   {
+   "id": "185ac4f1a4e7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 28.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 28.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 43.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2993cbc2e04b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -70009,6 +70075,39 @@
    ],
    "others_pct": 3.5,
    "undecided_pct": 30.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "6de09688af96",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Seta",
+   "contractor": null,
+   "fieldwork_start": "2026-09-03",
+   "fieldwork_end": "2026-09-05",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 40.5
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 23.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -70180,39 +70279,6 @@
    "tse_registration": null
   },
   {
-   "id": "b2cf73c66b90",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-03",
-   "fieldwork_end": "2026-09-05",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 28.3
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 28.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 43.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b34774fc191b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
@@ -70358,39 +70424,6 @@
    ],
    "others_pct": 3.91,
    "undecided_pct": 10.75,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d39e54ff0b41",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "Seta",
-   "contractor": null,
-   "fieldwork_start": "2026-09-03",
-   "fieldwork_end": "2026-09-05",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 40.5
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 23.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -91551,6 +91584,39 @@
    "tse_registration": null
   },
   {
+   "id": "28a5c7b1efe7",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 35
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 35,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "2d5580f9bd83",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -92309,6 +92375,39 @@
    "tse_registration": null
   },
   {
+   "id": "9c5e4d5299e3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 35
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "b6fe1edf4900",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-no-rs-diz-quaest/",
@@ -92376,39 +92475,6 @@
    ],
    "others_pct": 5.4,
    "undecided_pct": 22.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c5b4eb5ca4d5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 35
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 30
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 35,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -92485,39 +92551,6 @@
    ],
    "others_pct": 2.6,
    "undecided_pct": 12.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "dbc8d37509fa",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 35
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 31
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -146613,72 +146646,6 @@
    "tse_registration": null
   },
   {
-   "id": "1d17a6ec01c2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "Verita",
-   "contractor": null,
-   "fieldwork_start": "2026-05-27",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 36.3
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 38.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "238c07b19813",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 20.8
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 38.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "2737e2b2a7ac",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -146899,6 +146866,39 @@
    "tse_registration": null
   },
   {
+   "id": "69d7386a57a5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Verita",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 36.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 38.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "6b5b8bfb7a9a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
@@ -146976,6 +146976,39 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "73da5e59e00e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Agorasei",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 48.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 25.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -147086,39 +147119,6 @@
    "tse_registration": null
   },
   {
-   "id": "88f583b0a543",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 48.1
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 25.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "95251978adc0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -147157,14 +147157,14 @@
    "tse_registration": null
   },
   {
-   "id": "a442258b4dc4",
+   "id": "a522f60b2187",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
    "pollster": "Verita",
    "contractor": null,
    "fieldwork_start": "2026-05-27",
@@ -147338,6 +147338,39 @@
    ],
    "others_pct": 10.1,
    "undecided_pct": 37.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c0882522cb96",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Agorasei",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 20.8
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 38.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -202406,14 +202439,14 @@
    "tse_registration": null
   },
   {
-   "id": "10337b0c604a",
+   "id": "1573ec939794",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Hipóteses com Álvaro Dias",
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
    "pollster": "TCM/TSDois",
    "contractor": null,
    "fieldwork_start": "2025-12-09",
@@ -202435,39 +202468,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 37.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "74dbb2abced4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "TCM/TSDois",
-   "contractor": null,
-   "fieldwork_start": "2025-12-09",
-   "fieldwork_end": "2025-12-13",
-   "published_date": null,
-   "sample_size": 1870,
-   "margin_of_error": 2.3,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 26.7
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 24.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 48.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -202501,6 +202501,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 44.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ce84e422d438",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "TCM/TSDois",
+   "contractor": null,
+   "fieldwork_start": "2025-12-09",
+   "fieldwork_end": "2025-12-13",
+   "published_date": null,
+   "sample_size": 1870,
+   "margin_of_error": 2.3,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 26.7
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 24.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 48.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -213130,6 +213163,39 @@
    "tse_registration": null
   },
   {
+   "id": "1a6aa63639c3",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
+   "integra_url": "https://static.poder360.com.br/2025/09/Parana-pesquisa-RN.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses com Álvaro Dias",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": "2025-09-06",
+   "fieldwork_end": "2025-09-10",
+   "published_date": "2025-09-10",
+   "sample_size": 1505,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 16.3
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 50.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 32.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "278779f0b50e",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
@@ -213169,39 +213235,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 16.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e889a9b771a5",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
-   "integra_url": "https://static.poder360.com.br/2025/09/Parana-pesquisa-RN.pdf",
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula e Álvaro Dias",
-   "pollster": "Paraná Pesquisas",
-   "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2025-09-06",
-   "fieldwork_end": "2025-09-10",
-   "published_date": "2025-09-10",
-   "sample_size": 1505,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 16.3
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 50.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 32.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
