@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-23T15:43:40.445Z",
+ "generated_at": "2026-10-23T22:05:34.334Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-23T15:43:40.445Z"
+   "last_ok": "2026-10-23T22:05:34.334Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-23T15:43:40.445Z"
+   "last_ok": "2026-10-23T22:05:34.334Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-23T15:43:40.445Z"
+   "last_ok": "2026-10-23T22:05:34.334Z"
   }
  ],
  "polls": [
@@ -53,39 +53,6 @@
    "tse_registration": null
   },
   {
-   "id": "8a922886f665",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Vox",
-   "contractor": null,
-   "fieldwork_start": "2026-10-20",
-   "fieldwork_end": "2026-10-22",
-   "published_date": null,
-   "sample_size": 2100,
-   "margin_of_error": 2.15,
-   "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 45.4
-    },
-    {
-     "candidate": "Flávio Bolsonaro",
-     "party": "PL",
-     "pct": 44.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "e591dbf62d8f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -119,37 +86,202 @@
    "tse_registration": null
   },
   {
-   "id": "e7f79649c957",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14516-2-0-c7bbe812cb47",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-50-dos-votos-validos-contra-50-de-lula-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Datafolha-2oturno-presidente-22out2026.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Datafolha",
-   "contractor": null,
+   "contractor": "TV Globo e Folha de S. Paulo",
    "fieldwork_start": "2026-10-20",
    "fieldwork_end": "2026-10-22",
-   "published_date": null,
-   "sample_size": 2520,
+   "published_date": "2026-10-22",
+   "sample_size": 2154,
    "margin_of_error": 2,
    "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 46
-    },
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
      "pct": 47
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
     }
    ],
    "others_pct": null,
-   "undecided_pct": 7,
+   "undecided_pct": 2,
+   "blank_null_pct": 5,
+   "tse_registration": "BR-09709/2026"
+  },
+  {
+   "id": "p360-14518-2-0-c9f8f8cd7f77",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-506-contra-494-de-flavio-em-votos-validos-diz-vox/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/RELATORIO-VOX-BRASIL-NACIONAL-11-2-TURNO-23-10-2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Vox",
+   "contractor": "Vox Brasil",
+   "fieldwork_start": "2026-10-20",
+   "fieldwork_end": "2026-10-22",
+   "published_date": "2026-10-22",
+   "sample_size": 2100,
+   "margin_of_error": 2.15,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.4
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 44.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.3,
+   "blank_null_pct": 6,
+   "tse_registration": "BR-03259/2026"
+  },
+  {
+   "id": "p360-14520-2-0-ecd3f65ddb81",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaDataControl-governador-AC-23out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaDataControl-governador-AC-23out2026.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
+   "pollster": "Data Control",
+   "contractor": "DataControl",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-22",
+   "published_date": "2026-10-22",
+   "sample_size": 1049,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 61.49
+    },
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 30.22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.19,
+   "blank_null_pct": 4.1,
+   "tse_registration": "AC-04405/2026"
+  },
+  {
+   "id": "p360-14521-2-0-c15e64349a87",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaDataControl-presidente-AC-23out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaDataControl-presidente-AC-23out2026.pdf",
+   "race": "presidente",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Data Control",
+   "contractor": "Data Control",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-22",
+   "published_date": "2026-10-22",
+   "sample_size": 1049,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 62.44
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 28.31
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.91,
+   "blank_null_pct": 5.34,
+   "tse_registration": "BR-05654/2026"
+  },
+  {
+   "id": "p360-14522-2-0-27c76094de32",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaAlfaInteligencia-presidente-23out2026-1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/PesquisaAlfaInteligencia-presidente-23out2026-1.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Alfa",
+   "contractor": "Alfa Inteligência",
+   "fieldwork_start": "2026-10-18",
+   "fieldwork_end": "2026-10-22",
+   "published_date": "2026-10-22",
+   "sample_size": 2700,
+   "margin_of_error": 1.9,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49.9
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.1,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-08496/2026"
+  },
+  {
+   "id": "p360-14523-2-0-7c1f57894e2a",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-presidente-23out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-presidente-23out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Verita",
+   "contractor": "95",
+   "fieldwork_start": "2026-10-18",
+   "fieldwork_end": "2026-10-22",
+   "published_date": "2026-10-22",
+   "sample_size": 15554,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50.2
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 0.9,
+   "blank_null_pct": 1.4,
+   "tse_registration": "BR-03826/2026"
   },
   {
    "id": "61945a80255f",
@@ -185,52 +317,19 @@
    "tse_registration": null
   },
   {
-   "id": "7fe1d4019d30",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-10-19",
-   "fieldwork_end": "2026-10-21",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 46.08
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 43.37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10.56,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "90833d22facb",
-   "source": null,
-   "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
-   "integra_url": null,
+   "id": "p360-14509-2-0-fd1c6c59292f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-53-dos-votos-validos-contra-47-de-lula-diz-gerp/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaGerp-presidente-21out2026.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Luiz Inácio Lula da Silva vs Flávio Bolsonaro",
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Gerp",
-   "contractor": null,
-   "fieldwork_start": "2026-10-19",
+   "contractor": "Gerp",
+   "fieldwork_start": "2026-10-17",
    "fieldwork_end": "2026-10-21",
-   "published_date": null,
+   "published_date": "2026-10-21",
    "sample_size": 2400,
    "margin_of_error": 2,
    "results": [
@@ -248,73 +347,139 @@
    "others_pct": null,
    "undecided_pct": 5,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-03835/2026"
   },
   {
-   "id": "ca0f01e7b193",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14510-2-0-3f89d8aea6de",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poderdata/flavio-tem-51-e-lula-tem-49-dos-votos-validos-diz-poderdata-aya/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-21out26-2.pdf",
    "race": "presidente",
    "state": null,
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "PoderData",
-   "contractor": null,
+   "contractor": "PoderData",
    "fieldwork_start": "2026-10-19",
    "fieldwork_end": "2026-10-21",
-   "published_date": null,
+   "published_date": "2026-10-21",
    "sample_size": 4000,
    "margin_of_error": 1.6,
    "results": [
     {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
      "pct": 49
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e3981f0cc33c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
-   "race": "presidente",
-   "state": null,
-   "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Data Index",
-   "contractor": null,
-   "fieldwork_start": "2026-10-20",
-   "fieldwork_end": "2026-10-21",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.19,
-   "results": [
+    },
     {
      "candidate": "Lula",
      "party": "PT",
-     "pct": 44.1
-    },
+     "pct": 48
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 3,
+   "tse_registration": "BR-07926/2026"
+  },
+  {
+   "id": "p360-14514-2-0-4d4b997529ca",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaIndexaBroadcast-presidente-22out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaIndexaBroadcast-presidente-22out2026.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Indexa Pesquisas",
+   "contractor": "Estadão",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-21",
+   "published_date": "2026-10-21",
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
      "pct": 45.2
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 44.1
     }
    ],
    "others_pct": null,
-   "undecided_pct": 10.7,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 6.4,
+   "blank_null_pct": 4.3,
+   "tse_registration": "BR-02348/2026"
+  },
+  {
+   "id": "p360-14517-2-0-a526c3d6ba5a",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaExactus-governador-RN-23out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaExactus-governador-RN-23out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": "Agora RN e O Correio de Hoje",
+   "fieldwork_start": "2026-10-19",
+   "fieldwork_end": "2026-10-21",
+   "published_date": "2026-10-21",
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 46.08
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 43.37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4.92,
+   "blank_null_pct": 5.64,
+   "tse_registration": "RN-01134/2026"
+  },
+  {
+   "id": "p360-14519-2-0-b3def5cd21b9",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaExactus-presidente-RN-23out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaExactus-presidente-RN-23out2026.pdf",
+   "race": "presidente",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Lula vs Flávio Bolsonaro",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": "Agora RN e O Correio de Hoje",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-21",
+   "published_date": "2026-10-21",
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 60.8
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 32
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.15,
+   "blank_null_pct": 4.11,
+   "tse_registration": "BR-05704/2026"
   },
   {
    "id": "592aab948825",
@@ -482,40 +647,40 @@
    "tse_registration": "BR-04612/2026"
   },
   {
-   "id": "824f039e79ba",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
-   "integra_url": null,
+   "id": "p360-14508-2-0-3a40fccc4f50",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-df-flavio-tem-50-contra-39-de-lula-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-df-presidente-21out2026.pdf",
    "race": "presidente",
-   "state": null,
+   "state": "DF",
    "round": 2,
-   "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Verita",
-   "contractor": null,
-   "fieldwork_start": "2026-10-15",
-   "fieldwork_end": "2026-10-19",
-   "published_date": null,
-   "sample_size": 15554,
-   "margin_of_error": 1,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-20",
+   "published_date": "2026-10-20",
+   "sample_size": 1104,
+   "margin_of_error": 3,
    "results": [
-    {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 49.3
-    },
     {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 50.7
+     "pct": 50
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 39
     }
    ],
    "others_pct": null,
-   "undecided_pct": 2.6,
-   "blank_null_pct": null,
-   "tse_registration": null
+   "undecided_pct": 5,
+   "blank_null_pct": 6,
+   "tse_registration": "BR-03163/2026"
   },
   {
-   "id": "eb01bbc26751",
+   "id": "e043ee486ae1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -523,27 +688,27 @@
    "state": "RN",
    "round": 2,
    "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Mensury/Blog do Barreto",
+   "pollster": "DataCapital",
    "contractor": null,
-   "fieldwork_start": "2026-10-16",
+   "fieldwork_start": "2026-10-15",
    "fieldwork_end": "2026-10-19",
    "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
+   "sample_size": 2000,
+   "margin_of_error": null,
    "results": [
     {
      "candidate": "Allyson",
      "party": "União Brasil",
-     "pct": 41.67
+     "pct": 49.1
     },
     {
      "candidate": "Cadu de Lula",
      "party": "PT",
-     "pct": 44.27
+     "pct": 42.8
     }
    ],
    "others_pct": null,
-   "undecided_pct": 14.07,
+   "undecided_pct": 8.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -754,28 +919,28 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa",
-   "fieldwork_start": "2026-10-18",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-19",
    "published_date": "2026-10-19",
    "sample_size": 2700,
    "margin_of_error": 1.9,
    "results": [
     {
-     "candidate": "Lula",
-     "party": "PT",
-     "pct": 48
-    },
-    {
      "candidate": "Flávio Bolsonaro",
      "party": "PL",
-     "pct": 52
+     "pct": 48.8
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 45.8
     }
    ],
    "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
+   "undecided_pct": 1.8,
+   "blank_null_pct": 3.5,
    "tse_registration": "BR-00820/2026"
   },
   {
@@ -843,6 +1008,39 @@
    "undecided_pct": 2.6,
    "blank_null_pct": 3.4,
    "tse_registration": "BR-08251/2026"
+  },
+  {
+   "id": "p360-14511-2-0-ffbaa1144b1d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaMensury-governo_RN-21out2026-1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaMensury-governo_RN-21out2026-1.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Allyson Bezerra",
+   "pollster": "Mensury/Blog do Barreto",
+   "contractor": "Blog do Barreto",
+   "fieldwork_start": "2026-10-16",
+   "fieldwork_end": "2026-10-19",
+   "published_date": "2026-10-19",
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 44.27
+    },
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.67
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.4,
+   "blank_null_pct": 5.67,
+   "tse_registration": "RN-09985/2026"
   },
   {
    "id": "p360-14479-2-0-8f22d3847ef3",
@@ -954,7 +1152,7 @@
    "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
    "pollster": "DataTrends",
    "contractor": "DataTrends",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-16",
    "fieldwork_end": "2026-10-18",
    "published_date": "2026-10-18",
    "sample_size": 1200,
@@ -1208,6 +1406,39 @@
    "tse_registration": null
   },
   {
+   "id": "d2dc96eca5e0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Verita",
+   "contractor": null,
+   "fieldwork_start": "2026-10-12",
+   "fieldwork_end": "2026-10-16",
+   "published_date": null,
+   "sample_size": 15554,
+   "margin_of_error": 1,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 47.7
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "p360-14472-2-0-167e0b21377d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-52-e-lula-48-dos-votos-validos-no-2o-turno-diz-gerp/",
@@ -1218,7 +1449,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Gerp",
    "contractor": "Gerp",
-   "fieldwork_start": "2026-10-15",
+   "fieldwork_start": "2026-10-14",
    "fieldwork_end": "2026-10-16",
    "published_date": "2026-10-16",
    "sample_size": 2400,
@@ -2296,6 +2527,39 @@
    "blank_null_pct": null,
    "tse_registration": "BR-04487/2026",
    "incomplete": true
+  },
+  {
+   "id": "f95c4fd2dde1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "DataCapital",
+   "contractor": null,
+   "fieldwork_start": "2026-10-07",
+   "fieldwork_end": "2026-10-10",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 49.53
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 41.67
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8.8,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-14438-2-0-b2b82fea97d7",
@@ -3471,6 +3735,39 @@
    "tse_registration": null
   },
   {
+   "id": "951d15eb805d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/RN-096442026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/RN-096442026-Governador.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Quaest",
+   "contractor": "Inter TV",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 46
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 29
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": "RN-09644/2026"
+  },
+  {
    "id": "9bf979fc8841",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -3684,6 +3981,39 @@
    "undecided_pct": 31,
    "blank_null_pct": null,
    "tse_registration": "PA-04580/2026"
+  },
+  {
+   "id": "d101cb1c09d5",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/RN-096442026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/RN-096442026-Governador.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Quaest",
+   "contractor": "Inter TV",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 40
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": "RN-09644/2026"
   },
   {
    "id": "db116130aba4",
@@ -6287,7 +6617,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Inter TV",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -6355,7 +6685,7 @@
    "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
    "pollster": "Quaest",
    "contractor": "Inter TV",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -6486,7 +6816,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Inter TV",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -16346,6 +16676,54 @@
    "tse_registration": null
   },
   {
+   "id": "0f7048988b44",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 47.2
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 35.47
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 19.99
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 17.29
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 19.3
+    }
+   ],
+   "others_pct": 3.59,
+   "undecided_pct": 57.15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "14bc9150f82e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -16645,44 +17023,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 21.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "31b62859f73f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-09-30",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 43.26
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 22.22
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 24.42
-    }
-   ],
-   "others_pct": 0.9,
-   "undecided_pct": 9.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -17023,54 +17363,6 @@
    "tse_registration": null
   },
   {
-   "id": "9e42e6ae8b31",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "senador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-09-28",
-   "fieldwork_end": "2026-09-30",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 47.2
-    },
-    {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 35.47
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 19.99
-    },
-    {
-     "candidate": "Coronel Hélio",
-     "party": "PL",
-     "pct": 17.29
-    },
-    {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 19.3
-    }
-   ],
-   "others_pct": 3.59,
-   "undecided_pct": 57.15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "a92933ea4879",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -17100,6 +17392,44 @@
    ],
    "others_pct": null,
    "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "aae23d49e150",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 43.26
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 22.22
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 24.42
+    }
+   ],
+   "others_pct": 0.9,
+   "undecided_pct": 9.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -17493,7 +17823,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-25",
    "fieldwork_end": "2026-09-30",
@@ -35123,7 +35453,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-23",
@@ -35156,7 +35486,7 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-23",
@@ -35265,6 +35595,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "4c60cc40e675",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 51.08
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 31.95
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 16.2
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 13.23
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 14.34
+    }
+   ],
+   "others_pct": 3.62,
+   "undecided_pct": 19.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -35993,7 +36371,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Zema",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-23",
@@ -36160,54 +36538,6 @@
    "tse_registration": null
   },
   {
-   "id": "991540424ac9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "senador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 51.08
-    },
-    {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 31.95
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 16.2
-    },
-    {
-     "candidate": "Coronel Hélio",
-     "party": "PL",
-     "pct": 13.23
-    },
-    {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 14.34
-    }
-   ],
-   "others_pct": 3.62,
-   "undecided_pct": 19.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "9ace06c003f7",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-e-rejeitado-por-50-e-flavio-bolsonaro-por-49-diz-pesquisa/",
@@ -36325,7 +36655,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Caiado",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-23",
@@ -36358,7 +36688,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-23",
@@ -36585,44 +36915,6 @@
    "tse_registration": null
   },
   {
-   "id": "b8c80e04dfea",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 44.11
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 20.6
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 22.52
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.13,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "bc50f8d92713",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -36631,7 +36923,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Augusto Cury",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-18",
    "fieldwork_end": "2026-09-23",
@@ -36867,6 +37159,44 @@
    ],
    "others_pct": null,
    "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "dab25d06ed48",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 44.11
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 20.6
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 22.52
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.13,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -48448,54 +48778,6 @@
    "tse_registration": null
   },
   {
-   "id": "1d22556dd384",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "senador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
-   "contractor": null,
-   "fieldwork_start": "2026-09-12",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 31
-    },
-    {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 20.7
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.3
-    },
-    {
-     "candidate": "Coronel Hélio",
-     "party": "PL",
-     "pct": 13.3
-    },
-    {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 7.5
-    }
-   ],
-   "others_pct": 4.9,
-   "undecided_pct": 111.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "27869023d5ca",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -49045,6 +49327,54 @@
    "tse_registration": null
   },
   {
+   "id": "6dbec5e48676",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Media/O Potengi",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 31
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 20.7
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.3
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 13.3
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 7.5
+    }
+   ],
+   "others_pct": 4.9,
+   "undecided_pct": 111.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7d7eb598cb83",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -49142,44 +49472,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 13.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "8eb8cc2aa222",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
-   "contractor": null,
-   "fieldwork_start": "2026-09-12",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 38.19
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 32.48
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 27.11
-    }
-   ],
-   "others_pct": 1.95,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -49573,6 +49865,44 @@
    ],
    "others_pct": 3,
    "undecided_pct": 37,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "ed8ca09640a1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Media/O Potengi",
+   "contractor": null,
+   "fieldwork_start": "2026-09-12",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 38.19
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 32.48
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 27.11
+    }
+   ],
+   "others_pct": 1.95,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -50133,7 +50463,7 @@
    "state": "PR",
    "round": 2,
    "scenario": "2º turno: Sérgio Moro e Requião Filho",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-11",
    "fieldwork_end": "2026-09-16",
@@ -50328,7 +50658,7 @@
    "state": "PR",
    "round": 2,
    "scenario": "2º turno: Sérgio Moro e Sandro Alex",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-11",
    "fieldwork_end": "2026-09-16",
@@ -50361,7 +50691,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-11",
    "fieldwork_end": "2026-09-16",
@@ -50429,7 +50759,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-11",
    "fieldwork_end": "2026-09-16",
@@ -61330,7 +61660,7 @@
    "tse_registration": null
   },
   {
-   "id": "42c9a08e0750",
+   "id": "4d29b166ef2d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -61338,7 +61668,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": null,
    "fieldwork_start": "2026-09-07",
    "fieldwork_end": "2026-09-09",
@@ -61930,7 +62260,7 @@
    "tse_registration": null
   },
   {
-   "id": "8f99b15dbea6",
+   "id": "9a2036d8c016",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -61938,7 +62268,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": null,
    "fieldwork_start": "2026-09-07",
    "fieldwork_end": "2026-09-09",
@@ -62277,7 +62607,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-09",
@@ -62462,7 +62792,7 @@
    "state": "PR",
    "round": 2,
    "scenario": "2º turno: Sérgio Moro e Sandro Alex",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-09",
@@ -62548,7 +62878,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-09",
@@ -62616,7 +62946,7 @@
    "state": "PR",
    "round": 2,
    "scenario": "2º turno: Sérgio Moro e Requião Filho",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": null,
    "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-09",
@@ -72763,44 +73093,6 @@
    "tse_registration": "SP-00152/2026"
   },
   {
-   "id": "1f81b1f3b5a7",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-08-31",
-   "fieldwork_end": "2026-09-03",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.53,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 37.42
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 20.56
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 17.96
-    }
-   ],
-   "others_pct": 1.93,
-   "undecided_pct": 22.13,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "3797e209a9c7",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -73147,15 +73439,15 @@
    "incomplete": true
   },
   {
-   "id": "f83eb36cc3ce",
+   "id": "e90e68b12e7a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
-   "race": "senador",
+   "race": "governador",
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": null,
    "fieldwork_start": "2026-08-31",
    "fieldwork_end": "2026-09-03",
@@ -73164,33 +73456,23 @@
    "margin_of_error": 2.53,
    "results": [
     {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 45.06
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 37.42
     },
     {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 27.14
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 12.99
-    },
-    {
-     "candidate": "Coronel Hélio",
+     "candidate": "Álvaro Dias",
      "party": "PL",
-     "pct": 11.77
+     "pct": 20.56
     },
     {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 13.11
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 17.96
     }
    ],
-   "others_pct": 3.26,
-   "undecided_pct": 86.14,
+   "others_pct": 1.93,
+   "undecided_pct": 22.13,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -73254,6 +73536,54 @@
    ],
    "others_pct": 3.76,
    "undecided_pct": 70.89,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fceedf23c0fd",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-03",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.53,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 45.06
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 27.14
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 12.99
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 11.77
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 13.11
+    }
+   ],
+   "others_pct": 3.26,
+   "undecided_pct": 86.14,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -81709,7 +82039,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
+   "pollster": "Media/O Potengi",
    "contractor": null,
    "fieldwork_start": "2026-08-25",
    "fieldwork_end": "2026-08-30",
@@ -81828,7 +82158,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
+   "pollster": "Media/O Potengi",
    "contractor": null,
    "fieldwork_start": "2026-08-25",
    "fieldwork_end": "2026-08-30",
@@ -84494,40 +84824,7 @@
    "tse_registration": null
   },
   {
-   "id": "b617381331d5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
-   "integra_url": null,
-   "race": "governador",
-   "state": "TO",
-   "round": 2,
-   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-08-25",
-   "fieldwork_end": "2026-08-27",
-   "published_date": null,
-   "sample_size": 1504,
-   "margin_of_error": 2.6,
-   "results": [
-    {
-     "candidate": "Professora Dorinha",
-     "party": "União Brasil",
-     "pct": 44.4
-    },
-    {
-     "candidate": "Vicentinho Júnior",
-     "party": "PSDB",
-     "pct": 44.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c880d2689733",
+   "id": "b3fcb082a3a3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -84571,6 +84868,77 @@
    ],
    "others_pct": 0.7,
    "undecided_pct": 56.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b617381331d5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-25",
+   "fieldwork_end": "2026-08-27",
+   "published_date": null,
+   "sample_size": 1504,
+   "margin_of_error": 2.6,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 44.4
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 44.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cea2ee19767f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-27",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 39.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 14.5
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 13.2
+    }
+   ],
+   "others_pct": 0.3,
+   "undecided_pct": 32.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -84791,44 +85159,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "eac8008f18c2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-27",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 39.1
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 14.5
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 13.2
-    }
-   ],
-   "others_pct": 0.3,
-   "undecided_pct": 32.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -95104,7 +95434,7 @@
    "state": "PR",
    "round": 2,
    "scenario": "2º turno: Sérgio Moro e Sandro Alex",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Rádio Transamérica de São Paulo",
    "fieldwork_start": "2026-08-18",
    "fieldwork_end": "2026-08-22",
@@ -95638,7 +95968,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Rádio Transamérica de São Paulo",
    "fieldwork_start": "2026-08-18",
    "fieldwork_end": "2026-08-22",
@@ -95706,7 +96036,7 @@
    "state": "PR",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Rádio Transamérica de São Paulo",
    "fieldwork_start": "2026-08-18",
    "fieldwork_end": "2026-08-22",
@@ -95754,7 +96084,7 @@
    "state": "PR",
    "round": 2,
    "scenario": "2º turno: Requião Filho",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Rádio Transamérica de São Paulo",
    "fieldwork_start": "2026-08-18",
    "fieldwork_end": "2026-08-22",
@@ -113314,7 +113644,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Transamérica Media Company",
    "fieldwork_start": "2026-07-23",
    "fieldwork_end": "2026-07-28",
@@ -113347,7 +113677,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Flávio Bolsonaro",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Transamérica Media Company",
    "fieldwork_start": "2026-07-23",
    "fieldwork_end": "2026-07-28",
@@ -114462,7 +114792,7 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Transamérica Media Company",
    "fieldwork_start": "2026-07-23",
    "fieldwork_end": "2026-07-28",
@@ -114515,7 +114845,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Transamérica Media Company",
    "fieldwork_start": "2026-07-23",
    "fieldwork_end": "2026-07-28",
@@ -114553,7 +114883,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Romeu Zema",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Transamérica Media Company",
    "fieldwork_start": "2026-07-23",
    "fieldwork_end": "2026-07-28",
@@ -120786,7 +121116,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Potengi/Media",
+   "pollster": "Media/O Potengi",
    "contractor": "jornal O Potengi",
    "fieldwork_start": null,
    "fieldwork_end": "2026-07-24",
@@ -128545,55 +128875,6 @@
    "tse_registration": "BR-07294/2026"
   },
   {
-   "id": "1258585ce127",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": "Grupo Agora RN",
-   "fieldwork_start": "2026-07-07",
-   "fieldwork_end": "2026-07-10",
-   "published_date": "2026-07-10",
-   "sample_size": 1500,
-   "margin_of_error": 2.52,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 41.78
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 26.05
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 13.74
-    },
-    {
-     "candidate": "Professor Roberio Paulino",
-     "party": "PSOL",
-     "pct": 0.26
-    },
-    {
-     "candidate": "Dário Barbosa",
-     "party": "PSTU",
-     "pct": 0.49
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07763/2026",
-   "incomplete": true
-  },
-  {
    "id": "4dce03609472",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -128670,7 +128951,7 @@
    "tse_registration": null
   },
   {
-   "id": "9cef2d0a003a",
+   "id": "9db31b55d6a5",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
@@ -128678,7 +128959,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": "Grupo Agora RN",
    "fieldwork_start": "2026-07-07",
    "fieldwork_end": "2026-07-10",
@@ -128716,6 +128997,55 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "BR-07763/2026"
+  },
+  {
+   "id": "b58773b92eb1",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": "Grupo Agora RN",
+   "fieldwork_start": "2026-07-07",
+   "fieldwork_end": "2026-07-10",
+   "published_date": "2026-07-10",
+   "sample_size": 1500,
+   "margin_of_error": 2.52,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 41.78
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 26.05
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 13.74
+    },
+    {
+     "candidate": "Professor Roberio Paulino",
+     "party": "PSOL",
+     "pct": 0.26
+    },
+    {
+     "candidate": "Dário Barbosa",
+     "party": "PSTU",
+     "pct": 0.49
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07763/2026",
+   "incomplete": true
   },
   {
    "id": "curado-e6aca1b2981a",
@@ -128949,7 +129279,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": "Grupo Agora RN",
    "fieldwork_start": "2026-07-07",
    "fieldwork_end": "2026-07-10",
@@ -129437,7 +129767,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
+   "pollster": "Media/O Potengi",
    "contractor": null,
    "fieldwork_start": "2026-07-03",
    "fieldwork_end": "2026-07-08",
@@ -129723,7 +130053,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
+   "pollster": "Media/O Potengi",
    "contractor": null,
    "fieldwork_start": "2026-07-03",
    "fieldwork_end": "2026-07-08",
@@ -143176,7 +143506,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula e Renan Santos",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-06-05",
    "fieldwork_end": "2026-06-10",
@@ -143598,7 +143928,7 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-06-05",
    "fieldwork_end": "2026-06-10",
@@ -143648,7 +143978,7 @@
    "tse_registration": "BR-03496/2026"
   },
   {
-   "id": "p360-13508-2-0-66657ba8431d",
+   "id": "p360-13508-2-0-87e386bc0712",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/06/alfa-pesquisa-nacional-junho-2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/06/alfa-pesquisa-nacional-junho-2026.pdf",
@@ -143656,7 +143986,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Flávio Bolsonaro",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-06-05",
    "fieldwork_end": "2026-06-10",
@@ -143689,7 +144019,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Joaquim Barbosa",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-06-05",
    "fieldwork_end": "2026-06-10",
@@ -143722,7 +144052,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-06-05",
    "fieldwork_end": "2026-06-10",
@@ -147570,6 +147900,39 @@
    "tse_registration": "BR-09048/2026"
   },
   {
+   "id": "0c65d8f7cc4d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "pollster": "Agorasei",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 48.1
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 25.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 26.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "1cc126c85955",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -147709,6 +148072,39 @@
    "tse_registration": null
   },
   {
+   "id": "298d52500488",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
+   "pollster": "Agorasei",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-05-31",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 20.8
+    },
+    {
+     "candidate": "Álvaro Dias",
+     "party": "PL",
+     "pct": 38.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "36f9707cb765",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Santa_Catarina",
@@ -147763,39 +148159,6 @@
    ],
    "others_pct": 3.1,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "43cca2861181",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Allyson e Cadu de Lula",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 54
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 14.9
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 31.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -147952,14 +148315,14 @@
    "tse_registration": null
   },
   {
-   "id": "73da5e59e00e",
+   "id": "7f2d103cc4c3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
    "race": "governador",
    "state": "RN",
    "round": 2,
-   "scenario": "2º turno: Allyson Bezerra vs Álvaro Costa Dias",
+   "scenario": "2º turno: Allyson e Cadu de Lula",
    "pollster": "Agorasei",
    "contractor": null,
    "fieldwork_start": "2026-05-28",
@@ -147971,16 +148334,16 @@
     {
      "candidate": "Allyson",
      "party": "União Brasil",
-     "pct": 48.1
+     "pct": 54
     },
     {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 25.4
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 14.9
     }
    ],
    "others_pct": null,
-   "undecided_pct": 26.5,
+   "undecided_pct": 31.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -148310,39 +148673,6 @@
    ],
    "others_pct": 10.1,
    "undecided_pct": 37.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c0882522cb96",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 2,
-   "scenario": "2º turno: Cadu de Lula vs Álvaro Costa Dias",
-   "pollster": "Agorasei",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-05-31",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 20.8
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 38.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -148825,7 +149155,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": null,
    "fieldwork_start": "2026-05-26",
    "fieldwork_end": "2026-05-29",
@@ -149031,7 +149361,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": null,
    "fieldwork_start": "2026-05-26",
    "fieldwork_end": "2026-05-29",
@@ -149729,55 +150059,7 @@
    "tse_registration": null
   },
   {
-   "id": "1cec29578c32",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "senador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
-   "contractor": null,
-   "fieldwork_start": "2026-05-21",
-   "fieldwork_end": "2026-05-27",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 53.95
-    },
-    {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 36.45
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 19.1
-    },
-    {
-     "candidate": "Coronel Hélio",
-     "party": "PL",
-     "pct": 17.35
-    },
-    {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 19.95
-    }
-   ],
-   "others_pct": 19.05,
-   "undecided_pct": 34.15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "348cdb08bfe7",
+   "id": "3486ef5b7065",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -149785,7 +150067,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Potengi/Media",
+   "pollster": "Media/O Potengi",
    "contractor": null,
    "fieldwork_start": "2026-05-21",
    "fieldwork_end": "2026-05-27",
@@ -150246,6 +150528,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 17.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e62eca4af093",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Media/O Potengi",
+   "contractor": null,
+   "fieldwork_start": "2026-05-21",
+   "fieldwork_end": "2026-05-27",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 53.95
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 36.45
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 19.1
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 17.35
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 19.95
+    }
+   ],
+   "others_pct": 19.05,
+   "undecided_pct": 34.15,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -153013,11 +153343,11 @@
    "tse_registration": null
   },
   {
-   "id": "09e802b10c48",
+   "id": "0a02962071aa",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
-   "race": "senador",
+   "race": "governador",
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
@@ -153030,33 +153360,23 @@
    "margin_of_error": 2.77,
    "results": [
     {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 19
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 37
     },
     {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 19
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 11.6
-    },
-    {
-     "candidate": "Coronel Hélio",
+     "candidate": "Álvaro Dias",
      "party": "PL",
-     "pct": 5.6
+     "pct": 25.2
     },
     {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 18.4
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 16.4
     }
    ],
-   "others_pct": 4.6,
-   "undecided_pct": 21.8,
+   "others_pct": 2.2,
+   "undecided_pct": 19.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -153147,44 +153467,6 @@
    "tse_registration": null
   },
   {
-   "id": "7083f6898318",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Item",
-   "contractor": null,
-   "fieldwork_start": "2026-05-18",
-   "fieldwork_end": "2026-05-22",
-   "published_date": null,
-   "sample_size": 1250,
-   "margin_of_error": 2.77,
-   "results": [
-    {
-     "candidate": "Allyson",
-     "party": "União Brasil",
-     "pct": 37
-    },
-    {
-     "candidate": "Álvaro Dias",
-     "party": "PL",
-     "pct": 25.2
-    },
-    {
-     "candidate": "Cadu de Lula",
-     "party": "PT",
-     "pct": 16.4
-    }
-   ],
-   "others_pct": 2.2,
-   "undecided_pct": 19.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "78d264741d04",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -153234,6 +153516,54 @@
    ],
    "others_pct": 4.2,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cc8309d912b5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Item",
+   "contractor": null,
+   "fieldwork_start": "2026-05-18",
+   "fieldwork_end": "2026-05-22",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 19
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 19
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 11.6
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 5.6
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 18.4
+    }
+   ],
+   "others_pct": 4.6,
+   "undecided_pct": 21.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -156437,54 +156767,6 @@
    "tse_registration": "BR-00290/2026"
   },
   {
-   "id": "6a30e3cddcf3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "senador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Qualitá",
-   "contractor": null,
-   "fieldwork_start": "2026-05-12",
-   "fieldwork_end": "2026-05-14",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 30.9
-    },
-    {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 12.1
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 3.5
-    },
-    {
-     "candidate": "Coronel Hélio",
-     "party": "PL",
-     "pct": 3.3
-    },
-    {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 5.1
-    }
-   ],
-   "others_pct": 2.3,
-   "undecided_pct": 42.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "746f529072a4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -156584,6 +156866,54 @@
    "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": "BR-03812/2026"
+  },
+  {
+   "id": "acf9213877cc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quallitá",
+   "contractor": null,
+   "fieldwork_start": "2026-05-12",
+   "fieldwork_end": "2026-05-14",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 30.9
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 12.1
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 3.5
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 3.3
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 5.1
+    }
+   ],
+   "others_pct": 2.3,
+   "undecided_pct": 42.2,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "curado-0d82d0f97705",
@@ -169439,59 +169769,6 @@
    "tse_registration": null
   },
   {
-   "id": "1f3a58d769f6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
-   "race": "senador",
-   "state": "RN",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
-   "contractor": null,
-   "fieldwork_start": "2026-04-14",
-   "fieldwork_end": "2026-04-17",
-   "published_date": null,
-   "sample_size": 1518,
-   "margin_of_error": 2.51,
-   "results": [
-    {
-     "candidate": "Styvenson Valentim",
-     "party": "Podemos",
-     "pct": 48.6
-    },
-    {
-     "candidate": "Zenaide Maia",
-     "party": "PSD",
-     "pct": 33.8
-    },
-    {
-     "candidate": "Coronel Hélio",
-     "party": "PL",
-     "pct": 15.3
-    },
-    {
-     "candidate": "Rafael Motta",
-     "party": "PDT",
-     "pct": 18.7
-    },
-    {
-     "candidate": "Jean Paul Prates",
-     "party": "PDT",
-     "pct": 1.9
-    },
-    {
-     "candidate": "Samanda de Lula",
-     "party": "PT",
-     "pct": 12.6
-    }
-   ],
-   "others_pct": 3.8,
-   "undecided_pct": 63.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "27955f14e078",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -169540,7 +169817,60 @@
    "tse_registration": null
   },
   {
-   "id": "d5e0d75c205f",
+   "id": "97ddae654239",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Exatus/AgoraRN",
+   "contractor": null,
+   "fieldwork_start": "2026-04-14",
+   "fieldwork_end": "2026-04-17",
+   "published_date": null,
+   "sample_size": 1518,
+   "margin_of_error": 2.51,
+   "results": [
+    {
+     "candidate": "Styvenson Valentim",
+     "party": "Podemos",
+     "pct": 48.6
+    },
+    {
+     "candidate": "Zenaide Maia",
+     "party": "PSD",
+     "pct": 33.8
+    },
+    {
+     "candidate": "Coronel Hélio",
+     "party": "PL",
+     "pct": 15.3
+    },
+    {
+     "candidate": "Rafael Motta",
+     "party": "PDT",
+     "pct": 18.7
+    },
+    {
+     "candidate": "Jean Paul Prates",
+     "party": "PDT",
+     "pct": 1.9
+    },
+    {
+     "candidate": "Samanda de Lula",
+     "party": "PT",
+     "pct": 12.6
+    }
+   ],
+   "others_pct": 3.8,
+   "undecided_pct": 63.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "da78f272ee19",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
    "integra_url": null,
@@ -169548,7 +169878,7 @@
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Exatus",
+   "pollster": "Exatus/AgoraRN",
    "contractor": null,
    "fieldwork_start": "2026-04-14",
    "fieldwork_end": "2026-04-17",
@@ -184991,7 +185321,7 @@
    "state": null,
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -185054,7 +185384,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -185087,7 +185417,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Ratinho Jr",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -185120,7 +185450,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Ronaldo Caiado",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -185153,7 +185483,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Eduardo Leite",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -185186,7 +185516,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Romeu Zema",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -185219,7 +185549,7 @@
    "state": null,
    "round": 2,
    "scenario": "2º turno: Lula vs Aldo Rebelo",
-   "pollster": "Alfa/TMC",
+   "pollster": "Alfa",
    "contractor": "Alfa Inteligência",
    "fieldwork_start": "2026-03-06",
    "fieldwork_end": "2026-03-11",
@@ -189632,6 +189962,39 @@
    "undecided_pct": 13.21,
    "blank_null_pct": 2.27,
    "tse_registration": "BA-07735/2026"
+  },
+  {
+   "id": "p360-14512-2-0-bc27261213b6",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaQualita-governador-RN-22out2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisaQualita-governador-RN-22out2026.pdf",
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
+   "pollster": "Qualitta",
+   "contractor": "Qualittá",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-02-20",
+   "published_date": "2026-02-20",
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 50.5
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 41.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": "RN-05666/2026"
   },
   {
    "id": "p360-13529-1-0-790c2e4a1070",

@@ -411,7 +411,7 @@ Soma **58%** · faltam **42 pontos** · 4 candidato(s) na tabela · amostra 1784
 
 ## Governador · Rio Grande do Norte
 
-### Potengi/Media — 2026-07-24
+### Media/O Potengi — 2026-07-24
 
 Soma **58.4%** · faltam **41.6 pontos** · 2 candidato(s) na tabela · amostra 500 · registro RN-03002/2026
 
@@ -1107,7 +1107,7 @@ Soma **81.4%** · faltam **18.6 pontos** · 4 candidato(s) na tabela · amostra 
 
 ## Governador · Rio Grande do Norte
 
-### Exatus — 2026-07-10
+### Exatus/AgoraRN — 2026-07-10
 
 Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 1500 · registro BR-07763/2026
 
