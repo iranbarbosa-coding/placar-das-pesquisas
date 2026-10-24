@@ -24,14 +24,10 @@ const corUf = (s: Estado2T) => `color-mix(in srgb, ${corLider(s)} ${intensidade(
 
 /* ───────────────────────── Foto ───────────────────────── */
 
-// Ordem de tentativa: arquivo do próprio site (public/candidatos/<sq>.jpg, se o
-// criador colocar um) → foto que o TSE publica com os resultados do 2º e do 1º
-// turno → iniciais. Nenhuma foto é inventada; se nenhuma carregar, ficam as iniciais.
-const fotos = (sq: string) => [
-  `/candidatos/${sq}.jpg`,
-  `https://resultados.tse.jus.br/oficial/ele2026/6258/fotos/br/${sq}.jpeg`,
-  `https://resultados.tse.jus.br/oficial/ele2026/6257/fotos/br/${sq}.jpeg`,
-];
+// Fotos oficiais de candidatura do Portal de Dados Abertos do TSE, gravadas em
+// public/candidatos/<sq>.jpg por scripts/fotos-candidatos.mjs. Se faltar, ficam
+// as iniciais — nenhuma foto de outra fonte.
+const fotos = (sq: string) => [`/candidatos/${sq}.jpg`];
 
 function Foto({ c, lado }: { c: Voto2T; lado: number }) {
   const lista = fotos(c.sq || CANDIDATOS_2T[c.numero].sq);
@@ -68,8 +64,8 @@ function Foto({ c, lado }: { c: Voto2T; lado: number }) {
           alt={`Foto de ${NOME[c.numero]}`}
           width={lado}
           height={lado}
-          className="absolute inset-0 h-full w-full object-cover object-top"
-          style={{ opacity: carregou ? 1 : 0 }}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ opacity: carregou ? 1 : 0, objectPosition: "50% 35%" }}
           onLoad={() => setCarregou(true)}
           onError={() => setI((k) => k + 1)}
         />

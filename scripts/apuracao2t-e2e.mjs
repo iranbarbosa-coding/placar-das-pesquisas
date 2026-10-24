@@ -183,12 +183,11 @@ async function testar(BASE, TSE, SHOTS) {
     assert.match(t, /A apurar/);
     assert.match(t, /Comparecimento79,00%/);
     assert.match(t, /à frente por/);
-    // Foto que não carrega (aqui, todas) nunca aparece quebrada: some e ficam as iniciais.
-    const quebradas = await p.evaluate(() =>
-      [...document.querySelectorAll('img[alt^="Foto de"]')].filter((i) => i.naturalWidth === 0 && getComputedStyle(i).opacity !== "0").length,
+    // As duas fotos oficiais carregam e aparecem.
+    const fotos = await p.evaluate(() =>
+      [...document.querySelectorAll('img[alt^="Foto de"]')].map((i) => i.naturalWidth > 0 && getComputedStyle(i).opacity === "1"),
     );
-    assert.equal(quebradas, 0);
-    assert.match(t, /LB/);
+    assert.deepEqual(fotos, [true, true]);
     if (SHOTS) await p.screenshot({ path: path.join(SHOTS, "2t-meio.png"), fullPage: true });
     await ctx.close();
   });
