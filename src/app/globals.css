@@ -189,6 +189,10 @@
      escuro, como pedido; a borda cinza separa as UFs brancas do cartão claro. */
   --apur-vazio: #ffffff;
   --apur-borda: #94a3b8;
+  /* Faixa de chamada da home (apuração, 24/10/2026): azul da marca escurecido,
+     texto branco a 6,7:1 (o --accent escuro, #3b82f6, daria só 3,7:1). */
+  --faixa-bg: #1d4ed8;
+  --faixa-ink: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -299,6 +303,8 @@
     --pmap-sem: #0b0d12;         /* quase-preto — SEM informação (borda clara ainda separa o estado) */
     --apur-vazio: #ffffff;
     --apur-borda: #142038;       /* = --surface-1 escuro: no cartão navy a UF branca já se destaca */
+    --faixa-bg: #1d4ed8;         /* o mesmo nos dois temas: lê-se bem no navy e mantém 6,7:1 com o branco */
+    --faixa-ink: #ffffff;
   }
 }
 

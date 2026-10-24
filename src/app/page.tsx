@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BannerApuracao from "@/components/BannerApuracao";
 import HeroBasisSwitch from "@/components/HeroBasisSwitch";
 import HeroSegundoTurno from "@/components/HeroSegundoTurno";
 import ConfrontosGovernador from "@/components/ConfrontosGovernador";
@@ -82,6 +83,10 @@ export default function Home() {
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_336px]">
+      {/* Chamada para a apuração do 2º turno (24/10/2026), acima das duas colunas. */}
+      <div className="min-w-0 lg:col-span-2">
+        <BannerApuracao />
+      </div>
       {/* LEFT: the main stack. `min-w-0` keeps the wide table from forcing the
           track past the viewport on phones (a documented overflow fix). */}
       <div className="flex min-w-0 flex-col gap-6">
