@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Apuracao, Andamento, Candidato } from "@/lib/apuracao";
 import { UF_NAMES, type UF } from "@/lib/types";
@@ -16,8 +17,8 @@ const INTERVALO = 30_000;
 const NOME: Record<string, string> = { "13": "Lula", "22": "Flávio Bolsonaro" };
 const COR: Record<string, string> = { "13": "var(--cand-red)", "22": "var(--cand-blue)" };
 
-const int = (n: number) => n.toLocaleString("pt-BR");
-const pct = (n: number, casas = 2) =>
+export const int = (n: number) => n.toLocaleString("pt-BR");
+export const pct = (n: number, casas = 2) =>
   n.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
 
 /** "FLAVIO BOLSONARO" → "Flavio Bolsonaro" (para os demais candidatos). */
@@ -40,7 +41,7 @@ const FAIXAS = [
 const faixa = (p: number) => FAIXAS.find((f) => (f.min === 100 ? p >= 99.995 : p >= f.min)) ?? FAIXAS[FAIXAS.length - 1];
 const corFaixa = (mix: number) => `color-mix(in srgb, var(--accent) ${mix}%, var(--surface-2))`;
 
-function CardHead({ title, sub, right }: { title: string; sub?: React.ReactNode; right?: React.ReactNode }) {
+export function CardHead({ title, sub, right }: { title: string; sub?: React.ReactNode; right?: React.ReactNode }) {
   return (
     <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
       <div>
@@ -58,7 +59,7 @@ function CardHead({ title, sub, right }: { title: string; sub?: React.ReactNode;
   );
 }
 
-function Barra({ valor, cor = "var(--accent)", altura = 8 }: { valor: number; cor?: string; altura?: number }) {
+export function Barra({ valor, cor = "var(--accent)", altura = 8 }: { valor: number; cor?: string; altura?: number }) {
   return (
     <div className="w-full overflow-hidden rounded-full" style={{ height: altura, background: "var(--surface-2)" }}>
       <div
@@ -69,7 +70,7 @@ function Barra({ valor, cor = "var(--accent)", altura = 8 }: { valor: number; co
   );
 }
 
-function AoVivo({ status, segundos }: { status: "ok" | "erro" | "carregando"; segundos: number }) {
+export function AoVivo({ status, segundos }: { status: "ok" | "erro" | "carregando"; segundos: number }) {
   const cor = status === "erro" ? "var(--cand-amber)" : "var(--series-3)";
   return (
     <span className="inline-flex items-center gap-1.5 text-xs font-semibold" style={{ color: "var(--text-secondary)" }}>
@@ -378,22 +379,33 @@ function Estados({ d, svg }: { d: Apuracao; svg: string }) {
 
 /* ───────────────────────── Página ───────────────────────── */
 
-export default function ApuracaoLive({ inicial, mapaSvg }: { inicial: Apuracao | null; mapaSvg: string }) {
-  const [dados, setDados] = useState<Apuracao | null>(inicial);
+/**
+ * Leitura ao vivo: consulta `url` a cada 30s (pausa com a aba oculta, relê ao
+ * voltar). `manter(atual, novo)` decide se uma resposta mais velha da CDN deve
+ * ser descartada — a página nunca volta no tempo.
+ */
+export function useAoVivo<T>(
+  url: string,
+  inicial: T | null,
+  manter: (atual: T, novo: T) => boolean,
+  buscarAoAbrir: boolean = !inicial,
+) {
+  const [dados, setDados] = useState<T | null>(inicial);
   const [status, setStatus] = useState<"ok" | "erro" | "carregando">(inicial ? "ok" : "carregando");
   const [proxima, setProxima] = useState(Date.now() + INTERVALO);
   const [agora, setAgora] = useState(Date.now());
 
   const emVoo = useRef(false);
+  const manterRef = useRef(manter);
+  manterRef.current = manter;
   const buscar = useCallback(async () => {
     if (emVoo.current) return;
     emVoo.current = true;
     try {
-      const r = await fetch("/api/apuracao.json", { cache: "no-store" });
+      const r = await fetch(url, { cache: "no-store" });
       if (!r.ok) throw new Error(String(r.status));
-      const novo = (await r.json()) as Apuracao;
-      // Nunca volta no tempo: uma resposta de CDN mais velha não substitui a atual.
-      setDados((atual) => (atual && novo.nacional.secoes < atual.nacional.secoes ? atual : novo));
+      const novo = (await r.json()) as T;
+      setDados((atual) => (atual && manterRef.current(atual, novo) ? atual : novo));
       setStatus("ok");
     } catch {
       setStatus("erro");
@@ -401,10 +413,10 @@ export default function ApuracaoLive({ inicial, mapaSvg }: { inicial: Apuracao |
       emVoo.current = false;
       setProxima(Date.now() + INTERVALO);
     }
-  }, []);
+  }, [url]);
 
   useEffect(() => {
-    if (!inicial) buscar();
+    if (buscarAoAbrir) buscar();
     const tic = setInterval(() => setAgora(Date.now()), 1000);
     const onVis = () => document.visibilityState === "visible" && buscar();
     document.addEventListener("visibilitychange", onVis);
@@ -412,24 +424,34 @@ export default function ApuracaoLive({ inicial, mapaSvg }: { inicial: Apuracao |
       clearInterval(tic);
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, [buscar, inicial]);
+  }, [buscar, buscarAoAbrir]);
 
   useEffect(() => {
     if (agora >= proxima && document.visibilityState === "visible") buscar();
   }, [agora, proxima, buscar]);
 
-  const segundos = Math.max(0, Math.ceil((proxima - agora) / 1000));
+  return { dados, status, segundos: Math.max(0, Math.ceil((proxima - agora) / 1000)) };
+}
+
+export default function ApuracaoLive({ inicial, mapaSvg }: { inicial: Apuracao | null; mapaSvg: string }) {
+  // Nunca volta no tempo: uma resposta de CDN mais velha não substitui a atual.
+  const { dados, status, segundos } = useAoVivo<Apuracao>(
+    "/api/apuracao.json",
+    inicial,
+    (atual, novo) => novo.nacional.secoes < atual.nacional.secoes,
+  );
 
   return (
     <div className="flex min-w-0 flex-col gap-5">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-[15px] font-bold uppercase tracking-wide" style={{ color: "var(--text-primary)" }}>
-            Apuração ao vivo · Eleições 2026
+            Apuração ao vivo · Eleições 2026 · 1º turno
           </h1>
           <p className="mt-0.5 text-xs" style={{ color: "var(--text-muted)" }}>
             Resultado oficial do TSE, lido direto do site Resultados
-            {dados && <> · última totalização em {dados.atualizadoEm} (Brasília)</>}
+            {dados && <> · última totalização em {dados.atualizadoEm} (Brasília)</>} ·{" "}
+            <Link href="/apuracao/segundo-turno" className="underline">apuração do 2º turno</Link>
           </p>
         </div>
         <AoVivo status={status} segundos={segundos} />
