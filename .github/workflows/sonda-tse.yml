@@ -1,0 +1,39 @@
+# TEMPORÁRIO — sonda o formato dos arquivos por município do TSE (branch descartável).
+name: sonda-tse
+on:
+  push:
+    branches: [claude/sonda-tse]
+permissions:
+  contents: read
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sondar
+        run: |
+          B=https://resultados.tse.jus.br/oficial
+          H='-H "User-Agent: Mozilla/5.0" -H "Referer: https://resultados.tse.jus.br/"'
+          for u in \
+            comum/config/ele-c.json \
+            ele2026/6257/config/mun-e006257-cm.json \
+            ele2026/6258/config/mun-e006258-cm.json \
+            ele2026/6257/dados/sp/sp-e006257-ab.json \
+            ele2026/6258/dados/sp/sp-e006258-ab.json \
+            ele2026/6258/dados/br/br-e006258-ab.json \
+            ele2026/6257/dados/sp/sp71072-c0001-e006257-u.json \
+            ele2026/6257/dados/sp/sp71072-c0001-e006257-v.json \
+            ele2026/6257/dados/sp/sp-c0001-e006257-v.json \
+            ele2026/6257/dados/ac/ac-c0001-e006257-u.json \
+            ele2026/6258/dados/ac/ac-c0001-e006258-u.json \
+            ele2026/6258/dados/br/br-c0001-e006258-u.json ; do
+            echo "=================== $u"
+            curl -sS -m 60 -A "Mozilla/5.0" -e "https://resultados.tse.jus.br/" -o /tmp/f -w "HTTP %{http_code} %{size_download} bytes\n" "$B/$u"
+            head -c 2500 /tmp/f; echo
+          done
+          echo "=================== ac -u.json: chaves e um município"
+          curl -sS -m 60 -A "Mozilla/5.0" "$B/ele2026/6257/dados/ac/ac-c0001-e006257-u.json" | python3 -c "
+          import json,sys; d=json.load(sys.stdin); print(list(d.keys()));
+          [print(k, str(v)[:600]) for k,v in d.items()]"
+          echo "=================== sp -ab: chaves"
+          curl -sS -m 60 -A "Mozilla/5.0" "$B/ele2026/6257/dados/sp/sp-e006257-ab.json" | python3 -c "
+          import json,sys; d=json.load(sys.stdin); print(list(d.keys())); a=d.get('abr',[]); print(len(a)); print(json.dumps(a[:3])[:1500])"
