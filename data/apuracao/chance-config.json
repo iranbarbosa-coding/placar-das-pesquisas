@@ -1,0 +1,10 @@
+{
+ "kappa": 3.27,
+ "regra": "maior razão |erro| ÷ fração que falta observada no caminho nacional (com ≥5% faltando), ou o desvio quadrático médio dessa razão (nacional e UFs), o que for maior",
+ "observado": {
+  "max_razao_nacional": 3.266,
+  "rms_nacional": 1.565,
+  "rms_ufs": 1.892
+ },
+ "fonte": "data/apuracao/calibracao-chance.json (scripts/apuracao/backtest_chance.py)"
+}

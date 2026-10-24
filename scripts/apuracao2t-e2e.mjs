@@ -19,7 +19,7 @@ import path from "node:path";
 const UFS = ["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"];
 // Municípios REAIS (códigos, eleitorado, comparecimento e voto do 1º turno) de
 // data/apuracao/t1-municipios.json; o 2º turno sintético é o 1º turno com uma
-// mudança UNIFORME de VIRADA p.p. para Flávio. Nesse mundo a linha de chegada
+// mudança UNIFORME de VIRADA p.p. para Flávio. Nesse mundo a projeção da chance
 // tem de acertar o final exato — é o teste da conta.
 const VIRADA = -0.015;
 const T1 = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data/apuracao/t1-municipios.json"), "utf8")).mun;
@@ -165,7 +165,7 @@ async function testar(BASE, TSE, SHOTS) {
     assert.match(t, /Flávio Bolsonaro/);
     assert.deepEqual(await preenchimento(p, "SP"), BRANCO);
     assert.equal(await p.locator('[data-testid="barras-estados"] li[data-uf]').count(), 27);
-    assert.equal(await p.locator('[data-testid="linha-chegada"]').count(), 0);
+    assert.equal(await p.locator('[data-testid="chance-vitoria"]').count(), 0);
     if (SHOTS) await p.screenshot({ path: path.join(SHOTS, "2t-antes.png"), fullPage: true });
     await ctx.close();
   });
@@ -184,16 +184,16 @@ async function testar(BASE, TSE, SHOTS) {
     assert.equal(d.lula.votos + d.flavio.votos, d.nacional.validos);
   });
   let projecaoMeio = null;
-  await check("meio: linha de chegada coerente", async () => {
+  await check("meio: chance de vitória coerente", async () => {
     const d = await api();
-    const l = d.linha;
-    assert.ok(l, "linha ausente");
-    assert.ok(l.cobertura >= 99.5, `cobertura ${l.cobertura}`);
-    assert.ok(Math.abs(l.limiarFlavio + l.limiarLula - 100) < 1e-9);
-    // final = atual + delta e limiar = 50 − delta.
-    assert.ok(Math.abs(l.projecaoFlavio - d.flavio.pct - (50 - l.limiarFlavio)) < 1e-9);
-    assert.ok(l.fracaoRestante > 0 && l.fracaoRestante < 100);
-    projecaoMeio = l.projecaoFlavio;
+    const c = d.chance;
+    assert.ok(c, "chance ausente");
+    assert.ok(c.cobertura >= 99.5, `cobertura ${c.cobertura}`);
+    assert.ok(Math.abs(c.flavio + c.lula - 1) < 1e-9);
+    assert.ok(c.falta > 0 && c.falta < 100 && c.desvio > 0);
+    // Lado da chance = lado da projeção.
+    assert.equal(c.flavio > 0.5, c.projecaoFlavio > 50);
+    projecaoMeio = c.projecaoFlavio;
   });
   await check("meio: cor do mapa = líder, mais forte com mais apurado", async () => {
     const d = await api();
@@ -215,8 +215,8 @@ async function testar(BASE, TSE, SHOTS) {
     assert.match(t, /A apurar/);
     assert.match(t, /Comparecimento\d+,\d\d%/);
     assert.match(t, /à frente por/);
-    assert.match(t, /Linha de chegada · estimativa/i);
-    assert.match(t, /precisa estar agora com pelo menos/);
+    assert.match(t, /Chance de vitória agora/i);
+    assert.match(t, /Resultado final projetado/);
     // As duas fotos oficiais carregam e aparecem.
     const fotos = await p.evaluate(() =>
       [...document.querySelectorAll('img[alt^="Foto de"]')].map((i) => i.naturalWidth > 0 && getComputedStyle(i).opacity === "1"),
@@ -238,7 +238,7 @@ async function testar(BASE, TSE, SHOTS) {
   await etapa("final");
   await check("final: com virada uniforme, a projeção do meio acerta o final", async () => {
     const d = await api();
-    assert.equal(d.linha, null);
+    assert.equal(d.chance, null);
     assert.ok(projecaoMeio != null);
     assert.ok(Math.abs(projecaoMeio - d.flavio.pct) < 0.05, `projeção ${projecaoMeio} × final ${d.flavio.pct}`);
   });
