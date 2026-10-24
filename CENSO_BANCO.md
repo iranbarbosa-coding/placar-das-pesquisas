@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 53 | 39 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 438 | 15 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 416 | 15 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **505** | **58** |
+| **total** | **483** | **58** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -343,7 +343,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (438)
+## CONFLITO — Conflitos registrados aguardando decisão (416)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -759,28 +759,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_cbafbdab427c · results: ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","General Theóphilo","Luizianne Lins","Priscila Costa"] × ["Anna Karina","Capitão Wagner","Cid Gomes","Eunício Oliveira","Luizianne Lins","Priscila Costa"]
 - **[2026]** survey_id_orphaned · s_2225219f8ee6 · survey_id: "s_2225219f8ee6" × null
 - **[2026]** survey_id_orphaned · s_60bb9f3eb8b1 · survey_id: "s_60bb9f3eb8b1" × null
-- survey_id_orphaned · s_cc8e5772d1fe · survey_id: "s_cc8e5772d1fe" × null
-- survey_id_orphaned · s_f4008cd72410 · survey_id: "s_f4008cd72410" × null
-- survey_id_orphaned · s_81d4ca9b6108 · survey_id: "s_81d4ca9b6108" × null
-- survey_id_orphaned · s_8090abdfe5d6 · survey_id: "s_8090abdfe5d6" × null
-- survey_id_orphaned · s_11def04bf137 · survey_id: "s_11def04bf137" × null
-- survey_id_orphaned · s_78bce3436df4 · survey_id: "s_78bce3436df4" × null
-- survey_id_orphaned · s_9435ad6a469a · survey_id: "s_9435ad6a469a" × null
-- survey_id_orphaned · s_5470b070487e · survey_id: "s_5470b070487e" × null
-- survey_id_orphaned · s_701b4eaf6875 · survey_id: "s_701b4eaf6875" × null
-- institute_id_orphaned · i_ee5b0c356dcb · institute_id: "i_ee5b0c356dcb" × null
-- survey_id_orphaned · s_91de154809b9 · survey_id: "s_91de154809b9" × null
-- survey_id_orphaned · s_fedc92183e9d · survey_id: "s_fedc92183e9d" × null
-- survey_id_orphaned · s_adc814b8e899 · survey_id: "s_adc814b8e899" × null
-- survey_id_orphaned · s_73dc33c084fa · survey_id: "s_73dc33c084fa" × null
-- survey_id_orphaned · s_6b07a8b29a32 · survey_id: "s_6b07a8b29a32" × null
-- survey_id_orphaned · s_0a59ecf51ff7 · survey_id: "s_0a59ecf51ff7" × null
-- survey_id_orphaned · s_417b838f6f9b · survey_id: "s_417b838f6f9b" × null
-- survey_id_orphaned · s_8d351d96bd7c · survey_id: "s_8d351d96bd7c" × null
-- survey_id_orphaned · s_7cf571ad9389 · survey_id: "s_7cf571ad9389" × null
-- survey_id_orphaned · s_96949ad30661 · survey_id: "s_96949ad30661" × null
-- survey_id_orphaned · s_0437b28c2c01 · survey_id: "s_0437b28c2c01" × null
-- survey_id_orphaned · s_41b639aedcfc · survey_id: "s_41b639aedcfc" × null
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 104
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41
