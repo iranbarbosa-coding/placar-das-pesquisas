@@ -141,8 +141,8 @@ export default function Home() {
           <p className="-mt-2 text-xs" style={{ color: "var(--text-muted)" }}>
             O 1º turno está arquivado: as médias finais de cada disputa, ao lado do resultado oficial, ficam em{" "}
             <Link href="/presidente" className="underline">Presidente</Link> e nas páginas de cada{" "}
-            <Link href="/estados" className="underline">estado</Link>. A apuração do TSE está em{" "}
-            <Link href="/apuracao" className="underline">Apuração</Link>.
+            <Link href="/estados" className="underline">estado</Link>. A apuração do 1º turno está em{" "}
+            <Link href="/apuracao/primeiro-turno" className="underline">Apuração</Link>.
           </p>
         ) : null}
 

@@ -163,7 +163,7 @@ async function testar(BASE, TSE, SHOTS) {
   const abrir = async (opts = {}) => {
     const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, ...opts });
     const p = await ctx.newPage();
-    await p.goto(`${BASE}/apuracao/segundo-turno`, { waitUntil: "networkidle" });
+    await p.goto(`${BASE}/apuracao`, { waitUntil: "networkidle" });
     return { ctx, p };
   };
   // color-mix() sai como "color(srgb r g b)" em 0–1; normaliza para 0–255.
@@ -178,7 +178,7 @@ async function testar(BASE, TSE, SHOTS) {
   // A página tem ISR de 30s: depois de trocar a etapa, deixa vencer e pede uma
   // vez para o Next refazer o desenho antes de conferir.
   await new Promise((r) => setTimeout(r, 31_000));
-  await fetch(`${BASE}/apuracao/segundo-turno`);
+  await fetch(`${BASE}/apuracao`);
   await new Promise((r) => setTimeout(r, 3_000));
   await check("antes: API diz aguardando", async () => assert.equal((await api()).aguardando, true));
   await check("antes: página zerada, mapa branco, aviso", async () => {

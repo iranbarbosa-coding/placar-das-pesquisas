@@ -67,7 +67,7 @@ export default function HeroSegundoTurno({ data, diasRestantes }: { data: MediaC
           <span className="tabular">
             {displayName(p1.nome)} {fmtPct(p1.pct)}% × {displayName(p2.nome)} {fmtPct(p2.pct)}%
           </span>
-          {data.confronto.totalizacao === "parcial" ? " · totalização parcial" : ""} · <Link href="/apuracao" className="underline">apuração</Link>
+          {data.confronto.totalizacao === "parcial" ? " · totalização parcial" : ""} · <Link href="/apuracao/primeiro-turno" className="underline">apuração</Link>
         </span>
         {m ? (
           <span>

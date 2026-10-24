@@ -68,7 +68,7 @@ const MENUS: Menu[] = [
     href: "/presidente",
     links: [
       { href: "/presidente", label: "Disputa presidencial 2026", note: "Média, tendência, simulações de 2º turno e pesquisas por estado" },
-      { href: "/apuracao/segundo-turno", label: "Apuração do 2º turno", note: "Ao vivo em 25/10: votos, mapa e andamento por estado (TSE)" },
+      { href: "/apuracao", label: "Apuração do 2º turno", note: "Ao vivo em 25/10: votos, mapa e andamento por estado (TSE)" },
     ],
   },
   {
