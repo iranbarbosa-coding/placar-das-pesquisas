@@ -31,6 +31,12 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
   A lista viva é `data/conflicts.ndjson` (type `disputa_em_quarentena`).
 - **Publicidade**: nenhuma até 03/10/2026. Lançamento: blitz de vídeos no TikTok
   (perfil @ novo, zero seguidores; ver decisão de 03/10).
+- **Previsão Estatística** (`/previsao`, no ar desde o merge do PR #141 em 19/10): camada SEPARADA da média
+  (`forecast/`, `data/forecast/`; a média publicada não mudou). Passo próprio no `update-polls.yml`, depois de
+  todos os guardas; nunca bloqueia o commit das pesquisas e, se a conferência dos snapshots falha, reverte só
+  `data/forecast`. Cobre os 7 confrontos de 2º turno (presidente; governador AC, AM, DF, ES, RN, TO). Publicou
+  todos os dias de 19 a 23/10 (`data/forecast/runs.ndjson`). Método e números: `FORECASTING_METHODOLOGY.md` e
+  `FORECASTING_VALIDATION.md`. Depois de 25/10 a rodada não gera mais previsão (data de referência > pleito).
 
 ## Decisões vigentes
 
@@ -56,19 +62,19 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 08/10 | Gráfico do confronto presidencial na home é INTERATIVO: seletor Tudo / 2026 / 90 dias (muda só o trecho visto) e hover com a média em cada data, números grandes acompanhando (`EvolucaoConfronto`, client). Coluna da direita: mapa das corridas estaduais (azul escuro = em 2º turno, cinza = decidida; hover com vencedor ou líder e margem) e os gráficos compactos dos estados. **"Quem chegou mais perto" na home só com o placar presidencial**; governadores e senadores ficam em `/acerto` (Derivadas). | Iran |
 | 08/10 | **Cron religado às 16:03Z; a primeira rodada pós-eleição trouxe três defeitos da Wikipédia, corrigidos em seguida**: (1) a linha "Results" (resultado oficial no topo da tabela) entrou como instituto e abriu o ranking de acerto com erro zero — o parser passa a pular linhas de resultado; (2) a Paraná Pesquisas/SP de "9 de outubro" (elenco de 2025) saiu datada 2026-10-09 — o parser recua um ano quando o campo cai depois do dia da votação (`_dia_do_pleito`: 1º domingo e último domingo de outubro); (3) a linha da última Gerp nacional foi editada para 01–03/10 com Lula 44 × Flávio 42 (a pesquisa real é 30/09–02/10, Flávio à frente; Poder360/Jovem Pan/Tribuna PR) — `drop_poll` da linha errada (1º e 2º turno) e `add_poll` da correta em `data/repairs.json`, com as perguntas ratificadas em `allow_question_drop`. Até a próxima rodada o site publica o ranking com "Results" em 1º e a Gerp em 8º. | Iran |
 | 08/10 | **Toggle "vs resultado 1º turno" no efeito casa** (`houseEffectsVsResultado`): a ÚLTIMA pesquisa de cada instituto (campo ≤10 dias antes do pleito, a janela do ranking, que testou os dois primeiros das urnas) contra o percentual oficial do TSE em válidos, por candidato — a visão por candidato do ranking de acerto, não um viés sistemático (decisão de Iran na mesma data; a média dos 30 dias foi descartada). Sem elenco mínimo: a Veritá da véspera (só dois nomes, em válidos) entra, com "—" nas colunas não testadas. Ordem: menor desvio médio primeiro. Home (padrão: resultado no modo 2º turno) e `/institutos`. | Iran |
+| 18/10 | **Previsão Estatística: chance de vitória em destaque, rotulada *experimental***. Cada quadro do 2º turno abre com quem tem maior chance e a probabilidade (inteiro; abaixo de 60% para o líder, "leve vantagem · disputa indefinida"). O portão de validação (≥ 2 eleições e ≥ 20 disputas por categoria) segue NÃO cumprido — só há 2026 e nenhum 2º turno com resultado —, então a probabilidade sai como `experimental`, com os motivos na página (`gates.probability.editorial_override` na config). | Iran |
+| 18/10 | **Tendência da média não é projetada.** Testado a pedido: média das 10 últimas + tendência estendida até a eleição. No backtest do 1º turno (mesmos 205 pares), estender a tendência PIOROU a previsão em todas as variantes (erro médio 5,55 → 6,17–6,70 p.p.; modelo estatístico 5,09). A chance do destaque vem do modelo estatístico (`headline_method: "modelo"`); a média das 10 últimas e a tendência (p.p./semana) aparecem ao lado como informação. | Iran |
+| 19/10 | Merge do PR #141 (Previsão Estatística) em `main`, com o check `testes` verde e fora de rodada do cron. | Iran |
 
 ## Em aberto
 
-- **Previsão Estatística (`/previsao`, branch `claude/previsao-estatistica`, 18/10)** — camada SEPARADA da média
-  (`forecast/`, `data/forecast/`, passo novo no `update-polls.yml` depois de todos os guardas; nunca bloqueia o
-  commit das pesquisas). Publica estimativa atual, projeção *experimental* do 2º turno e, em destaque, **quem
-  tem maior chance e a probabilidade de vitória, rotulada experimental** (pedido do criador em 18/10; o portão
-  de validação — ≥ 2 eleições por categoria — segue não cumprido e seus motivos vão junto; chave
-  `gates.probability.editorial_override` na config). **Tendência da média (18/10)**: testada a pedido do criador
-  (média das 10 últimas + tendência projetada); projetar a tendência PIOROU a previsão em todas as variantes
-  (erro 5,1 → até 6,8 p.p.). Decisão do criador: a chance do destaque vem do modelo estatístico, e a média das 10
-  últimas com a tendência (p.p./semana) aparece ao lado como informação (`headline_method: "modelo"`).
-  Aguarda revisão e "merge it" do criador. Ver `FORECASTING_METHODOLOGY.md` e `FORECASTING_VALIDATION.md`.
+- **Previsão × resultado do 2º turno (depois de 25/10)**: importar o resultado oficial do 2º turno
+  (`scripts/tse-resultados.mjs` hoje lê o 1º turno; `data/resultados-oficiais.json` tem `turno: 1`) para pontuar
+  as previsões publicadas, que estão gravadas e imutáveis em `data/forecast/snapshots/`. É a primeira validação
+  real de 2º turno; o portão de probabilidade continua fechado (uma eleição por categoria).
+- **Previsão: convergência no limite.** Em 21/10, 4 ajustes ficaram com R-hat 1,010–1,012 (limite 1,01) e não
+  publicaram (ES 01:55Z, presidente 16:17Z, AM 16:18Z e 22:40Z); o snapshot anterior seguiu no ar, como previsto.
+  Se repetir, a saída é mais sorteios (`ssm.draws` na config), não afrouxar o limite.
 - **Defeito encontrado no ranking de acerto (Senado/SC), NÃO corrigido** (é método publicado, decisão do
   criador): a urna tem "Carol de Toni" (33,46%) e OUTRA "Carol" (0,15%); `acerto.ts` casa por `candKey` e
   compara a Carol das pesquisas (~25%) com 0,15%. O store também lista as duas grafias como apelido do mesmo
