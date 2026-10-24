@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1936 levantamentos · 6076 perguntas · 166 institutos · 1445 candidatos**.
+Banco: **1939 levantamentos · 6077 perguntas · 166 institutos · 1445 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 53 | 39 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 448 | 15 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 454 | 20 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **515** | **58** |
+| **total** | **521** | **63** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -343,7 +343,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (448)
+## CONFLITO — Conflitos registrados aguardando decisão (454)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -770,6 +770,7 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - survey_id_orphaned · s_559d866152cf · survey_id: "s_559d866152cf" × null
 - survey_id_orphaned · s_4ab85905cef2 · survey_id: "s_4ab85905cef2" × null
 - survey_id_orphaned · s_088b51249a73 · survey_id: "s_088b51249a73" × null
+- **[2026]** survey_id_orphaned · s_78a099dbc391 · survey_id: "s_78a099dbc391" × null
 - survey_id_orphaned · s_b2a2f8166394 · survey_id: "s_b2a2f8166394" × null
 - survey_id_orphaned · s_a488a52fc449 · survey_id: "s_a488a52fc449" × null
 - survey_id_orphaned · s_15fd52e33db9 · survey_id: "s_15fd52e33db9" × null
@@ -785,12 +786,17 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - survey_id_orphaned · s_cfca568b2ffe · survey_id: "s_cfca568b2ffe" × null
 - survey_id_orphaned · s_511a37349f39 · survey_id: "s_511a37349f39" × null
 - survey_id_orphaned · s_2a9bd938f373 · survey_id: "s_2a9bd938f373" × null
+- **[2026]** survey_id_orphaned · s_c607719d2ea6 · survey_id: "s_c607719d2ea6" × null
+- **[2026]** survey_id_orphaned · s_c2ddc2406854 · survey_id: "s_c2ddc2406854" × null
 - survey_id_orphaned · s_fe58a5395d60 · survey_id: "s_fe58a5395d60" × null
 - survey_id_orphaned · s_c6ef5d7b77e0 · survey_id: "s_c6ef5d7b77e0" × null
 - survey_id_orphaned · s_84826ba73fae · survey_id: "s_84826ba73fae" × null
 - survey_id_orphaned · s_76610f854896 · survey_id: "s_76610f854896" × null
+- survey_id_orphaned · s_95dee0469fc0 · survey_id: "s_95dee0469fc0" × null
+- **[2026]** survey_id_orphaned · s_c4f9a34481c6 · survey_id: "s_c4f9a34481c6" × null
 - survey_id_orphaned · s_fa30463e0251 · survey_id: "s_fa30463e0251" × null
-- disputa_em_quarentena · governador:AM · quarentena: 135 × 130
+- **[2026]** survey_id_orphaned · s_c9758ad3d589 · survey_id: "s_c9758ad3d589" × null
+- disputa_em_quarentena · governador:AM · quarentena: 135 × 131
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 105
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41
