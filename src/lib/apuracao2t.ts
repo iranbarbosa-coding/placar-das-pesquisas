@@ -13,6 +13,7 @@
  * Livre de `node:fs` — os tipos podem ser importados pelo componente cliente.
  */
 import { andamento, getJson, num, REGIAO_DA_UF, REGIOES, somar, type Andamento, type Regiao } from "./apuracao";
+import type { AndamentoMun, LinhaChegada, T1Municipios } from "./linha-chegada";
 
 export const ELEICAO_2T = 6258;
 // APURACAO_2T_TSE troca a origem só em teste local (scripts/apuracao2t-e2e.mjs
@@ -20,6 +21,8 @@ export const ELEICAO_2T = 6258;
 const TSE = `${process.env.APURACAO_2T_TSE ?? "https://resultados.tse.jus.br"}/oficial/ele2026/${ELEICAO_2T}`;
 const arq = (uf: string) => `${TSE}/dados/${uf}/${uf}-c0001-e00${ELEICAO_2T}-u.json`;
 const URL_ABR = `${TSE}/dados/br/br-e00${ELEICAO_2T}-ab.json`;
+/** Andamento por município de uma UF (zz = exterior). */
+const abUf = (uf: string) => `${TSE}/dados/${uf}/${uf}-e00${ELEICAO_2T}-ab.json`;
 
 export interface Voto2T {
   /** "13" (Lula) ou "22" (Flávio Bolsonaro). */
@@ -65,6 +68,9 @@ export interface Apuracao2T {
   estados: Estado2T[];
   regioes: (Andamento & { nome: Regiao })[];
   exterior: Andamento | null;
+  /** Linha de chegada (src/lib/linha-chegada.ts); null antes da 1ª seção, na
+   *  totalização final ou quando os municípios do TSE não cobrem o eleitorado. */
+  linha: LinhaChegada | null;
   lidoEm: string;
 }
 
@@ -147,6 +153,22 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
   }
 
   const ufs = Object.keys(REGIAO_DA_UF).sort();
+  // Andamento por município, para a linha de chegada. Se uma UF falhar, a conta
+  // não sai (melhor nada que uma linha calculada sem parte do país).
+  const municipios = (async () => {
+    const m = new Map<string, AndamentoMun>();
+    let completo = true;
+    await emLotes([...ufs.map((u) => u.toLowerCase()), "zz"], 9, async (uf) => {
+      try {
+        const d = await getJson(abUf(uf), fresco);
+        for (const a of d.abr ?? [])
+          if (a.tpabr === "mun") m.set(`${uf}${a.cdabr}`, { te: num(a.e?.te), est: num(a.e?.est), c: num(a.e?.c) });
+      } catch {
+        completo = false;
+      }
+    });
+    return completo ? m : null;
+  })();
   const estados = await emLotes(ufs, 9, async (uf): Promise<Estado2T> => {
     const base = andamentoUf.get(uf);
     try {
@@ -186,6 +208,13 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
 
   const v = br.v ?? {};
   const e = br.e ?? {};
+  let linha: LinhaChegada | null = null;
+  if (num(br.s?.st) > 0 && br.tf !== "s") {
+    const { linhaDeChegada } = await import("./linha-chegada");
+    const { default: t1 } = await import("../../data/apuracao/t1-municipios.json");
+    const mun = await municipios;
+    if (mun) linha = linhaDeChegada(t1 as unknown as T1Municipios, mun, { flavioPct: ok.flavio.pct, validos: num(v.vv) });
+  }
   return {
     atualizadoEm: `${br.dt ?? br.dg} ${br.ht ?? br.hg}`,
     nacional: {
@@ -202,6 +231,7 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
     estados,
     regioes,
     exterior,
+    linha,
     lidoEm,
   };
 }
@@ -229,6 +259,7 @@ export function vazio2T(lidoEm: string): Apuracao2T {
     estados,
     regioes: (Object.keys(REGIOES) as Regiao[]).map((nome) => ({ nome, ...zero })),
     exterior: null,
+    linha: null,
     lidoEm,
   };
 }

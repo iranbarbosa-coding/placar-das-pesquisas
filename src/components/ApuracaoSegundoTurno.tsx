@@ -135,9 +135,18 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
           <div style={{ width: `${flavio.pct}%`, background: COR["22"], transition: "width .6s ease" }} />
         </div>
         <div className="pointer-events-none absolute -top-1.5 -bottom-1.5 left-1/2 border-l-2 border-dashed" style={{ borderColor: "var(--text-primary)" }} />
+        {d.linha && (
+          // Linha de chegada: Lula vence se a barra vermelha passar dela; Flávio, se a azul passar.
+          <div
+            className="pointer-events-none absolute -top-2.5 -bottom-2.5 border-l-[3px]"
+            style={{ left: `${Math.min(99, Math.max(1, d.linha.limiarLula))}%`, borderColor: "var(--accent)", transition: "left .6s ease" }}
+            title="Linha de chegada (estimativa)"
+          />
+        )}
       </div>
-      <div className="mt-1.5 flex justify-center text-[11px] font-semibold" style={{ color: "var(--text-muted)" }}>
-        50% dos válidos
+      <div className="mt-1.5 flex justify-center gap-3 text-[11px] font-semibold" style={{ color: "var(--text-muted)" }}>
+        <span>┆ 50% dos válidos</span>
+        {d.linha && <span style={{ color: "var(--accent)" }}>┃ linha de chegada</span>}
       </div>
 
       <p className="mt-3 text-sm" style={{ color: "var(--text-secondary)" }}>
@@ -156,8 +165,47 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
         )}
       </p>
 
+      {d.linha && <Linha d={d} />}
+
       <Andamento2T d={d} />
     </section>
+  );
+}
+
+/* ─────────────── Linha de chegada (estimativa) ─────────────── */
+
+function Linha({ d }: { d: Apuracao2T }) {
+  const l = d.linha!;
+  const quem = l.difRestante >= 0 ? "22" : "13";
+  const vencedor = l.projecaoFlavio > 50 ? "22" : l.projecaoFlavio < 50 ? "13" : null;
+  return (
+    <div className="mt-3 rounded p-3" style={{ background: "var(--surface-2)", borderLeft: "4px solid var(--accent)" }} data-testid="linha-chegada">
+      <p className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
+        Linha de chegada · estimativa
+      </p>
+      <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+        Se as urnas que faltam repetirem o padrão do 1º turno, para vencer a eleição{" "}
+        <b style={{ color: COR["22"] }}>Flávio</b> precisa estar agora com pelo menos{" "}
+        <b className="tabular" style={{ color: "var(--text-primary)" }}>{pct(l.limiarFlavio)}%</b> dos válidos — e{" "}
+        <b style={{ color: COR["13"] }}>Lula</b>, com <b className="tabular" style={{ color: "var(--text-primary)" }}>{pct(l.limiarLula)}%</b>.
+      </p>
+      <p className="tabular mt-1 text-xs" style={{ color: "var(--text-secondary)" }}>
+        Faltam ≈ {pct(l.fracaoRestante, 1)}% dos votos; no 1º turno, essas urnas deram{" "}
+        {Math.abs(l.difRestante) < 0.05 ? (
+          "o mesmo resultado que as já apuradas"
+        ) : (
+          <>
+            {pct(Math.abs(l.difRestante), 1)} p.p. a mais a {NOME[quem]} do que as já apuradas
+          </>
+        )}
+        . Nesse cenário: Flávio {pct(l.projecaoFlavio)}% × Lula {pct(l.projecaoLula)}%
+        {vencedor ? ` (${NOME[vencedor]} vence)` : ""}.
+      </p>
+      <p className="mt-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+        Não é previsão: supõe que a mudança de voto entre os turnos é a mesma em todo o país e que, dentro de cada município, as seções já
+        apuradas representam as que faltam. Base: votos de Lula e Flávio no 1º turno em cada município e andamento ao vivo do 2º turno (TSE).
+      </p>
+    </div>
   );
 }
 
