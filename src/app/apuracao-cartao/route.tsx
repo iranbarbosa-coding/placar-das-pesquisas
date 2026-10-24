@@ -9,17 +9,18 @@ import { fmtChance, fmtPctBr, resumoApuracao } from "@/lib/apuracao-resumo";
  * momento: antes das 17h anuncia a apuração; durante, placar + % apurado + chance
  * de vitória; no fim, o resultado. A página aponta para cá com ?v=<seções
  * apuradas>, então cada nova totalização é uma URL nova e nenhum cache de
- * aplicativo segura um placar velho. Mesma paleta do cartão da home
- * (src/app/opengraph-image.tsx); Satori exige display:flex em todo <div> com
+ * aplicativo segura um placar velho. Fundo branco com a paleta clara do
+ * site; Satori exige display:flex em todo <div> com
  * mais de um filho.
  */
 export const dynamic = "force-dynamic";
 
-const INK = "#0b1020";
-const OFFWHITE = "#f8fafc";
-const BLUE = "#3b82f6";
-const SLATE = "#94a3b8";
-const RED = "#f87171";
+// Fundo BRANCO (pedido do criador, 24/10): paleta clara do site (globals.css :root).
+const FUNDO = "#ffffff";
+const TINTA = "#0f172a";
+const BLUE = "#2563eb";
+const SLATE = "#475569";
+const RED = "#ef4444";
 
 const foto = (sq: string) => {
   try {
@@ -61,23 +62,23 @@ export async function GET() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: INK,
-          backgroundImage: "radial-gradient(1000px 500px at 82% -10%, rgba(37,99,235,0.28), rgba(37,99,235,0) 60%)",
+          background: FUNDO,
+          borderBottom: `14px solid ${BLUE}`,
           padding: "56px 72px",
           fontFamily: "sans-serif",
-          color: OFFWHITE,
+          color: TINTA,
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             {/* Ponto desenhado: a fonte do Satori não tem o glifo "●". */}
-            <div style={{ display: "flex", width: 18, height: 18, borderRadius: 999, background: r.fase === "aoVivo" ? "#ef4444" : "#2563eb" }} />
-            <div style={{ display: "flex", fontSize: 28, letterSpacing: 4, color: r.fase === "aoVivo" ? "#fca5a5" : SLATE, fontWeight: 700 }}>{topo}</div>
+            <div style={{ display: "flex", width: 18, height: 18, borderRadius: 999, background: r.fase === "aoVivo" ? "#dc2626" : BLUE }} />
+            <div style={{ display: "flex", fontSize: 28, letterSpacing: 4, color: r.fase === "aoVivo" ? "#dc2626" : SLATE, fontWeight: 700 }}>{topo}</div>
           </div>
           <div style={{ display: "flex", alignItems: "baseline", fontSize: 30, fontWeight: 800 }}>
-            <span style={{ color: OFFWHITE }}>Placar</span>
+            <span style={{ color: TINTA }}>Placar</span>
             <span style={{ color: SLATE, fontSize: 20, marginLeft: 8, marginRight: 8 }}>das</span>
-            <span style={{ color: "#2563eb" }}>Pesquisas</span>
+            <span style={{ color: BLUE }}>Pesquisas</span>
           </div>
         </div>
 
@@ -99,7 +100,7 @@ export async function GET() {
                 <Rosto src={flavio} cor={BLUE} />
               </div>
             </div>
-            <div style={{ display: "flex", height: 26, borderRadius: 8, overflow: "hidden", marginTop: 28, background: "#1e293b" }}>
+            <div style={{ display: "flex", height: 26, borderRadius: 8, overflow: "hidden", marginTop: 28, background: "#e2e8f0" }}>
               <div style={{ display: "flex", width: `${r.placar.lula}%`, background: RED }} />
               <div style={{ display: "flex", flex: 1 }} />
               <div style={{ display: "flex", width: `${r.placar.flavio}%`, background: BLUE }} />
