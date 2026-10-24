@@ -2,27 +2,31 @@
 // Baixa as fotos oficiais de candidaturas do Portal de Dados Abertos do TSE e
 // grava em public/candidatos/<sq_candidato>.jpg só as pedidas.
 //
-//   node scripts/fotos-candidatos.mjs <id-do-recurso-ckan> <sq> [<sq> ...]
+//   node scripts/fotos-candidatos.mjs candidatos-2026 <sq> [<sq> ...]
 //
-// O recurso (ex.: d58fc30b-4eea-4286-a330-15511029e00e, fotos de 2026) é um ZIP
-// com um arquivo por candidatura, nomeado pelo sequencial (sq_candidato). O
-// endereço do ZIP vem da API do CKAN — nada adivinhado. Se alguma foto pedida
+// O conjunto tem um ZIP de fotos por circunscrição, um arquivo por candidatura
+// nomeado pelo sequencial (sq_candidato). O endereço do ZIP vem da API do CKAN
+// (package_show) — nada adivinhado. Se alguma foto pedida
 // não estiver no ZIP, falha e não grava nada.
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const [id, ...sqs] = process.argv.slice(2);
-if (!id || !sqs.length) {
-  console.error("uso: fotos-candidatos.mjs <id-do-recurso> <sq> [<sq> ...]");
+const [dataset, ...sqs] = process.argv.slice(2);
+if (!dataset || !sqs.length) {
+  console.error("uso: fotos-candidatos.mjs <conjunto-ckan> <sq> [<sq> ...]");
   process.exit(2);
 }
 const UA = { "User-Agent": "Mozilla/5.0 (placardaspesquisas.com.br)" };
-const meta = await (await fetch(`https://dadosabertos.tse.jus.br/api/3/action/resource_show?id=${id}`, { headers: UA })).json();
-const url = meta?.result?.url;
-if (!url) throw new Error(`recurso ${id} sem URL: ${JSON.stringify(meta).slice(0, 300)}`);
-console.log(`recurso: ${meta.result.name ?? ""} → ${url}`);
+const meta = await (await fetch(`https://dadosabertos.tse.jus.br/api/3/action/package_show?id=${dataset}`, { headers: UA })).json();
+const recursos = meta?.result?.resources ?? [];
+for (const r of recursos) console.log(`  · ${r.id} ${r.name} → ${r.url}`);
+// Fotos de presidente ficam no ZIP da circunscrição BR (foto_cand<ano>_BR_div.zip).
+const fotos = recursos.filter((r) => /foto/i.test(`${r.name} ${r.url}`) && /(^|[^A-Z])BR([^A-Z]|$)/.test(`${r.name} ${r.url}`));
+if (fotos.length !== 1) throw new Error(`esperava 1 recurso de fotos BR em ${dataset}, achei ${fotos.length}`);
+const url = fotos[0].url;
+console.log(`recurso: ${fotos[0].name} → ${url}`);
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "fotos-"));
 const zip = path.join(tmp, "fotos.zip");

@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 22
       - name: Baixar fotos de Lula e Flávio Bolsonaro
-        run: node scripts/fotos-candidatos.mjs d58fc30b-4eea-4286-a330-15511029e00e 280002542548 280002551544
+        run: node scripts/fotos-candidatos.mjs candidatos-2026 280002542548 280002551544
       - name: Commitar
         run: |
           git config user.name "github-actions[bot]"
