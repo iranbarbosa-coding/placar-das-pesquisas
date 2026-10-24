@@ -37,8 +37,9 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
   `data/forecast`. Cobre os 7 confrontos de 2º turno (presidente; governador AC, AM, DF, ES, RN, TO). Publicou
   todos os dias de 19 a 23/10 (`data/forecast/runs.ndjson`). Método e números: `FORECASTING_METHODOLOGY.md` e
   `FORECASTING_VALIDATION.md`. Depois de 25/10 a rodada não gera mais previsão (data de referência > pleito).
-- **Apuração do 2º turno** (`/apuracao/segundo-turno`, no ar desde o merge do PR #142 em 24/10; link no menu
-  Presidente e na `/apuracao` do 1º turno, que segue igual): lê ao vivo a eleição **6258** do TSE (arquivo
+- **Apuração do 2º turno** (**`/apuracao`** desde 24/10, decisão do criador; estreou em `/apuracao/segundo-turno`
+  com o PR #142, endereço que agora redireciona para `/apuracao`; link no menu Presidente; a apuração do 1º turno
+  foi para `/apuracao/primeiro-turno`, com links da home e do topo do 2º turno): lê ao vivo a eleição **6258** do TSE (arquivo
   nacional, andamento e os 27 arquivos de UF) pela rota `/api/apuracao-2t.json` (CDN 20s; a página relê a cada
   30s). Fotos oficiais em `public/candidatos/<sq>.jpg` (Portal de Dados Abertos, conjunto `candidatos-2026`,
   via `scripts/fotos-candidatos.mjs`). Teste ponta a ponta com "TSE" local: `scripts/apuracao2t-e2e.mjs`.
@@ -78,6 +79,7 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 24/10 | Merge do PR #143 (chance de vitória ao vivo, medidor) fora de rodada do cron. **Mockups de divulgação** gerados da página real com um TSE simulado (municípios reais do 1º turno, +1 p.p. para Flávio; 28,12% apurado → Flávio 52,54%, chance 80%), computador e celular, claro e escuro, página inteira e recortes; **toda imagem de simulação leva a faixa "SIMULAÇÃO · números ilustrativos, não são resultados do TSE"** — às vésperas do pleito uma captura sem aviso pode circular como apuração real. | Iran |
 | 24/10 | **Governadores na apuração do 2º turno: um bloco por estado nesta página** (escolha do criador): AC, AM, DF, ES, RN, TO, com fotos oficiais, %, votos, barra, andamento e chance de vitória em medidor pequeno (*experimental*). Eleição **6260**, cargo 3 (`<uf>-c0003-e006260-u.json` + andamento por município `<uf>-e006260-ab.json`); finalistas e 1º turno de governador por município em `data/apuracao/t1-governador.json` (`scripts/tse-governador-t1.mjs`, conferido voto a voto contra cada UF). **DF sem chance**: é um só município para o TSE. κ dos governadores = 3,27, o mesmo do presidente (não menor que ele; nos caminhos POR UF do backtest o intervalo de 90% cobriu 97,5% dos pontos). Arquivo que não traga exatamente os dois finalistas esperados → bloco em "aguardando o TSE". Na mesma entrega, a conta da chance passou a pesar cada município pelos votos nos dois finalistas (não só pelo comparecimento) — no 1º turno de governador, com muitos candidatos, isso fazia diferença; o backtest de calibração usava a versão anterior, e κ segue o mesmo, conservador. | Iran |
 | 24/10 | Merge do PR #144 (governadores na apuração do 2º turno) fora de rodada do cron. Mockups de divulgação refeitos a pedido do criador com **28% apurado e o Nordeste atrasado** (~10% lá, ~36% no resto): placar Flávio 57,3% × Lula 42,7%, mas medidor 80% e final projetado 52,0% — a chance olha QUAIS municípios faltam (o voto deles no 1º turno), não o placar parcial; com o mesmo 52% dos apurados e o Nordeste atrasado, a chance de Flávio seria 14%. | Iran |
+| 24/10 | **Endereço único da apuração do 2º turno: `/apuracao`** (decisão do criador). `/apuracao/segundo-turno` redireciona (307, temporário) para `/apuracao` (`next.config.ts`), para não quebrar links já divulgados; o 1º turno passou para `/apuracao/primeiro-turno`. | Iran |
 
 ## Em aberto
 

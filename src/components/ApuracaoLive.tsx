@@ -451,7 +451,7 @@ export default function ApuracaoLive({ inicial, mapaSvg }: { inicial: Apuracao |
           <p className="mt-0.5 text-xs" style={{ color: "var(--text-muted)" }}>
             Resultado oficial do TSE, lido direto do site Resultados
             {dados && <> · última totalização em {dados.atualizadoEm} (Brasília)</>} ·{" "}
-            <Link href="/apuracao/segundo-turno" className="underline">apuração do 2º turno</Link>
+            <Link href="/apuracao" className="underline">apuração do 2º turno</Link>
           </p>
         </div>
         <AoVivo status={status} segundos={segundos} />

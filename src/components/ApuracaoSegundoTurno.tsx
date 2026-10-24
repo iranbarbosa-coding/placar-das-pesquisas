@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AoVivo, Barra, CardHead, int, pct, titulo, useAoVivo } from "@/components/ApuracaoLive";
 import { colorMap, colorOf } from "@/lib/colors";
@@ -602,7 +603,8 @@ export default function ApuracaoSegundoTurno({ inicial, mapaSvg }: { inicial: Le
       <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
         Fonte: Tribunal Superior Eleitoral — resultados.tse.jus.br (eleições 6258, 2º turno presidencial, e 6260, governadores). Percentual apurado = seções totalizadas ÷
         total de seções. Percentuais de candidato sobre os votos válidos (exclui brancos e nulos). Mapa: a intensidade da cor acompanha o % apurado da
-        UF (a partir de 15% de intensidade quando a primeira seção chega). Esta página relê o TSE a cada 30 segundos.
+        UF (a partir de 15% de intensidade quando a primeira seção chega). Esta página relê o TSE a cada 30 segundos. A apuração do 1º turno está em{" "}
+        <Link href="/apuracao/primeiro-turno" className="underline">/apuracao/primeiro-turno</Link>.
       </p>
     </div>
   );
