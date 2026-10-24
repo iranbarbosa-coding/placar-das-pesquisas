@@ -124,7 +124,7 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
     <section className="card p-4 sm:p-5">
       <CardHead
         title="Presidente · 2º turno · votos válidos"
-        sub={aguardando ? "Aguardando os primeiros números do TSE" : `${pct(d.nacional.pct)}% das seções apuradas · ${int(d.nacional.validos)} votos válidos`}
+        sub={aguardando ? "Aguardando os primeiros números do TSE" : `${int(d.nacional.validos)} votos válidos apurados`}
       />
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
         <Lado c={lula} alinhar="left" lidera={lider === lula} />
@@ -159,60 +159,49 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
           </>
         )}
       </p>
+
+      <Andamento2T d={d} />
     </section>
   );
 }
 
-/* ───────────────────────── Votos apurados ───────────────────────── */
+/* ─────────────── Andamento (dentro do card do placar) ─────────────── */
 
-function Nacional({ d }: { d: Apuracao2T }) {
+function Andamento2T({ d }: { d: Apuracao2T }) {
   const n = d.nacional;
   const aApurar = n.secoes < n.secoesTotal ? n.votosAApurar : 0;
   const votosPct = n.comparecimento + aApurar > 0 ? (100 * n.comparecimento) / (n.comparecimento + aApurar) : 0;
-  const comp = n.comparecimento + n.abstencao;
-  const linhas: [string, string][] = [
-    ["Seções apuradas", `${int(n.secoes)} de ${int(n.secoesTotal)}`],
-    ["Votos válidos", int(n.validos)],
-    ["Brancos", int(n.brancos)],
-    ["Nulos", int(n.nulos)],
-    ["Comparecimento nas seções apuradas", `${pct(comp ? (100 * n.comparecimento) / comp : 0)}%`],
+  const caixas: [string, string, string][] = [
+    ["Votos apurados", int(n.comparecimento), n.secoes === 0 ? "—" : `≈ ${pct(votosPct, 1)}% dos votos`],
+    ["A apurar", n.secoes === 0 ? "—" : `≈ ${int(aApurar)}`, n.secoes === 0 ? "estimado após as primeiras seções" : `≈ ${pct(100 - votosPct, 1)}% dos votos`],
+    ["Seções apuradas", int(n.secoes), `de ${int(n.secoesTotal)}`],
+    ["Brancos e nulos", int(n.brancos + n.nulos), `${int(n.brancos)} brancos · ${int(n.nulos)} nulos`],
   ];
   return (
-    <section className="card p-4">
-      <CardHead title="Votos apurados · Brasil" sub={n.final ? "Totalização encerrada" : "Percentual de seções totalizadas pelo TSE"} />
-      <div className="tabular font-extrabold leading-none" style={{ color: "var(--accent)", fontSize: "clamp(2.4rem, 6vw, 3.25rem)" }}>
-        {pct(n.pct)}
-        <span style={{ fontSize: "0.5em" }}>%</span>
-        <span className="ml-1.5 text-sm font-semibold" style={{ color: "var(--text-muted)" }}>apurado</span>
+    <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--grid)" }}>
+      <div className="mb-1.5 flex items-baseline justify-between gap-2">
+        <span className="text-[13px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+          Apuração · Brasil{n.final ? " · totalização encerrada" : ""}
+        </span>
+        <span className="tabular text-2xl font-extrabold leading-none" style={{ color: "var(--accent)" }}>
+          {pct(n.pct)}%<span className="ml-1 text-xs font-semibold" style={{ color: "var(--text-muted)" }}>apurado</span>
+        </span>
       </div>
-      <div className="mt-3">
-        <Barra valor={n.pct} altura={10} />
-      </div>
-      <div className="tabular mt-3 grid grid-cols-2 gap-2">
-        <div className="rounded p-2" style={{ background: "var(--surface-2)" }}>
-          <div className="text-[11px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>Votos apurados</div>
-          <div className="text-lg font-extrabold" style={{ color: "var(--text-primary)" }}>{int(n.comparecimento)}</div>
-          <div className="text-[11px]" style={{ color: "var(--text-secondary)" }}>≈ {pct(votosPct, 1)}% dos votos</div>
-        </div>
-        <div className="rounded p-2" style={{ background: "var(--surface-2)" }}>
-          <div className="text-[11px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>A apurar</div>
-          <div className="text-lg font-extrabold" style={{ color: "var(--text-primary)" }}>{n.secoes === 0 ? "—" : `≈ ${int(aApurar)}`}</div>
-          <div className="text-[11px]" style={{ color: "var(--text-secondary)" }}>{n.secoes === 0 ? "estimado após as primeiras seções" : `≈ ${pct(100 - votosPct, 1)}% dos votos`}</div>
-        </div>
-      </div>
-      <dl className="tabular mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
-        {linhas.map(([k, v]) => (
-          <div key={k} className="contents">
-            <dt style={{ color: "var(--text-muted)" }}>{k}</dt>
-            <dd className="text-right font-semibold" style={{ color: "var(--text-primary)" }}>{v}</dd>
+      <Barra valor={n.pct} altura={10} />
+      <div className="tabular mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {caixas.map(([k, v, sub]) => (
+          <div key={k} className="min-w-0 rounded p-2" style={{ background: "var(--surface-2)" }}>
+            <div className="text-[11px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>{k}</div>
+            <div className="truncate text-lg font-extrabold" style={{ color: "var(--text-primary)" }}>{v}</div>
+            <div className="text-[11px]" style={{ color: "var(--text-secondary)" }}>{sub}</div>
           </div>
         ))}
-      </dl>
+      </div>
       <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
-        Votos apurados = eleitores que votaram nas seções já totalizadas. A apurar: estimativa (eleitores das seções restantes × comparecimento já
-        apurado em cada UF) — o TSE não publica esse número.
+        Percentual apurado = seções totalizadas pelo TSE. Votos apurados = eleitores que votaram nas seções já totalizadas. A apurar: estimativa
+        (eleitores das seções restantes × comparecimento já apurado em cada UF) — o TSE não publica esse número.
       </p>
-    </section>
+    </div>
   );
 }
 
@@ -404,14 +393,7 @@ export default function ApuracaoSegundoTurno({ inicial, mapaSvg }: { inicial: Le
         </p>
       )}
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_336px]">
-        <div className="min-w-0">
-          <Placar d={d} aguardando={espera} />
-        </div>
-        <div className="min-w-0">
-          <Nacional d={d} />
-        </div>
-      </div>
+      <Placar d={d} aguardando={espera} />
       <Estados d={d} svg={mapaSvg} />
       <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
         Fonte: Tribunal Superior Eleitoral — resultados.tse.jus.br (eleição 6258, 2º turno presidencial). Percentual apurado = seções totalizadas ÷
