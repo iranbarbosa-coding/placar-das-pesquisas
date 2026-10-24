@@ -73,6 +73,26 @@ function doc(lista, frac) {
 }
 const daUf = (uf) => MUN.filter((m) => m.uf === uf);
 
+// Governador (eleição 6260, cargo 3): municípios reais do 1º turno de governador
+// (data/apuracao/t1-governador.json) com a mesma virada uniforme para o 2º candidato.
+const GOV = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data/apuracao/t1-governador.json"), "utf8")).ufs;
+const GMUN = Object.fromEntries(
+  Object.entries(GOV).map(([uf, g]) => [
+    uf,
+    Object.entries(g.mun).map(([k, [a1, b1, c1, te1]], i) => ({
+      k, uf, cd: k.slice(2), i: i * 7 + uf.charCodeAt(0), te: te1,
+      comp: te1 ? c1 / te1 : 0, dois: c1 ? (a1 + b1) / c1 : 0, f: a1 + b1 ? b1 / (a1 + b1) + VIRADA : 0,
+    })),
+  ]),
+);
+function docGov(uf, frac) {
+  const t = soma(GMUN[uf], frac);
+  const pv = (x) => br(t.vv ? ((100 * x) / t.vv).toFixed(9) : "0");
+  const [A, B] = GOV[uf].candidatos;
+  const cand = (c, v) => ({ com: c.partido, par: [{ sg: c.partido, cand: [{ n: c.n, nm: c.nome, nmu: c.nome, sqcand: c.sq, vap: String(v), pvapn: pv(v), e: "n", st: "" }] }] });
+  return { dg: "25/10/2026", hg: "19:42:10", tf: t.st === t.ts ? "s" : "n", ...se(t), carg: [{ cd: "3", nmn: "Governador", agr: [cand(A, t.l), cand(B, t.f)] }] };
+}
+
 function servir(porta) {
   let etapa = "antes";
   http
@@ -101,6 +121,10 @@ function servir(porta) {
         return json({ abr: daUf(k[1]).map((m) => ({ tpabr: "mun", cdabr: m.cd, ...se(soma([m], frac)) })) });
       if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/(\w\w)\/\1-c0001-e006258-u\.json$/)))
         return json(doc(k[1] === "br" ? MUN : daUf(k[1]), frac));
+      if ((k = u.pathname.match(/\/oficial\/ele2026\/6260\/dados\/(\w\w)\/\1-c0003-e006260-u\.json$/)) && GOV[k[1]])
+        return json(docGov(k[1], frac));
+      if ((k = u.pathname.match(/\/oficial\/ele2026\/6260\/dados\/(\w\w)\/\1-e006260-ab\.json$/)) && GOV[k[1]])
+        return json({ abr: GMUN[k[1]].map((m) => ({ tpabr: "mun", cdabr: m.cd, ...se(soma([m], frac)) })) });
       res.statusCode = 404;
       res.end();
     })
@@ -183,6 +207,20 @@ async function testar(BASE, TSE, SHOTS) {
     assert.ok(d.nacional.votosAApurar > 0);
     assert.equal(d.lula.votos + d.flavio.votos, d.nacional.validos);
   });
+  let govMeio = null;
+  await check("meio: governadores — 6 blocos, chance em 5 (DF sem)", async () => {
+    const d = await api();
+    assert.equal(d.governadores.length, 6);
+    for (const g of d.governadores) {
+      assert.ok(!g.aguardando, g.uf);
+      if (g.uf === "DF") assert.equal(g.chance, null);
+      else if (g.andamento.secoes > 0) {
+        assert.ok(g.chance, `${g.uf} sem chance`);
+        assert.equal(g.chance.flavio > 0.5, g.chance.projecaoFlavio > 50, g.uf);
+      }
+    }
+    govMeio = Object.fromEntries(d.governadores.filter((g) => g.chance).map((g) => [g.uf, g.chance.projecaoFlavio]));
+  });
   let projecaoMeio = null;
   await check("meio: chance de vitória coerente", async () => {
     const d = await api();
@@ -217,11 +255,14 @@ async function testar(BASE, TSE, SHOTS) {
     assert.match(t, /à frente por/);
     assert.match(t, /Chance de vitória/i);
     assert.match(t, /resultado final fica perto de/);
-    // As duas fotos oficiais carregam e aparecem.
+    assert.match(t, /Governadores · 2º turno/i);
+    assert.equal(await p.locator('[data-testid^="gov-"]').count(), 6);
+    // As fotos oficiais carregam e aparecem.
     const fotos = await p.evaluate(() =>
       [...document.querySelectorAll('img[alt^="Foto de"]')].map((i) => i.naturalWidth > 0 && getComputedStyle(i).opacity === "1"),
     );
-    assert.deepEqual(fotos, [true, true]);
+    assert.equal(fotos.length, 14); // presidente (2) + governadores (12)
+    assert.ok(fotos.every(Boolean), JSON.stringify(fotos));
     if (SHOTS) await p.screenshot({ path: path.join(SHOTS, "2t-meio.png"), fullPage: true });
     await ctx.close();
   });
@@ -241,6 +282,13 @@ async function testar(BASE, TSE, SHOTS) {
     assert.equal(d.chance, null);
     assert.ok(projecaoMeio != null);
     assert.ok(Math.abs(projecaoMeio - d.flavio.pct) < 0.05, `projeção ${projecaoMeio} × final ${d.flavio.pct}`);
+  });
+  await check("final: governadores — projeção do meio acerta o final (virada uniforme)", async () => {
+    const d = await api();
+    for (const g of d.governadores) {
+      assert.equal(g.chance, null);
+      if (govMeio?.[g.uf] != null) assert.ok(Math.abs(govMeio[g.uf] - g.candidatos[1].pct) < 0.1, `${g.uf}: ${govMeio[g.uf]} × ${g.candidatos[1].pct}`);
+    }
   });
   await check("final: 100% apurado, cores cheias", async () => {
     const d = await api();
