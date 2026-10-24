@@ -37,6 +37,11 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
   `data/forecast`. Cobre os 7 confrontos de 2º turno (presidente; governador AC, AM, DF, ES, RN, TO). Publicou
   todos os dias de 19 a 23/10 (`data/forecast/runs.ndjson`). Método e números: `FORECASTING_METHODOLOGY.md` e
   `FORECASTING_VALIDATION.md`. Depois de 25/10 a rodada não gera mais previsão (data de referência > pleito).
+- **Apuração do 2º turno** (`/apuracao/segundo-turno`, no ar desde o merge do PR #142 em 24/10; link no menu
+  Presidente e na `/apuracao` do 1º turno, que segue igual): lê ao vivo a eleição **6258** do TSE (arquivo
+  nacional, andamento e os 27 arquivos de UF) pela rota `/api/apuracao-2t.json` (CDN 20s; a página relê a cada
+  30s). Fotos oficiais em `public/candidatos/<sq>.jpg` (Portal de Dados Abertos, conjunto `candidatos-2026`,
+  via `scripts/fotos-candidatos.mjs`). Teste ponta a ponta com "TSE" local: `scripts/apuracao2t-e2e.mjs`.
 
 ## Decisões vigentes
 
@@ -65,9 +70,14 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 18/10 | **Previsão Estatística: chance de vitória em destaque, rotulada *experimental***. Cada quadro do 2º turno abre com quem tem maior chance e a probabilidade (inteiro; abaixo de 60% para o líder, "leve vantagem · disputa indefinida"). O portão de validação (≥ 2 eleições e ≥ 20 disputas por categoria) segue NÃO cumprido — só há 2026 e nenhum 2º turno com resultado —, então a probabilidade sai como `experimental`, com os motivos na página (`gates.probability.editorial_override` na config). | Iran |
 | 18/10 | **Tendência da média não é projetada.** Testado a pedido: média das 10 últimas + tendência estendida até a eleição. No backtest do 1º turno (mesmos 205 pares), estender a tendência PIOROU a previsão em todas as variantes (erro médio 5,55 → 6,17–6,70 p.p.; modelo estatístico 5,09). A chance do destaque vem do modelo estatístico (`headline_method: "modelo"`); a média das 10 últimas e a tendência (p.p./semana) aparecem ao lado como informação. | Iran |
 | 19/10 | Merge do PR #141 (Previsão Estatística) em `main`, com o check `testes` verde e fora de rodada do cron. | Iran |
+| 24/10 | **Página da apuração do 2º turno.** Um card do placar com Lula × Flávio (fotos oficiais do TSE, % dos válidos, votos, barra bipolar, diferença) e, embaixo da barra, a apuração do Brasil: % apurado (seções totalizadas), votos apurados, **≈ a apurar** (estimativa: eleitorado das seções restantes × comparecimento já apurado em cada UF; o TSE não publica), comparecimento/abstenção, seções, brancos e nulos — o card "Votos apurados" separado saiu por redundante. **Mapa**: a UF parte do BRANCO e ganha a cor de quem lidera ali (azul Flávio, vermelho Lula) conforme o % apurado vai a 100 (piso de 15% de intensidade ao chegar a primeira seção, para o líder ser legível). Barras de % apurado por UF na cor do líder. Arquivo do TSE sem exatamente os candidatos 13 e 22 → página zerada com "aguardando o TSE", nunca número suspeito. Merge do PR #142 fora de rodada do cron. | Iran |
 
 ## Em aberto
 
+- **Apuração do 2º turno: endereços do TSE não conferidos ao vivo.** Os arquivos da eleição 6258 seguem o padrão do
+  1º turno (`.../ele2026/6258/dados/<uf>/<uf>-c0001-e006258-u.json` e `br-e006258-ab.json`), mas o host do TSE não
+  é alcançável do ambiente de desenvolvimento. Em 25/10, a partir das 17h: se a página seguir em "aguardando o TSE"
+  com a apuração já andando no site oficial, o endereço é outro — corrigir em `src/lib/apuracao2t.ts`.
 - **Previsão × resultado do 2º turno (depois de 25/10)**: importar o resultado oficial do 2º turno
   (`scripts/tse-resultados.mjs` hoje lê o 1º turno; `data/resultados-oficiais.json` tem `turno: 1`) para pontuar
   as previsões publicadas, que estão gravadas e imutáveis em `data/forecast/snapshots/`. É a primeira validação
