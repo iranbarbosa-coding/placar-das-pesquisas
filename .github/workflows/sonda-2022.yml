@@ -1,39 +1,20 @@
-# TEMPORÁRIO — sonda arquivos de 2022 e horários por município (removido antes do merge).
+# TEMPORÁRIO — calibra a chance de vitória ao vivo (removido antes do merge).
 name: sonda-2022
 on:
   push:
     branches: [claude/linha-de-chegada]
-    paths: [.github/workflows/sonda-2022.yml]
+    paths: [.github/workflows/sonda-2022.yml, scripts/apuracao/backtest_chance.py]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  sonda:
+  calibra:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/apuracao/backtest_chance.py
       - run: |
-          B=https://resultados.tse.jus.br/oficial
-          for u in \
-            ele2022/544/dados/sp/sp-e000544-ab.json \
-            ele2022/545/dados/sp/sp-e000545-ab.json \
-            ele2022/545/dados/br/br-e000545-ab.json \
-            ele2022/544/dados/sp/sp71072-c0001-e000544-u.json \
-            ele2022/544/dados/sp/sp71072-c0001-e000544-v.json \
-            ele2022/545/dados/sp/sp71072-c0001-e000545-u.json \
-            ele2022/545/dados/sp/sp71072-c0001-e000545-v.json \
-            ele2022/545/dados/sp/sp-c0001-e000545-r.json \
-            ele2022/545/dados-simplificados/sp/sp-c0001-e000545-r.json \
-            ele2022/545/dados/sp/sp-c0001-e000545-v.json \
-            ele2022/545/dados/sp/sp-c0001-e000545-u.json ; do
-            echo "=================== $u"
-            curl -sS -m 60 -A "Mozilla/5.0" -e "https://resultados.tse.jus.br/" -o /tmp/f -w "HTTP %{http_code} %{size_download} bytes\n" "$B/$u"
-            head -c 1200 /tmp/f; echo
-          done
-          for e in ele2026/6257/dados/sp/sp-e006257-ab.json ele2022/545/dados/sp/sp-e000545-ab.json ele2022/544/dados/sp/sp-e000544-ab.json; do
-            echo "=================== horários dos municípios: $e"
-            curl -sS -m 60 -A "Mozilla/5.0" "$B/$e" | python3 -c "
-          import json,sys,collections
-          d=json.load(sys.stdin); a=[x for x in d.get('abr',[]) if x.get('tpabr')=='mun']
-          print(len(a), 'municípios; chaves:', list(a[0].keys()) if a else None)
-          c=collections.Counter((x.get('dt'),(x.get('ht') or '')[:2]) for x in a); print(sorted(c.items()))
-          print([ (x['cdabr'],x.get('dt'),x.get('ht')) for x in a[:5]])" || true
-          done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add data/apuracao/calibracao-chance.json
+          git diff --cached --quiet || git commit -m "dados: calibração da chance de vitória ao vivo (1º turno de 2026 refeito na ordem real; base 2022)"
+          git push
