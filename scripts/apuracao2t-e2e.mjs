@@ -215,8 +215,8 @@ async function testar(BASE, TSE, SHOTS) {
     assert.match(t, /A apurar/);
     assert.match(t, /Comparecimento\d+,\d\d%/);
     assert.match(t, /à frente por/);
-    assert.match(t, /Chance de vitória agora/i);
-    assert.match(t, /Resultado final projetado/);
+    assert.match(t, /Chance de vitória/i);
+    assert.match(t, /resultado final fica perto de/);
     // As duas fotos oficiais carregam e aparecem.
     const fotos = await p.evaluate(() =>
       [...document.querySelectorAll('img[alt^="Foto de"]')].map((i) => i.naturalWidth > 0 && getComputedStyle(i).opacity === "1"),

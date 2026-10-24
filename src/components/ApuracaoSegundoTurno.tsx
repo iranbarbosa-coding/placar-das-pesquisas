@@ -168,52 +168,73 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
 /** Probabilidade em inteiro, sem falsa precisão nas pontas (como na Previsão). */
 const fmtChance = (p: number) => (p >= 0.995 ? ">99%" : p <= 0.005 ? "<1%" : `${Math.round(p * 100)}%`);
 
+/** Medidor da chance (escolha do criador, 24/10: opção B). Arco vermelho = chance
+ *  de Lula a partir da esquerda, azul = de Flávio; o ponteiro marca a divisão e o
+ *  tracejado no topo, 50%. Forma diferente da barra dos votos de propósito. */
+function Medidor({ lula }: { lula: number }) {
+  const r = 80, cx = 100, cy = 95;
+  const pt = (a: number) => [cx + r * Math.cos(a), cy - r * Math.sin(a)];
+  const corte = Math.PI * (1 - Math.min(0.999, Math.max(0.001, lula)));
+  const [x1, y1] = pt(Math.PI);
+  const [xs, ys] = pt(corte);
+  const [x2, y2] = pt(0);
+  const [nx, ny] = [cx + (r - 6) * Math.cos(corte), cy - (r - 6) * Math.sin(corte)];
+  return (
+    <svg width="200" height="110" viewBox="0 0 200 110" aria-hidden className="block">
+      <path d={`M${x1},${y1} A${r},${r} 0 0 1 ${xs},${ys}`} fill="none" strokeWidth={18} style={{ stroke: COR["13"] }} />
+      <path d={`M${xs},${ys} A${r},${r} 0 0 1 ${x2},${y2}`} fill="none" strokeWidth={18} style={{ stroke: COR["22"] }} />
+      <line x1={cx} y1={5} x2={cx} y2={22} strokeDasharray="3 2" style={{ stroke: "var(--text-primary)" }} />
+      <line x1={cx} y1={cy} x2={nx} y2={ny} strokeWidth={3} strokeLinecap="round" style={{ stroke: "var(--text-primary)" }} />
+      <circle cx={cx} cy={cy} r={5} style={{ fill: "var(--text-primary)" }} />
+    </svg>
+  );
+}
+
 function Chance({ d }: { d: Apuracao2T }) {
   const c = d.chance!;
-  const lados: ["13" | "22", number][] = [
-    ["13", c.lula],
-    ["22", c.flavio],
-  ];
   return (
-    <div className="mt-4 rounded-lg p-3 sm:p-4" style={{ background: "var(--surface-2)" }} data-testid="chance-vitoria">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-[13px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-          Chance de vitória agora
-        </p>
-        <span
-          className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
-          style={{ border: "1px dashed var(--axis)", color: "var(--text-secondary)" }}
-          title="Calibrada numa única apuração (1º turno de 2026 contra 2022); não há 2º turno anterior para validar."
-        >
-          Experimental
-        </span>
-      </div>
-      <div className="mt-2 grid grid-cols-2 gap-3">
-        {lados.map(([n, p]) => (
-          <div key={n} className={n === "22" ? "text-right" : ""}>
-            <div className="text-xs font-semibold" style={{ color: "var(--text-secondary)" }}>{NOME[n]}</div>
-            <div className="tabular font-extrabold leading-none" style={{ color: COR[n], fontSize: "clamp(1.8rem, 6vw, 2.6rem)" }}>
-              {fmtChance(p)}
-            </div>
+    <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--grid)" }} data-testid="chance-vitoria">
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:gap-6">
+        <div className="shrink-0 text-center">
+          <Medidor lula={c.lula} />
+          <div className="-mt-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+            ponteiro = chance de vitória
           </div>
-        ))}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.08em]" style={{ color: "var(--text-muted)" }}>
+              Chance de vitória
+            </p>
+            <span
+              className="rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+              style={{ border: "1px dashed var(--axis)", color: "var(--text-secondary)" }}
+              title="Calibrada numa única apuração (1º turno de 2026 contra 2022); não há 2º turno anterior para validar."
+            >
+              Experimental
+            </span>
+          </div>
+          <p className="tabular mt-1.5 text-lg" style={{ color: "var(--text-primary)" }}>
+            Lula <b>{fmtChance(c.lula)}</b> <span style={{ color: "var(--text-muted)" }}>·</span> Flávio <b>{fmtChance(c.flavio)}</b>
+          </p>
+          <p className="mt-1.5 text-[13px]" style={{ color: "var(--text-secondary)" }}>
+            Se o que falta seguir o padrão do 1º turno, o resultado final fica perto de{" "}
+            <b className="tabular" style={{ color: "var(--text-primary)" }}>
+              Lula {pct(c.projecaoLula, 1)}% × Flávio {pct(c.projecaoFlavio, 1)}%
+            </b>{" "}
+            <span className="tabular" style={{ color: "var(--text-muted)" }}>(± {pct(1.645 * c.desvio, 1)} p.p.)</span>.
+          </p>
+          <details className="mt-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
+            <summary className="cursor-pointer select-none">Como é calculada</summary>
+            <p className="mt-1">
+              Os votos que faltam em cada município são projetados pelo resultado do 1º turno ali, corrigido pela variação entre os turnos já
+              observada no estado. A incerteza foi medida refazendo a apuração do 1º turno de 2026 na ordem real em que os municípios foram
+              totalizados, com o 2º turno de 2022 como base: quanto mais votos faltam, maior o erro possível. A margem é o intervalo de 90%.
+              Não é previsão das pesquisas; é o que o resultado parcial e o padrão do 1º turno indicam agora.
+            </p>
+          </details>
+        </div>
       </div>
-      <div className="mt-2 flex h-2.5 w-full overflow-hidden rounded-full" aria-hidden>
-        <div style={{ width: `${100 * c.lula}%`, background: COR["13"], transition: "width .6s ease" }} />
-        <div style={{ width: `${100 * c.flavio}%`, background: COR["22"], transition: "width .6s ease" }} />
-      </div>
-      <p className="tabular mt-2 text-xs" style={{ color: "var(--text-secondary)" }}>
-        Resultado final projetado: Lula {pct(c.projecaoLula, 1)}% × Flávio {pct(c.projecaoFlavio, 1)}% (± {pct(1.645 * c.desvio, 1)} p.p., 90%)
-      </p>
-      <details className="mt-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
-        <summary className="cursor-pointer select-none">Como é calculada</summary>
-        <p className="mt-1">
-          Os votos que faltam em cada município são projetados pelo resultado do 1º turno ali, corrigido pela variação entre os turnos já
-          observada no estado. A incerteza foi medida refazendo a apuração do 1º turno de 2026 na ordem real em que os municípios foram
-          totalizados, com o 2º turno de 2022 como base: quanto mais votos faltam, maior o erro possível. Não é previsão das pesquisas; é
-          o que o resultado parcial e o padrão do 1º turno indicam agora.
-        </p>
-      </details>
     </div>
   );
 }
