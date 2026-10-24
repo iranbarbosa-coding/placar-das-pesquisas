@@ -171,9 +171,16 @@ function Andamento2T({ d }: { d: Apuracao2T }) {
   const n = d.nacional;
   const aApurar = n.secoes < n.secoesTotal ? n.votosAApurar : 0;
   const votosPct = n.comparecimento + aApurar > 0 ? (100 * n.comparecimento) / (n.comparecimento + aApurar) : 0;
+  // Comparecimento = quem votou ÷ eleitorado das seções já totalizadas.
+  const comp = n.comparecimento + n.abstencao;
   const caixas: [string, string, string][] = [
     ["Votos apurados", int(n.comparecimento), n.secoes === 0 ? "—" : `≈ ${pct(votosPct, 1)}% dos votos`],
     ["A apurar", n.secoes === 0 ? "—" : `≈ ${int(aApurar)}`, n.secoes === 0 ? "estimado após as primeiras seções" : `≈ ${pct(100 - votosPct, 1)}% dos votos`],
+    [
+      "Comparecimento",
+      n.secoes === 0 ? "—" : `${pct(comp ? (100 * n.comparecimento) / comp : 0)}%`,
+      n.secoes === 0 ? "nas seções apuradas" : `abstenção ${pct(comp ? (100 * n.abstencao) / comp : 0)}% · nas seções apuradas`,
+    ],
     ["Seções apuradas", int(n.secoes), `de ${int(n.secoesTotal)}`],
     ["Brancos e nulos", int(n.brancos + n.nulos), `${int(n.brancos)} brancos · ${int(n.nulos)} nulos`],
   ];
@@ -188,9 +195,10 @@ function Andamento2T({ d }: { d: Apuracao2T }) {
         </span>
       </div>
       <Barra valor={n.pct} altura={10} />
-      <div className="tabular mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {caixas.map(([k, v, sub]) => (
-          <div key={k} className="min-w-0 rounded p-2" style={{ background: "var(--surface-2)" }}>
+      <div className="tabular mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+        {caixas.map(([k, v, sub], i) => (
+          // 5 caixas em 2 colunas: a última ocupa a linha inteira no celular.
+          <div key={k} className={`min-w-0 rounded p-2 ${i === caixas.length - 1 ? "col-span-2 sm:col-span-1" : ""}`} style={{ background: "var(--surface-2)" }}>
             <div className="text-[11px] font-semibold uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>{k}</div>
             <div className="truncate text-lg font-extrabold" style={{ color: "var(--text-primary)" }}>{v}</div>
             <div className="text-[11px]" style={{ color: "var(--text-secondary)" }}>{sub}</div>
@@ -198,7 +206,7 @@ function Andamento2T({ d }: { d: Apuracao2T }) {
         ))}
       </div>
       <p className="mt-2 text-[11px]" style={{ color: "var(--text-muted)" }}>
-        Percentual apurado = seções totalizadas pelo TSE. Votos apurados = eleitores que votaram nas seções já totalizadas. A apurar: estimativa
+        Percentual apurado = seções totalizadas pelo TSE. Votos apurados = eleitores que votaram nas seções já totalizadas; comparecimento = esses votantes ÷ eleitorado dessas seções. A apurar: estimativa
         (eleitores das seções restantes × comparecimento já apurado em cada UF) — o TSE não publica esse número.
       </p>
     </div>

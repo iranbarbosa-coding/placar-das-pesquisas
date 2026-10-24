@@ -181,6 +181,7 @@ async function testar(BASE, TSE, SHOTS) {
     const t = await p.textContent("body");
     assert.match(t, /Votos apurados/);
     assert.match(t, /A apurar/);
+    assert.match(t, /Comparecimento79,00%/);
     assert.match(t, /à frente por/);
     // Foto que não carrega (aqui, todas) nunca aparece quebrada: some e ficam as iniciais.
     const quebradas = await p.evaluate(() =>
