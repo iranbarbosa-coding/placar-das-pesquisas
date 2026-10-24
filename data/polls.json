@@ -1,24 +1,90 @@
 {
- "generated_at": "2026-10-24T18:05:45.856Z",
+ "generated_at": "2026-10-24T21:35:24.727Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-24T18:05:45.856Z"
+   "last_ok": "2026-10-24T21:35:24.727Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-24T18:05:45.856Z"
+   "last_ok": "2026-10-24T21:35:24.727Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-24T18:05:45.856Z"
+   "last_ok": "2026-10-24T21:35:24.727Z"
   }
  ],
  "polls": [
+  {
+   "id": "9265035ce5de",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Nexus",
+   "contractor": null,
+   "fieldwork_start": "2026-10-23",
+   "fieldwork_end": "2026-10-24",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 47
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e4b460795dc6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Palver",
+   "contractor": null,
+   "fieldwork_start": "2026-10-22",
+   "fieldwork_end": "2026-10-24",
+   "published_date": null,
+   "sample_size": 5000,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 49
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 50
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "0e63a198562e",
    "source": null,
@@ -82,6 +148,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9031c4af65fa",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "Colectta",
+   "contractor": null,
+   "fieldwork_start": "2026-10-23",
+   "fieldwork_end": "2026-10-23",
+   "published_date": null,
+   "sample_size": 3000,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 46.5
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -152,6 +251,39 @@
    "tse_registration": null
   },
   {
+   "id": "c5f2e3f0e9c6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-10-18",
+   "fieldwork_end": "2026-10-23",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 38.5
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 55.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "5868de53e700",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
@@ -181,6 +313,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5b42132728d3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RN",
+   "round": 2,
+   "scenario": "2º turno: Allyson e Cadu de Lula",
+   "pollster": "Item",
+   "contractor": null,
+   "fieldwork_start": "2026-10-19",
+   "fieldwork_end": "2026-10-22",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Allyson",
+     "party": "União Brasil",
+     "pct": 51.2
+    },
+    {
+     "candidate": "Cadu de Lula",
+     "party": "PT",
+     "pct": 45.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -7160,7 +7325,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7213,7 +7378,7 @@
    "scenario": "2º turno: Marcos Rogério vs Adailton Fúria",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7334,7 +7499,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7775,7 +7940,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Sergipe",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7818,7 +7983,7 @@
    "scenario": "2º turno: Fábio Mitidieri vs Valmir de Francisquinho",
    "pollster": "Quaest",
    "contractor": "TV Sergipe",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7949,7 +8114,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Sergipe",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -9744,6 +9909,54 @@
    "tse_registration": "SP-06906/2026"
   },
   {
+   "id": "06b3c5bbada5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1232,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 51.3
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 19.1
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 10.1
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 16.3
+    },
+    {
+     "candidate": "Samuel Costa",
+     "party": "PSB",
+     "pct": 0.6
+    }
+   ],
+   "others_pct": 1.4,
+   "undecided_pct": 1.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "0971b326d646",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Roraima",
@@ -10657,6 +10870,54 @@
    "tse_registration": null
   },
   {
+   "id": "7fd748bfff90",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Verita",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Fernando Máximo",
+     "party": "PL",
+     "pct": 54.2
+    },
+    {
+     "candidate": "Bruno Scheid",
+     "party": "PL",
+     "pct": 53.1
+    },
+    {
+     "candidate": "Sílvia Cristina",
+     "party": "PP",
+     "pct": 26.8
+    },
+    {
+     "candidate": "Mariana Carvalho",
+     "party": "União Brasil",
+     "pct": 11.4
+    },
+    {
+     "candidate": "Acir Gurgacz",
+     "party": "PDT",
+     "pct": 22.5
+    }
+   ],
+   "others_pct": 11,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "80f71fcb5e03",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -10835,6 +11096,92 @@
    ],
    "others_pct": null,
    "undecided_pct": 9.11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "964664f121a3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Verita",
+   "contractor": null,
+   "fieldwork_start": "2026-09-28",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 44.5
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 18.4
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 13.9
+    }
+   ],
+   "others_pct": 12.8,
+   "undecided_pct": 23.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a1d26f619fa9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1232,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Fernando Máximo",
+     "party": "PL",
+     "pct": 26.4
+    },
+    {
+     "candidate": "Bruno Scheid",
+     "party": "PL",
+     "pct": 25.8
+    },
+    {
+     "candidate": "Sílvia Cristina",
+     "party": "PP",
+     "pct": 14.8
+    },
+    {
+     "candidate": "Mariana Carvalho",
+     "party": "União Brasil",
+     "pct": 11.3
+    },
+    {
+     "candidate": "Acir Gurgacz",
+     "party": "PDT",
+     "pct": 5.1
+    }
+   ],
+   "others_pct": 14.4,
+   "undecided_pct": 2.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -11363,6 +11710,39 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "BR-04756/2026"
+  },
+  {
+   "id": "f9e57a5f67a8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Adaílton Fúria",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1232,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 57.3
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 33.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 9.3,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-14323-1-0-37e7270649ef",
@@ -17771,6 +18151,54 @@
    "tse_registration": null
   },
   {
+   "id": "bacb49c68b05",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "senador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Phoenix",
+   "contractor": null,
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 1301,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Dr. Fernando Máximo",
+     "party": "PL",
+     "pct": 17.5
+    },
+    {
+     "candidate": "Bruno Scheid",
+     "party": "PL",
+     "pct": 7.4
+    },
+    {
+     "candidate": "Sílvia Cristina",
+     "party": "PP",
+     "pct": 19.5
+    },
+    {
+     "candidate": "Mariana Carvalho",
+     "party": "União Brasil",
+     "pct": 20.7
+    },
+    {
+     "candidate": "Acir Gurgacz",
+     "party": "PDT",
+     "pct": 24.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "bd215966ebab",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
@@ -18097,6 +18525,54 @@
    ],
    "others_pct": 2.8,
    "undecided_pct": 4.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d94d42777e0a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Phoenix",
+   "contractor": null,
+   "fieldwork_start": "2026-09-26",
+   "fieldwork_end": "2026-09-30",
+   "published_date": null,
+   "sample_size": 1301,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 28.13
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 17.52
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 8.07
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 20.68
+    },
+    {
+     "candidate": "Samuel Costa",
+     "party": "PSB",
+     "pct": 6.46
+    }
+   ],
+   "others_pct": 5.23,
+   "undecided_pct": 13.91,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -28937,8 +29413,8 @@
      "pct": 15.1
     }
    ],
-   "others_pct": 4,
-   "undecided_pct": 22.8,
+   "others_pct": 22.8,
+   "undecided_pct": 33.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -35951,39 +36427,6 @@
    "tse_registration": "BR-00304/2026"
   },
   {
-   "id": "59f39891b6d7",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 48
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 41
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5f446749db71",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
@@ -36736,6 +37179,39 @@
    "tse_registration": "BR-04202/2026"
   },
   {
+   "id": "a1693f5887ce",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Valmir de",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 48
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "a2f334f1eee1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -37362,6 +37838,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 12.13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "db641ba31185",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Ricardo Marques",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 58
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 21
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -59500,39 +60009,6 @@
    "tse_registration": "BR-03022/2026"
   },
   {
-   "id": "9f704baa249b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-10",
-   "published_date": null,
-   "sample_size": 1300,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 45.84
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 31.54
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.62,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b0da930bfaa0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -59775,6 +60251,39 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c57f08f55d6d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Ricardo Marques",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-10",
+   "published_date": null,
+   "sample_size": 1300,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 53.44
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 12.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33.66,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -60024,39 +60533,6 @@
    "tse_registration": "PA-09626/2026"
   },
   {
-   "id": "da29002ccbec",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Ricardo Marques",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-10",
-   "published_date": null,
-   "sample_size": 1300,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 53.44
-    },
-    {
-     "candidate": "Ricardo Marques",
-     "party": "PL",
-     "pct": 12.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 33.66,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "daaacea3a5d9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -60169,6 +60645,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 13.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f03f86795c8f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Valmir de",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-10",
+   "published_date": null,
+   "sample_size": 1300,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 45.84
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 31.54
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.62,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -61607,6 +62116,39 @@
    "tse_registration": null
   },
   {
+   "id": "07df1e0db6aa",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Valmir de",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 1260,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 47.6
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 40.5
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "0f61cbda7522",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -61683,14 +62225,14 @@
    "tse_registration": null
   },
   {
-   "id": "32a39a61fd29",
+   "id": "3d051abee370",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
    "integra_url": null,
    "race": "governador",
    "state": "SE",
    "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
+   "scenario": "2º turno: Valmir de vs Ricardo Marques",
    "pollster": "AtlasIntel",
    "contractor": null,
    "fieldwork_start": "2026-09-04",
@@ -61699,52 +62241,19 @@
    "sample_size": 1260,
    "margin_of_error": 3,
    "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 47.6
-    },
     {
      "candidate": "Valmir de Francisquinho",
      "party": "Republicanos",
-     "pct": 40.5
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "3e3a1a63ad4c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Ricardo Marques",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-04",
-   "fieldwork_end": "2026-09-09",
-   "published_date": null,
-   "sample_size": 1260,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 49.2
+     "pct": 44.9
     },
     {
      "candidate": "Ricardo Marques",
      "party": "PL",
-     "pct": 29.8
+     "pct": 26.8
     }
    ],
    "others_pct": null,
-   "undecided_pct": 21,
+   "undecided_pct": 28.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -61859,39 +62368,6 @@
    ],
    "others_pct": 1.64,
    "undecided_pct": 16.67,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "502d85dad7bb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Valmir de Francisquinho e Ricardo Marques",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-04",
-   "fieldwork_end": "2026-09-09",
-   "published_date": null,
-   "sample_size": 1260,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 44.9
-    },
-    {
-     "candidate": "Ricardo Marques",
-     "party": "PL",
-     "pct": 26.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 28.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -63175,6 +63651,39 @@
    ],
    "others_pct": 3.4,
    "undecided_pct": 14.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fcc94629e778",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Ricardo Marques",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-04",
+   "fieldwork_end": "2026-09-09",
+   "published_date": null,
+   "sample_size": 1260,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 49.2
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 29.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -73296,72 +73805,6 @@
    "tse_registration": null
   },
   {
-   "id": "422d19287edb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-09-01",
-   "fieldwork_end": "2026-09-03",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 50.38
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 31.39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18.23,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "71218a107ae2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "Real Time Big Data",
-   "contractor": null,
-   "fieldwork_start": "2026-08-31",
-   "fieldwork_end": "2026-09-03",
-   "published_date": null,
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 47
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 43
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "985001affe04",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -73638,6 +74081,72 @@
    ],
    "others_pct": 1.93,
    "undecided_pct": 22.13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f59f37d92199",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Real Time Big Data",
+   "contractor": null,
+   "fieldwork_start": "2026-08-31",
+   "fieldwork_end": "2026-09-03",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 47
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fa38a516b9d6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-09-01",
+   "fieldwork_end": "2026-09-03",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 50.38
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 31.39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18.23,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -96355,40 +96864,6 @@
    "tse_registration": null
   },
   {
-   "id": "4635213f0f87",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-21",
-   "published_date": null,
-   "sample_size": 1314,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 43.45
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 32.16
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 11.19,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
-  },
-  {
    "id": "4839653c9d49",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -96662,6 +97137,40 @@
    "tse_registration": null
   },
   {
+   "id": "b40eb6134a43",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Valmir de",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1314,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 43.45
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 32.16
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.19,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
+  },
+  {
    "id": "ba90c480b677",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -96708,40 +97217,6 @@
    "undecided_pct": 52.2,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "bd954a89240d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Ricardo Marques",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-21",
-   "published_date": null,
-   "sample_size": 1314,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 47.54
-    },
-    {
-     "candidate": "Ricardo Marques",
-     "party": "PL",
-     "pct": 14.65
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
   },
   {
    "id": "d6cac6182463",
@@ -96818,6 +97293,40 @@
    "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "e5e5b385b47f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Ricardo Marques",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1314,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 47.54
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 14.65
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
   },
   {
    "id": "eaf7534d1533",
@@ -100222,39 +100731,6 @@
    "tse_registration": null
   },
   {
-   "id": "703791dbbb56",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "Verita",
-   "contractor": null,
-   "fieldwork_start": "2026-08-13",
-   "fieldwork_end": "2026-08-17",
-   "published_date": null,
-   "sample_size": 1220,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 56.3
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 43.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b11b1d80bda9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -100442,6 +100918,39 @@
     }
    ],
    "others_pct": 23,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f3747675c08f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Verita",
+   "contractor": null,
+   "fieldwork_start": "2026-08-13",
+   "fieldwork_end": "2026-08-17",
+   "published_date": null,
+   "sample_size": 1220,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 56.3
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 43.7
+    }
+   ],
+   "others_pct": null,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -102778,6 +103287,39 @@
    "tse_registration": null
   },
   {
+   "id": "3565c14a53df",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-08-10",
+   "fieldwork_end": "2026-08-12",
+   "published_date": null,
+   "sample_size": 2400,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 43.18
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 32.04
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.78,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "391ef6e260fe",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poderdata/lula-tem-46-contra-45-de-flavio-no-2o-turno-diz-poderdata-aya/",
@@ -102934,39 +103476,6 @@
    "undecided_pct": 31.2,
    "blank_null_pct": null,
    "tse_registration": "MS-09590/2026"
-  },
-  {
-   "id": "5896e2208152",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-08-10",
-   "fieldwork_end": "2026-08-12",
-   "published_date": null,
-   "sample_size": 2400,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 43.18
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 32.04
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.78,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "696a87130119",
@@ -133625,39 +134134,6 @@
    "tse_registration": "BR-06481/2026"
   },
   {
-   "id": "139425bc02ea",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Ricardo Marques",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-06-30",
-   "fieldwork_end": "2026-07-02",
-   "published_date": null,
-   "sample_size": 1116,
-   "margin_of_error": 2.9,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 50.16
-    },
-    {
-     "candidate": "Ricardo Marques",
-     "party": "PL",
-     "pct": 16.95
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.89,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "242eb608fd48",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -133701,6 +134177,39 @@
    "tse_registration": null
   },
   {
+   "id": "56dac2b200c6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Valmir de",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-06-30",
+   "fieldwork_end": "2026-07-02",
+   "published_date": null,
+   "sample_size": 1116,
+   "margin_of_error": 2.9,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 44.65
+    },
+    {
+     "candidate": "Valmir de Francisquinho",
+     "party": "Republicanos",
+     "pct": 33.78
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21.57,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "603e0724dae9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -133730,39 +134239,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 8.5,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "6928ff93c7a7",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
-   "integra_url": null,
-   "race": "governador",
-   "state": "SE",
-   "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
-   "pollster": "IFP",
-   "contractor": null,
-   "fieldwork_start": "2026-06-30",
-   "fieldwork_end": "2026-07-02",
-   "published_date": null,
-   "sample_size": 1116,
-   "margin_of_error": 2.9,
-   "results": [
-    {
-     "candidate": "Fábio",
-     "party": "PSD",
-     "pct": 44.65
-    },
-    {
-     "candidate": "Valmir de Francisquinho",
-     "party": "Republicanos",
-     "pct": 33.78
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 21.57,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -134015,6 +134491,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e63fa03e32d8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
+   "integra_url": null,
+   "race": "governador",
+   "state": "SE",
+   "round": 2,
+   "scenario": "2º turno: Fábio Mitidieri vs Ricardo Marques",
+   "pollster": "IFP",
+   "contractor": null,
+   "fieldwork_start": "2026-06-30",
+   "fieldwork_end": "2026-07-02",
+   "published_date": null,
+   "sample_size": 1116,
+   "margin_of_error": 2.9,
+   "results": [
+    {
+     "candidate": "Fábio",
+     "party": "PSD",
+     "pct": 50.16
+    },
+    {
+     "candidate": "Ricardo Marques",
+     "party": "PL",
+     "pct": 16.95
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.89,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -152423,14 +152932,14 @@
    "tse_registration": null
   },
   {
-   "id": "3328c7445a32",
+   "id": "0fc09d79ed34",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
    "integra_url": null,
    "race": "governador",
    "state": "SE",
    "round": 2,
-   "scenario": "2º turno: Fábio e Valmir de Franscisquinho",
+   "scenario": "2º turno: Hipóteses de segundo turno",
    "pollster": "Real Time Big Data",
    "contractor": null,
    "fieldwork_start": "2026-05-23",
