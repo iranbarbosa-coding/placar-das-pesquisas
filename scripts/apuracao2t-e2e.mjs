@@ -17,44 +17,61 @@ import http from "node:http";
 import path from "node:path";
 
 const UFS = ["AC","AL","AM","AP","BA","CE","DF","ES","GO","MA","MG","MS","MT","PA","PB","PE","PI","PR","RJ","RN","RO","RR","RS","SC","SE","SP","TO"];
-// Eleitorado sintético (ordem de grandeza só) e % Flávio sintético por UF.
-const ELEIT = Object.fromEntries(UFS.map((uf, i) => [uf, 600_000 + ((i * 7919) % 27) * 1_300_000]));
-const FLAVIO = Object.fromEntries(UFS.map((uf, i) => [uf, 0.3 + ((i * 37) % 41) / 100]));
-// Andamento sintético por etapa: fração de seções totalizadas por UF.
+// Municípios REAIS (códigos, eleitorado, comparecimento e voto do 1º turno) de
+// data/apuracao/t1-municipios.json; o 2º turno sintético é o 1º turno com uma
+// mudança UNIFORME de VIRADA p.p. para Flávio. Nesse mundo a projeção da chance
+// tem de acertar o final exato — é o teste da conta.
+const VIRADA = -0.015;
+const T1 = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data/apuracao/t1-municipios.json"), "utf8")).mun;
+const MUN = Object.entries(T1).map(([k, [l1, f1, c1, te1]], i) => ({
+  k, uf: k.slice(0, 2), cd: k.slice(2), i, te: te1,
+  comp: te1 ? c1 / te1 : 0, dois: c1 ? (l1 + f1) / c1 : 0, f: l1 + f1 ? f1 / (l1 + f1) + VIRADA : 0,
+}));
+// Andamento sintético por etapa: fração das seções totalizadas por município.
 const AVANCO = {
   zero: () => 0,
-  meio: (i) => (i % 5 === 0 ? 0 : [0.12, 0.47, 0.83, 1][i % 4]),
+  meio: (m) => (m.i % 5 === 0 ? 0 : [0.12, 0.47, 0.83, 1][m.i % 4]),
   final: () => 1,
 };
 
 const br = (x) => String(x).replace(".", ",");
-function doc(ufs, frac) {
-  let ts = 0, st = 0, te = 0, est = 0, c = 0, l = 0, f = 0;
-  for (const uf of ufs) {
-    const i = UFS.indexOf(uf);
-    const p = frac(i);
-    const secoes = Math.round(ELEIT[uf] / 300);
-    const s = Math.round(secoes * p);
-    const elap = Math.round((ELEIT[uf] * s) / secoes);
-    const comp = Math.round(elap * 0.79);
-    const validos = Math.round(comp * 0.94);
-    const fv = Math.round(validos * FLAVIO[uf]);
-    ts += secoes; st += s; te += ELEIT[uf]; est += elap; c += comp; f += fv; l += validos - fv;
+function conta(m, frac) {
+  const ts = Math.max(1, Math.ceil(m.te / 300));
+  const st = Math.round(ts * frac(m));
+  const est = Math.round((m.te * st) / ts);
+  const c = Math.round(est * m.comp);
+  const vv = Math.round(c * m.dois);
+  const f = Math.round(vv * m.f);
+  return { ts, st, te: m.te, est, c, vv, f, l: vv - f };
+}
+function soma(lista, frac) {
+  const t = { ts: 0, st: 0, te: 0, est: 0, c: 0, vv: 0, f: 0, l: 0 };
+  for (const m of lista) {
+    const x = conta(m, frac);
+    for (const k in t) t[k] += x[k];
   }
-  const vv = l + f;
-  const pv = (x) => br(vv ? ((100 * x) / vv).toFixed(9) : "0");
+  return t;
+}
+const se = (t) => ({
+  s: { ts: String(t.ts), st: String(t.st), pst: br(((100 * t.st) / t.ts).toFixed(2)), pstn: br(((100 * t.st) / t.ts).toFixed(9)) },
+  e: { te: String(t.te), est: String(t.est), c: String(t.c), a: String(t.est - t.c) },
+});
+function doc(lista, frac) {
+  const t = soma(lista, frac);
+  const pv = (x) => br(t.vv ? ((100 * x) / t.vv).toFixed(9) : "0");
+  const brancos = Math.round((t.c - t.vv) / 3);
   return {
     dg: "25/10/2026", hg: "19:42:10", dt: "25/10/2026", ht: "19:42:10",
-    md: frac(0) === 1 ? "s" : "n", tf: frac(0) === 1 && st === ts ? "s" : "n",
-    s: { ts: String(ts), st: String(st), pst: br(((100 * st) / ts).toFixed(2)), pstn: br(((100 * st) / ts).toFixed(9)) },
-    e: { te: String(te), est: String(est), c: String(c), a: String(est - c) },
-    v: { vv: String(vv), vb: String(Math.round(c * 0.02)), tvn: String(c - vv - Math.round(c * 0.02)) },
+    md: t.st === t.ts ? "s" : "n", tf: t.st === t.ts ? "s" : "n",
+    ...se(t),
+    v: { vv: String(t.vv), vb: String(brancos), tvn: String(t.c - t.vv - brancos) },
     carg: [{ cd: "1", nmn: "Presidente", agr: [
-      { com: "PT", par: [{ sg: "PT", cand: [{ n: "13", nm: "LUIZ INÁCIO LULA DA SILVA", nmu: "LULA", sqcand: "280002542548", vap: String(l), pvapn: pv(l), e: "n", st: "" }] }] },
-      { com: "PL", par: [{ sg: "PL", cand: [{ n: "22", nm: "FLÁVIO NANTES BOLSONARO", nmu: "FLÁVIO BOLSONARO", sqcand: "280002551544", vap: String(f), pvapn: pv(f), e: "n", st: "" }] }] },
+      { com: "PT", par: [{ sg: "PT", cand: [{ n: "13", nm: "LUIZ INÁCIO LULA DA SILVA", nmu: "LULA", sqcand: "280002542548", vap: String(t.l), pvapn: pv(t.l), e: "n", st: "" }] }] },
+      { com: "PL", par: [{ sg: "PL", cand: [{ n: "22", nm: "FLÁVIO NANTES BOLSONARO", nmu: "FLÁVIO BOLSONARO", sqcand: "280002551544", vap: String(t.f), pvapn: pv(t.f), e: "n", st: "" }] }] },
     ] }],
   };
 }
+const daUf = (uf) => MUN.filter((m) => m.uf === uf);
 
 function servir(porta) {
   let etapa = "antes";
@@ -79,9 +96,11 @@ function servir(porta) {
       const frac = AVANCO[etapa];
       let k;
       if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/br\/br-e006258-ab\.json$/)))
-        return json({ abr: [...UFS, "ZZ"].map((uf) => ({ cdabr: uf.toLowerCase(), ...(uf === "ZZ" ? doc(["DF"], () => frac(1)) : doc([uf], frac)) })) });
+        return json({ abr: [...UFS.map((x) => x.toLowerCase()), "zz"].map((uf) => ({ tpabr: "uf", cdabr: uf, ...se(soma(daUf(uf), frac)) })) });
+      if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/(\w\w)\/\1-e006258-ab\.json$/)))
+        return json({ abr: daUf(k[1]).map((m) => ({ tpabr: "mun", cdabr: m.cd, ...se(soma([m], frac)) })) });
       if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/(\w\w)\/\1-c0001-e006258-u\.json$/)))
-        return json(k[1] === "br" ? doc(UFS, frac) : doc([k[1].toUpperCase()], frac));
+        return json(doc(k[1] === "br" ? MUN : daUf(k[1]), frac));
       res.statusCode = 404;
       res.end();
     })
@@ -146,6 +165,7 @@ async function testar(BASE, TSE, SHOTS) {
     assert.match(t, /Flávio Bolsonaro/);
     assert.deepEqual(await preenchimento(p, "SP"), BRANCO);
     assert.equal(await p.locator('[data-testid="barras-estados"] li[data-uf]').count(), 27);
+    assert.equal(await p.locator('[data-testid="chance-vitoria"]').count(), 0);
     if (SHOTS) await p.screenshot({ path: path.join(SHOTS, "2t-antes.png"), fullPage: true });
     await ctx.close();
   });
@@ -162,6 +182,18 @@ async function testar(BASE, TSE, SHOTS) {
     assert.ok(d.nacional.pct > 0 && d.nacional.pct < 100);
     assert.ok(d.nacional.votosAApurar > 0);
     assert.equal(d.lula.votos + d.flavio.votos, d.nacional.validos);
+  });
+  let projecaoMeio = null;
+  await check("meio: chance de vitória coerente", async () => {
+    const d = await api();
+    const c = d.chance;
+    assert.ok(c, "chance ausente");
+    assert.ok(c.cobertura >= 99.5, `cobertura ${c.cobertura}`);
+    assert.ok(Math.abs(c.flavio + c.lula - 1) < 1e-9);
+    assert.ok(c.falta > 0 && c.falta < 100 && c.desvio > 0);
+    // Lado da chance = lado da projeção.
+    assert.equal(c.flavio > 0.5, c.projecaoFlavio > 50);
+    projecaoMeio = c.projecaoFlavio;
   });
   await check("meio: cor do mapa = líder, mais forte com mais apurado", async () => {
     const d = await api();
@@ -181,8 +213,10 @@ async function testar(BASE, TSE, SHOTS) {
     const t = await p.textContent("body");
     assert.match(t, /Votos apurados/);
     assert.match(t, /A apurar/);
-    assert.match(t, /Comparecimento79,00%/);
+    assert.match(t, /Comparecimento\d+,\d\d%/);
     assert.match(t, /à frente por/);
+    assert.match(t, /Chance de vitória/i);
+    assert.match(t, /resultado final fica perto de/);
     // As duas fotos oficiais carregam e aparecem.
     const fotos = await p.evaluate(() =>
       [...document.querySelectorAll('img[alt^="Foto de"]')].map((i) => i.naturalWidth > 0 && getComputedStyle(i).opacity === "1"),
@@ -202,6 +236,12 @@ async function testar(BASE, TSE, SHOTS) {
     });
 
   await etapa("final");
+  await check("final: com virada uniforme, a projeção do meio acerta o final", async () => {
+    const d = await api();
+    assert.equal(d.chance, null);
+    assert.ok(projecaoMeio != null);
+    assert.ok(Math.abs(projecaoMeio - d.flavio.pct) < 0.05, `projeção ${projecaoMeio} × final ${d.flavio.pct}`);
+  });
   await check("final: 100% apurado, cores cheias", async () => {
     const d = await api();
     assert.equal(Math.round(d.nacional.pct), 100);

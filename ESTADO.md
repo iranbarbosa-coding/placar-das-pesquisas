@@ -71,13 +71,10 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 | 18/10 | **Tendência da média não é projetada.** Testado a pedido: média das 10 últimas + tendência estendida até a eleição. No backtest do 1º turno (mesmos 205 pares), estender a tendência PIOROU a previsão em todas as variantes (erro médio 5,55 → 6,17–6,70 p.p.; modelo estatístico 5,09). A chance do destaque vem do modelo estatístico (`headline_method: "modelo"`); a média das 10 últimas e a tendência (p.p./semana) aparecem ao lado como informação. | Iran |
 | 19/10 | Merge do PR #141 (Previsão Estatística) em `main`, com o check `testes` verde e fora de rodada do cron. | Iran |
 | 24/10 | **Página da apuração do 2º turno.** Um card do placar com Lula × Flávio (fotos oficiais do TSE, % dos válidos, votos, barra bipolar, diferença) e, embaixo da barra, a apuração do Brasil: % apurado (seções totalizadas), votos apurados, **≈ a apurar** (estimativa: eleitorado das seções restantes × comparecimento já apurado em cada UF; o TSE não publica), comparecimento/abstenção, seções, brancos e nulos — o card "Votos apurados" separado saiu por redundante. **Mapa**: a UF parte do BRANCO e ganha a cor de quem lidera ali (azul Flávio, vermelho Lula) conforme o % apurado vai a 100 (piso de 15% de intensidade ao chegar a primeira seção, para o líder ser legível). Barras de % apurado por UF na cor do líder. Arquivo do TSE sem exatamente os candidatos 13 e 22 → página zerada com "aguardando o TSE", nunca número suspeito. Merge do PR #142 fora de rodada do cron. | Iran |
+| 24/10 | **Chance de vitória AO VIVO na apuração do 2º turno, rotulada *experimental*** (pedido do criador: só vale se aparecer DURANTE a apuração; a "linha de chegada" testada antes foi descartada por ele). No card do placar, em MEDIDOR com ponteiro (opção B escolhida pelo criador entre quatro; selo "Experimental" tracejado, da opção A): chance de Lula e de Flávio terminarem à frente e o resultado final projetado (± 90%), em texto comum — forma diferente da barra dos votos para não confundir projeção com resultado. Projeção por município (`src/lib/chance-vitoria.ts`): voto do 1º turno em cada um dos 5.571 municípios + 186 do exterior (`data/apuracao/t1-municipios.json`, `scripts/tse-municipios-t1.mjs`, conferido voto a voto contra cada UF) + variação entre os turnos já observada na UF (nacional onde a UF não tem nada contado), aplicada aos votos que faltam (andamento por município, `<uf>-e006258-ab.json`). Incerteza MEDIDA: desvio = κ × fração que falta, com κ = 3,27 tirado da apuração do 1º turno de 2026 refeita na ordem real de totalização dos municípios contra o 2º turno de 2022 (`scripts/apuracao/backtest_chance.py` → `data/apuracao/calibracao-chance.json`, `chance-config.json`): é a MAIOR razão erro ÷ fração que falta do caminho nacional (RMS nacional 1,57; UFs 1,89) — escolha conservadora, uma só apuração para calibrar. Não sai antes da 1ª seção, na totalização final, se faltar arquivo de alguma UF ou se a cobertura do eleitorado < 99,5%. Sequência do globalelectionsimulator não usada (fonte não verificável daqui). | Iran |
 
 ## Em aberto
 
-- **Apuração do 2º turno: endereços do TSE não conferidos ao vivo.** Os arquivos da eleição 6258 seguem o padrão do
-  1º turno (`.../ele2026/6258/dados/<uf>/<uf>-c0001-e006258-u.json` e `br-e006258-ab.json`), mas o host do TSE não
-  é alcançável do ambiente de desenvolvimento. Em 25/10, a partir das 17h: se a página seguir em "aguardando o TSE"
-  com a apuração já andando no site oficial, o endereço é outro — corrigir em `src/lib/apuracao2t.ts`.
 - **Previsão × resultado do 2º turno (depois de 25/10)**: importar o resultado oficial do 2º turno
   (`scripts/tse-resultados.mjs` hoje lê o 1º turno; `data/resultados-oficiais.json` tem `turno: 1`) para pontuar
   as previsões publicadas, que estão gravadas e imutáveis em `data/forecast/snapshots/`. É a primeira validação
@@ -99,6 +96,9 @@ técnico e cronológico) nem manual (isso é o `CONVENTIONS.md`).
 - Fundir ou não os institutos IFP / Instituto França / França.
 
 ## Encerrado
+
+- 24/10: endereços do 2º turno no TSE conferidos por sonda no GitHub Actions — `br-c0001-e006258-u.json`,
+  `br-e006258-ab.json`, `<uf>-c0001-e006258-u.json` e `<uf>-e006258-ab.json` (por município) existem, zerados.
 
 - 29/09: site "parado 13 dias" — era `presidente:BR` em quarentena, não a Vercel. Resolvido com #119/#120.
 - 03/10: três rodadas vermelhas por datas invertidas no levantamento Vox (#122, issue #121).

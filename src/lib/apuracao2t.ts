@@ -13,6 +13,7 @@
  * Livre de `node:fs` — os tipos podem ser importados pelo componente cliente.
  */
 import { andamento, getJson, num, REGIAO_DA_UF, REGIOES, somar, type Andamento, type Regiao } from "./apuracao";
+import type { AndamentoMun, ChanceVitoria, ContadosUf, T1Municipios } from "./chance-vitoria";
 
 export const ELEICAO_2T = 6258;
 // APURACAO_2T_TSE troca a origem só em teste local (scripts/apuracao2t-e2e.mjs
@@ -20,6 +21,8 @@ export const ELEICAO_2T = 6258;
 const TSE = `${process.env.APURACAO_2T_TSE ?? "https://resultados.tse.jus.br"}/oficial/ele2026/${ELEICAO_2T}`;
 const arq = (uf: string) => `${TSE}/dados/${uf}/${uf}-c0001-e00${ELEICAO_2T}-u.json`;
 const URL_ABR = `${TSE}/dados/br/br-e00${ELEICAO_2T}-ab.json`;
+/** Andamento por município de uma UF (zz = exterior). */
+const abUf = (uf: string) => `${TSE}/dados/${uf}/${uf}-e00${ELEICAO_2T}-ab.json`;
 
 export interface Voto2T {
   /** "13" (Lula) ou "22" (Flávio Bolsonaro). */
@@ -65,6 +68,9 @@ export interface Apuracao2T {
   estados: Estado2T[];
   regioes: (Andamento & { nome: Regiao })[];
   exterior: Andamento | null;
+  /** Chance de vitória ao vivo (src/lib/chance-vitoria.ts); null antes da 1ª
+   *  seção, na totalização final ou quando falta algum arquivo do TSE. */
+  chance: ChanceVitoria | null;
   lidoEm: string;
 }
 
@@ -147,6 +153,22 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
   }
 
   const ufs = Object.keys(REGIAO_DA_UF).sort();
+  // Andamento por município, para a chance de vitória. Se uma UF falhar, a conta
+  // não sai (melhor nada que uma chance calculada sem parte do país).
+  const municipios = (async () => {
+    const m = new Map<string, AndamentoMun>();
+    let completo = true;
+    await emLotes([...ufs.map((u) => u.toLowerCase()), "zz"], 9, async (uf) => {
+      try {
+        const d = await getJson(abUf(uf), fresco);
+        for (const a of d.abr ?? [])
+          if (a.tpabr === "mun") m.set(`${uf}${a.cdabr}`, { te: num(a.e?.te), est: num(a.e?.est), c: num(a.e?.c) });
+      } catch {
+        completo = false;
+      }
+    });
+    return completo ? m : null;
+  })();
   const estados = await emLotes(ufs, 9, async (uf): Promise<Estado2T> => {
     const base = andamentoUf.get(uf);
     try {
@@ -186,6 +208,16 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
 
   const v = br.v ?? {};
   const e = br.e ?? {};
+  let chance: ChanceVitoria | null = null;
+  if (num(br.s?.st) > 0 && br.tf !== "s" && estados.every((s) => !s.semVotos)) {
+    const { chanceDeVitoria } = await import("./chance-vitoria");
+    const { default: t1 } = await import("../../data/apuracao/t1-municipios.json");
+    const { kappa } = await import("../../data/apuracao/chance-config.json");
+    const mun = await municipios;
+    const porUf = new Map<string, ContadosUf>(estados.map((s) => [s.uf.toLowerCase(), { lula: s.lula, flavio: s.flavio, c: s.comparecimento }]));
+    if (mun)
+      chance = chanceDeVitoria(t1 as unknown as T1Municipios, mun, porUf, { lula: ok.lula.votos, flavio: ok.flavio.votos }, kappa);
+  }
   return {
     atualizadoEm: `${br.dt ?? br.dg} ${br.ht ?? br.hg}`,
     nacional: {
@@ -202,6 +234,7 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
     estados,
     regioes,
     exterior,
+    chance,
     lidoEm,
   };
 }
@@ -229,6 +262,7 @@ export function vazio2T(lidoEm: string): Apuracao2T {
     estados,
     regioes: (Object.keys(REGIOES) as Regiao[]).map((nome) => ({ nome, ...zero })),
     exterior: null,
+    chance: null,
     lidoEm,
   };
 }
