@@ -15,11 +15,11 @@ const TSE = "https://resultados.tse.jus.br/oficial/ele2026/6257/dados/br";
 const URL_PRES = `${TSE}/br-c0001-e006257-u.json`;
 const URL_ABR = `${TSE}/br-e006257-ab.json`;
 
-const UA = "Mozilla/5.0 (placardaspesquisas.com.br)";
+export const UA = "Mozilla/5.0 (placardaspesquisas.com.br)";
 
 /** Número do TSE vem como string, e os percentuais com VÍRGULA decimal
  *  ("47,862451432") — inclusive os campos "n", de precisão cheia. */
-const num = (s: unknown) => {
+export const num = (s: unknown) => {
   if (s == null || s === "") return 0;
   const n = Number(String(s).replace(",", "."));
   return Number.isFinite(n) ? n : 0;
@@ -92,7 +92,7 @@ export interface Apuracao {
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-function andamento(s: any, e: any): Andamento {
+export function andamento(s: any, e: any): Andamento {
   const secoes = num(s?.st);
   const secoesTotal = num(s?.ts);
   const eleitores = num(e?.te);
@@ -109,7 +109,7 @@ function andamento(s: any, e: any): Andamento {
   };
 }
 
-function somar(lista: Andamento[]): Andamento {
+export function somar(lista: Andamento[]): Andamento {
   const t = lista.reduce(
     (a, x) => ({
       secoes: a.secoes + x.secoes,
@@ -128,7 +128,7 @@ function somar(lista: Andamento[]): Andamento {
 /** `fresco`: fura o cache (rota da API, lida a cada 20s pela CDN). Sem ele, a
  *  leitura entra no cache de dados do Next por 30s — é o que a página usa para
  *  o primeiro desenho, sem virar uma ida ao TSE por visitante. */
-async function getJson(url: string, fresco: boolean): Promise<any> {
+export async function getJson(url: string, fresco: boolean): Promise<any> {
   const r = await fetch(
     fresco ? `${url}?t=${Date.now()}` : url,
     fresco
@@ -139,7 +139,7 @@ async function getJson(url: string, fresco: boolean): Promise<any> {
   return r.json();
 }
 
-const REGIAO_DA_UF: Record<string, Regiao> = Object.fromEntries(
+export const REGIAO_DA_UF: Record<string, Regiao> = Object.fromEntries(
   (Object.entries(REGIOES) as [Regiao, string[]][]).flatMap(([r, ufs]) => ufs.map((uf) => [uf, r])),
 );
 

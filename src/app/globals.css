@@ -182,6 +182,13 @@
   --pmap-blue-light: #b6cbf7;  /* pale brand blue (Flávio < 50) */
   --pmap-tie: #cbd5e1;         /* grey — technical tie (dado suficiente, margem < 2) */
   --pmap-sem: #1f2937;         /* preto/carvão — SEM informação (sem dado / fino demais para chamar) */
+
+  /* Mapa da apuração do 2º turno (/apuracao/segundo-turno, decisão do criador,
+     24/10/2026): a UF parte do BRANCO e ganha a cor de quem lidera ali (azul
+     Flávio, vermelho Lula) à medida que o % apurado vai a 100. Branco também no
+     escuro, como pedido; a borda cinza separa as UFs brancas do cartão claro. */
+  --apur-vazio: #ffffff;
+  --apur-borda: #94a3b8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -290,6 +297,8 @@
     --pmap-blue-light: #2b4576;  /* muted deep blue (Flávio < 50) */
     --pmap-tie: #2b3a55;         /* navy-grey — technical tie (dado suficiente, margem < 2) */
     --pmap-sem: #0b0d12;         /* quase-preto — SEM informação (borda clara ainda separa o estado) */
+    --apur-vazio: #ffffff;
+    --apur-borda: #142038;       /* = --surface-1 escuro: no cartão navy a UF branca já se destaca */
   }
 }
 
