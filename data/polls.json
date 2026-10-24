@@ -1,24 +1,90 @@
 {
- "generated_at": "2026-10-24T01:33:20.972Z",
+ "generated_at": "2026-10-24T14:28:50.536Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-24T01:33:20.972Z"
+   "last_ok": "2026-10-24T14:28:50.536Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-24T01:33:20.972Z"
+   "last_ok": "2026-10-24T14:28:50.536Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-24T01:33:20.972Z"
+   "last_ok": "2026-10-24T14:28:50.536Z"
   }
  ],
  "polls": [
+  {
+   "id": "0e63a198562e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
+   "pollster": "Direct Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-10-19",
+   "fieldwork_end": "2026-10-23",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 48.9
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 45.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5.5,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "314300556e5b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
+   "integra_url": null,
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Lula e Flávio Bolsonaro",
+   "pollster": "França",
+   "contractor": null,
+   "fieldwork_start": "2026-10-21",
+   "fieldwork_end": "2026-10-23",
+   "published_date": null,
+   "sample_size": 1537,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 43.1
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 45.6
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 11.3,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
   {
    "id": "bce413ecd256",
    "source": null,
@@ -49,6 +115,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 5.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5868de53e700",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
+   "integra_url": null,
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Professora Dorinha e Vicentinho Júnior",
+   "pollster": "Correio do Povo",
+   "contractor": null,
+   "fieldwork_start": "2026-10-17",
+   "fieldwork_end": "2026-10-22",
+   "published_date": null,
+   "sample_size": 1600,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 40
+    },
+    {
+     "candidate": "Vicentinho Júnior",
+     "party": "PSDB",
+     "pct": 58
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -162,7 +261,7 @@
    "scenario": "2º turno: Mailza Assis vs Alan Rick",
    "pollster": "Data Control",
    "contractor": "DataControl",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-18",
    "fieldwork_end": "2026-10-22",
    "published_date": "2026-10-22",
    "sample_size": 1049,
@@ -282,6 +381,39 @@
    "undecided_pct": 0.9,
    "blank_null_pct": 1.4,
    "tse_registration": "BR-03826/2026"
+  },
+  {
+   "id": "2c1c1af11cb4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+   "integra_url": null,
+   "race": "governador",
+   "state": "ES",
+   "round": 2,
+   "scenario": "2º turno: Lorenzo Pazolini e Ricardo Ferraço",
+   "pollster": "IPOPES",
+   "contractor": null,
+   "fieldwork_start": "2026-10-15",
+   "fieldwork_end": "2026-10-21",
+   "published_date": null,
+   "sample_size": 1288,
+   "margin_of_error": 2.73,
+   "results": [
+    {
+     "candidate": "Lorenzo Pazolini",
+     "party": "Republicanos",
+     "pct": 57.1
+    },
+    {
+     "candidate": "Ricardo Ferraço",
+     "party": "MDB",
+     "pct": 42.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "61945a80255f",
@@ -1152,7 +1284,7 @@
    "scenario": "2º turno: Allyson Bezerra vs Cadu de Lula",
    "pollster": "DataTrends",
    "contractor": "DataTrends",
-   "fieldwork_start": "2026-10-16",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-18",
    "published_date": "2026-10-18",
    "sample_size": 1200,
@@ -139232,39 +139364,6 @@
    "tse_registration": null
   },
   {
-   "id": "94d806842856",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/06/Tocantins-TO-053792026-Jun_26.pdf",
-   "race": "governador",
-   "state": "TO",
-   "round": 2,
-   "scenario": "2º turno: Professora Dorinha e Laurez Moreira",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-06-17",
-   "fieldwork_end": "2026-06-18",
-   "published_date": "2026-06-18",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Dorinha",
-     "party": "União Brasil",
-     "pct": 48
-    },
-    {
-     "candidate": "Laurez Moreira",
-     "party": "PSD",
-     "pct": 34
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "TO-05379/2026"
-  },
-  {
    "id": "c2b318c56e4c",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
@@ -139314,6 +139413,39 @@
    ],
    "others_pct": 18,
    "undecided_pct": 12,
+   "blank_null_pct": null,
+   "tse_registration": "TO-05379/2026"
+  },
+  {
+   "id": "cda065222a60",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/professora-dorinha-lidera-disputa-ao-governo-do-to-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/06/Tocantins-TO-053792026-Jun_26.pdf",
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de Segundo Turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-06-17",
+   "fieldwork_end": "2026-06-18",
+   "published_date": "2026-06-18",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 48
+    },
+    {
+     "candidate": "Laurez Moreira",
+     "party": "PSD",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": "TO-05379/2026"
   },
@@ -179565,6 +179697,39 @@
    "tse_registration": "BR-00664/2026"
   },
   {
+   "id": "7332f5ce0eee",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/2026/04/Tocantins-BR-00664-2026-Mar-26-1-3.pdf",
+   "integra_url": "https://static.poder360.com.br/2026/04/Tocantins-BR-00664-2026-Mar-26-1-3.pdf",
+   "race": "governador",
+   "state": "TO",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de Segundo Turno",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-03-23",
+   "fieldwork_end": "2026-03-24",
+   "published_date": "2026-03-24",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Professora Dorinha",
+     "party": "União Brasil",
+     "pct": 49
+    },
+    {
+     "candidate": "Laurez Moreira",
+     "party": "PSD",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": "BR-00664/2026"
+  },
+  {
    "id": "8f4d8dfe89b6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -180484,39 +180649,6 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "BR-03183/2026"
-  },
-  {
-   "id": "f9cc3349a675",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/2026/04/Tocantins-BR-00664-2026-Mar-26-1-3.pdf",
-   "integra_url": "https://static.poder360.com.br/2026/04/Tocantins-BR-00664-2026-Mar-26-1-3.pdf",
-   "race": "governador",
-   "state": "TO",
-   "round": 2,
-   "scenario": "2º turno: Professora Dorinha e Laurez Moreira",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-03-23",
-   "fieldwork_end": "2026-03-24",
-   "published_date": "2026-03-24",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Professora Dorinha",
-     "party": "União Brasil",
-     "pct": 49
-    },
-    {
-     "candidate": "Laurez Moreira",
-     "party": "PSD",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": "BR-00664/2026"
   },
   {
    "id": "p360-13347-1-0-6b4fb3096fde",
