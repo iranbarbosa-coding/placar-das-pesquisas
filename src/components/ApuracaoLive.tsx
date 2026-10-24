@@ -22,7 +22,7 @@ export const pct = (n: number, casas = 2) =>
   n.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
 
 /** "FLAVIO BOLSONARO" → "Flavio Bolsonaro" (para os demais candidatos). */
-function titulo(s: string) {
+export function titulo(s: string) {
   return s
     .toLowerCase()
     .split(" ")

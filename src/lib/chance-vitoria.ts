@@ -70,8 +70,10 @@ export function chanceDeVitoria(
   const V2 = nacional.lula + nacional.flavio;
   if (V2 <= 0) return null;
 
-  // Fatia de Flávio no 1º turno dos lugares já contados, por UF e no país
-  // (pesada pelo comparecimento já apurado em cada município).
+  // Fatia de Flávio no 1º turno dos lugares já contados, por UF e no país, pesada
+  // pelos votos nos dois esperados ali (comparecimento apurado × votos nos dois
+  // por eleitor no 1º turno) — no 1º turno de governador, com muitos candidatos,
+  // essa fração varia bastante entre municípios.
   const base = new Map<string, { peso: number; bF: number; te: number; est: number; c: number }>();
   let teTotal = 0;
   let teCasado = 0;
@@ -82,8 +84,9 @@ export function chanceDeVitoria(
     teCasado += m.te;
     const uf = k.slice(0, 2);
     const x = base.get(uf) ?? { peso: 0, bF: 0, te: 0, est: 0, c: 0 };
-    x.peso += m.c;
-    x.bF += m.c * (b[1] / (b[0] + b[1]));
+    const dois1 = b[2] > 0 ? (b[0] + b[1]) / b[2] : 0;
+    x.peso += m.c * dois1;
+    x.bF += m.c * dois1 * (b[1] / (b[0] + b[1]));
     x.te += m.te;
     x.est += m.est;
     x.c += m.c;
@@ -107,7 +110,7 @@ export function chanceDeVitoria(
   // Votos nos dois por comparecimento: nacional, dos arquivos das UFs.
   let doisUf = 0;
   for (const u of ufs.values()) doisUf += u.lula + u.flavio;
-  const tetaNac = cUfN > 0 ? doisUf / cUfN : 0;
+  const razaoNac = cUfN > 0 && cN > 0 ? doisUf / cUfN / (pesoN / cN) : 1;
 
   let F = nacional.flavio;
   let V = V2;
@@ -121,8 +124,11 @@ export function chanceDeVitoria(
     const dois = u ? u.lula + u.flavio : 0;
     const s = u && dois > 0 && x.peso > 0 ? u.flavio / dois - x.bF / x.peso : sNac;
     const comp = m.est > 0 ? m.c / m.est : x.est > 0 ? x.c / x.est : compNac;
-    const teta = u && u.c > 0 && dois > 0 ? dois / u.c : tetaNac;
-    const v = (m.te - m.est) * comp * teta;
+    // Votos nos dois por eleitor: o do município no 1º turno, corrigido pela razão
+    // 2º/1º turno observada na UF (nacional se a UF não tem nada contado).
+    const dois1 = b[2] > 0 ? (b[0] + b[1]) / b[2] : 0;
+    const razao = u && u.c > 0 && dois > 0 && x.c > 0 && x.peso > 0 ? dois / u.c / (x.peso / x.c) : razaoNac;
+    const v = (m.te - m.est) * comp * dois1 * razao;
     F += v * Math.min(1, Math.max(0, b[1] / (b[0] + b[1]) + s));
     V += v;
     falta += v;

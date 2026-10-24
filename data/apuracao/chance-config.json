@@ -6,5 +6,7 @@
   "rms_nacional": 1.565,
   "rms_ufs": 1.892
  },
- "fonte": "data/apuracao/calibracao-chance.json (scripts/apuracao/backtest_chance.py)"
+ "fonte": "data/apuracao/calibracao-chance.json (scripts/apuracao/backtest_chance.py)",
+ "kappa_governador": 3.27,
+ "regra_governador": "o mesmo κ do presidente (não menor que ele); nos caminhos POR UF do backtest, o intervalo de 90% com esse κ cobriu 97,5% dos pontos (563 pontos; razão |erro| ÷ fração que falta: mediana 1,54, p90 3,11, p95 4,0)"
 }

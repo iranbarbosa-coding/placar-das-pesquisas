@@ -2,7 +2,8 @@
 // Baixa as fotos oficiais de candidaturas do Portal de Dados Abertos do TSE e
 // grava em public/candidatos/<sq_candidato>.jpg só as pedidas.
 //
-//   node scripts/fotos-candidatos.mjs candidatos-2026 <sq> [<sq> ...]
+//   node scripts/fotos-candidatos.mjs candidatos-2026 [--uf=AC] <sq> [<sq> ...]
+//   (sem --uf, a circunscrição BR — presidente)
 //
 // O conjunto tem um ZIP de fotos por circunscrição, um arquivo por candidatura
 // nomeado pelo sequencial (sq_candidato). O endereço do ZIP vem da API do CKAN
@@ -13,7 +14,10 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-const [dataset, ...sqs] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const ufArg = args.find((a) => a.startsWith("--uf="));
+const UF = ufArg ? ufArg.slice(5).toUpperCase() : "BR";
+const [dataset, ...sqs] = args.filter((a) => a !== ufArg);
 if (!dataset || !sqs.length) {
   console.error("uso: fotos-candidatos.mjs <conjunto-ckan> <sq> [<sq> ...]");
   process.exit(2);
@@ -21,10 +25,10 @@ if (!dataset || !sqs.length) {
 const UA = { "User-Agent": "Mozilla/5.0 (placardaspesquisas.com.br)" };
 const meta = await (await fetch(`https://dadosabertos.tse.jus.br/api/3/action/package_show?id=${dataset}`, { headers: UA })).json();
 const recursos = meta?.result?.resources ?? [];
-for (const r of recursos) console.log(`  · ${r.id} ${r.name} → ${r.url}`);
-// Fotos de presidente ficam no ZIP da circunscrição BR (foto_cand<ano>_BR_div.zip).
-const fotos = recursos.filter((r) => /foto/i.test(`${r.name} ${r.url}`) && /(^|[^A-Z])BR([^A-Z]|$)/.test(`${r.name} ${r.url}`));
-if (fotos.length !== 1) throw new Error(`esperava 1 recurso de fotos BR em ${dataset}, achei ${fotos.length}`);
+if (!process.env.SILENCIO) for (const r of recursos) console.log(`  · ${r.id} ${r.name} → ${r.url}`);
+// Um ZIP por circunscrição (foto_cand<ano>_<UF>_div.zip); presidente fica no BR.
+const fotos = recursos.filter((r) => /foto/i.test(`${r.name} ${r.url}`) && new RegExp(`(^|[^A-Z])${UF}([^A-Z]|$)`).test(`${r.name} ${r.url}`));
+if (fotos.length !== 1) throw new Error(`esperava 1 recurso de fotos ${UF} em ${dataset}, achei ${fotos.length}`);
 const url = fotos[0].url;
 console.log(`recurso: ${fotos[0].name} → ${url}`);
 

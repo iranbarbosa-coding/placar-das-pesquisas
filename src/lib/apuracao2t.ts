@@ -24,6 +24,36 @@ const URL_ABR = `${TSE}/dados/br/br-e00${ELEICAO_2T}-ab.json`;
 /** Andamento por município de uma UF (zz = exterior). */
 const abUf = (uf: string) => `${TSE}/dados/${uf}/${uf}-e00${ELEICAO_2T}-ab.json`;
 
+/** 2º turno estadual (governador, cargo 3). */
+export const ELEICAO_2T_UF = 6260;
+const TSE_UF = `${process.env.APURACAO_2T_TSE ?? "https://resultados.tse.jus.br"}/oficial/ele2026/${ELEICAO_2T_UF}`;
+const arqGov = (uf: string) => `${TSE_UF}/dados/${uf}/${uf}-c0003-e00${ELEICAO_2T_UF}-u.json`;
+const abGov = (uf: string) => `${TSE_UF}/dados/${uf}/${uf}-e00${ELEICAO_2T_UF}-ab.json`;
+
+/** Candidato num 2º turno de governador. */
+export interface VotoGov {
+  numero: string;
+  nome: string;
+  partido: string;
+  sq: string;
+  votos: number;
+  pct: number;
+  eleito: boolean;
+}
+
+/** Um bloco de governador: os dois finalistas (ordem fixa, de data/apuracao/t1-governador.json). */
+export interface Gov2T {
+  uf: string;
+  andamento: Andamento;
+  candidatos: [VotoGov, VotoGov];
+  /** `flavio` = chance do 2º candidato, `lula` = do 1º (mesma conta do presidente). */
+  chance: ChanceVitoria | null;
+  /** Por que não há chance neste estado (ex.: DF, um só município). */
+  semChance?: string;
+  aguardando?: boolean;
+  final: boolean;
+}
+
 export interface Voto2T {
   /** "13" (Lula) ou "22" (Flávio Bolsonaro). */
   numero: "13" | "22";
@@ -68,6 +98,8 @@ export interface Apuracao2T {
   estados: Estado2T[];
   regioes: (Andamento & { nome: Regiao })[];
   exterior: Andamento | null;
+  /** 2º turno de governador (AC, AM, DF, ES, RN, TO), um bloco por UF. */
+  governadores: Gov2T[];
   /** Chance de vitória ao vivo (src/lib/chance-vitoria.ts); null antes da 1ª
    *  seção, na totalização final ou quando falta algum arquivo do TSE. */
   chance: ChanceVitoria | null;
@@ -78,6 +110,7 @@ export interface Apuracao2T {
 export interface Aguardando2T {
   aguardando: true;
   motivo: string;
+  governadores?: Gov2T[];
   lidoEm: string;
 }
 
@@ -139,10 +172,11 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
     [br, ab] = await Promise.all([getJson(arq("br"), fresco), getJson(URL_ABR, fresco)]);
   } catch (e) {
     // Antes da abertura o TSE ainda não publica os arquivos do 2º turno.
-    return { aguardando: true, motivo: String((e as Error).message ?? e), lidoEm };
+    return { aguardando: true, motivo: String((e as Error).message ?? e), lidoEm, governadores: await lerGovernadores2T(fresco) };
   }
   const ok = confere(br);
-  if (typeof ok === "string") return { aguardando: true, motivo: ok, lidoEm };
+  if (typeof ok === "string") return { aguardando: true, motivo: ok, lidoEm, governadores: await lerGovernadores2T(fresco) };
+  const governadores = lerGovernadores2T(fresco);
 
   const andamentoUf = new Map<string, Andamento>();
   let exterior: Andamento | null = null;
@@ -234,6 +268,7 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
     estados,
     regioes,
     exterior,
+    governadores: await governadores,
     chance,
     lidoEm,
   };
@@ -262,7 +297,78 @@ export function vazio2T(lidoEm: string): Apuracao2T {
     estados,
     regioes: (Object.keys(REGIOES) as Regiao[]).map((nome) => ({ nome, ...zero })),
     exterior: null,
+    governadores: [],
     chance: null,
     lidoEm,
   };
+}
+
+/** Governadores: cada UF é lida à parte; uma falha deixa só aquele bloco em espera. */
+export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
+  const { default: base } = await import("../../data/apuracao/t1-governador.json");
+  const { kappa_governador } = await import("../../data/apuracao/chance-config.json");
+  const ufs = base.ufs as unknown as Record<string, { candidatos: { sq: string; n: string; nome: string; partido: string }[]; mun: T1Municipios["mun"] }>;
+  return Promise.all(
+    Object.entries(ufs).map(async ([uf, b]): Promise<Gov2T> => {
+      const zero = (c: (typeof b.candidatos)[number]): VotoGov => ({ numero: c.n, nome: c.nome, partido: c.partido, sq: c.sq, votos: 0, pct: 0, eleito: false });
+      const semChance = Object.keys(b.mun).length < 2 ? "O DF é um só município para o TSE: não há padrão por município para projetar o que falta." : undefined;
+      const espera: Gov2T = {
+        uf: uf.toUpperCase(),
+        andamento: andamento(null, null),
+        candidatos: [zero(b.candidatos[0]), zero(b.candidatos[1])],
+        chance: null,
+        semChance,
+        aguardando: true,
+        final: false,
+      };
+      let doc: any;
+      try {
+        doc = await getJson(arqGov(uf), fresco);
+      } catch {
+        return espera;
+      }
+      const lidos = new Map<string, VotoGov>();
+      let total = 0;
+      for (const agr of doc?.carg?.[0]?.agr ?? [])
+        for (const par of agr.par ?? [])
+          for (const c of par.cand ?? []) {
+            total++;
+            lidos.set(String(c.sqcand), {
+              numero: String(c.n),
+              nome: c.nmu ?? c.nm,
+              partido: par.sg ?? agr.com ?? "",
+              sq: String(c.sqcand),
+              votos: num(c.vap),
+              pct: num(c.pvapn),
+              eleito: c.e === "s" || /eleito/i.test(String(c.st ?? "")),
+            });
+          }
+      const a = lidos.get(b.candidatos[0].sq);
+      const z = lidos.get(b.candidatos[1].sq);
+      // Recusa o que não reconhece: exatamente os dois finalistas esperados.
+      if (!a || !z || total !== 2) return espera;
+      const and = andamento(doc.s, doc.e);
+      const final = doc.tf === "s";
+      let chance: ChanceVitoria | null = null;
+      if (!semChance && and.secoes > 0 && !final) {
+        try {
+          const ab = await getJson(abGov(uf), fresco);
+          const mun = new Map<string, AndamentoMun>();
+          for (const x of ab.abr ?? [])
+            if (x.tpabr === "mun") mun.set(`${uf}${x.cdabr}`, { te: num(x.e?.te), est: num(x.e?.est), c: num(x.e?.c) });
+          const { chanceDeVitoria } = await import("./chance-vitoria");
+          chance = chanceDeVitoria(
+            { mun: b.mun },
+            mun,
+            new Map([[uf, { lula: a.votos, flavio: z.votos, c: and.comparecimento }]]),
+            { lula: a.votos, flavio: z.votos },
+            kappa_governador,
+          );
+        } catch {
+          chance = null;
+        }
+      }
+      return { uf: uf.toUpperCase(), andamento: and, candidatos: [a, z], chance, semChance, final };
+    }),
+  );
 }

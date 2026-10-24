@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AoVivo, Barra, CardHead, int, pct, useAoVivo } from "@/components/ApuracaoLive";
-import { CANDIDATOS_2T, vazio2T, type Apuracao2T, type Estado2T, type Leitura2T, type Voto2T } from "@/lib/apuracao2t";
+import { AoVivo, Barra, CardHead, int, pct, titulo, useAoVivo } from "@/components/ApuracaoLive";
+import { colorMap, colorOf } from "@/lib/colors";
+import { CANDIDATOS_2T, vazio2T, type Apuracao2T, type Gov2T, type Estado2T, type Leitura2T, type Voto2T } from "@/lib/apuracao2t";
 import { UF_NAMES, type UF } from "@/lib/types";
 
 /**
@@ -30,7 +31,11 @@ const corUf = (s: Estado2T) => `color-mix(in srgb, ${corLider(s)} ${intensidade(
 const fotos = (sq: string) => [`/candidatos/${sq}.jpg`];
 
 function Foto({ c, lado }: { c: Voto2T; lado: number }) {
-  const lista = fotos(c.sq || CANDIDATOS_2T[c.numero].sq);
+  return <FotoDe sq={c.sq || CANDIDATOS_2T[c.numero].sq} nome={NOME[c.numero]} cor={COR[c.numero]} lado={lado} />;
+}
+
+function FotoDe({ sq, nome, cor, lado }: { sq: string; nome: string; cor: string; lado: number }) {
+  const lista = fotos(sq);
   const [i, setI] = useState(0);
   const [carregou, setCarregou] = useState(false);
   const img = useRef<HTMLImageElement>(null);
@@ -40,8 +45,7 @@ function Foto({ c, lado }: { c: Voto2T; lado: number }) {
     const el = img.current;
     if (el?.complete) el.naturalWidth > 0 ? setCarregou(true) : setI((k) => k + 1);
   }, [i]);
-  const cor = COR[c.numero];
-  const iniciais = NOME[c.numero]
+  const iniciais = nome
     .split(" ")
     .map((w) => w[0])
     .slice(0, 2)
@@ -61,7 +65,7 @@ function Foto({ c, lado }: { c: Voto2T; lado: number }) {
           ref={img}
           key={lista[i]}
           src={lista[i]}
-          alt={`Foto de ${NOME[c.numero]}`}
+          alt={`Foto de ${nome}`}
           width={lado}
           height={lado}
           className="absolute inset-0 h-full w-full object-cover"
@@ -171,7 +175,7 @@ const fmtChance = (p: number) => (p >= 0.995 ? ">99%" : p <= 0.005 ? "<1%" : `${
 /** Medidor da chance (escolha do criador, 24/10: opção B). Arco vermelho = chance
  *  de Lula a partir da esquerda, azul = de Flávio; o ponteiro marca a divisão e o
  *  tracejado no topo, 50%. Forma diferente da barra dos votos de propósito. */
-function Medidor({ lula }: { lula: number }) {
+function Medidor({ lula, cores = [COR["13"], COR["22"]], largura = 200 }: { lula: number; cores?: [string, string]; largura?: number }) {
   const r = 80, cx = 100, cy = 95;
   const pt = (a: number) => [cx + r * Math.cos(a), cy - r * Math.sin(a)];
   const corte = Math.PI * (1 - Math.min(0.999, Math.max(0.001, lula)));
@@ -180,9 +184,9 @@ function Medidor({ lula }: { lula: number }) {
   const [x2, y2] = pt(0);
   const [nx, ny] = [cx + (r - 6) * Math.cos(corte), cy - (r - 6) * Math.sin(corte)];
   return (
-    <svg width="200" height="110" viewBox="0 0 200 110" aria-hidden className="block">
-      <path d={`M${x1},${y1} A${r},${r} 0 0 1 ${xs},${ys}`} fill="none" strokeWidth={18} style={{ stroke: COR["13"] }} />
-      <path d={`M${xs},${ys} A${r},${r} 0 0 1 ${x2},${y2}`} fill="none" strokeWidth={18} style={{ stroke: COR["22"] }} />
+    <svg width={largura} height={(largura * 110) / 200} viewBox="0 0 200 110" aria-hidden className="block">
+      <path d={`M${x1},${y1} A${r},${r} 0 0 1 ${xs},${ys}`} fill="none" strokeWidth={18} style={{ stroke: cores[0] }} />
+      <path d={`M${xs},${ys} A${r},${r} 0 0 1 ${x2},${y2}`} fill="none" strokeWidth={18} style={{ stroke: cores[1] }} />
       <line x1={cx} y1={5} x2={cx} y2={22} strokeDasharray="3 2" style={{ stroke: "var(--text-primary)" }} />
       <line x1={cx} y1={cy} x2={nx} y2={ny} strokeWidth={3} strokeLinecap="round" style={{ stroke: "var(--text-primary)" }} />
       <circle cx={cx} cy={cy} r={5} style={{ fill: "var(--text-primary)" }} />
@@ -438,6 +442,123 @@ function Estados({ d, svg }: { d: Apuracao2T; svg: string }) {
   );
 }
 
+/* ───────────────────────── Governadores ───────────────────────── */
+
+/** Nome de urna do TSE ("PROFESSORA DORINHA") em caixa de título. */
+const nomeGov = (s: string) => titulo(s);
+
+function BlocoGov({ g }: { g: Gov2T }) {
+  const [a, b] = g.candidatos;
+  const nomes = [nomeGov(a.nome), nomeGov(b.nome)];
+  const mapa = colorMap(nomes);
+  const cores: [string, string] = [colorOf(mapa, nomes[0]), colorOf(mapa, nomes[1])];
+  const total = a.votos + b.votos;
+  const lider = total === 0 || a.votos === b.votos ? null : a.votos > b.votos ? 0 : 1;
+  const c = g.chance;
+  return (
+    <section className="card flex min-w-0 flex-col p-4" data-testid={`gov-${g.uf}`}>
+      <div className="mb-3 flex items-baseline justify-between gap-2">
+        <h3 className="text-[13px] font-bold uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+          {nomeUf(g.uf)}
+        </h3>
+        <span className="tabular text-xs font-bold" style={{ color: "var(--text-primary)" }}>
+          {g.aguardando ? "aguardando o TSE" : `${pct(g.andamento.pct)}% apurado`}
+        </span>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        {[a, b].map((x, k) => (
+          <div key={x.sq} className={`flex min-w-0 flex-col gap-1 ${k === 1 ? "items-end text-right" : ""}`}>
+            <FotoDe sq={x.sq} nome={nomes[k]} cor={cores[k]} lado={52} />
+            <div className="min-w-0">
+              <div className="truncate text-sm font-bold" style={{ color: "var(--text-primary)" }} title={nomes[k]}>
+                {nomes[k]}
+              </div>
+              <div className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+                {x.partido} · {x.numero}
+                {x.eleito ? " · ELEITO" : lider === k ? " · à frente" : ""}
+              </div>
+              <div className="tabular text-3xl font-extrabold leading-none" style={{ color: cores[k] }}>
+                {pct(x.pct)}
+                <span style={{ fontSize: "0.5em" }}>%</span>
+              </div>
+              <div className="tabular text-[11px] font-semibold" style={{ color: "var(--text-secondary)" }}>
+                {int(x.votos)} votos
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="relative mt-3">
+        <div className="flex h-3 w-full overflow-hidden rounded" style={{ background: "var(--surface-2)" }}>
+          <div style={{ width: `${a.pct}%`, background: cores[0], transition: "width .6s ease" }} />
+          <div className="flex-1" />
+          <div style={{ width: `${b.pct}%`, background: cores[1], transition: "width .6s ease" }} />
+        </div>
+        <div className="pointer-events-none absolute -top-1 -bottom-1 left-1/2 border-l-2 border-dashed" style={{ borderColor: "var(--text-primary)" }} />
+      </div>
+      {/* Andamento em cinza: azul aqui se confundiria com a cor de um candidato. */}
+      <div className="mt-2" title={`${pct(g.andamento.pct)}% das seções apuradas`}>
+        <Barra valor={g.andamento.pct} cor="var(--axis)" altura={4} />
+      </div>
+      <div className="mt-3 flex-1 border-t pt-3" style={{ borderColor: "var(--grid)" }}>
+        {c ? (
+          <div className="flex items-center gap-3">
+            <div className="shrink-0">
+              <Medidor lula={c.lula} cores={cores} largura={110} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-[0.08em]" style={{ color: "var(--text-muted)" }}>
+                  Chance de vitória
+                </span>
+                <span
+                  className="rounded px-1 py-0.5 text-[9px] font-bold uppercase tracking-wide"
+                  style={{ border: "1px dashed var(--axis)", color: "var(--text-secondary)" }}
+                  title="Calibrada na apuração do 1º turno (presidente, por estado); não há 2º turno de governador anterior para validar."
+                >
+                  Experimental
+                </span>
+              </div>
+              <p className="tabular text-sm" style={{ color: "var(--text-primary)" }}>
+                {nomes[0]} <b>{fmtChance(c.lula)}</b> <span style={{ color: "var(--text-muted)" }}>·</span> {nomes[1]} <b>{fmtChance(c.flavio)}</b>
+              </p>
+              <p className="tabular text-[11px]" style={{ color: "var(--text-muted)" }}>
+                Final projetado: {pct(c.projecaoLula, 1)}% × {pct(c.projecaoFlavio, 1)}% (± {pct(1.645 * c.desvio, 1)} p.p.)
+              </p>
+            </div>
+          </div>
+        ) : (
+          <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
+            {g.semChance ??
+              (g.final
+                ? "Totalização encerrada."
+                : g.aguardando || g.andamento.secoes === 0
+                  ? "A chance de vitória aparece com as primeiras seções apuradas."
+                  : "Chance indisponível nesta leitura (falta arquivo do TSE).")}
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Governadores({ lista }: { lista: Gov2T[] }) {
+  if (!lista.length) return null;
+  return (
+    <div className="flex flex-col gap-3">
+      <CardHead
+        title="Governadores · 2º turno"
+        sub="Os seis estados com 2º turno. Mesma conta de chance do presidente, com o 1º turno de governador em cada município."
+      />
+      <div className="-mt-1 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {lista.map((g) => (
+          <BlocoGov key={g.uf} g={g} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ───────────────────────── Página ───────────────────────── */
 
 const aguardando = (l: Leitura2T | null): l is Extract<Leitura2T, { aguardando: true }> => !!l && "aguardando" in l;
@@ -477,8 +598,9 @@ export default function ApuracaoSegundoTurno({ inicial, mapaSvg }: { inicial: Le
 
       <Placar d={d} aguardando={espera} />
       <Estados d={d} svg={mapaSvg} />
+      <Governadores lista={espera ? (dados && aguardando(dados) ? (dados.governadores ?? []) : []) : d.governadores} />
       <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
-        Fonte: Tribunal Superior Eleitoral — resultados.tse.jus.br (eleição 6258, 2º turno presidencial). Percentual apurado = seções totalizadas ÷
+        Fonte: Tribunal Superior Eleitoral — resultados.tse.jus.br (eleições 6258, 2º turno presidencial, e 6260, governadores). Percentual apurado = seções totalizadas ÷
         total de seções. Percentuais de candidato sobre os votos válidos (exclui brancos e nulos). Mapa: a intensidade da cor acompanha o % apurado da
         UF (a partir de 15% de intensidade quando a primeira seção chega). Esta página relê o TSE a cada 30 segundos.
       </p>
