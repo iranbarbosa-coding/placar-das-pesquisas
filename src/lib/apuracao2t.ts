@@ -253,7 +253,9 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
       chance = chanceDeVitoria(t1 as unknown as T1Municipios, mun, porUf, { lula: ok.lula.votos, flavio: ok.flavio.votos }, kappa);
   }
   return {
-    atualizadoEm: `${br.dt ?? br.dg} ${br.ht ?? br.hg}`,
+    // Só a hora da TOTALIZAÇÃO (dt/ht); antes da 1ª seção o TSE manda esses campos
+    // vazios e a página não mostra hora nenhuma (dg/hg é só a geração do arquivo).
+    atualizadoEm: br.dt && br.ht ? `${br.dt} ${br.ht}` : "",
     nacional: {
       ...andamento(br.s, e),
       validos: num(v.vv),
