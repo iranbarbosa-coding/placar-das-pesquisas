@@ -27,18 +27,29 @@ jobs:
           try: d=json.load(open('/tmp/cs.json'))
           except Exception as e: print('cs ilegível', e); raise SystemExit
           print('chaves', list(d.keys()))
-          abr=d.get('abr',[])
-          print('abrangências', len(abr))
-          n=0
-          for a in abr[:400]:
-            for z in a.get('zon',[]):
-              for s in z.get('sec',[])[:1]:
-                mu,zo,se=a.get('cd'),z.get('cd'),s.get('ns')
-                u=f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/dados/zz/{mu}/{zo}/{se}/p00{pl}-zz-m{mu}-z{zo}-s{se}-aux.json"
-                try:
-                  r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=30); aux=json.load(r)
-                  print('AUX', a.get('nm') or mu, zo, se, json.dumps(aux)[:300]); n+=1
-                except Exception as e: print('sem aux', mu, zo, se, e)
-                if n>=3: raise SystemExit
+          def mostra(o, nivel=0):
+            if nivel>4: return
+            if isinstance(o, dict):
+              print('  '*nivel, 'dict', {k:(v if not isinstance(v,(list,dict)) else type(v).__name__+str(len(v))) for k,v in list(o.items())[:12]})
+              for k,v in o.items():
+                if isinstance(v,(list,dict)): mostra(v, nivel+1); break
+            elif isinstance(o, list) and o:
+              mostra(o[0], nivel+1)
+          mostra(d)
+          # caminho genérico: abr[].mu[].zon[].sec[]
+          n=0; urls=[]
+          for a in d.get('abr',[]):
+            for m in a.get('mu',[]):
+              for z in m.get('zon',[]):
+                for s_ in z.get('sec',[]):
+                  urls.append((m.get('cd'), m.get('nm'), z.get('cd'), s_.get('ns'), s_))
+          print('seções', len(urls))
+          import random
+          for mu,nm,zo,se,raw in urls[:2]+random.sample(urls, 4):
+            u=f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/dados/zz/{mu}/{zo}/{se}/p00{pl}-zz-m{mu}-z{zo}-s{se}-aux.json"
+            try:
+              r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=30); aux=json.load(r)
+              print('AUX', nm, mu, zo, se, json.dumps(aux)[:400])
+            except Exception as e: print('sem aux', nm, mu, zo, se, raw, e)
           PY
           done
