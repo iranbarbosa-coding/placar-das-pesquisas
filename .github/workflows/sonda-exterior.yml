@@ -16,6 +16,14 @@ jobs:
           def get(u):
             t=time.time(); r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60)
             return r, r.read(), time.time()-t
+          num=lambda x: float(str(x or 0).replace(',','.'))
+          for uf in ['ap','am']:
+            r,b,dt=get(f"https://resultados.tse.jus.br/oficial/ele2026/6258/dados/{uf}/{uf}-c0001-e006258-u.json?t={time.time()}")
+            d=json.loads(b); o={}
+            for a in d['carg'][0]['agr']:
+              for p_ in a['par']:
+                for c in p_['cand']: o[c['n']]=(num(c['vap']), c.get('pvap'))
+            print("TSE", uf.upper(), "apurado", d['s']['pstn'], "totalização", d.get('dt'), d.get('ht'), "tf", d.get('tf'), "Lula", o.get('13'), "Flávio", o.get('22'))
           for i in range(2):
             r,b,dt=get(f"https://www.placardaspesquisas.com.br/api/apuracao-2t.json?x={time.time()}")
             d=json.loads(b)
