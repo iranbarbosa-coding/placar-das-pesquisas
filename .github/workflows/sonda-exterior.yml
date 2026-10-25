@@ -1,4 +1,4 @@
-# TEMPORÁRIO — boletins de urna (arquivo-urna) do exterior no 2º turno. Branch descartável.
+# TEMPORÁRIO — procura um arquivo do TSE com votos por município numa só leitura. Branch descartável.
 name: sonda-exterior
 on:
   push:
@@ -10,46 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          R=https://resultados.tse.jus.br/oficial
-          curl -sS -m 60 -A "Mozilla/5.0" $R/comum/config/ele-c.json -o /tmp/c.json
-          python3 - <<'PY'
-          import json
-          d=json.load(open('/tmp/c.json'))
-          for p in d['pl']:
-            print('pleito', p['cd'], p.get('cdpr'), p['dt'], [ (e['cd'], e['nm'][:45]) for e in p['e']])
-          PY
-          for PL in $(python3 -c "import json;print(' '.join(p['cd'] for p in json.load(open('/tmp/c.json'))['pl'] if p['dt'].startswith('25/10')))"); do
-            echo "=================== pleito $PL · config zz"
-            curl -sS -m 60 -A "Mozilla/5.0" "$R/ele2026/arquivo-urna/$PL/config/zz/zz-p00$PL-cs.json" -o /tmp/cs.json -w "HTTP %{http_code} %{size_download}\n"
-            python3 - "$PL" <<'PY'
-          import json,sys,urllib.request
-          pl=sys.argv[1]
-          try: d=json.load(open('/tmp/cs.json'))
-          except Exception as e: print('cs ilegível', e); raise SystemExit
-          print('chaves', list(d.keys()))
-          def mostra(o, nivel=0):
-            if nivel>4: return
-            if isinstance(o, dict):
-              print('  '*nivel, 'dict', {k:(v if not isinstance(v,(list,dict)) else type(v).__name__+str(len(v))) for k,v in list(o.items())[:12]})
-              for k,v in o.items():
-                if isinstance(v,(list,dict)): mostra(v, nivel+1); break
-            elif isinstance(o, list) and o:
-              mostra(o[0], nivel+1)
-          mostra(d)
-          # caminho genérico: abr[].mu[].zon[].sec[]
-          n=0; urls=[]
-          for a in d.get('abr',[]):
-            for m in a.get('mu',[]):
-              for z in m.get('zon',[]):
-                for s_ in z.get('sec',[]):
-                  urls.append((m.get('cd'), m.get('nm'), z.get('cd'), s_.get('ns'), s_))
-          print('seções', len(urls))
-          import random
-          for mu,nm,zo,se,raw in urls[:2]+random.sample(urls, 4):
-            u=f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/dados/zz/{mu}/{zo}/{se}/p00{pl}-zz-m{mu}-z{zo}-s{se}-aux.json"
-            try:
-              r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=30); aux=json.load(r)
-              print('AUX', nm, mu, zo, se, json.dumps(aux)[:400])
-            except Exception as e: print('sem aux', nm, mu, zo, se, raw, e)
-          PY
+          B=https://resultados.tse.jus.br/oficial/ele2026/6258/dados
+          for u in rn/rn-c0001-e006258-v.json rn/rn-c0001-e006258-r.json rn/rn-c0001-e006258-e.json rn/rn-e006258-e.json rn/rn-c0001-e006258-m.json rn/rn-c0001-e006258-mu.json rn/rn-c0001-e006258-f.json rn/rn-c0001-e006258-a.json rn/rn-c0001-e006258-ab.json; do
+            curl -sS -m 30 -A "Mozilla/5.0" -o /tmp/f -w "$u HTTP %{http_code} %{size_download}\n" "$B/$u"; head -c 300 /tmp/f; echo
           done
+          echo "=== um município do RN (Natal 17612) agora"
+          curl -sS -m 30 -A "Mozilla/5.0" "$B/rn/rn17612-c0001-e006258-u.json" -o /tmp/m -w "HTTP %{http_code} %{size_download} last-modified %header{last-modified} cache-control %header{cache-control}\n"
+          python3 - <<'PY'
+          import json; d=json.load(open('/tmp/m'))
+          print({k:d.get(k) for k in ['dt','ht','tf','tpabr','cdabr']}, 's', d['s'].get('st'),'/',d['s'].get('ts'), 'e.c', d['e'].get('c'), 'v.vv', d['v'].get('vv'))
+          for a in d['carg'][0]['agr']:
+            for p in a['par']:
+              for c in p['cand']: print(' ', c['n'], c['vap'])
+          PY
+          echo "=== tempo para 300 municípios (latência)"
+          start=$(date +%s.%N); for c in $(curl -sS -A "Mozilla/5.0" "$B/sp/sp-e006258-ab.json" | python3 -c "import json,sys;print(' '.join(a['cdabr'] for a in json.load(sys.stdin)['abr'] if a['tpabr']=='mun'][:300]))"); do echo "$B/sp/sp$c-c0001-e006258-u.json"; done | xargs -P 32 -n 1 curl -sS -m 30 -A "Mozilla/5.0" -o /dev/null -w "%{http_code}\n" | sort | uniq -c; end=$(date +%s.%N); echo "segundos: $(echo "$end - $start" | bc)"
