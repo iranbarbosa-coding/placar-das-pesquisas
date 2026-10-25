@@ -252,6 +252,10 @@ function Chance({ d }: { d: Apuracao2T }) {
             </b>{" "}
             <span className="tabular" style={{ color: "var(--text-muted)" }}>(± {pct(1.645 * c.desvio, 1)} p.p.)</span>.
           </p>
+          <p className="mt-1.5 text-[12px]" style={{ color: "var(--text-muted)" }} data-testid="chance-so-estado">
+            <b style={{ color: "var(--text-secondary)" }}>Conta só por estado.</b> Os servidores do TSE passaram a barrar as consultas
+            município a município, por isso a variação entre os turnos agora é medida no estado inteiro, e não cidade a cidade.
+          </p>
           <details className="mt-1 text-[11px]" style={{ color: "var(--text-muted)" }}>
             <summary className="cursor-pointer select-none">Como é calculada</summary>
             <p className="mt-1">
@@ -576,7 +580,7 @@ function Governadores({ lista }: { lista: Gov2T[] }) {
         title="Governadores · 2º turno"
         sub={
           CHANCE_NO_AR
-            ? "Os seis estados com 2º turno. Mesma conta de chance do presidente, com o 1º turno de governador em cada município."
+            ? "Os seis estados com 2º turno. Mesma conta de chance do presidente, só por estado (o TSE passou a barrar as consultas por município)."
             : "Os seis estados com 2º turno, direto do TSE."
         }
       />
