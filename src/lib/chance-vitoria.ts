@@ -53,6 +53,25 @@ export interface ChanceVitoria {
 /** Abaixo disso de eleitorado casado com o 1º turno, a chance não é publicada. */
 export const COBERTURA_MINIMA = 99.5;
 
+/**
+ * Estabilidade no começo da apuração (25/10/2026, 17h: com 0,25% → 0,37% apurado o
+ * medidor virou de Flávio 73% para Lula 72%). Com poucos votos, a variação medida
+ * em meia dúzia de municípios era aplicada a estados inteiros. Agora:
+ *  • a chance só sai com MIN_APURADO dos votos dos dois já contados;
+ *  • a variação de cada UF é amortecida rumo à nacional, e a nacional rumo a zero
+ *    (o padrão do 1º turno), com peso votos ÷ (votos + K): pouco voto, pouco peso.
+ */
+export const MIN_APURADO = 0.05;
+export interface OpcoesChance {
+  /** Votos nos dois para a variação nacional (ou do estado, nos governadores) valer metade. */
+  kNacional?: number;
+  /** Votos nos dois para a variação de uma UF valer metade (só no presidente). */
+  kUf?: number;
+  /** Fração mínima de votos dos dois já contados para publicar a chance (padrão MIN_APURADO). */
+  minApurado?: number;
+}
+const PADRAO = { kNacional: 3_000_000, kUf: 100_000 };
+
 /** Φ(x) da normal padrão (Abramowitz–Stegun 7.1.26, erro < 1,5e-7). */
 export function phi(x: number): number {
   const t = 1 / (1 + 0.3275911 * (Math.abs(x) / Math.SQRT2));
@@ -66,7 +85,9 @@ export function chanceDeVitoria(
   ufs: Map<string, ContadosUf>,
   nacional: { lula: number; flavio: number },
   kappa: number,
+  opcoes: OpcoesChance = {},
 ): ChanceVitoria | null {
+  const { kNacional, kUf } = { ...PADRAO, ...opcoes };
   const V2 = nacional.lula + nacional.flavio;
   if (V2 <= 0) return null;
 
@@ -105,7 +126,8 @@ export function chanceDeVitoria(
     if (u) cUfN += u.c;
   }
   if (pesoN <= 0) return null;
-  const sNac = nacional.flavio / V2 - bFN / pesoN;
+  // Variação nacional amortecida rumo a zero (= repetir o 1º turno) quando há pouco voto.
+  const sNac = (V2 / (V2 + kNacional)) * (nacional.flavio / V2 - bFN / pesoN);
   const compNac = estN > 0 ? cN / estN : 0;
   // Votos nos dois por comparecimento: nacional, dos arquivos das UFs.
   let doisUf = 0;
@@ -122,7 +144,9 @@ export function chanceDeVitoria(
     const x = base.get(uf)!;
     const u = ufs.get(uf);
     const dois = u ? u.lula + u.flavio : 0;
-    const s = u && dois > 0 && x.peso > 0 ? u.flavio / dois - x.bF / x.peso : sNac;
+    // Variação da UF amortecida rumo à nacional: com poucos votos contados, pesa pouco.
+    const wUf = dois / (dois + kUf);
+    const s = u && dois > 0 && x.peso > 0 ? wUf * (u.flavio / dois - x.bF / x.peso) + (1 - wUf) * sNac : sNac;
     const comp = m.est > 0 ? m.c / m.est : x.est > 0 ? x.c / x.est : compNac;
     // Votos nos dois por eleitor: o do município no 1º turno, corrigido pela razão
     // 2º/1º turno observada na UF (nacional se a UF não tem nada contado).
@@ -135,6 +159,7 @@ export function chanceDeVitoria(
   }
   const projecaoFlavio = (100 * F) / V;
   const fracao = falta / V;
+  if (1 - fracao < (opcoes.minApurado ?? MIN_APURADO)) return null;
   const desvio = kappa * fracao;
   const pF = desvio > 0 ? phi((projecaoFlavio - 50) / desvio) : projecaoFlavio > 50 ? 1 : projecaoFlavio < 50 ? 0 : 0.5;
   return {
