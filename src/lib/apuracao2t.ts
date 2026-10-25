@@ -392,6 +392,7 @@ export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
  * ele) e entra numa leitura seguinte, já com o cache aquecido.
  */
 const PRAZO_MUNICIPIOS_MS = 7_000;
+const LER_MUNICIPIOS = false;
 export async function votosPorMunicipio(
   andamento: Map<string, AndamentoMun>,
   url: (uf: string, cd: string) => string,
@@ -399,6 +400,10 @@ export async function votosPorMunicipio(
   sqB: string,
 ): Promise<Map<string, VotosMun>> {
   const fora = new Map<string, VotosMun>();
+  // DESLIGADA (25/10, 19h58): os milhares de pedidos por rodada levaram o TSE a
+  // responder 429 aos servidores do site, e aí nem o placar saía. Sem ela, a conta
+  // volta à variação por UF (fallback já previsto abaixo).
+  if (!LER_MUNICIPIOS) return fora;
   const lista = [...andamento.entries()].filter(([, m]) => m.est > 0);
   const limite = Date.now() + PRAZO_MUNICIPIOS_MS;
   await emLotes(lista, 48, async ([k, m]) => {
