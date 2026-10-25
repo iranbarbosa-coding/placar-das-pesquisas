@@ -4,6 +4,8 @@ import { lerApuracao2T } from "@/lib/apuracao2t";
 // Repasse da apuração do 2º turno (o TSE não manda CORS). Mesmo cache curto de
 // CDN da rota do 1º turno: ~3 leituras/min ao TSE, não uma por leitor.
 export const dynamic = "force-dynamic";
+// A leitura por município pode levar alguns segundos (prazo interno de 7s).
+export const maxDuration = 30;
 
 export async function GET() {
   try {

@@ -28,6 +28,8 @@ export async function generateMetadata(): Promise<Metadata> {
 // Primeiro desenho servido pela CDN e refeito a cada 30s; depois disso o
 // próprio navegador consulta /api/apuracao-2t.json a cada 30s.
 export const revalidate = 30;
+// A leitura por município pode levar alguns segundos (prazo interno de 7s).
+export const maxDuration = 30;
 
 const SVG = fs.readFileSync(path.join(process.cwd(), "src/components/brasil-mapa.svg"), "utf-8");
 

@@ -12,8 +12,8 @@
  * candidatos 13 e 22, a página mostra "aguardando o TSE" em vez de números.
  * Livre de `node:fs` — os tipos podem ser importados pelo componente cliente.
  */
-import { andamento, getJson, num, REGIAO_DA_UF, REGIOES, somar, type Andamento, type Regiao } from "./apuracao";
-import type { AndamentoMun, ChanceVitoria, ContadosUf, T1Municipios } from "./chance-vitoria";
+import { andamento, getJson, num, REGIAO_DA_UF, REGIOES, somar, UA, type Andamento, type Regiao } from "./apuracao";
+import type { AndamentoMun, ChanceVitoria, ContadosUf, T1Municipios, VotosMun } from "./chance-vitoria";
 
 export const ELEICAO_2T = 6258;
 // APURACAO_2T_TSE troca a origem só em teste local (scripts/apuracao2t-e2e.mjs
@@ -196,7 +196,8 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
       try {
         const d = await getJson(abUf(uf), fresco);
         for (const a of d.abr ?? [])
-          if (a.tpabr === "mun") m.set(`${uf}${a.cdabr}`, { te: num(a.e?.te), est: num(a.e?.est), c: num(a.e?.c) });
+          if (a.tpabr === "mun")
+            m.set(`${uf}${a.cdabr}`, { te: num(a.e?.te), est: num(a.e?.est), c: num(a.e?.c), versao: `${a.s?.st ?? ""}-${a.dt ?? ""}${a.ht ?? ""}` });
       } catch {
         completo = false;
       }
@@ -249,8 +250,10 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
     const { kappa } = await import("../../data/apuracao/chance-config.json");
     const mun = await municipios;
     const porUf = new Map<string, ContadosUf>(estados.map((s) => [s.uf.toLowerCase(), { lula: s.lula, flavio: s.flavio, c: s.comparecimento }]));
-    if (mun)
-      chance = chanceDeVitoria(t1 as unknown as T1Municipios, mun, porUf, { lula: ok.lula.votos, flavio: ok.flavio.votos }, kappa);
+    if (mun) {
+      const municipios = await votosPorMunicipio(mun, (uf, cd) => `${TSE}/dados/${uf}/${uf}${cd}-c0001-e00${ELEICAO_2T}-u.json`, CANDIDATOS_2T["13"].sq, CANDIDATOS_2T["22"].sq);
+      chance = chanceDeVitoria(t1 as unknown as T1Municipios, mun, porUf, { lula: ok.lula.votos, flavio: ok.flavio.votos }, kappa, { municipios });
+    }
   }
   return {
     // Só a hora da TOTALIZAÇÃO (dt/ht); antes da 1ª seção o TSE manda esses campos
@@ -357,7 +360,8 @@ export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
           const ab = await getJson(abGov(uf), fresco);
           const mun = new Map<string, AndamentoMun>();
           for (const x of ab.abr ?? [])
-            if (x.tpabr === "mun") mun.set(`${uf}${x.cdabr}`, { te: num(x.e?.te), est: num(x.e?.est), c: num(x.e?.c) });
+            if (x.tpabr === "mun")
+              mun.set(`${uf}${x.cdabr}`, { te: num(x.e?.te), est: num(x.e?.est), c: num(x.e?.c), versao: `${x.s?.st ?? ""}-${x.dt ?? ""}${x.ht ?? ""}` });
           const { chanceDeVitoria } = await import("./chance-vitoria");
           chance = chanceDeVitoria(
             { mun: b.mun },
@@ -366,7 +370,10 @@ export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
             { lula: a.votos, flavio: z.votos },
             kappa_governador,
             // Um estado só: a variação do estado é a "nacional", amortecida em escala estadual.
-            { kNacional: 30_000 },
+            {
+              kNacional: 30_000,
+              municipios: await votosPorMunicipio(mun, (u, cd) => `${TSE_UF}/dados/${u}/${u}${cd}-c0003-e00${ELEICAO_2T_UF}-u.json`, b.candidatos[0].sq, b.candidatos[1].sq),
+            },
           );
         } catch {
           chance = null;
@@ -375,4 +382,50 @@ export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
       return { uf: uf.toUpperCase(), andamento: and, candidatos: [a, z], chance, semChance, final };
     }),
   );
+}
+
+/**
+ * Leitura por município (25/10/2026): o arquivo de votos de cada município com urnas
+ * apuradas. Cada arquivo entra no cache de dados pela VERSÃO que o andamento informa
+ * (seções apuradas + hora), então só vai ao TSE quando aquele município muda. Há um
+ * prazo por leitura: o que não chegar a tempo fica fora do mapa (a conta usa a UF para
+ * ele) e entra numa leitura seguinte, já com o cache aquecido.
+ */
+const PRAZO_MUNICIPIOS_MS = 7_000;
+export async function votosPorMunicipio(
+  andamento: Map<string, AndamentoMun>,
+  url: (uf: string, cd: string) => string,
+  sqA: string,
+  sqB: string,
+): Promise<Map<string, VotosMun>> {
+  const fora = new Map<string, VotosMun>();
+  const lista = [...andamento.entries()].filter(([, m]) => m.est > 0);
+  const limite = Date.now() + PRAZO_MUNICIPIOS_MS;
+  await emLotes(lista, 48, async ([k, m]) => {
+    if (Date.now() > limite) return;
+    const uf = k.slice(0, 2);
+    const cd = k.slice(2);
+    try {
+      const r = await fetch(`${url(uf, cd)}?v=${encodeURIComponent(m.versao ?? "")}`, {
+        headers: { "User-Agent": UA },
+        next: { revalidate: 86_400 },
+        signal: AbortSignal.timeout(Math.max(500, limite - Date.now())),
+      });
+      if (!r.ok) return;
+      const d: any = await r.json();
+      let a = -1;
+      let b = -1;
+      for (const agr of d?.carg?.[0]?.agr ?? [])
+        for (const par of agr.par ?? [])
+          for (const c of par.cand ?? []) {
+            if (String(c.sqcand) === sqA) a = num(c.vap);
+            if (String(c.sqcand) === sqB) b = num(c.vap);
+          }
+      if (a < 0 || b < 0) return;
+      fora.set(k, { lula: a, flavio: b, te: num(d?.e?.te), est: num(d?.e?.est) });
+    } catch {
+      // fora do prazo ou erro: a conta usa a UF para este município nesta leitura
+    }
+  });
+  return fora;
 }
