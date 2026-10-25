@@ -9,13 +9,14 @@ jobs:
   sonda:
     runs-on: ubuntu-latest
     steps:
+      - run: sleep 180
       - run: |
           python3 - <<'PY'
           import json, urllib.request, time
           def get(u):
             t=time.time(); r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60)
             return r, r.read(), time.time()-t
-          for i in range(2):
+          for i in range(3):
             r,b,dt=get(f"https://www.placardaspesquisas.com.br/api/apuracao-2t.json?x={time.time()}")
             d=json.loads(b)
             print("CHAVES", list(d.keys()), "motivo", d.get('motivo'), "lidoEm", d.get('lidoEm'), "aguardando", d.get('aguardando'))
@@ -28,7 +29,7 @@ jobs:
             print("chance", json.dumps(d.get('chance'), ensure_ascii=False))
             for g in d.get('governadores',[]):
               print(" gov", g.get('uf'), [(c.get('nome'), c.get('pct')) for c in g.get('candidatos',[])], "chance", json.dumps(g.get('chance')))
-            time.sleep(5)
+            time.sleep(30)
           r,b,dt=get("https://www.placardaspesquisas.com.br/apuracao")
           h=b.decode()
           import re; print("trechos", re.findall(r'.{120}(?:Aguardando|aguardando|5%).{120}', h)[:4]); print("página", r.status, f"{dt:.1f}s", "tem 'Experimental':", 'Experimental' in h, "tem '5%':", 'cerca de 5%' in h)
