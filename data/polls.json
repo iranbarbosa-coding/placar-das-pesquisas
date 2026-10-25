@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-25T01:06:18.722Z",
+ "generated_at": "2026-10-25T14:56:47.550Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-25T01:06:18.722Z"
+   "last_ok": "2026-10-25T14:56:47.550Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-25T01:06:18.722Z"
+   "last_ok": "2026-10-25T14:56:47.550Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-25T01:06:18.722Z"
+   "last_ok": "2026-10-25T14:56:47.550Z"
   }
  ],
  "polls": [
@@ -315,6 +315,72 @@
    "undecided_pct": 1.6,
    "blank_null_pct": 2.3,
    "tse_registration": "BR-09726/2026"
+  },
+  {
+   "id": "p360-14551-2-0-abd366f95b43",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Datafolha-DF-presidente-24-out.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Pesquisa-Datafolha-DF-presidente-24-out.pdf",
+   "race": "presidente",
+   "state": "DF",
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "Datafolha",
+   "contractor": "Globo e Folha de S. Paulo",
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-10-24",
+   "published_date": "2026-10-24",
+   "sample_size": 1620,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 53
+    },
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": 4,
+   "tse_registration": "BR-03112/2026"
+  },
+  {
+   "id": "p360-14552-2-0-8d4747f8210f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poderdata/flavio-tem-51-e-lula-tem-49-dos-votos-validos-diz-poderdata-aya-2/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/Relatorio-PoderData-Eleitoral-24out26-1.pdf",
+   "race": "presidente",
+   "state": null,
+   "round": 2,
+   "scenario": "2º turno: Flávio Bolsonaro vs Lula",
+   "pollster": "PoderData",
+   "contractor": "PoderData",
+   "fieldwork_start": "2026-10-23",
+   "fieldwork_end": "2026-10-24",
+   "published_date": "2026-10-24",
+   "sample_size": 4000,
+   "margin_of_error": 1.6,
+   "results": [
+    {
+     "candidate": "Lula",
+     "party": "PT",
+     "pct": 48
+    },
+    {
+     "candidate": "Flávio Bolsonaro",
+     "party": "PL",
+     "pct": 49
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": null,
+   "tse_registration": "BR-02828/2026"
   },
   {
    "id": "0e63a198562e",
@@ -1317,7 +1383,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "PoderData",
    "contractor": "PoderData",
-   "fieldwork_start": "2026-10-19",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-10-21",
    "published_date": "2026-10-21",
    "sample_size": 4000,

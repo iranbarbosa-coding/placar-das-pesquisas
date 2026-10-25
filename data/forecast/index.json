@@ -18,7 +18,7 @@
      "name": "Lula"
     }
    ],
-   "latest": "snapshots/presidente-br-2026-t2/2026-10-25_b1a70e8845.json",
+   "latest": "snapshots/presidente-br-2026-t2/2026-10-25_e9fa5de18e.json",
    "history": [
     {
      "path": "snapshots/presidente-br-2026-t2/2026-10-18_05932fe69e.json",
@@ -1000,6 +1000,53 @@
      "projection_q90": [
       56.043,
       54.675
+     ]
+    },
+    {
+     "path": "snapshots/presidente-br-2026-t2/2026-10-25_e9fa5de18e.json",
+     "reference_date": "2026-10-25",
+     "status": {
+      "overall": "publicado",
+      "nowcast": "publicada",
+      "projection": "experimental",
+      "probability": "experimental",
+      "reasons": [
+       "erro sistemático do 2º turno emprestado do 1º turno (sem disputa de 2º turno com resultado no banco)",
+       "nenhuma disputa histórica da categoria presidente_t2 com resultado oficial no banco",
+       "probabilidade publicada como experimental por decisão editorial (2026-10-18)"
+      ]
+     },
+     "n_polls": 164,
+     "latest_fieldwork_end": "2026-10-24",
+     "output_sha256": "0ee199eebf5f6e2c348d9671fd419f5974cb18762ced01269ea0ccb23ea8f2d3",
+     "executed_at": "2026-10-25T14:58:41+00:00",
+     "probability_first": [
+      0.5687,
+      0.4313
+     ],
+     "nowcast_median": [
+      50.679,
+      49.321
+     ],
+     "nowcast_q10": [
+      50.148,
+      48.823
+     ],
+     "nowcast_q90": [
+      51.177,
+      49.852
+     ],
+     "projection_median": [
+      50.686,
+      49.314
+     ],
+     "projection_q10": [
+      45.344,
+      44.009
+     ],
+     "projection_q90": [
+      55.991,
+      54.656
      ]
     }
    ]

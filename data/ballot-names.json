@@ -4,7 +4,7 @@
  "stats": {
   "exato": 721,
   "contencao": 228,
-  "outra_disputa": 163,
+  "outra_disputa": 165,
   "ambiguo": 5,
   "sem": 564
  },
@@ -544,6 +544,13 @@
    }
   },
   "presidente:AC": {
+   "alan rick": {
+    "nome_urna": "Alan Rick",
+    "sq_candidato": "10002532492",
+    "partido": "REPUBLICANOS",
+    "numero": "10",
+    "origem": "outra-disputa"
+   },
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
     "sq_candidato": "280002551547",
@@ -578,6 +585,13 @@
     "partido": "PT",
     "numero": "13",
     "origem": "exato"
+   },
+   "mailza assis": {
+    "nome_urna": "Mailza Assis",
+    "sq_candidato": "10002544107",
+    "partido": "PP",
+    "numero": "11",
+    "origem": "outra-disputa"
    },
    "michelle bolsonaro": {
     "nome_urna": "Michelle Bolsonaro",
