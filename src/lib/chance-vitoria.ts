@@ -142,7 +142,12 @@ export function chanceDeVitoria(
     if (!b || b[0] + b[1] <= 0 || m.te <= m.est) continue;
     const uf = k.slice(0, 2);
     const x = base.get(uf)!;
-    const u = ufs.get(uf);
+    // Arquivos do TSE lidos em instantes diferentes: se o comparecimento do arquivo de
+    // votos da UF não bate (±3%) com o do andamento por município, os dois retratam
+    // conjuntos de urnas diferentes — a UF usa a variação nacional nesta leitura.
+    const bruto = ufs.get(uf);
+    const alinhado = !!bruto && x.c > 0 && Math.abs(bruto.c - x.c) <= 0.03 * Math.max(bruto.c, x.c);
+    const u = alinhado ? bruto : undefined;
     const dois = u ? u.lula + u.flavio : 0;
     // Variação da UF amortecida rumo à nacional: com poucos votos contados, pesa pouco.
     const wUf = dois / (dois + kUf);
