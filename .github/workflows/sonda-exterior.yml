@@ -1,0 +1,36 @@
+# TEMPORÁRIO — o que o TSE publica agora no 2º turno (nacional e exterior). Branch descartável.
+name: sonda-exterior
+on:
+  push:
+    branches: [claude/sonda-exterior]
+permissions:
+  contents: read
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          B=https://resultados.tse.jus.br/oficial/ele2026/6258/dados
+          resumo() { python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)
+          print({k:d.get(k) for k in ['dg','hg','dt','ht','tf','and','md','esae']})
+          print('s', d.get('s',{}).get('st'), '/', d.get('s',{}).get('ts'), ' e.est', d.get('e',{}).get('est'), ' e.c', d.get('e',{}).get('c'), ' v.vv', d.get('v',{}).get('vv'))
+          for a in d.get('carg',[{}])[0].get('agr',[]):
+            for p in a.get('par',[]):
+              for c in p.get('cand',[]): print('  cand', c.get('n'), c.get('nmu'), c.get('vap'), c.get('pvap'))
+          ab=d.get('abr')
+          if ab:
+            print('abr', len(ab))
+            for x in ab:
+              if x.get('cdabr') in ('zz','br','sp','ac') or (x.get('s',{}).get('st') not in ('0',None)):
+                print('  ', x.get('tpabr'), x.get('cdabr'), x.get('dt'), x.get('ht'), 's', x.get('s',{}).get('st'), '/', x.get('s',{}).get('ts'), 'est', x.get('e',{}).get('est'))
+          " ; }
+          for u in br/br-c0001-e006258-u.json br/br-e006258-ab.json zz/zz-c0001-e006258-u.json zz/zz-e006258-ab.json; do
+            echo "=================== $u"
+            curl -sS -m 60 -A "Mozilla/5.0" -e "https://resultados.tse.jus.br/" -o /tmp/f -w "HTTP %{http_code} %{size_download} bytes · last-modified: %header{last-modified}\n" "$B/$u"
+            resumo < /tmp/f || head -c 600 /tmp/f
+          done
+          echo "=================== config"
+          curl -sS -m 60 -A "Mozilla/5.0" https://resultados.tse.jus.br/oficial/comum/config/ele-c.json | python3 -c "
+          import json,sys; d=json.load(sys.stdin); print(json.dumps(d)[:1500])"
