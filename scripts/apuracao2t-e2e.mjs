@@ -85,8 +85,8 @@ const GMUN = Object.fromEntries(
     })),
   ]),
 );
-function docGov(uf, frac) {
-  const t = soma(GMUN[uf], frac);
+function docGov(uf, frac, lista = GMUN[uf]) {
+  const t = soma(lista, frac);
   const pv = (x) => br(t.vv ? ((100 * x) / t.vv).toFixed(9) : "0");
   const [A, B] = GOV[uf].candidatos;
   const cand = (c, v) => ({ com: c.partido, par: [{ sg: c.partido, cand: [{ n: c.n, nm: c.nome, nmu: c.nome, sqcand: c.sq, vap: String(v), pvapn: pv(v), e: "n", st: "" }] }] });
@@ -119,6 +119,15 @@ function servir(porta) {
         return json({ abr: [...UFS.map((x) => x.toLowerCase()), "zz"].map((uf) => ({ tpabr: "uf", cdabr: uf, ...se(soma(daUf(uf), frac)) })) });
       if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/(\w\w)\/\1-e006258-ab\.json$/)))
         return json({ abr: daUf(k[1]).map((m) => ({ tpabr: "mun", cdabr: m.cd, ...se(soma([m], frac)) })) });
+      // Arquivos por município (leitura por município da chance de vitória).
+      if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/(\w\w)\/\1(\d{5})-c0001-e006258-u\.json$/))) {
+        const m = MUN.find((x) => x.uf === k[1] && x.cd === k[2]);
+        if (m) return json(doc([m], frac));
+      }
+      if ((k = u.pathname.match(/\/oficial\/ele2026\/6260\/dados\/(\w\w)\/\1(\d{5})-c0003-e006260-u\.json$/)) && GOV[k[1]]) {
+        const m = GMUN[k[1]].find((x) => x.cd === k[2]);
+        if (m) return json(docGov(k[1], frac, [m]));
+      }
       if ((k = u.pathname.match(/\/oficial\/ele2026\/6258\/dados\/(\w\w)\/\1-c0001-e006258-u\.json$/)))
         return json(doc(k[1] === "br" ? MUN : daUf(k[1]), frac));
       if ((k = u.pathname.match(/\/oficial\/ele2026\/6260\/dados\/(\w\w)\/\1-c0003-e006260-u\.json$/)) && GOV[k[1]])

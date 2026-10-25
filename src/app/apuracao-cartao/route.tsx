@@ -14,6 +14,8 @@ import { fmtChance, fmtPctBr, resumoApuracao } from "@/lib/apuracao-resumo";
  * mais de um filho.
  */
 export const dynamic = "force-dynamic";
+// A leitura por município pode levar alguns segundos (prazo interno de 7s).
+export const maxDuration = 30;
 
 // Fundo BRANCO (pedido do criador, 24/10): paleta clara do site (globals.css :root).
 const FUNDO = "#ffffff";

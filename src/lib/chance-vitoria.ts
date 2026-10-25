@@ -24,6 +24,8 @@ export interface T1Municipios {
 
 /** Andamento do 2º turno num município: eleitorado, eleitorado apurado, comparecimento apurado. */
 export interface AndamentoMun {
+  /** Versão do município no arquivo de andamento (seções apuradas + hora): muda quando ele muda. */
+  versao?: string;
   te: number;
   est: number;
   c: number;
@@ -69,8 +71,27 @@ export interface OpcoesChance {
   kUf?: number;
   /** Fração mínima de votos dos dois já contados para publicar a chance (padrão MIN_APURADO). */
   minApurado?: number;
+  /**
+   * Leitura POR MUNICÍPIO (pedido do criador, 25/10/2026): votos já contados de cada
+   * candidato no arquivo do próprio município, com o andamento do MESMO arquivo. Com
+   * ela, a variação de cada município é o voto real ali menos o esperado pelo 1º turno
+   * ali, e o que falta no município é projetado pela variação dele; UFs e país usam a
+   * soma desses municípios (um só instante por arquivo, sem desencontro). Municípios
+   * fora do mapa (não lidos a tempo) caem na conta por UF.
+   */
+  municipios?: Map<string, VotosMun>;
+  /** Votos nos dois para a variação de UM município valer metade. */
+  kMunicipio?: number;
 }
-const PADRAO = { kNacional: 3_000_000, kUf: 100_000 };
+const PADRAO = { kNacional: 3_000_000, kUf: 100_000, kMunicipio: 2_000 };
+
+/** Votos já contados num município (candidato "lula" = 1º, "flavio" = 2º) e o andamento do mesmo arquivo. */
+export interface VotosMun {
+  lula: number;
+  flavio: number;
+  te: number;
+  est: number;
+}
 
 /** Φ(x) da normal padrão (Abramowitz–Stegun 7.1.26, erro < 1,5e-7). */
 export function phi(x: number): number {
@@ -87,7 +108,27 @@ export function chanceDeVitoria(
   kappa: number,
   opcoes: OpcoesChance = {},
 ): ChanceVitoria | null {
-  const { kNacional, kUf } = { ...PADRAO, ...opcoes };
+  const { kNacional, kUf, kMunicipio } = { ...PADRAO, ...opcoes };
+  const mv = opcoes.municipios;
+  const fatia1 = (b: [number, number, number, number]) => b[1] / (b[0] + b[1]);
+  // Somas da leitura por município: votos nos dois, de Flávio e o esperado pelo 1º turno.
+  const porMun = new Map<string, { v: number; f: number; e: number }>();
+  let vM = 0, fM = 0, eM = 0;
+  if (mv)
+    for (const [k, x] of mv) {
+      const b = t1.mun[k];
+      const v = x.lula + x.flavio;
+      if (!b || b[0] + b[1] <= 0 || v <= 0) continue;
+      const uf = k.slice(0, 2);
+      const a = porMun.get(uf) ?? { v: 0, f: 0, e: 0 };
+      a.v += v;
+      a.f += x.flavio;
+      a.e += v * fatia1(b);
+      porMun.set(uf, a);
+      vM += v;
+      fM += x.flavio;
+      eM += v * fatia1(b);
+    }
   const V2 = nacional.lula + nacional.flavio;
   if (V2 <= 0) return null;
 
@@ -127,7 +168,10 @@ export function chanceDeVitoria(
   }
   if (pesoN <= 0) return null;
   // Variação nacional amortecida rumo a zero (= repetir o 1º turno) quando há pouco voto.
-  const sNac = (V2 / (V2 + kNacional)) * (nacional.flavio / V2 - bFN / pesoN);
+  // Com leitura por município, a variação nacional vem dela (real − esperado nos
+  // mesmos municípios, mesmo instante); sem ela, do arquivo nacional × andamento.
+  const sNac =
+    vM > 0 ? (vM / (vM + kNacional)) * ((fM - eM) / vM) : (V2 / (V2 + kNacional)) * (nacional.flavio / V2 - bFN / pesoN);
   const compNac = estN > 0 ? cN / estN : 0;
   // Votos nos dois por comparecimento: nacional, dos arquivos das UFs.
   let doisUf = 0;
@@ -139,9 +183,26 @@ export function chanceDeVitoria(
   let falta = 0;
   for (const [k, m] of t2) {
     const b = t1.mun[k];
-    if (!b || b[0] + b[1] <= 0 || m.te <= m.est) continue;
+    if (!b || b[0] + b[1] <= 0) continue;
     const uf = k.slice(0, 2);
     const x = base.get(uf)!;
+    const pm = porMun.get(uf);
+    // Variação da UF pela leitura por município, quando há; amortecida rumo à nacional.
+    const sUfMun = pm && pm.v > 0 ? (pm.v / (pm.v + kUf)) * ((pm.f - pm.e) / pm.v) + (kUf / (pm.v + kUf)) * sNac : null;
+    const vm = mv?.get(k);
+    if (vm && vm.lula + vm.flavio > 0 && vm.est > 0) {
+      // Município lido: o que falta nele segue a variação DELE (amortecida rumo à da UF).
+      if (vm.te <= vm.est) continue;
+      const vv = vm.lula + vm.flavio;
+      const w = vv / (vv + kMunicipio);
+      const sm = w * (vm.flavio / vv - fatia1(b)) + (1 - w) * (sUfMun ?? sNac);
+      const v = ((vm.te - vm.est) * vv) / vm.est;
+      F += v * Math.min(1, Math.max(0, fatia1(b) + sm));
+      V += v;
+      falta += v;
+      continue;
+    }
+    if (m.te <= m.est) continue;
     // Arquivos do TSE lidos em instantes diferentes: se o comparecimento do arquivo de
     // votos da UF não bate (±3%) com o do andamento por município, os dois retratam
     // conjuntos de urnas diferentes — a UF usa a variação nacional nesta leitura.
@@ -151,7 +212,8 @@ export function chanceDeVitoria(
     const dois = u ? u.lula + u.flavio : 0;
     // Variação da UF amortecida rumo à nacional: com poucos votos contados, pesa pouco.
     const wUf = dois / (dois + kUf);
-    const s = u && dois > 0 && x.peso > 0 ? wUf * (u.flavio / dois - x.bF / x.peso) + (1 - wUf) * sNac : sNac;
+    const s =
+      sUfMun ?? (u && dois > 0 && x.peso > 0 ? wUf * (u.flavio / dois - x.bF / x.peso) + (1 - wUf) * sNac : sNac);
     const comp = m.est > 0 ? m.c / m.est : x.est > 0 ? x.c / x.est : compNac;
     // Votos nos dois por eleitor: o do município no 1º turno, corrigido pela razão
     // 2º/1º turno observada na UF (nacional se a UF não tem nada contado).
