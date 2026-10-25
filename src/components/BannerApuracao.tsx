@@ -37,10 +37,10 @@ export default function BannerApuracao() {
     fase === "antes"
       ? "Domingo, 25/10, a partir das 17h (Brasília). Presidente e governadores, direto do TSE, com a chance de vitória em tempo real."
       : fase === "aoVivo"
-        ? "Presidente e governadores, direto do TSE, a cada 30 segundos, com a chance de vitória em tempo real."
+        ? "Presidente e governadores, direto do TSE, a cada 30 segundos."
         : fase === "depois"
           ? "Presidente e os seis governos em 2º turno, estado por estado."
-          : "Presidente e governadores, direto do TSE, com a chance de vitória em tempo real.";
+          : "Presidente e governadores, direto do TSE.";
 
   return (
     <Link

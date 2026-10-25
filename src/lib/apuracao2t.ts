@@ -165,6 +165,15 @@ async function emLotes<T, R>(itens: T[], n: number, f: (x: T) => Promise<R>): Pr
   return out;
 }
 
+/**
+ * Medidor de chance de vitória (presidente e governadores) no ar? DESLIGADO em
+ * 25/10/2026, ~20h, por decisão do criador: as consultas da projeção passaram a
+ * ser barradas pelo TSE (429) e chegaram a travar o placar. Desligado, a leitura
+ * não faz nenhum pedido além dos do placar, e a página mostra a nota explicativa
+ * no lugar do medidor.
+ */
+export const CHANCE_NO_AR = false;
+
 export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> {
   const lidoEm = new Date().toISOString();
   let br: any, ab: any;
@@ -190,6 +199,7 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
   // Andamento por município, para a chance de vitória. Se uma UF falhar, a conta
   // não sai (melhor nada que uma chance calculada sem parte do país).
   const municipios = (async () => {
+    if (!CHANCE_NO_AR) return null;
     const m = new Map<string, AndamentoMun>();
     let completo = true;
     await emLotes([...ufs.map((u) => u.toLowerCase()), "zz"], 9, async (uf) => {
@@ -244,7 +254,7 @@ export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> 
   const v = br.v ?? {};
   const e = br.e ?? {};
   let chance: ChanceVitoria | null = null;
-  if (num(br.s?.st) > 0 && br.tf !== "s" && estados.every((s) => !s.semVotos)) {
+  if (CHANCE_NO_AR && num(br.s?.st) > 0 && br.tf !== "s" && estados.every((s) => !s.semVotos)) {
     const { chanceDeVitoria } = await import("./chance-vitoria");
     const { default: t1 } = await import("../../data/apuracao/t1-municipios.json");
     const { kappa } = await import("../../data/apuracao/chance-config.json");
@@ -355,7 +365,7 @@ export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
       const and = andamento(doc.s, doc.e);
       const final = doc.tf === "s";
       let chance: ChanceVitoria | null = null;
-      if (!semChance && and.secoes > 0 && !final) {
+      if (CHANCE_NO_AR && !semChance && and.secoes > 0 && !final) {
         try {
           const ab = await getJson(abGov(uf), fresco);
           const mun = new Map<string, AndamentoMun>();
