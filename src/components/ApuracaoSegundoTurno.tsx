@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AoVivo, Barra, CardHead, int, pct, titulo, useAoVivo } from "@/components/ApuracaoLive";
 import { colorMap, colorOf } from "@/lib/colors";
-import { CANDIDATOS_2T, vazio2T, type Apuracao2T, type Gov2T, type Estado2T, type Leitura2T, type Voto2T } from "@/lib/apuracao2t";
+import { CANDIDATOS_2T, CHANCE_NO_AR, vazio2T, type Apuracao2T, type Gov2T, type Estado2T, type Leitura2T, type Voto2T } from "@/lib/apuracao2t";
 import { UF_NAMES, type UF } from "@/lib/types";
 
 /**
@@ -166,12 +166,24 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
       ) : (
         !aguardando &&
         !d.nacional.final &&
-        d.nacional.secoes > 0 && (
+        d.nacional.secoes > 0 &&
+        (!CHANCE_NO_AR ? (
+          <p
+            className="mt-4 border-t pt-4 text-[13px]"
+            style={{ color: "var(--text-muted)", borderColor: "var(--grid)" }}
+            data-testid="chance-fora-do-ar"
+          >
+            <b style={{ color: "var(--text-primary)" }}>Medidor de chance de vitória fora do ar.</b> A projeção dependia de consultar, a
+            cada atualização, o resultado de cada município já apurado. Esse volume de consultas passou a ser barrado pelos servidores
+            do TSE, e isso chegou a travar também o placar. Para manter o resultado oficial atualizado, o medidor foi retirado durante
+            esta apuração.
+          </p>
+        ) : (
           <p className="mt-4 border-t pt-4 text-[13px]" style={{ color: "var(--text-muted)", borderColor: "var(--grid)" }}>
             A chance de vitória aparece quando cerca de 5% dos votos estiverem apurados — antes disso, as primeiras urnas são poucas e
             concentradas demais para indicar o resultado.
           </p>
-        )
+        ))
       )}
 
       <Andamento2T d={d} />
@@ -542,7 +554,9 @@ function BlocoGov({ g }: { g: Gov2T }) {
         ) : (
           <p className="text-[11px]" style={{ color: "var(--text-muted)" }}>
             {g.semChance ??
-              (g.final
+              (!CHANCE_NO_AR && !g.final
+                ? "Medidor de chance fora do ar: as consultas da projeção passaram a ser barradas pelos servidores do TSE (veja a nota no placar do presidente)."
+                : g.final
                 ? "Totalização encerrada."
                 : g.aguardando || g.andamento.secoes === 0
                   ? "A chance de vitória aparece com as primeiras seções apuradas."
@@ -560,7 +574,11 @@ function Governadores({ lista }: { lista: Gov2T[] }) {
     <div className="flex flex-col gap-3">
       <CardHead
         title="Governadores · 2º turno"
-        sub="Os seis estados com 2º turno. Mesma conta de chance do presidente, com o 1º turno de governador em cada município."
+        sub={
+          CHANCE_NO_AR
+            ? "Os seis estados com 2º turno. Mesma conta de chance do presidente, com o 1º turno de governador em cada município."
+            : "Os seis estados com 2º turno, direto do TSE."
+        }
       />
       <div className="-mt-1 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {lista.map((g) => (
