@@ -1,4 +1,4 @@
-# TEMPORÁRIO — retrato da apuração agora, por UF, com contas de controle. Branch descartável.
+# TEMPORÁRIO — mesmo eleitor, 1º × 2º turno, município a município. Branch descartável.
 name: sonda-exterior
 on:
   push:
@@ -18,7 +18,10 @@ jobs:
           from concurrent.futures import ThreadPoolExecutor
           B="https://resultados.tse.jus.br/oficial/ele2026/6258/dados"
           def get(u):
-            return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60))
+            for i in range(3):
+              try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60))
+              except Exception as e: err=e
+            raise err
           num=lambda s: float(str(s or 0).replace(',','.'))
           def votos(d):
             o={}
@@ -29,28 +32,32 @@ jobs:
           ufs="ac al am ap ba ce df es go ma mg ms mt pa pb pe pi pr rj rn ro rr rs sc se sp to zz".split()
           t1=json.load(open('data/apuracao/t1-municipios.json'))['mun']
           br=get(f"{B}/br/br-c0001-e006258-u.json"); L,F=votos(br)
-          print("BR", br.get('dt'), br.get('ht'), "pst", br['s']['pstn'], "Lula", L, "Flávio", F, "Flávio %", round(100*F/(L+F),2))
-          def uf(u):
-            d=get(f"{B}/{u}/{u}-c0001-e006258-u.json"); l,f=votos(d)
-            r1l=sum(v[0] for k,v in t1.items() if k.startswith(u)); r1f=sum(v[1] for k,v in t1.items() if k.startswith(u))
-            te=num(d['e']['te']); est=num(d['e']['est']); c=num(d['e']['c'])
-            return u, num(d['s']['pstn']), l, f, r1l, r1f, te, est, c, d.get('ht')
-          with ThreadPoolExecutor(14) as ex: rows=list(ex.map(uf, ufs))
-          totL=totF=0; projA_F=projA_V=0; projB_F=projB_V=0
-          sL=sum(r[2] for r in rows); sF=sum(r[3] for r in rows)
-          # variação nacional: real - esperado (1º turno da UF) pesado pelos votos contados
-          esp=sum((r[2]+r[3])*r[5]/(r[4]+r[5]) for r in rows if r[4]+r[5]>0 and r[2]+r[3]>0)
-          swing=(sF-esp)/(sL+sF)
-          print(f"variação nacional (real − esperado pelo 1º turno da UF nos votos contados): {100*swing:+.2f} p.p.")
-          print("UF  apurado%   Lula      Flávio    Flávio%  1ºT Flávio%  hora")
-          for u,p,l,f,r1l,r1f,te,est,c,ht in rows:
-            v=l+f; r1=r1f/(r1l+r1f) if r1l+r1f else 0
-            print(f"{u}  {p:6.2f}  {int(l):9d} {int(f):9d}  {100*f/v if v else 0:6.2f}   {100*r1:6.2f}   {ht}")
-            tot=(r1l+r1f)  # votos nos dois no 1º turno ~ tamanho
-            falta=max(0, tot*(1-p/100))
-            if v>0: projA_F+=f+falta*f/v; projA_V+=v+falta
-            else: projA_F+=tot*r1; projA_V+=tot
-            projB_F+=f+falta*min(1,max(0,r1+swing)); projB_V+=v+falta
-          print(f"Conta A (o que falta segue o placar atual de cada UF): Flávio {100*projA_F/projA_V:.2f}%")
-          print(f"Conta B (1º turno de cada UF + variação nacional):    Flávio {100*projB_F/projB_V:.2f}%")
+          print("BR", br.get('ht'), "apurado", br['s']['pstn'], "Flávio %", round(100*F/(L+F),2))
+          mun=[]
+          def ab(u):
+            d=get(f"{B}/{u}/{u}-e006258-ab.json")
+            return [(u, a['cdabr'], num(a['e']['te']), num(a['e']['est'])) for a in d.get('abr',[]) if a.get('tpabr')=='mun' and num(a['e']['est'])>0]
+          with ThreadPoolExecutor(14) as ex:
+            for r in ex.map(ab, ufs): mun+=r
+          print("municípios com algo apurado:", len(mun))
+          def mv(m):
+            u,cd,te,est=m
+            try: l,f=votos(get(f"{B}/{u}/{u}{cd}-c0001-e006258-u.json"))
+            except Exception: return None
+            return (u,cd,te,est,l,f)
+          with ThreadPoolExecutor(48) as ex: res=[r for r in ex.map(mv,mun) if r]
+          print("lidos:", len(res))
+          agg={}
+          for u,cd,te,est,l,f in res:
+            b=t1.get(f"{u}{cd}")
+            if not b or b[0]+b[1]<=0 or l+f<=0: continue
+            r1=b[1]/(b[0]+b[1]); cheio = est>=te
+            for k in [(u,'todos'),('BR','todos')]+([(u,'cheios'),('BR','cheios')] if cheio else []):
+              a=agg.setdefault(k,[0,0,0,0]); a[0]+=l+f; a[1]+=f; a[2]+=(l+f)*r1; a[3]+=1
+          print("Flávio no 2º turno × 1º turno NOS MESMOS MUNICÍPIOS (pesado pelos votos contados)")
+          print("UF   | municípios c/ algo: n  2ºT%  1ºT%  dif | 100% apurados: n  2ºT%  1ºT%  dif")
+          for u in ['BR']+[x for x in ufs]:
+            t=agg.get((u,'todos')); c=agg.get((u,'cheios'))
+            f=lambda a: f"{a[3]:5d} {100*a[1]/a[0]:6.2f} {100*a[2]/a[0]:6.2f} {100*(a[1]-a[2])/a[0]:+6.2f}" if a else "    -"
+            print(f"{u.upper():4} | {f(t)} | {f(c)}")
           PY
