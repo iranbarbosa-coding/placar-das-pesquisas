@@ -365,6 +365,8 @@ export async function lerGovernadores2T(fresco: boolean): Promise<Gov2T[]> {
             new Map([[uf, { lula: a.votos, flavio: z.votos, c: and.comparecimento }]]),
             { lula: a.votos, flavio: z.votos },
             kappa_governador,
+            // Um estado só: a variação do estado é a "nacional", amortecida em escala estadual.
+            { kNacional: 30_000 },
           );
         } catch {
           chance = null;

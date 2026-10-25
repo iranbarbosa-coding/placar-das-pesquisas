@@ -161,7 +161,18 @@ function Placar({ d, aguardando }: { d: Apuracao2T; aguardando: boolean }) {
         )}
       </p>
 
-      {d.chance && <Chance d={d} />}
+      {d.chance ? (
+        <Chance d={d} />
+      ) : (
+        !aguardando &&
+        !d.nacional.final &&
+        d.nacional.secoes > 0 && (
+          <p className="mt-4 border-t pt-4 text-[13px]" style={{ color: "var(--text-muted)", borderColor: "var(--grid)" }}>
+            A chance de vitória aparece quando cerca de 5% dos votos estiverem apurados — antes disso, as primeiras urnas são poucas e
+            concentradas demais para indicar o resultado.
+          </p>
+        )
+      )}
 
       <Andamento2T d={d} />
     </section>
@@ -535,7 +546,7 @@ function BlocoGov({ g }: { g: Gov2T }) {
                 ? "Totalização encerrada."
                 : g.aguardando || g.andamento.secoes === 0
                   ? "A chance de vitória aparece com as primeiras seções apuradas."
-                  : "Chance indisponível nesta leitura (falta arquivo do TSE).")}
+                  : "A chance de vitória aparece quando cerca de 5% dos votos do estado estiverem apurados.")}
           </p>
         )}
       </div>
