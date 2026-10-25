@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1950 levantamentos · 6090 perguntas · 166 institutos · 1445 candidatos**.
+Banco: **1974 levantamentos · 6120 perguntas · 166 institutos · 1447 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -14,11 +14,11 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **PESSOA** — Candidatos que podem não ser pessoas | 0 | 0 |
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
-| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 53 | 39 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 453 | 20 |
+| **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 456 | 20 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **520** | **63** |
+| **total** | **524** | **64** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -57,9 +57,9 @@ Sem data de campo nem de publicação, a pesquisa não entra em média nem em s�
 - s_ca4c8b28f604 · Delta · AC · registro —
 - s_f45a1dcff913 · Paraná Pesquisas · PR · registro —
 
-## DUPLICATA — Mesmo campo mantido como dois levantamentos (53)
+## DUPLICATA — Mesmo campo mantido como dois levantamentos (54)
 
-Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 53) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
+Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos separados. Duas coisas diferentes caem aqui e o rótulo de cada item diz qual: *cenários separados* é uma operação de campo cujas perguntas ficaram em levantamentos distintos — problema de identidade de levantamento, que a escada de resolução (`upsertPoll`) une; *elenco repetido* (3 de 54) é a mesma pergunta duas vezes, e essa sim entra duas vezes na média.
 
 - **[2026]** cenários separados — Datafolha · PE senador/t1 · 2026-04-26 — 2 levantamentos
   s_03b4d753b6bc: Marília Arraes 20 · Humberto Costa 12 · Eduardo da Fonte 6 · Túlio Gadêlha 6 · Mendonça Filho 9
@@ -215,6 +215,9 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_67a8dda7d659: Jair Messias Bolsonaro 46 · Luiz Inácio Lula da Silva 44.4 · Ciro Gomes 4.5 · Simone Tebet 1.5
   s_9d13d46ea6a8: Michelle Bolsonaro 30.4 · Luiz Inácio Lula da Silva 45 · Pablo Marçal 1.3 · Ratinho Júnior 4.8 · Eduardo Leite 0.9 · Romeu Zema 7.2 · Ciro Gomes 3.9 · Ronaldo Caiado 4
   s_9d13d46ea6a8: Lula 44.6 · Tarcísio de Freitas 34 · Romeu Zema 4.4 · Pablo Marçal 3.7 · Ciro Gomes 3.5 · Ratinho Jr 2.5 · Ronaldo Caiado 1.7 · Eduardo Leite 1
+- **[2026]** cenários separados — AtlasIntel · AC presidente/t2 · 2026-10-23 — 2 levantamentos
+  s_67c70cedd7b4: Flávio Bolsonaro 63.3 · Lula 32.4
+  s_d8d7c17f45e8: Mailza Assis 53.3 · Alan Rick 34.9
 - **[2026]** ELENCO REPETIDO — Palver · BR presidente/t2 · 2026-09-23 — 2 levantamentos
   s_684407aea71b: Luiz Inácio Lula da Silva 44 · Augusto Cury 36
   s_684407aea71b: Luiz Inácio Lula da Silva 45 · Romeu Zema 43
@@ -343,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (453)
+## CONFLITO — Conflitos registrados aguardando decisão (456)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -795,9 +798,12 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_c4f9a34481c6 · survey_id: "s_c4f9a34481c6" × null
 - survey_id_orphaned · s_fa30463e0251 · survey_id: "s_fa30463e0251" × null
 - **[2026]** survey_id_orphaned · s_c9758ad3d589 · survey_id: "s_c9758ad3d589" × null
-- disputa_em_quarentena · governador:AM · quarentena: 135 × 131
+- survey_id_orphaned · s_d63f5ee37aa6 · survey_id: "s_d63f5ee37aa6" × null
+- survey_id_orphaned · s_90b062ded9e9 · survey_id: "s_90b062ded9e9" × null
+- survey_id_orphaned · s_4ccc06680bab · survey_id: "s_4ccc06680bab" × null
+- disputa_em_quarentena · governador:AM · quarentena: 135 × 133
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
-- disputa_em_quarentena · governador:DF · quarentena: 101 × 108
+- disputa_em_quarentena · governador:DF · quarentena: 101 × 109
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 

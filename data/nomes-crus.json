@@ -427,6 +427,12 @@
  ],
  "presidente:AC": [
   {
+   "nome": "Alan Rick",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
    "nome": "Aldo Rebelo",
    "partidos": [
     "DC"
@@ -478,6 +484,12 @@
    "nome": "Lula",
    "partidos": [
     "PT"
+   ]
+  },
+  {
+   "nome": "Mailza Assis",
+   "partidos": [
+    "PP"
    ]
   },
   {
