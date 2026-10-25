@@ -166,13 +166,13 @@ async function emLotes<T, R>(itens: T[], n: number, f: (x: T) => Promise<R>): Pr
 }
 
 /**
- * Medidor de chance de vitória (presidente e governadores) no ar? DESLIGADO em
- * 25/10/2026, ~20h, por decisão do criador: as consultas da projeção passaram a
- * ser barradas pelo TSE (429) e chegaram a travar o placar. Desligado, a leitura
- * não faz nenhum pedido além dos do placar, e a página mostra a nota explicativa
- * no lugar do medidor.
+ * Medidor de chance de vitória (presidente e governadores) no ar? Desligado em
+ * 25/10/2026, ~20h, quando as consultas por município foram barradas pelo TSE
+ * (429) e chegaram a travar o placar; RELIGADO na mesma noite, a pedido do
+ * criador, só com a conta por estado (LER_MUNICIPIOS = false) e uma nota dizendo
+ * isso. Desligado, a página mostra a nota explicativa no lugar do medidor.
  */
-export const CHANCE_NO_AR = false;
+export const CHANCE_NO_AR = true;
 
 export async function lerApuracao2T({ fresco = true } = {}): Promise<Leitura2T> {
   const lidoEm = new Date().toISOString();
