@@ -16,12 +16,10 @@ jobs:
           def get(u):
             t=time.time(); r=urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60)
             return r, r.read(), time.time()-t
-          for i in range(3):
+          for i in range(2):
             r,b,dt=get(f"https://www.placardaspesquisas.com.br/api/apuracao-2t.json?x={time.time()}")
             d=json.loads(b)
             print("CHAVES", list(d.keys()), "motivo", d.get('motivo'), "lidoEm", d.get('lidoEm'), "aguardando", d.get('aguardando'))
-            print("BRUTO", b[:1500].decode('utf8','replace'))
-            print("gov0", json.dumps(d.get('governadores',[{}])[0], ensure_ascii=False)[:800])
             print(f"--- leitura {i+1} ({dt:.1f}s) age={r.headers.get('age')} cache={r.headers.get('x-vercel-cache')}")
             n=d.get('nacional',{})
             print("apurado", n.get('pct'), "seções", n.get('secoes'), "atualizadoEm", d.get('atualizadoEm'))
@@ -32,5 +30,5 @@ jobs:
             time.sleep(30)
           r,b,dt=get("https://www.placardaspesquisas.com.br/apuracao")
           h=b.decode()
-          import re; print("trechos", re.findall(r'.{120}(?:Aguardando|aguardando|5%).{120}', h)[:4]); print("página", r.status, f"{dt:.1f}s", "tem 'Experimental':", 'Experimental' in h, "tem '5%':", 'cerca de 5%' in h)
+          import re; print("trechos", re.findall(r'.{120}(?:Aguardando|aguardando|5%).{120}', h)[:4]); print("tem nota:", 'Medidor de chance de vitória fora do ar' in h); print("página", r.status, f"{dt:.1f}s", "tem 'Experimental':", 'Experimental' in h, "tem '5%':", 'cerca de 5%' in h)
           PY
