@@ -33,7 +33,7 @@ jobs:
           ufs="ac al am ap ba ce df es go ma mg ms mt pa pb pe pi pr rj rn ro rr rs sc se sp to zz".split()
           t1=json.load(open('data/apuracao/t1-municipios.json'))['mun']
           br=get(f"{B}/br/br-c0001-e006258-u.json"); L,F=votos(br)
-          print("BR", br.get('ht'), "apurado", br['s']['pstn'], "Flávio %", round(100*F/(L+F),2))
+          print("BR", br.get('dt'), br.get('ht'), "apurado", br['s']['pstn'], "Flávio %", round(100*F/(L+F),2))
           mun=[]
           def ab(u):
             d=get(f"{B}/{u}/{u}-e006258-ab.json")
@@ -60,6 +60,6 @@ jobs:
           print("UF   | municípios c/ algo: n  2ºT%  1ºT%  dif | 100% apurados: n  2ºT%  1ºT%  dif")
           for u in ['BR']+[x for x in ufs]:
             t=agg.get((u,'todos')); c=agg.get((u,'cheios'))
-            f=lambda a: f"{a[3]:5d} {100*a[1]/a[0]:6.2f} {100*a[2]/a[0]:6.2f} {100*(a[1]-a[2])/a[0]:+6.2f}" if a else "    -"
+            f=lambda a: f"{a[3]:5d} {100*a[1]/a[0]:6.2f} {100*a[2]/a[0]:6.2f} {100*(a[1]-a[2])/a[0]:+6.2f} votos2={int(a[0])} flavio={int(a[1])} amenos={int(a[2]-a[1])}" if a else "    -"
             print(f"{u.upper():4} | {f(t)} | {f(c)}")
           PY
