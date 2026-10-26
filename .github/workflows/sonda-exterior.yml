@@ -1,4 +1,4 @@
-# TEMPORÁRIO — onde Flávio ficou acima do esperado (município) e ordem de totalização. Branch descartável.
+# TEMPORÁRIO — onde o TSE publicou os resultados do 2º turno por seção. Branch descartável.
 name: sonda-exterior
 on:
   push:
@@ -8,76 +8,43 @@ permissions:
 jobs:
   sonda:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
       - run: |
           python3 -u - <<'PY'
-          import json, urllib.request, time
-          from concurrent.futures import ThreadPoolExecutor
-          R="https://resultados.tse.jus.br/oficial/ele2026/6258/dados"
-          def get(u):
-            for i in range(3):
-              try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=20))
-              except Exception as e: err=e; time.sleep(2*(i+1))
-            raise err
-          num=lambda s: float(str(s or 0).replace(',','.'))
-          # dados abertos 2026 por seção/zona já publicados?
-          for u in ["https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_BR.zip",
-                    "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_AC.zip",
-                    "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2026.zip",
-                    "https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_2026.zip"]:
+          import json, urllib.request
+          H={'User-Agent':'Mozilla/5.0'}
+          def get(u, t=30):
+            return urllib.request.urlopen(urllib.request.Request(u,headers=H),timeout=t).read()
+          def head(u):
             try:
-              r=urllib.request.urlopen(urllib.request.Request(u,method='HEAD',headers={'User-Agent':'Mozilla/5.0'}),timeout=15)
-              print("EXISTE", u, r.headers.get('Content-Length'), r.headers.get('Last-Modified'))
-            except Exception as e: print("NÃO", u, e)
-          t1=json.load(open('data/apuracao/t1-municipios.json'))['mun']
-          t0=time.time(); print("teste TSE:", get(f"{R}/br/br-c0001-e006258-u.json").get('ht'), f"{time.time()-t0:.1f}s")
-          feitos=[0]
-          def mv(k):
-            feitos[0]+=1
-            if feitos[0]%500==0: print("progresso", feitos[0], f"{time.time()-t0:.0f}s")
-            u,cd=k[:2],k[2:]
-            try: d=get(f"{R}/{u}/{u}{cd}-c0001-e006258-u.json")
-            except Exception: return None
-            o={}
-            for a in d['carg'][0]['agr']:
-              for p in a['par']:
-                for c in p['cand']: o[c['n']]=num(c['vap'])
-            return k, o.get('13',0), o.get('22',0), d.get('ht'), d.get('dt')
-          with ThreadPoolExecutor(16) as ex: res=[r for r in ex.map(mv, list(t1)) if r]
-          print("lidos", len(res))
-          rows=[]
-          for k,l,f,ht,dt in res:
-            b=t1[k]
-            if b[0]+b[1]<=0 or l+f<=0: continue
-            r1=b[1]/(b[0]+b[1]); r2=f/(l+f)
-            rows.append((k,l,f,r1,r2,(r2-r1)*100,ht or '',dt or ''))
-          n=len(rows); acima=[r for r in rows if r[5]>0]
-          print(f"municípios {n}; Flávio ACIMA do 1º turno em {len(acima)} ({100*len(acima)/n:.1f}%)")
-          for lim in [0.5,1,2,5]:
-            print(f"  acima por mais de {lim} p.p.: {sum(1 for r in rows if r[5]>lim)}")
-          va=sum(r[1]+r[2] for r in acima); vt=sum(r[1]+r[2] for r in rows)
-          print(f"  votos (Lula+Flávio) nesses municípios: {int(va)} de {int(vt)} ({100*va/vt:.2f}%)")
-          import collections
-          porUf=collections.Counter(r[0][:2] for r in acima); tot=collections.Counter(r[0][:2] for r in rows)
-          print("  por UF:", ", ".join(f"{u.upper()} {porUf[u]}/{tot[u]}" for u in sorted(tot)))
-          print("MAIORES (votos ≥ 20 mil), Flávio acima:")
-          for r in sorted([r for r in acima if r[1]+r[2]>=20000], key=lambda r:-r[5])[:15]:
-            print(f"  {r[0]} {int(r[1]+r[2]):>8} 1ºT {100*r[3]:.1f} 2ºT {100*r[4]:.1f} {r[5]:+.2f}")
-          print("TODOS acima, top 15 por diferença:")
-          for r in sorted(acima, key=lambda r:-r[5])[:15]:
-            print(f"  {r[0]} {int(r[1]+r[2]):>8} 1ºT {100*r[3]:.1f} 2ºT {100*r[4]:.1f} {r[5]:+.2f}")
-          # ordem de totalização: municípios que FECHARAM cedo (última totalização)
-          print("POR HORA DA ÚLTIMA TOTALIZAÇÃO DO MUNICÍPIO (dt ht):")
-          by=collections.defaultdict(lambda:[0,0,0,0])
-          for k,l,f,r1,r2,d,ht,dt in rows:
-            h=(dt[:5]+' '+ht[:4]+'0') if ht else '?'
-            a=by[h]; a[0]+=l+f; a[1]+=f; a[2]+=(l+f)*r1; a[3]+=1
-          acc=[0,0,0,0]
-          for h in sorted(by):
-            a=by[h]; acc=[x+y for x,y in zip(acc,a)]
-            print(f"  {h}  n={a[3]:4d} votos={int(a[0]):>10}  Flávio {100*a[1]/a[0]:.2f} vs 1ºT {100*a[2]/a[0]:.2f} ({100*(a[1]-a[2])/a[0]:+.2f})  acumulado {int(acc[0]):>10} ({100*(acc[1]-acc[2])/acc[0]:+.2f})")
+              r=urllib.request.urlopen(urllib.request.Request(u,method='HEAD',headers=H),timeout=15)
+              return f"OK {r.headers.get('Content-Length')} {r.headers.get('Last-Modified')}"
+            except Exception as e: return f"X {e}"
+          # 1) Portal de dados abertos (CKAN)
+          for q in ["boletim de urna 2026","resultados 2026","votacao secao 2026","eleicoes 2026"]:
+            try:
+              d=json.loads(get("https://dadosabertos.tse.jus.br/api/3/action/package_search?rows=20&q="+urllib.parse.quote(q)))
+              print("== CKAN", q, d['result']['count'])
+              for p in d['result']['results']:
+                print("  pkg", p['name'], "|", p.get('metadata_modified'))
+            except Exception as e: print("CKAN falhou", q, e)
+          for pid in ["resultados-2026-boletim-de-urna","resultados-2026","resultados-2026-arquivos-transmitidos-para-totalizacao","resultados-2026-correspondencias-esperadas-e-efetivadas"]:
+            try:
+              d=json.loads(get("https://dadosabertos.tse.jus.br/api/3/action/package_show?id="+pid))['result']
+              print("== PACOTE", pid, d.get('metadata_modified'))
+              for r in d['resources']:
+                if '2t' in (r.get('url','')+r.get('name','')).lower() or '2º' in r.get('name','') or 'segundo' in r.get('name','').lower() or 'secao' in r.get('url','').lower():
+                  print("   ", r.get('name'), "|", r.get('url'), "|", r.get('last_modified') or r.get('created'))
+              print("   total de recursos:", len(d['resources']))
+            except Exception as e: print("pacote falhou", pid, e)
+          # 2) Arquivos de seção do site de Resultados (arquivo-urna)
+          try:
+            c=json.loads(get("https://resultados.tse.jus.br/oficial/comum/config/ele-c.json"))
+            print("== ele-c", json.dumps(c, ensure_ascii=False)[:1500])
+          except Exception as e: print("ele-c falhou", e)
+          for pl in [3221,3222,3223,3220]:
+            for u in [f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/config/ac/ac-p00{pl}-cs.json",
+                      f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/config/mu-e00{pl}-cs.json"]:
+              print(pl, u.split('/')[-1], head(u))
           PY
