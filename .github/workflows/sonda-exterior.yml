@@ -1,4 +1,4 @@
-# TEMPORÁRIO — migração de votos 1º → 2º turno (totais oficiais + inferência ecológica por município). Branch descartável.
+# TEMPORÁRIO — histórico de abstenção, brancos e nulos (presidente, 1º × 2º turno), dados abertos do TSE. Branch descartável.
 name: sonda-exterior
 on:
   push:
@@ -9,76 +9,38 @@ jobs:
   sonda:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - run: pip install -q numpy scipy
       - run: |
           python3 - <<'PY'
-          import json, urllib.request, time
-          import numpy as np
-          from scipy.optimize import lsq_linear
-          from concurrent.futures import ThreadPoolExecutor
-          R="https://resultados.tse.jus.br/oficial/ele2026"
-          def get(u):
-            for i in range(6):
-              try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60))
-              except Exception as e: err=e; time.sleep(2*(i+1))
-            raise err
-          num=lambda s: float(str(s or 0).replace(',','.'))
-          def ler(d):
-            o={}
-            for a in d['carg'][0]['agr']:
-              for p in a['par']:
-                for c in p['cand']: o[c['n']]=(num(c['vap']), c.get('nmu') or c.get('nm'))
-            v=d.get('v',{}); e=d.get('e',{})
-            return dict(cand=o, vv=num(v.get('vv')), vb=num(v.get('vb')), vn=num(v.get('tvn')), a=num(e.get('a')), c=num(e.get('c')), te=num(e.get('te')), est=num(e.get('est')), pst=d['s'].get('pstn'), dt=d.get('dt'), ht=d.get('ht'), tf=d.get('tf'))
-          b1=ler(get(f"{R}/6257/dados/br/br-c0001-e006257-u.json")); b2=ler(get(f"{R}/6258/dados/br/br-c0001-e006258-u.json"))
-          for nome,b in [("1T",b1),("2T",b2)]:
-            print(f"== {nome} apurado {b['pst']} totalização {b['dt']} {b['ht']} tf={b['tf']}")
-            print(f"eleitorado {int(b['te'])} comparecimento {int(b['c'])} abstenção {int(b['a'])} válidos {int(b['vv'])} brancos {int(b['vb'])} nulos {int(b['vn'])}")
-            for n,(v,nm) in sorted(b['cand'].items(), key=lambda x:-x[1][0]): print(f"  {n:>3} {nm:30} {int(v):>11} {100*v/b['vv']:6.2f}%")
-          top=[n for n,_ in sorted(b1['cand'].items(), key=lambda x:-x[1][0]) if n not in ('13','22')][:4]
-          print("grupos 1T:", [(n,b1['cand'][n][1]) for n in top])
-          t1=json.load(open('data/apuracao/t1-municipios.json'))['mun']
-          keys=list(t1.keys())
-          def mun(k):
-            u,cd=k[:2],k[2:]
+          import urllib.request, zipfile, io, csv, sys, os
+          csv.field_size_limit(10**9)
+          for ano in [1989,1994,1998,2002,2006,2010,2014,2018,2022]:
+            url=f"https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_{ano}.zip"
             try:
-              m1=ler(get(f"{R}/6257/dados/{u}/{u}{cd}-c0001-e006257-u.json")); m2=ler(get(f"{R}/6258/dados/{u}/{u}{cd}-c0001-e006258-u.json"))
-              return k,m1,m2
-            except Exception as e: return None
-          with ThreadPoolExecutor(16) as ex: res=[r for r in ex.map(mun, keys) if r]
-          print("municípios lidos", len(res), "de", len(keys))
-          X=[];Y=[];W=[]
-          for k,m1,m2 in res:
-            E1=m1['te']; E2=m2['te']
-            if E1<=0 or E2<=0: continue
-            c=m1['cand']; g=lambda n: c.get(n,(0,''))[0]
-            outros=m1['vv']-g('13')-g('22')-sum(g(n) for n in top)
-            x=[g('13'),g('22')]+[g(n) for n in top]+[outros, m1['vb']+m1['vn'], m1['a']]
-            y=[m2['cand'].get('13',(0,))[0], m2['cand'].get('22',(0,))[0], m2['vb']+m2['vn'], m2['a']]
-            X.append([v/E1 for v in x]); Y.append([v/E2 for v in y]); W.append(E1)
-          X=np.array(X);Y=np.array(Y);W=np.sqrt(np.array(W))
-          rot=["Lula 1T","Flávio 1T"]+[b1['cand'][n][1] for n in top]+["outros","branco+nulo 1T","abstenção 1T"]
-          saida=["Lula","Flávio","branco+nulo","abstenção"]
-          B=np.array([lsq_linear(X*W[:,None], Y[:,j]*W, bounds=(0,1)).x for j in range(4)]).T
-          tot1=np.array([b1['cand']['13'][0], b1['cand']['22'][0]]+[b1['cand'][n][0] for n in top]+[b1['vv']-b1['cand']['13'][0]-b1['cand']['22'][0]-sum(b1['cand'][n][0] for n in top), b1['vb']+b1['vn'], b1['a']])
-          print("MATRIZ DE TRANSFERÊNCIA (linha = origem no 1º turno; colunas = destino no 2º; soma da linha ~1)")
-          print(f"{'origem':28} {'total 1T':>11} " + " ".join(f"{s:>12}" for s in saida) + "   soma")
-          for i,r in enumerate(rot):
-            print(f"{r[:28]:28} {int(tot1[i]):>11} " + " ".join(f"{100*B[i,j]:11.1f}%" for j in range(4)) + f"  {100*B[i].sum():5.1f}")
-          print("VOTOS ESTIMADOS (origem → destino), escalados pelo total nacional de cada origem")
-          for i,r in enumerate(rot):
-            s=B[i].sum() or 1
-            print(f"{r[:28]:28} " + " ".join(f"{int(tot1[i]*B[i,j]/s):>12}" for j in range(4)))
-          pred=X@B; err=Y-pred
-          print("erro médio absoluto por município (p.p. do eleitorado):", [round(100*float(np.average(np.abs(err[:,j]),weights=W**2)),2) for j in range(4)])
-          # bootstrap
-          rng=np.random.default_rng(1); bs=[]
-          for _ in range(100):
-            ix=rng.integers(0,len(X),len(X)); bs.append(np.array([lsq_linear(X[ix]*W[ix,None], Y[ix,j]*W[ix], bounds=(0,1)).x for j in range(4)]).T)
-          sd=np.std(bs,axis=0)
-          print("desvio (bootstrap 100x), p.p.:")
-          for i,r in enumerate(rot): print(f"{r[:28]:28} " + " ".join(f"{100*sd[i,j]:11.1f}" for j in range(4)))
+              fn=f"/tmp/d{ano}.zip"; urllib.request.urlretrieve(url, fn)
+            except Exception as e:
+              print(ano, "falhou", e); continue
+            z=zipfile.ZipFile(fn)
+            nomes=[n for n in z.namelist() if n.lower().endswith(('.csv','.txt'))]
+            br=[n for n in nomes if 'BRASIL' in n.upper()]
+            usar=br if br else nomes
+            print(ano, "arquivos", len(nomes), "usando", usar[:3], "..." if len(usar)>3 else "")
+            tot={}
+            for n in usar:
+              with z.open(n) as f:
+                r=csv.reader(io.TextIOWrapper(f, encoding='latin1'), delimiter=';')
+                h=next(r); h=[x.strip('"') for x in h]
+                ix=lambda c: h.index(c) if c in h else None
+                ic=ix('DS_CARGO'); it=ix('NR_TURNO')
+                campos=[c for c in ['QT_APTOS','QT_COMPARECIMENTO','QT_ABSTENCOES','QT_VOTOS_BRANCOS','QT_VOTOS_NULOS','QT_VOTOS_NULOS_TECNICOS','QT_VOTOS_ANULADOS','QT_VOTOS_NOMINAIS','QT_VOTOS_LEGENDA','QT_TOTAL_VOTOS_NULOS'] if c in h]
+                if ic is None:
+                  print("  sem DS_CARGO; cabeçalho:", h[:40]); break
+                for row in r:
+                  if row[ic].strip('"').upper()!='PRESIDENTE': continue
+                  t=row[it].strip('"'); a=tot.setdefault(t,{c:0 for c in campos})
+                  for c in campos:
+                    v=row[h.index(c)].strip('"')
+                    try: a[c]+=int(v)
+                    except: pass
+            for t in sorted(tot): print(" ", ano, "turno", t, tot[t])
+            os.remove(fn)
           PY
