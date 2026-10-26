@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-26T01:07:20.172Z",
+ "generated_at": "2026-10-26T17:20:17.177Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-26T01:07:20.172Z"
+   "last_ok": "2026-10-26T17:20:17.177Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-26T01:07:20.172Z"
+   "last_ok": "2026-10-26T17:20:17.177Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-26T01:07:20.172Z"
+   "last_ok": "2026-10-26T17:20:17.177Z"
   }
  ],
  "polls": [
@@ -153671,7 +153671,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-05-25",
    "fieldwork_end": "2026-05-26",
    "published_date": "2026-05-26",
    "sample_size": 1600,

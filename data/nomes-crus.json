@@ -8553,95 +8553,6 @@
    ]
   }
  ],
- "senador:PB": [
-  {
-   "nome": "Adriano Trajano",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "André Gadelha",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Avenzoar Arruda",
-   "partidos": [
-    "PSOL",
-    "PT"
-   ]
-  },
-  {
-   "nome": "João Azevedo",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
-   "nome": "João Azevêdo",
-   "partidos": [
-    "PSB"
-   ]
-  },
-  {
-   "nome": "João Batista",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Major Fábio",
-   "partidos": [
-    "Novo",
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Marcelo Queiroga",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Marcelo Queiroz",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Nabor Wanderley",
-   "partidos": [
-    "Novo",
-    "Republicanos"
-   ]
-  },
-  {
-   "nome": "Padre Fabrício",
-   "partidos": [
-    "Sem partido"
-   ]
-  },
-  {
-   "nome": "Rinaldo Junior",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Rosilene Santana",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Veneziano Vital do Rêgo",
-   "partidos": [
-    "MDB"
-   ]
-  }
- ],
  "senador:PE": [
   {
    "nome": "Anderson Ferreira",
@@ -10392,6 +10303,44 @@
    "nome": "Wanderlei Barbosa",
    "partidos": [
     "Republicanos"
+   ]
+  }
+ ],
+ "senador:PB": [
+  {
+   "nome": "Avenzoar Arruda",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "João Azevêdo",
+   "partidos": [
+    "PSB"
+   ]
+  },
+  {
+   "nome": "Major Fábio",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Marcelo Queiroga",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Nabor Wanderley",
+   "partidos": [
+    "Republicanos"
+   ]
+  },
+  {
+   "nome": "Veneziano Vital do Rêgo",
+   "partidos": [
+    "MDB"
    ]
   }
  ]
