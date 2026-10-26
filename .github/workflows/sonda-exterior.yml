@@ -1,4 +1,4 @@
-# TEMPORÁRIO — onde o TSE publicou os resultados do 2º turno por seção. Branch descartável.
+# TEMPORÁRIO — formato dos arquivos de urna do 2º turno (pleito 3221). Branch descartável.
 name: sonda-exterior
 on:
   push:
@@ -8,43 +8,37 @@ permissions:
 jobs:
   sonda:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - run: |
           python3 -u - <<'PY'
           import json, urllib.request
           H={'User-Agent':'Mozilla/5.0'}
-          def get(u, t=30):
-            return urllib.request.urlopen(urllib.request.Request(u,headers=H),timeout=t).read()
-          def head(u):
+          B="https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/3221"
+          get=lambda u: urllib.request.urlopen(urllib.request.Request(u,headers=H),timeout=30).read()
+          cs=json.loads(get(f"{B}/config/ac/ac-p003221-cs.json"))
+          print("cs chaves", list(cs.keys())); s=json.dumps(cs)[:1500]; print(s)
+          ab=cs.get('abr',[{}])[0]
+          mu=ab.get('mu',[])
+          print("municípios", len(mu))
+          m=mu[0]; print("mun0", json.dumps(m)[:600])
+          z=m['zon'][0]; sec=z['sec'][0]
+          print("zona0", z.get('cd'), "seções", len(z['sec']), "sec0", sec)
+          cd_m=m['cd']; cd_z=z['cd']; cd_s=sec.get('ns') or sec.get('cd')
+          base=f"{B}/dados/ac/{cd_m}/{cd_z}/{cd_s}"
+          aux=f"{base}/p003221-ac-m{cd_m}-z{cd_z}-s{cd_s}-aux.json"
+          print("aux url", aux)
+          a=json.loads(get(aux)); print("aux", json.dumps(a, ensure_ascii=False)[:1500])
+          for h in a.get('hashes',[])[:1]:
+            for nm in h.get('nmarq',[]):
+              if nm.endswith('.imgbu'):
+                t=get(f"{base}/{h['hash']}/{nm}").decode('latin1'); print("IMGBU", nm); print(t[:3000])
+          # total de seções no país (estimativa por UF)
+          tot=0
+          for uf in "ac al am ap ba ce df es go ma mg ms mt pa pb pe pi pr rj rn ro rr rs sc se sp to zz".split():
             try:
-              r=urllib.request.urlopen(urllib.request.Request(u,method='HEAD',headers=H),timeout=15)
-              return f"OK {r.headers.get('Content-Length')} {r.headers.get('Last-Modified')}"
-            except Exception as e: return f"X {e}"
-          # 1) Portal de dados abertos (CKAN)
-          for q in ["boletim de urna 2026","resultados 2026","votacao secao 2026","eleicoes 2026"]:
-            try:
-              d=json.loads(get("https://dadosabertos.tse.jus.br/api/3/action/package_search?rows=20&q="+urllib.parse.quote(q)))
-              print("== CKAN", q, d['result']['count'])
-              for p in d['result']['results']:
-                print("  pkg", p['name'], "|", p.get('metadata_modified'))
-            except Exception as e: print("CKAN falhou", q, e)
-          for pid in ["resultados-2026-boletim-de-urna","resultados-2026","resultados-2026-arquivos-transmitidos-para-totalizacao","resultados-2026-correspondencias-esperadas-e-efetivadas"]:
-            try:
-              d=json.loads(get("https://dadosabertos.tse.jus.br/api/3/action/package_show?id="+pid))['result']
-              print("== PACOTE", pid, d.get('metadata_modified'))
-              for r in d['resources']:
-                if '2t' in (r.get('url','')+r.get('name','')).lower() or '2º' in r.get('name','') or 'segundo' in r.get('name','').lower() or 'secao' in r.get('url','').lower():
-                  print("   ", r.get('name'), "|", r.get('url'), "|", r.get('last_modified') or r.get('created'))
-              print("   total de recursos:", len(d['resources']))
-            except Exception as e: print("pacote falhou", pid, e)
-          # 2) Arquivos de seção do site de Resultados (arquivo-urna)
-          try:
-            c=json.loads(get("https://resultados.tse.jus.br/oficial/comum/config/ele-c.json"))
-            print("== ele-c", json.dumps(c, ensure_ascii=False)[:1500])
-          except Exception as e: print("ele-c falhou", e)
-          for pl in [3221,3222,3223,3220]:
-            for u in [f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/config/ac/ac-p00{pl}-cs.json",
-                      f"https://resultados.tse.jus.br/oficial/ele2026/arquivo-urna/{pl}/config/mu-e00{pl}-cs.json"]:
-              print(pl, u.split('/')[-1], head(u))
+              c=json.loads(get(f"{B}/config/{uf}/{uf}-p003221-cs.json"))
+              n=sum(len(z['sec']) for m in c['abr'][0]['mu'] for z in m['zon']); tot+=n
+            except Exception as e: print(uf, "erro", e)
+          print("seções no país:", tot)
           PY
