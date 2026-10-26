@@ -1,4 +1,4 @@
-# TEMPORÁRIO — histórico de abstenção, brancos e nulos (presidente, 1º × 2º turno), dados abertos do TSE. Branch descartável.
+# TEMPORÁRIO — onde Flávio ficou acima do esperado (município) e ordem de totalização. Branch descartável.
 name: sonda-exterior
 on:
   push:
@@ -9,38 +9,70 @@ jobs:
   sonda:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
       - run: |
           python3 - <<'PY'
-          import urllib.request, zipfile, io, csv, sys, os
-          csv.field_size_limit(10**9)
-          for ano in [1989,1994,1998,2002,2006,2010,2014,2018,2022]:
-            url=f"https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_{ano}.zip"
+          import json, urllib.request, time
+          from concurrent.futures import ThreadPoolExecutor
+          R="https://resultados.tse.jus.br/oficial/ele2026/6258/dados"
+          def get(u):
+            for i in range(6):
+              try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=60))
+              except Exception as e: err=e; time.sleep(2*(i+1))
+            raise err
+          num=lambda s: float(str(s or 0).replace(',','.'))
+          # dados abertos 2026 por seção/zona já publicados?
+          for u in ["https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_BR.zip",
+                    "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_secao/votacao_secao_2026_AC.zip",
+                    "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2026.zip",
+                    "https://cdn.tse.jus.br/estatistica/sead/odsele/detalhe_votacao_munzona/detalhe_votacao_munzona_2026.zip"]:
             try:
-              fn=f"/tmp/d{ano}.zip"; urllib.request.urlretrieve(url, fn)
-            except Exception as e:
-              print(ano, "falhou", e); continue
-            z=zipfile.ZipFile(fn)
-            nomes=[n for n in z.namelist() if n.lower().endswith(('.csv','.txt'))]
-            br=[n for n in nomes if 'BRASIL' in n.upper()]
-            usar=br if br else nomes
-            print(ano, "arquivos", len(nomes), "usando", usar[:3], "..." if len(usar)>3 else "")
-            tot={}
-            for n in usar:
-              with z.open(n) as f:
-                r=csv.reader(io.TextIOWrapper(f, encoding='latin1'), delimiter=';')
-                h=next(r); h=[x.strip('"') for x in h]
-                ix=lambda c: h.index(c) if c in h else None
-                ic=ix('DS_CARGO'); it=ix('NR_TURNO')
-                campos=[c for c in ['QT_APTOS','QT_COMPARECIMENTO','QT_ABSTENCOES','QT_VOTOS_BRANCOS','QT_VOTOS_NULOS','QT_VOTOS_NULOS_TECNICOS','QT_VOTOS_ANULADOS','QT_VOTOS_NOMINAIS','QT_VOTOS_LEGENDA','QT_TOTAL_VOTOS_NULOS'] if c in h]
-                if ic is None:
-                  print("  sem DS_CARGO; cabeçalho:", h[:40]); break
-                for row in r:
-                  if row[ic].strip('"').upper()!='PRESIDENTE': continue
-                  t=row[it].strip('"'); a=tot.setdefault(t,{c:0 for c in campos})
-                  for c in campos:
-                    v=row[h.index(c)].strip('"')
-                    try: a[c]+=int(v)
-                    except: pass
-            for t in sorted(tot): print(" ", ano, "turno", t, tot[t])
-            os.remove(fn)
+              r=urllib.request.urlopen(urllib.request.Request(u,method='HEAD',headers={'User-Agent':'Mozilla/5.0'}),timeout=30)
+              print("EXISTE", u, r.headers.get('Content-Length'), r.headers.get('Last-Modified'))
+            except Exception as e: print("NÃO", u, e)
+          t1=json.load(open('data/apuracao/t1-municipios.json'))['mun']
+          def mv(k):
+            u,cd=k[:2],k[2:]
+            try: d=get(f"{R}/{u}/{u}{cd}-c0001-e006258-u.json")
+            except Exception: return None
+            o={}
+            for a in d['carg'][0]['agr']:
+              for p in a['par']:
+                for c in p['cand']: o[c['n']]=num(c['vap'])
+            return k, o.get('13',0), o.get('22',0), d.get('ht'), d.get('dt')
+          with ThreadPoolExecutor(16) as ex: res=[r for r in ex.map(mv, list(t1)) if r]
+          print("lidos", len(res))
+          rows=[]
+          for k,l,f,ht,dt in res:
+            b=t1[k]
+            if b[0]+b[1]<=0 or l+f<=0: continue
+            r1=b[1]/(b[0]+b[1]); r2=f/(l+f)
+            rows.append((k,l,f,r1,r2,(r2-r1)*100,ht or '',dt or ''))
+          n=len(rows); acima=[r for r in rows if r[5]>0]
+          print(f"municípios {n}; Flávio ACIMA do 1º turno em {len(acima)} ({100*len(acima)/n:.1f}%)")
+          for lim in [0.5,1,2,5]:
+            print(f"  acima por mais de {lim} p.p.: {sum(1 for r in rows if r[5]>lim)}")
+          va=sum(r[1]+r[2] for r in acima); vt=sum(r[1]+r[2] for r in rows)
+          print(f"  votos (Lula+Flávio) nesses municípios: {int(va)} de {int(vt)} ({100*va/vt:.2f}%)")
+          import collections
+          porUf=collections.Counter(r[0][:2] for r in acima); tot=collections.Counter(r[0][:2] for r in rows)
+          print("  por UF:", ", ".join(f"{u.upper()} {porUf[u]}/{tot[u]}" for u in sorted(tot)))
+          print("MAIORES (votos ≥ 20 mil), Flávio acima:")
+          for r in sorted([r for r in acima if r[1]+r[2]>=20000], key=lambda r:-r[5])[:15]:
+            print(f"  {r[0]} {int(r[1]+r[2]):>8} 1ºT {100*r[3]:.1f} 2ºT {100*r[4]:.1f} {r[5]:+.2f}")
+          print("TODOS acima, top 15 por diferença:")
+          for r in sorted(acima, key=lambda r:-r[5])[:15]:
+            print(f"  {r[0]} {int(r[1]+r[2]):>8} 1ºT {100*r[3]:.1f} 2ºT {100*r[4]:.1f} {r[5]:+.2f}")
+          # ordem de totalização: municípios que FECHARAM cedo (última totalização)
+          print("POR HORA DA ÚLTIMA TOTALIZAÇÃO DO MUNICÍPIO (dt ht):")
+          by=collections.defaultdict(lambda:[0,0,0,0])
+          for k,l,f,r1,r2,d,ht,dt in rows:
+            h=(dt[:5]+' '+ht[:4]+'0') if ht else '?'
+            a=by[h]; a[0]+=l+f; a[1]+=f; a[2]+=(l+f)*r1; a[3]+=1
+          acc=[0,0,0,0]
+          for h in sorted(by):
+            a=by[h]; acc=[x+y for x,y in zip(acc,a)]
+            print(f"  {h}  n={a[3]:4d} votos={int(a[0]):>10}  Flávio {100*a[1]/a[0]:.2f} vs 1ºT {100*a[2]/a[0]:.2f} ({100*(a[1]-a[2])/a[0]:+.2f})  acumulado {int(acc[0]):>10} ({100*(acc[1]-acc[2])/acc[0]:+.2f})")
           PY
