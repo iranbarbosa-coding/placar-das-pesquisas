@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 715,
+  "exato": 721,
   "contencao": 228,
   "outra_disputa": 165,
   "ambiguo": 5,
-  "sem": 562
+  "sem": 564
  },
  "ambiguos": [
   {
@@ -6594,6 +6594,78 @@
     "origem": "exato"
    }
   },
+  "senador:PB": {
+   "adriano trajano": {
+    "nome_urna": "Adriano Trajano",
+    "sq_candidato": "150002552607",
+    "partido": "PCO",
+    "numero": "290",
+    "origem": "exato"
+   },
+   "andre gadelha": {
+    "nome_urna": "André Gadelha",
+    "sq_candidato": "150002544909",
+    "partido": "MDB",
+    "numero": "151",
+    "origem": "exato"
+   },
+   "joao azevedo": {
+    "nome_urna": "João Azevêdo",
+    "sq_candidato": "150002549793",
+    "partido": "PSB",
+    "numero": "400",
+    "origem": "exato"
+   },
+   "joao batista": {
+    "nome_urna": "João Batista",
+    "sq_candidato": "150002544140",
+    "partido": "UP",
+    "numero": "801",
+    "origem": "exato"
+   },
+   "major fabio": {
+    "nome_urna": "Major Fábio",
+    "sq_candidato": "150002548968",
+    "partido": "NOVO",
+    "numero": "300",
+    "origem": "exato"
+   },
+   "marcelo queiroga": {
+    "nome_urna": "Dr. Marcelo Queiroga",
+    "sq_candidato": "150002538459",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "contencao"
+   },
+   "nabor wanderley": {
+    "nome_urna": "Nabor",
+    "sq_candidato": "150002549791",
+    "partido": "REPUBLICANOS",
+    "numero": "100",
+    "origem": "contencao"
+   },
+   "rinaldo junior": {
+    "nome_urna": "Rinaldo Júnior",
+    "sq_candidato": "150002548971",
+    "partido": "DC",
+    "numero": "272",
+    "origem": "exato"
+   },
+   "rosilene santana": {
+    "nome_urna": "Rosilene Santana",
+    "sq_candidato": "150002544135",
+    "partido": "UP",
+    "numero": "800",
+    "origem": "exato"
+   },
+   "veneziano vital do rego": {
+    "nome_urna": "Veneziano",
+    "sq_candidato": "150002544905",
+    "partido": "MDB",
+    "numero": "155",
+    "origem": "contencao"
+   }
+  },
   "senador:PE": {
    "carlos sant anna": {
     "nome_urna": "Carlos Sant Anna",
@@ -7804,43 +7876,6 @@
     "partido": "PSDB",
     "numero": "45",
     "origem": "outra-disputa"
-   }
-  },
-  "senador:PB": {
-   "joao azevedo": {
-    "nome_urna": "João Azevêdo",
-    "sq_candidato": "150002549793",
-    "partido": "PSB",
-    "numero": "400",
-    "origem": "exato"
-   },
-   "major fabio": {
-    "nome_urna": "Major Fábio",
-    "sq_candidato": "150002548968",
-    "partido": "NOVO",
-    "numero": "300",
-    "origem": "exato"
-   },
-   "marcelo queiroga": {
-    "nome_urna": "Dr. Marcelo Queiroga",
-    "sq_candidato": "150002538459",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "contencao"
-   },
-   "nabor wanderley": {
-    "nome_urna": "Nabor",
-    "sq_candidato": "150002549791",
-    "partido": "REPUBLICANOS",
-    "numero": "100",
-    "origem": "contencao"
-   },
-   "veneziano vital do rego": {
-    "nome_urna": "Veneziano",
-    "sq_candidato": "150002544905",
-    "partido": "MDB",
-    "numero": "155",
-    "origem": "contencao"
    }
   }
  }
