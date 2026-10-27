@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **96 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **95 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -1102,25 +1102,6 @@ Soma **81.4%** · faltam **18.6 pontos** · 4 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Relatorio-IGAPE-DF-AGOSTO-2026-COMPLETO.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/Relatorio-IGAPE-DF-AGOSTO-2026-COMPLETO.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Rio Grande do Norte
-
-### Exatus/AgoraRN — 2026-07-10
-
-Soma **82.3%** · faltam **17.7 pontos** · 5 candidato(s) na tabela · amostra 1500 · registro BR-07763/2026
-
-| candidato | % |
-|---|---|
-| Allyson | 41.78 |
-| Álvaro Dias | 26.05 |
-| Cadu de Lula | 13.74 |
-| Dário Barbosa | 0.49 |
-| Professor Roberio Paulino | 0.26 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
