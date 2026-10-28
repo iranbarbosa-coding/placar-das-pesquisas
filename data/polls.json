@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-27T22:56:15.417Z",
+ "generated_at": "2026-10-28T02:10:59.424Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-27T22:56:15.417Z"
+   "last_ok": "2026-10-28T02:10:59.424Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-27T22:56:15.417Z"
+   "last_ok": "2026-10-28T02:10:59.424Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-27T22:56:15.417Z"
+   "last_ok": "2026-10-28T02:10:59.424Z"
   }
  ],
  "polls": [
@@ -43291,7 +43291,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": "2026-09-17",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-21",
    "published_date": "2026-09-21",
    "sample_size": 1600,
@@ -43339,7 +43339,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": "2026-09-17",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-21",
    "published_date": "2026-09-21",
    "sample_size": 1600,
@@ -65268,11 +65268,6 @@
      "pct": 3
     },
     {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 3
-    },
-    {
      "candidate": "Ronaldo Caiado",
      "party": "PSD",
      "pct": 2
@@ -80904,11 +80899,6 @@
      "pct": 7.6
     },
     {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 7
-    },
-    {
      "candidate": "Ronaldo Caiado",
      "party": "PSD",
      "pct": 2.2
@@ -86076,18 +86066,18 @@
   },
   {
    "id": "2ca97299fa99",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Real Time Big Data",
-   "contractor": null,
+   "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-24",
    "fieldwork_end": "2026-08-27",
-   "published_date": null,
+   "published_date": "2026-08-27",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -86115,7 +86105,7 @@
    "others_pct": 0,
    "undecided_pct": 10,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "2f1bcaaacfea",
@@ -86286,18 +86276,18 @@
   },
   {
    "id": "4db1089d868c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
    "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
    "pollster": "Real Time Big Data",
-   "contractor": null,
+   "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-24",
    "fieldwork_end": "2026-08-27",
-   "published_date": null,
+   "published_date": "2026-08-27",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -86315,7 +86305,7 @@
    "others_pct": null,
    "undecided_pct": 14,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "5d5e27530fff",
@@ -86979,18 +86969,18 @@
   },
   {
    "id": "fa39f70e48af",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
    "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
    "pollster": "Real Time Big Data",
-   "contractor": null,
+   "contractor": "Real Time Big Data",
    "fieldwork_start": "2026-08-24",
    "fieldwork_end": "2026-08-27",
-   "published_date": null,
+   "published_date": "2026-08-27",
    "sample_size": 1600,
    "margin_of_error": 2,
    "results": [
@@ -87008,7 +86998,7 @@
    "others_pct": null,
    "undecided_pct": 15,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "p360-13964-1-0-1f9caecccbae",
@@ -94627,8 +94617,8 @@
   {
    "id": "14b25eddc6e5",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-rs-5-candidatos-empatam-em-disputa-pelo-senado-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-rs-25ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-no-rs-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-rs-25ago2026.pdf",
    "race": "governador",
    "state": "RS",
    "round": 1,
@@ -94665,7 +94655,7 @@
    "others_pct": 1,
    "undecided_pct": 39,
    "blank_null_pct": null,
-   "tse_registration": "RS-06875/2026"
+   "tse_registration": "BR-08612/2026"
   },
   {
    "id": "26184669a2d6",
@@ -95527,8 +95517,8 @@
   {
    "id": "b6fe1edf4900",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-rs-5-candidatos-empatam-em-disputa-pelo-senado-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-rs-25ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-no-rs-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-rs-25ago2026.pdf",
    "race": "governador",
    "state": "RS",
    "round": 2,
@@ -95555,7 +95545,7 @@
    "others_pct": null,
    "undecided_pct": 31,
    "blank_null_pct": null,
-   "tse_registration": "RS-06875/2026"
+   "tse_registration": "BR-08612/2026"
   },
   {
    "id": "c0c98aa0251d",
@@ -107067,11 +107057,6 @@
      "pct": 2.35
     },
     {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 1.65
-    },
-    {
      "candidate": "Escritor Augusto Cury",
      "party": "Avante",
      "pct": 0.82
@@ -113238,8 +113223,8 @@
   {
    "id": "p360-13749-1-0-beef8fdc3409",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/GO-030622026-governador.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/GO-030622026-governador.pdf",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/GO-030622026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/GO-030622026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 1,
@@ -116260,11 +116245,6 @@
      "candidate": "Ronaldo Caiado",
      "party": "PSD",
      "pct": 3
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 2
     },
     {
      "candidate": "Escritor Augusto Cury",
@@ -130762,20 +130742,20 @@
   },
   {
    "id": "9db31b55d6a5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
    "race": "senador",
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Exatus/AgoraRN",
-   "contractor": null,
+   "contractor": "Grupo Agora RN",
    "fieldwork_start": "2026-07-07",
    "fieldwork_end": "2026-07-10",
-   "published_date": null,
+   "published_date": "2026-07-10",
    "sample_size": 1500,
-   "margin_of_error": 2.53,
+   "margin_of_error": 2.52,
    "results": [
     {
      "candidate": "Styvenson Valentim",
@@ -130806,24 +130786,24 @@
    "others_pct": 5.01,
    "undecided_pct": null,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07763/2026"
   },
   {
    "id": "b58773b92eb1",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Grupo-Agora-RN-Presidente-.pdf",
    "race": "governador",
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Exatus/AgoraRN",
-   "contractor": null,
+   "contractor": "Grupo Agora RN",
    "fieldwork_start": "2026-07-07",
    "fieldwork_end": "2026-07-10",
-   "published_date": null,
+   "published_date": "2026-07-10",
    "sample_size": 1500,
-   "margin_of_error": 2.53,
+   "margin_of_error": 2.52,
    "results": [
     {
      "candidate": "Allyson",
@@ -130844,7 +130824,7 @@
    "others_pct": 0.94,
    "undecided_pct": 17.68,
    "blank_null_pct": null,
-   "tse_registration": null
+   "tse_registration": "BR-07763/2026"
   },
   {
    "id": "curado-e6aca1b2981a",
@@ -134583,7 +134563,7 @@
      "pct": 15.5
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 13.4
     },
@@ -136410,7 +136390,7 @@
      "pct": 17
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 13
     },
@@ -139554,11 +139534,6 @@
      "pct": 39
     },
     {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 5
-    },
-    {
      "candidate": "Ronaldo Caiado",
      "party": "PSD",
      "pct": 3
@@ -140914,7 +140889,7 @@
      "pct": 11.2
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 11.1
     },
@@ -144416,7 +144391,7 @@
      "pct": 17.07
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 13.33
     },
@@ -144434,11 +144409,6 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 2.56
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 0.61
     }
    ],
    "others_pct": 1.83,
@@ -149069,7 +149039,7 @@
    "scenario": "1º turno",
    "pollster": "Numen Data",
    "contractor": "Numen Data",
-   "fieldwork_start": "2026-06-01",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-06-02",
    "published_date": "2026-06-02",
    "sample_size": 1507,
@@ -149182,7 +149152,7 @@
      "pct": 13.4
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 18.7
     },
@@ -149200,14 +149170,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 6.9
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 2.4
     }
    ],
-   "others_pct": null,
+   "others_pct": 2.4,
    "undecided_pct": 53.7,
    "blank_null_pct": null,
    "tse_registration": "GO-08774/2026"
@@ -150862,7 +150827,7 @@
      "pct": 11.9
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 19.9
     },
@@ -150915,7 +150880,7 @@
      "pct": 8.15
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 3.5
     },
@@ -150933,14 +150898,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 4.45
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 1.15
     }
    ],
-   "others_pct": null,
+   "others_pct": 1.15,
    "undecided_pct": 22.6,
    "blank_null_pct": null,
    "tse_registration": null
@@ -153983,7 +153943,7 @@
      "pct": 17.3
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 14.7
     },
@@ -154006,14 +153966,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 0.4
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 0.9
     }
    ],
-   "others_pct": null,
+   "others_pct": 0.9,
    "undecided_pct": 80.2,
    "blank_null_pct": null,
    "tse_registration": "GO-07758/2026"
@@ -158047,7 +158002,7 @@
      "pct": 26
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 12.6
     },
@@ -158065,14 +158020,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 1.9
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 1.1
     }
    ],
-   "others_pct": 9.7,
+   "others_pct": 10.8,
    "undecided_pct": 17.1,
    "blank_null_pct": null,
    "tse_registration": "GO-02070/2026"
@@ -158219,7 +158169,7 @@
      "pct": 24.8
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 4.5
     },
@@ -160075,7 +160025,7 @@
      "pct": 8
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 5
     },
@@ -160093,14 +160043,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 6
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 1
     }
    ],
-   "others_pct": 4,
+   "others_pct": 5,
    "undecided_pct": 10,
    "blank_null_pct": null,
    "tse_registration": "GO-01063/2026"
@@ -164527,7 +164472,7 @@
      "pct": 23.39
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 16.06
     },
@@ -166626,7 +166571,7 @@
      "pct": 12
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 8
     },
@@ -166644,14 +166589,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 3
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 1
     }
    ],
-   "others_pct": 0,
+   "others_pct": 1,
    "undecided_pct": 28,
    "blank_null_pct": null,
    "tse_registration": "GO-00211/2026"
@@ -172684,7 +172624,7 @@
      "pct": 15.2
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "Novo",
      "pct": 16.2
     },
@@ -172702,14 +172642,9 @@
      "candidate": "Oséias Varão",
      "party": "PL",
      "pct": 3.3
-    },
-    {
-     "candidate": "Iure Castro",
-     "party": "Cidadania",
-     "pct": 4.7
     }
    ],
-   "others_pct": null,
+   "others_pct": 4.7,
    "undecided_pct": 64.5,
    "blank_null_pct": null,
    "tse_registration": "GO-06754/2026"
@@ -191600,7 +191535,7 @@
      "pct": 10.5
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "PL",
      "pct": 7.5
     },
@@ -192094,49 +192029,39 @@
    "margin_of_error": 4.87,
    "results": [
     {
-     "candidate": "Gracinha Caiado",
-     "party": "União Brasil",
-     "pct": 26.7
-    },
-    {
-     "candidate": "Gustavo Gayer",
-     "party": "PL",
-     "pct": 15.4
-    },
-    {
-     "candidate": "Gustavo Mendanha",
-     "party": "MDB",
-     "pct": 5.4
-    },
-    {
      "candidate": "Dr. Zacharias Calil",
      "party": "União Brasil",
-     "pct": 7.4
+     "pct": 9.3
     },
     {
      "candidate": "Alexandre Baldy",
      "party": "DC",
+     "pct": 6.7
+    },
+    {
+     "candidate": "Jorge Kajuru",
+     "party": "PSB",
      "pct": 5.3
     },
     {
      "candidate": "Vanderlan Cardoso",
      "party": "PSD",
+     "pct": 4.5
+    },
+    {
+     "candidate": "Delegado Humberto",
+     "party": "PL",
      "pct": 4.1
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
-     "party": "PL",
-     "pct": 3.5
-    },
-    {
-     "candidate": "Jorge Kajuru",
-     "party": "PSB",
-     "pct": 2.5
+     "candidate": "Gustavo Mendanha",
+     "party": "MDB",
+     "pct": 2.6
     }
    ],
    "others_pct": null,
-   "undecided_pct": 25.2,
-   "blank_null_pct": 4.5,
+   "undecided_pct": 20.9,
+   "blank_null_pct": 6.1,
    "tse_registration": "GO-07369/2026",
    "municipal": {
     "municipio": "Porangatu"
@@ -193060,7 +192985,7 @@
      "pct": 4.1
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "PL",
      "pct": 3.5
     },
@@ -194889,7 +194814,7 @@
      "pct": 5
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "PL",
      "pct": 4.8
     },
@@ -195417,7 +195342,7 @@
      "pct": 3.2
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "PL",
      "pct": 2.4
     }
@@ -196654,7 +196579,7 @@
      "pct": 5.2
     },
     {
-     "candidate": "Delegado Humberto Teófilo",
+     "candidate": "Delegado Humberto",
      "party": "PL",
      "pct": 4.4
     },
@@ -216298,18 +216223,18 @@
   },
   {
    "id": "1a6aa63639c3",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
+   "integra_url": "https://static.poder360.com.br/2025/09/Parana-pesquisa-RN.pdf",
    "race": "governador",
    "state": "RN",
    "round": 2,
    "scenario": "2º turno: Hipóteses com Álvaro Dias",
    "pollster": "Paraná Pesquisas",
-   "contractor": null,
+   "contractor": "Paraná Pesquisas",
    "fieldwork_start": "2025-09-06",
    "fieldwork_end": "2025-09-10",
-   "published_date": null,
+   "published_date": "2025-09-10",
    "sample_size": 1505,
    "margin_of_error": 2.6,
    "results": [
@@ -216331,18 +216256,18 @@
   },
   {
    "id": "278779f0b50e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
+   "integra_url": "https://static.poder360.com.br/2025/09/Parana-pesquisa-RN.pdf",
    "race": "governador",
    "state": "RN",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Paraná Pesquisas",
-   "contractor": null,
+   "contractor": "Paraná Pesquisas",
    "fieldwork_start": "2025-09-06",
    "fieldwork_end": "2025-09-10",
-   "published_date": null,
+   "published_date": "2025-09-10",
    "sample_size": 1505,
    "margin_of_error": 2.6,
    "results": [
@@ -216374,18 +216299,18 @@
   },
   {
    "id": "f6b9ab65eb5c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
-   "integra_url": null,
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-tem-vantagem-sobre-bolsonaro-michelle-e-tarcisio-no-rn/",
+   "integra_url": "https://static.poder360.com.br/2025/09/Parana-pesquisa-RN.pdf",
    "race": "governador",
    "state": "RN",
    "round": 2,
    "scenario": "2º turno: Allyson e Cadu de Lula",
    "pollster": "Paraná Pesquisas",
-   "contractor": null,
+   "contractor": "Paraná Pesquisas",
    "fieldwork_start": "2025-09-06",
    "fieldwork_end": "2025-09-10",
-   "published_date": null,
+   "published_date": "2025-09-10",
    "sample_size": 1505,
    "margin_of_error": 2.6,
    "results": [
@@ -233684,8 +233609,8 @@
   {
    "id": "p360-13221-1-0-b7d1a7319220",
    "source": "poder360",
-   "source_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-riograndedonorte-5.mar_.2025.pdf",
-   "integra_url": "https://static.poder360.com.br/2026/02/pesquisa-paranapesquisas-riograndedonorte-5.mar_.2025.pdf",
+   "source_url": "https://static.poder360.com.br/2025/04/Parana-pesquisas-cenario2026-Rio-Grande-do-Norte-Fev25.pdf",
+   "integra_url": "https://static.poder360.com.br/2025/04/Parana-pesquisas-cenario2026-Rio-Grande-do-Norte-Fev25.pdf",
    "race": "governador",
    "state": "RN",
    "round": 1,

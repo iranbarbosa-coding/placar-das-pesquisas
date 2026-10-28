@@ -585,6 +585,27 @@ Soma **64%** · faltam **36 pontos** · 6 candidato(s) na tabela · amostra 1000
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Rio Grande do Norte
+
+### TN/Consult — 2026-08-10
+
+Soma **64.9%** · faltam **35.1 pontos** · 5 candidato(s) na tabela · amostra 1700 · registro BR-09418/2026
+
+| candidato | % |
+|---|---|
+| Lula | 42.41 |
+| Ronaldo Caiado | 2.35 |
+| Escritor Augusto Cury | 0.82 |
+| Rui Costa Pimenta | 0 |
+| Hertz Dias | 0 |
+| *branco/nulo* | 10.24 |
+| *não sabe/não respondeu* | 9.12 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-presidente-rn-14ago2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-presidente-rn-14ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Presidente · Espírito Santo
 
 ### Real Time Big Data — 2026-07-21
@@ -626,30 +647,6 @@ Soma **65.9%** · faltam **34.1 pontos** · 4 candidato(s) na tabela · amostra 
 - Publicação: https://static.poder360.com.br/2026/02/direct-pesquisa-goais-presidente-12.fev_.2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Rio Grande do Norte
-
-### TN/Consult — 2026-08-10
-
-Soma **66.6%** · faltam **33.4 pontos** · 6 candidato(s) na tabela · amostra 1700 · registro BR-09418/2026
-
-| candidato | % |
-|---|---|
-| Lula | 42.41 |
-| Ronaldo Caiado | 2.35 |
-| Renan Santos | 1.65 |
-| Escritor Augusto Cury | 0.82 |
-| Rui Costa Pimenta | 0 |
-| Hertz Dias | 0 |
-| *branco/nulo* | 10.24 |
-| *não sabe/não respondeu* | 9.12 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-presidente-rn-14ago2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-consult-presidente-rn-14ago2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Governador · Goiás
 
 ### DataRD — 2026-08-04
 
