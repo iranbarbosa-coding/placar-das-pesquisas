@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 451 | 20 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 437 | 20 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **519** | **64** |
+| **total** | **505** | **64** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (451)
+## CONFLITO — Conflitos registrados aguardando decisão (437)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -773,29 +773,15 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - survey_id_orphaned · s_fa30463e0251 · survey_id: "s_fa30463e0251" × null
 - **[2026]** survey_id_orphaned · s_c9758ad3d589 · survey_id: "s_c9758ad3d589" × null
 - roster_encolhido_na_fonte · q_f881dcbce7b6 · results: ["Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
-- person_id_orphaned · p_c25cf627fc1f · person_id: "p_c25cf627fc1f" × null
 - segundo_turno_fragmento_descartado · q_b0be927cda0d · results: null × ["Lula"]
-- person_id_orphaned · p_25c8a14a6cf7 · person_id: "p_25c8a14a6cf7" × null
 - roster_encolhido_na_fonte · q_58bf37879da5 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
-- person_id_orphaned · p_7a48334e3eed · person_id: "p_7a48334e3eed" × null
-- person_id_orphaned · p_323994772f08 · person_id: "p_323994772f08" × null
 - roster_encolhido_na_fonte · q_a21b90ed7e9f · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_c2c319987cd0 · results: ["Flávio Bolsonaro","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Flávio Bolsonaro","Lula","Romeu Zema","Ronaldo Caiado"]
-- person_id_orphaned · p_e985d46f0fae · person_id: "p_e985d46f0fae" × null
-- person_id_orphaned · p_3cdd9c4a0186 · person_id: "p_3cdd9c4a0186" × null
 - **[2026]** registration_dates_contradict · s_c3ea7003b0c2 · fieldwork_end: "2026-02-01" × "2026-01-01"
-- person_id_orphaned · p_a8887ef6231b · person_id: "p_a8887ef6231b" × null
-- person_id_orphaned · p_f52a27776b0f · person_id: "p_f52a27776b0f" × null
-- person_id_orphaned · p_f04ff3c640fe · person_id: "p_f04ff3c640fe" × null
-- person_id_orphaned · p_48a5b6e4ef5d · person_id: "p_48a5b6e4ef5d" × null
 - roster_encolhido_na_fonte · q_02b44b5d135b · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_7f18f1f577b4 · results: ["Augusto Cury","Pablo Marçal","Renan Santos","Ronaldo Caiado"] × ["Augusto Cury","Pablo Marçal","Ronaldo Caiado"]
-- person_id_orphaned · p_da6c5c2946ee · person_id: "p_da6c5c2946ee" × null
 - segundo_turno_fragmento_descartado · q_9c68fe93da57 · results: null × ["Ronaldo Caiado"]
-- person_id_orphaned · p_1262d23f73d4 · person_id: "p_1262d23f73d4" × null
 - segundo_turno_fragmento_descartado · q_43b68ea96389 · results: null × ["Romeu Zema"]
-- person_id_orphaned · p_df414abcf83c · person_id: "p_df414abcf83c" × null
-- person_id_orphaned · p_a09aea21691d · person_id: "p_a09aea21691d" × null
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 133
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 109
