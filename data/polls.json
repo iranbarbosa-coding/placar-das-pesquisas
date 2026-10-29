@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-29T17:24:27.184Z",
+ "generated_at": "2026-10-29T23:15:53.555Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-29T17:24:27.184Z"
+   "last_ok": "2026-10-29T23:15:53.555Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-29T17:24:27.184Z"
+   "last_ok": "2026-10-29T23:15:53.555Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-29T17:24:27.184Z"
+   "last_ok": "2026-10-29T23:15:53.555Z"
   }
  ],
  "polls": [
@@ -4371,39 +4371,6 @@
    "tse_registration": "MG-06889/2026"
   },
   {
-   "id": "2e5dc45bf008",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": "2026-10-03",
-   "published_date": "2026-10-03",
-   "sample_size": 1800,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 50
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": "AP-08084/2026"
-  },
-  {
    "id": "2fe76c95b3c0",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/AC-023702026.pdf",
@@ -4855,6 +4822,39 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "AL-07379/2026"
+  },
+  {
+   "id": "88085d885d18",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 50
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "AP-08084/2026"
   },
   {
    "id": "8e56183e0269",
@@ -11389,6 +11389,39 @@
    "tse_registration": null
   },
   {
+   "id": "42302ce11dc1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 54.9
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 44.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4a23af31632e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -12616,39 +12649,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 14,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ddb0db5b26aa",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-27",
-   "fieldwork_end": "2026-10-02",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 54.9
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 44.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -27871,6 +27871,39 @@
    "tse_registration": "AP-03035/2026"
   },
   {
+   "id": "d23ef301a5f0",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/se-eleicao-fosse-hoje-dr-furlan-seria-eleito-no-1o-turno-no-ap/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AP_Set26.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-27",
+   "published_date": "2026-09-27",
+   "sample_size": 1000,
+   "margin_of_error": 3.2,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 59.2
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 39.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": "AP-03035/2026"
+  },
+  {
    "id": "db94b536c1ae",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
@@ -27912,39 +27945,6 @@
    "undecided_pct": 14.95,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "eeb48ec37c72",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/se-eleicao-fosse-hoje-dr-furlan-seria-eleito-no-1o-turno-no-ap/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/AP_Set26.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "Paraná Pesquisas",
-   "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2026-09-25",
-   "fieldwork_end": "2026-09-27",
-   "published_date": "2026-09-27",
-   "sample_size": 1000,
-   "margin_of_error": 3.2,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 59.2
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 39.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": "AP-03035/2026"
   },
   {
    "id": "p360-14221-1-0-72e75537e928",
@@ -38244,6 +38244,39 @@
    "tse_registration": "BR-09587/2026"
   },
   {
+   "id": "9502261cba95",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 54
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "95e878490557",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Bahia",
@@ -39250,39 +39283,6 @@
    ],
    "others_pct": 6,
    "undecided_pct": 37,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ed69bb06241e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 54
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -85348,39 +85348,6 @@
    "tse_registration": null
   },
   {
-   "id": "61f3980bd2f8",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "Paraná Pesquisas",
-   "contractor": null,
-   "fieldwork_start": "2026-08-26",
-   "fieldwork_end": "2026-08-28",
-   "published_date": null,
-   "sample_size": 1080,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 60.3
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 33.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 6.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "71178b2ba6c2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -85562,6 +85529,39 @@
    "undecided_pct": 80.9,
    "blank_null_pct": null,
    "tse_registration": "RJ-06078/2026"
+  },
+  {
+   "id": "bd23ff547bba",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Paraná Pesquisas",
+   "contractor": null,
+   "fieldwork_start": "2026-08-26",
+   "fieldwork_end": "2026-08-28",
+   "published_date": null,
+   "sample_size": 1080,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 60.3
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 33.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 6.7,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "c3381dde0478",
@@ -91665,39 +91665,6 @@
    "tse_registration": null
   },
   {
-   "id": "73c564b3d799",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "Quaest",
-   "contractor": "Televisão Cabo Branco",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 54
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": "AP-09438/2026"
-  },
-  {
    "id": "783393a3c694",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/celina-tem-42-e-arruda-32-em-2o-turno-no-df-diz-pesquisa/",
@@ -92286,6 +92253,39 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "BR-04281/2026"
+  },
+  {
+   "id": "e4e00262a1ab",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 54
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "AP-09438/2026"
   },
   {
    "id": "f105d01a4d8f",
@@ -103692,6 +103692,39 @@
    "tse_registration": null
   },
   {
+   "id": "2af4105bb9af",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "American Analytics",
+   "contractor": null,
+   "fieldwork_start": "2026-08-10",
+   "fieldwork_end": "2026-08-14",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 61
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 35
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "456d23c4792c",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/DataTrends-Pernambuco-governo-17.ago_.pdf",
@@ -103723,39 +103756,6 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "PE-02774/2026"
-  },
-  {
-   "id": "4f1c21368c62",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
-   "pollster": "American Analytics",
-   "contractor": null,
-   "fieldwork_start": "2026-08-10",
-   "fieldwork_end": "2026-08-14",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 61
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 35
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "5acf6eca9101",
@@ -179761,14 +179761,14 @@
    "tse_registration": null
   },
   {
-   "id": "f3d82c2a0fc7",
+   "id": "fa737fe1e965",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes/atlasintel-rayssa-furlan-e-lucas-barreto-lideram-para-o-senado-no-amapa/",
    "integra_url": "https://static.poder360.com.br/2026/04/atlasintel-presidencial-governo-senado-1abr26.pdf",
    "race": "governador",
    "state": "AP",
    "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
+   "scenario": "2º turno: Hipótese de segundo turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
    "fieldwork_start": "2026-03-23",
@@ -186149,14 +186149,14 @@
    "tse_registration": null
   },
   {
-   "id": "d6033659a9af",
+   "id": "e1556b083e8a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
    "integra_url": null,
    "race": "governador",
    "state": "AP",
    "round": 2,
-   "scenario": "2º turno: Antônio Furlan vs Clécio Luís",
+   "scenario": "2º turno: Hipótese de segundo turno",
    "pollster": "Paraná Pesquisas",
    "contractor": null,
    "fieldwork_start": "2026-03-12",
