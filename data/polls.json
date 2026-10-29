@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-28T23:10:24.290Z",
+ "generated_at": "2026-10-29T02:23:46.269Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-28T23:10:24.290Z"
+   "last_ok": "2026-10-29T02:23:46.269Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-28T23:10:24.290Z"
+   "last_ok": "2026-10-29T02:23:46.269Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-28T23:10:24.290Z"
+   "last_ok": "2026-10-29T02:23:46.269Z"
   }
  ],
  "polls": [
@@ -65532,7 +65532,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-05",
    "fieldwork_end": "2026-09-09",
    "published_date": "2026-09-09",
    "sample_size": 1600,
@@ -65590,7 +65590,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-05",
    "fieldwork_end": "2026-09-09",
    "published_date": "2026-09-09",
    "sample_size": 1600,
@@ -95782,18 +95782,18 @@
   },
   {
    "id": "f7238ecce41c",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-58-no-1o-turno-no-maranhao-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-ma-25ago2026.pdf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
    "race": "governador",
    "state": "MA",
    "round": 1,
    "scenario": "1º turno — cenário único",
    "pollster": "Quaest",
-   "contractor": "Grupo Globo",
+   "contractor": null,
    "fieldwork_start": "2026-08-20",
    "fieldwork_end": "2026-08-23",
-   "published_date": "2026-08-23",
+   "published_date": null,
    "sample_size": 900,
    "margin_of_error": 3,
    "results": [
@@ -95816,17 +95816,12 @@
      "candidate": "Roberto Rocha",
      "party": "PRTB",
      "pct": 3
-    },
-    {
-     "candidate": "André Luis",
-     "party": "Missão",
-     "pct": 1
     }
    ],
-   "others_pct": 0,
+   "others_pct": 1,
    "undecided_pct": 21,
    "blank_null_pct": null,
-   "tse_registration": "MA-02558/2026"
+   "tse_registration": null
   },
   {
    "id": "p360-13893-1-0-054571a7c352",
@@ -127112,7 +127107,7 @@
      "pct": 5.98
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 2.87
     },
@@ -143845,7 +143840,7 @@
      "pct": 12.5
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 8.5
     },
@@ -159169,7 +159164,7 @@
      "pct": 6.1
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 2.8
     },
@@ -164649,7 +164644,7 @@
      "pct": 19.3
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 8.6
     },
@@ -180914,7 +180909,7 @@
      "pct": 26.3
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 25.2
     },
@@ -185733,7 +185728,7 @@
      "pct": 6
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 6
     },
@@ -188315,7 +188310,7 @@
      "pct": 16.8
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 10.1
     },
@@ -198590,7 +198585,7 @@
      "pct": 4.6
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 3.68
     },
@@ -209196,7 +209191,7 @@
      "pct": 7
     },
     {
-     "candidate": "Pedro Lucas",
+     "candidate": "Pedro Lucas Fernandes",
      "party": "União Brasil",
      "pct": 4
     },

@@ -2991,80 +2991,6 @@
    ]
   }
  ],
- "presidente:MT": [
-  {
-   "nome": "Aécio Neves",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Aldo Rebelo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Joaquim Barbosa",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Pablo Marçal",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Ratinho Jr.",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Ratinho Júnior",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD"
-   ]
-  }
- ],
  "governador:PA": [
   {
    "nome": "Araceli Lemos",
@@ -6687,6 +6613,80 @@
    ]
   }
  ],
+ "presidente:MT": [
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Aldo Rebelo",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr.",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Ratinho Júnior",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD"
+   ]
+  }
+ ],
  "senador:AC": [
   {
    "nome": "Coronel Ulysses",
@@ -7853,146 +7853,6 @@
    "partidos": [
     "MDB",
     "União Brasil"
-   ]
-  }
- ],
- "senador:MA": [
-  {
-   "nome": "André Fufuca",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Antonia Cariongo",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Carlos Brandão",
-   "partidos": [
-    "Sem partido"
-   ]
-  },
-  {
-   "nome": "Cesar Pires",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "César Pires",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Cidônio Gonçalves",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Doutor Yglésio",
-   "partidos": [
-    "PRTB"
-   ]
-  },
-  {
-   "nome": "Duarte Júnior",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Eliziane Gama",
-   "partidos": [
-    "PP",
-    "PSD",
-    "PT"
-   ]
-  },
-  {
-   "nome": "Enilton Rodrigues",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Franklin Douglas",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Hilton Gonçalo",
-   "partidos": [
-    "Mobiliza",
-    "PMN"
-   ]
-  },
-  {
-   "nome": "Lahesio Bonfim",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Mical Damasceno",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Pedro Lucas",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Pedro Lucas Fernandes",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Raimundo Moreira",
-   "partidos": [
-    "PCB"
-   ]
-  },
-  {
-   "nome": "Roberto Rocha",
-   "partidos": [
-    "Novo",
-    "PRTB",
-    "Republicanos",
-    "Sem partido"
-   ]
-  },
-  {
-   "nome": "Roseana Sarney",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Simplício Araújo",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Weverton Rocha",
-   "partidos": [
-    "PDT"
-   ]
-  },
-  {
-   "nome": "Wilson Leite",
-   "partidos": [
-    "PSTU"
    ]
   }
  ],
@@ -10392,6 +10252,87 @@
    "nome": "Wanderlei Barbosa",
    "partidos": [
     "Republicanos"
+   ]
+  }
+ ],
+ "senador:MA": [
+  {
+   "nome": "André Fufuca",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Carlos Brandão",
+   "partidos": [
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "César Pires",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Cidônio Gonçalves",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Duarte Júnior",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Eliziane Gama",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Hilton Gonçalo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Lahesio Bonfim",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Mical Damasceno",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Pedro Lucas Fernandes",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Roberto Rocha",
+   "partidos": [
+    "Novo",
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Roseana Sarney",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Weverton Rocha",
+   "partidos": [
+    "PDT"
    ]
   }
  ]
