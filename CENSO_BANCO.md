@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 434 | 20 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 436 | 19 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **502** | **64** |
+| **total** | **504** | **63** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (434)
+## CONFLITO — Conflitos registrados aguardando decisão (436)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -765,7 +765,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - survey_id_orphaned · s_c6ef5d7b77e0 · survey_id: "s_c6ef5d7b77e0" × null
 - survey_id_orphaned · s_84826ba73fae · survey_id: "s_84826ba73fae" × null
 - survey_id_orphaned · s_76610f854896 · survey_id: "s_76610f854896" × null
-- **[2026]** survey_id_orphaned · s_c4f9a34481c6 · survey_id: "s_c4f9a34481c6" × null
 - survey_id_orphaned · s_fa30463e0251 · survey_id: "s_fa30463e0251" × null
 - **[2026]** survey_id_orphaned · s_c9758ad3d589 · survey_id: "s_c9758ad3d589" × null
 - roster_encolhido_na_fonte · q_f881dcbce7b6 · results: ["Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Iure Castro","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"] × ["Gracinha Caiado","Gustavo Gayer","Gustavo Mendanha","Oséias Varão","Vanderlan Cardoso","Zacharias Calil"]
@@ -779,7 +778,10 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - segundo_turno_fragmento_descartado · q_9c68fe93da57 · results: null × ["Ronaldo Caiado"]
 - segundo_turno_fragmento_descartado · q_43b68ea96389 · results: null × ["Romeu Zema"]
 - roster_encolhido_na_fonte · q_962d8f84ab0b · results: ["André Fufuca","Cidônio Gonçalves","Eliziane Gama","Enilton Rodrigues","Hilton Gonçalo","Lahesio Bonfim","Roseana Sarney","Simplício Araújo","Weverton Rocha"] × ["André Fufuca","Cidônio Gonçalves","Eliziane Gama","Hilton Gonçalo","Lahesio Bonfim","Roseana Sarney","Weverton Rocha"]
-- disputa_em_quarentena · governador:AM · quarentena: 135 × 133
+- survey_id_orphaned · s_351747aff6e5 · survey_id: "s_351747aff6e5" × null
+- survey_id_orphaned · s_cfcb51e3fda5 · survey_id: "s_cfcb51e3fda5" × null
+- survey_id_orphaned · s_a7be0150d2f6 · survey_id: "s_a7be0150d2f6" × null
+- disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 109
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41

@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-10-30T16:59:53.782Z",
+ "generated_at": "2026-10-30T22:56:47.040Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-10-30T16:59:53.782Z"
+   "last_ok": "2026-10-30T22:56:47.040Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-10-30T16:59:53.782Z"
+   "last_ok": "2026-10-30T22:56:47.040Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-10-30T16:59:53.782Z"
+   "last_ok": "2026-10-30T22:56:47.040Z"
   }
  ],
  "polls": [
@@ -5742,7 +5742,7 @@
    "scenario": "2º turno: Dr. Furlan vs Clécio Luís",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -6146,7 +6146,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -6204,7 +6204,7 @@
    "scenario": "2º turno: Omar Aziz vs Maria do Carmo Seffair",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -6401,7 +6401,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Rede Amazônica",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
