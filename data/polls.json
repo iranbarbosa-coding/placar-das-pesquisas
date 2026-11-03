@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-03T03:55:01.843Z",
+ "generated_at": "2026-11-03T18:24:34.051Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-03T03:55:01.843Z"
+   "last_ok": "2026-11-03T18:24:34.051Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-03T03:55:01.843Z"
+   "last_ok": "2026-11-03T18:24:34.051Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-03T03:55:01.843Z"
+   "last_ok": "2026-11-03T18:24:34.051Z"
   }
  ],
  "polls": [
@@ -4710,6 +4710,39 @@
    "tse_registration": "MA-00831/2026"
   },
   {
+   "id": "5496a5f9367f",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-governo-MT-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-governo-MT-3.out_.pdf",
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Wellington Fagundes vs Doutora Natasha",
+   "pollster": "Quaest",
+   "contractor": "Rede Matogrossense de Comunicação",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 44
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 29,
+   "blank_null_pct": null,
+   "tse_registration": "MT-02649/2026"
+  },
+  {
    "id": "6137e50f13c1",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-mg-3.out_.governo.pdf",
@@ -5020,6 +5053,69 @@
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": "PB-05048/2026"
+  },
+  {
+   "id": "9d5e32bf90a3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-goias-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-goias-3.out_.pdf",
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "TELEVISAO ANHANGUERA S/A",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 22
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 15
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 13
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 7
+    },
+    {
+     "candidate": "Gustavo Mendanha",
+     "party": "PRD",
+     "pct": 7
+    },
+    {
+     "candidate": "Cíntia Dias",
+     "party": "PSOL",
+     "pct": 1
+    },
+    {
+     "candidate": "Isaura Lemos",
+     "party": "PSB",
+     "pct": 3
+    },
+    {
+     "candidate": "Oséias Varão",
+     "party": "PL",
+     "pct": 5
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": "GO-00674/2026"
   },
   {
    "id": "a9f7244cb608",
@@ -5508,6 +5604,72 @@
    "undecided_pct": 9,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "ee0142f86bc0",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-governo-MT-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-governo-MT-3.out_.pdf",
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Otaviano Pivetta vs Doutora Natasha",
+   "pollster": "Quaest",
+   "contractor": "Rede Matogrossense de Comunicação",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 53
+    },
+    {
+     "candidate": "Doutora Natasha",
+     "party": "PSD",
+     "pct": 25
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "MT-02649/2026"
+  },
+  {
+   "id": "f0b08d4f1215",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-goias-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-goias-3.out_.pdf",
+   "race": "governador",
+   "state": "GO",
+   "round": 2,
+   "scenario": "2º turno: Wilder Morais vs Marconi Perillo",
+   "pollster": "Quaest",
+   "contractor": "TELEVISAO ANHANGUERA S/A",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 34
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 32,
+   "blank_null_pct": null,
+   "tse_registration": "GO-00674/2026"
   },
   {
    "id": "f18971dab6e6",
@@ -6073,7 +6235,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2652,
@@ -6146,7 +6308,7 @@
    "scenario": "2º turno: Celina Leão vs Leandro Grass",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2652,
@@ -6351,7 +6513,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2652,
@@ -6676,7 +6838,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TELEVISAO ANHANGUERA S/A",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -6729,7 +6891,7 @@
    "scenario": "2º turno: Daniel Vilela vs Marconi Perillo",
    "pollster": "Quaest",
    "contractor": "TELEVISAO ANHANGUERA S/A",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -6762,7 +6924,7 @@
    "scenario": "2º turno: Daniel Vilela vs Wilder Morais",
    "pollster": "Quaest",
    "contractor": "TELEVISAO ANHANGUERA S/A",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -6969,7 +7131,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Rede Matogrossense de Comunicação",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7022,7 +7184,7 @@
    "scenario": "2º turno: Otaviano Pivetta vs Wellington Fagundes",
    "pollster": "Quaest",
    "contractor": "Rede Matogrossense de Comunicação",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -7422,7 +7584,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Rede Matogrossense de Comunicação",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 1800,
@@ -30406,49 +30568,6 @@
    "tse_registration": "MG-03351/2026"
   },
   {
-   "id": "0c50746d1e04",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-25",
-   "published_date": null,
-   "sample_size": 1250,
-   "margin_of_error": 2.77,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 44.6
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 13.8
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 18.2
-    },
-    {
-     "candidate": "Luis Cesar Bueno",
-     "party": "PT",
-     "pct": 5.7
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 14.8,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "1dcc6aa9bd0a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Roraima",
@@ -30589,6 +30708,49 @@
    ],
    "others_pct": 22.8,
    "undecided_pct": 33.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3e2f73b10198",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-25",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 44.6
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 13.8
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 18.2
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 5.7
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 14.8,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -30940,6 +31102,69 @@
    ],
    "others_pct": 7.05,
    "undecided_pct": 8.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "82b3503a18a6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-09-24",
+   "fieldwork_end": "2026-09-25",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 21.6
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 21.1
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 18.2
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 4.4
+    },
+    {
+     "candidate": "Gustavo Mendanha",
+     "party": "PRD",
+     "pct": 8.4
+    },
+    {
+     "candidate": "Cíntia Dias",
+     "party": "PSOL",
+     "pct": 4.4
+    },
+    {
+     "candidate": "Isaura Lemos",
+     "party": "PSB",
+     "pct": 4.9
+    },
+    {
+     "candidate": "Oséias Varão",
+     "party": "PL",
+     "pct": 4.2
+    }
+   ],
+   "others_pct": 2.8,
+   "undecided_pct": 10,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -31315,69 +31540,6 @@
    "blank_null_pct": null,
    "tse_registration": null,
    "incomplete": true
-  },
-  {
-   "id": "e6818420834c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "senador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-09-24",
-   "fieldwork_end": "2026-09-25",
-   "published_date": null,
-   "sample_size": 1250,
-   "margin_of_error": 2.77,
-   "results": [
-    {
-     "candidate": "Gracinha Caiado",
-     "party": "União Brasil",
-     "pct": 21.6
-    },
-    {
-     "candidate": "Gustavo Gayer",
-     "party": "PL",
-     "pct": 21.1
-    },
-    {
-     "candidate": "Dr. Zacharias Calil",
-     "party": "MDB",
-     "pct": 18.2
-    },
-    {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 4.4
-    },
-    {
-     "candidate": "Gustavo Mendanha",
-     "party": "PRD",
-     "pct": 8.4
-    },
-    {
-     "candidate": "Cíntia Dias",
-     "party": "PSOL",
-     "pct": 4.4
-    },
-    {
-     "candidate": "Isaura Lemos",
-     "party": "PSB",
-     "pct": 4.9
-    },
-    {
-     "candidate": "Oséias Varão",
-     "party": "PL",
-     "pct": 4.2
-    }
-   ],
-   "others_pct": 2.8,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "ec3783bb896c",
@@ -53943,49 +54105,6 @@
    "tse_registration": "PR-02671/2026"
   },
   {
-   "id": "0d0125b43653",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-15",
-   "published_date": null,
-   "sample_size": 1250,
-   "margin_of_error": 2.77,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 43.9
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 16.9
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 17.9
-    },
-    {
-     "candidate": "Luis Cesar Bueno",
-     "party": "PT",
-     "pct": 5.7
-    }
-   ],
-   "others_pct": 2.3,
-   "undecided_pct": 13.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "29b71cb16a9d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -54361,6 +54480,49 @@
    "incomplete": true
   },
   {
+   "id": "7435c9b38dbc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 43.9
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 16.9
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 17.9
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 5.7
+    }
+   ],
+   "others_pct": 2.3,
+   "undecided_pct": 13.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7c2b95975b16",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -54606,69 +54768,6 @@
    "tse_registration": null
   },
   {
-   "id": "b5458758d542",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "senador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-15",
-   "published_date": null,
-   "sample_size": 1250,
-   "margin_of_error": 2.77,
-   "results": [
-    {
-     "candidate": "Gracinha Caiado",
-     "party": "União Brasil",
-     "pct": 23.6
-    },
-    {
-     "candidate": "Gustavo Gayer",
-     "party": "PL",
-     "pct": 19.4
-    },
-    {
-     "candidate": "Dr. Zacharias Calil",
-     "party": "MDB",
-     "pct": 18.5
-    },
-    {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 5.3
-    },
-    {
-     "candidate": "Gustavo Mendanha",
-     "party": "PRD",
-     "pct": 7.1
-    },
-    {
-     "candidate": "Cíntia Dias",
-     "party": "PSOL",
-     "pct": 4.7
-    },
-    {
-     "candidate": "Isaura Lemos",
-     "party": "PSB",
-     "pct": 4.4
-    },
-    {
-     "candidate": "Oséias Varão",
-     "party": "PL",
-     "pct": 3
-    }
-   ],
-   "others_pct": 3.4,
-   "undecided_pct": 10.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "b9b2673cc7da",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -54845,6 +54944,69 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "f0178e8ecad1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-15",
+   "published_date": null,
+   "sample_size": 1250,
+   "margin_of_error": 2.77,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 23.6
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 19.4
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 18.5
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 5.3
+    },
+    {
+     "candidate": "Gustavo Mendanha",
+     "party": "PRD",
+     "pct": 7.1
+    },
+    {
+     "candidate": "Cíntia Dias",
+     "party": "PSOL",
+     "pct": 4.7
+    },
+    {
+     "candidate": "Isaura Lemos",
+     "party": "PSB",
+     "pct": 4.4
+    },
+    {
+     "candidate": "Oséias Varão",
+     "party": "PL",
+     "pct": 3
+    }
+   ],
+   "others_pct": 3.4,
+   "undecided_pct": 10.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -65651,7 +65813,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-05",
    "fieldwork_end": "2026-09-09",
    "published_date": "2026-09-09",
    "sample_size": 1600,
@@ -65709,7 +65871,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-05",
    "fieldwork_end": "2026-09-09",
    "published_date": "2026-09-09",
    "sample_size": 1600,
@@ -74226,7 +74388,7 @@
    "tse_registration": null
   },
   {
-   "id": "ea0bc0995191",
+   "id": "de98c2ae874f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": null,
@@ -98210,6 +98372,49 @@
    "tse_registration": null
   },
   {
+   "id": "8b9d9e17cb21",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Brasmarket",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 44.2
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 23.8
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 13.5
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 2
+    }
+   ],
+   "others_pct": 2.5,
+   "undecided_pct": 14,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "9ecd02c47f71",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -98402,49 +98607,6 @@
    ],
    "others_pct": 9,
    "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "de4dd41cf13a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Mapa/Jovem Pan",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-21",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 44.2
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 23.8
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 13.5
-    },
-    {
-     "candidate": "Luis Cesar Bueno",
-     "party": "PT",
-     "pct": 2
-    }
-   ],
-   "others_pct": 2.5,
-   "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -104365,49 +104527,6 @@
    "tse_registration": "BR-06773/2026"
   },
   {
-   "id": "172ad2003d30",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-08-10",
-   "fieldwork_end": "2026-08-12",
-   "published_date": null,
-   "sample_size": 1150,
-   "margin_of_error": 2.89,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 37.2
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 18.8
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 18.9
-    },
-    {
-     "candidate": "Luis Cesar Bueno",
-     "party": "PT",
-     "pct": 9
-    }
-   ],
-   "others_pct": 1.8,
-   "undecided_pct": 14.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "1b70ee7dd203",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -104746,7 +104865,7 @@
    "tse_registration": "BR-06773/2026"
   },
   {
-   "id": "961986b97ae3",
+   "id": "9576d7031fa7",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": null,
@@ -105078,6 +105197,49 @@
    ],
    "others_pct": 2.72,
    "undecided_pct": 18.93,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "da86e7ca6737",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-08-10",
+   "fieldwork_end": "2026-08-12",
+   "published_date": null,
+   "sample_size": 1150,
+   "margin_of_error": 2.89,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 37.2
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 18.8
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 18.9
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 9
+    }
+   ],
+   "others_pct": 1.8,
+   "undecided_pct": 14.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -122966,7 +123128,7 @@
    "state": "GO",
    "round": 1,
    "scenario": "1º turno",
-   "pollster": "Diagnóstico/Acieg",
+   "pollster": "Acieg/Diagnóstico",
    "contractor": "SOL",
    "fieldwork_start": null,
    "fieldwork_end": "2026-07-24",
@@ -140842,6 +141004,49 @@
    "tse_registration": null
   },
   {
+   "id": "21a1124a4788",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "governador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Acieg/Diagnóstico",
+   "contractor": null,
+   "fieldwork_start": "2026-06-15",
+   "fieldwork_end": "2026-06-18",
+   "published_date": null,
+   "sample_size": 1100,
+   "margin_of_error": 4.84,
+   "results": [
+    {
+     "candidate": "Daniel Vilela",
+     "party": "MDB",
+     "pct": 36.1
+    },
+    {
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 22.7
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 15.5
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 2.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 23.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4a4144c0a659",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -140880,7 +141085,50 @@
    "tse_registration": null
   },
   {
-   "id": "521fb1b6c945",
+   "id": "5ac08d49cc7b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/marina-e-tebet-lideram-disputa-ao-senado-em-sp/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/06/SP_Jun26.pdf",
+   "race": "governador",
+   "state": "SP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Paraná Pesquisas",
+   "contractor": "Paraná Pesquisas",
+   "fieldwork_start": "2026-06-16",
+   "fieldwork_end": "2026-06-18",
+   "published_date": "2026-06-18",
+   "sample_size": 1600,
+   "margin_of_error": 2.5,
+   "results": [
+    {
+     "candidate": "Tarcísio",
+     "party": "Republicanos",
+     "pct": 45.6
+    },
+    {
+     "candidate": "Fernando Haddad",
+     "party": "PT",
+     "pct": 34.1
+    },
+    {
+     "candidate": "Paulo Serra",
+     "party": "PSDB",
+     "pct": 4.6
+    },
+    {
+     "candidate": "Kim Kataguiri",
+     "party": "Missão",
+     "pct": 3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 12.7,
+   "blank_null_pct": null,
+   "tse_registration": "SP-08639/2026"
+  },
+  {
+   "id": "6a768ed44ce9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": null,
@@ -140888,7 +141136,7 @@
    "state": "GO",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Diagnóstico/Acieg",
+   "pollster": "Acieg/Diagnóstico",
    "contractor": null,
    "fieldwork_start": "2026-06-15",
    "fieldwork_end": "2026-06-18",
@@ -140939,92 +141187,6 @@
    ],
    "others_pct": 6.3,
    "undecided_pct": 17.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "5ac08d49cc7b",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/marina-e-tebet-lideram-disputa-ao-senado-em-sp/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/06/SP_Jun26.pdf",
-   "race": "governador",
-   "state": "SP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Paraná Pesquisas",
-   "contractor": "Paraná Pesquisas",
-   "fieldwork_start": "2026-06-16",
-   "fieldwork_end": "2026-06-18",
-   "published_date": "2026-06-18",
-   "sample_size": 1600,
-   "margin_of_error": 2.5,
-   "results": [
-    {
-     "candidate": "Tarcísio",
-     "party": "Republicanos",
-     "pct": 45.6
-    },
-    {
-     "candidate": "Fernando Haddad",
-     "party": "PT",
-     "pct": 34.1
-    },
-    {
-     "candidate": "Paulo Serra",
-     "party": "PSDB",
-     "pct": 4.6
-    },
-    {
-     "candidate": "Kim Kataguiri",
-     "party": "Missão",
-     "pct": 3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 12.7,
-   "blank_null_pct": null,
-   "tse_registration": "SP-08639/2026"
-  },
-  {
-   "id": "8d6217d272cf",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Diagnóstico/Acieg",
-   "contractor": null,
-   "fieldwork_start": "2026-06-15",
-   "fieldwork_end": "2026-06-18",
-   "published_date": null,
-   "sample_size": 1100,
-   "margin_of_error": 4.84,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 36.1
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 22.7
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 15.5
-    },
-    {
-     "candidate": "Luis Cesar Bueno",
-     "party": "PT",
-     "pct": 2.3
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 23.4,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -142258,7 +142420,7 @@
    "tse_registration": null
   },
   {
-   "id": "a91e6aa1d2c0",
+   "id": "9b3fcfc03a70",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
    "integra_url": null,
@@ -142266,7 +142428,7 @@
    "state": "DF",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Opinião",
+   "pollster": "Correio/Opinião",
    "contractor": null,
    "fieldwork_start": "2026-06-11",
    "fieldwork_end": "2026-06-15",
@@ -150818,11 +150980,11 @@
    "tse_registration": null
   },
   {
-   "id": "1ccab248d99c",
+   "id": "5f424b9c2959",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
    "integra_url": null,
-   "race": "senador",
+   "race": "governador",
    "state": "GO",
    "round": 1,
    "scenario": "1º turno — cenário único",
@@ -150835,38 +150997,28 @@
    "margin_of_error": 2.89,
    "results": [
     {
-     "candidate": "Gracinha Caiado",
-     "party": "União Brasil",
-     "pct": 40.3
-    },
-    {
-     "candidate": "Gustavo Gayer",
-     "party": "PL",
-     "pct": 30.4
-    },
-    {
-     "candidate": "Vanderlan Cardoso",
-     "party": "PSD",
-     "pct": 11.9
-    },
-    {
-     "candidate": "Delegado Humberto",
-     "party": "Novo",
-     "pct": 19.9
-    },
-    {
-     "candidate": "Dr. Zacharias Calil",
+     "candidate": "Daniel Vilela",
      "party": "MDB",
-     "pct": 25.8
+     "pct": 32.6
     },
     {
-     "candidate": "Alexandre Baldy",
-     "party": "PP",
-     "pct": 16.2
+     "candidate": "Marconi Perillo",
+     "party": "PSDB",
+     "pct": 18.6
+    },
+    {
+     "candidate": "Wilder Morais",
+     "party": "PL",
+     "pct": 12.2
+    },
+    {
+     "candidate": "Luis Cesar Bueno",
+     "party": "PT",
+     "pct": 3.1
     }
    ],
-   "others_pct": 14,
-   "undecided_pct": null,
+   "others_pct": 3.7,
+   "undecided_pct": 29.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -150925,6 +151077,59 @@
    ],
    "others_pct": 1.15,
    "undecided_pct": 22.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "713d0d0fbe8c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
+   "integra_url": null,
+   "race": "senador",
+   "state": "GO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Portal Goiás",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-29",
+   "published_date": null,
+   "sample_size": 1150,
+   "margin_of_error": 2.89,
+   "results": [
+    {
+     "candidate": "Gracinha Caiado",
+     "party": "União Brasil",
+     "pct": 40.3
+    },
+    {
+     "candidate": "Gustavo Gayer",
+     "party": "PL",
+     "pct": 30.4
+    },
+    {
+     "candidate": "Vanderlan Cardoso",
+     "party": "PSD",
+     "pct": 11.9
+    },
+    {
+     "candidate": "Delegado Humberto",
+     "party": "Novo",
+     "pct": 19.9
+    },
+    {
+     "candidate": "Dr. Zacharias Calil",
+     "party": "MDB",
+     "pct": 25.8
+    },
+    {
+     "candidate": "Alexandre Baldy",
+     "party": "PP",
+     "pct": 16.2
+    }
+   ],
+   "others_pct": 14,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -151016,49 +151221,6 @@
    ],
    "others_pct": 8.26,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ab3d5eed0a0b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
-   "integra_url": null,
-   "race": "governador",
-   "state": "GO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Portal Goiás",
-   "contractor": null,
-   "fieldwork_start": "2026-05-27",
-   "fieldwork_end": "2026-05-29",
-   "published_date": null,
-   "sample_size": 1150,
-   "margin_of_error": 2.89,
-   "results": [
-    {
-     "candidate": "Daniel Vilela",
-     "party": "MDB",
-     "pct": 32.6
-    },
-    {
-     "candidate": "Marconi Perillo",
-     "party": "PSDB",
-     "pct": 18.6
-    },
-    {
-     "candidate": "Wilder Morais",
-     "party": "PL",
-     "pct": 12.2
-    },
-    {
-     "candidate": "Luis Cesar Bueno",
-     "party": "PT",
-     "pct": 3.1
-    }
-   ],
-   "others_pct": 3.7,
-   "undecided_pct": 29.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -160084,7 +160246,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-05-09",
    "fieldwork_end": "2026-05-11",
    "published_date": "2026-05-11",
    "sample_size": 1600,
@@ -214289,6 +214451,39 @@
    "others_pct": null,
    "undecided_pct": 5.8,
    "blank_null_pct": 18.8,
+   "tse_registration": null
+  },
+  {
+   "id": "0c4bf0dbc453",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MT",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2025-10-02",
+   "fieldwork_end": "2025-10-03",
+   "published_date": null,
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Wellington Fagundes",
+     "party": "PL",
+     "pct": 30
+    },
+    {
+     "candidate": "Otaviano Pivetta",
+     "party": "Republicanos",
+     "pct": 48
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
    "tse_registration": null
   },
   {

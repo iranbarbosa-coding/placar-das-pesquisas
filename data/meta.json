@@ -1,23 +1,23 @@
 {
- "generated_at": "2026-11-03T03:55:01.843Z",
+ "generated_at": "2026-11-03T18:24:34.051Z",
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-03T03:55:01.843Z"
+   "last_ok": "2026-11-03T18:24:34.051Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-03T03:55:01.843Z"
+   "last_ok": "2026-11-03T18:24:34.051Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-03T03:55:01.843Z"
+   "last_ok": "2026-11-03T18:24:34.051Z"
   }
  ],
  "written_by": "scrape.mjs/upsert",
- "written_at": "2026-11-03T04:14:42.137Z",
+ "written_at": "2026-11-03T18:44:54.529Z",
  "schema_version": 2
 }

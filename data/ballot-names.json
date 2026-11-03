@@ -3,7 +3,7 @@
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
   "exato": 721,
-  "contencao": 227,
+  "contencao": 228,
   "outra_disputa": 165,
   "ambiguo": 5,
   "sem": 564
@@ -4175,6 +4175,13 @@
    }
   },
   "presidente:RR": {
+   "augusto cury": {
+    "nome_urna": "Escritor Augusto Cury",
+    "sq_candidato": "280002551547",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
    "flavio bolsonaro": {
     "nome_urna": "Flávio Bolsonaro",
     "sq_candidato": "280002551544",

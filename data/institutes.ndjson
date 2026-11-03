@@ -97,7 +97,6 @@
 {"institute_id":"i_9079374b296f","legacy_ids":[],"canonical":"DMP","aliases":["DMP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_90ac2bf4c429","legacy_ids":["i_609e1b050026"],"canonical":"Media/O Potengi","aliases":["Media/O Potengi"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_90b78d8d7073","legacy_ids":[],"canonical":"Quaest","aliases":["Quaest"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_918c70754518","legacy_ids":[],"canonical":"Diagnóstico/Acieg","aliases":["Diagnóstico/Acieg"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9247acfe04c8","legacy_ids":[],"canonical":"Ver","aliases":["Ver"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_93bd3778917b","legacy_ids":[],"canonical":"Vetor3","aliases":["Vetor3"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_963e1bb83cc4","legacy_ids":[],"canonical":"Real Time Big Data","aliases":["Real Time Big Data"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -141,6 +140,7 @@
 {"institute_id":"i_d4e261ec92fc","legacy_ids":[],"canonical":"Colectta","aliases":["Colectta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d5341abd3fac","legacy_ids":[],"canonical":"Delta","aliases":["Delta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d5fe81673d96","legacy_ids":[],"canonical":"Datafolha","aliases":["Datafolha"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_d7317ca7796b","legacy_ids":["i_918c70754518"],"canonical":"Acieg/Diagnóstico","aliases":["Acieg/Diagnóstico"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d796d22d8e47","legacy_ids":[],"canonical":"MT Dados","aliases":["MT Dados"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d796ecff8e94","legacy_ids":[],"canonical":"Neokemp","aliases":["Neokemp"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_d93412eb22bd","legacy_ids":[],"canonical":"Agora Sei Pesquisas","aliases":["Agora Sei Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
