@@ -81,7 +81,7 @@
 {"institute_id":"i_74e453b52af9","legacy_ids":[],"canonical":"JR Comunicações, Serviços a Pesquisas","aliases":["JR Comunicações, Serviços a Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_78dec071da90","legacy_ids":[],"canonical":"Studio","aliases":["Studio"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_79c686f5eb4a","legacy_ids":[],"canonical":"Contextto","aliases":["Contextto"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
-{"institute_id":"i_7a046217b0df","legacy_ids":["i_fb6c9eaa83af"],"canonical":"IPEMS","aliases":["IPEMS"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_7a046217b0df","legacy_ids":["i_fb6c9eaa83af"],"canonical":"Ipems","aliases":["Ipems"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7a6e62988e8a","legacy_ids":[],"canonical":"Gerp","aliases":["Gerp"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7aa6036e0c6c","legacy_ids":[],"canonical":"DataVero","aliases":["DataVero"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7baed83102a4","legacy_ids":[],"canonical":"Perfil","aliases":["Perfil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
@@ -90,6 +90,7 @@
 {"institute_id":"i_8054cae80e13","legacy_ids":[],"canonical":"Veritate","aliases":["Veritate"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_81933bf5f963","legacy_ids":[],"canonical":"100% Cidades Participações","aliases":["100% Cidades Participações"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_836e2d6c6f26","legacy_ids":["i_661f5eabdd5a"],"canonical":"Percent Brasil","aliases":["Percent Brasil"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-17"}
+{"institute_id":"i_854d473dd1d2","legacy_ids":[],"canonical":"CBN Salvador/Séculus","aliases":["CBN Salvador/Séculus"],"cnpj":null,"merged_into":null,"first_seen":"2026-11-04"}
 {"institute_id":"i_88d51a3e59d1","legacy_ids":[],"canonical":"IPAN/Panorama","aliases":["IPAN/Panorama"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8e9a424ba87b","legacy_ids":[],"canonical":"Instituto Potiguar","aliases":["Instituto Potiguar"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8f14cd7a5b01","legacy_ids":[],"canonical":"Data AZ","aliases":["Data AZ"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}

@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-03T23:57:37.112Z",
+ "generated_at": "2026-11-04T18:36:56.401Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-03T23:57:37.112Z"
+   "last_ok": "2026-11-04T18:36:56.401Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-03T23:57:37.112Z"
+   "last_ok": "2026-11-04T18:36:56.401Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-03T23:57:37.112Z"
+   "last_ok": "2026-11-04T18:36:56.401Z"
   }
  ],
  "polls": [
@@ -4437,39 +4437,6 @@
    "tse_registration": "AC-02370/2026"
   },
   {
-   "id": "307c8a7f5675",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Braide vs Roberto Rocha",
-   "pollster": "Quaest",
-   "contractor": "TV Mirante",
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": "2026-10-03",
-   "published_date": "2026-10-03",
-   "sample_size": 2004,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 68
-    },
-    {
-     "candidate": "Roberto Rocha",
-     "party": "PRTB",
-     "pct": 10
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": "MA-00831/2026"
-  },
-  {
    "id": "3819d184fa76",
    "source": null,
    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
@@ -4677,39 +4644,6 @@
    "tse_registration": null
   },
   {
-   "id": "5377e07ae90d",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Eduardo Braide vs Felipe Camarão",
-   "pollster": "Quaest",
-   "contractor": "TV Mirante",
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": "2026-10-03",
-   "published_date": "2026-10-03",
-   "sample_size": 2004,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 64
-    },
-    {
-     "candidate": "Felipe Camarão",
-     "party": "PT",
-     "pct": 33
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": "MA-00831/2026"
-  },
-  {
    "id": "5496a5f9367f",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-governo-MT-3.out_.pdf",
@@ -4861,30 +4795,30 @@
     {
      "candidate": "Arthur Lira",
      "party": "PP",
-     "pct": 27
+     "pct": 20
     },
     {
      "candidate": "Marina JHC",
      "party": "PSDB",
-     "pct": 29
+     "pct": 19
     },
     {
      "candidate": "Renan",
      "party": "MDB",
-     "pct": 25
+     "pct": 17
     },
     {
      "candidate": "Davi Davino Filho",
      "party": "Republicanos",
-     "pct": 9
+     "pct": 7
     },
     {
      "candidate": "Dr. Wanderley",
      "party": "MDB",
-     "pct": 9
+     "pct": 6
     }
    ],
-   "others_pct": 1,
+   "others_pct": 0,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "AL-07379/2026"
@@ -4987,6 +4921,39 @@
    "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": "RN-09644/2026"
+  },
+  {
+   "id": "98577d550d05",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Roberto Rocha",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 68
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 10
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "MA-00831/2026"
   },
   {
    "id": "9bf979fc8841",
@@ -5203,16 +5170,16 @@
     {
      "candidate": "Ciro Gomes",
      "party": "PSDB",
-     "pct": 47
+     "pct": 44
     },
     {
      "candidate": "Elmano de Freitas",
      "party": "PT",
-     "pct": 50
+     "pct": 46
     }
    ],
    "others_pct": 3,
-   "undecided_pct": null,
+   "undecided_pct": 3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -5482,6 +5449,39 @@
    "tse_registration": null
   },
   {
+   "id": "de588be041e1",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/MA-008312026-Governador.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 2,
+   "scenario": "2º turno: Eduardo Braide vs Felipe Camarão",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 64
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 33
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": "MA-00831/2026"
+  },
+  {
    "id": "df7dda02f30d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -5513,6 +5513,49 @@
    "undecided_pct": 6.9,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "e13a463fc2de",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ceara-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/quaest-ceara-3.out_.pdf",
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "TV Verdes Mares",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 2004,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 25
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 20
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 21
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 10
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "CE-04790/2026"
   },
   {
    "id": "e15e7bf11e50",
@@ -6086,7 +6129,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "TV Verdes Mares",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -6149,7 +6192,7 @@
    "scenario": "2º turno: Ciro Gomes vs Elmano de Freitas",
    "pollster": "Quaest",
    "contractor": "TV Verdes Mares",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2004,
@@ -28107,7 +28150,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "IPEMS",
+   "pollster": "Ipems",
    "contractor": null,
    "fieldwork_start": "2026-09-22",
    "fieldwork_end": "2026-09-27",
@@ -31196,14 +31239,14 @@
      "pct": 18
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 3
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 9
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 3
     }
    ],
    "others_pct": 6.3,
@@ -32737,14 +32780,14 @@
    "tse_registration": null
   },
   {
-   "id": "27a41fc53f30",
+   "id": "26f23ab1cdf8",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
-   "race": "senador",
+   "race": "governador",
    "state": "MA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
+   "round": 2,
+   "scenario": "2º turno: Orleans Brandão vs Felipe Camarão",
    "pollster": "Quaest",
    "contractor": "TV Mirante",
    "fieldwork_start": "2026-09-21",
@@ -32754,43 +32797,18 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Roseana Sarney",
+     "candidate": "Orleans Brandão",
      "party": "MDB",
-     "pct": 19
+     "pct": 47
     },
     {
-     "candidate": "Fufuca",
-     "party": "PP",
-     "pct": 15
-    },
-    {
-     "candidate": "Lahesio Bonfim",
-     "party": "Novo",
-     "pct": 12
-    },
-    {
-     "candidate": "Weverton Rocha",
-     "party": "PDT",
-     "pct": 10
-    },
-    {
-     "candidate": "Eliziane Gama",
+     "candidate": "Felipe Camarão",
      "party": "PT",
-     "pct": 8
-    },
-    {
-     "candidate": "Dr.hilton Gonçalo",
-     "party": "Mobiliza",
-     "pct": 4
-    },
-    {
-     "candidate": "Cidônio Gonçalves",
-     "party": "PL",
-     "pct": 2
+     "pct": 27
     }
    ],
-   "others_pct": 2,
-   "undecided_pct": 29,
+   "others_pct": null,
+   "undecided_pct": 26,
    "blank_null_pct": null,
    "tse_registration": "MA-07074/2026"
   },
@@ -35113,39 +35131,6 @@
    "tse_registration": null
   },
   {
-   "id": "ced3a116c28b",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
-   "race": "governador",
-   "state": "MA",
-   "round": 2,
-   "scenario": "2º turno: Orleans Brandão vs Felipe Camarão",
-   "pollster": "Quaest",
-   "contractor": "TV Mirante",
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": "2026-09-24",
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 47
-    },
-    {
-     "candidate": "Felipe Camarão",
-     "party": "PT",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 26,
-   "blank_null_pct": null,
-   "tse_registration": "MA-07074/2026"
-  },
-  {
    "id": "d21500ce483f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -35303,6 +35288,64 @@
    "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "d97e396f13e7",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quest-governador-senador-MA.pdf",
+   "race": "senador",
+   "state": "MA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "TV Mirante",
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Roseana Sarney",
+     "party": "MDB",
+     "pct": 19
+    },
+    {
+     "candidate": "Fufuca",
+     "party": "PP",
+     "pct": 15
+    },
+    {
+     "candidate": "Lahesio Bonfim",
+     "party": "Novo",
+     "pct": 12
+    },
+    {
+     "candidate": "Weverton Rocha",
+     "party": "PDT",
+     "pct": 10
+    },
+    {
+     "candidate": "Eliziane Gama",
+     "party": "PT",
+     "pct": 8
+    },
+    {
+     "candidate": "Dr.hilton Gonçalo",
+     "party": "Mobiliza",
+     "pct": 4
+    },
+    {
+     "candidate": "Cidônio Gonçalves",
+     "party": "PL",
+     "pct": 2
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 29,
+   "blank_null_pct": null,
+   "tse_registration": "MA-07074/2026"
   },
   {
    "id": "da515284b357",
@@ -35514,14 +35557,14 @@
      "pct": 12
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 3
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 6
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 3
     }
    ],
    "others_pct": 4,
@@ -40517,7 +40560,7 @@
    "tse_registration": "BR-04739/2026"
   },
   {
-   "id": "4a1045d3a9c6",
+   "id": "4ccd1f624884",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -41077,39 +41120,6 @@
    "tse_registration": null
   },
   {
-   "id": "7b48c4393dcb",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses de segundo turno",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-19",
-   "fieldwork_end": "2026-09-22",
-   "published_date": null,
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 45
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 42
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 13,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "7d4ca09d06b7",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_distrital_de_2026_no_Distrito_Federal",
@@ -41378,6 +41388,39 @@
    "tse_registration": null
   },
   {
+   "id": "91121b3cae72",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-19",
+   "fieldwork_end": "2026-09-22",
+   "published_date": null,
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 45
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 42
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "96e568235d0d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -41552,7 +41595,7 @@
    "tse_registration": "SC-00523/2026"
   },
   {
-   "id": "b3d79d8af397",
+   "id": "ae2411c7adb8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -49534,14 +49577,14 @@
      "pct": 19.5
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 3
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 11
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 3
     }
    ],
    "others_pct": 3.3,
@@ -50651,39 +50694,6 @@
    "tse_registration": null
   },
   {
-   "id": "0cedb544e269",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses de segundo turno",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-15",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 49.4
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 49.7
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 0.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "130d3d27ccc2",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-46-contra-44-de-flavio-no-2o-turno-diz-datafolha/",
@@ -50788,49 +50798,6 @@
    "tse_registration": null
   },
   {
-   "id": "27869023d5ca",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-15",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 26.9
-    },
-    {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 22.4
-    },
-    {
-     "candidate": "Luizianne",
-     "party": "Rede",
-     "pct": 24.8
-    },
-    {
-     "candidate": "Alcides Fernandes",
-     "party": "PL",
-     "pct": 17.9
-    }
-   ],
-   "others_pct": 1.4,
-   "undecided_pct": 7.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "2a858ad1e1cf",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -50918,6 +50885,49 @@
    ],
    "others_pct": 7.1,
    "undecided_pct": 14.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "385132b99cbb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 26.9
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 22.4
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 24.8
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 17.9
+    }
+   ],
+   "others_pct": 1.4,
+   "undecided_pct": 7.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -51067,6 +51077,39 @@
    ],
    "others_pct": 4,
    "undecided_pct": 7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "505b6fab1899",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 48
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 48.5
+    }
+   ],
+   "others_pct": 1.5,
+   "undecided_pct": 0.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -51628,39 +51671,6 @@
    "tse_registration": null
   },
   {
-   "id": "cb4ef4831898",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-09-15",
-   "fieldwork_end": "2026-09-17",
-   "published_date": null,
-   "sample_size": 1352,
-   "margin_of_error": 2.7,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 48
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 48.5
-    }
-   ],
-   "others_pct": 1.5,
-   "undecided_pct": 0.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "cfe2a97927f9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
@@ -51956,6 +51966,39 @@
    ],
    "others_pct": 5,
    "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "fbd8001df1cc",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-15",
+   "fieldwork_end": "2026-09-17",
+   "published_date": null,
+   "sample_size": 1352,
+   "margin_of_error": 2.7,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 49.4
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 49.7
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 0.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -57340,14 +57383,14 @@
      "pct": 13.1
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 4.5
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 6.8
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 4.5
     }
    ],
    "others_pct": 5.3,
@@ -63782,7 +63825,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "IPEMS",
+   "pollster": "Ipems",
    "contractor": null,
    "fieldwork_start": "2026-09-05",
    "fieldwork_end": "2026-09-09",
@@ -63825,7 +63868,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "IPEMS",
+   "pollster": "Ipems",
    "contractor": null,
    "fieldwork_start": "2026-09-05",
    "fieldwork_end": "2026-09-09",
@@ -63844,14 +63887,14 @@
      "pct": 11.59
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 5.06
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 5.67
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 5.06
     }
    ],
    "others_pct": 3.27,
@@ -64975,14 +65018,14 @@
      "pct": 20
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 4.2
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 10
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 4.2
     }
    ],
    "others_pct": 3.4,
@@ -76801,6 +76844,49 @@
    "tse_registration": "PB-01118/2026"
   },
   {
+   "id": "16dc61fefee8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1834,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 24.4
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 19.1
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 24.2
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 15.7
+    }
+   ],
+   "others_pct": 3.6,
+   "undecided_pct": 13.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "27e9d51c714f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lucas-ribeiro-lidera-disputa-pelo-governo-da-paraiba-diz-pesquisa/",
@@ -77254,6 +77340,39 @@
    "tse_registration": "PB-01118/2026"
   },
   {
+   "id": "61903a6af5a8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1834,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 50
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 46.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 3.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "64388911d712",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -77298,39 +77417,6 @@
    ],
    "others_pct": 0.1,
    "undecided_pct": 25.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "6af7e873e842",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-08-28",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1834,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 48.4
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 45.8
-    }
-   ],
-   "others_pct": 1.5,
-   "undecided_pct": 4.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -77522,6 +77608,39 @@
    "tse_registration": "BR-07561/2026"
   },
   {
+   "id": "8af85ee655ab",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-08-28",
+   "fieldwork_end": "2026-09-02",
+   "published_date": null,
+   "sample_size": 1834,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 48.4
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 45.8
+    }
+   ],
+   "others_pct": 1.5,
+   "undecided_pct": 4.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "8eb30473ea2b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -77581,39 +77700,6 @@
    ],
    "others_pct": 0,
    "undecided_pct": 3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "930ff19470d6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses de segundo turno",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-08-28",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1834,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 50
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 46.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 3.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -77872,54 +77958,6 @@
    ],
    "others_pct": 2,
    "undecided_pct": 12,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b1c6b4ed718b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "AtlasIntel",
-   "contractor": null,
-   "fieldwork_start": "2026-08-28",
-   "fieldwork_end": "2026-09-02",
-   "published_date": null,
-   "sample_size": 1834,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 24.4
-    },
-    {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 19.1
-    },
-    {
-     "candidate": "Luizianne",
-     "party": "Rede",
-     "pct": 24.2
-    },
-    {
-     "candidate": "Alcides Fernandes",
-     "party": "PL",
-     "pct": 15.7
-    },
-    {
-     "candidate": "General Theophilo",
-     "party": "Novo",
-     "pct": 0.8
-    }
-   ],
-   "others_pct": 2.8,
-   "undecided_pct": 13.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -86363,14 +86401,14 @@
      "pct": 20
     },
     {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 5
-    },
-    {
      "candidate": "Delcidio Amaral",
      "party": "PRD",
      "pct": 9
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 5
     }
    ],
    "others_pct": 4.4,
@@ -95771,6 +95809,49 @@
    "tse_registration": null
   },
   {
+   "id": "d1133ecb30d2",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-58-no-1o-turno-no-maranhao-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-ma-25ago2026.pdf",
+   "race": "governador",
+   "state": "MA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "Grupo Globo",
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-23",
+   "published_date": "2026-08-23",
+   "sample_size": 900,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 25
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 6
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 3
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 21,
+   "blank_null_pct": null,
+   "tse_registration": "MA-02558/2026"
+  },
+  {
    "id": "d28a2c78f6ae",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -95964,49 +96045,6 @@
    "undecided_pct": 26.9,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "f7238ecce41c",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-58-no-1o-turno-no-maranhao-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-senado-ma-25ago2026.pdf",
-   "race": "governador",
-   "state": "MA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Grupo Globo",
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-23",
-   "published_date": "2026-08-23",
-   "sample_size": 900,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 44
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 25
-    },
-    {
-     "candidate": "Felipe Camarão",
-     "party": "PT",
-     "pct": 6
-    },
-    {
-     "candidate": "Roberto Rocha",
-     "party": "PRTB",
-     "pct": 3
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 21,
-   "blank_null_pct": null,
-   "tse_registration": "MA-02558/2026"
   },
   {
    "id": "p360-13893-1-0-054571a7c352",
@@ -101249,54 +101287,6 @@
    "tse_registration": null
   },
   {
-   "id": "34da38995061",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ipec",
-   "contractor": null,
-   "fieldwork_start": "2026-08-17",
-   "fieldwork_end": "2026-08-18",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Cid Gomes",
-     "party": "PSB",
-     "pct": 26
-    },
-    {
-     "candidate": "Capitão Wagner",
-     "party": "União Brasil",
-     "pct": 19
-    },
-    {
-     "candidate": "Luizianne",
-     "party": "Rede",
-     "pct": 15
-    },
-    {
-     "candidate": "Alcides Fernandes",
-     "party": "PL",
-     "pct": 6
-    },
-    {
-     "candidate": "General Theophilo",
-     "party": "Novo",
-     "pct": 1
-    }
-   ],
-   "others_pct": 5,
-   "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5e6738ac072f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -101565,7 +101555,7 @@
    "tse_registration": null
   },
   {
-   "id": "d950f69da66f",
+   "id": "cff7ee92b7c1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -101609,6 +101599,54 @@
    ],
    "others_pct": 1,
    "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e771b69e314b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ipec",
+   "contractor": null,
+   "fieldwork_start": "2026-08-17",
+   "fieldwork_end": "2026-08-18",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Cid Gomes",
+     "party": "PSB",
+     "pct": 26
+    },
+    {
+     "candidate": "Capitão Wagner",
+     "party": "União Brasil",
+     "pct": 19
+    },
+    {
+     "candidate": "Luizianne",
+     "party": "Rede",
+     "pct": 15
+    },
+    {
+     "candidate": "Alcides Fernandes",
+     "party": "PL",
+     "pct": 6
+    },
+    {
+     "candidate": "General Theophilo",
+     "party": "Novo",
+     "pct": 1
+    }
+   ],
+   "others_pct": 5,
+   "undecided_pct": 29,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -119001,7 +119039,7 @@
    "tse_registration": "BR-01489/2026"
   },
   {
-   "id": "19c97a754e0c",
+   "id": "c0d8323efe4d",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-venceria-no-1o-turno-no-ceara-diz-ipsos-ipec/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/07/Job_26_059792_Ceara_Relatorio_de_tabelas_Completo.pdf",
@@ -126531,6 +126569,44 @@
    }
   },
   {
+   "id": "439434f98774",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ipec",
+   "contractor": null,
+   "fieldwork_start": null,
+   "fieldwork_end": "2026-07-18",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 43
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 31
+    },
+    {
+     "candidate": "Eduardo Girão",
+     "party": "Novo",
+     "pct": 6
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "63273b6535b0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
@@ -126664,54 +126740,6 @@
    "blank_null_pct": null,
    "tse_registration": null,
    "incomplete": true
-  },
-  {
-   "id": "cd2ae498b88e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ipec",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": "2026-07-18",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 43
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 31
-    },
-    {
-     "candidate": "Eduardo Girão",
-     "party": "Novo",
-     "pct": 6
-    },
-    {
-     "candidate": "Jair Pereira",
-     "party": "PSOL",
-     "pct": 1
-    },
-    {
-     "candidate": "Zé Batista",
-     "party": "PSTU",
-     "pct": 1
-    }
-   ],
-   "others_pct": 4,
-   "undecided_pct": 15,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "0b69dedeeedb",
@@ -145371,49 +145399,6 @@
    "tse_registration": null
   },
   {
-   "id": "717a504cf982",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MS",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "IPEMS",
-   "contractor": null,
-   "fieldwork_start": "2026-06-05",
-   "fieldwork_end": "2026-06-10",
-   "published_date": null,
-   "sample_size": 950,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Riedel",
-     "party": "PP",
-     "pct": 45.24
-    },
-    {
-     "candidate": "Fábio Trad",
-     "party": "PT",
-     "pct": 12.53
-    },
-    {
-     "candidate": "João Henrique Catan",
-     "party": "Novo",
-     "pct": 8.52
-    },
-    {
-     "candidate": "Delcidio Amaral",
-     "party": "PRD",
-     "pct": 12.3
-    }
-   ],
-   "others_pct": 3.51,
-   "undecided_pct": 17.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "89a3b5f18be2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -145541,7 +145526,7 @@
    "state": "MS",
    "round": 1,
    "scenario": "1º turno — cenário 1/2",
-   "pollster": "IPEMS",
+   "pollster": "Ipems",
    "contractor": null,
    "fieldwork_start": "2026-06-05",
    "fieldwork_end": "2026-06-10",
@@ -145577,6 +145562,49 @@
    ],
    "others_pct": 7.19,
    "undecided_pct": 17.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cfdee203c3c0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MS",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ipems",
+   "contractor": null,
+   "fieldwork_start": "2026-06-05",
+   "fieldwork_end": "2026-06-10",
+   "published_date": null,
+   "sample_size": 950,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Riedel",
+     "party": "PP",
+     "pct": 45.24
+    },
+    {
+     "candidate": "Fábio Trad",
+     "party": "PT",
+     "pct": 12.53
+    },
+    {
+     "candidate": "João Henrique Catan",
+     "party": "Novo",
+     "pct": 8.52
+    },
+    {
+     "candidate": "Delcidio Amaral",
+     "party": "PRD",
+     "pct": 12.3
+    }
+   ],
+   "others_pct": 3.51,
+   "undecided_pct": 17.9,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -149358,7 +149386,7 @@
    "tse_registration": "GO-08774/2026"
   },
   {
-   "id": "75cd2e63ae6e",
+   "id": "571e530e9503",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -149429,40 +149457,7 @@
    "tse_registration": "MT-01755/2026"
   },
   {
-   "id": "9b82501b8f3b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses de segundo turno",
-   "pollster": "Ipec",
-   "contractor": null,
-   "fieldwork_start": "2026-05-28",
-   "fieldwork_end": "2026-06-01",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 49
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 41
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "e8551b7f35f9",
+   "id": "8d6b1d573421",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -149511,6 +149506,39 @@
    ],
    "others_pct": 6,
    "undecided_pct": 49,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9b82501b8f3b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Ipec",
+   "contractor": null,
+   "fieldwork_start": "2026-05-28",
+   "fieldwork_end": "2026-06-01",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 49
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 41
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -176338,7 +176366,55 @@
    "tse_registration": null
   },
   {
-   "id": "405c8d844152",
+   "id": "682ec7ec4d21",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "CE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Futura",
+   "contractor": null,
+   "fieldwork_start": "2026-03-30",
+   "fieldwork_end": "2026-04-01",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Ciro Gomes",
+     "party": "PSDB",
+     "pct": 30
+    },
+    {
+     "candidate": "Elmano de Freitas",
+     "party": "PT",
+     "pct": 21
+    },
+    {
+     "candidate": "Camilo Santana",
+     "party": "PT",
+     "pct": 3.3
+    },
+    {
+     "candidate": "Roberto Cláudio",
+     "party": "União Brasil",
+     "pct": 0.4
+    },
+    {
+     "candidate": "Eduardo Girão",
+     "party": "Novo",
+     "pct": 1.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 41.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a3e1198c71d0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -176371,7 +176447,7 @@
    "tse_registration": null
   },
   {
-   "id": "71564e4c4f6d",
+   "id": "b5ad731c0381",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
    "integra_url": null,
@@ -176425,54 +176501,6 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "d79b3c7e3fd9",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Cear%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "CE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Futura",
-   "contractor": null,
-   "fieldwork_start": "2026-03-30",
-   "fieldwork_end": "2026-04-01",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Ciro Gomes",
-     "party": "PSDB",
-     "pct": 30
-    },
-    {
-     "candidate": "Elmano de Freitas",
-     "party": "PT",
-     "pct": 21
-    },
-    {
-     "candidate": "Camilo Santana",
-     "party": "PT",
-     "pct": 3.3
-    },
-    {
-     "candidate": "Roberto Cláudio",
-     "party": "União Brasil",
-     "pct": 0.4
-    },
-    {
-     "candidate": "Eduardo Girão",
-     "party": "Novo",
-     "pct": 1.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 41.7,
    "blank_null_pct": null,
    "tse_registration": null
   },

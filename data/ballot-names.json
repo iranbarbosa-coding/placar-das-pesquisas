@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 714,
+  "exato": 721,
   "contencao": 228,
   "outra_disputa": 165,
   "ambiguo": 5,
-  "sem": 558
+  "sem": 564
  },
  "ambiguos": [
   {
@@ -3330,6 +3330,106 @@
     "origem": "exato"
    }
   },
+  "governador:PI": {
+   "elizeu aguiar": {
+    "nome_urna": "Elizeu Aguiar",
+    "sq_candidato": "180002549920",
+    "partido": "NOVO",
+    "numero": "30",
+    "origem": "exato"
+   },
+   "geraldo carvalho": {
+    "nome_urna": "Geraldo Carvalho",
+    "sq_candidato": "180002537422",
+    "partido": "PSTU",
+    "numero": "16",
+    "origem": "exato"
+   },
+   "gisvaldo oliveira": {
+    "nome_urna": "Professor Gisvaldo",
+    "sq_candidato": "180002549970",
+    "partido": "PSOL",
+    "numero": "50",
+    "origem": "contencao"
+   },
+   "gustavo henrique": {
+    "nome_urna": "Gustavo Pelo Piauí Ou Gustavo",
+    "sq_candidato": "180002550421",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
+   "gustavo pelo piaui": {
+    "nome_urna": "Gustavo Pelo Piauí Ou Gustavo",
+    "sq_candidato": "180002550421",
+    "partido": "AVANTE",
+    "numero": "70",
+    "origem": "contencao"
+   },
+   "joel rodrigues": {
+    "nome_urna": "Joel Rodrigues",
+    "sq_candidato": "180002538530",
+    "partido": "PP",
+    "numero": "11",
+    "origem": "exato"
+   },
+   "joel rodrigues da silva": {
+    "nome_urna": "Joel Rodrigues",
+    "sq_candidato": "180002538530",
+    "partido": "PP",
+    "numero": "11",
+    "origem": "contencao"
+   },
+   "lourdes melo": {
+    "nome_urna": "Lourdes Melo",
+    "sq_candidato": "180002553722",
+    "partido": "PCO",
+    "numero": "29",
+    "origem": "exato"
+   },
+   "professor gisvaldo": {
+    "nome_urna": "Professor Gisvaldo",
+    "sq_candidato": "180002549970",
+    "partido": "PSOL",
+    "numero": "50",
+    "origem": "exato"
+   },
+   "professor jurity": {
+    "nome_urna": "Professor Jurity",
+    "sq_candidato": "180002548565",
+    "partido": "DC",
+    "numero": "27",
+    "origem": "exato"
+   },
+   "rafael fonteles": {
+    "nome_urna": "Rafael Fonteles",
+    "sq_candidato": "180002532987",
+    "partido": "PT",
+    "numero": "13",
+    "origem": "exato"
+   },
+   "ravenna castro": {
+    "nome_urna": "Ravenna da Inclusão",
+    "sq_candidato": "180002548388",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "contencao"
+   },
+   "ravenna da inclusao": {
+    "nome_urna": "Ravenna da Inclusão",
+    "sq_candidato": "180002548388",
+    "partido": "DEMOCRATA",
+    "numero": "35",
+    "origem": "exato"
+   },
+   "santiago belizario": {
+    "nome_urna": "Santiago Belizário",
+    "sq_candidato": "180002549995",
+    "partido": "UP",
+    "numero": "80",
+    "origem": "exato"
+   }
+  },
   "presidente:PI": {
    "aecio neves": {
     "nome_urna": "Aécio Neves",
@@ -5069,106 +5169,6 @@
     "origem": "exato"
    }
   },
-  "governador:PI": {
-   "elizeu aguiar": {
-    "nome_urna": "Elizeu Aguiar",
-    "sq_candidato": "180002549920",
-    "partido": "NOVO",
-    "numero": "30",
-    "origem": "exato"
-   },
-   "geraldo carvalho": {
-    "nome_urna": "Geraldo Carvalho",
-    "sq_candidato": "180002537422",
-    "partido": "PSTU",
-    "numero": "16",
-    "origem": "exato"
-   },
-   "gisvaldo oliveira": {
-    "nome_urna": "Professor Gisvaldo",
-    "sq_candidato": "180002549970",
-    "partido": "PSOL",
-    "numero": "50",
-    "origem": "contencao"
-   },
-   "gustavo henrique": {
-    "nome_urna": "Gustavo Pelo Piauí Ou Gustavo",
-    "sq_candidato": "180002550421",
-    "partido": "AVANTE",
-    "numero": "70",
-    "origem": "contencao"
-   },
-   "gustavo pelo piaui": {
-    "nome_urna": "Gustavo Pelo Piauí Ou Gustavo",
-    "sq_candidato": "180002550421",
-    "partido": "AVANTE",
-    "numero": "70",
-    "origem": "contencao"
-   },
-   "joel rodrigues": {
-    "nome_urna": "Joel Rodrigues",
-    "sq_candidato": "180002538530",
-    "partido": "PP",
-    "numero": "11",
-    "origem": "exato"
-   },
-   "joel rodrigues da silva": {
-    "nome_urna": "Joel Rodrigues",
-    "sq_candidato": "180002538530",
-    "partido": "PP",
-    "numero": "11",
-    "origem": "contencao"
-   },
-   "lourdes melo": {
-    "nome_urna": "Lourdes Melo",
-    "sq_candidato": "180002553722",
-    "partido": "PCO",
-    "numero": "29",
-    "origem": "exato"
-   },
-   "professor gisvaldo": {
-    "nome_urna": "Professor Gisvaldo",
-    "sq_candidato": "180002549970",
-    "partido": "PSOL",
-    "numero": "50",
-    "origem": "exato"
-   },
-   "professor jurity": {
-    "nome_urna": "Professor Jurity",
-    "sq_candidato": "180002548565",
-    "partido": "DC",
-    "numero": "27",
-    "origem": "exato"
-   },
-   "rafael fonteles": {
-    "nome_urna": "Rafael Fonteles",
-    "sq_candidato": "180002532987",
-    "partido": "PT",
-    "numero": "13",
-    "origem": "exato"
-   },
-   "ravenna castro": {
-    "nome_urna": "Ravenna da Inclusão",
-    "sq_candidato": "180002548388",
-    "partido": "DEMOCRATA",
-    "numero": "35",
-    "origem": "contencao"
-   },
-   "ravenna da inclusao": {
-    "nome_urna": "Ravenna da Inclusão",
-    "sq_candidato": "180002548388",
-    "partido": "DEMOCRATA",
-    "numero": "35",
-    "origem": "exato"
-   },
-   "santiago belizario": {
-    "nome_urna": "Santiago Belizário",
-    "sq_candidato": "180002549995",
-    "partido": "UP",
-    "numero": "80",
-    "origem": "exato"
-   }
-  },
   "presidente:RO": {
    "augusto cury": {
     "nome_urna": "Escritor Augusto Cury",
@@ -6327,6 +6327,85 @@
     "partido": "PSTU",
     "numero": "161",
     "origem": "contencao"
+   }
+  },
+  "senador:MS": {
+   "beto do movimento": {
+    "nome_urna": "Beto do Movimento",
+    "sq_candidato": "120002532721",
+    "partido": "PSOL",
+    "numero": "500",
+    "origem": "exato"
+   },
+   "capitao contar": {
+    "nome_urna": "Capitão Contar",
+    "sq_candidato": "120002535769",
+    "partido": "PL",
+    "numero": "221",
+    "origem": "exato"
+   },
+   "daniel junior": {
+    "nome_urna": "Daniel Júnior",
+    "sq_candidato": "120002534952",
+    "partido": "AGIR",
+    "numero": "365",
+    "origem": "exato"
+   },
+   "luiz lemes": {
+    "nome_urna": "Luiz Lemes",
+    "sq_candidato": "120002551909",
+    "partido": "DC",
+    "numero": "277",
+    "origem": "exato"
+   },
+   "reinaldo azambuja": {
+    "nome_urna": "Reinaldo Azambuja",
+    "sq_candidato": "120002535764",
+    "partido": "PL",
+    "numero": "222",
+    "origem": "exato"
+   },
+   "renan contar": {
+    "nome_urna": "Capitão Contar",
+    "sq_candidato": "120002535769",
+    "partido": "PL",
+    "numero": "221",
+    "origem": "contencao"
+   },
+   "roberto oshiro": {
+    "nome_urna": "Roberto Oshiro",
+    "sq_candidato": "120002552115",
+    "partido": "NOVO",
+    "numero": "300",
+    "origem": "exato"
+   },
+   "soraya thronicke": {
+    "nome_urna": "Soraya",
+    "sq_candidato": "120002547434",
+    "partido": "PSB",
+    "numero": "400",
+    "origem": "contencao"
+   },
+   "valderi garcia": {
+    "nome_urna": "Valderi Garcia",
+    "sq_candidato": "120002552196",
+    "partido": "PCO",
+    "numero": "290",
+    "origem": "exato"
+   },
+   "valter da comagran": {
+    "nome_urna": "Valter da Comagran",
+    "sq_candidato": "120002552183",
+    "partido": "PRD",
+    "numero": "258",
+    "origem": "exato"
+   },
+   "vander loubet": {
+    "nome_urna": "Vander Loubet",
+    "sq_candidato": "120002547435",
+    "partido": "PT",
+    "numero": "133",
+    "origem": "exato"
    }
   },
   "senador:MT": {
@@ -7797,36 +7876,6 @@
     "partido": "PSDB",
     "numero": "45",
     "origem": "outra-disputa"
-   }
-  },
-  "senador:MS": {
-   "reinaldo azambuja": {
-    "nome_urna": "Reinaldo Azambuja",
-    "sq_candidato": "120002535764",
-    "partido": "PL",
-    "numero": "222",
-    "origem": "exato"
-   },
-   "renan contar": {
-    "nome_urna": "Capitão Contar",
-    "sq_candidato": "120002535769",
-    "partido": "PL",
-    "numero": "221",
-    "origem": "contencao"
-   },
-   "soraya thronicke": {
-    "nome_urna": "Soraya",
-    "sq_candidato": "120002547434",
-    "partido": "PSB",
-    "numero": "400",
-    "origem": "contencao"
-   },
-   "vander loubet": {
-    "nome_urna": "Vander Loubet",
-    "sq_candidato": "120002547435",
-    "partido": "PT",
-    "numero": "133",
-    "origem": "exato"
    }
   }
  }
