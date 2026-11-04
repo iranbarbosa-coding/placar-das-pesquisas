@@ -3931,6 +3931,140 @@
    ]
   }
  ],
+ "governador:PI": [
+  {
+   "nome": "Doutora Lúcia Santos",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Elizeu Aguiar",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Geraldo Carvalho",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Gisvaldo Oliveira",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Gustavo Henrique",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Gustavo pelo Piauí",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Jesus Rodrigues",
+   "partidos": [
+    "Cidadania"
+   ]
+  },
+  {
+   "nome": "Joel Rodrigues",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Joel Rodrigues da Silva",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Jornalista Toni Rodrigues",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Lourdes Melo",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Mainha",
+   "partidos": [
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Margarete Coelho",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Professor Gisvaldo",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Professor Jurity",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Professor Tonny",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Rafael Fonteles",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Ravenna Castro",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Ravenna da Inclusão",
+   "partidos": [
+    "Democrata"
+   ]
+  },
+  {
+   "nome": "Santiago Belizário",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Toni Rodrigues",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Tonny Kerley",
+   "partidos": [
+    "Novo"
+   ]
+  }
+ ],
  "presidente:PI": [
   {
    "nome": "Aécio Neves",
@@ -6406,140 +6540,6 @@
    ]
   }
  ],
- "governador:PI": [
-  {
-   "nome": "Doutora Lúcia Santos",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Elizeu Aguiar",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Geraldo Carvalho",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
-   "nome": "Gisvaldo Oliveira",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Gustavo Henrique",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Gustavo pelo Piauí",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Jesus Rodrigues",
-   "partidos": [
-    "Cidadania"
-   ]
-  },
-  {
-   "nome": "Joel Rodrigues",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Joel Rodrigues da Silva",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Jornalista Toni Rodrigues",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Lourdes Melo",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Mainha",
-   "partidos": [
-    "Podemos"
-   ]
-  },
-  {
-   "nome": "Margarete Coelho",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Professor Gisvaldo",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Professor Jurity",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Professor Tonny",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Rafael Fonteles",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Ravenna Castro",
-   "partidos": [
-    "Democrata"
-   ]
-  },
-  {
-   "nome": "Ravenna da Inclusão",
-   "partidos": [
-    "Democrata"
-   ]
-  },
-  {
-   "nome": "Santiago Belizário",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Toni Rodrigues",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Tonny Kerley",
-   "partidos": [
-    "Novo"
-   ]
-  }
- ],
  "presidente:RO": [
   {
    "nome": "Aldo Rebelo",
@@ -8201,6 +8201,131 @@
    "nome": "Victoria Mello",
    "partidos": [
     "PSTU"
+   ]
+  }
+ ],
+ "senador:MS": [
+  {
+   "nome": "Beto do Movimento",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Capitão Contar",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Daniel Júnior",
+   "partidos": [
+    "Agir"
+   ]
+  },
+  {
+   "nome": "Fernando Moraes",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Gerson Claro",
+   "partidos": [
+    "PP"
+   ]
+  },
+  {
+   "nome": "Gianni do Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gianni Nogueira",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Luiz Lemes",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Marcos Pollon",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Nelsinho Trad",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Oswaldo Meza",
+   "partidos": [
+    "Avante",
+    "Sem partido"
+   ]
+  },
+  {
+   "nome": "Reinaldo Azambuja",
+   "partidos": [
+    "PL",
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Renan Contar",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Roberto Oshiro",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Rose Modesto",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Simone Tebet",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Soraya Thronicke",
+   "partidos": [
+    "PSB",
+    "Podemos"
+   ]
+  },
+  {
+   "nome": "Valderi Garcia",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Valter da Comagran",
+   "partidos": [
+    "PRD"
+   ]
+  },
+  {
+   "nome": "Vander Loubet",
+   "partidos": [
+    "PT"
    ]
   }
  ],
@@ -10267,51 +10392,6 @@
    "nome": "Wanderlei Barbosa",
    "partidos": [
     "Republicanos"
-   ]
-  }
- ],
- "senador:MS": [
-  {
-   "nome": "Marcos Pollon",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Nelsinho Trad",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Reinaldo Azambuja",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Renan Contar",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Simone Tebet",
-   "partidos": [
-    "MDB"
-   ]
-  },
-  {
-   "nome": "Soraya Thronicke",
-   "partidos": [
-    "PSB",
-    "Podemos"
-   ]
-  },
-  {
-   "nome": "Vander Loubet",
-   "partidos": [
-    "PT"
    ]
   }
  ]

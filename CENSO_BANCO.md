@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1978 levantamentos · 6128 perguntas · 166 institutos · 1447 candidatos**.
+Banco: **1978 levantamentos · 6128 perguntas · 166 institutos · 1449 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 444 | 22 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 433 | 21 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **512** | **66** |
+| **total** | **501** | **65** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (444)
+## CONFLITO — Conflitos registrados aguardando decisão (433)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -776,24 +776,13 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_962d8f84ab0b · results: ["André Fufuca","Cidônio Gonçalves","Eliziane Gama","Enilton Rodrigues","Hilton Gonçalo","Lahesio Bonfim","Roseana Sarney","Simplício Araújo","Weverton Rocha"] × ["André Fufuca","Cidônio Gonçalves","Eliziane Gama","Hilton Gonçalo","Lahesio Bonfim","Roseana Sarney","Weverton Rocha"]
 - **[2026]** survey_id_orphaned · s_295c624269a3 · survey_id: "s_295c624269a3" × null
 - **[2026]** survey_id_orphaned · s_345fea549ef5 · survey_id: "s_345fea549ef5" × null
-- roster_encolhido_na_fonte · q_9c5479d5b4e3 · results: ["Beto do Movimento","Capitão Contar","Gerson Claro","Gianni Nogueira","Marcos Pollon","Nelsinho Trad","Oswaldo Meza","Reinaldo Azambuja","Soraya Thronicke","Vander Loubet"] × ["Marcos Pollon","Nelsinho Trad","Reinaldo Azambuja","Renan Contar","Soraya Thronicke","Vander Loubet"]
 - institute_id_orphaned · i_60e80ad63304 · institute_id: "i_60e80ad63304" × null
-- **[2026]** survey_id_orphaned · s_efd066f578b6 · survey_id: "s_efd066f578b6" × null
-- person_id_orphaned · p_442e6e39cf83 · person_id: "p_442e6e39cf83" × null
-- survey_id_orphaned · s_5186b70258cd · survey_id: "s_5186b70258cd" × null
-- survey_id_orphaned · s_87696d386b08 · survey_id: "s_87696d386b08" × null
-- roster_encolhido_na_fonte · q_d87796021795 · results: ["Beto do Movimento","Capitão Contar","Fernando Moraes","Nelsinho Trad","Reinaldo Azambuja","Soraya Thronicke","Vander Loubet"] × ["Nelsinho Trad","Reinaldo Azambuja","Renan Contar","Soraya Thronicke","Vander Loubet"]
-- survey_id_orphaned · s_91a340d92413 · survey_id: "s_91a340d92413" × null
-- candidate_id_orphaned · c_f1235268a97c · candidate_id: "c_f1235268a97c" × null
-- person_id_orphaned · p_20995ed57192 · person_id: "p_20995ed57192" × null
-- roster_encolhido_na_fonte · q_21ed0c70de74 · results: ["Beto do Movimento","Capitão Contar","Daniel Júnior","Luiz Lemes","Reinaldo Azambuja","Roberto Oshiro","Soraya Thronicke","Valderi Garcia","Valter da Comagran","Vander Loubet"] × ["Reinaldo Azambuja","Renan Contar","Soraya Thronicke","Vander Loubet"]
-- survey_id_orphaned · s_404e8832ef12 · survey_id: "s_404e8832ef12" × null
+- segundo_turno_fragmento_descartado · q_d71611740e13 · results: null × ["Joel Rodrigues"]
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 109
-- disputa_em_quarentena · governador:PI · quarentena: 40 × 37
+- disputa_em_quarentena · governador:PI · quarentena: 40 × 41
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
-- disputa_em_quarentena · senador:MS · quarentena: 47 × 46
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
