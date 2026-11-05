@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-04T18:36:56.401Z",
+ "generated_at": "2026-11-05T00:20:42.810Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-04T18:36:56.401Z"
+   "last_ok": "2026-11-05T00:20:42.810Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-04T18:36:56.401Z"
+   "last_ok": "2026-11-05T00:20:42.810Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-04T18:36:56.401Z"
+   "last_ok": "2026-11-05T00:20:42.810Z"
   }
  ],
  "polls": [
@@ -7786,7 +7786,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2652,
@@ -7844,7 +7844,7 @@
    "scenario": "2º turno: Raquel Lyra vs João Campos",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2652,
@@ -8051,7 +8051,7 @@
    "scenario": "1º turno",
    "pollster": "Quaest",
    "contractor": "Globo",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-10-02",
    "fieldwork_end": "2026-10-03",
    "published_date": "2026-10-03",
    "sample_size": 2652,
@@ -32813,54 +32813,6 @@
    "tse_registration": "MA-07074/2026"
   },
   {
-   "id": "339b35d9d473",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": "TV Globo e Folha de S. Paulo",
-   "fieldwork_start": "2026-09-22",
-   "fieldwork_end": "2026-09-24",
-   "published_date": "2026-09-24",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 19
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 17
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 13
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 10
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 6
-    }
-   ],
-   "others_pct": 6,
-   "undecided_pct": 29,
-   "blank_null_pct": null,
-   "tse_registration": "BR-05465/2026"
-  },
-  {
    "id": "35997d5be6e8",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso_do_Sul",
@@ -33186,6 +33138,39 @@
    "undecided_pct": 23,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "3f14e803fb6e",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": "TV Globo e Folha de S. Paulo",
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 48
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 44
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": "BR-05465/2026"
   },
   {
    "id": "43c20fb2a72e",
@@ -33884,39 +33869,6 @@
    "tse_registration": null
   },
   {
-   "id": "67e17b7c01a1",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
-   "race": "governador",
-   "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Datafolha",
-   "contractor": "TV Globo e Folha de S. Paulo",
-   "fieldwork_start": "2026-09-22",
-   "fieldwork_end": "2026-09-24",
-   "published_date": "2026-09-24",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 51
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 4,
-   "blank_null_pct": null,
-   "tse_registration": "BR-05465/2026"
-  },
-  {
    "id": "6b09fea4f2fc",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
@@ -34064,39 +34016,6 @@
    "undecided_pct": 10.2,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "7287eaea3d6a",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": "TV Globo e Folha de S. Paulo",
-   "fieldwork_start": "2026-09-22",
-   "fieldwork_end": "2026-09-24",
-   "published_date": "2026-09-24",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 48
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 44
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 6,
-   "blank_null_pct": null,
-   "tse_registration": "BR-05465/2026"
   },
   {
    "id": "742b024ab4c2",
@@ -34648,6 +34567,54 @@
    "tse_registration": null
   },
   {
+   "id": "9f3845aaf4a8",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": "TV Globo e Folha de S. Paulo",
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 19
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 17
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 13
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 10
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 6
+    }
+   ],
+   "others_pct": 6,
+   "undecided_pct": 29,
+   "blank_null_pct": null,
+   "tse_registration": "BR-05465/2026"
+  },
+  {
    "id": "a097635e31e9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -34737,6 +34704,39 @@
    "undecided_pct": 12.7,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "a9b376acd19d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-Datafolha-presidente-PE-25set2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Datafolha",
+   "contractor": "TV Globo e Folha de S. Paulo",
+   "fieldwork_start": "2026-09-22",
+   "fieldwork_end": "2026-09-24",
+   "published_date": "2026-09-24",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 51
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 4,
+   "blank_null_pct": null,
+   "tse_registration": "BR-05465/2026"
   },
   {
    "id": "b1f17821a769",
@@ -40527,6 +40527,54 @@
    "tse_registration": null
   },
   {
+   "id": "41368dd52716",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-19",
+   "fieldwork_end": "2026-09-22",
+   "published_date": null,
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 18
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 14
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 10
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 8
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 4
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 42,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "46ceff2038d8",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-atlasintel-presidente-nacional-setembro.pdf",
@@ -41289,39 +41337,6 @@
    "tse_registration": "RJ-01631/2026"
   },
   {
-   "id": "88efdf25e0d2",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-19",
-   "fieldwork_end": "2026-09-22",
-   "published_date": null,
-   "sample_size": 1302,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 41
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 39
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 18,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "8d42bc6adeea",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-atlasintel-presidente-nacional-setembro.pdf",
@@ -41470,6 +41485,39 @@
    ],
    "others_pct": 1.7,
    "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9a628f7949d3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-19",
+   "fieldwork_end": "2026-09-22",
+   "published_date": null,
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 41
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 39
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -41689,54 +41737,6 @@
    "undecided_pct": 94.6,
    "blank_null_pct": null,
    "tse_registration": "RJ-01631/2026"
-  },
-  {
-   "id": "b811d08fce06",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-19",
-   "fieldwork_end": "2026-09-22",
-   "published_date": null,
-   "sample_size": 1302,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 18
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 14
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 10
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 8
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 4
-    }
-   ],
-   "others_pct": 4,
-   "undecided_pct": 42,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "b843d4db35db",
@@ -42040,7 +42040,7 @@
    "tse_registration": null
   },
   {
-   "id": "d895d99c4201",
+   "id": "d9a73f7be840",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
@@ -44363,15 +44363,15 @@
    "tse_registration": null
   },
   {
-   "id": "1a255ef1b472",
+   "id": "1cbc46be5935",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
    "race": "governador",
    "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Simplex/CBN",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CBN/Simplex",
    "contractor": null,
    "fieldwork_start": "2026-09-16",
    "fieldwork_end": "2026-09-20",
@@ -44382,16 +44382,16 @@
     {
      "candidate": "Raquel Lyra",
      "party": "PSD",
-     "pct": 46.4
+     "pct": 45
     },
     {
      "candidate": "João Campos",
      "party": "PSB",
-     "pct": 39.9
+     "pct": 37.9
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 13.7,
+   "others_pct": 1.4,
+   "undecided_pct": 15.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -44602,6 +44602,39 @@
    ],
    "others_pct": 2.2,
    "undecided_pct": 12.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "3bd74a2e3312",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "CBN/Simplex",
+   "contractor": null,
+   "fieldwork_start": "2026-09-16",
+   "fieldwork_end": "2026-09-20",
+   "published_date": null,
+   "sample_size": 1067,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 46.4
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 39.9
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -44869,7 +44902,7 @@
    "tse_registration": null
   },
   {
-   "id": "5bda235ad7bd",
+   "id": "77696577f1ef",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
@@ -44877,7 +44910,7 @@
    "state": "PE",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Simplex/CBN",
+   "pollster": "CBN/Simplex",
    "contractor": null,
    "fieldwork_start": "2026-09-16",
    "fieldwork_end": "2026-09-20",
@@ -44913,39 +44946,6 @@
    ],
    "others_pct": 2.8,
    "undecided_pct": 46.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "77f7fa168dcd",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Simplex/CBN",
-   "contractor": null,
-   "fieldwork_start": "2026-09-16",
-   "fieldwork_end": "2026-09-20",
-   "published_date": null,
-   "sample_size": 1067,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 45
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 37.9
-    }
-   ],
-   "others_pct": 1.4,
-   "undecided_pct": 15.7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -49373,7 +49373,50 @@
    "tse_registration": "BR-09702/2026"
   },
   {
-   "id": "0636538b0130",
+   "id": "0c6f37122657",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
+   "integra_url": null,
+   "race": "governador",
+   "state": "MA",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "IPSensus",
+   "contractor": null,
+   "fieldwork_start": "2026-09-14",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 1000,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Eduardo Braide",
+     "party": "PSD",
+     "pct": 35.7
+    },
+    {
+     "candidate": "Orleans Brandão",
+     "party": "MDB",
+     "pct": 43.6
+    },
+    {
+     "candidate": "Felipe Camarão",
+     "party": "PT",
+     "pct": 8.1
+    },
+    {
+     "candidate": "Roberto Rocha",
+     "party": "PRTB",
+     "pct": 3
+    }
+   ],
+   "others_pct": 3.6,
+   "undecided_pct": 6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "13c654350d1b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
    "integra_url": null,
@@ -49417,49 +49460,6 @@
    ],
    "others_pct": 6.4,
    "undecided_pct": 53.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "0c6f37122657",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Maranh%C3%A3o",
-   "integra_url": null,
-   "race": "governador",
-   "state": "MA",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "IPSensus",
-   "contractor": null,
-   "fieldwork_start": "2026-09-14",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 1000,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Eduardo Braide",
-     "party": "PSD",
-     "pct": 35.7
-    },
-    {
-     "candidate": "Orleans Brandão",
-     "party": "MDB",
-     "pct": 43.6
-    },
-    {
-     "candidate": "Felipe Camarão",
-     "party": "PT",
-     "pct": 8.1
-    },
-    {
-     "candidate": "Roberto Rocha",
-     "party": "PRTB",
-     "pct": 3
-    }
-   ],
-   "others_pct": 3.6,
-   "undecided_pct": 6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -49844,44 +49844,6 @@
    "incomplete": true
   },
   {
-   "id": "48e3a4110a24",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ranking",
-   "contractor": null,
-   "fieldwork_start": "2026-09-16",
-   "fieldwork_end": "2026-09-18",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 51.9
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 15.9
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 14.8
-    }
-   ],
-   "others_pct": 2.8,
-   "undecided_pct": 14.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "51467f94f1fa",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Minas_Gerais",
@@ -50058,6 +50020,44 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.01,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "a162041437a9",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-09-16",
+   "fieldwork_end": "2026-09-18",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 51.9
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 15.9
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 14.8
+    }
+   ],
+   "others_pct": 2.8,
+   "undecided_pct": 14.6,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -60824,39 +60824,6 @@
    "tse_registration": "MA-02163/2026"
   },
   {
-   "id": "2635a2a4875c",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-62-e-flavio-29-no-2o-turno-em-pe-diz-datafolha/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-pernambuco-presidente-11set.pdf",
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": "Folha de S. Paulo e Grupo O Globo",
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-10",
-   "published_date": "2026-09-10",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 47
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 42
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 8,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01833/2026"
-  },
-  {
    "id": "2e57f48fb8cf",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -60890,6 +60857,54 @@
    "tse_registration": null
   },
   {
+   "id": "301cf5bc7f55",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-62-e-flavio-29-no-2o-turno-em-pe-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-pernambuco-presidente-11set.pdf",
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo e Grupo O Globo",
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-10",
+   "published_date": "2026-09-10",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 18
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 16
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 12
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 10
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 5
+    }
+   ],
+   "others_pct": 7,
+   "undecided_pct": 32,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01833/2026"
+  },
+  {
    "id": "3d31e867ebd6",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
@@ -60921,6 +60936,39 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "45552b2237c6",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-62-e-flavio-29-no-2o-turno-em-pe-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-pernambuco-presidente-11set.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo e Grupo O Globo",
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-10",
+   "published_date": "2026-09-10",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 51
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 44
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01833/2026"
   },
   {
    "id": "4fae71fda040",
@@ -61216,87 +61264,6 @@
    "tse_registration": null
   },
   {
-   "id": "7a9c8cdad884",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-62-e-flavio-29-no-2o-turno-em-pe-diz-datafolha/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-pernambuco-presidente-11set.pdf",
-   "race": "governador",
-   "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Datafolha",
-   "contractor": "Folha de S. Paulo e Grupo O Globo",
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-10",
-   "published_date": "2026-09-10",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 51
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 44
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01833/2026"
-  },
-  {
-   "id": "890a908236ab",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-62-e-flavio-29-no-2o-turno-em-pe-diz-datafolha/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-pernambuco-presidente-11set.pdf",
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": "Folha de S. Paulo e Grupo O Globo",
-   "fieldwork_start": "2026-09-08",
-   "fieldwork_end": "2026-09-10",
-   "published_date": "2026-09-10",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 18
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 16
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 12
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 10
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 5
-    }
-   ],
-   "others_pct": 7,
-   "undecided_pct": 32,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01833/2026"
-  },
-  {
    "id": "95bc63c5faef",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-46-e-flavio-42-no-2o-turno-em-mg-diz-datafolha/",
@@ -61386,6 +61353,39 @@
    "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": "BR-03022/2026"
+  },
+  {
+   "id": "b0d8a79eb1ec",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes/lula-tem-62-e-flavio-29-no-2o-turno-em-pe-diz-datafolha/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-pernambuco-presidente-11set.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": "Folha de S. Paulo e Grupo O Globo",
+   "fieldwork_start": "2026-09-08",
+   "fieldwork_end": "2026-09-10",
+   "published_date": "2026-09-10",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 47
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 42
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 8,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01833/2026"
   },
   {
    "id": "b0da930bfaa0",
@@ -68868,6 +68868,44 @@
    "tse_registration": null
   },
   {
+   "id": "64ab3c150003",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 41.3
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 18.1
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 13.1
+    }
+   ],
+   "others_pct": 4.1,
+   "undecided_pct": 23.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "69142471a004",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/09/quaest-df-governador-set.pdf",
@@ -69235,54 +69273,6 @@
    "tse_registration": null
   },
   {
-   "id": "d4456a9b67ad",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ranking",
-   "contractor": null,
-   "fieldwork_start": "2026-09-05",
-   "fieldwork_end": "2026-09-07",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "João Azevêdo",
-     "party": "PSB",
-     "pct": 53.1
-    },
-    {
-     "candidate": "Veneziano",
-     "party": "MDB",
-     "pct": 33.9
-    },
-    {
-     "candidate": "Nabor",
-     "party": "Republicanos",
-     "pct": 19.1
-    },
-    {
-     "candidate": "Dr. Marcelo Queiroga",
-     "party": "PL",
-     "pct": 10.3
-    },
-    {
-     "candidate": "Major Fábio",
-     "party": "Novo",
-     "pct": 8.2
-    }
-   ],
-   "others_pct": 6.1,
-   "undecided_pct": 69.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "d70a686277fa",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -69404,44 +69394,6 @@
    "tse_registration": "DF-01987/2026"
   },
   {
-   "id": "d9798477261d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ranking",
-   "contractor": null,
-   "fieldwork_start": "2026-09-05",
-   "fieldwork_end": "2026-09-07",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 41.3
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 18.1
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 13.1
-    }
-   ],
-   "others_pct": 4.1,
-   "undecided_pct": 23.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "dc41f5c2ea0a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -69471,6 +69423,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 26,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "e1129d4fc0b0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-09-05",
+   "fieldwork_end": "2026-09-07",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "João Azevêdo",
+     "party": "PSB",
+     "pct": 53.1
+    },
+    {
+     "candidate": "Veneziano",
+     "party": "MDB",
+     "pct": 33.9
+    },
+    {
+     "candidate": "Nabor",
+     "party": "Republicanos",
+     "pct": 19.1
+    },
+    {
+     "candidate": "Dr. Marcelo Queiroga",
+     "party": "PL",
+     "pct": 10.3
+    },
+    {
+     "candidate": "Major Fábio",
+     "party": "Novo",
+     "pct": 8.2
+    }
+   ],
+   "others_pct": 6.1,
+   "undecided_pct": 69.3,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -91233,6 +91233,44 @@
    "tse_registration": "BA-07628/2026"
   },
   {
+   "id": "00614ae7c267",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 44
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 36
+    },
+    {
+     "candidate": "Ivan Moraes",
+     "party": "PSOL",
+     "pct": 1
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04281/2026"
+  },
+  {
    "id": "0ecd4913d427",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/GovernadorSenador-24.ago_.2026-TO-Quaest-GazetaDoPovo.pdf",
@@ -91522,6 +91560,97 @@
    "undecided_pct": 12,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "37774b596e2d",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf",
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 16
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 13
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 9
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 6
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Carlos Sant Anna",
+     "party": "Novo",
+     "pct": 1
+    },
+    {
+     "candidate": "Paulo Rubem Santiago",
+     "party": "Rede",
+     "pct": 1
+    }
+   ],
+   "others_pct": 1,
+   "undecided_pct": 50,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04281/2026"
+  },
+  {
+   "id": "3fe18d426577",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf",
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 1302,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 47
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 37
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16,
+   "blank_null_pct": null,
+   "tse_registration": "BR-04281/2026"
   },
   {
    "id": "44234267bd79",
@@ -92068,44 +92197,6 @@
    "tse_registration": null
   },
   {
-   "id": "9a8ca085cb6f",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf",
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 1302,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 44
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 36
-    },
-    {
-     "candidate": "Ivan Moraes",
-     "party": "PSOL",
-     "pct": 1
-    }
-   ],
-   "others_pct": 0,
-   "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04281/2026"
-  },
-  {
    "id": "a0aa96dd735a",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/juliana-brizola-lidera-disputa-ao-governo-do-rs-diz-pesquisa-2/",
@@ -92190,64 +92281,6 @@
    "undecided_pct": 18.55,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "ad1dcd8c6c11",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf",
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 1302,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 16
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 13
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 9
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 6
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 3
-    },
-    {
-     "candidate": "Carlos Sant Anna",
-     "party": "Novo",
-     "pct": 1
-    },
-    {
-     "candidate": "Paulo Rubem Santiago",
-     "party": "Rede",
-     "pct": 1
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 50,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04281/2026"
   },
   {
    "id": "ae8400ead3ea",
@@ -92443,39 +92476,6 @@
    "undecided_pct": 17,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "d8901fd8b133",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/lula-tem-54-e-flavio-19-no-1o-turno-em-pe-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-pernambuco-pernambuco-25ago2026.pdf",
-   "race": "governador",
-   "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Quaest",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 1302,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 47
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 37
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16,
-   "blank_null_pct": null,
-   "tse_registration": "BR-04281/2026"
   },
   {
    "id": "e4e00262a1ab",
@@ -98309,6 +98309,54 @@
    "tse_registration": null
   },
   {
+   "id": "6b4588748ac8",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CBN/Simplex",
+   "contractor": null,
+   "fieldwork_start": "2026-08-16",
+   "fieldwork_end": "2026-08-21",
+   "published_date": null,
+   "sample_size": 1067,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 16.8
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 9.8
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 8.3
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 7.4
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 3.6
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 52.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "6f67cde2676e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -98448,7 +98496,7 @@
    "tse_registration": null
   },
   {
-   "id": "9ecd02c47f71",
+   "id": "8c255ba52864",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
@@ -98456,7 +98504,7 @@
    "state": "PE",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Simplex/CBN",
+   "pollster": "CBN/Simplex",
    "contractor": null,
    "fieldwork_start": "2026-08-16",
    "fieldwork_end": "2026-08-21",
@@ -98561,54 +98609,6 @@
    "blank_null_pct": null,
    "tse_registration": null,
    "incomplete": true
-  },
-  {
-   "id": "ba90c480b677",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Simplex/CBN",
-   "contractor": null,
-   "fieldwork_start": "2026-08-16",
-   "fieldwork_end": "2026-08-21",
-   "published_date": null,
-   "sample_size": 1067,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 16.8
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 9.8
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 8.3
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 7.4
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 3.6
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 52.2,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "d6cac6182463",
@@ -99077,64 +99077,6 @@
    "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": "BR-08448/2026"
-  },
-  {
-   "id": "0d38f9ea14cb",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/raquel-lyra-tem-47-e-joao-campos-40-no-1o-turno-em-pernambuco/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datafolha-governador-pe-21ago2026.pdf",
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Datafolha",
-   "contractor": "Globo",
-   "fieldwork_start": "2026-08-18",
-   "fieldwork_end": "2026-08-20",
-   "published_date": "2026-08-20",
-   "sample_size": 1204,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 15
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 14
-    },
-    {
-     "candidate": "Mendonça Filho",
-     "party": "PL",
-     "pct": 12
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 11
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 3
-    },
-    {
-     "candidate": "Carlos Sant Anna",
-     "party": "Novo",
-     "pct": 2
-    },
-    {
-     "candidate": "Paulo Rubem Santiago",
-     "party": "Rede",
-     "pct": 1
-    }
-   ],
-   "others_pct": 4,
-   "undecided_pct": 37,
-   "blank_null_pct": null,
-   "tse_registration": "PE-01528/2026"
   },
   {
    "id": "0d58f88528a6",
@@ -99653,6 +99595,64 @@
    "undecided_pct": 9.46,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "d7903188f89c",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/raquel-lyra-tem-47-e-joao-campos-40-no-1o-turno-em-pernambuco/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-datafolha-governador-pe-21ago2026.pdf",
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Datafolha",
+   "contractor": "Globo",
+   "fieldwork_start": "2026-08-18",
+   "fieldwork_end": "2026-08-20",
+   "published_date": "2026-08-20",
+   "sample_size": 1204,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 15
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 14
+    },
+    {
+     "candidate": "Mendonça Filho",
+     "party": "PL",
+     "pct": 12
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 11
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 3
+    },
+    {
+     "candidate": "Carlos Sant Anna",
+     "party": "Novo",
+     "pct": 2
+    },
+    {
+     "candidate": "Paulo Rubem Santiago",
+     "party": "Rede",
+     "pct": 1
+    }
+   ],
+   "others_pct": 4,
+   "undecided_pct": 37,
+   "blank_null_pct": null,
+   "tse_registration": "PE-01528/2026"
   },
   {
    "id": "dd3cc47f31a1",
@@ -125395,6 +125395,39 @@
    "tse_registration": null
   },
   {
+   "id": "408f8c54b9d4",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "CBN/Simplex",
+   "contractor": null,
+   "fieldwork_start": "2026-07-15",
+   "fieldwork_end": "2026-07-20",
+   "published_date": null,
+   "sample_size": 1067,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 49
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 36.8
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 14.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "45094bc1f8a9",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Alagoas",
@@ -125424,72 +125457,6 @@
    ],
    "others_pct": 1,
    "undecided_pct": 19,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "491111779919",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Simplex/CBN",
-   "contractor": null,
-   "fieldwork_start": "2026-07-15",
-   "fieldwork_end": "2026-07-20",
-   "published_date": null,
-   "sample_size": 1067,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 48.2
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 36.5
-    }
-   ],
-   "others_pct": 1.1,
-   "undecided_pct": 14.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "56ca91138957",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Simplex/CBN",
-   "contractor": null,
-   "fieldwork_start": "2026-07-15",
-   "fieldwork_end": "2026-07-20",
-   "published_date": null,
-   "sample_size": 1067,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 49
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 36.8
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 14.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -125537,7 +125504,7 @@
    "tse_registration": null
   },
   {
-   "id": "9e2f423249f4",
+   "id": "b760f405ce5a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
@@ -125545,7 +125512,7 @@
    "state": "PE",
    "round": 1,
    "scenario": "1º turno — cenário 2/2",
-   "pollster": "Simplex/CBN",
+   "pollster": "CBN/Simplex",
    "contractor": null,
    "fieldwork_start": "2026-07-15",
    "fieldwork_end": "2026-07-20",
@@ -125576,6 +125543,39 @@
    ],
    "others_pct": 4.4,
    "undecided_pct": 58.2,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "db3f937982c3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CBN/Simplex",
+   "contractor": null,
+   "fieldwork_start": "2026-07-15",
+   "fieldwork_end": "2026-07-20",
+   "published_date": null,
+   "sample_size": 1067,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 48.2
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 36.5
+    }
+   ],
+   "others_pct": 1.1,
+   "undecided_pct": 14.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -129691,44 +129691,6 @@
    }
   },
   {
-   "id": "5d0d90615194",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Índice",
-   "contractor": null,
-   "fieldwork_start": "2026-07-10",
-   "fieldwork_end": "2026-07-12",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 28.3
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 33.4
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 16.5
-    }
-   ],
-   "others_pct": 0.9,
-   "undecided_pct": 20.9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "63e53d1ade3c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -129800,50 +129762,7 @@
    "tse_registration": null
   },
   {
-   "id": "d5af69e03a3d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PI",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Amostragem",
-   "contractor": null,
-   "fieldwork_start": "2026-07-07",
-   "fieldwork_end": "2026-07-12",
-   "published_date": null,
-   "sample_size": 1137,
-   "margin_of_error": 2.85,
-   "results": [
-    {
-     "candidate": "Marcelo Castro",
-     "party": "MDB",
-     "pct": 45.31
-    },
-    {
-     "candidate": "Ciro Nogueira",
-     "party": "PP",
-     "pct": 47.3
-    },
-    {
-     "candidate": "Júlio César O Julim do Lula",
-     "party": "PSD",
-     "pct": 32.39
-    },
-    {
-     "candidate": "Tiago Junqueira",
-     "party": "PL",
-     "pct": 7.39
-    }
-   ],
-   "others_pct": 31.95,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ece64b8cba93",
+   "id": "9f22fdc86cba",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
    "integra_url": null,
@@ -129892,6 +129811,87 @@
    ],
    "others_pct": 0.7,
    "undecided_pct": 52.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "bd6968bf9d6c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-07-10",
+   "fieldwork_end": "2026-07-12",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 28.3
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 33.4
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 16.5
+    }
+   ],
+   "others_pct": 0.9,
+   "undecided_pct": 20.9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "d5af69e03a3d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Piau%C3%AD",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PI",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Amostragem",
+   "contractor": null,
+   "fieldwork_start": "2026-07-07",
+   "fieldwork_end": "2026-07-12",
+   "published_date": null,
+   "sample_size": 1137,
+   "margin_of_error": 2.85,
+   "results": [
+    {
+     "candidate": "Marcelo Castro",
+     "party": "MDB",
+     "pct": 45.31
+    },
+    {
+     "candidate": "Ciro Nogueira",
+     "party": "PP",
+     "pct": 47.3
+    },
+    {
+     "candidate": "Júlio César O Julim do Lula",
+     "party": "PSD",
+     "pct": 32.39
+    },
+    {
+     "candidate": "Tiago Junqueira",
+     "party": "PL",
+     "pct": 7.39
+    }
+   ],
+   "others_pct": 31.95,
+   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -138377,7 +138377,7 @@
    "tse_registration": "BR-06630/2026"
   },
   {
-   "id": "3a7b5d69259c",
+   "id": "2395259c8c6b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
@@ -138385,7 +138385,7 @@
    "state": "PE",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Revista Total",
+   "pollster": "Numen Data",
    "contractor": null,
    "fieldwork_start": "2026-06-20",
    "fieldwork_end": "2026-06-24",
@@ -138406,59 +138406,6 @@
    ],
    "others_pct": 0.59,
    "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4ab80b874d4a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Revista Total",
-   "contractor": null,
-   "fieldwork_start": "2026-06-20",
-   "fieldwork_end": "2026-06-24",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.83,
-   "results": [
-    {
-     "candidate": "Marília Arraes",
-     "party": "PDT",
-     "pct": 34
-    },
-    {
-     "candidate": "Humberto Costa",
-     "party": "PT",
-     "pct": 28
-    },
-    {
-     "candidate": "Miguel Coelho",
-     "party": "União Brasil",
-     "pct": 30
-    },
-    {
-     "candidate": "Eduardo da Fonte",
-     "party": "PP",
-     "pct": 23
-    },
-    {
-     "candidate": "Túlio Gadêlha",
-     "party": "PSD",
-     "pct": 14
-    },
-    {
-     "candidate": "Anderson Ferreira",
-     "party": "PL",
-     "pct": 13
-    }
-   ],
-   "others_pct": 13,
-   "undecided_pct": 45,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -138550,6 +138497,59 @@
    ],
    "others_pct": 1.22,
    "undecided_pct": 25.6,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9c1f16eb397c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Numen Data",
+   "contractor": null,
+   "fieldwork_start": "2026-06-20",
+   "fieldwork_end": "2026-06-24",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.83,
+   "results": [
+    {
+     "candidate": "Marília Arraes",
+     "party": "PDT",
+     "pct": 34
+    },
+    {
+     "candidate": "Humberto Costa",
+     "party": "PT",
+     "pct": 28
+    },
+    {
+     "candidate": "Miguel Coelho",
+     "party": "União Brasil",
+     "pct": 30
+    },
+    {
+     "candidate": "Eduardo da Fonte",
+     "party": "PP",
+     "pct": 23
+    },
+    {
+     "candidate": "Túlio Gadêlha",
+     "party": "PSD",
+     "pct": 14
+    },
+    {
+     "candidate": "Anderson Ferreira",
+     "party": "PL",
+     "pct": 13
+    }
+   ],
+   "others_pct": 13,
+   "undecided_pct": 45,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -140142,7 +140142,7 @@
    "tse_registration": "BR-08344/2026"
   },
   {
-   "id": "53af2577a939",
+   "id": "60de13d184c5",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
    "integra_url": null,
@@ -140191,52 +140191,6 @@
    ],
    "others_pct": 2,
    "undecided_pct": 81.3,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "municipal": {
-    "municipio": "João Pessoa"
-   }
-  },
-  {
-   "id": "9498d9a2159b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ranking",
-   "contractor": null,
-   "fieldwork_start": "2026-06-19",
-   "fieldwork_end": "2026-06-20",
-   "published_date": null,
-   "sample_size": 783,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 18.3
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 38.4
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 13.5
-    },
-    {
-     "candidate": "Olímpio Rocha",
-     "party": "PSOL",
-     "pct": 0.4
-    }
-   ],
-   "others_pct": 0.5,
-   "undecided_pct": 28.9,
    "blank_null_pct": null,
    "tse_registration": null,
    "municipal": {
@@ -140433,6 +140387,52 @@
    "undecided_pct": 24.7,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "d95053492d09",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-06-19",
+   "fieldwork_end": "2026-06-20",
+   "published_date": null,
+   "sample_size": 783,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 18.3
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 38.4
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 13.5
+    },
+    {
+     "candidate": "Olímpio Rocha",
+     "party": "PSOL",
+     "pct": 0.4
+    }
+   ],
+   "others_pct": 0.5,
+   "undecided_pct": 28.9,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "municipal": {
+    "municipio": "João Pessoa"
+   }
   },
   {
    "id": "daacbcc1040c",
@@ -144625,63 +144625,7 @@
    "tse_registration": "GO-07683/2026"
   },
   {
-   "id": "01f77a579b36",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "senador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ranking",
-   "contractor": null,
-   "fieldwork_start": "2026-06-11",
-   "fieldwork_end": "2026-06-12",
-   "published_date": null,
-   "sample_size": 787,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "João Azevêdo",
-     "party": "PSB",
-     "pct": 40.3
-    },
-    {
-     "candidate": "Veneziano",
-     "party": "MDB",
-     "pct": 60.2
-    },
-    {
-     "candidate": "Dr. Marcelo Queiroga",
-     "party": "PL",
-     "pct": 5.9
-    },
-    {
-     "candidate": "Nabor",
-     "party": "Republicanos",
-     "pct": 1.5
-    },
-    {
-     "candidate": "Major Fábio",
-     "party": "Novo",
-     "pct": 3.6
-    },
-    {
-     "candidate": "Avenzoar Arruda",
-     "party": "PSOL",
-     "pct": 0.2
-    }
-   ],
-   "others_pct": 3.2,
-   "undecided_pct": 85.1,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "municipal": {
-    "municipio": "Campina Grande"
-   }
-  },
-  {
-   "id": "18c75b44d6bb",
+   "id": "0cb379a9d0bf",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
    "integra_url": null,
@@ -144753,6 +144697,62 @@
    "undecided_pct": 20.9,
    "blank_null_pct": null,
    "tse_registration": "BR-01461/2026"
+  },
+  {
+   "id": "6e61e21a09bf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "senador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Ranking",
+   "contractor": null,
+   "fieldwork_start": "2026-06-11",
+   "fieldwork_end": "2026-06-12",
+   "published_date": null,
+   "sample_size": 787,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "João Azevêdo",
+     "party": "PSB",
+     "pct": 40.3
+    },
+    {
+     "candidate": "Veneziano",
+     "party": "MDB",
+     "pct": 60.2
+    },
+    {
+     "candidate": "Dr. Marcelo Queiroga",
+     "party": "PL",
+     "pct": 5.9
+    },
+    {
+     "candidate": "Nabor",
+     "party": "Republicanos",
+     "pct": 1.5
+    },
+    {
+     "candidate": "Major Fábio",
+     "party": "Novo",
+     "pct": 3.6
+    },
+    {
+     "candidate": "Avenzoar Arruda",
+     "party": "PSOL",
+     "pct": 0.2
+    }
+   ],
+   "others_pct": 3.2,
+   "undecided_pct": 85.1,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "municipal": {
+    "municipio": "Campina Grande"
+   }
   },
   {
    "id": "p360-13521-1-0-98f3a3d26cf9",
@@ -150907,7 +150907,7 @@
    "tse_registration": "BR-05864/2026"
   },
   {
-   "id": "01f33081100c",
+   "id": "0daa0810199c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
    "integra_url": null,
@@ -151001,6 +151001,45 @@
    "undecided_pct": 17.1,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "57fbd199aa1b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-29",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 26.6
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 34.3
+    },
+    {
+     "candidate": "Efraim Filho",
+     "party": "PL",
+     "pct": 15.1
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null,
+   "incomplete": true
   },
   {
    "id": "5f424b9c2959",
@@ -151157,6 +151196,39 @@
    "tse_registration": null
   },
   {
+   "id": "7e83c3c685bb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PB",
+   "round": 2,
+   "scenario": "2º turno: Hipóteses de segundo turno",
+   "pollster": "Índice",
+   "contractor": null,
+   "fieldwork_start": "2026-05-27",
+   "fieldwork_end": "2026-05-29",
+   "published_date": null,
+   "sample_size": 2000,
+   "margin_of_error": 2.2,
+   "results": [
+    {
+     "candidate": "Lucas Ribeiro",
+     "party": "PP",
+     "pct": 33.5
+    },
+    {
+     "candidate": "Cícero Lucena",
+     "party": "MDB",
+     "pct": 39.4
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27.1,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7f216888e5de",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -151244,78 +151316,6 @@
    ],
    "others_pct": 8.26,
    "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c0b136c5cbd4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Índice",
-   "contractor": null,
-   "fieldwork_start": "2026-05-27",
-   "fieldwork_end": "2026-05-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 26.6
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 34.3
-    },
-    {
-     "candidate": "Efraim Filho",
-     "party": "PL",
-     "pct": 15.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
-   "blank_null_pct": null,
-   "tse_registration": null,
-   "incomplete": true
-  },
-  {
-   "id": "ca920b5fd0b6",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_na_Para%C3%ADba",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PB",
-   "round": 2,
-   "scenario": "2º turno: Hipóteses de segundo turno",
-   "pollster": "Índice",
-   "contractor": null,
-   "fieldwork_start": "2026-05-27",
-   "fieldwork_end": "2026-05-29",
-   "published_date": null,
-   "sample_size": 2000,
-   "margin_of_error": 2.2,
-   "results": [
-    {
-     "candidate": "Lucas Ribeiro",
-     "party": "PP",
-     "pct": 33.5
-    },
-    {
-     "candidate": "Cícero Lucena",
-     "party": "MDB",
-     "pct": 39.4
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27.1,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -171673,7 +171673,7 @@
    "tse_registration": null
   },
   {
-   "id": "d3b968b53271",
+   "id": "44a93332dd87",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
    "integra_url": null,
@@ -171681,7 +171681,7 @@
    "state": "PE",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Revista Total",
+   "pollster": "Numen Data",
    "contractor": null,
    "fieldwork_start": "2026-04-16",
    "fieldwork_end": "2026-04-18",
@@ -172029,7 +172029,7 @@
    "tse_registration": "BR-001221/2026"
   },
   {
-   "id": "773087f71d54",
+   "id": "c41e99ee5d3a",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/2026/05/DatafolhaRede-Nordeste-de-Comunicacao-Abr.2026.pdf",
    "integra_url": "https://static.poder360.com.br/2026/05/DatafolhaRede-Nordeste-de-Comunicacao-Abr.2026.pdf",
@@ -174562,39 +174562,6 @@
    "tse_registration": "PE-05363/2026"
   },
   {
-   "id": "124e6af28ba5",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
-   "integra_url": null,
-   "race": "governador",
-   "state": "PE",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Simplex/CBN",
-   "contractor": null,
-   "fieldwork_start": "2026-04-03",
-   "fieldwork_end": "2026-04-07",
-   "published_date": null,
-   "sample_size": 1067,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Raquel Lyra",
-     "party": "PSD",
-     "pct": 42.3
-    },
-    {
-     "candidate": "João Campos",
-     "party": "PSB",
-     "pct": 42.6
-    }
-   ],
-   "others_pct": 3.5,
-   "undecided_pct": 11.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "5c939c352672",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -174760,6 +174727,39 @@
    "undecided_pct": 28.6,
    "blank_null_pct": null,
    "tse_registration": "BR-00605/2026"
+  },
+  {
+   "id": "d79584466b24",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
+   "integra_url": null,
+   "race": "governador",
+   "state": "PE",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "CBN/Simplex",
+   "contractor": null,
+   "fieldwork_start": "2026-04-03",
+   "fieldwork_end": "2026-04-07",
+   "published_date": null,
+   "sample_size": 1067,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Raquel Lyra",
+     "party": "PSD",
+     "pct": 42.3
+    },
+    {
+     "candidate": "João Campos",
+     "party": "PSB",
+     "pct": 42.6
+    }
+   ],
+   "others_pct": 3.5,
+   "undecided_pct": 11.6,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-13369-1-0-533cf3fd923a",

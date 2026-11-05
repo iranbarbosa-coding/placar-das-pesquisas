@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1980 levantamentos · 6129 perguntas · 167 institutos · 1447 candidatos**.
+Banco: **1981 levantamentos · 6129 perguntas · 168 institutos · 1447 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 444 | 25 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 445 | 25 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **512** | **69** |
+| **total** | **513** | **69** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (444)
+## CONFLITO — Conflitos registrados aguardando decisão (445)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -775,19 +775,20 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_295c624269a3 · survey_id: "s_295c624269a3" × null
 - **[2026]** survey_id_orphaned · s_345fea549ef5 · survey_id: "s_345fea549ef5" × null
 - institute_id_orphaned · i_60e80ad63304 · institute_id: "i_60e80ad63304" × null
-- person_id_orphaned · p_625ee9b984a1 · person_id: "p_625ee9b984a1" × null
-- person_id_orphaned · p_1ad5458652b2 · person_id: "p_1ad5458652b2" × null
 - **[2026]** survey_id_orphaned · s_c1829ed5fdab · survey_id: "s_c1829ed5fdab" × null
 - **[2026]** survey_id_orphaned · s_a238aed5d78b · survey_id: "s_a238aed5d78b" × null
 - **[2026]** survey_id_orphaned · s_db7c12d56b11 · survey_id: "s_db7c12d56b11" × null
-- person_id_orphaned · p_57ff2aead704 · person_id: "p_57ff2aead704" × null
-- person_id_orphaned · p_032a75917d31 · person_id: "p_032a75917d31" × null
 - segundo_turno_fragmento_descartado · q_d71611740e13 · results: null × ["Joel Rodrigues"]
 - **[2026]** survey_id_orphaned · s_f0bbf4e68731 · survey_id: "s_f0bbf4e68731" × null
-- person_id_orphaned · p_df4c4761871e · person_id: "p_df4c4761871e" × null
-- survey_id_orphaned · s_20d048a68d8e · survey_id: "s_20d048a68d8e" × null
-- institute_id_orphaned · i_c683ff6b5814 · institute_id: "i_c683ff6b5814" × ["i_531e17c32082","i_854d473dd1d2"]
-- person_id_orphaned · p_00bf721a17f7 · person_id: "p_00bf721a17f7" × null
+- survey_id_orphaned · s_9eaca5ae2a43 · survey_id: "s_9eaca5ae2a43" × null
+- survey_id_orphaned · s_f973e46f03e7 · survey_id: "s_f973e46f03e7" × null
+- survey_id_orphaned · s_99037ab55f09 · survey_id: "s_99037ab55f09" × null
+- survey_id_orphaned · s_1c4af5647dfd · survey_id: "s_1c4af5647dfd" × null
+- institute_id_orphaned · i_c683ff6b5814 · institute_id: "i_c683ff6b5814" × ["i_854d473dd1d2","i_e8c2c1d40ee4"]
+- survey_id_orphaned · s_b5f2fa6f0753 · survey_id: "s_b5f2fa6f0753" × null
+- survey_id_orphaned · s_851cdaaf7e15 · survey_id: "s_851cdaaf7e15" × null
+- survey_id_orphaned · s_4a5661208ddf · survey_id: "s_4a5661208ddf" × null
+- institute_id_orphaned · i_531e17c32082 · institute_id: "i_531e17c32082" × ["i_854d473dd1d2","i_e8c2c1d40ee4"]
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 110
