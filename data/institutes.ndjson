@@ -7,7 +7,6 @@
 {"institute_id":"i_0a7de44776d9","legacy_ids":[],"canonical":"Datamax","aliases":["Datamax"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0b39ae1059b8","legacy_ids":[],"canonical":"Affare","aliases":["Affare"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0bad5e1c9dae","legacy_ids":[],"canonical":"VK Skala","aliases":["VK Skala"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-09"}
-{"institute_id":"i_0e3ffa446a3c","legacy_ids":["i_e2daa49c78bd"],"canonical":"Exatus/AgoraRN","aliases":["Exatus/AgoraRN"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_0e525a98c799","legacy_ids":[],"canonical":"IGAPE","aliases":["IGAPE"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_19c429d364ba","legacy_ids":[],"canonical":"Opnus/BNews","aliases":["Opnus/BNews"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-28"}
 {"institute_id":"i_1ae8b5b1dba3","legacy_ids":["i_9e5fed13d517"],"canonical":"Census","aliases":["Census"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -57,16 +56,16 @@
 {"institute_id":"i_4d49caa697c5","legacy_ids":[],"canonical":"Ipespe","aliases":["Ipespe"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_503423488257","legacy_ids":[],"canonical":"Projeta","aliases":["Projeta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_51cc5369e48f","legacy_ids":[],"canonical":"Inope","aliases":["Inope"],"cnpj":null,"merged_into":null,"first_seen":"2026-10-23"}
+{"institute_id":"i_52a0ad5d3941","legacy_ids":["i_609e1b050026","i_90ac2bf4c429"],"canonical":"O Potengi/Media","aliases":["O Potengi/Media"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_531e17c32082","legacy_ids":["i_9e4d28f9bf36"],"canonical":"Simplex/CBN","aliases":["Simplex/CBN"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_53d43b18599b","legacy_ids":[],"canonical":"Instituto Gazeta de Pesquisas","aliases":["Instituto Gazeta de Pesquisas"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-15"}
-{"institute_id":"i_5628816bfef0","legacy_ids":[],"canonical":"Mensury/Blog do Barreto","aliases":["Mensury/Blog do Barreto"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_5b70f03d36f5","legacy_ids":["i_3e7de26951f3","i_5b70f03d36f5"],"canonical":"American Analytics","aliases":["American Analytics"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_5d74f275e3b9","legacy_ids":[],"canonical":"TWS","aliases":["TWS"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-09"}
 {"institute_id":"i_5e4e168f081e","legacy_ids":[],"canonical":"IPSensus","aliases":["IPSensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-21"}
 {"institute_id":"i_60e80ad63304","legacy_ids":[],"canonical":"Opinião","aliases":["Opinião"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_615fa65fb5ec","legacy_ids":["i_ae833797eab1"],"canonical":"Revista Total","aliases":["Revista Total"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
+{"institute_id":"i_617180e5cffa","legacy_ids":["i_0e3ffa446a3c","i_e2daa49c78bd"],"canonical":"AgoraRN/Exatus","aliases":["AgoraRN/Exatus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_64e7733f0f11","legacy_ids":[],"canonical":"Portal Goiás","aliases":["Portal Goiás"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_6658652dc3c4","legacy_ids":[],"canonical":"Metadata/Grupo Dial","aliases":["Metadata/Grupo Dial"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_669ca5649299","legacy_ids":[],"canonical":"Intenção Instituto de Pesquisa","aliases":["Intenção Instituto de Pesquisa"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_677841b1755a","legacy_ids":[],"canonical":"Quantivus","aliases":["Quantivus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_6dabc28be3f4","legacy_ids":[],"canonical":"IPP","aliases":["IPP"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
@@ -86,7 +85,7 @@
 {"institute_id":"i_7aa6036e0c6c","legacy_ids":[],"canonical":"DataVero","aliases":["DataVero"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_7baed83102a4","legacy_ids":[],"canonical":"Perfil","aliases":["Perfil"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_7c89bec393b4","legacy_ids":[],"canonical":"IPR","aliases":["IPR"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_7e29b216ff0d","legacy_ids":[],"canonical":"IPSsensus","aliases":["IPSsensus"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_7d7a5b80ea64","legacy_ids":["i_5628816bfef0"],"canonical":"Blog do Barreto/Mensury","aliases":["Blog do Barreto/Mensury"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-01"}
 {"institute_id":"i_8054cae80e13","legacy_ids":[],"canonical":"Veritate","aliases":["Veritate"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_81933bf5f963","legacy_ids":[],"canonical":"100% Cidades Participações","aliases":["100% Cidades Participações"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_836e2d6c6f26","legacy_ids":["i_661f5eabdd5a"],"canonical":"Percent Brasil","aliases":["Percent Brasil"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-17"}
@@ -96,7 +95,6 @@
 {"institute_id":"i_8f14cd7a5b01","legacy_ids":[],"canonical":"Data AZ","aliases":["Data AZ"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_90476cfde9c1","legacy_ids":[],"canonical":"DataRD","aliases":["DataRD"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-15"}
 {"institute_id":"i_9079374b296f","legacy_ids":[],"canonical":"DMP","aliases":["DMP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_90ac2bf4c429","legacy_ids":["i_609e1b050026"],"canonical":"Media/O Potengi","aliases":["Media/O Potengi"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_90b78d8d7073","legacy_ids":[],"canonical":"Quaest","aliases":["Quaest"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_9247acfe04c8","legacy_ids":[],"canonical":"Ver","aliases":["Ver"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_93bd3778917b","legacy_ids":[],"canonical":"Vetor3","aliases":["Vetor3"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -120,6 +118,7 @@
 {"institute_id":"i_b782a22a45fd","legacy_ids":[],"canonical":"Múltipla","aliases":["Múltipla"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_b7bec26dec86","legacy_ids":[],"canonical":"Ipen/G6","aliases":["Ipen/G6"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_bcde724f858c","legacy_ids":[],"canonical":"PoderData","aliases":["PoderData"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_bf59e8d648d2","legacy_ids":["i_6658652dc3c4"],"canonical":"Grupo Dial/Metadata","aliases":["Grupo Dial/Metadata"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c099ac6fad82","legacy_ids":["i_3e4a4fce5cfa"],"canonical":"Nova Ibrape","aliases":["Nova Ibrape"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c29894439ffa","legacy_ids":[],"canonical":"IHPEC","aliases":["IHPEC"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_c2f35761fd7d","legacy_ids":[],"canonical":"Ampla","aliases":["Ampla"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
