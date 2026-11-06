@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-05T18:42:18.241Z",
+ "generated_at": "2026-11-06T00:11:02.732Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-05T18:42:18.241Z"
+   "last_ok": "2026-11-06T00:11:02.732Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-05T18:42:18.241Z"
+   "last_ok": "2026-11-06T00:11:02.732Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-05T18:42:18.241Z"
+   "last_ok": "2026-11-06T00:11:02.732Z"
   }
  ],
  "polls": [
@@ -4262,6 +4262,39 @@
    "tse_registration": null
   },
   {
+   "id": "17bd20cc090c",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 50
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "AP-08084/2026"
+  },
+  {
    "id": "21255152908f",
    "source": null,
    "source_url": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election",
@@ -4361,7 +4394,7 @@
    "tse_registration": "MG-06889/2026"
   },
   {
-   "id": "2fe76c95b3c0",
+   "id": "31326acda966",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/AC-023702026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/10/AC-023702026.pdf",
@@ -4667,39 +4700,6 @@
    "tse_registration": "MG-06889/2026"
   },
   {
-   "id": "6b31eb8d4088",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": "2026-10-03",
-   "published_date": "2026-10-03",
-   "sample_size": 1800,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 50
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 45
-    }
-   ],
-   "others_pct": 0,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": "AP-08084/2026"
-  },
-  {
    "id": "84189a7a8925",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/10/quaest-mg-3.out_.governo.pdf",
@@ -4779,39 +4779,6 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": "AL-07379/2026"
-  },
-  {
-   "id": "88085d885d18",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-10-02",
-   "fieldwork_end": "2026-10-03",
-   "published_date": "2026-10-03",
-   "sample_size": 1800,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 50
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 45
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 5,
-   "blank_null_pct": null,
-   "tse_registration": "AP-08084/2026"
   },
   {
    "id": "8e56183e0269",
@@ -5149,6 +5116,39 @@
    "undecided_pct": 34,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "c61d61905ae2",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-senado-quaest-3.out_.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 50
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 45
+    }
+   ],
+   "others_pct": 0,
+   "undecided_pct": 5,
+   "blank_null_pct": null,
+   "tse_registration": "AP-08084/2026"
   },
   {
    "id": "cb48ad556b3a",
@@ -32616,6 +32616,39 @@
    "tse_registration": null
   },
   {
+   "id": "1ecb6f79d792",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 53
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 24
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "1f127fc24a96",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Mato_Grosso",
@@ -33322,6 +33355,39 @@
    "tse_registration": null
   },
   {
+   "id": "4925f2b682c6",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 45
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 28
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "49d5c4f00ec0",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -33351,59 +33417,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15.3,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "4bd05792b4ee",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Gladson Camelí",
-     "party": "PP",
-     "pct": 19
-    },
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 14
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 12
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 13
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 8
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 6
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -33452,6 +33465,39 @@
    ],
    "others_pct": 13,
    "undecided_pct": 15,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "519f9ab265b0",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 34
+    },
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 46
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -33528,39 +33574,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 45.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "5b893f2ae70a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 45
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 28
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 27,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -34271,6 +34284,44 @@
    "tse_registration": null
   },
   {
+   "id": "8cca9f47ba38",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-21",
+   "fieldwork_end": "2026-09-24",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 28
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 36
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 15
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 19,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "90960456e38e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Norte",
@@ -34449,39 +34500,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "99a7de71d934",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 53
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 24
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 40,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -34893,11 +34911,11 @@
    "tse_registration": null
   },
   {
-   "id": "c5a96abeac52",
+   "id": "c699c0ca86a4",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
-   "race": "governador",
+   "race": "senador",
    "state": "AC",
    "round": 1,
    "scenario": "1º turno — cenário único",
@@ -34910,23 +34928,38 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 28
-    },
-    {
-     "candidate": "Mailza Assis",
+     "candidate": "Gladson Camelí",
      "party": "PP",
-     "pct": 36
+     "pct": 19
     },
     {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 15
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 12
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 13
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 8
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 6
     }
    ],
-   "others_pct": 2,
-   "undecided_pct": 19,
+   "others_pct": 3,
+   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -35635,39 +35668,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 34,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "f5121e8f6796",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Alan Rick",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-21",
-   "fieldwork_end": "2026-09-24",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 34
-    },
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 46
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -37009,39 +37009,6 @@
    "tse_registration": "BR-04202/2026"
   },
   {
-   "id": "0b4bf23fcaf4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 53
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 40
-    }
-   ],
-   "others_pct": 3,
-   "undecided_pct": 4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "0ef72963eea3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -37776,59 +37743,6 @@
    "tse_registration": null
   },
   {
-   "id": "5602fa8e3f35",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AP",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Rayssa Furlan",
-     "party": "Podemos",
-     "pct": 28
-    },
-    {
-     "candidate": "Randolfe",
-     "party": "PT",
-     "pct": 20
-    },
-    {
-     "candidate": "Lucas Barreto",
-     "party": "PSD",
-     "pct": 19
-    },
-    {
-     "candidate": "Alliny Serrão",
-     "party": "União Brasil",
-     "pct": 11
-    },
-    {
-     "candidate": "Acácio Favacho",
-     "party": "MDB",
-     "pct": 9
-    },
-    {
-     "candidate": "Capi",
-     "party": "PSB",
-     "pct": 2
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "58281b0a3b56",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/09/datafolha-lula-flavio-nacional-setembro.pdf",
@@ -38257,6 +38171,59 @@
    "tse_registration": null
   },
   {
+   "id": "7c74b6cc717a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Rayssa Furlan",
+     "party": "Podemos",
+     "pct": 28
+    },
+    {
+     "candidate": "Randolfe",
+     "party": "PT",
+     "pct": 20
+    },
+    {
+     "candidate": "Lucas Barreto",
+     "party": "PSD",
+     "pct": 19
+    },
+    {
+     "candidate": "Alliny Serrão",
+     "party": "União Brasil",
+     "pct": 11
+    },
+    {
+     "candidate": "Acácio Favacho",
+     "party": "MDB",
+     "pct": 9
+    },
+    {
+     "candidate": "Capi",
+     "party": "PSB",
+     "pct": 2
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7dfa1b496511",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -38559,39 +38526,6 @@
    "undecided_pct": 13,
    "blank_null_pct": null,
    "tse_registration": "BR-09587/2026"
-  },
-  {
-   "id": "9502261cba95",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 54
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 39
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 7,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "95e878490557",
@@ -38976,6 +38910,39 @@
    "tse_registration": null
   },
   {
+   "id": "b7787e18c044",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AP",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 53
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 40
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "bc50f8d92713",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -39124,6 +39091,39 @@
    ],
    "others_pct": null,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "c903e084bf5b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 54
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 39
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 7,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -47102,6 +47102,59 @@
    "tse_registration": null
   },
   {
+   "id": "1dca089d158b",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-53-e-lula-29-no-acre-diz-real-time/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-RealTime-presidente-AC-21.set_.2026.pdf",
+   "race": "senador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-09-16",
+   "fieldwork_end": "2026-09-19",
+   "published_date": "2026-09-19",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Gladson Camelí",
+     "party": "PP",
+     "pct": 24
+    },
+    {
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 21
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 15
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 15
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 5
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 6
+    }
+   ],
+   "others_pct": 5,
+   "undecided_pct": 9,
+   "blank_null_pct": null,
+   "tse_registration": "BR-01620/2026"
+  },
+  {
    "id": "22dbaa953dd3",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
@@ -47733,59 +47786,6 @@
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
-  },
-  {
-   "id": "85c562e064f6",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-53-e-lula-29-no-acre-diz-real-time/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-RealTime-presidente-AC-21.set_.2026.pdf",
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
-   "fieldwork_start": "2026-09-16",
-   "fieldwork_end": "2026-09-19",
-   "published_date": "2026-09-19",
-   "sample_size": 1600,
-   "margin_of_error": 2,
-   "results": [
-    {
-     "candidate": "Gladson Camelí",
-     "party": "PP",
-     "pct": 24
-    },
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 21
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 15
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 15
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 5
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 6
-    }
-   ],
-   "others_pct": 5,
-   "undecided_pct": 9,
-   "blank_null_pct": null,
-   "tse_registration": "BR-01620/2026"
   },
   {
    "id": "8655ccd5581f",
@@ -87949,6 +87949,59 @@
    "tse_registration": null
   },
   {
+   "id": "31f352d27aca",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf",
+   "race": "senador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Gladson Camelí",
+     "party": "PP",
+     "pct": 19
+    },
+    {
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 14
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 12
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 12
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 8
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 5
+    }
+   ],
+   "others_pct": 2,
+   "undecided_pct": 28,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07015/2026"
+  },
+  {
    "id": "51a40f0b4926",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/renato-casagrande-lidera-disputa-pelo-senado-no-es-diz-quaest/",
@@ -88068,6 +88121,39 @@
    "tse_registration": "RR-04765/2026"
   },
   {
+   "id": "6507af357ed5",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 48
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07015/2026"
+  },
+  {
    "id": "8def04c1498a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Tocantins",
@@ -88169,39 +88255,6 @@
    "tse_registration": "BR-03147/2026"
   },
   {
-   "id": "99875b3d0c51",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf",
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": "2026-08-26",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 48
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07015/2026"
-  },
-  {
    "id": "a016a1615320",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/",
@@ -88233,6 +88286,39 @@
    "undecided_pct": 19,
    "blank_null_pct": null,
    "tse_registration": "BR-07810/2026"
+  },
+  {
+   "id": "aca992ba0c17",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf",
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-08-23",
+   "fieldwork_end": "2026-08-26",
+   "published_date": "2026-08-26",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 43
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 30,
+   "blank_null_pct": null,
+   "tse_registration": "BR-07015/2026"
   },
   {
    "id": "bc81709bfa34",
@@ -88420,92 +88506,6 @@
    "undecided_pct": 26,
    "blank_null_pct": null,
    "tse_registration": "BR-07810/2026"
-  },
-  {
-   "id": "e9076476fcbd",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf",
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": "2026-08-26",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Gladson Camelí",
-     "party": "PP",
-     "pct": 19
-    },
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 14
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 12
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 12
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 8
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 5
-    }
-   ],
-   "others_pct": 2,
-   "undecided_pct": 28,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07015/2026"
-  },
-  {
-   "id": "f395fb52de83",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/no-acre-flavio-tem-42-e-lula-25-no-1o-turno-diz-quaest/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AC-26.ago_.2026-Quaest-Poder360-3.pdf",
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
-   "pollster": "Quaest",
-   "contractor": "Rede Amazônica",
-   "fieldwork_start": "2026-08-23",
-   "fieldwork_end": "2026-08-26",
-   "published_date": "2026-08-26",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 43
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 30,
-   "blank_null_pct": null,
-   "tse_registration": "BR-07015/2026"
   },
   {
    "id": "p360-13955-1-0-be71ab05ab99",
@@ -91415,6 +91415,44 @@
    "tse_registration": null
   },
   {
+   "id": "226477daa921",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-24",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 32.5
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 29.32
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 15.01
+    }
+   ],
+   "others_pct": 4.38,
+   "undecided_pct": 18.79,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "276bbb4467b5",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/quaest-presidencial-MS-26ago2026.pdf",
@@ -91777,6 +91815,59 @@
    "tse_registration": "PB-07850/2026"
   },
   {
+   "id": "57ca67a95a2a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-24",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Gladson Camelí",
+     "party": "PP",
+     "pct": 16.6
+    },
+    {
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 18.84
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 14.07
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 12.77
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 9.84
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 5.82
+    }
+   ],
+   "others_pct": 4.22,
+   "undecided_pct": 17.84,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "673710ac18e3",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-governo-pb-25ago2026.pdf",
@@ -91972,49 +92063,6 @@
    "undecided_pct": 33,
    "blank_null_pct": null,
    "tse_registration": "BR-04312/2026"
-  },
-  {
-   "id": "6b6eb7e8551f",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-24",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 32.5
-    },
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 29.32
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 15.01
-    },
-    {
-     "candidate": "Thor Dantas",
-     "party": "PSB",
-     "pct": 3.38
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 18.79,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "783393a3c694",
@@ -92283,6 +92331,39 @@
    "tse_registration": null
   },
   {
+   "id": "a194e8fdcd74",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Segundo turno",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-08-20",
+   "fieldwork_end": "2026-08-24",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 43.54
+    },
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 40.06
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 16.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "ae8400ead3ea",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -92367,6 +92448,39 @@
    "undecided_pct": 29,
    "blank_null_pct": null,
    "tse_registration": "BR-06252/2026"
+  },
+  {
+   "id": "b77e1bb8d9e3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 54
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "AP-09438/2026"
   },
   {
    "id": "bcb16735b0ee",
@@ -92478,39 +92592,6 @@
    "tse_registration": null
   },
   {
-   "id": "e4e00262a1ab",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Quaest",
-   "contractor": "Televisão Cabo Branco",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 54
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": "AP-09438/2026"
-  },
-  {
    "id": "f105d01a4d8f",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Pernambuco",
@@ -92608,92 +92689,6 @@
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": "BR-04312/2026"
-  },
-  {
-   "id": "fe047947bf07",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Segundo turno",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-24",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 43.54
-    },
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 40.06
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 16.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fe4b02c36a9c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-08-20",
-   "fieldwork_end": "2026-08-24",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Gladson Camelí",
-     "party": "PP",
-     "pct": 16.6
-    },
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 18.84
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 14.07
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 12.77
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 9.84
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 5.82
-    }
-   ],
-   "others_pct": 4.22,
-   "undecided_pct": 17.84,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "p360-13905-1-0-1071f109df2a",
@@ -107508,14 +107503,14 @@
    "tse_registration": "BR-03656/2026"
   },
   {
-   "id": "1dd4523fa3e2",
+   "id": "0ec27a2e5a18",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
    "race": "governador",
    "state": "AC",
    "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
    "pollster": "Delta",
    "contractor": "TV Gazeta",
    "fieldwork_start": "2026-08-04",
@@ -107525,18 +107520,18 @@
    "margin_of_error": 3.1,
    "results": [
     {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 58.35
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 51.49
     },
     {
      "candidate": "Tião Bocalom",
      "party": "PSDB",
-     "pct": 20.68
+     "pct": 25.15
     }
    ],
    "others_pct": null,
-   "undecided_pct": 20.97,
+   "undecided_pct": 23.36,
    "blank_null_pct": null,
    "tse_registration": "AC-06787/2026"
   },
@@ -107620,6 +107615,59 @@
    "undecided_pct": 11,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "708aa4fa7837",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
+   "race": "senador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Delta",
+   "contractor": "TV Gazeta",
+   "fieldwork_start": "2026-08-04",
+   "fieldwork_end": "2026-08-09",
+   "published_date": "2026-08-09",
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Gladson Camelí",
+     "party": "PP",
+     "pct": 18.14
+    },
+    {
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 18.79
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 14.61
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 12.77
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 8.1
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 5.67
+    }
+   ],
+   "others_pct": 3.28,
+   "undecided_pct": 18.63,
+   "blank_null_pct": null,
+   "tse_registration": "AC-06787/2026"
   },
   {
    "id": "7101a2e0b197",
@@ -107852,14 +107900,14 @@
    "tse_registration": null
   },
   {
-   "id": "c61f577d582c",
+   "id": "cf6e306a086d",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
    "race": "governador",
    "state": "AC",
    "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
    "pollster": "Delta",
    "contractor": "TV Gazeta",
    "fieldwork_start": "2026-08-04",
@@ -107869,51 +107917,18 @@
    "margin_of_error": 3.1,
    "results": [
     {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 51.49
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 58.35
     },
     {
      "candidate": "Tião Bocalom",
      "party": "PSDB",
-     "pct": 25.15
+     "pct": 20.68
     }
    ],
    "others_pct": null,
-   "undecided_pct": 23.36,
-   "blank_null_pct": null,
-   "tse_registration": "AC-06787/2026"
-  },
-  {
-   "id": "d8d2edcefc73",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Alan Rick",
-   "pollster": "Delta",
-   "contractor": "TV Gazeta",
-   "fieldwork_start": "2026-08-04",
-   "fieldwork_end": "2026-08-09",
-   "published_date": "2026-08-09",
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 46.22
-    },
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 24.1
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 19.68,
+   "undecided_pct": 20.97,
    "blank_null_pct": null,
    "tse_registration": "AC-06787/2026"
   },
@@ -107951,14 +107966,14 @@
    "tse_registration": null
   },
   {
-   "id": "fa9de5133e1b",
+   "id": "fd3b5d704288",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
-   "race": "senador",
+   "race": "governador",
    "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
    "pollster": "Delta",
    "contractor": "TV Gazeta",
    "fieldwork_start": "2026-08-04",
@@ -107968,38 +107983,18 @@
    "margin_of_error": 3.1,
    "results": [
     {
-     "candidate": "Gladson Camelí",
+     "candidate": "Mailza Assis",
      "party": "PP",
-     "pct": 18.14
+     "pct": 46.22
     },
     {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 18.79
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 14.61
-    },
-    {
-     "candidate": "Mara Rocha",
+     "candidate": "Alan Rick",
      "party": "Republicanos",
-     "pct": 12.77
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 8.1
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 5.67
+     "pct": 24.1
     }
    ],
-   "others_pct": 3.28,
-   "undecided_pct": 18.63,
+   "others_pct": null,
+   "undecided_pct": 19.68,
    "blank_null_pct": null,
    "tse_registration": "AC-06787/2026"
   },
@@ -127750,60 +127745,7 @@
    "tse_registration": "BR-07834/2026"
   },
   {
-   "id": "13886c49e2e1",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-07-11",
-   "fieldwork_end": "2026-07-15",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Gladson Camelí",
-     "party": "PP",
-     "pct": 19.13
-    },
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 17.99
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 13.52
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 11.38
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 8.6
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 6.71
-    }
-   ],
-   "others_pct": 3.13,
-   "undecided_pct": 19.53,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "197523542859",
+   "id": "19506f28169e",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
@@ -127817,7 +127759,7 @@
    "fieldwork_end": "2026-07-15",
    "published_date": null,
    "sample_size": 1006,
-   "margin_of_error": 3.1,
+   "margin_of_error": 3,
    "results": [
     {
      "candidate": "Alan Rick",
@@ -127833,20 +127775,48 @@
      "candidate": "Tião Bocalom",
      "party": "PSDB",
      "pct": 19.28
-    },
-    {
-     "candidate": "Thor Dantas",
-     "party": "PSB",
-     "pct": 1.79
     }
    ],
-   "others_pct": null,
+   "others_pct": 1.79,
    "undecided_pct": 21.18,
    "blank_null_pct": null,
    "tse_registration": null
   },
   {
-   "id": "42e771a79b31",
+   "id": "24367db9df19",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-07-11",
+   "fieldwork_end": "2026-07-15",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 56.26
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 25.05
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18.69,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5d8b22c6ae9d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
@@ -127860,7 +127830,7 @@
    "fieldwork_end": "2026-07-15",
    "published_date": null,
    "sample_size": 1006,
-   "margin_of_error": 3.1,
+   "margin_of_error": 3,
    "results": [
     {
      "candidate": "Mailza Assis",
@@ -127908,39 +127878,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 20,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "73b64b0cb094",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-07-11",
-   "fieldwork_end": "2026-07-15",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 56.26
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 25.05
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 18.69,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -128003,6 +127940,59 @@
    "tse_registration": null
   },
   {
+   "id": "954882cbe96d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário 1/2",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-07-11",
+   "fieldwork_end": "2026-07-15",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Gladson Camelí",
+     "party": "PP",
+     "pct": 19.13
+    },
+    {
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 17.99
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 13.52
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 11.38
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 8.6
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 6.71
+    }
+   ],
+   "others_pct": 3.13,
+   "undecided_pct": 19.53,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "9f8bef25e015",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
@@ -128034,6 +128024,39 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "RO-04369/2026"
+  },
+  {
+   "id": "b7834ac046b3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-07-11",
+   "fieldwork_end": "2026-07-15",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 44.04
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 33.2
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.76,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "cf72d9979762",
@@ -128175,39 +128198,6 @@
     "source": "https://static.poder360.com.br/uploads/2026/07/Rondonia-BR-05580-2026-Jul_26-3.pdf",
     "verified_at": "2026-08-19"
    }
-  },
-  {
-   "id": "d837ec17039e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-07-11",
-   "fieldwork_end": "2026-07-15",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 44.04
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 33.2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.76,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "fc42d47838d3",
@@ -136528,14 +136518,14 @@
    "tse_registration": "AL-04491/2026"
   },
   {
-   "id": "2e03489ea413",
+   "id": "239d43ab7f5b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
-   "race": "governador",
+   "race": "senador",
    "state": "AC",
    "round": 1,
-   "scenario": "1º turno — cenário único",
+   "scenario": "1º turno — cenário 1/2",
    "pollster": "Delta",
    "contractor": null,
    "fieldwork_start": "2026-06-27",
@@ -136545,23 +136535,38 @@
    "margin_of_error": 3.5,
    "results": [
     {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 41.25
-    },
-    {
-     "candidate": "Mailza Assis",
+     "candidate": "Gladson Camelí",
      "party": "PP",
-     "pct": 19.25
+     "pct": 17.87
     },
     {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 19.5
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 19.12
+    },
+    {
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 16.81
+    },
+    {
+     "candidate": "Mara Rocha",
+     "party": "Republicanos",
+     "pct": 12.93
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 8.56
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 7.69
     }
    ],
-   "others_pct": 2.5,
-   "undecided_pct": 17.5,
+   "others_pct": 3.43,
+   "undecided_pct": 15.25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -136625,59 +136630,6 @@
    ],
    "others_pct": 8,
    "undecided_pct": 70,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "649c77063438",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário 1/2",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-06-27",
-   "fieldwork_end": "2026-06-30",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Gladson Camelí",
-     "party": "PP",
-     "pct": 17.87
-    },
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 19.12
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 16.81
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 12.93
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 8.56
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 7.69
-    }
-   ],
-   "others_pct": 3.43,
-   "undecided_pct": 15.25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -136782,6 +136734,44 @@
    ],
    "others_pct": 3.37,
    "undecided_pct": 15.16,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b5ba5d860779",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-06-27",
+   "fieldwork_end": "2026-06-30",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 41.25
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 19.25
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 19.5
+    }
+   ],
+   "others_pct": 2.5,
+   "undecided_pct": 17.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -147272,7 +147262,7 @@
    "incomplete": true
   },
   {
-   "id": "0441f1f7e506",
+   "id": "0f2f0173b66c",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
@@ -147436,6 +147426,39 @@
    "tse_registration": null
   },
   {
+   "id": "63aebee0f717",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-06-01",
+   "fieldwork_end": "2026-06-06",
+   "published_date": null,
+   "sample_size": 1201,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 54.62
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 22.98
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.4,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7fe1db9010d2",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Paran%C3%A1",
@@ -147507,7 +147530,7 @@
    "tse_registration": null
   },
   {
-   "id": "922209a4bfe9",
+   "id": "942b013df957",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
@@ -147532,6 +147555,82 @@
      "candidate": "Alan Rick",
      "party": "Republicanos",
      "pct": 27.14
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21.98,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9af03105f0f3",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-06-01",
+   "fieldwork_end": "2026-06-06",
+   "published_date": null,
+   "sample_size": 1201,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 43.13
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 27.48
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 29.69,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "9dc31717cff5",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-06-01",
+   "fieldwork_end": "2026-06-06",
+   "published_date": null,
+   "sample_size": 1201,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 39.55
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 19.4
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 17.07
+    },
+    {
+     "candidate": "Thor Dantas",
+     "party": "PSB",
+     "pct": 2
     }
    ],
    "others_pct": null,
@@ -147569,39 +147668,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.2,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "b235c96f651a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Tião Bocalom",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-06-01",
-   "fieldwork_end": "2026-06-06",
-   "published_date": null,
-   "sample_size": 1201,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 43.13
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 27.48
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 29.69,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -147712,39 +147778,6 @@
    "tse_registration": null
   },
   {
-   "id": "c2c18c59951a",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-06-01",
-   "fieldwork_end": "2026-06-06",
-   "published_date": null,
-   "sample_size": 1201,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 54.62
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 22.98
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.4,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "d7a4f13aff62",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -147840,49 +147873,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 15.1,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "ef1c31f37dcc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-06-01",
-   "fieldwork_end": "2026-06-06",
-   "published_date": null,
-   "sample_size": 1201,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 39.55
-    },
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 19.4
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 17.07
-    },
-    {
-     "candidate": "Thor Dantas",
-     "party": "PSB",
-     "pct": 2
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 21.98,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -158236,6 +158226,77 @@
    "tse_registration": "GO-02070/2026"
   },
   {
+   "id": "299593e67418",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-05-13",
+   "fieldwork_end": "2026-05-16",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 42
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 16.12
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 15.88
+    }
+   ],
+   "others_pct": 1.5,
+   "undecided_pct": 24.49,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "4bcac7d1ecb1",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-05-13",
+   "fieldwork_end": "2026-05-16",
+   "published_date": null,
+   "sample_size": 800,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 58.38
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 21
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20.62,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "57675d9d2900",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -158279,14 +158340,14 @@
    "tse_registration": null
   },
   {
-   "id": "5e2e18fff570",
+   "id": "8664dc235e9a",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
-   "race": "governador",
+   "race": "senador",
    "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Alan Rick",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
    "pollster": "Delta",
    "contractor": null,
    "fieldwork_start": "2026-05-13",
@@ -158296,18 +158357,33 @@
    "margin_of_error": 3.5,
    "results": [
     {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 58
+     "candidate": "Márcio Bittar",
+     "party": "PL",
+     "pct": 22.19
     },
     {
-     "candidate": "Alan Rick",
+     "candidate": "Jorge Viana",
+     "party": "PT",
+     "pct": 16.87
+    },
+    {
+     "candidate": "Mara Rocha",
      "party": "Republicanos",
-     "pct": 21.62
+     "pct": 15.12
+    },
+    {
+     "candidate": "Petecão",
+     "party": "PSD",
+     "pct": 12.06
+    },
+    {
+     "candidate": "Eduardo Velloso",
+     "party": "Solidariedade",
+     "pct": 8.12
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 20.38,
+   "others_pct": 0.87,
+   "undecided_pct": 24.75,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -158375,14 +158451,14 @@
    "tse_registration": null
   },
   {
-   "id": "aa90b81b1123",
+   "id": "ab4676cb5045",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
    "race": "governador",
    "state": "AC",
    "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
    "pollster": "Delta",
    "contractor": null,
    "fieldwork_start": "2026-05-13",
@@ -158391,105 +158467,19 @@
    "sample_size": 800,
    "margin_of_error": 3.5,
    "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 58.38
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 21
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 20.62,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fa58209a5a14",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-05-13",
-   "fieldwork_end": "2026-05-16",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Márcio Bittar",
-     "party": "PL",
-     "pct": 22.19
-    },
-    {
-     "candidate": "Jorge Viana",
-     "party": "PT",
-     "pct": 16.87
-    },
-    {
-     "candidate": "Mara Rocha",
-     "party": "Republicanos",
-     "pct": 15.12
-    },
-    {
-     "candidate": "Petecão",
-     "party": "PSD",
-     "pct": 12.06
-    },
-    {
-     "candidate": "Eduardo Velloso",
-     "party": "Solidariedade",
-     "pct": 8.12
-    }
-   ],
-   "others_pct": 0.87,
-   "undecided_pct": 24.75,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "fa7eb60c427b",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-05-13",
-   "fieldwork_end": "2026-05-16",
-   "published_date": null,
-   "sample_size": 800,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 42
-    },
     {
      "candidate": "Mailza Assis",
      "party": "PP",
-     "pct": 16.12
+     "pct": 58
     },
     {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 15.88
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 21.62
     }
    ],
-   "others_pct": 1.5,
-   "undecided_pct": 24.49,
+   "others_pct": null,
+   "undecided_pct": 20.38,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -183335,39 +183325,6 @@
    "tse_registration": "BR-04227/2026"
   },
   {
-   "id": "0f82a2b8484c",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-03-16",
-   "fieldwork_end": "2026-03-21",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 58.25
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 19.68
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 22.17,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "12abfa3b119f",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-fica-a-frente-de-flavio-bolsonaro-no-1o-turno-no-para/",
@@ -183401,7 +183358,40 @@
    "tse_registration": "BR-02531/2026"
   },
   {
-   "id": "2b7d583cf46f",
+   "id": "22783c970767",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Alan Rick vs Tião Bocalom",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-16",
+   "fieldwork_end": "2026-03-21",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 58.25
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 19.68
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22.17,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "5178605ebaab",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
@@ -183454,44 +183444,6 @@
    "tse_registration": null
   },
   {
-   "id": "41c3e55f90c4",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-03-16",
-   "fieldwork_end": "2026-03-21",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 40.36
-    },
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 20.78
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PSDB",
-     "pct": 15.6
-    }
-   ],
-   "others_pct": 3.28,
-   "undecided_pct": 19.98,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "7de892c46334",
    "source": "poder360",
    "source_url": "https://www.poder360.com.br/poder-pesquisas/lula-fica-a-frente-de-flavio-bolsonaro-no-1o-turno-no-para/",
@@ -183523,39 +183475,6 @@
    "undecided_pct": 38,
    "blank_null_pct": null,
    "tse_registration": "BR-02531/2026"
-  },
-  {
-   "id": "924b13e58125",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 2,
-   "scenario": "2º turno: Mailza Assis vs Alan Rick",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": "2026-03-16",
-   "fieldwork_end": "2026-03-21",
-   "published_date": null,
-   "sample_size": 1006,
-   "margin_of_error": 3.1,
-   "results": [
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 48.51
-    },
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 27.24
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 24.25,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "a136549297eb",
@@ -183614,6 +183533,44 @@
    "undecided_pct": 8,
    "blank_null_pct": null,
    "tse_registration": "BR-02531/2026"
+  },
+  {
+   "id": "b4547dd1524d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-16",
+   "fieldwork_end": "2026-03-21",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 40.36
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 20.78
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PSDB",
+     "pct": 15.6
+    }
+   ],
+   "others_pct": 3.28,
+   "undecided_pct": 19.98,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "bc25dfadde63",
@@ -183695,6 +183652,39 @@
    "undecided_pct": 40,
    "blank_null_pct": null,
    "tse_registration": "BR-02531/2026"
+  },
+  {
+   "id": "eb73a34230ed",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 2,
+   "scenario": "2º turno: Mailza Assis vs Alan Rick",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": "2026-03-16",
+   "fieldwork_end": "2026-03-21",
+   "published_date": null,
+   "sample_size": 1006,
+   "margin_of_error": 3.1,
+   "results": [
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 48.51
+    },
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 27.24
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24.25,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-13346-1-0-d9a2ec24339e",
@@ -238341,6 +238331,39 @@
    "tse_registration": null
   },
   {
+   "id": "17bcc0d040eb",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário 3/5",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": null,
+   "fieldwork_end": null,
+   "published_date": null,
+   "sample_size": 802,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 49.75
+    },
+    {
+     "candidate": "Tião Bocalom",
+     "party": "PL",
+     "pct": 26.18
+    }
+   ],
+   "others_pct": 3.27,
+   "undecided_pct": 20.7,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "1969d79c7906",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -238389,40 +238412,7 @@
    "tse_registration": null
   },
   {
-   "id": "3d6988cc490d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário 3/5",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 802,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 49.75
-    },
-    {
-     "candidate": "Tião Bocalom",
-     "party": "PL",
-     "pct": 26.18
-    }
-   ],
-   "others_pct": 3.27,
-   "undecided_pct": 20.7,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "5c8f0daace65",
+   "id": "310508f94324",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
    "integra_url": null,
@@ -238508,39 +238498,6 @@
    "tse_registration": null
   },
   {
-   "id": "78718c2d241e",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
-   "integra_url": null,
-   "race": "governador",
-   "state": "AC",
-   "round": 1,
-   "scenario": "1º turno — cenário 2/5",
-   "pollster": "Delta",
-   "contractor": null,
-   "fieldwork_start": null,
-   "fieldwork_end": null,
-   "published_date": null,
-   "sample_size": 802,
-   "margin_of_error": 3.5,
-   "results": [
-    {
-     "candidate": "Alan Rick",
-     "party": "Republicanos",
-     "pct": 49
-    },
-    {
-     "candidate": "Mailza Assis",
-     "party": "PP",
-     "pct": 21.95
-    }
-   ],
-   "others_pct": 2.62,
-   "undecided_pct": 26.43,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "a5ba4ac88552",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_de_Janeiro",
@@ -238598,6 +238555,39 @@
    "blank_null_pct": null,
    "tse_registration": null,
    "incomplete": true
+  },
+  {
+   "id": "e799e2266527",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
+   "race": "governador",
+   "state": "AC",
+   "round": 1,
+   "scenario": "1º turno — cenário 2/5",
+   "pollster": "Delta",
+   "contractor": null,
+   "fieldwork_start": null,
+   "fieldwork_end": null,
+   "published_date": null,
+   "sample_size": 802,
+   "margin_of_error": 3.5,
+   "results": [
+    {
+     "candidate": "Alan Rick",
+     "party": "Republicanos",
+     "pct": 49
+    },
+    {
+     "candidate": "Mailza Assis",
+     "party": "PP",
+     "pct": 21.95
+    }
+   ],
+   "others_pct": 2.62,
+   "undecided_pct": 26.43,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "p360-12960-1-0-8d60e02f4d6d",
