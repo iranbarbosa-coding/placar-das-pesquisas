@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1983 levantamentos · 6129 perguntas · 167 institutos · 1447 candidatos**.
+Banco: **1986 levantamentos · 6129 perguntas · 168 institutos · 1447 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 438 | 27 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 441 | 29 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **506** | **71** |
+| **total** | **509** | **73** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (438)
+## CONFLITO — Conflitos registrados aguardando decisão (441)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -781,6 +781,9 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - survey_id_orphaned · s_4a5661208ddf · survey_id: "s_4a5661208ddf" × null
 - institute_id_orphaned · i_531e17c32082 · institute_id: "i_531e17c32082" × ["i_854d473dd1d2","i_e8c2c1d40ee4"]
 - **[2026]** survey_id_orphaned · s_a42fb69607dd · survey_id: "s_a42fb69607dd" × null
+- **[2026]** survey_id_orphaned · s_4e24aadd5c72 · survey_id: "s_4e24aadd5c72" × null
+- **[2026]** survey_id_orphaned · s_399fb138b500 · survey_id: "s_399fb138b500" × null
+- survey_id_orphaned · s_86f63031ee00 · survey_id: "s_86f63031ee00" × null
 - **[2026]** survey_id_orphaned · s_0c059273fa67 · survey_id: "s_0c059273fa67" × null
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71

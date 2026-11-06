@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-06T00:11:02.732Z",
+ "generated_at": "2026-11-06T17:56:03.430Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-06T00:11:02.732Z"
+   "last_ok": "2026-11-06T17:56:03.430Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-06T00:11:02.732Z"
+   "last_ok": "2026-11-06T17:56:03.430Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-06T00:11:02.732Z"
+   "last_ok": "2026-11-06T17:56:03.430Z"
   }
  ],
  "polls": [
@@ -30925,6 +30925,49 @@
    "tse_registration": null
   },
   {
+   "id": "721f0e107b59",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AM",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "G6/IPEN",
+   "contractor": null,
+   "fieldwork_start": "2026-09-18",
+   "fieldwork_end": "2026-09-25",
+   "published_date": null,
+   "sample_size": 1200,
+   "margin_of_error": 2.8,
+   "results": [
+    {
+     "candidate": "Eduardo Braga",
+     "party": "MDB",
+     "pct": 40.4
+    },
+    {
+     "candidate": "Capitão Alberto Neto",
+     "party": "PL",
+     "pct": 21.5
+    },
+    {
+     "candidate": "Wilson Lima",
+     "party": "União Brasil",
+     "pct": 16
+    },
+    {
+     "candidate": "Plínio Valério",
+     "party": "PSDB",
+     "pct": 9.5
+    }
+   ],
+   "others_pct": 5.4,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "7274f698f497",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1",
@@ -31461,49 +31504,6 @@
    ],
    "others_pct": 7.4,
    "undecided_pct": 28.6,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "cfaa7a737618",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AM",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Ipen/G6",
-   "contractor": null,
-   "fieldwork_start": "2026-09-18",
-   "fieldwork_end": "2026-09-25",
-   "published_date": null,
-   "sample_size": 1200,
-   "margin_of_error": 2.8,
-   "results": [
-    {
-     "candidate": "Eduardo Braga",
-     "party": "MDB",
-     "pct": 40.4
-    },
-    {
-     "candidate": "Capitão Alberto Neto",
-     "party": "PL",
-     "pct": 21.5
-    },
-    {
-     "candidate": "Wilson Lima",
-     "party": "União Brasil",
-     "pct": 16
-    },
-    {
-     "candidate": "Plínio Valério",
-     "party": "PSDB",
-     "pct": 9.5
-    }
-   ],
-   "others_pct": 5.4,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -37657,6 +37657,49 @@
    "tse_registration": null
   },
   {
+   "id": "4b9f1469ba6a",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AM",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Eduardo Braga",
+     "party": "MDB",
+     "pct": 27
+    },
+    {
+     "candidate": "Capitão Alberto Neto",
+     "party": "PL",
+     "pct": 17
+    },
+    {
+     "candidate": "Wilson Lima",
+     "party": "União Brasil",
+     "pct": 13
+    },
+    {
+     "candidate": "Plínio Valério",
+     "party": "PSDB",
+     "pct": 14
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "4e2e5f9fbb1b",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Rio_Grande_do_Sul",
@@ -39048,49 +39091,6 @@
    ],
    "others_pct": null,
    "undecided_pct": 22,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
-   "id": "c5346c9cfddc",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AM",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Eduardo Braga",
-     "party": "MDB",
-     "pct": 27
-    },
-    {
-     "candidate": "Capitão Alberto Neto",
-     "party": "PL",
-     "pct": 17
-    },
-    {
-     "candidate": "Wilson Lima",
-     "party": "União Brasil",
-     "pct": 13
-    },
-    {
-     "candidate": "Plínio Valério",
-     "party": "PSDB",
-     "pct": 14
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -92407,7 +92407,40 @@
    "tse_registration": null
   },
   {
-   "id": "b648e1141415",
+   "id": "b77e1bb8d9e3",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
+   "race": "governador",
+   "state": "AP",
+   "round": 2,
+   "scenario": "2º turno: Hipótese de segundo turno",
+   "pollster": "Quaest",
+   "contractor": "Televisão Cabo Branco",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Dr. Furlan",
+     "party": "PSD",
+     "pct": 54
+    },
+    {
+     "candidate": "Clécio",
+     "party": "União Brasil",
+     "pct": 36
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "AP-09438/2026"
+  },
+  {
+   "id": "bbb9c8b0aeff",
    "source": "poder360",
    "source_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/Presidente-AM-24.ago_.2026-Quaest-G1.pdf",
@@ -92448,39 +92481,6 @@
    "undecided_pct": 29,
    "blank_null_pct": null,
    "tse_registration": "BR-06252/2026"
-  },
-  {
-   "id": "b77e1bb8d9e3",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/Governador-Senador-AP-24.ago_.2026-Quaest-GazetaDoPovo.pdf",
-   "race": "governador",
-   "state": "AP",
-   "round": 2,
-   "scenario": "2º turno: Hipótese de segundo turno",
-   "pollster": "Quaest",
-   "contractor": "Televisão Cabo Branco",
-   "fieldwork_start": "2026-08-21",
-   "fieldwork_end": "2026-08-24",
-   "published_date": "2026-08-24",
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Dr. Furlan",
-     "party": "PSD",
-     "pct": 54
-    },
-    {
-     "candidate": "Clécio",
-     "party": "União Brasil",
-     "pct": 36
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 10,
-   "blank_null_pct": null,
-   "tse_registration": "AP-09438/2026"
   },
   {
    "id": "bcb16735b0ee",
@@ -155389,7 +155389,7 @@
    "state": "AM",
    "round": 1,
    "scenario": "1º turno — cenário único",
-   "pollster": "Ipen/G6",
+   "pollster": "G6/IPEN",
    "contractor": null,
    "fieldwork_start": "2026-05-17",
    "fieldwork_end": "2026-05-22",
@@ -186861,54 +186861,6 @@
    "tse_registration": "MG-06562/2026"
   },
   {
-   "id": "659a3047057d",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
-   "integra_url": null,
-   "race": "senador",
-   "state": "AM",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-03-05",
-   "fieldwork_end": "2026-03-11",
-   "published_date": null,
-   "sample_size": 1500,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Capitão Alberto Neto",
-     "party": "PL",
-     "pct": 19
-    },
-    {
-     "candidate": "Eduardo Braga",
-     "party": "MDB",
-     "pct": 28
-    },
-    {
-     "candidate": "Plínio Valério",
-     "party": "PSDB",
-     "pct": 11
-    },
-    {
-     "candidate": "Marcelo Ramos",
-     "party": "PT",
-     "pct": 10
-    },
-    {
-     "candidate": "Marcos Rotta",
-     "party": "Avante",
-     "pct": 11
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 21,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "74699d5af704",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
@@ -187014,6 +186966,54 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.8,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "b53f7580572e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amazonas",
+   "integra_url": null,
+   "race": "senador",
+   "state": "AM",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-03-05",
+   "fieldwork_end": "2026-03-11",
+   "published_date": null,
+   "sample_size": 1500,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Capitão Alberto Neto",
+     "party": "PL",
+     "pct": 19
+    },
+    {
+     "candidate": "Eduardo Braga",
+     "party": "MDB",
+     "pct": 28
+    },
+    {
+     "candidate": "Plínio Valério",
+     "party": "PSDB",
+     "pct": 11
+    },
+    {
+     "candidate": "Marcelo Ramos",
+     "party": "PT",
+     "pct": 10
+    },
+    {
+     "candidate": "Marcos Rotta",
+     "party": "Avante",
+     "pct": 11
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
    "blank_null_pct": null,
    "tse_registration": null
   },
