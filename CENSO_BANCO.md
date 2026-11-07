@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 441 | 29 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 441 | 30 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **509** | **73** |
+| **total** | **509** | **74** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -783,8 +783,8 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_a42fb69607dd · survey_id: "s_a42fb69607dd" × null
 - **[2026]** survey_id_orphaned · s_4e24aadd5c72 · survey_id: "s_4e24aadd5c72" × null
 - **[2026]** survey_id_orphaned · s_399fb138b500 · survey_id: "s_399fb138b500" × null
-- survey_id_orphaned · s_86f63031ee00 · survey_id: "s_86f63031ee00" × null
 - **[2026]** survey_id_orphaned · s_0c059273fa67 · survey_id: "s_0c059273fa67" × null
+- **[2026]** survey_id_orphaned · s_aef89ccb5279 · survey_id: "s_aef89ccb5279" × null
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 110
