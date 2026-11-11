@@ -3185,6 +3185,12 @@
    ]
   },
   {
+   "nome": "Roberto Pereira",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
    "nome": "Ruth Reis",
    "partidos": [
     "Democrata"
@@ -3198,12 +3204,6 @@
   },
   {
    "nome": "Well Macedo",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
-   "nome": "Well Macêdo",
    "partidos": [
     "PSTU"
    ]
@@ -8417,9 +8417,9 @@
  ],
  "senador:PA": [
   {
-   "nome": "Breno Guimarães",
+   "nome": "Alexandre Curi",
    "partidos": [
-    "Mobiliza"
+    "Republicanos"
    ]
   },
   {
@@ -8445,9 +8445,9 @@
    ]
   },
   {
-   "nome": "Coronel Jonildo",
+   "nome": "Cristina Graeml",
    "partidos": [
-    "DC"
+    "PSD"
    ]
   },
   {
@@ -8457,21 +8457,27 @@
    ]
   },
   {
+   "nome": "Deltan Dallagnol",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Dr. Helder",
+   "partidos": [
+    "MDB"
+   ]
+  },
+  {
+   "nome": "Dr. Rosinha",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
    "nome": "Éder Mauro",
    "partidos": [
     "PL"
-   ]
-  },
-  {
-   "nome": "Edlaine Rodrigues",
-   "partidos": [
-    "Democrata"
-   ]
-  },
-  {
-   "nome": "Fernanda Lopes",
-   "partidos": [
-    "UP"
    ]
   },
   {
@@ -8481,9 +8487,9 @@
    ]
   },
   {
-   "nome": "Gal Leite",
+   "nome": "Filipe Barros",
    "partidos": [
-    "UP"
+    "PL"
    ]
   },
   {
@@ -8493,9 +8499,21 @@
    ]
   },
   {
+   "nome": "Gleisi",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
    "nome": "Helder Barbalho",
    "partidos": [
     "MDB"
+   ]
+  },
+  {
+   "nome": "Joaquim do MLB",
+   "partidos": [
+    "UP"
    ]
   },
   {
@@ -8508,6 +8526,12 @@
    "nome": "José Nery",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Karen Guerreiro",
+   "partidos": [
+    "Missão"
    ]
   },
   {
@@ -8526,6 +8550,12 @@
    "nome": "Marcelino Conti",
    "partidos": [
     "PSOL"
+   ]
+  },
+  {
+   "nome": "Marcelo Marcelino",
+   "partidos": [
+    "PCO"
    ]
   },
   {

@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **1986 levantamentos · 6129 perguntas · 168 institutos · 1447 candidatos**.
+Banco: **2021 levantamentos · 6129 perguntas · 168 institutos · 1457 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 441 | 30 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 476 | 32 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **509** | **74** |
+| **total** | **544** | **76** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (441)
+## CONFLITO — Conflitos registrados aguardando decisão (476)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -460,7 +460,6 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_37985d172d5c · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_d2fb4f76e5c8 · results: ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Cabo Daciolo","Flávio Bolsonaro","Hertz Dias","Lula","Romeu Zema","Ronaldo Caiado"]
 - roster_encolhido_na_fonte · q_248fb8b83435 · results: ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Renan Santos","Romeu Zema","Ronaldo Caiado"] × ["Augusto Cury","Flávio Bolsonaro","Joaquim Barbosa","Lula","Romeu Zema","Ronaldo Caiado"]
-- segundo_turno_fragmento_descartado · q_d47ad041c68c · results: null × ["Dr. Daniel"]
 - roster_encolhido_na_fonte · q_553f17dcc0dc · results: ["Eduardo Moura","Ivan Moraes","João Henrique Campos","Raquel Lyra"] × ["Ivan Moraes","João Campos","Raquel Lyra"]
 - segundo_turno_fragmento_descartado · q_b252195a7be1 · results: null × ["Hildon Chaves"]
 - roster_encolhido_na_fonte · q_4c6082c23edb · results: ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Lula","Pablo Marçal","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Veterinário Wilson Grassi"] × ["Augusto Cury","Flávio Bolsonaro","Hertz Dias","Luiz Inácio Lula da Silva","Renan Santos","Romeu Zema","Ronaldo Caiado","Rui Costa Pimenta","Samara Martins","Wilson Grassi"]
@@ -785,12 +784,48 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_399fb138b500 · survey_id: "s_399fb138b500" × null
 - **[2026]** survey_id_orphaned · s_0c059273fa67 · survey_id: "s_0c059273fa67" × null
 - **[2026]** survey_id_orphaned · s_aef89ccb5279 · survey_id: "s_aef89ccb5279" × null
+- **[2026]** survey_id_orphaned · s_1528eaac66a9 · survey_id: "s_1528eaac66a9" × null
+- **[2026]** survey_id_orphaned · s_4ca4c9a14418 · survey_id: "s_4ca4c9a14418" × null
+- survey_id_orphaned · s_502c038c0af5 · survey_id: "s_502c038c0af5" × null
+- roster_encolhido_na_fonte · q_70bd75a92d3c · results: ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","Ruth Reis","Well Macêdo"] × ["Araceli Lemos","Dr. Daniel","Hana Ghassan"]
+- roster_encolhido_na_fonte · q_1de67e5acee7 · results: ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","Ruth Reis","Well Macêdo"] × ["Araceli Lemos","Dr. Daniel","Hana Ghassan"]
+- survey_id_orphaned · s_f94b4727c211 · survey_id: "s_f94b4727c211" × null
+- roster_encolhido_na_fonte · q_6e7fee459fee · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Coronel Jonildo","Edlaine Rodrigues","Fernanda Lopes","Gizelle Freitas","Helder Barbalho","Lívia Noronha","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão","Delegado Eder Mauro","Helder Barbalho","Zequinha Marinho"]
+- roster_encolhido_na_fonte · q_f241da6001c4 · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Coronel Jonildo","Edlaine Rodrigues","Fernanda Lopes","Gizelle Freitas","Helder Barbalho","Lívia Noronha","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão Melo","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
+- survey_id_orphaned · s_d9e04925fc51 · survey_id: "s_d9e04925fc51" × null
+- survey_id_orphaned · s_cc47aea8978e · survey_id: "s_cc47aea8978e" × null
+- survey_id_orphaned · s_46bd0c9c8ec2 · survey_id: "s_46bd0c9c8ec2" × ["s_ad37a238425c","s_ba8e3ce33682"]
+- roster_encolhido_na_fonte · q_b9cc54464430 · results: ["Araceli Lemos","Daniel Santos","Hana Ghassan"] × ["Daniel Santos","Hana Ghassan"]
+- roster_encolhido_na_fonte · q_f364f3402ea9 · results: ["Araceli Lemos","Cleber Rabelo","Daniel Santos","Hana Ghassan","Mário Couto","Raquel Brício"] × ["Cléber Rabelo","Hana Ghassan","Raquel Brício"]
+- roster_encolhido_na_fonte · q_006eb119c0fb · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Coronel Jonildo","Edlaine Rodrigues","Fernanda Lopes","Gizelle Freitas","Helder Barbalho","Lívia Noronha","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão","Delegado Eder Mauro","Dr. Helder","Zequinha Marinho"]
+- survey_id_orphaned · s_75a39c5ea7af · survey_id: "s_75a39c5ea7af" × null
+- roster_encolhido_na_fonte · q_d207c6c6c0e2 · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Gizelle Freitas","Helder Barbalho","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão Melo","Gizelle Freitas","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
+- roster_encolhido_na_fonte · q_b61961e7b08c · results: ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","Ruth Reis","Well Macêdo"] × ["Araceli Lemos","Dr. Daniel","Gal Leite","Hana Ghassan"]
+- survey_id_orphaned · s_c268d77db1fc · survey_id: "s_c268d77db1fc" × ["s_3d78f57f9a39","s_86a03d650e71"]
+- roster_encolhido_na_fonte · q_9db1e9a4392e · results: ["Araceli Lemos","Daniel Santos","Gal Leite","Hana Ghassan","Ruth Reis","Well Macêdo"] × ["Daniel Santos","Hana Ghassan"]
+- survey_id_orphaned · s_d01849138794 · survey_id: "s_d01849138794" × null
+- roster_encolhido_na_fonte · q_817ad79e98a1 · results: ["Araceli Lemos","Cleber Rabelo","Daniel Santos","Hana Ghassan","Mário Couto"] × ["Daniel Santos","Hana Ghassan","Mário Couto"]
+- survey_id_orphaned · s_df66c61ca379 · survey_id: "s_df66c61ca379" × null
+- institute_id_orphaned · i_4bd7fa4f1ea1 · institute_id: "i_4bd7fa4f1ea1" × null
+- roster_encolhido_na_fonte · q_bbcdf5f7c65b · results: ["Araceli Lemos","Cleber Rabelo","Daniel Santos","Hana Ghassan","Mário Couto"] × ["Araceli Lemos","Cleber Rabelo","Hana Ghassan","Mário Couto"]
+- roster_encolhido_na_fonte · q_c7cf4c7ddde9 · results: ["Gal Leite","Gizelle Freitas","Helder Barbalho","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Gizelle Freitas","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
+- roster_encolhido_na_fonte · q_69b234b426cd · results: ["Araceli Lemos","Daniel Santos","Hana Ghassan","Well Macêdo"] × ["Daniel Santos","Hana Ghassan"]
+- survey_id_orphaned · s_563d11d71f97 · survey_id: "s_563d11d71f97" × null
+- roster_encolhido_na_fonte · q_f9bd4bf21c26 · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Gal Leite","Gizelle Freitas","Helder Barbalho","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão Melo","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
+- roster_shrink_ambiguo · q_18072ca829ad · results: ["q_2bce08b591f5","q_a9e870c0a666"] × ["Daniel Santos","Hana Ghassan"]
+- survey_id_orphaned · s_1e346e5851f0 · survey_id: "s_1e346e5851f0" × null
+- roster_encolhido_na_fonte · q_7227228d1540 · results: ["Daniel Santos","Hana Ghassan"] × ["Dr. Daniel"]
+- roster_encolhido_na_fonte · q_933648b0880c · results: ["Celso Sabino","Chicão Melo","Gizelle Freitas","Helder Barbalho","Lívia Noronha","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão Melo","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
+- roster_encolhido_na_fonte · q_928cb7e37c87 · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Coronel Jonildo","Edlaine Rodrigues","Fernanda Lopes","Gizelle Freitas","Helder Barbalho","Lívia Noronha","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão Melo","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
+- roster_encolhido_na_fonte · q_5b1bc8fba54c · results: ["Araceli Lemos","Cleber Rabelo","Daniel Santos","Hana Ghassan","Mário Couto","Raquel Brício"] × ["Araceli Lemos","Cleber Rabelo","Hana Ghassan","Mário Couto","Raquel Brício"]
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 110
+- disputa_em_quarentena · governador:PA · quarentena: 103 × 98
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41
 - disputa_em_quarentena · presidente:BR · quarentena: 1805 × 1804
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
+- disputa_em_quarentena · senador:PA · quarentena: 61 × 48
 
 ## UNIVERSO — Pesquisa estadual com amostra possivelmente municipal (não certificada) (3)
 
