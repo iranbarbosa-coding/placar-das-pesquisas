@@ -2,11 +2,11 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 721,
-  "contencao": 228,
-  "outra_disputa": 165,
+  "exato": 716,
+  "contencao": 229,
+  "outra_disputa": 164,
   "ambiguo": 5,
-  "sem": 564
+  "sem": 574
  },
  "ambiguos": [
   {
@@ -2772,7 +2772,7 @@
     "origem": "exato"
    },
    "well macedo": {
-    "nome_urna": "Well Macêdo",
+    "nome_urna": "Well Macedo",
     "sq_candidato": "140002554108",
     "partido": "PSTU",
     "numero": "16",
@@ -6488,13 +6488,6 @@
    }
   },
   "senador:PA": {
-   "breno guimaraes": {
-    "nome_urna": "Breno Guimarães",
-    "sq_candidato": "140002553852",
-    "partido": "MOBILIZA",
-    "numero": "333",
-    "origem": "exato"
-   },
    "celso sabino": {
     "nome_urna": "Celso Sabino",
     "sq_candidato": "140002538404",
@@ -6516,13 +6509,6 @@
     "numero": "444",
     "origem": "contencao"
    },
-   "coronel jonildo": {
-    "nome_urna": "Coronel Jonildo",
-    "sq_candidato": "140002554209",
-    "partido": "DC",
-    "numero": "277",
-    "origem": "exato"
-   },
    "delegado eder mauro": {
     "nome_urna": "Delegado Éder Mauro",
     "sq_candidato": "140002544855",
@@ -6530,33 +6516,19 @@
     "numero": "222",
     "origem": "exato"
    },
+   "dr helder": {
+    "nome_urna": "Helder",
+    "sq_candidato": "140002550779",
+    "partido": "MDB",
+    "numero": "151",
+    "origem": "contencao"
+   },
    "eder mauro": {
     "nome_urna": "Delegado Éder Mauro",
     "sq_candidato": "140002544855",
     "partido": "PL",
     "numero": "222",
     "origem": "contencao"
-   },
-   "edlaine rodrigues": {
-    "nome_urna": "Edlaine Rodrigues",
-    "sq_candidato": "140002548150",
-    "partido": "DEMOCRATA",
-    "numero": "355",
-    "origem": "exato"
-   },
-   "fernanda lopes": {
-    "nome_urna": "Fernanda Lopes",
-    "sq_candidato": "140002548387",
-    "partido": "UP",
-    "numero": "800",
-    "origem": "exato"
-   },
-   "gal leite": {
-    "nome_urna": "Gal Leite",
-    "sq_candidato": "140002551943",
-    "partido": "UP",
-    "numero": "80",
-    "origem": "outra-disputa"
    },
    "gizelle freitas": {
     "nome_urna": "Gizelle Freitas",
