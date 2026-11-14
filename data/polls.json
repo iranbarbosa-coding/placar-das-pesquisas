@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-13T18:29:44.725Z",
+ "generated_at": "2026-11-14T17:01:37.124Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-13T18:29:44.725Z"
+   "last_ok": "2026-11-14T17:01:37.124Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-13T18:29:44.725Z"
+   "last_ok": "2026-11-14T17:01:37.124Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-13T18:29:44.725Z"
+   "last_ok": "2026-11-14T17:01:37.124Z"
   }
  ],
  "polls": [
@@ -4328,6 +4328,39 @@
    "tse_registration": null
   },
   {
+   "id": "237e57acdd80",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-RO-governo-3out.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-RO-governo-3out.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Hildon Chaves",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 52
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 21
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 27,
+   "blank_null_pct": null,
+   "tse_registration": "RO-09325/2026"
+  },
+  {
    "id": "2649d9dc6a26",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -4458,6 +4491,39 @@
    "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "4932c8445c9d",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-RO-governo-3out.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/10/pesquisa-quaest-RO-governo-3out.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Hildon Chaves",
+   "pollster": "Quaest",
+   "contractor": "Rede Amazônica",
+   "fieldwork_start": "2026-10-02",
+   "fieldwork_end": "2026-10-03",
+   "published_date": "2026-10-03",
+   "sample_size": 1800,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 39
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 38,
+   "blank_null_pct": null,
+   "tse_registration": "RO-09325/2026"
   },
   {
    "id": "4bcb97692701",
@@ -11123,22 +11189,17 @@
      "pct": 19.1
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 10.1
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 16.3
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 0.6
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 10.1
     }
    ],
-   "others_pct": 1.4,
+   "others_pct": 2,
    "undecided_pct": 1.2,
    "blank_null_pct": null,
    "tse_registration": null
@@ -11830,6 +11891,39 @@
    ],
    "others_pct": 0,
    "undecided_pct": null,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "54e43547f27d",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Hildon Chaves",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1232,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 36.5
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 43
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 20.5,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -13036,6 +13130,39 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "BR-04756/2026"
+  },
+  {
+   "id": "f9d39599eb9e",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Hildon Chaves",
+   "pollster": "AtlasIntel",
+   "contractor": null,
+   "fieldwork_start": "2026-09-27",
+   "fieldwork_end": "2026-10-02",
+   "published_date": null,
+   "sample_size": 1232,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 55.5
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 34.3
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 10.3,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "f9e57a5f67a8",
@@ -20797,16 +20924,49 @@
     {
      "candidate": "Marcos Rogério",
      "party": "PL",
-     "pct": 55
+     "pct": 49
     },
     {
      "candidate": "Adaílton Fúria",
      "party": "PSD",
-     "pct": 45
+     "pct": 40
     }
    ],
    "others_pct": null,
-   "undecided_pct": null,
+   "undecided_pct": 11,
+   "blank_null_pct": null,
+   "tse_registration": "RO-03623/2026"
+  },
+  {
+   "id": "10d7b5b4787f",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/dr-fernando-maximo-lidera-disputa-ao-senado-por-ro-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-RealTimeBigData-estadual-RO.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Hildon Chaves",
+   "pollster": "Real Time Big Data",
+   "contractor": "TV 3 Poderes",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 51
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 34
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": "RO-03623/2026"
   },
@@ -21092,6 +21252,39 @@
    "undecided_pct": 20,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "53b146bb8efe",
+   "source": "poder360",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/dr-fernando-maximo-lidera-disputa-ao-senado-por-ro-diz-pesquisa/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/pesquisa-RealTimeBigData-estadual-RO.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Expedito Netto",
+   "pollster": "Real Time Big Data",
+   "contractor": "TV 3 Poderes",
+   "fieldwork_start": "2026-09-25",
+   "fieldwork_end": "2026-09-29",
+   "published_date": "2026-09-29",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 60
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 18,
+   "blank_null_pct": null,
+   "tse_registration": "RO-03623/2026"
   },
   {
    "id": "613db40012b3",
@@ -36933,6 +37126,72 @@
    "tse_registration": "BR-05762/2026"
   },
   {
+   "id": "0523ce514658",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Hildon Chaves",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 38
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 39,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "071dd2d16c6f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Hildon Chaves vs Expedito Netto",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 35
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 16
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 49,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "0928b2915310",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Goi%C3%A1s",
@@ -37195,6 +37454,49 @@
    ],
    "others_pct": null,
    "undecided_pct": 20,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "2ec006073414",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 1,
+   "scenario": "1º turno — cenário único",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 37
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 21
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 9
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 6
+    }
+   ],
+   "others_pct": 3,
+   "undecided_pct": 25,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -37819,39 +38121,6 @@
    "tse_registration": "BR-00304/2026"
   },
   {
-   "id": "5f446749db71",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RO",
-   "round": 2,
-   "scenario": "2º turno: Marcos Rogério vs Adaílton Fúria",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marcos Rogério",
-     "party": "PL",
-     "pct": 45
-    },
-    {
-     "candidate": "Adaílton Fúria",
-     "party": "PSD",
-     "pct": 27
-    }
-   ],
-   "others_pct": null,
-   "undecided_pct": 28,
-   "blank_null_pct": null,
-   "tse_registration": null
-  },
-  {
    "id": "6308dcd75fe1",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_de_opini%C3%A3o_para_a_elei%C3%A7%C3%A3o_presidencial_no_Brasil_em_2026",
@@ -37949,6 +38218,39 @@
    "undecided_pct": 14,
    "blank_null_pct": null,
    "tse_registration": "BR-00304/2026"
+  },
+  {
+   "id": "6b8f18157140",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Adaílton Fúria",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 45
+    },
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 28,
+   "blank_null_pct": null,
+   "tse_registration": null
   },
   {
    "id": "72e7da5022bc",
@@ -38500,6 +38802,39 @@
    "tse_registration": "BR-01739/2026"
   },
   {
+   "id": "8d370478653f",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Expedito Netto",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 53
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 14
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "927d7e3dab33",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Sergipe",
@@ -38953,6 +39288,39 @@
    "tse_registration": null
   },
   {
+   "id": "b69022c1434c",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Expedito Netto",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 45
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 12
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 43,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
    "id": "b7787e18c044",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Amap%C3%A1",
@@ -39187,6 +39555,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 21,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "cb16bb9b2cae",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Hildon Chaves",
+   "pollster": "Quaest",
+   "contractor": null,
+   "fieldwork_start": "2026-09-20",
+   "fieldwork_end": "2026-09-23",
+   "published_date": null,
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 50
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 17
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 33,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -39427,54 +39828,6 @@
    "undecided_pct": 22,
    "blank_null_pct": null,
    "tse_registration": "BR-09587/2026"
-  },
-  {
-   "id": "e8f962c42d08",
-   "source": null,
-   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
-   "integra_url": null,
-   "race": "governador",
-   "state": "RO",
-   "round": 1,
-   "scenario": "1º turno — cenário único",
-   "pollster": "Quaest",
-   "contractor": null,
-   "fieldwork_start": "2026-09-20",
-   "fieldwork_end": "2026-09-23",
-   "published_date": null,
-   "sample_size": 804,
-   "margin_of_error": 3,
-   "results": [
-    {
-     "candidate": "Marcos Rogério",
-     "party": "PL",
-     "pct": 37
-    },
-    {
-     "candidate": "Adaílton Fúria",
-     "party": "PSD",
-     "pct": 21
-    },
-    {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 6
-    },
-    {
-     "candidate": "Hildon Chaves",
-     "party": "União Brasil",
-     "pct": 9
-    },
-    {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 1
-    }
-   ],
-   "others_pct": 1,
-   "undecided_pct": 25,
-   "blank_null_pct": null,
-   "tse_registration": null
   },
   {
    "id": "e99eb707c4ad",
@@ -58256,22 +58609,17 @@
      "pct": 19.7
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 10.4
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 11.8
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 0.8
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 10.4
     }
    ],
-   "others_pct": 0.4,
+   "others_pct": 1.2,
    "undecided_pct": 9.2,
    "blank_null_pct": null,
    "tse_registration": null
@@ -72763,31 +73111,26 @@
     {
      "candidate": "Marcos Rogério",
      "party": "PL",
-     "pct": 24
+     "pct": 24.3
     },
     {
      "candidate": "Adaílton Fúria",
      "party": "PSD",
-     "pct": 17
-    },
-    {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 6
+     "pct": 17.3
     },
     {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
-     "pct": 22
+     "pct": 21.7
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 5
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 5.7
     }
    ],
-   "others_pct": 8,
-   "undecided_pct": 19,
+   "others_pct": 12.4,
+   "undecided_pct": 18.2,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -85890,22 +86233,17 @@
      "pct": 22.4
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 10.3
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 10.2
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 0.8
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 10.3
     }
    ],
-   "others_pct": 0.7,
+   "others_pct": 1.5,
    "undecided_pct": 15,
    "blank_null_pct": null,
    "tse_registration": null
@@ -91314,6 +91652,39 @@
    "tse_registration": "TO-02161/2026"
   },
   {
+   "id": "15fc2f5abb31",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Governador-RO-21a24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Governador-RO-21a24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Expedito Netto",
+   "pollster": "Quaest",
+   "contractor": "Rádio TV do Amazonas",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 49
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 28,
+   "blank_null_pct": null,
+   "tse_registration": "RO-05711/2026"
+  },
+  {
    "id": "1b285e2c0499",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_S%C3%A3o_Paulo",
@@ -91689,6 +92060,39 @@
    "undecided_pct": 16,
    "blank_null_pct": null,
    "tse_registration": "BR-04281/2026"
+  },
+  {
+   "id": "4052e33fbfe6",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Governador-RO-21a24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Governador-RO-21a24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Hildon Chaves vs Expedito Netto",
+   "pollster": "Quaest",
+   "contractor": "Rádio TV do Amazonas",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 33
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 27
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40,
+   "blank_null_pct": null,
+   "tse_registration": "RO-05711/2026"
   },
   {
    "id": "44234267bd79",
@@ -92689,6 +93093,39 @@
    "undecided_pct": 18,
    "blank_null_pct": null,
    "tse_registration": "BR-04312/2026"
+  },
+  {
+   "id": "fef7304e14ee",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/09/Governador-RO-21a24.ago_.2026-Quaest-G1.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/09/Governador-RO-21a24.ago_.2026-Quaest-G1.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Expedito Netto",
+   "pollster": "Quaest",
+   "contractor": "Rádio TV do Amazonas",
+   "fieldwork_start": "2026-08-21",
+   "fieldwork_end": "2026-08-24",
+   "published_date": "2026-08-24",
+   "sample_size": 804,
+   "margin_of_error": 3,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 41
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 18
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 40,
+   "blank_null_pct": null,
+   "tse_registration": "RO-05711/2026"
   },
   {
    "id": "p360-13905-1-0-1071f109df2a",
@@ -101683,22 +102120,17 @@
      "pct": 19.35
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 6.66
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 16.65
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 2.29
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 6.66
     }
    ],
-   "others_pct": 2.6,
+   "others_pct": 4.89,
    "undecided_pct": 24.24,
    "blank_null_pct": null,
    "tse_registration": null
@@ -127783,6 +128215,39 @@
    "tse_registration": null
   },
   {
+   "id": "19a359bff11f",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Expedito Netto",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-14",
+   "fieldwork_end": "2026-07-15",
+   "published_date": "2026-07-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 55
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 21
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 24,
+   "blank_null_pct": null,
+   "tse_registration": "RO-04369/2026"
+  },
+  {
    "id": "24367db9df19",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -127816,6 +128281,72 @@
    "tse_registration": null
   },
   {
+   "id": "37c6ccbf54ba",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Expedito Netto",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-14",
+   "fieldwork_end": "2026-07-15",
+   "published_date": "2026-07-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 53
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 22
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 25,
+   "blank_null_pct": null,
+   "tse_registration": "RO-04369/2026"
+  },
+  {
+   "id": "5b785705ae85",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Hildon Chaves vs Expedito Netto",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-14",
+   "fieldwork_end": "2026-07-15",
+   "published_date": "2026-07-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 35
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 23
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 42,
+   "blank_null_pct": null,
+   "tse_registration": "RO-04369/2026"
+  },
+  {
    "id": "5d8b22c6ae9d",
    "source": null,
    "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
@@ -127847,6 +128378,39 @@
    "undecided_pct": 18.68,
    "blank_null_pct": null,
    "tse_registration": null
+  },
+  {
+   "id": "661517b08532",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Adaílton Fúria vs Hildon Chaves",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-14",
+   "fieldwork_end": "2026-07-15",
+   "published_date": "2026-07-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 48
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 30
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 22,
+   "blank_null_pct": null,
+   "tse_registration": "RO-04369/2026"
   },
   {
    "id": "730e20665092",
@@ -128407,28 +128971,57 @@
      "pct": 36
     },
     {
-     "candidate": "Adaílton Fúria",
-     "party": "PSD",
-     "pct": 28
-    },
-    {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 10
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 13
     },
     {
+     "candidate": "Ricardo Frota",
+     "party": "PDT",
+     "pct": 1
+    },
+    {
      "candidate": "Samuel Costa",
-     "party": "PSB",
+     "party": "Rede",
      "pct": 1
     }
    ],
-   "others_pct": 2,
+   "others_pct": null,
    "undecided_pct": 10,
+   "blank_null_pct": null,
+   "tse_registration": "RO-04369/2026",
+   "incomplete": true
+  },
+  {
+   "id": "p360-13638-2-1-43e24da9c7ec",
+   "source": "poder360",
+   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf",
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Hildon Chaves",
+   "pollster": "Real Time Big Data",
+   "contractor": "Real Time Big Data",
+   "fieldwork_start": "2026-07-14",
+   "fieldwork_end": "2026-07-15",
+   "published_date": "2026-07-15",
+   "sample_size": 1600,
+   "margin_of_error": 2,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 51
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 28
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 21,
    "blank_null_pct": null,
    "tse_registration": "RO-04369/2026"
   },
@@ -131446,6 +132039,39 @@
    ],
    "others_pct": null,
    "undecided_pct": 11.41,
+   "blank_null_pct": null,
+   "tse_registration": null
+  },
+  {
+   "id": "38a195971f36",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_em_Rond%C3%B4nia",
+   "integra_url": null,
+   "race": "governador",
+   "state": "RO",
+   "round": 2,
+   "scenario": "2º turno: Marcos Rogério vs Hildon Chaves",
+   "pollster": "IAP",
+   "contractor": null,
+   "fieldwork_start": "2026-07-01",
+   "fieldwork_end": "2026-07-09",
+   "published_date": null,
+   "sample_size": 2500,
+   "margin_of_error": 2.45,
+   "results": [
+    {
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 59.9
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "União Brasil",
+     "pct": 26.45
+    }
+   ],
+   "others_pct": null,
+   "undecided_pct": 13.64,
    "blank_null_pct": null,
    "tse_registration": null
   },
@@ -138470,22 +139096,17 @@
      "pct": 27.48
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 5.15
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 8.17
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 0.84
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 5.15
     }
    ],
-   "others_pct": 1.22,
+   "others_pct": 2.06,
    "undecided_pct": 25.6,
    "blank_null_pct": null,
    "tse_registration": null
@@ -148483,22 +149104,17 @@
      "pct": 28.1
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 9.1
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 14.7
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 2.8
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 9.1
     }
    ],
-   "others_pct": 3.9,
+   "others_pct": 6.7,
    "undecided_pct": null,
    "blank_null_pct": null,
    "tse_registration": null
@@ -155173,22 +155789,17 @@
      "pct": 23.2
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 7.7
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 14.3
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 2.8
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 7.7
     }
    ],
-   "others_pct": 3.2,
+   "others_pct": 6,
    "undecided_pct": 13.4,
    "blank_null_pct": null,
    "tse_registration": null
@@ -171776,22 +172387,17 @@
      "pct": 16.61
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 5.17
-    },
-    {
      "candidate": "Hildon Chaves",
      "party": "União Brasil",
      "pct": 20.44
     },
     {
-     "candidate": "Samuel Costa",
-     "party": "PSB",
-     "pct": 6.79
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 5.17
     }
    ],
-   "others_pct": 2.73,
+   "others_pct": 9.52,
    "undecided_pct": 18.81,
    "blank_null_pct": null,
    "tse_registration": null
@@ -184461,6 +185067,11 @@
    "margin_of_error": 3,
    "results": [
     {
+     "candidate": "Adaílton Fúria",
+     "party": "PSD",
+     "pct": 15.4
+    },
+    {
      "candidate": "Marcos Rogério",
      "party": "PL",
      "pct": 31.8
@@ -184471,19 +185082,14 @@
      "pct": 16.5
     },
     {
-     "candidate": "Adaílton Fúria",
-     "party": "PSD",
-     "pct": 15.4
+     "candidate": "Hildon Chaves",
+     "party": "PSDB",
+     "pct": 8.5
     },
     {
      "candidate": "Expedito Netto",
      "party": "PT",
      "pct": 8.7
-    },
-    {
-     "candidate": "Hildon Chaves",
-     "party": "União Brasil",
-     "pct": 8.5
     },
     {
      "candidate": "Samuel Costa",
@@ -190360,29 +190966,29 @@
    "margin_of_error": 3,
    "results": [
     {
-     "candidate": "Marcos Rogério",
-     "party": "PL",
-     "pct": 16.7
-    },
-    {
      "candidate": "Adaílton Fúria",
      "party": "PSD",
      "pct": 26.9
     },
     {
-     "candidate": "Expedito Netto",
-     "party": "PT",
-     "pct": 3.4
-    },
-    {
-     "candidate": "Hildon Chaves",
-     "party": "União Brasil",
-     "pct": 10.4
+     "candidate": "Marcos Rogério",
+     "party": "PL",
+     "pct": 16.7
     },
     {
      "candidate": "Confúcio Moura",
      "party": "MDB",
      "pct": 18.3
+    },
+    {
+     "candidate": "Hildon Chaves",
+     "party": "PSDB",
+     "pct": 10.4
+    },
+    {
+     "candidate": "Expedito Netto",
+     "party": "PT",
+     "pct": 3.4
     },
     {
      "candidate": "Sérgio Gonçalves",

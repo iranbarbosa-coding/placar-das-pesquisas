@@ -1,6 +1,6 @@
 # Pesquisas incompletas na fonte — decisão editorial
 
-Geradas por `node scripts/incomplete-polls.mjs`. **95 pesquisas** em que os números
+Geradas por `node scripts/incomplete-polls.mjs`. **96 pesquisas** em que os números
 publicados somam menos de **90%** da amostra: candidatos, "outros", branco/nulo e indecisos
 juntos não fecham a conta. Não são pesquisas erradas — são pesquisas em que faltam linhas na
 origem (o instituto divulgou só os primeiros colocados, ou a tabela veio truncada).
@@ -473,6 +473,25 @@ Soma **60.9%** · faltam **39.1 pontos** · 1 candidato(s) na tabela · amostra 
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/brada-pe-governo-7ago2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
+## Governador · Rondônia
+
+### Real Time Big Data — 2026-07-15
+
+Soma **61%** · faltam **39 pontos** · 4 candidato(s) na tabela · amostra 1600 · registro RO-04369/2026
+
+| candidato | % |
+|---|---|
+| Marcos Rogério | 36 |
+| Hildon Chaves | 13 |
+| Ricardo Frota | 1 |
+| Samuel Costa | 1 |
+| *não sabe/não respondeu* | 10 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
