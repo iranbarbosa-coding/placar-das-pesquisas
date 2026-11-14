@@ -2,7 +2,7 @@
  "note": "Nome de urna oficial do TSE por disputa, aplicado ao nome que o instituto publicou. Gerado por scripts/match-ballot-names.mjs a partir de data/candidaturas.ndjson — não editar à mão. Só entram aqui os casos EXATOS e os de contenção com uma única candidatura compatível; ambíguos e sem candidatura ficam de fora e mantêm o nome atual.",
  "gerado_de": "consulta_cand_2026 (TSE Dados Abertos)",
  "stats": {
-  "exato": 716,
+  "exato": 718,
   "contencao": 229,
   "outra_disputa": 164,
   "ambiguo": 5,
@@ -7101,6 +7101,20 @@
     "partido": "PT",
     "numero": "133",
     "origem": "contencao"
+   },
+   "luciana oliveira": {
+    "nome_urna": "Luciana Oliveira",
+    "sq_candidato": "220002551948",
+    "partido": "PT",
+    "numero": "133",
+    "origem": "exato"
+   },
+   "luis fernando": {
+    "nome_urna": "Luis Fernando",
+    "sq_candidato": "220002539771",
+    "partido": "PSD",
+    "numero": "555",
+    "origem": "exato"
    },
    "luis fernando silva": {
     "nome_urna": "Luis Fernando",

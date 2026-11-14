@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 486 | 33 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 497 | 44 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **554** | **77** |
+| **total** | **565** | **88** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (486)
+## CONFLITO — Conflitos registrados aguardando decisão (497)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -818,13 +818,24 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - roster_encolhido_na_fonte · q_928cb7e37c87 · results: ["Breno Guimarães","Celso Sabino","Chicão Melo","Coronel Jonildo","Edlaine Rodrigues","Fernanda Lopes","Gizelle Freitas","Helder Barbalho","Lívia Noronha","Marcelino Conti","Zequinha Marinho","Éder Mauro"] × ["Celso Sabino","Chicão Melo","Helder Barbalho","Zequinha Marinho","Éder Mauro"]
 - roster_encolhido_na_fonte · q_5b1bc8fba54c · results: ["Araceli Lemos","Cleber Rabelo","Daniel Santos","Hana Ghassan","Mário Couto","Raquel Brício"] × ["Araceli Lemos","Cleber Rabelo","Hana Ghassan","Mário Couto","Raquel Brício"]
 - roster_encolhido_na_fonte · q_bbaca638747a · results: ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério","Samuel Costa"] × ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério"]
+- **[2026]** survey_id_orphaned · s_8a442edc561e · survey_id: "s_8a442edc561e" × null
+- **[2026]** survey_id_orphaned · s_90e1e5c1ad22 · survey_id: "s_90e1e5c1ad22" × null
+- **[2026]** survey_id_orphaned · s_601c19cc8ff3 · survey_id: "s_601c19cc8ff3" × null
 - roster_encolhido_na_fonte · q_68702b5f2a33 · results: ["Adaílton Fúria","Confúcio Moura","Hildon Chaves","Marcos Rogério","Samuel Costa","Sérgio Gonçalves"] × ["Adaílton Fúria","Confúcio Moura","Hildon Chaves","Marcos Rogério"]
 - roster_encolhido_na_fonte · q_d7c94662ade7 · results: ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério","Samuel Costa"] × ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério"]
+- **[2026]** survey_id_orphaned · s_adef5c625742 · survey_id: "s_adef5c625742" × null
 - candidate_id_orphaned · c_dae48e11b93d · candidate_id: "c_dae48e11b93d" × null
+- **[2026]** survey_id_orphaned · s_14f76f70b48f · survey_id: "s_14f76f70b48f" × null
 - person_id_orphaned · p_e18064fa56c4 · person_id: "p_e18064fa56c4" × null
+- **[2026]** survey_id_orphaned · s_42faa3083f36 · survey_id: "s_42faa3083f36" × null
+- **[2026]** survey_id_orphaned · s_450f31270cfe · survey_id: "s_450f31270cfe" × null
+- **[2026]** survey_id_orphaned · s_b16f8ad90fc3 · survey_id: "s_b16f8ad90fc3" × null
+- **[2026]** survey_id_orphaned · s_3fb7f345604b · survey_id: "s_3fb7f345604b" × null
 - roster_encolhido_na_fonte · q_66292cf70310 · results: ["Adaílton Fúria","Confúcio Moura","Fernando Máximo","Hildon Chaves","Samuel Costa","Sérgio Gonçalves"] × ["Adaílton Fúria","Confúcio Moura","Fernando Máximo","Hildon Chaves"]
 - **[2026]** survey_id_orphaned · s_dbf4eaab80dd · survey_id: "s_dbf4eaab80dd" × null
+- **[2026]** survey_id_orphaned · s_6fb4eaf9b122 · survey_id: "s_6fb4eaf9b122" × null
 - roster_encolhido_na_fonte · q_ff6027fa4968 · results: ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério","Samuel Costa"] × ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério"]
+- **[2026]** survey_id_orphaned · s_2566457a88ad · survey_id: "s_2566457a88ad" × null
 - roster_encolhido_na_fonte · q_6c1b8edd2a96 · results: ["Acir Gurgacz","Bruno Bolsonaro Scheid","Confúcio Moura","Fernando Máximo","Marcos Rocha","Marcos Rogério","Rodrigo Camargo Ribeiro Pinho"] × ["Bruno Scheid","Confúcio Moura","Fernando Máximo","Marcos Rocha","Marcos Rogério","Rodrigo Camargo Ribeiro Pinho"]
 - roster_encolhido_na_fonte · q_495187f5515a · results: ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério","Samuel Costa"] × ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério"]
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
