@@ -235,14 +235,13 @@ Soma **42.7%** · faltam **57.3 pontos** · 6 candidato(s) na tabela · amostra 
 
 ### Data Control — 2026-02-03
 
-Soma **43.7%** · faltam **56.3 pontos** · 4 candidato(s) na tabela · amostra 800 · registro BR-01513/2026|AC-02699/2026
+Soma **43.4%** · faltam **56.6 pontos** · 3 candidato(s) na tabela · amostra 800 · registro BR-01513/2026|AC-02699/2026
 
 | candidato | % |
 |---|---|
 | Lula | 18.9 |
 | Ronaldo Caiado | 2.9 |
 | Zema | 1.1 |
-| Renan Santos | 0.3 |
 | *branco/nulo* | 7.6 |
 | *não sabe/não respondeu* | 12.9 |
 

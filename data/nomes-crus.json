@@ -362,45 +362,13 @@
   {
    "nome": "Alan Rick",
    "partidos": [
-    "Republicanos",
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Doutor Luizinho",
-   "partidos": [
-    "Agir",
-    "PP"
-   ]
-  },
-  {
-   "nome": "Dr.luisinho",
-   "partidos": [
-    "Agir"
+    "Republicanos"
    ]
   },
   {
    "nome": "Dr.Thor Dantas",
    "partidos": [
     "PSB"
-   ]
-  },
-  {
-   "nome": "Eudo Raffael",
-   "partidos": [
-    "PCB"
-   ]
-  },
-  {
-   "nome": "Jamyr Rosas",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Luisinho",
-   "partidos": [
-    "Agir"
    ]
   },
   {
@@ -412,7 +380,6 @@
   {
    "nome": "Sebastião Bocalom",
    "partidos": [
-    "PL",
     "PSDB"
    ]
   },
@@ -993,80 +960,6 @@
    "nome": "Samara Martins",
    "partidos": [
     "UP"
-   ]
-  }
- ],
- "governador:BA": [
-  {
-   "nome": "ACM Neto",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Ariel Capistrano",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Bruno Reis",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Jerônimo Rodrigues",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "João Roma",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "José Aleluia",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "José Carlos do Pátio",
-   "partidos": [
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Kleber Rosa",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Maria Bona",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Prof. Aroldo Félix",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Ronaldo Mansur",
-   "partidos": [
-    "PSOL"
-   ]
-  },
-  {
-   "nome": "Rui Costa",
-   "partidos": [
-    "PT"
    ]
   }
  ],
@@ -1745,26 +1638,7 @@
   {
    "nome": "Arnaldinho Borgo",
    "partidos": [
-    "PSDB",
-    "Podemos"
-   ]
-  },
-  {
-   "nome": "Breno Barcelos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Da Vitória",
-   "partidos": [
-    "PP"
-   ]
-  },
-  {
-   "nome": "Euclério Sampaio",
-   "partidos": [
-    "MDB"
+    "PSDB"
    ]
   },
   {
@@ -1788,26 +1662,13 @@
   {
    "nome": "Paulo Hartung",
    "partidos": [
-    "DC",
     "PSD"
-   ]
-  },
-  {
-   "nome": "Rafael Demuner",
-   "partidos": [
-    "UP"
    ]
   },
   {
    "nome": "Ricardo Ferraço",
    "partidos": [
     "MDB"
-   ]
-  },
-  {
-   "nome": "Sergio Vidigal",
-   "partidos": [
-    "PDT"
    ]
   },
   {
@@ -6542,6 +6403,80 @@
    "nome": "Rui Costa Pimenta",
    "partidos": [
     "PCO"
+   ]
+  }
+ ],
+ "governador:BA": [
+  {
+   "nome": "ACM Neto",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Ariel Capistrano",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Bruno Reis",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Jerônimo Rodrigues",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "João Roma",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "José Aleluia",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "José Carlos do Pátio",
+   "partidos": [
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Kleber Rosa",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Maria Bona",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Prof. Aroldo Félix",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Ronaldo Mansur",
+   "partidos": [
+    "PSOL"
+   ]
+  },
+  {
+   "nome": "Rui Costa",
+   "partidos": [
+    "PT"
    ]
   }
  ],

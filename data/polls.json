@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-17T05:03:44.915Z",
+ "generated_at": "2026-11-17T19:48:16.227Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-17T05:03:44.915Z"
+   "last_ok": "2026-11-17T19:48:16.227Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-17T05:03:44.915Z"
+   "last_ok": "2026-11-17T19:48:16.227Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-17T05:03:44.915Z"
+   "last_ok": "2026-11-17T19:48:16.227Z"
   }
  ],
  "polls": [
@@ -67800,7 +67800,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-08",
    "published_date": "2026-09-08",
    "sample_size": 1600,
@@ -67858,7 +67858,7 @@
    "scenario": "2º turno: Lula vs Flávio Bolsonaro",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-08",
    "published_date": "2026-09-08",
    "sample_size": 1600,
@@ -68010,7 +68010,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-08",
    "published_date": "2026-09-08",
    "sample_size": 1600,
@@ -68068,7 +68068,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Midia",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-09-04",
    "fieldwork_end": "2026-09-08",
    "published_date": "2026-09-08",
    "sample_size": 1600,
@@ -108050,18 +108050,18 @@
   },
   {
    "id": "708aa4fa7837",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-governador-delta-ac-11ago2026.pdf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
    "race": "senador",
    "state": "AC",
    "round": 1,
    "scenario": "1º turno — cenário 1/2",
    "pollster": "Delta",
-   "contractor": "TV Gazeta",
+   "contractor": null,
    "fieldwork_start": "2026-08-04",
    "fieldwork_end": "2026-08-09",
-   "published_date": "2026-08-09",
+   "published_date": null,
    "sample_size": 1006,
    "margin_of_error": 3.1,
    "results": [
@@ -108099,7 +108099,7 @@
    "others_pct": 3.28,
    "undecided_pct": 18.63,
    "blank_null_pct": null,
-   "tse_registration": "AC-06787/2026"
+   "tse_registration": null
   },
   {
    "id": "7101a2e0b197",
@@ -147454,7 +147454,7 @@
    "scenario": "1º turno",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-06-06",
    "fieldwork_end": "2026-06-08",
    "published_date": "2026-06-08",
    "sample_size": 1600,
@@ -147517,7 +147517,7 @@
    "scenario": "2º turno: Flávio Bolsonaro vs Lula",
    "pollster": "Real Time Big Data",
    "contractor": "Real Time Big Data",
-   "fieldwork_start": null,
+   "fieldwork_start": "2026-06-06",
    "fieldwork_end": "2026-06-08",
    "published_date": "2026-06-08",
    "sample_size": 1600,
@@ -187260,57 +187260,57 @@
    "tse_registration": "PI-06908/2026"
   },
   {
-   "id": "4f6164331b4f",
-   "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-pesquisas/casagrande-lidera-cenarios-ao-senado-no-espirito-santo/",
-   "integra_url": "https://static.poder360.com.br/2026/03/pesquisa-realtimebigdata-estadual-es-16-mar-2026.pdf",
+   "id": "cba1de15f46b",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Esp%C3%ADrito_Santo",
+   "integra_url": null,
    "race": "senador",
    "state": "ES",
    "round": 1,
-   "scenario": "1º turno — cenário 1/4",
+   "scenario": "1º turno — cenário 3/4",
    "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
+   "contractor": null,
    "fieldwork_start": "2026-03-13",
    "fieldwork_end": "2026-03-14",
-   "published_date": "2026-03-14",
+   "published_date": null,
    "sample_size": 2000,
    "margin_of_error": 2,
    "results": [
     {
      "candidate": "Renato Casagrande",
      "party": "PSB",
-     "pct": 31
+     "pct": 28
+    },
+    {
+     "candidate": "Lorenzo Pazolini",
+     "party": "Republicanos",
+     "pct": 17
     },
     {
      "candidate": "Sérgio Meneguelli",
      "party": "PSD",
-     "pct": 16
+     "pct": 14
     },
     {
      "candidate": "Fabiano Contarato",
      "party": "PT",
-     "pct": 8
+     "pct": 6
     },
     {
      "candidate": "Maguinha Malta",
      "party": "PL",
-     "pct": 11
+     "pct": 10
     },
     {
      "candidate": "Marcos do Val",
      "party": "Avante",
-     "pct": 7
-    },
-    {
-     "candidate": "Euclério Sampaio",
-     "party": "MDB",
-     "pct": 7
+     "pct": 5
     }
    ],
-   "others_pct": null,
-   "undecided_pct": 20,
+   "others_pct": 8,
+   "undecided_pct": 13,
    "blank_null_pct": null,
-   "tse_registration": "ES-06722/2026"
+   "tse_registration": null
   },
   {
    "id": "p360-13334-1-1-a4bd2af2217b",
@@ -197302,11 +197302,6 @@
      "candidate": "Zema",
      "party": "Novo",
      "pct": 1.1
-    },
-    {
-     "candidate": "Renan Santos",
-     "party": "Missão",
-     "pct": 0.3
     }
    ],
    "others_pct": null,
@@ -206420,18 +206415,18 @@
   },
   {
    "id": "aa04f57fafaa",
-   "source": "poder360",
-   "source_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-acre-governador-12.dez_.2025.pdf",
-   "integra_url": "https://static.poder360.com.br/2025/12/pesquisa-realtimebigdata-acre-governador-12.dez_.2025.pdf",
+   "source": null,
+   "source_url": "https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Acre",
+   "integra_url": null,
    "race": "senador",
    "state": "AC",
    "round": 1,
    "scenario": "1º turno — cenário 1/4",
    "pollster": "Real Time Big Data",
-   "contractor": "Real Time Big Data",
+   "contractor": null,
    "fieldwork_start": "2025-12-11",
    "fieldwork_end": "2025-12-12",
-   "published_date": "2025-12-12",
+   "published_date": null,
    "sample_size": 1200,
    "margin_of_error": 3,
    "results": [
