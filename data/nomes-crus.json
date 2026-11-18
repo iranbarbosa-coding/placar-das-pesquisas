@@ -5239,21 +5239,9 @@
  ],
  "governador:RS": [
   {
-   "nome": "Cesar Pontes",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
    "nome": "Coronel Zucco",
    "partidos": [
     "PL"
-   ]
-  },
-  {
-   "nome": "Covatti filho",
-   "partidos": [
-    "PP"
    ]
   },
   {
@@ -5272,12 +5260,6 @@
    "nome": "Evandro Augusto",
    "partidos": [
     "Missão"
-   ]
-  },
-  {
-   "nome": "Felipe Camozzato",
-   "partidos": [
-    "Novo"
    ]
   },
   {
@@ -5303,24 +5285,6 @@
    "nome": "Marcelo Maranata",
    "partidos": [
     "PSDB"
-   ]
-  },
-  {
-   "nome": "Paula Mascarenhas",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Priscila Voigt",
-   "partidos": [
-    "UP"
-   ]
-  },
-  {
-   "nome": "Rejane de Oliveira",
-   "partidos": [
-    "PSTU"
    ]
   }
  ],
