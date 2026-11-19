@@ -2,7 +2,7 @@
 
 Gerado por `node scripts/census.mjs` a partir de `data/`. Não editar à mão.
 
-Banco: **2036 levantamentos · 6149 perguntas · 168 institutos · 1458 candidatos**.
+Banco: **2034 levantamentos · 6149 perguntas · 168 institutos · 1458 candidatos**.
 
 Este arquivo é a definição operacional de *banco normalizado*: as classes abaixo são fixas em código, e
 o banco está normalizado quando todas estão vazias — ou quando o que resta está explicitamente parqueado
@@ -15,10 +15,10 @@ como decisão editorial. Achado fora destas classes é anotado, não corrigido n
 | **ORFAO** — Resultados apontando para candidato inexistente | 0 | 0 |
 | **SEMDATA** — Levantamentos sem data utilizável | 10 | 0 |
 | **DUPLICATA** — Mesmo campo mantido como dois levantamentos | 54 | 40 |
-| **CONFLITO** — Conflitos registrados aguardando decisão | 506 | 44 |
+| **CONFLITO** — Conflitos registrados aguardando decisão | 496 | 44 |
 | **UNIVERSO** — Pesquisa estadual com amostra possivelmente municipal (não certificada) | 3 | 3 |
 | **PARTIDA** — A mesma pessoa em duas linhas, uma delas sem registro | 0 | 0 |
-| **total** | **574** | **88** |
+| **total** | **564** | **88** |
 
 A coluna *de 2026* é a que importa primeiro: a eleição é em outubro de 2026 e a média usa as pesquisas
 mais recentes, então um defeito num levantamento de 2023 não aparece em lugar nenhum do site.
@@ -346,7 +346,7 @@ Mesmo instituto, mesma UF, mesma data de campo, mesma disputa, em levantamentos 
   s_d91c17880829: Helder Barbalho 21 · Éder Mauro 15 · Zequinha Marinho 12 · Gal Leite 1 · Gizelle Freitas 4 · Marcelino Conti 2
   s_dfbfb7b0bd38: Helder Barbalho 21 · Éder Mauro 14 · Zequinha Marinho 7 · Chicão Melo 4 · Celso Sabino 5 · Gal Leite 0 · Gizelle Freitas 1 · Marcelino Conti 0 · Breno Guimarães 1
 
-## CONFLITO — Conflitos registrados aguardando decisão (506)
+## CONFLITO — Conflitos registrados aguardando decisão (496)
 
 Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma precisa de uma fonte primária ou de uma decisão editorial.
 
@@ -832,26 +832,16 @@ Divergências que o pipeline registrou em vez de resolver em silêncio. Cada uma
 - **[2026]** survey_id_orphaned · s_2566457a88ad · survey_id: "s_2566457a88ad" × null
 - roster_encolhido_na_fonte · q_6c1b8edd2a96 · results: ["Acir Gurgacz","Bruno Bolsonaro Scheid","Confúcio Moura","Fernando Máximo","Marcos Rocha","Marcos Rogério","Rodrigo Camargo Ribeiro Pinho"] × ["Bruno Scheid","Confúcio Moura","Fernando Máximo","Marcos Rocha","Marcos Rogério","Rodrigo Camargo Ribeiro Pinho"]
 - roster_encolhido_na_fonte · q_495187f5515a · results: ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério","Samuel Costa"] × ["Adaílton Fúria","Expedito Netto","Hildon Chaves","Marcos Rogério"]
-- person_id_orphaned · p_d8f874dc05cf · person_id: "p_d8f874dc05cf" × null
 - segundo_turno_fragmento_descartado · q_993c5845051c · results: null × ["Jerônimo Rodrigues"]
-- person_id_orphaned · p_7957d0cf37b8 · person_id: "p_7957d0cf37b8" × null
 - segundo_turno_fragmento_descartado · q_ad202740d448 · results: null × ["Jerônimo Rodrigues"]
-- person_id_orphaned · p_57fb247bfb27 · person_id: "p_57fb247bfb27" × null
-- candidate_id_orphaned · c_44ff8e240ef0 · candidate_id: "c_44ff8e240ef0" × null
-- survey_id_orphaned · s_a435e87c4f4c · survey_id: "s_a435e87c4f4c" × null
 - roster_encolhido_na_fonte · q_1c3f1bd9253f · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
 - roster_encolhido_na_fonte · q_688511bd5e95 · results: ["Alan Rick","Mailza Assis","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Mailza Assis","Tião Bocalom"]
-- person_id_orphaned · p_4f618f06822d · person_id: "p_4f618f06822d" × null
 - roster_encolhido_na_fonte · q_21081fdd33a5 · results: ["Alan Rick","Thor Dantas","Tião Bocalom"] × ["Alan Rick","Tião Bocalom"]
-- roster_encolhido_na_fonte · q_49d296f11b64 · results: ["Cesar Pontes","Coronel Zucco","Gabriel Souza","Juliana Brizola","Marcelo Maranata","Priscila Voigt","Rejane de Oliveira"] × ["Gabriel Souza","Juliana Brizola","Luciano Zucco","Marcelo Maranata"]
-- person_id_orphaned · p_a5d383ad62a1 · person_id: "p_a5d383ad62a1" × null
-- roster_encolhido_na_fonte · q_dde667e2ddf4 · results: ["Coronel Zucco","Covatti filho","Edegar Pretto","Gabriel Souza","Juliana Brizola","Paula Mascarenhas"] × ["Covatti Filho","Edegar Pretto","Gabriel Souza","Juliana Brizola","Luciano Zucco"]
 - disputa_em_quarentena · governador:AM · quarentena: 135 × 136
 - disputa_em_quarentena · governador:BA · quarentena: 73 × 71
 - disputa_em_quarentena · governador:DF · quarentena: 101 × 110
 - disputa_em_quarentena · governador:PA · quarentena: 103 × 98
 - disputa_em_quarentena · governador:PI · quarentena: 40 × 41
-- disputa_em_quarentena · governador:RS · quarentena: 75 × 73
 - disputa_em_quarentena · presidente:BR · quarentena: 1805 × 1804
 - disputa_em_quarentena · senador:BA · quarentena: 36 × 37
 - disputa_em_quarentena · senador:PA · quarentena: 61 × 48

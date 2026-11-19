@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-18T19:23:02.786Z",
+ "generated_at": "2026-11-19T04:08:19.690Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-18T19:23:02.786Z"
+   "last_ok": "2026-11-19T04:08:19.690Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-18T19:23:02.786Z"
+   "last_ok": "2026-11-19T04:08:19.690Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-18T19:23:02.786Z"
+   "last_ok": "2026-11-19T04:08:19.690Z"
   }
  ],
  "polls": [
@@ -46277,7 +46277,7 @@
    "scenario": "1º turno",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -46320,7 +46320,7 @@
    "scenario": "2º turno: Coronel Zucco vs Juliana Brizola",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -46353,7 +46353,7 @@
    "scenario": "2º turno: Coronel Zucco vs Gabriel Souza",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -46386,7 +46386,7 @@
    "scenario": "2º turno: Juliana Brizola vs Gabriel Souza",
    "pollster": "AtlasIntel",
    "contractor": "AtlasIntel",
-   "fieldwork_start": "2026-09-15",
+   "fieldwork_start": null,
    "fieldwork_end": "2026-09-20",
    "published_date": "2026-09-20",
    "sample_size": 1819,
@@ -100347,7 +100347,7 @@
   {
    "id": "p360-13885-1-0-9959cdd04b54",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/manuela-davila-lidera-disputa-pelo-senado-no-rs/",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/zucco-e-juliana-brizola-empatam-pelo-governo-do-rs-diz-pesquisa/",
    "integra_url": "https://static.poder360.com.br/uploads/2026/08/pesquisa-parana-pesquisa-governo-senado-rs.pdf",
    "race": "senador",
    "state": "RS",
