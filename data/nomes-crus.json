@@ -2081,6 +2081,127 @@
    ]
   }
  ],
+ "presidente:GO": [
+  {
+   "nome": "Aécio Neves",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Augusto Cury",
+   "partidos": [
+    "Avante"
+   ]
+  },
+  {
+   "nome": "Cabo Daciolo",
+   "partidos": [
+    "Mobiliza"
+   ]
+  },
+  {
+   "nome": "Ciro Gomes",
+   "partidos": [
+    "PSDB"
+   ]
+  },
+  {
+   "nome": "Clariana Barão",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Edmilson Costa",
+   "partidos": [
+    "PCB"
+   ]
+  },
+  {
+   "nome": "Flávio Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Gusttavo Lima",
+   "partidos": []
+  },
+  {
+   "nome": "Hertz Dias",
+   "partidos": [
+    "PSTU"
+   ]
+  },
+  {
+   "nome": "Jair Bolsonaro",
+   "partidos": [
+    "PL"
+   ]
+  },
+  {
+   "nome": "Joaquim Barbosa",
+   "partidos": [
+    "DC"
+   ]
+  },
+  {
+   "nome": "Lula",
+   "partidos": [
+    "PT"
+   ]
+  },
+  {
+   "nome": "Pablo Marçal",
+   "partidos": [
+    "PRTB"
+   ]
+  },
+  {
+   "nome": "Ratinho Jr",
+   "partidos": [
+    "PSD"
+   ]
+  },
+  {
+   "nome": "Renan Santos",
+   "partidos": [
+    "Missão"
+   ]
+  },
+  {
+   "nome": "Romeu Zema",
+   "partidos": [
+    "Novo"
+   ]
+  },
+  {
+   "nome": "Ronaldo Caiado",
+   "partidos": [
+    "PSD",
+    "União Brasil"
+   ]
+  },
+  {
+   "nome": "Rui Costa Pimenta",
+   "partidos": [
+    "PCO"
+   ]
+  },
+  {
+   "nome": "Samara Martins",
+   "partidos": [
+    "UP"
+   ]
+  },
+  {
+   "nome": "Tarcísio de Freitas",
+   "partidos": [
+    "Republicanos"
+   ]
+  }
+ ],
  "governador:MA": [
   {
    "nome": "André Luis",
@@ -6568,111 +6689,6 @@
    "nome": "Veterinário Wilson Grassi",
    "partidos": [
     "Democrata"
-   ]
-  }
- ],
- "presidente:GO": [
-  {
-   "nome": "Aécio Neves",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Augusto Cury",
-   "partidos": [
-    "Avante"
-   ]
-  },
-  {
-   "nome": "Cabo Daciolo",
-   "partidos": [
-    "Mobiliza"
-   ]
-  },
-  {
-   "nome": "Ciro Gomes",
-   "partidos": [
-    "PSDB"
-   ]
-  },
-  {
-   "nome": "Clariana Barão",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Edmilson Costa",
-   "partidos": [
-    "PCB"
-   ]
-  },
-  {
-   "nome": "Flávio Bolsonaro",
-   "partidos": [
-    "PL"
-   ]
-  },
-  {
-   "nome": "Hertz Dias",
-   "partidos": [
-    "PSTU"
-   ]
-  },
-  {
-   "nome": "Joaquim Barbosa",
-   "partidos": [
-    "DC"
-   ]
-  },
-  {
-   "nome": "Lula",
-   "partidos": [
-    "PT"
-   ]
-  },
-  {
-   "nome": "Pablo Marçal",
-   "partidos": [
-    "PRTB"
-   ]
-  },
-  {
-   "nome": "Ratinho Jr",
-   "partidos": [
-    "PSD"
-   ]
-  },
-  {
-   "nome": "Renan Santos",
-   "partidos": [
-    "Missão"
-   ]
-  },
-  {
-   "nome": "Romeu Zema",
-   "partidos": [
-    "Novo"
-   ]
-  },
-  {
-   "nome": "Ronaldo Caiado",
-   "partidos": [
-    "PSD",
-    "União Brasil"
-   ]
-  },
-  {
-   "nome": "Rui Costa Pimenta",
-   "partidos": [
-    "PCO"
-   ]
-  },
-  {
-   "nome": "Samara Martins",
-   "partidos": [
-    "UP"
    ]
   }
  ],

@@ -1,21 +1,21 @@
 {
- "generated_at": "2026-11-19T19:28:19.643Z",
+ "generated_at": "2026-11-20T03:57:28.976Z",
  "derived_from_store": true,
  "sources": [
   {
    "name": "Poder360 — Agregador de Pesquisas",
    "url": "https://www.poder360.com.br/agregador-de-pesquisas/",
-   "last_ok": "2026-11-19T19:28:19.643Z"
+   "last_ok": "2026-11-20T03:57:28.976Z"
   },
   {
    "name": "Wikipédia — páginas de pesquisas 2026",
    "url": "https://pt.wikipedia.org",
-   "last_ok": "2026-11-19T19:28:19.643Z"
+   "last_ok": "2026-11-20T03:57:28.976Z"
   },
   {
    "name": "TSE — Dados Abertos (PesqEle)",
    "url": "https://dadosabertos.tse.jus.br/dataset/pesquisas-eleitorais-2026",
-   "last_ok": "2026-11-19T19:28:19.643Z"
+   "last_ok": "2026-11-20T03:57:28.976Z"
   }
  ],
  "polls": [
@@ -86676,8 +86676,8 @@
   {
    "id": "2ca97299fa99",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/gracinha-caiado-lidera-disputa-ao-senado-em-go-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-estadual-28ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 1,
@@ -86714,7 +86714,7 @@
    "others_pct": 0,
    "undecided_pct": 10,
    "blank_null_pct": null,
-   "tse_registration": "GO-00954/2026"
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "2f1bcaaacfea",
@@ -86886,8 +86886,8 @@
   {
    "id": "4db1089d868c",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/gracinha-caiado-lidera-disputa-ao-senado-em-go-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-estadual-28ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
@@ -86914,7 +86914,7 @@
    "others_pct": null,
    "undecided_pct": 14,
    "blank_null_pct": null,
-   "tse_registration": "GO-00954/2026"
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "5d5e27530fff",
@@ -87531,8 +87531,8 @@
   {
    "id": "fa39f70e48af",
    "source": "poder360",
-   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/gracinha-caiado-lidera-disputa-ao-senado-em-go-diz-pesquisa/",
-   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-estadual-28ago2026.pdf",
+   "source_url": "https://www.poder360.com.br/poder-eleicoes-2026/flavio-tem-56-contra-32-de-lula-no-2o-turno-em-goias/",
+   "integra_url": "https://static.poder360.com.br/uploads/2026/08/realtimebigdata-goias-presidencial27ago2026.pdf",
    "race": "governador",
    "state": "GO",
    "round": 2,
@@ -87559,7 +87559,7 @@
    "others_pct": null,
    "undecided_pct": 15,
    "blank_null_pct": null,
-   "tse_registration": "GO-00954/2026"
+   "tse_registration": "GO-08492/2026"
   },
   {
    "id": "p360-13964-1-0-1f9caecccbae",
