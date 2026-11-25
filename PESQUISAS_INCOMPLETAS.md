@@ -120,12 +120,11 @@ Soma **33.2%** · faltam **66.8 pontos** · 1 candidato(s) na tabela · amostra 
 
 ### Quaest — 2026-08-23
 
-Soma **36%** · faltam **64 pontos** · 4 candidato(s) na tabela · amostra 900 · registro BR-08612/2026
+Soma **34%** · faltam **66 pontos** · 3 candidato(s) na tabela · amostra 900 · registro BR-08612/2026
 
 | candidato | % |
 |---|---|
 | Ronaldo Caiado | 3 |
-| Renan Santos | 2 |
 | Pablo Marçal | 2 |
 | Escritor Augusto Cury | 1 |
 | *não sabe/não respondeu* | 28 |
@@ -475,6 +474,22 @@ Soma **60.9%** · faltam **39.1 pontos** · 1 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Pernambuco
+
+### Ipespe — 2026-07-25
+
+Soma **61%** · faltam **39 pontos** · 2 candidato(s) na tabela · amostra 1000 · registro BR-08707/2026
+
+| candidato | % |
+|---|---|
+| Lula | 58 |
+| Ronaldo Caiado | 3 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf
+- Publicação: https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Rondônia
 
 ### Real Time Big Data — 2026-07-15
@@ -491,22 +506,6 @@ Soma **61%** · faltam **39 pontos** · 4 candidato(s) na tabela · amostra 1600
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/08/pesquisa-real-time-big-data-governo-senado-rondonia-16jul2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Pernambuco
-
-### Ipespe — 2026-07-25
-
-Soma **61%** · faltam **39 pontos** · 2 candidato(s) na tabela · amostra 1000 · registro BR-08707/2026
-
-| candidato | % |
-|---|---|
-| Lula | 58 |
-| Ronaldo Caiado | 3 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf
-- Publicação: https://static.poder360.com.br/uploads/2026/08/IPESPE-FolhaPE-estadual-25jul2026.pdf
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -683,6 +682,31 @@ Soma **66.7%** · faltam **33.3 pontos** · 3 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · São Paulo
+
+### Quaest — 2026-09-07
+
+Soma **67%** · faltam **33 pontos** · 10 candidato(s) na tabela · amostra 1800 · registro BR-04705/2026
+
+| candidato | % |
+|---|---|
+| Lula | 30 |
+| Escritor Augusto Cury | 7 |
+| Pablo Marçal | 4 |
+| Ronaldo Caiado | 3 |
+| Zema | 1 |
+| Samara | 0 |
+| Edmilson Costa | 0 |
+| Hertz Dias | 0 |
+| Clariana Barão | 0 |
+| Rui Costa Pimenta | 0 |
+| *não sabe/não respondeu* | 22 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/quaest-sp-presidencial-set.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-em-sp-diz-quaest/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Governador · Pará
 
 ### Verita — 2026-03-30
@@ -696,32 +720,6 @@ Soma **68.2%** · faltam **31.8 pontos** · 2 candidato(s) na tabela · amostra 
 | *outros* | 36.8 |
 
 - Página da Wikipédia: https://pt.wikipedia.org/wiki/Pesquisas_eleitorais_para_a_elei%C3%A7%C3%A3o_estadual_de_2026_no_Par%C3%A1
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · São Paulo
-
-### Quaest — 2026-09-07
-
-Soma **69%** · faltam **31 pontos** · 11 candidato(s) na tabela · amostra 1800 · registro BR-04705/2026
-
-| candidato | % |
-|---|---|
-| Lula | 30 |
-| Escritor Augusto Cury | 7 |
-| Pablo Marçal | 4 |
-| Ronaldo Caiado | 3 |
-| Renan Santos | 2 |
-| Zema | 1 |
-| Samara | 0 |
-| Edmilson Costa | 0 |
-| Hertz Dias | 0 |
-| Clariana Barão | 0 |
-| Rui Costa Pimenta | 0 |
-| *não sabe/não respondeu* | 22 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/09/quaest-sp-presidencial-set.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/flavio-e-lula-empatam-no-1o-turno-em-sp-diz-quaest/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
@@ -1399,6 +1397,26 @@ Soma **85.9%** · faltam **14.1 pontos** · 2 candidato(s) na tabela · amostra 
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 
+## Presidente · Goiás
+
+### Quaest — 2026-08-26
+
+Soma **86%** · faltam **14 pontos** · 5 candidato(s) na tabela · amostra 804 · registro BR-07810/2026
+
+| candidato | % |
+|---|---|
+| Ronaldo Caiado | 32 |
+| Flávio Bolsonaro | 27 |
+| Lula | 20 |
+| Zema | 2 |
+| Escritor Augusto Cury | 1 |
+| *não sabe/não respondeu* | 4 |
+
+- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf
+- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/
+
+- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
+
 ## Presidente · Rondônia
 
 ### Phoenix — 2026-01-20
@@ -1666,27 +1684,6 @@ Soma **88%** · faltam **12 pontos** · 3 candidato(s) na tabela · amostra 2030
 
 - PDF do instituto: https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-RJ-governador-9set2026.pdf
 - Publicação: https://static.poder360.com.br/uploads/2026/10/pesquisaVerita-RJ-governador-9set2026.pdf
-
-- [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
-
-## Presidente · Goiás
-
-### Quaest — 2026-08-26
-
-Soma **88%** · faltam **12 pontos** · 6 candidato(s) na tabela · amostra 804 · registro BR-07810/2026
-
-| candidato | % |
-|---|---|
-| Ronaldo Caiado | 32 |
-| Flávio Bolsonaro | 27 |
-| Lula | 20 |
-| Renan Santos | 2 |
-| Zema | 2 |
-| Escritor Augusto Cury | 1 |
-| *não sabe/não respondeu* | 4 |
-
-- PDF do instituto: https://static.poder360.com.br/uploads/2026/08/pesquisa-quaest-presidente-goias-27ago2026.pdf
-- Publicação: https://www.poder360.com.br/poder-eleicoes-2026/caiado-lidera-disputa-pela-presidencia-em-goias-no-1o-turno/
 
 - [ ] reparar (o relatório traz os que faltam) · [ ] manter fora (o instituto só divulgou parte) · [ ] descartar
 

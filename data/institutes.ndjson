@@ -34,7 +34,7 @@
 {"institute_id":"i_3450a3ba240f","legacy_ids":[],"canonical":"Data Index","aliases":["Data Index"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_34ae7b30e48b","legacy_ids":[],"canonical":"Nexus/BTG Pactual","aliases":["Nexus/BTG Pactual"],"cnpj":null,"merged_into":null,"first_seen":"2026-10-14"}
 {"institute_id":"i_34c6cf6db867","legacy_ids":[],"canonical":"Conecta","aliases":["Conecta"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_358ad028739b","legacy_ids":["i_5e898c6af2a6"],"canonical":"Correio do Povo","aliases":["Correio do Povo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
+{"institute_id":"i_358ad028739b","legacy_ids":["i_5e898c6af2a6","i_6f65ce55a5a2"],"canonical":"Correio do Povo","aliases":["Correio do Povo"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_36222d3b05f2","legacy_ids":["i_ba5d4b87f453"],"canonical":"Prefab Future","aliases":["Prefab Future"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_37e10e95a61d","legacy_ids":[],"canonical":"Enfoque","aliases":["Enfoque"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-15"}
 {"institute_id":"i_3bc2fc644c58","legacy_ids":[],"canonical":"INOP","aliases":["INOP"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -90,7 +90,6 @@
 {"institute_id":"i_8054cae80e13","legacy_ids":[],"canonical":"Veritate","aliases":["Veritate"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_81933bf5f963","legacy_ids":[],"canonical":"100% Cidades Participações","aliases":["100% Cidades Participações"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_836e2d6c6f26","legacy_ids":["i_661f5eabdd5a"],"canonical":"Percent Brasil","aliases":["Percent Brasil"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-17"}
-{"institute_id":"i_854d473dd1d2","legacy_ids":[],"canonical":"CBN Salvador/Séculus","aliases":["CBN Salvador/Séculus"],"cnpj":null,"merged_into":null,"first_seen":"2026-11-04"}
 {"institute_id":"i_88d51a3e59d1","legacy_ids":[],"canonical":"IPAN/Panorama","aliases":["IPAN/Panorama"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8e9a424ba87b","legacy_ids":[],"canonical":"Instituto Potiguar","aliases":["Instituto Potiguar"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_8f14cd7a5b01","legacy_ids":[],"canonical":"Data AZ","aliases":["Data AZ"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
@@ -150,7 +149,7 @@
 {"institute_id":"i_dc2831189848","legacy_ids":[],"canonical":"Credibilidade","aliases":["Credibilidade"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_e2dfd1569887","legacy_ids":[],"canonical":"Global","aliases":["Global"],"cnpj":null,"merged_into":null,"first_seen":"2026-09-29"}
 {"institute_id":"i_e672fddbfc68","legacy_ids":[],"canonical":"Futura","aliases":["Futura"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
-{"institute_id":"i_e8c2c1d40ee4","legacy_ids":[],"canonical":"CBN/Simplex","aliases":["CBN/Simplex"],"cnpj":null,"merged_into":null,"first_seen":"2026-11-05"}
+{"institute_id":"i_e8c2c1d40ee4","legacy_ids":["i_531e17c32082","i_854d473dd1d2","i_9e4d28f9bf36","i_c683ff6b5814","i_e6d715380b93"],"canonical":"CBN/Simplex","aliases":["CBN/Simplex"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ec0964259418","legacy_ids":[],"canonical":"Soluções","aliases":["Soluções"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ec0e1c7ba5ac","legacy_ids":[],"canonical":"Brada Comunicação","aliases":["Brada Comunicação"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
 {"institute_id":"i_ed5bdcfcef65","legacy_ids":[],"canonical":"Eficaz","aliases":["Eficaz"],"cnpj":null,"merged_into":null,"first_seen":"2026-08-14"}
